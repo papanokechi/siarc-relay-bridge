@@ -29,7 +29,7 @@ from report import write_reports
 
 COEFF_RANGE = range(-4, 5)  # [-4, 4]
 MAX_K = 20  # check a(k)=0 for k in [0, MAX_K]
-RAT_SAMPLE = 200   # ~22% of 1000, matching real Rat/Des ratio
+RAT_SAMPLE = None   # None = use all structural Rat families
 DES_SAMPLE = 500
 
 
@@ -83,7 +83,7 @@ def enumerate_structural_rat(sample_size=RAT_SAMPLE):
 
     print("  Found %d structural Rat families" % len(rat_families))
 
-    if len(rat_families) > sample_size:
+    if sample_size is not None and len(rat_families) > sample_size:
         random.seed(42)
         rat_families = random.sample(rat_families, sample_size)
         print("  Sampled %d for POC" % sample_size)

@@ -44,13 +44,17 @@ def compute_enrichment_categorical(records, param_name, strata_list):
             count_s_v = stratum_counts[s][v]
             count_all_v = global_counts[v]
 
-            # Enrichment ratio
+            # Complement-based enrichment ratio:
+            #   (count_S(v)/n_S) / (count_complement(v)/n_complement)
+            # More robust than full-space ratio when one stratum dominates.
             freq_s = count_s_v / n_s if n_s > 0 else 0
-            freq_all = count_all_v / n_all if n_all > 0 else 0
-            if freq_all == 0:
+            n_comp = n_all - n_s
+            count_comp_v = count_all_v - count_s_v
+            freq_comp = count_comp_v / n_comp if n_comp > 0 else 0
+            if freq_comp == 0:
                 enrichment = float('inf') if freq_s > 0 else 1.0
             else:
-                enrichment = freq_s / freq_all
+                enrichment = freq_s / freq_comp
 
             # Fisher exact test
             # Contingency table:
@@ -75,7 +79,7 @@ def compute_enrichment_categorical(records, param_name, strata_list):
                 'count_all': count_all_v,
                 'n_stratum': n_s,
                 'n_all': n_all,
-                'enrichment_ratio': round(enrichment, 4),
+                'enrichment_ratio': round(enrichment, 4) if enrichment != float('inf') else 9999.0,
                 'p_value': p_value,
             })
 

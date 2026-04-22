@@ -51,7 +51,7 @@ Reads `f1_base_certificate.json` format. Coefficient arrays use
 The correlator reconstructs a flat family list from the certificate's
 stratified sections:
 - **Trans**: 24 families (explicit in certificate)
-- **Rat**: 200 sampled structural Rat (enumerated from coefficient space)
+- **Rat**: 114,296 structural Rat families (full enumeration from coefficient space)
 - **Des**: 500 families (50 from desert certificate + 450 supplemented)
 
 ## Parameters Extracted
@@ -68,6 +68,9 @@ stratified sections:
 ## Enrichment Method
 
 For categorical parameters: Fisher exact test on 2x2 contingency tables.
+Enrichment ratio uses complement-based formula:
+`enrichment(S,P,v) = (count_S(v)/n_S) / (count_complement(v)/n_complement)`
+This is more robust than full-space ratio when one stratum dominates.
 - **Discovery candidate**: enrichment > 5.0 AND p < 0.001
 - **Strong signal**: enrichment > 3.0 AND p < 0.01
 
@@ -81,8 +84,8 @@ The correlator successfully rediscovers all three known enrichment patterns:
 ### 1. b2_is_zero enriched in Trans ✓
 
 ```
-b2_is_zero=True: 7.7x enriched in Trans (p < 1e-10)
-Count: 24/24 Trans families vs 94/724 overall
+b2_is_zero=True: 9.1x enriched in Trans vs complement (p < 1e-23)
+Count: 24/24 Trans families have b2=0
 ```
 
 All 24 Trans families have b2=0 (linear b-polynomial). This is the
@@ -91,18 +94,19 @@ signature structural constraint of the Trans stratum in the d2D4 search.
 ### 2. a_eval_1_is_zero enriched in Rat ✓
 
 ```
-a_eval_1_is_zero=True: 3.6x enriched in Rat (p < 1e-10)
-Count: 72/200 Rat families vs 72/724 overall
+a_eval_1_is_zero=True: exclusively in Rat (p < 1e-111)
+All families with a(1)=0 are classified as Rat; zero in Trans/Des.
 ```
 
 When a(1)=0, the continued fraction terminates at n=1, forcing a
-rational value. This is the trivial-zero mechanism.
+rational value. This is the trivial-zero mechanism. Complement-based
+enrichment detects this even with Rat comprising 99.5% of the dataset.
 
 ### 3. degree_profile (2,1) enriched in Trans ✓
 
 ```
-degree_profile=(2,1): 8.5x enriched in Trans (p < 1e-10)
-Count: 24/24 Trans families vs 85/724 overall
+degree_profile=(2,1): 12.0x enriched in Trans vs complement (p < 1e-26)
+Count: 24/24 Trans families have degree profile (2,1)
 ```
 
 All Trans families have quadratic a(n) and linear b(n), confirming
@@ -112,16 +116,16 @@ the degree-(2,1) structural requirement.
 
 | Category | Count |
 |----------|-------|
-| Discovery candidates (enrichment > 5, p < 0.001) | 5 |
-| Strong signals (enrichment 3-5, p < 0.01) | 3 |
+| Discovery candidates (enrichment > 5, p < 0.001) | 15 |
+| Strong signals (enrichment 3-5, p < 0.01) | 1 |
 | Null-result parameters | 0 |
-| Total families analyzed | 724 |
-| Runtime | < 1 second |
+| Total families analyzed | 114,820 |
+| Runtime | ~5 seconds |
 
 ## POC Scope Limits
 
 - Desert sample: 500 families (50 from certificate + 450 supplemented)
-- Rat sample: 200 structural Rat families
+- All structural Rat families included (114,296)
 - No visualization (text output only)
 - No parameters beyond Groups A-F
 - Runtime: ~0.5s (well under 60s target)
