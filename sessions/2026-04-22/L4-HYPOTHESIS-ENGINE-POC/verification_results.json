@@ -1,0 +1,74 @@
+[
+  {
+    "hypothesis": "H001",
+    "signal": "sign_disc_a=-1 exclusively in Des",
+    "proof_type": "IMPLICATION",
+    "checked": 24,
+    "violations": 0,
+    "violation_details": [],
+    "status": "CONFIRMED"
+  },
+  {
+    "hypothesis": "H002",
+    "signal": "degree_profile=(1,1) in Rat",
+    "proof_type": "IMPLICATION",
+    "checked": 48,
+    "violations": 0,
+    "violation_details": [],
+    "status": "CONFIRMED"
+  },
+  {
+    "hypothesis": "H003",
+    "signal": "a0_is_zero=True in Rat",
+    "proof_type": "IMPLICATION",
+    "checked": 48,
+    "violations": 0,
+    "violation_details": [],
+    "status": "CONFIRMED"
+  },
+  {
+    "hypothesis": "H004",
+    "signal": "a_eval_1_is_zero=True in Rat",
+    "proof_type": "IMPLICATION",
+    "checked": 48,
+    "violations": 0,
+    "violation_details": [],
+    "status": "CONFIRMED"
+  },
+  {
+    "hypothesis": "H005",
+    "signal": "b_degree=1 in Trans",
+    "proof_type": "ASSOCIATION",
+    "match_in_target": 24,
+    "n_target": 24,
+    "expected_ratio": 10.1151,
+    "status": "CONFIRMED"
+  },
+  {
+    "hypothesis": "H006",
+    "signal": "degree_profile=(2,1) in Trans",
+    "proof_type": "ASSOCIATION",
+    "match_in_target": 24,
+    "n_target": 24,
+    "expected_ratio": 12.0218,
+    "status": "CONFIRMED"
+  },
+  {
+    "hypothesis": "H007",
+    "signal": "sign_b2=0 in Trans",
+    "proof_type": "ASSOCIATION",
+    "match_in_target": 24,
+    "n_target": 24,
+    "expected_ratio": 9.1028,
+    "status": "CONFIRMED"
+  },
+  {
+    "hypothesis": "H008",
+    "signal": "b2_is_zero=True in Trans",
+    "proof_type": "ASSOCIATION",
+    "match_in_target": 24,
+    "n_target": 24,
+    "expected_ratio": 9.1028,
+    "status": "CONFIRMED"
+  }
+]
