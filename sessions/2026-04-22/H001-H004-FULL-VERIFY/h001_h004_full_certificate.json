@@ -1,0 +1,55 @@
+{
+  "task_id": "H001-H004-FULL-VERIFY",
+  "date": "2026-04-22T10:53:39.011901+00:00",
+  "elapsed_seconds": 0.01,
+  "total_families": 531441,
+  "total_a_triples": 729,
+  "structural_rat_a_triples": 157,
+  "structural_rat_families": 114453,
+  "root_distribution": {
+    "0": 81,
+    "1": 52,
+    "2": 16,
+    "3": 4,
+    "4": 4
+  },
+  "checks": {
+    "H001": {
+      "description": "disc_a < 0 implies not structural Rat",
+      "families_with_disc_neg": 174960,
+      "a_triples_with_disc_neg": 240,
+      "n_rat_with_disc_neg": 0,
+      "violations": 0,
+      "violation_details": [],
+      "status": "VERIFIED"
+    },
+    "H002": {
+      "description": "a(0)=0 implies structural Rat",
+      "families_with_a0_zero": 59049,
+      "a_triples_with_a0_zero": 81,
+      "n_a0_zero_nonrat": 0,
+      "violations": 0,
+      "violation_details": [],
+      "status": "VERIFIED"
+    },
+    "H003": {
+      "description": "a(1)=0 implies structural Rat",
+      "families_with_a1_zero": 44469,
+      "a_triples_with_a1_zero": 61,
+      "n_a1_zero_nonrat": 0,
+      "violations": 0,
+      "violation_details": [],
+      "status": "VERIFIED"
+    },
+    "H004": {
+      "description": "degree profile (2,1) holds for all Trans",
+      "n_trans_checked": 24,
+      "n_trans_not_21": 0,
+      "violations": 0,
+      "violation_details": [],
+      "status": "VERIFIED"
+    }
+  },
+  "paper_statement": "All four pre-screening propositions verified across full F(2,4) space (531,441 families) with zero counterexamples. Specifically: (1) disc_a < 0 excludes structural rationality (174,960 families checked); (2) a(0)=0 guarantees rationality (59,049 families); (3) a(1)=0 guarantees rationality (44,469 families); (4) all 24 Trans families have degree profile (2,1).",
+  "sha256_script": "0d226acc5b0fc1d156db5c5a5c8e48229494bd73cbbb1d59dab964b32d05ff8b"
+}
