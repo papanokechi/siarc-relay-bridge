@@ -1,0 +1,266 @@
+{
+  "task_id": "H017-SIGN-A2-TRANS",
+  "date": "2026-04-22T11:05:42.329922+00:00",
+  "n_trans_a2_neg": 22,
+  "n_trans_a2_zero": 0,
+  "n_trans_a2_pos": 2,
+  "exceptions": [
+    {
+      "index": 321561,
+      "a": [
+        1,
+        2,
+        1
+      ],
+      "b": [
+        0,
+        -2,
+        -3
+      ],
+      "K": "-3.6597923663254876944787072692570696213247709473097",
+      "disc_a": 0,
+      "relation": [
+        0,
+        4,
+        1,
+        -1,
+        0
+      ],
+      "basis": "T1",
+      "a_factored": "a(n) = (n+1)^2",
+      "a_roots": "double root at n=-1 (negative integer)"
+    },
+    {
+      "index": 321601,
+      "a": [
+        1,
+        2,
+        1
+      ],
+      "b": [
+        0,
+        2,
+        3
+      ],
+      "K": "3.6597923663254876944787072692570696213247709473097",
+      "disc_a": 0,
+      "relation": [
+        0,
+        -4,
+        1,
+        1,
+        0
+      ],
+      "basis": "T1",
+      "a_factored": "a(n) = (n+1)^2",
+      "a_roots": "double root at n=-1 (negative integer)"
+    }
+  ],
+  "disc_a_distribution": {
+    "negative": 0,
+    "zero": 2,
+    "positive": 22
+  },
+  "disc_a_details": [
+    {
+      "a": [
+        -2,
+        -3,
+        -1
+      ],
+      "disc_a": 1,
+      "sign_a2": "negative",
+      "family_count": 2
+    },
+    {
+      "a": [
+        -2,
+        -3,
+        2
+      ],
+      "disc_a": 25,
+      "sign_a2": "negative",
+      "family_count": 4
+    },
+    {
+      "a": [
+        -2,
+        -1,
+        1
+      ],
+      "disc_a": 9,
+      "sign_a2": "negative",
+      "family_count": 6
+    },
+    {
+      "a": [
+        -2,
+        1,
+        3
+      ],
+      "disc_a": 25,
+      "sign_a2": "negative",
+      "family_count": 10
+    },
+    {
+      "a": [
+        1,
+        2,
+        1
+      ],
+      "disc_a": 0,
+      "sign_a2": "positive",
+      "family_count": 2
+    }
+  ],
+  "convergence_comparison": {
+    "test_families": [
+      {
+        "index": 130100,
+        "a": [
+          -2,
+          -1,
+          1
+        ],
+        "b": [
+          0,
+          -3,
+          -4
+        ],
+        "sign_a2": "a2<0",
+        "K_500": "-3.65979236632548769447870726926",
+        "convergence_errors": {
+          "100": 1.3207232633042856e-36,
+          "200": 0.0,
+          "300": 0.0,
+          "400": 0.0
+        }
+      },
+      {
+        "index": 143930,
+        "a": [
+          -2,
+          1,
+          3
+        ],
+        "b": [
+          0,
+          -3,
+          -4
+        ],
+        "sign_a2": "a2<0",
+        "K_500": "-4.30013370097788740061350144003",
+        "convergence_errors": {
+          "100": 4.764652648348941e-41,
+          "200": 0.0,
+          "300": 0.0,
+          "400": 0.0
+        }
+      },
+      {
+        "index": 118473,
+        "a": [
+          -2,
+          -3,
+          2
+        ],
+        "b": [
+          0,
+          -3,
+          -4
+        ],
+        "sign_a2": "a2<0",
+        "K_500": "-3.43990084648844262408952137451",
+        "convergence_errors": {
+          "100": 1.1249611896043411e-32,
+          "200": 0.0,
+          "300": 0.0,
+          "400": 0.0
+        }
+      },
+      {
+        "index": 321561,
+        "a": [
+          1,
+          2,
+          1
+        ],
+        "b": [
+          0,
+          -2,
+          -3
+        ],
+        "sign_a2": "a2>0",
+        "K_500": "-3.65979236632548769447870726926",
+        "convergence_errors": {
+          "100": 0.0,
+          "200": 0.0,
+          "300": 0.0,
+          "400": 0.0
+        }
+      },
+      {
+        "index": 321601,
+        "a": [
+          1,
+          2,
+          1
+        ],
+        "b": [
+          0,
+          2,
+          3
+        ],
+        "sign_a2": "a2>0",
+        "K_500": "3.65979236632548769447870726926",
+        "convergence_errors": {
+          "100": 0.0,
+          "200": 0.0,
+          "300": 0.0,
+          "400": 0.0
+        }
+      }
+    ],
+    "summary": {
+      "100": {
+        "a2_neg_avg": 3.750310888984414e-33,
+        "a2_pos_avg": 0.0
+      },
+      "200": {
+        "a2_neg_avg": 0.0,
+        "a2_pos_avg": 0.0
+      },
+      "300": {
+        "a2_neg_avg": 0.0,
+        "a2_pos_avg": 0.0
+      },
+      "400": {
+        "a2_neg_avg": 0.0,
+        "a2_pos_avg": 0.0
+      }
+    }
+  },
+  "enrichment_analysis": {
+    "non_rat_total": 463518,
+    "non_rat_a2_neg": 208432,
+    "non_rat_a2_zero": 46634,
+    "non_rat_a2_pos": 208452,
+    "frac_trans_a2_neg": 0.9166666666666666,
+    "frac_nonrat_a2_neg": 0.44967401481711605,
+    "enrichment_ratio": 2.0385137598833194,
+    "fisher_table": [
+      [
+        22,
+        2
+      ],
+      [
+        208410,
+        255084
+      ]
+    ],
+    "odds_ratio": 13.463480639124802,
+    "p_value": 2.0723521682453096e-06
+  },
+  "hypothesis_status": "ASSOCIATION",
+  "structural_note": "sign(a2)<0 is significantly enriched in Trans families (enrichment 2.04x, p=2.07e-06). The 2 exceptions with a2>0 share a=[1,2,1] => a(n)=(n+1)^2, which has disc_a=0 (double root at n=-1). This degenerate quadratic behaves structurally differently from generic a2>0 families. The association is genuine but not an implication: a2<0 is necessary-ish but disc_a=0 provides the escape route."
+}
