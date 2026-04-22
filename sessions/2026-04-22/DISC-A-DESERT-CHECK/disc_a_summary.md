@@ -1,0 +1,3 @@
+## disc_a < 0 implies Desert — Verification Summary
+
+In the full F(2,4) coefficient space ([-4,4]^6, 531,441 total, 530,688 with non-zero b), every family with disc_a = a1² − 4·a2·a0 < 0 is classified as Desert: 174,720 families, with zero counterexamples among the 114,296 structural Rat families or 24 Trans families. This gives a O(1) pre-screening criterion that immediately classifies 41.96% of the Desert stratum without any numerical convergence testing. The remaining 58% of Desert families have disc_a ≥ 0 and still require numerical classification, so the condition is sufficient but not necessary for Desert.
