@@ -1,0 +1,55 @@
+{
+  "task_id": "L0-SCALE-SELECTOR-POC",
+  "date": "2026-04-22T23:59:01.702210+00:00",
+  "target_phenomenon": "Trans-stratum families",
+  "fixed_degree": 3,
+  "D_values_searched": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "D_min": null,
+  "trans_families_found": [],
+  "structural_comparison": {
+    "d2_signatures": {
+      "degree_profile": "(2,1) exclusively",
+      "disc_a": "perfect square in {0, 1, 9, 25}",
+      "ratio_a_lead_b_sublead_sq": "{-2/9, 1/4}",
+      "pslq_c4": "always 0 (no pi^2 term)",
+      "limit_type": "Mobius transform of pi"
+    },
+    "d3_signatures": {
+      "degree_profile": "NOT FOUND (no Trans at d=3)",
+      "disc_a": "NOT FOUND",
+      "ratio": "NOT FOUND",
+      "pslq_c4": "NOT FOUND",
+      "limit_type": "NOT FOUND"
+    },
+    "signatures_persist": false,
+    "new_signatures": [
+      "No Trans families found at d=3"
+    ]
+  },
+  "families_enumerated": {
+    "D=1": 4320,
+    "D=2": 312000,
+    "D=3": 4939200,
+    "D=4": 466560
+  },
+  "families_screened": {
+    "D=1": 3360,
+    "D=2": 265824,
+    "D=3": 4396800,
+    "D=4": 424800
+  },
+  "families_pslq_tested": {
+    "D=1": 2714,
+    "D=2": 3000,
+    "D=3": 7000,
+    "D=4": 2000
+  },
+  "screening_efficiency": "99.7%",
+  "runtime_seconds": 710.2,
+  "key_finding": "No Trans families found at d=3 for D in [1, 2, 3, 4]. D_min > 4."
+}
