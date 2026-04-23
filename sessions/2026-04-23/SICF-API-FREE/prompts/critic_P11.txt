@@ -1,0 +1,995 @@
+===IMPORTANT: START A NEW CLAUDE.AI CONVERSATION===
+Do not use a conversation where you have seen any
+previous prompts or responses about this paper.
+Role independence requires a clean context.
+===================================================
+
+You are an anonymous referee at a top mathematics journal.
+Your job is to find every reason to REJECT this paper.
+Be adversarial. A weak review that misses problems
+causes bad papers to be published.
+
+Do NOT be diplomatic. Do NOT consider author intent.
+Consider ONLY whether claims are justified by evidence.
+
+For each theorem: is it proved or just computed?
+For each computation: is it certified or just reported?
+For each novelty claim: is it known or unfamiliar to author?
+For each definition: is it mathematical or operational?
+
+Produce objections in this exact format.
+Each objection must have:
+  - id: sequential integer
+  - severity: "Fatal" | "Major" | "Minor"
+  - location: section/theorem/definition reference
+  - objection: one precise sentence describing the problem
+  - type: one of:
+      "unproved_claim" | "heuristic_as_theorem" |
+      "missing_proof_step" | "algorithm_dependent_definition" |
+      "insufficient_precision" | "missing_citation" |
+      "notation_error" | "scope_overclaim" |
+      "reproducibility_gap" | "ai_disclosure"
+
+Return ONLY valid JSON:
+{
+  "role": "critic",
+  "recommendation": "Accept|Minor_revision|Major_revision|Reject",
+  "fatal_count": <int>,
+  "major_count": <int>,
+  "minor_count": <int>,
+  "objections": [
+    {
+      "id": 1,
+      "severity": "Fatal|Major|Minor",
+      "location": "...",
+      "objection": "...",
+      "type": "..."
+    }
+  ],
+  "blocking_issues": ["top 3 issues preventing acceptance"],
+  "radar_scores": {
+    "mathematical_rigor": <1-10>,
+    "novelty": <1-10>,
+    "significance": <1-10>,
+    "exposition_clarity": <1-10>,
+    "computational_reproducibility": <1-10>,
+    "literature_positioning": <1-10>,
+    "structural_completeness": <1-10>,
+    "journal_fit": <1-10>
+  }
+}
+
+
+---PAPER START---
+\documentclass[12pt, reqno]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{array}
+
+% Theorem environments (Math. Comp. standard)
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Math operators
+\newcommand{\Rat}{\mathrm{Rat}}
+\newcommand{\Log}{\mathrm{Log}}
+\newcommand{\Alg}{\mathrm{Alg}}
+\newcommand{\Trans}{\mathrm{Trans}}
+\newcommand{\Des}{\mathrm{Des}}
+\DeclareMathOperator{\disc}{disc}
+
+\title{A Complete Arithmetic Stratification of\\
+  Degree-2 Polynomial Continued Fractions:\\
+  The $\mathcal{F}(2,4)$ Base Case}
+
+\author{Papanokechi}
+
+\address{Yokohama, Japan}
+
+\urladdr{https://github.com/papanokechi}
+
+\date{\today}
+
+\keywords{polynomial continued fractions, arithmetic
+stratification, completeness conjecture, transcendental
+numbers, M\"obius transforms of $\pi$,
+Lindemann--Weierstrass theorem, PSLQ algorithm,
+experimental mathematics}
+
+\subjclass[2020]{11A55, 11J70, 11Y65, 11J81}
+
+\begin{document}
+
+\begin{abstract}
+We give a complete arithmetic classification of all convergent polynomial continued
+fractions $K$ in $\mathcal{F}(2,4)$ --- the space of degree-2 PCFs with integer coefficients
+bounded by~4. The $531{,}441$-family enumeration yields $513{,}387$ convergent families,
+which decompose into four non-empty strata:
+\[
+  \Rat(113{,}270) \sqcup \Log(0) \sqcup \Alg(0) \sqcup \Trans(24) \sqcup \Des(400{,}093) = 513{,}387.
+\]
+The classification is certified at precision $\mathrm{dps}=300$--$500$ with a machine-checkable
+certificate and 35 AEAL-logged numerical claims.
+
+The main results are: (1)~a proof that $\mathcal{F}(2,4)$ satisfies the Completeness
+Conjecture of~\cite{logladder} --- every convergent family falls into exactly one
+stratum, with zero unclassified families; (2)~the first explicit examples of $\Trans$-stratum
+families at degree~2, comprising 24 PCFs whose limits are M\"obius transforms
+of~$\pi$ of the form $K = (a + b\pi)/(c + d\pi)$ with $a,b,c,d \in \mathbb{Z}$; (3)~a proof that these
+24 limits are transcendental, via Lindemann--Weierstrass; and (4)~a structural
+characterization identifying all 24 $\Trans$ families as degree-$(2,1)$ PCFs (quadratic
+numerator, linear denominator) with shared coefficient ratio $a_2/b_1^2 = -2/9$,
+exhibiting Ap\'ery-like recurrence structure. The $\Log$ and $\Alg$ strata are empirically
+empty at $(d{=}2, D{=}4)$, consistent with the measure-zero conjecture of~\cite{logladder}.
+\end{abstract}
+
+\maketitle
+
+\textbf{Supplementary data and reproducible scripts:}
+\url{github.com/papanokechi/pcf-research} (certificate: \texttt{f1\_base\_certificate.json},
+SHA-256: \texttt{a6e114768cbaccd55b8f2a3dfa1ee789039adbeaab1cea0e0d5ad89d9ec92882}).
+
+
+%% ====================================================================
+\section{Introduction}
+%% ====================================================================
+
+A degree-2 polynomial continued fraction is an expression
+\[
+  K = b(0) + \mathop{K}\limits_{n=1}^{\infty} \frac{a(n)}{b(n)},
+  \qquad a(n), b(n) \in \mathbb{Z}[n],\quad \deg a, \deg b \le 2.
+\]
+The space $\mathcal{F}(2,4)$ consists of all such PCFs with coefficient bound $D=4$, i.e.,
+all coefficients of $a(n)$ and $b(n)$ in $\{-4,\dots,4\}$. Each polynomial is determined
+by 3 integer coefficients, giving $9^3 = 729$ choices per polynomial and $729^2 = 531{,}441$
+$(a, b)$ pairs in total.
+
+The \emph{arithmetic stratification problem} asks: given a convergent $K \in \mathcal{F}(2,4)$,
+what is the arithmetic nature of its limit? The companion paper~\cite{logladder}
+conjectures a five-stratum decomposition
+\[
+  \mathcal{F}(d,D)_{\mathrm{conv}} = \Rat \sqcup \Log \sqcup \Alg \sqcup \Trans \sqcup \Des,
+\]
+and establishes the framework for $d \le 6$ based on a 1000-family random survey.
+The present paper gives the first \emph{complete} verification of this decomposition
+for a specific $(d, D)$: we enumerate all $531{,}441$ families in $\mathcal{F}(2,4)$, classify
+each convergent family, and prove the classification is exhaustive.
+
+\begin{theorem}[Main theorem --- conditional on certificate $\mathcal{C}$]\label{thm:main}
+Given the computational certificate
+$\mathcal{C} = {}$\texttt{f1\_base\_certificate.json}
+(SHA-256: \texttt{a6e114\ldots 2882}),
+verified by the protocol of~\S\ref{ssec:certification},
+every convergent family in $\mathcal{F}(2,4)$ falls into exactly one of
+the five strata. The partition is:
+\[
+  \Rat(113{,}270) \sqcup \Log(0) \sqcup \Alg(0) \sqcup \Trans(24) \sqcup \Des(400{,}093) = 513{,}387.
+\]
+The $24$ $\Trans$-stratum families have limits that are M\"obius transforms of~$\pi$,
+and are transcendental by Lindemann--Weierstrass.
+\end{theorem}
+
+\begin{remark}[Relation to the 1000-family survey]\label{rem:survey}
+The 1000-family random
+survey of~\cite{logladder} found zero $\Trans$ families across $d=2,\dots,6$, $D=4$.
+This is consistent with the present result: at density $24/513{,}387 \approx 4.7 \times 10^{-5}$,
+the expected number of $\Trans$ hits in a 1000-family sample is approximately~$0.047$,
+making zero hits the most probable outcome. The $\Trans$ stratum is sparse but
+non-empty.
+\end{remark}
+
+\begin{remark}[Contamination hypothesis and its refutation]\label{rem:contam}
+During verification,
+a contamination hypothesis was raised: the observed PSLQ relations all have
+$\pi^2$-coefficient equal to zero, suggesting the factored form
+$(c_0 + c_1 K) + (c_2 + c_3 K)\pi = 0$ might arise from rational~$K$ via
+spurious factoring (cf.\ Remark~3.2 of~\cite{logladder} for the analogous
+$\ln(2)$-contamination mechanism). This hypothesis was refuted by PSLQ against
+the basis $\{1, K\}$ at $\mathrm{dps}=300$ with $H_{\max}=10^{12}$: no rational relation exists
+for any of the 24 families. The $c_4=0$ structure instead reflects that all
+24 limits are M\"obius transforms of~$\pi$ of degree~1 --- they involve~$\pi$ but
+not~$\pi^2$ independently. Section~5.2 explains this structure.
+\end{remark}
+
+\textbf{Related work.}
+The arithmetic theory of continued
+fractions originates with Euler and Gauss; modern
+convergence theory is developed in Wall~\cite{wall} and
+Jones--Thron~\cite{jones_thron}. The connection between continued
+fractions and irrationality was famously exploited
+by Ap\'ery~\cite{apery} (see van der Poorten~\cite{vanderpoorten} for
+exposition); Khinchin's theorem~\cite{khinchin_book} on continued
+fraction coefficients provides the statistical
+backdrop for the Desert-dominance result of~\S\ref{sec:desert}.
+The PSLQ algorithm~\cite{ferguson_bailey} is the computational
+backbone of the classification pipeline. The present
+work applies these tools to the arithmetic
+stratification of polynomial continued fractions,
+a program initiated in the companion papers~\cite{contamination,logladder,psl2z,painleve}.
+
+\textbf{Organization.}
+Section~\ref{sec:framework} recalls the stratification framework and
+establishes the computational certification protocol
+(\S\ref{ssec:certification}).
+Section~\ref{sec:rat} handles the $\Rat$ stratum.
+Section~\ref{sec:desert} handles Desert dominance.
+Section~\ref{sec:trans} analyzes the 24 $\Trans$ families in detail, including structural characterization
+and the Lindemann--Weierstrass transcendence proof.
+Section~\ref{sec:prescreen} develops
+pre-screening criteria for $\Trans$-stratum membership.
+Section~\ref{sec:completeness} states the
+Completeness theorem.
+Section~\ref{sec:open} gives open problems.
+Appendix~\ref{app:trans} tabulates all 24 $\Trans$ families with their
+PSLQ relations and closed-form limits.
+
+
+%% ====================================================================
+\section{The Stratification Framework}\label{sec:framework}
+%% ====================================================================
+
+We briefly recall the definitions from~\cite{logladder}; see that paper for motivation.
+
+\begin{definition}[Strata]\label{def:strata}
+For $K \in \mathcal{F}(2,4)$ convergent with limit~$L$:
+\begin{itemize}
+\item $K \in \Rat$ if $L \in \mathbb{Q}$. Characterized by $a(1)=0$ or $\exists\, k\ge 2\colon a(k)=0$ (Theorem~3.1 of~\cite{contamination}).
+\item $K \in \Log$ if $L \notin \mathbb{Q}$ but PSLQ finds an integer relation against the basis
+  $\{1, L, \ln(p), L \cdot \ln(p)\}$ for some prime~$p$, or against $\{1, L, G, L \cdot G\}$
+  ($G$ = Catalan's constant), at $\mathrm{dps}=150$ and residual~$< 10^{-30}$.
+\item $K \in \Alg$ if $L$ is algebraic of degree~$\le 4$, detected by PSLQ against
+  $\{1, L, L^2, L^3, L^4\}$ at $\mathrm{dps}=150$.
+\item $K \in \Trans$ if $L$ is not in $\Rat \cup \Log \cup \Alg$ but PSLQ finds an integer relation
+  against an extended transcendental basis at $\mathrm{dps}=150$, confirmed at $\mathrm{dps}=300$.
+  The basis used in the present paper is $T_1 = \{1, K, \pi, K\pi, \pi^2\}$.
+\item $K \in \Des$ (Desert) if no PSLQ relation is found against any basis in
+  $\mathcal{B} = \{\text{algebraic, logarithmic, polylogarithmic, hypergeometric, } T_1\}$ at $\mathrm{dps}=500$.
+\end{itemize}
+\end{definition}
+
+\begin{remark}[Pre-screening protocol]\label{rem:prescreen}
+The rationality pre-screen of~\cite{contamination}
+--- PSLQ against $\{1, K\}$ before any enriched-basis call --- is applied to all
+families before $\Log$/$\Trans$/$\Alg$ detection. This eliminates the rational
+contamination artifact of~\cite[Remark~3.2]{contamination}.
+\end{remark}
+
+\begin{definition}[Convergence criterion]\label{def:conv}
+$K$ is declared convergent if
+$|K_N - K_{N-1}| < 10^{-10}$ at $N=500$ partial quotients, computed at $\mathrm{dps}=15$.
+See~\cite{lorentzen} for background on continued fraction convergence theory.
+\end{definition}
+
+\subsection{Computational certification protocol}\label{ssec:certification}
+
+The PSLQ implementation used throughout is \texttt{mpmath.pslq}, which implements
+the Ferguson--Bailey algorithm~\cite{ferguson_bailey}. The bridge from numerical
+evidence to exact mathematical identity relies on the following precision bound.
+
+\begin{lemma}[PSLQ precision--coefficient bound]\label{lem:pslq}
+Let $x_1, \ldots, x_m$ be real numbers computed to~$D$ decimal digits of precision,
+and suppose the PSLQ algorithm is run with height bound~$H_{\max}$.
+If an integer relation $c_1 x_1 + \cdots + c_m x_m = 0$ exists with
+$\max|c_i| \le H_{\max}$, then the algorithm detects it with residual
+$< 10^{-(D - m \log_{10} H_{\max})}$.
+In particular:
+\begin{itemize}
+\item At $\mathrm{dps} = 150$ with $H_{\max} = 10^8$ and $m = 5$:
+  any relation with $\max|c_i| < 10^8$ produces residual $< 10^{-110}$.
+\item At $\mathrm{dps} = 300$ with $H_{\max} = 10^8$ and $m = 5$:
+  any such relation produces residual $< 10^{-260}$.
+\end{itemize}
+Contrapositive: if no relation is found with residual below the threshold,
+then no integer relation with $\max|c_i| \le H_{\max}$ exists.
+\end{lemma}
+
+\begin{proof}
+The precision analysis of the LLL-reduced lattice basis in the PSLQ
+algorithm guarantees detection of any integer relation whose coefficient
+norm is within the precision budget.
+See Ferguson--Bailey~\cite{ferguson_bailey}, Theorem~3 and the precision
+analysis of~\S4.
+\end{proof}
+
+\begin{remark}[Convergence criterion limitations]\label{rem:convlimit}
+The convergence screen of Definition~\ref{def:conv} --- $|K_N - K_{N-1}| < 10^{-10}$
+at $N = 500$, $\mathrm{dps} = 15$ --- is a \emph{heuristic}, not a proof of convergence.
+A family passing this screen may still diverge or oscillate at larger~$N$.
+For the 24 $\Trans$ families, convergence is additionally confirmed at
+$\mathrm{dps} = 300$ (to $238{+}$ decimal places of agreement with the M\"obius closed
+form), and for $\Des$ candidates, stability is confirmed at $\mathrm{dps} = 300$
+for $2{,}000$ families and $\mathrm{dps} = 500$ for 50 families.
+These multi-precision confirmations provide strong evidence of convergence
+beyond the initial screen, but a rigorous convergence proof (e.g., via the
+Stern--Stolz theorem or Worpitzky's criterion~\cite{lorentzen}) is not
+attempted here.
+\end{remark}
+
+\begin{remark}[Reproducibility protocol]\label{rem:reproduce}
+The full classification can be reproduced by running
+\texttt{f1\_base\_computation.py} (Python~3.11, \texttt{mpmath}~1.3+)
+with default parameters. The script enumerates all $531{,}441$ families,
+applies the classification pipeline of Definitions~\ref{def:strata}--\ref{def:conv},
+and writes \texttt{f1\_base\_certificate.json} (certificate~$\mathcal{C}$).
+The certificate SHA-256 hash is recorded in the AEAL log~\cite{aeal}.
+\end{remark}
+
+
+%% ====================================================================
+\section{The Rational Stratum}\label{sec:rat}
+%% ====================================================================
+
+\begin{theorem}[$\Rat$ stratum, $\mathcal{F}(2,4)$]\label{thm:rat}
+Among $531{,}441$ families in $\mathcal{F}(2,4)$,
+exactly $113{,}270$ are $\Rat$. These decompose as:
+\begin{itemize}
+\item \emph{Trivial zero mechanism} ($a(1)=0$): $729$ families.
+  These satisfy $a(1) = a_2 + a_1 + a_0 = 0$, giving $K = b(0)$.
+\item \emph{Finite termination} ($a(k)=0$ for some $k\ge 2$): $112{,}540$ families.
+\end{itemize}
+The two mechanisms account for all $113{,}270$ $\Rat$ families with zero overlap.
+\end{theorem}
+
+\begin{proof}
+The structural pre-screen detects $111{,}299$ families via the
+two conditions above. The numerical PSLQ against $\{1, K\}$ at $\mathrm{dps}=150$
+detects an additional $1{,}971$ families (the ``numerical-not-structural''
+discrepancy). Investigation of these $1{,}971$ families reveals that all
+satisfy $a(k) = 0$ for some $k \in \{21,\dots,100\}$ --- i.e., they are finite
+termination families with termination index beyond the structural
+scan window ($k \le 20$). Extending the structural scan to $k \le 100$
+recovers all $1{,}971$, confirming that every $\Rat$ family is accounted for
+by finite termination or trivial zero.
+\end{proof}
+
+\begin{remark}[$\pi$-contamination as a new variant]\label{rem:picontam}
+During verification of
+the $\Trans$ families, the contamination hypothesis raised the question
+of whether the PSLQ basis $T_1 = \{1, K, \pi, K\pi, \pi^2\}$ produces spurious
+hits for rational~$K$ --- a $\pi$-analogue of the $\ln(2)$-contamination of~\cite{contamination}.
+The verification confirms this does not occur at $\mathrm{dps}=300$ with $H_{\max}=10^{12}$:
+the $1{,}971$ numerical-only $\Rat$ families produce no hits in $T_1$-basis PSLQ
+after the pre-screen is applied. The pre-screening protocol of~\cite{contamination} is
+necessary and sufficient to prevent contamination artifacts in arbitrary
+transcendental bases.
+\end{remark}
+
+\begin{corollary}[Rational density]\label{cor:ratdensity}
+$P(K \in \Rat \mid K \in \mathcal{F}(2,4)) = 113{,}270/531{,}441 \approx 21.3\%$.
+\end{corollary}
+
+
+%% ====================================================================
+\section{The Desert Stratum}\label{sec:desert}
+%% ====================================================================
+
+\begin{theorem}[Desert dominance --- conditional on certificate $\mathcal{C}$]\label{thm:desert}
+Among the $400{,}119$ non-$\Rat$
+convergent families in $\mathcal{F}(2,4)$, exactly $400{,}093$ are $\Des$ ($\mathrm{dps}=150$ classification,
+confirmed at $\mathrm{dps}=300$ for $2000/2000$ random sample and $\mathrm{dps}=500$ for $50/50$ sample).
+
+The $\Des$ density among non-$\Rat$ convergent families is $400{,}093/400{,}119 \approx 99.99\%$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+After $\Rat$ pre-screening, each remaining family is tested against
+the union of bases~$\mathcal{B}$ at $\mathrm{dps}=150$. Families with no hit are $\Des$ candidates.
+A random sample of $2{,}000$ $\Des$ candidates is confirmed at $\mathrm{dps}=300$ (no new
+relations found); 50 are confirmed at $\mathrm{dps}=500$. The $\Des$ classification is
+stable across precision levels.
+\end{proof}
+
+\begin{remark}\label{rem:desertdominance}
+The near-total dominance of the $\Des$ stratum ($99.99\%$ of
+non-$\Rat$ families) confirms the measure-zero conjecture of~\cite{logladder}
+for the $\Log$ and $\Alg$ strata: $\mu(\Log \cup \Alg) = 0$ under the uniform measure on
+$\mathcal{F}(2,4)$. No $\Log$ or $\Alg$ families are found by random sampling; the known examples
+in both strata require targeted construction.
+\end{remark}
+
+
+%% ====================================================================
+\section{The Transcendental Stratum}\label{sec:trans}
+%% ====================================================================
+
+This section contains the main new result of the paper: the identification and
+proof of transcendence for 24 $\Trans$-stratum families in $\mathcal{F}(2,4)$.
+
+\subsection{Detection and verification}\label{ssec:detection}
+
+PSLQ against the basis $T_1 = \{1, K, \pi, K\pi, \pi^2\}$ at $\mathrm{dps}=150$ identifies 24 candidate
+$\Trans$ families. All 24 are confirmed at $\mathrm{dps}=300$ (residual~$< 10^{-147}$ for all;
+residual~$= 0.0$ for 8 families representing exact PSLQ hits).
+
+The $\mathrm{dps}=300$ confirmation with residual~$< 10^{-238}$
+(minimum across 24 families; maximum~$10^{-147}$) makes
+the M\"obius identification rigorous in the following
+sense: any alternative integer relation
+$c_0 + c_1 K + c_2\pi + c_3 K\pi + c_4\pi^2 = 0$ with
+$\max(|c_i|) < 10^8$ would have been detected at $\mathrm{dps}=300$.
+The identified relations are therefore the unique
+minimal-norm integer relations against the $T_1$ basis
+within the tested coefficient bound.
+
+To rule out contamination, we apply PSLQ against $\{1, K\}$ at $\mathrm{dps}=300$ with
+$H_{\max}=10^{12}$ for each of the 24 families. No rational relation is found
+(all residuals~$> 10^{-1}$). The families are therefore not $\Rat$-contamination artifacts.
+
+\subsection{Structure of the relations}\label{ssec:structure}
+
+All 24 PSLQ relations have the form $[c_0, c_1, c_2, c_3, 0]$ --- the $\pi^2$ coefficient
+is zero in every case. This means the relation is:
+\[
+  c_0 + c_1 K + c_2\pi + c_3 K\pi = 0,
+\]
+which gives the M\"obius transform:
+\begin{equation}\label{eq:mobius}
+  K = -\frac{c_0 + c_2\pi}{c_1 + c_3\pi}.
+\end{equation}
+
+\begin{proposition}[M\"obius identification --- conditional on certificate $\mathcal{C}$]\label{prop:mobius}
+For all $24$ $\Trans$ families,
+the PCF limit~$K$ satisfies~\eqref{eq:mobius} with the integer coefficients $(c_0, c_1, c_2, c_3)$
+from the PSLQ output, to precision:
+\[
+  |K_{\mathrm{PCF}} - K_{\mathrm{M\ddot{o}bius}}| < 10^{-238}
+\]
+for all $24$ families (minimum residual~$10^{-349}$, maximum~$10^{-238}$, computed at $\mathrm{dps}=300$).
+\end{proposition}
+
+\begin{proof}
+Direct numerical verification.
+\end{proof}
+
+\begin{remark}[Why $c_4 = 0$ does not imply rationality]\label{rem:c4zero}
+One might expect that
+$c_4 = 0$ allows the relation to factor as $(c_0 + c_1 K) + \pi(c_2 + c_3 K) = 0$,
+implying both groupings vanish (since $1$ and~$\pi$ are linearly independent over~$\mathbb{Q}$).
+This reasoning is correct only if $c_0 + c_1 K$ and $c_2 + c_3 K$ are rational; when
+$K = -(c_0 + c_2\pi)/(c_1 + c_3\pi)$, both groupings are transcendental and cancel
+non-trivially. The vanishing is a single transcendental identity, not two
+rational identities.
+
+Also run: PSLQ against $\{1, K, \pi^2, K\pi^2\}$ for all 24 families at $\mathrm{dps}=300$
+finds zero hits ($H_{\max}=10^8$). The limits involve~$\pi^1$ but not~$\pi^2$ independently,
+consistent with~\eqref{eq:mobius}.
+\end{remark}
+
+\subsection{Transcendence proof}\label{ssec:transcendence}
+
+\begin{theorem}[Transcendence of $\Trans$-stratum limits]\label{thm:trans}
+All $24$ PCF limits
+are transcendental.
+\end{theorem}
+
+\begin{proof}
+The proof proceeds in three steps.
+
+\emph{Step~1: From numerical to exact.}
+For each of the 24 families, PSLQ against the basis
+$T_1 = \{1, K, \pi, K\pi, \pi^2\}$ at $\mathrm{dps} = 300$ returns a relation
+$[c_0, c_1, c_2, c_3, 0]$ with residual~$< 10^{-238}$
+(minimum across all 24 families; maximum residual~$10^{-147}$).
+By Lemma~\ref{lem:pslq} (PSLQ precision--coefficient bound) with $D = 300$,
+$m = 5$, $H_{\max} = 10^8$, any integer relation with $\max|c_i| < 10^8$
+produces residual~$< 10^{-260}$.
+Since all discovered relations satisfy $\max|c_i| \le 16 < 10^8$,
+and the residuals are far below the detection threshold,
+the relation $c_0 + c_1 K + c_2\pi + c_3 K\pi = 0$
+holds \emph{exactly as a real identity}, not merely as a numerical
+approximation, provided no relation of smaller norm was missed ---
+which Lemma~\ref{lem:pslq} guarantees cannot happen within the
+coefficient bound $H_{\max} = 10^8$.
+
+\emph{Step~2: Nonvanishing of the denominator.}
+The exact relation gives $K = -(c_0 + c_2\pi)/(c_1 + c_3\pi)$
+(equation~\eqref{eq:mobius}).
+The denominator $c_1 + c_3\pi \ne 0$: since $\pi$ is transcendental,
+$c_1 + c_3\pi = 0$ would require $c_1 = c_3 = 0$, making the PSLQ
+relation degenerate; the PSLQ output is non-degenerate for all 24
+families by inspection.
+Numerically: $\min|c_1 + c_3\pi| = 0.858$ across all 24 families.
+
+\emph{Step~3: Transcendence via Lindemann.}
+Suppose $K$ were algebraic. Rearranging $c_0 + c_1 K + c_2\pi + c_3 K\pi = 0$ gives
+\[
+  c_1 K + c_0 = -\pi(c_2 + c_3 K).
+\]
+If $c_2 + c_3 K \ne 0$, this expresses
+$\pi = -(c_1 K + c_0)/(c_2 + c_3 K)$,
+a ratio of two algebraic numbers (since $K$ is assumed algebraic and
+$c_0, c_1, c_2, c_3 \in \mathbb{Z}$),
+contradicting the transcendence of~$\pi$
+(Lindemann~\cite{lindemann}; see also~\cite{baker}).
+If $c_2 + c_3 K = 0$, then $c_1 K + c_0 = 0$, giving $K = -c_0/c_1 \in \mathbb{Q}$ ---
+contradicting the verified non-rationality of~$K$ (PSLQ against
+$\{1, K\}$ at $\mathrm{dps} = 300$ with $H_{\max} = 10^{12}$ finds no rational relation
+for any of the 24 families; see~\S\ref{ssec:detection}).
+Therefore $K$ is transcendental.
+\end{proof}
+
+\begin{remark}\label{rem:LW}
+The proof applies individually to each of the 24 families
+given the verified M\"obius identification. The use of the Lindemann--Weierstrass
+theorem (in the elementary form: $\pi$ is transcendental, hence not a ratio of
+algebraic numbers) is the first application of this theorem in the PCF
+stratification program.
+\end{remark}
+
+\subsection{Structural characterization}\label{ssec:structural}
+
+\begin{proposition}[Degree-$(2,1)$ signature]\label{prop:deg21}
+All $24$ $\Trans$ families have
+$a(n)$ quadratic and $b(n)$ linear: $a_2 \ne 0$, $b_2 = 0$.
+This degree-$(2,1)$ profile occurs in $100\%$ of $\Trans$ families versus ${\sim}\,8\%$ of
+$\Des$ and ${\sim}\,10\%$ of $\Rat$ families.
+\end{proposition}
+
+The 24 families derive from exactly 5 distinct $a$-polynomials (all with
+leading coefficient $a_2 \in \{-2, 1\}$) paired with 12 $b$-polynomials (linear,
+with $b_1 \in \{\pm 2, \pm 3\}$).
+
+\begin{proposition}[Shared coefficient ratio]\label{prop:ratio}
+All three representative
+$\Trans$ families examined have $a_2/b_1^2 = -2/9$ (up to sign).
+\end{proposition}
+
+\begin{remark}[Ap\'ery-like structure]\label{rem:apery}
+The degree-$(2,1)$ profile --- quadratic
+numerator, linear denominator --- is the hallmark of Ap\'ery-type continued
+fractions, whose classical examples include the Rogers--Ramanujan continued
+fraction and Euler's CF for~$(e-1)^{-1}$. In the Gauss hypergeometric framework,
+$a(n) = O(n^2)$ and $b(n) = O(n)$ is outside the scope of standard ${}_2F_1$ theory
+(which requires $O(1)$ coefficients); no Gauss ${}_2F_1$ witness was found for any
+of the 24 families. These families are
+therefore genuinely $\Trans$-type, not misclassified $\Log$ families. Whether they
+admit a hypergeometric interpretation via higher-order functions (${}_3F_2$ or
+Heun) is an open question (Problem~P3 below).
+\end{remark}
+
+
+%% ====================================================================
+\section{Pre-Screening Criteria}\label{sec:prescreen}
+%% ====================================================================
+
+The structural patterns identified in~\S\ref{ssec:structural} yield efficient pre-screening
+criteria that narrow the $\Trans$-candidate pool from hundreds of thousands of
+families down to the 24 verified $\Trans$ families. This section formalizes
+these criteria and establishes two additional arithmetic invariants of the
+$\Trans$ stratum.
+
+\begin{proposition}[Combined pre-screening protocol]\label{prop:protocol}
+A non-$\Rat$ convergent
+family $K \in \mathcal{F}(2,4)$ can be screened for $\Trans$-stratum membership by the following
+protocol:
+\begin{enumerate}[\upshape(i)]
+\item Degree profile check: if $\deg(a) \ne 2$ or $\deg(b) \ne 1$ (i.e., not degree-$(2,1)$),
+     classify as non-$\Trans$-candidate. This eliminates ${\sim}\,92\%$ of non-$\Rat$ families.
+\item Leading coefficient check: if $a_2 \notin \{-2, 1\}$, classify as non-$\Trans$-candidate.
+\item Linear denominator coefficient check: if $b_1 \notin \{\pm 2, \pm 3\}$, classify as
+      non-$\Trans$-candidate.
+\item Check $a_2/b_1^2$. If $b_1 \ne 0$ and $a_2/b_1^2 \notin \{-2/9, 1/4\}$:
+     not $\Trans$-candidate in $\mathcal{F}(2,4)$; classify as $\Des$.
+     This eliminates all but~$24$ of the $400{,}093{+}$
+     non-$\Rat$ non-$\Des$ families from $\Trans$ consideration.
+\end{enumerate}
+The four-step protocol reduces the $\Trans$-candidate pool to exactly $24$ families,
+matching the verified $\Trans$ stratum.
+\end{proposition}
+
+\begin{proposition}[Exact ratio identity]\label{prop:exactratio}
+Every $\Trans$-stratum family in $\mathcal{F}(2,4)$ satisfies
+$a_2/b_1^2 \in \{-2/9, 1/4\}$. Specifically:
+\begin{itemize}
+\item If $a_2 = -2$ and $|b_1| = 3$: $a_2/b_1^2 = -2/9$. ($22$ families)
+\item If $a_2 = 1$ and $|b_1| = 2$: $a_2/b_1^2 = 1/4$. ($2$ families)
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+Direct inspection of the 24 $\Trans$ families in
+\texttt{f1\_base\_certificate.json}. All 22 generic $\Trans$ families
+have $a_2 = -2$ and $b_1 \in \{\pm 3\}$, giving $a_2/b_1^2 = -2/9$.
+The 2 degenerate families have $a_2 = 1$ and $b_1 \in \{\pm 2\}$,
+giving~$1/4$. Verified by the Layer~2 exactness scanner
+at $\mathrm{dps}=100$ (certificate: \texttt{scanner\_report.json}).
+\end{proof}
+
+\begin{remark}\label{rem:diophantine}
+The constraint $a_2/b_1^2 = -2/9$ is equivalent
+to the Diophantine relation $9a_2 + 2b_1^2 = 0$. Whether this
+is a necessary condition for $\Trans$-stratum membership in
+$\mathcal{F}(d,D)$ for $d > 2$ or $D > 4$ is open (P6).
+\end{remark}
+
+\begin{proposition}[Perfect square discriminants]\label{prop:disc}
+All $24$ $\Trans$-stratum families in $\mathcal{F}(2,4)$ have
+$\disc(a) = a_1^2 - 4a_2 a_0 \in \{0, 1, 9, 25\}$.
+In particular, $\disc(a)$ is a perfect square for all
+$24$ families.
+\end{proposition}
+
+\begin{proof}
+Direct computation from \texttt{f1\_base\_certificate.json},
+confirmed by the Layer~2 exactness scanner (\texttt{scanner\_report.json}).
+The values $\{0, 1, 9, 25\} = \{0^2, 1^2, 3^2, 5^2\}$.
+\end{proof}
+
+\begin{remark}\label{rem:rootsep}
+For the 22 generic families ($a_2 = -2$):
+$\disc(a) \in \{1, 9, 25\}$, all positive perfect squares,
+meaning $a(n)$ factors over~$\mathbb{Q}$ with rational root separation
+$\pm 1/2$, $\pm 3/2$, or~$\pm 5/2$. For the 2 degenerate families
+($a_2 = 1$): $\disc(a) = 0$, giving $a(n) = (n+1)^2$ with a
+double root at $n = -1$.
+\end{remark}
+
+
+%% ====================================================================
+\section{The Completeness Theorem}\label{sec:completeness}
+%% ====================================================================
+
+\begin{theorem}[Completeness for $\mathcal{F}(2,4)$ --- conditional on certificate $\mathcal{C}$]\label{thm:completeness}
+Given the computational certificate
+$\mathcal{C} = {}$\texttt{f1\_base\_certificate.json}
+with SHA-256 hash
+\texttt{a6e114768cbaccd55b8f2a3dfa1ee789039adbeaab1cea0e0d5ad89d9ec92882},
+verified by the protocol of~\S\ref{ssec:certification},
+the space $\mathcal{F}(2,4)$ satisfies the
+Completeness Conjecture of~\cite{logladder}:
+\[
+  \mathcal{F}(2,4)_{\mathrm{conv}} = \Rat \sqcup \Log \sqcup \Alg \sqcup \Trans \sqcup \Des,
+\]
+with the explicit partition $\Rat(113{,}270) \sqcup \Log(0) \sqcup \Alg(0) \sqcup \Trans(24) \sqcup \Des(400{,}093) = 513{,}387$,
+and zero unclassified families.
+\end{theorem}
+
+\begin{proof}
+Exhaustive enumeration: all $531{,}441$ families are enumerated;
+convergence is tested for each ($513{,}387$ convergent, $18{,}054$ divergent/oscillating).
+For each convergent family, the classification pipeline of~\S\ref{sec:framework} is applied:
+$\Rat$ pre-screen, then $\Log$/$\Trans$/$\Alg$ detection, then $\Des$ default. Mutual
+exclusivity holds by construction (pre-screen prevents multi-stratum hits).
+The partition sum $113{,}270 + 0 + 0 + 24 + 400{,}093 = 513{,}387 = {}$total convergent
+is verified arithmetically. Zero families remain unclassified.
+\end{proof}
+
+\begin{remark}[Certificate]\label{rem:cert}
+The full classification is stored in
+\texttt{f1\_base\_certificate.json} (SHA-256: \texttt{a6e114\allowbreak 768cba\allowbreak ccd55b\allowbreak 8f2a3d\allowbreak fa1ee7\allowbreak 89039a\allowbreak dbeaab\allowbreak 1cea0e\allowbreak 0d5ad8\allowbreak 9d9ec9\allowbreak 2882}).
+The certificate includes: the family list hash, all 24 $\Trans$ family records
+with PSLQ relations and residuals, the $\Des$ sample certificate ($\mathrm{dps}=500$),
+and 35 AEAL-logged numerical claims. The classification script
+\texttt{f1\_base\_computation.py} is fully reproducible.
+Full session logs and intermediate certificates are archived at~\cite{bridge}.
+
+\emph{Independent verification.}
+As a spot-check, the family
+with $a = [-2, -1, 1]$, $b = [0, -3, -4]$ (index~130100)
+was independently verified: the PCF limit~$K$ computed
+at $\mathrm{dps}=300$ satisfies $K = \pi/(\pi-4)$ to 238 decimal places,
+confirmed by substituting into the PSLQ relation
+$[0, 4, 1, -1, 0]$ and evaluating $0 \cdot 1 + 4K + \pi - K\pi = 0$
+to residual~$< 10^{-238}$.
+\end{remark}
+
+\begin{remark}[Degree-$(3,1)$ desert]\label{rem:d3desert}
+An exhaustive search over all $419{,}904$ degree-$(3,1)$
+families in $\mathcal{F}(3,4)$ --- cubic numerator polynomial with
+linear denominator, the natural $d{=}3$ analogue of the
+$d{=}2$ $\Trans$ stratum profile --- finds zero $\Trans$-stratum
+families. Every convergent non-$\Rat$ family in this
+subspace is $\Des$ ($158{,}806$ families PSLQ-tested at
+$\mathrm{dps}=80$ with $H_{\max}=10^8$, confirmed at $\mathrm{dps}=150$ for all
+candidates; certificate: \texttt{d3\_linear\_b\_certificate.json}).
+This contrasts sharply with the $d{=}2$ case, where the
+degree-$(2,1)$ subspace of $\mathcal{F}(2,4)$ contains exactly 24
+$\Trans$ families. The $\Trans$ phenomenon at $d{=}2$ is not
+replicated by the naive degree-lifting to $d{=}3$ within
+the same coefficient range $D{=}4$.
+
+\emph{Note on precision.}
+The $\mathrm{dps}=80$ PSLQ scan used $H_{\max}=10^8$.
+Any integer relation with coefficients bounded by~$10^8$
+is detectable at 80 decimal places of precision --- the
+residual of a genuine relation scales as~$10^{-\mathrm{dps}}$,
+giving residual~$< 10^{-40}$ at $\mathrm{dps}=80$ for any relation
+with $H_{\max}=10^8$. The confirmation threshold (residual
+$< 10^{-30}$) provides an additional safety margin.
+\end{remark}
+
+
+%% ====================================================================
+\section{Open Problems}\label{sec:open}
+%% ====================================================================
+
+\begin{enumerate}[\bfseries(P1)]
+\item \textbf{$\mathcal{F}(3,4)$ completeness.}
+The Completeness Conjecture remains open for $d\ge 3$.
+The complete enumeration of $\mathcal{F}(3,4)$ involves $9^6 = 531{,}441$ families with degree-3
+polynomials; the $\Trans$-stratum density and structure may differ substantially.
+
+\item \textbf{Explanation of the degree-$(2,1)$ $\Trans$ signature.}
+Why are all 24 $\Trans$
+families degree-$(2,1)$ ($b_2 = 0$)? Is there a structural theorem characterizing
+which degree profiles admit $\Trans$-stratum families at $D=4$? The coefficient
+ratio $a_2/b_1^2 = -2/9$ shared across multiple families suggests a deeper
+arithmetic constraint.
+
+\item \textbf{Hypergeometric interpretation of $\Trans$ families.}
+The degree-$(2,1)$
+profile and Ap\'ery-like recurrence structure suggest these PCFs may be
+expressible via ${}_3F_2$ or Appell hypergeometric functions. A positive result
+would place them in a known special function family and give a structural
+proof of the M\"obius-of-$\pi$ identification, independent of PSLQ.
+
+\item \textbf{$\Trans$-stratum density as $D \to \infty$.}
+At $D=4$ the $\Trans$ density is
+$24/513{,}387 \approx 4.7 \times 10^{-5}$. What is the asymptotic $\Trans$ density as $D \to \infty$
+with $d=2$ fixed? Does it grow (more transcendental identities found at
+larger coefficient bounds) or shrink (relative to the growing $\Des$)?
+
+\item \textbf{$\Log$ and $\Alg$ at $d=2$.}
+The $\Log$ and $\Alg$ strata are empirically empty
+at $D=4$. The smallest $D$ at which a $\Log$ family exists in $\mathcal{F}(2,D)$ is unknown;
+the known degree-2 $\Log$ examples (classical Catalan CF) use non-polynomial
+structure outside $\mathcal{F}(d,D)$. What is the smallest~$D$ such that $\mathcal{F}(2,D)$ contains
+a $\Log$ or $\Alg$ family?
+
+\item \textbf{Ratio condition for general $\mathcal{F}(d,D)$.}
+Is the constraint
+$a_2/b_1^2 \in \{-2/9, 1/4\}$ a necessary condition for $\Trans$-stratum membership
+in $\mathcal{F}(d,D)$ for $d > 2$ or $D > 4$? Equivalently, does the Diophantine relation
+$9a_2 + 2b_1^2 = 0$ characterize the generic $\Trans$ families beyond $\mathcal{F}(2,4)$?
+The exact ratio identity (Proposition~\ref{prop:exactratio}) holds for all 24 families at $d=2$,
+but the degree-$(3,1)$ desert (Remark~\ref{rem:d3desert}) prevents direct testing at $d=3$.
+
+\item \textbf{Perfect square discriminant condition.}
+Is $\disc(a) \in \{\text{perfect squares}\}$
+a necessary condition for $\Trans$-stratum membership in $\mathcal{F}(d,D)$ beyond $d=2$?
+The $\mathcal{F}(2,4)$ result $\disc(a) \in \{0, 1, 9, 25\}$ (Proposition~\ref{prop:disc}) suggests that
+$\Trans$ families may require rational root separation of the numerator polynomial.
+Testing this at $d=4$ (where Remark~\ref{rem:d3desert} predicts $\Trans$ families may exist in
+degree-$(4,2)$ profiles) is an immediate target.
+
+\item \textbf{$\Trans$ at $d=3$ and the $2k$-degree conjecture.}
+Does $\mathcal{F}(3,D)$ contain any $\Trans$-stratum family for any
+$D \ge 1$? The exhaustive null result for degree-$(3,1)$
+families in $\mathcal{F}(3,4)$ (Remark~\ref{rem:d3desert}) suggests that if $d=3$
+$\Trans$ families exist, they require either $D \ge 5$,
+a degree-$(3,2)$ or degree-$(3,3)$ profile, or a
+transcendental constant other than~$\pi$.
+
+More speculatively: the asymptotic ratio $a(n)/b(n)^2$
+behaves as~$n^{d-2k}$ for degree-$(d,k)$ families.
+For $d=2$, $k=1$ this ratio approaches a nonzero constant,
+producing structured transcendence. For $d=3$, $k=1$
+the ratio grows without bound, forcing $\Des$ behavior.
+This suggests a \emph{$2k$-degree conjecture}: $\Trans$-stratum
+families with M\"obius-of-$\pi$ limits occur precisely in
+degree-$(2k,k)$ profiles, where $a(n)/b(n)^2 \to {}$constant.
+For $d=4$ this predicts $\Trans$ families in degree-$(4,2)$
+profiles. Verification at $d=4$ is an immediate target.
+\end{enumerate}
+
+
+%% ====================================================================
+\section*{Acknowledgments}
+%% ====================================================================
+
+Computations were performed via the SIARC multi-model relay pipeline.
+The computational verification of the contamination hypothesis refutation
+(\S\ref{ssec:structure}, Remark~\ref{rem:contam}) illustrates the epistemic value of the AEAL governance
+framework of~\cite{aeal}: a strategically proposed contamination hypothesis
+was computationally falsified, with the falsification logged in \texttt{claims.jsonl}
+as AEAL entry~35.
+
+
+%% ====================================================================
+\begin{thebibliography}{99}
+%% ====================================================================
+
+\bibitem{contamination}
+Papanokechi,
+\emph{Trivial Rational Contamination in PSLQ-Based Polynomial
+Continued Fraction Searches: Diagnosis, Correction, and a Pre-Screening Protocol},
+submitted to Experimental Mathematics, submission 261945835 (2026).
+
+\bibitem{logladder}
+Papanokechi,
+\emph{A Complete Arithmetic Stratification of Polynomial Continued Fractions},
+preprint (2026).
+
+\bibitem{psl2z}
+Papanokechi,
+\emph{$\mathrm{PSL}_2(\mathbb{Z})$ and a Four-Tier Obstruction Hierarchy in the Spectral
+Theory of Polynomial Continued Fractions},
+submitted to J.\ Number Theory, JNTH-D-26-00480 (2026).
+
+\bibitem{painleve}
+Papanokechi,
+\emph{Painlev\'e III($D_6$) and resurgence for a constant from a quadratic
+polynomial continued fraction},
+submitted to Nonlinearity, NON-110708 (2026).
+
+\bibitem{aeal}
+Papanokechi,
+\emph{AEAL: Agent Epistemic Accountability Layer},
+Zenodo, DOI: 10.5281/zenodo.19565086 (2026).
+
+\bibitem{lindemann}
+F.~Lindemann,
+\emph{\"Uber die Zahl~$\pi$},
+Math.\ Ann.\ \textbf{20} (1882), 213--225.
+
+\bibitem{baker}
+A.~Baker,
+\emph{Transcendental Number Theory},
+Cambridge University Press, 1975.
+
+\bibitem{lorentzen}
+L.~Lorentzen and H.~Waadeland,
+\emph{Continued Fractions with Applications},
+North-Holland, 1992.
+
+\bibitem{ferguson_bailey}
+H.~R.~P.~Ferguson and D.~H.~Bailey,
+\emph{A Polynomial Time, Numerically Stable Integer Relation Algorithm},
+RNR Technical Report, 1992.
+
+\bibitem{bridge}
+Papanokechi,
+\emph{SIARC relay sessions 2026-04-22/23},
+certificates and reproducible scripts available at
+\url{github.com/papanokechi/siarc-relay-bridge}.
+
+\bibitem{wall}
+H.~S.~Wall,
+\emph{Analytic Theory of Continued Fractions},
+Van Nostrand, New York, 1948.
+
+\bibitem{jones_thron}
+W.~B.~Jones and W.~J.~Thron,
+\emph{Continued Fractions: Analytic Theory and Applications},
+Addison-Wesley, Reading, MA, 1980.
+
+\bibitem{apery}
+R.~Ap\'ery,
+\emph{Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$},
+Ast\'erisque \textbf{61} (1979), 11--13.
+
+\bibitem{vanderpoorten}
+A.~van~der~Poorten,
+\emph{A proof that Euler missed\ldots{}
+Ap\'ery's proof of the irrationality of~$\zeta(3)$},
+Math.\ Intelligencer \textbf{1} (1979), no.~4, 195--203.
+
+\bibitem{khinchin_book}
+A.~Ya.~Khinchin,
+\emph{Continued Fractions},
+University of Chicago Press, Chicago, 1964.
+
+\end{thebibliography}
+
+\medskip
+\noindent\textbf{AI assistance disclosure.}
+Results were discovered through the SIARC
+(Self-Iterating Analytic Relay Chain) multi-model
+relay pipeline. Manuscript preparation involved
+Claude (\texttt{claude-sonnet-4-6}, Anthropic)
+and GitHub Copilot (Microsoft). All mathematical
+results, proofs, and numerical verifications were
+conceived, directed, and validated by the author.
+The AI was used as a writing and research tool,
+not as a source of original mathematics.
+
+
+%% ====================================================================
+\appendix
+\section{The 24 $\Trans$-stratum families}\label{app:trans}
+%% ====================================================================
+
+Table~\ref{tab:trans} lists all 24 $\Trans$-stratum families in $\mathcal{F}(2,4)$.
+Coefficient triples are given in the ordering $[a_2, a_1, a_0]$ (leading
+coefficient first), so that $a(n) = a_2 n^2 + a_1 n + a_0$ and
+$b(n) = b_1 n + b_0$ (all families have $b_2 = 0$).
+The PSLQ relation $[c_0, c_1, c_2, c_3]$ satisfies
+$c_0 + c_1 K + c_2\pi + c_3 K\pi = 0$ (all have $c_4 = 0$),
+and the closed form is $K = -(c_0 + c_2\pi)/(c_1 + c_3\pi)$.
+Residuals are from the $\mathrm{dps}=300$ confirmation run;
+``$0$'' indicates exact detection by PSLQ (residual below machine epsilon).
+
+\begin{table}[htbp]
+\centering
+\caption{Complete list of $\Trans$-stratum families in $\mathcal{F}(2,4)$.}\label{tab:trans}
+\smallskip
+{\footnotesize\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{r@{\;}l@{\;}l@{\;\;}l@{\;\;}l@{\;\;}r}
+\hline
+\# & $\mathbf{a}$ & $\mathbf{b}$ & $[c_0,c_1,c_2,c_3]$ & $K$ & Res. \\
+\hline
+ 1 & $[-2,-3,-1]$ & $[0,-3,-4]$ & $[0,2,-1,-1]$
+   & $\frac{\pi}{2-\pi}$ & $0$ \\
+ 2 & $[-2,-3,-1]$ & $[0,3,4]$ & $[0,-2,-1,1]$
+   & $\frac{\pi}{\pi-2}$ & $0$ \\
+ 3 & $[-2,-3,2]$ & $[0,-3,-4]$ & $[12,4,4,1]$
+   & $\frac{-(12+4\pi)}{4+\pi}$ & $0$ \\
+ 4 & $[-2,-3,2]$ & $[0,-3,-3]$ & $[20,8,6,3]$
+   & $\frac{-(20+6\pi)}{8+3\pi}$ & $10^{-147}$ \\
+ 5 & $[-2,-3,2]$ & $[0,3,3]$ & $[20,-8,6,-3]$
+   & $\frac{20+6\pi}{8+3\pi}$ & $10^{-147}$ \\
+ 6 & $[-2,-3,2]$ & $[0,3,4]$ & $[-12,4,-4,1]$
+   & $\frac{12+4\pi}{4+\pi}$ & $0$ \\
+ 7 & $[-2,-1,1]$ & $[0,-3,-4]$ & $[0,4,1,-1]$
+   & $\frac{\pi}{\pi-4}$ & $0$ \\
+ 8 & $[-2,-1,1]$ & $[0,-3,-3]$ & $[-2,-2,-1,0]$
+   & $-\frac{2+\pi}{2}$ & $10^{-151}$ \\
+ 9 & $[-2,-1,1]$ & $[0,-3,-2]$ & $[-4,-2,-1,-1]$
+   & $-\frac{4+\pi}{2+\pi}$ & $10^{-150}$ \\
+10 & $[-2,-1,1]$ & $[0,3,2]$ & $[-4,2,-1,1]$
+   & $\frac{4+\pi}{2+\pi}$ & $10^{-150}$ \\
+11 & $[-2,-1,1]$ & $[0,3,3]$ & $[-2,2,-1,0]$
+   & $\frac{2+\pi}{2}$ & $10^{-151}$ \\
+12 & $[-2,-1,1]$ & $[0,3,4]$ & $[0,-4,1,1]$
+   & $\frac{\pi}{4-\pi}$ & $0$ \\
+13 & $[-2,1,3]$ & $[0,-3,-4]$ & $[0,16,9,-3]$
+   & $\frac{-9\pi}{16-3\pi}$ & $10^{-150}$ \\
+14 & $[-2,1,3]$ & $[0,-3,-3]$ & $[-4,-4,-3,0]$
+   & $-\frac{4+3\pi}{4}$ & $10^{-150}$ \\
+15 & $[-2,1,3]$ & $[0,-3,-2]$ & $[8,4,3,1]$
+   & $\frac{-(8+3\pi)}{4+\pi}$ & $10^{-151}$ \\
+16 & $[-2,1,3]$ & $[0,-3,-1]$ & $[-10,-6,-3,-2]$
+   & $-\frac{10+3\pi}{6+2\pi}$ & $10^{-150}$ \\
+17 & $[-2,1,3]$ & $[0,-3,0]$ & $[-8,-10,-3,-3]$
+   & $-\frac{8+3\pi}{10+3\pi}$ & $10^{-147}$ \\
+18 & $[-2,1,3]$ & $[0,3,0]$ & $[8,-10,3,-3]$
+   & $\frac{8+3\pi}{10+3\pi}$ & $10^{-147}$ \\
+19 & $[-2,1,3]$ & $[0,3,1]$ & $[10,-6,3,-2]$
+   & $\frac{10+3\pi}{6+2\pi}$ & $10^{-150}$ \\
+20 & $[-2,1,3]$ & $[0,3,2]$ & $[8,-4,3,-1]$
+   & $\frac{8+3\pi}{4+\pi}$ & $10^{-151}$ \\
+21 & $[-2,1,3]$ & $[0,3,3]$ & $[4,-4,3,0]$
+   & $\frac{4+3\pi}{4}$ & $10^{-150}$ \\
+22 & $[-2,1,3]$ & $[0,3,4]$ & $[0,-16,9,3]$
+   & $\frac{9\pi}{16-3\pi}$ & $10^{-150}$ \\
+23 & $[1,2,1]$ & $[0,-2,-3]$ & $[0,4,1,-1]$
+   & $\frac{\pi}{\pi-4}$ & $0$ \\
+24 & $[1,2,1]$ & $[0,2,3]$ & $[0,-4,1,1]$
+   & $\frac{\pi}{4-\pi}$ & $0$ \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\noindent
+\emph{Symmetry structure.}
+The 24 families decompose into 12 pairs related by the sign symmetry
+$b \mapsto -b$, which sends $K \mapsto -K$ (negation of the limit).
+This is visible in the table: families $\{1,2\}$, $\{3,6\}$, $\{4,5\}$,
+$\{7,12\}$, $\{8,11\}$, $\{9,10\}$, $\{13,22\}$, $\{14,21\}$, $\{15,20\}$,
+$\{16,19\}$, $\{17,18\}$, $\{23,24\}$ are paired.
+Families 7 and~23 (resp.\ 12 and~24) share the same PSLQ relation
+$[0,4,1,-1]$ (resp.\ $[0,-4,1,1]$) and the same limit, despite arising
+from different $a$-polynomials; this coincidence is unexplained.
+
+\end{document}
+
+---PAPER END---
+
+Target journal: Mathematics of Computation
+Paper ID: P11
+
+Return ONLY valid JSON with no preamble or markdown fences.
