@@ -1,0 +1,25 @@
+{
+  "task_id": "L0-EXTENDED-BASIS-D3",
+  "date": "2026-04-23T01:06:35.300637+00:00",
+  "families_retested": 14714,
+  "families_reproduced": 14714,
+  "scan_dps": 80,
+  "confirm_dps": [
+    150,
+    300
+  ],
+  "T1_ext_candidates_pass1": 0,
+  "T1_ext_confirmed": 0,
+  "T1_ext_details": [],
+  "T2_candidates_pass1": 0,
+  "T2_confirmed": 0,
+  "T2_details": [],
+  "new_trans_found": 0,
+  "verdict": "NULL",
+  "runtime_seconds": 790.1,
+  "bases_tested": {
+    "T1_ext": "{1, K, pi, K*pi, pi^2, K*pi^2, pi^3}",
+    "T2": "{1, K, pi^2, K*pi^2}"
+  },
+  "method": "Two-pass: dps=80 scan then dps=150/300 confirmation"
+}
