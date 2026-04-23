@@ -1,0 +1,44 @@
+== REVISION CHECKS — f1_base_paper_revised.md ==
+Date: 2026-04-23
+
+CHECK 1: Word count
+  Raw word count (including markup): 3,718
+  Clean word count (stripped markdown): 4,099
+  Target range: 4,000–12,000
+  Status: PASS (4,099 clean words)
+
+CHECK 2: Theorem/Proposition/Remark/Definition count
+  Formal environments (bold-labeled): 23
+  Breakdown:
+    Theorems: 3.1, 4.1, 5.3, 7.1
+    Propositions: 5.1, 5.5, 5.6, 6.1, 6.2, 6.3
+    Definitions: 2.1, 2.3
+    Corollaries: 3.3
+    Remarks: 1.1, 1.2, 2.2, 3.2, 4.2, 5.2, 5.4, 5.7, 6.2.1, 6.3.1, 7.1, 7.2
+  Status: PASS
+
+CHECK 3: Reference count
+  References: 10 ([1]–[10])
+  Target range: 15–30 for Math. Comp.
+  Status: MARGINAL — 10 is below the 15-reference
+    recommendation. Additional classical CF references
+    (e.g., Wall, Jones & Thron, Apéry, van der Poorten)
+    could strengthen literature positioning.
+
+CHECK 4: Open problems
+  P1: FOUND — F1 for d=3, D=4
+  P2: FOUND — Degree-(2,1) Trans signature
+  P3: FOUND — Hypergeometric interpretation
+  P4: FOUND — Trans-stratum density as D→∞
+  P5: FOUND — Log and Alg at d=2
+  P6: FOUND — Ratio condition for general F(d,D)
+  P7: FOUND — Perfect square discriminant condition
+  P8: FOUND — Trans at d=3 and 2k-degree conjecture
+  Status: PASS (all P1–P8 present)
+
+== SUMMARY ==
+  4/4 checks: 3 PASS, 1 MARGINAL
+  The reference count (10) is below the recommended
+  15–30 for Math. Comp. This is not a blocker but
+  should be addressed before final submission by adding
+  classical continued fraction references.
