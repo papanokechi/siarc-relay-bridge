@@ -1,0 +1,86 @@
+{
+  "paper_id": "TEST",
+  "date": "2026-04-23",
+  "advocate": {
+    "role": "advocate",
+    "core_claim": "Unable to assess — API error",
+    "best_evidence": [],
+    "novelty_argument": "N/A",
+    "journal_fit": "N/A",
+    "strongest_proof": "N/A",
+    "radar_scores": {
+      "mathematical_rigor": 5,
+      "novelty": 5,
+      "significance": 5,
+      "exposition_clarity": 5,
+      "computational_reproducibility": 5,
+      "literature_positioning": 5,
+      "structural_completeness": 5,
+      "journal_fit": 5
+    },
+    "confidence": 1,
+    "acceptance_likelihood": 1
+  },
+  "critic": {
+    "role": "critic",
+    "recommendation": "Major_revision",
+    "fatal_count": 0,
+    "major_count": 1,
+    "minor_count": 0,
+    "objections": [
+      {
+        "id": 1,
+        "severity": "Major",
+        "location": "General",
+        "objection": "Unable to assess — API error",
+        "type": "unproved_claim"
+      }
+    ],
+    "blocking_issues": [
+      "API error prevented full review"
+    ],
+    "radar_scores": {
+      "mathematical_rigor": 5,
+      "novelty": 5,
+      "significance": 5,
+      "exposition_clarity": 5,
+      "computational_reproducibility": 5,
+      "literature_positioning": 5,
+      "structural_completeness": 5,
+      "journal_fit": 5
+    }
+  },
+  "arbitrator": {
+    "role": "arbitrator",
+    "paper_id": "TEST",
+    "journal": "Experimental Mathematics",
+    "consensus_radar": {
+      "mathematical_rigor": 5.0,
+      "novelty": 5.0,
+      "significance": 5.0,
+      "exposition_clarity": 5.0,
+      "computational_reproducibility": 5.0,
+      "literature_positioning": 5.0,
+      "structural_completeness": 5.0,
+      "journal_fit": 5.0
+    },
+    "acceptance_probability": 5.0,
+    "submission_ready": false,
+    "decision_table": [
+      {
+        "objection_id": 1,
+        "severity": "Major",
+        "objection": "Unable to assess — API error",
+        "response": "Review_needed",
+        "action": "Requires author review",
+        "suggested_rebuttal": null
+      }
+    ],
+    "must_fix_before_submission": [],
+    "should_fix_for_revision": [
+      "Unable to assess — API error"
+    ],
+    "can_address_in_future_paper": [],
+    "consensus_recommendation": "Submit"
+  }
+}
