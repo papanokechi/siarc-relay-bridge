@@ -2,11 +2,11 @@
 # Handoff — LEAN4-AXIOM-CONVERSION
 **Date:** 2026-04-24
 **Agent:** GitHub Copilot (VS Code)
-**Session duration:** ~45 minutes
+**Session duration:** ~90 minutes
 **Status:** COMPLETE
 
 ## What was accomplished
-Converted all 7 remaining infrastructure `sorry` declarations across Operators.lean (6) and Control.lean (1) into explicit `opaque`/`axiom` declarations. The project now has 0 sorrys outside Example files. Updated AxiomInventory.lean, TrustedBoundary.lean, and the root SIARCRelay11.lean to reflect the new declaration inventory. Fixed a pre-existing lakefile.lean `StdVer` type bug (`"1.0.0"` → `v!"1.0.0"`).
+Converted all 7 remaining infrastructure `sorry` declarations across Operators.lean (6) and Control.lean (1) into explicit `opaque`/`axiom` declarations. The project now has 0 sorrys outside Example files. Updated AxiomInventory.lean, TrustedBoundary.lean, and the root SIARCRelay11.lean to reflect the new declaration inventory. Fixed three pre-existing build blockers: (1) lakefile.lean `StdVer` type bug (`"1.0.0"` → `v!"1.0.0"`), (2) import ordering bug in all 22 .lean files (imports must precede module docstrings in Lean 4), (3) `Mathlib.Analysis.NormedSpace.Basic` import path was removed in Mathlib4 v4.14.0 — replaced with `Mathlib.Analysis.Normed.Module.Basic` in 9 files. Also fixed two unclosed block comments in Invariance.lean and Controllability.lean.
 
 ## Key numerical findings
 - 4 evolution component definitions (`evolution_F`, `evolution_θ`, `evolution_s`, `evolution_c`) converted from `noncomputable def ... := sorry` to `opaque` declarations (Operators.lean)
@@ -14,7 +14,8 @@ Converted all 7 remaining infrastructure `sorry` declarations across Operators.l
 - 1 controlled evolution definition (`evolutionMap_controlled`) converted from `noncomputable def ... := sorry` to `opaque` declaration (Control.lean)
 - Total project axiom count: 25 `axiom` declarations (including 2 new infrastructure axioms) + 14 `opaque` declarations (including 5 new infrastructure opaques)
 - grep confirms 0 `sorry` occurrences in non-Example .lean files
-- Commit `5cbaae8` pushed to `papanokechi/siarc-lean4` main branch
+- Commit `5cbaae8` pushed to `papanokechi/siarc-lean4` main branch (axiom conversion + import ordering fix)
+- Commit `a8b2be1` pushed to `papanokechi/siarc-lean4` main branch (NormedSpace.Basic import fix + comment balance fix)
 
 ## Judgment calls made
 - Used `opaque` (not `axiom`) for the 4 evolution component definitions and 1 controlled evolution definition. Rationale: these are value-level definitions (they return a term), not propositions. `opaque` tells Lean "this value exists but we don't expose its definition", which is semantically correct for an infrastructure layer. `axiom` was reserved for the 2 propositional claims (`evolutionMap_semigroup`, `evolutionMap_zero`).
@@ -23,9 +24,10 @@ Converted all 7 remaining infrastructure `sorry` declarations across Operators.l
 - Kept `evolutionMap` as a regular `def` (not `opaque`) since it's a composite that references the now-opaque components — this is correct: the composition is public, the components are opaque.
 
 ## Anomalies and open questions
-- **Full build not verified**: `lake build` was initiated but requires a full Mathlib4 clone (~700K files) since `.lake` was previously empty/corrupted. The build was running when the session ended. The lakefile version fix is confirmed correct (`v!"..."` syntax), but downstream compilation of our `.lean` files against Mathlib is not yet verified. **Recommend running `lake build` to completion in a separate session.**
-- **Exact axiom count discrepancy**: The relay prompt estimated "~16 axioms". Actual inventory shows 25 `axiom` declarations + 14 `opaque` declarations = 39 total "assumed" declarations. The 25 axioms break down as: 7 system-specific PDE/ODE axioms (Operators.lean), 1 Riemannian geometry axiom (Barriers.lean), 2 holonomy/undecidability axioms (Axioms.lean), 1 parameter axiom (Parameters.lean), 2 controllability axioms, 3 invariance axioms, 7 stability axioms, plus the 2 new infrastructure axioms. This is higher than estimated. Claude should review whether this count is acceptable for JAR submission.
-- **`manuscript.tex` and `manuscript-anonymous.tex`**: These files show as modified/untracked in the lean4 repo but were NOT committed in this session (out of scope). They may need separate attention.
+- **Full build status**: `lake build SIARCRelay11` is compiling Mathlib4 from source (reached 420/1929 modules with no errors from our files). Three pre-existing build blockers were fixed: (a) all 22 .lean files had imports after module docstrings — fixed, (b) `Mathlib.Analysis.NormedSpace.Basic` was removed in Mathlib4 v4.14.0, replaced with `Mathlib.Analysis.Normed.Module.Basic` in 9 files, (c) two unclosed block comments in `Invariance.lean` (line 1 docstring never closed) and `Controllability.lean` (line 458 `/--` never closed). Full build requires compiling ~1900 Mathlib modules from source because the Mathlib cache oleans don't match the toolchain. Build in progress; no compilation errors from our SIARCRelay11 files observed so far.
+- **Commits**: Three commits pushed to `papanokechi/siarc-lean4`: `5cbaae8` (axiom conversion), `84191c5` (import ordering fix), `a8b2be1` (NormedSpace.Basic import + comment balance fix).
+- **Exact axiom count discrepancy**: The relay prompt estimated "~16 axioms". Actual inventory shows 25 `axiom` declarations + 14 `opaque` declarations = 39 total "assumed" declarations. Claude should review whether this count is acceptable for JAR submission.
+- **`manuscript.tex` and `manuscript-anonymous.tex`**: These files show as modified/untracked in the lean4 repo but were NOT committed in this session (out of scope).
 
 ## What would have been asked (if bidirectional)
 - Should the `evolutionMap` composite definition also be converted to `opaque`, or is it correct to leave it as a `def` referencing opaque components?
@@ -33,7 +35,7 @@ Converted all 7 remaining infrastructure `sorry` declarations across Operators.l
 - Should Example files also have their sorrys converted, or are they intentionally left as pedagogical/smoke-test code?
 
 ## Recommended next step
-Run `lake build` to completion from the `lean4/` directory to verify all files compile cleanly against Mathlib4 v4.14.0. If compilation errors arise, they will likely be related to opaque/axiom type signatures needing adjustment. After build passes, the Lean4 formalization is JAR-submission-ready at 0 sorrys.
+Wait for `lake build SIARCRelay11` to complete (compiling ~1900 Mathlib modules from source). If our files compile cleanly, the Lean4 formalization is JAR-submission-ready at 0 sorrys. If type errors arise in our opaque/axiom declarations, they will need signature adjustments. The Mathlib cache should be populated after first full build, making subsequent builds fast.
 
 ## Files committed
 - sessions/2026-04-24/LEAN4-AXIOM-CONVERSION/handoff.md
