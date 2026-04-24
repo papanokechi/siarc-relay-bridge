@@ -1,0 +1,112 @@
+{
+  "task": "LEAN4-SORRY-DISCHARGE",
+  "date": "2026-04-24",
+  "project": "SIARCRelay11 (P15 SIARC PDE Framework)",
+  "lean_version": "v4.14.0",
+  "mathlib_version": "v4.14.0",
+  "sorry_count_total": 8,
+  "sorry_count_trusted_core": 0,
+  "sorry_count_untrusted": 8,
+  "sorry_count_examples": 6,
+  "axiom_count_system_specific": 6,
+  "axiom_count_utility": 3,
+  "axiom_count_infrastructure": "~12 (operator well-posedness, classification, holonomy, coupling, etc.)",
+  "sorrys": [
+    {
+      "id": 1,
+      "file": "SIARCRelay11/Operators.lean",
+      "line": 176,
+      "name": "evolution_F",
+      "type": "noncomputable def body",
+      "context": "Field component of evolution — needs PDE semigroup S_geo(t)",
+      "blocker": "C0-semigroup generation not in Mathlib4",
+      "dischargeable": false,
+      "tactics_tried": "N/A — definitional sorry, not a proof goal"
+    },
+    {
+      "id": 2,
+      "file": "SIARCRelay11/Operators.lean",
+      "line": 186,
+      "name": "evolution_θ",
+      "type": "noncomputable def body",
+      "context": "Thermal component — needs semigroup + Duhamel integral",
+      "blocker": "C0-semigroup generation + Duhamel integral not in Mathlib4",
+      "dischargeable": false,
+      "tactics_tried": "N/A — definitional sorry"
+    },
+    {
+      "id": 3,
+      "file": "SIARCRelay11/Operators.lean",
+      "line": 196,
+      "name": "evolution_s",
+      "type": "noncomputable def body",
+      "context": "Structural component — needs semigroup + thermal coupling",
+      "blocker": "C0-semigroup generation not in Mathlib4",
+      "dischargeable": false,
+      "tactics_tried": "N/A — definitional sorry"
+    },
+    {
+      "id": 4,
+      "file": "SIARCRelay11/Operators.lean",
+      "line": 204,
+      "name": "evolution_c",
+      "type": "noncomputable def body",
+      "context": "Cavity ODE component — needs Picard iteration",
+      "blocker": "Picard-Lindelof iteration not constructive in Mathlib4",
+      "dischargeable": false,
+      "tactics_tried": "N/A — definitional sorry"
+    },
+    {
+      "id": 5,
+      "file": "SIARCRelay11/Operators.lean",
+      "line": 234,
+      "name": "evolutionMap_semigroup",
+      "type": "theorem proof",
+      "context": "Semigroup law Phi_{s+t} = Phi_t . Phi_s",
+      "blocker": "Depends on sorrys 1-3 (evolution component bodies are sorry)",
+      "dischargeable": false,
+      "tactics_tried": "Cannot unfold evolution bodies — they are sorry"
+    },
+    {
+      "id": 6,
+      "file": "SIARCRelay11/Operators.lean",
+      "line": 244,
+      "name": "evolutionMap_zero",
+      "type": "theorem proof",
+      "context": "Identity at t=0: Phi_0 = id",
+      "blocker": "Depends on sorrys 1-3 (evolution component bodies are sorry)",
+      "dischargeable": false,
+      "tactics_tried": "Cannot unfold evolution bodies — they are sorry"
+    },
+    {
+      "id": 7,
+      "file": "SIARCRelay11/Control.lean",
+      "line": 93,
+      "name": "evolutionMap_controlled",
+      "type": "noncomputable def body",
+      "context": "Controlled evolution under a given control law",
+      "blocker": "Requires solving closed-loop PDE-ODE system",
+      "dischargeable": false,
+      "tactics_tried": "N/A — definitional sorry"
+    },
+    {
+      "id": 8,
+      "file": "SIARCRelay11/Theorems/LocalWellPosedness.lean",
+      "line": 101,
+      "name": "local_well_posedness (uniqueness clause)",
+      "type": "theorem proof",
+      "context": "∀ σ', σ'(0) = σ₀ → ∀ t, σ(t) = σ'(t)",
+      "blocker": "STATEMENT-LEVEL BUG: σ' is unconstrained (no ODE requirement). Any function starting at σ₀ must equal the constant trajectory — provably false for non-trivial StateSpace.",
+      "dischargeable": false,
+      "tactics_tried": "simp, omega, ring, norm_num, decide — all fail. exact?/apply? would find nothing. The goal σ₀ = σ' t ht with arbitrary σ' is unprovable.",
+      "fix_suggestion": "Add ODE constraint to σ' in theorem statement: require σ' to satisfy the evolution equation. Then uniqueness follows from contraction mapping."
+    }
+  ],
+  "alternative_considered": {
+    "approach": "Replace evolution_F/θ/s/c bodies with identity (σ₀.field, σ₀.thermal, σ₀.structural, a₀)",
+    "would_discharge": "sorrys 1-7 (all 7 definition + theorem sorrys)",
+    "rejected_because": "Trivializes the evolution map to the identity operator. Mathematically incorrect. Would mislead reviewers expecting real PDE semigroup infrastructure.",
+    "note": "The existing trusted-core/untrusted-infrastructure separation already handles this correctly."
+  },
+  "conclusion": "None of the 8 sorrys can be meaningfully discharged. The trusted core is already sorry-free (0 sorrys). The 8 infrastructure sorrys are explicitly inventoried and formally isolated from the certificate chain."
+}
