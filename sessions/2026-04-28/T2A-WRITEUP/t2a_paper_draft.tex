@@ -69,6 +69,9 @@ basis ($0/35$ PSLQ hits).  At $\mathrm{CMAX}=2$, the enumeration is
 extended to $125{,}000$ families: $108{,}762$ are Trans-candidates after
 algebraic and bilinear-$\pi$ screening, and a $1{,}000$-family
 deep-validation sample at $\dps=150$ returns $1000/1000$ Trans-hard.
+This $\approx 87\%$ density is approximately $17{,}000$
+times the Trans-stratum density of $\sim 0.005\%$ observed
+in $\FF(2,4)$~\cite{PCF24}.
 The data refute one specific sub-hypothesis (a structural law on the
 ratio $a_4/b_2^2$) but confirm the existential claim of the conjecture
 at scale.  A single representative Trans-hard family produces a
@@ -585,8 +588,8 @@ is the central open question of this investigation.
 \section*{Computational and AI-Assistance Disclosure}
 %% ===================================================================
 
-All enumerations and PSLQ verifications were carried out in Python
-3.14 with \texttt{mpmath} 1.3.0 for arbitrary-precision arithmetic and
+All enumerations and PSLQ verifications were carried out in Python~3
+with \texttt{mpmath} 1.3.0 for arbitrary-precision arithmetic and
 the built-in \texttt{mp.pslq} integer-relation routine.  Each
 numerical claim in this paper is accompanied by an entry in the
 session's \texttt{claims.jsonl} ledger giving the working precision
@@ -608,6 +611,17 @@ bridge commits \texttt{84f91bf} (degree-$(4,2)$ search),
 \texttt{fa259b0} (deep validation), \texttt{45fe389} (basis
 identification), \texttt{3a5bb2b} (LMFDB lookup), and
 \texttt{ce25196} (CMAX$=2$ ratio analysis).
+
+%% ===================================================================
+\section*{Data Availability}\label{sec:data}
+The complete enumeration scripts (\texttt{t2a\_degree42\_search.py},
+\texttt{t2a\_cmax2\_search.py}), PSLQ certificates, and the
+full $300$-digit value of $R_1$ (\texttt{t2a\_mystery\_constant.txt})
+are archived at
+\url{https://github.com/papanokechi/siarc-relay-bridge}
+under the bridge sessions listed in the Computational Disclosure.
+A preprint of this paper is available at
+\url{https://doi.org/10.5281/zenodo.19774029}.
 
 %% ===================================================================
 \begin{thebibliography}{9}
@@ -635,10 +649,6 @@ of various polylogarithmic constants}, Mathematics of Computation
 H.~R.~P.~Ferguson and D.~H.~Bailey, \emph{A polynomial time,
 numerically stable integer relation algorithm}, RNR Technical Report
 RNR-91-032, NASA Ames, 1992.
-
-\bibitem{lindemann}
-F.~Lindemann, \emph{{\"U}ber die Zahl~$\pi$}, Mathematische Annalen
-\textbf{20} (1882), 213--225.
 
 \end{thebibliography}
 
