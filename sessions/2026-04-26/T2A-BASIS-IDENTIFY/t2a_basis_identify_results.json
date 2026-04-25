@@ -1,0 +1,739 @@
+{
+  "task": "T2A-BASIS-IDENTIFY",
+  "dps_recompute": 300,
+  "iter_recompute": 2000,
+  "dps_pslq": 300,
+  "hmax": 1000000000000,
+  "residual_threshold": "1e-80",
+  "representatives": [
+    {
+      "rep": 1,
+      "coeffs_a": [
+        1,
+        0,
+        -1,
+        -1,
+        -1
+      ],
+      "coeffs_b": [
+        -1,
+        1,
+        -1
+      ],
+      "L_300": "-0.10123520070804963350847662497265835498791999155461984754321842804263709078850781",
+      "results": {
+        "A_standard": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "pi",
+            "pi^2",
+            "pi^3",
+            "pi^4",
+            "log2",
+            "log3",
+            "log5",
+            "zeta3",
+            "zeta5",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "euler"
+          ]
+        },
+        "B_elliptic": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "agm(1,sqrt2)",
+            "agm(1,sqrt3)",
+            "K(0.5)",
+            "K(0.5)^2",
+            "pi*K(0.5)"
+          ]
+        },
+        "C_hypergeo": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "2F1(1/2,1/2;1;1/2)",
+            "2F1(1/3,2/3;1;1/2)",
+            "Cl2(pi/3)_sin",
+            "Cl2(pi/3)_cos",
+            "Catalan"
+          ]
+        },
+        "D_alg_times_pi2": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi^2",
+            "sqrt2*pi^2",
+            "sqrt3*pi^2",
+            "sqrt5*pi^2",
+            "sqrt6*pi^2",
+            "cbrt2*pi^2",
+            "cbrt3*pi^2"
+          ]
+        },
+        "Dp_alg_times_pi": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi",
+            "sqrt2*pi",
+            "sqrt3*pi",
+            "sqrt5*pi"
+          ]
+        },
+        "Da_algebraic_deg8": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "L^2",
+            "L^3",
+            "L^4",
+            "L^5",
+            "L^6",
+            "L^7",
+            "L^8"
+          ]
+        }
+      }
+    },
+    {
+      "rep": 2,
+      "coeffs_a": [
+        1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "coeffs_b": [
+        1,
+        -1,
+        -1
+      ],
+      "L_300": "0.42769799909617153506824222558734369283330885175197111978281841890370135131704136",
+      "results": {
+        "A_standard": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "pi",
+            "pi^2",
+            "pi^3",
+            "pi^4",
+            "log2",
+            "log3",
+            "log5",
+            "zeta3",
+            "zeta5",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "euler"
+          ]
+        },
+        "B_elliptic": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "agm(1,sqrt2)",
+            "agm(1,sqrt3)",
+            "K(0.5)",
+            "K(0.5)^2",
+            "pi*K(0.5)"
+          ]
+        },
+        "C_hypergeo": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "2F1(1/2,1/2;1;1/2)",
+            "2F1(1/3,2/3;1;1/2)",
+            "Cl2(pi/3)_sin",
+            "Cl2(pi/3)_cos",
+            "Catalan"
+          ]
+        },
+        "D_alg_times_pi2": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi^2",
+            "sqrt2*pi^2",
+            "sqrt3*pi^2",
+            "sqrt5*pi^2",
+            "sqrt6*pi^2",
+            "cbrt2*pi^2",
+            "cbrt3*pi^2"
+          ]
+        },
+        "Dp_alg_times_pi": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi",
+            "sqrt2*pi",
+            "sqrt3*pi",
+            "sqrt5*pi"
+          ]
+        },
+        "Da_algebraic_deg8": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "L^2",
+            "L^3",
+            "L^4",
+            "L^5",
+            "L^6",
+            "L^7",
+            "L^8"
+          ]
+        }
+      }
+    },
+    {
+      "rep": 3,
+      "coeffs_a": [
+        1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "coeffs_b": [
+        -1,
+        -1,
+        0
+      ],
+      "L_300": "-0.7301048772843987445783614333730602410544388051915279243686648056628374181203248",
+      "results": {
+        "A_standard": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "pi",
+            "pi^2",
+            "pi^3",
+            "pi^4",
+            "log2",
+            "log3",
+            "log5",
+            "zeta3",
+            "zeta5",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "euler"
+          ]
+        },
+        "B_elliptic": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "agm(1,sqrt2)",
+            "agm(1,sqrt3)",
+            "K(0.5)",
+            "K(0.5)^2",
+            "pi*K(0.5)"
+          ]
+        },
+        "C_hypergeo": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "2F1(1/2,1/2;1;1/2)",
+            "2F1(1/3,2/3;1;1/2)",
+            "Cl2(pi/3)_sin",
+            "Cl2(pi/3)_cos",
+            "Catalan"
+          ]
+        },
+        "D_alg_times_pi2": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi^2",
+            "sqrt2*pi^2",
+            "sqrt3*pi^2",
+            "sqrt5*pi^2",
+            "sqrt6*pi^2",
+            "cbrt2*pi^2",
+            "cbrt3*pi^2"
+          ]
+        },
+        "Dp_alg_times_pi": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi",
+            "sqrt2*pi",
+            "sqrt3*pi",
+            "sqrt5*pi"
+          ]
+        },
+        "Da_algebraic_deg8": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "L^2",
+            "L^3",
+            "L^4",
+            "L^5",
+            "L^6",
+            "L^7",
+            "L^8"
+          ]
+        }
+      }
+    },
+    {
+      "rep": 4,
+      "coeffs_a": [
+        1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "coeffs_b": [
+        1,
+        1,
+        0
+      ],
+      "L_300": "-1.4149796587208280442764740484974450418416378468035649978775843661448488300075578",
+      "results": {
+        "A_standard": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "pi",
+            "pi^2",
+            "pi^3",
+            "pi^4",
+            "log2",
+            "log3",
+            "log5",
+            "zeta3",
+            "zeta5",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "euler"
+          ]
+        },
+        "B_elliptic": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "agm(1,sqrt2)",
+            "agm(1,sqrt3)",
+            "K(0.5)",
+            "K(0.5)^2",
+            "pi*K(0.5)"
+          ]
+        },
+        "C_hypergeo": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "2F1(1/2,1/2;1;1/2)",
+            "2F1(1/3,2/3;1;1/2)",
+            "Cl2(pi/3)_sin",
+            "Cl2(pi/3)_cos",
+            "Catalan"
+          ]
+        },
+        "D_alg_times_pi2": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi^2",
+            "sqrt2*pi^2",
+            "sqrt3*pi^2",
+            "sqrt5*pi^2",
+            "sqrt6*pi^2",
+            "cbrt2*pi^2",
+            "cbrt3*pi^2"
+          ]
+        },
+        "Dp_alg_times_pi": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi",
+            "sqrt2*pi",
+            "sqrt3*pi",
+            "sqrt5*pi"
+          ]
+        },
+        "Da_algebraic_deg8": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "L^2",
+            "L^3",
+            "L^4",
+            "L^5",
+            "L^6",
+            "L^7",
+            "L^8"
+          ]
+        }
+      }
+    },
+    {
+      "rep": 5,
+      "coeffs_a": [
+        1,
+        -1,
+        0,
+        -1,
+        -1
+      ],
+      "coeffs_b": [
+        1,
+        -1,
+        -1
+      ],
+      "L_300": "-99.811951319022929628842264313238850738773975479514832379959152304875467957528495",
+      "results": {
+        "A_standard": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "pi",
+            "pi^2",
+            "pi^3",
+            "pi^4",
+            "log2",
+            "log3",
+            "log5",
+            "zeta3",
+            "zeta5",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "euler"
+          ]
+        },
+        "B_elliptic": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "agm(1,sqrt2)",
+            "agm(1,sqrt3)",
+            "K(0.5)",
+            "K(0.5)^2",
+            "pi*K(0.5)"
+          ]
+        },
+        "C_hypergeo": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "2F1(1/2,1/2;1;1/2)",
+            "2F1(1/3,2/3;1;1/2)",
+            "Cl2(pi/3)_sin",
+            "Cl2(pi/3)_cos",
+            "Catalan"
+          ]
+        },
+        "D_alg_times_pi2": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi^2",
+            "sqrt2*pi^2",
+            "sqrt3*pi^2",
+            "sqrt5*pi^2",
+            "sqrt6*pi^2",
+            "cbrt2*pi^2",
+            "cbrt3*pi^2"
+          ]
+        },
+        "Dp_alg_times_pi": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "L",
+            "pi",
+            "sqrt2*pi",
+            "sqrt3*pi",
+            "sqrt5*pi"
+          ]
+        },
+        "Da_algebraic_deg8": {
+          "hit": null,
+          "msg": "no relation",
+          "resid": null,
+          "names": [
+            "1",
+            "L",
+            "L^2",
+            "L^3",
+            "L^4",
+            "L^5",
+            "L^6",
+            "L^7",
+            "L^8"
+          ]
+        }
+      }
+    }
+  ],
+  "pairwise_ratios": [
+    {
+      "i": 1,
+      "j": 2,
+      "ratio": "-0.23669785905471593533412382364",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    },
+    {
+      "i": 1,
+      "j": 3,
+      "ratio": "0.138658436421614737775502966623",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    },
+    {
+      "i": 1,
+      "j": 4,
+      "ratio": "0.0715453399517901380557742658883",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    },
+    {
+      "i": 1,
+      "j": 5,
+      "ratio": "0.00101425930833150087970165006906",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    },
+    {
+      "i": 2,
+      "j": 3,
+      "ratio": "-0.585803509061575207806112847881",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    },
+    {
+      "i": 2,
+      "j": 4,
+      "ratio": "-0.302264415223339463575829264901",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    },
+    {
+      "i": 2,
+      "j": 5,
+      "ratio": "-0.00428503794830286580842306579311",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    },
+    {
+      "i": 3,
+      "j": 4,
+      "ratio": "0.515982595781220777931979012856",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    },
+    {
+      "i": 3,
+      "j": 5,
+      "ratio": "0.00731480416559344171129850593687",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    },
+    {
+      "i": 4,
+      "j": 5,
+      "ratio": "0.0141764552242668191795866941139",
+      "hit": null,
+      "msg": "no relation",
+      "resid": null,
+      "names": [
+        "L_i/L_j",
+        "1",
+        "sqrt2",
+        "sqrt3",
+        "sqrt5",
+        "cbrt2",
+        "cbrt3"
+      ]
+    }
+  ],
+  "all_bases_missed": true,
+  "elapsed_total_sec": 2.996798276901245
+}
