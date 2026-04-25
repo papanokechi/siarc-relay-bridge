@@ -1,0 +1,5 @@
+{
+  "ratio_0.5_and_2.0_appear": "User prompt enumerated only ratios {1/4, 1, 4} but actual ratio set at CMAX=2 is {0.25, 0.5, 1.0, 2.0}. (a4 in {1,2}, b2^2 in {1,4} -> a4/b2^2 in {1/4, 1/1, 2/4, 2/1} = {0.25, 0.5, 1.0, 2.0}. Ratio=4 cannot occur because it would require a4>=4 or b2^2<=1/4.) All 4 ratios occur in roughly equal counts (~25% each) among convergent families.",
+  "100pct_convergence_rate_at_dps50": "Stage A float prescreen flagged 99.5% of families as candidates (124334/125000); all 124334 then confirmed convergent at Stage B dps=50 K_500 tol=1e-25. This contrasts with CMAX=1 where 1452/6250 (~23%) were convergent. The expansion from CMAX=1 to CMAX=2 dramatically increases convergence rate, suggesting many additional convergent families with limits unrelated to the original 1162 CMAX=1 Trans set.",
+  "108728_unique_L_among_108762_Trans_candidates": "Almost no L-collision among Trans-candidates (only 34 duplicates). Each Trans-candidate represents an effectively unique constant. This rules out the hypothesis that CMAX=2 Trans-candidates are simple rescalings of CMAX=1 ones."
+}

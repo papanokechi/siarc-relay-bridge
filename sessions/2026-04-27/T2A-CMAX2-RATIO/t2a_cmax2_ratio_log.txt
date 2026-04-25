@@ -1,0 +1,35 @@
+=== Step 4: ratio distribution among CONVERGENT families ===
+total convergent: 124334
+   ratio    total      Rat      Alg     Trans    ERR    pct
+   0.250    31018     3350      216     26622    830  24.9%
+   0.500    31224     2720        2     27822    680  25.1%
+   1.000    30874     3340      152     26548    834  24.8%
+   2.000    31218     2750        0     27770    698  25.1%
+
+=== Step 4 (Trans only): ratio distribution among Trans-candidates ===
+total Trans-candidate: 108762
+   ratio    count    pct
+   0.250    26622  24.5%
+   0.500    27822  25.6%
+   1.000    26548  24.4%
+   2.000    27770  25.5%
+
+=== Step 5: Trans-candidate rate per ratio ===
+   ratio     conv     Trans   rate
+   0.250    31018     26622  85.8%
+   0.500    31224     27822  89.1%
+   1.000    30874     26548  86.0%
+   2.000    31218     27770  89.0%
+
+=== Step 5b (deep sample, n=1000): confirmed Trans-hard by ratio ===
+  ratio 0.250:  247 / 1000 sampled
+  ratio 0.500:  272 / 1000 sampled
+  ratio 1.000:  226 / 1000 sampled
+  ratio 2.000:  255 / 1000 sampled
+
+=== Step 6: 3 Trans-hard families with ratio != 1 ===
+non-ratio-1 Trans-hard in deep sample: 774
+  ratio=2.0  a=[2, 2, 2, 0, -1] b=[-1, -1, 1]  L=-0.00205794053680000560219699220839581688225845836
+  ratio=0.25  a=[1, 0, 1, -1, -2] b=[2, 1, -1]  L=-1.30268138928521796585059918750182880246410145468
+  ratio=2.0  a=[2, 0, -2, -2, -1] b=[1, -2, -2]  L=-3999.12342836400050740362286759753578346876696091
+saved 3 picks to t2a_cmax2_ratio_picks.json
