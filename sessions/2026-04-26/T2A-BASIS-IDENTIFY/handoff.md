@@ -128,3 +128,47 @@ direct PSLQ at 300-digit precision against {alg Â· Ï€Â²} found nothing.
 
 ## AEAL claim count
 3 entries written to claims.jsonl this session
+
+
+---
+
+# APPENDIX — T2A-LMFDB-LOOKUP (appended 2026-04-26)
+
+## Web/database lookup of mystery constant R1
+**Constant queried:** `-0.10123520070804963350847662497` (first 30 sig digits;
+full 300-dp value in `t2a_mystery_constant.txt`).
+
+### STEP 1 — first 30 digits
+`-0.101235200708049633508476624972`  (R1, a=[1,0,-1,-1,-1], b=[-1,1,-1])
+
+### STEP 2 — Inverse Symbolic Calculator (carma.newcastle.edu.au)
+The live ISC form (`/standardCalc`) is interactive Maple-backed and could
+not be queried programmatically through the fetch tool (form returns no
+parseable content). **No automated identification possible via this route.**
+The user can submit `.10123520070804963` manually at
+`https://isc.carma.newcastle.edu.au/` for a Maple-side lookup.
+
+### STEP 3 — OEIS
+Queried at `https://oeis.org/search` for:
+- `10123520070804963` -> **No results**
+- `1012352007080`     -> **No results**
+- `10123520`          -> **No results**
+
+### STEP 3b — Web search
+- Bing exact-string `"0.10123520070804963"` -> **No results**
+- DuckDuckGo exact-string -> **No results**
+- Google -> blocked by JS-only response (no parseable result)
+
+### STEP 4 — Verdict
+**Basis unknown, constant novel** by these reference databases.
+
+The combined evidence from T2A-BASIS-IDENTIFY (0/35 PSLQ hits across
+7 closed-form bases) and this lookup session (0 OEIS / 0 web hits
+on the 17-digit prefix) is consistent with R1 being a **previously
+uncatalogued mathematical constant**.
+
+**Caveat:** the ISC interactive form was not queried — it is the
+single most likely source of an identification (Maple-backed Smart
+Lookup over a much wider basis than our local PSLQ). A manual
+ISC submission of `.10123520070804963` is the recommended next
+step before any claim of novelty is publishable.
