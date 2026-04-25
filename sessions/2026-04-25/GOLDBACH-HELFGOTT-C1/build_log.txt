@@ -1,0 +1,22 @@
+--- BUILD LOG (tail; full log retained at workspace root _gh_build.log) ---
+✔ [679/684] Built GoldbachHelfgott.Basic (190s)
+✔ [680/684] Built GoldbachHelfgott.Statement (69s)
+✔ [681/684] Built GoldbachHelfgott.Certificate (70s)
+✔ [682/684] Built GoldbachHelfgott.Reduction (40s)
+ℹ [683/684] Built GoldbachHelfgott.Main (33s)
+info: GoldbachHelfgott/Main.lean:36:0: goldbach_conditional :
+  TernaryToBinaryAbove N₀ → ∀ (n : ℕ), StrongGoldbach n
+info: GoldbachHelfgott/Main.lean:37:0: goldbach_from_helfgott_and_cert :
+  ∀ (N₀ : ℕ), 4 ≤ N₀ →
+    goldbach_verified_below N₀ →
+    (∀ (k : ℕ), TernaryGoldbach k) →
+    TernaryToBinaryAbove N₀ → ∀ (n : ℕ), StrongGoldbach n
+info: GoldbachHelfgott/Main.lean:38:0: TernaryToBinaryAbove : ℕ → Prop
+info: GoldbachHelfgott/Main.lean:39:0: StrongGoldbach : ℕ → Prop
+info: GoldbachHelfgott/Main.lean:40:0: TernaryGoldbach : ℕ → Prop
+info: GoldbachHelfgott/Main.lean:41:0: helfgott_ternary :
+  ∀ (k : ℕ), TernaryGoldbach k
+info: GoldbachHelfgott/Main.lean:42:0: goldbach_certificate_N₀ :
+  goldbach_verified_below N₀
+Build completed successfully (684 jobs).
+SHA-256(_gh_build.log) = B080E89C74FEA09156BC75A75C781B283D155AD45D0120A9B6B6E9D24FF79AD3
