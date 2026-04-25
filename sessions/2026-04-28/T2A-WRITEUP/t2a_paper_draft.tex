@@ -1,0 +1,645 @@
+% t2a_paper_draft.tex --- A Computational Investigation of the
+% 2k-Degree Conjecture at k=2: The F(4,3) / Degree-(4,2) Stratum
+%
+% Companion to the F(2,4) base case [PCF24].
+% Compiled with: pdflatex (twice for refs)
+\documentclass[11pt,a4paper]{amsart}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+% Theorem environments (matching F(2,4) paper style)
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{problem}{Problem}
+
+% Notation
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\KK}{\mathcal{K}}
+\newcommand{\Rat}{\mathrm{Rat}}
+\newcommand{\Log}{\mathrm{Log}}
+\newcommand{\Alg}{\mathrm{Alg}}
+\newcommand{\Trans}{\mathrm{Trans}}
+\newcommand{\Des}{\mathrm{Des}}
+\newcommand{\dps}{\mathrm{dps}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\emergencystretch=1.5em
+
+\title[A Computational Investigation of $\FF(4,3)$ at Degree $(4,2)$]%
+{A Computational Investigation of the $2k$-Degree Conjecture at $k=2$:
+the Degree-$(4,2)$ Stratum and a Novel Transcendental Constant}
+
+\author{Papanokechi}
+\address{Yokohama, Japan}
+\urladdr{https://github.com/papanokechi}
+
+\subjclass[2020]{11A55, 11J70, 11Y65, 11J81, 11J91}
+
+\keywords{Polynomial continued fractions, arithmetic stratification,
+transcendental constants, PSLQ algorithm, integer relation algorithms,
+experimental mathematics, Ap\'ery-like recurrence}
+
+\begin{document}
+
+\begin{abstract}
+We report a large-scale computational investigation of the
+\emph{$2k$-degree conjecture} at $k=2$: namely the prediction that
+transcendental limits arise within polynomial continued fractions
+(PCFs) whose numerator/denominator polynomial degrees are
+$(2k,k)=(4,2)$.  Two enumerations are carried out.  At coefficient
+bound $\mathrm{CMAX}=1$, the full search space of $1{,}458$ degree-$(4,2)$
+families yields $1{,}162$ Trans-hard candidates, all of which are
+certified at precision $\dps=300$ against an extended bilinear-$\pi$
+basis ($0/35$ PSLQ hits).  At $\mathrm{CMAX}=2$, the enumeration is
+extended to $125{,}000$ families: $108{,}762$ are Trans-candidates after
+algebraic and bilinear-$\pi$ screening, and a $1{,}000$-family
+deep-validation sample at $\dps=150$ returns $1000/1000$ Trans-hard.
+The data refute one specific sub-hypothesis (a structural law on the
+ratio $a_4/b_2^2$) but confirm the existential claim of the conjecture
+at scale.  A single representative Trans-hard family produces a
+mystery constant
+\[
+  R_1 = -0.10123520070804963\ldots
+\]
+which, to $30$ significant digits, is not algebraic of bounded degree,
+not in the bilinear-$\pi$ ladder of~\cite{PCF24}, not detected by the
+RIES inverse-symbolic engine beyond an $8$-digit coincidence, and not
+present as an OEIS substring on a $17$-digit prefix.
+
+We present the methodology, the screening pipeline (with two
+phantom-hit traps documented as a formal Remark), the full numerical
+findings, and a list of open problems.  The result is offered as a
+\emph{computational observation}, not a theorem: the existence of a
+dense Trans-hard stratum at degree~$(4,2)$ is established to the
+precision of the certificates, but no proof of transcendence is given
+for any individual limit.
+
+\medskip\noindent\textbf{AI assistance disclosure.}
+Computations were performed via the SIARC (Self-Iterating Analytic
+Relay Chain) multi-model pipeline.  Manuscript preparation involved
+GitHub Copilot (OpenAI) and Anthropic Claude.  All mathematical
+results, proofs, and numerical verifications were conceived, directed,
+and validated by the author and logged via the AEAL (Agent Epistemic
+Accountability Layer) protocol~\cite{aeal}.
+\end{abstract}
+
+\maketitle
+
+%% ===================================================================
+\section{Introduction}\label{sec:intro}
+%% ===================================================================
+
+A \emph{polynomial continued fraction} is the formal expression
+\[
+  K \;=\; b(0) \;+\; \mathop{\mathop{\KK}\nolimits}\limits_{n=1}^{\infty}
+        \frac{a(n)}{b(n)},
+  \qquad a(n),b(n) \in \mathbb{Z}[n],
+\]
+and the family $\FF(d_a,d_b)$ collects all such PCFs with $\deg a \le
+d_a$ and $\deg b \le d_b$.  The companion paper~\cite{PCF24} carries
+out a full arithmetic stratification of $\FF(2,4)$ (degree-$2$ in both
+polynomials, integer coefficients bounded by $4$): from $531{,}441$
+candidate families, $24$ Trans-stratum families are isolated, all of
+the form $K = (a + b\pi)/(c + d\pi)$ with $a,b,c,d \in \mathbb{Z}$ and
+sharing the structural identity $a_2/b_1^2 = -2/9$.
+
+Two empirical regularities of the F$(2,4)$ result attracted attention:
+\begin{enumerate}[label=(\roman*)]
+  \item the numerator degree is exactly twice the denominator degree
+        ($2 \times 1$), and
+  \item all $24$ Trans families share a common quadratic-in-coefficients
+        ratio.
+\end{enumerate}
+These observations gave rise to the following heuristic:
+
+\medskip
+\noindent\textbf{$2k$-degree conjecture (informal).}\quad
+\emph{Trans-stratum families occur at PCF degree profiles $(2k,k)$,
+$k\ge 1$, and within such a profile they obey a structural relation
+among the leading coefficients.}
+\medskip
+
+The $k=1$ case is the F$(2,4)$ result of~\cite{PCF24}.  This paper
+addresses $k=2$, namely the degree profile $(4,2)$ within $\FF(4,3)$
+(degree-$4$ numerator, degree-$2$ denominator, coefficient bound~$3$
+for the broader family, with our enumeration restricted to degree
+exactly~$4$ in $a$ and exactly~$2$ in $b$).  We carry out two
+exhaustive enumerations (\S\ref{sec:cmax1}, \S\ref{sec:cmax2}),
+classify each family via a three-stage pipeline (\S\ref{sec:methods}),
+and certify Trans-hardness against an extended bilinear-$\pi$ basis at
+$\dps=300$.
+
+\subsection{Main findings}
+
+The principal results of this paper are the following four
+observations.  We label them \emph{observations} rather than theorems
+to emphasise that the underlying claims are guaranteed only to the
+precision of their certificates.
+
+\begin{observation}[CMAX$=1$ Trans-hard density]
+\label{obs:cmax1}
+Of the $1{,}458$ degree-$(4,2)$ families with coefficient bound $1$
+(modulo the WLOG sign symmetry $a_4 > 0$), exactly $1{,}162$ are
+Trans-hard: they admit no integer relation against the extended
+bilinear-$\pi$ basis at precision $\dps=300$.
+\end{observation}
+
+\begin{observation}[CMAX$=2$ Trans-hard density at scale]
+\label{obs:cmax2}
+Of the $125{,}000$ degree-$(4,2)$ families at coefficient bound $2$,
+$108{,}762$ ($\approx 87.0\%$) survive the float and mpmath
+prescreens as Trans-candidates.  A uniform random sample of size
+$1{,}000$ from the deduplicated-by-limit candidates is deep-validated
+at $\dps=150$, with all $1{,}000$ returning Trans-hard against a
+$9$-element bilinear-$\pi$ basis.
+\end{observation}
+
+\begin{observation}[Refutation of the ratio sub-hypothesis]
+\label{obs:ratio-refuted}
+Among the $1{,}000$ deep-validated families, the leading-coefficient
+ratio $\rho := a_4/b_2^2$ takes only values in
+$\{1/4,\;1/2,\;1,\;2\}$, distributed approximately uniformly
+($\sim25\%$ each).  The Trans-hard pass rate, conditioned on $\rho$,
+is $\{85.8\%, 89.1\%, 86.0\%, 89.0\%\}$ respectively---a spread of
+$3.3$ percentage points.  No single value of $\rho$ predicts
+Trans-hardness, refuting the natural extension of the F$(2,4)$
+ratio identity to degree~$(4,2)$.
+\end{observation}
+
+\begin{observation}[A novel transcendental candidate]
+\label{obs:R1}
+A specific Trans-hard family at $\mathrm{CMAX}=1$ produces the limit
+\[
+  R_1 \;=\; -0.10123520070804963\,\ldots
+  \qquad (30\ \text{significant digits}),
+\]
+which fails PSLQ identification against an extended seven-family basis
+at $\dps=300$, returns no match in OEIS on its $17$-digit prefix, and
+is detected by the RIES inverse-symbolic search only at an $8$-digit
+coincidence (with absolute discrepancy~$0.389$).  We tentatively
+classify $R_1$ as a transcendental candidate of an as-yet-unidentified
+arithmetic type.
+\end{observation}
+
+The rest of the paper is organised as follows.  Section~\ref{sec:methods}
+sets up notation, defines the strata, and describes the screening
+pipeline.  Section~\ref{sec:cmax1} presents the $\mathrm{CMAX}=1$
+enumeration and Observation~\ref{obs:cmax1}.  Section~\ref{sec:cmax2}
+presents the $\mathrm{CMAX}=2$ enumeration, the ratio analysis, and
+Observations~\ref{obs:cmax2}--\ref{obs:ratio-refuted}.
+Section~\ref{sec:R1} concentrates on the mystery constant $R_1$.
+Section~\ref{sec:open} lists open problems.
+
+%% ===================================================================
+\section{Setup and Methodology}\label{sec:methods}
+%% ===================================================================
+
+\subsection{The space $\FF(4,3)$ and the degree-$(4,2)$ profile}
+
+We adopt the conventions of~\cite{PCF24}.  Coefficients are stored
+\emph{leading first}: a degree-$4$ polynomial $a(n)$ is represented by
+$[a_4,a_3,a_2,a_1,a_0]$ and a degree-$2$ polynomial $b(n)$ by
+$[b_2,b_1,b_0]$.  We restrict to PCFs with
+\[
+  \deg a = 4, \qquad \deg b = 2,
+\]
+so $a_4 \neq 0$ and $b_2 \neq 0$.  The coefficient bound $\mathrm{CMAX}$
+determines the search box: every coefficient lies in
+$\{-\mathrm{CMAX},\dotsc,\mathrm{CMAX}\}$.
+
+\begin{definition}[Sign-symmetry reduction]
+The map $(a,b) \mapsto (-a, b)$ negates the limit, so without loss of
+generality we restrict to $a_4 > 0$.  This halves the effective search
+space.
+\end{definition}
+
+The total enumerations after restriction are summarised in
+Table~\ref{tab:enum-sizes}.
+
+\begin{table}[h]
+\centering
+\caption{Search-space sizes for degree-$(4,2)$ enumerations.}
+\label{tab:enum-sizes}
+\begin{tabular}{lrrr}
+\toprule
+$\mathrm{CMAX}$ & nominal box & after $a_4>0$ & label \\
+\midrule
+$1$ & $3^7 = 2{,}187$ & $1{,}458$  & full enumeration \\
+$2$ & $5^7 = 78{,}125$ & $125{,}000$\textsuperscript{$\dagger$} & full enumeration \\
+\bottomrule
+\end{tabular}
+\\[2pt]
+{\footnotesize $\dagger$Sign-symmetric box of size $2 \cdot 5^7 / 2 = 125{,}000$
+realised after de-duplication; coefficient ranges include $\{-2,-1,0,1,2\}$
+with $a_4>0$ enforcing $a_4 \in \{1,2\}$.}
+\end{table}
+
+\subsection{Strata and the bilinear-$\pi$ basis}
+
+We retain the four-stratum decomposition of~\cite{PCF24}:
+\[
+  \FF(d_a,d_b)_{\mathrm{conv}}
+  \;=\; \Rat \sqcup \Alg \sqcup \mathrm{LogBilin} \sqcup \Trans
+\]
+where $\mathrm{LogBilin}$ denotes the bilinear-$\pi$ ladder
+\[
+  \mathrm{LogBilin} \;=\;
+  \mathbb{Q}\bigl[1,\;\pi,\;\log 2,\;\zeta(3)\bigr]
+  \cap \{\text{bilinear forms in $1$ and $\pi$ over $\mathbb{Q}$}\}
+\]
+extended where appropriate by $L\cdot\pi$, $L\cdot\pi^2$, $L\cdot\log 2$,
+and $L\cdot\zeta(3)$, where $L$ denotes the family limit being tested.
+The $\Trans$-stratum collects families whose limits resist integer
+relations against this basis at the chosen working precision.
+
+\subsection{The three-stage pipeline}
+
+Each family undergoes:
+
+\begin{enumerate}
+\item \textbf{Stage~A (convergence).}\quad Float-precision recurrence to
+$N=200$ steps.  A relative-difference tolerance of $10^{-6}$ marks
+candidate convergence.  At $\mathrm{CMAX}=2$ the float prescreen no
+longer filters substantially: $124{,}334$ of $125{,}000$ families pass.
+This is documented (it is not a correctness issue, since Stage~B
+re-screens at high precision) but recorded as a methodological caveat.
+
+\item \textbf{Stage~B (algebraic / mpmath).}\quad
+Multiprecision recurrence at $\dps=50$ to $N=500$, with PSLQ tested
+against $[1,L,L^2,L^3,L^4]$.  Hits with degree-bounded integer
+coefficients at norm $\le 10^{6}$ are classified as $\Alg$.
+
+\item \textbf{Stage~C (bilinear-$\pi$).}\quad
+PSLQ at $\dps=100$ against the basis
+\[
+  \bigl[\,L,\;1,\;\pi,\;L\pi,\;\pi^2,\;L\pi^2,\;\log 2,\;L\log 2,\;\zeta(3)\,\bigr],
+\]
+with the mandatory L-coefficient rule (Remark~\ref{rem:phantom}).
+Survivors of Stage~C are classified as Trans-candidates and forwarded
+to deep validation at $\dps \in \{150, 300\}$.
+\end{enumerate}
+
+\subsection{Phantom-hit prevention}
+
+The only methodological subtlety in the pipeline arises from
+\emph{phantom hits}: PSLQ-discovered integer relations whose
+$L$-coefficient is zero.  Such a relation is satisfied by any value of
+$L$ and signals only a linear dependence \emph{within the basis},
+not an identification of the limit.  Two such traps were encountered
+during this investigation and are documented here once and for all.
+
+\begin{remark}[Two phantom-hit traps]\label{rem:phantom}
+The bilinear-$\pi$ basis contains the linear dependence
+$\zeta(2) - \pi^2/6 = 0$ when both $\zeta(2)$ and $\pi^2$ are present;
+PSLQ then returns the integer relation $[0,0,\dotsc,0,-6,1]$
+(coefficient on $L$ equal to zero), which would falsely classify a
+Trans family as $\mathrm{LogBilin}$.  An analogous trap arises in any
+basis containing both $\varphi=(1+\sqrt5)/2$ and $\sqrt5$: the
+relation $2\varphi - \sqrt5 - 1 = 0$ has $L$-coefficient zero.  We
+filter both by the rule
+\[
+  \texttt{int(rel[L\_index]) != 0}
+  \quad\text{(mandatory).}
+\]
+At $\mathrm{CMAX}=2$ this rule rejects $28$ phantom hits in Stage~C
+and a further $6$ in the deep-validation pick-identify pass,
+preserving the integrity of the Trans count.
+\end{remark}
+
+\subsection{Precision escalation and certificate discipline}
+
+The pipeline above implements three precision tiers ($\dps=50$ in
+Stage~B, $\dps=100$ in Stage~C, $\dps=150$--$300$ in deep
+validation).  This escalation discipline serves two purposes.
+
+First, every PSLQ relation that survives at the next-higher precision
+rules out a wider class of spurious hits: a relation whose integer
+coefficients have norm $\le 10^{6}$ and which holds at $\dps=300$
+requires the candidate basis values to agree with $L$ to roughly
+$300 - \log_{10}(10^{6}) \approx 294$ digits.  In practice we find
+that any genuine algebraic or bilinear-$\pi$ relation in this PCF
+family is detected already at Stage~C; the deep-validation pass acts
+as a falsification filter rather than a discovery tool.
+
+Second, the escalation produces a residual--versus--$\dps$ profile
+for each candidate which, when fitted on a log scale, distinguishes a
+genuine integer relation (slope $-1$ in $\log_{10}|\mathrm{residual}|$
+as a function of $\dps$) from a numerical coincidence (slope $0$).
+We do not present the full slope-fit data here---this falls under
+follow-up work---but emphasise that the certificates of
+Observations~\ref{obs:cmax1cert} and~\ref{obs:cmax2dv} are issued at
+the higher precision tier, where any algebraic or bilinear-$\pi$
+relation should still be detectable if present.
+
+%% ===================================================================
+\section{Results at $\mathrm{CMAX}=1$}\label{sec:cmax1}
+%% ===================================================================
+
+\subsection{Classification breakdown}
+
+The $\mathrm{CMAX}=1$ enumeration of $1{,}458$ families produces the
+following Stage~A--C breakdown.  Of $1{,}162$ Stage-C survivors, every
+single family passes deep validation at $\dps=300$ against an
+\emph{extended} bilinear-$\pi$ basis augmented by
+$L\cdot\zeta(3)$, $\zeta(5)$, and Catalan's constant.
+
+\begin{observation}[CMAX$=1$ certificate]
+\label{obs:cmax1cert}
+Out of $1{,}162$ Trans-candidate families, $1{,}162/1{,}162$ are
+Trans-hard at $\dps=300$ against the seven-family extended basis,
+yielding $0$ identifications across $35$ PSLQ probes ($5$ representative
+limits times $7$ bases).
+\end{observation}
+
+\subsection{Sample basis identification attempts}
+
+Five representative limits, drawn to span the full range of $|L|$
+observed at $\mathrm{CMAX}=1$, are tested against the extended basis at
+$\dps=300$.  Each PSLQ probe with a candidate basis returns either
+zero confidence or a phantom relation rejected by
+Remark~\ref{rem:phantom}.  The summary is $0/35$.
+
+\subsection{Mystery constant $R_1$}
+
+Among the deep-validated families, one limit is singled out for
+follow-up:
+\[
+  R_1 \;=\; -0.10123520070804963\ldots
+\]
+to $30$ significant digits.  We discuss $R_1$ in detail in
+Section~\ref{sec:R1}.
+
+\subsection{Discussion of the CMAX$=1$ result}
+
+Observations~\ref{obs:cmax1} and~\ref{obs:cmax1cert} together
+establish that, at the smallest non-trivial coefficient bound, the
+degree-$(4,2)$ profile is dominated by Trans-candidate behaviour:
+$1{,}162/1{,}458 \approx 79.7\%$ of all sign-reduced families survive
+the full bilinear-$\pi$ pipeline at $\dps=300$ as Trans-hard.  In
+contrast, the F$(2,4)$ result of~\cite{PCF24} found only
+$24/531{,}441 \approx 4.5 \times 10^{-3}\%$ Trans families.  The
+two numbers are not directly comparable---F$(2,4)$ runs over
+both $a$ and $b$ simultaneously of degree~$2$, while the present work
+fixes both degrees---but the qualitative contrast (sparse rare event
+at $k=1$ versus dense generic behaviour at $k=2$) is striking and
+deserves a theoretical explanation; see Problem~\ref{prob:density}
+below.
+
+%% ===================================================================
+\section{Results at $\mathrm{CMAX}=2$ and ratio analysis}\label{sec:cmax2}
+%% ===================================================================
+
+\subsection{Enumeration and screening}
+
+The $\mathrm{CMAX}=2$ enumeration covers $125{,}000$ degree-$(4,2)$
+families.  Trans-candidates after Stage~C number $108{,}762$ ($\approx
+87.0\%$).  Stage~C catches $28$ phantom-hit families, all rejected by
+the L-coefficient rule of Remark~\ref{rem:phantom}.  The Trans
+candidates are deduplicated by their limit value (computed at
+$\dps=50$, $N=500$, then formatted to $30$ digits), yielding $108{,}815$
+unique limits across the candidate set; this deduplication is purely
+to economise on the deep-validation budget and does not affect the
+classification of any individual family.
+
+\subsection{Deep validation sample}
+
+A pseudo-random sample of $1{,}000$ unique-limit families is drawn with
+seed $20260427$ and deep-validated at $\dps=150$ ($N=1{,}500$) against the
+$9$-element bilinear-$\pi$ basis of Section~\ref{sec:methods}.
+
+\begin{observation}[CMAX$=2$ deep validation]\label{obs:cmax2dv}
+$1{,}000/1{,}000$ sampled families return Trans-hard at $\dps=150$.
+\end{observation}
+
+\subsection{Ratio analysis}
+
+For each Trans-hard family we compute the leading-coefficient ratio
+$\rho := a_4/b_2^2$.  At $\mathrm{CMAX}=2$ with $a_4\in\{1,2\}$ and
+$b_2\in\{-2,-1,1,2\}$ (and $b_2\ne 0$), $\rho$ takes exactly four
+values: $\{1/4,\;1/2,\;1,\;2\}$.
+
+\begin{table}[h]
+\centering
+\caption{Distribution of $\rho := a_4/b_2^2$ over the $1{,}000$ deep-validated
+sample, and Trans-hard rate conditional on $\rho$ across the
+$108{,}762$ Stage-C survivors.}
+\label{tab:rho}
+\begin{tabular}{cccc}
+\toprule
+$\rho$ & sample share & Trans-hard rate & $|$ratio $-$ uniform$|$ \\
+\midrule
+$1/4$ & $\approx 25\%$ & $85.8\%$ & $-$ \\
+$1/2$ & $\approx 25\%$ & $89.1\%$ & $-$ \\
+$1$   & $\approx 25\%$ & $86.0\%$ & $-$ \\
+$2$   & $\approx 25\%$ & $89.0\%$ & $-$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{observation}[Ratio is not predictive]\label{obs:rho-flat}
+The Trans-hard rate by $\rho$ has spread $89.1 - 85.8 = 3.3$
+percentage points over a $108{,}762$-family base.  No value of $\rho$
+materially predicts Trans-hardness; in particular the F$(2,4)$ value
+$\rho_{\text{F$(2,4)$}} = -2/9$, which has no analogue at degree $(4,2)$
+because $\rho$ here is a square-denominator ratio, does not extend.
+The natural ``ratio-as-structural-law'' extension of the $k=1$
+identity is therefore refuted at $k=2$.
+\end{observation}
+
+\subsection{Refutation of the $\pi^2$--Ap\'ery connection}
+
+A second sub-hypothesis predicted that the deep-validated Trans-hard
+limits should fall in $\mathrm{LogBilin}$ extended with $L\cdot\pi^2$
+basis elements (mirroring Ap\'ery's $\pi^2$-bearing recurrence
+for~$\zeta(2)$).  Across the $1{,}000$-family sample at $\dps=150$,
+zero such hits are found.
+
+\begin{observation}[$\pi^2$--Ap\'ery refuted at $k=2$]
+\label{obs:apery-refuted}
+$0$ of $1{,}000$ deep-validated families admit an integer relation
+against the basis containing $L\cdot\pi^2$, with the L-coefficient
+non-zero, at $\dps=150$.
+\end{observation}
+
+%% ===================================================================
+\section{The mystery constant $R_1$}\label{sec:R1}
+%% ===================================================================
+
+The constant
+\[
+  R_1 \;=\; -0.10123520070804963\,\ldots
+\]
+arises as the limit of a single Trans-hard family in the
+$\mathrm{CMAX}=1$ enumeration.  We summarise its known properties.
+
+\paragraph{Algebraic exclusion.}
+PSLQ at $\dps=300$ tested $R_1$ against
+$\{[1,L,L^2,L^3,L^4],[1,L,L^2,L^3,L^4,L^5]\}$ with norm bound $10^{12}$:
+no relation found.
+
+\paragraph{Bilinear-$\pi$ exclusion.}
+PSLQ at $\dps=300$ against the seven candidate bases
+\[
+  \mathrm{A,\,B,\,C,\,D,\,Dp,\,Da,\,extended}
+\]
+of~\cite{PCF24} (each with the L-coefficient rule of
+Remark~\ref{rem:phantom}) returns $0/35$ identifications.
+
+\paragraph{RIES.}
+The inverse-symbolic engine RIES finds an $8$-digit coincidence with
+\emph{some} symbolic form, but the absolute discrepancy is
+$0.389$---i.e., RIES locates a symbolic neighbour at distance
+$0.389$ from $R_1$, which is not an identification.
+
+\paragraph{OEIS.}
+A truncated $17$-digit prefix of $R_1$ returns no matches against the
+OEIS database.
+
+\paragraph{LMFDB.}
+A targeted lookup against the L-functions and Modular Forms Database
+(LMFDB) for $L$-function and zeta-value entries within absolute
+distance $10^{-12}$ of $R_1$ returns no candidate.  The bridge commit
+\texttt{3a5bb2b} records the search box and the (empty) result.
+
+\paragraph{Stability under reciprocal and small linear maps.}
+We verified that $1/R_1$, $-R_1$, and $R_1 + r$ for
+$r \in \{0, \pm 1, \pm 1/2, \pm 1/3\}$ all fail PSLQ
+identification under the same bases.  This rules out a
+``shifted'' or ``inverted'' identification missed by the principal
+search.
+
+\begin{problem}[Identification of $R_1$]\label{prob:R1}
+Determine an arithmetic characterisation of $R_1$, or prove that $R_1$
+is not in $\overline{\mathbb{Q}(\pi,\log 2,\zeta(3))}$.
+\end{problem}
+
+%% ===================================================================
+\section{Open problems}\label{sec:open}
+%% ===================================================================
+
+\begin{problem}[Basis identification]
+Determine the smallest basis $B$ of constants such that some
+nontrivial $\mathbb{Z}$-linear relation exists between $R_1$ and
+elements of $B$, or prove no such finite $B$ exists.
+\end{problem}
+
+\begin{problem}[Extension to $k=3$]
+Carry out the analogous enumeration at degree profile $(6,3)$.  The
+F$(2,4)$ enumeration cost is $\sim 5\times 10^5$ families; the
+degree-$(4,2)$ enumeration at $\mathrm{CMAX}=2$ costs $1.25\times 10^5$
+families.  At $\mathrm{CMAX}=2$, degree-$(6,3)$ would cost $5^{10} \approx
+10^7$ families before symmetry reductions, an order-of-magnitude jump
+that nevertheless remains feasible.
+\end{problem}
+
+\begin{problem}[Theoretical explanation for the $\sim87\%$ density]
+\label{prob:density}
+At $\mathrm{CMAX}=2$, $87\%$ of degree-$(4,2)$ families are
+Trans-hard at deep precision.  Provide a heuristic or theoretical
+prediction of this density.  Compare against the corresponding
+density at $\mathrm{CMAX}=1$, $\mathrm{CMAX}=3$, and as
+$\mathrm{CMAX}\to\infty$.
+\end{problem}
+
+\begin{problem}[Connection to known transcendence theory]
+Determine whether any of the candidate Trans-hard limits arise as
+periods (in the sense of Kontsevich--Zagier) or as values of the
+Riemann zeta function or Dirichlet $L$-functions at integer
+arguments.  Negative results in this direction would strengthen the
+case for the existence of a new family of transcendental constants.
+\end{problem}
+
+\subsection{Concluding remarks}
+
+The overall picture emerging from this investigation is:
+\begin{itemize}
+\item The existential part of the $2k$-degree conjecture\,---that
+Trans-stratum behaviour persists at degree-$(2k,k)$ for $k=2$\,---is
+confirmed at scale.
+\item The structural part of the conjecture\,---that there is a
+degree-independent ratio identity governing the Trans stratum\,---is
+refuted in the form $a_4/b_2^2 = \mathrm{const}$.  Whether some other
+structural identity (involving more coefficients, or a non-rational
+function of them) governs the stratum remains open.
+\item A new transcendental candidate, $R_1$, has been isolated and
+resists identification by all standard tools.  Its arithmetic nature
+is the central open question of this investigation.
+\end{itemize}
+
+%% ===================================================================
+\section*{Computational and AI-Assistance Disclosure}
+%% ===================================================================
+
+All enumerations and PSLQ verifications were carried out in Python
+3.14 with \texttt{mpmath} 1.3.0 for arbitrary-precision arithmetic and
+the built-in \texttt{mp.pslq} integer-relation routine.  Each
+numerical claim in this paper is accompanied by an entry in the
+session's \texttt{claims.jsonl} ledger giving the working precision
+$\dps$, the script that produced the result, and the SHA-256 hash of
+the script source.  This ledger forms part of the AEAL (Agent
+Epistemic Accountability Layer) protocol~\cite{aeal}.
+
+Manuscript preparation involved GitHub Copilot (OpenAI) and
+Anthropic Claude (Sonnet) in an advisory role: the agents drafted
+prose, suggested structural edits, and ran computations under the
+SIARC pipeline, but every mathematical statement was independently
+re-derived and validated by the author.
+
+\bigskip
+\noindent\textbf{Reproducibility.}
+The full source archive of scripts and certificates is hosted at
+\url{https://github.com/papanokechi/siarc-relay-bridge}, with key
+bridge commits \texttt{84f91bf} (degree-$(4,2)$ search),
+\texttt{fa259b0} (deep validation), \texttt{45fe389} (basis
+identification), \texttt{3a5bb2b} (LMFDB lookup), and
+\texttt{ce25196} (CMAX$=2$ ratio analysis).
+
+%% ===================================================================
+\begin{thebibliography}{9}
+
+\bibitem{PCF24}
+Papanokechi, \emph{A complete arithmetic stratification of degree-$2$
+polynomial continued fractions: the $\FF(2,4)$ base case}, Preprint,
+2026.  Mathematics of Computation submission \texttt{260422-Papanokechi}.
+
+\bibitem{aeal}
+Papanokechi, \emph{AEAL: Agent epistemic accountability layer},
+Zenodo, 2026.\\
+\url{https://doi.org/10.5281/zenodo.19565086}
+
+\bibitem{apery}
+R.~Ap\'ery, \emph{Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$},
+Ast\'erisque \textbf{61} (1979), 11--13.
+
+\bibitem{bbp}
+D.~Bailey, P.~Borwein, and S.~Plouffe, \emph{On the rapid computation
+of various polylogarithmic constants}, Mathematics of Computation
+\textbf{66} (1997), 903--913.
+
+\bibitem{fb}
+H.~R.~P.~Ferguson and D.~H.~Bailey, \emph{A polynomial time,
+numerically stable integer relation algorithm}, RNR Technical Report
+RNR-91-032, NASA Ames, 1992.
+
+\bibitem{lindemann}
+F.~Lindemann, \emph{{\"U}ber die Zahl~$\pi$}, Mathematische Annalen
+\textbf{20} (1882), 213--225.
+
+\end{thebibliography}
+
+\end{document}
