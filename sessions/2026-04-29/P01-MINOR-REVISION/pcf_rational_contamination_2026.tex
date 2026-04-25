@@ -14,9 +14,8 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
-\title[Rational Contamination in PCF Searches]{Trivial rational contamination in PSLQ-based
-  polynomial continued fraction searches:\\
-  diagnosis, correction, and a pre-screening protocol}
+\title[Rational Contamination in PCF Searches]{A Pre-Screening Protocol for Rational Contamination
+  in Polynomial Continued Fraction Searches}
 
 \author{Papanokechi}
 \address{Independent researcher}
@@ -122,10 +121,10 @@ The Ramanujan Machine project~\cite{raayoni2021} employs a different
 strategy: exhaustive search over a large parameter space, accepting
 rational outcomes as candidates for subsequent human verification.
 Our pre-screening protocol is complementary: it eliminates provably
-rational families \emph{before} the search, reducing computational
-cost by approximately~$[X]\%$ in our test suite (precise figure
-pending; the trivial-zero filter alone removes $\sim$5--9\%\ of
-families per degree, before any high-precision evaluation).
+rational families \emph{before} the search.
+In our $1{,}000$-family survey, the protocol eliminates all $43$
+rational families before PSLQ evaluation, avoiding unnecessary
+high-precision computation on $4.3\%$ of candidates.
 
 % =====================================================================
 \section{The Wallis recurrence and a convention warning}\label{sec:wallis}
