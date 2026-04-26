@@ -1,0 +1,40 @@
+[STEP 1] Enumeration:
+  a2 in [-7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7]
+  b1 in [-7, -6, 6, 7]
+  a1,a0,b0 in -7..7
+  TOTAL: 189000 families
+
+[STEP 2A] Stage A convergence filter (float64, K=500)
+  Stage A progress: 0% (0/189000)
+  Stage A progress: 5% (9450/189000)
+  Stage A progress: 10% (18900/189000)
+  Stage A progress: 15% (28350/189000)
+  Stage A progress: 20% (37800/189000)
+  Stage A progress: 25% (47250/189000)
+  Stage A progress: 30% (56700/189000)
+  Stage A progress: 35% (66150/189000)
+  Stage A progress: 40% (75600/189000)
+  Stage A progress: 45% (85050/189000)
+  Stage A progress: 50% (94500/189000)
+  Stage A progress: 55% (103950/189000)
+  Stage A progress: 60% (113400/189000)
+  Stage A progress: 65% (122850/189000)
+  Stage A progress: 70% (132300/189000)
+  Stage A progress: 75% (141750/189000)
+  Stage A progress: 80% (151200/189000)
+  Stage A progress: 85% (160650/189000)
+  Stage A progress: 90% (170100/189000)
+  Stage A progress: 95% (179550/189000)
+  175686/189000 convergent in 55.8s
+
+[STEP 2B/C] PSLQ classification (dps=100, N=600)
+  Done in 2698.8s
+
+Wrote C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-04-29\T2B-RESONANCE-B67\t2b_resonance_b67_results.json
+Counts: {'Desert': 163764, 'Alg': 10890, 'Rat': 1030, 'Log': 2}
+By b1: {'-7': {'Desert': 41005, 'Alg': 2695, 'Rat': 266}, '-6': {'Desert': 40877, 'Alg': 2750, 'Rat': 249, 'Log': 1}, '6': {'Desert': 40877, 'Alg': 2750, 'Rat': 249, 'Log': 1}, '7': {'Desert': 41005, 'Alg': 2695, 'Rat': 266}}
+
+Log candidates (2):
+  ratio=-1/36  coeffs=[-1, 0, 0, -6, -3]  L=-2.88539
+  ratio=-1/36  coeffs=[-1, 0, 0, 6, 3]  L=2.88539
+Total wall time: 2755.3s
