@@ -1,0 +1,14 @@
+{
+  "unexpected_finds": [
+    {
+      "type": "absence-of-Log-at-1/36 below threshold",
+      "context": "T2B-RESONANCE-B67 found Log hits at ratio -1/36, family (a2,a1,a0,b1,b0)=(-1,0,0,+/-6,+/-3). At b1=12, ratio -1/36 would require a2=-4. (-4,0,0,+/-12,+/-?) families WERE in scope this session, but produced no Log/Trans hit — even at the geometrically natural b0=+/-6 (which IS outside our reduced free range {-3..3}). This is consistent with the b0 = b1/2 'doubling' pattern observed at b1=6 (b0=3), suggesting the Log-class identity is tied to a specific b0/b1 ratio (1/2) that this session's reduced free range cannot reach at b1=12 (would need b0=+/-6).",
+      "implication": "Log-stratum at ratio -1/36 may extend to b1=12 with b0=+/-6, but this session's free-range cap precluded reaching it. Worth a future targeted (a2=-4, b1=+/-12, a1=0, a0=0, b0=+/-6) check."
+    },
+    {
+      "type": "no-Trans-at--2/9-with-larger-b1",
+      "context": "The -2/9 ratio is reachable at (a2,b1)=(-18,9) and (-32,12) within our enumeration. Across all 343 free-coeff combinations at each, ZERO Trans hits emerged. This is a non-trivial datum but does not falsify the conjecture; it suggests Trans-stratum membership requires a specific coupling between (a2,b1) and (a1,a0,b0) that the reduced range cannot capture for these b1.",
+      "implication": "The original 24 Trans families at b1=+/-3 used a wider (a1,a0,b0) envelope. Confirming Trans-stratum extends to b1=9,12 at -2/9 will need a follow-up with free range {-7..7} or larger, restricted to a2 in {-18, -32} and b1 in {-12,-9,9,12}."
+    }
+  ]
+}
