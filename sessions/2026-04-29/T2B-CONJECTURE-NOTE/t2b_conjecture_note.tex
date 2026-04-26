@@ -122,9 +122,9 @@ negative-Worpitzky interior achievable at $D = 4$) motivated the
 present work.
 
 In this note we summarise four independent computational experiments
-which together survey roughly $150{,}000$ degree-$(2,1)$ PCFs and
-find \emph{zero} interior-stratum counterexamples to the relation
-$r = -2/9$.  We isolate a separate parabolic-boundary stratum at
+which together survey roughly $585{,}000$ degree-$(2,1)$ PCFs and
+find \emph{zero} interior-stratum Trans counterexamples to the
+relation $r = -2/9$.  We isolate a separate parabolic-boundary stratum at
 $r = +1/4$ (the Brouncker class) which lies on the \emph{positive}
 boundary and which the conjecture explicitly excludes.  We then
 state the central conjecture.
@@ -259,11 +259,15 @@ explanation tied to a particular transcendental.
 The four ratios $r \in \{-3/16,\,-4/25,\,-6/25,\,-2/49\}$ are the
 next admissible rational-indicial Worpitzky-interior values
 (Section~\ref{sec:framework}).  Restricted enumeration at
-$|b_1| \in \{4, 5\}$ (covering the first three ratios; $-2/49$
-requires $|b_1| = 7$, deferred), with the remaining slots
-$|a_1|, |a_0|, |b_0| \le 5$, was processed through the same
-PSLQ-based three-stage pipeline used in Experiments A and B.
-Results are summarised in Table~\ref{tab:resonance}.
+$|b_1| \in \{4, 5\}$ (covering the first three ratios), with the
+remaining slots $|a_1|, |a_0|, |b_0| \le 5$, was processed through
+the same PSLQ-based three-stage pipeline used in Experiments A and
+B.  Two follow-up resonance sessions extended the sweep to
+$|b_1| \in \{6, 7\}$ and $|b_1| \in \{8,9,10,11,12\}$
+(the latter covering the rational-indicial targets $r = -2/49$,
+$-2/9$ at $b_1 = \pm 9, \pm 12$, and $r = -35/144$ at
+$b_1 = \pm 12$).  Results are summarised in
+Table~\ref{tab:resonance}.
 
 \subsection*{Experiment D: indicial discriminant pre-screen}
 A theoretical analysis of all rationals $r$ with $\sqrt{1 + 4r} \in
@@ -289,27 +293,39 @@ $\FF(2,5)$ ($D=5$, Brouncker)      & $14$ & $0$  & $+1/4$         \\
 
 \begin{table}[t]
 \centering
-\caption{Targeted resonance search at $b_1 \in \{\pm 4, \pm 5\}$,
-$|a_1|,|a_0|,|b_0| \le 5$, dps $=100$.}
+\caption{Targeted resonance searches.  Top block: $b_1 \in \{\pm 4,
+\pm 5\}$, $|a_1|,|a_0|,|b_0| \le 5$.  Bottom block: extended
+sweeps at higher $|b_1|$.  All runs at dps $=100$.}
 \label{tab:resonance}
 \begin{tabular}{lrrr}
 \toprule
-Target ratio $r$ & Convergent families & Trans & Log \\
+Scope (target ratio $r$ or range) & Convergent families & Trans & Log \\
 \midrule
-$-3/16$ & $2{,}384$ & $0$ & $0$ \\
-$-4/25$ & $2{,}396$ & $0$ & $0$ \\
-$-6/25$ & $2{,}394$ & $0$ & $0$ \\
+$b_1 \in \{\pm 4, \pm 5\}$, $r = -3/16$ & $2{,}384$ & $0$ & $0$ \\
+$b_1 \in \{\pm 4, \pm 5\}$, $r = -4/25$ & $2{,}396$ & $0$ & $0$ \\
+$b_1 \in \{\pm 4, \pm 5\}$, $r = -6/25$ & $2{,}394$ & $0$ & $0$ \\
 \midrule
-Combined        & $7{,}174$ & $0$ & $0$ \\
+$b_1 \in \{\pm 6, \pm 7\}$ (full sweep) & $175{,}686$ & $0$ & $2$ \\
+$b_1 \in \{\pm 8,\dots,\pm 12\}$ (motivated targets) & $259{,}280$ & $0$ & $0$ \\
+\midrule
+Combined        & $442{,}140$ & $0$ & $2$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection*{Aggregate}
-The combined empirical base across the four experiments comprises
-approximately $150{,}000$ integer degree-$(2,1)$ PCF families
-surveyed.  The number of Trans-stratum and Log-stratum families with
-$r \ne -2/9$ \emph{and} $r$ in the negative Worpitzky interior
+The combined empirical base across the experiments comprises
+approximately $585{,}000$ integer degree-$(2,1)$ PCF families
+surveyed (convergent count, including the extended
+$b_1 \in \{6,7\}$ and $b_1 \in \{8,\dots,12\}$ resonance sweeps).
+The two Log-stratum families found at $b_1 = \pm 6$ both lie at
+$r = -1/36$ (a Bauer--Stern doubling parameter outside the
+admissible rational-indicial set predicted by the conjecture's
+framework) and are tracked under Section~\ref{sec:open}.  Notably,
+at $b_1 = \pm 12$ the ratio $r = -35/144$ was tested explicitly
+and produced $0$ hits.  The number of Trans-stratum families with
+$r \ne -2/9$ \emph{and} $r$ in the negative Worpitzky
+interior
 (equivalently: the number of counterexamples to
 Conjecture~\ref{conj:tri}) is exactly zero.  The $14$ Brouncker
 families at $r = +1/4$ lie on the positive Worpitzky boundary and
