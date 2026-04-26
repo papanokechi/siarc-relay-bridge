@@ -1,0 +1,18 @@
+{
+  "unexpected_finds": [
+    {
+      "type": "Log-stratum hit at ratio not previously catalogued",
+      "ratio": "-1/36",
+      "indicial_discriminant": "1 + 4*(-1/36) = 8/9 (not a rational square)",
+      "indicial_roots": "irrational",
+      "families": [
+        {"coeffs": [-1, 0, 0, -6, -3], "L": "-2/log(2)"},
+        {"coeffs": [-1, 0, 0,  6,  3], "L":  "+2/log(2)"}
+      ],
+      "stage_c_relation": "L * log(2) -/+ 2 = 0",
+      "deep_validation_residual": "5.6516e-150 at dps=150, K_1500",
+      "comment": "These two families produce L = +/-2/log(2) exactly. The PCF a_n = -n^2, b_n = 6n+/-3 is recognisable as a classical-style Bauer/Stern continued fraction for 2/log 2. Not a counterexample to the Trans-stratum -2/9 conjecture (Log != Trans), but extends the catalog of known Log-stratum ratios beyond -2/9. Note: indicial discriminant 8/9 is NOT a rational square, meaning indicial roots {(1+/-sqrt(8/9))/2} are irrational; nevertheless a clean Log-class identity exists. This challenges the heuristic that rational indicial roots are necessary for Log-stratum membership.",
+      "context": "T2B-F25-FALSIFICATION found 12 Log families at ratio -2/9 in F(2,5). This session adds Log at ratio -1/36 with irrational indicial roots."
+    }
+  ]
+}
