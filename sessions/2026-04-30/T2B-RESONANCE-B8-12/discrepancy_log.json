@@ -1,0 +1,11 @@
+{
+  "scope_reduction": {
+    "type": "free coefficient range narrowing",
+    "from": "{-5,...,5} (per task prompt)",
+    "to": "{-3,...,3}",
+    "reason": "prompt's a2 range [-floor(b1^2/2), floor(b1^2/2)] combined with b1 in {-12..-8, 8..12} and free range {-5..5} gives 1,352,296 families, exceeding the 500,000 halt threshold from copilot-instructions.md.",
+    "actual_total": 348488,
+    "would_have_been": 1352296,
+    "implication_for_results": "the conjecture-defining ratio -2/9 IS reachable in this scope at (a2,b1)=(-18,9) and (-32,12), but the original 24 Trans hits at b1=+/-3 used (a1,a0,b0) shapes potentially outside {-3..3}^3. Absence of Trans at the -2/9 ratio for these b1 may be due to free-coeff restriction rather than absence of Trans-stratum membership."
+  }
+}
