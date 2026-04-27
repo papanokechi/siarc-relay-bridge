@@ -1,0 +1,12 @@
+[
+  {
+    "finding": "ForwardInvarianceFramework.lean uses '(F := F) (T := T) (S := S)' named-arg syntax against SafetyCertificate at lines 248, 261, 274, 290, but Lean 4.14 reports 'invalid argument name F for function'. This indicates the structure's auto-bound implicits are not being assigned the variable name 'F' under the current toolchain. Existing convention in Examples/Example_ThermoelasticSystem.lean line 319 uses the same pattern against QuasiStaticLink and works there -- so the breakage is specific to SafetyCertificate, possibly because its first usage of F is via 'siarc_flow (F := F)' nested inside a field type, while QuasiStaticLink uses F directly in a structure-level type.",
+    "scope": "out_of_relay_scope",
+    "needs_review": true
+  },
+  {
+    "finding": "P16 was claimed to leave only 4 errors at Control.lean:77, Control.lean:86, Barriers.lean:235, Barriers.lean:242. After applying targeted fixes for those, ForwardInvarianceFramework.lean revealed 9 further pre-existing errors (noncomputable IR, typeclass-stuck, named-arg, unsolved-goals) -- meaning P16's '4 errors' count was actually the visible front of a deeper cascade masked by Barriers.lean failing to compile.",
+    "scope": "relay_planning",
+    "needs_review": true
+  }
+]
