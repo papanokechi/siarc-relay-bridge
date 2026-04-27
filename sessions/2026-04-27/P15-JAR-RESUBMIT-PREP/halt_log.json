@@ -1,0 +1,17 @@
+﻿[
+  {
+    "halt_step": 3,
+    "trigger": "lake build exit 1",
+    "failed_targets": ["SIARCRelay11.Axioms", "SIARCRelay11.Parameters", "SIARCRelay11.Theorems.LocalWellPosedness"],
+    "errors": [
+      "SIARCRelay11/Axioms.lean:43:20 unknown identifier 'Path'",
+      "SIARCRelay11/Axioms.lean:44:16 unknown identifier 'R'",
+      "SIARCRelay11/Axioms.lean:70:19 invalid binder annotation, type is not a class instance",
+      "SIARCRelay11/Parameters.lean:90:2 failed to generate projections for 'Prop' structure, field 'ellipticity_constant' is not a proof",
+      "SIARCRelay11/Parameters.lean:101:2 failed to generate projections for 'Prop' structure, field 'inverse_bound' is not a proof",
+      "SIARCRelay11/Theorems/LocalWellPosedness.lean:82:9 failed to infer binder type"
+    ],
+    "diagnosis": "pre-existing build failure in SIARCRelay11/ trusted-core namespace; not caused by Step 1-2 legacy excision; missing Mathlib imports (Path, R) plus Prop/Type structural errors",
+    "implication": "P15 manuscript's claim of 0-sorry trusted core is currently unverifiable because the namespace does not elaborate"
+  }
+]
