@@ -1,0 +1,12 @@
+{
+  "scale_invariance_C2_hits": {
+    "description": "Part C2 PSLQ found 10 pairwise relations among Trans CF limits. After post-hoc inspection, all 10 reduce to the trivial scale invariance L(lambda*b1) = lambda*L(b1) for the (a0,a1,b0)=(0,0,0) sub-family. They are NOT phantom hits in the strict L-coefficient sense, and are NOT unexpected mathematically (linear scaling is structural for homogeneous recurrences). Logged for completeness only; no action required.",
+    "examples": [
+      "T01 vs T03: L(b1=6) = 2 * L(b1=3) = 0.987389... = 2 * 0.493694...",
+      "T01 vs T05: L(b1=9) = 3 * L(b1=3)",
+      "T01 vs T07: L(b1=12) = 4 * L(b1=3)",
+      "T01 vs T09: L(b1=15) = 5 * L(b1=3)"
+    ],
+    "verdict": "tautological"
+  }
+}
