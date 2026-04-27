@@ -1,0 +1,17 @@
+[
+  {
+    "step": "5",
+    "reason": "Attribute [instance] approach (Option A from P18) registers six instances correctly but does not unblock ForwardInvarianceFramework synthesis: instance database lookup at structure/def use sites still sees ?m.carrier metavariable before F is unified, so neither the new attribute-instance nor the variable-block hypothesis can fire. Removing the variable-block to give the attributes a chance triggers diamond inheritance — Barriers.lean's `g₁`/`g₂`/`g₃'`/`g₄`/`g₅` were elaborated with the variable-block instance, so the SIARC DAG path (which now resolves via `F.normed`) produces type mismatches on `And.intro h1 h2 ...` because @g₁ F T S F.normed and @g₁ F T S inst✝⁸ are distinct terms.",
+    "remaining_errors": [
+      "ForwardInvarianceFramework.lean:196:35 typeclass instance problem stuck (NormedSpace ℝ ?m.carrier) — siarc_forwardInvariant body",
+      "ForwardInvarianceFramework.lean:233:12 typeclass instance problem stuck — SafetyCertificate.invariance field",
+      "ForwardInvarianceFramework.lean:248:22 invalid argument name 'F' — SafetyCertificate (F := F) at mk' use site",
+      "ForwardInvarianceFramework.lean:261:30 invalid argument name 'F' — apply use site",
+      "ForwardInvarianceFramework.lean:264:69 unsolved goals (cascade)",
+      "ForwardInvarianceFramework.lean:274:30 invalid argument name 'F' — apply_InSafe use site",
+      "ForwardInvarianceFramework.lean:290:30 invalid argument name 'F' — iterate use site"
+    ],
+    "halt_clause": "attribute [instance] declarations cause instance conflicts in other modules (diamond inheritance — log and halt)",
+    "recommended_next": "P20-FIELDSPACE-CLASS-REFACTOR — convert FieldSpace/ThermalSpace/StructuralSpace from `structure` to `class … extends NormedAddCommGroup carrier, NormedSpace ℝ carrier where inner_product : InnerProductSpace ℝ carrier`. This makes the typeclass part of the class signature rather than a field, eliminating the projection-blocks-synthesis problem at the language level. Touches StateSpace.lean (definitions), and possibly Operators.lean / Barriers.lean / Invariance.lean (where instance hypotheses become redundant). Verify with `grep -rn 'NormedAddCommGroup F\\.carrier\\|NormedSpace ℝ F\\.carrier' lean4/SIARCRelay11/` to bound blast radius. If <30 sites: single-pass Option C. Otherwise: scaffold via Option B (positional carrier type args on SafetyCertificate)."
+  }
+]
