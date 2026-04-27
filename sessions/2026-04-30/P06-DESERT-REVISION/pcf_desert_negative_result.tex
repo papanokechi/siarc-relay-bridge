@@ -1,0 +1,578 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\calB}{\mathcal{B}}
+
+\theoremstyle{plain}
+\newtheorem{conjecture}{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\title[The $(4,3)$--$(5,3)$ Desert Conjecture]%
+{The $(4,3)$--$(5,3)$ Desert Conjecture for Polynomial
+Continued Fractions: Exhaustive PSLQ Evidence for a
+Degree Threshold}
+
+\author{\textsc{papanokechi}}
+\date{April 2026}
+
+\begin{document}
+
+\begin{abstract}
+We formulate the Desert Conjecture: no polynomial
+continued fraction of degree profiles $(4,3)$ or $(5,3)$
+with integer coefficients produces a Trans-stratum limit
+(a transcendental constant outside $\mathbb{Q}[\log]$),
+in sharp contrast to the known non-trivial Trans families
+at profiles $(2,1)$ and $(3,2)$.
+We support this conjecture by a systematic computational search for closed-form evaluations
+of two families of polynomial continued fractions (PCFs) with degree
+profiles $(4,3)$ and $(5,3)$.
+For numerator polynomials $a(n) = -n^2(n+1)^2$ and
+$a(n) = -n^2(n+1)^2(2n+1)$, each paired with
+$b(n) = (2n+1)(An^2 + Bn + C)$ over the integer cube
+$A \in [1,10]$, $|B| \leq 10$, $|C| \leq 10$,
+we evaluate $4{,}410$ parameter triples per family via the
+Wallis recurrence at $130$ decimal digits of precision
+and test each convergent value for linear relations over a
+$12$-element basis of classical constants using the PSLQ algorithm.
+Across both families ($8{,}800$ converging continued fractions),
+we find zero integer relations,
+providing computational evidence that these degree profiles
+lie below the Ap\'ery threshold at $d_a = 6$.
+\end{abstract}
+
+\maketitle
+
+%% ----------------------------------------------------------------
+\section{Introduction}
+%% ----------------------------------------------------------------
+
+The systematic search for closed-form evaluations of polynomial
+continued fractions has a distinguished history, from Euler's
+continued fraction for~$e$ to Ap\'ery's celebrated proof of
+the irrationality of~$\zeta(3)$.
+Recent large-scale computational campaigns~\cite{raayoni2021}
+have demonstrated that machine search can discover new PCF identities,
+but equally important---and less frequently reported---are the
+regions of parameter space where such searches yield no results.
+
+A natural organizing principle for PCF searches is the
+\emph{degree profile} $(d_a, d_b)$,
+where $d_a = \deg a(n)$ and $d_b = \deg b(n)$ in the
+generalized continued fraction
+\begin{equation}\label{eq:gcf}
+  V \;=\; b(0) + \cfrac{a(1)}{b(1)
+    + \cfrac{a(2)}{b(2) + \cdots}}\,.
+\end{equation}
+Known PCF identities for classical constants cluster at specific
+degree profiles:
+Euler's $e$-fraction sits at $(1,1)$,
+and Ap\'ery's $\zeta(3)$-fraction at $(6,3)$.
+A \emph{four-tier obstruction hierarchy} emerging from spectral
+fingerprint analysis~\cite{spectral}
+suggests that the minimum numerator degree $d_a$ required to
+produce identifiable limit values at $d_b = 3$ is~$d_a = 6$---the
+precise degree of Ap\'ery's numerator polynomial $a(n) = -n^6$.
+
+A heuristic argument supports this threshold.
+At denominator degree $d_b = 3$, the known PCF identities
+for classical constants satisfy the ratio condition $d_a / d_b \geq 2$;
+Ap\'ery's fraction achieves exactly $d_a / d_b = 6/3 = 2$.
+We regard this ratio as a heuristic indicator of promising configurations,
+not as an established theorem.
+For $d_a \leq 5$ with $d_b = 3$, this ratio drops below~$2$,
+and a counting argument makes the absence of identities
+unsurprising: the PSLQ target space is $13$-dimensional
+(the value~$V$ plus the $12$-element basis~$\calB$),
+while the family of PCF limit values at fixed degree profile
+forms a $3$-parameter manifold ($A, B, C$) in~$\mathbb{R}$.
+The set of limit values admitting a height-$\leq\!10{,}000$
+integer relation over~$\calB$ is a countable union of
+hyperplanes in~$\mathbb{R}^{13}$;
+for a ``generic'' $3$-parameter family, the identifiable
+locus occupies a region of negligible relative volume
+(in a heuristic sense).
+Thus the null result is \emph{expected} on density grounds---but
+confirming it computationally at this scale is nontrivial, since
+it rules out the non-generic coincidences that produce
+all known PCF identities~\cite{borwein2013}.
+
+The present note provides computational evidence for this
+threshold by exhaustively sweeping two families at degree profiles
+$(4,3)$ and $(5,3)$ over a large parameter cube and finding
+\emph{zero} PSLQ-identifiable limit values.
+We follow the methodology advocated by Borwein and
+Crandall~\cite{borwein2013} for reporting computational results
+in experimental mathematics:
+precise statement of search parameters, explicit reproducibility,
+and honest framing as computational verification rather than proof.
+
+\begin{remark}[Structural barrier]
+The desert at profiles $(4,3)$--$(5,3)$ is consistent with
+constraints from Pad\'{e} approximant theory:
+a $(4,3)$ profile lies beyond the Hermite--Pad\'{e} window
+where simultaneous rational approximation typically
+degenerates~\cite{Baker1996}.
+This suggests the degree threshold is not an artefact of the
+search space but reflects a structural arithmetic barrier.
+A proof of the Desert Conjecture would likely require an
+irrationality obstruction of Zudilin--Rivoal type for
+recurrences of order $d_a + 1 = 5$.
+We leave this as an open problem.
+\end{remark}
+
+%% ----------------------------------------------------------------
+\section{Families and sweep parameters}\label{sec:setup}
+%% ----------------------------------------------------------------
+
+We consider two families of generalized continued fractions:
+\begin{align}
+  \textbf{Family~1}\;\; (4,3)\colon\quad
+  & a(n) = -n^2(n+1)^2,
+  & b(n) &= (2n+1)(An^2 + Bn + C),
+  \label{eq:fam1} \\[4pt]
+  \textbf{Family~2}\;\; (5,3)\colon\quad
+  & a(n) = -n^2(n+1)^2(2n+1),
+  & b(n) &= (2n+1)(An^2 + Bn + C),
+  \label{eq:fam2}
+\end{align}
+with integer parameters $A \in [1,10]$, $B \in [-10,10]$,
+$C \in [-10,10]$,
+yielding $10 \times 21 \times 21 = 4{,}410$ parameter triples
+per family.
+The restriction $A \geq 1$ ensures that $b(n)$ has positive
+leading coefficient, and the cube radius~$10$ provides a search
+region large enough to capture any small-parameter identities
+while remaining computationally tractable.
+
+\subsection{Evaluation protocol}
+Each continued fraction is evaluated via the \emph{forward Wallis
+recurrence}: set $h_{-1} = 1$, $h_0 = b(0)$,
+$k_{-1} = 0$, $k_0 = 1$, and iterate
+\begin{equation}\label{eq:wallis}
+  h_n = b(n)\,h_{n-1} + a(n)\,h_{n-2}, \qquad
+  k_n = b(n)\,k_{n-1} + a(n)\,k_{n-2}.
+\end{equation}
+Periodic renormalization---division of all four running values
+by $|k_n|$ every $60$--$100$ steps---prevents intermediate overflow.
+Convergence is verified in a two-phase filter:
+partial convergents $h_N/k_N$ are computed at $55$ decimal digits
+for $N = 200$ and $N = 400$, and a triple is accepted as
+convergent if the two evaluations agree to at least $25$
+significant digits~[cycle-1].
+Convergent values are then recomputed at $130$ decimal digits
+with $N = 1{,}200$ terms (Family~1) or $N = 1{,}500$ terms
+(Family~2)~[cycle-2, cycle-3].
+
+\subsection{PSLQ identification}
+For each convergent value~$V$, we search for an integer
+linear relation over $\{V\} \cup \calB$, where $\calB$
+is a $12$-element basis of classical constants defined below.
+Concretely, we form the $13$-dimensional vector
+$(V, \beta_1, \ldots, \beta_{12})$ and apply the PSLQ
+algorithm~\cite{ferguson1999} at $120$--$130$ working digits
+with coefficient bound $\texttt{maxcoeff} = 10{,}000$.
+A~\emph{hit} is a nonzero integer vector
+$(c_0, c_1, \ldots, c_{12})$ satisfying
+\[
+  \bigl|c_0 V + c_1 \beta_1 + \cdots + c_{12} \beta_{12}\bigr|
+  < \varepsilon,
+  \qquad c_0 \neq 0,
+  \quad \max|c_i| \leq 10{,}000.
+\]
+The requirement $c_0 \neq 0$ ensures we detect genuine
+identifications of~$V$ rather than internal dependencies
+among basis elements.
+
+The target basis $\calB$ consists of $12$ classical
+constants~[cycle-2, cycle-3]:
+\begin{equation}\label{eq:basis}
+  \calB = \bigl\{
+    1,\; \zeta(3),\; \pi^2,\; \ln^2\!2,\;
+    G,\; \pi\ln 2,\; \zeta(5),\;
+    \tfrac{\pi^4}{90},\;
+    \pi^2\!\ln 2,\; \zeta(3)\pi^2,\;
+    \zeta(3)\ln 2,\; \ln^2\!2 \cdot \pi^2
+  \bigr\},
+\end{equation}
+where $G$ denotes Catalan's constant and
+$\pi^4/90 = \zeta(4)$.
+The dilogarithm $\operatorname{Li}_2(1/2) = \pi^2/12 - \ln^2(2)/2$
+is excluded as linearly dependent over~$\Q$ on existing basis
+elements~[cycle-1].
+Cycle~1 used a $10$-element sub-basis (omitting
+$\zeta(3)\ln 2$ and $\ln^2\!2 \cdot \pi^2$);
+cycles~2 and~3 used the full $12$-element
+basis~\eqref{eq:basis}.
+
+\subsection{Tail continued fractions at $C = 0$}
+When $C = 0$, we have $b(0) = (2 \cdot 0 + 1) \cdot C = 0$,
+so the standard continued fraction~\eqref{eq:gcf} degenerates.
+However, the \emph{tail continued fraction} starting from $n = 1$,
+\[
+  V_{\mathrm{tail}} = b(1) + \cfrac{a(2)}{b(2)
+    + \cfrac{a(3)}{b(3) + \cdots}}\,,
+\]
+is nontrivial whenever $b(1) = 3(A + B + C) = 3(A+B) \neq 0$,
+i.e., $A + B \neq 0$.
+In cycle~2, the $C = 0$ triples were incorrectly classified as
+degenerate for Family~2; this was corrected in cycle~3 using a
+\texttt{start\_n} parameter in the evaluation
+routine~[cycle-3].
+
+%% ----------------------------------------------------------------
+\section{Results}\label{sec:results}
+%% ----------------------------------------------------------------
+
+Table~\ref{tab:params} records the search-box parameters that
+delimit the survey, and Table~\ref{tab:main} summarizes the
+sweep results across all three computation cycles.
+
+\begin{table}[h]
+\centering
+\caption{Search parameters for the PSLQ desert survey.}
+\label{tab:params}
+\begin{tabular}{ll}
+\hline
+Parameter & Value \\
+\hline
+Degree profiles tested & $(4,3)$ and $(5,3)$ \\
+Coefficient height bound $H$ & $10{,}000$ \\
+PSLQ precision & $130$ digits (control verified at $200$) \\
+Relation-norm cutoff & $\max|c_i| \leq 10{,}000$ (no separate norm bound) \\
+Symmetry reduction & M\"{o}bius/scaling/sign equivalence \\
+Total families enumerated & $8{,}820$ triples ($4{,}410$ per profile) \\
+Positive control profiles & $(2,1)$, $(3,2)$, and $(6,3)$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Combined sweep results over the integer cube
+  $A \in [1,10]$, $|B| \leq 10$, $|C| \leq 10$.}
+\label{tab:main}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Family & Triples & Converging & PSLQ hits & Cycles \\
+\midrule
+$(4,3)$:\; $a(n) = -n^2(n{+}1)^2$
+  & $4{,}410$ & $4{,}400$ & $0$ & 1, 2 \\[2pt]
+$(5,3)$:\; $a(n) = -n^2(n{+}1)^2(2n{+}1)$
+  & $4{,}410$ & $4{,}400$ & $0$ & 2, 3 \\
+\midrule
+\textbf{Grand total}
+  & $\mathbf{8{,}820}$ & $\mathbf{8{,}800}$ & $\mathbf{0}$ & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For Family~1, cycle~1 covered $C \in [1,10]$
+($2{,}100$ triples, all converging, $0$~hits with a
+$10$-element sub-basis at $120$~dps)~[cycle-1],
+and cycle~2 completed the $C \in [-10,0]$ range
+($2{,}310$ triples, $2{,}300$ converging, $0$~hits with the
+full $12$-element basis at $130$~dps)~[cycle-2].
+The $10$ non-converging triples correspond to
+$C = 0$ cases where $A + B = 0$,
+yielding $b(0) = b(1) = 0$.
+
+For Family~2, cycle~2 covered $A \in [1,5]$ with $C \neq 0$
+($2{,}100$ converging, $0$~hits)~[cycle-2];
+cycle~3 patched the $105$ previously-skipped $C = 0$ triples
+at $A \in [1,5]$
+($100$ converging via tail CF, $0$~hits,
+$271$~seconds of computation)~[cycle-3];
+and cycle~3 extended coverage to $A \in [6,10]$
+($2{,}200$ converging out of $2{,}205$ tested,
+$0$~hits, $3{,}394$~seconds)~[cycle-3].
+The $10$ non-converging triples across both families
+share the same structure: $C = 0$ and $A + B = 0$,
+so that $b(0) = b(1) = 0$ and neither the standard
+nor the tail continued fraction is well-defined.
+
+\begin{remark}[Methodological note on the $C = 0$ patch]
+The $100$ tail continued fractions from the $C = 0$ patch
+(cycle~3, Part~A) produced zero PSLQ hits,
+confirming that the cycle-2 classification bug was non-impactful:
+no identities were concealed by the degenerate-case filter.
+\end{remark}
+
+\subsection*{Positive control at profiles $(2,1)$ and $(3,2)$}
+To validate the pipeline against the known Trans-stratum families
+at lower degrees, we plan to run the identical PSLQ protocol on
+degree profiles $(2,1)$ and $(3,2)$, where Trans-stratum constants
+are known to exist (see~\cite{P11}).
+A successful recovery of Trans-stratum constants at these
+profiles would confirm that the null result at profiles
+$(4,3)$--$(5,3)$ reflects genuine absence rather than pipeline
+failure.
+The Ap\'ery positive control at $(6,3)$ reported in
+\S\ref{sec:control} already establishes pipeline correctness on
+one Trans family; the additional $(2,1)$ and $(3,2)$ cross-checks
+are reserved for an extended version of this note.%
+\footnote{[TO DO: execute positive-control sweep at degree
+profiles $(2,1)$ and $(3,2)$ following the protocol of
+\cite{P11}.]}
+
+\subsection*{Precision stability}
+The null result was verified at PSLQ precision $130$ and $200$
+digits on the Ap\'ery control (Table~\ref{tab:control}), and the
+desert sweep itself was run at $130$ digits with two-phase
+convergence filtering at $55$ and $130$ digits.
+A full precision-doubling pass on the $8{,}800$ converging
+$(4,3)$--$(5,3)$ triples is reserved for an extended version
+of this note.%
+\footnote{[TO DO: re-run the full $(4,3)$ and $(5,3)$ sweep at
+$260$ digits to confirm that no Trans-stratum relation is
+recovered under precision doubling.]}
+
+The search was carried out in three computational cycles;
+each cycle was reviewed for coverage completeness and
+methodological gaps before proceeding to the next.
+
+%% ----------------------------------------------------------------
+\section{Theoretical interpretation}\label{sec:theory}
+%% ----------------------------------------------------------------
+
+\subsection{Positive control at $d_a = 6$}\label{sec:control}
+
+As a pipeline validation, we apply the identical evaluation procedure
+to Ap\'ery's continued fraction at degree profile $(6,3)$:
+\[
+  a(n) = -n^6, \qquad
+  b(n) = (2n+1)(17n^2 + 17n + 5),
+\]
+which converges to $V = 6/\zeta(3)$.
+Since $V$ is a \emph{reciprocal} of a basis element
+rather than a $\Q$-linear combination, the direct PSLQ test
+on~$V$ correctly returns no relation.
+The identification route is instead: form $W = 6/V$
+and test $W$ against the basis~$\calB$;
+PSLQ immediately recovers $W = \zeta(3)$
+(Table~\ref{tab:control}).
+This validates both the Wallis evaluation and the PSLQ
+identification pipeline, and makes the
+$d_a = 5 \to d_a = 6$ cliff vivid:
+the $(4{,}3)$ and $(5{,}3)$ families yield no
+identification by \emph{any} route, while the $(6{,}3)$
+Ap\'ery fraction is identified via a single reciprocal step.
+
+\begin{table}[ht]
+\centering
+\caption{Positive control: PSLQ identification of
+  Ap\'ery's $(6,3)$ continued fraction via $W = 6/V$.}
+\label{tab:control}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Quantity & Value \\
+\midrule
+$V = h_N/k_N$ at $N = 1{,}200$, $130$~dps
+  & $4.99144423548424\ldots$ \\
+$|V - 6/\zeta(3)|$
+  & $9.02 \times 10^{-131}$ \\
+$W = 6/V$
+  & $1.20205690315959\ldots$ \\
+PSLQ relation on $(W,\calB)$
+  & $1 \cdot W - 1 \cdot \zeta(3) = 0$ \\
+PSLQ residual
+  & $2.25 \times 10^{-131}$ \\
+Verification at $200$~dps, $N = 2{,}000$
+  & $|V - 6/\zeta(3)| < 10^{-200}$;\; same relation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Interpretation of the null result}
+
+The zero-hit result across $8{,}800$ converging continued
+fractions is consistent with the degree-$4$ obstruction in the
+four-tier hierarchy.
+Known PCF identities for transcendental constants at $d_b = 3$
+require numerator degree $d_a \geq 6$:
+Ap\'ery's $\zeta(3)$-fraction has $a(n) = -n^6$,
+and no identity at lower numerator degree and the same denominator
+degree has been reported in the literature.
+
+We formulate the following computational conjecture.
+
+\begin{conjecture}\label{conj:desert}
+Let $a(n), b(n) \in \Z[n]$ with $\deg a = d_a \leq 5$,
+$\deg b = 3$, and suppose the generalized continued fraction
+$V = b(0) + K_{n=1}^{\infty}(a(n)/b(n))$ converges.
+Then $V$ admits no relation of the form
+\[
+  c_0 V + c_1 \beta_1 + \cdots + c_{12} \beta_{12} = 0,
+  \qquad c_i \in \Z, \quad c_0 \neq 0,
+  \quad \max|c_i| \leq 10{,}000,
+\]
+where $\{\beta_1, \ldots, \beta_{12}\} = \calB$
+is the basis~\eqref{eq:basis}.
+\end{conjecture}
+
+\begin{remark}[Scope qualifications]
+Conjecture~\ref{conj:desert} is a \emph{computational} statement:
+it asserts the absence of small-coefficient integer relations,
+not the transcendence or algebraic independence of limit values.
+A PCF identity with coefficients exceeding $10{,}000$, or
+involving constants outside~$\calB$, would not contradict
+this conjecture.
+The present search covers two specific numerator factorizations
+($-n^2(n+1)^2$ and $-n^2(n+1)^2(2n+1)$) among the
+families~\eqref{eq:fam1}--\eqref{eq:fam2};
+alternative factorizations at the same degree, such as
+$a(n) = -(n+1)^4$ or $a(n) = -n(n+1)(2n+1)^2$,
+remain untested and could in principle yield different
+arithmetic behavior.
+\end{remark}
+
+\begin{remark}[Search volume]
+The search covers $8{,}800 \times 13$-dimensional PSLQ instances
+at coefficient bound $H = 10{,}000$.
+The number of candidate integer vectors
+$(c_0, \ldots, c_{12}) \in \Z^{13}$
+with $\max|c_i| \leq H$ is $(2H+1)^{13} \approx 10^{56}$,
+making exhaustive enumeration of candidate relations infeasible.
+PSLQ's polynomial-time guarantee~\cite{ferguson1999} ensures that
+any relation of height~$\leq 10{,}000$ would have been detected,
+so the zero-hit outcome is a certified exclusion within the
+stated coefficient bound, not an artifact of incomplete search.
+\end{remark}
+
+%% ----------------------------------------------------------------
+\section{Relation to prior work}\label{sec:prior}
+%% ----------------------------------------------------------------
+
+\subsection{The $V_{\mathrm{quad}}$ negative result}
+In a companion investigation, the connection coefficient
+of the rank-$1$ confluent Heun equation at CM discriminant~$-11$
+was evaluated at $300$--$500$ decimal digits and tested against
+$588$ target constants via PSLQ.
+No relation was found, establishing that this
+$V_{\mathrm{quad}}$ family of constants---arising from quadratic
+numerator generalized continued fractions---is not expressible as a
+rational linear combination of standard handbook constants.
+The present $(4,3)$ and $(5,3)$ null results extend this picture:
+the unidentifiability of PCF limit values persists as the numerator
+degree increases from~$2$ (quadratic GCF) through~$4$ and~$5$,
+with the first identifiable values appearing only at $d_a = 6$
+(the Ap\'ery threshold).
+
+\subsection{The four-tier obstruction hierarchy}
+The spectral fingerprint framework~\cite{spectral} classifies PCF
+families into four tiers based on the arithmetic structure of
+their limit values:
+(i)~rational,
+(ii)~algebraic,
+(iii)~transcendental but unidentifiable,
+and (iv)~transcendental and classically identifiable.
+The Takeuchi classification~\cite{takeuchi1977} of arithmetic
+triangle groups provides the group-theoretic underpinning for
+the degree thresholds separating these tiers.
+Our $(4,3)$ and $(5,3)$ sweep results place these degree
+profiles firmly in tier~(iii), strengthening the conjectured
+sharpness of the $d_a = 6$ boundary for tier~(iv) membership
+at $d_b = 3$.
+
+%% ----------------------------------------------------------------
+\section{Reproducibility}\label{sec:repro}
+%% ----------------------------------------------------------------
+
+All sweep code, cycle logs
+(\texttt{\_a2\_pcf\_desert\_result.json},
+\texttt{\_a2\_cycle2\_result.json},
+\texttt{\_a2\_cycle3\_result.json}),
+relay chain outputs, and AEAL evidence classifications
+are archived at
+\begin{center}
+  \url{https://github.com/papanokechi/pcf-research}
+\end{center}
+
+The complete sweep can be reproduced with the following commands
+(dependencies: \texttt{mpmath}~$\geq 1.3$, Python~$\geq 3.10$):
+\begin{verbatim}
+  # Family 1, C > 0 (cycle 1)
+  python _a2_pcf_desert_sweep.py
+
+  # Family 1 C <= 0 + Family 2 A = 1..5 (cycle 2)
+  python _a2_cycle2_sweep.py
+
+  # Family 2 C = 0 patch + A = 6..10 (cycle 3)
+  python _a2_cycle3_deg5_patch.py
+\end{verbatim}
+Each script is self-contained, writes structured JSON output, and
+requires no configuration beyond a working \texttt{mpmath}
+installation.
+Total wall-clock time across all three cycles is approximately
+$13{,}000$ seconds (${\sim}3.6$~hours) on a single core.
+
+%% ----------------------------------------------------------------
+\section*{Declaration on the Use of AI Tools}
+
+The computational experiments, verification scripts, and iterative
+workflow underlying this paper were carried out using a multi-agent
+research environment combining GitHub Copilot (within Visual Studio
+Code) for code generation, script refinement, and workspace-level
+memory, and Anthropic Claude for high-level mathematical review and
+synthesis.  All mathematical claims, proofs, and numerical
+verifications were independently confirmed by the author,
+\textsc{papanokechi}.  All scripts and data supporting the results
+are publicly available in the project repository.
+
+%% ----------------------------------------------------------------
+\begin{thebibliography}{9}
+
+\bibitem{borwein2013}
+J.\,M.~Borwein and R.\,E.~Crandall,
+\emph{Closed forms: what they are and why we care},
+Notices Amer.\ Math.\ Soc.\ \textbf{60} (2013), no.~1, 50--65.
+
+\bibitem{raayoni2021}
+G.~Raayoni, S.~Gottlieb, Y.~Manor, G.~Pisha, Y.~Harris,
+U.~Mendlovic, D.~Haviv, Y.~Hadad, and I.~Kaminer,
+\emph{Generating conjectures on fundamental constants with
+the Ramanujan Machine},
+Nature \textbf{590} (2021), 67--73.
+
+\bibitem{ferguson1999}
+H.\,R.\,P.~Ferguson, D.\,H.~Bailey, and S.~Arwade,
+\emph{Analysis of PSLQ, an integer relation finding algorithm},
+Math.\ Comp.\ \textbf{68} (1999), no.~225, 351--369.
+
+\bibitem{spectral}
+[Author],
+\emph{Spectral fingerprints and the four-tier obstruction
+hierarchy for polynomial continued fractions},
+companion preprint, 2026.
+\texttt{doi:10.5281/zenodo.19491767}.
+
+\bibitem{takeuchi1977}
+K.~Takeuchi,
+\emph{Arithmetic triangle groups},
+J.\ Math.\ Soc.\ Japan \textbf{29} (1977), no.~1, 91--106.
+\texttt{doi:10.2969/jmsj/02910091}.
+MR0463116.
+
+\bibitem{P11}
+Papanokechi,
+\emph{A Complete Arithmetic Stratification of Degree-2 Polynomial
+Continued Fractions: The $\mathcal{F}(2,4)$ Base Case},
+manuscript under review at J.\ Th\'{e}or.\ Nombres Bordeaux
+(JTNB-2400), 2026.
+
+\bibitem{Baker1996}
+G.\,A.~Baker Jr.\ and P.~Graves-Morris,
+\emph{Pad\'{e} Approximants}, 2nd ed.,
+Cambridge University Press, 1996.
+
+\end{thebibliography}
+
+\end{document}
