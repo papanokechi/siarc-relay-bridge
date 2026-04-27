@@ -1,0 +1,14 @@
+﻿[
+  {
+    "file": "lean4/SIARCRelay11/Theorems/ForwardInvarianceFramework.lean",
+    "attempted_fix": "Attempt 2a: parameterize SafetyCertificate explicitly with (F T S) plus 9 instance args; replace (F := F) named-args with positional",
+    "error_introduced": "Reduced errors from 9 to 7; eliminated 'invalid argument name F' (4 sites) but typeclass-stuck on siarc_flow remained, and SafetyCertificate's invariance field still failed",
+    "action": "kept partial improvement, no revert"
+  },
+  {
+    "file": "lean4/SIARCRelay11/Theorems/ForwardInvarianceFramework.lean",
+    "attempted_fix": "Attempt 2b: parameterize siarc_dag, siarc_flow, siarc_forwardInvariant explicitly with (F T S) and 9 instance args each; update internal call sites (siarc_dag F T S p), (siarc_flow F T S)",
+    "error_introduced": "Same 7 errors persist, line numbers shifted +10; typeclass-stuck on siarc_flow F T S unchanged. No new errors introduced.",
+    "action": "kept partial refactor for next-relay handoff visibility"
+  }
+]
