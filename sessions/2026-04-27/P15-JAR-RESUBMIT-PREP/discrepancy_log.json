@@ -1,0 +1,10 @@
+﻿[
+  {
+    "type": "manuscript_vs_repo_disclosure_gap",
+    "detail": "manuscript declares 8 sorries in Operators/Control/LocalWellPosedness; SIARCRelay11/ versions of those files are 0-sorry; legacy top-level versions hold 10 sorries; manuscript does not mention the legacy/trusted-core split"
+  },
+  {
+    "type": "trusted_core_does_not_build",
+    "detail": "lake build of SIARCRelay11 default_target fails with errors in 3 modules; this contradicts memory note lean4-sorry-discharge-2026-04-24.md which reported clean build"
+  }
+]
