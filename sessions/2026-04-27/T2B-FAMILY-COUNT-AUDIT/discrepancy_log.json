@@ -1,0 +1,21 @@
+[
+  {
+    "task": "T2B-FAMILY-COUNT-AUDIT",
+    "date": "2026-04-27",
+    "type": "manuscript_additive_overcount",
+    "severity": "minor",
+    "magnitude_estimate_families": 7174,
+    "magnitude_relative_pct": 1.22,
+    "description": "Manuscript t2b_conjecture_note.tex (revision at sessions/2026-04-30/T2B-NOTE-REVISION) reports the headline figure 'approximately 585,000' as the additive sum of Experiments A+B+C+D+D'. Experiment C (T2B-RESONANCE-SEARCH, b1 in {+/-4,+/-5}, three target ratios -3/16, -4/25, -6/25) enumerates 7,986 candidates of which 7,174 are convergent. All 7,174 lie within the F(2,5) D=5 enumeration of Experiment B (T2B-F25-FALSIFICATION, 88,224 convergent), since |b1|<=5 and the free-coefficient cube {-5..5}^3 are both inside Experiment B's full {-5..5}^5 enumeration. Experiment C is therefore a re-classification of a subset of Experiment B at three specific ratios, not new families. De-duplicated convergent total: 577,792 (= 584,966 - 7,174). The discrepancy does NOT affect any Trans/Log count in the manuscript: Experiment C reported 0 Trans / 0 Log at all three target ratios, matching what F(2,5) found for those same ratios.",
+    "recommendation": "Either (a) add a one-line footnote in t2b_conjecture_note.tex Section 3 stating that Experiment C re-classifies a subset of Experiment B; or (b) switch the headline 'approximately 585,000' to 'approximately 578,000' and add a Table 4 caption note. Either fix is a 5-minute edit. The audit recommends option (a) as it preserves the round-number figure used in the abstract and permits the (more striking) characterization of Experiment C as a targeted falsification probe at the three indicial-ratio candidates."
+  },
+  {
+    "task": "T2B-FAMILY-COUNT-AUDIT",
+    "date": "2026-04-27",
+    "type": "f24_convergent_count_inferred_not_stated",
+    "severity": "verification_pending",
+    "magnitude_estimate_families": 54602,
+    "description": "The manuscript states the F(2,4) census enumerated 531,441 families and identified 24 Trans-stratum limits, but does NOT state the F(2,4) convergent count. The audit infers ~54,602 from the residue 584,966 - (88,224 + 7,174 + 175,686 + 259,280). This is consistent with the F(2,4) Wallis-stable pass-rate being lower than F(2,5)'s 66.3% (54,602 / 531,441 ~= 10.3%, reasonable for the smaller |.|<=4 envelope). The number should be cross-checked against the [PCF25] base-case paper at submission.",
+    "recommendation": "At t2b_conjecture_note.tex submission time, verify the F(2,4) convergent count against [PCF25] and either include it explicitly in Section 3.A ('Experiment A: F(2,4) complete census') or replace 'approximately 585,000' with the explicitly summed and verified figure."
+  }
+]
