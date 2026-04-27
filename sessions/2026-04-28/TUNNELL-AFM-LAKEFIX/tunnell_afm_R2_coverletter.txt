@@ -1,0 +1,35 @@
+Dear Editors of Annals of Formalized Mathematics,
+
+I submit for your consideration the manuscript:
+
+Title: A Layered, Axiom-Isolated Lean 4 Formalization of the
+Congruent Number Problem up to Tunnell's Criterion
+
+This note presents a layered, axiom-isolated Lean 4
+formalization of the Congruent Number Problem up to
+Tunnell's Criterion. The formalization isolates the
+single BSD-conditional axiom
+(tunnell_conditional_on_BSD) from all constructive
+content, making the logical dependency structure
+fully auditable.
+
+The Lean source (954 lines, CongruentStubs.lean)
+is publicly available at:
+https://github.com/papanokechi/tunnell-cnp-lean4
+A permanent Zenodo archive is available at:
+https://doi.org/10.5281/zenodo.19834824
+
+The formalization targets Lean v4.14.0 and Mathlib
+v4.14.0. To verify: clone the repository and run
+lake build.
+
+The manuscript has not been submitted elsewhere and
+is not under consideration at any other journal.
+
+The author is an independent researcher based in
+Yokohama, Japan (ORCID: 0009-0000-6192-8273).
+Use of AI tools (GitHub Copilot, Anthropic Claude)
+is disclosed in the manuscript per journal policy.
+
+Sincerely,
+Papanokechi
