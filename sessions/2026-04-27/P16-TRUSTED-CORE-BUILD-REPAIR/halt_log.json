@@ -1,0 +1,19 @@
+﻿[
+  {
+    "halt_step": 4,
+    "trigger": "lake build still exit 1 after applying all 3 prescribed fixes",
+    "fixes_applied_successfully": [
+      "SIARCRelay11.Axioms: added 4 imports (PathConnected, Real.Basic, Normed.Group.Basic, Normed.Module.Basic); replaced @Path _ (by assumption) p q with Path p q; wrapped Decidable in Nonempty(...)",
+      "SIARCRelay11.Parameters: removed `: Prop` from class UniformlyElliptic and class QuasiStaticElasticity (Prop class with R-valued data fields rejected by Lean 4)",
+      "SIARCRelay11.Theorems.LocalWellPosedness: added explicit (t : R) (ht : t in Set.Icc 0 Tstar) annotations to two `forall t ht` binders"
+    ],
+    "remaining_errors": [
+      "SIARCRelay11/Control.lean:77:0 failed to synthesize (opaque intentPolicy needs Inhabited or Nonempty witness for IntentMode)",
+      "SIARCRelay11/Control.lean:86:7 failed to compile definition, depends on Classical.ofNonempty without noncomputable marker (opaque evolutionMap_controlled)",
+      "SIARCRelay11/Barriers.lean:235:12 typeclass instance problem is stuck (lemma g3_prime_from_g4)",
+      "SIARCRelay11/Barriers.lean:242:12 typeclass instance problem is stuck (lemma g5_from_g4)"
+    ],
+    "diagnosis": "Pre-existing errors in Control.lean and Barriers.lean were masked by the prior Axioms/Parameters/LocalWellPosedness failures (compiler stopped early). They are not regressions caused by P16 fixes. Fixing them is out of P16's stated scope.",
+    "decision": "HALT per prompt step 4 / HALT IF clause; do not excise legacy; do not run #print axioms"
+  }
+]

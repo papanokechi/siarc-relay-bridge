@@ -1,0 +1,6 @@
+﻿[
+  {
+    "type": "scope_underestimated_by_prompt",
+    "detail": "Prompt listed 3 failing modules. After repairing those, lake build still fails because Control.lean and Barriers.lean fail to elaborate. These were masked by the earlier Axioms/Parameters/LocalWellPosedness errors — the compiler stopped before reaching them. The trusted-core namespace requires more than 3 module fixes to build."
+  }
+]

@@ -1,0 +1,10 @@
+﻿[
+  {
+    "type": "downstream_errors_unmasked",
+    "detail": "Repairing the 3 prompt-listed modules unmasked 4 additional errors in Control.lean and Barriers.lean. Reaching a clean lake build exit 0 likely requires P16-EXTENDED with at least 2 more modules in scope."
+  },
+  {
+    "type": "parameters_class_was_prop",
+    "detail": "UniformlyElliptic and QuasiStaticElasticity were declared `class ... : Prop where` but contained R-valued data fields (ellipticity_constant, inverse_bound, korn_constant). This is a Lean 4 design error, not a Mathlib API drift. Removing `: Prop` makes them Type-valued classes; no consumer references them so this does not propagate."
+  }
+]
