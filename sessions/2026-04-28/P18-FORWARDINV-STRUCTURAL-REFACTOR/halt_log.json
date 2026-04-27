@@ -1,0 +1,17 @@
+[
+  {
+    "step": "6",
+    "strategy_tried": "1+2+2b+2c (Strategy 1 inline siarc_flow; Strategy 2 explicit positional F T S without instance args; Strategy 2b local-instance helpers for FieldSpace.normed etc.; Strategy 2c full explicit-args refactor dropping variable block)",
+    "remaining_error_count": 7,
+    "remaining_errors": [
+      "ForwardInvarianceFramework.lean:196:35: typeclass instance problem is stuck (siarc_forwardInvariant body, NormedSpace R ?m.carrier)",
+      "ForwardInvarianceFramework.lean:233:12: typeclass instance problem is stuck (SafetyCertificate.invariance field, NormedSpace R ?m.carrier)",
+      "ForwardInvarianceFramework.lean:248:22: invalid argument name 'F' for function (SafetyCertificate (F := F) syntax fails because auto-bound implicit gets dagger-renamed to F-cross)",
+      "ForwardInvarianceFramework.lean:261:30: invalid argument name 'F' for function (apply : cert : SafetyCertificate (F := F))",
+      "ForwardInvarianceFramework.lean:264:69: unsolved goals (SafetyCertificate.apply body, cascade from L233 prior failure)",
+      "ForwardInvarianceFramework.lean:274:30: invalid argument name 'F' for function (apply_InSafe : cert : SafetyCertificate (F := F))",
+      "ForwardInvarianceFramework.lean:290:30: invalid argument name 'F' for function (iterate : cert : SafetyCertificate (F := F))"
+    ],
+    "recommended_next": "P19-FORWARDINV-DEEP-REPAIR — Option A: edit StateSpace.lean to add 'attribute [instance] FieldSpace.normed FieldSpace.module ThermalSpace.normed ThermalSpace.module StructuralSpace.normed StructuralSpace.module' (and add CompleteSpace fields registered as instances). Smallest blast radius. Option B: convert FieldSpace/ThermalSpace/StructuralSpace from structures to classes (extends NormedAddCommGroup etc.). Most idiomatic but most invasive."
+  }
+]
