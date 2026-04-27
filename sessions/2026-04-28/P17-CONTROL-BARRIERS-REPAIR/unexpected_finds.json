@@ -1,0 +1,10 @@
+﻿[
+  {
+    "type": "typeclass_stuck_with_explicit_args",
+    "detail": "siarc_flow F T S with 9 explicit [NormedAddCommGroup F.carrier] etc. instance args still fails Lean 4.14 instance synthesis even though the same instances are declared in the section variable block. Suggests instance auto-inference does not propagate across explicit positional argument calls in the same way it does across implicit auto-bound calls. Reproducible by attempting to call any explicitly-typed siarc_flow F T S inside ForwardInvariant (...). Possible interaction with `F.carrier`-style instance-arg shape rather than independent type variables."
+  },
+  {
+    "type": "p17_already_executed_one_day_prior",
+    "detail": "Prior session sessions/2026-04-27/P17-CONTROL-BARRIERS-REPAIR (commit 119b346) already executed this relay's 4 prompt-listed fixes and the Invariance.lean cascade fix. Those changes are in the working tree and remain valid. This 2026-04-28 session re-verified the prior fixes are intact (confirmed by lake build leaving the original 4 errors absent) and made an additional ForwardInvarianceFramework refactor attempt (2 errors eliminated). No regressions."
+  }
+]

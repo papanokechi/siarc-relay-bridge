@@ -1,0 +1,17 @@
+﻿[
+  {
+    "step": 6,
+    "reason": "lake build still exit 1 after two targeted-fix attempts on ForwardInvarianceFramework.lean; structural refactor exceeds relay scope",
+    "remaining_errors": [
+      "ForwardInvarianceFramework.lean:206:35 typeclass instance problem is stuck (siarc_flow F T S inside ForwardInvariant in siarc_forwardInvariant return type)",
+      "ForwardInvarianceFramework.lean:248:12 typeclass instance problem is stuck (invariance field of SafetyCertificate structure)",
+      "ForwardInvarianceFramework.lean:263:4 function expected at SafetyCertificate (cascade from L248 failure)",
+      "ForwardInvarianceFramework.lean:276:12 function expected at SafetyCertificate (cascade)",
+      "ForwardInvarianceFramework.lean:279:69 unsolved goals (SafetyCertificate.apply body, cascade)",
+      "ForwardInvarianceFramework.lean:289:12 function expected at SafetyCertificate (cascade)",
+      "ForwardInvarianceFramework.lean:305:12 function expected at SafetyCertificate (cascade)"
+    ],
+    "diagnosis": "The 4 prompt-listed errors (Control.lean:77/86, Barriers.lean:235/242) plus the Invariance.lean 4-site cascade were all resolved by prior P17 commit 119b346; those fixes remain in the working tree and verify clean now. ForwardInvarianceFramework.lean has its own pre-existing structural issues that surface only once the upstream modules build. Two attempts here: (a) noncomputable + SafetyCertificate explicit F T S parameterization; (b) explicit F T S parameters on siarc_dag/siarc_flow/siarc_forwardInvariant. Attempt (b) eliminated 2 of 9 errors but typeclass-synthesis-stuck on siarc_flow F T S persists, cascading into 5 'function expected' errors at downstream SafetyCertificate F T S references.",
+    "recommended_next": "P18-FORWARDINV-STRUCTURAL-REFACTOR: investigate why typeclass synthesis is stuck on a fully-explicit siarc_flow F T S call where all 9 [NormedAddCommGroup F.carrier] etc. instance args are present in the ambient variable block. Possible approaches: (1) rewrite siarc_flow body to avoid the auto-inferred X type parameter on Flow, e.g. by using @Flow.mk (StateSpace F T S) directly; (2) inline siarc_flow body into the SafetyCertificate.invariance field; (3) declare a section namespace with these instances pre-fixed; (4) consider that the variable block's [NormedAddCommGroup F.carrier] uses F.carrier (a field projection) which may not match instance synthesis pattern when F is bound as explicit. Try `(carrier : Type*) [NormedAddCommGroup carrier] ...` in the variable block instead of `F.carrier`-based instances."
+  }
+]
