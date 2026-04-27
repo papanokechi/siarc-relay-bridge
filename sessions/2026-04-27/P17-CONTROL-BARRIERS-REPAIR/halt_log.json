@@ -1,0 +1,36 @@
+{
+  "task": "P17-CONTROL-BARRIERS-REPAIR",
+  "date": "2026-04-27",
+  "halt_reason": "cascading_errors_outside_scope",
+  "trigger": "After fixing the 4 in-scope errors (Control.lean:86, Barriers.lean:235, Barriers.lean:242, plus the IntentMode Inhabited synthesis at Control.lean:77 implied by 'failed to synthesize'), Invariance.lean and ForwardInvarianceFramework.lean unmasked further structural typeclass-elaboration breakage that exceeds the relay's targeted-fix budget (relay step 6: one targeted fix attempt for new errors).",
+  "in_scope_fixes_applied": [
+    {"file": "SIARCRelay11/Control.lean", "line": 86, "change": "Added 'noncomputable' to 'opaque evolutionMap_controlled' (Classical.ofNonempty body required noncomputable code generation)."},
+    {"file": "SIARCRelay11/Control.lean", "line": 77, "change": "Added 'deriving Inhabited' to 'inductive IntentMode' so that 'opaque intentPolicy' (returning IntentMode) can synthesize a Nonempty witness."},
+    {"file": "SIARCRelay11/Barriers.lean", "lines": "232-237 (g3'_from_g4) and 240-245 (g5_from_g4)", "change": "Replaced 'rw [g3'_nonneg_iff]' / 'rw [g5_nonneg_iff]' with explicit goal unfolding via 'show' + linarith, and inlined 'g4_nonneg_iff' implication via direct linarith on the def of g4 (avoids section-variable metavariable stuck on NormedSpace R ?carrier)."},
+    {"file": "SIARCRelay11/Barriers.lean", "lines": "234, 244", "change": "Changed '(link : QuasiStaticLink p)' to '(link : QuasiStaticLink (F := F) (T := T) (S := S) p)' to pin auto-bound implicit F/T/S to the lemma's section variables (matches existing convention used in Examples/Example_ThermoelasticSystem.lean)."}
+  ],
+  "downstream_fix_attempted": [
+    {"file": "SIARCRelay11/Theorems/Invariance.lean", "change": "Bulk-replaced all 4 occurrences of '(link : QuasiStaticLink p)' with '(link : QuasiStaticLink (F := F) (T := T) (S := S) p)'. RESULT: Invariance.lean now compiles."}
+  ],
+  "remaining_unmasked_errors": {
+    "file": "SIARCRelay11/Theorems/ForwardInvarianceFramework.lean",
+    "count": 9,
+    "categories": {
+      "noncomputable_IR_check": ["166:4 (siarc_dag depends on noncomputable g3')", "174:4 (siarc_flow depends on evolutionMap)"],
+      "typeclass_stuck_on_QuasiStaticLink_carrier_metavar": ["196:35 (siarc_forwardInvariant: link : QuasiStaticLink p)", "233:12 (SafetyCertificate.qs_link : QuasiStaticLink params)"],
+      "invalid_argument_name_F_for_SafetyCertificate": ["248:22", "261:30", "274:30", "290:30"],
+      "unsolved_goals": ["264:69"]
+    },
+    "diagnosis": "(a) siarc_dag and siarc_flow need 'noncomputable' prefix; (b) QuasiStaticLink call sites in this file need the same '(F := F) (T := T) (S := S)' pin used in Barriers.lean and Invariance.lean; (c) 'invalid argument name F for SafetyCertificate' indicates SafetyCertificate's auto-bound implicits are not being named 'F/T/S' under Lean 4.14 elaboration -- structure must be explicitly parameterized by (F : FieldSpace) (T : ThermalSpace) (S : StructuralSpace) plus their NormedAddCommGroup/NormedSpace/CompleteSpace instance args, then all four call sites updated. This change ripples further into any downstream consumer of SafetyCertificate.",
+    "fix_outside_scope_reason": "Relay P17 specified Control.lean and Barriers.lean as the scope. ForwardInvarianceFramework.lean fixes require structural API changes (parameterizing SafetyCertificate, possibly QuasiStaticLink) that ripple into other modules and exceed 'one targeted fix attempt' for unmasked new errors."
+  },
+  "lake_build_final_exit": 1,
+  "modules_currently_clean": ["SIARCRelay11.Axioms", "SIARCRelay11.Parameters", "SIARCRelay11.StateSpace", "SIARCRelay11.Control (FIXED in P17)", "SIARCRelay11.Barriers (FIXED in P17)", "SIARCRelay11.Operators", "SIARCRelay11.Bundles", "SIARCRelay11.Theorems.Invariance (FIXED in P17 cascade)", "SIARCRelay11.Theorems.LocalWellPosedness"],
+  "modules_still_failing": ["SIARCRelay11.Theorems.ForwardInvarianceFramework (9 errors)", "downstream consumers (TrustedCore, TrustedBoundary, API, Examples, Bundles -- not yet reached by builder)"],
+  "sorry_count_in_SIARCRelay11": 57,
+  "sorry_count_blocks_legacy_excision": true,
+  "legacy_excision_performed": false,
+  "axiom_inventory_captured": false,
+  "axiom_inventory_blocked_reason": "Cannot run '#print axioms' until lake build exits 0.",
+  "recommended_next_relay": "P18-FORWARDINV-REPAIR: scope = SIARCRelay11/Theorems/ForwardInvarianceFramework.lean only. Apply (a) 'noncomputable def siarc_dag' and 'noncomputable def siarc_flow'; (b) replace all 'QuasiStaticLink p' with 'QuasiStaticLink (F := F) (T := T) (S := S) p' in this file; (c) explicitly parameterize 'structure SafetyCertificate (F : FieldSpace) (T : ThermalSpace) (S : StructuralSpace) [NormedAddCommGroup F.carrier] [NormedSpace R F.carrier] [CompleteSpace F.carrier] [NormedAddCommGroup T.carrier] [NormedSpace R T.carrier] [CompleteSpace T.carrier] [NormedAddCommGroup S.carrier] [NormedSpace R S.carrier] [CompleteSpace S.carrier] where ...' and update all 4 call sites accordingly; (d) audit and fix unsolved goal at 264:69 in SafetyCertificate.mk' invariance field elaboration."
+}
