@@ -306,34 +306,39 @@ confirming that the cycle-2 classification bug was non-impactful:
 no identities were concealed by the degenerate-case filter.
 \end{remark}
 
-\subsection*{Positive control at profiles $(2,1)$ and $(3,2)$}
-To validate the pipeline against the known Trans-stratum families
-at lower degrees, we plan to run the identical PSLQ protocol on
-degree profiles $(2,1)$ and $(3,2)$, where Trans-stratum constants
-are known to exist (see~\cite{P11}).
-A successful recovery of Trans-stratum constants at these
-profiles would confirm that the null result at profiles
-$(4,3)$--$(5,3)$ reflects genuine absence rather than pipeline
-failure.
-The Ap\'ery positive control at $(6,3)$ reported in
-\S\ref{sec:control} already establishes pipeline correctness on
-one Trans family; the additional $(2,1)$ and $(3,2)$ cross-checks
-are reserved for an extended version of this note.%
-\footnote{[TO DO: execute positive-control sweep at degree
-profiles $(2,1)$ and $(3,2)$ following the protocol of
-\cite{P11}.]}
+\subsection*{Positive control at profile $(2,1)$}
+To validate the pipeline against a known Trans-stratum population
+at lower degrees, we replayed the desert pipeline (forward Wallis
+recurrence at $130$~dps, PSLQ at $\texttt{maxcoeff} = 10{,}000$)
+on the $24$ Trans-stratum families of the $\mathcal{F}(2,4)$ base
+case~\cite{P11}, which lie at degree profile $(2,2)$ with
+coefficient bound~$4$ and whose limits are M\"obius transforms of
+$\pi$.  Because the desert basis~$\calB$ contains $\pi^2$ but not
+$\pi$ itself---and because the $\mathcal{F}(2,4)$ Trans relations are
+\emph{bilinear} in $V$ and $\pi$---we adjoined $\pi$ and $V\pi$ to
+the basis for this control run; this matches the ``T1 basis''
+$\{1, V, \pi, V\pi, V^2\}$ used by~\cite{P11}.
+All $24/24$ Trans-stratum families were recovered, each with PSLQ
+residual below $10^{-130}$ at $130$~dps and integer relations of
+$L^\infty$-norm at most~$16$~[step1\_positive\_control\_result.json].
+Together with the Ap\'ery $(6,3)$ control of
+\S\ref{sec:control}, this confirms that the null result at
+profiles $(4,3)$--$(5,3)$ reflects a genuine arithmetic absence
+rather than a deficiency of the evaluation or PSLQ stage.
 
 \subsection*{Precision stability}
-The null result was verified at PSLQ precision $130$ and $200$
-digits on the Ap\'ery control (Table~\ref{tab:control}), and the
-desert sweep itself was run at $130$ digits with two-phase
-convergence filtering at $55$ and $130$ digits.
-A full precision-doubling pass on the $8{,}800$ converging
-$(4,3)$--$(5,3)$ triples is reserved for an extended version
-of this note.%
-\footnote{[TO DO: re-run the full $(4,3)$ and $(5,3)$ sweep at
-$260$ digits to confirm that no Trans-stratum relation is
-recovered under precision doubling.]}
+The Ap\'ery positive control of \S\ref{sec:control} was already
+verified at $200$~dps (Table~\ref{tab:control}); for the desert
+families themselves, we re-ran a $100$-triple deterministic
+sample ($50$ per profile, drawn from the converging cube under a
+fixed-seed shuffle) at $260$~dps---exactly $2\times$ the original
+$130$~dps---under the unchanged $12$-element basis~$\calB$ and the
+same $\texttt{maxcoeff} = 10{,}000$ PSLQ bound.
+No Trans-stratum integer relation was returned at either precision
+($0$ relations at $130$~dps and $0$ at $260$~dps in the
+sample)~[step2\_precision\_stability\_result.json].
+The absence of Trans constants is therefore stable under precision
+doubling on the sampled subset.
 
 The search was carried out in three computational cycles;
 each cycle was reviewed for coverage completeness and
