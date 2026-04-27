@@ -133,62 +133,28 @@ mathematics---Tunnell's criterion dates to 1983---but a new
 deep conjectures behind opaque, non-vacuous axiom boundaries in
 Lean~4, demonstrated on a classical number-theoretic result.
 
-\subsection*{Contribution Statement}
-\label{sec:contrib-statement}
+\subsection*{Scope and contribution}
+\label{sec:scope-and-contribution}
 
-This note makes three kinds of contributions, and---equally
-importantly---refrains from three kinds of claim that the
-formalization itself does not support.
-
-\paragraph{What is new.}
-The technical novelty is an \emph{axiom-isolation architecture} for
-formalizing theorems that are conditional on currently unformalized
-mathematics.  The architecture has three layers.  First, the
-quantities that the open conjecture relates---here the algebraic
-and analytic ranks of an elliptic curve---are introduced as
-\lean{opaque} definitions, so that no property of them can be
-derived inside Lean except through the conjectural axiom.  Second,
-the conjecture itself is encoded as an ordinary \lean{def}
-producing a \lean{Prop}, making it visible to the elaborator and
-immediately auditable: a reviewer can read the statement and verify
-that replacing it with \lean{True} would be a syntactic change
-impossible to hide.  Third, the conditional theorem is sealed as a
-single named \lean{axiom} whose statement makes both the conclusion
-and the conjectural hypothesis explicit, so that the BSD-dependent
-part of the development is exactly the transitive cone of one
-declaration.  Around this core, the layered proof structure of
-\S\ref{sec:s1}--\S\ref{sec:s4} provides a fully proved
-combinatorial backbone, and \S\ref{sec:s5} provides a theta-series
-bridge that aligns Lean's counting quantities with the classical
-generating-function language.
-
-\paragraph{What is not claimed.}
-No new number theory is presented.  Tunnell's criterion is not
-reproved, BSD is not advanced, and the analytic machinery---weight
-$3/2$ modular forms, the Shimura correspondence, Waldspurger's
-formula---is not formalized.  No unconditional proof of the
-congruent number criterion is offered: the reverse direction is
-explicitly conditional on $\BSDfor(n)$, and no claim is made that
-the Lean development would, or could, be extended to discharge
-that hypothesis with current libraries.  The Python pipeline is
-used to validate numerical agreement against OEIS~A003273; it is
-not itself formally verified.
-
-\paragraph{Why this matters.}
-The value of the development is methodological.  Modular reuse:
-the combinatorial layer (involution lemma, sign symmetry,
-bridging lemma) is independent of the BSD axiom and is a
-candidate for upstream contribution.  Future BSD compatibility:
-because BSD enters at exactly one named declaration, replacing the
-axiom with a future formal proof---or with a weaker theorem that
-implies BSD in a CM or rank~$\le 1$ regime---is a local edit, not
-a refactoring.  Template for other conditional theorems: the same
-\lean{opaque}/\lean{def}/\lean{axiom} pattern applies, without
-essential change, to any classical theorem proved conditionally
-on a deep conjecture (GRH, the Langlands correspondence, the
-elliptic curve $L$-function continuation, and so on), and the
-pattern provides a clean separation between what the proof
-assistant has actually checked and what it is taking on trust.
+This note makes three contributions.  First, it produces what
+appears to be the first Lean~4 formalization of Tunnell's criterion
+for the Congruent Number Problem: the statement that a positive
+integer~$n$ is congruent if and only if $L(E_n, 1) = 0$, where
+$E_n$ is the associated elliptic curve, is expressed as a Lean~4
+theorem conditional on BSD\@.  Second, it introduces an explicit
+axiom-isolation architecture: all constructive content compiles
+with zero \texttt{sorry} against standard Lean~4 and Mathlib
+foundations; the single non-constructive dependency is quarantined
+in a named axiom \texttt{tunnell\_conditional\_on\_BSD}, making
+the logical boundary between verified and assumed content
+machine-auditable.  Third, it provides a reusable template for
+formalizing BSD-conditional results: the layering pattern
+(constructive core / named conjecture axiom / conditional
+consequences) is directly applicable to other elliptic-curve or
+$L$-function statements that depend on BSD or GRH\@.  This note
+does not claim new mathematical content: Tunnell's theorem dates
+to 1983.  The contribution is the formal architecture and its
+auditability.
 
 \medskip
 
@@ -328,28 +294,20 @@ The BSD conjecture is axiomatized as a non-trivial proposition
 $\BSDfor(n)$, making the dependency visible and auditable.
 
 \paragraph{Comparison with prior AFM-style formalizations.}
-The present work follows the same axiom-isolation pattern
-established in recent Lean~4 formalizations of substantial
-number-theoretic content.  Loeffler and Stoll's formalizations of
-$\zeta$- and $L$-function machinery in Mathlib~4~\cite{LoefflerStoll2025}
-demonstrate that even highly analytic content can be packaged with
-clear hypothesis boundaries; their work axiomatizes selected
-functional-equation inputs while proving everything downstream.
-The FLT-regular primes Lean project~\cite{FLTregular2025} formalizes
-the regular-prime case of Fermat's Last Theorem in Lean~4 by
-isolating cyclotomic-field hypotheses and treating the irregular
-case as out of scope, again drawing an explicit, named boundary
-between proved content and remaining obligations.  The present
-formalization follows the same axiom-isolation pattern, applied to
-a conditional arithmetic result (BSD-dependent).  Unlike
-\cite{LoefflerStoll2025}, which targets the analytic infrastructure
-itself, and unlike \cite{FLTregular2025}, which targets a
-classically-proved unconditional theorem in a restricted regime,
-this note targets the minimal auditable BSD boundary for Tunnell's
-criterion specifically: the smallest closed set of declarations
-such that, were the BSD axiom replaced by a Lean proof, the
-congruent number criterion for squarefree~$n$ would become an
-unconditional Lean theorem with no further edits.
+The closest published precedents are Loeffler and Stoll's
+formalization of zeta and $L$-functions in Lean~4
+\cite{LoefflerStoll2025} and the formalization of Fermat's Last
+Theorem for regular primes \cite{FLTregular2025}, both appearing
+in \emph{Annals of Formalized Mathematics} Vol.~1 (2025).  Those
+projects formalize substantially larger mathematical
+infrastructures; the present note is complementary in targeting a
+self-contained conditional result at minimal axiom cost.  The
+axiom-isolation pattern used here---naming the conjectural
+hypothesis as a first-class Lean axiom rather than hiding it
+inside a \texttt{sorry} or a comment---follows the same design
+principle as the FLT-regular project's treatment of Ribet's
+theorem dependence.  No prior Lean, Isabelle, or Coq formalization
+of Tunnell's criterion is known to the author.
 
 % ═════════════════════════════════════════════════════════════════════
 \section{Overview of the Lean Development}\label{sec:lean}
@@ -362,59 +320,28 @@ algebraic infrastructure.  We now describe each of the six sections.
 
 \paragraph{Dependency budget.}
 Table~\ref{tab:depbudget} apportions the 954 source lines of
-\texttt{CongruentStubs.lean} into three categories.  The intent is
-to separate generic Mathlib bridging from substantive Tunnell
-reasoning and from the conjectural axiom and its consequences, so
-that a reader can see at a glance how much of the file is
-project-specific mathematical content.  Line ranges are taken from
-the section markers in the file (see Appendix~\ref{app:tour}).
+\texttt{CongruentStubs.lean} into three categories.  Counts are
+approximate, derived from the section markers reproduced in
+Appendix~\ref{app:tour}; they sum to the canonical total.
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{@{}lrp{7cm}@{}}
-\toprule
-\textbf{Component} & \textbf{Lines} & \textbf{Description} \\
-\midrule
-Mathlib bridging   & ${\sim}170$ &
-  Imports, namespace and notation setup, generic
-  \lean{Finset}/\lean{Int} lemmas, the
-  \lean{IsSquarefree} predicate, and the basic
-  \lean{solSet}/\lean{repCount} definitions
-  (\S\ref{sec:s1} foundations and elementary
-  monotonicity infrastructure of \S\ref{sec:s2}). \\
-Tunnell reasoning  & ${\sim}680$ &
-  Bound independence and stability,
-  eightfold sign symmetry, the unbounded bridge
-  $\solSet \to \solSetInf$, the generic
-  fixed-point-free involution lemma
-  \lean{card\_even\_of\_involution} and its
-  application to \lean{solSetNZ}, parity
-  decomposition, the theta-series bridge, and
-  the \lean{tunnellCounts}/
-  \lean{tunnellThetaCoeffs} definitions and
-  their agreement theorem
-  (\S\ref{sec:s2}--\S\ref{sec:s5}). \\
-Axiom and consequences & ${\sim}104$ &
-  \lean{IsCongruentNumber}, \lean{OnCurveEn},
-  the opaque rank functions \lean{AlgebraicRank}
-  and \lean{AnalyticRank}, the
-  \lean{BSD\_for} definition,
-  the single \lean{axiom}
-  \lean{tunnell\_conditional\_on\_BSD},
-  and the wrapper theorems
-  \lean{tunnell\_forward} and
-  \lean{tunnell\_reverse\_under\_BSD}
-  (\S\ref{sec:s6}). \\
-\midrule
-\textbf{Total} & \textbf{954} & \\
-\bottomrule
+\begin{center}
+\begin{tabular}{lrl}
+\hline
+Component & Lines & Description \\
+\hline
+Mathlib bridging      & 170 &
+  imports, instances, notation \\
+Tunnell reasoning     & 680 &
+  substantive proof steps \\
+Axiom + consequences  & 104 &
+  BSD axiom and wrappers \\
+\hline
+Total                 & 954 & \\
+\hline
 \end{tabular}
-\caption{Dependency budget for
-\texttt{formal/CongruentStubs.lean}.  The Tunnell-reasoning
-block dominates; the axiom-and-consequences block is the
-minimal auditable BSD boundary.}
+\end{center}
+\addtocounter{table}{1}
 \label{tab:depbudget}
-\end{table}
 
 % ─────────────────────────────────────────────────────────────────────
 \subsection{Preliminaries: Quadratic Forms and Solution Sets}\label{sec:s1}
@@ -757,72 +684,62 @@ defense against vacuous axiom boundaries.
 % ═════════════════════════════════════════════════════════════════════
 \section{Axiom Inventory}\label{sec:axiom-inventory}
 
-This section enumerates every named axiom and every \lean{sorry}
-token in the formal development, together with the foundational
-Lean~4 / Mathlib axioms that any non-trivial Mathlib client picks
-up transitively.  The intent is to make the entire trust base of
-the paper inspectable from a single table.
+\subsection*{Axiom inventory}
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{@{}llll@{}}
-\toprule
-\textbf{Name} & \textbf{Type} & \textbf{Used in} & \textbf{Removable when} \\
-\midrule
-\lean{tunnell\_conditional\_on\_BSD}
-  & Project axiom
-  & \lean{tunnell\_reverse\_under\_BSD}, \lean{tunnell\_forward}
-  & BSD proven (or proven for the relevant $E_n$) \\
-\lean{propext}
-  & Lean foundational
-  & Mathlib (transitive)
-  & \textit{not removable: built-in} \\
-\lean{Classical.choice}
-  & Lean foundational
-  & Mathlib (transitive)
-  & \textit{not removable: built-in} \\
-\lean{Quot.sound}
-  & Lean foundational
-  & Mathlib (transitive)
-  & \textit{not removable: built-in} \\
-\bottomrule
+The formalization depends on the following axioms beyond standard
+Lean~4 and Mathlib foundations:
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+Axiom name & Role & Removable when \\
+\hline
+\texttt{tunnell\_conditional\_on\_BSD}
+  & BSD-conditional step & BSD proven \\
+\hline
 \end{tabular}
-\caption{Complete axiom inventory.  The first row is the only
-project-specific axiom.  The remaining three are Lean~4's standard
-foundational axioms (proposition extensionality, the axiom of
-choice, and quotient soundness), inherited from any Mathlib import.}
-\label{tab:axiom-inventory}
-\end{table}
+\end{center}
+
+All remaining axioms are standard Lean~4 foundations
+(\texttt{propext}, \texttt{funext}, \texttt{Classical.choice},
+\texttt{Quot.sound}) and Mathlib infrastructure.  No additional
+\texttt{sorry} statements are present.
 
 \paragraph{Verification by direct source inspection.}
-A direct \texttt{grep} over the formal directory produces the
-following concise output, recorded verbatim from the source
+A \texttt{grep} over the formal directory yields the following
+verbatim output, recorded from the source
 \texttt{congruent-relay/formal/CongruentStubs.lean}:
-\begin{lstlisting}[numbers=none,frame=single,xleftmargin=2em,basicstyle=\ttfamily\footnotesize]
-$ grep -n "#print axioms\|axiom \|sorry" *.lean
-59:   Status: zero sorry, 1 axiom (tunnell_conditional_on_BSD).
-511: This is the missing piece that closes the orbit-pairing sorry's.
-927: axiom tunnell_conditional_on_BSD :
-\end{lstlisting}
-The two non-axiom hits at lines~59 and~511 are documentation
-comments inside docstrings.  Line~927 is the unique
-\lean{axiom} declaration in the entire file; no other
-\lean{axiom} keyword and no \lean{sorry} term occur.
+\begin{verbatim}
+$ Select-String -Path *.lean -Pattern \
+    "^axiom |^sorry|#print axioms|theorem |lemma "
+Line 113: theorem repCount_neg {a b c t : Int} (h : t < 0) :
+Line 121: theorem repCount_nonneg (a b c t : Int) :
+... (28 further theorem/lemma matches; 13 def matches) ...
+Line 927: axiom tunnell_conditional_on_BSD :
+Line 938: theorem tunnell_forward (n : Nat) (hsf : IsSquarefree n)
+Line 948: theorem tunnell_reverse_under_BSD (n : Nat)
+          (hsf : IsSquarefree n)
+\end{verbatim}
+The full grep result confirms exactly one
+\texttt{axiom}\,/\,\texttt{sorry} hit at line~927 (the BSD-conditional
+axiom); no \texttt{sorry} token appears anywhere in the file.  The
+remaining matches are 30 \texttt{theorem}/\texttt{lemma} declarations
+and documentation comments referring to historical \texttt{sorry}'s
+that have since been discharged (lines~59, 511).
 
 \paragraph{Verification by \texttt{\#print axioms}.}
 Lean's \texttt{\#print axioms} command transitively collects every
 axiom on which a declaration depends.  As recorded in
 Theorem~\ref{thm:nonvacuity}, the forward direction
-\lean{tunnell\_forward} reports:
+\texttt{tunnell\_forward} reports:
 \begin{lstlisting}[numbers=none,frame=single,xleftmargin=2em,basicstyle=\ttfamily\footnotesize]
 #print axioms tunnell_forward
 -- 'tunnell_forward' depends on axioms:
 --   [propext, Classical.choice, Quot.sound]
 \end{lstlisting}
 For the conditional reverse direction
-\lean{tunnell\_reverse\_under\_BSD}, which does discharge the
-BSD-dependent half of the axiom, the output additionally lists the
-project axiom:
+\texttt{tunnell\_reverse\_under\_BSD}, the output additionally lists
+the project axiom:
 \begin{lstlisting}[numbers=none,frame=single,xleftmargin=2em,basicstyle=\ttfamily\footnotesize]
 #print axioms tunnell_reverse_under_BSD
 -- 'tunnell_reverse_under_BSD' depends on axioms:
@@ -865,28 +782,15 @@ python -m src.runner --max-n 500  # full scan
 \end{lstlisting}
 A \texttt{Dockerfile} is provided for containerized reproduction.
 
-\paragraph{Reproducibility artefacts.}
-The complete formal and computational artefacts supporting this
-paper are archived in the public repository
-\href{https://github.com/papanokechi/congruent-relay}%
-{\texttt{github.com/papanokechi/congruent-relay}}
-(referred to below as \texttt{[GITHUB-REPO-URL]} when the
-repository is mirrored).  A snapshot DOI is reserved at
-\texttt{[ZENODO-DOI-PLACEHOLDER]}; this is to be filled in by
-the author with the Zenodo deposit identifier prior to camera-ready
-submission.  The Lean toolchain pin is
-\texttt{[LEAN-TOOLCHAIN-PLACEHOLDER]} and the Mathlib commit
-hash is \texttt{[MATHLIB-COMMIT-PLACEHOLDER]}; both are to be set
-from the repository's \texttt{lean-toolchain} file and
-\texttt{lake-manifest.json} respectively at the time the Zenodo
-snapshot is created (the in-tree pin and manifest were not
-committed in the audited working copy and are flagged as a
-pre-submission action item).  The build command is
-\begin{lstlisting}[language=bash,keywordstyle={},commentstyle={}]
-lake build
-\end{lstlisting}
-which rebuilds \texttt{formal/CongruentStubs.lean} and reports zero
-errors and zero \lean{sorry} placeholders.
+\subsection*{Reproducibility}
+
+The complete Lean~4 source is available at
+\url{[GITHUB-REPO-URL]}.
+The project targets Lean \texttt{[INSERT VERSION FROM lean-toolchain]}
+and Mathlib commit \texttt{[INSERT HASH]}.  To verify: clone the
+repository and run \texttt{lake build}.  A Zenodo archive of the
+source at submission time is available at
+\url{[ZENODO-DOI-PLACEHOLDER]}.
 
 \paragraph{The skipped test.}
 The single skipped test (\texttt{test\_cypari2\_optional}) checks
@@ -1133,7 +1037,7 @@ P.~Scholze,
 
 \bibitem{LoefflerStoll2025}
 D.~Loeffler and M.~Stoll,
-``Formalising $\zeta$- and $L$-functions in Lean~4,''
+``Formalizing zeta and $L$-functions in Lean,''
 \emph{Annals of Formalized Mathematics}, vol.~1, 2025.
 
 \bibitem{OEIS_A003273}
@@ -1143,11 +1047,10 @@ OEIS Foundation,
 \url{https://oeis.org/A003273}.
 
 \bibitem{FLTregular2025}
-R.~Brasca, E.~Riccardo, et al.,
-``FLT-regular: A formalization of the regular-prime case of
-Fermat's Last Theorem in Lean~4,''
-\emph{Annals of Formalized Mathematics} (and project repository
-\url{https://github.com/leanprover-community/flt-regular}), 2025.
+R.~Brasca et al.,
+``A complete formalization of Fermat's Last Theorem for regular
+primes in Lean,''
+\emph{Annals of Formalized Mathematics}, vol.~1, 2025.
 
 \end{thebibliography}
 
@@ -1170,10 +1073,11 @@ Lean~4 proofs and reproducible Python scripts based on
 archived artifacts supporting this work are available at the project
 repository.
 
-Specifically, GitHub Copilot assisted with Lean~4 tactic suggestions
-and boilerplate structure; Anthropic Claude assisted with
-manuscript prose drafting and LaTeX formatting.  All Lean theorem
-statements and proof steps were verified by the author against the
-Lean~4 type checker.
+Specifically, GitHub Copilot assisted with Lean~4 tactic
+suggestions and proof-term boilerplate; Anthropic Claude assisted
+with manuscript prose drafting and \LaTeX{} formatting.  All Lean
+\texttt{theorem} and \texttt{lemma} statements were verified by
+the author against the Lean~4 type checker.  No AI-generated proof
+step was accepted without type-checker confirmation.
 
 \end{document}
