@@ -1,0 +1,39 @@
+Dear Editors of Formal Aspects of Computing,
+
+I submit for your consideration the manuscript:
+
+Title: A Layered, Axiom-Isolated Lean 4 Formalization of the
+       Congruent Number Problem up to Tunnell's Criterion
+
+This note presents a layered, axiom-isolated Lean 4 formalization
+of the Congruent Number Problem up to Tunnell's Criterion. The
+formalization is structured to achieve clear separation between
+computational content, number-theoretic lemmas, and the single
+conditional axiom (BSD conjecture dependence), making the proof
+structure fully auditable.
+
+The Lean source contains 954 lines (formal/CongruentStubs.lean).
+The formalization carries 0 sorry statements beyond the explicitly
+named BSD-conditional axiom (tunnell_conditional_on_BSD), which is
+isolated and labeled throughout. Two opaque definitions
+(AlgebraicRank, AnalyticRank) provide the rank functions required
+to state BSD as a non-vacuous proposition; the axiom non-vacuity
+property is itself a theorem of the development
+(Theorem 6.1, "Axiom non-vacuity").
+
+The manuscript has not been submitted elsewhere and is not under
+consideration at any other journal.
+
+The author is an independent researcher based in Yokohama, Japan
+(ORCID: 0009-0000-6192-8273). Use of AI tools (GitHub Copilot,
+Anthropic Claude) is disclosed in the manuscript per Springer
+Nature policy.
+
+I believe this work fits the scope of Formal Aspects of Computing
+through its contribution to mechanized proof, axiom hygiene, and
+the formalization of classical number-theoretic results in Lean 4.
+
+Sincerely,
+Papanokechi
+Independent researcher, Yokohama, Japan
+ORCID: 0009-0000-6192-8273
