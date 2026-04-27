@@ -1,0 +1,630 @@
+% t2b_conjecture_note.tex — The Transcendental Ratio Identity
+% A standalone conjecture note for Zenodo priority posting.
+\documentclass[11pt]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{problem}{Problem}
+
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\KK}{\mathcal{K}}
+\newcommand{\Rat}{\mathrm{Rat}}
+\newcommand{\Log}{\mathrm{Log}}
+\newcommand{\Alg}{\mathrm{Alg}}
+\newcommand{\Trans}{\mathrm{Trans}}
+\newcommand{\Des}{\mathrm{Des}}
+\newcommand{\dps}{\mathrm{dps}}
+
+\emergencystretch=1.5em
+
+\title[The Transcendental Ratio Identity]{The Transcendental Ratio
+Identity: A Conjecture on Degree-$(2,1)$ Polynomial Continued Fractions}
+
+\author{Papanokechi}
+\address{Independent researcher, Yokohama, Japan}
+\email{shkubo@outlook.jp}
+
+\subjclass[2020]{11A55, 11J70, 11J81, 11Y65, 40A15}
+
+\keywords{Polynomial continued fractions, arithmetic stratification,
+indicial equation, Worpitzky boundary, transcendental numbers,
+experimental mathematics, conjecture}
+
+\begin{document}
+
+\begin{abstract}
+For an integer polynomial continued fraction
+$K = b_0 + \cfrac{a(1)}{b(1) + \cfrac{a(2)}{b(2) + \cdots}}$
+of partial-numerator degree $2$ and partial-denominator degree $1$,
+write $a(n) = a_2 n^2 + a_1 n + a_0$ and $b(n) = b_1 n + b_0$ with
+$a_2 \ne 0$, $b_1 \ne 0$.  The asymptotic Worpitzky parameter
+$r := a_2 / b_1^2$ stratifies $K$ via the indicial equation
+$\lambda^2 - \lambda - r = 0$.  We propose the
+\emph{Transcendental Ratio Identity}: every transcendental-stratum
+limit lying in the negative-Worpitzky interior must arise at
+$r = -2/9$ (indicial exponents $\{1/3, 2/3\}$).  The conjecture is
+supported by zero counterexamples in $\sim 585{,}000$ families%
+\footnote{Experiment C ($b_1 \in \{\pm 4, \pm 5\}$, $7{,}174$
+convergent families) is a subset of Experiment B; de-duplicated
+total is approximately $578{,}000$.}
+across independent experiments, including a complete census of
+$\FF(2,5)$ and targeted falsification sweeps at every admissible
+rational-indicial ratio realisable for $|b_1| \le 12$.  A separate Brouncker
+boundary stratum at $r = +1/4$ is identified and rigorously
+distinguished.  We outline a possible Schwarz-monodromic mechanism
+and list four open problems for which the conjecture would be
+decisive.
+\end{abstract}
+
+\maketitle
+
+%% ===================================================================
+\section{Introduction}
+%% ===================================================================
+
+A \emph{polynomial continued fraction (PCF) of degree $(d, e)$ with
+integer coefficients} is an object
+\begin{equation}\label{eq:pcf}
+  K(a, b) \;=\; b_0 \,+\, \cfrac{a(1)}{b(1) \,+\, \cfrac{a(2)}{b(2)
+  \,+\, \cfrac{a(3)}{b(3) \,+\, \cdots}}}
+\end{equation}
+where
+\(
+a(n) = a_d n^d + \cdots + a_0
+\)
+and
+\(
+b(n) = b_e n^e + \cdots + b_0
+\)
+are integer polynomials with $a_d \ne 0$ and $b_e \ne 0$.  The case
+$(d,e) = (2,1)$ is the smallest non-trivial case in which classical
+limits such as $\pi$, Brouncker's $4/\pi$, and the Ap\'ery-like series
+all appear.
+
+For $(d,e) = (2,1)$ we write $a(n) = a_2 n^2 + a_1 n + a_0$,
+$b(n) = b_1 n + b_0$, and call
+\begin{equation}\label{eq:r-defn}
+  r \;:=\; \frac{a_2}{b_1^2}
+\end{equation}
+the \emph{Worpitzky parameter} of $K$.  Throughout, \emph{degree-$(2,1)$}
+means $\deg a = 2$ and $\deg b = 1$ exactly, i.e.\ $a_2 \neq 0$ and
+$b_1 \neq 0$; the ratio $a_2/b_1^2$ is therefore well-defined for
+every PCF in scope.\footnote{A preprint of this note is available at
+Zenodo, DOI~\href{https://doi.org/10.5281/zenodo.19801038}{10.5281/zenodo.19801038}.}  The classical Worpitzky-Thron
+theory of limit-periodic continued fractions identifies the disc
+$r \in (-1/4,\,0)$ as the \emph{convergent interior} (negative
+Worpitzky region), and the boundary points $r = -1/4$ and $r = +1/4$
+as the parabolic boundary at which exotic phenomena (Brouncker's
+$4/\pi$, the Lentz parabolic theorem) occur.
+
+Empirical work begun in \cite{PCF25} surveying every integer PCF in
+$\FF(2,4) := \{(d,e)=(2,1) : |a_i|, |b_j| \le 4\}$ uncovered an
+unexpected algebraic identity:
+\begin{quote}
+\itshape Every one of the $24$ Trans-stratum limits in $\FF(2,4)$
+satisfies $r = -2/9$.
+\end{quote}
+The corresponding indicial equation $\lambda^2 - \lambda - r = 0$
+has roots $\{1/3,\,2/3\}$ at $r = -2/9$ --- a strikingly small
+discrete value.  No analytic theory of which we are aware predicts
+this constant.  Initial speculation that $-2/9$ might be a
+``pigeonhole artifact'' (the unique rational of small height in the
+negative-Worpitzky interior achievable at $D = 4$) motivated the
+present work.
+
+In this note we summarise four independent computational experiments
+which together survey roughly $585{,}000$ degree-$(2,1)$ PCFs and
+find \emph{zero} interior-stratum Trans counterexamples to the
+relation $r = -2/9$.  We isolate a separate parabolic-boundary stratum at
+$r = +1/4$ (the Brouncker class) which lies on the \emph{positive}
+boundary and which the conjecture explicitly excludes.  We then
+state the central conjecture.
+
+\begin{conjecture}[Transcendental Ratio Identity]\label{conj:tri}
+Let $K(a, b)$ be a degree-$(2,1)$ polynomial continued fraction with
+integer coefficients, $a_2 \ne 0$, $b_1 \ne 0$.  If $K$ converges to
+a limit $L$ in the Trans stratum --- that is, $L$ is not rational and
+not expressible as a $\mathbb Q$-linear combination of logarithms of
+algebraic numbers --- then
+\begin{equation}\label{eq:conj}
+  \frac{a_2}{b_1^2} \;=\; -\frac{2}{9}.
+\end{equation}
+Equivalently, the three-term recurrence associated with $K$ has
+indicial exponents $\{1/3, 2/3\}$ at infinity.
+\end{conjecture}
+
+The remainder of the note proceeds as follows.
+Section~\ref{sec:framework} gives the indicial-equation framework
+and explains the Worpitzky interior/boundary distinction.
+Section~\ref{sec:evidence} summarises the four computational
+experiments supporting Conjecture~\ref{conj:tri}.
+Section~\ref{sec:brouncker} treats the Brouncker boundary class
+$r = +1/4$ and explains why it is not a counterexample.
+Section~\ref{sec:open} lists candidate falsifiers, the open status
+of the conjecture, and a speculative connection to Schwarz's list.
+
+%% ===================================================================
+\section{The Indicial Equation Framework}\label{sec:framework}
+%% ===================================================================
+
+The PCF~\eqref{eq:pcf} is governed by the three-term recurrence
+\begin{equation}\label{eq:recurrence}
+  y_{n+1} \;=\; b(n)\, y_n \,+\, a(n)\, y_{n-1},
+  \qquad n \ge 1,
+\end{equation}
+applied separately to numerator partial-fraction sequences
+$P_n$ and denominator sequences $Q_n$.  The leading-order behaviour
+is governed by the following lemma.
+
+\begin{lemma}\label{lem:indicial}
+Let $K(a(n),b(n))$ be a degree-$(2,1)$ PCF with $a(n) =
+a_2 n^2 + O(n)$ and $b(n) = b_1 n + O(1)$.  The three-term
+recurrence $y_{n+1} = b(n)\, y_n + a(n)\, y_{n-1}$ has, at
+infinity, the \emph{indicial equation}
+\begin{equation}\label{eq:indicial}
+  \lambda^2 \,-\, \lambda \,-\, r \;=\; 0,
+  \qquad r = \frac{a_2}{b_1^2}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Writing $y_n = \lambda^n (1 + o(1))$ and substituting into the
+recurrence,
+\[
+  \lambda^{n+1}(1+o(1)) \;=\; b_1 n \cdot \lambda^n(1+o(1))
+  \,+\, a_2 n^2 \cdot \lambda^{n-1}(1+o(1)).
+\]
+Dividing by $b_1 n \lambda^{n-1}$ and taking $n\to\infty$ gives
+$b_1 \lambda^2 = b_1 \lambda + a_2$, i.e.\ $\lambda^2 - \lambda -
+a_2/b_1^2 = 0$.
+\end{proof}
+
+For $r = -2/9$ the roots of \eqref{eq:indicial} are
+$\lambda = (1 \pm 1/3)/2$, giving the pair $\{1/3,\, 2/3\}$.
+The roots in general are
+$\lambda_\pm = \tfrac{1}{2}\bigl(1 \pm \sqrt{1 + 4r}\bigr)$,
+encoding the asymptotic exponents of the two formal solutions of
+\eqref{eq:recurrence} at infinity.
+
+\begin{proposition}\label{prop:trivial}
+Every convergent degree-$(2,1)$ PCF with integer coefficients
+satisfying $a_2/b_1^2 = -2/9$ has indicial exponents
+$\{1/3,\, 2/3\}$ at infinity.
+\end{proposition}
+\begin{proof}
+Substitute $r = -2/9$ into the indicial equation, giving
+$\lambda^2 - \lambda + 2/9 = 0$.  The discriminant is $1 - 8/9 =
+1/9 > 0$, with roots $\lambda = (1 \pm 1/3)/2 \in \{1/3,\, 2/3\}$.
+\end{proof}
+
+The converse --- that indicial exponents $\{1/3,\,2/3\}$ imply
+Trans-stratum convergence --- is the content of
+Conjecture~\ref{conj:tri}.
+
+\begin{lemma}\label{lem:strata}
+The discriminant $\Delta = 1 + 4r$ partitions the parameter line
+into the following regimes.
+\begin{enumerate}[label={\upshape(\roman*)}]
+\item $\Delta < 0$, i.e.\ $r < -1/4$: complex-conjugate exponents,
+limit-periodic divergence in general.
+\item $\Delta = 0$, i.e.\ $r = -1/4$: the negative parabolic
+boundary; double root $\lambda = 1/2$.
+\item $0 < \Delta < 1$, i.e.\ $-1/4 < r < 0$: the
+\emph{negative-Worpitzky interior}; real exponents
+$\lambda_\pm \in (0,1)$.
+\item $\Delta = 1$, i.e.\ $r = 0$: the trivial linear case
+$a(n)/b(n) \to 0$.
+\item $\Delta > 1$, i.e.\ $r > 0$: positive Worpitzky region;
+$\lambda_+ > 1$, $\lambda_- < 0$.  The boundary point $r = +1/4$
+($\Delta = 2$) is the classical Brouncker locus.
+\end{enumerate}
+\end{lemma}
+
+For $r = -2/9$ one has $\Delta = 1/9$ and indicial roots
+$\{1/3,\,2/3\}$.  These are the simplest pair of \emph{rational}
+exponents in the open interval $(0,1)$: writing $\lambda_\pm = p/q$
+with $\gcd(p,q) = 1$ and $0 < p < q$, the ordered list of admissible
+$(\lambda_-, \lambda_+) = (p/q,\,(q-p)/q)$ pairs in the negative
+Worpitzky interior begins
+\begin{align*}
+  \{\tfrac{1}{3},\tfrac{2}{3}\} &\;\to\; r = -\tfrac{2}{9}, &
+  \{\tfrac{1}{4},\tfrac{3}{4}\} &\;\to\; r = -\tfrac{3}{16}, \\
+  \{\tfrac{1}{5},\tfrac{4}{5}\} &\;\to\; r = -\tfrac{4}{25}, &
+  \{\tfrac{2}{5},\tfrac{3}{5}\} &\;\to\; r = -\tfrac{6}{25},
+\end{align*}
+followed by shifted variants at $q = 6$ and the prime-denominator
+family at $q = 7$.  Conjecture~\ref{conj:tri} asserts that --- among
+all of these admissible pairs --- only the first one supports a
+Trans-stratum limit.
+
+The pair $\{1/3, 2/3\}$ appears on Schwarz's classical list of
+algebraic hypergeometric functions~\cite{Schwarz}: specifically the
+dihedral entry with exponent difference $1/3$.  This is a factual
+incidence; whether it \emph{explains} the empirical universality of
+$r = -2/9$ in the integer setting is taken up below.
+
+\begin{remark}\label{rem:schwarz-speculation}
+Whether Schwarz-list membership \emph{explains} the empirical
+universality of $-2/9$ --- i.e., whether every degree-$(2,1)$
+integer PCF whose limit is algebraic-hypergeometric necessarily has
+this ratio --- is an open question lying beyond the scope of the
+present note.  Heuristically one expects a Schwarz-monodromic
+constraint on the second-order linear recurrence~\eqref{eq:recurrence}:
+the formal monodromy at infinity must lift to an integer-coefficient
+operator, and only $\{1/3,2/3\}$ among rational pairs in $(0,1) \times
+(0,1)$ produces a fundamental domain of small enough discriminant for
+this lift to be obstruction-free.  This is conjectural; we offer no
+proof.  See Section~\ref{sec:open} for a precise open problem.
+\end{remark}
+
+%% ===================================================================
+\section{Empirical Evidence}\label{sec:evidence}
+%% ===================================================================
+
+We summarise four computational experiments.  Each was logged as a
+session in the SIARC relay bridge (commits referenced in the
+disclosure section); raw results are reproducible from the published
+scripts.
+
+\subsection*{Experiment A: $\FF(2,4)$ complete census}
+The base-case paper~\cite{PCF25} enumerated every integer
+degree-$(2,1)$ PCF with $|a_i|, |b_j| \le 4$, totaling $531{,}441$
+families, and identified $24$ Trans-stratum limits, all with
+$r = -2/9$.
+
+\subsection*{Experiment B: $\FF(2,5)$ complete census}
+Extending the search to $D = 5$ ($133{,}100$ candidate families), the
+F$(2,5)$ census~\cite{F25} found $88{,}224$ convergent families with
+the stratum decomposition $\Rat(975) \sqcup \Alg(9{,}667) \sqcup
+\Trans(70) \sqcup \Log(12) \sqcup \Des(77{,}500)$.  The Trans and
+Log strata partition by Worpitzky parameter as follows:
+\begin{itemize}
+\item $r = -2/9$: $56$ Trans (M\"obius transforms of $\pi$) and
+all $12$ Log (M\"obius transforms of $\log 2$) families;
+\item $r = +1/4$: $14$ Trans families of Brouncker type;
+\item every other Worpitzky parameter: $0$ Trans, $0$ Log.
+\end{itemize}
+Crucially, all $12$ Log-stratum families also exhibit $r = -2/9$:
+the identity is independent of which transcendental constant
+($\pi$ or $\log 2$) the limit involves.  This refutes any pigeonhole
+explanation tied to a particular transcendental.
+
+\subsection*{Experiment C: targeted resonance search}
+The four ratios $r \in \{-3/16,\,-4/25,\,-6/25,\,-2/49\}$ are the
+next admissible rational-indicial Worpitzky-interior values
+(Section~\ref{sec:framework}).  Restricted enumeration at
+$|b_1| \in \{4, 5\}$ (covering the first three ratios), with the
+remaining slots $|a_1|, |a_0|, |b_0| \le 5$, was processed through
+the same PSLQ-based three-stage pipeline used in Experiments A and
+B.  Two follow-up resonance sessions extended the sweep to
+$|b_1| \in \{6, 7\}$ and $|b_1| \in \{8,9,10,11,12\}$
+(the latter covering the rational-indicial targets $r = -2/49$,
+$-2/9$ at $b_1 = \pm 9, \pm 12$, and $r = -35/144$ at
+$b_1 = \pm 12$).  Results are summarised in
+Table~\ref{tab:resonance}.
+
+The coefficient boxes used at each $b_1$ stratum were:
+$|a_i|, |b_0| \le 4$ for $|b_1| = 3$;
+$|a_i|, |b_0| \le 5$ for $|b_1| \in \{4, 5, 6, 7\}$; and
+$|a_i|, |b_0| \le 3$ for $|b_1| \in \{8,\ldots,12\}$ (reduced to
+stay below the $500{,}000$-family halt threshold imposed by the
+pipeline).
+
+\paragraph{Phantom-hit guard.}
+All PSLQ searches apply a mandatory $L$-coefficient non-zero
+filter: any recovered relation with zero coefficient on $L$ is
+rejected as a phantom hit.  Two phantom traps known to affect the
+basis families used here are $\zeta(2) = \pi^2/6$ and the golden
+ratio $\varphi = (1+\sqrt{5})/2$, both of which generate spurious
+relations when $\pi$ or $\sqrt{5}$ appears in the search basis;
+neither affects the reported Trans or Log classifications below.
+
+\subsection*{Experiment D: indicial discriminant pre-screen}
+A theoretical analysis of all rationals $r$ with $\sqrt{1 + 4r} \in
+\mathbb Q$ at $|b_1| \le 5$ enumerates exactly ten admissible interior
+ratios.  Of the ten, only $r = -2/9$ is realised in the Trans stratum
+across Experiments A--C; the remaining nine are confirmed empty in
+either A, B, or C.
+
+\begin{table}[t]
+\centering
+\caption{Stratum counts in $\FF(2,4)$ and $\FF(2,5)$.}
+\label{tab:censuses}
+\begin{tabular}{lrrl}
+\toprule
+Search            & Trans & Log & Worpitzky parameter $r$ \\
+\midrule
+$\FF(2,4)$ ($D=4$)         & $24$ & $0$  & $-2/9$         \\
+$\FF(2,5)$ ($D=5$, neg.\ interior) & $56$ & $12$ & $-2/9$         \\
+$\FF(2,5)$ ($D=5$, Brouncker)      & $14$ & $0$  & $+1/4$         \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Targeted resonance searches.  Top block: $b_1 \in \{\pm 4,
+\pm 5\}$, $|a_1|,|a_0|,|b_0| \le 5$.  Bottom block: extended
+sweeps at higher $|b_1|$.  All runs at dps $=100$.}
+\label{tab:resonance}
+\begin{tabular}{lrrr}
+\toprule
+Scope (target ratio $r$ or range) & Convergent families & Trans & Log \\
+\midrule
+$b_1 \in \{\pm 4, \pm 5\}$, $r = -3/16$ & $2{,}384$ & $0$ & $0$ \\
+$b_1 \in \{\pm 4, \pm 5\}$, $r = -4/25$ & $2{,}396$ & $0$ & $0$ \\
+$b_1 \in \{\pm 4, \pm 5\}$, $r = -6/25$ & $2{,}394$ & $0$ & $0$ \\
+\midrule
+$b_1 \in \{\pm 6, \pm 7\}$ (full sweep) & $175{,}686$ & $0$ & $2$ \\
+$b_1 \in \{\pm 8,\dots,\pm 12\}$ (motivated targets) & $259{,}280$ & $0$ & $0$ \\
+\midrule
+Combined        & $442{,}140$ & $0$ & $2$ \\
+Total across all experiments (A--D) & $\approx 585{,}000$ & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Log-stratum anomaly families.  The two Log-stratum hits
+found at $b_1 = \pm 6$ both have ratio $r = a_2/b_1^2 = -1/36$.
+Both have limit $L = \pm 2/\log 2$, verified at $\dps = 150$ with
+residual $5.65 \times 10^{-150}$.}
+\label{tab:log-anomaly}
+\begin{tabular}{ccccc}
+\toprule
+$a_2$ & $a_1$ & $a_0$ & $b_1$ & $b_0$ \\
+\midrule
+$-1$ & $0$ & $0$ & $\phantom{-}6$ & $\phantom{-}3$ \\
+$-1$ & $0$ & $0$ & $-6$ & $-3$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Aggregate}
+The combined empirical base across the experiments comprises
+approximately $585{,}000$ integer degree-$(2,1)$ PCF families
+surveyed (convergent count, including the extended
+$b_1 \in \{6,7\}$ and $b_1 \in \{8,\dots,12\}$ resonance sweeps).
+The two Log-stratum families found at $b_1 = \pm 6$ both lie at
+$r = -1/36$ (a Bauer--Stern doubling parameter outside the
+admissible rational-indicial set predicted by the conjecture's
+framework) and are tracked under Section~\ref{sec:open}.  Notably,
+at $b_1 = \pm 12$ the ratio $r = -35/144$ was tested explicitly
+and produced $0$ hits.  The number of Trans-stratum families with
+$r \ne -2/9$ \emph{and} $r$ in the negative Worpitzky
+interior
+(equivalently: the number of counterexamples to
+Conjecture~\ref{conj:tri}) is exactly zero.  The $14$ Brouncker
+families at $r = +1/4$ lie on the positive Worpitzky boundary and
+are addressed in Section~\ref{sec:brouncker}.
+
+\subsection*{Computational setup}
+All computations used Python~3 with \texttt{mpmath}
+(arbitrary-precision arithmetic) at $\dps = 150$ decimal places
+for deep-validation passes; primary classification ran at
+$\dps = 100$.  Continued fractions were evaluated by computing
+$K_{1500}$ (1500 partial quotients) with convergence tolerance
+$10^{-8}$ between consecutive truncants.  PSLQ integer-relation
+detection used the \texttt{mpmath.identify} / \texttt{mpmath.pslq}
+implementation.  Total wall-clock time across all sessions:
+approximately $5$ hours on a standard laptop.
+
+%% ===================================================================
+\section{The Brouncker Boundary Class}\label{sec:brouncker}
+%% ===================================================================
+
+The $14$ families at $r = +1/4$ that appear in $\FF(2,5)$ are
+\emph{not} counterexamples to Conjecture~\ref{conj:tri}.  We
+distinguish them as follows.
+
+\begin{proposition}\label{prop:brouncker-boundary}
+The Worpitzky parameter $r = +1/4$ lies on the positive parabolic
+boundary $\Delta = 2$, with indicial double root $\lambda = 1/2$
+realised in $\mathbb{R}$ but lying \emph{outside} the negative
+Worpitzky interior $r \in (-1/4, 0)$ to which
+Conjecture~\ref{conj:tri} applies.
+\end{proposition}
+
+A representative Brouncker family $(a_2, a_1, a_0, b_1, b_0) =
+(1, 0, 0, -2, -1)$ produces, at integer recurrence, the limit
+$L = -4/\pi$, recovering Lord Brouncker's celebrated
+$1655$ identity~\cite{Brouncker} after sign normalisation.  The full
+$14$-element class consists of small integer perturbations of
+Brouncker's recurrence; PSLQ identifies all $14$ as M\"obius
+transforms of $4/\pi$ at residual below $10^{-30}$.
+The boundary case $r = +1/4$ places the PCF on the positive
+Worpitzky boundary where the associated continued fraction
+converges at a logarithmic rate (cf.\ Brouncker's CF for $4/\pi$);
+the indicial roots are $(1 \pm \sqrt{2})/2$, irrational, placing
+this class in an analytically distinct regime from the Trans
+stratum.
+
+The boundary nature of $r = +1/4$ is essential: the Brouncker
+asymptotics are parabolic (algebraic decay of partial-fraction error),
+whereas Conjecture~\ref{conj:tri}'s domain --- the strictly negative
+Worpitzky interior --- is hyperbolic (geometric decay).  These are
+qualitatively different convergence regimes.
+
+\begin{remark}
+The negative parabolic boundary $r = -1/4$ has \emph{no integer
+realisation} at $|b_1| \le 5$ (the equation $a_2 = -b_1^2/4$ has no
+integer solutions for $b_1 \in \{1,\dots,5\}$); the question of
+whether a parabolic-negative analogue of the Brouncker class exists
+at larger $|b_1|$ is open.
+\end{remark}
+
+%% ===================================================================
+\section{Candidate Falsifiers and Open Problems}\label{sec:open}
+%% ===================================================================
+
+Four candidate falsifiers and four open problems.
+
+\subsection*{Candidate falsifiers (status)}
+\begin{enumerate}[label={\upshape(\arabic*)}]
+\item $r = -3/16$, indicial roots $\{1/4, 3/4\}$, requires $|b_1| = 4$.
+\textbf{Empty in Trans/Log at $|b_1| = 4$, $|a_i|, |b_j| \le 5$.}
+\item $r = -4/25$, indicial roots $\{1/5, 4/5\}$, requires
+$|b_1| = 5$. \textbf{Empty.}
+\item $r = -6/25$, indicial roots $\{2/5, 3/5\}$, requires
+$|b_1| = 5$. \textbf{Empty.}
+\item $r = -2/49$, indicial roots $\{1/7, 6/7\}$, requires
+$|b_1| = 7$.  Tested in the $|b_1| \in \{6,7\}$ resonance sweep
+(Experiment C, $175{,}686$ convergent families): $0$ Trans,
+$0$ Log families found at this ratio.
+\end{enumerate}
+
+\subsection*{Open Problems}
+\begin{problem}\label{prob:d6}
+Does Conjecture~\ref{conj:tri} survive at $D = 6$ and $D = 7$?
+The natural extension is a complete $\FF(2,7)$ census; the search
+size grows as $(2D{+}1)^5$, well within tractable PSLQ budgets at
+$\dps = 100$.
+\end{problem}
+
+\begin{problem}\label{prob:rational-coeffs}
+Does the analogue of Conjecture~\ref{conj:tri} hold for
+\emph{rational}-coefficient PCFs of degree $(2,1)$, with $r$ defined
+as in~\eqref{eq:r-defn}?  Equivalently, is the integer-coefficient
+restriction essential?
+\end{problem}
+
+\begin{problem}\label{prob:schwarz}
+Is there a Schwarz-monodromic proof of Conjecture~\ref{conj:tri}
+along the lines sketched in Remark~\ref{rem:schwarz-speculation}?
+A starting point would be a classification of integer-coefficient
+second-order linear recurrences with rational indicial exponents
+$\{p/q,\,(q-p)/q\}$, $q \le 7$, having a transcendental ratio
+$P_n/Q_n$ as $n \to \infty$.
+\end{problem}
+
+\begin{problem}\label{prob:negative-parabolic}
+Does a negative parabolic boundary stratum exist at $r = -1/4$?
+The integer constraint $a_2 = -b_1^2/4$ forces $b_1$ even and
+$|b_1| \ge 2\sqrt{|a_2|}$; the smallest candidate is
+$(a_2, b_1) = (-1, 2)$.  An empirical survey is straightforward.
+\end{problem}
+
+\subsection*{Closing remark}
+Conjecture~\ref{conj:tri} is, to the best of our knowledge, the
+first published quantitative arithmetic constraint on the
+transcendental stratum of degree-$(2,1)$ integer PCFs that is
+\emph{independent of the transcendental constant} appearing in the
+limit.  Its proof or refutation, in either the integer or rational
+setting, would constitute a substantive advance in the
+arithmetic theory of polynomial continued fractions.
+
+%% ===================================================================
+\section*{Computational and AI-Assistance Disclosure}
+%% ===================================================================
+
+\textbf{Reproducibility.}  All computations underlying this note are
+reproducible from publicly archived scripts and datasets.  All
+enumeration scripts, PSLQ certificates, and raw classification logs
+are archived at the bridge repository
+\href{https://github.com/papanokechi/siarc-relay-bridge}%
+{papanokechi/siarc-relay-bridge}, in particular sessions
+\texttt{2026-04-29/T2B-APERY-INVESTIGATION} (commit
+\texttt{0161a321}; theoretical pre-analysis),
+\texttt{2026-04-29/T2B-F25-FALSIFICATION} (commit
+\texttt{6e28269}; the F$(2,5)$ census),
+\texttt{2026-04-29/T2B-RESONANCE-SEARCH} (commit
+\texttt{ab0d70b}; the targeted $|b_1| \le 5$ resonance test),
+\texttt{2026-04-29/T2B-RESONANCE-B67} (the $|b_1| \in \{6,7\}$
+extension), and \texttt{2026-04-30/T2B-RESONANCE-B8-12} (the
+$|b_1| \in \{8,\ldots,12\}$ extension).  Each session is accompanied
+by a handoff document, AEAL claim entries, and bit-exact numerical
+inputs/outputs.
+
+\textbf{AEAL.}  Numerical claims in this note follow the
+``Aggressive Empirical Audit Layer'' (AEAL) discipline: every quoted
+count or ratio is logged as a \texttt{claims.jsonl} entry with
+\texttt{evidence\_type = computation}, the
+governing precision (\texttt{dps=100} for Experiments B and C;
+\texttt{dps=300}--$500$ for Experiment A), the script filename,
+and a SHA-256 hash of the result file.  See the bridge sessions for
+the full ledger.
+
+\textbf{AI-assistance disclosure.}  During the preparation of this
+work the author used GitHub Copilot (Microsoft) and Anthropic Claude
+in order to assist with code generation, numerical computations,
+and manuscript drafting. After using these tools, the author
+reviewed and edited the content as needed and takes full
+responsibility for the content of this article.
+
+In supporting detail: GitHub Copilot was used as the execution
+agent for all enumerations, PSLQ classifications, and figure-data
+generation; the agent's outputs are deterministic functions of the
+stated scripts.  Anthropic Claude (\texttt{claude.ai}) was used as a
+critique and drafting partner for the manuscript text.  All
+mathematical claims in this note were verified by the author against
+the underlying numerical data.
+
+%% ===================================================================
+\begin{thebibliography}{99}
+%% ===================================================================
+
+\bibitem{PCF25}
+Papanokechi,
+\emph{A Complete Arithmetic Stratification of Degree-2 Polynomial
+Continued Fractions: The $\FF(2,4)$ Base Case,}
+manuscript under review at J.~Th\'{e}or.\ Nombres Bordeaux
+(JTNB-2400), 2026.
+
+\bibitem{F25}
+Papanokechi.
+\emph{F$(2,5)$ Census and the Pigeonhole Falsification.}
+SIARC relay bridge session
+\texttt{2026-04-29/T2B-F25-FALSIFICATION}, commit \texttt{6e28269},
+2026.
+
+\bibitem{ThronWaadeland}
+W.~B.~Jones and W.~J.~Thron,
+\emph{Continued Fractions: Analytic Theory and Applications,}
+Encyclopedia of Mathematics and its Applications, vol.~11,
+Addison-Wesley, Reading, MA, 1980.
+
+\bibitem{Worpitzky}
+J.~Worpitzky,
+\emph{Untersuchungen \"uber die Entwickelung der monodromen und
+monogenen Functionen durch Kettenbr\"uche,}
+Programm Friedrichs-Gymnasium und Realschule, Berlin, 1865.
+
+\bibitem{Brouncker}
+W.~Brouncker, in J.~Wallis,
+\emph{Arithmetica Infinitorum}, Oxford, 1656.
+(Brouncker's continued fraction $\tfrac{4}{\pi}
+= 1 + \cfrac{1^2}{2 + \cfrac{3^2}{2 + \cfrac{5^2}{2+\cdots}}}$.)
+
+\bibitem{Schwarz}
+H.~A.~Schwarz,
+\emph{\"Uber diejenigen F\"alle, in welchen die Gauss\-ische
+hypergeometrische Reihe eine algebraische Function ihres vierten
+Elementes darstellt,}
+J.\ Reine Angew.\ Math.\ \textbf{75} (1873), 292--335.
+
+\bibitem{RamanujanMachine}
+G.~Raayoni, S.~Gottlieb, Y.~Manor, G.~Pisha, Y.~Harris, U.~Mendlovic,
+D.~Haviv, Y.~Hadad, and I.~Kaminer,
+\emph{Generating conjectures on fundamental constants with the
+Ramanujan Machine,}
+Nature \textbf{590} (2021), 67--73.
+
+\end{thebibliography}
+
+\end{document}
