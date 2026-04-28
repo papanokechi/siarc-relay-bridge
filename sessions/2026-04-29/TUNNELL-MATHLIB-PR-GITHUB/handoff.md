@@ -1,103 +1,77 @@
 # Handoff — TUNNELL-MATHLIB-PR-GITHUB
 **Date:** 2026-04-29
 **Agent:** GitHub Copilot (VS Code)
-**Session duration:** ~5 minutes
-**Status:** HALTED
+**Session duration:** ~10 minutes (3rd attempt)
+**Status:** HALTED (3rd consecutive halt at Step 1)
 
 ## What was accomplished
-Halted at Step 1 (precondition check) because the `gh` CLI is not installed on this machine. No fork, no branch, no upload, no PR was attempted — per the relay prompt's explicit HALT rule for missing tooling.
+Halted at Step 1 again. Authentication of the `gh` CLI is the sole remaining blocker. All PR artifacts are pre-validated and ready. No fork, no branch, no upload, no PR was attempted.
 
-## Halt details
-- Step reached: 1 (CHECK fork existence)
-- **Second attempt (2026-04-29, ~later):** user installed `gh` CLI (v2.91.0, on PATH). However `gh auth status` reports `You are not logged into any GitHub hosts`, and `%APPDATA%/GitHub CLI/hosts.yml` does not exist. User clicked "Done" twice in the auth prompt but verification failed each time — most likely the browser device flow was not actually completed, or it was completed under a different OS user / account context that does not write to `%APPDATA%`.
-- **First attempt (earlier):** `gh: command not recognized`. Resolved by user installing the CLI; that part is no longer a blocker.
-- Cross-checked: `gh --version` works, `gh config list` works, but `gh auth status` returns exit 1 and no hosts.yml exists.
+## 3rd-attempt halt details
+- `gh.exe` v2.91.0 confirmed at `C:\Program Files\GitHub CLI\gh.exe` (PATH was stale in this PowerShell session, so used full path).
+- `gh auth status` → exit 1, "You are not logged into any GitHub hosts".
+- `%APPDATA%\GitHub CLI\` does not exist (no `hosts.yml`).
+- Attempted to drive `gh auth login --hostname github.com --git-protocol https --web` interactively from the agent's persistent PowerShell terminal:
+  - First prompt "Authenticate Git with your GitHub credentials?" → answered `y` successfully.
+  - Second prompt "**Press Enter** to open https://github.com/login/device" → **could not be advanced.** `gh` reads this prompt as a raw key (not as a stdin newline), and `send_to_terminal` cannot deliver a raw Enter keypress to a non-TTY child process. Multiple Enter sends had no effect. Device code `53F5-11A7` was issued but never consumed; flow was killed.
+- Fallback path (PAT via `$env:GH_TOKEN`) was offered to the user via interactive question; user is unavailable for this session, so the fallback could not be used either.
 
-## Remediation (one of the following)
+## Why the previous two retries did not work
+Re-issuing the same relay does not unblock anything because the precondition (`gh auth status` reporting logged-in **before** the agent starts) is never satisfied in advance. The agent cannot complete `gh auth login` on its own from within VS Code's persistent terminal — the device-flow "Press Enter" prompt is not stdin-line-buffered.
 
-### Option A — finish `gh auth login` properly and re-run the relay
+## Remediation (in priority order)
+
+### **Option A — preferred: complete `gh auth login` BEFORE re-running the relay**
+Run these commands in a **fresh PowerShell window** (not inside VS Code, to avoid any TTY oddities):
 ```powershell
-# in a fresh PowerShell terminal
 gh auth login --hostname github.com --git-protocol https --web
-# follow the device-code flow; complete the browser step.
-gh auth status   # MUST report "Logged in to github.com account papanokechi"
+# follow the device-code flow in the browser, authorize as papanokechi
+gh auth status
 ```
-Then re-issue the same relay prompt.
-
-### Option B — set a Personal Access Token in env, then re-run the relay
-```powershell
-$env:GH_TOKEN = "<paste PAT with `repo` scope>"
-gh auth status   # confirm
+The relay should ONLY be re-issued after `gh auth status` prints
 ```
-The token is process-scoped only, not written to disk.
+✓ Logged in to github.com account papanokechi
+```
 
-### Option C — open the PR manually (fully prepared, no further agent action needed)
-All artifacts are ready. The user (papanokechi) only needs to perform the click-through steps below; nothing else is required from this agent.
+### **Option B — fastest: provide a PAT inline in the next relay prompt**
+Add a line to the next relay prompt:
+```
+GH_TOKEN: ghp_xxxxxxxxxxxxxxxxxxxx
+```
+(token with `repo` + `workflow` scopes, generated at https://github.com/settings/tokens/new)
+The agent will then run `$env:GH_TOKEN = "<token>"` before any `gh` call. Token is process-scoped, never written to disk.
 
-1. **Fork** <https://github.com/leanprover-community/mathlib4> via the GitHub web UI ("Fork" button, default settings).
-
-2. **Clone the fork and create the branch** locally:
-   ```bash
-   git clone https://github.com/papanokechi/mathlib4.git
-   cd mathlib4
-   git checkout -b feat/finset-card-even-of-involution
-   ```
-
-3. **Drop in the file**:
-   - Source: `congruent-relay/mathlib-pr/CardEvenOfInvolution.lean` (verified to compile, 126 lines).
-   - Target path inside Mathlib4 fork:
-     `Mathlib/Data/Finset/CardEvenOfInvolution.lean`
-   - Also append to `Mathlib.lean` the line:
-     ```
-     import Mathlib.Data.Finset.CardEvenOfInvolution
-     ```
-     (placed alphabetically among the other `Mathlib.Data.Finset.*` imports).
-
-4. **Verify build locally** (recommended before PR):
-   ```bash
-   lake exe cache get
-   lake build Mathlib.Data.Finset.CardEvenOfInvolution
-   lake exe runLinter Mathlib.Data.Finset.CardEvenOfInvolution
-   ```
-
-5. **Commit + push**:
-   ```bash
-   git add Mathlib/Data/Finset/CardEvenOfInvolution.lean Mathlib.lean
-   git commit -m "feat(Finset/Card): card_even_of_involution"
-   git push -u origin feat/finset-card-even-of-involution
-   ```
-
-6. **Open PR** at
-   <https://github.com/leanprover-community/mathlib4/compare/master...papanokechi:mathlib4:feat/finset-card-even-of-involution>
-   - Title: `feat(Finset/Card): card_even_of_involution`
-   - Body: copy-paste verbatim from
-     `siarc-relay-bridge/sessions/2026-04-29/TUNNELL-MATHLIB-PR-OPEN/pr_description.md`
-
-7. **Record PR number/URL** and re-run the relay (or paste it back here) so it can be threaded into `tunnell_cpp_R1.tex`.
-
-## What succeeded
-Nothing — halted at Step 1.
-
-## What failed
-Step 1: `gh --version` returned `CommandNotFoundException`.
+### **Option C — fully manual (no further agent involvement needed)**
+Everything needed to open the PR by hand is in place. See `siarc-relay-bridge/sessions/2026-04-29/TUNNELL-MATHLIB-PR-OPEN/`:
+- `CardEvenOfInvolution.lean` — drop verbatim into `Mathlib/Data/Finset/CardEvenOfInvolution.lean`
+- `pr_description.md` — paste verbatim into the PR body
+- Title: `feat(Finset/Card): card_even_of_involution`
+- Add `import Mathlib.Data.Finset.CardEvenOfInvolution` alphabetically into `Mathlib.lean`
+- Branch name: `feat/finset-card-even-of-involution`
+- Base: `master` (Mathlib4 default)
+- Compare URL: https://github.com/leanprover-community/mathlib4/compare/master...papanokechi:mathlib4:feat/finset-card-even-of-involution
 
 ## Anomalies and open questions
-- Confirm whether `winget` / `choco` / direct download is preferred for installing the CLI.
-- Confirm whether the PR should target `master` (current Mathlib4 default) or `main`. Current Mathlib4 default branch is `master` as of this writing.
-- Confirm fork visibility (public is required for PR; default for GitHub forks).
+- **NEW**: VS Code's persistent terminal cannot deliver Enter keypresses to `gh auth login --web`'s "Press Enter to open browser" prompt. Future relays needing interactive `gh` authentication MUST authenticate `gh` outside the agent first, OR pass `GH_TOKEN` inline. Recording this as a generic SIARC limitation.
+- The agent's `vscode_askQuestions` tool returned a sentinel "user is not available" text on the PAT request, which is why Option B could not be exercised this session.
+- All pre-PR Lean validation has been done; the file compiles cleanly against Mathlib v4.30.0-rc1 toolchain. No remaining technical risk on the Lean side.
 
 ## What would have been asked (if bidirectional)
-- "Should I attempt the PR via raw `git` + the GitHub REST API using the `GH_TOKEN` environment variable instead of `gh`? That would require an existing PAT with `repo` scope on the machine."
+- "Is it acceptable to use Option B (PAT in relay prompt) for future tasks of this kind, or do you want me to always wait for fully-completed `gh auth login`?"
+- "Once a PR is opened by any path, do you want a follow-up relay to thread the URL into `tunnell_cpp_R1.tex` automatically?"
 
 ## Recommended next step
-Install `gh` and re-run `TUNNELL-MATHLIB-PR-GITHUB`, OR follow Option B above for a fully manual PR.
+Pick **one** path:
+1. (Recommended) Open the PR manually via Option C — 3-minute click-through. Then issue a short follow-up relay just to thread the PR URL into the paper.
+2. Or: complete `gh auth login` in a fresh terminal (Option A), verify with `gh auth status`, then re-issue this relay.
+3. Or: include `GH_TOKEN: ghp_...` in the next relay prompt (Option B); agent will then complete Steps 2–7 autonomously.
 
 ## Files committed (this session)
-- `handoff.md` (this file)
-- `claims.jsonl`
-- `halt_log.json`
+- `handoff.md` (this file, 3rd-attempt update)
+- `halt_log.json` (3rd-attempt update)
+- `claims.jsonl` (3rd-attempt update)
 - `discrepancy_log.json` (empty)
 - `unexpected_finds.json` (empty)
 
 ## AEAL claim count
-1 entry written to `claims.jsonl` this session (halt-state).
+1 entry written to `claims.jsonl` this session (halt-state, 3rd attempt).
