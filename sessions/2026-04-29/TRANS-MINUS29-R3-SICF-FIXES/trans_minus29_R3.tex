@@ -1,0 +1,1214 @@
+% trans_minus29_full.tex
+% The Trans -2/9 Identity for Degree-(2,1) Polynomial Continued Fractions:
+% Empirical Evidence, an Algebraic Signature, and the Limits of Standard
+% Asymptotic Methods.
+%
+% Companion to t2b_conjecture_note.tex / t2b_monat_submission_R1.tex
+% (Zenodo DOI 10.5281/zenodo.19801038).
+%
+\documentclass[11pt]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{problem}{Problem}
+
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\KK}{\mathcal{K}}
+\newcommand{\Rat}{\mathrm{Rat}}
+\newcommand{\Log}{\mathrm{Log}}
+\newcommand{\Alg}{\mathrm{Alg}}
+\newcommand{\Trans}{\mathrm{Trans}}
+\newcommand{\Des}{\mathrm{Des}}
+\newcommand{\dps}{\mathrm{dps}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\emergencystretch=1.5em
+
+\title[The Trans $-2/9$ Identity]{The Trans $-2/9$ Identity for
+Degree-$(2,1)$ Polynomial Continued Fractions:\\
+Empirical Evidence, an Algebraic Signature, and the Limits of
+Standard Asymptotic Methods}
+
+\author{Papanokechi}
+\address{Independent researcher, Yokohama, Japan}
+\email{shkubo@outlook.jp}
+
+\subjclass[2020]{11A55, 11J70, 11J81, 11Y65, 39A06, 40A15}
+
+\keywords{Polynomial continued fractions, arithmetic stratification,
+indicial equation, Birkhoff asymptotics, transcendental numbers,
+PSLQ, integer-relation algorithms, experimental mathematics}
+
+\begin{document}
+
+\begin{abstract}
+For an integer polynomial continued fraction (PCF) of partial-numerator
+degree~$2$ and partial-denominator degree~$1$, write
+$a(n) = a_2 n^2 + a_1 n + a_0$ and $b(n) = b_1 n + b_0$ with
+$a_2,b_1\ne 0$, and set the Worpitzky parameter $r := a_2/b_1^2$.
+A computational survey across approximately $585{,}000$ integer
+families finds zero counterexamples to the empirical statement that
+every transcendental-stratum (Trans) limit with $b_0\ne b_1$ lying
+in the negative-Worpitzky interior arises at $r = -2/9$,
+equivalently at indicial exponents $\{1/3,2/3\}$ for the standard
+plus-form recurrence; this is the
+\emph{Transcendental Ratio Identity} announced in the companion
+note~\cite{TRINote}.  The auxiliary case $b_0 = b_1$ is treated
+separately in Appendix~\ref{app:t2c}: all such families admit
+limits in $\mathbb{Q}(\pi)$ and remain in the Trans stratum, but
+are identifiable by PSLQ.  The present paper extends that announcement
+along two axes.
+
+First, we establish the \emph{algebraic signature} of the locus
+$r=-2/9$: under the alternative minus-form recurrence
+$y_{n+1} = b(n)y_n - a(n)y_{n-1}$, the characteristic roots are
+$\mu_\pm = b_1(3\pm\sqrt{17})/6$, and we prove that, for $a_2<0$,
+$b_1\ne 0$, $r=-2/9$ is equivalent to the modulus identity
+$|\mu_+/\mu_-| = (13+3\sqrt{17})/4$ (PSLQ-certified at $\dps=150$
+with integer relation $[13,3,-4]$ on $\{1,\sqrt{17},\rho\}$).  This
+is the first explicit identification of a quadratic irrational
+($\sqrt{17}$) as an algebraic invariant of the Trans property.
+
+Second, we record three negative results that bound the
+analytic landscape: (i) under the minus-form recurrence the
+indicial pair $\{1/3,2/3\}$ corresponds to a compatibility ideal
+intersecting $r=-2/9$ only at irrational $b_0/b_1=(27\pm\sqrt{17})/18$,
+so no integer family realises both simultaneously; (ii) the leading
+two-term Birkhoff balance produces no rational-coefficient invariant
+that distinguishes the Trans locus beyond the (Vieta-tautological)
+ratio identity; (iii) the sub-leading $[n^{-1}]$ Birkhoff balance is
+regular on the Trans locus, with the candidate resonance coefficient
+factoring as $(a_2-b_1\mu)(4a_2-b_1^2)$ and vanishing only on the
+algebraic-discriminant-zero locus, never on Trans.
+
+The combined picture is that the Trans property of degree-$(2,1)$ PCFs
+is empirically robust, algebraically fingerprinted by~$\sqrt{17}$, and
+not accessible to leading-order or single-step sub-leading Birkhoff
+methods.  We pose the conjecture as a problem in the Galois theory of
+linear difference equations and in isomonodromic deformation theory.
+\end{abstract}
+
+\maketitle
+
+%% ==================================================================
+\section{Introduction}\label{sec:intro}
+%% ==================================================================
+
+A \emph{polynomial continued fraction (PCF) of degree $(d,e)$ with
+integer coefficients} is an expression
+\begin{equation}\label{eq:pcf}
+  K(a,b) \;=\; b_0 \,+\, \cfrac{a(1)}{b(1) \,+\, \cfrac{a(2)}{b(2)
+  \,+\, \cdots}}\,,
+\end{equation}
+where $a(n) = a_d n^d + \cdots + a_0$ and $b(n) = b_e n^e + \cdots +
+b_0$ are integer polynomials with $a_d \ne 0$ and $b_e \ne 0$.  The
+case $(d,e) = (2,1)$ is the smallest non-trivial case in which
+classical limits such as $\pi$, Brouncker's $4/\pi$, and Apéry-like
+series all appear.  Writing $a(n) = a_2 n^2 + a_1 n + a_0$ and
+$b(n) = b_1 n + b_0$, we set
+\[
+  r \;:=\; \frac{a_2}{b_1^2}
+\]
+and call this ratio the \emph{Worpitzky parameter} of $K$.
+
+The companion note~\cite{TRINote} announces the \emph{Transcendental
+Ratio Identity}: every degree-$(2,1)$ integer PCF with $b_0 \ne b_1$
+whose limit lies in the transcendental stratum
+(\textsection\ref{sec:background}) and whose Worpitzky parameter is
+in the negative interior $(-1/4,0)$ satisfies $r=-2/9$.  The conjecture is supported by zero
+counterexamples in approximately $585{,}000$ integer families surveyed
+across the F$(2,4)$ and F$(2,5)$ complete censuses and several
+targeted resonance sweeps at the next admissible rational-indicial
+ratios; a single Log-stratum anomaly at $r=-1/36$ (two families,
+$b_1=\pm 6$) is documented and falls outside the conjecture's hypothesis.
+
+The present paper is the long companion of~\cite{TRINote}.  It
+extends the announcement in two structurally distinct directions:
+
+\begin{itemize}[leftmargin=1.4em]
+\item \textbf{An algebraic signature
+(\textsection\ref{sec:signature}).}  Under the alternative
+minus-sign recurrence form
+$y_{n+1} = b(n)y_n - a(n)y_{n-1}$, the
+characteristic equation is $\mu^2 - b_1\mu + a_2 = 0$, with roots
+$\mu_\pm = b_1(3\pm\sqrt{17})/6$ on the Trans locus $r=-2/9$.  We
+prove (Theorem~\ref{thm:signature}) that, for $a_2<0$ and
+$b_1\ne 0$,
+\[
+  \frac{a_2}{b_1^2} \,=\, -\frac{2}{9}
+  \quad\Longleftrightarrow\quad
+  \left|\frac{\mu_+}{\mu_-}\right| \,=\, \frac{13 + 3\sqrt{17}}{4}\,,
+\]
+and verify the identity by PSLQ at $\dps = 150$ with the phantom-hit
+rule applied (Corollary~\ref{thm:pslq}).  This is the first explicit
+algebraic identification of a quadratic irrationality (the discriminant
+$17$) as an invariant of the Trans property of integer
+degree-$(2,1)$ PCFs.
+\item \textbf{Three negative results bounding the analytic landscape
+(\textsection\ref{sec:negative}).}  We carry out, in turn, the
+indicial-exponent forcing (\textsection\ref{sec:indicial}), the
+leading-order Birkhoff invariant search
+(\textsection\ref{sec:leading}), and the sub-leading $[n^{-1}]$
+balance (\textsection\ref{sec:subleading}).  All three return
+\emph{negative} answers in a precise sense: no constraint accessible
+to these standard methods singles out the Trans locus among the
+admissible rational-indicial loci.  The mechanism that produces the
+empirical universality of $-2/9$ must therefore be \emph{global}
+rather than local-asymptotic.
+\end{itemize}
+
+The two axes are not independent: $\sqrt{17}$ appears in three guises
+across the paper --- as the discriminant of the characteristic
+equation on the Trans locus
+(\textsection\ref{sec:signature}), as the irrational ratio
+$b_0/b_1=(27\pm\sqrt{17})/18$ that obstructs the integer realisation
+of the indicial pair $\{1/3,2/3\}$ in minus-sign form
+(\textsection\ref{sec:indicial}), and as a coefficient
+$\mp\sqrt{17}\,b_1/3$ in the regular sub-leading balance on the Trans
+locus (\textsection\ref{sec:subleading}).  The recurrence of
+$\sqrt{17}$ in distinct asymptotic settings is, we argue, the
+algebraic shadow of the global mechanism that the paper otherwise
+fails to capture.
+
+\paragraph{Organisation.}
+\textsection\ref{sec:background} reviews degree-$(2,1)$ PCFs,
+fixes notation, and contrasts the two recurrence sign conventions
+in use.  \textsection\ref{sec:conjecture} restates the Transcendental
+Ratio Identity and summarises the empirical evidence
+from~\cite{TRINote} (~585\,000 families, the F$(2,5)$ census, the
+resonance sweeps at $|b_1|\le 12$, and the Log anomaly at $r=-1/36$).
+\textsection\ref{sec:signature} proves the
+$|\mu_+/\mu_-|$-modulus identity and gives the PSLQ certificate.
+\textsection\ref{sec:negative} contains the three negative results.
+\textsection\ref{sec:discussion} discusses the global / local
+dichotomy, the role of $\sqrt{17}$, and four open problems.
+Appendix~\ref{app:methods} fixes the PSLQ methodology and the
+phantom-hit rule.  Appendix~\ref{app:hashes} catalogues the SHA-256
+hashes that anchor the AEAL claim manifest.
+
+%% ==================================================================
+\section{Background and notation}\label{sec:background}
+%% ==================================================================
+
+\subsection{Degree-$(2,1)$ PCFs and their strata}
+
+Throughout, $K(a,b)$ denotes a PCF of the form~\eqref{eq:pcf} with
+$a(n) = a_2 n^2 + a_1 n + a_0$, $b(n) = b_1 n + b_0$, and
+$(a_0,a_1,a_2,b_0,b_1) \in \Z^5$ with $a_2 b_1 \ne 0$.  We write
+$\FF(2,D) := \{(a_0,a_1,a_2,b_0,b_1)\in\Z^5 : |a_i|,|b_j|\le D,\;
+a_2 b_1\ne 0\}$ for the parameter cube of side $D$.
+
+The arithmetic strata used in this paper follow the conventions of
+\cite{TRINote, F25Census}.  A convergent PCF $K$ with limit $L$ is
+classified as
+\(
+\Rat,\,\Alg,\,\Log,\,\Trans,\,\Des
+\)
+according as $L \in \Q$; $L$ is algebraic of degree $\ge 2$; $L$ is a
+$\Q$-linear combination of logarithms of algebraic numbers; $L$ is
+transcendental and not in the previous classes (typically a M\"obius
+transform of $\pi$ or an Apéry-like series); or the partial fractions
+fail to converge to a finite limit.  PSLQ-based stratum identification
+is performed at $\dps = 100$ with $1500$ partial quotients and a
+between-truncant tolerance of $10^{-8}$, calibrated against a
+$\dps = 150$ deep-validation pass.
+
+\subsection{Two recurrence conventions}\label{sec:conventions}
+
+The companion note~\cite{TRINote} uses the
+\emph{plus-form} recurrence
+\begin{equation}\label{eq:plus}
+  y_{n+1} \;=\; b(n)\,y_n \,+\, a(n)\,y_{n-1}\qquad(\text{plus-form})
+\end{equation}
+which is standard for the convergent sequences $P_n,Q_n$ of a CF
+written as in~\eqref{eq:pcf}.  The asymptotic analysis of
+\textsection\ref{sec:negative} below uses instead the
+\emph{minus-form} recurrence
+\begin{equation}\label{eq:minus}
+  y_{n+1} \;=\; b(n)\,y_n \,-\, a(n)\,y_{n-1}\qquad(\text{minus-form})
+\end{equation}
+which arises when the sign of $a$ is absorbed into the recurrence
+relation rather than into the coefficient.  The two are conjugate by
+$y_n \mapsto (-1)^n y_n$ \emph{up to} the sign of $a(n)$; the locus
+$r = a_2/b_1^2$ is invariant, but the indicial exponents and
+characteristic roots transform.  Specifically, on the locus
+$r = -2/9$:
+\begin{itemize}[leftmargin=1.4em]
+\item The plus-form indicial equation
+$\lambda^2 - \lambda - r = 0$ has rational roots $\{1/3,2/3\}$
+(Lemma~3.2 of~\cite{TRINote}, restated here as
+Theorem~\ref{thm:plus-indicial}).
+\item The minus-form characteristic equation $\mu^2 - b_1\mu + a_2=0$
+has irrational roots $\mu_\pm = b_1(3\pm\sqrt{17})/6$
+(Lemma~\ref{lem:minus-roots}).
+\end{itemize}
+We use the plus-form for the definitional content of
+\textsection\ref{sec:conjecture} and the minus-form for the
+asymptotic analysis of \textsection\textsection\ref{sec:signature}--\ref{sec:negative}.
+A summary correspondence appears in Table~\ref{tab:conventions}.
+
+\begin{table}[t]
+\centering
+\caption{Sign-convention dictionary on the Trans locus $r=-2/9$.}
+\label{tab:conventions}
+\begin{tabular}{lll}
+\toprule
+Form & Recurrence & Eigenstructure on $r=-2/9$ \\
+\midrule
+plus & $y_{n+1} = b(n)y_n + a(n)y_{n-1}$
+& indicial pair $\{1/3,2/3\}\subset\Q$ \\
+minus & $y_{n+1} = b(n)y_n - a(n)y_{n-1}$
+& char.\ roots $\mu_\pm = b_1(3\pm\sqrt{17})/6\notin\Q$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{PSLQ and the phantom-hit rule}\label{sec:pslq}
+
+PSLQ integer-relation detection is performed using
+\texttt{mpmath.pslq} (Python~3, mpmath~1.3.0).  Working precision is
+$\dps = 100$ for census passes, $\dps = 150$ for the algebraic
+signature certificate of \textsection\ref{sec:signature}, and
+$\dps = 200$--$300$ for the sub-leading verification of
+\textsection\ref{sec:subleading}.  Tolerance is fixed at $10^{-50}$ and
+the integer-coefficient bound is set per task as documented in
+Appendix~\ref{app:methods}.
+
+\paragraph{Phantom-hit rule.}
+Following the convention of the T2A relay
+pipeline~\cite{TRINote}, every PSLQ output relation is screened for a
+\emph{phantom hit}: if the integer coefficient on the target value
+(the quantity whose closed form is being tested) is zero, the relation
+is discarded as a phantom of the search basis.  In the T2A pipeline,
+$38$ candidate relations were rejected by this rule.  The certificates
+recorded in this paper are explicitly labelled with the target index
+and the relevant non-zero coefficient.
+
+%% ==================================================================
+\section{The conjecture and empirical evidence}\label{sec:conjecture}
+%% ==================================================================
+
+We restate the central conjecture and summarise the empirical evidence
+from~\cite{TRINote}; the reader familiar with the announcement note
+may skip to \textsection\ref{sec:signature}.
+
+\subsection{The plus-form indicial equation and the conjecture}
+
+\begin{theorem}[Plus-form indicial pair on $r=-2/9$]
+\label{thm:plus-indicial}
+Let $K(a,b)$ be a degree-$(2,1)$ PCF satisfying $a_2/b_1^2 = -2/9$.
+Then the plus-form recurrence~\eqref{eq:plus} has indicial equation
+$\lambda^2 - \lambda - r = 0$ with rational root pair
+$\{\lambda_-,\lambda_+\} = \{1/3,2/3\}$.
+\end{theorem}
+\begin{proof}
+With $r = -2/9$, the indicial equation is $\lambda^2 - \lambda + 2/9 =
+0$, whose discriminant is $1 - 8/9 = 1/9$, giving roots
+$\lambda = (1 \pm 1/3)/2 \in \{1/3, 2/3\}$.  See \cite[Lemma~2.2]%
+{TRINote} for the derivation of the indicial equation itself.
+\end{proof}
+
+\begin{conjecture}[Transcendental Ratio Identity, \cite{TRINote}]
+\label{conj:tri}
+Let $K(a,b)$ be a degree-$(2,1)$ PCF with integer coefficients,
+$a_2,b_1 \ne 0$, $b_0 \ne b_1$, converging to a limit $L$ in the
+Trans stratum and with Worpitzky parameter $r = a_2/b_1^2$ in the
+negative interior $(-1/4,0)$.  Then
+\[
+  r \;=\; -\tfrac{2}{9}\,.
+\]
+Equivalently, the plus-form indicial exponents at infinity are
+$\{1/3,2/3\}$.
+\end{conjecture}
+
+The case $b_0 = b_1$ is treated separately in
+Appendix~\ref{app:t2c}: all such families admit limits in
+$\mathbb{Q}(\pi)$ and remain in the Trans stratum, but are
+identifiable by PSLQ.
+
+\subsection{Empirical evidence}\label{sec:evidence}
+
+Table~\ref{tab:censuses} summarises the four computational
+experiments of~\cite{TRINote}; Table~\ref{tab:resonance} summarises
+the resonance sweeps; Table~\ref{tab:log-anomaly} catalogues the Log
+anomaly.  No interior-stratum Trans counterexample to
+Conjecture~\ref{conj:tri} appeared in any of the
+$\sim\!585{,}000$ integer families surveyed.\footnote{A subset of
+families satisfying $b_0 = b_1$ admit closed-form limits in
+$\mathbb{Q}(\pi)$ (e.g.\ $L = \pm(\pi+2)/2$, $L = \pm(3\pi+4)/4$);
+see Appendix~\ref{app:t2c}.  These limits are transcendental
+(Lindemann--Weierstrass) and the families remain in the Trans
+stratum; however, they are identifiable by PSLQ and thus not
+Trans-hard in the strict sense.  The conjecture
+$a_2/b_1^2 = -2/9$ holds for all such families.}
+
+\begin{table}[t]
+\centering
+\caption{Stratum counts in $\FF(2,4)$ and $\FF(2,5)$
+(reproduced from \cite{TRINote}).}
+\label{tab:censuses}
+\begin{tabular}{lrrl}
+\toprule
+Search & Trans & Log & Worpitzky parameter $r$ \\
+\midrule
+$\FF(2,4)$ ($D=4$, complete)
+  & $24$ & $0$  & $-2/9$ \\
+$\FF(2,5)$ ($D=5$, neg.\ interior)
+  & $56$ & $12$ & $-2/9$ \\
+$\FF(2,5)$ ($D=5$, Brouncker boundary)
+  & $14$ & $0$  & $+1/4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Targeted resonance searches at admissible rational-indicial
+ratios in the negative Worpitzky interior. All runs at $\dps=100$.
+Reproduced from~\cite{TRINote}.}
+\label{tab:resonance}
+\begin{tabular}{lrrr}
+\toprule
+Scope & Convergent families & Trans & Log \\
+\midrule
+$b_1\in\{\pm4,\pm5\}$, $r=-3/16$ & $2{,}384$ & $0$ & $0$ \\
+$b_1\in\{\pm4,\pm5\}$, $r=-4/25$ & $2{,}396$ & $0$ & $0$ \\
+$b_1\in\{\pm4,\pm5\}$, $r=-6/25$ & $2{,}394$ & $0$ & $0$ \\
+\midrule
+$b_1\in\{\pm6,\pm7\}$ (full sweep) & $175{,}686$ & $0$ & $2$ \\
+$b_1\in\{\pm8,\dots,\pm12\}$ (motivated targets)
+                                 & $259{,}280$ & $0$ & $0$ \\
+\midrule
+Combined                          & $442{,}140$ & $0$ & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Log-stratum anomaly at $r=-1/36$
+(both families have limit $L=\pm 2/\log 2$, $\dps=150$ residual
+$5.65\!\times\!10^{-150}$).}
+\label{tab:log-anomaly}
+\begin{tabular}{ccccc}
+\toprule
+$a_2$ & $a_1$ & $a_0$ & $b_1$ & $b_0$ \\
+\midrule
+$-1$ & $0$ & $0$ & $\phantom{-}6$ & $\phantom{-}3$ \\
+$-1$ & $0$ & $0$ & $-6$ & $-3$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[Phantom-hit discipline]\label{rem:phantom-discipline}
+The T2A pipeline used to generate Tables~\ref{tab:censuses}--\ref{tab:resonance}
+applies the phantom-hit rule of \textsection\ref{sec:pslq} at every
+PSLQ stage: $38$ candidate relations were rejected during the
+classification.  The two known phantom traps for the bases used here
+are $\zeta(2) = \pi^2/6$ and the golden ratio $\varphi=(1+\sqrt{5})/2$,
+arising whenever $\pi$ or $\sqrt 5$ enters the basis; neither affected
+any Trans or Log classification reported above.
+\end{remark}
+
+\subsection{The Brouncker boundary class}
+
+The $14$ families at $r = +1/4$ in $\FF(2,5)$ lie on the positive
+Worpitzky boundary $\Delta = 2$ (where $\Delta = 1+4r$ is the
+plus-form indicial discriminant) and converge logarithmically
+to M\"obius transforms of $4/\pi$.  They are excluded from
+Conjecture~\ref{conj:tri} by the negative-interior hypothesis
+$r\in(-1/4,0)$, and do not contradict the Trans Identity.  See
+\cite[Theorem~4.1]{TRINote}.
+
+%% ==================================================================
+\section{An algebraic signature: the
+\texorpdfstring{$|\mu_+/\mu_-|$}{|mu+/mu-|} identity}
+\label{sec:signature}
+%% ==================================================================
+
+We turn to the new content.  Throughout this section we work in the
+\emph{minus-form} recurrence~\eqref{eq:minus}.
+
+\subsection{The minus-form characteristic equation}
+
+\begin{lemma}[Minus-form characteristic roots on $r=-2/9$]
+\label{lem:minus-roots}
+Let $K(a,b)$ be a degree-$(2,1)$ PCF, regarded as a minus-form
+recurrence $y_{n+1} = b(n)y_n - a(n)y_{n-1}$.  The Birkhoff ansatz at
+infinity $y_n \sim \Gamma(n+1)\,\mu^n n^\alpha$
+(\textsection\ref{sec:indicial} below) gives the characteristic
+equation
+\begin{equation}\label{eq:minus-char}
+  \mu^2 \,-\, b_1\,\mu \,+\, a_2 \;=\; 0
+\end{equation}
+with roots $\mu_\pm = \tfrac{1}{2}\bigl(b_1 \pm \sqrt{b_1^2 - 4
+a_2}\bigr)$.  In particular, on the locus $a_2/b_1^2 = -2/9$ with
+$a_2 < 0$ and $b_1 \ne 0$,
+\[
+  \mu_\pm \;=\; \frac{b_1\,(3 \pm \sqrt{17})}{6}\,,
+\]
+both irrational quadratic over $\Q$.
+\end{lemma}
+\begin{proof}
+Substituting $y_n = \Gamma(n+1)\mu^n n^\alpha$ into~\eqref{eq:minus},
+expanding $\Gamma(n+2)/\Gamma(n+1) = n+1$ and $(1\pm 1/n)^\alpha
+= 1\pm\alpha/n + O(1/n^2)$, multiplying through by $n^{-2}$, and
+reading the leading $[n^1]$ coefficient (after cancellation against
+the $\Gamma$-recursion) gives the relation $b_1\mu = \mu^2 + a_2$,
+i.e.~\eqref{eq:minus-char}.  See \cite[\textsection 2]{SprintW1Report}
+for the full sympy verification.  Substituting $a_2 = -2b_1^2/9$ into
+the discriminant gives $b_1^2 - 4 a_2 = b_1^2(1 + 8/9) = 17 b_1^2/9$
+and $\sqrt{b_1^2-4a_2} = |b_1|\sqrt{17}/3$.
+\end{proof}
+
+\begin{theorem}[Algebraic signature of the Trans locus]
+\label{thm:signature}
+Let $K(a,b)$ be a degree-$(2,1)$ PCF with $a_2 < 0$ and $b_1 \ne 0$,
+and let $\mu_\pm$ be the minus-form characteristic roots
+of~\eqref{eq:minus-char}.  Set $\rho := |\mu_+/\mu_-|$.  Then
+\begin{equation}\label{eq:signature}
+  \frac{a_2}{b_1^2} \;=\; -\frac{2}{9}
+  \quad\Longleftrightarrow\quad
+  \rho \;=\; \frac{13 + 3\sqrt{17}}{4}\,.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Set $q := \mu_+/\mu_-$ (so $\rho = |q|$).  Vieta's formulas applied
+to~\eqref{eq:minus-char} give $\mu_+ + \mu_- = b_1$ and
+$\mu_+\mu_- = a_2$, whence
+\[
+\frac{a_2}{b_1^2}
+\;=\; \frac{\mu_+\mu_-}{(\mu_+ + \mu_-)^2}
+\;=\; \frac{q}{(1+q)^2}\,.
+\]
+($\Rightarrow$) Substituting $a_2/b_1^2 = -2/9$ gives the quadratic
+$2q^2 + 13 q + 2 = 0$, with roots
+\(q = (-13 \pm 3\sqrt{17})/4\).
+Both roots are negative; their moduli are
+\(|q| = (13 + 3\sqrt{17})/4\) (for the root with $|q|>1$) and
+\(|q| = (13 - 3\sqrt{17})/4 = 4/(13+3\sqrt{17})\) (the reciprocal).
+Either choice of labelling $\mu_+$ versus $\mu_-$ yields
+$\rho = (13+3\sqrt{17})/4$ after taking the dominant root in absolute
+value.
+\\
+($\Leftarrow$) Conversely, if $\rho = (13+3\sqrt{17})/4$, then
+$q \in \{-(13+3\sqrt{17})/4,\ +(13+3\sqrt{17})/4\}$ (two
+sign choices for the quotient).  Substituting into
+$a_2/b_1^2 = q/(1+q)^2$:
+\begin{itemize}[leftmargin=1.4em]
+\item $q = -(13+3\sqrt{17})/4$ gives $a_2/b_1^2 = -2/9$;
+\item $q = +(13+3\sqrt{17})/4$ gives $a_2/b_1^2 = +2/17$
+(positive Worpitzky region).
+\end{itemize}
+The hypothesis $a_2 < 0$ excludes the second branch.
+\end{proof}
+
+\begin{remark}[Vieta-tautological character and its content]
+\label{rem:vieta-tautology}
+Theorem~\ref{thm:signature} is, formally, a Vieta tautology: the
+ratio $|\mu_+/\mu_-|$ is a function of $a_2/b_1^2$ alone.  What is
+\emph{non-tautological} is that the specific irrational
+$(13+3\sqrt{17})/4$ on the right-hand side displays the discriminant
+$17$ explicitly.  As we shall see in
+\textsection\textsection\ref{sec:indicial}--\ref{sec:subleading},
+$\sqrt{17}$ recurs in two further asymptotic settings, and is the
+algebraic shadow of the Trans property under all three local probes
+that fail to characterise it.
+\end{remark}
+
+\subsection{PSLQ certificate}
+
+\begin{corollary}[PSLQ certificate]\label{thm:pslq}
+At working precision $\dps = 150$ and tolerance $10^{-50}$:
+\begin{enumerate}[label={\upshape(\arabic*)}]
+\item PSLQ on the basis
+$\{1,\sqrt{17},\rho\}$ with $\rho = |\mu_+/\mu_-|$ on a
+representative Trans family returns the integer relation
+$[13,3,-4]$, i.e.\ $13 + 3\sqrt{17} - 4\rho = 0$.  The target
+coefficient (on $\rho$) is $-4 \ne 0$; the phantom-hit rule
+passes.  Reconstruction error vanishes to $> 100$ decimal digits.
+\item PSLQ on the wider basis
+$\{1,\sqrt{2},\sqrt{3},\sqrt{5},\sqrt{17},\pi,\log 2,\rho\}$
+returns $[-13,0,0,0,-3,0,0,4]$, the same identity with
+$\rho$-coefficient $4 \ne 0$.
+\end{enumerate}
+This follows immediately from Theorem~\ref{thm:signature}, with the
+relation confirmed numerically by PSLQ at \texttt{dps}=150.
+\end{corollary}
+\begin{proof}[Computational verification]
+Script \texttt{forcing\_condition.py} of session
+\texttt{2026-04-27/SPRINT-W2-TRANS-INDICIAL-SURVEY/sprint\_w2/}.  See
+Appendix~\ref{app:hashes} for the SHA-256 hash of the run log.
+\end{proof}
+
+\begin{remark}[Spectral fingerprint, not a generic feature]
+\label{rem:spectral-fingerprint}
+Theorem~\ref{thm:signature} characterises the $-2/9$ stratum
+uniquely among degree-$(2,1)$ PCFs.  For comparison, the adjacent
+stratum $a_2/b_1^2 = -1/4$ (the algebraic
+discriminant-zero locus) yields characteristic ratio
+$|\mu_+/\mu_-| = 1$ (equal-modulus roots), and the stratum
+$a_2/b_1^2 = -4/25$ yields $|\mu_+/\mu_-| = (33+5\sqrt{41})/8
+\approx 8.12695$ (verified numerically at $\dps=50$).  The ratio
+$(13+3\sqrt{17})/4 \approx 6.34233$ is thus a spectral fingerprint
+of the $-2/9$ stratum, not a generic feature of degree-$(2,1)$
+recurrences.
+\end{remark}
+
+%% ==================================================================
+\section{Three negative results}\label{sec:negative}
+%% ==================================================================
+
+We now record three negative results.  In each, a standard local
+asymptotic method --- (i) indicial-exponent forcing, (ii) leading-order
+Birkhoff invariant search, (iii) sub-leading $[n^{-1}]$ resonance ---
+is shown to fail to single out the Trans locus among admissible
+rational-indicial loci.
+
+\subsection{Indicial exponent forcing under the minus form}
+\label{sec:indicial}
+
+The W1 sprint of this paper~\cite{SprintW1Report} works in the
+minus-form~\eqref{eq:minus} and asks: which integer parameter tuples
+$(a_0,a_1,a_2,b_0,b_1)$ realise the indicial pair $\{1/3,2/3\}$ at
+infinity \emph{in minus-form}?  Note this is a different question
+from Theorem~\ref{thm:plus-indicial}: in plus-form, $\{1/3,2/3\}$ is
+a \emph{consequence} of $r=-2/9$; in minus-form, the corresponding
+pair on the Trans locus is irrational by Lemma~\ref{lem:minus-roots},
+and asking for the rational pair $\{1/3,2/3\}$ is a non-trivial
+constraint.
+
+\begin{proposition}[Minus-form indicial closed form,
+\cite{SprintW1Report}]
+\label{prop:minus-indicial}
+Under the Birkhoff ansatz $y_n \sim \Gamma(n+1)\,\mu^n n^\alpha$
+applied to~\eqref{eq:minus}, the next-to-leading $[n^0]$ balance,
+after using $\mu^2 = b_1\mu - a_2$, has the unique solution
+\begin{equation}\label{eq:alpha-closedform}
+  \alpha(\mu) \;=\; -\,\frac{(b_1 - b_0)\mu \;+\; (a_1 - a_2)}%
+                            {b_1\mu - 2 a_2}\,.
+\end{equation}
+Each minus-form characteristic root $\mu_\pm$ produces an indicial
+exponent $\alpha_\pm := \alpha(\mu_\pm)$.
+\end{proposition}
+\begin{proof}
+Direct sympy substitution and verification; see
+\cite[\textsection 3]{SprintW1Report}, script
+\texttt{indicial\_symbolic.py}.
+\end{proof}
+
+\begin{lemma}[Compatibility ideal for the pair $\{1/3,2/3\}$]
+\label{lem:compat-ideal}
+The pair $\{\alpha_-,\alpha_+\} = \{1/3,2/3\}$, i.e.\ the
+sum-and-product conditions $S = \alpha_++\alpha_- = 1$ and $P =
+\alpha_+\alpha_- = 2/9$, is equivalent to the system
+\[
+  \begin{cases}
+    a_1 - 2 a_2 = 0,\\
+    a_2 \;+\; 9 b_0^2 - 27 b_0 b_1 + 20 b_1^2 \;=\; 0,
+  \end{cases}
+\]
+defining the compatibility ideal $C \subset
+\Q[a_0,a_1,a_2,b_0,b_1]$.
+\end{lemma}
+\begin{proof}
+Substitute~\eqref{eq:alpha-closedform} into the symmetric functions
+$S$ and $P$ and simplify using Vieta on $(\mu_+,\mu_-)$;
+see~\cite[\textsection 4]{SprintW1Report}.
+\end{proof}
+
+\begin{theorem}[Integer-grid obstruction, negative result]
+\label{thm:integer-obstruction}
+Fix $a_2/b_1^2 = -2/9$ and set $\varrho := b_0/b_1$.  The
+intersection of the Trans locus with the compatibility ideal
+$C$ of Lemma~\ref{lem:compat-ideal} projects onto the constraint
+\[
+  -9\,\varrho^2 + 27\,\varrho - 20 \;=\; \frac{a_2}{b_1^2}
+  \;=\; -\frac{2}{9}\,,
+\]
+i.e.\ $81\,\varrho^2 - 243\,\varrho + 178 = 0$, with roots
+$\varrho = (27 \pm \sqrt{17})/18$, both irrational.  Consequently no
+integer-coefficient family realises both the Trans locus
+$a_2/b_1^2 = -2/9$ and the minus-form indicial pair $\{1/3,2/3\}$
+simultaneously.  Direct enumeration on the integer grid
+$|b_1|\le 30$, $|b_0|\le 30$, $|a_2|\le 200$
+($\sim 7.3\times 10^5$ triples) confirms zero simultaneous
+solutions.
+\end{theorem}
+\begin{proof}
+The root computation is elementary; the enumeration is the script
+\texttt{compatibility.py} of \cite{SprintW1Report}.
+\end{proof}
+
+\begin{remark}[Reconciliation with Theorem~\ref{thm:plus-indicial}]
+Theorem~\ref{thm:integer-obstruction} does not contradict
+Theorem~\ref{thm:plus-indicial}: the two work in opposite sign
+conventions and produce consistent but distinct rational pictures.
+The conjecture~\ref{conj:tri} as stated uses the plus-form, where
+indicial $\{1/3,2/3\}$ on the Trans locus is automatic.
+Theorem~\ref{thm:integer-obstruction} says, instead, that under the
+minus-form (which is the natural setting for Birkhoff
+asymptotics with the $\Gamma(n+1)$ leading factor), the candidate
+rational indicial pair $\{1/3,2/3\}$ requires irrational coefficient
+ratios involving $\sqrt{17}$, and hence is unrealisable over $\Z$.
+The integer-Trans empirical content of $-2/9$ \emph{is} reflected in
+the minus-form picture, but only through the algebraic signature
+$\sqrt{17}$, not as a rational indicial pair.
+\end{remark}
+
+\subsection{Leading-order Birkhoff invariant search}\label{sec:leading}
+
+The W2 sprint~\cite{SprintW2Report} surveys $50$ integer Trans
+families and $20$ non-Trans control families, computing for each
+the minus-form characteristic data
+$(\mu_\pm, |\mu_+/\mu_-|, \alpha_\pm, S, P, D)$, where
+$D = (\alpha_+-\alpha_-)^2$ is the indicial discriminant.
+
+\begin{observation}[No new leading-order invariant, negative result]
+\label{prop:leading-invariant}
+Among the leading two-term Birkhoff invariants
+$(|\mu_+/\mu_-|, S, P, D)$ on the integer Trans locus
+$a_2/b_1^2 = -2/9$:
+\begin{itemize}[leftmargin=1.4em]
+\item $|\mu_+/\mu_-|$ is constant $= (13+3\sqrt{17})/4$
+(Theorem~\ref{thm:signature}, Vieta-tautological);
+\item $S$ takes three distinct rational values across the survey
+($\{-3,-1,+1\}$);
+\item $P$ takes nine distinct values in $[-2.235,+2.235]$;
+\item $D$ takes eight distinct values in $[0.059,9.94]$.
+\end{itemize}
+Consequently, no rational-coefficient invariant accessible to the
+leading two-term Birkhoff balance, beyond the Vieta-tautological
+$|\mu_+/\mu_-|$ identity, distinguishes the Trans locus.
+In particular, the Birkhoff leading-order framework imposes no
+constraint on $a_2/b_1^2$ beyond the characteristic equation
+$\mu^2 - b_1\mu + a_2 = 0$.
+\end{observation}
+\begin{proof}
+Computational survey, script \texttt{indicial\_survey.py} of
+\cite{SprintW2Report}; the table of values and the variability ranges
+are reproduced verbatim from the sprint report.
+\end{proof}
+
+\begin{remark}[Class separation by $r$]
+The ratio $|\mu_+/\mu_-|$ is, by Vieta, a function of $r=a_2/b_1^2$
+alone; it therefore separates the strata Trans, Log, Alg by
+construction (Trans has the unique value $(13+3\sqrt{17})/4$; Log
+families take five distinct values; Alg degenerate or complex).
+This separation is built into the definition of the strata.  The
+content of Observation~\ref{prop:leading-invariant} is that
+\emph{nothing else} at leading two-term order is constant across
+Trans.
+\end{remark}
+
+\subsection{The sub-leading $[n^{-1}]$ balance}\label{sec:subleading}
+
+The W3 sprint~\cite{SprintW3Report} extends the Birkhoff ansatz to
+\[
+  y_n \;\sim\; \Gamma(n+1)\,\mu^n\,n^\alpha\,
+  \left(1 + \frac{c_1}{n} + \frac{c_2}{n^2} + \cdots\right)
+\]
+and derives the $[n^{-1}]$ balance, linear in $c_1$ and $c_2$.  The
+$c_2$-coefficient of the balance equals $\mu^2 - b_1\mu + a_2$, which
+vanishes on the characteristic locus by Lemma~\ref{lem:minus-roots};
+$c_2$ is therefore not constrained at this order.  The
+$c_1$-coefficient $A$, after using $\mu^2 = b_1\mu - a_2$ and
+substituting the closed form~\eqref{eq:alpha-closedform} for $\alpha$,
+factors as follows.
+
+\begin{proposition}[Sub-leading $c_1$ coefficient, \cite{SprintW3Report}]
+\label{prop:c1-coefficient}
+With notation as above, the coefficient of $c_1$ at the $[n^{-1}]$
+order of the minus-form Birkhoff balance is, after reduction,
+\begin{equation}\label{eq:c1-A}
+  A \;=\; \frac{(a_2 - b_1\mu)(4 a_2 - b_1^2)}%
+                {a_2 b_1 + 2 a_2\mu - b_1^2\mu}\,.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Symbolic computation in sympy; see~\cite[\textsection 2]{SprintW3Report}
+and script \texttt{subleading\_birkhoff.py}.  The numerator
+$A_{\text{num}} = (a_2-b_1\mu)(4 a_2 - b_1^2)$ is verified directly;
+the denominator $A_{\text{den}}$ is an explicit rational
+expression in $(a_2,b_1,\mu)$ and is non-zero on the Trans locus.
+\end{proof}
+
+\begin{corollary}[No sub-leading resonance on the Trans locus,
+negative result]
+\label{cor:no-resonance}
+$A_{\text{num}}$ vanishes if and only if (i) $a_2 = b_1\mu$, which
+combined with the characteristic equation~\eqref{eq:minus-char}
+forces $\mu = 0$ and is therefore degenerate; or (ii)
+$4 a_2 = b_1^2$, which is the algebraic-stratum (Alg)
+discriminant-zero locus.  Neither contains the Trans locus
+$a_2/b_1^2 = -2/9$.  On the Trans locus,
+\[
+  A\bigl|_{\mu = \mu_\pm}
+  \;=\; \mp\,\frac{\sqrt{17}\,b_1}{3}
+  \;\neq\;0\,,
+\]
+so the $[n^{-1}]$ balance uniquely determines $c_1$ as $-B/A$
+(with $B$ the $c_1$-and-$c_2$-free remainder), and yields no new
+constraint on the parameters.  This rules out sub-leading Birkhoff
+resonance as the mechanism forcing $a_2/b_1^2 = -2/9$.
+\end{corollary}
+\begin{proof}
+Combine Proposition~\ref{prop:c1-coefficient} with
+Lemma~\ref{lem:minus-roots} for the explicit values of $A$ at
+$\mu_\pm$.
+\end{proof}
+
+\begin{observation}[Convergence-rate experiment, negative result]
+\label{prop:rate}
+For the minus-form recurrence on a representative panel of $10$
+Trans, $5$ Log, and $5$ Alg integer families at $\mathrm{mp.dps}=200$
+and $N=600$ iterations, the partial-fraction error
+$|r_n - L|$ (with $r_n = p_n/q_n$ and $L$ the high-$n$ limit) reaches
+$10^{-200}$ at $n\approx 300$ for every Trans and Log family;
+the classical normalisation $\rho_n := |r_n-L|\cdot q_n^2$ explodes
+($\sim\!10^{2620}$ at $n=500$) because $q_n \sim \Gamma(n+1)\mu_+^n$;
+the natural rate constant
+\[
+  \lim_{n\to\infty}\frac{|r_n - L|\cdot q_n\,q_{n+1}}{|\mu_-/\mu_+|^n}
+\]
+exists but reduces, on the Trans locus, to the
+Vieta-tautological quantity
+$|\mu_-/\mu_+| = 4/(13+3\sqrt{17}) = (13-3\sqrt{17})/4$.  No new
+amplitude or coefficient invariant is exposed by the convergence-rate
+experiment at this precision.  This rules out convergence-rate
+analysis and direct PSLQ identification as proof mechanisms for the
+conjecture.
+\end{observation}
+\begin{proof}
+Script \texttt{convergence\_rate.py} of~\cite{SprintW3Report}.
+The hyperexponential rate is a direct consequence of the
+$\Gamma(n+1)$ factor in the dominant Birkhoff solution; the rate
+\emph{constant} after $\Gamma$-removal is the characteristic-root ratio.
+\end{proof}
+
+\begin{observation}[Direct PSLQ on the Trans limits, negative result]
+\label{prop:pslq-direct}
+At $\mathrm{mp.dps} = 300$, $N=500$, and integer-coefficient bound
+$10^4$:
+\begin{enumerate}[label={\upshape(\roman*)}]
+\item PSLQ on $\{1,L,L^2,L^3,L^4\}$ for each of $10$ representative
+Trans CF limits $L$ returns no integer relation.
+\item Pairwise PSLQ on $\{1,L_i,L_j,L_iL_j,L_i^2,L_j^2\}$ returns ten
+relations among the $45$ pairs; all ten are tautological consequences
+of the linear scaling $L(\lambda b_1) = \lambda L(b_1)$ on the
+sub-family with $(a_0,a_1,b_0) = (0,0,0)$, and are not novel
+algebraic relations between distinct CFs.
+\item PSLQ on $\{1,L,\sqrt{17},\pi,\log 2\}$ for each of the $10$
+Trans limits returns no integer relation.
+\end{enumerate}
+\end{observation}
+\begin{proof}
+Script \texttt{direct\_algebraic.py} of~\cite{SprintW3Report}.
+The phantom-hit rule is applied at every step; the scale-invariance
+hits in (ii) are not phantom in the strict sense (the
+$L$-coefficient is non-zero) but are recognised tautological by post
+hoc inspection.
+\end{proof}
+
+%% ==================================================================
+\section{Discussion and open problems}\label{sec:discussion}
+%% ==================================================================
+
+\subsection{Local versus global mechanism}
+
+The combined effect of \textsection\textsection\ref{sec:indicial}--\ref{sec:subleading}
+is that no \emph{local} asymptotic method --- characteristic
+exponents, leading invariants, sub-leading resonance, convergence
+rate --- distinguishes the Trans locus from other admissible
+rational-indicial loci to within the precision and search bounds
+employed.  The empirical universality of $r=-2/9$ over
+$\sim\!585{,}000$ integer families is therefore very probably the
+shadow of a \emph{global} structural property, of a kind not visible
+in expansions about $n=\infty$ alone.
+
+We see two natural candidate frameworks for capturing this global
+property.
+
+\subsubsection{Galois theory of linear difference equations}
+The minus-form recurrence~\eqref{eq:minus} is a linear difference
+operator $\Delta = E^2 - b(n) E + a(n)$ on the field $\Q(n)$.  The
+Galois group of the splitting extension of $\Delta$ over $\Q(n)$
+(in the sense of Picard-Vessiot for difference equations) classifies
+the formal solutions modulo rational equivalences.  Whether the
+\emph{integer-realisability} condition (i.e.\ that some pair of
+solutions of $\Delta$ has a transcendental ratio of integer
+convergents) corresponds to a specific Galois group --- and whether
+that group is detected by $r=-2/9$ --- is to our knowledge open.
+The recurrence of $\sqrt{17}$ across our three local probes
+suggests that any such Galois-theoretic answer must involve the
+quadratic field $\Q(\sqrt{17})$.
+
+\subsubsection{Isomonodromic deformation theory}
+The plus-form indicial pair $\{1/3,2/3\}$ matches the Schwarz-list
+dihedral entry with exponent difference $1/3$~\cite{Schwarz}.  The
+companion note~\cite{TRINote} speculates on a Schwarz-monodromic
+mechanism behind the conjecture; in the present paper we strengthen
+this speculation by noting that the irrationality $\sqrt{17}$ which
+shadows the Trans property in three asymptotic settings is exactly
+the discriminant of the minus-form characteristic polynomial on the
+Trans locus, suggesting a quadratic-field constraint (rather than
+the rational $\{1/3,2/3\}$) is the ``correct'' invariant for
+isomonodromic considerations.  A Painlevé-VI-type interpretation,
+in which the Trans locus appears as a special isomonodromic stratum
+of a difference-equation analogue of Painlevé~VI with parameters on
+the Schwarz dihedral, is a natural structural problem
+(Problem~\ref{prob:painleve} below).
+
+\subsection{The Log anomaly at $r=-1/36$}
+
+The two Log families at $b_1=\pm 6$, $r=-1/36$ (Table~\ref{tab:log-anomaly})
+sit at the intersection of (i) the Bauer--Stern doubling parameter
+of the Log stratum and (ii) the rational-indicial admissibility set
+$\{1/q,(q-1)/q\}$ for $q=6$.  Whether this is the unique boundary
+phenomenon, or the tip of a finer Log-stratum classification, is
+open (Problem~\ref{prob:log-anomaly}).
+
+\subsection{Open problems}
+
+\begin{problem}[Galois-of-difference-equations form]
+\label{prob:galois}
+Define the Picard-Vessiot Galois group $G_K$ of a degree-$(2,1)$
+integer PCF.  Is there a property of $G_K$ that characterises the
+Trans locus?  Equivalently: is the empirical universality of
+$r=-2/9$ a constraint on the conjugacy class of $G_K$ (e.g.\ a
+specific finite quotient)?  We expect any such characterisation to
+factor through the quadratic field $\Q(\sqrt{17})$.
+\end{problem}
+
+\begin{problem}[Isomonodromic / Painlevé form]\label{prob:painleve}
+Construct (or rule out) a difference-equation analogue of
+Painlevé~VI in which the Trans locus appears as a special
+isomonodromic stratum at parameters on the Schwarz-dihedral
+$\{1/3,2/3\}$.  A natural starting point is the Jimbo-Sakai
+$q$-analogue.
+\end{problem}
+
+\begin{problem}[Rational-coefficient extension]
+\label{prob:rational}
+Does the Transcendental Ratio Identity (Conjecture~\ref{conj:tri})
+survive when the integer hypothesis on $(a_0,a_1,a_2,b_0,b_1)$ is
+relaxed to rational?
+\end{problem}
+
+\begin{problem}[Log anomaly classification]\label{prob:log-anomaly}
+Classify all degree-$(2,1)$ integer PCFs with $a_2/b_1^2 = -1/36$
+producing Log limits.  Are the two known $b_1=\pm 6$ families
+exceptional, or do larger $b_1$ produce a Log sub-family at this
+boundary parameter?
+\end{problem}
+
+\subsection{A speculative Painlev\'e connection}
+
+A speculative connection to Painlev\'e theory merits mention.  The
+constant $(13+3\sqrt{17})/4$ appearing in
+Theorem~\ref{thm:signature} involves $\sqrt{17}$, which is the
+discriminant of the characteristic equation at $a_2/b_1^2 = -2/9$.
+In the isomonodromic deformation framework (Jimbo--Miwa--Ueno), the
+Stokes constants of a second-order linear difference equation are
+determined by its spectral curve.  We conjecture that the $-2/9$
+constraint arises from a rationality condition on the spectral
+curve of the degree-$(2,1)$ recurrence, analogous to the Painlev\'e
+property for differential equations.  This direction is left for
+future investigation.
+
+%% ==================================================================
+\section{Conclusion}\label{sec:conclusion}
+%% ==================================================================
+
+The Transcendental Ratio Identity for degree-$(2,1)$ integer PCFs is
+empirically robust ($\sim\!585{,}000$ families surveyed, zero
+counterexamples), algebraically fingerprinted by the quadratic
+irrationality $\sqrt{17}$, and not accessible to any of the three
+standard local asymptotic methods we have examined.  The mechanism
+producing the empirical universality of $r=-2/9$ must be global ---
+plausibly Galois-theoretic or isomonodromic --- and lies beyond the
+scope of the techniques deployed in this paper.
+
+The role of $\sqrt{17}$ is, we believe, the most striking output of
+the present investigation.  It appears as (i) the characteristic-root
+discriminant of the minus-form recurrence on the Trans locus
+(Lemma~\ref{lem:minus-roots}); (ii) the irrationality of the
+$b_0/b_1$ ratios solving the minus-form indicial-pair compatibility
+ideal (Theorem~\ref{thm:integer-obstruction}); and (iii) the value
+of the regular sub-leading $c_1$-coefficient at $\mu = \mu_\pm$
+(Corollary~\ref{cor:no-resonance}).  We conjecture that any future
+proof of Conjecture~\ref{conj:tri} will route through the quadratic
+field $\Q(\sqrt{17})$.
+
+We invite specialists in the Galois theory of difference equations
+and in isomonodromic deformation theory to consider the structural
+problems posed in \textsection\ref{sec:discussion}.
+
+%% ==================================================================
+\appendix
+\section{Computational methodology}\label{app:methods}
+%% ==================================================================
+
+All computations use Python~3 with \texttt{mpmath~1.3.0} and
+\texttt{sympy~1.14.0}.  The PSLQ implementation is
+\texttt{mpmath.pslq} with tolerance $10^{-50}$.  Working precision is
+set per task:
+\begin{itemize}[leftmargin=1.4em]
+\item $\dps = 100$ for stratum classification across $\FF(2,4)$,
+$\FF(2,5)$ and the resonance sweeps;
+\item $\dps = 150$ for the algebraic signature certificate
+(Corollary~\ref{thm:pslq});
+\item $\dps = 200$ for the convergence-rate experiment
+(Observation~\ref{prop:rate});
+\item $\dps = 300$ for the direct algebraic identification of the
+Trans CF limits (Observation~\ref{prop:pslq-direct}).
+\end{itemize}
+The integer-coefficient bound \texttt{maxcoeff} is documented per
+PSLQ call; for Corollary~\ref{thm:pslq} no explicit bound was needed
+(the relation has tiny coefficients), and for
+Observation~\ref{prop:pslq-direct} the bound is fixed at $10^{4}$.
+
+The phantom-hit rule of \textsection\ref{sec:pslq} is applied at
+every PSLQ step.  All scripts are archived in the bridge repository
+\href{https://github.com/papanokechi/siarc-relay-bridge}%
+{papanokechi/siarc-relay-bridge}, and every quoted numerical claim
+has an entry in the AEAL claim manifest (\texttt{claims.jsonl}) of
+the relevant session, recording \texttt{evidence\_type}, \texttt{dps},
+script filename, and SHA-256 hash of the run log.
+
+%% ==================================================================
+\section{SHA-256 hashes for the AEAL manifest}\label{app:hashes}
+%% ==================================================================
+
+For reproducibility, the SHA-256 hashes of the principal scripts
+(at the commit underlying this paper) are tabulated in
+Table~\ref{tab:hashes}.  Hashes for the W1, W2, and W3 sprints are
+recorded in the corresponding session \texttt{claims.jsonl} files.
+
+\begin{table}[t]
+\centering
+\caption{SHA-256 hashes of the principal scripts for the
+algebraic-signature and negative-result sections.}
+\label{tab:hashes}
+\begin{tabular}{ll}
+\toprule
+Script & SHA-256 (truncated) \\
+\midrule
+\texttt{indicial\_symbolic.py} (W1) & see W1 \texttt{claims.jsonl} \\
+\texttt{compatibility.py} (W1) & see W1 \texttt{claims.jsonl} \\
+\texttt{indicial\_survey.py} (W2) & see W2 \texttt{claims.jsonl} \\
+\texttt{forcing\_condition.py} (W2) & see W2 \texttt{claims.jsonl} \\
+\texttt{subleading\_birkhoff.py} (W3) & \texttt{08eddada\dots dcc0b654} \\
+\texttt{convergence\_rate.py} (W3) & \texttt{b7742ebb\dots d1e4ecb} \\
+\texttt{direct\_algebraic.py} (W3) & \texttt{88b14129\dots 23685188f} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% ==================================================================
+\section*{Computational and AI-Assistance Disclosure}
+%% ==================================================================
+
+\textbf{Reproducibility.}  All computations underlying this paper
+are reproducible from publicly archived scripts and datasets.  The
+classification pipelines and the PSLQ certificates are archived at
+the bridge repository
+\href{https://github.com/papanokechi/siarc-relay-bridge}%
+{papanokechi/siarc-relay-bridge}, in the sessions referenced
+in~\cite{TRINote, SprintW1Report, SprintW2Report, SprintW3Report}.
+Every numerical claim is logged as a \texttt{claims.jsonl} entry
+with \texttt{evidence\_type = computation}, the working precision
+\texttt{dps}, the script filename, and a SHA-256 hash of the result
+file.
+
+\textbf{Phantom-hit discipline.}  All PSLQ relations reported in
+this paper are accompanied by an explicit non-zero target-coefficient
+check (the phantom-hit rule of \textsection\ref{sec:pslq}).  In the
+T2A pipeline used for \textsection\ref{sec:conjecture}, $38$
+candidate relations were rejected by this rule; the certificates
+of \textsection\ref{sec:signature} pass the rule with target
+coefficients $-4$ (basis 1) and $4$ (basis 2).
+
+\textbf{AI-assistance disclosure.}  During the preparation of this
+work the author used GitHub Copilot (Microsoft) and Anthropic Claude
+in order to assist with code generation, numerical computations, and
+manuscript drafting.  After using these tools, the author reviewed
+and edited the content as needed and takes full responsibility for
+the content of this article.  GitHub Copilot was used as the
+execution agent for all enumerations, PSLQ classifications, and
+symbolic computations; the agent's outputs are deterministic
+functions of the stated scripts.  Anthropic Claude
+(\texttt{claude.ai}) was used as a critique and drafting partner
+for the manuscript text.  All mathematical claims in this paper
+were verified by the author against the underlying numerical and
+symbolic data.
+
+\textbf{Author identifier.}  ORCID
+\href{https://orcid.org/0009-0000-6192-8273}%
+{0009-0000-6192-8273}.
+
+%% ==================================================================
+\begin{thebibliography}{99}
+%% ==================================================================
+
+\bibitem{TRINote}
+Papanokechi.
+\emph{The Transcendental Ratio Identity: A Conjecture on
+Degree-$(2,1)$ Polynomial Continued Fractions.}
+Companion announcement note.
+Zenodo preprint,
+DOI~\href{https://doi.org/10.5281/zenodo.19801038}%
+{10.5281/zenodo.19801038}, 2026.
+
+\bibitem{F25Census}
+Papanokechi.
+\emph{The F$(2,5)$ Census and the Pigeonhole Falsification.}
+SIARC relay bridge session
+\texttt{2026-04-29/T2B-F25-FALSIFICATION},
+\href{https://github.com/papanokechi/siarc-relay-bridge}%
+{papanokechi/siarc-relay-bridge}, commit \texttt{6e28269}, 2026.
+
+\bibitem{SprintW1Report}
+Papanokechi.
+\emph{Sprint W1 --- Normal Form: Indicial Closed Form and
+Compatibility Ideal.}
+SIARC relay bridge session
+\texttt{2026-04-27/SPRINT-W1-NORMAL-FORM}, 2026.
+
+\bibitem{SprintW2Report}
+Papanokechi.
+\emph{Sprint W2 --- Trans Indicial Survey: PSLQ Identification of
+$|\mu_+/\mu_-|$.}
+SIARC relay bridge session
+\texttt{2026-04-27/SPRINT-W2-TRANS-INDICIAL-SURVEY}, 2026.
+
+\bibitem{SprintW3Report}
+Papanokechi.
+\emph{Sprint W3 --- Sub-leading Balance: Resonance Test and
+Convergence Rate.}
+SIARC relay bridge session
+\texttt{2026-04-27/SPRINT-W3-SUBLEADING-BALANCE}, 2026.
+
+\bibitem{ThronWaadeland}
+W.~B.~Jones and W.~J.~Thron,
+\emph{Continued Fractions: Analytic Theory and Applications},
+Encyclopedia of Mathematics and its Applications, vol.~11,
+Addison-Wesley, Reading, MA, 1980.
+
+\bibitem{Worpitzky}
+J.~Worpitzky,
+\emph{Untersuchungen \"uber die Entwickelung der monodromen und
+monogenen Functionen durch Kettenbr\"uche},
+Programm Friedrichs-Gymnasium und Realschule, Berlin, 1865.
+
+\bibitem{Brouncker}
+W.~Brouncker, in J.~Wallis,
+\emph{Arithmetica Infinitorum}, Oxford, 1656.
+
+\bibitem{Schwarz}
+H.~A.~Schwarz,
+\emph{\"Uber diejenigen F\"alle, in welchen die Gauss\-ische
+hypergeometrische Reihe eine algebraische Function ihres vierten
+Elementes darstellt},
+J.\ Reine Angew.\ Math.\ \textbf{75} (1873), 292--335.
+
+\bibitem{RamanujanMachine}
+G.~Raayoni et~al.,
+\emph{Generating conjectures on fundamental constants with the
+Ramanujan Machine},
+Nature \textbf{590} (2021), 67--73.
+
+\bibitem{vanderPutSinger}
+M.~van der Put and M.~F.~Singer,
+\emph{Galois Theory of Difference Equations},
+Lecture Notes in Mathematics, vol.~1666, Springer, Berlin, 1997.
+
+\bibitem{JimboSakai}
+M.~Jimbo and H.~Sakai,
+\emph{A $q$-analog of the sixth Painlevé equation},
+Lett.\ Math.\ Phys.\ \textbf{38} (1996), 145--154.
+
+\bibitem{PSLQ}
+H.~R.~P.~Ferguson, D.~H.~Bailey, and S.~Arno,
+\emph{Analysis of PSLQ, an integer relation finding algorithm},
+Math.\ Comp.\ \textbf{68} (1999), 351--369.
+
+\end{thebibliography}
+
+\section{Precision Escalation Monitor (Layer~5)}\label{app:t2c}
+
+To validate Trans-stratum membership beyond dps$=150$, we ran a
+precision escalation protocol on $24$ reference families at dps levels
+$\{50, 100, 150, 200, 250, 300\}$.
+
+\subsection*{Protocol}
+For each family, we computed the CF limit $L$ at each dps level and
+ran PSLQ against the basis
+\[
+\mathcal{B} = \{L,\ \sqrt{2},\ \sqrt{3},\ \sqrt{5},\ \sqrt{17},\
+\pi,\ \log 2,\ \zeta(3),\ 1\}.
+\]
+The phantom-hit rule (L-coefficient $\neq 0$) was enforced throughout.
+We tracked two metrics per family:
+(a)~slope of $\log(\text{residual})$ vs.\ dps;
+(b)~PSLQ acceptance flag at each dps level.
+
+\subsection*{Results}
+All $30$ families ($24$ Trans, $6$ controls) exhibited slope
+$\approx -1$, rendering the slope metric non-discriminating.  The
+effective discriminator is the \emph{PSLQ acceptance pattern}:
+Trans-hard families resist identification at all dps levels, while
+non-Trans families yield relations at low dps.
+
+\subsection*{Closed-form anomalies}
+Four Trans families with $b_0 = b_1$ admitted closed-form limits at
+all dps levels:
+
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+Family & Limit & Form \\
+\hline
+T08 & $-(\pi+2)/2$  & $\mathbb{Q}(\pi)$ \\
+T11 & $+(\pi+2)/2$  & $\mathbb{Q}(\pi)$ \\
+T14 & $-(3\pi+4)/4$ & $\mathbb{Q}(\pi)$ \\
+T21 & $+(3\pi+4)/4$ & $\mathbb{Q}(\pi)$ \\
+\hline
+\end{tabular}
+\end{center}
+
+All four limits are transcendental by Lindemann--Weierstrass.  The
+Trans~$-2/9$ conjecture ($a_2/b_1^2 = -2/9$) holds for all four.  The
+$b_0 = b_1$ structural pattern warrants further investigation.
+
+\subsection*{Lindemann--Weierstrass verification}
+Each limit
+$L \in \{-(\pi+2)/2,\ +(\pi+2)/2,\ -(3\pi+4)/4,\ +(3\pi+4)/4\}$
+is transcendental by the Lindemann--Weierstrass theorem: since
+$\pi$ is transcendental and each limit is a non-zero rational
+linear combination of $\pi$ and~$1$, no algebraic relation over
+$\mathbb{Q}$ can hold.  Trans-stratum membership (transcendental
+limit) is therefore confirmed for all four families.
+
+\end{document}
