@@ -1,0 +1,175 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\newlabel{sec:intro@cref}{{[section][1][]1}{[1][1][]1}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Scope of this note.}{1}{section*.1}\protected@file@percent }
+\newlabel{sec:contributions}{{1}{1}{Contributions}{section*.2}{}}
+\newlabel{sec:contributions@cref}{{[section][1][]1}{[1][1][]1}{}{}{}}
+\citation{Koblitz1993}
+\citation{Tunnell1983}
+\@writefile{toc}{\contentsline {paragraph}{Reproducibility (first-page pointer).}{2}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Dependency budget.}{2}{section*.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Dependency budget for \texttt  {CongruentStubs.lean}.}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:depbudget}{{1}{2}{Dependency budget for \texttt {CongruentStubs.lean}}{table.1}{}}
+\newlabel{tab:depbudget@cref}{{[table][1][]1}{[1][2][]2}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Axiom inventory.}{2}{section*.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Axiom inventory. All remaining axioms are standard Lean~4 foundations (\texttt  {propext}, \texttt  {funext}, \texttt  {Classical.choice}, \texttt  {Quot.sound}) and Mathlib infrastructure. No \texttt  {sorry} statements are present.}}{2}{table.2}\protected@file@percent }
+\newlabel{tab:axiom-inventory}{{2}{2}{Axiom inventory. All remaining axioms are standard Lean~4 foundations (\texttt {propext}, \texttt {funext}, \texttt {Classical.choice}, \texttt {Quot.sound}) and Mathlib infrastructure. No \texttt {sorry} statements are present}{table.2}{}}
+\newlabel{tab:axiom-inventory@cref}{{[table][2][]2}{[1][2][]2}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Why formalize Tunnell's criterion?}{2}{section*.6}\protected@file@percent }
+\citation{OEIS_A003273}
+\citation{Mathlib2024}
+\citation{FLT2024}
+\citation{PNTLean2024}
+\citation{Kappelmann2024}
+\citation{BartziaStrub2014}
+\citation{LMFDB2024}
+\citation{OEIS_A003273}
+\@writefile{toc}{\contentsline {paragraph}{Design philosophy.}{3}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Contributions (summary).}{3}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{3}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{3}{Related Work}{section.2}{}}
+\newlabel{sec:related@cref}{{[section][2][]2}{[1][3][]3}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Lean~4 formalization landscape (post-2020).}{3}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Elliptic curve formalizations.}{3}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Computational verification.}{3}{section*.11}\protected@file@percent }
+\citation{BuzzardEtAl2020}
+\citation{Scholze2022}
+\citation{LoefflerStoll2025}
+\citation{FLTregular2025}
+\citation{FLTregular2025}
+\citation{LoefflerStoll2025}
+\@writefile{toc}{\contentsline {paragraph}{Axiom isolation as methodology.}{4}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Comparison with prior AFM-style formalizations.}{4}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Overview of the Lean Development}{4}{section.3}\protected@file@percent }
+\newlabel{sec:lean}{{3}{4}{Overview of the Lean Development}{section.3}{}}
+\newlabel{sec:lean@cref}{{[section][3][]3}{[1][4][]4}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Preliminaries: Quadratic Forms and Solution Sets}{4}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:s1}{{3.1}{4}{Preliminaries: Quadratic Forms and Solution Sets}{subsection.3.1}{}}
+\newlabel{sec:s1@cref}{{[subsection][1][3]3.1}{[1][4][]4}{}{}{}}
+\newlabel{def:solset}{{3.1}{4}{Solution set}{theorem.3.1}{}}
+\newlabel{def:solset@cref}{{[theorem][1][3]3.1}{[1][4][]4}{}{}{}}
+\newlabel{def:repcount}{{3.2}{4}{Representation count}{theorem.3.2}{}}
+\newlabel{def:repcount@cref}{{[theorem][2][3]3.2}{[1][4][]4}{}{}{}}
+\newlabel{def:sqfree}{{3.3}{5}{Squarefree}{theorem.3.3}{}}
+\newlabel{def:sqfree@cref}{{[theorem][3][3]3.3}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Bound Independence and Stability}{5}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:s2}{{3.2}{5}{Bound Independence and Stability}{subsection.3.2}{}}
+\newlabel{sec:s2@cref}{{[subsection][2][3]3.2}{[1][5][]5}{}{}{}}
+\newlabel{thm:coord-bound}{{3.4}{5}{Coordinate bound}{theorem.3.4}{}}
+\newlabel{thm:coord-bound@cref}{{[theorem][4][3]3.4}{[1][5][]5}{}{}{}}
+\newlabel{thm:mono}{{3.5}{5}{Monotonicity}{theorem.3.5}{}}
+\newlabel{thm:mono@cref}{{[theorem][5][3]3.5}{[1][5][]5}{}{}{}}
+\newlabel{thm:stable}{{3.6}{5}{Stability}{theorem.3.6}{}}
+\newlabel{thm:stable@cref}{{[theorem][6][3]3.6}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Sign Symmetry and the Unbounded Bridge}{5}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:s3}{{3.3}{5}{Sign Symmetry and the Unbounded Bridge}{subsection.3.3}{}}
+\newlabel{sec:s3@cref}{{[subsection][3][3]3.3}{[1][5][]5}{}{}{}}
+\newlabel{thm:sign-sym}{{3.7}{5}{Eightfold sign symmetry}{theorem.3.7}{}}
+\newlabel{thm:sign-sym@cref}{{[theorem][7][3]3.7}{[1][5][]5}{}{}{}}
+\newlabel{thm:origin}{{3.8}{5}{Origin characterization}{theorem.3.8}{}}
+\newlabel{thm:origin@cref}{{[theorem][8][3]3.8}{[1][5][]5}{}{}{}}
+\newlabel{thm:finite}{{3.10}{5}{Finiteness}{theorem.3.10}{}}
+\newlabel{thm:finite@cref}{{[theorem][10][3]3.10}{[1][5][]5}{}{}{}}
+\newlabel{thm:bridge}{{3.11}{5}{Bridging lemma}{theorem.3.11}{}}
+\newlabel{thm:bridge@cref}{{[theorem][11][3]3.11}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Orbit Pairing and Parity}{5}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:s4}{{3.4}{5}{Orbit Pairing and Parity}{subsection.3.4}{}}
+\newlabel{sec:s4@cref}{{[subsection][4][3]3.4}{[1][5][]5}{}{}{}}
+\newlabel{lem:involution}{{3.12}{5}{Fixed-point-free involution $\Rightarrow $ even cardinality}{theorem.3.12}{}}
+\newlabel{lem:involution@cref}{{[theorem][12][3]3.12}{[1][5][]5}{}{}{}}
+\newlabel{cor:even-nonzero}{{3.14}{6}{}{theorem.3.14}{}}
+\newlabel{cor:even-nonzero@cref}{{[theorem][14][3]3.14}{[1][5][]6}{}{}{}}
+\newlabel{thm:parity}{{3.15}{6}{Parity decomposition}{theorem.3.15}{}}
+\newlabel{thm:parity@cref}{{[theorem][15][3]3.15}{[1][5][]6}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Theta-Series Bridge}{6}{subsection.3.5}\protected@file@percent }
+\newlabel{sec:s5}{{3.5}{6}{Theta-Series Bridge}{subsection.3.5}{}}
+\newlabel{sec:s5@cref}{{[subsection][5][3]3.5}{[1][6][]6}{}{}{}}
+\newlabel{thm:theta-sol}{{3.17}{6}{Theta--solution set agreement}{theorem.3.17}{}}
+\newlabel{thm:theta-sol@cref}{{[theorem][17][3]3.17}{[1][6][]6}{}{}{}}
+\newlabel{def:tunnell-counts}{{3.18}{6}{Tunnell counts}{theorem.3.18}{}}
+\newlabel{def:tunnell-counts@cref}{{[theorem][18][3]3.18}{[1][6][]6}{}{}{}}
+\newlabel{def:tunnell-pred}{{3.19}{6}{Tunnell predicate}{theorem.3.19}{}}
+\newlabel{def:tunnell-pred@cref}{{[theorem][19][3]3.19}{[1][6][]6}{}{}{}}
+\newlabel{thm:theta-tunnell}{{3.20}{6}{}{theorem.3.20}{}}
+\newlabel{thm:theta-tunnell@cref}{{[theorem][20][3]3.20}{[1][6][]6}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Tunnell's Criterion Under BSD}{6}{subsection.3.6}\protected@file@percent }
+\newlabel{sec:s6}{{3.6}{6}{Tunnell's Criterion Under BSD}{subsection.3.6}{}}
+\newlabel{sec:s6@cref}{{[subsection][6][3]3.6}{[1][6][]6}{}{}{}}
+\newlabel{ax:tunnell}{{3.26}{7}{Tunnell's theorem, conditional on BSD}{theorem.3.26}{}}
+\newlabel{ax:tunnell@cref}{{[theorem][26][3]3.26}{[1][6][]7}{}{}{}}
+\newlabel{cor:forward}{{3.27}{7}{Forward direction}{theorem.3.27}{}}
+\newlabel{cor:forward@cref}{{[theorem][27][3]3.27}{[1][7][]7}{}{}{}}
+\newlabel{cor:reverse}{{3.28}{7}{Reverse direction under BSD}{theorem.3.28}{}}
+\newlabel{cor:reverse@cref}{{[theorem][28][3]3.28}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Axiom Boundary}{7}{section.4}\protected@file@percent }
+\newlabel{sec:boundary}{{4}{7}{Axiom Boundary}{section.4}{}}
+\newlabel{sec:boundary@cref}{{[section][4][]4}{[1][7][]7}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Axiom boundary. Everything above the line is fully machine-checked; everything below is explicitly axiomatized.}}{7}{table.3}\protected@file@percent }
+\newlabel{tab:boundary}{{3}{7}{Axiom boundary. Everything above the line is fully machine-checked; everything below is explicitly axiomatized}{table.3}{}}
+\newlabel{tab:boundary@cref}{{[table][3][]3}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Why \texttt  {opaque} and not \texttt  {axiom}?}{7}{section*.15}\protected@file@percent }
+\newlabel{thm:nonvacuity}{{4.1}{7}{Axiom non-vacuity}{theorem.4.1}{}}
+\newlabel{thm:nonvacuity@cref}{{[theorem][1][4]4.1}{[1][7][]7}{}{}{}}
+\newlabel{it:conditional}{{1}{7}{Axiom non-vacuity}{Item.10}{}}
+\newlabel{it:conditional@cref}{{[enumi][1][]1}{[1][7][]7}{}{}{}}
+\newlabel{it:opaque}{{2}{7}{Axiom non-vacuity}{Item.11}{}}
+\newlabel{it:opaque@cref}{{[enumi][2][]2}{[1][7][]7}{}{}{}}
+\newlabel{it:printaxioms}{{3}{8}{Axiom non-vacuity}{Item.12}{}}
+\newlabel{it:printaxioms@cref}{{[enumi][3][]3}{[1][7][]8}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Axiom Inventory: Verification}{8}{section.5}\protected@file@percent }
+\newlabel{sec:axiom-inventory}{{5}{8}{Axiom Inventory: Verification}{section.5}{}}
+\newlabel{sec:axiom-inventory@cref}{{[section][5][]5}{[1][8][]8}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Verification by direct source inspection.}{8}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Verification by \texttt  {\#print axioms}.}{8}{section*.17}\protected@file@percent }
+\citation{OEIS_A003273}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation}{9}{section.6}\protected@file@percent }
+\newlabel{sec:eval}{{6}{9}{Evaluation}{section.6}{}}
+\newlabel{sec:eval@cref}{{[section][6][]6}{[1][9][]9}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Project metrics at commit \texttt  {5b42d4b}.}}{9}{table.4}\protected@file@percent }
+\newlabel{tab:metrics}{{4}{9}{Project metrics at commit \texttt {5b42d4b}}{table.4}{}}
+\newlabel{tab:metrics@cref}{{[table][4][]4}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Reproducibility.}{9}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The skipped test.}{9}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Comparison against OEIS~A003273.}{9}{section*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Proof techniques.}{9}{section*.22}\protected@file@percent }
+\citation{Tunnell1983}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion and Future Work}{10}{section.7}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{10}{Conclusion and Future Work}{section.7}{}}
+\newlabel{sec:conclusion@cref}{{[section][7][]7}{[1][10][]10}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Limitations.}{10}{section*.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Limits of automation.}{10}{section*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Future directions.}{10}{section*.25}\protected@file@percent }
+\newlabel{sec:future-unconditional}{{7}{10}{Toward Unconditional Tunnell}{section*.26}{}}
+\newlabel{sec:future-unconditional@cref}{{[section][7][]7}{[1][10][]10}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}File Tour}{10}{appendix.A}\protected@file@percent }
+\newlabel{app:tour}{{A}{10}{File Tour}{appendix.A}{}}
+\newlabel{app:tour@cref}{{[section][1][]A}{[1][10][]10}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces File tour for \texttt  {CongruentStubs.lean} (954~lines).}}{11}{table.5}\protected@file@percent }
+\newlabel{tab:tour}{{5}{11}{File tour for \texttt {CongruentStubs.lean} (954~lines)}{table.5}{}}
+\newlabel{tab:tour@cref}{{[table][5][]5}{[1][10][]11}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Selected Lean Excerpts}{11}{appendix.B}\protected@file@percent }
+\newlabel{app:code}{{B}{11}{Selected Lean Excerpts}{appendix.B}{}}
+\newlabel{app:code@cref}{{[section][2][]B}{[1][10][]11}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Core definition: solution set.}{11}{lstlisting.-5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Involution lemma (statement).}{11}{lstlisting.-6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{BSD hypothesis and Tunnell axiom.}{11}{lstlisting.-7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bridging lemma.}{11}{lstlisting.-8}\protected@file@percent }
+\bibstyle{plain}
+\bibcite{Tunnell1983}{1}
+\bibcite{Koblitz1993}{2}
+\bibcite{BartziaStrub2014}{3}
+\bibcite{Mathlib2024}{4}
+\bibcite{LMFDB2024}{5}
+\bibcite{BuzzardEtAl2020}{6}
+\bibcite{FLT2024}{7}
+\bibcite{PNTLean2024}{8}
+\bibcite{Kappelmann2024}{9}
+\bibcite{Scholze2022}{10}
+\bibcite{LoefflerStoll2025}{11}
+\bibcite{OEIS_A003273}{12}
+\bibcite{FLTregular2025}{13}
+\gdef \@abspage@last{12}
