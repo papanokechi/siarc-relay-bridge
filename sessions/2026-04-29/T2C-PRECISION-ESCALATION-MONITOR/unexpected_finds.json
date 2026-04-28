@@ -1,0 +1,21 @@
+{
+  "task": "T2C-PRECISION-ESCALATION-MONITOR",
+  "date": "2026-04-29",
+  "halt_triggered": false,
+  "unexpected_findings": [
+    {
+      "id": "T2C-UNEXPECTED-001",
+      "severity": "INFORMATIONAL",
+      "claim_violated": "Prompt step 6 expected 0 PSLQ hits at dps=300 over the extended basis. Observed 4 hits.",
+      "details": "4 of 24 reference Trans families admit non-phantom L-bearing PSLQ relations at every dps level in {50,100,150,200,250,300} against basis {L, sqrt(2,3,5,17), pi, log2, zeta(3), 1}. Same 4 also hit at dps=300 against the extended basis {L, L^2, sqrt(17), pi, log2, zeta(3), e, gamma, 1}.",
+      "families": [
+        {"name": "T08_130101", "coeffs_a2_a1_a0_b1_b0": [-2,-1,1,-3,-3], "closed_form": "L = -(pi+2)/2", "relation_basisB": [2,0,0,0,0,1,0,0,2]},
+        {"name": "T11_130117", "coeffs_a2_a1_a0_b1_b0": [-2,-1,1, 3, 3], "closed_form": "L =  (pi+2)/2", "relation_basisB": [-2,0,0,0,0,1,0,0,2]},
+        {"name": "T14_143931", "coeffs_a2_a1_a0_b1_b0": [-2, 1,3,-3,-3], "closed_form": "L = -(3*pi+4)/4", "relation_basisB": [-4,0,0,0,0,-3,0,0,-4]},
+        {"name": "T21_143951", "coeffs_a2_a1_a0_b1_b0": [-2, 1,3, 3, 3], "closed_form": "L =  (3*pi+4)/4", "relation_basisB": [-4,0,0,0,0,3,0,0,4]}
+      ],
+      "impact_on_conjecture": "Trans -2/9 stratum membership conjecture NOT falsified. All four limits remain transcendental by Lindemann-Weierstrass (pi is). The auxiliary intuition that all 24 reference Trans -2/9 families are 'Trans-hard against {1, sqrt-rationals, pi, log2, zeta(3)}' is weakened: 4 of 24 admit closed forms in (1/2)*Q(pi).",
+      "mitigation": "Layer-5 protocol updated to record (slope, accept_pattern_per_dps) jointly. Trans-hard now defined as accept_pattern == [F]*6. Closed-form Trans is a new sub-classification."
+    }
+  ]
+}
