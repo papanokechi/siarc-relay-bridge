@@ -9,23 +9,29 @@ Halted at Step 1 (precondition check) because the `gh` CLI is not installed on t
 
 ## Halt details
 - Step reached: 1 (CHECK fork existence)
-- Failing command: `gh --version`
-- Error: `gh: The term 'gh' is not recognized as the name of a cmdlet, function, script file, or operable program.`
-- Cross-checked: `Get-Command gh`, `where.exe gh`, and direct probe of `C:\Program Files\GitHub CLI\gh.exe` — all negative.
+- **Second attempt (2026-04-29, ~later):** user installed `gh` CLI (v2.91.0, on PATH). However `gh auth status` reports `You are not logged into any GitHub hosts`, and `%APPDATA%/GitHub CLI/hosts.yml` does not exist. User clicked "Done" twice in the auth prompt but verification failed each time — most likely the browser device flow was not actually completed, or it was completed under a different OS user / account context that does not write to `%APPDATA%`.
+- **First attempt (earlier):** `gh: command not recognized`. Resolved by user installing the CLI; that part is no longer a blocker.
+- Cross-checked: `gh --version` works, `gh config list` works, but `gh auth status` returns exit 1 and no hosts.yml exists.
 
 ## Remediation (one of the following)
 
-### Option A — install gh and re-run this relay
+### Option A — finish `gh auth login` properly and re-run the relay
 ```powershell
-winget install GitHub.cli
-# or
-choco install gh
-# then in a new terminal:
-gh auth login
+# in a fresh PowerShell terminal
+gh auth login --hostname github.com --git-protocol https --web
+# follow the device-code flow; complete the browser step.
+gh auth status   # MUST report "Logged in to github.com account papanokechi"
 ```
-After install + auth, re-issue the same relay prompt; all subsequent steps will execute as scripted.
+Then re-issue the same relay prompt.
 
-### Option B — open the PR manually (fully prepared)
+### Option B — set a Personal Access Token in env, then re-run the relay
+```powershell
+$env:GH_TOKEN = "<paste PAT with `repo` scope>"
+gh auth status   # confirm
+```
+The token is process-scoped only, not written to disk.
+
+### Option C — open the PR manually (fully prepared, no further agent action needed)
 All artifacts are ready. The user (papanokechi) only needs to perform the click-through steps below; nothing else is required from this agent.
 
 1. **Fork** <https://github.com/leanprover-community/mathlib4> via the GitHub web UI ("Fork" button, default settings).
