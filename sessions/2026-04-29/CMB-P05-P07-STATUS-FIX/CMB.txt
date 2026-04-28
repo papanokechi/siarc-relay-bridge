@@ -1,0 +1,573 @@
+# SIARC MORNING BRIEFING
+## Claude Morning Briefing — CMD.txt
+## Last updated: 2026-04-29
+## Goal: ONE ACCEPTED PAPER
+
+Paste this file into Claude.ai each morning for
+strategic prioritization.
+---
+
+## SUBMISSION PORTFOLIO STATUS
+
+| # | Paper | Journal | ID | Status | Radar |
+|---|---|---|---|---|---|
+| P01 | Rational Contamination | Exp. Math | 261945835 | Rejected | 7.5 |
+| P02 | 482 Irrationals | Exp. Math | 266999523 | Rejected | 6.5 |
+| P03 | Arithmetic Bifurcation | Exp. Math | 266535114 | Rejected | 6.0 |
+| P04 | PSL2(Z)/4-Tier | Ramanujan J | 5448b2ad-a9c0-4f83-ae75-9ea998fc0436 | Submitted | 7.0 |
+| P05 | Spectral Classes | RINT | RNTB-D-26-00209 | Rejected (desk, 2026-04-29) | 6.0 |
+| P06 | Desert (4,3)(5,3) | Math.Comp | 260424-Papanokechi | Rejected | 7.0 |
+| P07 | Khinchin Null | Exp. Math | 264514392 | Returned for formatting (2026-04-29) | 6.5 |
+| P08 | Painleve/V_quad | Nonlinearity | NON-110708 | Under review | 8.0 |
+| P09 | AI Discovery | Notices AMS | 260421-Papanokechi | Under review | 5.5 |
+| P10 | Self-Adjoint ODEs | JDE | JDEQ26-983 | Under review | 6.5 |
+| P11 | F(2,4) Base Case | JTNB | JTNB-2400 | Submitted | 6.0 |
+| P13 | Ratio Universality | Acta Arith | 260423-Papanokechi | Submitted | 7.0 |
+| P15 | SIARC Lean4 PDE | JAR | ec4ede2f...3e70827a7 | Submitted | 7.5 |
+| P-Tunnell | Tunnell CNP Lean4 Formalization | Annals of Formalized Mathematics | afm:18102 | Submitted 2026-04-28 | 7.0 |
+| P-Rigidity | Finite-Depth Transient Rigidity | Indag.Math | INDAG-D-26-00112 | Submitted | 5.5 |
+| P-T2A | 2k-Degree Conjecture k=2 | Zenodo | 10.5281/zenodo.19774029 | Published | 6.5 |
+| P-T2B | Trans -2/9 Conjecture | Zenodo | 10.5281/zenodo.19801038 | Published | 7.5 |
+
+*P11 blockers resolved 2026-04-25. Awaiting Math.Comp verdict.
+
+PORTFOLIO FLAGS (2026-04-29 framing audit):
+  P07 (Khinchin → Exp. Math): REFORMAT AND RESUBMIT — paper was
+       returned 2026-04-29 for formatting only (not rejected). It
+       is actively in the Exp. Math queue under ID 264514392.
+       Action: P07-EXPMATH-REFORMAT relay. Do NOT withdraw.
+       (Earlier WITHDRAW flag rescinded — see RULE 1 amendment
+        below: Exp. Math blacklist applies to NEW submissions only.)
+  P09 (AI Discovery → Notices AMS): WITHDRAW — structurally wrong
+       venue type. Park until first portfolio acceptance arrives.
+  P10 (Self-Adjoint ODEs → JDE): MEDIUM RISK mismatch. Leave under
+       review; on rejection redirect to JMAA or Proc. Edinburgh Math. Soc.
+
+---
+
+## P11 ACTIVE BLOCKERS — RESOLVED 2026-04-25
+
+All three blockers fixed in main_R1.tex (bridge: P11-REVISION-R1,
+commit b2e1bde). Paper awaiting Math.Comp verdict.
+
+BLOCKER 1 — Lemma 2.4 misuse [RESOLVED]
+  Note: No Lemma 2.4 existed in the submitted version.
+  Actual fix: all non-existence claims scoped with explicit
+  H_max and dps bounds. Applied at L198, L279, L314.
+
+BLOCKER 2 — Convergence criterion heuristic [RESOLVED]
+  def:conv amended with heuristic disclaimer.
+  thm:desert and thm:complete now carry explicit conditional
+  qualifier: "subject to the operational convergence criterion
+  of Definition 2.3".
+
+BLOCKER 3 — Alg stratum degree-4 cap [RESOLVED]
+  rem:algcap inserted after def:strata: documents degree <= 4
+  scope, absence of degree-5+ analysis, and references
+  prob:logalg as the open problem.
+
+VENUE STATUS: Submitted to JTNB 28 Apr 2026 (ID: JTNB-2400).
+  Handling editor: Boris Adamczewski.
+  main_R1.tex revised for JTNB: abstract reframed, Elsevier
+  AI declaration added, Math.Comp header removed.
+
+Also closed: T1-D (Appendix A corruption) — appendix does not
+  exist in submitted version. Non-issue.
+
+---
+
+## TIER 1 — THIS WEEK
+
+T1-A: VENUE DECISION FOR P11 [RESOLVED — Math.Comp, awaiting verdict]
+  Paper at Math.Comp (260422-Papanokechi) since 22 Apr.
+  All three blockers fixed (main_R1.tex). No action needed
+  until verdict arrives.
+
+T1-B: SICF ON P08 [COMPLETE — 2026-04-25]
+  Four-agent SICF run completed. R1 revision applied (3 fixes):
+  formal continuum derivation, confluent Heun class remark,
+  honest resurgence labels. R2 applied: HeunC parameters
+  replaced with class-only statement after CAS audit confirmed
+  parameters wrong (3 independent checks).
+  File: vquad_resurgence_R2.tex. Bridge: P08-SICF-REVISION,
+  P08-CAS-HEUNC. Await NON-110708 referee report.
+
+T1-C: FIX P11 BLOCKERS [COMPLETE — 2026-04-25]
+  See CHANGE 3 above.
+
+T1-D: FIX P11 TABLE CORRUPTION [CLOSED — non-issue]
+  Appendix A does not exist in the submitted version of
+  main_R1.tex. The CMB flag referred to a pre-submission draft.
+
+T1-NEW: TUNNELL-LEAN4 [COMPLETE — 2026-04-26]
+  Paper: Layered Lean 4 Formalization of Congruent Number
+         Problem up to Tunnell's Criterion
+  JARE incomplete submission: expired (system failure)
+  Diagnostic: 0 sorry, 1 axiom (tunnell_conditional_on_BSD),
+    Frobenius/apparent_singularity issues confirmed absent
+  Submitted to JAR (Springer) 26 Apr 2026
+  ID: 8c1339cb-f84d-453f-a8fe-97f0291bfa02
+  Bridge: TUNNELL-JAR-PREP (commit d00988b)
+
+---
+
+## TIER 2 — NEXT 2 WEEKS
+
+T2-A: 2k-degree conjecture [PARTIAL RESULT — 2026-04-26]
+  Theory: Trans families occur at degree-(2k,k) where
+  a(n)/b(n)^2 -> const.
+
+  RESULT FOR k=2 (degree-(4,2), F(4,3), CMAX=1):
+  - 1162/1162 Trans-hard families confirmed at dps=300
+    against bilinear-pi + extended basis (0/35 PSLQ hits)
+  - Limits NOT in: {pi,zeta,log,AGM,2F1,algebraic*pi^2}
+  - Limits NOT pairwise algebraically related
+  - RIES lookup: 8-digit coincidence only (diff=0.389)
+  - Mystery constant R1 = -0.10123520070804963... appears
+    genuinely novel (OEIS/web/RIES: no identification)
+
+  CONJECTURE STATUS:
+    Existential claim (Trans at (4,2)): CONFIRMED
+    pi^2-Apery connection: NOT SUPPORTED
+    Common ratio a/b^2 structural law: INDETERMINATE
+      (CMAX=1 artifact, ratio trivially = 1)
+
+  TWO PHANTOM HIT TRAPS CAUGHT AND CORRECTED:
+    (1) zeta(2)=pi^2/6 identity (L-coeff=0)
+    (2) phi=1+sqrt(5)/2 identity (L-coeff=0)
+    Both fixed by mandatory L-coefficient != 0 filter.
+
+  Bridge sessions: T2A-DEGREE42-SEARCH (84f91bf),
+    T2A-DEGREE42-DEEP-VALIDATE (fa259b0),
+    T2A-BASIS-IDENTIFY (45fe389),
+    T2A-LMFDB-LOOKUP (3a5bb2b)
+
+  RESULT FOR k=2 (degree-(4,2), F(4,3), CMAX=2):
+  - 108,762 Trans-candidates from 125,000 families
+  - 1000/1000 deep-validated Trans-hard at dps=150
+  - 28 phantom hits caught in Stage C
+  - Ratio distribution: 0.25/0.5/1.0/2.0 uniform ~25% each
+  - Trans-hard rate by ratio: 85.8/89.1/86.0/89.0% uniform
+  - RATIO SUB-HYPOTHESIS: REFUTED
+    CMAX=1 ratio=1 was pure degeneracy, not structural law
+  - pi^2-Apery connection: REFUTED (0/1000 Log-bilinear)
+  - Novel limits confirmed: 0/6 hits at dps=300
+
+  CONJECTURE FINAL STATUS:
+    Existential (Trans at (4,2)): CONFIRMED at scale
+    Ratio structural law: REFUTED
+    pi^2-Apery connection: REFUTED
+    Basis identification: OPEN
+
+  Bridge: T2A-CMAX2-RATIO (ce25196)
+  T2-A status: COMPLETE for k=2. Move to T2-B or write-up.
+
+T2-B: Apery-like recurrence investigation
+  Why does pi appear? All 24 Trans: a2/b1^2 = -2/9.
+  Apery CF for zeta(2) has similar structure.
+  One week theoretical investigation.
+
+  RESONANCE SEARCH (b1 in {4,5}, commit ab0d70b, 2026-04-29):
+  - 7,174 convergent families at three rational-indicial-root
+    candidate ratios {-3/16, -4/25, -6/25}
+  - 0 Trans, 0 Log -> conjecture STRENGTHENED
+
+  RESONANCE-B67 (b1 in {6,7}, commit pushed 2026-04-29):
+  - 175,686 convergent families, 0 Trans, 2 Log
+  - Log families at ratio -1/36 (L = ±2/log(2))
+    verified at dps=150, residual 5.65e-150
+  - Ratio -1/36 has irrational indicial discriminant (8/9)
+    — breaks rational-square heuristic for Log stratum
+  - Trans-only conjecture (a2/b1^2 = -2/9): INTACT
+  - Total empirical base: ~325,686 convergent families
+  - RECOMMENDATION: ready for journal submission
+
+T2-C: Layer 5 POC — Precision Escalation Monitor
+  Fit log(residual) vs dps. Slope=-1 genuine, slope=0 spurious.
+  Training: 24 Trans families. One session.
+
+T2-D: SICF on P01, P06, P07
+  Three highest-probability Exp.Math papers.
+  Revision briefs from SICF -> quick fixes -> resubmit.
+
+T2-E: JAR paper clarifications [COMPLETE — 2026-04-25]
+  CMB provenance note: "Frobenius axiom" and
+  "apparent_singularity_thm_i" do not exist in the JAR
+  codebase (SIARCRelay11). Those symbols belong to a
+  different Lean project.
+  Actual fixes applied to lean4/manuscript_R1.tex:
+  (1) Example_PhysicalSystem sorry note added to S4.3
+  (2) Axiom-count narrative expanded (9 user-facing axioms
+      vs. infrastructure opaques); sec:boundary label added
+  (3) Legacy lean4/ flat-tree disclaimer added to S1
+  Bridge: T2E-REVISION-R1, commit daf83f5.
+  Await JAR referee report (ec4ede2f).
+
+---
+
+## TIER 3 — 1-3 MONTHS
+
+T3-A: Test 2k-conjecture at d=4 (follow T2-A)
+T3-B: Painleve classification of Desert families
+T3-C: Layer 0 production implementation
+T3-D: Layer 6 AEAL cross-session auditor
+T3-E: SICF methodology paper (after first referee report)
+T3-F: P10 revision — add degree-3 worked example
+
+---
+
+## TIER 4 — 3-12 MONTHS
+
+T4-A: PCF constants as special functions (Acta/Inventiones)
+T4-B: Formal verification via Baker/Mathlib
+T4-C: Generalized degree-d dichotomy proof
+
+---
+
+## DAILY DECISION FRAMEWORK
+
+Ask yourself: which single action today moves closest
+to one accepted paper?
+
+Priority order:
+  1. Fix active blockers on submitted papers
+  2. Run SICF on high-probability papers
+  3. Execute Tier 2 research tasks
+  4. Build pipeline infrastructure
+
+Current answer (update daily):
+  -> TODAY (2026-04-29): two parallel relays.
+     (a) P07-EXPMATH-REFORMAT — P07 (264514392) was returned
+         for formatting, NOT rejected. Apply Exp. Math style
+         requirements and resubmit under the same ID.
+         Grandfathered past the Exp. Math blacklist (see
+         RULE 1 amendment).
+     (b) P05-SICF-VENUE-DECISION — P05 (RNTB-D-26-00209)
+         desk-rejected by Sutherland (EIC). Run SICF, pick
+         next venue (JTNB / Acta Arith / Ramanujan J / Indag.
+         Math / IJNT), resubmit within 2 weeks.
+  -> All Tier 1 tasks complete including Tunnell-Lean4.
+     Await verdicts on: NON-110708 (P08), JTNB-2400 (P11),
+     ec4ede2f (P15-SIARC), 8c1339cb (P-Tunnell),
+     INDAG-D-26-00112 (P-Rigidity)
+  -> T2-A complete. Ratio hypothesis refuted, existence
+     confirmed. Next: T2-B (Apery-like recurrence theory)
+     or write up T2-A result as computational observation
+     paper candidate.
+  -> P-T2B conjecture note ready for journal submission.
+     Target: JTNB as companion to P11 (after P11 referee
+     report). Anomaly to investigate: Log families at
+     ratio -1/36 (T2B-LOG-CATALOG — low priority, does
+     not block submission).
+  -> P06 free — run SICF and select next venue.
+     Math.Comp blacklog pattern confirmed (same as P11).
+
+---
+
+## PORTFOLIO DISCIPLINE RULES
+## Added: 2026-04-29 (framing audit)
+
+RULE 1 — CATEGORY A FREEZE:
+  No new standalone PCF empirical submissions.
+  Convert to Category B appendices or hold for a
+  single survey note later.
+
+RULE 2 — TITLE RULE:
+  Every title must state the mathematical result
+  in plain English. No internal codenames
+  (Desert, F(2,4), SIARC, T2B, etc.) on title pages.
+
+RULE 3 — CONCURRENT CAP:
+  Maximum 4 active submissions at any time.
+  No new submissions when queue >= 4.
+  Currently OVER CAP — withdraw before adding.
+
+RULE 4 — PRIOR WORK ANCHOR:
+  Every cover letter must name one specific prior
+  paper (author + year) that the submission extends.
+  Non-negotiable; this is the most important line.
+
+RULE 5 — AI DISCLOSURE PLACEMENT:
+  Pure math journals    -> Acknowledgements only
+  Formalization venues  -> short intro subsection
+  Methodology papers    -> abstract + methods
+  Cover letter          -> Paragraph 3, one sentence only
+
+RULE 6 — ARXIV FIRST:
+  Category B papers: post to arXiv 2-4 weeks before
+  journal submission. Wait for any preprint feedback
+  before submitting. Builds citation traction and
+  compensates for independent affiliation.
+
+RULE 7 — WITHDRAWAL RULE:
+  Any submission at a structurally wrong venue (wrong
+  type, blacklisted, de-facto rejected) must be
+  withdrawn within 30 days of the diagnosis.
+
+RULE 1 AMENDMENT (2026-04-29) — BLACKLIST SCOPE:
+  The Experimental Mathematics blacklist (declared after
+  the 7th desk rejection on 2026-04-25) applies to NEW
+  submissions only. Papers already in the Exp. Math queue
+  at the time of the blacklist must be COMPLETED through
+  their existing review cycle, not abandoned.
+  Currently in queue under this exception:
+    - P07 (Khinchin Null, ID 264514392) — returned for
+      formatting 2026-04-29; reformat and resubmit.
+  This amendment also generalizes: a venue blacklist never
+  retroactively cancels an active manuscript already in
+  that venue's pipeline.
+
+SUGGESTED TITLE REFRAMES (apply on next revision):
+  AI Discovery        -> A reproducible AI-assisted conjecture
+                         pipeline for polynomial continued
+                         fractions: methodology and case studies
+  Desert (4,3)(5,3)   -> Absence of transcendental limits at
+                         degree profiles (4,3) and (5,3):
+                         exhaustive numerical evidence and a
+                         conjecture
+  Rational Contam.    -> Rational points obstruct irrational
+                         limit detection in PSLQ-based
+                         polynomial continued fraction searches
+  F(2,4) Base Case    -> Complete arithmetic stratification of
+                         degree-2 polynomial continued fractions:
+                         the F(2,4) stratum
+  Tunnell CNP Lean4   -> Axiom-isolated Lean 4 formalization of
+                         Tunnell's criterion: conditional
+                         structure and proof architecture
+  SIARC Lean4         -> Machine-verified safety and stability
+                         for semilinear parabolic PDEs: a
+                         Lean 4 framework
+
+---
+
+## STANDARD COVER LETTER TEMPLATE (v2026-04-29)
+
+Dear [Editor name / Editors],
+
+I submit [PAPER TITLE] for consideration at
+[VENUE]. The paper [proves / establishes /
+demonstrates] that [ONE SENTENCE: object +
+property + method]. This extends [SPECIFIC PRIOR
+WORK, author + year] and aligns with [VENUE]'s
+recent work on [NAMED TOPIC OR PAPER].
+
+A preprint is available at [arXiv/Zenodo URL].
+Supporting [code / Lean 4 source / data] is
+archived at [GitHub URL + commit or Zenodo DOI].
+All computations are reproducible from the
+provided artifact. This manuscript has not been
+published elsewhere and is not under consideration
+at any other journal.
+
+Computational assistance was provided by
+Claude (Anthropic) and GitHub Copilot; all
+mathematical claims have been independently
+verified by the author.
+ORCID: 0009-0000-6192-8273.
+
+Sincerely,
+[Name]
+
+KEY RULES:
+- Para 1: result + venue fit + prior work anchor
+- Para 2: artifact + originality statement
+- Para 3: disclosure + ORCID (move AI sentence to
+          Acknowledgements for pure-math venues)
+- Never mention other concurrent submissions
+- Never apologize for or explain independent status
+- Name prior work anchor ALWAYS — single most
+  important sentence in the letter
+
+---
+
+## HOW TO USE THIS FILE
+
+Morning routine (15 minutes):
+  1. Open this file
+  2. Update [VERDICTS RECEIVED] if any journal replied
+  3. Paste file into Claude.ai
+  4. Ask: "Given this state, what is today's priority?"
+  5. Execute Claude's answer with Copilot agent
+
+When a verdict arrives:
+  ACCEPT  -> Update status. Reference in other cover letters.
+             Write SICF calibration report.
+  REVISE  -> Execute specific requests. Resubmit in 3 weeks.
+  REJECT  -> Run SICF immediately. Resubmit to next journal
+             within 2 weeks. Do not pause research.
+
+---
+
+## VERDICTS RECEIVED
+(update this section as decisions arrive)
+
+2026-04-24  Six simultaneous desk rejections from Experimental Mathematics
+            (IDs: 261945835, 267262713, 266999523, 266535114, 268704746, 260636324)
+            Assessment: volume-based editorial decision, not content verdict.
+            Action: redistributed to new venues under 1-per-journal discipline.
+
+2026-04-24  JNTH-D-26-00480 (PSL2Z/4-Tier) — rejected by JNT
+            Action: resubmitted to Ramanujan Journal (ID: 5448b2ad)
+
+2026-04-25  263513140 (Finite-Depth Transient Rigidity) —
+            rejected by Experimental Mathematics
+            7th Exp.Math desk rejection. Volume-based
+            editorial pattern confirmed. Exp.Math blacklisted.
+            - Integers (INTEGERS: Electronic Journal of Combinatorial
+              Number Theory): BLACKLISTED — explicit AI ban on code,
+              math, and content generation.
+            Target: Indagationes Mathematicae (submit by
+            2 May 2026). Fallback: Journal of Modern Dynamics.
+            Zenodo preprint: 10.5281/zenodo.19755968
+            (25 Apr 2026). Submitted to Indagationes
+            Mathematicae (25 Apr 2026, ID: INDAG-D-26-00112).
+            Zenodo preprint: 10.5281/zenodo.19755968.
+
+2026-04-28  260422-Papanokechi (F(2,4) Base Case) —
+            rejected by Mathematics of Computation
+            Desk rejection, backlog cited, no content verdict.
+            Action: resubmit to next venue immediately.
+
+2026-04-29  264514392 (P07 Khinchin Null) —
+            RETURNED FOR FORMATTING by Experimental Mathematics
+            NOT a rejection. Manuscript is still in queue.
+            Action: P07-EXPMATH-REFORMAT relay — apply Exp. Math
+            formatting requirements and resubmit under same ID.
+            Note: this paper is grandfathered past the Exp. Math
+            blacklist (see RULE 1 amendment 2026-04-29).
+
+2026-04-29  RNTB-D-26-00209 (P05 Spectral Classes) —
+            DESK REJECTED by Research in Number Theory
+            Editor: Andrew V. Sutherland (EIC).
+            Type: desk rejection, no feedback, 5-day turnaround.
+            Action: P05-SICF-VENUE-DECISION relay — run SICF,
+            select next venue, resubmit within 2 weeks.
+            Candidate venues to evaluate: JTNB, Acta Arith,
+            Ramanujan Journal, Indagationes Math, Int. J.
+            Number Theory.
+
+2026-04-30  260424-Papanokechi (Desert (4,3)(5,3)) —
+            rejected by Mathematics of Computation
+            Desk rejection, backlog cited, no content verdict.
+            Managing Editor Michael J. Neilan.
+            Action: run SICF, select next venue.
+
+2026-04-28  P-Tunnell submitted to AFM
+            ID: afm:18102
+            Prior: JAR (×2, rejected), FAC (defunct)
+            Package: tunnell_afm_R2.pdf
+            12 pages, Lean v4.14.0, Mathlib v4.14.0
+            GitHub: tunnell-cnp-lean4
+            Zenodo: 10.5281/zenodo.19834824
+
+---
+
+## RECORDED SUBMISSIONS (new this session)
+
+16. Filename: SpectralClassesofPolynomialContinuedFractions.pdf
+    Title: Spectral Classes of Polynomial Continued Fractions: A Hypergeometric Framework and Arithmetic Obstructions
+    Status: Rejected by Research in Number Theory (desk, 2026-04-29)
+    Submitted on: 24th Apr 2026
+    Submission ID: RNTB-D-26-00209
+    Editor: Andrew V. Sutherland (EIC)
+    Verdict: Desk rejection, no feedback, 5-day turnaround.
+             Next: P05-SICF-VENUE-DECISION.
+
+17. Filename: RatioUniversality_ActaArith_submission.pdf
+    Title: Ratio Universality for Meinardus-Class Partition Functions and the G-01 Law
+    Status: Submitted to Acta Arithmetica
+    Submitted on: 24th Apr 2026
+    Submission ID: 260423-Papanokechi
+    Verdict:
+
+18. Filename: manuscript_JAR_submission.pdf
+    Title: SIARC: A Mechanized Safety-Stability-Controllability Framework for Semilinear Parabolic PDE Systems in Lean 4
+    Status: Submitted to Journal of Automated Reasoning
+    Submitted on: 24th Apr 2026
+    Submission ID: ec4ede2f-7ed8-4801-aa03-3153e70827a7
+    Verdict:
+
+19. Filename: pcf_desert_negative_result.pdf
+    Title: EXHAUSTIVE PSLQ EVIDENCE FOR A DEGREE THRESHOLD IN POLYNOMIAL CONTINUED FRACTIONS: THE (4,3) AND (5,3) DESERT
+    Status: Submitted to Mathematics of Computation
+    Submitted on: 24th Apr 2026
+    Submission ID: 260424-Papanokechi
+    Verdict:
+
+20. Filename: rigidity_entropy_expmath_resubmission_R2.pdf
+    Title: Finite-Depth Transient Rigidity in Small-Value Continued Fraction Dynamics
+    Status: Submitted to Indagationes Mathematicae
+    Submitted on: 25th Apr 2026
+    Submission ID: INDAG-D-26-00112
+    Verdict:
+
+21. Filename: tunnell_afm_R2.pdf
+    Title: A Layered, Axiom-Isolated Lean 4 Formalization of the Congruent Number Problem up to Tunnell's Criterion
+    Status: Submitted to Annals of Formalized Mathematics (AFM, Episciences)
+    Submitted on: 28th Apr 2026
+    Submission ID: afm:18102
+    Handling editor: Assia Mahboubi (requested)
+    Notes: GitHub github.com/papanokechi/tunnell-cnp-lean4; Zenodo 10.5281/zenodo.19834824; Prior rejections: JAR (length), FAC (defunct), AFM-REVISION R2
+    Verdict:
+
+## ZENODO (new this session)
+
+7. Filename: ai_peer_review_founding_v2.pdf
+   Title: AI Peer Review: Founding Position Paper
+   Submitted on: 24th Apr 2026
+   Status: Published on Zenodo
+   Submission ID: DOI 10.5281/zenodo.19717115
+   Verdict: N/A
+
+8. Filename: rigidity_entropy_expmath_resubmission_R2.pdf
+   Title: Finite-Depth Transient Rigidity in Small-Value
+          Continued Fraction Dynamics
+   Submitted on: 25th Apr 2026
+   Status: Published on Zenodo
+   Submission ID: DOI 10.5281/zenodo.19755968
+   Verdict: N/A
+
+---
+
+## BRIDGE REPO
+github.com/papanokechi/siarc-relay-bridge
+
+Latest sessions:
+  2026-04-28  TUNNELL-AFM-LAKEFIX        R2 placeholders filled,
+              afm:18102, GitHub tunnell-cnp-lean4,
+              Zenodo 10.5281/zenodo.19834824
+  2026-04-30  T2B-NOTE-REVISION          12 pre-submission fixes,
+              v2 published 10.5281/zenodo.19801038
+  2026-04-28  T2A-ZENODO-PUBLISHED       T2A preprint live at
+              DOI 10.5281/zenodo.19774029
+  2026-04-28  P11-JTNB-SUBMISSION        F(2,4) Base Case →
+              JTNB-2400, Boris Adamczewski, 28 Apr 2026
+  2026-04-27  T2A-CMAX2-RATIO            CMAX=2 search: ratio
+              uniform, refuted; existence confirmed at scale
+  2026-04-26  T2A-BASIS-IDENTIFY         Mystery constant R1,
+              0/35 PSLQ hits at dps=300
+  2026-04-26  T2A-DEGREE42-DEEP-VALIDATE 1162/1162 Trans-hard
+              at dps=150
+  2026-04-26  T2A-DEGREE42-SEARCH        degree-(4,2) CMAX=1
+              first search
+  2026-04-26  TUNNELL-JAR-SUBMITTED      Tunnell Lean4 JAR
+              submission 8c1339cb
+  2026-04-26  TUNNELL-JAR-PREP  Tunnell Lean4 → JAR
+              8c1339cb + cover letter date fix
+  2026-04-25  263513140-INDAG-SUBMISSION  Rigidity paper →
+              INDAG-D-26-00112 + Zenodo 19755968
+  2026-04-25  LEAN4-STATESPACE-DISCHARGE  StateSpace.lean 0 err/sorry
+  2026-04-25  P08-SICF-REVISION           SICF + R1 (derivation, HeunC, resurgence)
+  2026-04-25  P08-CAS-HEUNC              HeunC params wrong → R2 class-only
+  2026-04-25  P11-REVISION-R1            Three CMB blockers resolved
+  2026-04-25  T2E-REVISION-R1            JAR clarifications (sorry, axioms, legacy)
+  2026-04-23  T1A-MATHCOMP-REV2       P11 revision
+  2026-04-23  SICF-API-FREE           SICF system
+  2026-04-23  L0-D3-LINEAR-B-EXHAUST  d=3 null result
+  2026-04-23  L2-EXACTNESS-SCANNER    a2/b1^2 discovery
+  2026-04-23  L4-HYPOTHESIS-ENGINE    16 hypotheses
+  2026-04-23  H001-H004-FULL-VERIFY   4 implication proofs
+
+Fetch any handoff:
+  https://raw.githubusercontent.com/papanokechi/
+  siarc-relay-bridge/main/sessions/DATE/TASK/handoff.md
