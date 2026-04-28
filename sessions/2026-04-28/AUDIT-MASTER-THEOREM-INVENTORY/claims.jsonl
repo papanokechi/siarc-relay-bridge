@@ -1,0 +1,29 @@
+[
+  {
+    "claim": "On a₂/b₁²=-2/9 with a₂<0, b₁≠0, |μ+/μ-| = (13+3√17)/4 where μ²-b₁μ+a₂=0",
+    "evidence_type": "computation",
+    "dps": 60,
+    "reproducible": true,
+    "script": "inline mpmath verification (see handoff.md §1)",
+    "output_hash": "n/a (inline)",
+    "residual": "6.2e-61 (machine round-off)"
+  },
+  {
+    "claim": "PSLQ relation [13,3,-4] on {1,√17,ρ}: 13+3√17-4·(13+3√17)/4 = 0 exactly (algebraic identity)",
+    "evidence_type": "computation",
+    "dps": 60,
+    "reproducible": true,
+    "script": "inline mpmath verification",
+    "output_hash": "n/a (inline)",
+    "residual": "-2.5e-60"
+  },
+  {
+    "claim": "81r²-243r+178=0 has roots r=(27±√17)/18",
+    "evidence_type": "computation",
+    "dps": 60,
+    "reproducible": true,
+    "script": "inline mpmath verification",
+    "output_hash": "n/a (inline)",
+    "residual": "0.0 / 2.0e-59"
+  }
+]

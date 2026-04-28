@@ -1,0 +1,12 @@
+{
+  "trans_minus29_full_typo_T5.3": {
+    "issue": "Intermediate equation '-9r²+27r-20 = r' uses symbol r in two senses; correct form is '-9(b₀/b₁)²+27(b₀/b₁)-20 = a₂/b₁² = -2/9'. Final equation 81r²-243r+178=0 is correct.",
+    "severity": "minor (typo)",
+    "action": "flag in handoff for author"
+  },
+  "trans_minus29_full_T4.4_tautology": {
+    "issue": "Theorem 4.4 (PSLQ certificate [13,3,-4] on {1,√17,ρ}) is logically equivalent to Theorem 4.3 ρ=(13+3√17)/4; PSLQ identity 13+3√17-4·(13+3√17)/4=0 is by construction.",
+    "severity": "structural",
+    "action": "recommend demote to Corollary/Remark"
+  }
+}
