@@ -1,0 +1,6652 @@
+{
+  "parameters": {
+    "H_proj": 8,
+    "b1_list": [
+      3,
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24,
+      27,
+      30
+    ],
+    "N_per_b1_target": 40,
+    "N_screen_f64": 200,
+    "N_stage_A": 350,
+    "dps_stage_A": 120,
+    "pslq_tol_A": "1e-30",
+    "N_stage_B": 600,
+    "dps_stage_B": 400,
+    "pslq_tol_B": "1e-50",
+    "CMAX": 100000000,
+    "phantom_rule": "reject any relation with L-coefficient = 0",
+    "basis": [
+      "1",
+      "pi",
+      "pi^2",
+      "log2",
+      "zeta2",
+      "zeta3",
+      "sqrt2",
+      "sqrt3",
+      "sqrt5",
+      "e",
+      "gamma",
+      "log3",
+      "pi*log2",
+      "pi^3"
+    ],
+    "sampling": "stratified random per b_1 (seed=42); deduped by L_f64 to 10 sig figs"
+  },
+  "step1_total_candidates": 48552,
+  "step2_sample_size": 400,
+  "class_counts": {
+    "Trans": 387,
+    "Log": 0,
+    "Alg": 0,
+    "Rat": 13,
+    "error": 0
+  },
+  "phantom_rejections": [],
+  "classified": [
+    {
+      "family": [
+        -2,
+        0,
+        -6,
+        3,
+        -2
+      ],
+      "L_f64": -1.5984871531046492,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-1.598487153104639021797785194140571694566",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -2,
+        -5,
+        3,
+        2
+      ],
+      "L_f64": 3.3118496836976825,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.311849683697682280838428669006249739467",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        2,
+        3,
+        3,
+        -8
+      ],
+      "L_f64": 0.27458569185146164,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.274585691855393824044273620354313171429",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        4,
+        6,
+        3,
+        3
+      ],
+      "L_f64": 4.1999999999999815,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        -5,
+        21,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -2,
+        0,
+        8,
+        3,
+        0
+      ],
+      "L_f64": 2.0,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        1,
+        -2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -2,
+        -7,
+        1,
+        3,
+        8
+      ],
+      "L_f64": 7.121603988900169,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "7.121603988900130280413684594756461032158",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -1,
+        1,
+        3,
+        -4
+      ],
+      "L_f64": -3.768996960486313,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        -329,
+        -1240,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -2,
+        -5,
+        3,
+        3,
+        7
+      ],
+      "L_f64": 6.534291735288526,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "6.534291735288517393270473806189440744722",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        6,
+        -6,
+        3,
+        0
+      ],
+      "L_f64": -0.7645294759643682,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.7645294759643658142208261565067694924314",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        3,
+        -3,
+        3,
+        8
+      ],
+      "L_f64": 7.8117164702838995,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "7.811716470283881444370821325255367763974",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        2,
+        7,
+        3,
+        7
+      ],
+      "L_f64": 7.6838051292764105,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "7.683805129276398111382632753320817771737",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        5,
+        -5,
+        3,
+        5
+      ],
+      "L_f64": 4.740629037743456,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.740629037743456536154310955262320847388",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        6,
+        -7,
+        3,
+        6
+      ],
+      "L_f64": 5.656719425383508,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.65671942538348828952592876535842807232",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        2,
+        7,
+        3,
+        5
+      ],
+      "L_f64": 5.845134077033113,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.845134077033137798081572795853654673261",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        5,
+        -6,
+        3,
+        6
+      ],
+      "L_f64": 5.653085076160593,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.653085076160595651526707906228860300108",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -8,
+        0,
+        3,
+        3
+      ],
+      "L_f64": 1.8838285141447576e-15,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -2,
+        -7,
+        -1,
+        3,
+        3
+      ],
+      "L_f64": 2.867173855199872,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.86717385519986100271533660548562145778",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        1,
+        -4,
+        3,
+        -4
+      ],
+      "L_f64": -4.146710098899937,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.146710098899930927726945632394304004051",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        5,
+        -3,
+        3,
+        0
+      ],
+      "L_f64": 0.0,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -2,
+        -2,
+        -8,
+        3,
+        0
+      ],
+      "L_f64": -7.177462184313069,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.177462184313074536669636115547242863282",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -5,
+        6,
+        3,
+        -5
+      ],
+      "L_f64": -4.836119336438966,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.836119336438994832508908038507198108938",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        3,
+        1,
+        3,
+        1
+      ],
+      "L_f64": 1.5216723665163814,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.521672366516374496829552973305804459957",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        7,
+        -2,
+        3,
+        -4
+      ],
+      "L_f64": -0.13338236932619127,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.1333823693261917396367035897185309141873",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -7,
+        -7,
+        3,
+        1
+      ],
+      "L_f64": 2.500095450449586,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.50009545044960387608961231028385500908",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        7,
+        5,
+        3,
+        8
+      ],
+      "L_f64": 8.85032301486985,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "8.850323014869829250485573253109945590707",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        5,
+        -7,
+        3,
+        -7
+      ],
+      "L_f64": -6.035379878361566,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.035379878361607973919694368555915616979",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -3,
+        7,
+        3,
+        5
+      ],
+      "L_f64": 5.276235555899553,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.276235555899539470306581906644024661981",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -6,
+        -3,
+        3,
+        4
+      ],
+      "L_f64": 5.460102134133247,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.460102134133219599285031745402113473084",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        0,
+        8,
+        3,
+        -5
+      ],
+      "L_f64": -8.0,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        1,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -2,
+        7,
+        3,
+        3,
+        7
+      ],
+      "L_f64": 7.749566681277967,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "7.749566681277975504272232312501352210344",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        0,
+        -8,
+        3,
+        7
+      ],
+      "L_f64": 5.831032367385703,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.83103236738570736243219187501064188316",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -5,
+        -2,
+        3,
+        -5
+      ],
+      "L_f64": -5.009701101206073,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        3814,
+        19107,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -2,
+        1,
+        -2,
+        3,
+        -5
+      ],
+      "L_f64": -4.5009508269515335,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.500950826951548431384980296976651047195",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        1,
+        -1,
+        3,
+        7
+      ],
+      "L_f64": 6.787474342689781,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "6.787474342689764058216380422148498578776",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        0,
+        1,
+        3,
+        -1
+      ],
+      "L_f64": 0.26056521496190005,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.2605652149618991484232235893452399473565",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        1,
+        6,
+        3,
+        1
+      ],
+      "L_f64": 2.249999999999995,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        -4,
+        9,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -2,
+        -3,
+        7,
+        3,
+        1
+      ],
+      "L_f64": 1.5379106800389095,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.537910680038912458344095237856199853523",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -6,
+        3,
+        3,
+        -6
+      ],
+      "L_f64": 0.3137507026530456,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.3137507026529493938279457395316510736705",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        8,
+        1,
+        3,
+        -1
+      ],
+      "L_f64": 0.9803873582722749,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.9803873582722806673997725505408277695257",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -2,
+        -6,
+        -4,
+        3,
+        7
+      ],
+      "L_f64": 5.3973192967781864,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.397319296778212835191674738261343192646",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        4,
+        7,
+        6,
+        0
+      ],
+      "L_f64": 0.8308336203784998,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.8308336203784982642919828405446452261192",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -1,
+        -5,
+        6,
+        6
+      ],
+      "L_f64": 4.463257490718481,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.463257490718473341745528208851414698848",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        4,
+        0,
+        6,
+        5
+      ],
+      "L_f64": 4.567223249782427,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.567223249782448655088609241502339563262",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        0,
+        -1,
+        6,
+        2
+      ],
+      "L_f64": -0.3667818770809103,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.3667818770809085934403770698392074927521",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -3,
+        6,
+        6,
+        -8
+      ],
+      "L_f64": -7.271943011380832,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.271943011380859706373665782997154868039",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        0,
+        -3,
+        6,
+        0
+      ],
+      "L_f64": -0.6199473131998964,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.6199473131998955002023788166221460650344",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -1,
+        -7,
+        6,
+        -1
+      ],
+      "L_f64": 16.285018619657794,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "16.28501861965780452374287697535713220214",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        7,
+        2,
+        6,
+        3
+      ],
+      "L_f64": 3.130488486485175,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.130488486485183373878872796795951739817",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -8,
+        -6,
+        6,
+        1
+      ],
+      "L_f64": 20.023841665526046,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "20.02384166552607488668216646233720509977",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -1,
+        -1,
+        6,
+        4
+      ],
+      "L_f64": 2.5299370869843223,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.529937086984327092229790863843958673199",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -6,
+        -3,
+        6,
+        4
+      ],
+      "L_f64": 0.31624066024471525,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.3162406602447138270530035649488190780465",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        5,
+        0,
+        6,
+        -7
+      ],
+      "L_f64": -8.79067125998875,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.790671259988679331652391803048221870914",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        4,
+        4,
+        6,
+        -5
+      ],
+      "L_f64": 8.052530308248121,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        1,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -8,
+        -7,
+        7,
+        6,
+        0
+      ],
+      "L_f64": 4.557378265606416,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.557378265606413228364177084748227624145",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -3,
+        5,
+        6,
+        5
+      ],
+      "L_f64": 4.279729775548152,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.279729775548156605297852947550680464703",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        3,
+        5,
+        6,
+        1
+      ],
+      "L_f64": 1.0,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -8,
+        -7,
+        -6,
+        6,
+        6
+      ],
+      "L_f64": 3.2301942695305566,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.230194269530549953794677118097570988613",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        3,
+        -3,
+        6,
+        5
+      ],
+      "L_f64": 4.091813445986334,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.091813445986320513327707180138933802505",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        2,
+        -5,
+        6,
+        3
+      ],
+      "L_f64": 1.0687279215365202,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.068727921536514751423115083708096982045",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        2,
+        -8,
+        6,
+        7
+      ],
+      "L_f64": 5.683879140735678,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.683879140735652528325674075288939026704",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -2,
+        1,
+        6,
+        -7
+      ],
+      "L_f64": -9.040841445101785,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-9.040841445101636482045731854875952551569",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -8,
+        8,
+        6,
+        -5
+      ],
+      "L_f64": -5.224820625396891,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.224820625396918189385493514590183725255",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -2,
+        -1,
+        6,
+        -3
+      ],
+      "L_f64": -21.934417515756618,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-21.93441751575653486751058305300117455749",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        5,
+        8,
+        6,
+        -1
+      ],
+      "L_f64": 0.9299713357771741,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.9299713357771767817666393104823941639116",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -3,
+        3,
+        6,
+        3
+      ],
+      "L_f64": 1.424326733668329,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.424326733668332089312274597606769716847",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -5,
+        -3,
+        6,
+        4
+      ],
+      "L_f64": 0.8756204223904356,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.8756204223904401057894920451096966500593",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        -4,
+        1,
+        6,
+        -8
+      ],
+      "L_f64": -7.550368237561156,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.550368237561215851594360300109791232483",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        2,
+        -1,
+        6,
+        -3
+      ],
+      "L_f64": -2.715627787864663,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.715627787864661195015966481046076597596",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        7,
+        -1,
+        6,
+        -7
+      ],
+      "L_f64": -6.967175941532827,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.967175941532813051327681370698060453201",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        4,
+        1,
+        6,
+        2
+      ],
+      "L_f64": 1.4673381233149736,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.467338123314967260337832144554462159047",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        2,
+        7,
+        6,
+        6
+      ],
+      "L_f64": 6.094406028149141,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "6.094406028149113707699171939803815819569",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        0,
+        -1,
+        6,
+        -3
+      ],
+      "L_f64": -4.631678680634995,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.631678680634977839775661947091261658461",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        7,
+        8,
+        6,
+        -1
+      ],
+      "L_f64": 0.9659304843198028,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.9659304843198082294312669467184815282992",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        0,
+        -3,
+        6,
+        2
+      ],
+      "L_f64": -1.254387141051849,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-1.254387141051845191374304793163351042797",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        6,
+        -2,
+        6,
+        3
+      ],
+      "L_f64": 2.4345392493215727,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.43453924932157239351532928032668774862",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        8,
+        6,
+        6,
+        1
+      ],
+      "L_f64": 2.0,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        1,
+        -2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -8,
+        4,
+        0,
+        6,
+        -5
+      ],
+      "L_f64": 4.886905340769767e-16,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -8,
+        0,
+        1,
+        6,
+        0
+      ],
+      "L_f64": 0.18917165383784898,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.1891716538378495478442886776840418121697",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        3,
+        0,
+        6,
+        0
+      ],
+      "L_f64": -4.8260295873968255,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.826029587396829756880822521194801001083",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -8,
+        0,
+        -6,
+        6,
+        7
+      ],
+      "L_f64": 5.661614198405589,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.661614198405593474285494782436166378172",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -1,
+        3,
+        9,
+        -3
+      ],
+      "L_f64": -0.9229098854899284,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.9229098854899242933199382297679270125059",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -6,
+        -2,
+        9,
+        4
+      ],
+      "L_f64": -0.5500235785215305,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.550023578521528405260261467649209414995",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        8,
+        -1,
+        9,
+        -2
+      ],
+      "L_f64": -2.436453830823065,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.436453830823066724075562239967042450798",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        7,
+        4,
+        9,
+        -8
+      ],
+      "L_f64": -6.983219526126332,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.983219526126292862552348278446532036177",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        3,
+        -4,
+        9,
+        1
+      ],
+      "L_f64": -13.64099261176891,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-13.64099261176903783943984224496315036746",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -4,
+        -5,
+        9,
+        4
+      ],
+      "L_f64": -0.4605064593173331,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.4605064593173322436339124032314827279946",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -7,
+        8,
+        9,
+        7
+      ],
+      "L_f64": 5.529930322444581,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.529930322444593535849371884638094924475",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -4,
+        -6,
+        9,
+        0
+      ],
+      "L_f64": -3.6095117260057243,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.609511726005724142859778310656087055444",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        3,
+        -2,
+        9,
+        7
+      ],
+      "L_f64": 5.627849298201481,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.627849298201469889210278299511182530357",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        4,
+        -6,
+        9,
+        3
+      ],
+      "L_f64": -0.07770719808155487,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.07770719808155525379883886745849928222913",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        3,
+        -8,
+        9,
+        3
+      ],
+      "L_f64": -0.857167077118952,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.8571670771189570958382084163378008919582",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        7,
+        6,
+        9,
+        6
+      ],
+      "L_f64": 5.590089971838092,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.590089971838074654883859489087997858978",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -4,
+        -8,
+        9,
+        8
+      ],
+      "L_f64": 5.560837672673449,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.56083767267349562198847378738255612329",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -8,
+        3,
+        9,
+        7
+      ],
+      "L_f64": 4.91393482809301,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.913934828093009704274920929360804460753",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -7,
+        7,
+        9,
+        -7
+      ],
+      "L_f64": -11.08565917389557,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-11.08565917389557590580822733108362206428",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        4,
+        -5,
+        9,
+        -3
+      ],
+      "L_f64": 42.03518126898452,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "42.03518126898464336500179329199050536248",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        5,
+        -3,
+        9,
+        -2
+      ],
+      "L_f64": -4.363052286794079,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.363052286794091528953824125255048939791",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        6,
+        -5,
+        9,
+        -5
+      ],
+      "L_f64": -5.1976948222828145,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.197694822282768798448237753141603173457",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -5,
+        -7,
+        9,
+        5
+      ],
+      "L_f64": 1.009933468160863,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.009933468160866917191963033273898278979",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        8,
+        4,
+        9,
+        -5
+      ],
+      "L_f64": -4.185267086472254,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.185267086472247977268630812012340120794",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -4,
+        4,
+        9,
+        -7
+      ],
+      "L_f64": -8.230363743062703,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.230363743062724157669030327513408543131",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        5,
+        7,
+        9,
+        1
+      ],
+      "L_f64": -0.2810064815304212,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.2810064815304223478909652821262197223679",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -5,
+        -4,
+        9,
+        -8
+      ],
+      "L_f64": 4.716406118318112,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.716406118318093619122528984358594853683",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -8,
+        -4,
+        9,
+        1
+      ],
+      "L_f64": -1.923753200088819,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-1.923753200088821199801967080959701650854",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -1,
+        -5,
+        9,
+        -5
+      ],
+      "L_f64": -20.10372707919258,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-20.10372707919253280901166463707487328423",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        8,
+        -7,
+        9,
+        0
+      ],
+      "L_f64": -25.211446643761185,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-25.21144664376104744176342588613956721538",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        7,
+        -3,
+        9,
+        -4
+      ],
+      "L_f64": 2.051879045970732,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.051879045970729941750517648307970377705",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -2,
+        -6,
+        9,
+        2
+      ],
+      "L_f64": -47.32174288790327,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-47.32174288790322200955134811351683757945",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        4,
+        5,
+        9,
+        2
+      ],
+      "L_f64": 0.5010608080073086,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.5010608080073112291688295216336533558985",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -3,
+        -5,
+        9,
+        3
+      ],
+      "L_f64": -3.5446979649438384,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.544697964943831097012287021766895275012",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -3,
+        1,
+        9,
+        -4
+      ],
+      "L_f64": -6.52002881040733,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.520028810407339602436512852488803163263",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        1,
+        -8,
+        9,
+        -1
+      ],
+      "L_f64": -4.485773516060738,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.485773516060742731735899444924055444542",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -3,
+        8,
+        9,
+        -3
+      ],
+      "L_f64": -2.177000445048248,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.177000445048252915149580633252083120402",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        1,
+        6,
+        9,
+        -2
+      ],
+      "L_f64": -5.031971716791556,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.031971716791611181356894965798351356264",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -8,
+        1,
+        9,
+        4
+      ],
+      "L_f64": -0.7032905602125697,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.7032905602125717421020052078750629929519",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        6,
+        6,
+        9,
+        -5
+      ],
+      "L_f64": -4.726038677282996,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.726038677283003102598416999702575482284",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        6,
+        2,
+        9,
+        -1
+      ],
+      "L_f64": 0.2338251294392703,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.2338251294392709566574322846141823383564",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -4,
+        -5,
+        9,
+        -3
+      ],
+      "L_f64": -3.737987053125165,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.73798705312515359749125610171247989828",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        2,
+        5,
+        9,
+        -7
+      ],
+      "L_f64": -5.4729888099132005,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.472988809913229786724702302861013819454",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -18,
+        -8,
+        0,
+        9,
+        -7
+      ],
+      "L_f64": -21.921052214174296,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-21.92105221417423491878821288085762007004",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        5,
+        2,
+        12,
+        8
+      ],
+      "L_f64": 6.339415273563511,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "6.339415273563538657313421236357279245675",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -2,
+        4,
+        12,
+        -5
+      ],
+      "L_f64": -5.5029276318311275,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.502927631831110784557508868882985360586",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        2,
+        7,
+        12,
+        -4
+      ],
+      "L_f64": 4.290626246483784,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.290626246483758392137644909902372373594",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -5,
+        -7,
+        12,
+        1
+      ],
+      "L_f64": 0.8257801708383818,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.8257801708383791943986150466278654325513",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        7,
+        -7,
+        12,
+        4
+      ],
+      "L_f64": 0.42438521008525587,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.4243852100852564643262232056565669238794",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -3,
+        6,
+        12,
+        -8
+      ],
+      "L_f64": -3.7515208385937937,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.751520838593816742443678606519935194948",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        0,
+        8,
+        12,
+        3
+      ],
+      "L_f64": -0.5758650014114418,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.5758650014114416575074967790735591406727",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        1,
+        5,
+        12,
+        3
+      ],
+      "L_f64": -0.8940604748041572,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.8940604748041607884600307891785001554853",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -5,
+        5,
+        12,
+        -7
+      ],
+      "L_f64": 14.448555627445955,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "14.44855562744600998806578041371918981099",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        7,
+        -6,
+        12,
+        -7
+      ],
+      "L_f64": -9.764953644073268,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-9.764953644073277901275888195652540994422",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        1,
+        -3,
+        12,
+        2
+      ],
+      "L_f64": -11.25849733959719,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-11.25849733959724351041534343038934355788",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        2,
+        -8,
+        12,
+        5
+      ],
+      "L_f64": 1.040423819640675,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.040423819640675811597404253926510342545",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -3,
+        3,
+        12,
+        7
+      ],
+      "L_f64": 4.482317979361982,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.482317979361976675089097084944189908982",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -7,
+        -4,
+        12,
+        -4
+      ],
+      "L_f64": -4.5471505930382845,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.547150593038269296709557316972539616588",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -5,
+        3,
+        12,
+        1
+      ],
+      "L_f64": 1.9859377954971746,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.985937795497181729357246840957056536488",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -1,
+        -2,
+        12,
+        6
+      ],
+      "L_f64": 2.86399892626453,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.863998926264535401400343962231250473118",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        4,
+        3,
+        12,
+        6
+      ],
+      "L_f64": 3.963064151270329,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.963064151270333328243192645272475156088",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        4,
+        4,
+        12,
+        1
+      ],
+      "L_f64": -12.593769341695538,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-12.59376934169547799540070849971640209136",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        1,
+        4,
+        12,
+        -7
+      ],
+      "L_f64": -13.797494838647003,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-13.79749483864702236673352498406375787307",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        1,
+        -4,
+        12,
+        6
+      ],
+      "L_f64": 2.9175076197154555,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.917507619715456562429376142919206637801",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        7,
+        2,
+        12,
+        6
+      ],
+      "L_f64": 4.179306038835273,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.179306038835295405916752591587285088845",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        3,
+        -4,
+        12,
+        -6
+      ],
+      "L_f64": -7.527877622128326,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.527877622128331632242839258210602255698",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -7,
+        4,
+        12,
+        -7
+      ],
+      "L_f64": 2.3346596775185446,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.334659677518496376139283508458260784138",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        3,
+        -5,
+        12,
+        1
+      ],
+      "L_f64": 20.949791684433833,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "20.94979168443390470760519703744037612853",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        5,
+        -8,
+        12,
+        0
+      ],
+      "L_f64": 2.4167580762345207,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.416758076234525494495498811492702874105",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        3,
+        -6,
+        12,
+        -7
+      ],
+      "L_f64": -14.054357529509227,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-14.05435752950932854103888324874525062163",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -6,
+        8,
+        12,
+        -5
+      ],
+      "L_f64": -6.8501596304342725,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.850159630434290920057951168112823193433",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        7,
+        -7,
+        12,
+        2
+      ],
+      "L_f64": -4.688638493589977,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.68863849358998923824363216583849102153",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        6,
+        -3,
+        12,
+        -8
+      ],
+      "L_f64": -29.492067664856872,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-29.49206766485707078799219106295122825527",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        5,
+        -6,
+        12,
+        -2
+      ],
+      "L_f64": -5.452191394398418,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.452191394398401072675426683987420593745",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        3,
+        -8,
+        12,
+        3
+      ],
+      "L_f64": -3.39256778364396,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.392567783643979677471248882619033428285",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        6,
+        -7,
+        12,
+        -8
+      ],
+      "L_f64": -43.7885982135186,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-43.7885982135187008429127310568408788219",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        7,
+        0,
+        12,
+        -7
+      ],
+      "L_f64": -8.949760296822317,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.949760296822250551383647986968184628778",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -6,
+        -5,
+        12,
+        7
+      ],
+      "L_f64": 3.328495685850728,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.328495685850714644844859749325505247731",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -6,
+        5,
+        12,
+        -5
+      ],
+      "L_f64": -7.175954153372218,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.175954153372170530686500260021602074398",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -3,
+        -2,
+        12,
+        -4
+      ],
+      "L_f64": -2.3417039477478228,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.341703947747824536387505805169745692565",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -8,
+        -3,
+        12,
+        6
+      ],
+      "L_f64": 1.5893504969960568,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.589350496996048791000514273463680176391",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -1,
+        8,
+        12,
+        -6
+      ],
+      "L_f64": -8.165247535989973,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.165247535989915046108468975949239724593",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        -4,
+        -7,
+        12,
+        5
+      ],
+      "L_f64": -0.1466040259125924,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.146604025912592069649907951634633719367",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -32,
+        3,
+        0,
+        12,
+        2
+      ],
+      "L_f64": -5.000921593688713,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.00092159368876662796941996250077371161",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        5,
+        4,
+        15,
+        3
+      ],
+      "L_f64": -2.7736409491542227,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.773640949154225964569876779106899131689",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -6,
+        -4,
+        15,
+        8
+      ],
+      "L_f64": 3.7441658741150987,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.744165874115118040947294589478305394672",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        2,
+        7,
+        15,
+        -7
+      ],
+      "L_f64": -7.737582893973761,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.737582893973797377808575170323123302011",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        1,
+        -1,
+        15,
+        0
+      ],
+      "L_f64": 0.33475806611397413,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.3347580661139749612634920726710280080961",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        1,
+        0,
+        15,
+        3
+      ],
+      "L_f64": -6.095770185343685,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.095770185343661946565238662380255516379",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -7,
+        7,
+        15,
+        0
+      ],
+      "L_f64": -1.872926009335332,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-1.872926009335340266257958440814030442857",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        3,
+        2,
+        15,
+        -8
+      ],
+      "L_f64": -11.411554629498447,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-11.41155462949840145840007221592351241726",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -1,
+        8,
+        15,
+        5
+      ],
+      "L_f64": 0.8703904794063736,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.8703904794063773575663747537909811797849",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        3,
+        8,
+        15,
+        -6
+      ],
+      "L_f64": -3.927725416730469,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.927725416730468364969633222359657869596",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        2,
+        3,
+        15,
+        -3
+      ],
+      "L_f64": -10.57032846696239,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-10.57032846696241723563235208931213982641",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -5,
+        0,
+        15,
+        4
+      ],
+      "L_f64": -4.685619394786733,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.6856193947867287210462184028004869962",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        1,
+        8,
+        15,
+        -5
+      ],
+      "L_f64": 1.4389071878694393,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.438907187869444614733787974879213705955",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        5,
+        4,
+        15,
+        -6
+      ],
+      "L_f64": -3.16285860373234,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.162858603732342577310469062222414529774",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        3,
+        -8,
+        15,
+        6
+      ],
+      "L_f64": 1.351558846532895,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.351558846532892923661783814424128835632",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -1,
+        6,
+        15,
+        -7
+      ],
+      "L_f64": -8.750871380681879,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.750871380681816738250105747998252628961",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        2,
+        3,
+        15,
+        -8
+      ],
+      "L_f64": -11.808223139536084,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-11.80822313953611104411979619707935940405",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        2,
+        0,
+        15,
+        5
+      ],
+      "L_f64": 0.3793654182015654,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.3793654182015674310505151271554902104685",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -3,
+        3,
+        15,
+        1
+      ],
+      "L_f64": 3.910703666894173,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.910703666894179163783226813809397484616",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        1,
+        -6,
+        15,
+        0
+      ],
+      "L_f64": -0.06776395371160922,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.06776395371160871530137815232259336686775",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        2,
+        5,
+        15,
+        2
+      ],
+      "L_f64": -12.68316669824339,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-12.68316669824337159214678499357195024026",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        3,
+        -1,
+        15,
+        2
+      ],
+      "L_f64": -17.58494965036186,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-17.58494965036185604847141985743702040303",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        4,
+        7,
+        15,
+        4
+      ],
+      "L_f64": -0.16716492629590016,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.1671649262959003139398676214101774807701",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -7,
+        3,
+        15,
+        5
+      ],
+      "L_f64": -1.2105300476452177,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-1.210530047645222049910441972270018131751",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        2,
+        -1,
+        15,
+        -4
+      ],
+      "L_f64": -158.95234183039724,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-158.9523418303939844119062307435623654022",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        0,
+        0,
+        15,
+        -7
+      ],
+      "L_f64": -8.832905309732636,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.832905309732625390530093084650604961342",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -3,
+        8,
+        15,
+        -8
+      ],
+      "L_f64": -14.6084235919985,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-14.60842359199849843274749161660654827833",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -3,
+        0,
+        15,
+        2
+      ],
+      "L_f64": 30.46449767723674,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "30.46449767723665885868764062074998390377",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -6,
+        -1,
+        15,
+        6
+      ],
+      "L_f64": 0.6915827854178925,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.691582785417893713616985464839702535343",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -1,
+        -3,
+        15,
+        5
+      ],
+      "L_f64": -0.6503115440615016,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.6503115440615003597084963325305122945667",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -6,
+        7,
+        15,
+        1
+      ],
+      "L_f64": 2.371744854618984,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.371744854618978195845490546999276789316",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        8,
+        -5,
+        15,
+        6
+      ],
+      "L_f64": 2.3208064848926404,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.320806484892650421397877579133389920282",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -1,
+        -6,
+        15,
+        2
+      ],
+      "L_f64": 39.24401022523119,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "39.24401022523121973840516652380525152938",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -2,
+        1,
+        15,
+        -5
+      ],
+      "L_f64": -1.3432363890948755,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-1.34323638909488428984697243145305323924",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -5,
+        -8,
+        15,
+        -6
+      ],
+      "L_f64": -7.465155580806598,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.465155580806615811358772706758064761451",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        4,
+        4,
+        15,
+        7
+      ],
+      "L_f64": 4.062877046368354,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.062877046368378317575065267645510563289",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -7,
+        -3,
+        15,
+        7
+      ],
+      "L_f64": 2.1238733014976288,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.123873301497633734642992809963962531417",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        4,
+        0,
+        15,
+        8
+      ],
+      "L_f64": 5.045140722901645,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.045140722901634388564783855870737850675",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        7,
+        5,
+        15,
+        -2
+      ],
+      "L_f64": -3.879975695462557,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.879975695462538404753249938637506226749",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -5,
+        -4,
+        15,
+        3
+      ],
+      "L_f64": -27.21586749566197,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-27.21586749566203647428431386037568495993",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -50,
+        -6,
+        -2,
+        15,
+        -5
+      ],
+      "L_f64": -3.4725042716493064,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.47250427164930983071294273811564866255",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -7,
+        -4,
+        18,
+        -1
+      ],
+      "L_f64": -5.851123882006807,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.851123882006782840099942625405160518616",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -1,
+        5,
+        18,
+        2
+      ],
+      "L_f64": 51.2034383967745,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "51.20343839677417128843312281093913983886",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        1,
+        -7,
+        18,
+        -4
+      ],
+      "L_f64": -28.559655245685544,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-28.55965524568584511763835258051214936154",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -4,
+        -7,
+        18,
+        -5
+      ],
+      "L_f64": 7.068235398649378,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "7.068235398649394748967439080591142719525",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -4,
+        1,
+        18,
+        1
+      ],
+      "L_f64": 3.2291760953342745,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.229176095334289023735184291501480598739",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        1,
+        6,
+        18,
+        -5
+      ],
+      "L_f64": 53.06955788078348,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "53.06955788078321854371937910496539503933",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -8,
+        -6,
+        18,
+        -7
+      ],
+      "L_f64": -8.142695468630814,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.142695468630790816824284476028587737652",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        4,
+        3,
+        18,
+        -8
+      ],
+      "L_f64": -7.966084290715425,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.966084290715426254852671970166263337989",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        3,
+        -4,
+        18,
+        7
+      ],
+      "L_f64": 1.8154892284635489,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.815489228463545060203221735380916527392",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        3,
+        0,
+        18,
+        -2
+      ],
+      "L_f64": -5.875529155265979,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.875529155265983214728241251344788943794",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        1,
+        -3,
+        18,
+        1
+      ],
+      "L_f64": 6.093508860413013,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "6.093508860412973408974813328607194190672",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -1,
+        1,
+        18,
+        -5
+      ],
+      "L_f64": 18.242270429981616,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "18.24227042998158549532864835258127908066",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -4,
+        6,
+        18,
+        -1
+      ],
+      "L_f64": -4.0928779694756106,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.09287796947561444125205623593985516141",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -3,
+        0,
+        18,
+        -7
+      ],
+      "L_f64": -6.394271327641749,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.394271327641736795564512112539470393879",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -7,
+        7,
+        18,
+        -8
+      ],
+      "L_f64": -10.852260327236522,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-10.85226032723652062253230236637942942655",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -7,
+        -5,
+        18,
+        8
+      ],
+      "L_f64": 2.179503927976361,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.179503927976358395482538398880074312621",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -1,
+        3,
+        18,
+        -7
+      ],
+      "L_f64": -5.706317034439268,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.706317034439270902424421823291107680205",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -4,
+        3,
+        18,
+        4
+      ],
+      "L_f64": -7.466198221852149,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.466198221852160196651448324412705659073",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        2,
+        -7,
+        18,
+        -4
+      ],
+      "L_f64": -24.867381238516078,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-24.86738123851605802844531864547633289247",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -7,
+        -1,
+        18,
+        2
+      ],
+      "L_f64": 9.24311578012251,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "9.243115780122531038312511454344612205627",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        1,
+        -4,
+        18,
+        7
+      ],
+      "L_f64": 1.5666599691448733,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.566659969144878671099932223682682196807",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -7,
+        -2,
+        18,
+        0
+      ],
+      "L_f64": -2.2375773411343034,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.237577341134309432808927134553375389285",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -8,
+        -2,
+        18,
+        -3
+      ],
+      "L_f64": -22.337965413779386,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-22.33796541377937465879472640723194880369",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        1,
+        -1,
+        18,
+        -1
+      ],
+      "L_f64": -3.2772795968930186,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.277279596893011090513415075503453265018",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -3,
+        7,
+        18,
+        -2
+      ],
+      "L_f64": -7.04943272252964,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.049432722529649881602684325477398566986",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        4,
+        -5,
+        18,
+        4
+      ],
+      "L_f64": -5.3004832825441595,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.300483282544139465618352477526969896217",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -6,
+        1,
+        18,
+        8
+      ],
+      "L_f64": 2.829953275411794,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.829953275411783033645183894416251324844",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -3,
+        -1,
+        18,
+        4
+      ],
+      "L_f64": -8.14413377658915,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.144133776589206400479955575219202836547",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -1,
+        8,
+        18,
+        -1
+      ],
+      "L_f64": -3.1756039319781713,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.175603931978165801240490001915453204592",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        8,
+        -1,
+        18,
+        -1
+      ],
+      "L_f64": -1.3448215808456154,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-1.344821580845612575372976587732474597794",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -2,
+        0,
+        18,
+        7
+      ],
+      "L_f64": 1.5599292394876183,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.559929239487626550261408747751938506686",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -7,
+        -7,
+        18,
+        3
+      ],
+      "L_f64": 63.63323014447816,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "63.63323014447839136407398217941534115068",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        1,
+        -6,
+        18,
+        6
+      ],
+      "L_f64": -0.5368763432547075,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.5368763432547079391961785821858201173011",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -6,
+        -5,
+        18,
+        0
+      ],
+      "L_f64": -2.1589317862554505,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.158931786255451953529828720438293778525",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        4,
+        7,
+        18,
+        -6
+      ],
+      "L_f64": 4.282958108916673,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.282958108916714825182887130342189207999",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -1,
+        1,
+        18,
+        -1
+      ],
+      "L_f64": -3.670715475522369,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.670715475522375875926033676983501372349",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -6,
+        -5,
+        18,
+        2
+      ],
+      "L_f64": 9.539693009602088,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "9.53969300960221340626895279909329522588",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        8,
+        5,
+        18,
+        -7
+      ],
+      "L_f64": -2.331644429287553,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.331644429287543596558778719837964985403",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -5,
+        -8,
+        18,
+        0
+      ],
+      "L_f64": -2.0744902566207384,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.074490256620735590323199164658892612041",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -72,
+        -8,
+        3,
+        18,
+        8
+      ],
+      "L_f64": 2.773722310217406,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.77372231021739689157005155883907905385",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        3,
+        -7,
+        21,
+        1
+      ],
+      "L_f64": 6.406042251414654,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "6.406042251414630835641136361453154490799",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        5,
+        -7,
+        21,
+        -8
+      ],
+      "L_f64": -4.302905552222169,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.302905552222141362628815276421127769329",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -6,
+        -7,
+        21,
+        4
+      ],
+      "L_f64": -27.827097311245257,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-27.82709731124533386335524286064058035941",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        2,
+        5,
+        21,
+        1
+      ],
+      "L_f64": 7.235441165317476,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "7.235441165317485112085680748555592143619",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        0,
+        -6,
+        21,
+        -5
+      ],
+      "L_f64": -71.17750427827839,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-71.17750427827824909977892495702276324402",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        7,
+        2,
+        21,
+        0
+      ],
+      "L_f64": 2.4682452477049037,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.468245247704905192152443366148003747345",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        7,
+        1,
+        21,
+        -8
+      ],
+      "L_f64": -3.4040041679692425,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.404004167969256401099214823170122069246",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -7,
+        4,
+        21,
+        1
+      ],
+      "L_f64": 2.4236639888838325,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.423663988883828614890346756345208677137",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -1,
+        -5,
+        21,
+        -4
+      ],
+      "L_f64": -20.078857210015023,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-20.07885721001500755162648406338364751577",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        8,
+        7,
+        21,
+        0
+      ],
+      "L_f64": 3.2631135087276286,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.26311350872762244598390606320389217771",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -2,
+        -1,
+        21,
+        8
+      ],
+      "L_f64": 1.5269521721109396,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.526952172110940266352005565018454944176",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        0,
+        -5,
+        21,
+        2
+      ],
+      "L_f64": 18.78435910739054,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "18.78435910739046891119355770702063234759",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        6,
+        7,
+        21,
+        -2
+      ],
+      "L_f64": -4.877324283341031,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.877324283341014031897170532788114294352",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -1,
+        -6,
+        21,
+        -4
+      ],
+      "L_f64": -20.417247359064692,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-20.41724735906470533056267413876869940439",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        2,
+        -6,
+        21,
+        -8
+      ],
+      "L_f64": -5.249950905730943,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.249950905730945951159745158268929854122",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        0,
+        7,
+        21,
+        3
+      ],
+      "L_f64": -26.535750629904456,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-26.5357506299045920963145630176951581156",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -8,
+        -2,
+        21,
+        5
+      ],
+      "L_f64": -9.86224762558748,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-9.862247625587553580371374139859562065947",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -4,
+        8,
+        21,
+        5
+      ],
+      "L_f64": -5.292643651810237,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.292643651810245052718375523679643661021",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        3,
+        6,
+        21,
+        -7
+      ],
+      "L_f64": 2.317548011029522,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.317548011029533269294371743997726683478",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        0,
+        -3,
+        21,
+        -4
+      ],
+      "L_f64": -18.345536663743296,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-18.34553666374350252921132538569793252028",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -8,
+        2,
+        21,
+        -7
+      ],
+      "L_f64": -3.464268072284464,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.464268072284493569997552629250966200145",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        1,
+        2,
+        21,
+        -2
+      ],
+      "L_f64": -6.363923844075948,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.363923844075927497990775218448336194786",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        0,
+        -6,
+        21,
+        5
+      ],
+      "L_f64": -6.644674269468366,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.644674269468362848623262698937278346797",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -3,
+        -4,
+        21,
+        -3
+      ],
+      "L_f64": -12.562397970944994,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-12.56239797094487151483344245549706334126",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        4,
+        8,
+        21,
+        3
+      ],
+      "L_f64": -15.135040700001582,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-15.13504070000160975443611920389561896306",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        2,
+        3,
+        21,
+        4
+      ],
+      "L_f64": -8.937142443759583,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.937142443759568194195837636781992582488",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        5,
+        -3,
+        21,
+        -4
+      ],
+      "L_f64": -14.419198220490436,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-14.41919822049051031323074958644511277129",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        1,
+        5,
+        21,
+        -8
+      ],
+      "L_f64": -5.300502286127085,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.30050228612709969225994345298456970899",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        0,
+        8,
+        21,
+        -6
+      ],
+      "L_f64": 22.219945883626384,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "22.21994588362631559299984030058625853131",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -8,
+        -4,
+        21,
+        3
+      ],
+      "L_f64": 35.06527657464969,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "35.06527657464989504240440940835441545623",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -4,
+        -2,
+        21,
+        -5
+      ],
+      "L_f64": 2059.0216348123217,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2059.021634812162567288146264473664259738",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        4,
+        -6,
+        21,
+        2
+      ],
+      "L_f64": 36.39442792556236,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "36.39442792556231724103101147868313330222",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -5,
+        -5,
+        21,
+        -6
+      ],
+      "L_f64": 6.621201370236233,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "6.621201370236212478544340486432756702713",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        5,
+        8,
+        21,
+        -3
+      ],
+      "L_f64": -8.195920342726708,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.195920342726703487636497985795579433533",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -7,
+        -7,
+        21,
+        -1
+      ],
+      "L_f64": -5.671829920288531,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.671829920288522757841752556899358992539",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        5,
+        3,
+        21,
+        -7
+      ],
+      "L_f64": 3.9218340681958495,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "3.921834068195878760593134917163311846833",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        5,
+        -6,
+        21,
+        -2
+      ],
+      "L_f64": -5.972634715420631,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.972634715420622996639443525975813139064",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -2,
+        2,
+        21,
+        3
+      ],
+      "L_f64": -63.99195469697353,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-63.99195469697330193599365702922650175426",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        -5,
+        0,
+        21,
+        1
+      ],
+      "L_f64": 2.9180263463300036,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.918026346330000162696667749723184072985",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -98,
+        8,
+        7,
+        21,
+        -4
+      ],
+      "L_f64": -11.326173028297536,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-11.32617302829755934870321406440517115201",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        4,
+        3,
+        24,
+        0
+      ],
+      "L_f64": 1.2108837783275526,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.21088377832756765709358736823129601454",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -7,
+        -7,
+        24,
+        1
+      ],
+      "L_f64": 2.0601085314453713,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "2.060108531445373547998534564556194563806",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -8,
+        7,
+        24,
+        8
+      ],
+      "L_f64": -0.4262602208666693,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.4262602208666693843862835501593604717769",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -3,
+        0,
+        24,
+        -2
+      ],
+      "L_f64": -7.439461031704525,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.439461031704548640434865473946358171803",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        3,
+        -4,
+        24,
+        5
+      ],
+      "L_f64": -9.290720532593935,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-9.290720532593976038362782735268494058961",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -5,
+        2,
+        24,
+        7
+      ],
+      "L_f64": -2.890519208202309,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.890519208202307390746390545548171848179",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -7,
+        -5,
+        24,
+        -1
+      ],
+      "L_f64": -5.270292308171217,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.270292308171231786928541402502219429267",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        8,
+        3,
+        24,
+        -2
+      ],
+      "L_f64": -5.000000000000005,
+      "class_stage_A": "Rat",
+      "relation_A": [
+        1,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "L_hi": null,
+      "class_stage_B": null,
+      "class": "Rat"
+    },
+    {
+      "family": [
+        -128,
+        3,
+        -3,
+        24,
+        8
+      ],
+      "L_f64": 0.1118033397423084,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.1118033397423080916463442271620417559077",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        4,
+        6,
+        24,
+        7
+      ],
+      "L_f64": -0.9877654480439418,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.987765448043940379635844302001396683576",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        5,
+        7,
+        24,
+        6
+      ],
+      "L_f64": -3.088728141629359,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.088728141629366088487924536333603818315",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -4,
+        3,
+        24,
+        -2
+      ],
+      "L_f64": -7.45636655672079,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.456366556720767324605838668912078546228",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        3,
+        7,
+        24,
+        3
+      ],
+      "L_f64": -47.98883712299548,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-47.98883712299545986263353084380305070919",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        3,
+        1,
+        24,
+        8
+      ],
+      "L_f64": 0.44609539392060354,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.4460953939206031483970029021523430840702",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        7,
+        1,
+        24,
+        4
+      ],
+      "L_f64": -12.761075108166837,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-12.76107510816680339120546878921325702901",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        0,
+        5,
+        24,
+        8
+      ],
+      "L_f64": 0.4260381454499822,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.4260381454499813859692409965361569777651",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -5,
+        -4,
+        24,
+        0
+      ],
+      "L_f64": -1.3780894154960768,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-1.378089415496063923877117223678709285744",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -5,
+        1,
+        24,
+        -6
+      ],
+      "L_f64": 88.21192245315387,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "88.21192245315438808209833509922358711376",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        2,
+        -5,
+        24,
+        5
+      ],
+      "L_f64": -10.006635904860708,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-10.00663590486079958098992189417368048313",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        3,
+        3,
+        24,
+        -4
+      ],
+      "L_f64": -13.606768308920577,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-13.60676830892062916705931918927047516546",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -7,
+        0,
+        24,
+        0
+      ],
+      "L_f64": -1.6300954148358737,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-1.630095414835874194789659861690322244859",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -7,
+        -4,
+        24,
+        4
+      ],
+      "L_f64": -63.4662678934804,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-63.46626789348023382521591147277496965502",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        6,
+        5,
+        24,
+        0
+      ],
+      "L_f64": 1.909555952658163,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "1.909555952658151717695921869132302476563",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -5,
+        3,
+        24,
+        8
+      ],
+      "L_f64": -0.3836190397450767,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.3836190397450768395183631992485594617317",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        4,
+        -3,
+        24,
+        8
+      ],
+      "L_f64": 0.23144310971586207,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.2314431097158622731588485914130099007962",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -1,
+        -1,
+        24,
+        3
+      ],
+      "L_f64": 201.28378581894148,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "201.2837858189426118446426979954587259983",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        4,
+        4,
+        24,
+        5
+      ],
+      "L_f64": -7.218015792388247,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.218015792388206793858637209839374183199",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -8,
+        6,
+        24,
+        -7
+      ],
+      "L_f64": 5.219950599627812,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.219950599627801796702496104377032538603",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        3,
+        -7,
+        24,
+        5
+      ],
+      "L_f64": -9.99920556483394,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-9.999205564833911212293154859397721996029",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -7,
+        -3,
+        24,
+        3
+      ],
+      "L_f64": 31.60246650339906,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "31.60246650339907928686836763942063487932",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        1,
+        3,
+        24,
+        -8
+      ],
+      "L_f64": 0.6275236109272752,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.6275236109272676289934376896992319391248",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        0,
+        -5,
+        24,
+        -2
+      ],
+      "L_f64": -7.108155470173556,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.108155470173602919304980273061209873931",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        3,
+        -7,
+        24,
+        4
+      ],
+      "L_f64": -20.847635335302325,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-20.84763533530247039035405600460294619967",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        8,
+        4,
+        24,
+        -7
+      ],
+      "L_f64": 90.32530197810989,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "90.32530197810794638533139583408476148717",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        5,
+        -1,
+        24,
+        -1
+      ],
+      "L_f64": -2.574727117854501,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.57472711785450897139237802533357573248",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -7,
+        -8,
+        24,
+        -7
+      ],
+      "L_f64": 5.0389310451328475,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.038931045132787777796421771496644876187",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        3,
+        -7,
+        24,
+        -3
+      ],
+      "L_f64": -10.145012358502408,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-10.14501235850236749566329751016599397167",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -4,
+        -1,
+        24,
+        6
+      ],
+      "L_f64": -6.4432486248627,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.443248624862695255975486499036254747608",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        2,
+        -6,
+        24,
+        1
+      ],
+      "L_f64": 5.488627115374998,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "5.488627115375005438683576813415217942562",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -128,
+        -6,
+        3,
+        24,
+        -8
+      ],
+      "L_f64": -2.4657562069386922,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.465756206938703094600072318245489875756",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        4,
+        -3,
+        27,
+        -2
+      ],
+      "L_f64": -6.245044032725501,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.245044032725484330201392309496300610875",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -2,
+        1,
+        27,
+        4
+      ],
+      "L_f64": -52.77061783273876,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-52.7706178327388869090439406979245064983",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        8,
+        -1,
+        27,
+        1
+      ],
+      "L_f64": 8.37721536246707,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "8.377215362467122081359055652917645428214",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -4,
+        8,
+        27,
+        -6
+      ],
+      "L_f64": -45.02738811631128,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-45.02738811631109889235360904764217633649",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        4,
+        5,
+        27,
+        -7
+      ],
+      "L_f64": -122.69822095804298,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-122.6982209580402511418597215274651551237",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        4,
+        6,
+        27,
+        5
+      ],
+      "L_f64": -11.886123982742085,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-11.88612398274209817691221430575782639733",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        0,
+        5,
+        27,
+        -4
+      ],
+      "L_f64": -13.912657742679603,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-13.91265774267961674062233884150007443367",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        7,
+        5,
+        27,
+        -7
+      ],
+      "L_f64": -69.05688846729605,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-69.05688846729562452672689245688467850855",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -3,
+        -2,
+        27,
+        7
+      ],
+      "L_f64": -5.85466378459211,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.854663784592072151856804271885977129942",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -7,
+        -6,
+        27,
+        -2
+      ],
+      "L_f64": -8.525431688043895,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.525431688043859422203046302163596299711",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        0,
+        1,
+        27,
+        -4
+      ],
+      "L_f64": -14.321322390774764,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-14.3213223907747413337261776822417632277",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -4,
+        -6,
+        27,
+        -5
+      ],
+      "L_f64": -25.487469847763727,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-25.48746984776364802910494597953163149235",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -3,
+        3,
+        27,
+        -7
+      ],
+      "L_f64": 94.49606160109154,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "94.49606160109332141558052724155301200243",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        1,
+        7,
+        27,
+        6
+      ],
+      "L_f64": -7.389332562605354,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.389332562605345568704197723785937322678",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -3,
+        -5,
+        27,
+        0
+      ],
+      "L_f64": -0.8625744784278429,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-0.8625744784278449116976602672786821516625",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -1,
+        -1,
+        27,
+        -3
+      ],
+      "L_f64": -10.510524334917012,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-10.51052433491705521813898471495101611679",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        3,
+        -8,
+        27,
+        5
+      ],
+      "L_f64": -16.604435087458228,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-16.60443508745822820082936599035375986749",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        4,
+        1,
+        27,
+        -1
+      ],
+      "L_f64": -2.8098375625792142,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.80983756257921307170228151085581982144",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -6,
+        -8,
+        27,
+        -2
+      ],
+      "L_f64": -8.443141643195446,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.443141643195513220408244168308977325288",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        7,
+        -1,
+        27,
+        4
+      ],
+      "L_f64": -24.233769226385142,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-24.23376922638524288594679050011799343699",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -2,
+        8,
+        27,
+        6
+      ],
+      "L_f64": -8.154321556157612,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.154321556157553332187636758079422331424",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        4,
+        -7,
+        27,
+        6
+      ],
+      "L_f64": -8.778342217490115,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.778342217490144509677845539775702691819",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        7,
+        2,
+        27,
+        6
+      ],
+      "L_f64": -6.516474324875318,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-6.516474324875298236734572596496241225477",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -1,
+        8,
+        27,
+        7
+      ],
+      "L_f64": -4.189493099087388,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.189493099087409346003438997529232060089",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -3,
+        1,
+        27,
+        6
+      ],
+      "L_f64": -9.80894292814832,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-9.808942928148302614876333778058772585192",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -6,
+        -5,
+        27,
+        -3
+      ],
+      "L_f64": -12.053567440417785,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-12.05356744041781597094042612303046271011",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        3,
+        5,
+        27,
+        2
+      ],
+      "L_f64": 19.226931906221093,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "19.22693190622105015402735312232323804777",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -5,
+        1,
+        27,
+        -7
+      ],
+      "L_f64": 56.26049429913559,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "56.26049429913567507788447461668067758785",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        3,
+        3,
+        27,
+        -4
+      ],
+      "L_f64": -13.221441608353533,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-13.22144160835351642105893368233597239738",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -2,
+        6,
+        27,
+        4
+      ],
+      "L_f64": -42.41616621168716,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-42.41616621168721562868601274809860529671",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -8,
+        6,
+        27,
+        6
+      ],
+      "L_f64": -10.894451202722605,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-10.89445120272261846763087684007909370227",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        3,
+        0,
+        27,
+        2
+      ],
+      "L_f64": 17.738422377988975,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "17.73842237798890088892150992039391906491",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        5,
+        -5,
+        27,
+        5
+      ],
+      "L_f64": -14.2499966060661,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-14.24999660606616079081168808937843082101",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        7,
+        -5,
+        27,
+        -2
+      ],
+      "L_f64": -5.8038717602966425,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.803871760296662573001033315094755999662",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        1,
+        7,
+        27,
+        3
+      ],
+      "L_f64": 153.18195285389973,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "153.1819528538997595795283953071555402756",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        7,
+        -3,
+        27,
+        -4
+      ],
+      "L_f64": -12.66474239083195,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-12.66474239083193804915769196035246660272",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        4,
+        -7,
+        27,
+        7
+      ],
+      "L_f64": -4.969256654693058,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.969256654693049528662343831897981552818",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -2,
+        -5,
+        27,
+        -1
+      ],
+      "L_f64": -4.1781323669887485,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.178132366988750787427797334415137058428",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -7,
+        8,
+        27,
+        -5
+      ],
+      "L_f64": -24.667773290213134,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-24.66777329021311633909954934235885363667",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -162,
+        -1,
+        0,
+        27,
+        -1
+      ],
+      "L_f64": -3.769413938777249,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.769413938777244912924201378759287002742",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        5,
+        4,
+        30,
+        -6
+      ],
+      "L_f64": -24.0296250022437,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-24.02962500224380384925735753200278933125",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        3,
+        -4,
+        30,
+        4
+      ],
+      "L_f64": -89.76142230366935,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-89.76142230366959171436435872445463282418",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        7,
+        -5,
+        30,
+        7
+      ],
+      "L_f64": -7.3221090546718415,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.322109054671825077875641059157965247415",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -3,
+        -6,
+        30,
+        -3
+      ],
+      "L_f64": -11.101920163208936,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-11.10192016320896573795871249491122719165",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        4,
+        -3,
+        30,
+        -4
+      ],
+      "L_f64": -13.265724488999995,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-13.26572448899992948655749834180804415044",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        6,
+        -2,
+        30,
+        7
+      ],
+      "L_f64": -7.166886771229788,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.166886771229799475856137919507816875183",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -5,
+        7,
+        30,
+        6
+      ],
+      "L_f64": -14.859707845320084,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-14.85970784532016136805289855071341305795",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -4,
+        -1,
+        30,
+        -1
+      ],
+      "L_f64": -4.314941546441497,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-4.314941546441524493251616840807158151661",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -1,
+        -8,
+        30,
+        8
+      ],
+      "L_f64": -5.841239987770807,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.841239987770766057925660463974352660616",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        3,
+        2,
+        30,
+        4
+      ],
+      "L_f64": -66.92464401091271,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-66.92464401091284583070677348744980556273",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -5,
+        4,
+        30,
+        -5
+      ],
+      "L_f64": -20.75062482612035,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-20.75062482612021680142239342790351173114",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        7,
+        -2,
+        30,
+        -8
+      ],
+      "L_f64": -481.39068356107913,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-481.3906835610586204228724311866607277997",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -8,
+        0,
+        30,
+        7
+      ],
+      "L_f64": -10.755593318197748,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-10.75559331819775093235053976307920175708",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -6,
+        0,
+        30,
+        -3
+      ],
+      "L_f64": -11.324955173825883,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-11.32495517382593572342896875024404401228",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        4,
+        -5,
+        30,
+        -8
+      ],
+      "L_f64": 228.60327206848862,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "228.6032720684892767678431470097942786648",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        5,
+        -5,
+        30,
+        6
+      ],
+      "L_f64": -12.78540994348216,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-12.78540994348209194740331287213245093586",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        8,
+        -6,
+        30,
+        7
+      ],
+      "L_f64": -7.226199455332488,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-7.226199455332509432221336961067347869967",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        3,
+        -5,
+        30,
+        -5
+      ],
+      "L_f64": -18.628212696465507,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-18.62821269646564059878572125201025684598",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -5,
+        -7,
+        30,
+        5
+      ],
+      "L_f64": -43.42654065876728,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-43.42654065876713152842488943209692669827",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        1,
+        5,
+        30,
+        0
+      ],
+      "L_f64": 0.3949824160124213,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "0.3949824160124182910044865071236677884812",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -5,
+        0,
+        30,
+        8
+      ],
+      "L_f64": -5.715525371304647,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-5.715525371304643309480159621369311109895",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        2,
+        -5,
+        30,
+        -4
+      ],
+      "L_f64": -13.884610554155314,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-13.88461055415537047328228903143749087503",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        3,
+        5,
+        30,
+        -5
+      ],
+      "L_f64": -17.520681803658892,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-17.52068180365888868414947676091183597307",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -1,
+        -7,
+        30,
+        -4
+      ],
+      "L_f64": -14.800559541147594,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-14.80055954114760572019955121417080403838",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        1,
+        -7,
+        30,
+        1
+      ],
+      "L_f64": 4.689010824910318,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "4.689010824910323256376314606416358965367",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        2,
+        -3,
+        30,
+        2
+      ],
+      "L_f64": 13.942286600149995,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "13.9422866001500349308519476846477787659",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -4,
+        -5,
+        30,
+        -5
+      ],
+      "L_f64": -21.561292715113755,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-21.56129271511360653165824176174315708678",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -1,
+        -8,
+        30,
+        -5
+      ],
+      "L_f64": -20.597319685067227,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-20.59731968506726151791838523092588904465",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -6,
+        -1,
+        30,
+        5
+      ],
+      "L_f64": -39.752742340040975,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-39.75274234004091839531384011311396239471",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        7,
+        -2,
+        30,
+        -4
+      ],
+      "L_f64": -12.53642215098885,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-12.53642215098880204756207582185261807299",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        6,
+        -7,
+        30,
+        -4
+      ],
+      "L_f64": -13.106320646761086,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-13.10632064676109144266688154089374834154",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        1,
+        -4,
+        30,
+        -5
+      ],
+      "L_f64": -19.263722179983194,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-19.26372217998318946959672865413930698461",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -3,
+        -6,
+        30,
+        5
+      ],
+      "L_f64": -36.467986417507895,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-36.46798641750795372236211056631756320353",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -3,
+        7,
+        30,
+        7
+      ],
+      "L_f64": -8.136180255428515,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-8.136180255428547202186079590834551185468",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        3,
+        1,
+        30,
+        5
+      ],
+      "L_f64": -22.38709714035233,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-22.3870971403523961477248720674832829293",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        0,
+        -6,
+        30,
+        -1
+      ],
+      "L_f64": -3.853155640336686,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-3.853155640336693641007153812939885549747",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        7,
+        3,
+        30,
+        5
+      ],
+      "L_f64": -18.124701567995107,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-18.12470156799507381251146325035477403203",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        -5,
+        -2,
+        30,
+        -4
+      ],
+      "L_f64": -15.453073342582288,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-15.45307334258231233277438917944505028686",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        6,
+        -5,
+        30,
+        -5
+      ],
+      "L_f64": -17.589624012318886,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-17.5896240123188883135633106982140874117",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    },
+    {
+      "family": [
+        -200,
+        5,
+        -5,
+        30,
+        -1
+      ],
+      "L_f64": -2.9684383670596994,
+      "class_stage_A": "Trans",
+      "relation_A": null,
+      "L_hi": "-2.968438367059685189596195644847827127783",
+      "class_stage_B": "Trans",
+      "relation_B": null,
+      "class": "Trans"
+    }
+  ],
+  "elapsed_sec": 92.45304226875305
+}
