@@ -1,0 +1,63 @@
+[STEP 1] Integrality check at -2/9 for prompt b1 list:
+  b1= 8: a2_at_-2/9 = None
+  b1= 9: a2_at_-2/9 = -18
+  b1=10: a2_at_-2/9 = None
+  b1=12: a2_at_-2/9 = -32
+  b1=15: a2_at_-2/9 = -50
+  b1=20: a2_at_-2/9 = None
+  b1=30: a2_at_-2/9 = -200
+
+[STEP 1] Offset targets -2/9 +- 1/b1^2 (b1 >= 12):
+  b1=12 sign=+1  ratio=-31/144  a2=-31
+  b1=12 sign=-1  ratio=-11/48  a2=-33
+  b1=15 sign=+1  ratio=-49/225  a2=-49
+  b1=15 sign=-1  ratio=-17/75  a2=-51
+  b1=20 sign=+1  ratio=-791/3600  a2=None
+  b1=20 sign=-1  ratio=-809/3600  a2=None
+  b1=30 sign=+1  ratio=-199/900  a2=-199
+  b1=30 sign=-1  ratio=-67/300  a2=-201
+
+[STEP 2] Total families enumerated: 14764
+
+[STAGE A] float64 K_500 convergence filter
+  Stage A 0/14764
+  Stage A 738/14764
+  Stage A 1476/14764
+  Stage A 2214/14764
+  Stage A 2952/14764
+  Stage A 3690/14764
+  Stage A 4428/14764
+  Stage A 5166/14764
+  Stage A 5904/14764
+  Stage A 6642/14764
+  Stage A 7380/14764
+  Stage A 8118/14764
+  Stage A 8856/14764
+  Stage A 9594/14764
+  Stage A 10332/14764
+  Stage A 11070/14764
+  Stage A 11808/14764
+  Stage A 12546/14764
+  Stage A 13284/14764
+  Stage A 14022/14764
+  Stage A 14760/14764
+  convergent 14738/14764 in 11.5s
+
+[STAGE B/C] PSLQ classification dps=100 N=600
+  PSLQ done in 196.6s
+
+[DEEP] 0 Trans hit(s) -> dps=150
+
+Counts: {'Desert': 14586, 'Rat': 30, 'Alg': 122}
+Trans-rate per b1 (base sweep at -2/9):
+  b1= 8: tot=     0  conv=     0  trans=0
+  b1= 9: tot=  2662  conv=  2652  trans=0
+  b1=10: tot=     0  conv=     0  trans=0
+  b1=12: tot=  2662  conv=  2650  trans=0
+  b1=15: tot=  2662  conv=  2662  trans=0
+  b1=20: tot=     0  conv=     0  trans=0
+  b1=30: tot=  2662  conv=  2660  trans=0
+
+HALT: Trans rate is 0 for all tested b1 >= 8 with non-empty convergent stratum at -2/9; uniformization explanation in UMB Remark 8 (indicial roots {1/3,2/3}) needs revision.
+
+Wall: 208.2s
