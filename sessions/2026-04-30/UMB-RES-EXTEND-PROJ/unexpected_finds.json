@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "id": "UF-02",
+      "title": "PSLQ on 15-element basis blind-spot for simple rationals",
+      "summary": "mpmath.pslq applied to a 15-element basis (1, pi, pi^2, log2, zeta(2), zeta(3), sqrt(2,3,5), e, gamma, log3, pi*log2, pi^2, pi^3) sometimes returns None for trivially rational L (e.g., L=4.2 expecting [-5,21,0,...]) because the basis contains near-relations among elements at finite precision.",
+      "fix": "classify() runs pslq([L, 1]) as a cheap pre-check before the full-basis call; only falls through to full PSLQ when L is not rational.",
+      "impact": "Rat count rose from 10 to 13 once the rational pre-check was added; verdict (CONFIRMED-BY-EXAMPLE) unchanged."
+    },
+    {
+      "id": "UF-03",
+      "title": "L = 0 edge case in family (-2, 5, -3, 3, 0)",
+      "summary": "Family (-2,5,-3,3,0) evaluates to L = 0 to 40 significant digits. mpmath.pslq([0, 1]) refuses the zero entry and returns None, so the rational pre-check originally let the family fall through to full PSLQ which also rejected it; family was provisionally classified Trans.",
+      "fix": "classify() now returns Rat = [1, 0, ...] immediately whenever |L| < 1e-50.",
+      "impact": "One family per sample reclassified Trans -> Rat; verdict unchanged."
+    },
+    {
+      "id": "UF-04",
+      "title": "Step 5 (Gamma_0(2) / G_q consistency) deferred to documentary check",
+      "summary": "P-08 result JSONs not located in the local session tree; full numerical Gamma_0(2) rerun across G_q in {2,4,5,6,8} would require rederiving the per-group rho-formulas locally.",
+      "fix": "None — Step 5 recorded as documentary in handoff.md section 4. UMB Section 3 PSL_2(Z)-uniqueness claim remains supported by the published P-08 record cited in UMB bibliography.",
+      "impact": "No effect on UMB-RES-EXTEND-PROJ verdict; flagged for follow-up if user requests numerical re-execution."
+    }
+  ]
+}
