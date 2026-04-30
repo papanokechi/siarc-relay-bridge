@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "id": "UF-01-bauer-classA-wording",
+      "severity": "minor",
+      "scope": "T2B rem:bauer-orbit (line 206-217)",
+      "observation": "The verbatim Bauer-orbit footnote text supplied by relay prompt T2B-V3-RELEASE-PREP states 'This orbit lies within Class A; the value -1/36 does not define a new stratum.' However, the T2B paper defines Class A strictly as a_2/b_1^2 = -2/9, while the Bauer 1872 orbit has a_2 = -k^2, b_1 = +/-6k giving a_2/b_1^2 = -1/36. Furthermore the limits L = +/- 2k/log 2 are logarithmic-transcendental, which is a Log-stratum phenomenon distinct from Class A's generic-transcendental limits.",
+      "applied_action": "Inserted verbatim per relay protocol; flagged here for papanokechi review before Zenodo upload.",
+      "suggested_v3_0_1_rewording": "Replace 'This orbit lies within Class A; the value -1/36 does not define a new stratum.' with 'This orbit is recorded as a Log-stratum sub-phenomenon adjacent to (but distinct from) Class A, and the value -1/36 does not define a new Trans-stratum class.'",
+      "blocking": false
+    }
+  ]
+}
