@@ -1,0 +1,178 @@
+{
+  "task": "UMB-RES-EXTEND",
+  "config": {
+    "ratio_base": "-2/9",
+    "prompt_b1": [
+      8,
+      9,
+      10,
+      12,
+      15,
+      20,
+      30
+    ],
+    "H_base": 5,
+    "H_offset": 3,
+    "halt_cap": 200000,
+    "dps_pslq": 100,
+    "n_pslq": 600,
+    "dps_deep": 150,
+    "n_deep": 2000
+  },
+  "integrality_base": [
+    {
+      "b1": 8,
+      "a2_pos_b1": null
+    },
+    {
+      "b1": 9,
+      "a2_pos_b1": -18
+    },
+    {
+      "b1": 10,
+      "a2_pos_b1": null
+    },
+    {
+      "b1": 12,
+      "a2_pos_b1": -32
+    },
+    {
+      "b1": 15,
+      "a2_pos_b1": -50
+    },
+    {
+      "b1": 20,
+      "a2_pos_b1": null
+    },
+    {
+      "b1": 30,
+      "a2_pos_b1": -200
+    }
+  ],
+  "integrality_offsets": [
+    {
+      "b1": 12,
+      "ratio": "-31/144",
+      "a2": -31,
+      "sign": 1
+    },
+    {
+      "b1": 12,
+      "ratio": "-11/48",
+      "a2": -33,
+      "sign": -1
+    },
+    {
+      "b1": 15,
+      "ratio": "-49/225",
+      "a2": -49,
+      "sign": 1
+    },
+    {
+      "b1": 15,
+      "ratio": "-17/75",
+      "a2": -51,
+      "sign": -1
+    },
+    {
+      "b1": 20,
+      "ratio": "-791/3600",
+      "a2": null,
+      "sign": 1
+    },
+    {
+      "b1": 20,
+      "ratio": "-809/3600",
+      "a2": null,
+      "sign": -1
+    },
+    {
+      "b1": 30,
+      "ratio": "-199/900",
+      "a2": -199,
+      "sign": 1
+    },
+    {
+      "b1": 30,
+      "ratio": "-67/300",
+      "a2": -201,
+      "sign": -1
+    }
+  ],
+  "total_families": 14764,
+  "convergent_total": 14738,
+  "stage_a_seconds": 11.5,
+  "stage_bc_seconds": 196.57,
+  "counts_total": {
+    "Desert": 14586,
+    "Rat": 30,
+    "Alg": 122
+  },
+  "rates_by_b1_base_sweep": {
+    "8": {
+      "total": 0,
+      "convergent": 0,
+      "trans": 0,
+      "trans_rate_total": null,
+      "trans_rate_convergent": null
+    },
+    "9": {
+      "total": 2662,
+      "convergent": 2652,
+      "trans": 0,
+      "trans_rate_total": 0.0,
+      "trans_rate_convergent": 0.0
+    },
+    "10": {
+      "total": 0,
+      "convergent": 0,
+      "trans": 0,
+      "trans_rate_total": null,
+      "trans_rate_convergent": null
+    },
+    "12": {
+      "total": 2662,
+      "convergent": 2650,
+      "trans": 0,
+      "trans_rate_total": 0.0,
+      "trans_rate_convergent": 0.0
+    },
+    "15": {
+      "total": 2662,
+      "convergent": 2662,
+      "trans": 0,
+      "trans_rate_total": 0.0,
+      "trans_rate_convergent": 0.0
+    },
+    "20": {
+      "total": 0,
+      "convergent": 0,
+      "trans": 0,
+      "trans_rate_total": null,
+      "trans_rate_convergent": null
+    },
+    "30": {
+      "total": 2662,
+      "convergent": 2660,
+      "trans": 0,
+      "trans_rate_total": 0.0,
+      "trans_rate_convergent": 0.0
+    }
+  },
+  "trans_records": [],
+  "log_records": [],
+  "alg_count": 122,
+  "rat_count": 30,
+  "phantom_count": 0,
+  "phantom_records": [],
+  "halt": {
+    "halt_triggered": true,
+    "reason": "Trans rate is 0 for all tested b1 >= 8 with non-empty convergent stratum at -2/9; uniformization explanation in UMB Remark 8 (indicial roots {1/3,2/3}) needs revision.",
+    "tested_b1": [
+      9,
+      12,
+      15,
+      30
+    ]
+  }
+}
