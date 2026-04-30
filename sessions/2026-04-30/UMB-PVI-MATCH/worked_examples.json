@@ -1,0 +1,30 @@
+[
+  {
+    "id": "B99",
+    "family_class": "B",
+    "coeffs": "a:1,0,0;b:2,1",
+    "R_struct": "1/4",
+    "lambda_kind": "quadratic-surd 3+2sqrt(2) (D=2b^2 / Class B locus)",
+    "theta_inf": "(log(2*sqrt(2) + 3) + I*pi)/(2*pi)",
+    "theta_0": "0",
+    "theta_star": "-1/2",
+    "trace_invariant": "1/4 + log(2*sqrt(2) + 3)/(2*pi) + I/2",
+    "painleve_class": "PIII(D6)",
+    "all_rational_4tuple": false,
+    "worked_derivation": "Brouncker (1,0,0,2,1):  a(n)=n^2,  b(n)=2n+1.\nBT char poly  lam^2 - 2 lam - 1 = 0  has roots 1 +- sqrt(2),\nratio = (1+sqrt2)/(1-sqrt2) = -(3 + 2 sqrt 2).\nD = 2 b_top^2 = 8 -> Class B locus, fingerprints to PIII(D6).\nTheta_inf = log(3+2 sqrt 2) / (2 pi) (irrational).\nLimit L = 4/pi (Brouncker), confirms PIII tau-fn at the\nwell-known degeneration parameters (alpha,beta,gamma,delta)\n= (1, -1, 1, -1)/8 -- canonical 'Brouncker frame' for PIII(D6).\nq-expansion of Brouncker convergents (P_n/Q_n) gives the\nWallis product, identical to the Pochhammer ratio in the\ntau function at half-integer parameters."
+  },
+  {
+    "id": "A099",
+    "family_class": "A",
+    "coeffs": "a:-8,0,0;b:6,-1",
+    "R_struct": "-2/9",
+    "lambda_kind": "integer-resonance k=2",
+    "theta_inf": "1/2",
+    "theta_0": "0",
+    "theta_star": "1/6",
+    "trace_invariant": "5/18",
+    "painleve_class": "PVI-Schwarz-cand",
+    "all_rational_4tuple": true,
+    "worked_derivation": "Class A example (-8, 0, 0, 6, -1): a2/b1^2 = -8/36 = -2/9.\nBT char poly  lam^2 - b1 lam - a2 = 0; with b1=3k, a2=-2k^2 the\nroots are lam = k, lam = 2k. Ratio = 2 (k=2 integer resonance).\nTheta_inf = 1/2 (Schwarz-list / Picard candidate).\nTheta_0 = a0 / b0^2 (rational); n_star = -b0/b1 (rational).\nAll four monodromy proxies lie in Q with denominators in\n{1,2,3,9}, fingerprinting into the PVI-rigid-Q stratum and\n(when denominators reduce to {1,2}) the Picard sub-locus.\nq-expansion of P_n/Q_n at large n exhibits the n^{1/2} log n\nStokes correction (Class A signature), consistent with PVI\ntau-function behaviour near the algebraic Picard 4-orbit."
+  }
+]

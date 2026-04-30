@@ -1,0 +1,18 @@
+{
+  "task": "UMB-PVI-MATCH",
+  "halt": true,
+  "reason": "Family/families fingerprint to PVI-Picard rigidity locus (all 4 monodromy invariants in (1/2)Z), per prompt HALT IF clause.",
+  "count": 1,
+  "candidates_first5": [
+    {
+      "id": "A052",
+      "family_class": "A",
+      "coeffs": "a:-32,-5,0;b:12,-6",
+      "R_struct": "-2/9",
+      "theta_inf": "1/2",
+      "theta_0": "0",
+      "theta_star": "1/2"
+    }
+  ],
+  "note": "3-point reduction does not yield the full 4-parameter PVI monodromy directly; this HALT marks rigidity candidates for follow-up Riemann-Hilbert verification, not a confirmed algebraic PVI solution."
+}
