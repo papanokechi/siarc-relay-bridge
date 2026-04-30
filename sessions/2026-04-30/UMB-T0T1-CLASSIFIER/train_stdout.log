@@ -1,0 +1,20 @@
+[15:30:54] Loaded 500 rows.  Class counts: {'T0': 300, 'T1': 200}
+[15:30:54] Train: 400  Holdout: 100
+[15:30:54] Training DecisionTreeClassifier(max_depth=6, criterion='gini') ...
+[15:30:54] DT holdout accuracy = 1.0000, AUC = 1.0000
+[15:30:54] DT confusion matrix:
+[[60  0]
+ [ 0 40]]
+[15:30:54] Training GradientBoostingClassifier(n_estimators=300, max_depth=4) ...
+[15:30:55] GBM holdout accuracy = 1.0000, AUC = 1.0000
+[15:30:55] GBM confusion matrix:
+[[60  0]
+ [ 0 40]]
+[15:30:55] Wrote tree.txt
+[15:30:55] graphviz Python lib unavailable (No module named 'graphviz'); attempting matplotlib fallback
+[15:30:56] Wrote tree.svg via matplotlib
+[15:30:56] Wrote leaf_rules.json (3 leaves)
+[15:30:56] Wrote misclassified_holdout.json: 0 cases
+[15:30:56] Wrote metrics.json, confusion.json, roc.json
+[15:30:56] Wrote rules_extracted.md
+[15:30:56] halt_log.json written — halt_triggered=True

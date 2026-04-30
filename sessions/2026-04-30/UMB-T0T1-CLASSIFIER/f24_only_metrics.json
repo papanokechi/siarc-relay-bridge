@@ -1,0 +1,72 @@
+{
+  "n_records": 324,
+  "n_T0": 300,
+  "n_T1": 24,
+  "cv_decision_tree": {
+    "fold_accuracies": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mean_accuracy": 1.0,
+    "std_accuracy": 0.0,
+    "mean_auc": 1.0,
+    "pooled_confusion_matrix": [
+      [
+        300,
+        0
+      ],
+      [
+        0,
+        24
+      ]
+    ],
+    "feature_importance_full_fit": {
+      "deg_a": 0.0,
+      "deg_b": 0.0,
+      "R_struct": 0.0,
+      "disc_a": 0.0,
+      "disc_a_neg": 0.0,
+      "disc_a_psq": 0.0,
+      "BT_disc": 0.0,
+      "lam_ratio": 0.0,
+      "int_resonance": 0.0,
+      "stokes_idx": 0.0,
+      "conv_slope": 1.0,
+      "r_final_log10": 0.0,
+      "finite_termination": 0.0
+    }
+  },
+  "cv_gradient_boosting": {
+    "fold_accuracies": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mean_accuracy": 1.0,
+    "std_accuracy": 0.0,
+    "mean_auc": 1.0
+  },
+  "leaf_rules_full_fit": [
+    {
+      "rule": "conv_slope > 0.1475",
+      "n_total": 24,
+      "n_T0": 0,
+      "n_T1": 1,
+      "predict": "T1",
+      "purity": 0.0417
+    },
+    {
+      "rule": "conv_slope <= 0.1475",
+      "n_total": 300,
+      "n_T0": 1,
+      "n_T1": 0,
+      "predict": "T0",
+      "purity": 0.0033
+    }
+  ]
+}

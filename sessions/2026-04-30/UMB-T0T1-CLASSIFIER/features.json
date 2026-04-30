@@ -1,0 +1,35 @@
+{
+  "seed": 20260430,
+  "dps": 60,
+  "n_records": 500,
+  "n_T0": 300,
+  "n_T1": 200,
+  "feature_columns": [
+    "deg_a",
+    "deg_b",
+    "R_struct",
+    "disc_a",
+    "disc_a_neg",
+    "disc_a_psq",
+    "BT_disc",
+    "lam_ratio",
+    "int_resonance",
+    "stokes_idx",
+    "conv_slope",
+    "r_final_log10",
+    "finite_termination"
+  ],
+  "label_column": "label",
+  "label_values": [
+    "T0",
+    "T1"
+  ],
+  "source_columns": [
+    "source",
+    "a_str",
+    "b_str",
+    "a_top",
+    "b_top"
+  ],
+  "build_seconds": 510.37
+}

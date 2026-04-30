@@ -1,0 +1,26 @@
+[
+  {
+    "rule": "disc_a_psq > 0.5 AND conv_slope > 0.1475",
+    "n_total": 17,
+    "n_T0": 0,
+    "n_T1": 1,
+    "predict": "T1",
+    "purity": 0.0588
+  },
+  {
+    "rule": "disc_a_psq <= 0.5",
+    "n_total": 143,
+    "n_T0": 0,
+    "n_T1": 1,
+    "predict": "T1",
+    "purity": 0.007
+  },
+  {
+    "rule": "disc_a_psq > 0.5 AND conv_slope <= 0.1475",
+    "n_total": 240,
+    "n_T0": 1,
+    "n_T1": 0,
+    "predict": "T0",
+    "purity": 0.0042
+  }
+]

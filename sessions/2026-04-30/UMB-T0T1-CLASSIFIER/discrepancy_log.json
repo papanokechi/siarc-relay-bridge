@@ -1,0 +1,11 @@
+{
+  "discrepancies": [
+    {
+      "field": "F24 Rat enumeration count",
+      "expected": 113270,
+      "observed": 58464,
+      "explanation": "Local re-enumeration finds 58,464 Rat families using two structural mechanisms (a==0 trivial-zero, and integer root of a in [1..12] with all earlier b nonzero). The certificate (f1_base_certificate.json) records 113,270 = 729 trivial_zero + 112,540 finite_termination. Our predicate is a strict subset; the certificate's classifier likely searches integer roots of a beyond n=12 and uses additional rationality tests. The 58,464 figure is well above the 300-sample requirement, so the dataset is not affected, but Claude should be aware that the T0 sample is drawn from the structurally-identifiable subset only.",
+      "delta_pct": -48.4
+    }
+  ]
+}
