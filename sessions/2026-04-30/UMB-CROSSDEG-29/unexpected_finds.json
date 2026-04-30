@@ -1,0 +1,17 @@
+{
+  "lattice_limitation": {
+    "finding": "T2A CMAX=2 Trans-candidate census admits only 4 distinct values of R1 = a4/b2^2: {1/4, 1/2, 1, 2}, all positive. The prompt's target ratio R1 = -2/9 (and all simple rational multiples -1/9, -4/9, -1/18, -1/36) is OUT-OF-LATTICE because |b2| <= 2 forces b2^2 in {1,4}, never 9.",
+    "implication": "Step 2 of the prompt cannot be answered from the existing census. The cross-degree probe is presently a NULL by exhaustion of the available data, NOT a falsification of dimension-independent universality.",
+    "remediation": "Run a CMAX>=3 deg-(4,2) census on b2 in {+-3} (adds approx 1.4M new families); verify whether (a4, b2)=(-2, +-3) yields Trans candidates with R1 exactly -2/9."
+  },
+  "all_R1_positive_finding": {
+    "finding": "All 108,762 Trans-candidate R1 values are positive (negatives R1 in {-1/4, -1/2, -1, -2} have ZERO Trans hits in the census). Negative-R1 lattice points appear only in Rat/Alg/Desert.",
+    "implication": "Negative R1 at CMAX=2 may force non-Trans behavior, OR may simply be a small-CMAX artifact. Cannot distinguish without CMAX>=3 data.",
+    "review_needed": "Claude should consider whether negative-R1 desert is a structural fact about deg-(4,2) Trans constants, or an integer-lattice bias."
+  },
+  "two_universality_classes": {
+    "finding": "The 'magic ratios' {-2/9, +1/4, -2/25, ...} arise from TWO distinct closed forms, NOT one: Class A (BT rational sum-1) rho = -m(b-m)/b^2; Class B (Frobenius double root) rho = +1/4 (isolated). Both classes are dimension-independent.",
+    "implication": "Prompt's HALT condition ('single closed form predicting all magic ratios') is NOT triggered. UMB OP-7 universality is partial: -2/9 reappears at every even d as a Class A stratum, +1/4 as a Class B stratum, but there is no unifying single family.",
+    "review_needed": "Claude to decide whether 'partial dimension-independent universality' is sufficient for a structure paper, or whether a unifying invariant (e.g., monodromy class) is required."
+  }
+}
