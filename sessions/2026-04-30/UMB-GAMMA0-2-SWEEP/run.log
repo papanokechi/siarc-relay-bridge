@@ -1,0 +1,39 @@
+[STEP 1] Group / predicted ratio / integer realisations
+   Gamma0(2)  ratio=   -1/4  b1=[2, 4, 6, 8]  realisations=[(2, -1), (4, -4), (6, -9), (8, -16)]
+         G_4  ratio=  -3/16  b1=[4, 8, 12]  realisations=[(4, -3), (8, -12), (12, -27)]
+         G_5  ratio=  -4/25  b1=[5, 10, 15]  realisations=[(5, -4), (10, -16), (15, -36)]
+         G_6  ratio=  -5/36  b1=[6, 12, 18]  realisations=[(6, -5), (12, -20), (18, -45)]
+         G_8  ratio=  -7/64  b1=[8, 16]  realisations=[(8, -7), (16, -28)]
+
+[STEP 2] Total families enumerated: 19965
+
+[STAGE A] float64 K_500
+  Stage A 0/19965
+  Stage A 1996/19965
+  Stage A 3992/19965
+  Stage A 5988/19965
+  Stage A 7984/19965
+  Stage A 9980/19965
+  Stage A 11976/19965
+  Stage A 13972/19965
+  Stage A 15968/19965
+  Stage A 17964/19965
+  Stage A 19960/19965
+  convergent 15819/19965 in 14.3s
+
+[STAGE B/C] PSLQ dps=100 N=600
+  PSLQ done in 219.5s
+
+[DEEP] 0 Trans hit(s) -> dps=150
+
+=== Per-group ratio table ===
+  group,predicted_ratio,total,convergent,trans,log,alg,rat
+  Gamma0(2),-1/4,5324,1484,0,0,235,23
+  G_4,-3/16,3993,3847,0,0,159,17
+  G_5,-4/25,3993,3854,0,0,116,6
+  G_6,-5/36,3993,3980,0,0,96,3
+  G_8,-7/64,2662,2654,0,0,61,1
+
+HALT(s): ['HALT_A']
+
+Wall: 233.9s

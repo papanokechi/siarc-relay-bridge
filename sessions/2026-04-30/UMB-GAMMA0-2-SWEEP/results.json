@@ -1,0 +1,338 @@
+{
+  "task": "UMB-GAMMA0-2-SWEEP",
+  "config": {
+    "groups": [
+      [
+        "Gamma0(2)",
+        "-1/4",
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        5
+      ],
+      [
+        "G_4",
+        "-3/16",
+        [
+          4,
+          8,
+          12
+        ],
+        5
+      ],
+      [
+        "G_5",
+        "-4/25",
+        [
+          5,
+          10,
+          15
+        ],
+        5
+      ],
+      [
+        "G_6",
+        "-5/36",
+        [
+          6,
+          12,
+          18
+        ],
+        5
+      ],
+      [
+        "G_8",
+        "-7/64",
+        [
+          8,
+          16
+        ],
+        5
+      ]
+    ],
+    "dps_pslq": 100,
+    "n_pslq": 600,
+    "dps_deep": 150,
+    "n_deep": 2000
+  },
+  "integrality": [
+    {
+      "group": "Gamma0(2)",
+      "ratio": "-1/4",
+      "predict_note": "indicial {0,1/2} at order-2 elliptic point; m=1,b=2",
+      "b1_list": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "H": 5,
+      "integer_table": [
+        {
+          "b1": 2,
+          "a2": -1
+        },
+        {
+          "b1": 4,
+          "a2": -4
+        },
+        {
+          "b1": 6,
+          "a2": -9
+        },
+        {
+          "b1": 8,
+          "a2": -16
+        }
+      ]
+    },
+    {
+      "group": "G_4",
+      "ratio": "-3/16",
+      "predict_note": "indicial {1/4,3/4}; m=1,b=4",
+      "b1_list": [
+        4,
+        8,
+        12
+      ],
+      "H": 5,
+      "integer_table": [
+        {
+          "b1": 4,
+          "a2": -3
+        },
+        {
+          "b1": 8,
+          "a2": -12
+        },
+        {
+          "b1": 12,
+          "a2": -27
+        }
+      ]
+    },
+    {
+      "group": "G_5",
+      "ratio": "-4/25",
+      "predict_note": "indicial {1/5,4/5}; m=1,b=5",
+      "b1_list": [
+        5,
+        10,
+        15
+      ],
+      "H": 5,
+      "integer_table": [
+        {
+          "b1": 5,
+          "a2": -4
+        },
+        {
+          "b1": 10,
+          "a2": -16
+        },
+        {
+          "b1": 15,
+          "a2": -36
+        }
+      ]
+    },
+    {
+      "group": "G_6",
+      "ratio": "-5/36",
+      "predict_note": "indicial {1/6,5/6}; m=1,b=6",
+      "b1_list": [
+        6,
+        12,
+        18
+      ],
+      "H": 5,
+      "integer_table": [
+        {
+          "b1": 6,
+          "a2": -5
+        },
+        {
+          "b1": 12,
+          "a2": -20
+        },
+        {
+          "b1": 18,
+          "a2": -45
+        }
+      ]
+    },
+    {
+      "group": "G_8",
+      "ratio": "-7/64",
+      "predict_note": "indicial {1/8,7/8}; m=1,b=8",
+      "b1_list": [
+        8,
+        16
+      ],
+      "H": 5,
+      "integer_table": [
+        {
+          "b1": 8,
+          "a2": -7
+        },
+        {
+          "b1": 16,
+          "a2": -28
+        }
+      ]
+    }
+  ],
+  "total_families": 19965,
+  "convergent_total": 15819,
+  "stage_a_seconds": 14.33,
+  "stage_bc_seconds": 219.53,
+  "rates_by_group": {
+    "Gamma0(2)": {
+      "predicted_ratio": "-1/4",
+      "total": 5324,
+      "convergent": 1484,
+      "trans": 0,
+      "log": 0,
+      "trans_rate_total": 0.0,
+      "trans_rate_convergent": 0.0,
+      "counts": {
+        "Desert": 1226,
+        "Alg": 235,
+        "Rat": 23
+      }
+    },
+    "G_4": {
+      "predicted_ratio": "-3/16",
+      "total": 3993,
+      "convergent": 3847,
+      "trans": 0,
+      "log": 0,
+      "trans_rate_total": 0.0,
+      "trans_rate_convergent": 0.0,
+      "counts": {
+        "Desert": 3671,
+        "Rat": 17,
+        "Alg": 159
+      }
+    },
+    "G_5": {
+      "predicted_ratio": "-4/25",
+      "total": 3993,
+      "convergent": 3854,
+      "trans": 0,
+      "log": 0,
+      "trans_rate_total": 0.0,
+      "trans_rate_convergent": 0.0,
+      "counts": {
+        "Desert": 3732,
+        "Alg": 116,
+        "Rat": 6
+      }
+    },
+    "G_6": {
+      "predicted_ratio": "-5/36",
+      "total": 3993,
+      "convergent": 3980,
+      "trans": 0,
+      "log": 0,
+      "trans_rate_total": 0.0,
+      "trans_rate_convergent": 0.0,
+      "counts": {
+        "Desert": 3881,
+        "Alg": 96,
+        "Rat": 3
+      }
+    },
+    "G_8": {
+      "predicted_ratio": "-7/64",
+      "total": 2662,
+      "convergent": 2654,
+      "trans": 0,
+      "log": 0,
+      "trans_rate_total": 0.0,
+      "trans_rate_convergent": 0.0,
+      "counts": {
+        "Desert": 2592,
+        "Rat": 1,
+        "Alg": 61
+      }
+    }
+  },
+  "rates_by_group_b1": {
+    "Gamma0(2)|b1=2": {
+      "total": 1331,
+      "convergent": 585
+    },
+    "Gamma0(2)|b1=4": {
+      "total": 1331,
+      "convergent": 435
+    },
+    "Gamma0(2)|b1=6": {
+      "total": 1331,
+      "convergent": 300
+    },
+    "Gamma0(2)|b1=8": {
+      "total": 1331,
+      "convergent": 164
+    },
+    "G_4|b1=4": {
+      "total": 1331,
+      "convergent": 1192
+    },
+    "G_4|b1=8": {
+      "total": 1331,
+      "convergent": 1325
+    },
+    "G_4|b1=12": {
+      "total": 1331,
+      "convergent": 1330
+    },
+    "G_5|b1=5": {
+      "total": 1331,
+      "convergent": 1198
+    },
+    "G_5|b1=10": {
+      "total": 1331,
+      "convergent": 1325
+    },
+    "G_5|b1=15": {
+      "total": 1331,
+      "convergent": 1331
+    },
+    "G_6|b1=6": {
+      "total": 1331,
+      "convergent": 1318
+    },
+    "G_6|b1=12": {
+      "total": 1331,
+      "convergent": 1331
+    },
+    "G_6|b1=18": {
+      "total": 1331,
+      "convergent": 1331
+    },
+    "G_8|b1=8": {
+      "total": 1331,
+      "convergent": 1323
+    },
+    "G_8|b1=16": {
+      "total": 1331,
+      "convergent": 1331
+    }
+  },
+  "trans_records": [],
+  "log_records": [],
+  "alg_count": 667,
+  "rat_count": 50,
+  "phantom_count": 0,
+  "phantom_records": [],
+  "halt": {
+    "HALT_A": {
+      "halt_triggered": true,
+      "reason": "G_4 prediction (-3/16) yields 0 Trans across 3847 convergent families. Indicial-root argument needs Stokes/multiplicity refinement."
+    }
+  }
+}
