@@ -1,0 +1,20 @@
+{
+  "consistency_fix_applied": {
+    "id": "UF-ABSTRACT-LINE-51",
+    "description": "UMB main.tex line 51 abstract still referred to the conjecture by its old name 'Trans-Stratum -2/9 Conjecture'. Left as-is, this would create an abstract/body contradiction with the patched conj:t2b body title 'Trans-stratum two-class conjecture'. The MM-03 HALT IF clause explicitly forbids any UMB → T2B → UMB reader path producing a contradiction after the patch.",
+    "resolution": "Amended abstract line 51 to: 'Trans-stratum two-class conjecture (Class A at a_2/b_1^2 = -2/9, Class B at a_2/b_1^2 = +1/4) in precise form'. Faithful to the patch's stated additive intent; no Class A claim revoked.",
+    "out_of_scope_flag": "Strictly outside the patch_relay_MM03.md OLD/NEW block, but inside the broader scope of MM-03 (consistency of conjecture references). Documented separately so papanokechi can override if desired."
+  },
+  "unresolved_consistency_hints": [
+    {
+      "id": "UF-T2B-LABEL-AUDIT",
+      "description": "The new UMB conj:t2b cites 'T2B Theorem 2 conditional on S_{12} != 0' and 'T2B Theorem 3 + Cor. classB-pi'. These theorem numbers and the corollary label classB-pi need to be verified against the actual T2B v2.0 manuscript. If T2B uses different numbering, the inconsistency will surface in the next coherence audit.",
+      "action_required": "Open T2B v2.0 (Zenodo 10.5281/zenodo.19801038) and confirm that (a) Theorem 2 is the resonance/Stokes statement, (b) Theorem 3 is the Wallis-Stieltjes statement, (c) cor:classB-pi is the corollary establishing Q·pi^-1 limits."
+    },
+    {
+      "id": "UF-PAPER14-NARRATIVE-FLOW",
+      "description": "After the global Tier→Obstruction Tier O rename, several sentences in #14 read more clunkily (e.g., 'first numerical audit of the Obstruction Tier O0 j-distribution'). Mathematically correct but stylistically marginal.",
+      "action_required": "Optional light pass on #14 before submission; not blocking."
+    }
+  ]
+}
