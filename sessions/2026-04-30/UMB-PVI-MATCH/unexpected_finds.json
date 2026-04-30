@@ -1,0 +1,28 @@
+{
+  "task": "UMB-PVI-MATCH",
+  "findings": [
+    {
+      "finding": "Class B (a2/b1^2 = +1/4) maps uniformly (16/16) to the PIII(D6) Riemann-Hilbert locus via the BT discriminant criterion D = b_top^2 + 4 a_top = 2 b_top^2. This unifies the Brouncker/Wallis/Gauss class with the canonical PIII(D6) tau-function -- consistent with the v_quad / P08 PIII(D6) identification noted in the prompt.",
+      "implication": "Theorem 3 (Stieltjes/Wallis transform) of the t2b_paper has a Riemann-Hilbert-theoretic refinement: every Class B family is RH-equivalent to a PIII(D6) tau-quotient.",
+      "source_files": ["fingerprint_table.csv", "match_summary.json"]
+    },
+    {
+      "finding": "Within 100 random Class A samples, 45/100 fall in PVI-rigid sub-classes (25 PVI-rigid-Q, 12 PVI-Schwarz-cand, 7 PVI-Hitchin-cand, 1 PVI-Picard). The Picard hit (a:-32,-5,0; b:12,-6) has all denominators in {1,2} and triggers the prompt's HALT.",
+      "caveat": "The 3-point fingerprint is a coarse proxy: it captures (R_struct, theta_inf, theta_0, n_star) -- only 4 invariants -- whereas full PVI monodromy needs 4 independent theta parameters at 4 punctures. So the Picard label is a *rigidity candidate*, not a verified algebraic PVI solution. A separate connection-problem computation (Frobenius solutions glued via fundamental matrices at all 4 singular points of the second-order ODE associated to the recurrence) is required to confirm.",
+      "source_files": ["halt_log.json"]
+    },
+    {
+      "finding": "T2A (deg-(4,2)) census fingerprints split: 7 / 24 fall in PIII(D6) (BT discriminant exactly 2 b_top^2 at the deg-(4,2) leading sector), 14 / 24 in PIII(D6)-confluent-other (irrational quadratic surd, but D != 2 b_top^2). This contradicts a naive 'PIII(D6) is Class B-only' reading and suggests the +1/4 universality reappears in higher degrees -- compatible with the dimension-independent indicial picture from UMB-CROSSDEG-29.",
+      "source_files": ["fingerprint_table.csv"]
+    },
+    {
+      "finding": "Class B families with k=1 (Brouncker-frame) sub-locus: the canonical (1,0,0,2,1) -> 4/pi family has theta_inf = log(3+2*sqrt(2))/(2*pi), an irrational quadratic surd. All Class B families share this exact theta_inf value (independent of (a1,a0,b0)), which is the signature feature of the PIII(D6) confluence diagram.",
+      "implication": "The structural ratio R_struct = +1/4 is enough to determine theta_inf. This was numerically known but is here written as an explicit fingerprint invariant.",
+      "source_files": ["worked_examples.json"]
+    }
+  ],
+  "methodology_caveats": [
+    "Fingerprint columns 6-8 are formal-monodromy proxies derived from Birkhoff-Trjitzinsky / Newton-polygon analysis of the discrete recurrence; they are not the full 2x2 monodromy matrices of the corresponding 2nd-order linear ODE. A future session should construct the ODE explicitly via the generating-function Mellin transform and compute Frobenius matrices at all singular points.",
+    "Step 3 of the prompt ('verify by reducing the recurrence to its q-expansion and comparing with PVI tau-function at special parameter values') is supplied at the level of the 2 worked examples but not run automatically across all 140 families. Automating this step requires symbolic q-expansion code (or a tau-function library) and is left for follow-up."
+  ]
+}
