@@ -1,0 +1,146 @@
+{
+  "task": "T2A-R1-IDENTIFY",
+  "date": "2026-04-30",
+  "pcf_tuple": {
+    "a_coeffs_leading_first": [
+      1,
+      0,
+      -1,
+      -1,
+      -1
+    ],
+    "b_coeffs_leading_first": [
+      -1,
+      1,
+      -1
+    ],
+    "source_commit": "fa259b0",
+    "refined_commit": "45fe389"
+  },
+  "R1_dps2000_first50": "-0.10123520070804963350847662497265835498791999155462",
+  "stability_diff": "9.23808e-2203",
+  "step2_pslq_hits": [],
+  "step2_summary": [
+    {
+      "dps": 1000,
+      "tier": "T1",
+      "basis_size": 10,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    },
+    {
+      "dps": 1000,
+      "tier": "T2",
+      "basis_size": 17,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    },
+    {
+      "dps": 1000,
+      "tier": "T3",
+      "basis_size": 24,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    },
+    {
+      "dps": 1000,
+      "tier": "T4",
+      "basis_size": 26,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    },
+    {
+      "dps": 1000,
+      "tier": "T5",
+      "basis_size": 30,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    },
+    {
+      "dps": 2000,
+      "tier": "T1",
+      "basis_size": 10,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    },
+    {
+      "dps": 2000,
+      "tier": "T2",
+      "basis_size": 17,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    },
+    {
+      "dps": 2000,
+      "tier": "T3",
+      "basis_size": 24,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    },
+    {
+      "dps": 2000,
+      "tier": "T4",
+      "basis_size": 26,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    },
+    {
+      "dps": 2000,
+      "tier": "T5",
+      "basis_size": 30,
+      "hit": false,
+      "msg": "no relation found",
+      "residue": null
+    }
+  ],
+  "step3_algebraic": {
+    "labels": [
+      "R1",
+      "R1^2",
+      "1/R1",
+      "log|R1|",
+      "exp(R1)",
+      "arctan(R1)",
+      "1",
+      "pi",
+      "pi^2",
+      "pi^3",
+      "log2",
+      "logpi",
+      "G_Catalan",
+      "zeta3",
+      "gamma_Euler"
+    ],
+    "rel": null,
+    "msg": "no relation found",
+    "residue": null
+  },
+  "step4_lvalue_hits": [],
+  "step5_modular_hits": [],
+  "verdict": {
+    "identification_verdict": "NULL",
+    "confidence_bound_max_coef": 1000000000000,
+    "tiers_tested": [
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5"
+    ],
+    "dps_levels": [
+      1000,
+      2000
+    ],
+    "phantom_filter": "rel[L_index] != 0 enforced",
+    "elapsed_sec": 78.81235361099243
+  }
+}
