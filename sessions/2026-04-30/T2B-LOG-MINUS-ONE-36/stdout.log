@@ -1,0 +1,36 @@
+
+[STEP 1] Reproducing Log families at -1/36 (dps=200, K=2000)
+  (-1, 0, 0, 6, 3): L = 2.885390081777926814719849362  resid_L=1.33e-220  pslq=[1, 0, 0, -2, 0]
+  (-1, 0, 0, -6, -3): L = -2.885390081777926814719849362  resid_L=5.77  pslq=[1, 0, 0, 2, 0]
+  (-1, 0, 0, 6, -3): L = -3.39652816988602094668969085362  resid_L=0.511  pslq=None
+  (-1, 0, 0, -6, 3): L = 3.39652816988602094668969085362  resid_L=6.28  pslq=None
+
+[STEP 2] Symbolic indicial equation r^2 - r + 1/36 = 0
+
+[STEP 3] Extended b1 in {8..12} at ratio -1/36
+  Integer-a2 targets (out of b1 in {8..12}): [(-4, -12), (-4, 12)]
+  Bauer-Stern probe (-4, 0, 0, -12, -6): L=-5.770780163555853629439698724007568549707  pslq=[1, 0, 0, 4, 0]
+  Bauer-Stern probe (-4, 0, 0, -12, 6): L=6.793056339772041893379381707241148890018  pslq=None
+  Full sweep at (a2=-4, b1=-12, free in -7..7):  convergent=3375, Log=143, Trans=38
+  Bauer-Stern probe (-4, 0, 0, 12, 6): L=5.770780163555853629439698724007568549707  pslq=[1, 0, 0, -4, 0]
+  Bauer-Stern probe (-4, 0, 0, 12, -6): L=-6.793056339772041893379381707241148890018  pslq=None
+  Full sweep at (a2=-4, b1=12, free in -7..7):  convergent=3375, Log=143, Trans=38
+
+[STEP 4] Alternative ratios (similar discriminant form)
+  rho=-1/72 BS-probe (-2, 0, 0, 12, 6): pslq=None
+  rho=-1/72 BS-probe (-2, 0, 0, 12, -6): pslq=None
+  rho=-1/72 BS-probe (-2, 0, 0, -12, -6): pslq=None
+  rho=-1/72 BS-probe (-2, 0, 0, -12, 6): pslq=None
+  rho=-1/72: Log=168, Trans=60, targets=2
+  rho=-1/108 BS-probe (-3, 0, 0, 18, 9): pslq=None
+  rho=-1/108 BS-probe (-3, 0, 0, 18, -9): pslq=None
+  rho=-1/108 BS-probe (-3, 0, 0, -18, -9): pslq=None
+  rho=-1/108 BS-probe (-3, 0, 0, -18, 9): pslq=None
+  rho=-1/108: Log=132, Trans=44, targets=2
+  rho=-1/180: Log=0, Trans=0, targets=0
+  rho=-1/252: Log=0, Trans=0, targets=0
+
+[STEP 5] Wallis 4/pi specialization check (symbolic + numeric)
+
+Wrote C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-04-30\T2B-LOG-MINUS-ONE-36\anomaly_minus_one_36.json
+Wall: 423.7s

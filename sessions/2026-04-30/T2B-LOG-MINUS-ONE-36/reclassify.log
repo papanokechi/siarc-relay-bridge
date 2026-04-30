@@ -1,0 +1,29 @@
+[Reclassify] Step 3 hits: 362
+  ... 50/362 processed
+  ... 100/362 processed
+  ... 150/362 processed
+  ... 200/362 processed
+  ... 250/362 processed
+  ... 300/362 processed
+  ... 350/362 processed
+  Step 3 reclassified summary: {'Log': 2, 'Trans': 0, 'Alg': 348, 'Rat': 12, 'Phantom': 0, 'Desert': 0, 'fail': 0}
+[Deep] Step 3 genuine candidates to deep-validate: 2
+  (-4, 0, 0, -12, -6): Log  L=-5.7707801635558536294396987240075685497...
+  (-4, 0, 0, 12, 6): Log  L=5.77078016355585362943969872400756854970...
+
+[Reclassify] Step 4 by ratio:
+  ratio=-1/72: 228 full-sweep hits, 4 BS probes
+    BS-deep (-2, 0, 0, 12, 6): Desert_or_unidentified
+    BS-deep (-2, 0, 0, 12, -6): Desert_or_unidentified
+    BS-deep (-2, 0, 0, -12, -6): Desert_or_unidentified
+    BS-deep (-2, 0, 0, -12, 6): Desert_or_unidentified
+  ratio=-1/108: 176 full-sweep hits, 4 BS probes
+    BS-deep (-3, 0, 0, 18, 9): Desert_or_unidentified
+    BS-deep (-3, 0, 0, 18, -9): Desert_or_unidentified
+    BS-deep (-3, 0, 0, -18, -9): Desert_or_unidentified
+    BS-deep (-3, 0, 0, -18, 9): Desert_or_unidentified
+  ratio=-1/180: 0 full-sweep hits, 0 BS probes
+  ratio=-1/252: 0 full-sweep hits, 0 BS probes
+
+Wrote C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-04-30\T2B-LOG-MINUS-ONE-36\reclassified_hits.json
+Wall: 22.5s

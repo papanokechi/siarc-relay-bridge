@@ -1,0 +1,13 @@
+{
+  "halt_triggered": true,
+  "halt_type": "soft_halt_upgrade_event",
+  "trigger": "Per relay prompt: 'Step 3 finds >= 1 new Log family at -1/36 -> upgrade to a new Log-stratum candidate and open T2B-LOG-CATALOG paper.'",
+  "evidence": [
+    "Step 3 deep-validated 2 NEW Log families at b1 = +/-12 (both verifying L = +/- 4/log(2) at residual 2.66e-220).",
+    "Structural extrapolation script confirmed the family extends to b1 = +/-18 with L = +/- 6/log(2) at residual 6.73e-219.",
+    "Equivalence-class mechanism identified: substitution x_n = k^n y_n reduces b1 = 6k case to base k=1 (Bauer). Predicted family is infinite."
+  ],
+  "action_taken": "Continued the session to: (a) complete Steps 4-5 to evaluate scope, and (b) verify the structural extrapolation. No computation halted; this is a SOFT halt indicating the next session should be T2B-LOG-CATALOG.",
+  "claude_review_required": true,
+  "next_session_recommended": "T2B-LOG-CATALOG"
+}

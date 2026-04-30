@@ -1,0 +1,10 @@
+{
+  "step3_pre_screen_discrepancy": {
+    "value_pct": 0.0,
+    "note": "None of the prior B67 / B8-12 sessions had tested (-4, 0, 0, +/-12, +/-6) with deep validation. The B8-12 memory note 'Targeted check (-4,0,0,+/-12,+/-6) recommended' is now executed and confirms a new Log family. No discrepancy with prior data."
+  },
+  "step1_pcf_label_correction": {
+    "note": "Initial KNOWN_FAMILIES list incorrectly labelled (-1,0,0,6,-3) and (-1,0,0,-6,3) as Log families with L = +/- 2/log(2). Numerical check shows L approx +/- 3.397, NOT a clean Log identity (PSLQ found no relation). The actual 2 Log families are (+6,+3) and (-6,-3) sign-paired only. This refines (does not contradict) the B67 memory entry.",
+    "B67_memory_corrected_in_finalize": true
+  }
+}
