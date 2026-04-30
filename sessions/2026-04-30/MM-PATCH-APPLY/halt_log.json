@@ -1,0 +1,51 @@
+{
+  "task_id": "MM-PATCH-APPLY",
+  "timestamp": "2026-04-30T18:25Z",
+  "status": "HALTED-PRE-EDIT",
+  "no_files_modified": true,
+  "halt_clause_triggered": "Any ambiguity about which occurrences to change vs. preserve",
+  "ambiguities": [
+    {
+      "id": "AMB-MM01",
+      "description": "Top-level relay says 'apply MM-01 to UMB main.tex (find degree profile (2,2))'. Patch_relay_MM01.md targets P06's pcf_desert_negative_result.tex line 314. Empirical check confirms UMB main.tex contains zero occurrences of '(2,2)' or 'degree profile (2,2)'; the only file in the corpus matching that string in a PCF context is pcf_desert_negative_result.tex line 314.",
+      "evidence": {
+        "umb_main_tex_grep_for_2_2": "0 matches",
+        "p06_pcf_desert_grep_for_2_2": "1 match at line 314: 'degree profile $(2,2)$ with'",
+        "p06_pcf_desert_grep_for_other_profile_lines": "lines 30, 48, 68, 76, 95, 109, 354 — these are (4,3)/(5,3)/(6,3)/general — NOT to be edited"
+      },
+      "interpretation_options": [
+        "A. Follow patch_relay_MM01.md verbatim: edit P06 line 314 only, leave UMB untouched.",
+        "B. Follow top-level prompt literally: edit UMB main.tex — but no matching string exists, so this would be a no-op.",
+        "C. Operator intended A; phrasing of top-level prompt is loose — edit P06 only."
+      ],
+      "recommendation": "C (most consistent with the audit finding which clearly identifies P06 as the file containing the regression, and with the patch_relay file which provides the exact OLD/NEW text)."
+    },
+    {
+      "id": "AMB-MM02",
+      "description": "Top-level relay and patch_relay_MM02.md prescribe NEARLY OPPOSITE rename strategies.",
+      "top_level_prompt_says": "Rename UMB's internal hierarchy to T-arith-{0..3} throughout UMB main.tex (ALL occurrences). Do NOT touch paper #14 or T2B. Add a one-sentence footnote on first occurrence.",
+      "patch_relay_MM02_says": "Keep UMB's T0..T3 unchanged. Rename #14's 'Tier 0..3' to 'Obstruction Tier O0..O3' throughout paper4_takeuchi_outline.tex. Add a one-paragraph translation table in UMB §1.2 mapping O_i ⊆ T_j inclusions.",
+      "blast_radius_analysis": {
+        "top_level_approach": "UMB main.tex contains 21 standalone uses of T0/T1/T2/T3 as labels (lines 105,106,111,112,117,118,131,132,135,142,156,157,170,208,231,232,248,293,297,300,302,303,309) PLUS Conjecture 6 references c_{PSL2Z,(2,1)} and Remark 8. A rename here propagates into Conjecture 6 (which is also being patched by MM-03), the figure tikz at line 170, the §6 status table at line 208, and 4 problem statements in §5. High edit volume; risk of label collisions during the simultaneous MM-03 patch.",
+        "patch_relay_approach": "paper4_takeuchi_outline.tex contains ~30 'Tier' references; mechanical search/replace is straightforward. UMB gets one new \\begin{remark}...\\end{remark} block in §1.2; no rename of existing labels. Lower blast radius. T2B and bibliography untouched."
+      },
+      "interpretation_options": [
+        "A. Follow patch_relay_MM02.md (rename #14 → O0..O3, add translation remark in UMB). Lower blast radius; no interference with simultaneous MM-03 conjecture rewrite.",
+        "B. Follow top-level prompt (rename UMB → T-arith-0..3, leave #14 alone). Higher blast radius; UMB tier labels propagate into the Conjecture 6 patch text from MM-03 which currently uses 'tier T2'.",
+        "C. Hybrid: rename in BOTH papers to disambiguated labels (T-arith and O), and add the inclusion remark in UMB. Highest editorial cost but eliminates all ambiguity."
+      ],
+      "recommendation": "A (lowest blast radius, preserves Conjecture 6 patch text from MM-03 verbatim, matches the audit's 'inclusion-table' framing)."
+    }
+  ],
+  "no_ambiguity": ["MM-03 — top-level prompt explicitly says 'use the exact replacement text in patch_relay_MM03.md verbatim'; relay file provides exact OLD/NEW LaTeX. No conflict."],
+  "files_examined_read_only": [
+    "C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\claude-chat\\sessions\\2026-04-30\\SIARC-COHERENCE-AUDIT\\patch_relay_MM01.md",
+    "C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\claude-chat\\sessions\\2026-04-30\\SIARC-COHERENCE-AUDIT\\patch_relay_MM02.md",
+    "C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\claude-chat\\sessions\\2026-04-30\\SIARC-COHERENCE-AUDIT\\patch_relay_MM03.md",
+    "tex\\submitted\\umbrella_program_paper\\main.tex (grep only)",
+    "tex\\submitted\\p06_desert_ijnt_submission\\pcf_desert_negative_result.tex (grep only)",
+    "tex\\submitted\\paper4_takeuchi_outline.tex (grep only)"
+  ],
+  "files_modified": [],
+  "next_action_required": "papanokechi confirmation on AMB-MM01 (file scope) and AMB-MM02 (rename strategy) before any .tex is edited."
+}
