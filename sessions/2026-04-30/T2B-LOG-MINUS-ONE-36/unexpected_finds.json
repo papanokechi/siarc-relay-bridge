@@ -1,0 +1,19 @@
+{
+  "infinite_log_family_at_minus_one_36": {
+    "summary": "An infinite equivalence-class family of Log identities at ratio -1/36, parametrized by integer k: (-k^2, 0, 0, +/- 6k, +/- 3k) -> L = +/- 2k/log(2).",
+    "verified_k": [
+      1,
+      2,
+      3
+    ],
+    "predicted_for_all_k": true,
+    "implication": "The Log-stratum at -1/36 is INFINITE in the deg-(2,1) integer enumeration but ONE-DIMENSIONAL up to constant equivalence (every member is equivalent to Bauer's 1872 CF for 2/log(2))."
+  },
+  "absence_of_alt_ratio_extension": {
+    "summary": "The structural pattern at -1/36 does NOT transfer to other ratios with similar irrational-discriminant form (-1/(36k) for k=2,3,5,7). Bauer-Stern probes are all Desert.",
+    "implication": "The Bauer-Stern Log-stratum is intrinsic to the specific arithmetic of the base CF K{n=1..} -n^2/(6n+3) = 2/log(2) - 3, not a generic feature of irrational indicial discriminants."
+  },
+  "stage_b_first_filter_critical": {
+    "summary": "Initial sweep at dps=80, N=400 returned 362 'Log/Trans' hits at b1=+/-12 alone. After Stage-B-first reclassification (Alg/Rat filter before trans-basis PSLQ), 360 of those reduce to Algebraic or Rational; only 2 are genuine Log. This is a pipeline lesson: the trans basis at low dps and short N readily produces spurious Log-class hits when L is rational or low-degree algebraic. Future deg-(2,1) enumerations MUST do Stage B (rat/alg) first."
+  }
+}
