@@ -1,0 +1,1404 @@
+{
+  "task": "UMB-T3-PROBE-step2",
+  "dps_extended": 3000,
+  "n_candidates": 5,
+  "candidates": [
+    {
+      "id": "T2A_R1",
+      "source": "T2A-R1-IDENTIFY",
+      "a": [
+        1,
+        0,
+        -1,
+        -1,
+        -1
+      ],
+      "b": [
+        -1,
+        1,
+        -1
+      ],
+      "L_published": "-0.10123520070804963",
+      "L_dps": {
+        "500": "-0.1012352007080496335084766249726583549879",
+        "1000": "-0.1012352007080496335084766249726583549879",
+        "1500": "-0.1012352007080496335084766249726583549879"
+      },
+      "convergence_diff_lowest_vs_highest": "5.3185e-414",
+      "tiers": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5"
+          ],
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null,
+          "time_sec": 0.02
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5"
+          ],
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null,
+          "time_sec": 0.08
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2"
+          ],
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null,
+          "time_sec": 0.1
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi"
+          ],
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null,
+          "time_sec": 0.16
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi",
+            "pi*log2",
+            "pi*log3",
+            "pi*G",
+            "log2*log3",
+            "pi*zeta3"
+          ],
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null,
+          "time_sec": 0.22
+        }
+      ],
+      "all_null": true,
+      "mu_probe": [
+        {
+          "dps": 500,
+          "log10_res": -0.9946684517735227,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": -0.9946684517735227,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": -0.9946684517735227,
+          "log10_max_coef": 0
+        }
+      ],
+      "mu_res_slope": 0.0,
+      "mu_coef_slope": 0.0,
+      "weak_all_none": true,
+      "mu_inf_flag": true,
+      "mobius_inv_T1": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": 0.9946684517735227
+      },
+      "mobius_inv_T3": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": 0.9946684517735227
+      },
+      "algebraic_check": {
+        "deg": 0,
+        "coefs": null,
+        "residual_log10": -0.9946684517735227
+      },
+      "L_dps_ext": {
+        "3000": "-0.10123520070804963350847662497265835498791999155461984754321842804263709078850781"
+      },
+      "tiers_ext_dps3000": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.9946684517735227,
+          "max_coef": null
+        }
+      ],
+      "mu_probe_ext": [
+        {
+          "dps": 500,
+          "log10_res": -0.9946684517735227,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": -0.9946684517735227,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": -0.9946684517735227,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 3000,
+          "log10_res": -0.9946684517735227,
+          "log10_max_coef": 0
+        }
+      ],
+      "all_null_ext": true
+    },
+    {
+      "id": "TH_a1_-1_-1_-1_-1_b-1_-1_-1",
+      "source": "T2A_trans_hard_42",
+      "a": [
+        1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "b": [
+        -1,
+        -1,
+        -1
+      ],
+      "L_published": "-0.034910591781120832513508593941232263",
+      "L_dps": {
+        "500": "-0.03491059178112083251350859394123226294428",
+        "1000": "-0.03491059178112083251350859394123226294428",
+        "1500": "-0.03491059178112083251350859394123226294428"
+      },
+      "convergence_diff_lowest_vs_highest": "3.9398e-421",
+      "tiers": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5"
+          ],
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null,
+          "time_sec": 0.02
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5"
+          ],
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null,
+          "time_sec": 0.07
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2"
+          ],
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null,
+          "time_sec": 0.12
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi"
+          ],
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null,
+          "time_sec": 0.26
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi",
+            "pi*log2",
+            "pi*log3",
+            "pi*G",
+            "log2*log3",
+            "pi*zeta3"
+          ],
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null,
+          "time_sec": 0.36
+        }
+      ],
+      "all_null": true,
+      "mu_probe": [
+        {
+          "dps": 500,
+          "log10_res": -1.4570427892523652,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": -1.4570427892523652,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": -1.4570427892523652,
+          "log10_max_coef": 0
+        }
+      ],
+      "mu_res_slope": 0.0,
+      "mu_coef_slope": 0.0,
+      "weak_all_none": true,
+      "mu_inf_flag": true,
+      "mobius_inv_T1": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": 1.4570427892523652
+      },
+      "mobius_inv_T3": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": 1.4570427892523652
+      },
+      "algebraic_check": {
+        "deg": 0,
+        "coefs": null,
+        "residual_log10": -1.4570427892523652
+      },
+      "L_dps_ext": {
+        "3000": "-0.034910591781120832513508593941232262944283906487600178235700428909361570811587423"
+      },
+      "tiers_ext_dps3000": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -1.4570427892523652,
+          "max_coef": null
+        }
+      ],
+      "mu_probe_ext": [
+        {
+          "dps": 500,
+          "log10_res": -1.4570427892523652,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": -1.4570427892523652,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": -1.4570427892523652,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 3000,
+          "log10_res": -1.4570427892523652,
+          "log10_max_coef": 0
+        }
+      ],
+      "all_null_ext": true
+    },
+    {
+      "id": "TH_a1_-1_-1_-1_-1_b-1_0_1",
+      "source": "T2A_trans_hard_42",
+      "a": [
+        1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "b": [
+        -1,
+        0,
+        1
+      ],
+      "L_published": "18.486435943188040266180723847945702",
+      "L_dps": {
+        "500": "18.48643594318804026618072384794570155273",
+        "1000": "18.48643594318804026618072384794570155273",
+        "1500": "18.48643594318804026618072384794570155273"
+      },
+      "convergence_diff_lowest_vs_highest": "1.3129e-415",
+      "tiers": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5"
+          ],
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null,
+          "time_sec": 0.02
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5"
+          ],
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null,
+          "time_sec": 0.09
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2"
+          ],
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null,
+          "time_sec": 0.14
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi"
+          ],
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null,
+          "time_sec": 0.18
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi",
+            "pi*log2",
+            "pi*log3",
+            "pi*G",
+            "log2*log3",
+            "pi*zeta3"
+          ],
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null,
+          "time_sec": 0.3
+        }
+      ],
+      "all_null": true,
+      "mu_probe": [
+        {
+          "dps": 500,
+          "log10_res": 1.2668531902611506,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": 1.2668531902611506,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": 1.2668531902611506,
+          "log10_max_coef": 0
+        }
+      ],
+      "mu_res_slope": 0.0,
+      "mu_coef_slope": 0.0,
+      "weak_all_none": true,
+      "mu_inf_flag": true,
+      "mobius_inv_T1": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": -1.2668531902611506
+      },
+      "mobius_inv_T3": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": -1.2668531902611506
+      },
+      "algebraic_check": {
+        "deg": 0,
+        "coefs": null,
+        "residual_log10": 1.2668531902611506
+      },
+      "L_dps_ext": {
+        "3000": "18.486435943188040266180723847945701552731226040607292502728193947297307912165689"
+      },
+      "tiers_ext_dps3000": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 1.2668531902611506,
+          "max_coef": null
+        }
+      ],
+      "mu_probe_ext": [
+        {
+          "dps": 500,
+          "log10_res": 1.2668531902611506,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": 1.2668531902611506,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": 1.2668531902611506,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 3000,
+          "log10_res": 1.2668531902611506,
+          "log10_max_coef": 0
+        }
+      ],
+      "all_null_ext": true
+    },
+    {
+      "id": "TH_a1_-1_-1_-1_0_b-1_-1_-1",
+      "source": "T2A_trans_hard_42",
+      "a": [
+        1,
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "b": [
+        -1,
+        -1,
+        -1
+      ],
+      "L_published": "-0.37808199068204170866156228358727301",
+      "L_dps": {
+        "500": "-0.3780819906820417086615622835872730051701",
+        "1000": "-0.3780819906820417086615622835872730051701",
+        "1500": "-0.3780819906820417086615622835872730051701"
+      },
+      "convergence_diff_lowest_vs_highest": "4.9965e-421",
+      "tiers": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5"
+          ],
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null,
+          "time_sec": 0.03
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5"
+          ],
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null,
+          "time_sec": 0.09
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2"
+          ],
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null,
+          "time_sec": 0.16
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi"
+          ],
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null,
+          "time_sec": 0.22
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi",
+            "pi*log2",
+            "pi*log3",
+            "pi*G",
+            "log2*log3",
+            "pi*zeta3"
+          ],
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null,
+          "time_sec": 0.33
+        }
+      ],
+      "all_null": true,
+      "mu_probe": [
+        {
+          "dps": 500,
+          "log10_res": -0.4224140090529304,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": -0.4224140090529304,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": -0.4224140090529304,
+          "log10_max_coef": 0
+        }
+      ],
+      "mu_res_slope": 0.0,
+      "mu_coef_slope": 0.0,
+      "weak_all_none": true,
+      "mu_inf_flag": true,
+      "mobius_inv_T1": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": 0.4224140090529305
+      },
+      "mobius_inv_T3": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": 0.4224140090529305
+      },
+      "algebraic_check": {
+        "deg": 0,
+        "coefs": null,
+        "residual_log10": -0.4224140090529304
+      },
+      "L_dps_ext": {
+        "3000": "-0.37808199068204170866156228358727300517009112605737590175701617690221770162575689"
+      },
+      "tiers_ext_dps3000": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "residual_log10": -0.4224140090529304,
+          "max_coef": null
+        }
+      ],
+      "mu_probe_ext": [
+        {
+          "dps": 500,
+          "log10_res": -0.4224140090529304,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": -0.4224140090529304,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": -0.4224140090529304,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 3000,
+          "log10_res": -0.4224140090529304,
+          "log10_max_coef": 0
+        }
+      ],
+      "all_null_ext": true
+    },
+    {
+      "id": "IRR482_277",
+      "source": "irr_482",
+      "a": [
+        1
+      ],
+      "b": [
+        4,
+        -4,
+        7
+      ],
+      "L_published": "7.1415122971403060778482140855462890908699145099095",
+      "L_dps": {
+        "500": "7.14151229714030607784821408554628909087",
+        "1000": "7.14151229714030607784821408554628909087",
+        "1500": "7.14151229714030607784821408554628909087"
+      },
+      "convergence_diff_lowest_vs_highest": "2.7816e-530",
+      "tiers": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5"
+          ],
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null,
+          "time_sec": 0.01
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5"
+          ],
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null,
+          "time_sec": 0.06
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2"
+          ],
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null,
+          "time_sec": 0.09
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi"
+          ],
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null,
+          "time_sec": 0.12
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "names": [
+            "1",
+            "pi",
+            "log2",
+            "log3",
+            "pi2",
+            "zeta3",
+            "log5",
+            "G",
+            "zeta5",
+            "Li2_1/2",
+            "Li3_1/2",
+            "Lchi3_2",
+            "sqrt2",
+            "sqrt3",
+            "sqrt5",
+            "Gamma1/3",
+            "Gamma1/4",
+            "Gamma1/6",
+            "Gamma1/3^2",
+            "Gamma1/4^2",
+            "AGM(1,sqrt2)",
+            "omega_lem",
+            "exp1",
+            "expm1pi",
+            "pi*log2",
+            "pi*log3",
+            "pi*G",
+            "log2*log3",
+            "pi*zeta3"
+          ],
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null,
+          "time_sec": 0.19
+        }
+      ],
+      "all_null": true,
+      "mu_probe": [
+        {
+          "dps": 500,
+          "log10_res": 0.8537901883528594,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": 0.8537901883528594,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": 0.8537901883528594,
+          "log10_max_coef": 0
+        }
+      ],
+      "mu_res_slope": 0.0,
+      "mu_coef_slope": 0.0,
+      "weak_all_none": true,
+      "mu_inf_flag": true,
+      "mobius_inv_T1": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": -0.8537901883528594
+      },
+      "mobius_inv_T3": {
+        "hit": false,
+        "relation": null,
+        "residual_log10": -0.8537901883528594
+      },
+      "algebraic_check": {
+        "deg": 0,
+        "coefs": null,
+        "residual_log10": 0.8537901883528594
+      },
+      "L_dps_ext": {
+        "3000": "7.1415122971403060778482140855462890908699145099094581378822647100268776313946234"
+      },
+      "tiers_ext_dps3000": [
+        {
+          "tier": "T1",
+          "basis_size": 7,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null
+        },
+        {
+          "tier": "T2",
+          "basis_size": 15,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null
+        },
+        {
+          "tier": "T3",
+          "basis_size": 20,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null
+        },
+        {
+          "tier": "T4",
+          "basis_size": 24,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null
+        },
+        {
+          "tier": "T5",
+          "basis_size": 29,
+          "hit": false,
+          "relation": null,
+          "residual_log10": 0.8537901883528594,
+          "max_coef": null
+        }
+      ],
+      "mu_probe_ext": [
+        {
+          "dps": 500,
+          "log10_res": 0.8537901883528594,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1000,
+          "log10_res": 0.8537901883528594,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 1500,
+          "log10_res": 0.8537901883528594,
+          "log10_max_coef": 0
+        },
+        {
+          "dps": 3000,
+          "log10_res": 0.8537901883528594,
+          "log10_max_coef": 0
+        }
+      ],
+      "all_null_ext": true
+    }
+  ],
+  "elapsed_sec": 69.3
+}
