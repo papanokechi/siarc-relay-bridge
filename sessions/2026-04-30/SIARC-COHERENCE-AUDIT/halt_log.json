@@ -1,0 +1,36 @@
+{
+  "halt_id": "SIARC-COHERENCE-AUDIT-T1",
+  "halt_date": "2026-04-30",
+  "halt_reason": "Three Tier-1 (submission-blocking) cross-paper mismatches were found during the SIARC-COHERENCE-AUDIT (P-10) relay session. Per the relay prompt's HALT clause, the agent does not auto-edit any submitted paper; instead, three relay patch prompts are produced as deliverables.",
+  "tier_1_mismatches": [
+    {
+      "id": "MM-01",
+      "papers": ["P06", "P11", "T2B", "UMB"],
+      "summary": "P06 says the F(2,4) Trans-stratum has degree profile (2,2); P11 prop:deg21 and T2B/UMB use degree-(2,1).",
+      "patch_prompt": "patch_relay_MM01.md"
+    },
+    {
+      "id": "MM-02",
+      "papers": ["UMB", "#14"],
+      "summary": "T0..T3 labels carry incompatible meanings across UMB (arithmetic) and #14 (obstruction); reader can be misled.",
+      "patch_prompt": "patch_relay_MM02.md"
+    },
+    {
+      "id": "MM-03",
+      "papers": ["UMB", "T2B"],
+      "summary": "UMB conj:t2b claims c = -2/9 universally for degree-(2,1) PSL2Z trans-stratum, but T2B documents 16 Class B families with a_2/b_1^2 = +1/4. UMB conjecture is literally falsified by its own companion paper.",
+      "patch_prompt": "patch_relay_MM03.md"
+    }
+  ],
+  "deferred_files_not_edited": [
+    "tex/submitted/p06_desert_ijnt_submission/pcf_desert_negative_result.tex",
+    "tex/submitted/paper4_takeuchi_outline.tex",
+    "tex/submitted/umbrella_program_paper/main.tex",
+    "tex/submitted/t2b_paper_draft_v5_withauthor.tex",
+    "f1_mathcomp_submission/main_R1.tex",
+    "f1_mathcomp_submission/references.bib",
+    "t2a_paper_draft.tex",
+    "tex/submitted/vquad_resurgence_R2.tex"
+  ],
+  "next_action": "Hand the three patch_relay_MM0{1,2,3}.md prompts to subsequent relay sessions. Until those are executed, no new Zenodo version of UMB or P06 should be pushed."
+}
