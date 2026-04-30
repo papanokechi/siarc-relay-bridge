@@ -1,0 +1,89 @@
+[load] C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\t2a_cmax2_results.json
+[filter] Trans-candidate count: 108762
+[write] C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\sessions\2026-04-30\UMB-CROSSDEG-29\ratios.jsonl  (108762 records)
+[stats] R2 defined for 87004 / 108762
+[write] concentration_table.json
+{
+  "total_trans": 108762,
+  "R2_defined": 87004,
+  "flagged_R1": {
+    "-2/9": 0,
+    "-1/9": 0,
+    "-4/9": 0,
+    "-1/18": 0,
+    "-1/36": 0,
+    "+1/4": 26622,
+    "-1/4": 0,
+    "0": 0
+  },
+  "flagged_R2": {
+    "-2/9": 0,
+    "-1/9": 0,
+    "-4/9": 0,
+    "-1/18": 0,
+    "-1/36": 0,
+    "+1/4": 8894,
+    "-1/4": 8358,
+    "0": 17134
+  },
+  "top_R1": [
+    {
+      "value": "1/2",
+      "count": 27822
+    },
+    {
+      "value": "2/1",
+      "count": 27770
+    },
+    {
+      "value": "1/4",
+      "count": 26622
+    },
+    {
+      "value": "1/1",
+      "count": 26548
+    }
+  ],
+  "top_R2": [
+    {
+      "value": "0/1",
+      "count": 17134
+    },
+    {
+      "value": "1/2",
+      "count": 9342
+    },
+    {
+      "value": "2/1",
+      "count": 9340
+    },
+    {
+      "value": "1/1",
+      "count": 8898
+    },
+    {
+      "value": "1/4",
+      "count": 8894
+    },
+    {
+      "value": "-1/1",
+      "count": 8360
+    },
+    {
+      "value": "-1/4",
+      "count": 8358
+    },
+    {
+      "value": "-2/1",
+      "count": 8340
+    },
+    {
+      "value": "-1/2",
+      "count": 8338
+    }
+  ],
+  "distinct_R1": 4,
+  "distinct_R2": 9
+}
+[write] C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\sessions\2026-04-30\UMB-CROSSDEG-29\ratio_histogram_T2A.png
+[write] top3_picks.json -> {'R1': [{'value': '1/2', 'count': 27822}, {'value': '2/1', 'count': 27770}, {'value': '1/4', 'count': 26622}], 'R2': [{'value': '0/1', 'count': 17134}, {'value': '1/2', 'count': 9342}, {'value': '2/1', 'count': 9340}]}
