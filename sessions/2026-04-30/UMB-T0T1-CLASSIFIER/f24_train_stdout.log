@@ -1,0 +1,15 @@
+F(2,4)-only subset: 324 rows  (300 T0 / 24 T1)
+DT  5-fold acc = 1.0000 +/- 0.0000; AUC = 1.0000
+GBM 5-fold acc = 1.0000 +/- 0.0000; AUC = 1.0000
+DT pooled CV confusion matrix [[TN, FP],[FN, TP]] =
+ [[300   0]
+ [  0  24]]
+
+Full-fit decision tree on F(2,4) (depth=6):
+|--- conv_slope <= 0.15
+|   |--- class: 0
+|--- conv_slope >  0.15
+|   |--- class: 1
+
+Wrote f24_only_metrics.json
+Appended F(2,4)-only section to rules_extracted.md

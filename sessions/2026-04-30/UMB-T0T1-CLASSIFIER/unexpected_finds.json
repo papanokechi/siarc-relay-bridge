@@ -1,0 +1,24 @@
+{
+  "unexpected": [
+    {
+      "observation": "finite_termination feature is 1 for ALL 500 records",
+      "interpretation": "Numerical floor artifact: at dps=60 with N=200 backward-recurrence iterations, |r_n| = |K_n - K_{n-1}| falls below the 10^-55 detection threshold for every family in the sample, including the 200 T1 families which are structurally non-terminating. This means finite_termination is non-discriminative in our feature set. The classifier did NOT use it. Conv_slope = 0 for the same reason in 296/300 T0 records.",
+      "impact_on_classifier": "None for accuracy. The classifier achieved 100% by using disc_a_psq (a deterministic shape feature) and conv_slope's value on the few records where the tail window happened to land BEFORE numerical zero. The genuinely-novel claim (effective T0/T1 boundary criterion) therefore rests on disc_a_psq + extremely-coarse conv_slope binarisation.",
+      "remediation_suggested": "Re-run feature extraction with (a) dps=200 and (b) tail window restricted to n in [10, 30] BEFORE numerical termination kicks in, so conv_slope captures genuine asymptotic decay rate."
+    },
+    {
+      "observation": "disc_a_psq=0 perfectly partitions irr-482 (deg_a=0) from F(2,4) (deg_a=2)",
+      "interpretation": "feature_disc_a returns the third coordinate (perfect-square flag) only when len(a_coeffs)==3, and returns 0 otherwise. For all 176 sampled irr-482 entries (a=[1], deg_a=0), disc_a_psq=0 trivially. The classifier picked this up and used it as a 'is-from-F(2,4)' shape proxy. The resulting top-level rule R0 (disc_a_psq <= 0.5 -> T1) is essentially a *restatement* of the published 482-irrationals theorem: unit-numerator quadratic GCFs (V-family) are all transcendental.",
+      "verdict": "Rule R0 is a known theorem rediscovery, not a new lemma."
+    },
+    {
+      "observation": "F(2,4)-internal rule (R1+R2 in the F24-only analysis) collapses to a single conv_slope split",
+      "interpretation": "On the 324 F(2,4) records, full-fit DT becomes one split: conv_slope <= 0.15 -> T0, else T1. Combined with the previous note, this effectively says 'r_n hits numerical zero in the tail window for all 300 Rat families and for none of the 24 Trans families'. Since 296/300 Rat are structurally finite_termination per the certificate, this is *also* a restatement of a known fact: F(2,4) Rat = (trivial_zero) + (finite_termination), no purely-rational-limit non-terminating Rat exists in the F(2,4) census.",
+      "verdict": "Rule R1/R2 confirms the published F(2,4) Rat-stratum mechanism dichotomy."
+    },
+    {
+      "observation": "BT_disc, lam_ratio, R_struct, stokes_idx, int_resonance — all unused by the depth-6 tree",
+      "interpretation": "The decision tree found a perfect classifier using only 2 features and never needed the BT-spectral / Stokes columns. This is consistent with the relay's UMB OP-4 framing: in this corpus, the T0/T1 boundary is captured by polynomial-shape and termination, not by indicial spectral data. The spectral features may become essential for non-F(2,4), non-quadratic-V family corpora (e.g., F(2,6), F(4,2) deg-pair extensions)."
+    }
+  ]
+}

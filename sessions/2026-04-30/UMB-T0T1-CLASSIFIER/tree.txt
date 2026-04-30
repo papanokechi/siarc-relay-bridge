@@ -1,0 +1,7 @@
+|--- disc_a_psq <= 0.50
+|   |--- class: 1
+|--- disc_a_psq >  0.50
+|   |--- conv_slope <= 0.15
+|   |   |--- class: 0
+|   |--- conv_slope >  0.15
+|   |   |--- class: 1

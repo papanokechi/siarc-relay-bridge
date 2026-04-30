@@ -1,0 +1,23 @@
+[15:21:03] SEED=20260430, mp.dps=60
+[15:21:03] Phase 1: assemble Rat (T0) families from F(2,4) re-enumeration ...
+[15:21:05]   Rat enumerated: 58464 (cert says 113270)
+[15:21:05] Phase 2: assemble Trans (T1) families from F(2,4) certificate ...
+[15:21:05]   Trans loaded: 24
+[15:21:05] Phase 3: load 482-irrationals catalog ...
+[15:21:05]   Irrationals loaded: 482
+[15:21:05]   Sampled: 300 Rat (T0)  +  24 F24-Trans + 176 irr-482 (T1)
+[15:21:05] Total records: 500  (300 T0 / 200 T1)
+[15:21:05] Phase 4: feature engineering (this is the slow phase: conv_slope at dps=60, N=200) ...
+[15:21:50]   50/500  elapsed 45.5s
+[15:22:29]   100/500  elapsed 84.6s
+[15:23:11]   150/500  elapsed 125.9s
+[15:24:02]   200/500  elapsed 176.8s
+[15:24:47]   250/500  elapsed 222.4s
+[15:25:36]   300/500  elapsed 271.1s
+[15:26:46]   350/500  elapsed 341.6s
+[15:27:52]   400/500  elapsed 406.8s
+[15:28:45]   450/500  elapsed 459.7s
+[15:29:34]   500/500  elapsed 508.6s
+[15:29:34] Feature phase done in 508.6s
+[15:29:34] Wrote dataset.csv: 500 rows
+[15:29:34] Wrote features.json
