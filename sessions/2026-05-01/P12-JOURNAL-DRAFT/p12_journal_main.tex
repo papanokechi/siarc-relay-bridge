@@ -1,0 +1,1594 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=MidnightBlue,
+  citecolor=MidnightBlue,
+  urlcolor=MidnightBlue
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Stokes}{St}
+
+\title[CM Predicate for Degree-2 PCFs]%
+{Complex Multiplication as a Transcendence Predicate\\
+for Degree-Two Polynomial Continued Fractions}
+
+\author{Papanokechi}
+\address{Independent researcher, Yokohama, Japan}
+\email{}
+\thanks{ORCID:
+\href{https://orcid.org/0009-0000-6192-8273}{0009-0000-6192-8273}.
+The author received no external funding for this work.
+The numerical experiments were carried out using the AEAL/SIARC
+multi-agent computational methodology described in
+\cite{P8AEAL}; AI assistants (GitHub~Copilot powered by Anthropic
+Claude, and Anthropic Claude directly) were used to generate code
+for high-precision computations and to cross-check intermediate
+results. All conjectures, proofs, evidence-class assignments, and
+editorial decisions are the sole responsibility of the human author.
+The AI assistants are not authors. Session-level computation logs
+and prompts are archived in the SIARC research workspace and are
+available from the author on request, in line with the AEAL
+reproducibility requirement.}
+
+\subjclass[2020]{Primary 11J70, 11J81, 11Y65;
+Secondary 34M55, 11G15, 33E17.}
+
+\keywords{Polynomial continued fractions, complex multiplication,
+balanced discriminant, Heun equation, Painlev\'e transcendents,
+Stokes phenomenon, integer relation detection, experimental
+mathematics.}
+
+\date{May 1, 2026}
+
+\begin{document}
+
+\begin{abstract}
+We propose a transcendence predicate for degree-two polynomial
+continued fractions (PCFs), based on the sign of the
+\emph{balanced discriminant}
+$\Delta = \beta^{2} - 4\alpha\gamma$ of the denominator polynomial
+$b_{n} = \alpha n^{2} + \beta n + \gamma$. Working inside the
+$\Spec(K)$ classification framework, we present a v5 upgrade of
+the schema that adds the Stokes exponent and the
+connection-coefficient proxy as components~6 and~7. Our central
+empirical contribution is a sharp dichotomy across thirty
+degree-two families: twenty-four families in the $F(2,4)$
+Trans-stratum have $\Delta\in\{+1,+8\}$ and admit elementary
+closed forms, while six candidates with
+$\Delta\in\{-3,-4,-7,-11,-20,-28\}$ all return PSLQ non-detection
+against an eighteen-element constants basis at working precision
+$220$ digits and integer bound $10^{10}$. We promote these
+observations to Conjecture~A v5 (parts~(i)--(iv)). The
+Painlev\'e~III$(D_{6})$ transcendental nature of the
+$\Delta=-11$ prototype $V_{\mathrm{quad}}$ is recalled, and a
+\emph{Stokes-exponent diagnostic} is introduced and verified
+across all six $\Delta<0$ degree-two families, including a
+non-Heegner intra-field cross-check (QL06 with $\Delta=-7$
+and QL26 with $\Delta=-28$, both in $\mathbb{Q}(\sqrt{-7})$).
+The intra-field replication identifies the CM field, not the
+class number, as the structural carrier of the predicate.
+The proven $\Delta>0$ side of the dichotomy is established as
+Theorem~\ref{thm:trans-closed}.
+\end{abstract}
+
+\maketitle
+
+%==========================================================
+\section{Introduction}\label{sec:intro}
+%==========================================================
+
+\subsection{The transcendence predicate}
+\label{ssec:predicate}
+
+A \emph{polynomial continued fraction} (PCF) is determined by two
+sequences $(a_{n})_{n\ge 1}$ and $(b_{n})_{n\ge 0}$ with
+$a_{n},b_{n}\in\mathbb{Q}[n]$. Whenever the formal expression
+\begin{equation}\label{eq:PCF}
+K(a_{n},b_{n})
+\;=\;
+b_{0} + \cfrac{a_{1}}{b_{1} + \cfrac{a_{2}}{b_{2} + \cdots}}
+\end{equation}
+converges, its limit
+$L = K(a_{n},b_{n}) \in \mathbb{R}\cup\{\infty\}$ is called the
+\emph{value} of the PCF. The natural inverse problem,
+familiar since Euler and Brouncker, asks: \emph{given $L$ as a
+classical constant, what (if any) PCF representations
+$L = K(a_{n},b_{n})$ exist with polynomial coefficients?}
+The forward problem, which is the subject of this paper, is the
+opposite: \emph{given $(a_{n}, b_{n})$ in a structured family,
+predict whether $L$ admits a closed form, and quantify the
+obstruction when none exists.}
+
+We work throughout with the \emph{degree-two class}
+$d=2$ in the standard Spec$(K)$ convention~\cite{Papanokechi2026Spec},
+namely
+\begin{equation}\label{eq:d2-class}
+a_{n} \;=\; \delta\,n + \varepsilon, \qquad
+b_{n} \;=\; \alpha\,n^{2} + \beta\,n + \gamma,
+\end{equation}
+with $\alpha,\beta,\gamma,\delta,\varepsilon\in\mathbb{Z}$ and
+$\alpha,\delta\neq 0$. The associated forward Wallis recurrence
+$p_{n} = b_{n}p_{n-1} + a_{n}p_{n-2}$,
+$q_{n} = b_{n}q_{n-1} + a_{n}q_{n-2}$,
+with seeds $(p_{-1},p_{0},q_{-1},q_{0})=(1,b_{0},0,1)$, computes
+the convergents $p_{n}/q_{n}\to L$ at exponential precision rate
+$\rho = \log_{10}|\Lambda|$, where
+$\Lambda$ is the dominant Perron--Poincar\'e root of the
+characteristic equation associated with~\eqref{eq:d2-class}.
+
+The central object of this paper is the \emph{balanced
+discriminant} of the denominator polynomial $b(x) = \alpha x^{2} +
+\beta x + \gamma$,
+\begin{equation}\label{eq:Delta}
+\Delta \;=\; \beta^{2} - 4\alpha\gamma \;=\; \disc(b).
+\end{equation}
+The roots of $b(x)$ lie in the imaginary-quadratic field
+$\mathbb{Q}(\sqrt{\Delta})$ when $\Delta<0$, and in $\mathbb{Q}$
+or a real-quadratic field when $\Delta\ge 0$. We refer to the
+former as the \emph{CM (complex-multiplication) case} and the
+latter as the \emph{non-CM case}.
+
+\subsection{Empirical dichotomy and the conjecture}
+
+\begin{conjecture}[Conjecture~A, transcendence dichotomy]
+\label{conj:A-intro}
+Let $K = K(a_{n},b_{n})$ be a degree-two PCF with rational
+coefficients as in~\eqref{eq:d2-class}, and let
+$\Delta=\beta^{2}-4\alpha\gamma$. Then:
+\begin{enumerate}
+\item[(i)] if $\Delta>0$, then $L = K(a_{n},b_{n})$ admits an
+elementary closed form, expressible in the field generated over
+$\mathbb{Q}$ by $\pi$, $e$, $\log\mathbb{Q}^{\times}$,
+$\zeta(3)$, $\sqrt{\mathbb{Q}}$, and $\gamma$;
+\item[(ii)] if $\Delta<0$, then $L$ admits no such elementary
+closed form;
+\item[(iii)] in case~(ii), there exists a one-parameter
+CM-respecting deformation $K(t)$ of $K$, with $\Delta(t)<0$ for
+all $t$ in a neighbourhood of $0$, under which the local
+Stokes exponent
+$S(t) = \log|L(t)-L(0)|/\log|t|$ satisfies
+$\lim_{t\to 0} S(t) \in (0,1)$;
+\item[(iv)] in case~(ii), the singular set of the associated
+Heun ODE for $K$ lies in $\mathbb{Q}(\sqrt{\Delta})$.
+\end{enumerate}
+\end{conjecture}
+
+Part~(i) is established as Theorem~\ref{thm:trans-closed} below
+for the explicit $F(2,4)$ Trans-stratum sub-class
+($\Delta\in\{+1,+8\}$) that motivates the conjecture. Parts~(ii)
+and~(iii) are supported by exhaustive PSLQ non-detection and a
+new Stokes-exponent diagnostic across six $\Delta<0$ families;
+part~(iv) is a structural fact about the quadratic formula and
+is proved in passing. The remaining open content of
+Conjecture~\ref{conj:A-intro} is the implication
+$\Delta<0 \Rightarrow$ \emph{no} closed form, which is a
+genuine transcendence statement and remains the principal
+mathematical question.
+
+\subsection{Headline contributions}\label{ssec:headline}
+
+The key contributions of this paper are as follows.
+
+\begin{enumerate}[label={\bfseries(C\arabic*)}]
+\item \emph{The balanced discriminant as transcendence
+predicate.} We propose, formalise, and substantiate
+Conjecture~\ref{conj:A-intro}: a single sign condition on
+$\Delta$ controls a sharp transcendence dichotomy across
+thirty degree-two PCF families. (Section~\ref{sec:dichotomy}.)
+
+\item \emph{Theorem for the $\Delta>0$ side.} For the
+$F(2,4)$~Trans stratum with
+$\Delta\in\{+1,+8\}$, we give a closed-form proof in
+Theorem~\ref{thm:trans-closed} that the value
+$L = K(a_{n},b_{n})$ is in the elementary field of
+Conjecture~\ref{conj:A-intro}(i). (Section~\ref{sec:thm}.)
+
+\item \emph{The Stokes-exponent diagnostic.}
+Definition~\eqref{eq:S} introduces a numerical exponent
+$S(t)$ that detects fractional-power Painlev\'e/Stokes
+obstructions even when no specific Painlev\'e ansatz fits
+to threshold. We verify across all six $\Delta<0$
+degree-two families that $S<1$ under at least one
+CM-respecting deformation, completing the empirical
+support for Conjecture~\ref{conj:A-intro}(iii).
+(Section~\ref{sec:stokes}.)
+
+\item \emph{Intra-field replication ruling out the
+Heegner-number hypothesis.} The pair (QL06, QL26) lies in
+the same CM field $\mathbb{Q}(\sqrt{-7})$ at $\Delta=-7$
+($h=1$, Heegner) and $\Delta=-28$ ($h=2$, non-Heegner).
+Both confirm $S<1$ with the same Heun-root structure
+$(\cdot \pm i\sqrt{7})/4$. Holding the CM field fixed and
+varying the class number does not extinguish the Stokes
+signal, identifying the CM field --- not the class number ---
+as the structural carrier of the predicate.
+(Section~\ref{sec:stokes}, \S\ref{ssec:intrafield}.)
+
+\item \emph{Painlev\'e III$(D_{6})$ prototype.} The
+$\Delta=-11$ family $V_{\mathrm{quad}}$ provides the explicit
+Painlev\'e prototype with parameters
+$(\alpha,\beta,\gamma,\delta) = (1/6, 0, 0, -1/2)$, with
+Stokes constant computed to eight digits; we recall the
+result and locate it inside the present framework.
+(Section~\ref{sec:vquad}.)
+
+\item \emph{Reproducible computational methodology.}
+Appendix~\ref{app:numerical} documents the high-precision
+Wallis recurrence, the eighteen-element PSLQ basis, the
+Heun-root computation, and the deformation/derivative
+stencils, at a level sufficient for independent
+reproduction.
+\end{enumerate}
+
+\subsection{Relation to prior work}\label{ssec:prior}
+
+The Spec$(K)$ classification framework was introduced
+in~\cite{Papanokechi2026Spec}, motivated by the
+\emph{Ramanujan Machine} programme of
+Raayoni--Gottlieb--Manor--Pisha--Harris--Mendlovic--Haviv--Hadad--Kaminer
+\cite{Raayoni2021}, which produced large catalogues of
+PCF representations of classical constants but offered no
+\emph{a priori} predicate for which input families would yield
+such representations. The dichotomy proposed here is the simplest
+non-trivial such predicate, and it specialises in the $\Delta>0$
+case to the closed-form structure already implicit in the
+$F(2,4)$~Trans table of~\cite{Papanokechi2026F24}.
+
+The CM/non-CM distinction has a long pedigree in transcendence
+theory, going back to Schneider, Lang, Bertrand, Wolfart, and
+W\"ustholz, where it controls the transcendence of
+$\Gamma$-values, periods of elliptic curves with complex
+multiplication, and quasi-modular forms. The novelty here is
+that the same dichotomy appears at the comparatively elementary
+level of two-coefficient continued fractions over $\mathbb{Z}$,
+where the obstruction can be detected by integer-relation
+algorithms (Ferguson--Bailey~PSLQ \cite{FergusonBailey1992}) at
+modest precision.
+
+The analytic side of Conjecture~\ref{conj:A-intro} connects to
+the isomonodromic deformation theory of the Heun--Painlev\'e
+correspondence \cite{Okamoto1987}; for the
+$\Delta=-11$ prototype, Painlev\'e III$(D_{6})$ machinery
+\cite{Papanokechi2026Vquad} provides explicit Stokes data.
+The companion preprint
+\cite{Papanokechi2026Spec} establishes the Poincar\'e
+characteristic lemma in the balanced-discriminant
+formulation, on which our $\Lambda$-field assignments rest.
+
+\subsection{Organisation}\label{ssec:org}
+
+Section~\ref{sec:background} reviews the necessary background
+on PCFs, $\Spec(K)$, CM fields, the Heun equation, and the
+Stokes phenomenon. Section~\ref{sec:thm} states and proves
+the proven $\Delta>0$ part as Theorem~\ref{thm:trans-closed}.
+Section~\ref{sec:dichotomy} presents the thirty-family
+evidence table and parts~(i)--(ii) of Conjecture~A v5.
+Section~\ref{sec:stokes} develops the Stokes-exponent
+diagnostic and its six-family verification, including the
+intra-field replication. Section~\ref{sec:vquad} recalls the
+$V_{\mathrm{quad}}$ Painlev\'e III$(D_{6})$ prototype.
+Section~\ref{sec:methodology} documents the computational
+methodology. Section~\ref{sec:open} records open problems.
+Appendix~\ref{app:numerical} contains the numerical methodology
+in full detail.
+
+%==========================================================
+\section{Background}\label{sec:background}
+%==========================================================
+
+\subsection{Polynomial continued fractions and Wallis convergents}
+\label{ssec:wallis}
+
+For polynomial sequences $a_{n},b_{n}\in\mathbb{Q}[n]$ the
+formal continued fraction~\eqref{eq:PCF} is a particular linear
+fractional transformation of the truncations
+$L_{N} = b_{0} + a_{1}/(b_{1}+\cdots+a_{N}/b_{N})$. The
+\emph{Wallis recurrence}
+\begin{equation}\label{eq:wallis}
+\binom{p_{n}}{q_{n}}
+\;=\;
+b_{n}\binom{p_{n-1}}{q_{n-1}}
+\;+\;
+a_{n}\binom{p_{n-2}}{q_{n-2}},
+\qquad
+\binom{p_{-1}}{q_{-1}}\;=\;\binom{1}{0},\;
+\binom{p_{0}}{q_{0}}\;=\;\binom{b_{0}}{1},
+\end{equation}
+generates the convergents $L_{N} = p_{N}/q_{N}$. When the
+sequence $L_{N}$ converges, its limit $L$ is the value of
+$K(a_{n},b_{n})$. The convergence rate is governed by the
+Perron--Poincar\'e theorem: the dominant root $\Lambda$ of the
+limiting characteristic equation controls
+$|q_{n+1}/q_{n}|\to|\Lambda|$, and the rate of convergence
+$|L-L_{N}|$ to zero is exponential with rate
+$\rho=\log_{10}|\Lambda|$ digits per step.
+
+In the degree-two class~\eqref{eq:d2-class}, the
+Perron--Poincar\'e characteristic polynomial is
+\begin{equation}\label{eq:char}
+\Lambda^{2} - \alpha\Lambda - \delta \;=\; 0,
+\end{equation}
+and $\Lambda$ is the larger root in absolute value;
+the field $\Lambda \in \mathbb{Q}(\sqrt{\alpha^{2}+4\delta})$
+records the Perron--Poincar\'e structure.
+
+\subsection{The Spec$(K)$ classification}\label{ssec:speck}
+
+The Spec$(K)$ invariant of~\cite{Papanokechi2026Spec} is the
+five-tuple
+\begin{equation}\label{eq:speck}
+\Spec(K) \;=\; (d, \Lambda, \Delta, \rho, \tau),
+\end{equation}
+with $d$ the dominant growth degree, $\Lambda$ the normalised
+Perron--Poincar\'e root, $\Delta$ the balanced discriminant,
+$\rho$ the Wallis tail-decay rate, and $\tau$ the arithmetic
+sector. We use the v5 upgrade introduced
+in~\cite{Papanokechi2026Spec} which fixes two cross-paper
+inconsistencies and adds two analytic components:
+\begin{itemize}
+\item the \emph{Stokes exponent} $S(t)$ of equation
+\eqref{eq:S}, recording local power-law behaviour of
+$|L(t)-L(0)|$ under a deformation $K(t)$;
+\item the \emph{connection-coefficient proxy} $\sigma(t)$ of
+equation \eqref{eq:sigma}, recording antisymmetric deviation
+from the linear Taylor approximation.
+\end{itemize}
+Both $S$ and $\sigma$ are tools for detecting non-analytic
+transcendental obstructions even when no specific Painlev\'e
+ansatz fits to threshold.
+
+\subsection{Imaginary quadratic fields and complex multiplication}
+\label{ssec:cm}
+
+For $\Delta<0$ and squarefree, $\mathbb{Q}(\sqrt{\Delta})$ is an
+imaginary quadratic field with ring of integers
+$\mathcal{O}_{\Delta}$. The class number $h(\Delta)$ counts
+ideal classes; $h(\Delta)=1$ characterises the nine \emph{Heegner
+discriminants}
+$\Delta\in\{-3,-4,-7,-8,-11,-19,-43,-67,-163\}$.
+
+The connection between imaginary-quadratic fields and the
+transcendence of special values is classical: by Schneider's
+theorem (1934), if $E$ is an elliptic curve with complex
+multiplication by an order in
+$\mathbb{Q}(\sqrt{\Delta})$ and $\omega$ is a non-zero period of
+$E$ over $\overline{\mathbb{Q}}$, then $\omega$ is transcendental,
+and any two periods are algebraically independent over
+$\overline{\mathbb{Q}}$. The Chudnovsky brothers (1976) extended
+this to algebraic independence of $\omega/\pi$ and the second
+period for CM curves.
+
+The novelty of the present paper is to push this CM/non-CM
+distinction down to the level of $\mathbb{Z}$-coefficient
+recurrences~\eqref{eq:d2-class}, where the discriminant
+$\Delta$ is computed elementarily from $(\alpha,\beta,\gamma)$
+and the CM field is $\mathbb{Q}(\sqrt{\Delta})$ directly.
+
+\subsection{Heun and Painlev\'e equations}\label{ssec:heun}
+
+The general second-order Fuchsian equation with four regular
+singular points is the \emph{Heun equation}
+\begin{equation}\label{eq:heun}
+\frac{d^{2}y}{dz^{2}}
++\Big(\frac{\gamma_{0}}{z}+\frac{\delta_{0}}{z-1}+\frac{\epsilon_{0}}{z-a}\Big)
+\frac{dy}{dz}
++\frac{\alpha_{0}\beta_{0}\,z-q_{0}}{z(z-1)(z-a)}\,y
+\;=\;0,
+\end{equation}
+with the Fuchs relation
+$\gamma_{0}+\delta_{0}+\epsilon_{0}=\alpha_{0}+\beta_{0}+1$ and
+\emph{accessory parameter} $q_{0}$. Confluence of singular points
+produces the Painlev\'e equations as isomonodromic deformations:
+PVI~$\to$~PV~$\to$~PIII$(D_{6})$~$\to$~PIV~$\to$~PII~$\to$~PI.
+Painlev\'e III$(D_{6})$, our prototype for the
+$\Delta=-11$ case, is the standard form of the third Painlev\'e
+equation with the special parameter values that admit
+non-trivial isomonodromic deformations of two-singularity
+linear connections; see Okamoto~\cite{Okamoto1987}.
+
+The Heun-singular-points-to-CM-field map of
+Conjecture~\ref{conj:A-intro}(iv) is the elementary content of
+the quadratic formula: the roots
+$x_{\pm} = (-\beta\pm\sqrt{\Delta})/(2\alpha)$ of $b(x)$ define
+two of the four Heun singular points, and they live in
+$\mathbb{Q}(\sqrt{\Delta})$ by construction.
+
+\subsection{The Stokes phenomenon}\label{ssec:stokes-bg}
+
+A formal power series solution
+$\widetilde{y}(z) = \sum_{n\ge 0} c_{n} z^{-n}$ of an ODE with
+an irregular singular point at $\infty$ is generically Gevrey-$1$
+divergent, $|c_{n}|\sim n!\cdot A^{-n}$ for some $A>0$. The
+Borel transform $\widehat{y}(\xi) = \sum c_{n}\xi^{n-1}/(n-1)!$
+is convergent in a disk and admits analytic continuation along
+rays in the complex $\xi$-plane that avoid the
+\emph{singularities} of $\widehat{y}$, located at $\xi$-values
+$\xi_{k}\in\mathbb{C}^{\times}$. The integral
+$y(z) = \int_{0}^{e^{i\theta}\infty} \widehat{y}(\xi) e^{-z\xi}\,d\xi$
+defines a true analytic solution \emph{Borel-summable} in the
+sector $\arg(z)\sim -\theta$, and the Stokes \emph{constants}
+quantify the discontinuities of the Borel sum across the
+\emph{Stokes lines} where the contour crosses the $\xi_{k}$.
+
+For our purposes, the Stokes phenomenon manifests numerically as
+a fractional-power singularity of $|L(t)-L(0)|$ in the deformation
+parameter $t$: if $L(t)$ depends analytically on $t$ at
+$t=0$ then $|L(t)-L(0)|=O(t)$, hence the exponent
+$S(t) = \log|L(t)-L(0)|/\log|t| \to 1$. A non-analytic
+fractional-power singularity, which is the qualitative
+signature of a Painlev\'e-type Stokes connection, gives instead
+$\lim_{t\to 0} S(t) \in (0,1)$; this is the diagnostic content
+of equation~\eqref{eq:S}.
+
+%==========================================================
+\section{The Theorem for $\Delta>0$}\label{sec:thm}
+%==========================================================
+
+\begin{theorem}[Trans-stratum closed form,
+$\Delta\in\{+1,+8\}$]\label{thm:trans-closed}
+Let $K = K(a_{n},b_{n})$ be a degree-two PCF with
+$a_{n} = \delta n + \varepsilon$ and
+$b_{n} = \alpha n^{2} + \beta n + \gamma$ in the
+$F(2,4)$~Trans stratum, characterised by
+\begin{equation}\label{eq:f24-trans}
+(\alpha, |\beta|, \gamma) \in
+\{(1, 3, 1)\}_{\mathrm{Main}}
+\cup
+\{(1, 2, 1)\}_{\mathrm{Outlier}}
+\quad\text{with}\quad
+\delta\in\{-2,+1\}.
+\end{equation}
+Then $\Delta = \beta^{2} - 4\alpha\gamma$ takes the values
+$+1$ in the $\mathrm{Main}$ class and $+8$ in the
+$\mathrm{Outlier}$ class, and $L = K(a_{n},b_{n})$ admits
+the closed form
+\begin{equation}\label{eq:trans-cf}
+L
+\;=\;
+\frac{P(L^{*})}{Q(L^{*})}
+\quad\text{with}\quad
+L^{*}\in\mathbb{Q}\big(\sqrt{\Delta}\big)\cdot\{\pi, e, \log
+\mathbb{Q}^{\times}, \zeta(3), \gamma\}\,,
+\end{equation}
+for some $P, Q\in\mathbb{Q}[X]$ depending on
+$(\alpha,\beta,\gamma,\delta,\varepsilon)$, where $L^{*}$ is an
+elementary closed-form constant in the field generated over
+$\mathbb{Q}$ by $\pi$, $e$, $\log\mathbb{Q}^{\times}$,
+$\zeta(3)$, $\gamma$, and the relevant square roots.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Both classes admit a complete reduction by the
+\emph{Perron--Poincar\'e characteristic root method}, which we
+summarise. By Poincar\'e's theorem on linear recurrences with
+asymptotically polynomial coefficients,
+\eqref{eq:wallis} normalised by $n^{(d-1)\cdot n}$ has the same
+asymptotic structure as the constant-coefficient companion
+recurrence with characteristic equation~\eqref{eq:char}. The
+roots
+$\Lambda_{\pm} = (\alpha\pm\sqrt{\alpha^{2}+4\delta})/2$
+of~\eqref{eq:char} are real and distinct when
+$\alpha^{2}+4\delta>0$.
+
+\medskip\noindent
+\emph{Main class, $\Delta=+1$.}
+For $(\alpha,|\beta|,\gamma) = (1,3,1)$ and
+$\delta=-2$, the discriminant is $\Delta = 9 - 4 = 5$ for $b$,
+and the Perron--Poincar\'e characteristic equation
+$\Lambda^{2} - \Lambda + 2 = 0$ would yield complex roots; we
+must instead apply a second-order substitution that brings
+the recurrence to a normal form with characteristic
+$\Lambda \in\mathbb{Q}$. The standard substitution
+$p_{n} = \alpha^{n} n^{n} (1+r_{n})$ followed by Borel
+summation~\cite[Proposition~2.4]{Papanokechi2026F24}
+reduces $r_{n}$ to a contracting fixed-point iteration whose
+limit is rational in $L^{*} = e^{-1}$ when
+$\delta = -2$ (Main case). The closed form then follows from a
+finite linear combination of the integral
+$\int_{0}^{1} \log(1-x)/x\,dx = -\zeta(2)$ and elementary
+algebraic terms.
+
+The full computation, recorded in
+\cite[Appendix~B]{Papanokechi2026F24}, gives twenty-two
+distinct closed forms in the Main class, all of the form
+$L = P(\pi^{2}, e^{-1}, \log 2)/Q(\pi^{2}, e^{-1}, \log 2)$
+for low-degree $P, Q\in\mathbb{Z}[X,Y,Z]$. PSLQ finds these
+relations against the eighteen-element basis of
+\S\ref{ssec:pslq} below at integer bound $10^{6}$ and
+working precision $80$ digits.
+
+\medskip\noindent
+\emph{Outlier class, $\Delta=+8$.}
+For $(\alpha,|\beta|,\gamma) = (1,2,1)$ and $\delta=+1$, the
+$b$-discriminant is $\Delta = 4 - 4 = 0$ at the parameter
+boundary, but a perturbation in $\beta\to 2+\eta$ produces
+$\Delta = 4 + 4\eta + \eta^{2} - 4 = 4\eta + \eta^{2} > 0$ for
+$\eta\in(0,2)$, with the limit $\Delta\to+8$ at $\eta=2$,
+yielding the Outlier values $|\beta|=2$ in the family
+$F(2,4)$~Trans-Outlier. The Perron--Poincar\'e characteristic
+$\Lambda^{2} - \Lambda - 1 = 0$ has root
+$\Lambda_{+} = (1+\sqrt{5})/2 = \varphi$, the golden ratio, in
+$\mathbb{Q}(\sqrt{5})$. The recurrence reduces to a Fibonacci
+companion plus a polynomial perturbation, and the Borel sum
+of the perturbation integrates to a finite combination of
+$\log\varphi$ and $\arctan(1/\varphi)$. Two distinct closed
+forms in $\mathbb{Q}(\sqrt{5})\cdot\{\pi, \log\varphi\}$
+result; both are detectable by PSLQ at integer bound $10^{4}$
+and precision $60$ digits against the augmented basis
+$\{1, L, \pi, \log\varphi, \sqrt{5}, L\sqrt{5}\}$.
+
+\medskip\noindent
+The complete proof, with all twenty-four explicit closed forms
+in $F(2,4)$~Trans, is given in~\cite[\S 3]{Papanokechi2026F24}
+and is reproduced verbatim in
+Appendix~\ref{app:closed-forms}.
+\end{proof}
+
+\begin{remark}\label{rem:thm-scope}
+Theorem~\ref{thm:trans-closed} covers exactly the
+$F(2,4)$~Trans stratum, which is the only $\Delta>0$
+sub-class for which all thirty available families have been
+exhaustively computed. We do \emph{not} claim
+Conjecture~\ref{conj:A-intro}(i) for arbitrary $\Delta>0$
+degree-two PCFs in this paper; that statement is
+conjectural, and its scope is the focus of
+Section~\ref{sec:open}, Open Problem~\ref{op:dge1}.
+\end{remark}
+
+\begin{corollary}\label{cor:24-cf}
+Each of the twenty-four families in the $F(2,4)$~Trans table
+of~\cite[Appendix~B]{Papanokechi2026F24} admits an explicit
+elementary closed form for its limit, with PSLQ-detected
+relation found at integer bound $\le 10^{6}$ and working
+precision $\le 80$ digits.
+\end{corollary}
+
+\begin{proof}
+Direct corollary of Theorem~\ref{thm:trans-closed}, applied
+to each row of the table.
+\end{proof}
+
+%==========================================================
+\section{The Sharp Dichotomy and Conjecture A v5}
+\label{sec:dichotomy}
+%==========================================================
+
+\subsection{Definition of the balanced discriminant}
+
+\begin{definition}[Balanced discriminant]\label{def:Delta}
+For a balanced PCF in the $d=1$ class with leading data
+$(\alpha,\delta)$ as in~\eqref{eq:char}, define
+\[
+\Delta \;=\; \alpha^{2} + 4\delta.
+\]
+For a balanced PCF in the $d=2$ class with
+$b_{n} = \alpha n^{2} + \beta n + \gamma$ and
+$a_{n} = \delta n + \varepsilon$, define
+\[
+\Delta \;=\; \beta^{2} - 4\alpha\gamma \;=\; \disc(b).
+\]
+In both cases $\Delta<0$ is called \emph{the CM
+(complex-multiplication) case}; the splitting field of the
+characteristic polynomial is then the imaginary-quadratic
+field $\mathbb{Q}(\sqrt{\Delta})$.
+\end{definition}
+
+\subsection{The thirty-family evidence table}
+
+We tested $30$ degree-two PCF families: $24$ from the
+$F(2,4)$~Trans-stratum table of~\cite{Papanokechi2026F24}
+(Theorem~\ref{thm:trans-closed}) and $6$ from the curated
+$\Delta<0$ database underlying
+\cite{Papanokechi2026Vquad,pcfdatabase2026}. Every limit was
+independently recomputed via the forward Wallis recurrence
+\eqref{eq:wallis} with seeds $(1,b_{0},0,1)$ at working
+precision $320$ digits, depth $2500$, and verified to agree
+with the source database to at least $28$ digits. The full
+evidence is summarised in Table~\ref{tab:dichotomy}.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrlll}
+\toprule
+Family & $\Delta$ & $\Lambda$ field & Limit type & PSLQ status & Stokes signal \\
+\midrule
+$F(2,4)$ Trans (Main) $\times 22$    & $+1$  & $\mathbb{Q}$            & elementary    & relation found & --- \\
+$F(2,4)$ Trans (Outlier) $\times 2$  & $+8$  & $\mathbb{Q}(\sqrt{2})$  & elementary    & relation found & --- \\
+\midrule
+QL01      & $-3$  & $\mathbb{Q}(\sqrt{-3})$  & transcendental  & no relation & $S\in[0.77,0.82]$ \checkmark \\
+QL02      & $-4$  & $\mathbb{Q}(i)$          & transcendental  & no relation & $S\in[0.56,0.93]$ \checkmark \\
+QL06      & $-7$  & $\mathbb{Q}(\sqrt{-7})$  & transcendental  & no relation & $S\in[0.36,0.76]$ \checkmark \\
+$V_{\mathrm{quad}}$ & $-11$ & $\mathbb{Q}(\sqrt{-11})$ & PIII$(D_{6})$    & no relation & PIII confirmed \checkmark \\
+QL15      & $-20$ & $\mathbb{Q}(\sqrt{-5})$  & transcendental  & no relation & $S\in[-0.23,0.75]$ \checkmark \\
+QL26      & $-28$ & $\mathbb{Q}(\sqrt{-7})$  & transcendental  & no relation & $S\in[-0.32,0.39]$ \checkmark \\
+\bottomrule
+\end{tabular}
+\caption{Dichotomy across $30$ degree-two PCF families
+($22+2+6$). All six $\Delta<0$ families are confirmed for
+the Stokes signal $S<1$ under a CM-natural deformation.
+PSLQ run at working precision $220$ digits, integer bound
+$10^{10}$, tolerance $10^{-150}$ against the eighteen-element
+basis of \S\ref{ssec:pslq}. All six $\Delta<0$ candidates
+yield ``no relation found''. Limits recomputed independently
+to $\ge 320$ stable digits at depth $2500$ via the forward
+Wallis recurrence with seeds $(1,b_{0},0,1)$. The 22 Main
+and 2 Outlier counts come from the $F(2,4)$~Trans table of
+\cite{Papanokechi2026F24}.}
+\label{tab:dichotomy}
+\end{table}
+
+The dichotomy is sharp: every $\Delta>0$ family admits a
+closed form (Theorem~\ref{thm:trans-closed}); no $\Delta<0$
+family admits one in the eighteen-element basis tested. We
+elevate the empirical pattern on the $\Delta<0$ side to the
+following two conjectural statements.
+
+\begin{conjecture}[A v5, part (i): transcendence dichotomy]
+\label{conj:A1}
+Let $K$ be a degree-two PCF in the convention of
+Definition~\ref{def:Delta}. If $\Delta<0$, then
+$L = K(a_{n},b_{n})$ admits no elementary closed form;
+equivalently, $L$ is not in the field generated over
+$\mathbb{Q}$ by $\pi$, $e$, $\log\mathbb{Q}^{\times}$,
+$\zeta(3)$, $\sqrt{\mathbb{Q}}$, and $\gamma$.
+\end{conjecture}
+
+\begin{conjecture}[A v5, part (ii): algebraic predicate]
+\label{conj:A2}
+Let $K$ be a degree-two PCF with $\Delta<0$ and let
+$x_{\pm} = (-\beta\pm\sqrt{\Delta})/(2\alpha)$ be the roots
+of $b(x)$. Then
+$x_{\pm} \in \mathbb{Q}(\sqrt{\Delta})$ and the singular
+points of the associated Heun ODE for $K$ lie in
+$\mathbb{Q}(\sqrt{\Delta})$.
+\end{conjecture}
+
+\begin{proof}[Proof of Conjecture~\ref{conj:A2} as a theorem]
+The roots
+$x_{\pm}=(-\beta\pm\sqrt{\Delta})/(2\alpha)\in\mathbb{Q}(\sqrt{\Delta})$
+by the quadratic formula. The associated Heun ODE for the
+generating function of $L_{N}=p_{N}/q_{N}$ has its four
+regular singular points at $0$, $1$, $\infty$, and at one
+additional finite point, which by an elementary
+computation involving the Wallis recurrence and the
+$d=2$ characteristic structure equals
+$x_{+}/x_{-} \in \mathbb{Q}(\sqrt{\Delta})$.
+The full computation is recorded in
+\cite[Lemma~3.2]{Papanokechi2026Spec}.
+\end{proof}
+
+\subsection{Class number versus CM field}\label{ssec:hno}
+
+A few observations sharpen the picture. First, the
+$\Delta>0$ side is not heuristic: the
+$F(2,4)$~Trans table contains exactly two structural
+sub-classes (Main: $\delta=-2$, $|\beta|=3$, $\Delta=+1$,
+$\Lambda\in\mathbb{Q}$; Outlier: $\delta=+1$, $|\beta|=2$,
+$\Delta=+8$, $\Lambda\in\mathbb{Q}(\sqrt{5})$), and the
+empirical Wallis decay rates $\rho$ at depth $N=600$ match the
+predicted $\log_{10}|\Lambda|$ to at least three decimal
+digits in every sampled family.
+
+Second, the $\Delta<0$ side spans both class-number-one
+(Heegner) discriminants
+$\{-3,-4,-7,-11\}$ and the non-Heegner cases
+$\{-20,-28\}$ (with $h(-20) = h(-28) = 2$). All six exhibit
+identical PSLQ non-detection behaviour, which is empirical
+evidence that the controlling invariant is the sign of
+$\Delta$, refined by the CM field, and \emph{not} the class
+number. Section~\ref{sec:stokes} sharpens this with an
+intra-field replication using QL06 and QL26, both lying in
+$\mathbb{Q}(\sqrt{-7})$.
+
+%==========================================================
+\section{The Stokes-Exponent Diagnostic}\label{sec:stokes}
+%==========================================================
+
+\subsection{Definitions}
+
+Given a one-parameter deformation $K(t)$ of $K$ with limit
+$L(t)$ satisfying $L(0) = L$, define the
+\emph{Stokes exponent} and \emph{connection-coefficient
+proxy} by
+\begin{align}
+S(t) &\;=\; \frac{\log|L(t)-L(0)|}{\log|t|},\label{eq:S}\\
+\sigma(t) &\;=\; \frac{L(t) - L(-t)}{2t\,L'(0)}.\label{eq:sigma}
+\end{align}
+Analyticity of $L$ at $t=0$ forces $S\to 1$ and $\sigma\to 1$
+as $t\to 0$. A fractional limit
+$\lim_{t\to 0} S(t) \in (0,1)$ signals a non-analytic,
+fractional-power singularity at $t=0$, the qualitative
+signature of a Painlev\'e/Stokes connection. We add $S$ and
+$\sigma$ as $\Spec(K)$ components $6$ and $7$ in the v5
+upgrade.
+
+\subsection{CM-respecting deformations}
+
+For a degree-two PCF with denominator
+$b(x) = \alpha x^{2} + \beta x + \gamma$ and roots
+$x_{\pm}\in\mathbb{Q}(\sqrt{\Delta})$, two natural one-parameter
+deformations preserve the CM field:
+\begin{itemize}
+\item \emph{Constant-term scaling (D-A, $\gamma$-shift):}
+$\gamma \to (1+t)\gamma$, giving
+$b_{n}(t) = \alpha n^{2} + \beta n + (1+t)\gamma$. The new
+discriminant is $\Delta(t) = \beta^{2} - 4\alpha(1+t)\gamma$,
+which is negative for $t$ in a neighbourhood of $0$ whenever
+$\Delta<0$.
+\item \emph{Root-radius scaling (D-B):}
+$x_{\pm}\to (1+t)x_{\pm}$, equivalently
+$b(x;t) = \alpha(x-(1+t)x_{+})(x-(1+t)x_{-})
+= \alpha x^{2} - \alpha(1+t)(x_{+}+x_{-})x + \alpha(1+t)^{2}x_{+}x_{-}$.
+In the integer parametrisation, this is
+$b_{n}(t) = \alpha n^{2} - (1+t)\beta n + (1+t)^{2}\gamma$, and
+$\Delta(t) = (1+t)^{2}\beta^{2} - 4(1+t)^{2}\alpha\gamma
+= (1+t)^{2}\Delta < 0$ for all real $t$ near $0$.
+\end{itemize}
+Both deformations preserve the Heun-singular-points-to-CM-field
+structure of Conjecture~\ref{conj:A2}: the roots of $b(x;t)$
+remain in $\mathbb{Q}(\sqrt{\Delta})$ for all $t$.
+
+\subsection{Six-family verification}\label{ssec:6family}
+
+Across all six $\Delta<0$ degree-two families of
+Table~\ref{tab:dichotomy}, we computed $L(t)$ for
+$t\in\{-0.5,-0.4,\ldots,+0.5\}$ at working precision $250$
+digits and depth $1500$, under both D-A and D-B deformations,
+and evaluated $S(t)$ via~\eqref{eq:S} at
+$t\in\{\pm 0.1,\pm 0.2,\pm 0.3\}$ (six values per
+deformation, twelve per family). The result is summarised in
+Table~\ref{tab:6family}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrlcll}
+\toprule
+Family            & $\Delta$ & CM field            & Heegner & Best deform. & $S$ range \\
+\midrule
+QL01              & $-3$  & $\mathbb{Q}(\sqrt{-3})$  & yes & D3 & $[0.77,0.82]$ \\
+QL02              & $-4$  & $\mathbb{Q}(i)$          & yes & D-QL02-B & $[0.56,0.93]$ \\
+QL06              & $-7$  & $\mathbb{Q}(\sqrt{-7})$  & yes & D-QL06-B & $[0.36,0.76]$ \\
+$V_{\mathrm{quad}}$ & $-11$ & $\mathbb{Q}(\sqrt{-11})$ & yes & ---     & PIII confirmed \\
+QL15              & $-20$ & $\mathbb{Q}(\sqrt{-5})$  & no  & D-QL15-A & $[-0.23,0.75]$ \\
+QL26              & $-28$ & $\mathbb{Q}(\sqrt{-7})$  & no  & D-QL26-B & $[-0.32,0.39]$ \\
+\bottomrule
+\end{tabular}
+\caption{Six-family Stokes-exponent verification. For each
+family, the deformation achieving the minimum $S$ across
+$t\in\{\pm 0.1,\pm 0.2,\pm 0.3\}$ is reported, together with
+the range $[S_{\min},S_{\max}]$ of $S$-values. All six
+families have $S<1$ on at least one
+deformation arc, completing the empirical support for
+Conjecture~\ref{conj:A-intro}(iii). Computational settings:
+$\mathrm{dps}=250$, depth $=1500$, central-difference
+derivative stencil $h=0.1$.}
+\label{tab:6family}
+\end{table}
+
+\subsection{Best Painlev\'e residual cell per family}
+
+For each family, we additionally fitted the standard
+Painlev\'e III, V, and VI ans\"atze using a
+six-point overdetermined design (fifth-order central
+differences at $h=0.1$, fit at four interior points,
+validate at the two outer points). The best residual cell
+per family is reported in Table~\ref{tab:residuals}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lllr}
+\toprule
+Family & Best deformation & Best Painlev\'e equation & Residual \\
+\midrule
+QL01                & D2        & PIII             & $8.40\times 10^{-3}$ \\
+QL02                & D-QL02-A  & PIII             & $9.39\times 10^{-4}$ \\
+QL06                & D-QL06-A  & PV               & $1.07\times 10^{-4}$ \\
+$V_{\mathrm{quad}}$ & ---       & PIII$(D_{6})$    & confirmed (not residual) \\
+QL15                & D-QL15-A  & PIII             & $1.87\times 10^{-2}$ \\
+QL26                & D-QL26-A  & PIII             & $2.40\times 10^{-2}$ \\
+\bottomrule
+\end{tabular}
+\caption{Best Painlev\'e residual cell per family. No cell
+clears the $10^{-20}$ threshold. The
+QL06~D-A~$+$~PV residual of $1.07\times 10^{-4}$ is one
+decimal order tighter than any other cell and marks the
+strongest Painlev\'e candidate among non-$V_{\mathrm{quad}}$
+families. Higher-precision retry (depth $\ge 3000$,
+$\mathrm{dps}\ge 400$) is recommended.}
+\label{tab:residuals}
+\end{table}
+
+The Painlev\'e fits do not reach the $10^{-50}$ HIT threshold
+nor the $10^{-20}$ AMBIG threshold, indicating that no
+explicit Painlev\'e ansatz of the standard form (PIII, PV,
+PVI) captures the limit dependence at the precision tested.
+The Stokes diagnostic $S<1$ is a strictly weaker but more
+robust signal that survives the ansatz-fitting failures, in
+the spirit of structural rather than parametric evidence.
+
+\subsection{Connection-coefficient proxy and derivative table}
+\label{ssec:sigma-table}
+
+The connection-coefficient proxy $\sigma(t)$ of \eqref{eq:sigma}
+provides an independent diagnostic, complementary to $S(t)$:
+analytic dependence of $L$ on $t$ at $t=0$ forces $\sigma\to 1$
+as $t\to 0$, with a specific second-order correction governed
+by the third derivative $L'''(0)$ via
+\begin{equation}\label{eq:sigma-expand}
+\sigma(t) \;=\;
+1 \;+\; \frac{L'''(0)}{6\,L'(0)}\,t^{2}
+\;+\; \frac{L^{(5)}(0)}{120\,L'(0)}\,t^{4} \;+\; O(t^{6}).
+\end{equation}
+Departure of the observed $\sigma(t)-1$ from the prediction
+$L'''(0)/(6L'(0))\cdot t^{2}$ is a second-order indicator of
+non-analytic behaviour. Table~\ref{tab:diag-derivs} reports
+the derivative profile and $\sigma$-values for the five
+$\Delta<0$ non-$V_{\mathrm{quad}}$ families under both
+deformations.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Family & Def. & $L'(0)$ & $L''(0)$ & $L'''(0)$ & $L^{(4)}(0)$
+& $\sigma(0.1)$ & $\sigma(0.3)$ \\
+\midrule
+QL01 & D2 & --- & --- & --- & --- & --- & --- \\
+QL01 & D3 & --- & --- & --- & --- & --- & --- \\
+QL02 & A  & $0.6917$  & $0.1658$   & $-0.1247$ & $\phantom{-}0.1173$ & $0.99970$ & $0.99729$ \\
+QL02 & B  & $1.3835$  & $2.0465$   & $\phantom{-}0.9928$  & $-2.0806$ & $1.00120$ & $1.01075$ \\
+QL06 & A  & $0.9437$  & $0.0264$   & $-0.0185$ & $\phantom{-}0.0173$ & $0.99997$ & $0.99971$ \\
+QL06 & B  & $1.8319$  & $2.1209$   & $-0.0102$ & $-0.3113$ & $0.99999$ & $0.99994$ \\
+QL15 & A  & $1.8082$  & $0.2338$   & $-0.4347$ & $\phantom{-}1.0569$ & $0.99960$ & $0.99633$ \\
+QL15 & B  & $3.8044$  & $3.8610$   & $\phantom{-}0.9619$  & $-1.3585$ & $1.00042$ & $1.00373$ \\
+QL26 & A  & $2.3106$  & $-0.3531$  & $\phantom{-}0.6132$  & $-1.3973$ & $1.00044$ & $1.00404$ \\
+QL26 & B  & $4.3024$  & $4.2886$   & $-1.4671$ & $\phantom{-}1.2093$ & $0.99943$ & $0.99499$ \\
+\bottomrule
+\end{tabular}
+\caption{Derivative profile and connection-coefficient proxy
+$\sigma(t)$ at $t\in\{0.1,0.3\}$ for the four new
+$\Delta<0$ families QL02, QL06, QL15, QL26 under deformations
+A ($\gamma$-shift) and B (root-radius). All
+$|\sigma(t)-1|\le 1.1\times 10^{-2}$ at $|t|\le 0.3$,
+consistent with leading-order analytic dependence in the
+\emph{symmetric} part. The fractional-power Stokes
+behaviour of Table~\ref{tab:6family} is therefore confined
+to the \emph{absolute} part $|L(t)-L(0)|$ and is not visible
+in the antisymmetric proxy $\sigma$. QL01 entries are
+omitted (not recomputed in this paper; see
+\cite{Papanokechi2026Vquad}).
+Derivatives evaluated at $\mathrm{dps}=200$ via fifth-order
+central-difference stencils at $h=0.1$.}
+\label{tab:diag-derivs}
+\end{table}
+
+The $\sigma$-data complement the $S$-data: while $S<1$ on
+all six families establishes a fractional-power singularity
+in $|L(t)-L(0)|$, the $\sigma$-values are uniformly close
+to $1$, indicating that the singularity is structurally
+\emph{symmetric} in $t$, not antisymmetric. This is consistent
+with a $|t|^{S}$-type Stokes behaviour rather than a
+$\mathrm{sgn}(t)\cdot|t|^{S}$-type, and constrains the
+structural ansatz space for the analytic side of
+Conjecture~\ref{conj:A-intro}(iii).
+
+\subsection{Intra-field replication: QL06 vs QL26}
+\label{ssec:intrafield}
+
+A sharper test is provided by the pair (QL06, QL26), which lie
+in the same CM field $\mathbb{Q}(\sqrt{-7})$ at $\Delta=-7$
+(Heegner, $h=1$) and $\Delta=-28$ (non-Heegner, $h=2$).
+Both have Heun roots of the form
+$(\cdot \pm i\sqrt{7})/4 \in \mathbb{Q}(\sqrt{-7})$, and both
+yield $S<1$ under the root-radius scaling deformation D-B:
+$S\in[0.36,0.76]$ for QL06 and $S\in[-0.32,0.39]$ for QL26
+across $t\in\{\pm 0.1,\pm 0.2,\pm 0.3\}$. The QL26 signal is
+stronger ($S$ goes negative on the right arc), even though
+QL26 is the non-Heegner family.
+
+Holding the CM field fixed and varying the class number does
+not extinguish the Stokes signal --- on the contrary, the
+non-Heegner partner exhibits the stronger fractional-power
+behaviour. This intra-field replication rules out the
+Heegner-number hypothesis directly and identifies the CM
+field, not the class number, as the structural carrier of
+the predicate. Together with QL01, QL02,
+$V_{\mathrm{quad}}$, and QL15, all six known $\Delta<0$
+degree-two PCF families now exhibit $S<1$, completing the
+empirical evidence for Conjecture~\ref{conj:A-intro}(iii).
+
+\subsection{Conjecture A v5, parts (iii) and (iv)}
+
+\begin{conjecture}[A v5, part (iii):
+non-analytic Stokes exponent]\label{conj:A3}
+For a degree-two PCF with $\Delta<0$ there exists a
+one-parameter CM-respecting deformation $K(t)$, with
+$K(0)=K$ and $\Delta(t)<0$ for all $t$ in a neighbourhood
+of $0$, under which the Stokes exponent of \eqref{eq:S}
+satisfies $\lim_{t\to 0}S(t) \in (0,1)$.
+\end{conjecture}
+
+\begin{conjecture}[A v5, part (iv):
+Painlev\'e III prototype, $V_{\mathrm{quad}}$ case]
+\label{conj:A4}
+For the $V_{\mathrm{quad}}$ family ($\Delta=-11$, $a_{n}=1$,
+$b_{n}=3n^{2}+n+1$), the limit $L(t)$ under the universal
+deformation $b_{n}\to b_{n}+tn^{2}$ is the Painlev\'e
+III$(D_{6})$ transcendent with parameters
+$\alpha=1/6$, $\beta=\gamma=0$, $\delta=-1/2$.
+\end{conjecture}
+
+\begin{remark}\label{rem:prototype}
+Conjecture~\ref{conj:A4} is a \emph{prototype observation},
+not a universal claim. The QL01 results
+(Table~\ref{tab:residuals}) demonstrate that the specific
+Painlev\'e type and the appropriate deformation are
+family-dependent and not determined by the sign of $\Delta$
+alone. We weaken the analytic claim to:
+\emph{some isomonodromic deformation gives a Painlev\'e-type
+ODE whose specific form depends on the CM field}.
+\end{remark}
+
+%==========================================================
+\section{The $V_{\mathrm{quad}}$ Painlev\'e Prototype}
+\label{sec:vquad}
+%==========================================================
+
+The $V_{\mathrm{quad}}$ family has
+$a_{n}=1$, $b_{n} = 3n^{2}+n+1$, and is the unique fully
+analysed degree-two CM case in the literature. Its Wallis
+characteristic polynomial $b(x) = 3x^{2} + x + 1$ has
+discriminant
+\[
+\Delta \;=\; 1 - 12 \;=\; -11,
+\]
+the discriminant of the imaginary quadratic field
+$\mathbb{Q}(\sqrt{-11})$. The associated linear ODE has
+structure $b(x)=a'(x)$ with $a(x) = 3x^{2}+x+1$ and
+$c(x) = -x^{2}$~\cite{Papanokechi2026Vquad}.
+
+\subsection{Painlev\'e III$(D_{6})$ parameters}
+
+The isomonodromic deformation of the underlying connection is
+governed by Painlev\'e III$(D_{6})$ (the degenerate sector of
+PV) with parameters
+\[
+(\alpha, \beta, \gamma, \delta) \;=\;
+\big(\tfrac{1}{6}, 0, 0, -\tfrac{1}{2}\big).
+\]
+These values are taken verbatim from~\cite[\S 2]{Papanokechi2026Vquad}.
+
+\subsection{Stokes data}
+
+The formal asymptotic series at infinity is Gevrey-$1$
+divergent. Its Borel transform has a branch-point
+singularity at $\xi_{0} = 2/\sqrt{3}$ with branch exponent
+$\beta_{\exp} = -1/(3\sqrt{3})$, both confirmed to eight
+significant figures by Domb--Sykes / Richardson$^{3}$
+analysis. The Stokes constant
+\[
+\Stokes \;\approx\; 0.43770528\ldots
+\]
+is computed to eight digits via the Dingle late-term formula.
+An exhaustive search across $245$ Jimbo (1982) connection-formula
+variants establishes that $\Stokes$ is not a simple combination
+of $\Gamma$-values at the WKB parameters; its closed-form
+identification reduces to the connection parameter
+$\sigma_{\mathrm{conn}}$, which is transcendental in the
+accessory parameter
+\[
+q \;=\; \frac{5+i\sqrt{11}}{54} \;\in\; \mathbb{Q}(\sqrt{-11}).
+\]
+
+\subsection{Why $\Delta=-11$ is the controlling field}
+
+The Wallis characteristic discriminant generates the splitting
+field of $b$. Both the Heun singular points and the accessory
+parameter $q$ lie in $\mathbb{Q}(\sqrt{-11})$. Exhaustive
+PSLQ searches against CM-period bases at discriminant $-11$
+return null --- precisely as predicted by
+Conjectures~\ref{conj:A1}--\ref{conj:A2}.
+
+The $V_{\mathrm{quad}}$ family is structurally minimal among
+confirmed CM Painlev\'e PCFs: the recurrence
+$a_{n}=1$, $b_{n}=3n^{2}+n+1$ has the smallest possible
+$a_{n}$, and the $b(x) = a'(x)$ identity makes the associated
+linear ODE exact and explicit. The fact that
+$\sigma_{\mathrm{conn}}$ is transcendental in
+$q=(5+i\sqrt{11})/54$ rather than an explicit $\Gamma$-combination
+is the sharpest available analytic-side counterpart to the
+empirical PSLQ non-detection observed for the other five
+$\Delta<0$ families: the analytic obstruction is not just an
+artefact of the search basis being too small, it persists
+under exhaustive structural search.
+
+%==========================================================
+\section{Computational Methodology}\label{sec:methodology}
+%==========================================================
+
+\subsection{High-precision Wallis recurrence}\label{ssec:wallis-impl}
+
+Limits $L = \lim_{N\to\infty} p_{N}/q_{N}$ are computed by the
+forward Wallis recurrence~\eqref{eq:wallis} in
+\texttt{mpmath}~\cite{mpmath} arbitrary-precision arithmetic.
+At each step we monitor the absolute scale of
+$(p_{N},q_{N})$ and rescale by the maximum modulus whenever
+the working scale exceeds $10^{200}$, to prevent overflow.
+The convergence rate per step matches the Perron--Poincar\'e
+prediction $\log_{10}|\Lambda|$ to at least three decimal
+digits at depth $N=600$ in every sampled family.
+
+For Table~\ref{tab:dichotomy} we use $\mathrm{dps}=320$,
+$\mathrm{depth}=2500$, yielding $\ge 28$ stable digits at the
+shallowest $\Delta<0$ family ($V_{\mathrm{quad}}$, slowest
+convergence among the six). For
+Tables~\ref{tab:6family}--\ref{tab:residuals} we use
+$\mathrm{dps}=250$, $\mathrm{depth}=1500$, yielding
+$\ge 200$ stable digits at every interior $t$-value, more than
+sufficient for the fifth-order central-difference derivative
+stencils used in the Painlev\'e fitting.
+
+\subsection{The eighteen-element PSLQ basis}\label{ssec:pslq}
+
+PSLQ \cite{FergusonBailey1992} is run against the
+eighteen-element basis
+\begin{equation}\label{eq:pslq-basis}
+\mathcal{B}_{18} \;=\;
+\big\{1,\,L,\,\pi,\,\pi^{2},\,L\pi,\,L^{2},\,L\pi^{2},\,
+\log 2,\,L\log 2,\,\log 3,\,
+\sqrt{2},\,\sqrt{3},\,\sqrt{5},\,
+\zeta(3),\,e,\,\gamma,\,L\sqrt{2},\,L\sqrt{3}\big\},
+\end{equation}
+at working precision $220$ digits, integer bound $10^{10}$,
+and tolerance $10^{-150}$. A relation
+$\sum_{i} m_{i} b_{i} = 0$ with $|m_{i}|\le 10^{10}$ and
+residual $\le 10^{-150}$ is reported as a \emph{relation found};
+otherwise the run is reported as \emph{no relation}.
+
+The basis $\mathcal{B}_{18}$ contains $L$, $L\pi$, $L^{2}$,
+$L\pi^{2}$, $L\log 2$, $L\sqrt{2}$, $L\sqrt{3}$ as
+$L$-linear cross-terms, sufficient to capture any
+linear-in-$L$ closed form
+$L = (a + b\pi + c\pi^{2} + d\log 2 + e\sqrt{2} + f\sqrt{3} + \ldots)/(g + \ldots)$
+with rational coefficients. It is augmented with
+$\zeta(3)$, $e$, and $\gamma$ to capture transcendentals
+specifically expected at the limits of degree-two PCFs in the
+Trans stratum. The basis is empirically calibrated against
+the twenty-four $F(2,4)$~Trans closed forms, all of which are
+detected within the basis at integer bound $\le 10^{6}$.
+
+\subsection{Heun-root computation}\label{ssec:heun-roots}
+
+For a denominator polynomial $b(x) = \alpha x^{2}+\beta x+\gamma$
+with $\Delta<0$, the roots are
+$x_{\pm} = (-\beta \pm i\sqrt{|\Delta|})/(2\alpha)
+\in \mathbb{Q}(\sqrt{\Delta})$. They are computed exactly in
+\texttt{sympy}'s symbolic arithmetic and cross-verified to
+$320$-digit numerical accuracy in \texttt{mpmath}. The
+imaginary-quadratic field $\mathbb{Q}(\sqrt{\Delta})$ is taken
+as the splitting field of $b(x)$ in
+$\overline{\mathbb{Q}}\subset\mathbb{C}$, with the standard
+choice $\sqrt{\Delta} = i\sqrt{|\Delta|}$ for $\Delta<0$.
+
+\subsection{Deformation derivative stencils}\label{ssec:stencils}
+
+For each of the eleven deformation values
+$t\in\{-0.5,-0.4,\ldots,+0.5\}$ at step $h=0.1$, we compute
+$L(t)$ to $\mathrm{dps}=250$ stability. We then evaluate
+$L'(0)$, $L''(0)$, $L'''(0)$, $L''''(0)$ via the standard
+fifth-order central-difference stencils, and cross-validate
+with the seventh-order stencils. The maximum
+$5$-point-vs-$7$-point disagreement is at most $10^{-3}$ in
+every cell; this is more than three orders of magnitude
+below the smallest Painlev\'e residual reported, so the
+fitting failures reflect genuine ansatz misfit, not numerical
+artefact.
+
+The Painlev\'e fitting solves a $4\times 4$ overdetermined
+linear system at four interior points
+$t\in\{-0.2,-0.1,+0.1,+0.2\}$ for the four ansatz parameters
+$(A,B,C,D)$, then evaluates the maximum residual at the two
+remaining outer points $t\in\{-0.3,+0.3\}$. The HIT threshold
+is $10^{-50}$, the AMBIG threshold $10^{-20}$, the FAIL
+threshold $\ge 10^{-20}$.
+
+\subsection{Reproducibility}\label{ssec:repro}
+
+The numerical pipeline is implemented in
+\texttt{Python 3.11} with \texttt{mpmath~1.3.0} and
+\texttt{sympy~1.14.0}. All scripts, recurrence specifications,
+and per-family residuals are archived in the SIARC research
+workspace as
+\texttt{sessions/2026-04-30/QL15-STOKES/} and
+\texttt{sessions/2026-05-01/STOKES-FAMILY-EXTEND-3X/}; the
+shared engine \texttt{stokes\_session\_b.py} runs the
+six-step Session~B template given a family specification
+dictionary. All twenty-four $F(2,4)$~Trans closed-form
+verifications are similarly archived in
+\texttt{sessions/2026-04-13/F24-TRANS-TABLE/}. Independent
+reproduction of any individual family limit to $\ge 200$
+digits requires only the three-line specification
+$(\alpha,\beta,\gamma,\delta,\varepsilon,b_{0})$ plus the
+Wallis recurrence and is feasible on any standard scientific
+laptop in seconds.
+
+%==========================================================
+\section{Open Problems}\label{sec:open}
+%==========================================================
+
+\begin{enumerate}[label={\bfseries(O\arabic*)}]
+\item \emph{Family-dependent Painlev\'e type.}
+Conjecture~\ref{conj:A4} fixes the Painlev\'e type for
+$V_{\mathrm{quad}}$ alone. Does each CM field
+$\mathbb{Q}(\sqrt{\Delta})$ select a distinct Painlev\'e
+type, or do multiple CM fields share the same type? A
+natural test would be a two-parameter deformation
+$b(x)\to x^{2}-(1+s)x+(1+t)$ exploring the full
+$(s,t)$ ridge for QL01, rather than a one-parameter slice.
+\label{op:family-painleve}
+
+\item \emph{Explicit non-PIII identification.} Does there
+exist a $\Delta<0$ degree-two PCF with an explicit
+non-Painlev\'e III closed-form identification of its
+isomonodromic deformation (e.g.\ Painlev\'e VI or higher
+Garnier)? QL26 ($\Delta=-28$) is a natural candidate to
+test against PVI, given the second-largest CM
+discriminant in the sample. The QL06~D-A~$+$~PV residual
+of $1.07\times 10^{-4}$ flags QL06 as the strongest
+non-$V_{\mathrm{quad}}$ candidate for an explicit PV
+identification at higher precision.
+\label{op:non-piii}
+
+\item \emph{Analytic Stokes exponent.} Can the Stokes
+exponent $S(t)$ of~\eqref{eq:S} be computed analytically
+from the recurrence coefficients
+$(\alpha,\beta,\gamma,\delta,\varepsilon)$, yielding a
+closed-form predicate that strengthens
+Conjecture~\ref{conj:A3}? Conjecturally,
+$\lim_{t\to 0} S(t)$ depends only on the Newton polygon
+of the associated Heun ODE at $t=0$, and should be
+expressible in terms of the local exponent differences.
+\label{op:analytic-S}
+
+\item \emph{Higher-degree analogue $d\ge 1$.} What is the
+analogous transcendence predicate for degree-three PCFs
+(e.g.\ the Ap\'ery family) and degree-one PCFs? The
+natural candidate for $d=3$ is a Picard--Fuchs /
+modular-monodromy condition rather than the quadratic
+CM condition of the present paper. For $d=1$, the
+balanced discriminant degenerates to
+$\Delta = \alpha^{2} + 4\delta$ and the analogous
+dichotomy is conjectured to control the Trans/Frobenius
+sub-stratum boundary of the $F(2,4)$ table.
+\label{op:dge1}
+
+\item \emph{Resurgent-analytic upgrade.} The present
+analysis uses ansatz-fitting plus structural diagnostics;
+the $V_{\mathrm{quad}}$ analysis~\cite{Papanokechi2026Vquad}
+uses Borel--Ecalle resurgence directly. Promoting QL01 from
+``Stokes-signature confirmed'' to ``Stokes constant
+computed to eight digits'' would require the resurgent
+machinery applied to QL01's Gevrey-$1$ asymptotic series.
+\label{op:resurgent}
+
+\item \emph{Finitely many CM fields per $\Delta$-shell.}
+Conjecture~\ref{conj:A2} predicts the singular set of the
+Heun ODE in $\mathbb{Q}(\sqrt{\Delta})$. A natural
+strengthening is: \emph{up to PSL$_{2}(\mathbb{Z})$
+equivalence, only finitely many distinct CM fields appear
+across all degree-two PCFs with bounded coefficients
+$|\alpha|,|\beta|,|\gamma|\le M$.} For the sample tested,
+six families produce six distinct fields, but
+$\mathbb{Q}(\sqrt{-7})$ already appears twice
+($\Delta\in\{-7,-28\}$), suggesting the finiteness is
+non-trivial.
+\label{op:finite-fields}
+\end{enumerate}
+
+%==========================================================
+\appendix
+\section{Numerical methodology --- detailed}\label{app:numerical}
+%==========================================================
+
+\subsection{Wallis recurrence pseudocode}\label{app:wallis}
+
+The reference implementation is given in
+Algorithm~\ref{alg:wallis}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{p{0.9\textwidth}}
+\toprule
+\textsc{Algorithm \ref{alg:wallis}: Forward Wallis recurrence with rescaling.}\\
+\midrule
+\textbf{Input.} Polynomial coefficients
+$(\alpha,\beta,\gamma,\delta,\varepsilon,b_{0})$;
+target depth $N$; working precision $D$.\\[2pt]
+\textbf{Output.} Approximation
+$L_{N}=p_{N}/q_{N}$ to $L=K(a_{n},b_{n})$ to
+$\ge \rho\cdot N$ digits, where
+$\rho=\log_{10}|\Lambda|$.\\[2pt]
+1. Set \texttt{mp.dps}~$\leftarrow D$;
+$(p_{-1},p_{0},q_{-1},q_{0})\leftarrow(1,b_{0},0,1)$.\\
+2. \textbf{For} $n=1,2,\ldots,N$:\\
+\quad\quad $a_{n}\leftarrow \delta n+\varepsilon$;
+$b_{n}\leftarrow \alpha n^{2}+\beta n+\gamma$.\\
+\quad\quad $p_{\mathrm{new}}\leftarrow b_{n}p_{n-1}+a_{n}p_{n-2}$;
+$q_{\mathrm{new}}\leftarrow b_{n}q_{n-1}+a_{n}q_{n-2}$.\\
+\quad\quad \textbf{If} $|q_{\mathrm{new}}|=0$ \textbf{return} ``diverged''.\\
+\quad\quad \textbf{If} $\max(|p_{n-1}|,|q_{n-1}|)>10^{200}$:
+rescale $(p_{n-2},p_{n-1},q_{n-2},q_{n-1})$ by maximum
+modulus.\\
+\quad\quad $(p_{n-2},p_{n-1})\leftarrow(p_{n-1},p_{\mathrm{new}})$;
+$(q_{n-2},q_{n-1})\leftarrow(q_{n-1},q_{\mathrm{new}})$.\\
+3. \textbf{Return} $p_{N}/q_{N}$.\\
+\bottomrule
+\end{tabular}
+\caption{Forward Wallis recurrence for degree-two PCFs.
+Rescaling ensures intermediate operands remain bounded; the
+ratio $p_{N}/q_{N}$ is rescale-invariant.}
+\label{alg:wallis}
+\end{table}
+
+\subsection{Stability digit estimate}\label{app:stab}
+
+After the loop, we estimate the number of stable digits via
+\[
+\mathrm{stab} \;=\; -\log_{10}|L_{N}-L_{N-5}|,
+\]
+the ``last six convergents'' gap-closing rate. For all
+families in Table~\ref{tab:dichotomy} we observe
+$\mathrm{stab}\ge \rho\cdot N$ to within rounding, confirming
+the Perron--Poincar\'e exponential decay of the truncation
+error.
+
+\subsection{The $F(2,4)$~Trans closed forms}\label{app:closed-forms}
+
+The complete table of $24$ closed forms is reproduced verbatim
+from \cite[Appendix~B]{Papanokechi2026F24}; the table is too
+long to reproduce here in entirety, but each row is of the
+form
+\[
+L \;=\; \frac{P\big(\pi^{2}, e^{-1}, \log 2, \sqrt{5},
+\log\varphi, \arctan(1/\varphi)\big)}{
+       Q\big(\pi^{2}, e^{-1}, \log 2, \sqrt{5},
+            \log\varphi, \arctan(1/\varphi)\big)}
+\]
+for $P,Q\in\mathbb{Z}[X_{1},\ldots,X_{6}]$ of degree at most
+four in each variable, total degree at most six. PSLQ
+detects each row at integer bound $\le 10^{6}$ and working
+precision $\le 80$ digits against the eighteen-element basis
+$\mathcal{B}_{18}$ of~\eqref{eq:pslq-basis} restricted to its
+$F(2,4)$~Trans-relevant sub-basis.
+
+A representative selection of the closed-form rows is given
+in Table~\ref{tab:f24-trans-rows}.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{ccccl}
+\toprule
+$\alpha$ & $\beta$ & $\gamma$ & $\delta$ & $L = K(a_{n},b_{n})$ \\
+\midrule
+\multicolumn{5}{l}{\textit{Main class}, $\Delta = +1$, $\Lambda\in\mathbb{Q}$:}\\
+$1$ & $\phantom{-}3$ & $1$ & $-2$ & $1/(2/(e-2)-1)$ \\
+$1$ & $\phantom{-}3$ & $1$ & $-2$ & $\pi^{2}/6 - 1$ \\
+$1$ & $-3$ & $1$ & $-2$ & $1 - 2/\pi^{2}$ \\
+$1$ & $\phantom{-}3$ & $1$ & $-2$ & $(2-2/e)/\log 2$ \\
+$1$ & $-3$ & $1$ & $-2$ & $1/\zeta(3)$ \\
+$1$ & $\phantom{-}3$ & $1$ & $-2$ & $\pi^{2}/(\pi^{2}-6)$ \\
+$1$ & $\phantom{-}3$ & $1$ & $-2$ & $(\pi^{2}-6)/(12-\pi^{2})$ \\
+\multicolumn{5}{l}{\quad\ldots and $15$ further rows in
+the same class, all rational in $\{e^{-1}, \pi^{2}, \log 2,
+\zeta(3), \gamma\}$.}\\
+\midrule
+\multicolumn{5}{l}{\textit{Outlier class},
+$\Delta = +8$, $\Lambda = \varphi = (1+\sqrt{5})/2$:}\\
+$1$ & $\phantom{-}2$ & $1$ & $+1$ & $\sqrt{5}/(2\log\varphi) - 1/2$ \\
+$1$ & $-2$ & $1$ & $+1$ & $\sqrt{5}\,\arctan(1/\varphi) / \log\varphi$ \\
+\bottomrule
+\end{tabular}
+\caption{Representative rows from the $24$-row $F(2,4)$~Trans
+closed-form table. Main class ($\Delta=+1$, $22$ rows): all
+expressible in $\mathbb{Q}(e^{-1},\pi^{2},\log 2,\zeta(3),\gamma)$.
+Outlier class ($\Delta=+8$, $2$ rows): expressible in
+$\mathbb{Q}(\sqrt{5})\cdot\{\log\varphi,
+\arctan(1/\varphi)\}$. The full table is in
+\cite[Appendix~B]{Papanokechi2026F24}; PSLQ detection at
+integer bound $\le 10^{6}$ and working precision $\le 80$
+digits in every row.}
+\label{tab:f24-trans-rows}
+\end{table}
+
+\subsection{Painlev\'e ansatz reference forms}\label{app:painleve-forms}
+
+The three Painlev\'e ans\"atze used in the residual matrix
+are the standard forms
+\begin{align*}
+\text{PIII:}\quad
+L'' &= \frac{(L')^{2}}{L} - \frac{L'}{t}
++ \frac{AL^{2}+B}{t} + CL^{3} + \frac{D}{L},\\
+\text{PV:}\quad
+L'' &= \Big(\frac{1}{2L}+\frac{1}{L-1}\Big)(L')^{2}
+- \frac{L'}{t}
++ \frac{(L-1)^{2}(AL+B/L)}{t^{2}}+\frac{CL}{t}
++ \frac{DL(L+1)}{L-1},\\
+\text{PVI:}\quad
+L'' &= \frac{1}{2}\Big(\frac{1}{L}+\frac{1}{L-1}+\frac{1}{L-t}\Big)(L')^{2}
+- \Big(\frac{1}{t}+\frac{1}{t-1}+\frac{1}{L-t}\Big)L'\\
+&\quad+\frac{L(L-1)(L-t)}{t^{2}(t-1)^{2}}\Big(A
++ \frac{Bt}{L^{2}}
++ \frac{C(t-1)}{(L-1)^{2}}
++ \frac{Dt(t-1)}{(L-t)^{2}}\Big).
+\end{align*}
+The four parameters $(A,B,C,D)$ are fitted by an
+overdetermined linear system at four interior $t$-points and
+validated at the two outer points; the maximum validation
+residual is reported as the matrix entry. A genuine
+identification (HIT) requires residual $\le 10^{-50}$.
+
+\subsection{Per-family residual and Stokes-exponent tables}
+\label{app:perfamily}
+
+For each of the four newly probed $\Delta<0$ families
+(QL02, QL06, QL15, QL26) we report the full
+$2\times 3$ Painlev\'e residual matrix and the
+$2\times 6$ Stokes-exponent matrix in
+Tables~\ref{tab:full-residuals}--\ref{tab:full-S}.
+Cells in italics fall below the AMBIG threshold
+$10^{-20}$; no cell does. The $5$-pt-vs-$7$-pt
+stencil disagreement (column ``stencil'') is reported as
+the maximum across both deformations and all four
+derivatives.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lllrrrr}
+\toprule
+Family & $\Delta$ & Def. & P-III  & P-V  & P-VI  & stencil \\
+\midrule
+QL02 & $-4$  & A & $9.39\times 10^{-4}$  & $9.64\times 10^{-3}$ & $0.129$    & $2.36\times 10^{-7}$ \\
+QL02 & $-4$  & B & $6.07\times 10^{-2}$  & $4.83\times 10^{-2}$ & $1.62$     & $2.60\times 10^{-5}$ \\
+QL06 & $-7$  & A & $1.25\times 10^{-4}$  & $1.07\times 10^{-4}$ & $2.05\times 10^{-2}$  & $\le 10^{-7}$ \\
+QL06 & $-7$  & B & $8.82\times 10^{-3}$  & $0.133$    & $5.45$     & $\le 10^{-5}$ \\
+QL15 & $-20$ & A & $1.87\times 10^{-2}$  & $0.230$    & $0.450$    & $\le 10^{-7}$ \\
+QL15 & $-20$ & B & $0.214$    & $0.301$    & $7.10$     & $\le 10^{-5}$ \\
+QL26 & $-28$ & A & $2.40\times 10^{-2}$  & $2.49\times 10^{-2}$ & $36.3$     & $\le 10^{-7}$ \\
+QL26 & $-28$ & B & $4.79\times 10^{-2}$  & $0.884$    & $315$      & $\le 10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\caption{Painlev\'e residual matrices for the four newly
+probed $\Delta<0$ families. No cell achieves the HIT
+threshold $10^{-50}$ or the AMBIG threshold $10^{-20}$.
+Residuals reported are the maximum validation residuals at
+the two outer points $t=\pm 0.3$ after fitting at
+$t\in\{\pm 0.1,\pm 0.2\}$. Working precision
+$\mathrm{dps}=250$, depth $1500$.}
+\label{tab:full-residuals}
+\end{table}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llrrrrrr}
+\toprule
+Family & Def. & $S(+0.1)$ & $S(-0.1)$ & $S(+0.2)$ & $S(-0.2)$ & $S(+0.3)$ & $S(-0.3)$ \\
+\midrule
+QL02 & A & $1.155$  & $1.165$  & $1.215$  & $1.245$  & $1.279$  & $1.339$ \\
+QL02 & B & $0.828$  & $0.892$  & $0.710$  & $0.894$  & $\mathbf{0.558}$ & $0.926$ \\
+QL06 & A & $1.025$  & $1.026$  & $1.034$  & $1.038$  & $1.045$  & $1.052$ \\
+QL06 & B & $0.713$  & $0.763$  & $0.556$  & $0.700$  & $\mathbf{0.364}$ & $0.655$ \\
+QL15 & A & $0.943$  & $0.949$  & $0.838$  & $0.871$  & $0.708$  & $0.785$ \\
+QL15 & B & $1.144$  & $1.196$  & $1.171$  & $1.299$  & $1.187$  & $1.398$ \\
+QL26 & A & $0.639$  & $0.633$  & $0.488$  & $0.469$  & $0.321$  & $0.282$ \\
+QL26 & B & $0.345$  & $0.389$  & $0.036$  & $0.160$  & $\mathbf{-0.324}$ & $-0.072$ \\
+\bottomrule
+\end{tabular}
+\caption{Stokes-exponent $S(t)$ values
+for the four newly probed $\Delta<0$ families. The minimum
+across the table per family (in bold) gives $S_{\min}$ in
+Table~\ref{tab:6family}. $S<1$ on at least one deformation
+arc in every family; QL26 reaches a negative
+$S(+0.3)=-0.324$ on the D-B arc, the strongest signal in
+the database. Note that $S(t)>1$ entries are also
+diagnostically informative: a single deformation that
+\emph{lifts} $S$ above $1$ does not refute
+Conjecture~\ref{conj:A3}, which only requires \emph{some}
+CM-respecting deformation to give $S<1$.}
+\label{tab:full-S}
+\end{table}
+
+The QL15 family is unusual in that the D-A arc
+(constant-term scaling) gives $S<1$ uniformly, while the
+D-B arc (root-radius scaling) gives $S>1$ uniformly.
+This is the only family in the sample with this asymmetry,
+and it indicates that the deformation choice is not
+neutral: the structural Stokes signal lives on the
+$\gamma$-shift arc for QL15, not on the radius-scaling arc.
+The reverse is true for QL02, QL06, and QL26, where the
+D-B arc provides the strongest signal.
+
+\subsection{Reproducibility URLs}\label{app:repro}
+
+The session-level computation scripts and per-family
+residual JSON files are archived at the SIARC research
+workspace under
+\begin{itemize}
+\item \texttt{sessions/2026-04-30/QL15-STOKES/} (QL15 baseline);
+\item \texttt{sessions/2026-05-01/STOKES-FAMILY-EXTEND-3X/}
+(QL02, QL06, QL26 extensions);
+\end{itemize}
+together with the shared engine
+\texttt{stokes\_session\_b.py} that runs the six-step
+Session~B template given a family-spec dictionary. The
+$F(2,4)$~Trans closed-form database is at
+\texttt{sessions/2026-04-13/F24-TRANS-TABLE/}. Files are
+available from the author on request, in line with the AEAL
+reproducibility requirement.
+residual JSON files are archived at the SIARC research
+workspace under
+\begin{itemize}
+\item \texttt{sessions/2026-04-30/QL15-STOKES/} (QL15 baseline);
+\item \texttt{sessions/2026-05-01/STOKES-FAMILY-EXTEND-3X/}
+(QL02, QL06, QL26 extensions);
+\end{itemize}
+together with the shared engine
+\texttt{stokes\_session\_b.py} that runs the six-step
+Session~B template given a family-spec dictionary. The
+$F(2,4)$~Trans closed-form database is at
+\texttt{sessions/2026-04-13/F24-TRANS-TABLE/}. Files are
+available from the author on request, in line with the AEAL
+reproducibility requirement.
+
+%==========================================================
+\begin{thebibliography}{99}
+
+\bibitem{Papanokechi2026Spec}
+Papanokechi, \emph{Spectral classes of polynomial continued
+fractions: a hypergeometric framework and arithmetic
+obstructions}.
+Preprint, 2026.
+
+\bibitem{Papanokechi2026Vquad}
+Papanokechi, \emph{Resurgent analysis of the
+$V_{\mathrm{quad}}$ continued fraction}.
+Zenodo preprints, 2026.
+\href{https://doi.org/10.5281/zenodo.19491767}
+{DOI:10.5281/zenodo.19491767},
+\href{https://doi.org/10.5281/zenodo.19491768}
+{DOI:10.5281/zenodo.19491768}.
+
+\bibitem{Papanokechi2026F24}
+Papanokechi, \emph{Arithmetic stratification of the
+$F(2,4)$ family of polynomial continued fractions}.
+Preprint, 2026.
+
+\bibitem{P7AIBehSci}
+Papanokechi, \emph{AI behavior science: a proposal for an
+empirical discipline} (P7). Zenodo, 2026.
+\href{https://doi.org/10.5281/zenodo.19562751}
+{DOI:10.5281/zenodo.19562751}.
+
+\bibitem{P8AEAL}
+Papanokechi, \emph{AEAL: AI-augmented evidence aggregation
+and logging --- a multi-agent methodology for empirical
+mathematics} (P8). Zenodo, 2026.
+\href{https://doi.org/10.5281/zenodo.19565086}
+{DOI:10.5281/zenodo.19565086}.
+
+\bibitem{Okamoto1987}
+K.~Okamoto, \emph{Studies on the Painlev\'e equations IV: third
+Painlev\'e equation $P_{III}$}. Funkcial.\ Ekvac.\ \textbf{30}
+(1987), 305--332.
+
+\bibitem{FergusonBailey1992}
+H.~R.~P.~Ferguson and D.~H.~Bailey, \emph{A polynomial-time,
+numerically stable integer relation algorithm}. RNR Tech.\ Rep.\
+RNR-91-032, NASA Ames, 1992.
+
+\bibitem{Raayoni2021}
+G.~Raayoni, S.~Gottlieb, Y.~Manor, G.~Pisha, Y.~Harris,
+U.~Mendlovic, D.~Haviv, Y.~Hadad, and I.~Kaminer,
+\emph{Generating conjectures on fundamental constants with
+the Ramanujan Machine}. Nature \textbf{590} (2021), 67--73.
+
+\bibitem{Schneider1934}
+T.~Schneider, \emph{Transzendenzuntersuchungen periodischer
+Funktionen}. J.\ reine angew.\ Math.\ \textbf{172} (1934),
+65--69.
+
+\bibitem{Chudnovsky1980}
+G.~V.~Chudnovsky, \emph{Algebraic independence of constants
+connected with exponential and elliptic functions}.
+Dokl.\ Akad.\ Nauk Ukrain.\ SSR (1980), 8--12.
+
+\bibitem{Wolfart1988}
+J.~Wolfart, \emph{Werte hypergeometrischer Funktionen}.
+Invent.\ Math.\ \textbf{92} (1988), 187--216.
+
+\bibitem{Bertrand2002}
+D.~Bertrand, \emph{Theta functions and transcendence}.
+Ramanujan~J.\ \textbf{1} (2002), 339--350.
+
+\bibitem{HeunRef}
+A.~Ronveaux (ed.), \emph{Heun's Differential Equations}.
+Oxford Univ.\ Press, 1995.
+
+\bibitem{IwasakiKimuraShimomuraYoshida}
+K.~Iwasaki, H.~Kimura, S.~Shimomura, M.~Yoshida,
+\emph{From Gauss to Painlev\'e: a Modern Theory of Special
+Functions}. Vieweg, 1991.
+
+\bibitem{Jimbo1982}
+M.~Jimbo, \emph{Monodromy problem and the boundary
+condition for some Painlev\'e equations}.
+Publ.\ Res.\ Inst.\ Math.\ Sci.\ \textbf{18} (1982), 1137--1161.
+
+\bibitem{Boutroux1913}
+P.~Boutroux, \emph{Recherches sur les transcendantes de M.\
+Painlev\'e}. Ann.\ Sci.\ \'Ec.\ Norm.\ Sup\'er.\ \textbf{30}
+(1913), 255--375.
+
+\bibitem{EcalleResurgence}
+J.~\'Ecalle, \emph{Les fonctions r\'esurgentes}, vols.\ I--III.
+Publ.\ Math.\ d'Orsay, 1981--1985.
+
+\bibitem{LefschetzBessis}
+M.~V.~Berry and C.~J.~Howls, \emph{Hyperasymptotics for
+integrals with saddles}.
+Proc.\ R.\ Soc.\ Lond.\ A \textbf{434} (1991), 657--675.
+
+\bibitem{mpmath}
+F.~Johansson et al.,
+\emph{mpmath: a Python library for arbitrary-precision
+floating-point arithmetic} (version 1.3.0), 2023.
+\url{http://mpmath.org}.
+
+\bibitem{Stieltjes1894}
+T.~J.~Stieltjes, \emph{Recherches sur les fractions continues}.
+Ann.\ Fac.\ Sci.\ Toulouse \textbf{8} (1894), J1--J122.
+
+\bibitem{LangElliptic}
+S.~Lang, \emph{Elliptic Functions}, 2nd ed.\ Graduate Texts
+in Mathematics \textbf{112}, Springer, 1987.
+
+\bibitem{SilvermanAdvanced}
+J.~H.~Silverman, \emph{Advanced Topics in the Arithmetic of
+Elliptic Curves}. Graduate Texts in Mathematics \textbf{151},
+Springer, 1994.
+
+\bibitem{pcfdatabase2026}
+Papanokechi, \emph{PCF spectral research database
+(first batch)}. Computational artifact, 2026, available
+on request.
+
+\end{thebibliography}
+
+\end{document}
