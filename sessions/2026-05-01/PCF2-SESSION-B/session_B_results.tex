@@ -102,15 +102,28 @@ $\{1, \log p_i, \log p, \pi, \sqrt{|\Delta_3|}, \zeta(3),
 appearing in basis~(a)--(d) of Section~\ref{sec:pslq}.
 \end{conjecture}
 
-\begin{conjecture}[B4, cubic WKB extension]\label{conj:B4}
-For every degree-$d$ irreducible $\Z$-primitive PCF $b\in\Z[n]$ in
-scope, the WKB-decay exponent satisfies
+\begin{conjecture}[B4$'$, refined cubic WKB extension]\label{conj:B4}
+For every degree-$d$ irreducible $\Z$-primitive PCF $b\in\Z[n]$ of
+generic type in scope, the WKB-decay exponent satisfies
 \[
-   A \;\in\; \{2d-1,\ 2d\}.
+   A_{\mathrm{fit}} \;=\;
+   \begin{cases}
+     2d - 1, & \text{if the trichotomy bin is elementary-positive}\\
+             & \text{(i.e. $+\_S_d\_\mathrm{real}$ or $+\_C_d\_\mathrm{real}$),} \\
+     2d,     & \text{otherwise.}
+   \end{cases}
 \]
 For the $-\_S_3\_\mathrm{CM}$ subbin (cubic, $\Delta_3<0$, $\mathrm{Gal} = S_3$),
-the sharper statement $A = 2d = 6$ holds, with $|A_{\mathrm{fit}} - 6|
-\le 0.15$ uniformly across the bin.
+the sharp statement $A = 2d = 6$ holds with $|A_{\mathrm{fit}} - 6|
+\le 0.15$ uniformly (Session~B, 37/37).
+
+\medskip\noindent
+\textbf{Update (PCF-2 Session~C1, 2026-05-01):} the elementary-positive
+branch is empirically falsified at $d = 3$. All $13$ non-CM cubic
+families in the catalogue exhibit $A_{\mathrm{fit}} \in [5.88, 5.99]$
+(mean $5.973$, stddev $0.026$); zero are within $0.10$ of $A = 5$. The
+surviving cubic conjecture is the unsplit form $A = 2d = 6$, on $50/50$
+families. See \S\ref{sec:C1-update} for the full harvest.
 \end{conjecture}
 
 The PCF-1 v1.3 Theorem~5 (degree-$2$, $A\in\{3,4\}$) is the base case;
@@ -276,6 +289,44 @@ counterexample to Conjecture~B3(i), publishable in its own right. A
 single $A_{\mathrm{fit}}\notin\{5,6\}\pm 0.1$ in any future cubic scan
 would falsify Conjecture~\ref{conj:B4}'s sharp form. The data here
 keeps both alive.
+
+\section{WKB-exponent harvest, full degree-3 coverage (Session~C1)}\label{sec:C1-update}
+
+PCF-2 Session~C1 (2026-05-01) completes the cubic catalogue's WKB-exponent
+harvest by running the Session~B fit pipeline on the $13$ non-CM cubic
+families (bins $+\_S_3\_\mathrm{real}$ and $+\_C_3\_\mathrm{real}$),
+bringing coverage to $50/50$. Refined Conjecture~B4$'$ predicts the
+elementary-positive branch $A = 2d - 1 = 5$ for these bins; Session~B's
+$-\_S_3\_\mathrm{CM}$ result $A = 2d = 6$ stands as the otherwise branch.
+
+All $13$ non-CM families are L-stable to the dps-floor at $n = 200$
+(gate: $\ge 30$ digits). Their WKB exponents lie in
+$[A_{\min}, A_{\max}] = [5.884, 5.989]$, with mean $\bar{A} = 5.973$
+and standard deviation $\sigma_A = 0.026$. Twelve of thirteen are
+within $0.10$ of $A = 6$; family~37 ($b = n^3 - 2n^2 - 3n + 1$) has
+$A_{\mathrm{fit}} = 5.884 \pm 0.048$, the only family in the interior
+of $(5,6)$ but still far closer to $6$ than to $5$. \textbf{Zero}
+families are within $0.10$ of $A = 5$.
+
+The elementary-positive branch of Conjecture~B4$'$ is therefore
+empirically falsified at $d = 3$. The surviving cubic conjecture is
+the unsplit, sharp form
+\[
+   A_{\mathrm{fit}} = 2d = 6 \quad\text{for every cubic PCF in scope,}
+\]
+verified across $50/50$ cubic families (37 CM at $\bar{A} = 5.982$,
+$\sigma = 0.025$; 13 non-CM at $\bar{A} = 5.973$, $\sigma = 0.026$).
+The trichotomy bin does \emph{not} split the WKB exponent at $d = 3$.
+The full $50$-row table is given in
+\texttt{wkb\_cubic\_harvest\_v2.tex} (Session~C1 deliverable),
+replacing the Session~B 37-row \texttt{wkb\_cubic\_harvest.tex}.
+
+The contrast with PCF-1 v1.3 Theorem~5 ($d = 2$, $A \in \{3, 4\}$
+split by $\mathrm{sgn}(\Delta)$) is now sharp: at $d = 2$ the bin
+does split $A$; at $d = 3$ it does not. A natural Session~C2 probe
+is whether this dichotomy survives at $d = 4$, or whether the
+degree-2 split is genuinely a low-degree artefact tied to indicial-root
+resonance.
 
 \section*{Acknowledgements}
 
