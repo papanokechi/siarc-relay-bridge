@@ -1,0 +1,52 @@
+{
+  "halt_triggered": true,
+  "task_id": "SIARC-MASTER-V0",
+  "date": "2026-05-01",
+  "halt_reason": "PRECONDITIONS_UNMET",
+  "halt_condition_text": "Any of the three precondition Zenodo records is not yet uploaded -> halt, pre-conditions unmet",
+  "preconditions_required": [
+    {
+      "record": "PCF-1 v1.3",
+      "status": "MET",
+      "doi": "10.5281/zenodo.19937196",
+      "evidence": "sessions/2026-05-01/PCF1-V13-UPDATE/p12_pcf1_main.{tex,pdf}; concept DOI cited in prompt"
+    },
+    {
+      "record": "PCF-2 v1.2",
+      "status": "UNMET",
+      "doi": null,
+      "evidence": "tex/submitted/pcf2_program_statement.tex still labelled 'Version 1.1' (line 37) and dated 'May 1, 2026 (v1.1)' (line 52). Source does not absorb PCF2-SESSION-Q1 (60 quartic families, A=2d=8 at d=4, universal xi_0=d/beta_d^(1/d)) or PCF2-SESSION-R1 (finer-cubic-split, log|Delta_3| Spearman signal). Sec 6 (line 518) still calls the quartic harvest 'the immediate next step'. No v1.2 build, PDF, or Zenodo upload exists. The two new sessions are committed to pcf-research under pcf2/session_Q1_2026-05-01/ and pcf2/session_R1_2026-05-01/ as standalone companion notes only."
+    },
+    {
+      "record": "Channel Theory v1.2",
+      "status": "UNMET",
+      "doi": null,
+      "evidence": "Only sessions/2026-05-01/CHANNEL-THEORY-V11/ exists, with zenodo_description_v1.1.txt. The path referenced by the prompt -- sessions/2026-05-01/CHANNEL-THEORY-V12/channel_theory_outline.tex -- does not exist. v1.2 was intended to host Conjecture 3.3.A* (master xi_0 universality from Q1) and the CC-PIPELINE-G upgrade of Theorem 3.3.D, but was not built or uploaded. v1.1 has been packaged but not yet posted to Zenodo as a fresh concept DOI either (zenodo_description_v1.1.txt is a draft)."
+    }
+  ],
+  "summary": "2/3 preconditions unmet. Master Conjecture announcement requires the v1.2 versions of PCF-2 and Channel Theory to exist as published records, because the master statement (M1: universal xi_0=d/beta_d^(1/d) at all d) is empirically supported only by Q1 results that have not been absorbed into the publishable PCF-2 record, and (M3: chi-functor modulo Borel-Laplace) relies on the CC-PIPELINE-G theorem that lives only in CHANNEL-THEORY-V11/CC-PIPELINE-G drafts. Producing a SIARC Master Conjecture announcement now would cite results that are not yet in citable form, which conflicts with the SIARC AEAL discipline (every numerical claim must point at an immutable evidence artefact).",
+  "recommended_next_steps": [
+    "1. PCF2-V12-RELEASE relay: fold Sessions Q1 + R1 into pcf2_program_statement.tex; bump to v1.2; rebuild PDF; zenodo upload as new concept DOI.",
+    "2. CHANNEL-THEORY-V12 relay: insert Q1-driven Proposition/Theorem on xi_0(b)=d/beta_d^(1/d) (degree-d Newton-polygon universality), upgrade CC-channel via CC-PIPELINE-G to a Theorem-3.3.D statement, rebuild PDF, zenodo upload.",
+    "3. Re-issue SIARC-MASTER-V0 with all three concept DOIs in hand."
+  ],
+  "non_halt_flags": [
+    {
+      "flag": "Q1 cross_degree_table extension to d=5,6 is feasible but NOT a precondition; remains a future master-v0.2 upgrade per prompt."
+    }
+  ],
+  "deliverables_produced_under_halt": [
+    "halt_log.json (this file)",
+    "handoff.md",
+    "discrepancy_log.json (empty)",
+    "unexpected_finds.json (empty)",
+    "claims.jsonl (empty -- no AEAL claims generated since no announcement was drafted)"
+  ],
+  "deliverables_skipped_under_halt": [
+    "siarc_master_announcement.tex",
+    "siarc_master_announcement.pdf",
+    "empirical_evidence_table.tex",
+    "rubber_duck_critique.md",
+    "draft_zenodo_description_v01.txt"
+  ]
+}
