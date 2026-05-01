@@ -1,0 +1,12 @@
+{
+  "session": "BOREL-CHANNEL-K-SCAN",
+  "date": "2026-05-01",
+  "halt_triggered": false,
+  "halt_conditions_checked": {
+    "contradicts_prior_AEAL_claim": false,
+    "unexpected_positive_result": false,
+    "pre_screen_discrepancy_>5%": false,
+    "NaN_inf_or_negative_precision_residuals": false
+  },
+  "note": "No formal halt under the standing halt conditions. The session resolves a flagged anomaly from BOREL-CHANNEL-5X (MARGINAL hits at K=12 for QL15 and QL26) by demonstrating both are Pade-truncation artefacts. The downstream consequence -- the BOREL CHANNEL CONFIRMED ANOMALOUS flag for PCF-1 v1.3 -- is documented in handoff.md and k_scan_summary.json but does not itself trigger a halt; it is a structural negative result, expected and confirmatory of the V_quad gate failure recorded in BOREL-CHANNEL-5X/halt_log.json."
+}

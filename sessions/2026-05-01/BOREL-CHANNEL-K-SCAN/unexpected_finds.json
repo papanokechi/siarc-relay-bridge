@@ -1,0 +1,17 @@
+{
+  "QL15_K16_residual_dip": {
+    "observation": "QL15 best-fit residual at K=16 is 1.17e-5, which is BELOW the K=12 value of 9.08e-5; this might naively suggest a real signal that improves with truncation. However, the best-fit equation flips from P-V (K=12) to P-III (K=16) and back to P-V (K=20), and the Pade nearest-pole radius drops from 3.39 (K=12) to 1.24 (K=16) and then jumps to 5.19 (K=20). This non-monotone behaviour, combined with the equation switching, is the signature of a wandering Pade approximant locking onto different spurious singularities at each order, not a stable Borel-plane structure.",
+    "interpretation": "Pade-truncation artefact, classification consistent with the BOTH ARTEFACT decision",
+    "severity": "informational"
+  },
+  "QL26_K12_pos_real_pole_persists_only_at_K12": {
+    "observation": "At K=12 QL26 has a positive-real Pade pole at rho=+1.800 (anti-Stokes), the unique outlier in the BOREL-CHANNEL-5X singular-point catalog. At K=16,20 this pole disappears entirely; it reappears at K=24 at rho=+5.189. The +1.800 location at K=12 is an isolated artefact of the [5/5] Pade truncation, not a stable feature.",
+    "interpretation": "The 'positive-real outlier' anomaly flagged in BOREL-CHANNEL-5X for QL26 is itself a low-K artefact and does not survive K-extension",
+    "severity": "informational"
+  },
+  "WKB_universal_match_>=13_digits_all_6_families": {
+    "observation": "alpha_obs matches alpha_pred = A - 2*log(c_b) + log|c_a| to >= 13 digits for all 6 Delta<0 degree-2 PCFs (V_quad, QL01, QL02, QL06, QL15, QL26), confirming the leading WKB asymptotics is universal across the Delta<0 stratum. This is the publication-ready positive result.",
+    "interpretation": "Universal WKB exponent law -- the Delta<0 degree-2 PCFs share a common leading-order trans-series structure, even though the subleading Borel-plane analytic structure does not admit a Painleve reduction in this channel",
+    "severity": "publication-relevant positive"
+  }
+}
