@@ -1,0 +1,114 @@
+{
+  "K_bonferroni": 14,
+  "n_families": 50,
+  "table": [
+    {
+      "hypothesis": "H_baseline",
+      "predictor": "log_abs_j",
+      "description": "R1.1 baseline",
+      "n": 50,
+      "rho_R11": -0.6905728801720901,
+      "p_raw_R11": 2.8641106269862284e-08,
+      "p_bonf_R11": 4.00975487778072e-07,
+      "rho_R13": -0.5682719235138999,
+      "p_raw_R13": 1.671072086602837e-05,
+      "p_bonf_R13": 0.00023395009212439716
+    },
+    {
+      "hypothesis": "H_E4",
+      "predictor": "log_abs_E4",
+      "description": "H2 main mechanism",
+      "n": 50,
+      "rho_R11": -0.6093911768129615,
+      "p_raw_R11": 2.643515662906284e-06,
+      "p_bonf_R11": 3.700921928068798e-05,
+      "rho_R13": -0.45913297083227855,
+      "p_raw_R13": 0.0007970550662869055,
+      "p_bonf_R13": 0.011158770928016678
+    },
+    {
+      "hypothesis": "H_Delta_w6",
+      "predictor": "log_abs_Delta_petersson_w6",
+      "description": "H2 next-residual (weight 6)",
+      "n": 50,
+      "rho_R11": 0.7423562388828241,
+      "p_raw_R11": 6.813722789748696e-10,
+      "p_bonf_R11": 9.539211905648174e-09,
+      "rho_R13": 0.6382130833309952,
+      "p_raw_R13": 6.165808008605187e-07,
+      "p_bonf_R13": 8.632131212047263e-06
+    },
+    {
+      "hypothesis": "H_Delta_w12",
+      "predictor": "log_abs_Delta_petersson_w12",
+      "description": "H2 next-residual (weight 12)",
+      "n": 50,
+      "rho_R11": 0.7423562388828241,
+      "p_raw_R11": 6.813722789748696e-10,
+      "p_bonf_R11": 9.539211905648174e-09,
+      "rho_R13": 0.6382130833309952,
+      "p_raw_R13": 6.165808008605187e-07,
+      "p_bonf_R13": 8.632131212047263e-06
+    },
+    {
+      "hypothesis": "H_E6",
+      "predictor": "log_abs_E6",
+      "description": "H2 j=1728 probe",
+      "n": 50,
+      "rho_R11": 0.6093911768129615,
+      "p_raw_R11": 2.643515662906284e-06,
+      "p_bonf_R11": 3.700921928068798e-05,
+      "rho_R13": 0.45913297083227855,
+      "p_raw_R13": 0.0007970550662869055,
+      "p_bonf_R13": 0.011158770928016678
+    },
+    {
+      "hypothesis": "H_j_minus_1728",
+      "predictor": "log_abs_j_minus_1728",
+      "description": "H2 order-2 elliptic point",
+      "n": 50,
+      "rho_R11": -0.3196349432849949,
+      "p_raw_R11": 0.023653354426374826,
+      "p_bonf_R11": 0.33114696196924753,
+      "rho_R13": -0.36613428580075613,
+      "p_raw_R13": 0.00892355338533142,
+      "p_bonf_R13": 0.12492974739463988
+    },
+    {
+      "hypothesis": "H_eta",
+      "predictor": "log_eta_norm",
+      "description": "implied by Delta=eta^24",
+      "n": 50,
+      "rho_R11": -0.6981626488885055,
+      "p_raw_R11": 1.7395664217005405e-08,
+      "p_bonf_R11": 2.435392990380757e-07,
+      "rho_R13": -0.641863858156613,
+      "p_raw_R13": 5.072426896387151e-07,
+      "p_bonf_R13": 7.101397654942011e-06
+    },
+    {
+      "hypothesis": "H_imtau",
+      "predictor": "log_imtau",
+      "description": "drift coordinate",
+      "n": 50,
+      "rho_R11": -0.7010448395403089,
+      "p_raw_R11": 1.4336874612424904e-08,
+      "p_bonf_R11": 2.0071624457394865e-07,
+      "rho_R13": -0.6420560042000665,
+      "p_raw_R13": 5.020223567887803e-07,
+      "p_bonf_R13": 7.028312995042924e-06
+    },
+    {
+      "hypothesis": "H_E4_cube",
+      "predictor": "log_abs_E4_cube",
+      "description": "sanity ~ baseline + log Delta",
+      "n": 50,
+      "rho_R11": -0.6093911768129615,
+      "p_raw_R11": 2.643515662906284e-06,
+      "p_bonf_R11": 3.700921928068798e-05,
+      "rho_R13": -0.45913297083227855,
+      "p_raw_R13": 0.0007970550662869055,
+      "p_bonf_R13": 0.011158770928016678
+    }
+  ]
+}

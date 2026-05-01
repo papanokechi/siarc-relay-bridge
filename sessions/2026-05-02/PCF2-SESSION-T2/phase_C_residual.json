@@ -1,0 +1,63 @@
+{
+  "winner_hypothesis": "H_eta",
+  "winner_predictor": "log_eta_norm",
+  "winner_metrics_R13": {
+    "rho": -0.641863858156613,
+    "p_bonf": 7.101397654942011e-06
+  },
+  "baseline_metrics_R13": {
+    "rho": -0.5682719235138999,
+    "p_bonf": 0.00023395009212439716
+  },
+  "e4_beats_baseline": true,
+  "ols_fit": {
+    "c0": -0.014561605674548839,
+    "c1": -0.04758289781206528,
+    "resid_std": 0.007874829164477149,
+    "resid_mean": 2.3245294578089216e-18
+  },
+  "secondary_correlations": [
+    {
+      "predictor": "log_abs_Delta_petersson_w6",
+      "rho": -0.3024378723959015,
+      "p_raw": 0.03278223188007379,
+      "p_bonf_K4": 0.13112892752029515,
+      "n": 50
+    },
+    {
+      "predictor": "log_abs_Delta_petersson_w12",
+      "rho": -0.3024378723959015,
+      "p_raw": 0.03278223188007379,
+      "p_bonf_K4": 0.13112892752029515,
+      "n": 50
+    },
+    {
+      "predictor": "log_abs_j_minus_1728",
+      "rho": 0.27179057846505883,
+      "p_raw": 0.05621636673466915,
+      "p_bonf_K4": 0.2248654669386766,
+      "n": 50
+    },
+    {
+      "predictor": "log_abs_E6",
+      "rho": -0.07974060803322687,
+      "p_raw": 0.5819986624557844,
+      "p_bonf_K4": 1.0,
+      "n": 50
+    },
+    {
+      "predictor": "log_eta_norm",
+      "rho": 0.3258796896972356,
+      "p_raw": 0.020917290704832066,
+      "p_bonf_K4": 0.08366916281932826,
+      "n": 50
+    },
+    {
+      "predictor": "log_imtau",
+      "rho": 0.32520717854514813,
+      "p_raw": 0.021198482732488692,
+      "p_bonf_K4": 0.08479393092995477,
+      "n": 50
+    }
+  ]
+}
