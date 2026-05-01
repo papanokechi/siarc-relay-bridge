@@ -983,6 +983,66 @@ PV) with parameters
 \]
 These values are taken verbatim from~\cite[\S 2]{Papanokechi2026Vquad}.
 
+\subsection{Channel distinction: $L(t)$-deformation rules out a
+structural Painlev\'e family pattern}
+\label{ssec:painleve-deep-channel}
+
+A natural conjecture is that the recurrence-parameter
+deformation $L(t)$ used in \S\ref{sec:stokes} to detect the
+Stokes signal carries a Painlev\'e reduction for each
+$\Delta<0$ family, with $V_{\mathrm{quad}}$ serving as one
+explicit instance of a structural pattern. Session~D
+(\texttt{PAINLEVE-DEEP-6X}, depth $\geq 3000$,
+$\mathrm{dps}\geq 400$, three step-size cross-checks
+$h\in\{0.025,0.05,0.1\}$) tests this conjecture and rules it
+out: at the Step~5 cross-validation, $V_{\mathrm{quad}}$
+itself does \emph{not} recover its known
+P-III$(D_{6})$ parameters under $L(t)$ deformation, settling
+at a marginal residual of $4.59\times 10^{-5}$ rather than
+$\leq 10^{-20}$. The remaining five families return residuals
+at or above $10^{-4}$ across all six Painlev\'e equations
+P-II to P-VI.
+
+The interpretation is structural: $V_{\mathrm{quad}}$'s
+Painlev\'e reduction lives in the Borel-resummation
+Stokes-constant ODE channel, not in the recurrence-parameter
+$L(t)$ channel. The Stokes signal $S<1$ documented in
+\S\ref{sec:stokes} and the Painlev\'e reduction documented for
+$V_{\mathrm{quad}}$ are therefore \emph{distinct} structural
+diagnostics on \emph{distinct} deformation channels; they
+coincide in their support of Conjecture~A part~(iv) but not in
+their parameterisation. A further intra-field test reinforces
+this: QL06 ($\Delta=-7$, Heegner $h=1$) and QL26
+($\Delta=-28$, non-Heegner $h=2$) both lie in
+$\mathbb{Q}(\sqrt{-7})$, yet their best $L(t)$-channel
+ans\"atze disagree (P-V for QL06, P-III for QL26), ruling
+out a CM-field-driven Painlev\'e typing within the $L(t)$
+channel.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lcccr}
+\toprule
+Family & $\Delta$ & CM field & Best ansatz & Residual \\
+\midrule
+QL01    & $-3$  & $\mathbb{Q}(\sqrt{-3})$  & P-III & $8.40\times 10^{-3}$ \\
+QL02    & $-4$  & $\mathbb{Q}(i)$           & P-III & $9.39\times 10^{-4}$ \\
+QL06    & $-7$  & $\mathbb{Q}(\sqrt{-7})$  & P-V   & $1.06\times 10^{-4}$ \\
+$V_{\mathrm{quad}}$ & $-11$ & $\mathbb{Q}(\sqrt{-11})$ & P-III & $4.59\times 10^{-5}$ (marginal) \\
+QL15    & $-20$ & $\mathbb{Q}(\sqrt{-5})$  & P-III & $1.87\times 10^{-2}$ \\
+QL26    & $-28$ & $\mathbb{Q}(\sqrt{-7})$  & P-III & $2.40\times 10^{-2}$ \\
+\bottomrule
+\end{tabular}
+\caption{Best Painlev\'e ansatz residual per family at depth
+$3000$, $\mathrm{dps}=400$, in the $L(t)$ recurrence-parameter
+channel (Session~D). No family clears the $10^{-6}$ candidacy
+threshold; $V_{\mathrm{quad}}$ is marginal but does not recover
+its known P-III$(D_{6})$ parameters in this channel. Pipeline
+is $h$-independent (decimal-order spread $<0.01$) --- residuals
+reflect genuine ansatz misfit, not numerical noise.}
+\label{tab:painleve-deep}
+\end{table}
+
 \subsection{Stokes data}
 
 The formal asymptotic series at infinity is Gevrey-$1$
@@ -1208,6 +1268,20 @@ $\mathbb{Q}(\sqrt{-7})$ already appears twice
 ($\Delta\in\{-7,-28\}$), suggesting the finiteness is
 non-trivial.
 \label{op:finite-fields}
+
+\item \emph{Borel-resummation channel for the remaining five
+families.} The $L(t)$-channel test in
+\S\ref{ssec:painleve-deep-channel} cannot recover even
+$V_{\mathrm{quad}}$'s known Painlev\'e reduction, indicating
+that the Painlev\'e structure for $\Delta<0$ degree-two PCFs
+lives in the Borel-resummation Stokes-constant ODE channel
+rather than the recurrence-parameter channel used here. A
+natural follow-up is to construct a Borel-channel pipeline
+and test whether QL01, QL02, QL06, QL15, QL26 admit explicit
+Painlev\'e reductions there. The $V_{\mathrm{quad}}$ datum
+suggests this is the structurally correct channel, but the
+question is open.
+\label{op:borel-channel}
 \end{enumerate}
 
 %==========================================================
