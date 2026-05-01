@@ -1,30 +1,34 @@
-# Fleet-F AGGREGATOR — Top-Level Handoff
+# AUDIT-FLEET-F handoff
 
-**Status:** completed. Inputs F1–F4 were read-only; AGGREGATOR outputs were written.
+## Severity totals
 
-## Severity counts
+```
+CRITICAL : 0
+HIGH     : 6
+MEDIUM   : 123
+LOW      : 70
+INFO     : 4
+```
 
-Reportable Fleet-F findings: **12** (14 raw JSONL records read; `F1-02` and `F2-L1` retained as supplemental non-actionable observations).
+## Top 5 most urgent
 
-| CRITICAL | HIGH | MEDIUM | LOW | INFO |
-|---:|---:|---:|---:|---:|
-| 0 | 4 | 3 | 1 | 4 |
+1. [F4 F4-01 HIGH] bib_duplicate_key_cross_file_diverge: key `apery1979` in 2 files; bodies diverge
+2. [F4 F4-26 HIGH] bib_duplicate_key_cross_file_diverge: key `siarc_pcf1_v13` in 3 files; bodies diverge
+3. [F4 F4-40 HIGH] bib_duplicate_key_cross_file_diverge: key `ChowlaSelberg1967` in 2 files; bodies diverge
+4. [F4 F4-41 HIGH] bib_duplicate_key_cross_file_diverge: key `Silverman1994Advanced` in 2 files; bodies diverge
+5. [F4 F4-43 HIGH] bib_duplicate_key_cross_file_diverge: key `DarmonVonk2021` in 2 files; bodies diverge
 
-## Top 5 most urgent items
+## Three go/no-go verdicts
 
-1. **F1-01 — AEAL schema drift:** migrate claims or formally re-spec AEAL before PCF-2 v1.3 reuses the auditability claim.
-2. **F4-H1 — missing `mpmath` BibTeX:** add/verify before affected submissions, and before PCF-2 v1.3 only if `main.tex` cites `mpmath`.
-3. **F4-H2 — missing `olver1974` / `odlyzko1995`:** fix before paper14 resubmission.
-4. **F4-H3 — missing `Okamoto1987`:** fix before p12 resubmission.
-5. **F2-M1/F2-M3 — Channel Theory stale PCF-2 prose:** update PCF-2 v1.1 references in Channel-Theory-V13 release prose.
+- **PCF2-V13-RELEASE clear?** YES (no CRITICAL touching PCF-2) (HIGH-touching-pcf2 = 0)
+- **Channel-Theory-V13 clear?** YES (no CRITICAL touching Channel Theory) (HIGH-touching-CT = 1)
+- **standalone-note-fire clear?** YES (no CRITICAL touching standalone-note)
 
-## Go/no-go verdicts
+## Cross-sub-agent correlations
 
-- **PCF2-V13-RELEASE:** **GO with caveats** — address F1-01 in v1.3 paper text (or migrate AEAL); verify F4-H1 only if PCF-2 v1.3 cites `mpmath`.
-- **Channel-Theory-V13:** **GO with caveats** — fix prose F2-M1/M3 before release description fire.
-- **standalone-note-fire:** **CLEAR** — no Fleet-F blocker.
+- F2 stale DOI (20) × F4 stale .bib duplicates (39): coordinate cleanup
+- F3 definition_drift_scan_skipped: human review pass needed
 
-## Final URLs
+## Halt status
 
-- **BRIDGE:** https://github.com/papanokechi/siarc-relay-bridge/blob/main/sessions/2026-05-01/AUDIT-FLEET-F/AGGREGATOR/handoff.md
-- **CLAUDE_FETCH:** https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-05-01/AUDIT-FLEET-F/AGGREGATOR/handoff.md
+(see per-phase handoffs; F2 INACCESSIBLE_PARTIAL = False)
