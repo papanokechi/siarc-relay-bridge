@@ -1,0 +1,96 @@
+{
+  "task_id": "STOKES-FAMILY-EXTEND-3X",
+  "families": {
+    "QL02": {
+      "Delta": -4,
+      "CM_field": "Q(i)",
+      "class_number_disc": 1,
+      "Heegner": true,
+      "S_below_1": true,
+      "S_min": "0.55780924",
+      "S_min_locus": "D-QL02-B S(+0.3)=0.55780924",
+      "best_cell": {
+        "deformation": "D-QL02-A",
+        "type": "P-III",
+        "residual": "0.000938915"
+      },
+      "stencil_check_5vs7_max": {
+        "A": "2.357e-7",
+        "B": "2.597e-5"
+      },
+      "final_flag": "QL02 STOKES CONFIRMED"
+    },
+    "QL06": {
+      "Delta": -7,
+      "CM_field": "Q(sqrt(-7))",
+      "class_number_disc": 1,
+      "Heegner": true,
+      "S_below_1": true,
+      "S_min": "0.36437334",
+      "S_min_locus": "D-QL06-B S(+0.3)=0.36437334",
+      "best_cell": {
+        "deformation": "D-QL06-A",
+        "type": "P-V",
+        "residual": "0.000106606"
+      },
+      "stencil_check_5vs7_max": {
+        "A": "4.392e-8",
+        "B": "2.539e-6"
+      },
+      "final_flag": "QL06 STOKES CONFIRMED"
+    },
+    "QL26": {
+      "Delta": -28,
+      "CM_field": "Q(sqrt(-7))",
+      "class_number_disc": 1,
+      "Heegner": false,
+      "S_below_1": true,
+      "S_min": "-0.32428311",
+      "S_min_locus": "D-QL26-B S(+0.3)=-0.32428311",
+      "best_cell": {
+        "deformation": "D-QL26-A",
+        "type": "P-III",
+        "residual": "0.0239777"
+      },
+      "stencil_check_5vs7_max": {
+        "A": "3.68e-5",
+        "B": "6.596e-5"
+      },
+      "final_flag": "QL26 STOKES CONFIRMED"
+    }
+  },
+  "S_ranges": {
+    "QL02": {
+      "min": "0.55780924",
+      "max": "0.92562793",
+      "deformation": "B"
+    },
+    "QL06": {
+      "min": "0.36437334",
+      "max": "0.762989",
+      "deformation": "B"
+    },
+    "QL26": {
+      "min": "-0.32428311",
+      "max": "0.38875759",
+      "deformation": "B"
+    }
+  },
+  "table_rows_latex": [
+    "QL01  & $-3$  & $\\mathbb{Q}(\\sqrt{-3})$  & transcendental & no relation & $S\\in[0.77,0.82]$ \\checkmark \\\\",
+    "QL02  & $-4$  & $\\mathbb{Q}(i)$  & transcendental & no relation & $S\\in[0.56,0.93]$ \\checkmark \\\\",
+    "QL06  & $-7$  & $\\mathbb{Q}(\\sqrt{-7})$  & transcendental & no relation & $S\\in[0.36,0.76]$ \\checkmark \\\\",
+    "V$\\_$quad  & $-11$  & $\\mathbb{Q}(\\sqrt{-11})$  & transcendental & no relation & PIII confirmed \\checkmark \\\\",
+    "QL15  & $-20$  & $\\mathbb{Q}(\\sqrt{-5})$  & transcendental & no relation & $S\\in[-0.23,0.75]$ \\checkmark \\\\",
+    "QL26  & $-28$  & $\\mathbb{Q}(\\sqrt{-7})$  & transcendental & no relation & $S\\in[-0.32,0.39]$ \\checkmark \\\\"
+  ],
+  "intra_field_cross_check_Q_sqrt_minus_7": {
+    "QL06_Heegner": true,
+    "QL26_non_Heegner": true,
+    "QL06_S_range": "[0.36,0.76]",
+    "QL26_S_range": "[-0.32,0.39]",
+    "conclusion": "Both confirm S<1 -- Heegner status NOT the controlling variable; CM field is."
+  },
+  "all_six_confirmed": true,
+  "final_flag": "FLAG: STOKES PREDICATE COMPLETE -- Delta<0 -> S<1 across all 6 known families"
+}

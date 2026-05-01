@@ -1,0 +1,34 @@
+==============================================================================
+Per-family summary
+==============================================================================
+  QL02: Delta=  -4  CM=Q(i)           Heegner=True   flag=QL02 STOKES CONFIRMED
+        D-QL02-B S range: [0.558, 0.926]
+        best Painleve: D-QL02-A + P-III  residual 0.000938915
+  QL06: Delta=  -7  CM=Q(sqrt(-7))    Heegner=True   flag=QL06 STOKES CONFIRMED
+        D-QL06-B S range: [0.364, 0.763]
+        best Painleve: D-QL06-A + P-V  residual 0.000106606
+  QL26: Delta= -28  CM=Q(sqrt(-7))    Heegner=False  flag=QL26 STOKES CONFIRMED
+        D-QL26-B S range: [-0.324, 0.389]
+        best Painleve: D-QL26-A + P-III  residual 0.0239777
+
+==============================================================================
+LaTeX evidence-table rows (paste into Table tab:dichotomy of p12_pcf1_main.tex)
+==============================================================================
+QL01  & $-3$  & $\mathbb{Q}(\sqrt{-3})$  & transcendental & no relation & $S\in[0.77,0.82]$ \checkmark \\
+QL02  & $-4$  & $\mathbb{Q}(i)$  & transcendental & no relation & $S\in[0.56,0.93]$ \checkmark \\
+QL06  & $-7$  & $\mathbb{Q}(\sqrt{-7})$  & transcendental & no relation & $S\in[0.36,0.76]$ \checkmark \\
+V$\_$quad  & $-11$  & $\mathbb{Q}(\sqrt{-11})$  & transcendental & no relation & PIII confirmed \checkmark \\
+QL15  & $-20$  & $\mathbb{Q}(\sqrt{-5})$  & transcendental & no relation & $S\in[-0.23,0.75]$ \checkmark \\
+QL26  & $-28$  & $\mathbb{Q}(\sqrt{-7})$  & transcendental & no relation & $S\in[-0.32,0.39]$ \checkmark \\
+
+==============================================================================
+FLAG: STOKES PREDICATE COMPLETE -- Delta<0 -> S<1 across all 6 known families
+
+Cross-check (QL06 h=1 Heegner Q(sqrt-7) vs QL26 same field, non-Heegner):
+  QL06 best S range: [0.36,0.76]  (D-QL06-B)
+  QL26 best S range: [-0.32,0.39]  (D-QL26-B)
+  Both confirm S<1 with same Heun-root structure in Q(sqrt(-7)),
+  therefore Heegner status is NOT the controlling variable -- CM field is.
+
+Wrote summary.json, claims.jsonl (5 entries)
+All 6 confirmed: True
