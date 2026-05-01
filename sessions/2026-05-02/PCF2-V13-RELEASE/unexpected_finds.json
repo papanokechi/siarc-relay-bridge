@@ -1,0 +1,9 @@
+{
+  "_note": "One non-blocking finding during build.",
+  "v3_insert_math_mode_fix": {
+    "source_file": "sessions/2026-05-01/PCF2-SESSION-R1.3/v13_paragraph_insert_v3.tex",
+    "issue": "Line 19 contains 'Conjecture B5 (j(\\mathrm{Jac}(C_b))=0 $\\Rightarrow$' with bare \\mathrm outside math mode, which crashes pdflatex with '! LaTeX Error: \\mathrm allowed only in math mode.'",
+    "fix": "A copy with the offending fragment wrapped in $...$ is staged at sessions/2026-05-02/PCF2-V13-RELEASE/v13_paragraph_insert_v3_fixed.tex; the v1.3 main file \\input's the fixed copy. The original session file is left untouched.",
+    "severity": "minor (build-blocking on the v1.3 build, fixed-out-of-band; does not affect R1.3 session results)"
+  }
+}

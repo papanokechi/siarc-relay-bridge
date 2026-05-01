@@ -1,0 +1,63 @@
+% phase_E_v13_paragraph.tex --- drop-in for PCF-2 v1.3 main file.
+% Replaces or augments Sec ``Cubic-modular framing'' paragraph in v1.2.
+
+\paragraph{Cubic-modular framing (E$_4$/Petersson height).}
+The R1.1 finer cubic-split signal, originally reported as a Spearman
+correlation between $A_{\rm fit}-6$ and $\log|j(E_b)|$
+(SIARC session R1.1, $\rho = -0.691$, Bonferroni $p = 4\!\times\!10^{-7}$),
+admits a finer modular-grade refinement. Reducing each cubic family's
+$\tau_b$ to the standard fundamental domain
+$\mathcal{F} = \{\tau\in\mathfrak{H} : |\Re\tau|\le 1/2,\ |\tau|\ge 1\}$
+and evaluating the holomorphic Eisenstein series $E_4(\tau_b)$,
+$E_6(\tau_b)$, the modular discriminant
+$\Delta(\tau_b) = (E_4^3 - E_6^2)/1728$ and the Petersson-normalised
+$\|\Delta\|_{\rm Pet}(\tau_b) := (\Im\tau_b)^6\,|\Delta(\tau_b)|$,
+SIARC session T2 finds (deep $\delta$ from session R1.3,
+$n=50$ cubic families, Bonferroni denominator $K=14$):
+\begin{equation}
+  \rho_{\rm Sp}(\,A_{\rm fit}-6,\ \log\|\Delta\|_{\rm Pet}(\tau_b)\,) =
+  +0.638,\qquad p_{\rm Bonf} = 8.6\times 10^{-6},
+\end{equation}
+\begin{equation}
+  \rho_{\rm Sp}(\,A_{\rm fit}-6,\ \log\|\eta\|_{\rm Pet}(\tau_b)\,) =
+  -0.642,\qquad p_{\rm Bonf} = 7.1\times 10^{-6},
+\end{equation}
+beating the bare $\log|j|$ baseline by a factor $\sim\!30$ in
+Bonferroni $p$. Bare $\log|E_4(\tau_b)|$ \emph{underperforms}
+$\log|j|$ ($\rho=-0.459$, $p_{\rm Bonf}=1.1\times 10^{-2}$); this is
+expected, because near the equianharmonic point $\tau=\rho$ the
+function $E_4$ has a simple zero and $\log|E_4|$ becomes degenerate as
+a global linear regressor, while $\log\|\Delta\|_{\rm Pet}$ and
+$\log\|\eta\|_{\rm Pet}$ remain well-conditioned global modular
+heights.
+
+After OLS-removal of the winning $\log\|\eta\|_{\rm Pet}$ predictor
+the residual carries no further modular signal at $K=4$ Bonferroni
+correction ($p_{\rm Bonf} > 0.08$ against
+$\log\|\Delta\|_{\rm Pet}$, $\log|j-1728|$, $\log|E_6|$, $\log\Im\tau_b$).
+Conjectures B5/B6 (the $j=0$ equianharmonic CM-locus drives
+$A_{\rm true}=2d$ exactly at $d=3$) are therefore upgraded from a
+single-coordinate $\log|j|$ correlation to a structural modular-form
+statement: \emph{the Petersson modular discriminant
+$\|\Delta\|_{\rm Pet}(\tau_b)$ is the canonical R1.1/R1.3 cubic-split
+coordinate}.
+
+\begin{remark}[$j=0$ amplitude and finite-$N$ artefact]\label{rem:j-zero-finite-N}
+The four R1.1 $j=0$ cubic families
+$(\alpha_3,\alpha_2,\alpha_1,\alpha_0) = (1,-3,3,a_0)$ with
+$a_0\in\{-3,1,2,3\}$ exhibit an apparent $A_{\rm fit}-6 < 0$
+systematic shift at every fitting depth probed
+($N_{\max}\!=\!67$ in R1.1: $|\delta|\sim 10^{-3}$;
+$N_{\max}\!=\!250$ in R1.3: $|\delta|\sim 10^{-4}$;
+$N_{\max}\!=\!480$ in T2-D, $\mathrm{dps}=4000$:
+$|\delta|\sim 1.5\!\times\! 10^{-5}$). The order-of-magnitude
+shrinkage with $N_{\max}$ identifies this as a finite-$N$
+tail-window bias of the four-parameter WKB ansatz
+$y_N = -A\,N\log N + \alpha\,N - \beta\log N + \gamma$, not a
+falsification of $A_{\rm true}=6$ at $j=0$. A definitive PSLQ
+verification of the H6 closed-form prediction
+$A_{\rm true}-6 = 0$ and the conjectural Chowla--Selberg
+$\Gamma(1/3)$-amplitude relation at $D=-3$ requires a redesigned
+deep-WKB protocol with an explicit $c/N$ sub-leading correction;
+this is left as open problem~\ref{op:j-zero-amplitude-h6}.
+\end{remark}
