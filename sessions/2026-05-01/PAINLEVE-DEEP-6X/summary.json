@@ -1,0 +1,307 @@
+{
+  "task_id": "PAINLEVE-DEEP-6X",
+  "depth": 3000,
+  "dps": 400,
+  "h_list": [
+    "0.1",
+    "0.05",
+    "0.025"
+  ],
+  "families": {
+    "QL01": {
+      "Delta": -3,
+      "CM_field": "Q(sqrt(-3))",
+      "Heegner": true,
+      "winner": {
+        "deformation": "A",
+        "equation": "P-III",
+        "residual": "0.00839595",
+        "h": "0.1"
+      },
+      "verdict": "NO_FIT",
+      "h_independence_orders": 8.79344380127943e-06,
+      "params_rational_id": [
+        {
+          "value": "-0.94483269359168",
+          "best_rational": "-17/18",
+          "error_to_rational": 0.00038824914723556425,
+          "is_rational_match": true
+        },
+        {
+          "value": "3.1788870668956",
+          "best_rational": "54/17",
+          "error_to_rational": 0.002416478660306254,
+          "is_rational_match": false
+        },
+        {
+          "value": "0.15412044906896",
+          "best_rational": "2/13",
+          "error_to_rational": 0.0002742952228061424,
+          "is_rational_match": true
+        },
+        {
+          "value": "2.8494911238731",
+          "best_rational": "57/20",
+          "error_to_rational": 0.0005088761268998709,
+          "is_rational_match": true
+        }
+      ]
+    },
+    "QL02": {
+      "Delta": -4,
+      "CM_field": "Q(i)",
+      "Heegner": true,
+      "winner": {
+        "deformation": "A",
+        "equation": "P-III",
+        "residual": "0.000938915",
+        "h": "0.1"
+      },
+      "verdict": "NO_FIT",
+      "h_independence_orders": 1.3876457019456618e-06,
+      "params_rational_id": [
+        {
+          "value": "-0.25394323365983",
+          "best_rational": "-1/4",
+          "error_to_rational": 0.003943233659830014,
+          "is_rational_match": false
+        },
+        {
+          "value": "1.7493483034457",
+          "best_rational": "7/4",
+          "error_to_rational": 0.0006516965542999742,
+          "is_rational_match": true
+        },
+        {
+          "value": "0.022610580347703",
+          "best_rational": "1/24",
+          "error_to_rational": 0.019056086318963664,
+          "is_rational_match": false
+        },
+        {
+          "value": "1.2690055695622",
+          "best_rational": "19/15",
+          "error_to_rational": 0.0023389028955334012,
+          "is_rational_match": false
+        }
+      ]
+    },
+    "QL06": {
+      "Delta": -7,
+      "CM_field": "Q(sqrt(-7))",
+      "Heegner": true,
+      "winner": {
+        "deformation": "A",
+        "equation": "P-V",
+        "residual": "0.000106347",
+        "h": "0.025"
+      },
+      "verdict": "NO_FIT",
+      "h_independence_orders": 0.0010564051811892924,
+      "params_rational_id": [
+        {
+          "value": "0.46116129704039",
+          "best_rational": "6/13",
+          "error_to_rational": 0.0003771644980715694,
+          "is_rational_match": true
+        },
+        {
+          "value": "-0.70821471467123",
+          "best_rational": "-17/24",
+          "error_to_rational": 0.0001186186621033869,
+          "is_rational_match": true
+        },
+        {
+          "value": "0.72127382222117",
+          "best_rational": "13/18",
+          "error_to_rational": 0.0009484000010522298,
+          "is_rational_match": true
+        },
+        {
+          "value": "-0.43834306508308",
+          "best_rational": "-7/16",
+          "error_to_rational": 0.000843065083080019,
+          "is_rational_match": true
+        }
+      ]
+    },
+    "V_quad": {
+      "Delta": -11,
+      "CM_field": "Q(sqrt(-11))",
+      "Heegner": true,
+      "winner": {
+        "deformation": "A",
+        "equation": "P-III",
+        "residual": "4.58947e-5",
+        "h": "0.1"
+      },
+      "verdict": "MARGINAL",
+      "h_independence_orders": 5.677670533732703e-06,
+      "params_rational_id": [
+        {
+          "value": "-0.0067289467642863",
+          "best_rational": "0/1",
+          "error_to_rational": 0.0067289467642863,
+          "is_rational_match": false
+        },
+        {
+          "value": "0.97086424406024",
+          "best_rational": "23/24",
+          "error_to_rational": 0.012530910726906597,
+          "is_rational_match": false
+        },
+        {
+          "value": "0.00094269025350403",
+          "best_rational": "0/1",
+          "error_to_rational": 0.00094269025350403,
+          "is_rational_match": true
+        },
+        {
+          "value": "-0.87088103679265",
+          "best_rational": "-20/23",
+          "error_to_rational": 0.0013158194013457303,
+          "is_rational_match": false
+        }
+      ]
+    },
+    "QL15": {
+      "Delta": -20,
+      "CM_field": "Q(sqrt(-5))",
+      "Heegner": false,
+      "winner": {
+        "deformation": "A",
+        "equation": "P-III",
+        "residual": "0.0187293",
+        "h": "0.1"
+      },
+      "verdict": "NO_FIT",
+      "h_independence_orders": 0.00039633341903977945,
+      "params_rational_id": [
+        {
+          "value": "-0.14888593238069",
+          "best_rational": "-3/20",
+          "error_to_rational": 0.0011140676193099885,
+          "is_rational_match": false
+        },
+        {
+          "value": "2.6049474241146",
+          "best_rational": "60/23",
+          "error_to_rational": 0.0037482280593130746,
+          "is_rational_match": false
+        },
+        {
+          "value": "0.021972303487795",
+          "best_rational": "1/24",
+          "error_to_rational": 0.019694363178871663,
+          "is_rational_match": false
+        },
+        {
+          "value": "0.062473683453033",
+          "best_rational": "1/16",
+          "error_to_rational": 2.6316546966997922e-05,
+          "is_rational_match": true
+        }
+      ]
+    },
+    "QL26": {
+      "Delta": -28,
+      "CM_field": "Q(sqrt(-7))",
+      "Heegner": false,
+      "winner": {
+        "deformation": "A",
+        "equation": "P-III",
+        "residual": "0.0239777",
+        "h": "0.1"
+      },
+      "verdict": "NO_FIT",
+      "h_independence_orders": 0.0005972993540893934,
+      "params_rational_id": [
+        {
+          "value": "0.08916911727018",
+          "best_rational": "1/11",
+          "error_to_rational": 0.001739973638910916,
+          "is_rational_match": false
+        },
+        {
+          "value": "2.1226584737189",
+          "best_rational": "17/8",
+          "error_to_rational": 0.0023415262810999593,
+          "is_rational_match": false
+        },
+        {
+          "value": "-0.021862402232773",
+          "best_rational": "-1/24",
+          "error_to_rational": 0.019804264433893666,
+          "is_rational_match": false
+        },
+        {
+          "value": "-7.1315764358013",
+          "best_rational": "-4/1",
+          "error_to_rational": 3.1315764358013,
+          "is_rational_match": false
+        }
+      ]
+    }
+  },
+  "table_rows": [
+    "| Family | \u0394 | CM field | Painlev\u00e9 eq | Residual | h-spread | Verdict |",
+    "|--------|---|----------|-------------|----------|----------|---------|",
+    "| QL01 | -3 | Q(sqrt(-3)) | P-III | 0.00839595 | 0.00 | NO_FIT |",
+    "| QL02 | -4 | Q(i) | P-III | 0.000938915 | 0.00 | NO_FIT |",
+    "| QL06 | -7 | Q(sqrt(-7)) | P-V | 0.000106347 | 0.00 | NO_FIT |",
+    "| V_quad | -11 | Q(sqrt(-11)) | P-III | 4.58947e-5 | 0.00 | MARGINAL |",
+    "| QL15 | -20 | Q(sqrt(-5)) | P-III | 0.0187293 | 0.00 | NO_FIT |",
+    "| QL26 | -28 | Q(sqrt(-7)) | P-III | 0.0239777 | 0.00 | NO_FIT |"
+  ],
+  "pattern_scan": {
+    "by_painleve_eq": {
+      "P-III": [
+        [
+          "QL01",
+          -3
+        ],
+        [
+          "QL02",
+          -4
+        ],
+        [
+          "V_quad",
+          -11
+        ],
+        [
+          "QL15",
+          -20
+        ],
+        [
+          "QL26",
+          -28
+        ]
+      ],
+      "P-V": [
+        [
+          "QL06",
+          -7
+        ]
+      ]
+    },
+    "Q_sqrt_minus_7_intra_field": {
+      "QL06_eq": "P-V",
+      "QL26_eq": "P-III",
+      "match": false
+    },
+    "winning_deformations": {
+      "QL01": "A",
+      "QL02": "A",
+      "QL06": "A",
+      "V_quad": "A",
+      "QL15": "A",
+      "QL26": "A"
+    }
+  },
+  "final_flag": "FLAG: V_QUAD ANOMALOUS -- the recurrence-parameter deformation does not yield a Painleve reduction for any of the six Delta<0 families at residual <= 1e-4 (V_quad MARGINAL at 4.589e-5, others NO_FIT); V_quad's known P-III(D6) reduction lives in a different (Borel-resummation) deformation channel.  Conjecture A part (iv) does NOT extend to a structural family pattern via the L(t) deformation.",
+  "verdict_counts": {
+    "EXPLICIT_CANDIDATE": 0,
+    "MARGINAL": 1,
+    "UNREDUCED": 5
+  }
+}

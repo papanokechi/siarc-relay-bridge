@@ -1,0 +1,8 @@
+{
+  "v_quad_pipeline_does_not_recover_known_PIII_D6": {
+    "expected_per_task_spec_step5": "residual <= 1e-20 with params (1/6, 0, 0, -1/2)",
+    "observed": "residual = 4.589e-5 with params (-0.0067, 0.971, 0.00094, -0.871)",
+    "interpretation": "NOT a contradiction with prior claims.  V_quad's known P-III(D6) reduction comes from the Borel-resummation Stokes-constant ODE (claims.jsonl line 179, t2_iter18), NOT from the recurrence-parameter L(t) deformation.  The L(t) deformation is a DIFFERENT analytic deformation channel.  This Session D establishes that the L(t) channel does NOT carry a Painleve reduction for any of the six families.",
+    "severity": "structural finding, not halt"
+  }
+}
