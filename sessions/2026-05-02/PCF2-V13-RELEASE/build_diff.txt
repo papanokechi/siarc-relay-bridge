@@ -1,0 +1,380 @@
+
+InputObject
+-----------                                                                     
+       \large Version 1.3 (Cubic-Modular Framing)}                              
+AEAL methodology of~\cite{P8AEAL}. Version~1.3 absorbs SIARC sessions~R1.1, R1.…
+\date{May~2, 2026 (v1.3)}                                                       
+Version~1.3 absorbs the R1.1/R1.2/R1.3/T2 cycle: the $\log|\Delta_3|$           
+signal is upgraded to a structural cubic-modular framing in which the           
+canonical R1.1 split-coordinate is the Petersson modular discriminant           
+$\|\Delta\|_{\mathrm{Pet}}(\tau_b)$, with Spearman $\rho=+0.638$,               
+Bonferroni $p=8.6\times 10^{-6}$ on the $50$-family cubic catalogue             
+(Session~T2), beating the bare $\log|j(E_b)|$ baseline by a factor              
+$\sim\!30$ in $p_{\mathrm{Bonf}}$. Two cubic-modular conjectures are            
+recorded: B5 (the equianharmonic CM-locus $j(\mathrm{Jac}(C_b))=0$              
+forces $A_{\mathrm{PCF}}=2d=6$ at $d=3$) and B6 (the                            
+$\rho_{\mathrm{Spearman}}(\log|j|,A_{\mathrm{fit}}-6)$ negative-significance    
+on the $50$-family catalogue). Both are restricted to $d=3$: the                
+deep-WKB null at $d=4$ (Session~R1.3) rules out a verbatim extension.           
+\noindent\textit{What is new in v1.3.}\;\;Section~\ref{sec:R1-finer-split}      
+is rewritten as a multi-step narrative (R1$\to$R1.1$\to$R1.2$\to$R1.3$\to$T2)   
+absorbing the cubic-modular Eisenstein/Petersson probe of                       
+Session~T2 (2026-05-02) and the d=4 cross-check / cleanup verdict of            
+Sessions~R1.2 and R1.3 (2026-05-01, \emph{CASE B with C-caveat}). Two new       
+conjectures B5 and B6 (cubic-modular split, $d=3$ restricted), one              
+new remark on the $j=0$ amplitude / finite-$N$ artefact, and three              
+new open problems are introduced: \texttt{op:j-zero-amplitude-h6} (the          
+$\Gamma(1/3)$ Chowla--Selberg closure deferred to relay~T2.5d),                 
+\texttt{op:j-1728-wedge} (the $j=1728$ wedge probe, low priority), and          
+\texttt{op:shallow-j-effect-d4} (the shallow-$N$ $j=0$-cell shift at $d=4$).    
+Open Problem~\ref{op:finer-cubic-split} is closed (resolved into the            
+cubic-modular framing of \S\ref{sec:R1-finer-split}). Section~\ref{sec:why}     
+gains an AEAL schema paragraph documenting the canonical                        
+\texttt{claims.jsonl} record format used across the SIARC bridge from           
+v1.3 onward (addresses Fleet-F finding F1-01). No prior conjecture is           
+retracted; B5/B6 strictly refine B4 on the cubic cell.                          
+\noindent\textit{What was new in v1.2.}\;\;Sections~\ref{sec:B4} and            
+\ref{sec:Q1-quartic} integrated the empirical harvest of                        
+Conjecture~B4 was sharpened from ``verified at $d=3$, $50/50$'' to              
+(Proposition~\ref{prop:xi0-univ}, Session~Q1) replaced the v1.1                 
+Problem~\ref{op:b4-degree-d} was narrowed to $d\ge 5$. The $d=2$                
+anomaly status is unchanged but strengthened: degree~$2$ remains the            
+sole populated multi-branch instance across the joint cubic+quartic             
+catalogue. No v1.1 conjecture was retracted.                                    
+\smallskip                                                                      
+\paragraph{Cubic-modular conjectures B5 and B6 ($d=3$ restricted, v1.3).}       
+Sessions R1.1, R1.3, and T2 (\S\ref{sec:R1-finer-split}) absorb a               
+genuinely modular finer split inside the cubic cell. Conjectures~B5             
+(equianharmonic CM-locus $j=0$ forces $A_{\mathrm{PCF}}=2d=6$) and~B6           
+(Spearman negative-significance of $\log|j|$ vs.\ $A_{\mathrm{fit}}-6$          
+on the $50$-family catalogue), stated formally in                               
+\S\ref{sec:R1-finer-split} as Conjectures~\ref{conj:b5-d3}                      
+and~\ref{conj:b6-d3}, are conjectured \emph{at $d=3$ only}. The                 
+deep-WKB null at $d=4$ (Session~R1.3,                                           
+Remark~\ref{rem:b5b6-degree-stratification-r13}) is not consistent              
+with a verbatim extension to $d=4$; the sharp/deep-WKB form of                  
+B5/B6 is therefore restricted to $d=3$ in v1.3. Whether some                    
+non-verbatim cross-degree analogue exists is recorded as                        
+\texttt{op:b5-degree-d} (Open Problem~\ref{op:b5-degree-d}).                    
+\subsection{Finer cubic split: from $\log|\Delta_3|$ to the                     
+Petersson modular discriminant                                                  
+(Sessions~R1, R1.1, R1.2, R1.3, T2)}\label{sec:R1-finer-split}                  
+This subsection is the principal locus of v1.3's absorption of                  
+the SIARC R/T cycle. It traces the evolution of the cubic-modular               
+finer-split signal across five sessions, ending in the structural               
+modular-form framing established by Session~T2 (2026-05-02) and                 
+the cubic-only restriction established by Session~R1.3 (2026-05-01).            
+\paragraph{R1: $\log|\Delta_3|$ as candidate slow-trend invariant               
+(provisional, 2026-05-01).}                                                     
+The original R1 catalogue-level rank-correlation battery against                
+$\delta = A_{\mathrm{fit}} - 6$ on the $50$ cubic families was run              
+with twelve invariants of $b(n)$ (Galois group, $\mathrm{sgn}(\Delta_3)$,       
+$|\Delta_3| \bmod 8/12$, $\log|\Delta_3|$, $\omega(|\Delta_3|)$,                
+smallest prime divisor, real signature, squarefree quadratic                    
+resolvent on the CM bin, parity). Six number-field invariants                   
+($h$, $h^+$, conductor, regulator, fundamental-unit norm, unit                  
+density) were uncomputable in the available environment and recorded            
+as NaN. The strongest single-invariant signal was on $\log|\Delta_3|$:          
+Spearman $\rho=-0.451$, $p=1.0\times 10^{-3}$, Bonferroni-corrected             
+$p=1.1\times 10^{-2}$ ($m=11$), with the signal sharpening to                   
+$\rho=-0.492$ on excluding the loose-fit family~31 and weakening                
+under $A_{\mathrm{stderr}}^{-2}$ inverse-variance weighting                     
+($|\rho|_{\mathrm{w}}=0.26$). The R1 HALT threshold ($|\rho|>0.6$ at            
+Bonferroni $p<10^{-3}$) was not met; Conjecture~B4 was retained and             
+$\log|\Delta_3|$ flagged as a candidate finer-cubic-split invariant             
+pending an R1.1 follow-up cycle.                                                
+\paragraph{R1.1: the $j$-invariant signal upgrade (2026-05-01).}                
+Session~R1.1 (the canonical follow-up cycle to R1) replaced the                 
+twelve-invariant battery with a single arithmetically motivated                 
+candidate, the $j$-invariant of the genus-one curve $E_b: y^2 = b(x)$           
+associated to each cubic family. The result was a decisive sharpening           
+of the R1 signal: Spearman                                                      
+$\rho_{\mathrm{Spearman}}(\log|j(E_b)|,\, A_{\mathrm{fit}}-6) = -0.691$,        
+Bonferroni $p=4\times 10^{-7}$ across the $50$-family cubic                     
+catalogue (working precision $\mathrm{dps}=80$, $n_{\max}=200$).                
+Four families saturate the equianharmonic CM-locus $j=0$ exactly:               
+$(\alpha_3,\alpha_2,\alpha_1,\alpha_0) = (1,-3,3,a_0)$ with                     
+$a_0\in\{-3,1,2,3\}$ (catalogue families~30--33); each lies within              
+$10^{-3}$ of $A_{\mathrm{fit}}=6$ at the R1.1 working precision. This           
+sharper signal exceeds the R1 HALT threshold and motivated the v1.2             
+restatement of \texttt{op:finer-cubic-split} as ``the $\log|j|$                 
+correlation pending degree-extension cross-check''.                             
+\paragraph{R1.2: $d=4$ deep-WKB null (2026-05-01).}                             
+Session~R1.2 probed the natural extension of the R1.1 signal to the             
+quartic catalogue of Session~Q1. At $d=4$ the equianharmonic                    
+$j(\mathrm{Jac}(C_b))=0$ cell is sparse; the Q1 catalogue contains              
+exactly one $j=0$ representative (family~32,                                    
+$b(n)=n^4-3n^3-3n^2+3n-3$). At $\mathrm{dps}=2000$, fit window                  
+$N\in[50,250]$, $N_{\mathrm{ref}}=400$, the family~32 residual is               
+$\delta_4 = -3.71\times 10^{-3}$ (about $48\sigma$ from $0$), and               
+the Spearman correlation                                                        
+$\rho_{\mathrm{Spearman}}(\log|j|,\,\delta_4) = +0.073$                         
+($\mathrm{raw}\,p = 0.58$) is statistically null and of opposite                
+sign from the $d=3$ signal. R1.2 therefore halted on a clean                    
+two-tier outcome: B5/B6 (in any verbatim degree-agnostic form) do               
+not extend to $d=4$.                                                            
+\paragraph{R1.3: cleanup, CASE~B with C-caveat (2026-05-01).}                   
+Session~R1.3 ran the deep-WKB cleanup ($\mathrm{dps}=5000$,                     
+$N_{\mathrm{ref}}=1000$, fit window $N\in[200,800]$) on the unique              
+$d=4$ $j=0$ representative (family~32) against a non-$j=0$ baseline             
+of matched coefficient norm (family~1, $b(n)=n^4-3n^3-3n^2-3n-3$).              
+The result is statistical indistinguishability:                                 
+$\delta^{\mathrm{deep}}_4(\mathrm{fam}~32) = -4.55\times 10^{-4}$               
+versus                                                                          
+$\delta^{\mathrm{deep}}_4(\mathrm{fam}~01) = -4.60\times 10^{-4}$,              
+difference $+4.9\times 10^{-6}$ (0.24 pooled standard errors). The              
+sharp form of B5 ($\delta_4\to 0$ for $j=0$ quartics, sharper than              
+for non-$j=0$ ones) is rejected at $d=4$. The $d=3$ Conjecture~B4               
+fixed-$A=6$ residualization is reproduced at $\rho=-0.5683$,                    
+Bonferroni $p=5.0\times 10^{-5}$, $\mathrm{dps}=2000$,                          
+$N\in[50,250]$, $N_{\mathrm{ref}}=400$. The shallow-$N$ extension               
+to $99$ new $j=0$ quartics shows a real but sub-leading shift                   
+(median $\delta^{\mathrm{free}}_4 = -2.49\times 10^{-3}$ vs.\                   
+non-$j=0$ Q1 median $-3.73\times 10^{-3}$, Mann--Whitney                        
+$U=3893$, two-sided $p=4.8\times 10^{-4}$; survives stratification              
+on coefficient sum, $p=1.1\times 10^{-6}$ in the band                           
+$[6,12]$), but R1.3-D shows the apparent shift dissolves with                   
+$N_{\max}$ in lockstep with the non-$j=0$ baseline. The verdict is              
+\textsc{CASE~B with C-caveat}: B5/B6 are confirmed $d=3$-specific               
+in their sharp/deep form; the shallow-$N$ effect at $d=4$ is real but           
+sub-leading and not extensible to a deep-$N$ rule.                              
+\input{../../sessions/2026-05-02/PCF2-V13-RELEASE/v13_paragraph_insert_v3_fixed…
+\paragraph{T2: the cubic-modular framing                                        
+(2026-05-02).}\label{para:T2-cubic-modular}                                     
+Session~T2 closed the v1.3 cycle by replacing the bare $\log|j|$                
+correlation of R1.1 with a structural modular-form framing. Reducing            
+each cubic family's $\tau_b$ to the standard fundamental domain and             
+evaluating the holomorphic Eisenstein series $E_4(\tau_b)$,                     
+$E_6(\tau_b)$, the modular discriminant $\Delta(\tau_b)$, the                   
+Dedekind eta $\eta(\tau_b)$, and the Petersson-normalised heights               
+$\|\Delta\|_{\mathrm{Pet}} = (\Im\tau_b)^6\,|\Delta(\tau_b)|$ and               
+$\|\eta\|_{\mathrm{Pet}}$, T2 ran the same Spearman battery against             
+the deep-$\delta$ residual of R1.3 (Bonferroni denominator $K=14$).             
+Headline numbers (R1.3 deep $\delta$ ground truth, $n=50$                       
+cubic families):                                                                
+\input{../../sessions/2026-05-02/PCF2-V13-RELEASE/phase_B_correlation_table.tex}
+\input{../../sessions/2026-05-02/PCF2-V13-RELEASE/phase_E_v13_paragraph_fixed.t…
+\paragraph{Synthesis.}                                                          
+v1.3 absorbs T2's cubic-modular framing as Conjectures~B5 and~B6                
+(restricted to $d=3$) and records the $d=4$ extension as                        
+empirically falsified in its sharp form (R1.3) with a residual                  
+sub-leading shallow-$N$ shift parked under                                      
+\texttt{op:shallow-j-effect-d4}. The $\log|\Delta_3|$ signal of R1              
+is subsumed: $\log|\Delta_3|$ is a coarse proxy for the modular                 
+height (the discriminant of the curve $E_b$ being a multiplicative              
+combinant of the modular discriminant), and the Petersson modular               
+discriminant is the canonical, dimension-free coordinate. The                   
+finer-cubic-split open problem of v1.2 is therefore closed;                     
+\texttt{op:j-zero-amplitude-h6} (the $\Gamma(1/3)$ Chowla--Selberg              
+closure deferred from T2 Phase~D, see                                           
+Remark~\ref{rem:j-zero-finite-N}) is opened.                                    
+follow-up --- \emph{resolved in v1.3}]\label{op:finer-cubic-split}              
+\emph{Status (v1.3): resolved.}                                                 
+Session~R1 (v1.2) flagged $\log|\Delta_{3}|$ as a borderline                    
+candidate slow-trend invariant correlated with the WKB-residual                 
+$A_{\mathrm{fit}}-6$ on the $50$-family cubic catalogue. The R1.1               
+follow-up (2026-05-01) sharpened the signal to a $j$-invariant                  
+correlation $\rho=-0.691$, Bonferroni $p=4\times 10^{-7}$, and                  
+Session~T2 (2026-05-02) replaced the bare $\log|j|$ baseline with               
+the structural Petersson modular discriminant                                   
+$\|\Delta\|_{\mathrm{Pet}}(\tau_b)$ at $\rho=+0.638$, Bonferroni                
+$p=8.6\times 10^{-6}$. The cubic-modular framing of                             
+\S\ref{sec:R1-finer-split} (Conjectures~\ref{conj:b5-d3}                        
+and~\ref{conj:b6-d3}) absorbs this signal at $d=3$; see                         
+Session~T2 \texttt{verdict.md}~\cite{Papanokechi2026T2} and the R1.3            
+companion note~\cite{Papanokechi2026R13} for the full record. The               
+successor problems are \texttt{op:j-zero-amplitude-h6} (the                     
+$\Gamma(1/3)$ Chowla--Selberg closure at the $j=0$ cell) and                    
+\texttt{op:j-1728-wedge} (the wedge probe at the lemniscatic                    
+$j=1728$ cell).                                                                 
+\begin{problem}[$j=0$ amplitude and Chowla--Selberg                             
+closure]\label{op:j-zero-amplitude-h6}                                          
+Determine the closed form of the WKB amplitude $\alpha(b)$ at the               
+four equianharmonic $j(\mathrm{Jac}(C_b))=0$ cubic families                     
+($(\alpha_3,\alpha_2,\alpha_1,\alpha_0) = (1,-3,3,a_0)$ with                    
+$a_0\in\{-3,1,2,3\}$). The H6 prediction (proposed during the v1.3              
+absorption cycle) asserts $A_{\mathrm{true}}-6 = 0$ exactly at the              
+equianharmonic cell, with the leading transcendental amplitude                  
+governed by the Chowla--Selberg                                                 
+$\Gamma(1/3)$ formula~\cite{ChowlaSelberg1967,Yu99} at the                      
+imaginary-quadratic discriminant $D=-3$. Session~T2 Phase~D                     
+(\texttt{phase\_d\_pslq.py}, $\mathrm{dps}=4000$, $N_{\max}=480$)               
+triggered a literal $5\sigma$-scale halt on $A_{\mathrm{fit}}-6$                
+across the four families, but the ${\ge}50\!\times$ N-scaling                   
+shrinkage from R1.1 ($N\!\le\!67$) to T2-D ($N\!\le\!480$)                      
+identifies this as a finite-$N$ tail-window artefact of the                     
+four-parameter WKB ansatz (Remark~\ref{rem:j-zero-finite-N}). PSLQ              
+closure was deferred because amplitude extraction by lstsq capped               
+at $\sim\!14$ digits is insufficient to detect a $\Gamma(1/3)$-basis            
+relation against the B19 augmented basis (Session~T2,                           
+claim~T2-D6). The recommended protocol (relay tag~\textsc{T2.5d}) is            
+a redesigned five-parameter WKB ansatz $y_N = -A\,N\log N + \alpha\,N           
+- \beta\log N + \gamma + c_1/N$ at $\mathrm{dps}\ge 8000$,                      
+$N_{\max}\ge 1200$, with $\alpha$ extracted directly to                         
+${\ge}40$ digits before PSLQ.                                                   
+\begin{problem}[$j=1728$ wedge, low priority]\label{op:j-1728-wedge}            
+Probe the order-$2$ elliptic-point CM-locus                                     
+$j(\mathrm{Jac}(C_b))=1728$ on the cubic catalogue. The R1.1/R1.3/T2            
+catalogue contains zero $j=1728$ representatives in the lex window              
+of \S\ref{sec:plan} Session~A; an enlarged enumeration would either             
+populate the cell (enabling a B5/B6 sister-conjecture at $D=-4$, the            
+lemniscatic CM discriminant) or confirm the structural absence.                 
+Relay tag~\textsc{T2.5b}; flagged low-priority because a non-empty              
+$j=1728$ cell is a prerequisite, and the $D=-4$ amplitude reservoir             
+($\Gamma(1/4)$) is mechanically heavier than the $D=-3$ case of                 
+\texttt{op:j-zero-amplitude-h6}.                                                
+\end{problem}                                                                   
+\end{problem}                                                                   
+\paragraph{AEAL schema (v1.3 canonical form).}\label{para:aeal-schema}          
+For unambiguous machine-checkable cross-referencing across the SIARC            
+bridge, every numerical claim attached to a session is logged as a              
+single line of \texttt{claims.jsonl} in the JSON schema                         
+\begin{verbatim}                                                                
+{"claim": "...",                                                                
+ "evidence_type": "computation",                                                
+ "dps": <int>,                                                                  
+ "reproducible": <bool>,                                                        
+ "script": "<filename>",                                                        
+ "output_hash": "<sha256>"}                                                     
+\end{verbatim}                                                                  
+This is the schema in actual use across all sessions cited in the               
+present document; it is canonical from PCF-2~v1.3 forward and                   
+supersedes any earlier informal references. We note three operational           
+clarifications: (a)~a \texttt{claim\_id} field is added by the                  
+aggregator on demand when cross-referencing claims between sessions,            
+and is not part of the per-session record; (b)~a \texttt{verdict}               
+field, when present, takes values in                                            
+$\{\text{\texttt{PROVED}},\,\text{\texttt{FALSIFIED}},\,                        
+   \text{\texttt{PERFORMED}},\,\text{\texttt{PARTIAL}}\}$;                      
+(c)~the \texttt{output\_hash} is the SHA-256 of the script's stdout             
+or of the JSON output the script writes, whichever is the canonical             
+artefact for the claim. This paragraph addresses Fleet-F audit                  
+finding F1-01 (AEAL schema drift), and the v1.3 release-level                   
+claims.jsonl in                                                                 
+\texttt{sessions/2026-05-02/PCF2-V13-RELEASE/claims.jsonl} is the               
+first PCF-series record that is schema-compliant by design.                     
+v1.3 absorbs SIARC sessions~R1.1 ($j$-invariant probe, 2026-05-01),             
+R1.2 ($d=4$ null cross-check, 2026-05-01), R1.3 (cleanup with                   
+\textsc{CASE B with C-caveat} verdict, 2026-05-01), and~T2                      
+(Eisenstein/Petersson cubic-modular probe, 2026-05-02). The author              
+thanks the GitHub Copilot CLI multi-agent fleet (Fleet-A and                    
+Fleet-F) for the synthesis and audit work that fed v1.3.                        
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+\bibitem{Papanokechi2026T2}                                                     
+Papanokechi, \emph{SIARC session PCF2-SESSION-T2: Eisenstein                    
+$E_4$/Petersson modular discriminant correlation on R1.1 cubics}.               
+SIARC bridge, 2026-05-02.                                                       
+\href{https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026…
+{sessions/2026-05-02/PCF2-SESSION-T2/}; \texttt{verdict.md} carries             
+the final phase-by-phase record.                                                
+                                                                                
+\bibitem{Papanokechi2026R13}                                                    
+Papanokechi, \emph{SIARC session PCF2-SESSION-R1.3: $j$-invariant               
+cross-degree cleanup; \textsc{CASE B with C-caveat} verdict and                 
+companion note}. SIARC bridge, 2026-05-01.                                      
+\href{https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026…
+{sessions/2026-05-01/PCF2-SESSION-R1.3/}; the polished arXiv-ready              
+companion is at                                                                 
+\href{https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026…
+{sessions/2026-05-01/STANDALONE-NOTE-POLISH/} (arXiv ID to be                   
+captured on submission, placeholder \texttt{XXXX.YYYYY}).                       
+                                                                                
+\bibitem{ChowlaSelberg1967}                                                     
+S.~Chowla and A.~Selberg, \emph{On Epstein's zeta-function}.                    
+J.~Reine Angew.~Math.\ 227 (1967), 86--110. The closed form for                 
+the period $\Omega_{-3}=\Gamma(1/3)^3/(2\pi)$ at the imaginary                  
+quadratic discriminant $D=-3$ is the prototype of the H6 amplitude              
+prediction of \texttt{op:j-zero-amplitude-h6}.                                  
+                                                                                
+\bibitem{Yu99}                                                                  
+J.~Yu, \emph{Transcendence of CM periods}, in: \emph{Number Theory              
+in Progress}, vol.~II (Zakopane, 1997), de~Gruyter, 1999, 1057--1077.           
+The Chowla--Selberg amplitude reservoir for general imaginary-quadratic         
+discriminants used in the body of \texttt{op:j-zero-amplitude-h6}.              
+                                                                                
+                                                                                
+       \large Version 1.2}                                                      
+AEAL methodology of~\cite{P8AEAL}.}}                                            
+\date{May~1, 2026 (v1.2)}                                                       
+\noindent\textit{What is new in v1.2.}\;\;Sections~\ref{sec:B4} and             
+\ref{sec:Q1-quartic} integrate the empirical harvest of                         
+Conjecture~B4 is sharpened from ``verified at $d=3$, $50/50$'' to               
+(Proposition~\ref{prop:xi0-univ}, Session~Q1) replaces the v1.1                 
+Problem~\ref{op:b4-degree-d} is narrowed to $d\ge 5$;                           
+Open Problem~\ref{op:finer-cubic-split} is reformulated around the              
+borderline $\log|\Delta_3|$ signal pending an R1.1 follow-up with               
+\texttt{pari/gp}-only invariants. The $d=2$ anomaly status is                   
+unchanged but strengthened: degree~$2$ remains the sole populated               
+multi-branch instance across the joint cubic+quartic catalogue. No              
+v1.1 conjecture is retracted.                                                   
+\subsection{Finer cubic split: $\log|\Delta_3|$ as candidate                    
+slow-trend invariant (Session~R1)}\label{sec:R1-finer-split}                    
+\paragraph{R1 finer-cubic-split probe (provisional).}                           
+A catalogue-level rank-correlation battery against the residual                 
+$\delta = A_{\mathrm{fit}} - 6$ over the $50$ cubic families                    
+(Sessions~B and C1) was run with twelve invariants of the cubic                 
+$b(n) = \alpha_3 n^3 + \alpha_2 n^2 + \alpha_1 n + \alpha_0$:                   
+$\mathrm{sgn}(\alpha_3)$, $\mathrm{sgn}(\Delta_3)$, parity of                   
+$|\Delta_3|$, $|\Delta_3| \bmod 8$, $|\Delta_3| \bmod 12$,                      
+$\log|\Delta_3|$, the smallest prime divisor of $|\Delta_3|$,                   
+$\omega(|\Delta_3|)$, the Galois group, $r_1$, $r_2$, and the                   
+squarefree part of the quadratic resolvent (CM-bin only). Six further           
+invariants (conductor, $h$, $h^+$, regulator, fundamental-unit norm,            
+and unit density) were not computable in the available environment              
+and are recorded as NaN; they remain open for an R1.1 follow-up                 
+(Open Problem~\ref{op:finer-cubic-split}).                                      
+The strongest single-invariant signal is on $\log|\Delta_3|$:                   
+Spearman $\rho = -0.451$, $p = 1.0\times 10^{-3}$,                              
+Bonferroni-corrected $p = 1.1\times 10^{-2}$ ($m=11$ valid tests),              
+Benjamini--Hochberg $q = 1.1\times 10^{-2}$. Excluding family~31                
+(whose fit standard error $A_{\mathrm{stderr}}=0.074$ is an order of            
+magnitude above the catalogue median), the same test sharpens to                
+$\rho=-0.492$, $p=3.3\times 10^{-4}$, Bonferroni                                
+$p=3.7\times 10^{-3}$, BH $q=3.7\times 10^{-3}$: family~31                      
+\emph{masks} rather than drives the signal.                                     
+The weighting-by-$A_{\mathrm{stderr}}^{-2}$ sensitivity check                   
+\emph{weakens} the $\log|\Delta_3|$ correlation                                 
+($|\rho|_{\mathrm{w}}=0.26$), so part of the signal lives on the                
+loose-fit tail; precision-escalating the four families with                     
+$A_{\mathrm{stderr}}>5\times 10^{-3}$ (families~24, 30, 31, 37) is              
+the natural follow-up. Multi-invariant rank regression yields                   
+adjusted $R^2\le 0.22$ for any pair, indicating no second catalogue             
+invariant carries appreciable independent signal.                               
+\paragraph{HALT not triggered.}                                                 
+The R1 HALT condition (any single invariant with $|\rho|>0.6$ at                
+Bonferroni $p<10^{-3}$, which would warrant a Theorem-level                     
+absorption) is \emph{not} met. We therefore retain Conjecture~B4                
+(sharp form $A=2d=6$ across all $50$ cubic families) and flag                   
+$\log|\Delta_3|$ as the candidate finer-cubic-split invariant pending           
+an R1.1 cycle that (a)~installs \texttt{pari/gp} and adds the six               
+number-field invariants, (b)~precision-escalates the four loose-fit             
+families, and (c)~extends the battery with Mahler measure $M(b)$ and            
+the genus of $y^2=b(x)$.                                                        
+follow-up]\label{op:finer-cubic-split}                                          
+Session~R1 (\S\ref{sec:R1-finer-split}) flagged $\log|\Delta_{3}|$ as           
+a borderline candidate slow-trend invariant correlated with the                 
+WKB-residual $A_{\mathrm{fit}}-6$ (Spearman $\rho\in[-0.49,-0.45]$,             
+Bonferroni-corrected $p\in[3.7\times 10^{-3},\,1.1\times 10^{-2}]$              
+across the $50$-family cubic catalogue, with the signal sharpening              
+upon excluding the loose-fit family~31 and weakening under inverse-variance     
+weighting). The R1 HALT threshold ($|\rho|>0.6$ at Bonferroni                   
+$p<10^{-3}$) is not met and Conjecture~B4 is retained. R1.1 is the              
+follow-up cycle that (i)~installs \texttt{pari/gp} and adds the six             
+number-field invariants deferred by R1 (class numbers $h$ and $h^{+}$,          
+conductor, regulator, fundamental-unit norm, unit density),                     
+(ii)~precision-escalates the four loose-fit families                            
+($A_{\mathrm{stderr}}>5\times 10^{-3}$: families~24, 30, 31, 37), and           
+(iii)~extends the battery with the Mahler measure $M(b)$ and the                
+genus of the curve $y^{2}=b(x)$. The trichotomy bin                             
+($-\_S_{3}\_\mathrm{CM}$ vs.\ $+\_S_{3}\_\mathrm{real}$ vs.\                    
+$+\_C_{3}\_\mathrm{real}$) was ruled out as the controlling invariant           
+by Sessions~B and C1.                                                           
+

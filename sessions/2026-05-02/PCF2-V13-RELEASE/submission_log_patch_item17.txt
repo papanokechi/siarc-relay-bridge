@@ -1,0 +1,74 @@
+SUBMISSION LOG patch — item 17 (PCF-2 v1.3 release)
+====================================================
+Source: sessions/2026-05-02/PCF2-V13-RELEASE/
+Patch type: append a new item-17 block to the Zenodo subsection of
+            tex/submitted/submission_log.txt (immediately after item 16).
+Note:       item 15 (PCF-2 v1.2) and item 16 (whichever release sits
+            between v1.2 and v1.3 in the existing log) remain unchanged.
+            This patch is APPEND-ONLY per the AEAL append-only history
+            requirement; v1.2 child DOI is retained as a superseded
+            child line inside item 17.
+
+APPEND BLOCK (paste verbatim AFTER the current item 16, in the Zenodo
+subsection of tex/submitted/submission_log.txt):
+
+17. Filename: pcf2_program_statement.pdf
+    Title: PCF-2: Polynomial Continued Fractions at Degree Three —
+           v1.3 (Cubic-Modular Framing)
+    Series: P13 / PCF-2 (program statement, 22pp v1.3)
+    Submitted on: 2nd May 2026
+    Status: Published on Zenodo (Version 1.3 current)
+    Submission ID: DOI 10.5281/zenodo.__VERSION_DOI__  (v1.3, current — 22pp,
+                       absorbs Session T2 (Eisenstein E₄/Petersson
+                       modular discriminant correlation on R1.1
+                       cubics: ρ = +0.638, Bonferroni p = 8.6e−6 at
+                       n=50, beats log|j| by ~30× in p_Bonferroni)
+                       and Sessions R1.1/R1.2/R1.3 (j-invariant
+                       cross-degree probe; CASE B with C-caveat:
+                       B5/B6 d=3-specific in sharp/deep-WKB form).
+                       Two new cubic-modular Conjectures B5/B6
+                       (d=3 restricted), one new Remark on j=0
+                       amplitude finite-N artefact, three new Open
+                       Problems (op:j-zero-amplitude-h6 / Γ(1/3)
+                       Chowla–Selberg closure; op:j-1728-wedge;
+                       op:shallow-j-effect-d4); op:finer-cubic-split
+                       closed (resolved into cubic-modular framing).
+                       New AEAL schema paragraph in §"Why This
+                       Matters" documents canonical claims.jsonl
+                       record format (addresses Fleet-F audit
+                       finding F1-01). Build clean: 22pp, 0 errors,
+                       0 missing citations, 0 unresolved
+                       cross-references.)
+                   DOI 10.5281/zenodo.19951458 (v1.2, superseded)
+                   DOI 10.5281/zenodo.19939463 (v1.1, superseded)
+                   DOI 10.5281/zenodo.19936298 (v1.0, superseded)
+                   Cite-all DOI: 10.5281/zenodo.19936297
+    Related identifiers:
+                   Continues → 10.5281/zenodo.19937196 (PCF-1 v1.3 concept)
+                   Is part of → 10.5281/zenodo.19885550 (SIARC umbrella)
+                   Is supplemented by → 10.5281/zenodo.19941678 (Channel theory cite-all)
+                   Is supplemented by → https://github.com/papanokechi/pcf-research
+                   Is supplemented by → https://github.com/papanokechi/siarc-relay-bridge
+                   Is new version of → 10.5281/zenodo.19951458 (v1.2)
+    Verdict: N/A
+    Notes: Cubic+quartic extension of PCF-1 with cubic-modular
+           finer split. Carries the original program Conjecture
+           B3(i)–(iv), the unsplit sharp Conjecture B4 (joint
+           d∈{3,4}, 110/110), the universal ξ₀-identity
+           Proposition (Q1-B), and the new d=3-restricted
+           cubic-modular Conjectures B5/B6 of v1.3. v1.3 supersedes
+           v1.2; concept DOI preserved (10.5281/zenodo.19936297).
+
+NOTES
+-----
+- The v1.3 child DOI is reserved on upload; replace
+  __VERSION_DOI__ with the minted DOI returned by Zenodo's
+  "Publish" action (Phase D of PCF2-V13-RELEASE).
+- v1.0/v1.1/v1.2 lines are retained as superseded child DOIs
+  (per AEAL append-only history requirement).
+- "Is part of → 10.5281/zenodo.19934553 (PCF-1)" is intentionally
+  promoted to "Continues → 10.5281/zenodo.19937196 (PCF-1 v1.3)"
+  in v1.3 to reflect the actual epistemic dependency: PCF-2 v1.3's
+  cubic-modular framing of B5/B6 reuses the WKB exponent identity
+  of PCF-1 v1.3 Theorem 5 as the d=2 base case.
+- The series-line page-count is updated 18pp → 22pp (v1.2 → v1.3).
