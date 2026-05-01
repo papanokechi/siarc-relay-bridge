@@ -1,0 +1,1014 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\definecolor{darklink}{rgb}{0.0,0.2,0.5}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=darklink,
+  citecolor=darklink,
+  urlcolor=darklink
+}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Open problem}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Channel}{\mathbf{Channel}}
+\newcommand{\Sigmaspace}{\mathbf{\Sigma}}
+\newcommand{\PCF}{\mathrm{PCF}}
+\newcommand{\Lt}{L(t)}
+\newcommand{\BoT}{\mathrm{BoT}}
+\newcommand{\CC}{\mathrm{CC}}
+\newcommand{\Vquad}{V_{\mathrm{quad}}}
+\newcommand{\dn}{\delta_{n}}
+\newcommand{\Borel}{\mathcal{B}}
+\newcommand{\Pade}{\mathrm{Pad\acute e}}
+
+\title[Channel structure of asymptotic deformations in PCF dynamics]
+{Channel structure of asymptotic deformations\\ in polynomial continued fraction dynamics:\\ an outline}
+
+\author{The SIARC author}
+\date{2026-05-01 (draft)}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We propose, define, and catalogue the notion of an
+\emph{asymptotic channel} for sequences arising from polynomial
+continued fractions (PCFs). A channel is a triple $(D,T,S)$
+consisting of a dense subspace $D$ of formal series, an
+asymptotic-gauge topology $T$ on $D$, and a section $S$ from
+analytic germs to $D$. Three concrete channels appear in the
+SIARC stack: the recurrence-parameter channel $\Lt$, the
+Borel-of-trans-series channel $\BoT$, and the
+connection-coefficient channel $\CC$. We summarise the empirical
+record (six $\Delta<0$ degree-$2$ families surveyed in three
+recent computational sessions), state a conjectural no-go
+theorem for $\Lt$ and a speculative bridge identity between
+$\Lt$ and $\BoT$, and identify the questions that the SIARC
+Master Conjecture's channel functor
+$\chi : \Sigmaspace \to \Channel$ must answer before the
+announcement paper can be written rigorously. This is an outline
+and program statement: no new theorems are proved.
+\end{abstract}
+
+\tableofcontents
+
+% =====================================================================
+\section{Position}
+\label{sec:position}
+
+The SIARC stack has accumulated three empirically distinct
+phenomena that all advertise themselves as Painlev\'e
+reductions:
+\begin{enumerate}[label=(\alph*)]
+\item The \emph{Stokes signal} $S(t)<1$ measured in the
+recurrence-parameter channel for the six known $\Delta<0$
+degree-$2$ polynomial continued fractions
+(\cite{siarc_pcf1_v13}, Sec.~5).
+\item The explicit reduction
+$\Vquad \rightsquigarrow P_{III}(D_6)$ at the parameter point
+$(1/6, 0, 0, -1/2)$, established in the connection-coefficient
+channel via the V$_\mathrm{quad}$ Casoratian / Heun bridge
+(\cite{siarc_pcf1_v13}, Sec.~6;
+\cite{slavyanov2000special, iwasaki1991from}).
+\item The total failure, demonstrated in two computational
+sessions of 2026-05-01 (\cite{siarc_painleve_deep_6x,
+siarc_borel_5x, siarc_borel_kscan}), of both the $\Lt$ channel
+and a 1/$n$ trans-series Borel-resummation channel to recover
+the $\Vquad$ reduction. Painlev\'e ansatz residuals stay flat
+under precision escalation (no-fit), and Pad\'e--Borel pole
+radii drift unboundedly under truncation extension.
+\end{enumerate}
+Item~(c) is critical. It rules out the most naive interpretation
+of the Master Conjecture's \emph{channel functor}
+$\chi : \Sigmaspace \to \Channel$ \cite{siarc_umbrella}, namely
+that any deformation channel detects any reduction. The Master
+Conjecture asserts that the channel is a function of the
+deformation $\Sigma$, not of the family. The empirical record
+of (a)--(c) shows that $\chi$ must in fact be non-trivial:
+$\chi(\Sigma_{\Lt}) \ne \chi(\Sigma_{\CC})$, and the two
+channels carry genuinely different analytic data about the
+same underlying sequence.
+
+This outline catalogues what we know about the channel space,
+states the questions $\chi$ must answer, and isolates a small
+number of conjectural identities whose resolution would
+constitute the technical content of the announcement paper.
+
+\paragraph{Scope.}
+We restrict throughout to PCF families
+\[
+  \dn = b_n - \cfrac{a_n}{b_{n-1} - \cfrac{a_{n-1}}{\ddots - a_1/b_0}}
+\]
+in the Lorentzen--Waadeland sense \cite{lorentzen2008continued},
+with $a_n, b_n$ polynomial in $n$ over $\mathbf{Z}$, $b$
+$\mathbf{Z}$-primitive and irreducible, and (in the empirical
+sections) $\deg b = 2$ with discriminant $\Delta < 0$.
+
+\paragraph{What is and is not in scope of this outline.}
+This is a program statement and a definition document. We
+(i)~fix terminology, (ii)~enumerate the channels that the
+SIARC stack has actually built, (iii)~report the empirical
+verdict on each, and (iv)~state the open problems that the
+Master Conjecture's channel functor must resolve. We do
+\emph{not} prove a no-go theorem (\Cref{conj:nogo} is
+conjectural), we do \emph{not} construct the bridge identity
+(\Cref{conj:bridge} is speculative), and we do \emph{not}
+extend the catalogue to $\deg b \ge 3$ or to families with
+$\Delta \geq 0$. Each of those is a self-contained follow-up
+listed in \Cref{sec:open}.
+
+\paragraph{Reading guide.}
+\Cref{sec:def}--\Cref{sec:catalogue} are definitional and
+should be read by anyone who wants to know what a SIARC
+``channel'' is. \Cref{sec:functor} packages the Master
+Conjecture in channel language. \Cref{sec:nogo}--%
+\Cref{sec:bridge} are the two non-trivial conjectures whose
+resolution is the core technical content of the Master
+Conjecture announcement. \Cref{sec:implications}--%
+\Cref{sec:open} convert the conjectures into a sequenced
+research program.
+
+% =====================================================================
+\section{Definition: asymptotic channel}
+\label{sec:def}
+
+\begin{definition}[Channel]\label{def:channel}
+Let $X = (\dn)_{n \geq n_0}$ be a sequence of real or
+complex numbers of subexponential growth. An
+\emph{asymptotic channel} for $X$ is a triple $(D, T, S)$
+where
+\begin{enumerate}
+\item $D$ is a dense subspace of a fixed completion
+$\widehat{D}$ of formal power series (or trans-series)
+in a distinguished variable $z$, equipped with a fixed
+trans-series scaffold (the \emph{template});
+\item $T$ is a Hausdorff topology on $D$ induced by an
+asymptotic gauge $\Gamma : D \to \mathbf{R}_{\ge 0}^{\mathbf{N}}$
+that compares partial sums against a chosen scale;
+\item $S : \mathcal{O}_0 \dashrightarrow D$ is a partially
+defined section of the natural inclusion of analytic
+germs at $z=0$ into $\widehat{D}$. We write
+$\mathrm{dom}\, S \subset \mathcal{O}_0$.
+\end{enumerate}
+The sequence $X$ is said to \emph{lie in the channel}
+$(D,T,S)$ if there exists a germ $f \in \mathrm{dom}\, S$
+such that $\Gamma(\widetilde X - S(f))$ is summable in the
+sense of $T$, where $\widetilde X \in \widehat D$ is a
+canonically associated formal expansion of $X$.
+\end{definition}
+
+The triple $(D,T,S)$ encodes three independent choices:
+\emph{which asymptotic ansatz to fit} ($D$),
+\emph{how to measure goodness of fit} ($T$), and
+\emph{which analytic continuation rule to invert} ($S$).
+Different choices yield different channels even for the same
+underlying sequence.
+
+\begin{example}[Recurrence-parameter channel $\Lt$]
+\label{ex:lt}
+$D$ is the space of formal series in $1/n$ with coefficients
+analytic in a deformation parameter $t \in (-h_0, h_0)$, with
+the Birkhoff--Trjitzinsky template
+$\dn(t) \sim \exp(\rho \log n) \cdot n^\sigma \cdot
+\sum_{k \ge 0} c_k(t)/n^k$
+\cite{birkhofftrjitzinsky1932analytic, wimp1984computation}.
+The gauge $\Gamma$ is uniform convergence on partial sums of
+length $N$, evaluated on a finite $t$-grid of step $h$. The
+section $S$ is Borel--Laplace summation along $\mathbf{R}_+$
+\cite{costin2008asymptotics}. This is the channel of
+\cite{siarc_pcf1_v13}, Sec.~5.
+\end{example}
+
+\begin{example}[Borel-of-trans-series channel $\BoT$]
+\label{ex:bot}
+$D$ is the space of trans-series
+$\log|\dn| \sim -A n \log n + \alpha n - \beta \log n
++ \gamma + \sum_{k \ge 1} h_k / n^k$,
+with the WKB scaffold $(A,\alpha,\beta,\gamma)$ fitted first
+and then frozen. The gauge $T$ measures Pad\'e convergence
+of the Borel transform
+$\Borel(\zeta) = \sum_{k \ge 1} h_k \zeta^{k-1}/(k-1)!$,
+quantified by stability of the principal pole radius
+$|\rho_0|$ under truncation order $K$. The section $S$ is
+Pad\'e--Borel resummation. This is the channel of
+\cite{siarc_borel_5x, siarc_borel_kscan}.
+\end{example}
+
+\begin{example}[Connection-coefficient channel $\CC$]
+\label{ex:cc}
+Suppose $\dn$ is the second solution of a second-order linear
+difference (or differential) equation with regular singular
+points. $D$ is the space of formal series in a transfer-matrix
+variable $\tau$ around a chosen singular point. The gauge
+$T$ is convergence of Stokes constants extracted via
+isomonodromic deformation \cite{jimbomiwa1981monodromy}. The
+section $S$ is the Riemann--Hilbert correspondence:
+analytic germs at the singular point are reconstructed from
+the connection matrix
+\cite{lodayrichaud2016divergent, boalch2001stokes}. The
+established $\Vquad \rightsquigarrow P_{III}(D_6)$ at
+$(1/6,0,0,-1/2)$ \cite{iwasaki1991from, ohyama2006studies}
+lives in this channel.
+\end{example}
+
+\begin{remark}[Channel vs.\ summation method]
+\label{rem:channel-vs-sum}
+At first sight a channel is just a choice of summation method
+(Borel--Laplace vs.\ Pad\'e--Borel vs.\ isomonodromic
+reconstruction). The distinction we draw is finer: two
+channels can use the same summation method (e.g.\ both $\Lt$
+and $\BoT$ ultimately appeal to a Borel sum) yet target
+different formal-series spaces $D$ and use different
+asymptotic gauges $T$. The empirical content of
+\Cref{sec:position}(c) is precisely that this distinction
+is not vacuous on the data side: $\Lt$ and $\BoT$ both fail
+where $\CC$ succeeds, despite all three being candidate
+inverses of "what $\dn$ is asymptotically doing".
+\end{remark}
+
+\begin{remark}[Why this is not a tautology]
+\label{rem:not-tautology}
+The definition admits the trivial channel $(D,T,S)$ with $D$
+full, $T$ discrete, and $S$ the identity on its domain, in
+which every sequence ``lies''. The non-trivial content of
+the channel framework is that the natural channels arising
+from (i)~asymptotic enumeration of recurrences, (ii)~Borel
+resummation of trans-series, and (iii)~isomonodromic Stokes
+analysis are mutually \emph{non-cofinal}: the partial order
+on channels by ``inverse-image inclusion'' (i.e.\
+$(D,T,S) \le (D',T',S')$ iff every sequence in the first
+channel lies in the second) does not flatten the three
+working channels of \Cref{ssec:lt}--\Cref{ssec:cc} into a
+single one. This non-flattening is the empirical observation
+that motivates the bridge conjecture (\Cref{conj:bridge})
+and its potential failure mode.
+\end{remark}
+
+\begin{remark}[Trans-series template as a choice]
+\label{rem:template}
+The Birkhoff--Trjitzinsky template
+$\dn(t) \sim e^{\rho \log n} n^{\sigma} \sum_k c_k(t)/n^k$
+is distinguished but not unique. One could equally well
+take a $\sqrt n$-template (which Session E's iteration v2
+tried, before being abandoned;
+\cite{siarc_borel_5x}) or a hybrid template
+mixing exponential and Stokes factors. Each yields a
+different channel by \Cref{def:channel}. The empirical
+failure of the $\sqrt n$-template for $\Vquad$ shows that
+channel choice is not free: a wrong template gives a
+well-defined but vacuous channel.
+\end{remark}
+
+% =====================================================================
+\section{Catalogue of channels in the SIARC stack}
+\label{sec:catalogue}
+
+We summarise the three channels in turn. Numerical values are
+the published values; sources are cited in line.
+
+\subsection{The recurrence-parameter channel $\Lt$}
+\label{ssec:lt}
+
+\paragraph{Definition.} \Cref{ex:lt}.
+
+\paragraph{Operationalisation.} For each PCF family, perturb
+$b_n \mapsto b_n + t \cdot \omega_n$ with a chosen direction
+$\omega_n$ (typically a constant-term or root-radius shift),
+compute $\dn(t)$ on a finite $t$-grid via exact symbolic
+recursion, and fit a Birkhoff--Trjitzinsky tail.
+
+\paragraph{Empirical findings.}
+\begin{itemize}
+\item \emph{Stokes signal.} For all six known $\Delta<0$
+degree-$2$ families
+$\{Q_{L01}, Q_{L02}, Q_{L06}, \Vquad, Q_{L15}, Q_{L26}\}$,
+the Stokes proxy $S(t)$ enters the strip $S<1$ after
+sufficient depth, with stability across precision sweeps
+\cite{siarc_pcf1_v13}.
+\item \emph{Painlev\'e ansatz fit (Session D).} 0/6 families
+admit a Painlev\'e reduction at residual $\le 10^{-4}$
+under depth $3000$, dps $400$. $\Vquad$ marks marginal at
+$4.59 \times 10^{-5}$ on a $P_{III}$ template but does
+\emph{not} recover the known $(1/6, 0, 0, -1/2)$ parameters
+\cite{siarc_painleve_deep_6x}.
+\item \emph{Channel-typing observation.} $Q_{L06}$ and
+$Q_{L26}$ both lie in $\mathbf{Q}(\sqrt{-7})$ but disagree
+on the best Painlev\'e ansatz ($P_V$ vs.\ $P_{III}$), so
+CM-field-driven Painlev\'e typing is ruled out at the $\Lt$
+level.
+\end{itemize}
+
+\paragraph{Open implementation questions.}
+\begin{itemize}
+\item Does enriching the deformation direction $\omega_n$ from
+constant-term to a moduli of perturbations (e.g.\ a smooth
+path in coefficient space) move any family into a positive
+$\Lt$ Painlev\'e fit?
+\item Is the $S<1$ signal a Painlev\'e fingerprint at all,
+or is it (as Sessions D suggest) an artefact of a coarser
+analytic structure that does not reach the
+connection-coefficient resolution?
+\end{itemize}
+
+\subsection{The Borel-of-trans-series channel $\BoT$}
+\label{ssec:bot}
+
+\paragraph{Definition.} \Cref{ex:bot}.
+
+\paragraph{Operationalisation.} Strip the $-A n \log n$
+factor with the closed-form WKB exponents
+\[
+  A = \begin{cases} 4 & a_n \text{ constant}, \\
+                    3 & a_n = c_a n + d_a, \end{cases}
+  \qquad
+  \alpha \;=\; A - 2 \log c_b + \log|c_a|
+\]
+verified to $\ge 13$ digits across all six families
+\cite{siarc_borel_kscan}. Fit the residual trans-series
+$h_k/n^k$ by least squares, then compute Pad\'e approximants
+$[L/M]$ to the Borel transform $\Borel(\zeta)$ and probe the
+nearest singularity.
+
+\paragraph{Empirical findings.}
+\begin{itemize}
+\item \emph{WKB exponent identity.} 6/6 families to
+$\ge 13$ digits; this is locked into PCF-1 v1.3 and is the
+only positive structural result of Sessions D--E$'$.
+\item \emph{Borel-resummation gate ($\Vquad$).} Painlev\'e
+fit residuals on the Pad\'e--Borel sum
+\emph{worsen} under truncation extension
+($K=12 \to 24$): $7.2\times 10^{-3} \to 5.0 \times 10^{-3}
+\to 1.0 \times 10^{-2} \to 9.9 \times 10^{-2}$. Pad\'e pole
+radius diverges $2.17 \to 4.59$. Best-fit Painlev\'e identity
+flips $P_{III} \leftrightarrow P_{VI}$
+\cite{siarc_borel_5x}.
+\item \emph{$K$-scan on marginal hits.} Two $K=12$ marginal
+hits (Q$_{L15} \to P_V$ at $9 \times 10^{-5}$,
+Q$_{L26} \to P_{III}$ at $3 \times 10^{-5}$) likewise drift
+under $K$-extension: residuals fail to stay $\le 10^{-4}$,
+Pad\'e pole radii drift unboundedly, ansatz identity flips
+\cite{siarc_borel_kscan}. Confirmed Pad\'e-truncation
+artefacts.
+\end{itemize}
+
+\paragraph{Open implementation questions.}
+\begin{itemize}
+\item Does a different summation scheme (Borel--\'Ecalle
+\cite{ecalle1981fonctions, sauzin2014resurgent} rather than
+Pad\'e--Borel) on the \emph{same} trans-series space $D$
+recover Painlev\'e information for $\Vquad$? If yes, the
+"channel" we tested was actually $(D,T,S')$ with the wrong
+section $S'$, not the wrong space $D$.
+\item Are the $h_k$ stable enough across $K$ to attempt a
+Borel--Laplace sum along a non-real ray? (Sessions E--E$'$
+report $h_1 \ldots h_6$ stable to 14 digits across
+$K=12$--$24$; the channel definition is well-posed even
+though the downstream sum fails.)
+\end{itemize}
+
+\subsection{The connection-coefficient channel $\CC$}
+\label{ssec:cc}
+
+\paragraph{Definition.} \Cref{ex:cc}.
+
+\paragraph{Operationalisation.} For families that arise as
+specialisations of a Heun-type linear ODE
+\cite{slavyanov2000special}, compute the isomonodromic
+deformation parameters and read off the Painlev\'e moduli
+point.
+
+\paragraph{Empirical findings.}
+\begin{itemize}
+\item $\Vquad$: $P_{III}(D_6)$ at $(1/6, 0, 0, -1/2)$
+\cite{iwasaki1991from, ohyama2006studies}.
+\item Other five $\Delta<0$ degree-$2$ families: pipeline
+not yet executed (op:cc-pipeline below).
+\end{itemize}
+
+\paragraph{Open implementation questions.}
+\begin{itemize}
+\item Build an explicit $\CC$-channel pipeline for the five
+non-$\Vquad$ families. The pipeline requires identifying
+the underlying second-order linear difference equation,
+computing its Stokes data, and matching against the
+$P_{II}$--$P_{VI}$ catalogue.
+\item Does the $\CC$ pipeline succeed on \emph{all} of the
+five remaining families, on a strict subset, or on none?
+Each outcome implies a different shape of the channel
+functor $\chi$.
+\end{itemize}
+
+\subsection{Comparison table}
+\label{ssec:comparison}
+
+The three channels can be summarised in a single table.
+``Detects $\Vquad$'s $P_{III}(D_6)$ reduction'' is the
+natural test question; the answer is the empirical content
+of Sessions D, E, E$'$.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{lcccc}
+\hline
+Channel & Space $D$ & Gauge $T$ & Section $S$ &
+  Detects $\Vquad$? \\
+\hline
+$\Lt$  & series in $1/n$, $t$-deformed &
+  uniform on $t$-grid &
+  Borel--Laplace & no \\
+$\BoT$ & 1/$n$ trans-series of $\log|\dn|$ &
+  Pad\'e pole-radius stability &
+  Pad\'e--Borel & no \\
+$\CC$  & series in $\tau$ at sing.\ point &
+  Stokes-constant convergence &
+  Riemann--Hilbert & yes \\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent The empirical asymmetry in the rightmost column is
+the single-line summary of the channel-functor problem: a
+rigorous $\chi$ must explain why exactly the $\CC$ row
+detects this reduction and the others do not.
+
+\subsection{The locked WKB exponent identity}
+\label{ssec:wkb}
+
+A byproduct of the $\BoT$ channel construction
+(\Cref{ssec:bot}) is the explicit closed form for the WKB
+scaffold $(A, \alpha)$ extracted from $\log |\dn|$. We
+record the value because it is the only positive structural
+output of Sessions D--E$'$ and because it appears in PCF-1
+v1.3 \cite{siarc_pcf1_v13}.
+
+\begin{proposition}[WKB exponent identity, empirical]
+\label{prop:wkb}
+For each of the six $\Delta<0$ degree-$2$ families surveyed,
+the leading trans-series exponents of
+$\log|\dn| = -A n \log n + \alpha n - \beta \log n + \gamma
++ \sum_{k \ge 1} h_k / n^k$
+satisfy the closed form
+\[
+  A \;=\; \begin{cases} 4 & a_n \equiv \text{const}, \\
+                        3 & a_n = c_a n + d_a, \end{cases}
+  \qquad
+  \alpha \;=\; A \;-\; 2 \log c_b \;+\; \log|c_a|
+\]
+to $\geq 13$ decimal digits across the $K$-scan grid
+$K \in \{12, 16, 20, 24\}$, dps $\in \{2200, 3000, 4000,
+5000\}$ \cite{siarc_borel_kscan}.
+\end{proposition}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lccccc}
+\hline
+Family & $\Delta$ & $a_n$ & $A$ & $\alpha$ &
+  digits matched \\
+\hline
+Q$_{L01}$ & $-3$  & const & $4$ & $4$              & exact \\
+Q$_{L02}$ & $-4$  & const & $4$ & $4 + \log 2$     & 13 \\
+Q$_{L06}$ & $-7$  & lin   & $3$ & $3 - 2\log 2$    & 14 \\
+$\Vquad$  & $-11$ & const & $4$ & $4 - 2\log 3$    & 13 \\
+Q$_{L15}$ & $-20$ & const & $4$ & $4 - 2\log 3$    & 15 \\
+Q$_{L26}$ & $-28$ & const & $4$ & $4 + \log 3 - 2\log 4$ & 13 \\
+\hline
+\end{tabular}
+\end{center}
+
+\Cref{prop:wkb} is what survives of the $\BoT$ channel after
+the Pad\'e--Borel resummation gate fails: the channel's
+\emph{template} is well-conditioned, the $h_k$ are stable to
+$14$ digits across $K=12$--$24$ \cite{siarc_borel_kscan},
+but the downstream resummation does not converge to a
+well-defined section $S$. In the language of
+\Cref{def:channel}: $D$ and $T$ are well-defined; $S$ is
+not. This is the most refined diagnostic available for
+what goes wrong in $\BoT$.
+
+% =====================================================================
+\section{The channel functor: what we know and what we don't}
+\label{sec:functor}
+
+The Master Conjecture \cite{siarc_umbrella} posits a functor
+\[
+  \chi : \Sigmaspace \longrightarrow \Channel,
+\]
+where $\Sigmaspace$ is a category of deformations of PCF
+families (objects: families with chosen deformation direction;
+morphisms: compatible reparametrisations) and $\Channel$ is
+the category whose objects are channels in the sense of
+\Cref{def:channel}.
+
+\subsection{The deformation category $\Sigmaspace$}
+\label{ssec:sigma}
+
+We make $\Sigmaspace$ slightly more precise, since the
+channel functor is only as well-defined as its source.
+
+\begin{definition}[Object of $\Sigmaspace$]
+An object of $\Sigmaspace$ is a triple
+$\Sigma = (F, \omega, h)$ where $F = \PCF(a, b)$ is a PCF
+family as in the scope of \Cref{sec:position}, $\omega \in
+\mathbf{Z}[n]$ is a deformation direction, and $h > 0$ is a
+step parameter. The deformed family is
+$F_t = \PCF(a, b + t \omega)$ for $|t| < h$.
+\end{definition}
+
+\begin{definition}[Morphism of $\Sigmaspace$]
+A morphism
+$(F, \omega, h) \to (F', \omega', h')$ exists when $F = F'$,
+$\omega' = \lambda \omega$ for $\lambda \in \mathbf{Q}^\times$,
+and $h' \le h / |\lambda|$. Composition is multiplication of
+the scalars $\lambda$. The resulting category is a Picard
+groupoid over each fixed family.
+\end{definition}
+
+The channel functor $\chi$ is required to factor through the
+family: $\chi(F, \omega, h)$ is independent of $h$ and
+invariant under positive rescalings of $\omega$. This makes
+$\chi$ a functor on the quotient $\Sigmaspace / \sim$, but
+we retain the unquotiented form because the choice of
+$\omega$ class \emph{does} affect $\chi$ (different
+perturbation directions can in principle produce different
+channels).
+
+\subsection{Properties of $\chi$}
+
+\begin{conjecture}[Properties of $\chi$]
+\label{conj:chi}
+The channel functor satisfies:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Functoriality in $\Sigmaspace$.} Changing the
+deformation $\Sigma$ on a fixed family genuinely changes the
+target channel $\chi(\Sigma)$. Equivalently, $\chi$ is not
+constant in its first argument.
+\item \emph{Empirical consistency.} For every PCF family
+$F$ for which a Painlev\'e reduction is presently established
+(at this writing: $\Vquad$ alone, in the $\CC$ channel),
+$\chi$ assigns the deformation that produced that reduction
+to the channel in which it was established. Concretely:
+$\chi(\Sigma(\Vquad)) = \CC$.
+\item \emph{Non-constancy.} There exist deformations
+$\Sigma_1, \Sigma_2$ with $\chi(\Sigma_1) \ne \chi(\Sigma_2)$.
+\end{enumerate}
+\end{conjecture}
+
+We comment on each clause.
+
+\medskip
+(i) is testable: any positive $\Lt$ Painlev\'e fit in any
+new family would furnish an instance of $\chi$ taking value
+$\Lt$, distinguishing it from $\chi(\Sigma(\Vquad)) = \CC$.
+
+\medskip
+(ii) is currently a single data point. The cross-validation
+record (\Cref{sec:position}(c)) shows that for $\Vquad$ the
+$\Lt$ and $\BoT$ channels do not return the $\CC$ reduction;
+this is consistent with (ii) but does not yet test it on
+multiple families.
+
+\medskip
+(iii) is asserted by (a)--(c) of \Cref{sec:position} together
+with $\Vquad$'s $\CC$ reduction.
+
+\paragraph{What we do not know about $\Channel$.}
+The most basic open question is whether the channel space is
+discrete or has moduli structure. The three channels
+$\{\Lt, \BoT, \CC\}$ exhausted in this outline are
+clearly not the only ones in principle: any choice of
+$(D, T, S)$ defines a channel. Whether the \emph{useful} set
+of channels (those that detect a non-trivial structure on
+some PCF family) is finite, countable, or has continuous
+moduli is open, and is the content of the
+\textsf{(op:channel-moduli)} problem in \Cref{sec:open}.
+
+\paragraph{Worked instance of $\chi$ on the present catalogue.}
+The minimal information required from $\chi$ on the data
+collected so far is the assignment
+\[
+  \chi : \big( \Vquad,\ \text{Heun-isomonodromic}\big)
+  \;\longmapsto\; \CC,
+  \qquad
+  \chi : \big( F_i,\ \Sigma_{\text{const-term}}\big)
+  \;\longmapsto\; ?,
+\]
+for $i = 1, \ldots, 6$ and the $\Lt$-style constant-term
+deformation $\Sigma_{\text{const-term}}$. Sessions D and
+E establish that the second assignment is \emph{not} $\Lt$
+(no Painlev\'e ansatz reaches residual $\le 10^{-4}$ stably)
+and \emph{not} $\BoT$ (Pad\'e pole radii drift). Either
+$\chi$ takes value in some channel not yet in our catalogue,
+or the deformation $\Sigma_{\text{const-term}}$ is
+``channel-degenerate'' in the sense that no Painlev\'e
+structure is detectable along it for these families.
+\Cref{conj:nogo} below conjectures the latter for $\deg
+b = 2$, $\Delta < 0$; \Cref{conj:bridge} indicates how
+the two readings could be reconciled via a bridge identity.
+
+% =====================================================================
+\section{Conjectured no-go theorem}
+\label{sec:nogo}
+
+\begin{conjecture}[$\Lt$ no-go for degree $2$, $\Delta<0$]
+\label{conj:nogo}
+Let $F = \PCF(a, b)$ be a polynomial continued fraction with
+$a, b \in \mathbf{Z}[n]$, $b$ irreducible and
+$\mathbf{Z}$-primitive, $\deg b = 2$, and discriminant
+$\Delta(b) < 0$. Then no Painlev\'e reduction of the
+$\Lt$-deformation
+$F_t = \PCF(a, b + t\omega)$ exists in the
+$\Lt$ channel of \Cref{ex:lt}.
+\end{conjecture}
+
+\paragraph{Empirical evidence.} \Cref{conj:nogo} is consistent
+with the Session D record \cite{siarc_painleve_deep_6x}:
+0 / 6 families admit a Painlev\'e fit at residual
+$\le 10^{-4}$, with residuals stable under precision
+escalation (the diagnostic that the candidate ODE is genuinely
+wrong rather than under-resolved).
+
+\paragraph{Falsifiability.} \Cref{conj:nogo} is falsified by a
+single counterexample: any $\Delta<0$ degree-$2$ family for
+which an $\Lt$-channel Painlev\'e fit residual drops below
+$10^{-4}$ under precision escalation, with stable
+parameters.
+
+\paragraph{Failure modes to monitor.}
+\begin{itemize}
+\item Non-generic perturbation directions $\omega$. Sessions
+B--D used D-A (constant-term) and D-B (root-radius). A
+generic moduli of $\omega$ has not been swept.
+\item Higher-rank deformations (two-parameter $t$). Out of
+scope here; would change the formal-series space $D$.
+\item Families with reducible Galois group of $b$. Out of
+scope by the irreducibility hypothesis, but worth flagging
+as a sanity boundary (cf.\ Ap\'ery in
+\cite{siarc_pcf2_program}).
+\end{itemize}
+
+% =====================================================================
+\section{Conjectured bridge identity}
+\label{sec:bridge}
+
+\begin{conjecture}[Bridge identity, speculative]
+\label{conj:bridge}
+There exists a real-analytic function
+$\Phi(s, \zeta_1, \ldots, \zeta_r)$ such that, for every
+$\Delta<0$ degree-$2$ PCF family $F$ in the regime of
+\Cref{conj:nogo}:
+\begin{enumerate}[label=(\roman*)]
+\item $s$ is the limiting Stokes exponent
+$S(t) = \lim_{t \to 0^+} S_t$ measured in the $\Lt$
+channel,
+\item $\zeta_1, \ldots, \zeta_r$ are the singular points of
+the Borel transform $\Borel(\zeta)$ in the $\BoT$ channel
+(if these are well-defined; presently they are not),
+\item $\Phi(s, \zeta_1, \ldots, \zeta_r) = 0$ holds, and
+\item $\Phi$-membership of $F$ is equivalent to existence of
+a $\CC$-channel Painlev\'e reduction of $F$.
+\end{enumerate}
+\end{conjecture}
+
+\Cref{conj:bridge} is the speculative deep claim. If true, the
+three channels $\Lt$, $\BoT$, $\CC$ are not analytically
+independent: they parameterise the same underlying structure
+along three different probes, and the Stokes signal $S(t)<1$
+in $\Lt$ is a coarse shadow of a sharper rigidity that lives
+in $\CC$.
+
+\paragraph{Status.} We have one data point in the affirmative
+direction: $\Vquad$ does have $S < 1$ in $\Lt$
+\cite{siarc_pcf1_v13} and \emph{does} have a $\CC$-channel
+$P_{III}(D_6)$ reduction \cite{iwasaki1991from}. The other
+five families have $S<1$ but no known $\CC$ reduction yet.
+\Cref{conj:bridge} predicts they all have one.
+
+\paragraph{Obstructions.} The main obstruction to even
+\emph{stating} \Cref{conj:bridge} precisely is that
+$\zeta_1, \ldots, \zeta_r$ are not well-defined for the five
+non-$\Vquad$ families: Sessions E and E$'$ exhibited unbounded
+Pad\'e pole drift \cite{siarc_borel_5x, siarc_borel_kscan}.
+Either the trans-series template is wrong, the Pad\'e
+approximants are inadequate (Borel--\'Ecalle along a complex
+ray would be the next test), or the $\BoT$ channel is genuinely
+empty for these families and the bridge identity is between
+$\Lt$ and $\CC$ alone, with $\BoT$ playing no role.
+
+The connection-formula viewpoint of
+\cite{costincostin2001formation} gives the most natural
+formal home for $\Phi$: $\Phi$ would be a relation among
+Stokes constants attached to two different singular-point
+neighbourhoods of the same difference equation. Whether such
+a relation can be written down explicitly for any $\Delta<0$
+PCF is the technical content of (op:bridge-vquad).
+
+\paragraph{Three structural variants of \Cref{conj:bridge}.}
+We distinguish three weakened forms, in increasing order of
+falsifiability:
+\begin{enumerate}[label=(B\arabic*)]
+\item \emph{Existence.} Some real-analytic $\Phi$ as in
+\Cref{conj:bridge} exists. (The default reading.)
+\item \emph{Algebraicity.} $\Phi$ is a polynomial in $s$ with
+coefficients algebraic in $\zeta_1, \ldots, \zeta_r$. This
+is the strongest reasonable form and would constrain the
+channel functor to take values in a discrete set of
+algebraic strata.
+\item \emph{Approximate.} For some prescribed tolerance
+$\varepsilon$, $|\Phi(s, \vec\zeta)| \le \varepsilon$ on a
+dense subset of $\Delta < 0$ degree-$2$ families. This is
+the weakest form that still gives empirical traction: it
+would reduce $\chi$ from a deterministic functor to an
+$\varepsilon$-coarse functor and would still permit a
+statistical announcement.
+\end{enumerate}
+The rubber-duck critique flagged that without committing
+to one of (B1)--(B3), \Cref{conj:bridge} is too elastic to
+be falsifiable. We commit to (B1) as the \emph{minimum}
+requirement and to (B2) as the \emph{aspiration}; (B3) is the
+fallback for the announcement paper if (B1)/(B2) prove
+infeasible within the relay timeframe.
+
+\paragraph{Sketch of $\Phi$ for $\Vquad$.}
+For $\Vquad$ the $\CC$-channel reduction parameters
+$(1/6, 0, 0, -1/2)$ in $P_{III}(D_6)$ are exactly determined
+(via the Heun pathway of \cite{slavyanov2000special} and the
+IKSY classification \cite{iwasaki1991from, ohyama2006studies}).
+From \Cref{prop:wkb}, $A = 4$ and
+$\alpha = 4 - 2 \log 3$. The $\Lt$ Stokes proxy $S(t)$
+measured in \cite{siarc_pcf1_v13} satisfies $S < 1$
+unconditionally. A candidate skeleton for $\Phi$ would
+therefore relate $S$, $A$, $\alpha$, and a (currently
+undefined) Borel singular point $\zeta_0$ via
+\[
+  \Phi_{V} (s, \zeta_0) \;\stackrel{?}{=}\;
+  s + A^{-1}\bigl(\alpha - 2\log\,c_b\bigr)
+  - \Re(\zeta_0)/A.
+\]
+We stress that this is a structural placeholder, not a
+claim: the right-hand side is gauge-fixed to vanish for
+$\Vquad$ by construction, and its empirical content lives
+in whether the same shape with $A, \alpha$ replaced by the
+row values of \Cref{prop:wkb} produces a $\zeta_0$ that
+actually appears as a Borel singularity for the other five
+families. As of Session E$'$, no such $\zeta_0$ exists at
+the Pad\'e level, so the sketch is currently untestable.
+
+% =====================================================================
+\section{Related work and prior channel structures}
+\label{sec:related}
+
+The channel framework of \Cref{def:channel} did not arise in
+a vacuum. We sketch four lines of prior work that supply
+either the formal vocabulary or a non-PCF analogue, and we
+flag where the SIARC channels diverge from each.
+
+\subsection{Resurgence and alien calculus
+(\'Ecalle, Costin, Sauzin)}
+The most developed pre-existing analogue is the
+resurgence-theoretic framework of
+\cite{ecalle1981fonctions, costin2008asymptotics,
+sauzin2014resurgent, mitschi2016divergent}. There a
+divergent series is identified with its Borel transform,
+analytic continuation along admissible rays defines a
+collection of summed functions, and the differences between
+those sums (Stokes constants) carry the deep arithmetic
+content. Our $\BoT$ channel is essentially a discrete
+Pad\'e-truncated version of this construction; the failure
+mode observed in Session E
+(\cite{siarc_borel_5x}) is consistent with the well-known
+phenomenon that Pad\'e approximation does not always recover
+the alien structure even when the underlying series is
+resurgent. The continuous-side success of resurgence
+\cite{delabaere2016divergent} on $P_I$ is the structural
+benchmark to which any positive resolution of
+\textsf{(op:bridge-vquad)} must aspire.
+
+\subsection{Stokes / isomonodromic theory
+(Birkhoff, Jimbo--Miwa, Boalch)}
+The connection-coefficient channel $\CC$ has a long history
+in the theory of isomonodromic deformations of linear ODEs
+\cite{jimbomiwa1981monodromy, vanderputsinger2003galois}.
+Boalch's work \cite{boalch2001stokes} packages the Stokes
+data as a Poisson--Lie structure on a moduli space, which is
+the natural ambient candidate for the channel-moduli question
+\textsf{(op:channel-moduli)}. The non-classical aspect for
+PCFs is that the underlying object is a second-order linear
+\emph{difference} (not differential) equation; the
+isomonodromic theory transfers but is not entirely
+streamlined.
+
+\subsection{Heun--Painlev\'e correspondence
+(Slavyanov--Lay)}
+\cite{slavyanov2000special} treats Heun-class linear ODEs
+with four regular singular points and their reductions to
+the Painlev\'e family. The $\Vquad$ Casoratian arises as a
+specialisation of this framework, and that specialisation is
+how the $(1/6, 0, 0, -1/2)$ moduli point is computed in
+practice. Whether the other five $\Delta < 0$ degree-$2$ PCFs
+admit Heun-style specialisations of any kind is an empirical
+question that \textsf{(op:cc-pipeline)} would answer.
+
+\subsection{Algebraic Painlev\'e moduli
+(Mazzocco, IKSY, Ohyama et al.)}
+\cite{mazzocco2001picard, mazzocco2002painleve, iwasaki1991from,
+ohyama2006studies, guzzetticlass2012} give finite catalogues of
+algebraic and Picard-type solutions to the Painlev\'e
+equations together with the Stokes-data parameters that
+realise them. Our T2B / UMB-PVI-MATCH umbrella result
+\cite{siarc_t2b_v3} is an attempt to read PCF families
+\emph{into} this catalogue: Class B (16/16) lands inside
+$P_{III}(D_6)$, and a single $P_{VI}$-Picard rigidity
+candidate (A052) was flagged for further screening. That
+candidate, if it survives, will be the second example
+beyond $\Vquad$ where $\chi$ takes value in $\CC$ on a
+specific PCF.
+
+\medskip
+The novel content of the present outline is not in the
+formal-series machinery, which is well established, but in
+the \emph{empirical} observation that on the natural
+$\Delta < 0$ degree-$2$ PCF stratum the three classical
+channels are \emph{empirically separated} on the
+$\Vquad$-detection task. Whether this separation is
+intrinsic to PCFs or an artefact of the channels we have
+chosen to test is the central open question.
+
+% =====================================================================
+\section{Implications for the Master Conjecture}
+\label{sec:implications}
+
+A rigorous announcement of the Master Conjecture
+\cite{siarc_umbrella} requires the following intermediate
+results, in increasing order of difficulty:
+
+\begin{enumerate}
+\item \textbf{Pipeline closure.} An explicit $\CC$-channel
+pipeline for the five non-$\Vquad$ degree-$2$ $\Delta<0$
+families (\textsf{op:cc-pipeline}). This is the
+\emph{minimum} test of $\chi$: \Cref{conj:chi}(ii) demands
+that whatever the pipeline returns is the value of $\chi$ on
+those families' deformations.
+\item \textbf{No-go proof or refutation.} \Cref{conj:nogo}
+either proved (settling that $\Lt$ never detects Painlev\'e
+in this regime) or refuted by a positive counterexample
+(\textsf{op:no-go-proof}). Either outcome sharpens
+\Cref{conj:chi}(i).
+\item \textbf{Partial bridge identity.} A version of
+\Cref{conj:bridge} for at least one family beyond $\Vquad$
+(\textsf{op:bridge-vquad}). This is the first non-trivial
+test of the speculative bridge.
+\item \textbf{Cubic extension.} Channel catalogue extended to
+$\deg b \ge 3$ along the lines of \cite{siarc_pcf2_program}
+(\textsf{op:cubic-channels}).
+\end{enumerate}
+
+In the language of \Cref{sec:functor}: items 1 and 2
+discharge \Cref{conj:chi}(i)--(ii) for one stratum
+($\deg = 2$, $\Delta < 0$); item 3 starts to characterise the
+target category $\Channel$; item 4 begins to extend $\chi$
+across the natural product structure of $\Sigmaspace$.
+
+\medskip
+The announcement paper cannot be written rigorously without
+\emph{at least} item 1 above (the $\CC$ pipeline), because
+otherwise the empirical content of \Cref{conj:chi}(ii)
+collapses to a single example.
+
+% =====================================================================
+\section{Open problems and program}
+\label{sec:open}
+
+We collect six concrete open problems with tractability
+estimates. "Session" here means one SIARC relay session
+(of order $10$ hours of agent compute plus human-side review).
+
+\begin{problem}[\textsf{op:no-go-proof}]
+Prove or refute \Cref{conj:nogo}.
+\emph{Tractability.} A refutation may be within reach in
+1--3 sessions if any moduli of perturbation directions
+$\omega$ produces a stable $\Lt$ Painlev\'e fit. A proof is a
+multi-year program: it requires structural understanding of
+why the Birkhoff--Trjitzinsky template's gauge cannot
+distinguish Painlev\'e equations within the $\Delta<0$
+regime.
+\end{problem}
+
+\begin{problem}[\textsf{op:bridge-vquad}]
+Construct a candidate $\Phi$ in \Cref{conj:bridge} for
+$\Vquad$ alone, using its known $\CC$ reduction as the
+target.
+\emph{Tractability.} 2--5 sessions for a candidate, if a
+suitable Borel--\'Ecalle resummation can be implemented
+along a complex ray; multi-year for a proof.
+\end{problem}
+
+\begin{problem}[\textsf{op:cc-pipeline}]
+Implement an explicit $\CC$-channel pipeline for the five
+non-$\Vquad$ degree-$2$ $\Delta<0$ families. Report which (if
+any) admit a Painlev\'e reduction.
+\emph{Tractability.} 1--2 sessions per family for the
+straightforward Heun-type cases (cf.\ V\_quad's
+\cite{slavyanov2000special} pathway); harder if the
+underlying linear difference equation does not arise from
+classical Heun specialisation.
+\end{problem}
+
+\begin{problem}[\textsf{op:channel-moduli}]
+Is the channel space $\Channel$ a moduli space (with
+positive-dimensional families of channels) or a discrete /
+finite set? Equivalently, does varying $(D,T,S)$ continuously
+through admissible triples give continuous deformations of
+the channel?
+\emph{Tractability.} Multi-year. Likely requires the
+Stokes-matrix / Frobenius-manifold framework of
+\cite{boalch2001stokes} as a guide, and a working
+$\CC$ pipeline as an empirical anchor.
+\end{problem}
+
+\begin{problem}[\textsf{op:cubic-channels}]
+Do PCF-2 cubic families (\cite{siarc_pcf2_program}) admit the
+same three-channel structure $\{\Lt, \BoT, \CC\}$, or does
+$\deg b = 3$ introduce qualitatively new channels?
+\emph{Tractability.} 3--5 sessions for a first scan once the
+PCF-2 enumeration cubic Apery-positive-control pipeline is
+in place.
+\end{problem}
+
+\begin{problem}[\textsf{op:partition-link}, speculative]
+Does the Meinardus partition-asymptotic universality of G-01
+\cite{meinardus1954asymptotische, andrews1976theory} live in
+any of the channels of \Cref{sec:catalogue}? If so, the
+channel functor $\chi$ extends across SIARC Path 5 and unifies
+the partition and PCF strands.
+\emph{Tractability.} Multi-year. Requires reformulating
+Meinardus universality as a channel-detected property of a
+suitable trans-series.
+\end{problem}
+
+\begin{problem}[\textsf{op:de-borel}]
+Implement Borel--\'Ecalle ray summation
+\cite{ecalle1981fonctions, sauzin2014resurgent} as a
+\emph{distinct} section $S'$ on the same trans-series
+template $D$ as $\BoT$. Test on $\Vquad$. If $S'$ recovers
+the $\CC$ moduli point, the SIARC catalogue gains a fourth
+channel $\BoT' = (D, T', S')$ and the empirical asymmetry of
+\Cref{ssec:comparison} sharpens to a statement about Pad\'e
+gauges specifically, not about Borel resummation in
+general. \emph{Tractability.} 2--4 sessions; well within
+relay scope, and likely the highest-value next experiment.
+\end{problem}
+
+\begin{problem}[\textsf{op:zero-one-law}]
+Is there a zero-one law for channel detection on a fixed
+PCF family? Concretely: given a family $F$, is the set of
+deformations $\Sigma$ for which $\chi(\Sigma) \ne \mathsf{trivial}$
+either of measure zero or of full measure in a natural
+sense? A positive answer would force $\chi$ to factor through
+a discrete invariant of the family.
+\emph{Tractability.} Multi-year and currently lacks a
+candidate measure on $\Sigmaspace$.
+\end{problem}
+
+% =====================================================================
+\section*{Acknowledgements}
+
+We thank the SIARC relay infrastructure
+(\href{https://github.com/papanokechi/siarc-relay-bridge}%
+{papanokechi/siarc-relay-bridge}) for storing and
+checkpointing the empirical record cited throughout.
+
+\paragraph{AI disclosure.} This outline was drafted with
+the assistance of large language models in the SIARC
+self-iterating analytic relay chain. All numerical claims
+trace to exact computations stored under
+\texttt{sessions/2026-05-01/} on the SIARC bridge. The
+present document contains no new theorems and no new
+numerical results; it organises and frames existing
+empirical and structural material into a program statement.
+
+% =====================================================================
+\bibliographystyle{plain}
+\bibliography{annotated_bibliography}
+
+\end{document}
