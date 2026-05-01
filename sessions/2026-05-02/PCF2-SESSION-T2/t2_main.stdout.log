@@ -1,0 +1,31 @@
+[07:19:03] PHASE A: tau_b reduction + Eisenstein evaluation
+[07:19:03]   50 cubic families with both R1.1 and R1.3 records
+[07:19:17]   wrote phase_A_eisenstein_table.csv (50 rows)
+[07:19:17]   wrote phase_A_tau_b_reduction.json; max j relerr = 4.762e-15
+[07:19:17] PHASE B: correlation map (R1.1 vs R1.3)
+[07:19:17]   H_baseline         rho_R11=-0.691 (Bonf p=4.01e-07)  rho_R13=-0.568 (Bonf p=2.34e-04)
+[07:19:17]   H_E4               rho_R11=-0.609 (Bonf p=3.70e-05)  rho_R13=-0.459 (Bonf p=1.12e-02)
+[07:19:17]   H_Delta_w6         rho_R11=+0.742 (Bonf p=9.54e-09)  rho_R13=+0.638 (Bonf p=8.63e-06)
+[07:19:17]   H_Delta_w12        rho_R11=+0.742 (Bonf p=9.54e-09)  rho_R13=+0.638 (Bonf p=8.63e-06)
+[07:19:17]   H_E6               rho_R11=+0.609 (Bonf p=3.70e-05)  rho_R13=+0.459 (Bonf p=1.12e-02)
+[07:19:17]   H_j_minus_1728     rho_R11=-0.320 (Bonf p=3.31e-01)  rho_R13=-0.366 (Bonf p=1.25e-01)
+[07:19:17]   H_eta              rho_R11=-0.698 (Bonf p=2.44e-07)  rho_R13=-0.642 (Bonf p=7.10e-06)
+[07:19:17]   H_imtau            rho_R11=-0.701 (Bonf p=2.01e-07)  rho_R13=-0.642 (Bonf p=7.03e-06)
+[07:19:17]   H_E4_cube          rho_R11=-0.609 (Bonf p=3.70e-05)  rho_R13=-0.459 (Bonf p=1.12e-02)
+[07:19:17]   wrote phase_B_correlation_table.json and phase_B_correlation_table.tex
+[07:19:17] PHASE C: residual after best-Eisenstein predictor
+[07:19:17]   winner = H_eta (log_eta_norm) rho_R13=-0.642 p_bonf=7.10e-06
+[07:19:17]   baseline H_baseline rho_R13=-0.568 p_bonf=2.34e-04
+[07:19:17]   E4-grounded predictor beats baseline at deep precision? True
+[07:19:17]   OLS  delta = -1.4562e-02 + (-4.7583e-02) * log_eta_norm
+[07:19:17]   RMS resid = 7.8748e-03
+[07:19:17]   resid vs log_abs_Delta_petersson_w6: rho=-0.302 p_bonf(K=4)=1.31e-01
+[07:19:17]   resid vs log_abs_Delta_petersson_w12: rho=-0.302 p_bonf(K=4)=1.31e-01
+[07:19:17]   resid vs log_abs_j_minus_1728: rho=+0.272 p_bonf(K=4)=2.25e-01
+[07:19:17]   resid vs log_abs_E6: rho=-0.080 p_bonf(K=4)=1.00e+00
+[07:19:17]   resid vs log_eta_norm: rho=+0.326 p_bonf(K=4)=8.37e-02
+[07:19:17]   resid vs log_imtau: rho=+0.325 p_bonf(K=4)=8.48e-02
+[07:19:17]   wrote phase_C_residual.json
+[07:19:21]   wrote phase_C_diagnostics.png
+[07:19:21] DONE Phase A/B/C in 17.3s
+[07:19:21] summary -> phase_ABC_summary.json

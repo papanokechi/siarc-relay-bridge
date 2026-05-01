@@ -1,0 +1,102 @@
+{
+  "claim": "|delta_j=0| at the j=0 cubic cell shrinks monotonically with N_max across R1.1 (N=67), R1.3 (N=250), T2-D (N=480), consistent with finite-N tail-window artefact (A_true = 6 asymptotically) rather than A_true != 6.",
+  "rows": [
+    {
+      "family_id": 30,
+      "R11": {
+        "Nmax": 67,
+        "delta": -0.001143756743641866,
+        "stderr": 6.462063329481264e-05,
+        "abs_delta": 0.001143756743641866
+      },
+      "R13": {
+        "Nmax": 250,
+        "delta": -0.00012916113721495037,
+        "stderr": 3.4387395399658113e-06,
+        "abs_delta": 0.00012916113721495037
+      },
+      "T2D": {
+        "Nmax": 480,
+        "delta": -1.900317973557719e-05,
+        "stderr": 4.4856103168065394e-07,
+        "abs_delta": 1.900317973557719e-05
+      },
+      "ratio_R11_to_R13": 8.855270000746605,
+      "ratio_R13_to_T2D": 6.796817112303511,
+      "monotone_decreasing": true
+    },
+    {
+      "family_id": 31,
+      "R11": {
+        "Nmax": 67,
+        "delta": -0.00011751778785118461,
+        "stderr": 8.259359459283807e-06,
+        "abs_delta": 0.00011751778785118461
+      },
+      "R13": {
+        "Nmax": 250,
+        "delta": -3.603754005876425e-05,
+        "stderr": 1.8543414849101152e-05,
+        "abs_delta": 3.603754005876425e-05
+      },
+      "T2D": {
+        "Nmax": 480,
+        "delta": -1.550883718337559e-05,
+        "stderr": 3.303370589025847e-07,
+        "abs_delta": 1.550883718337559e-05
+      },
+      "ratio_R11_to_R13": 3.2609825104475894,
+      "ratio_R13_to_T2D": 2.3236777607926675,
+      "monotone_decreasing": true
+    },
+    {
+      "family_id": 32,
+      "R11": {
+        "Nmax": 67,
+        "delta": 0.0004887816589080884,
+        "stderr": 7.73454999199543e-05,
+        "abs_delta": 0.0004887816589080884
+      },
+      "R13": {
+        "Nmax": 250,
+        "delta": 0.0002519162587182322,
+        "stderr": 0.000141019599708342,
+        "abs_delta": 0.0002519162587182322
+      },
+      "T2D": {
+        "Nmax": 480,
+        "delta": -1.4635253442918383e-05,
+        "stderr": 3.007868644372812e-07,
+        "abs_delta": 1.4635253442918383e-05
+      },
+      "ratio_R11_to_R13": 1.9402545170964518,
+      "ratio_R13_to_T2D": 17.212975484215335,
+      "monotone_decreasing": true
+    },
+    {
+      "family_id": 33,
+      "R11": {
+        "Nmax": 67,
+        "delta": 0.0010043067175153908,
+        "stderr": 0.00012398245511859002,
+        "abs_delta": 0.0010043067175153908
+      },
+      "R13": {
+        "Nmax": 250,
+        "delta": 0.002851595538770013,
+        "stderr": 0.0012970685033773693,
+        "abs_delta": 0.002851595538770013
+      },
+      "T2D": {
+        "Nmax": 480,
+        "delta": -1.3761670166090312e-05,
+        "stderr": 2.7124129212262704e-07,
+        "abs_delta": 1.3761670166090312e-05
+      },
+      "ratio_R11_to_R13": 0.3521911518870524,
+      "ratio_R13_to_T2D": 207.2128967163112,
+      "monotone_decreasing": false
+    }
+  ],
+  "all_monotone": false
+}

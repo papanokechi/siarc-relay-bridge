@@ -1,0 +1,49 @@
+[07:23:21] PHASE D: deep WKB at j=0 cubic cell (4 families)
+[07:23:21]   CONFIG: dps=4000 N_grid=[180..480] step 10 (31 pts) N_ref=700
+[07:23:21]   >>> fam30: coeffs=[1, -3, 3, -3] dps=4000 N=[180..480] N_ref=700
+[07:23:21]     L_ref at N=700 ...
+[07:23:22]     L_ref done (0.4s)
+[07:23:28]      15 usable points, 7.1s
+[07:23:28]      FREE A=5.9999809968 +/- 4.49e-07  delta=A-6=-1.9003e-05
+[07:23:28]      FIXED A=6  alpha=+5.9999908348  beta=-0.004396  gamma=-6.625137  resid_max=6.29e-06
+[07:23:28]   >>> fam31: coeffs=[1, -3, 3, 1] dps=4000 N=[180..480] N_ref=700
+[07:23:28]     L_ref at N=700 ...
+[07:23:29]     L_ref done (0.4s)
+[07:23:35]      15 usable points, 6.3s
+[07:23:35]      FREE A=5.9999844912 +/- 3.30e-07  delta=A-6=-1.5509e-05
+[07:23:35]      FIXED A=6  alpha=+5.9999919961  beta=-0.003970  gamma=-10.239698  resid_max=5.10e-06
+[07:23:35]   >>> fam32: coeffs=[1, -3, 3, 2] dps=4000 N=[180..480] N_ref=700
+[07:23:35]     L_ref at N=700 ...
+[07:23:35]     L_ref done (0.4s)
+[07:23:41]      15 usable points, 6.7s
+[07:23:41]      FREE A=5.9999853647 +/- 3.01e-07  delta=A-6=-1.4635e-05
+[07:23:41]      FIXED A=6  alpha=+5.9999922865  beta=-0.003864  gamma=-11.798391  resid_max=4.80e-06
+[07:23:41]   >>> fam33: coeffs=[1, -3, 3, 3] dps=4000 N=[180..480] N_ref=700
+[07:23:41]     L_ref at N=700 ...
+[07:23:42]     L_ref done (0.5s)
+[07:23:48]      15 usable points, 6.9s
+[07:23:48]      FREE A=5.9999862383 +/- 2.71e-07  delta=A-6=-1.3762e-05
+[07:23:48]      FIXED A=6  alpha=+5.9999925768  beta=-0.003757  gamma=-13.063608  resid_max=4.51e-06
+[07:23:48]   fam30: delta = -1.9003e-05 +/- 4.49e-07  (42.36 sigma from 0)
+[07:23:48]   fam31: delta = -1.5509e-05 +/- 3.30e-07  (46.95 sigma from 0)
+[07:23:48]   fam32: delta = -1.4635e-05 +/- 3.01e-07  (48.66 sigma from 0)
+[07:23:48]   fam33: delta = -1.3762e-05 +/- 2.71e-07  (50.74 sigma from 0)
+[07:23:48] 
+[07:23:48]   PSLQ on deep delta values and FIXED-A=6 alpha amplitude
+[07:23:48]   basis: 19 constants augmented with Gamma(1/3), Gamma(2/3),
+[07:23:48]          Omega_{-3}=Gamma(1/3)^3/(2 pi), log Gamma(1/3), pi/sqrt3
+[07:23:48]   --- fam30 ---
+[07:23:50]     delta=-1.9003e-05  PSLQ rel_coeff_max=NONE  NULL_check=False
+[07:23:50]     alpha_fix=+5.9999908348  PSLQ rel_coeff_max=NONE
+[07:23:50]   --- fam31 ---
+[07:23:51]     delta=-1.5509e-05  PSLQ rel_coeff_max=NONE  NULL_check=False
+[07:23:51]     alpha_fix=+5.9999919961  PSLQ rel_coeff_max=NONE
+[07:23:51]   --- fam32 ---
+[07:23:52]     delta=-1.4635e-05  PSLQ rel_coeff_max=NONE  NULL_check=False
+[07:23:52]     alpha_fix=+5.9999922865  PSLQ rel_coeff_max=NONE
+[07:23:52]   --- fam33 ---
+[07:23:52]     delta=-1.3762e-05  PSLQ rel_coeff_max=NONE  NULL_check=False
+[07:23:52]     alpha_fix=+5.9999925768  PSLQ rel_coeff_max=NONE
+[07:23:52]   wrote phase_D_pslq.json
+[07:23:52]   hash = 63a0678052c56930...
+[07:23:52]   wrote claims to claims_phase_D.jsonl
