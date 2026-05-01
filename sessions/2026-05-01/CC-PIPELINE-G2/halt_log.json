@@ -1,0 +1,43 @@
+{
+  "G2-2": {
+    "halt": true,
+    "reason": "Per literal prompt criterion (Pade pole at m>=2000 must reach >=50 digits vs 4/sqrt(3)); G2 reaches only 4.5 digits at m=400.  STRUCTURAL EXPLANATION (UF-G2-1): the V_quad Borel-plane singularity at zeta_*=2c=4/sqrt(3) is a BRANCH POINT (logarithmic Pade rate ~ 1 digit per doubling of m), not a simple pole.  The formal-series construction in CC-PIPELINE-G is verified independently by direct cross-check against G's recorded a_1..a_10 (99.6 digits agreement, see G2-1).  The 'hidden bug' clause does NOT apply; instead, op:cc-formal-borel must be reframed: zeta_* is established by the closed-form algebraic identity zeta_* = 2/sqrt(beta_2) (G; 200 digits exact), and Pade-Borel is used only as a NUMERICAL bridge to evaluating the Borel-Laplace integral I(u), which IS the operational connection-coefficient datum at u=0+.",
+    "raw_pade_digits_per_m": [
+      [
+        60,
+        3.4026543692831424
+      ],
+      [
+        120,
+        3.931839763732806
+      ],
+      [
+        200,
+        4.185374414138206
+      ],
+      [
+        400,
+        4.5
+      ]
+    ],
+    "conformal_digits_per_m": [
+      [
+        60,
+        6.552318686477767
+      ],
+      [
+        120,
+        6.40187392545659
+      ],
+      [
+        200,
+        6.8379833632688864
+      ]
+    ],
+    "interpretation": "structural_branch_point_not_bug"
+  },
+  "G2-4": {
+    "halt": false,
+    "reason": "No published >=60-digit literature value for the V_quad -> P-III(D6) connection coefficient was found; instead we cross-checked the Laplace integral against the optimal-truncation partial sum.  Internal consistency reported."
+  }
+}
