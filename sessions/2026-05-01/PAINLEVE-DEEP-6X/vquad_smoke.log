@@ -1,0 +1,19 @@
+==============================================================================
+V_quad PAINLEVE DEEP PROBE  (Delta=-11, CM=Q(sqrt(-11)))
+  Step 1: best cell D-V_quad-A + P-III, depth=1500, dps=250
+==============================================================================
+  Computing L(t) over 37 t-values, depth=1500, dps=250...
+  ... D-V_quad-A done in 7.1s (31 samples)
+   h=0.1: residual(validate_max) = 4.58947e-5
+            residual(all_max)      = 4.58947e-5
+            params = ['-0.0067289467643187', '0.97086424406029', '0.00094269025352775', '-0.87088103679261']
+   h=0.05: residual(validate_max) = 4.58953e-5
+            residual(all_max)      = 4.58953e-5
+            params = ['-0.0067289756854873', '0.97086426398166', '0.00094269695915172', '-0.87088088893098']
+   h=0.025: residual(validate_max) = 4.58953e-5
+            residual(all_max)      = 4.58953e-5
+            params = ['-0.006728977488389', '0.97086426522208', '0.00094269737708493', '-0.87088087970885']
+   -> best h = 0.1  residual = 4.58947e-5  [gate: MARGINAL]
+   h-spread: 0.00 decimal orders (min 4.589e-5, max 4.59e-5)
+
+  VERDICT: V_quad -> MARGINAL  (D-A + P-III, residual 4.58947e-5, h=0.1)

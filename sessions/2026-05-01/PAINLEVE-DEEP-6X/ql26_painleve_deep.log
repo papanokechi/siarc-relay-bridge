@@ -1,0 +1,28 @@
+==============================================================================
+QL26 PAINLEVE DEEP PROBE  (Delta=-28, CM=Q(sqrt(-7)))
+  Step 1: best cell D-QL26-A + P-III, depth=3000, dps=400
+==============================================================================
+  Computing L(t) over 31 t-values, depth=3000, dps=400...
+  ... D-QL26-A done in 10.6s (31 samples)
+   h=0.1: residual(validate_max) = 0.0239777
+            residual(all_max)      = 0.0239777
+            params = ['0.08916911727018', '2.1226584737189', '-0.021862402232773', '-7.1315764358013']
+   h=0.05: residual(validate_max) = 0.0240088
+            residual(all_max)      = 0.0240088
+            params = ['0.089200016715553', '2.1226055558568', '-0.021874478225257', '-7.1319622807031']
+   h=0.025: residual(validate_max) = 0.0240107
+            residual(all_max)      = 0.0240107
+            params = ['0.089201903789397', '2.122602332052', '-0.021875214334899', '-7.1319859233487']
+   -> best h = 0.1  residual = 0.0239777  [gate: NO_FIT]
+   h-spread: 0.00 decimal orders (min 0.02398, max 0.02401)
+
+  Step 3: cold scan (residual 0.02398 > 1e-4)
+  Computing L(t) over 11 t-values, depth=3000, dps=400...
+  ... D-QL26-B done in 4.0s (11 samples)
+   cold scan best: ('A', 'P-III') = 0.0239777  [gate: NO_FIT]
+   extending cold scan to P-II / P-IV
+   extended cold scan best: ('A', 'P-III') = 0.0239777  [gate: NO_FIT]
+
+  VERDICT: QL26 -> NO_FIT  (D-A + P-III, residual 0.0239777, h=0.1)
+
+Wrote ql26_result.json

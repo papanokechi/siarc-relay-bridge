@@ -1,0 +1,53 @@
+{
+  "family": "V_quad",
+  "Delta": -11,
+  "CM_field": "Q(sqrt(-11))",
+  "Heegner": true,
+  "step1_best_cell": {
+    "deformation": "A",
+    "equation": "P-III",
+    "h_results": {
+      "0.1": {
+        "params": [
+          "-0.0067289467642863",
+          "0.97086424406024",
+          "0.00094269025350403",
+          "-0.87088103679265"
+        ],
+        "residual_validate_max": "4.58947e-5",
+        "residual_all_max": "4.58947e-5"
+      },
+      "0.05": {
+        "params": [
+          "-0.0067289756854841",
+          "0.97086426398165",
+          "0.00094269695914159",
+          "-0.87088088893095"
+        ],
+        "residual_validate_max": "4.58953e-5",
+        "residual_all_max": "4.58953e-5"
+      },
+      "0.025": {
+        "params": [
+          "-0.0067289774884293",
+          "0.97086426522214",
+          "0.00094269737703418",
+          "-0.87088087970857"
+        ],
+        "residual_validate_max": "4.58953e-5",
+        "residual_all_max": "4.58953e-5"
+      }
+    },
+    "best_h": "0.1",
+    "best_residual": "4.58947e-5",
+    "h_spread_decimal_orders": 5.677670533732703e-06
+  },
+  "step3_cold_scan": null,
+  "verdict": "MARGINAL",
+  "winner": {
+    "deformation": "A",
+    "equation": "P-III",
+    "residual": "4.58947e-5",
+    "h": "0.1"
+  }
+}

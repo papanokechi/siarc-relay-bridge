@@ -1,0 +1,28 @@
+==============================================================================
+QL02 PAINLEVE DEEP PROBE  (Delta=-4, CM=Q(i))
+  Step 1: best cell D-QL02-A + P-III, depth=3000, dps=400
+==============================================================================
+  Computing L(t) over 31 t-values, depth=3000, dps=400...
+  ... D-QL02-A done in 9.7s (31 samples)
+   h=0.1: residual(validate_max) = 0.000938915
+            residual(all_max)      = 0.000938915
+            params = ['-0.25394323365983', '1.7493483034457', '0.022610580347703', '1.2690055695622']
+   h=0.05: residual(validate_max) = 0.000938918
+            residual(all_max)      = 0.000938918
+            params = ['-0.25394417819217', '1.7493518310317', '0.022610671444152', '1.2690113705719']
+   h=0.025: residual(validate_max) = 0.000938918
+            residual(all_max)      = 0.000938918
+            params = ['-0.25394423716954', '1.7493520513127', '0.022610677133813', '1.2690117326878']
+   -> best h = 0.1  residual = 0.000938915  [gate: NO_FIT]
+   h-spread: 0.00 decimal orders (min 0.0009389, max 0.0009389)
+
+  Step 3: cold scan (residual 0.0009389 > 1e-4)
+  Computing L(t) over 11 t-values, depth=3000, dps=400...
+  ... D-QL02-B done in 4.1s (11 samples)
+   cold scan best: ('A', 'P-III') = 0.000938915  [gate: NO_FIT]
+   extending cold scan to P-II / P-IV
+   extended cold scan best: ('A', 'P-III') = 0.000938915  [gate: NO_FIT]
+
+  VERDICT: QL02 -> NO_FIT  (D-A + P-III, residual 0.000938915, h=0.1)
+
+Wrote ql02_result.json

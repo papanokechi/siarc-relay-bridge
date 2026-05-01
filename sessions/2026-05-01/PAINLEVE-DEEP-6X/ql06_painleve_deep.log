@@ -1,0 +1,28 @@
+==============================================================================
+QL06 PAINLEVE DEEP PROBE  (Delta=-7, CM=Q(sqrt(-7)))
+  Step 1: best cell D-QL06-A + P-V, depth=3000, dps=400
+==============================================================================
+  Computing L(t) over 31 t-values, depth=3000, dps=400...
+  ... D-QL06-A done in 12.2s (31 samples)
+   h=0.1: residual(validate_max) = 0.000106606
+            residual(all_max)      = 0.000106606
+            params = ['0.46116159216736', '-0.70821515859402', '0.72127384657137', '-0.43834315277109']
+   h=0.05: residual(validate_max) = 0.000106362
+            residual(all_max)      = 0.000106362
+            params = ['0.46116131435592', '-0.70821474071712', '0.72127382365177', '-0.4383430702296']
+   h=0.025: residual(validate_max) = 0.000106347
+            residual(all_max)      = 0.000106347
+            params = ['0.46116129704039', '-0.70821471467123', '0.72127382222117', '-0.43834306508308']
+   -> best h = 0.025  residual = 0.000106347  [gate: NO_FIT]
+   h-spread: 0.00 decimal orders (min 0.0001063, max 0.0001066)
+
+  Step 3: cold scan (residual 0.0001063 > 1e-4)
+  Computing L(t) over 11 t-values, depth=3000, dps=400...
+  ... D-QL06-B done in 3.9s (11 samples)
+   cold scan best: ('A', 'P-V') = 0.000106606  [gate: NO_FIT]
+   extending cold scan to P-II / P-IV
+   extended cold scan best: ('A', 'P-V') = 0.000106606  [gate: NO_FIT]
+
+  VERDICT: QL06 -> NO_FIT  (D-A + P-V, residual 0.000106347, h=0.025)
+
+Wrote ql06_result.json

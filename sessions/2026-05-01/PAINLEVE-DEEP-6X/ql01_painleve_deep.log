@@ -1,0 +1,28 @@
+==============================================================================
+QL01 PAINLEVE DEEP PROBE  (Delta=-3, CM=Q(sqrt(-3)))
+  Step 1: best cell D-QL01-A + P-III, depth=3000, dps=400
+==============================================================================
+  Computing L(t) over 31 t-values, depth=3000, dps=400...
+  ... D-QL01-A done in 8.8s (31 samples)
+   h=0.1: residual(validate_max) = 0.00839595
+            residual(all_max)      = 0.00839595
+            params = ['-0.94483269359168', '3.1788870668956', '0.15412044906896', '2.8494911238731']
+   h=0.05: residual(validate_max) = 0.00839611
+            residual(all_max)      = 0.00839611
+            params = ['-0.94486291031407', '3.1789631754019', '0.15412562840183', '2.8495872045738']
+   h=0.025: residual(validate_max) = 0.00839612
+            residual(all_max)      = 0.00839612
+            params = ['-0.94486479747765', '3.178967929749', '0.15412595227464', '2.8495931961587']
+   -> best h = 0.1  residual = 0.00839595  [gate: NO_FIT]
+   h-spread: 0.00 decimal orders (min 0.008396, max 0.008396)
+
+  Step 3: cold scan (residual 0.008396 > 1e-4)
+  Computing L(t) over 11 t-values, depth=3000, dps=400...
+  ... D-QL01-B done in 5.1s (11 samples)
+   cold scan best: ('A', 'P-III') = 0.00839595  [gate: NO_FIT]
+   extending cold scan to P-II / P-IV
+   extended cold scan best: ('A', 'P-III') = 0.00839595  [gate: NO_FIT]
+
+  VERDICT: QL01 -> NO_FIT  (D-A + P-III, residual 0.00839595, h=0.1)
+
+Wrote ql01_result.json
