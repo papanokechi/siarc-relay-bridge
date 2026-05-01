@@ -115,3 +115,13 @@ statement, not a results paper -- no numerical claims were generated
 that require AEAL logging. The conjectures stated in Section 3 are
 not numerical claims; they are predictions to be tested in
 Sessions A--C.
+
+## 2026-05-01 micro-patch (post-handoff)
+
+**Apery calibration computed (sympy, exact integer):** b(n)=34n^3+51n^2+27n+5 factors over Q as (2n+1)(17n^2+17n+5). Delta_3 = -459 = -3^3 * 17. Splitting field Q(sqrt(-51)); Gal(b/Q) = C_2. Apery is REDUCIBLE, hence out-of-scope of Conjecture B3(i) (which restricts to irreducible Z-primitive b). New Remark rem:apery-reducible added in Sec 4 explaining the reducible cell and reframing Apery as a positive-control infrastructure check rather than a predicate test.
+
+**Conjecture B3(iv) softened:** No commitment to P-IV; now a P-II..P-VI hierarchy reduction, with P-IV as heuristic preference only. Channel question flagged open per PCF-1 Session E (rec-param + Borel both failed for d=2 Delta<0 vs V_quad's known P-III(D6)).
+
+**Citation fix:** Cohen 2024 working-notes (unverifiable) removed; replaced with Cohen 2007 GTM 239 (Number Theory, Vol I), and the Sec 6 paragraph rewritten to cite Davenport-Heilbronn / Bhargava cubic-discriminant background rather than fabricating a PCF-specific Cohen enumeration.
+
+**Build:** 10 pp, 0 errors, 0 undefined refs. Commit fd8c1fd.
