@@ -1,0 +1,711 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=MidnightBlue,
+  citecolor=MidnightBlue,
+  urlcolor=MidnightBlue
+}
+
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{problem}{Open Problem}
+\theoremstyle{definition}
+\newtheorem{definition}[conjecture]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[conjecture]{Remark}
+
+\newcommand{\PCF}{\mathrm{PCF}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\disc}{\mathrm{disc}}
+\newcommand{\Gal}{\mathrm{Gal}}
+\newcommand{\Spec}{\mathrm{Spec}}
+
+\title{PCF-2: A Program Statement for the Cubic Extension\\
+       of the $\Delta$-Discriminant Transcendence Predicate}
+\author{Papanokechi%
+\thanks{ORCID: \href{https://orcid.org/0009-0000-6192-8273}{0009-0000-6192-8273}.
+Independent Researcher, Yokohama, Japan.
+\textbf{AI use disclosure.} This program statement was prepared using the
+AEAL/SIARC multi-agent methodology. GitHub Copilot (powered by Anthropic
+Claude Opus 4.7) and Anthropic Claude were used to assist with literature
+synthesis, drafting of expository prose, and consistency-checking against
+prior preprints in the series. All conjecture formulations, scope
+decisions, and editorial choices were made by the human author, who takes
+full responsibility for the content. The AI tools are not authors. See the
+AEAL methodology of~\cite{P8AEAL}.}}
+\date{May 1, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper is a \emph{program statement}, not a results paper. It frames
+PCF-2 (P13 in the SIARC stack), the cubic extension of
+PCF-1~\cite{Papanokechi2026PCF1} from degree-two polynomial continued
+fractions to degree-three. PCF-1 established a sharp empirical dichotomy
+across $30$ degree-two families: the sign of the balanced discriminant
+$\Delta_{2}=\beta^{2}-4\alpha\gamma$ predicts whether the limit of the
+PCF admits an elementary closed form ($\Delta_{2}>0$, $24/24$ Trans-stratum
+families) or fails PSLQ detection against an $18$-element basis at $220$
+digits ($\Delta_{2}<0$, $6/6$ CM candidates), with the Stokes-exponent
+predicate $S<1$ confirmed across all six $\Delta<0$ families. The cubic
+case is qualitatively different. The natural invariant of the denominator
+polynomial $b(n)=\alpha_{3}n^{3}+\alpha_{2}n^{2}+\alpha_{1}n+\alpha_{0}$ is
+the cubic discriminant $\Delta_{3}$, which is no longer a sign invariant
+but a quantity whose sign \emph{and} Galois-group structure
+($S_{3}$, $A_{3}=C_{3}$, or split) jointly determine the splitting field
+and the analytic obstruction. We propose four open conjectures:
+(i) a cubic analogue of the sign dichotomy with the Galois-group axis;
+(ii) a Galois-stratified CM-field structure replacing the binary
+imaginary-quadratic predicate;
+(iii) a Stokes signal calibrated for irreducible-cubic-CM families;
+and (iv) an alignment with the Painlev\'e IV equation rather than P-III,
+motivated by the cubic Galois-group / Painlev\'e hierarchy correspondence.
+We sketch a four-to-six-week computational plan that reuses the
+infrastructure of PCF-1 and identifies three concrete first sessions
+(PCF-2 A/B/C). PCF-2 is positioned to either confirm that the
+$\Delta$-predicate of PCF-1 extends to higher degree (universality) or to
+identify degree two as a special boundary (specificity).
+\end{abstract}
+
+\noindent\textbf{Series label:} P13 / PCF-2.\;
+This program statement is P13 in the AI Epistemic Governance Stack and
+simultaneously PCF-2 in the mathematical companion track. It anchors a
+research program; it does not contain new computational results. The
+companion document is the SIARC umbrella program
+statement~\cite{Papanokechi2026UMB}.
+
+\tableofcontents
+
+\section{Position in the SIARC Stack}\label{sec:position}
+
+The SIARC research program organizes polynomial continued fractions (PCFs)
+into an arithmetic stratification indexed by the dominant growth degree
+and an obstruction tier. The program-level architecture is articulated in
+the umbrella program statement~\cite{Papanokechi2026UMB}; the
+$d=2$ instantiation is PCF-1~\cite{Papanokechi2026PCF1}; the present
+document opens the $d=3$ instantiation.
+
+\paragraph{What PCF-1 established.}
+For PCFs of the form
+\[
+K(a_{n},b_{n})=b_{0}+\cfrac{a_{1}}{b_{1}+\cfrac{a_{2}}{b_{2}+\cdots}}
+\]
+with $a_{n}\in\Z[n]_{\le 1}$ and $b_{n}\in\Z[n]_{\le 2}$, PCF-1
+proposed the sign of the balanced discriminant
+$\Delta_{2}=\beta^{2}-4\alpha\gamma$ as a transcendence predicate. The
+core empirical finding was a sharp dichotomy across $30$ families: $24/24$
+Trans-stratum families with $\Delta_{2}\in\{+1,+8\}$ admit elementary
+closed forms via Lindemann--Weierstrass, while all $6/6$ CM candidates
+with $\Delta_{2}\in\{-3,-4,-7,-11,-20,-28\}$ return PSLQ non-detection
+against an $18$-element basis at working precision $220$ digits, and all
+six exhibit the Stokes-exponent signature $S<1$ under a CM-respecting
+deformation. The V$\_$quad family ($\Delta_{2}=-11$) is the explicit
+Painlev\'e III$(D_{6})$ prototype. PCF-1 v1.2 also showed (via QL15,
+$\Delta_{2}=-20$, class number $h=2$, non-Heegner; and the intra-field
+pair QL06/QL26 in $\Q(\sqrt{-7})$ at $h=1$ versus $h=2$) that the
+controlling invariant is the imaginary-quadratic field $\Q(\sqrt{\Delta})$
+itself, not its class number~\cite{Papanokechi2026PCF1}.
+
+\paragraph{Why degree three is the natural next step.}
+Three structural features make $d=3$ the canonical extension target.
+
+\begin{enumerate}
+\item \emph{Discriminant lifts naturally.} The cubic discriminant
+$\Delta_{3}$ of $b(n)=\alpha_{3}n^{3}+\alpha_{2}n^{2}+\alpha_{1}n+\alpha_{0}$
+is a classical $\mathrm{SL}_{2}(\Z)$-invariant of degree $4$ in the
+coefficients (Definition~\ref{def:Delta3}). Its sign distinguishes
+totally real cubic splitting from one-real-two-complex splitting, the
+direct analogue of the $d=2$ sign dichotomy.
+\item \emph{Galois group is no longer trivial.} A degree-three irreducible
+polynomial has Galois group $S_{3}$ or $A_{3}=C_{3}$ over $\Q$,
+distinguished by whether $\Delta_{3}$ is a square in $\Q$. This adds an
+arithmetic axis absent in the degree-two case (where $\Gal(b/\Q)$ is
+$C_{2}$ whenever $b$ is irreducible).
+\item \emph{Painlev\'e hierarchy aligns with cubic Galois structure.} The
+classical Painlev\'e equations admit a cubic-singularity analogue (P-IV)
+whose monodromy data is naturally indexed by cubic Galois groups, in
+the same way P-III governs the imaginary-quadratic CM case in PCF-1.
+\end{enumerate}
+
+\paragraph{What PCF-2 will not address.}
+PCF-2 does not extend automatically to degree four or higher. The cubic
+case is the unique additional case in which the Galois group is finite
+and explicitly classifiable, and in which the Painlev\'e correspondence
+is well-posed. Extensions to $d=4$ and beyond are deferred to PCF-3 and
+later instantiations of the SIARC program.
+
+\section{Setup: Degree-Three Polynomial CFs}\label{sec:setup}
+
+We work with PCFs of the form
+\begin{equation}\label{eq:pcfd3}
+K(a_{n},b_{n})=b_{0}+\cfrac{a_{1}}{b_{1}+\cfrac{a_{2}}{b_{2}+\cdots}}
+\end{equation}
+with
+\begin{align}
+a_{n} &= \delta_{1}\,n + \delta_{0},\qquad \delta_{1},\delta_{0}\in\Z, \label{eq:an}\\
+b_{n} &= \alpha_{3}\,n^{3} + \alpha_{2}\,n^{2} + \alpha_{1}\,n + \alpha_{0},\qquad \alpha_{i}\in\Z,\ \alpha_{3}\ne 0. \label{eq:bn}
+\end{align}
+The convergents satisfy the Wallis recurrence $p_{n}=b_{n}p_{n-1}+a_{n}p_{n-2}$
+with the seeds $(p_{-1},p_{0},q_{-1},q_{0})=(1,b_{0},0,1)$, identical to
+the $d=2$ convention of PCF-1 to facilitate code reuse. Coefficient
+ordering for the family $b_{n}$ is $[\alpha_{3},\alpha_{2},\alpha_{1},\alpha_{0}]$
+(leading first), matching the PCF-1 \texttt{f1\_base\_computation.py}
+convention.
+
+\begin{definition}[Cubic balanced discriminant]\label{def:Delta3}
+For a balanced PCF in the $d=3$ class with $b_{n}$ as in~\eqref{eq:bn},
+\[
+\Delta_{3}\;=\;\disc(b)\;=\;
+18\alpha_{3}\alpha_{2}\alpha_{1}\alpha_{0}
+-4\alpha_{2}^{3}\alpha_{0}
++\alpha_{2}^{2}\alpha_{1}^{2}
+-4\alpha_{3}\alpha_{1}^{3}
+-27\alpha_{3}^{2}\alpha_{0}^{2}.
+\]
+We say a degree-three PCF is \emph{$\Z$-primitive} if
+$\gcd(\alpha_{3},\alpha_{2},\alpha_{1},\alpha_{0})=1$. We say it is
+\emph{irreducible} if $b$ is irreducible over $\Q$, and we always
+restrict to the irreducible $\Z$-primitive case in this program.
+\end{definition}
+
+\begin{remark}\label{rem:primitive}
+The PCF-1 normalization $\gcd(\alpha,\beta,\gamma)=1$ extended to $d=3$
+removes the $1$-parameter integer-scaling redundancy and forces
+$\Delta_{3}$ to be a $\Z$-valued invariant of the family, not a class
+representative. The cubic discriminant is invariant under
+$\alpha_{i}\mapsto\alpha_{i}+c\binom{i}{1}$-style $n$-shifts only up to a
+predictable scaling; the convention~\eqref{eq:bn} fixes the
+$n$-coordinate.
+\end{remark}
+
+\paragraph{Splitting types and Galois groups.}
+For an irreducible $\Z$-primitive cubic $b\in\Z[n]$:
+\begin{itemize}
+\item If $\Delta_{3}>0$, then $b$ has three real roots and the splitting
+field is the cubic resolvent $\Q(\theta)$ for $\theta$ a real root of $b$,
+together with $\sqrt{\Delta_{3}}\in\R$. The Galois group is
+$\Gal(b/\Q)=A_{3}=C_{3}$ when $\Delta_{3}$ is a perfect square in $\Q$,
+and $\Gal(b/\Q)=S_{3}$ otherwise.
+\item If $\Delta_{3}<0$, then $b$ has one real root and a complex
+conjugate pair, the splitting field contains $\Q(\sqrt{\Delta_{3}})$
+(an imaginary-quadratic subfield), and the Galois group is necessarily
+$\Gal(b/\Q)=S_{3}$.
+\end{itemize}
+This trichotomy --- $A_{3}$ totally real, $S_{3}$ totally real,
+$S_{3}$ complex --- is the cubic analogue of the binary
+$\Delta_{2}>0$ vs.\ $\Delta_{2}<0$ split, and it is what gives PCF-2
+genuinely new content beyond PCF-1.
+
+\paragraph{Spec$(K)$ in the cubic case.}
+We retain the v5 schema of PCF-1,
+\[
+\Spec(K)=(d,\Lambda,\Delta,\rho,\tau_{\mathrm{mono}},\tau_{\mathrm{arith}};S,\sigma),
+\]
+with $d=3$ now, and with $\Delta=\Delta_{3}$ as defined above. The
+Poincar\'e--Perron normalized growth rate $\Lambda$ in the balanced
+$d=3$ class satisfies the cubic
+\begin{equation}\label{eq:poincare3}
+\Lambda^{3}-\alpha_{3}\Lambda^{2}-\alpha_{3}\delta_{1}\Lambda-\alpha_{3}\delta_{0}=0,
+\end{equation}
+or a closely related cubic depending on the precise scaling
+convention; the analytic determination of~\eqref{eq:poincare3} is part
+of PCF-2 Session A. The arithmetic sector $\tau_{\mathrm{arith}}$ now
+records the splitting field of $b$ together with the Galois group
+$\Gal(b/\Q)\in\{C_{3},S_{3}\}$.
+
+\section{Predictions and Open Conjectures}\label{sec:conjectures}
+
+We state four open conjectures, ordered from most direct lift of PCF-1 to
+most speculative.
+
+\begin{conjecture}[B$_{3}$ part (i): cubic sign dichotomy]\label{conj:B1}
+Let $K$ be a balanced $d=3$ PCF with irreducible $\Z$-primitive
+denominator $b$ as in~\eqref{eq:bn}, and let $\Delta_{3}=\disc(b)$.
+
+\emph{(A)} If $\Delta_{3}<0$ (one real root, $\Gal(b/\Q)=S_{3}$), then
+$L=K(a_{n},b_{n})$ admits no elementary closed form: equivalently,
+$L\notin\Q(\pi,e,\log\Q^{\times},\zeta(3),\sqrt{\Q},\gamma)$ in the sense
+of PSLQ non-detection against the PCF-1 $18$-element basis at working
+precision $\ge 220$ digits and integer bound $\ge 10^{10}$.
+
+\emph{(B)} If $\Delta_{3}>0$ \emph{and} $\sqrt{\Delta_{3}}\in\Q$ (so
+$\Gal(b/\Q)=C_{3}$, the totally-real cyclic case), then
+$L$ \emph{may} admit a closed form; this is the cubic analogue of the
+PCF-1 $\Delta_{2}>0$ Trans-stratum and is the part of the conjecture
+most likely to admit explicit Lindemann--Weierstrass evaluation.
+
+\emph{(C)} If $\Delta_{3}>0$ \emph{and} $\sqrt{\Delta_{3}}\notin\Q$ (so
+$\Gal(b/\Q)=S_{3}$, the totally-real non-cyclic case), then $L$ admits no
+elementary closed form, with the same PSLQ-non-detection criterion as
+(A).
+\end{conjecture}
+
+\begin{remark}\label{rem:trichotomy}
+Conjecture~\ref{conj:B1} is a \emph{trichotomy} rather than a sign
+dichotomy. The new ingredient is the Galois-group axis: the cyclic case
+$C_{3}$ is the sole closed-form-admitting cell. This is the structural
+prediction PCF-2 Sessions A and B are designed to falsify or confirm.
+\end{remark}
+
+\begin{conjecture}[B$_{3}$ part (ii): Galois-stratified CM-field structure]\label{conj:B2}
+Let $K$ be a balanced $d=3$ PCF with irreducible $\Z$-primitive
+denominator $b$. Let $\theta_{1},\theta_{2},\theta_{3}\in\C$ be the roots
+of $b$, and let $L_{b}/\Q$ be the splitting field.
+\begin{enumerate}
+\item If $\Delta_{3}<0$, then $L_{b}=\Q(\theta,\sqrt{\Delta_{3}})$ where
+$\theta$ is the unique real root, $[L_{b}:\Q]=6$, and the imaginary
+quadratic subfield $\Q(\sqrt{\Delta_{3}})\subset L_{b}$ controls the
+Stokes data.
+\item If $\Delta_{3}>0$ and $\Gal(b/\Q)=C_{3}$, then $L_{b}=\Q(\theta_{1})$
+is a totally-real cyclic cubic field of degree~$3$.
+\item If $\Delta_{3}>0$ and $\Gal(b/\Q)=S_{3}$, then $L_{b}=\Q(\theta_{1},\sqrt{\Delta_{3}})$
+is a totally-real non-cyclic sextic field.
+\end{enumerate}
+The singular points of the associated rank-three Heun-type ODE for $K$
+all lie in $L_{b}$.
+\end{conjecture}
+
+\begin{remark}\label{rem:not-binary}
+Unlike the PCF-1 case where the CM field is always
+$\Q(\sqrt{\Delta_{2}})$, in the cubic case the splitting field is sextic
+generically and only quadratic-imaginary as a subfield in case~(1). The
+``CM'' label therefore extends honestly only to case~(1)
+($\Delta_{3}<0$, $S_{3}$ complex); cases~(2) and~(3) are totally real
+and the analogous arithmetic obstruction, if it exists, must be
+formulated via the cubic Hilbert class field of $L_{b}$ rather than via
+imaginary quadratic CM theory. This is the most substantial structural
+departure from PCF-1.
+\end{remark}
+
+\begin{conjecture}[B$_{3}$ part (iii): cubic Stokes signal]\label{conj:B3}
+For a degree-three PCF in the irreducible-cubic-CM stratum (case~(1) of
+Conjecture~\ref{conj:B2}: $\Delta_{3}<0$), there exists a one-parameter
+deformation $K(t)$ that preserves $\Delta_{3}<0$ in a neighbourhood of
+$t=0$ and respects the splitting-field structure, under which the Stokes
+exponent
+\[
+S(t)\;=\;\frac{\log|L(t)-L(0)|}{\log|t|}
+\]
+satisfies $\lim_{t\to 0}S(t)\in(0,1)$. The conjectural fractional
+exponent is governed by the local exponent differences of the
+associated Heun-type cubic ODE.
+\end{conjecture}
+
+\begin{conjecture}[B$_{3}$ part (iv): Painlev\'e IV alignment]\label{conj:B4}
+For a generic degree-three PCF in the irreducible-cubic-CM stratum, the
+isomonodromic deformation associated with $K(t)$ above is governed by
+the Painlev\'e IV transcendent, with parameters determined by the
+arithmetic invariants of $L_{b}$. The cubic alignment with P-IV mirrors
+the PCF-1 quadratic alignment with P-III$(D_{6})$ (for V$\_$quad) and is
+expected to be a generic-not-universal claim, with the specific Painlev\'e
+type allowed to vary across families as in
+PCF-1~\cite[Remark~3.5]{Papanokechi2026PCF1}.
+\end{conjecture}
+
+\begin{remark}\label{rem:painleveIV}
+The choice P-IV (rather than P-V or P-VI) is motivated by three
+observations. First, P-IV is the Painlev\'e equation whose
+isomonodromic problem has a single irregular singularity of Poincar\'e
+rank $\frac{3}{2}$, matching the cubic-degree growth of $b_{n}$.
+Second, the Backlund-transformation group of P-IV is $A_{2}^{(1)}$,
+which is the affine analogue of the cubic Galois group $A_{3}=C_{3}$
+or its $S_{3}$ extension. Third, the classical
+Hermite-polynomial / parabolic-cylinder solutions of P-IV at half-integer
+parameters provide explicit special-function content that should appear
+in the totally-real cyclic case~(B) of Conjecture~\ref{conj:B1}. The
+linkage P-IV $\leftrightarrow$ cubic Galois groups is supported by
+the literature surveyed in~\cite{Mazzocco2003,Iwasaki1991}.
+\end{remark}
+
+\section{Worked Landmarks: Ap\'ery, Catalan-Cubic, Cyclic-$C_{3}$}\label{sec:landmarks}
+
+To make the trichotomy of Conjecture~\ref{conj:B1} concrete we record
+three landmark families that anchor the three Galois-group cells. None
+is an empirical result of PCF-2; each is a known PCF whose role under
+the proposed predicate is fixed in advance, so that Sessions A--C can be
+calibrated against them.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llrll}
+\toprule
+Landmark & $b(n)$ & $\Delta_{3}$ & $\Gal(b/\Q)$ & Predicted cell \\
+\midrule
+Ap\'ery $\zeta(3)$ & $34n^{3}-51n^{2}+27n-5$ & $> 0$ & $C_{3}$ or $S_{3}$ (TBD) & B/C cyclic-cubic \\
+Catalan-cubic seed & $n^{3}+n+1$ & $-31$ & $S_{3}$ (complex) & A: PSLQ-null + Stokes \\
+Cyclic-$C_{3}$ probe & $n^{3}-3n+1$ & $81$ & $C_{3}$ & B: closed-form candidate \\
+\bottomrule
+\end{tabular}
+\caption{Three landmark $b(n)$. The Ap\'ery row is the historical
+$d=3$ exemplar: van der Poorten's account of Ap\'ery's
+proof~\cite{vanderPoorten1979,Apery1979,Beukers1979} identifies
+$\lim K = \zeta(3)/6$, and $\zeta(3)$ already lies in the PCF-1 basis;
+Session A determines whether $\Delta_{3}$ for the Ap\'ery $b$ is a
+square in~$\Q$. The Catalan-cubic seed $b(n)=n^{3}+n+1$ is the
+simplest irreducible cubic with negative discriminant
+($\disc = -4\cdot 1 - 27 = -31$, i.e.\ Galois group $S_{3}$, splitting
+field $\Q(\theta,\sqrt{-31})$); it is the cleanest test of
+Conjecture~\ref{conj:B1}(A). The cyclic-$C_{3}$ probe
+$b(n)=n^{3}-3n+1$ is the standard simplest totally-real cyclic cubic
+with $\disc=81=9^{2}$; it is the cleanest test of
+Conjecture~\ref{conj:B1}(B). The accompanying $a_{n}$ for each landmark
+is fixed in Session~A by the smallest $\Z$-primitive choice consistent
+with the balanced-class convention~\eqref{eq:an}.}
+\label{tab:landmarks}
+\end{table}
+
+\paragraph{Calibration role.}
+Table~\ref{tab:landmarks} is a calibration anchor, not a results table:
+each row records what the predicate \emph{must} say if Conjecture~\ref{conj:B1}
+is to be consistent with literature. The Ap\'ery row in particular is
+the most stringent test, because $\zeta(3)$ is the rare cubic-period
+constant that is already in the PCF-1 basis: if Session~B at sufficient
+precision fails to detect $\zeta(3)/6$ for the Ap\'ery family, the PCF-1
+PSLQ infrastructure is mis-tuned for $d=3$ and Session~B's null-result
+evidence loses force. The Catalan-cubic and cyclic-$C_{3}$ rows are the
+positive-test equivalents.
+
+\paragraph{Cubic Galois-group quick checks.}
+For the irreducible $\Z$-primitive case, $\Gal(b/\Q)$ is cyclic ($C_{3}$)
+iff $\disc(b)$ is a perfect square in $\Q$ (equivalently in $\Z$ for
+$\Z$-primitive $b$); otherwise it is $S_{3}$. Examples:
+\begin{itemize}[leftmargin=*]
+\item $b(n)=n^{3}-3n+1$: $\disc=81=9^{2}$, $C_{3}$.
+\item $b(n)=n^{3}+n+1$: $\disc=-31$, $S_{3}$ (complex case).
+\item $b(n)=n^{3}-2$: $\disc=-108$, $S_{3}$ (complex case, but the
+splitting field $\Q(\sqrt[3]{2},\zeta_{3})$ is the canonical $S_{3}$
+cubic of cyclotomic origin).
+\item $b(n)=n^{3}-n-1$: $\disc=-23$, $S_{3}$ (complex case, Lehmer's cubic).
+\end{itemize}
+The square-discriminant filter applied to $\Z$-primitive irreducible
+cubics with $|\alpha_{i}|\le 5$ gives $\sim 5$--$10\%$ cyclic
+representation~\cite{Cohen2024}; the $\Delta_{3}<0$ fraction is roughly
+$50\%$. The Session~A enumeration is therefore expected to populate
+all three cells of Conjecture~\ref{conj:B1} non-trivially.
+
+\section{Computational Plan}\label{sec:plan}
+
+The computational plan reuses the PCF-1 infrastructure: the Wallis
+forward-recurrence routine, the PSLQ wrapper with the $18$-element basis
+of PCF-1, the Stokes-exponent diagnostic from
+PCF-1~\S 3, and the AEAL evidence-class scaffolding. The plan is
+organized as three concrete sessions.
+
+\paragraph{PCF-2 Session A: Cubic family enumeration and $\Delta_{3}$
+classification.}
+Enumerate $\Z$-primitive irreducible cubics $b(n)=\alpha_{3}n^{3}+\alpha_{2}n^{2}+\alpha_{1}n+\alpha_{0}$
+with bounded coefficients $|\alpha_{i}|\le 5$ (target: $\sim 200$
+families after gcd reduction and irreducibility filtering). For each
+family, compute $\Delta_{3}$, classify the Galois group via the
+$\sqrt{\Delta_{3}}\in\Q$ test, and tabulate the splitting type. Produce
+a stratification table analogous to PCF-1
+Table~1~\cite{Papanokechi2026PCF1}, with columns $\Delta_{3}$,
+$\sqrt{\Delta_{3}}\in\Q?$, splitting type, Galois group, real-root count.
+Estimated effort: 1 week.
+
+\paragraph{PCF-2 Session B: PSLQ scan on irreducible-cubic-CM families.}
+For each family in the $\Delta_{3}<0$ stratum produced by Session A
+(expected: $\sim 80$ families), compute $L=K(a_{n},b_{n})$ to
+$\ge 320$ stable digits via the Wallis recurrence at depth $2500$, and
+run PSLQ against the PCF-1 $18$-element basis at working precision
+$220$ digits and integer bound $10^{10}$. Confirm or refute
+Conjecture~\ref{conj:B1}(A). For the $\sqrt{\Delta_{3}}\in\Q$ subset
+of $\Delta_{3}>0$ families ($C_{3}$ totally-real cyclic),
+run an extended PSLQ with the basis augmented by cubic-period
+candidates (Catalan-style $\Gamma$-quotients at $1/3,2/3$;
+$\sqrt[3]{2}$; $\sqrt[3]{3}$; ${}_{2}F_{1}$ values at $1/3$;
+$\zeta(3)$ already in the base basis) at integer bound $10^{12}$ and
+working precision $\ge 320$ digits. The targeted detection rate for
+$C_{3}$ families is bounded above by the literature on cubic-period
+identifications and may be substantially below~$1$. Estimated effort:
+2 weeks.
+
+\paragraph{PCF-2 Session C: Stokes pipeline for cubic case.}
+For 6--10 families flagged in Session B as PSLQ-non-detected, design a
+Galois-respecting one-parameter deformation, compute $L(t)$ at 11
+$t$-values with the same precision/depth budget as the PCF-1 QL01
+analysis, and compute $S(t)$ and $\sigma(t)$ via the formulas of PCF-1
+\S 3. Confirm or refute Conjecture~\ref{conj:B3}. For the
+strongest Stokes-signal candidate, attempt a P-IV ansatz fit at the
+same overdetermined-design level used for V$\_$quad in PCF-1, and
+record the residual matrix. Estimated effort: 2--3 weeks.
+
+\paragraph{Precision and depth budget.}
+The PCF-1 budget (working precision $220$ for PSLQ, $320$ for the
+limit; depth $2500$; integer bound $10^{10}$) extends without
+modification to $d=3$ for the PSLQ stage, since the basis size and the
+expected coefficient bound do not change. The limit-computation budget
+should be scrutinized at the outset of Session~A: cubic $b_{n}$
+amplifies floating-point error growth in the Wallis recurrence by an
+extra factor of $n$, so the depth-$2500$ stable-digit count may drop
+from $\ge 320$ (PCF-1) to $\sim 280$ at $d=3$ unless precision is
+raised correspondingly. We allocate working precision $360$ (limit) and
+$280$ (PSLQ) as the conservative defaults, and treat the PCF-1
+defaults as fallback.
+
+\paragraph{Risk register.}
+Three risks are identified in advance and each is matched to a
+mitigation under the AEAL halt-conditions protocol.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{p{0.30\textwidth}p{0.30\textwidth}p{0.32\textwidth}}
+\toprule
+Risk & Likelihood & Mitigation \\
+\midrule
+Wallis recurrence loses precision faster than expected at $d=3$, so
+PSLQ-null results are not actually null but precision-starved. & Medium. & Run Ap\'ery landmark first; if $\zeta(3)/6$ is not detected at the conservative budget, escalate dps to $500$ and depth to $4000$. \\
+Cubic-period basis is too small: $C_{3}$-cyclic limits identify against
+constants outside the augmented basis. & Medium--high. & Treat all $C_{3}$ ``no relation'' as pre\-li\-mi\-na\-ry; flag for a follow-up cubic-Hilbert-class-field basis sweep before claim promotion. \\
+P-IV ansatz fits all fail in Session~C, mirroring the QL01 outcome of
+PCF-1. & High (this is what happened in the $d=2$ case). & Fall back to the Stokes-exponent $S<1$ predicate alone, weakening Conjecture~\ref{conj:B4} to a fractional-power existence claim, exactly as PCF-1 v1.2 did for QL01--QL26. \\
+\bottomrule
+\end{tabular}
+\caption{Risk register for the PCF-2 computational plan.}
+\label{tab:risks}
+\end{table}
+
+\paragraph{AEAL evidence chain.}
+The session chain follows the PCF-1 pattern. Session~A is a
+\emph{formalized} layer (the Galois-group classification is algorithmic
+and exact). Session~B is a \emph{near\_miss} layer (each PSLQ
+non-detection at sufficient precision is a near-miss-class evidence
+artefact). Session~C is a \emph{numerical\_identity} layer (the Stokes
+exponent and any P-IV parameter fit are numerical-identity-class
+artefacts). \emph{Independently\_verified} promotion requires
+cross-session reproduction of $L(0)$ to $\ge 50$ digits across at least
+two independent sessions, identical to the PCF-1 cross-session protocol.
+
+\section{Why This Matters}\label{sec:why}
+
+PCF-2 is positioned to deliver one of two outcomes, both informative.
+
+\paragraph{Outcome U (universality).}
+If Conjecture~\ref{conj:B1} is confirmed across the Session~B sweep,
+the $\Delta$-discriminant transcendence predicate of PCF-1 lifts cleanly
+to higher degree, with the cubic Galois-group axis as the natural
+refinement. This would be the first non-trivial empirical evidence that
+the discriminant predicate is degree-general rather than a degree-two
+coincidence, and it would provide a roadmap for PCF-3 ($d=4$, with the
+quartic Galois groups $S_{4}, A_{4}, D_{4}, V_{4}, C_{4}$) and beyond.
+The universality outcome also strengthens the analytic prediction of
+Conjecture~\ref{conj:B4}: a Painlev\'e equation per degree, indexed by
+the Galois group, would be a striking new entry in the
+PCF--Painlev\'e correspondence catalogued by~\cite{Mazzocco2003}.
+
+\paragraph{Outcome S (specificity).}
+If Conjecture~\ref{conj:B1}(A) fails --- in particular, if any
+$\Delta_{3}<0$ family yields a non-trivial PSLQ relation against the
+PCF-1 basis --- then degree two is identified as a special boundary at
+which the discriminant predicate works, and the higher-degree picture is
+controlled by a different invariant (Picard--Fuchs operator structure,
+modular-monodromy condition, or a cubic-period basis that supersedes
+the PCF-1 $18$-element basis). The Ap\'ery family
+($a_{n}=n^{6}$, $b_{n}=34n^{3}-51n^{2}+27n-5$) is the historical exemplar
+of a $d=3$ PCF whose limit $\zeta(3)/6$ is detected against a cubic-period
+basis; PCF-2 would then be repositioned as a search for the natural
+generalization of the Ap\'ery basis. This outcome is no less valuable: it
+sharpens the conjectural content of PCF-1 by identifying the precise
+scope of the discriminant predicate.
+
+\paragraph{Either way, a stable scope-anchor.}
+The role of this program statement is to fix the scope, the conventions,
+and the success criteria \emph{before} the computational sweep begins.
+The AEAL methodology requires that conjectures be stated explicitly and
+that evidence-class promotion follow a documented chain; this document
+discharges the first half of that requirement. Sessions A--C of
+\S\ref{sec:plan} discharge the second half.
+
+\section{Relation to Existing Literature}\label{sec:litrel}
+
+The mathematical content of PCF-2 sits at the intersection of three
+literatures, none of which addresses the cubic PCF transcendence
+question directly.
+
+\paragraph{Painlev\'e and number theory.}
+Mazzocco's lecture notes on Painlev\'e equations and number theory
+\cite{Mazzocco2003} catalogue the algebraic-solution loci of P-VI
+(and by reduction, P-V, P-IV, P-III) and identify a small set of
+arithmetic Painlev\'e parameters at which classical special-function
+solutions exist. The PCF-1 V$\_$quad result lifts naturally into
+this framework as a P-III$(D_{6})$ solution at a specific
+$\Q(\sqrt{-11})$-arithmetic point. The cubic analogue
+(Conjecture~\ref{conj:B4}) predicts that P-IV --- whose isomonodromic
+problem has Poincar\'e rank $3/2$ at the irregular singularity, the
+natural cubic refinement of P-III's rank $1$ --- governs the cubic
+case. Mazzocco's Backlund-transformation analysis of P-IV at $A_{2}^{(1)}$
+parameters is the structural object PCF-2 Session~C is designed to
+intersect.
+
+\paragraph{Iwasaki--Kimura--Shimomura--Yoshida and the Gauss-to-Painlev\'e
+arc.}
+The monograph~\cite{Iwasaki1991} traces the lineage from the
+Gauss hypergeometric equation to the Painlev\'e transcendents via
+isomonodromic deformation. Each rank-two Heun reduction of a Painlev\'e
+equation has a dedicated treatment, and the cubic-Galois-group
+classification of Schwarz-triangle / Takeuchi groups
+appears explicitly. The PCF-1 framework borrows the Spec$(K)$
+$\tau_{\mathrm{arith}}$ component from this lineage; PCF-2 extends it to
+the cubic Galois-group axis.
+
+\paragraph{Ap\'ery's irrationality proof and the cubic PCF
+exemplar.}
+Van der Poorten's account~\cite{vanderPoorten1979} of
+Ap\'ery's proof~\cite{Apery1979} of the irrationality of $\zeta(3)$ is
+the historical landmark of cubic PCFs. The Ap\'ery recurrence is a
+$d=3$ PCF whose limit is $6/\zeta(3)$, identified against a basis
+that contains $\zeta(3)$ explicitly; this is the unique $d=3$ family
+in the literature that is fully resolved against a closed-form basis
+known in advance. Beukers~\cite{Beukers1979} reformulated the proof
+via a Picard--Fuchs operator on a one-parameter family of K3
+surfaces. The Picard--Fuchs framing is the candidate alternative
+predicate raised under outcome~S of \S\ref{sec:why}: if the
+discriminant predicate fails at $d=3$, the natural competitor is
+``$L$ is identifiable iff the associated Picard--Fuchs operator
+is a pullback of a hypergeometric operator over $\Q$''. PCF-2
+Session~B is the test that decides between these two predicates.
+
+\paragraph{Ramanujan-Machine search and PSLQ infrastructure.}
+The Ramanujan-Machine programme~\cite{Raayoni2021} produced the bulk of
+the PCF candidate database used by PCF-1, and its PSLQ-based
+identification pipeline is what PCF-1 inherits. The
+Ferguson--Bailey PSLQ algorithm~\cite{FergusonBailey1992} is
+basis-dependent: a closed-form identification is only as strong as the
+basis it is checked against. The cubic-period augmentation of the
+PCF-1 basis (\S\ref{sec:plan}, Session~B) is therefore not optional
+but mandatory for the $C_{3}$ cell of Conjecture~\ref{conj:B1}; the
+$\Gamma(1/3)$, $\Gamma(2/3)$, $\sqrt[3]{2,3}$, ${}_{2}F_{1}(\cdot;1/3)$
+augmentation is the smallest basis under which any reasonable
+$C_{3}$-cyclic limit could conceivably be detected.
+
+\paragraph{Cohen's working notes.}
+Cohen's recent computational notes on PCF identification
+\cite{Cohen2024} include an inventory of degree-three PCFs from
+the SIARC umbrella database; the rough $50\%$ $\Delta_{3}<0$ /
+$5$--$10\%$ cyclic-$C_{3}$ split cited in
+\S\ref{sec:landmarks} is consistent with Cohen's enumeration up to
+$|\alpha_{i}|\le 4$. Cohen's notes do not propose a transcendence
+predicate; PCF-2 supplies that predicate and tests it against the
+Cohen enumeration extended by one degree of coefficient bound.
+
+\section{Acknowledgements}\label{sec:ack}
+
+This program statement is part of the SIARC research program. The author
+thanks the AEAL/SIARC multi-agent methodology of~\cite{P8AEAL} for
+providing the evidence-gate scaffolding under which both PCF-1 and the
+present PCF-2 program statement were prepared. AI tools (GitHub Copilot
+powered by Anthropic Claude Opus 4.7, and Anthropic Claude) were used
+for literature synthesis, prose drafting, and consistency-checking
+across the SIARC preprint stack; all conjecture formulations and editorial
+decisions are the author's. The cubic-family enumeration plan of
+Session~A reuses the \texttt{f1\_base\_computation.py} infrastructure of
+PCF-1, and the Stokes-exponent diagnostic of Session~C reuses the
+deformation-design protocol of PCF-1 \S 3. The Painlev\'e--cubic
+literature consulted in formulating Conjecture~\ref{conj:B4} is
+indicated in the references.
+
+\begin{thebibliography}{99}
+
+\bibitem{Papanokechi2026PCF1}
+Papanokechi, \emph{Complex Multiplication as a Transcendence Predicate
+for Degree-2 Polynomial Continued Fractions} (P12 / PCF-1, v1.2).
+Zenodo preprint, 2026.
+\href{https://doi.org/10.5281/zenodo.19934553}
+{DOI:10.5281/zenodo.19934553}.
+
+\bibitem{Papanokechi2026UMB}
+Papanokechi, \emph{An Arithmetic Stratification of Polynomial Continued
+Fractions: Program Statement of the SIARC Series}.
+Zenodo preprint, 2026.
+\href{https://doi.org/10.5281/zenodo.19885550}
+{DOI:10.5281/zenodo.19885550}.
+
+\bibitem{Papanokechi2026Spec}
+Papanokechi, \emph{Spectral Classes of Polynomial Continued Fractions:
+A Hypergeometric Framework and Arithmetic Obstructions}.
+Preprint, 2026.
+
+\bibitem{Papanokechi2026Vquad}
+Papanokechi, \emph{Resurgent Analysis of the V$\_$quad Continued
+Fraction}.
+Zenodo preprints, 2026.
+\href{https://doi.org/10.5281/zenodo.19491767}
+{DOI:10.5281/zenodo.19491767} and
+\href{https://doi.org/10.5281/zenodo.19491768}
+{DOI:10.5281/zenodo.19491768}.
+
+\bibitem{P7AIBehSci}
+Papanokechi, \emph{AI Behavior Science: A Proposal for an Empirical
+Discipline} (P7). Zenodo, 2026.
+\href{https://doi.org/10.5281/zenodo.19562751}
+{DOI:10.5281/zenodo.19562751}.
+
+\bibitem{P8AEAL}
+Papanokechi, \emph{AEAL: AI-Augmented Evidence Aggregation and
+Logging --- A Multi-Agent Methodology for Empirical Mathematics} (P8).
+Zenodo, 2026.
+\href{https://doi.org/10.5281/zenodo.19565086}
+{DOI:10.5281/zenodo.19565086}.
+
+\bibitem{Apery1979}
+R.~Ap\'ery, \emph{Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$}.
+Ast\'erisque~61 (1979), 11--13.
+
+\bibitem{Beukers1979}
+F.~Beukers, \emph{A note on the irrationality of $\zeta(2)$ and
+$\zeta(3)$}. Bull.~London Math.~Soc.~11 (1979), 268--272.
+
+\bibitem{Mazzocco2003}
+M.~Mazzocco, \emph{Painlev\'e sixth equation as isomonodromic deformations
+equation of an irregular system}, in: \emph{Isomonodromic Deformations and
+Applications in Physics} (J.~Harnad, A.~R.~Its, eds.),
+CRM Proc.~Lecture Notes~31, Amer.~Math.~Soc., 2003, 219--238.
+See also: M.~Mazzocco, \emph{Painlev\'e equations and number theory},
+lecture notes.
+
+\bibitem{Iwasaki1991}
+K.~Iwasaki, H.~Kimura, S.~Shimomura, M.~Yoshida,
+\emph{From Gauss to Painlev\'e: A Modern Theory of Special Functions}.
+Aspects of Mathematics E16, Vieweg, Braunschweig, 1991.
+
+\bibitem{Okamoto1987}
+K.~Okamoto, \emph{Studies on the Painlev\'e equations IV: Third
+Painlev\'e equation $P_{III}$}. Funkcial.~Ekvac.~30 (1987), 305--332.
+
+\bibitem{Raayoni2021}
+G.~Raayoni et~al., \emph{Generating conjectures on fundamental constants
+with the Ramanujan Machine}.
+Nature~590 (2021), 67--73.
+
+\bibitem{FergusonBailey1992}
+H.~R.~P.~Ferguson and D.~H.~Bailey, \emph{A polynomial-time, numerically
+stable integer relation algorithm}. RNR Tech.\ Rep.\ RNR-91-032, NASA
+Ames, 1992.
+
+\bibitem{vanderPoorten1979}
+A.~van der Poorten, \emph{A proof that Euler missed\ldots\ Ap\'ery's proof
+of the irrationality of $\zeta(3)$}. Math.~Intelligencer~1 (1978/79),
+195--203.
+
+\bibitem{Cohen2024}
+H.~Cohen, \emph{Computational aspects of polynomial continued fractions
+and their identifications} (working notes / preprint, 2024).
+
+\end{thebibliography}
+
+\end{document}
