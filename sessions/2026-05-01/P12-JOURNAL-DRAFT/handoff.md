@@ -208,3 +208,22 @@ without expansion.
 
 4 entries written to claims.jsonl this session (1 new for the
 journal compile + 3 carry-forwards from Sessions A-C).
+## 2026-05-01 hot-patch -- PAINLEVE-DEEP-6X channel-distinction update (Sec 6 + Sec 8)
+
+**Status:** APPLIED. Submission target: Compositio Mathematica (re-targeted from Trans. AMS by separate cover-letter swap).
+
+**Changes (4):**
+1. **Sec 6 (sec:vquad), new subsection `Channel distinction''** inserted between `Painleve III(D6) parameters'' and `Stokes data''. Adds the Session D finding: at depth >= 3000, dps >= 400, the L(t) recurrence-parameter deformation does NOT recover V_quad's known P-III(D6) parameters (residual 4.59e-5, not <= 1e-20), and rules out a structural Painleve family pattern in the L(t) channel. The remaining five families are NO_FIT at >= 1e-4 across P-II..P-VI. Intra-field disagreement (QL06 P-V vs QL26 P-III, both in Q(sqrt(-7))) rules out CM-field-driven Painleve typing in this channel.
+2. **Sec 6 Table tab:painleve-deep** -- 6-row residual table at depth=3000, dps=400, h-independent.
+3. **Sec 8 (sec:open) new bullet (op:borel-channel)** appended -- Borel-resummation channel as natural follow-up; V_quad datum suggests this is the structurally correct channel.
+4. **Abstract:** NOT edited. The existing wording `the Painleve III(D6) transcendental nature of the Delta=-11 prototype V_quad is recalled'' is descriptive of V_quad alone and contains no forward-looking `prototype for the others'' claim. Per task spec, NO_ABSTRACT_EDIT path applied.
+
+**Recompile:** 21 pages, 507272 bytes; 0 errors, 0 undefined references over two pdflatex passes. Only typesetting warnings (overfull/underfull hbox), all pre-existing. Page count rose from 20 to 21 (+1pp expected from the new subsection + table; within acceptable range 20-23).
+
+**Cover letter:** unchanged. The cover_letter_p12_journal.txt headline contribution is the Stokes 6/6 result (Session C), which is unaffected by Session D's channel distinction. The Painleve framing in the cover letter, if any, is descriptive of V_quad as the *one explicit example*, not as a prototype for the other five -- so no edit needed.
+
+**Anomaly noted (not auto-fixed, per scope):** Sec 8 open problem (op:non-piii) currently contains the sentence `The QL06 D-A + PV residual of 1.07e-4 flags QL06 as the strongest non-V_quad candidate for an explicit PV identification at higher precision.'' This is now contradicted by Session D's finding that QL06's residual is FLAT under precision escalation (1.066e-4 -> 1.064e-4 from depth 1500 dps 270 to depth 3000 dps 400), ruling out P-V. Recommend editing (op:non-piii) in a follow-up patch to either remove the QL06/PV claim or recast it as `QL06 PV ruled out by Session D, see Table tab:painleve-deep''. Out of scope for this hot-patch (task instructed exactly four changes).
+
+**Files updated:**
+- tex/submitted/p12_journal_main.tex  (in-place edit)
+- tex/submitted/p12_journal_main.pdf  (recompiled)
