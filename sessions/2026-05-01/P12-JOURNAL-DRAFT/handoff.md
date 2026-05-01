@@ -229,3 +229,5 @@ journal compile + 3 carry-forwards from Sessions A-C).
 - tex/submitted/p12_journal_main.pdf  (recompiled)
 
 2026-05-01 micro-patch: Sec 8 (op:non-piii) recast -- QL06/P-V ruled out by Session D, redirected to (op:borel-channel).
+
+2026-05-01 venue swap: cover letter + editor recommendation re-targeted from Trans. AMS to Compositio Mathematica (header address, body reference, 'Why' paragraph, length paragraph, editor-rec portal field).
