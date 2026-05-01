@@ -1,0 +1,55 @@
+
+=== V_quad (Delta = -11) ===
+  beta2 = 3, xi_0 = 2/sqrt(beta2) = 1.154700538379251529018297561
+  rho = -3/2 - beta1/beta2 = -1.833333333333333333333333333
+  a_1..a_5 = ['0.6374909222', '0.4792390046', '0.7093200806', '1.126493981', '2.1501085']
+  Borel radius |w*| (numerical tail) = 2.3484402
+
+=== QL01 (Delta = -3) ===
+  beta2 = 1, xi_0 = 2/sqrt(beta2) = 2.0
+  rho = -3/2 - beta1/beta2 = -2.5
+  a_1..a_5 = ['0.8125', '0.033203125', '0.004760742188', '0.2501430511', '0.3014602423']
+  Borel radius |w*| (numerical tail) = 4.0399129
+
+=== QL02 (Delta = -4) ===
+  beta2 = 1, xi_0 = 2/sqrt(beta2) = 2.0
+  rho = -3/2 - beta1/beta2 = -2.5
+  a_1..a_5 = ['0.8125', '-0.466796875', '-0.06815592448', '0.879374822', '0.6294184128']
+  Borel radius |w*| (numerical tail) = 4.017903
+
+=== QL06 (Delta = -7) ===
+  beta2 = 2, xi_0 = 2/sqrt(beta2) = 1.41421356237309504880168872421
+  rho = -3/2 - beta1/beta2 = -1.0
+  a_1..a_5 = ['0.7071067812', '0.25', '0.4714045208', '0.8020833333', '1.288996737']
+  Borel radius |w*| (numerical tail) = 2.8652652
+
+=== QL15 (Delta = -20) ===
+  beta2 = 3, xi_0 = 2/sqrt(beta2) = 1.154700538379251529018297561
+  rho = -3/2 - beta1/beta2 = -0.833333333333333333333333333
+  a_1..a_5 = ['1.070503624', '0.8698640046', '1.249489644', '2.206945726', '4.471229876']
+  Borel radius |w*| (numerical tail) = 2.3364358
+
+=== QL26 (Delta = -28) ===
+  beta2 = 4, xi_0 = 2/sqrt(beta2) = 1.0
+  rho = -3/2 - beta1/beta2 = -1.0
+  a_1..a_5 = ['1.0', '1.375', '1.5', '2.2578125', '4.2984375']
+  Borel radius |w*| (numerical tail) = 2.0349946
+
+======================================================================
+VARIANT-A FLIP TEST (Phase 6): per-family Painleve fingerprint vs V_quad
+======================================================================
+  V_quad   digits(xi0)=200.00 digits(rho)=200.00 a_1..a_4 digits=['200.00', '200.00', '200.00', '200.00'] -> match
+  QL01     digits(xi0)=  0.14 digits(rho)=  0.44 a_1..a_4 digits=[' 0.56', ' 0.03', ' 0.00', ' 0.11'] -> no-match
+  QL02     digits(xi0)=  0.14 digits(rho)=  0.44 a_1..a_4 digits=[' 0.56', '-0.30', '-0.04', ' 0.66'] -> no-match
+  QL06     digits(xi0)=  0.65 digits(rho)=  0.34 a_1..a_4 digits=[' 0.96', ' 0.32', ' 0.47', ' 0.54'] -> no-match
+  QL15     digits(xi0)=200.00 digits(rho)=  0.26 a_1..a_4 digits=[' 0.17', ' 0.09', ' 0.12', ' 0.02'] -> no-match
+  QL26     digits(xi0)=  0.87 digits(rho)=  0.34 a_1..a_4 digits=[' 0.25', '-0.27', '-0.05', '-0.00'] -> no-match
+
+FLIPS detected (>=15 digit P-III match in corrected space): []
+Wrote results_ql15.json
+Wrote results_ql26.json
+Wrote cc_channel_table_v2.tex
+
+=== FINAL VERDICT ===
+Variant-A flip test (corrected space): BOTH ARTEFACT (stands)
+Flips: []
