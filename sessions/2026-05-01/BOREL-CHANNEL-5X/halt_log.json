@@ -1,0 +1,9 @@
+{
+  "halt": true,
+  "task_id": "BOREL-CHANNEL-5X",
+  "date": "2026-05-01",
+  "trigger": "V_quad gate FAILED: pipeline cannot recover known P-III(D6) reduction at residual <= 1e-20.  Best residual 7.2e-3 at K=12, M_pade=5; gets WORSE under K-extension (5.0e-3 -> 1.0e-2 -> 9.9e-2 across K=16,20,24).  Pade-approximant 'nearest singularity' radius diverges with K (2.17 -> 4.59), revealing absence of finite-radius Borel singularity.  Borel-channel pipeline as defined (1/n-asymptotic-of-log|delta_n| -> Borel transform -> Pade poles -> Painleve fit) is structurally insufficient.",
+  "scope_of_halt": "The specific channel definition tested (1/n asymptotic of log|delta_n|) does NOT recover V_quad's known P-III reduction.  Conjecture A part (iv) is NOT contradicted, but its predicted channel needs to be re-specified.  The two MARGINAL hits at K=12 (QL15 P-V 9.1e-5, QL26 P-III 2.8e-5) are Pade-truncation noise, NOT real Borel-channel reductions: they fail to persist under K-extension (verified for V_quad; same diagnosis applies by structural analogy).",
+  "next_step_recommended": "Re-specify the Borel channel.  Two candidates: (a) connection coefficients of the underlying degree-2 difference equation between its two formal Birkhoff solutions (the standard 'connection-Stokes' channel for q-difference Painleve); (b) the trans-monomial channel where the small parameter is e^{-A n log n} rather than 1/n.  Both require theoretical work beyond a single SIARC session.",
+  "scientific_value_preserved": "Trans-series LSQ extraction is clean and reproducible: A and alpha match closed-form WKB predictions to 14 digits across all 6 families.  Cross-family table (5+1 rows) is valid and reportable as a structural classification (the leading exponents A, alpha, beta of log|delta_n|), even though the secondary Borel-Painleve fits are noise."
+}

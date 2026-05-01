@@ -1,0 +1,23 @@
+{
+  "unexpected_finds": [
+    {
+      "finding": "V_quad Borel-channel gate FAILED at K-scan; the standard 1/n asymptotic series for log|delta_n| has NO finite-radius Borel-plane singularity.  This contradicts the 'channel structurally captures V_quad's P-III' working assumption from the task framing.",
+      "evidence": {
+        "K_scan_residuals": ["7.18e-3 (K=12)", "4.95e-3 (K=16)", "1.04e-2 (K=20)", "9.92e-2 (K=24)"],
+        "Pade_pole_radii":  ["2.17 (K=12)", "3.00 (K=16)", "3.65 (K=20)", "4.59 (K=24)"],
+        "trans_series_h_stable_to_14_digits": true
+      },
+      "implication": "Either (a) Conjecture A part (iv) needs revision to specify a different channel, or (b) the relevant Borel singularities are at infinity in the zeta-plane and require a different resummation scheme (e.g., Borel-Leroy in zeta^{1/2} or the connection-coefficient channel of the underlying difference equation)."
+    },
+    {
+      "finding": "EXACT analytic match of trans-series leading exponents (A, alpha) for ALL 6 families.",
+      "evidence": "A_obs and alpha_obs match closed-form WKB predictions A_pred = 4 (for a_n constant) or 3 (for a_n linear); alpha_pred = A - 2 log(c_b) + log|c_a|; matches to 12+ digits for all 6 families.",
+      "implication": "The leading WKB structure of degree-2 PCFs is FULLY DETERMINED by (deg(a_n), c_a, c_b).  A 3-row classification by (A_obs, alpha_obs, beta_obs) is a clean structural invariant -- this is a publishable observation independent of the (failed) Borel-Painleve fit attempt."
+    },
+    {
+      "finding": "Two MARGINAL Painleve fits at K=12: QL15 -> P-V (9.1e-5) and QL26 -> P-III (2.8e-5).",
+      "evidence": "Below the 1e-4 MARGINAL threshold, but K-extension diagnosis on V_quad shows these are Pade-truncation noise.  Recommended dismissal as artefacts unless QL15/QL26 K-scan can be done in a follow-up session and shows monotone residual decay.",
+      "halt_severity": "low"
+    }
+  ]
+}
