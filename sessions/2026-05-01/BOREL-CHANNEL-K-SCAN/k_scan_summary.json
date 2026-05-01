@@ -1,0 +1,261 @@
+{
+  "session": "BOREL-CHANNEL-K-SCAN",
+  "date": "2026-05-01",
+  "decision_rule": {
+    "CONFIRMED": "residual <= 1e-4 across K in {12,16,20,24} AND rho_star_abs spread < 0.5",
+    "ARTEFACT": "residual grows OR rho_star_abs diverges with K",
+    "AMBIGUOUS": "one criterion met, the other not"
+  },
+  "v_quad_reference (canonical artefact)": {
+    "rows": [
+      {
+        "K": 12,
+        "M": 5,
+        "depth": 200,
+        "dps": 2200,
+        "best_eq": "P-III",
+        "residual": "0.00717951",
+        "rho_star_abs": "2.17494083934945034",
+        "verdict_K": null
+      },
+      {
+        "K": 16,
+        "M": 7,
+        "depth": 240,
+        "dps": 3000,
+        "best_eq": "P-III",
+        "residual": "0.00495492",
+        "rho_star_abs": "2.99868099980578594",
+        "verdict_K": null
+      },
+      {
+        "K": 20,
+        "M": 9,
+        "depth": 280,
+        "dps": 4000,
+        "best_eq": "P-VI",
+        "residual": "0.0104136",
+        "rho_star_abs": "3.64819719648696571",
+        "verdict_K": null
+      },
+      {
+        "K": 24,
+        "M": 11,
+        "depth": 320,
+        "dps": 5000,
+        "best_eq": "P-VI",
+        "residual": "0.0991621",
+        "rho_star_abs": "4.58737550321966122",
+        "verdict_K": null
+      }
+    ],
+    "diagnosis": {
+      "residual_min": 0.00495492,
+      "residual_max": 0.0991621,
+      "rho_min": 2.1749408393494503,
+      "rho_max": 4.587375503219661,
+      "rho_spread": 2.412434663870211,
+      "flat_residual_<=1e-4": false,
+      "bounded_rho_spread_<0.5": false,
+      "decision": "ARTEFACT"
+    }
+  },
+  "QL15": {
+    "rows": [
+      {
+        "K": 12,
+        "M": 5,
+        "depth": 200,
+        "dps": 2200,
+        "best_eq": "P-V",
+        "residual": "9.08211e-5",
+        "rho_star_abs": "3.39113286096978839",
+        "verdict_K": "MARGINAL"
+      },
+      {
+        "K": 16,
+        "M": 7,
+        "depth": 240,
+        "dps": 3000,
+        "best_eq": "P-III",
+        "residual": "1.1718e-5",
+        "rho_star_abs": "1.23855130652589179",
+        "verdict_K": "MARGINAL"
+      },
+      {
+        "K": 20,
+        "M": 9,
+        "depth": 280,
+        "dps": 4000,
+        "best_eq": "P-V",
+        "residual": "0.000661173",
+        "rho_star_abs": "5.18521945429503639",
+        "verdict_K": "NO_FIT"
+      },
+      {
+        "K": 24,
+        "M": 11,
+        "depth": 320,
+        "dps": 5000,
+        "best_eq": "P-III",
+        "residual": "0.000507365",
+        "rho_star_abs": "3.8153036290022458",
+        "verdict_K": "NO_FIT"
+      }
+    ],
+    "diagnosis": {
+      "residual_min": 1.1718e-05,
+      "residual_max": 0.000661173,
+      "rho_min": 1.2385513065258917,
+      "rho_max": 5.185219454295036,
+      "rho_spread": 3.9466681477691443,
+      "flat_residual_<=1e-4": false,
+      "bounded_rho_spread_<0.5": false,
+      "decision": "ARTEFACT"
+    },
+    "h_cross_check_K24": {
+      "0.1": {
+        "P-III": "0.000507365",
+        "P-V": "0.00112931",
+        "P-VI": "0.00150943"
+      },
+      "0.05": {
+        "P-III": "0.000507365",
+        "P-V": "0.00112931",
+        "P-VI": "0.00150943"
+      },
+      "0.025": {
+        "P-III": "0.000507365",
+        "P-V": "0.00112931",
+        "P-VI": "0.00150943"
+      }
+    }
+  },
+  "QL26": {
+    "rows": [
+      {
+        "K": 12,
+        "M": 5,
+        "depth": 200,
+        "dps": 2200,
+        "best_eq": "P-III",
+        "residual": "2.81632e-5",
+        "rho_star_abs": "1.80039214701424373",
+        "verdict_K": "MARGINAL"
+      },
+      {
+        "K": 16,
+        "M": 7,
+        "depth": 240,
+        "dps": 3000,
+        "best_eq": "P-III",
+        "residual": "0.00197114",
+        "rho_star_abs": "3.72129186533639129",
+        "verdict_K": "NO_FIT"
+      },
+      {
+        "K": 20,
+        "M": 9,
+        "depth": 280,
+        "dps": 4000,
+        "best_eq": "P-III",
+        "residual": "0.00136393",
+        "rho_star_abs": "4.29191176295663812",
+        "verdict_K": "NO_FIT"
+      },
+      {
+        "K": 24,
+        "M": 11,
+        "depth": 320,
+        "dps": 5000,
+        "best_eq": "P-V",
+        "residual": "0.0447631",
+        "rho_star_abs": "4.75339973066550186",
+        "verdict_K": "NO_FIT"
+      }
+    ],
+    "diagnosis": {
+      "residual_min": 2.81632e-05,
+      "residual_max": 0.0447631,
+      "rho_min": 1.8003921470142437,
+      "rho_max": 4.753399730665502,
+      "rho_spread": 2.9530075836512584,
+      "flat_residual_<=1e-4": false,
+      "bounded_rho_spread_<0.5": false,
+      "decision": "ARTEFACT"
+    },
+    "h_cross_check_K24": {
+      "0.1": {
+        "P-III": "0.270571",
+        "P-V": "0.0447631",
+        "P-VI": "0.898605"
+      },
+      "0.05": {
+        "P-III": "0.270571",
+        "P-V": "0.0447631",
+        "P-VI": "0.898605"
+      },
+      "0.025": {
+        "P-III": "0.270571",
+        "P-V": "0.0447631",
+        "P-VI": "0.898605"
+      }
+    }
+  },
+  "side_by_side_table": {
+    "header": [
+      "K",
+      "V_quad_residual",
+      "V_quad_rho_abs",
+      "QL15_residual",
+      "QL15_rho_abs",
+      "QL26_residual",
+      "QL26_rho_abs"
+    ],
+    "rows": [
+      [
+        12,
+        "0.00717951",
+        "2.17494083934945034",
+        "9.08211e-5",
+        "3.39113286096978839",
+        "2.81632e-5",
+        "1.80039214701424373"
+      ],
+      [
+        16,
+        "0.00495492",
+        "2.99868099980578594",
+        "1.1718e-5",
+        "1.23855130652589179",
+        "0.00197114",
+        "3.72129186533639129"
+      ],
+      [
+        20,
+        "0.0104136",
+        "3.64819719648696571",
+        "0.000661173",
+        "5.18521945429503639",
+        "0.00136393",
+        "4.29191176295663812"
+      ],
+      [
+        24,
+        "0.0991621",
+        "4.58737550321966122",
+        "0.000507365",
+        "3.8153036290022458",
+        "0.0447631",
+        "4.75339973066550186"
+      ]
+    ]
+  },
+  "split_finding": "Both QL15 and QL26 behave the same way as V_quad: residuals fail to drop below 1e-5 systematically and Pade pole radius drifts unboundedly with K. No structural split detected.",
+  "final_flag": "BOREL CHANNEL CONFIRMED ANOMALOUS -- no Delta<0 family in {QL01, QL02, QL06, V_quad, QL15, QL26} admits a genuine Borel-channel Painleve reduction. The channel must be re-specified (recommended: connection-coefficient channel of the underlying difference equation).",
+  "verdicts": {
+    "QL15": "ARTEFACT",
+    "QL26": "ARTEFACT",
+    "V_quad (reference)": "ARTEFACT"
+  }
+}
