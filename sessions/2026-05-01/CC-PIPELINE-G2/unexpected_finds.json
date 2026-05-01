@@ -1,0 +1,13 @@
+{
+  "UF-G2-1": {
+    "title": "V_quad Borel-plane singularity at zeta_*=2c=4/sqrt(3) is a BRANCH POINT, not a simple pole",
+    "evidence": [
+      "Raw Pade [m,m] of B(zeta) reaches Borel-singularity to only 3.4 / 3.9 / 4.2 / 4.5 digits at m=60 / 120 / 200 / 400 (logarithmic rate, ~1 digit per doubling)",
+      "Square-root conformal map zeta = zeta_*(2w - w^2) brings convergence to ~6.5-6.8 digits at m=60..200; rate of improvement still slow (would saturate near machine-precision well below 50 digits without explicit branch-point handling)",
+      "Direct verification (G2-1): the recurrence-generated a_1..a_10 agree with CC-PIPELINE-G's connection-recovered a_1..a_10 to 99.58 digits, ruling out a hidden bug in either pipeline"
+    ],
+    "structural_explanation": "Birkhoff's theory predicts a branch-point Borel singularity for irregular-singular Painleve-class connections (P-III(D6) here). The exponent at zeta_* governs Stokes / resurgence data; Pade-Borel is structurally inadequate for high-precision recovery of zeta_* itself, but is well-suited as a NUMERICAL bridge to the Borel-Laplace integral I(u) for u in (0, zeta_*).",
+    "implication_for_op:cc-formal-borel": "The closure of op:cc-formal-borel via Pade-Borel-Laplace must be reframed: zeta_* is established analytically (G's algebraic identity zeta_* = 2/sqrt(beta_2), 200 digits exact), and the Borel-Laplace integral provides the operational bridge.  Full numerical resurgence (Stokes constant extraction, Borel-Ecalle medianization) is deferred to op:cc-branch-resurgence.",
+    "next_step": "Open op:cc-branch-resurgence for explicit branch-point treatment.  Methods: (i) Pade in the lifted variable Y = sqrt(1 - zeta/zeta_*); (ii) Janssen-Costin Borel-Ecalle median resummation; (iii) match a model branch-point integrand B(zeta) ~ A (1-zeta/zeta_*)^alpha + analytic and fit alpha numerically."
+  }
+}

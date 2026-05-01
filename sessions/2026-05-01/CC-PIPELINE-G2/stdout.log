@@ -1,0 +1,46 @@
+[G2] starting at dps=250, K_MAX=5000, PADE_MS=[60, 120, 200]
+[G2-1] generating formal-series coefficients via 4-term recurrence...
+[G2-1] done in 0.8s
+[G2-1] c = +2/sqrt(3) = 1.154700538379251529018297561
+[G2-1] rho = -11/6     = -1.83333333333333333333333333333
+[G2-1] a_1 = 0.6374909222302117816455184
+[G2-1] a_5000 has 38 chars (large -- factorial growth)
+[G2-1] cross-check vs CC-PIPELINE-G results_vquad.json (k=1..10)...
+[G2-1] min agreement digits: 99.58
+[G2-1] wrote vquad_borel_coefficients.json
+[G2-2] Pade [m,m] of Borel transform; locate Borel singularity...
+[G2-2] expected zeta* = 2 c = 4/sqrt(3) = 2.30940107675850305803659512200782982259040700508050750407441
+[G2-2]   m = 60 ...
+[G2-2]      |pole_min| = 2.3103148637993561356331371546162657458349145510881
+[G2-2]      pole = (2.31031486379935613563313715462 + 1.76373601271627710459775450419e-7922j)
+[G2-2]      digits vs zeta*: 3.4    elapsed: 3.0s
+[G2-2]   m = 120 ...
+[G2-2]      |pole_min| = 2.3096712607418491669180072802807600368054699448538
+[G2-2]      pole = (2.30967126074184916691800728028 - 1.23504099932527341598601593556e-5525j)
+[G2-2]      digits vs zeta*: 3.9    elapsed: 11.1s
+[G2-2]   m = 200 ...
+[G2-2]      |pole_min| = 2.3095517808175905405897353679466555953894980465731
+[G2-2]      pole = (2.30955178081759054058973536795 + 1.18839277266238896924466889522e-5494j)
+[G2-2]      digits vs zeta*: 4.2    elapsed: 34.7s
+[G2-3b] Square-root conformal map (UF-G2-1: branch-point Borel singularity)...
+[G2-3b]   m = 60 ...
+[G2-3b]      |pole_min| (mapped back) = 2.3094004293466036006794604422217770455225225597168
+[G2-3b]      digits vs zeta*: 6.6    elapsed: 1.3s
+[G2-3b]   m = 120 ...
+[G2-3b]      |pole_min| (mapped back) = 2.3094001613278755235524696233727252573079970849197
+[G2-3b]      digits vs zeta*: 6.4    elapsed: 12.1s
+[G2-3b]   m = 200 ...
+[G2-3b]      |pole_min| (mapped back) = 2.3094007413948430412975997732739571552471483247648
+[G2-3b]      digits vs zeta*: 6.8    elapsed: 45.8s
+[G2-3] wrote pade_singularity_log.json
+[G2-4] Laplace integral over steepest-descent contour at u=0.3...
+[G2-4]   I(u=0.3) (real)        = 1.27442223889205599238939607953
+[G2-4]   I(u=0.3) (imag)        = 0.0
+[G2-4]   S_partial @ K_opt=7 = 1.27442223889205599238939607953
+[G2-4]   digits agreement       = 2.7
+[G2-4] wrote laplace_evaluation.json
+[G2-5] writing cross-channel consistency table...
+[G2-5] wrote cross_channel_consistency_table.tex
+[AEAL] writing claims.jsonl ...
+[AEAL] wrote 8 claims to claims.jsonl
+[G2] total elapsed: 108.9s
