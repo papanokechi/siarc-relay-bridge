@@ -304,30 +304,37 @@ exponent is governed by the local exponent differences of the
 associated Heun-type cubic ODE.
 \end{conjecture}
 
-\begin{conjecture}[B$_{3}$ part (iv): Painlev\'e IV alignment]\label{conj:B4}
-For a generic degree-three PCF in the irreducible-cubic-CM stratum, the
-isomonodromic deformation associated with $K(t)$ above is governed by
-the Painlev\'e IV transcendent, with parameters determined by the
-arithmetic invariants of $L_{b}$. The cubic alignment with P-IV mirrors
-the PCF-1 quadratic alignment with P-III$(D_{6})$ (for V$\_$quad) and is
-expected to be a generic-not-universal claim, with the specific Painlev\'e
-type allowed to vary across families as in
-PCF-1~\cite[Remark~3.5]{Papanokechi2026PCF1}.
+\begin{conjecture}[B$_{3}$ part (iv): Painlev\'e-hierarchy reduction]\label{conj:B4}
+Each degree-three PCF family in the cell of Conjecture~\ref{conj:B3}
+(irreducible $\Z$-primitive, $\Delta_{3}<0$, $\Gal(b/\Q)=S_{3}$ complex)
+admits a Painlev\'e reduction in the P-II--P-VI hierarchy. Heuristic
+alignment with cubic Galois data
+(cf.~Iwasaki--Kimura--Shimomura--Yoshida~\cite{Iwasaki1991} and
+Mazzocco~\cite{Mazzocco2003}) suggests P-IV as the most likely
+instance, but no commitment to a specific Painlev\'e equation is made
+at the program-statement level. The channel question is itself open:
+PCF-1 Session~E has shown that the natural recurrence-parameter
+deformation channel and the Borel-resummation channel both
+\emph{fail} for the degree-2 $\Delta<0$ families with respect to
+V$\_$quad's known P-III$(D_{6})$ reduction; the cubic case is
+therefore expected to require a new channel construction, not a
+verbatim lift of either PCF-1 channel.
 \end{conjecture}
 
 \begin{remark}\label{rem:painleveIV}
-The choice P-IV (rather than P-V or P-VI) is motivated by three
-observations. First, P-IV is the Painlev\'e equation whose
-isomonodromic problem has a single irregular singularity of Poincar\'e
-rank $\frac{3}{2}$, matching the cubic-degree growth of $b_{n}$.
-Second, the Backlund-transformation group of P-IV is $A_{2}^{(1)}$,
-which is the affine analogue of the cubic Galois group $A_{3}=C_{3}$
-or its $S_{3}$ extension. Third, the classical
-Hermite-polynomial / parabolic-cylinder solutions of P-IV at half-integer
-parameters provide explicit special-function content that should appear
-in the totally-real cyclic case~(B) of Conjecture~\ref{conj:B1}. The
-linkage P-IV $\leftrightarrow$ cubic Galois groups is supported by
-the literature surveyed in~\cite{Mazzocco2003,Iwasaki1991}.
+The heuristic preference for P-IV (over P-V or P-VI) within the
+hierarchy rests on three structural observations, each of which is
+necessary but not sufficient: (i) P-IV's isomonodromic problem has a
+single irregular singularity of Poincar\'e rank $\frac{3}{2}$, the
+minimal rank compatible with cubic-degree growth of $b_{n}$;
+(ii) the B\"acklund-transformation group of P-IV is $A_{2}^{(1)}$, the
+affine analogue of the cubic Galois group $A_{3}=C_{3}$;
+(iii) P-IV admits Hermite/parabolic-cylinder special-function solutions
+at half-integer parameters, the natural reservoir of explicit content
+for the totally-real cyclic case~(B) of Conjecture~\ref{conj:B1}. None
+of (i)--(iii) forces P-IV uniquely; the cubic case may equally well
+fall into a P-V degeneration or a P-VI specialization at an
+arithmetic point.
 \end{remark}
 
 \section{Worked Landmarks: Ap\'ery, Catalan-Cubic, Cyclic-$C_{3}$}\label{sec:landmarks}
@@ -341,27 +348,30 @@ calibrated against them.
 \begin{table}[h]
 \centering
 \small
-\begin{tabular}{llrll}
+\begin{tabular}{p{0.13\textwidth}p{0.21\textwidth}rp{0.18\textwidth}p{0.10\textwidth}p{0.20\textwidth}}
 \toprule
-Landmark & $b(n)$ & $\Delta_{3}$ & $\Gal(b/\Q)$ & Predicted cell \\
+Landmark & $b(n)$ & $\Delta_{3}$ & Reducible? & $\Gal(b/\Q)$ & Predicted cell \\
 \midrule
-Ap\'ery $\zeta(3)$ & $34n^{3}-51n^{2}+27n-5$ & $> 0$ & $C_{3}$ or $S_{3}$ (TBD) & B/C cyclic-cubic \\
-Catalan-cubic seed & $n^{3}+n+1$ & $-31$ & $S_{3}$ (complex) & A: PSLQ-null + Stokes \\
-Cyclic-$C_{3}$ probe & $n^{3}-3n+1$ & $81$ & $C_{3}$ & B: closed-form candidate \\
+Ap\'ery $\zeta(3)$ & $34n^{3}+51n^{2}+27n+5$ & $-459=-3^{3}\cdot 17$ & yes: $(2n+1)(17n^{2}+17n+5)$ & $C_{2}$ on $\Q(\sqrt{-51})$ & out-of-scope (see Rmk.~\ref{rem:apery-reducible}) \\
+Catalan-cubic seed & $n^{3}+n+1$ & $-31$ & no & $S_{3}$ (complex) & A: PSLQ-null + Stokes \\
+Cyclic-$C_{3}$ probe & $n^{3}-3n+1$ & $81=9^{2}$ & no & $C_{3}$ & B: closed-form candidate \\
 \bottomrule
 \end{tabular}
-\caption{Three landmark $b(n)$. The Ap\'ery row is the historical
-$d=3$ exemplar: van der Poorten's account of Ap\'ery's
-proof~\cite{vanderPoorten1979,Apery1979,Beukers1979} identifies
-$\lim K = \zeta(3)/6$, and $\zeta(3)$ already lies in the PCF-1 basis;
-Session A determines whether $\Delta_{3}$ for the Ap\'ery $b$ is a
-square in~$\Q$. The Catalan-cubic seed $b(n)=n^{3}+n+1$ is the
-simplest irreducible cubic with negative discriminant
-($\disc = -4\cdot 1 - 27 = -31$, i.e.\ Galois group $S_{3}$, splitting
-field $\Q(\theta,\sqrt{-31})$); it is the cleanest test of
-Conjecture~\ref{conj:B1}(A). The cyclic-$C_{3}$ probe
-$b(n)=n^{3}-3n+1$ is the standard simplest totally-real cyclic cubic
-with $\disc=81=9^{2}$; it is the cleanest test of
+\caption{Three landmark $b(n)$. The Ap\'ery row uses the recurrence
+denominator $b(n)=34n^{3}+51n^{2}+27n+5$ from
+\cite{vanderPoorten1979,Apery1979,Beukers1979}; an exact symbolic
+computation (sympy, exact integer arithmetic) gives
+$\Delta_{3}=\disc(b)=-459=-3^{3}\cdot 17$, and the polynomial
+\emph{factors} over $\Q$ as $(2n+1)(17n^{2}+17n+5)$. Hence $b$ is
+\emph{reducible}, the splitting field is
+$\Q(\sqrt{17^{2}-4\cdot 17\cdot 5})=\Q(\sqrt{-51})$, and the Galois
+group of $b$ over $\Q$ is $C_{2}$ rather than $C_{3}$ or $S_{3}$. The
+Catalan-cubic seed $b(n)=n^{3}+n+1$ is the simplest irreducible cubic
+with negative discriminant ($\disc=-31$, $\Gal=S_{3}$, splitting field
+$\Q(\theta,\sqrt{-31})$); it is the cleanest test of
+Conjecture~\ref{conj:B1}(A). The cyclic-$C_{3}$ probe $b(n)=n^{3}-3n+1$
+is the standard simplest totally-real cyclic cubic with
+$\disc=81=9^{2}$; it is the cleanest test of
 Conjecture~\ref{conj:B1}(B). The accompanying $a_{n}$ for each landmark
 is fixed in Session~A by the smallest $\Z$-primitive choice consistent
 with the balanced-class convention~\eqref{eq:an}.}
@@ -371,13 +381,31 @@ with the balanced-class convention~\eqref{eq:an}.}
 \paragraph{Calibration role.}
 Table~\ref{tab:landmarks} is a calibration anchor, not a results table:
 each row records what the predicate \emph{must} say if Conjecture~\ref{conj:B1}
-is to be consistent with literature. The Ap\'ery row in particular is
-the most stringent test, because $\zeta(3)$ is the rare cubic-period
-constant that is already in the PCF-1 basis: if Session~B at sufficient
-precision fails to detect $\zeta(3)/6$ for the Ap\'ery family, the PCF-1
-PSLQ infrastructure is mis-tuned for $d=3$ and Session~B's null-result
-evidence loses force. The Catalan-cubic and cyclic-$C_{3}$ rows are the
-positive-test equivalents.
+is to be consistent with literature. The Catalan-cubic and cyclic-$C_{3}$
+rows are the positive-test equivalents for B3(i) cells (A) and (B); the
+Ap\'ery row, despite its historical centrality at $d=3$, is
+\emph{out of scope} of B3(i) by reducibility and thus contributes a
+separate calibration role discussed in Remark~\ref{rem:apery-reducible}.
+
+\begin{remark}[Ap\'ery is reducible, hence outside
+B3(i)]\label{rem:apery-reducible}
+The Ap\'ery denominator $b(n)=34n^{3}+51n^{2}+27n+5$ factors as
+$(2n+1)(17n^{2}+17n+5)$, so it does not satisfy the irreducibility
+hypothesis of Conjecture~\ref{conj:B1}. Ap\'ery's recurrence sits in
+the \emph{out-of-scope, splittable-cubic} bin of trichotomy B3(i), and
+its known identification $\lim K = 6/\zeta(3)$
+\cite{vanderPoorten1979,Apery1979,Beukers1979} is consistent with the
+restriction of Conjecture~\ref{conj:B1} to irreducible $\Z$-primitive
+$b$: a reducible $b$ admits an algebraic factorization of the
+recurrence and is not predicted to obstruct a closed form. The CM-style
+subfield $\Q(\sqrt{-51})$ from the quadratic factor records the
+arithmetic flavour but does not contradict the predicate. Operationally,
+Session~A's calibration anchor is therefore the Ap\'ery family run
+through the existing PCF-1 PSLQ pipeline as a \emph{positive control}
+(target relation $L\sim\zeta(3)$ should be detected) for infrastructure
+integrity, while the predicate B3(i) itself is tested on the
+irreducible-only enumeration.
+\end{remark}
 
 \paragraph{Cubic Galois-group quick checks.}
 For the irreducible $\Z$-primitive case, $\Gal(b/\Q)$ is cyclic ($C_{3}$)
@@ -392,10 +420,16 @@ cubic of cyclotomic origin).
 \item $b(n)=n^{3}-n-1$: $\disc=-23$, $S_{3}$ (complex case, Lehmer's cubic).
 \end{itemize}
 The square-discriminant filter applied to $\Z$-primitive irreducible
-cubics with $|\alpha_{i}|\le 5$ gives $\sim 5$--$10\%$ cyclic
-representation~\cite{Cohen2024}; the $\Delta_{3}<0$ fraction is roughly
-$50\%$. The Session~A enumeration is therefore expected to populate
-all three cells of Conjecture~\ref{conj:B1} non-trivially.
+cubics with $|\alpha_{i}|\le 5$ is heuristically rare (cyclic cubic
+fields are sparse in the natural Davenport--Heilbronn / Bhargava
+counts; see~\cite{Cohen2007} \S6.4 for the relevant background on
+cubic discriminants and Galois groups), and the $\Delta_{3}<0$ fraction
+is roughly $50\%$ by sign symmetry of the discriminant. The Session~A
+enumeration is expected to populate cells~(A) (S$_{3}$ complex) and
+(C) (S$_{3}$ totally real) of Conjecture~\ref{conj:B1} densely, with
+cell~(B) (cyclic) populated sparsely; the calibration of these counts
+against a finite-coefficient enumeration is itself part of the
+Session~A deliverable.
 
 \section{Computational Plan}\label{sec:plan}
 
@@ -593,15 +627,16 @@ $\Gamma(1/3)$, $\Gamma(2/3)$, $\sqrt[3]{2,3}$, ${}_{2}F_{1}(\cdot;1/3)$
 augmentation is the smallest basis under which any reasonable
 $C_{3}$-cyclic limit could conceivably be detected.
 
-\paragraph{Cohen's working notes.}
-Cohen's recent computational notes on PCF identification
-\cite{Cohen2024} include an inventory of degree-three PCFs from
-the SIARC umbrella database; the rough $50\%$ $\Delta_{3}<0$ /
-$5$--$10\%$ cyclic-$C_{3}$ split cited in
-\S\ref{sec:landmarks} is consistent with Cohen's enumeration up to
-$|\alpha_{i}|\le 4$. Cohen's notes do not propose a transcendence
-predicate; PCF-2 supplies that predicate and tests it against the
-Cohen enumeration extended by one degree of coefficient bound.
+\paragraph{Cohen, cubic fields, and the heuristic distribution.}
+Cohen's textbook treatment of cubic fields and their discriminants
+\cite{Cohen2007} provides the standard background for the heuristic
+distribution of $\Gal(b/\Q)$ across $\Z$-primitive irreducible cubics:
+cyclic cubics are sparse (Davenport--Heilbronn / Bhargava counts),
+which is consistent with the $\sim 5$--$10\%$ figure used in
+\S\ref{sec:landmarks} as a Session~A pre-estimate. PCF-2 does not
+rely on a published PCF-specific cubic enumeration; the Session~A
+enumeration of \S\ref{sec:plan} performs its own bounded-coefficient
+sweep and reports the empirical distribution as a deliverable.
 
 \section{Acknowledgements}\label{sec:ack}
 
@@ -702,9 +737,10 @@ A.~van der Poorten, \emph{A proof that Euler missed\ldots\ Ap\'ery's proof
 of the irrationality of $\zeta(3)$}. Math.~Intelligencer~1 (1978/79),
 195--203.
 
-\bibitem{Cohen2024}
-H.~Cohen, \emph{Computational aspects of polynomial continued fractions
-and their identifications} (working notes / preprint, 2024).
+\bibitem{Cohen2007}
+H.~Cohen, \emph{Number Theory, Volume I: Tools and Diophantine
+Equations}. Graduate Texts in Mathematics~239, Springer-Verlag, New
+York, 2007.
 
 \end{thebibliography}
 
