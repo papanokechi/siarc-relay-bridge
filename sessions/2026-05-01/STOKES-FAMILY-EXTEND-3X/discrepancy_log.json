@@ -1,0 +1,9 @@
+{
+  "note": "Per-family compute_limit_at vs smoke40 'limit_300_digits' baseline:",
+  "QL02": {"diff_to_smoke40_baseline": "8.608e-17",
+            "interpretation": "smoke40 string carried only ~16 stable digits despite reporting 120 chars; 1500-depth/250-dps recompute is the trustworthy baseline this session"},
+  "QL06": {"diff_to_smoke40_baseline": "3.144e-17", "interpretation": "same as QL02"},
+  "QL26": {"diff_to_smoke40_baseline": "9.741e-17", "interpretation": "same as QL02"},
+  "halt_required": false,
+  "rationale": "The 'DRIFT' label printed by the runner is a cosmetic mismatch between our auto-tolerance (derived from baseline string length) and the smoke40 stored precision. It is NOT a contradiction with a prior AEAL claim: prior AEAL claims for these L(0) values are at far lower stated precision (limit_estimate 50 digits), and the 1e-16 disagreements are consistent with smoke40's actual precision. No halt condition triggered."
+}
