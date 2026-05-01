@@ -1,0 +1,14 @@
+{
+  "tau_b_map_recipe": "For each nonsingular cubic b(x), transform y^2=b(x) to Y^2=4X^3-g2 X-g3 or equivalently compute c4,c6,Delta_E. Choose periods omega1, omega2 of dX/Y over a symplectic homology basis with Im(omega2/omega1)>0; set tau=omega2/omega1 and reduce by SL2(Z) to the canonical fundamental domain |Re tau|<=1/2, |tau|>=1 with a fixed boundary convention. Equivalently verify j(tau)=1728*g2^3/(g2^3-27*g3^2)=c4^3/Delta_E. In the real-root Legendre case use the root cross-ratio lambda and tau=i*K(1-lambda)/K(lambda), then reduce.",
+  "candidate_finer_discriminator": "other: the weight-zero ratio j(tau)=E4(tau)^3/Delta(tau)=E4(tau)^3/eta(tau)^24; locally the split is driven by the simple zero of E4 at the equianharmonic point tau=rho.",
+  "predicted_closed_form_at_j=0": "A_true - 2d = 0 exactly; for cubics A_true - 6 = 0. Chowla-Selberg Gamma(1/3)-products should enter the CM period normalization and subleading amplitude/intercept constants, not the leading exponential slope A. Finite-K fitted leakage should vanish after deep WKB/asymptotic correction.",
+  "predicted_closed_form_at_j=1728": "No forced zero from H2. The lemniscatic CM point tau=i has E6=0 and CM periods/eta-values involving Gamma(1/4) up to algebraic and pi factors; any signal should appear as a secondary log|j-1728| or log||E6|| residual, not as the equianharmonic baseline law.",
+  "expected_correlation_strength_with_E_4": "High only after modular normalization. Since log|j| = 3 log||E4|| - log||Delta|| + constant, rank correlation with log||E4|| should be comparable to log|j| near j=0, but raw E4 is weight-dependent and should be inferior to j or Petersson-normalized ratios.",
+  "next_order_residual_discriminator": "Primary: Petersson eta/discriminant height log||Delta(tau)|| = log((Im tau)^6 |eta(tau)|^24), equivalently 24 log|eta(tau)| + 6 log Im tau. Secondary: the order-2 elliptic point term log|j(tau)-1728| = 2 log||E6(tau)|| - log||Delta(tau)|| + constant.",
+  "verdict_status": "LITERATURE_INACCESSIBLE_PARTIAL",
+  "access_limitations": [
+    "Chowla-Selberg 1967 DOI page required authentication; EuDML returned 403 in this run.",
+    "Yu IMRN/CM-period item could not be verified from an accessible official page; OUP returned 403 and web metadata were inconsistent.",
+    "One Darmon-Vonk Project Euclid page was blocked by Incapsula, though other metadata pages were accessible."
+  ]
+}

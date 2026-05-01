@@ -1,0 +1,24 @@
+{
+  "schema_version": "H4-2026-05-01",
+  "branch_point_type": "simple-resurgent algebraic-logarithmic branch point; expected square-root-class component, but exponent must be fitted from large-order data",
+  "stokes_coefficient_extraction_recipe": "Use the exact action A = zeta_star = 4/sqrt(3). Fix the Birkhoff/Borel normalization and factorial shift. Estimate the branch exponent beta from high-order coefficient ratios A*a[n+1]/a[n]-n, including log corrections if needed. Form R_n = a_n*A^(n+beta)/Gamma(n+beta), fit its inverse-power asymptotic tail over high-order windows, and accelerate R_n to n=infinity by Richardson/Weniger transforms. Convert the limiting amplitude C to the Stokes coefficient by S_A = 2*pi*i*C/c0_A, where c0_A is the chosen leading normalization of the adjacent alien sector. Cross-check by local Borel singular-germ fitting near zeta_star and by verifying the lateral discontinuity/median half-jump.",
+  "predicted_digits_with_5000_coeffs": 40,
+  "predicted_digits_range": [30, 50],
+  "predicted_closed_form_candidates": [
+    "rational powers of 2, 3, and pi times Gamma(1/3), Gamma(2/3), Gamma(1/6), Gamma(5/6)",
+    "elementary sine/cosine/gamma monodromy constants from the Painleve-III(D6) Riemann-Hilbert normalization",
+    "zeta-values in fluctuation coefficients rather than necessarily in the leading Stokes constant",
+    "Catalan constant or Gamma(1/4) only if an independent square-lattice/tau=i normalization appears"
+  ],
+  "isomonodromic_correspondence_closes_op": true,
+  "isomonodromic_correspondence_caveat": "True conditionally: the extracted Stokes coefficient must match P-III(D6) Stokes/monodromy data under the same normalization; extraction alone is not the proof.",
+  "estimated_compute_cost": "No new coefficients required. Theory recipe uses existing 5000 coefficients at 250 dps plus exact zeta_star. Expected offline cost is minutes to hours for high-precision sequence acceleration, local singular-germ checks, and PSLQ trials; avoid brute-force global Pade-Borel-Laplace as primary estimator.",
+  "failure_modes": [
+    "wrong factorial shift or coefficient normalization",
+    "unmodeled logarithmic companion at the branch point",
+    "nearby secondary Borel singularity of comparable modulus",
+    "mixed conjugate actions or unresolved Stokes direction conventions",
+    "insufficient precision in late coefficients after normalization"
+  ],
+  "verdict": "MEDIAN_RESURGENCE_GIVES_30+_DIGITS"
+}
