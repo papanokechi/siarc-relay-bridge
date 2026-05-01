@@ -227,3 +227,5 @@ journal compile + 3 carry-forwards from Sessions A-C).
 **Files updated:**
 - tex/submitted/p12_journal_main.tex  (in-place edit)
 - tex/submitted/p12_journal_main.pdf  (recompiled)
+
+2026-05-01 micro-patch: Sec 8 (op:non-piii) recast -- QL06/P-V ruled out by Session D, redirected to (op:borel-channel).
