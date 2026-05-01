@@ -1,0 +1,33 @@
+{
+  "agent": "H3",
+  "topic": "Painleve-hierarchy reduction at d=2",
+  "verdict": "D=2_REDUCTION_AMBIGUOUS_NEEDS_NUMERICS",
+  "d=2_recurrence_form": "For K=b(0)+K_{n>=1} a(n)/b(n) with a(n)=a2*n^2+a1*n+a0 and b(n)=b2*n^2+b1*n+b0, the PCF error sequence satisfies delta_{n+1}=b(n+1)*delta_n+a(n+1)*delta_{n-1}. The projective ratio y_n=delta_n/delta_{n-1} satisfies y_{n+1}=b(n+1)+a(n+1)/y_n, a non-autonomous discrete Riccati map.",
+  "sakai_classification": {
+    "direct_scalar_recurrence": "Not a generic discrete Painleve equation in Sakai's sense; it is a linearisable Riccati/special-function leaf.",
+    "required_for_true_classification": "Construct a two-dimensional birational map or Lax/isomonodromic deformation, blow up its base points, and identify the anti-canonical divisor/root type in the Sakai lattice.",
+    "conditional_surface_chain": "P-VI:D4^(1) -> P-V:D5^(1) -> P-III(D6):D6^(1) -> P-III(D7/D8):D7^(1)/D8^(1)."
+  },
+  "continuum_limit_equation": {
+    "direct_wkb_limit": "With n=t/epsilon and delta_n~exp(S(t)/epsilon)u(t), the leading equation is lambda^2-B0(t)lambda-A0(t)=0 with S'=log(lambda); transport is Riccati/linear after gauge normalization, not universally Painleve.",
+    "conditional_isomonodromic_limit": "If a monodromy-preserving deformation exists, the candidate normal forms are P-V and its confluence P-III(D6); further apparent/resonant collapse gives Riccati/P-trivial or P-III(D7/D8)."
+  },
+  "branch_Delta<0_class": "Conditional P-III(D6); predicted only if the lifted Lax pair has two non-apparent irregular singular directions. Confidence: MED.",
+  "branch_Delta>0_class": "Conditional P-V if one regular singular direction survives; otherwise Painleve-trivial/Riccati if the extra singularity is apparent. Confidence: MED-LOW.",
+  "branch_Delta=0_class": "Boundary/resonant case; test separately for P-III(D7/D8) or pure Riccati degeneration.",
+  "d>=3_generic_class": "P-VI generic stratum is plausible but unproved; it requires four effective regular singular directions and a D4^(1) Okamoto/Sakai surface in the lifted problem.",
+  "verification_recipe": [
+    "Choose representative d=2 PCF families from Delta_2<0, Delta_2>0, and Delta_2=0 if available.",
+    "Derive the transfer matrix U_n=[[b(n+1),a(n+1)],[1,0]] and normalize it to a continuum Lax/scalar ODE under n=t/epsilon.",
+    "Compute singularity pattern, Poincare ranks, monodromy exponents, and apparentness of finite singularities.",
+    "Build the birational two-dimensional map in variables such as (ratio, accessory parameter); compute base points and blow-up configuration.",
+    "Identify Sakai surface type: D4^(1) for PVI, D5^(1) for PV, D6^(1) for PIII(D6), D7/D8 for further degenerations.",
+    "Fit Jimbo-Miwa-Okamoto sigma-form residuals for PV and PIII(D6) across epsilon refinements; require residual decay with the predicted order.",
+    "Falsify the two-branch conjecture if both signs share the same surface type and the same sigma residual hierarchy after normalization."
+  ],
+  "machine_predictions": {
+    "Delta_2_negative_should_show": ["oscillatory WKB phase", "complex-conjugate transfer multipliers", "PIII(D6) sigma residual smaller than PV after confluence normalization"],
+    "Delta_2_positive_should_show": ["real split transfer multipliers", "PV sigma residual or Riccati entropy-zero collapse", "apparent singularity test decides PV vs P-trivial"],
+    "d_ge_3_should_show_if_PVI": ["four regular singular directions", "D4^(1) surface type", "no discriminant-sign bifurcation analogous to d=2"]
+  }
+}

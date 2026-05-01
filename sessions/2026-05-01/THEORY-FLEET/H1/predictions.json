@@ -1,0 +1,29 @@
+{
+  "predicted_A": {
+    "d=2": "2d = 4 generic; two-branch on Delta_2 = 0 resonance locus",
+    "d=3": 6,
+    "d=4": 8,
+    "d=5": 10
+  },
+  "predicted_alpha": {
+    "form": "(e_{d-1} - e_{k*}) / 2 - (j - 1/2)/p",
+    "comment": "ratio of two highest polynomial coefficients in recurrence; family-dependent"
+  },
+  "predicted_beta": {
+    "generic": 0,
+    "resonance_loci": 1,
+    "comment": "log n correction only on codimension >= 1 loci where alpha_j collide"
+  },
+  "predicted_gamma_form": {
+    "structure": "formal series tail; closed-form requires Stokes constants (resurgence/monodromy data)",
+    "B-T_alone_predicts": "asymptotic existence and shape, not exact values"
+  },
+  "d=2_branch_mechanism": "B-T discriminant trichotomy on Delta_2 = b_1^2 - 4 b_0 b_2 of characteristic polynomial: Delta_2>0 generic, Delta_2<0 oscillatory envelope, Delta_2=0 resonance with beta=1 log correction",
+  "agreement_with_sessions": {
+    "B_cubics_50": "A = 6 confirmed at 1e-3 level",
+    "Q1_cubics": "A = 6.000 +- 0.0007",
+    "Q1_quartics_60_of_60": "A = 8 confirmed",
+    "R1.1_finer_split": "B-T cannot explain log|j| sub-leading pattern - residue confirmed"
+  },
+  "residual_to_finer_split": "B-T proves leading slope but does NOT determine sub-leading constants at arithmetic loci (j=0 cubics, j=1728, lemniscatic). Finer split requires modular layer: H2 Eisenstein/Chowla-Selberg, H5 X(1) drift, H6 Chowla-Selberg Gamma-products."
+}
