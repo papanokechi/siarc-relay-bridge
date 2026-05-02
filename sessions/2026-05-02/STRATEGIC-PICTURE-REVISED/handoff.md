@@ -1,8 +1,8 @@
 # Handoff — STRATEGIC-PICTURE-REVISED
 **Date:** 2026-05-02
 **Agent:** GitHub Copilot CLI (Claude Opus 4.7 xhigh)
-**Session duration:** ~185 minutes (cumulative across v1.0 → v1.9)
-**Status:** COMPLETE (v1.9 amendment — 010 PARTIAL + 012 PASS + 013 HALT + 014 PASS all absorbed; Prompt 016 drafted as refit-only S_2 follow-up; G2 closed at d=3 across 3 Galois bins via 012; **G5+G16 closed in A=6-only branch via 014 at |δ_lin|=3.09e-23, no Γ(1/3) relation in H6 B19+**; M7 achieved in soft branch; 013 halted correctly on 009-gate; G19 side-finding β_R=0 universal at d=2 surfaced; Q18/Q19/Q20/Q21/Q22/Q23 added as Claude/operator decision items; **PCF-2 v1.4 §6 amendment drafted, Zenodo deposit pending Q22 path-(a) acceptance**)
+**Session duration:** ~210 minutes (cumulative across v1.0 → v1.10)
+**Status:** COMPLETE (v1.10 amendment — 010 PARTIAL + 012 PASS + 013 HALT + 014 PASS + **016 HALT (substantive)** all absorbed; **Prompt 017c drafted as polynomial-aware retry to replace invalidated v1.9 017a/b plan**; G2 closed at d=3 across 3 Galois bins via 012; G5+G16 closed in A=6-only branch via 014; M7 achieved in soft branch; 013 halted correctly on 009-gate; G15 PARTIAL via 009 / 015 R5-gated; G19 side-finding β_R=0 universal at d=2 SHARPENED in v1.10 to leading-Γ-argument-only; **NEW G20 (first-polynomial-correction $a_1$ does not cleanly partition $\Delta_b$-sign at 3-digit precision)** + **NEW Q24 (synthesizer arbitration on which polynomial-correction invariant to test)**; PCF-2 v1.4 §6 amendment drafted, Zenodo deposit pending Q22 path-(a) acceptance; bridge HEAD `6ffba3f`)
 
 ## What was accomplished
 
