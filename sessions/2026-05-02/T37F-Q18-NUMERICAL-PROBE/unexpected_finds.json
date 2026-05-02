@@ -1,0 +1,20 @@
+{
+  "finds": [
+    {
+      "title": "T_n with signed-zeta convention is branch-IDENTICAL for d=2 PCF",
+      "context": "T37F-Q18-NUMERICAL-PROBE Phase 0 + B",
+      "observation": "Sanity check at n=100 reports |a_n_branch_minus / a_n_branch_plus| = 1.0 to working precision (300 digits). Stage1 fits in branch (+) and branch (-) report C = -6.07472006379093506128527538225 to 30 digits in BOTH branches; a_2 = -10 and a_3 = -70/3 in BOTH branches; a_1 numerically zero (1e-50 ... 1e-61 across configs) in BOTH branches. SIGN_C_FLIP = False.",
+      "interpretation": "For d=2 PCF families, with zeta_signed = 2c (the *signed* dominant action), the Birkhoff sequence satisfies a_n(branch -) = (-1)^n * a_n(branch +). Consequently T_n = a_n * zeta_signed^n / Gamma(n) is INDEPENDENT of branch: T_n(branch -) = T_n(branch +). The whole Q18 question collapses at the level of T_n with the signed convention. The 'branch ambiguity' is a convention artefact, not a genuine degree of freedom.",
+      "structural_proof_sketch": "Substitute c -> -c in the recurrence (alpha*c/2)*k*a_k = U_{k-1}(k)*a_{k-1} + U_{k-2}*a_{k-2} + U_{k-3}(k)*a_{k-3} where U_{k-1}, U_{k-3} are c-independent and U_{k-2} = -c*delta/2 is linear in c. Multiplying both sides by (-1)^k and using a'_k := (-1)^k a_k(-c) shows a'_k satisfies the original recurrence with c -> +c; uniqueness gives a_n(-c) = (-1)^n a_n(+c). Then T_n_minus = a_n(-c) * (2*(-c))^n / Gamma(n) = (-1)^n a_n(+c) * (-1)^n (2c)^n / Gamma(n) = T_n_plus.",
+      "implication_for_Q18": "QL09's a_1 = 0 to 57 digits (017c) and 60+ digits (017f) cannot be a 'convention shadow' of branch (+). The vanishing is structural: U_{k-1}(k=1) = alpha/16 + gamma - beta^2/(4 alpha) = 1/8 + 1 - 9/8 = 0 for QL09. This bracket is c-independent, hence basis-independent.",
+      "scope": "Applies to all d=2 PCF in the (alpha, beta, gamma, delta, epsilon) catalogue, not just QL09. Worth flagging in any future T35/T37 derivation that worries about branch convention.",
+      "recommendation_for_Claude": "Picture v1.10's Q18 footnote can now be amended: branch convention is provably NOT a degree of freedom for d=2 T_n with signed-zeta convention. The QL09 a_1 = 0 stratum is a genuine structural sub-stratum, consistent with interpretation (a) THIRD_STRATUM."
+    },
+    {
+      "title": "QL09 a_2 = -10, a_3 = -70/3 land on rationals to 30+ digits in BOTH branches",
+      "context": "Phase B stage1 fit",
+      "observation": "Stage1 (K_lead=25, W1=[400,1900]) returns a_2 = -10.0 to 30 digits and a_3 = -23.3333333333... (= -70/3) to 30 digits in branch (-); 017c reported the same values to similar precision in branch (+). Both look like clean rationals.",
+      "implication": "Even though a_1 = 0, a_2 and a_3 are NOT zero. The QL09 Birkhoff tail starts at the 1/n^2 rung. Future work might extract the closed form of (a_2, a_3) jointly with V_quad/QL15/QL05 to test whether the partition by a_2 (rather than a_1) yields a finer Galois-aware classification at d=2."
+    }
+  ]
+}
