@@ -1,7 +1,7 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.2 (post-firing cycle 2)
+**Revision:** v1.3 (post-firing cycle 2 + 002 HALT)
 **Original:** 2026-05-02 18:05 JST
-**Updated:** 2026-05-02 18:25 JST  (post-001, post-003, post-004, post-007)
+**Updated:** 2026-05-02 18:30 JST  (post-001/003/004/007 + 002 HALT)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
@@ -9,7 +9,14 @@ synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
 
-> **🆕 Updates since v1.1 (see § 11 Amendment Log for detail):**
+> **🆕 Updates since v1.2 (see § 12 Amendment Log for detail):**
+> - 🛑 **Prompt 002 HALTED with verdict `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`.** 4/5 records (umbrella v2.0, PCF-2 v1.3, CT v1.3, T2B v3.0) built clean with matching page counts. **PCF-1 v1.3 source has drifted** — local rebuild = 21 pp, Zenodo v1.3 = 16 pp; the workspace `p12_journal_main.tex` has likely been overwritten by an in-progress v1.4 draft. Per the prompt's HALT clause, no git push was performed; deliverables are staged locally only at `sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/`.
+> - ⚠ **Anomaly 002-A**: Channel Theory v1.3 source carries `\author{The SIARC author}` literal placeholder. arXiv submission of record #4 will be rejected until this is replaced with the real-name+affiliation block. (Zenodo PDF is unaffected — placeholder visible only in the source.)
+> - ⚠ **Anomaly 002-B**: Endorsement-request templates for math.NT records #2 (PCF-1 v1.3) and #4 (CT v1.3) are skeletons only. Candidate endorser names declined per the no-fabrication clause; `.bib` files lack arXiv user-id handles.
+> - 🆕 **NEW gaps G12, G13, G14** (operational/distribution layer); **NEW pending items** `pcf1-v13-reconcile` (HIGH; gates 002), `ct-v13-author-placeholder-fix` (HIGH; gates 002 record #4), `endorsement-handles-acquire` (MED; gates 002 records #2 + #4).
+> - 🆕 **NEW future Prompt 011** (PCF1-V13-RECONCILE — operator-decision-driven; resolve source drift) queued.
+
+> **Updates since v1.1 (carried forward from v1.2):**
 > - ✅ Prompt 007 fired with verdict `T3_LABELED_60_OF_60`. All 60 families (10 d=2 + 50 d=3) algorithmically labelled.
 >   V_quad sanity check **PASSES** as `P_III(D_6)` (matches CT v1.3 §3.5 algebraic identity).
 > - ⚠ **H3 *negatively* closed.** The Conte–Musette algorithmic test on the linear OGF ODE is **invariant across $\mathrm{sign}(\Delta_b)$** — produces uniform labels and **cannot reproduce** the PCF-1 v1.3 §3 dichotomy ($A=4$ for $\Delta>0$, $A=3$ for $\Delta<0$). The $d=2$ catalogue is uniformly `P_III(D_6)`; the $d=3$ catalogue is uniformly `PAINLEVE_UNCLASSIFIED` (rank $4/3$ at $0$, $2/3$ at $\infty$). The PCF-1 dichotomy lives below the Painlevé-class resolution scale — at the Stokes-multiplier level.
@@ -134,16 +141,22 @@ across the corresponding session folders. CT v1.3 SHA-256
 - 7 prompts staged at `tex/submitted/control center/prompt/`
   (001 – 007). See §6 for current status.
 - **4 fired and complete this cycle:** 001, 003, 004, 007.
-- **3 still ready to fire:** 002, 005, 006 (parallel-able
-  per §6 concurrency map).
+- **1 fired and HALTED this cycle:** 002 (verdict
+  `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2` — see §6).
+  Deliverables staged locally only; no bridge push.
+- **2 still ready to fire:** 005, 006 (compute-heavy;
+  serialize per §6 concurrency map).
 - **t1-phase-2-bt-apply** (Prompt 008, conditional; not yet
   drafted) is BLOCKED on primary-source acquisition + Claude's
   H1 label arbitration.
-- 🆕 **t3-stokes-multiplier-followup** (Prompt 010, future) —
+- **t3-stokes-multiplier-followup** (Prompt 010, future) —
   T3 recommended: t2c-style high-dps Stokes-multiplier
   discrimination to resolve the PCF-1 dichotomy below the
   Painlevé-class scale. Independent of all other items.
-- 15 SQL todos pending; 17 done (32 total at snapshot v1.2).
+- 🆕 **pcf1-v13-reconcile** (Prompt 011, future) — operator
+  decision required: bump to v1.4 OR recover v1.3 source
+  snapshot. Gates 002.
+- 15 SQL todos pending; 18 done (33 total at snapshot v1.3).
 
 ### 2.4 Recently closed (this cycle)
 
@@ -157,8 +170,9 @@ across the corresponding session folders. CT v1.3 SHA-256
 - ✅ Strategic prompt queue drafted (4 new prompts 004–007).
 - ✅ T1 Phase 1 lit review verdict landed (003).
 - ✅ D2-NOTE v1.0 drafted (004); awaits operator Zenodo upload.
-- 🆕 ✅ T3 Painlevé test (007) — 60/60 LABELED; H3 negatively
+- ✅ T3 Painlevé test (007) — 60/60 LABELED; H3 negatively
   closed; V_quad sanity confirmed.
+- 🆕 ⚠ Prompt 002 partially built (4/5 records OK; PCF-1 HALT).
 
 ---
 
@@ -252,9 +266,12 @@ canonical artefact).
 | **G6b** 🆕 | PCF-1 v1.3 §3 sign-of-$\Delta_b$ dichotomy ($A=4$ vs $A=3$) lives below the Painlevé-class resolution scale; Conte–Musette test is invariant under sign of $\Delta_b$ | MED | Future Prompt 010 (Stokes-multiplier discrimination via t2c-style precision escalation) |
 | **G7**  | Master functor $\Phi$ (P-MC) not formally stated | HIGH | Downstream (gated on M2+M4+M6) |
 | **G8**  | D2-NOTE not yet a citable artefact ($\xi_0$ result scattered across PCF-1 + CT) | LOW–MED | ✅ Prompt 004 drafted — *closure pending Zenodo upload* |
-| **G9**  | arXiv mirroring not done (5 records); visibility gap | LOW  | Prompts 002 (now unblocked, ready to fire) |
+| **G9**  | arXiv mirroring not done (5 records); visibility gap | LOW  | Prompt 002 — 🛑 HALTED 2026-05-02 (page-count drift on PCF-1; staged locally, not pushed); reactivate after G12+G13+G14 |
 | **G10** | AEAL methodology paper (D7) not drafted; the program's epistemic discipline is undocumented externally | LOW  | Future Prompt 009 (deferred) |
 | **G11** 🆕 | Theory-Fleet H1 verdict `B4_PROVED_AT_d≥3` flagged as heuristic-grade by T1's primary-literature reading; not yet arbitrated | HIGH | Claude / synthesizer arbitration pass on T1 handoff.md |
+| **G12** 🆕 | PCF-1 v1.3 source drift: workspace `p12_journal_main.tex` rebuilds to 21 pp; Zenodo v1.3 PDF is 16 pp; v1.4 working draft has likely overwritten the v1.3 snapshot | HIGH | Future Prompt 011 (PCF1-V13-RECONCILE) — operator decision: (a) bump to v1.4 deposit & re-run 002 vs v1.4 DOI, OR (b) recover v1.3 16pp source snapshot from git history / Zenodo archive |
+| **G13** 🆕 | Channel Theory v1.3 source carries `\author{The SIARC author}` literal placeholder — arXiv will reject record #4 | HIGH | Operator: replace with real-name+affiliation block already used in PCF-2 v1.3 / umbrella v2.0; verify via grep on `tex/submitted/` |
+| **G14** 🆕 | Endorsement-request templates for math.NT records #2, #4 are skeletons; no real endorser arXiv handles populated | MED  | Operator: identify ~3 plausible math.NT endorsers, look up their arXiv user-id strings, populate the two templates |
 
 Severity legend:
 - **HIGH** — blocks a paper, blocks a downstream proof, or
@@ -274,14 +291,15 @@ milestones (see § 4).
 | # | Prompt | Closes gap | Advances milestone | Status | Compute | Independent? |
 |---|--------|------------|--------------------|--------|---------|--------------|
 | 001 | submission-log Item 19 splice | — (admin) | (post-publication hygiene) | ✅ DONE 2026-05-02 | low | — |
-| 002 | arXiv mirror runbook (5 records) | G9 | (visibility) | ⏳ READY (now unblocked) | low | (was: depends on 001 — now cleared) |
+| 002 | arXiv mirror runbook (5 records) | G9 | (visibility) | 🛑 HALTED 2026-05-02 (`ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`; 4/5 OK; PCF-1 21pp local vs 16pp Zenodo; deliverables staged locally only); reactivate after G12+G13+G14 close | low | gated on G12+G13+G14 |
 | 003 | T1 Phase 1 — B-T lit review + gap-prop | G3a | M3 | ✅ DONE 2026-05-02 (verdict GAPTYPE_C) | low (lit work) | — |
 | 004 | D2-NOTE — Newton-polygon universality | G1, G8 | M1 | ✅ DRAFTED 2026-05-02 (awaits Zenodo upload) | low (drafting + AEAL re-derivation) | — |
 | 005 | H4 / `op:cc-median-resurgence-execute` | G4 | M6 | ⏳ READY | **HIGH** (mpmath dps 250, $N=5000$) | INDEPENDENT |
 | 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | ⏳ READY | **HIGH** (mpmath dps≥8000, $N\ge 1200$) | INDEPENDENT |
 | 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6a | M8 | ✅ DONE 2026-05-02 (60/60 LABELED; H3 negatively closed) | medium (symbolic) | — |
 | 008 | T1 Phase 2 — B-T applied to $\delta_n$ (proves B4 at $d \ge 3$) | G3b | M4 | 🛑 BLOCKED (G3b primary sources + G11 H1 arbitration) | medium | gated |
-| 010 🆕 | T3.5 — Stokes-multiplier discrimination (t2c-style high-dps connection coefficients to resolve sign-of-$\Delta_b$ dichotomy) | G6b | M8b | future (not yet drafted) | medium–high | INDEPENDENT |
+| 010 | T3.5 — Stokes-multiplier discrimination (t2c-style high-dps connection coefficients to resolve sign-of-$\Delta_b$ dichotomy) | G6b | M8b | future (not yet drafted) | medium–high | INDEPENDENT |
+| 011 🆕 | PCF1-V13-RECONCILE — operator-decision-driven; resolve PCF-1 v1.3 source drift before re-running 002 | G12 | distribution layer | future (not yet drafted; gated on operator option-(a)/(b) decision) | low | gated |
 
 **Concurrency map** (validated this cycle):
 
@@ -298,14 +316,22 @@ milestones (see § 4).
 ✗ = dependency; ⚠ = compute-heavy, serialize on a single laptop.
 
 **Recommended firing layout for the *next* compute window
-(post-001/003/004/007; v1.2 status):**
-- Slot 1: **002** (2–3 hr, arXiv mirror runbook). Now unblocked.
-- Slot 2: **005** (6–12 hr, mpmath dps 250 / N=5000). Compute-heavy.
-- Slot 3: **006** (6–10 hr, mpmath dps≥8000). Compute-heavy —
+(post-001/003/004/007 + 002 HALT; v1.3 status):**
+- Slot 1: **005** (6–12 hr, mpmath dps 250 / N=5000). Compute-heavy.
+- Slot 2: **006** (6–10 hr, mpmath dps≥8000). Compute-heavy —
   serialize against 005 on a single laptop, parallel on a
   beefy workstation.
 - Future Prompt 010 (Stokes-multiplier discrimination) — defer
   until a session is freed; independent of all current work.
+- Future Prompt 011 (PCF1-V13-RECONCILE) — gated on operator
+  decision (option (a) v1.4 deposit OR option (b) v1.3 source
+  recovery). Once decided, this is a small, low-compute relay.
+- **Prompt 002 stays HALTED** until G12 + G13 + G14 are closed.
+  Re-fire only against either (a) the new v1.4 DOI for record
+  #2 or (b) the recovered v1.3 source snapshot. The other 4
+  records' deliverables remain valid and can be reused (their
+  hashes are already AEAL-logged in the local
+  `ARXIV-MIRROR-RUNBOOK/claims.jsonl`).
 
 Operator-side parallel actions (independent of compute slots):
 - **Zenodo upload of D2-NOTE** (operator; ~10 min via the
@@ -317,6 +343,15 @@ Operator-side parallel actions (independent of compute slots):
   Wasow 1965 §X.3. Unblocks G3b and the future Prompt 008.
 - **Send T1 + strategic-picture URLs to Claude** for H1
   label arbitration (G11). Independent of compute.
+- 🆕 **PCF-1 v1.3 source-drift decision (G12)**: pick option
+  (a) v1.4 bump or option (b) v1.3 source recovery, then draft
+  Prompt 011.
+- 🆕 **CT v1.3 author placeholder fix (G13)**: 1-line edit on
+  the source `.tex`; commit; verify by grep.
+- 🆕 **Endorser handle acquisition (G14)**: identify ~3 math.NT
+  endorsers from cited authors, look up arXiv user-ids,
+  populate the two templates already staged at
+  `sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/`.
 
 ---
 
@@ -418,7 +453,7 @@ deferred):
    characteristic-exponent doubling + sign analysis)? Affects
    whether Prompt 008 should be drafted as one agent run or
    split into 008a / 008b.
-10. 🆕 **(v1.2) PCF-1 sign-of-$\Delta$ dichotomy resolution.**
+10. **(v1.2) PCF-1 sign-of-$\Delta$ dichotomy resolution.**
     T3 demonstrated that the Conte–Musette algorithmic
     Painlevé test cannot distinguish the two sign branches.
     The PCF-1 v1.3 §3 dichotomy ($A=4$ vs $A=3$) therefore
@@ -432,6 +467,19 @@ deferred):
     $(\Delta_d, \|\Delta\|_\text{Pet}, \xi_0)$? If yes,
     P-MC's functor $\Phi$ has more structure than v1.0
     of this picture suggested.
+11. 🆕 **(v1.3) PCF-1 v1.3 release-discipline question.**
+    Prompt 002's HALT exposed that the workspace
+    `p12_journal_main.tex` has drifted from the published
+    v1.3 (16 pp) to a v1.4-in-draft (21 pp) state, *but*
+    no v1.4 Zenodo deposit exists yet. **Question:** was
+    the operator implicitly aiming at a v1.4 release
+    before mirroring to arXiv? If so, the cleanest
+    sequence is: (i) publish PCF-1 v1.4 to Zenodo, (ii)
+    splice Item 20, (iii) re-run 002 against v1.4. If
+    not, option (b) — recover the exact v1.3 source — is
+    the disciplined path. The asymmetry matters: v1.4 may
+    contain content that has not yet been internally
+    AEAL-reviewed.
 
 ---
 
@@ -462,10 +510,12 @@ Channel Theory v1.3: 10.5281/zenodo.19972394   (concept 19941678)
                      PDF md5    e58951de…
 ```
 
-Bridge head at v1.2 snapshot time: post-T3 + post-v1.1
-(picture-v1.2 commit pending). Recent commit timeline:
+Bridge head at v1.3 snapshot time: post-T3 + post-v1.2;
+002 HALTED locally (no push). Recent commit timeline:
 ```
-[v1.2 picture]  STRATEGIC-PICTURE-REVISED v1.2 (this push)
+[v1.3 picture]  STRATEGIC-PICTURE-REVISED v1.3 (this push)
+[002 HALT]      ARXIV-MIRROR-RUNBOOK (Prompt 002) — STAGED LOCAL ONLY (no push per HALT clause)
+9ea4c48         STRATEGIC-PICTURE-REVISED v1.2
 5d9f8d0         STRATEGIC-PICTURE-REVISED v1.1
 663e95c         T3-CONTE-MUSETTE-PAINLEVE-TEST (Prompt 007) [60/60 LABELED; H3 negatively closed]
 9accc6e         D2-NOTE-DRAFT (Prompt 004)
@@ -474,6 +524,56 @@ e96641c         T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (003)     [verdict GAPTYPE_C]
 e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
 8be2f17         CHANNEL-THEORY-V13-RELEASE (post-publish edits)
 ```
+
+---
+
+## 13. Amendment Log (v1.2 → v1.3)
+
+**Updated:** 2026-05-02 18:30 JST
+**Trigger:** Prompt 002 HALT with verdict
+`ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2` + 2 anomalies flagged
+in the same session.
+
+**Substantive changes:**
+
+| Section | v1.2 → v1.3 |
+|---------|-------------|
+| Header  | Added v1.2 → v1.3 callout. Earlier callouts retained for the synthesizer's full audit trail. |
+| § 2.3 (in-flight) | Added "1 fired and HALTED" line for 002. New entry for `pcf1-v13-reconcile` (future Prompt 011). Counts updated (15 pending / 18 done of 33). 2 ready (was: 3) since 002 dropped out. |
+| § 2.4 (recently closed) | Added 002 partial-build line with HALT caveat. |
+| § 5 gaps | G9 status changed from "ready to fire" to "HALTED 2026-05-02; staged locally; reactivate after G12+G13+G14". New rows G12 (PCF-1 source drift, HIGH), G13 (CT author placeholder, HIGH), G14 (endorser handles, MED). |
+| § 6 prompts table | 002 marked HALTED with specifics. New row for Prompt 011 (PCF1-V13-RECONCILE). Firing layout rewritten (002 removed; G12/G13/G14 operator items added). |
+| § 8 open questions | Added Q11 — PCF-1 v1.4 release-discipline question (was the operator implicitly aiming at v1.4 before arXiv mirroring?). |
+| § 10 footer | Bridge head bumped (still no 002 commit); commit timeline shows 002 as STAGED LOCAL ONLY. |
+| § 13 (this section) | NEW. |
+
+**Unchanged:**
+
+§ 1 (mission statement), § 9 (AEAL hygiene), the publication
+ladder table, the six-program decomposition, and § 3 program
+table are intact. The concurrency map (§ 6) is unchanged in
+shape; the *content* of the firing layout has shifted.
+
+**Key invariant (carried from v1.1 + v1.2):**
+
+The strategic picture's framing of *what success means* is
+unchanged. P-MC closure still requires P-NP + P-B4 + P-CC.
+v1.3 records an *operational/distribution-layer event*: the
+arXiv mirror runbook found a source-drift discrepancy on
+PCF-1 between the workspace and the published Zenodo v1.3.
+This does **not** affect any published artefact's correctness
+— the published Zenodo PDFs are canonical. But it does block
+arXiv mirroring of record #2 until the source is reconciled,
+and it surfaces a release-discipline open question (Q11).
+
+**Epistemic posture observation:**
+
+Prompt 002's HALT is a *successful* AEAL-honest behaviour —
+the agent detected a hidden state inconsistency the operator
+was unaware of, refused to push false invariants, and surfaced
+the discrepancy with full hash evidence. The two anomaly
+flags (G13, G14) were similarly raised rather than papered
+over. This is the design pattern working as intended.
 
 ---
 
@@ -518,10 +618,6 @@ question.
 
 ---
 
-*End of revised picture (v1.2).*
-
----
-
 ## 11. Amendment Log (v1.0 → v1.1)
 
 **Updated:** 2026-05-02 18:20 JST
@@ -562,4 +658,4 @@ v1.1 update only changes *the path to P-B4*, not the goal.
 
 ---
 
-*End of revised picture (v1.2).*
+*End of revised picture (v1.3).*
