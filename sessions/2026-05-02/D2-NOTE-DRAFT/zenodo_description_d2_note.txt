@@ -1,0 +1,54 @@
+<!-- ===== Title ===== -->
+
+Newton-polygon universality of the Borel-singularity radius for polynomial continued fractions
+
+<!-- ===== Description ===== -->
+
+Newton-polygon universality of the Borel-singularity radius for polynomial continued fractions: a 4-page consolidatory short note (v1.0, 2026-05-02).
+
+Position. We isolate, as a single citable artefact, the cross-degree identity ξ₀(b) = d / β_d^(1/d) for the leading Borel-plane singular distance of the formal generating function f(z) = Σ Q_n zⁿ of a polynomial continued fraction (1, b) of degree d with leading coefficient β_d > 0. The identity is currently distributed across three SIARC artefacts: the canonical d = 2 Newton-polygon proof (Channel Theory v1.3), the d = 4 verification at dps = 80 across 8 quartic representatives with spread 0 (PCF2-SESSION-Q1, 2026-05-01), and the original d = 2 baseline (PCF-1 v1.3). This note is a NEW concept DOI (no predecessor) and does not introduce new numerical pipelines; every numerical fact is carried forward from an upstream AEAL entry on the SIARC bridge.
+
+Triple framing (epistemic tiers). The note is structured around three explicit tiers, with strict epistemic discipline on the verb choice in each:
+
+- PROVEN at d = 2. The Newton-polygon argument of Proposition 3.3.A of Channel Theory v1.3 / Theorem 5 §5 of PCF-1 v1.3 yields the slope-1/2 edge of multiplicity 2 in the Newton polygon of the order-2 ODE governing f(z), with characteristic polynomial 1 − (β₂/4) c² and unique positive real root c = 2/√β₂ = ξ₀.
+
+- VERIFIED at d = 4. PCF2-SESSION-Q1 (2026-05-01) measures ξ₀(b) = 4/β₄^(1/4) at dps = 80 across 8 quartic representatives drawn from the four trichotomy bins of the session, with spread 0 in the inferred c(4); the data are consistent with the slope-1/4 edge of multiplicity 2 and characteristic polynomial 1 − (β₄/4⁴) c⁴ predicted by the same Newton-polygon construction. As a corollary the v1.1 candidate c(d) = 2√((d−1)!) is ruled out at d = 4 (predicts ≈ 4.899, measured 4 with spread 0; ≈ 22% disagreement) — Remark 3.3.E of Channel Theory v1.3.
+
+- CONJECTURED for general d ≥ 2. Conjecture 3.3.A* of Channel Theory v1.3 records the universal form ξ₀(b) = d/β_d^(1/d) and packages the d = 2 proof and the d = 4 measurement into a single cross-degree statement. The structural Newton-polygon picture (slope-1/d edge of multiplicity 2, characteristic polynomial 1 − (β_d/d^d) c^d) is recorded as a heuristic, not a proof; the indicial-polynomial layer fixing the secondary exponent at d ≥ 3 and the Birkhoff recursion for the formal coefficients are not written out and are open even at d = 3.
+
+- DEFERRED at d = 3. The op:xi0-d3-direct entry of Channel Theory v1.3 §9 (one Newton-polygon test per Galois bin on a cubic representative at dps = 80, predicting ξ₀ = 3/β_3^(1/3)) is the next discrete step after the d = 2 proof and the d = 4 measurement. Tractability is 1–2 hours per bin with no halt condition expected.
+
+Out of scope. The β_d < 0 branch, the d = 2 anomaly Galois bin (PCF-1 v1.3 Remark 5.E), and the d ≥ 5 case are out of scope and recorded as open in §5 of the note.
+
+What this note is and is not. The D2-NOTE is a consolidatory cite-target, intended to be the single citation for the cross-degree ξ₀ universality axis of the SIARC umbrella. It does NOT itself prove the general-d case. The structural sketch in §4 is recorded as a heuristic. The d = 3 verification is deferred to op:xi0-d3-direct on the operator queue.
+
+References (DOI / bridge URL):
+- Channel Theory v1.3: 10.5281/zenodo.19972394 (concept 10.5281/zenodo.19941678)
+- PCF-1 v1.3: 10.5281/zenodo.19937196 (concept 10.5281/zenodo.19931635)
+- PCF-2 v1.3: 10.5281/zenodo.19963298 (concept 10.5281/zenodo.19936297)
+- SIARC umbrella v2.0: 10.5281/zenodo.19965041 (concept 10.5281/zenodo.19885549)
+- PCF2-SESSION-Q1: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-01/PCF2-SESSION-Q1/
+- D2-NOTE-DRAFT bridge session: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/D2-NOTE-DRAFT/
+
+<!-- ===== Related Identifiers (DataCite, operator-applied at upload) ===== -->
+
+References:
+  10.5281/zenodo.19941678   (Channel Theory concept; cite-all)
+  10.5281/zenodo.19972394   (Channel Theory v1.3 - canonical d=2 proof, Conjecture 3.3.A*, Remark 3.3.E, op:xi0-d3-direct)
+  10.5281/zenodo.19931635   (PCF-1 concept; cite-all)
+  10.5281/zenodo.19937196   (PCF-1 v1.3 - d=2 baseline)
+  10.5281/zenodo.19936297   (PCF-2 concept; cite-all)
+  10.5281/zenodo.19963298   (PCF-2 v1.3)
+  10.5281/zenodo.19885549   (SIARC umbrella concept; cite-all)
+  10.5281/zenodo.19965041   (SIARC umbrella v2.0)
+Is documented by:
+  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/D2-NOTE-DRAFT/
+  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-01/PCF2-SESSION-Q1/
+
+All "References" identifiers: DataCite resource type = Publication / Preprint.
+
+NOTE TO OPERATOR: This is a NEW concept DOI (D2-NOTE has no predecessor on Zenodo). Do NOT use "New Version"; use "New upload" so Zenodo mints a fresh concept DOI.
+
+AEAL schema. Each per-session claims.jsonl entry conforms to the canonical schema {"claim_id": ..., "task_id": ..., "claim": ..., "evidence_type": "literature_citation|computation|build|file_inspection", "dps": ..., "reproducible": true, "script": ..., "output_hash": "<sha256>"}. The D2-NOTE claims.jsonl carries 8 entries (D2-A1 through D2-A8); the literature-citation entries carry the upstream session's output_hash verbatim.
+
+Method. AEAL/SIARC v1.3 cohort multi-agent methodology. AI tools (GitHub Copilot powered by Anthropic Claude Opus 4.7, and Anthropic Claude) were used for prose drafting and consistency-checking; all theorem statements, conjecture formulations, and editorial decisions remain the author's. All numerical claims trace to exact computations stored under sessions/2026-05-{01,02}/ on the SIARC bridge with AEAL claim entries in claims.jsonl.

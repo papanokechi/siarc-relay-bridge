@@ -1,0 +1,414 @@
+% =====================================================================
+% D2-NOTE — Newton-polygon universality of the Borel-singularity radius
+% for polynomial continued fractions
+%
+% Standalone SIARC short note (Zenodo cite-target).
+% Consolidates the xi_0 = d / beta_d^{1/d} cross-degree result
+% currently scattered across PCF-1 v1.3, Channel Theory v1.3, and
+% PCF2-SESSION-Q1.
+% =====================================================================
+
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\usepackage{orcidlink}
+
+\definecolor{darklink}{rgb}{0.0,0.2,0.5}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=darklink,
+  citecolor=darklink,
+  urlcolor=darklink,
+  pdftitle={Newton-polygon universality of the Borel-singularity radius
+            for polynomial continued fractions},
+  pdfauthor={Mauricio Echizen Kubo},
+  pdfkeywords={Newton polygon, Borel summability, polynomial continued
+               fractions, irregular singular point, universality}
+}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Open problem}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\PCF}{\mathrm{PCF}}
+\newcommand{\dps}{\mathrm{dps}}
+\newcommand{\Borel}{\mathcal{B}}
+
+\def\version{1.0}
+
+\title[Newton-polygon universality of the Borel-singularity radius]
+      {Newton-polygon universality of the Borel-singularity radius
+       for polynomial continued fractions}
+
+\author{Mauricio Echizen Kubo}
+\address{Independent researcher, Yokohama, Japan}
+\email{shkubo@protonmail.com}
+
+\date{2026-05-02 (v\version)}
+
+\begin{document}
+
+\begin{abstract}
+We isolate, as a single citable artefact, the cross-degree
+identity
+\[
+  \xi_0(b) \;=\; \frac{d}{\beta_d^{1/d}}
+\]
+for the leading Borel-plane singular distance of the formal
+generating function $f(z) = \sum_{n\ge 0} Q_n z^n$ of a
+polynomial continued fraction $(1, b)$ of degree $d$ with
+leading coefficient $\beta_d > 0$. The identity is currently
+distributed across three SIARC artefacts: the canonical
+$d = 2$ Newton-polygon proof (Channel Theory v1.3,
+\cite{siarc_channel_theory_v13}), the $d = 4$
+verification at $\dps = 80$ across $8$ quartic
+representatives with spread $0$
+(PCF2-SESSION-Q1, \cite{siarc_pcf2_session_q1}),
+and the original $d = 2$ baseline (PCF-1 v1.3,
+\cite{siarc_pcf1_v13}). We frame the resulting picture
+in three explicit epistemic tiers:
+(i) \emph{proven} at $d = 2$ by the Newton-polygon argument
+recalled here;
+(ii) \emph{verified} (in the empirical sense: a measurement
+at $\dps = 80$ with spread $0$ across $8$ representatives) at
+$d = 4$;
+(iii) \emph{conjectured} for general $d \ge 2$
+(Conjecture~3.3.A$^{*}$ of \cite{siarc_channel_theory_v13}),
+with the $d = 3$ direct Newton-polygon test deferred to the
+operator queue. The note is purely consolidatory; no new
+numerical pipeline is run.
+\end{abstract}
+
+\maketitle
+
+\section{Setup}
+\label{sec:setup}
+
+Throughout this note $(1, b)$ denotes a polynomial continued
+fraction with constant numerator $a_n \equiv 1$ and
+polynomial denominator
+\[
+  b(n) \;=\; \beta_d\,n^d + \beta_{d-1}\,n^{d-1} + \dots
+              + \beta_1\,n + \beta_0,
+  \qquad \beta_d > 0,
+\]
+with $d \ge 2$. Let $Q_n$ denote the partial denominators
+of the PCF, satisfying the three-term recurrence
+$Q_n = b(n)\,Q_{n-1} + Q_{n-2}$ with $Q_{-1} = 0$,
+$Q_0 = 1$. The formal generating function
+\[
+  f(z) \;=\; \sum_{n\ge 0} Q_n\,z^n
+\]
+satisfies the order-$2$ inhomogeneous linear ODE
+\begin{equation}
+\label{eq:Lf}
+  L_d f \;:=\;
+   \bigl(\,1 \,-\, z\,B_d(\theta + 1)
+            \,-\, z^2\,\bigr)\,f \;=\; 1,
+  \qquad \theta := z\,\partial_z,
+\end{equation}
+with $B_d$ the $d$-th degree polynomial encoding $b$ on the
+shift-rescaled Euler operator $\theta$. Equation
+\eqref{eq:Lf} has a regular point at $z = \infty$ and an
+irregular singular point at $z = 0$; the Borel-plane
+singular distance $\xi_0$ is the modulus of the leading
+characteristic root at $z = 0$ along the slope-$1/d$ edge
+of the Newton polygon of the homogeneous part of
+\eqref{eq:Lf}. The scope of this note is fixed by
+$\beta_d > 0$ and $d \ge 2$; the $\beta_d < 0$ branch and
+the so-called ``$d = 2$ anomaly'' Galois bin
+(\cite[Remark~5.E]{siarc_pcf1_v13}) are out of scope and
+are recorded as open in \Cref{sec:open}.
+
+\section{The proven case \texorpdfstring{$d = 2$}{d=2}}
+\label{sec:d2}
+
+The $d = 2$ Newton-polygon argument is in canonical form in
+\cite[Proposition~3.3.A and Worked Example
+\S3.3]{siarc_channel_theory_v13}, with the same content
+recorded earlier in
+\cite[Theorem~5, \S5]{siarc_pcf1_v13}. We follow the
+Channel Theory v1.3 idiom because it carries the slope and
+characteristic-polynomial framing needed for the cross-degree
+extension in \Cref{sec:d4,sec:conjecture}.
+
+\begin{proposition}[Universality of $\xi_0$, degree $2$;
+{\cite[Prop.~3.3.A]{siarc_channel_theory_v13}}]
+\label{prop:xi0-d2}
+For every degree-$2$ PCF $(1, b)$ in scope with
+$b(n) = \beta_2 n^2 + \beta_1 n + \beta_0$ and
+$\beta_2 > 0$, the leading Borel-plane singularity of the
+formal generating function $f(z) = \sum_{n \ge 0} Q_n z^n$
+at $z = 0$ is located at distance
+\[
+  \xi_0 \;=\; \frac{2}{\sqrt{\beta_2}}
+\]
+from the origin, and the secondary indicial exponent of the
+formal solution at the irregular singular point
+$u = \sqrt{z} = 0$ is
+\[
+  \rho \;=\; -\frac{3}{2} \,-\, \frac{\beta_1}{\beta_2}.
+\]
+\end{proposition}
+
+\begin{proof}[Sketch (after
+{\cite[\S3.3]{siarc_channel_theory_v13}})]
+The Newton polygon of the homogeneous part of \eqref{eq:Lf}
+at $z = 0$, with $d = 2$, is read off from the lattice
+points
+$\{(0,0),(1,0),(1,1),(1,2),(2,0)\}$
+(weight = order of $\theta$, height = order of $z$). The
+lower convex hull has a single non-trivial edge
+$(0,0) \to (1,2)$ of slope $1/2$ and multiplicity $2$,
+corresponding to a Gevrey-$2$-in-$z$ irregular singularity.
+Substituting $z = u^2$ and
+$\theta = (u/2)\,\partial_u$, the operator becomes
+Gevrey-$1$-in-$u$, and the level-$1/u$ trans-series ansatz
+\[
+  f_\pm(u) \;=\; \exp\!\Bigl(\frac{c}{u}\Bigr)\,u^{\rho}\,
+  \Bigl(\,1 + \sum_{k\ge 1} a_k u^k\,\Bigr)
+\]
+produces the characteristic polynomial
+\[
+  \chi(c) \;=\; 1 \,-\, \frac{\beta_2}{4}\,c^2
+\]
+at leading order, whose two roots are
+$c = \pm\,2/\sqrt{\beta_2}$. The positive root pins
+$\xi_0 = 2/\sqrt{\beta_2}$. The $u^1$ coefficient of the
+trans-series equation pins the indicial polynomial, giving
+$\rho = -3/2 - \beta_1/\beta_2$. The Birkhoff recursion for
+the $a_k$ then proceeds row-by-row in the $u^k$
+coefficient. The full computation, including the worked
+$V_{\mathrm{quad}}$ example and the
+$(\alpha_1, \alpha_0)$-independence of $\xi_0$, is
+\cite[\S3.3 Worked Example]{siarc_channel_theory_v13}.
+\end{proof}
+
+\begin{remark}[$(\alpha_1, \alpha_0)$-independence at $d = 2$]
+\label{rem:numerator-indep}
+The numerator polynomial $a$ enters the operator $L_2$ only
+at the $z^2$ Newton-polygon vertex $(2,0)$, i.e.\ at order
+$u^4$ in the $u$-uniformised operator. Therefore $\xi_0$
+(read off at order $u^0$) and $\rho$ (read off at order
+$u^1$) are independent of the numerator. The first formal
+invariant that does depend on $\alpha_1, \alpha_0$ is $a_2$,
+which is the splitting witness in
+\cite[Prop.~3.3.B]{siarc_channel_theory_v13} for the
+QL01/QL02 family pair (identical $\xi_0 = 2$ and $\rho = -5/2$,
+disagreeing $a_2$).
+\end{remark}
+
+\section{The verified case \texorpdfstring{$d = 4$}{d=4}}
+\label{sec:d4}
+
+At $d = 4$, the same Newton-polygon construction predicts a
+single slope-$1/4$ edge of multiplicity $2$ with
+characteristic polynomial $1 - (\beta_4/4^4)\,c^4$, hence
+the prediction $\xi_0 = 4/\beta_4^{1/4}$. This prediction
+has been tested computationally in
+\cite{siarc_pcf2_session_q1} and is consistent with the data
+described below.
+
+\begin{proposition}[Empirical record at $d = 4$;
+{\cite[Prop.~3.3.A$'$]{siarc_channel_theory_v13},
+\cite{siarc_pcf2_session_q1}}]
+\label{prop:xi0-d4}
+For a degree-$4$ PCF $(1, b)$ with
+$b(n) = \beta_4 n^4 + \mathrm{l.o.t.}$ and $\beta_4 > 0$,
+the Newton polygon of \eqref{eq:Lf} at $z = 0$ has lattice
+points
+$\{(0,0),(1,0),(1,1),(1,2),(1,3),(1,4),(2,0)\}$, with
+lower-left convex hull supporting the edge
+$E:(0,0) \to (1,4)$ of slope $1/4$. The WKB ansatz
+$f \sim \exp(c/u)$ with $z = u^4$ then pins the
+characteristic equation
+\[
+  \chi(c) \;=\; 1 \,-\, \frac{\beta_4}{4^4}\,c^4 \;=\; 0,
+\]
+whose positive real root is $c = 4/\beta_4^{1/4}$. The
+identity $\xi_0(b) = 4/\beta_4^{1/4}$ is consistent with
+the PCF2-SESSION-Q1 measurement: across $8$ quartic
+representatives drawn from the four trichotomy bins of
+the session ($S_4$ generic, $D_4$ Eisenstein anchor,
+$V_4$ biquadratic anchor, plus $\beta_4 = 7$ sample), the
+inferred $c(4)$ has spread $0$ at $\dps = 80$.
+\end{proposition}
+
+The detailed Newton-polygon construction and the per-family
+table are in
+\cite[\texttt{newton\_polygon\_d4.tex}]{siarc_pcf2_session_q1};
+the PCF2-SESSION-Q1 \texttt{claims.jsonl} entry
+$\texttt{Q1-B}$ carries the SHA-$256$ output hash
+\texttt{1ad90f60$\dots$d5b10bc7} of the underlying script
+\texttt{session\_q1\_newton.py} and is the canonical AEAL
+anchor for the $d = 4$ measurement.
+
+\begin{remark}[Falsification of the v1.1 candidate
+$c(d) = 2\sqrt{(d-1)!}$;
+{\cite[Remark~3.3.E]{siarc_channel_theory_v13}}]
+\label{rem:falsification}
+Version~1.1 of the Channel Theory outline conjectured the
+candidate $c(d) = 2\sqrt{(d-1)!}$ for the universality
+constant in $\xi_0(b) = c(d) / \beta_d^{1/d}$. That
+candidate matches the proven $d = 2$ value
+($c(2) = 2\sqrt{1!} = 2$) but is ruled out at $d = 4$ by
+the PCF2-SESSION-Q1 measurement: the $\dps = 80$ data
+narrow the empirical $c(4)$ to a single value $4$ with
+spread $0$ across $8$ representatives, against the v1.1
+prediction $c(4) = 2\sqrt{3!} = 2\sqrt{6} \approx 4.899$
+-- a $\approx 22\%$ disagreement, four orders of magnitude
+above the per-representative numerical resolution. The
+linear form $c(d) = d$ of \Cref{conj:xi0-univ} is the form
+consistent with both the proven $d = 2$ value and the
+$d = 4$ measurement.
+\end{remark}
+
+\section{The conjectured general-\texorpdfstring{$d$}{d} case}
+\label{sec:conjecture}
+
+\begin{conjecture}[Cross-degree universality of $\xi_0$;
+{\cite[Conj.~3.3.A$^{*}$]{siarc_channel_theory_v13}}]
+\label{conj:xi0-univ}
+For every PCF $(1, b)$ in scope with $\deg b = d \ge 2$ and
+$b(n) = \beta_d n^d + \mathrm{l.o.t.}$ ($\beta_d > 0$), the
+leading characteristic root of the irregular singularity at
+$z = 0$ of the operator $L_d$ in \eqref{eq:Lf} is
+\[
+  \xi_0(b) \;=\; \frac{d}{\beta_d^{1/d}}.
+\]
+\end{conjecture}
+
+\noindent\emph{Status.} \emph{Proven} at $d = 2$
+(\Cref{prop:xi0-d2}). \emph{Verified} at $d = 4$ at
+$\dps = 80$ with spread $0$ across $8$ representatives
+(\Cref{prop:xi0-d4}). Pending direct Newton-polygon test
+at $d = 3$ (\textsf{op:xi0-d3-direct}; see
+\Cref{sec:open}). \emph{Conjectured} for general $d \ge 2$.
+
+\subsection*{Heuristic structural picture}
+
+The structural Newton-polygon picture that supports the
+conjecture is as follows; we record it as a heuristic, not
+as a proof. For any monic polynomial $b$ of degree $d$, the
+operator $L_d$ in \eqref{eq:Lf} has Newton polygon at
+$z = 0$ supported on the lattice points
+\[
+  \{(0,0)\} \;\cup\; \{(1, k) : 0 \le k \le d\}
+            \;\cup\; \{(2, 0)\},
+\]
+and the lower-left convex hull has a single non-trivial edge
+$E:(0,0) \to (1, d)$ of slope $1/d$ and multiplicity~$2$.
+Substituting $z = u^d$ with $\theta = (u/d)\,\partial_u$ and
+applying the trans-series ansatz $f \sim \exp(c/u)$ pins the
+characteristic polynomial along $E$ to
+\[
+  \chi(c) \;=\; 1 \,-\, \frac{\beta_d}{d^d}\,c^d
+\]
+at leading order, whose unique positive real root is
+$c = d / \beta_d^{1/d}$. This is the structural reason why
+$c(d) = d$ is the form consistent with both the proven
+$d = 2$ value and the $d = 4$ measurement, and why the v1.1
+candidate $c(d) = 2\sqrt{(d-1)!}$ is ruled out
+(\Cref{rem:falsification}).
+
+The picture above does \emph{not} discharge the general-$d$
+case: the indicial-polynomial analysis fixing the secondary
+exponent $\rho_d$, and the Birkhoff recursion delivering the
+formal coefficients $a_k$ at $d \ge 3$, are not written out
+here and are open even at $d = 3$
+(see \Cref{sec:open}, item~(a)).
+
+\section{Status of \texorpdfstring{$d = 3$}{d=3}}
+\label{sec:d3}
+
+The $d = 3$ direct Newton-polygon test is the next discrete
+step after the $d = 2$ proof and the $d = 4$ measurement.
+It is recorded as an operator queue entry in
+\cite[\S9, \textsf{op:xi0-d3-direct}]{siarc_channel_theory_v13}
+and is currently \emph{deferred}, not run. The recipe is one
+Newton-polygon construction per Galois bin on a cubic
+representative $b(n) = \beta_3 n^3 + \dots$, with the
+prediction $\xi_0 = 3/\beta_3^{1/3}$ to be checked at
+$\dps = 80$ against the leading characteristic root of the
+slope-$1/3$ edge of \eqref{eq:Lf}; the current tractability
+estimate is $1$--$2$ hours of computation
+\cite[\S9]{siarc_channel_theory_v13} with no halt condition
+expected.
+
+A successful $d = 3$ measurement would narrow the interval
+of candidates for $c(d)$ further but would not by itself
+discharge the general-$d$ case
+(\Cref{conj:xi0-univ}); a structural proof of the
+indicial / Birkhoff layer at $d \ge 3$ remains open.
+
+\section{Open questions}
+\label{sec:open}
+
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+
+\item \textsf{op:xi0-d3-direct}
+(\cite[\S9]{siarc_channel_theory_v13}): direct
+Newton-polygon test of $\xi_0(b) = 3/\beta_3^{1/3}$ on at
+least one cubic representative per Galois bin, at
+$\dps = 80$. Predicted runtime: $1$--$2$ hours per bin. No
+halt condition is expected; a measurement consistent with
+the prediction would narrow the empirical interval for
+$c(d)$ to $\{2, 3, 4\}$ at $d \in \{2, 3, 4\}$ and would
+support \Cref{conj:xi0-univ} along the linear arithmetic
+progression. A measurement inconsistent with the prediction
+would falsify the conjecture and trigger the corresponding
+SIARC halt condition.
+
+\item The $d \ge 5$ case. No empirical record exists for
+$d \ge 5$; the Newton-polygon construction
+(\Cref{sec:conjecture}) extends in principle, but neither
+the slope-$1/d$ edge analysis at finite $\beta_d$ nor the
+secondary indicial exponent $\rho_d$ has been written out.
+A combinatorial generalisation of \Cref{prop:xi0-d2} to all
+$d \ge 2$ -- including a uniform proof of the
+$(\alpha_1, \dots, \alpha_{d-2})$-independence of $\xi_0$
+(\Cref{rem:numerator-indep}) -- is the natural next
+target.
+
+\item The $\beta_d < 0$ branch and the $d = 2$ anomaly
+Galois bin
+(\cite[Remark~5.E]{siarc_pcf1_v13}). The slope-$1/d$ edge
+analysis here predicts $\xi_0 = d / |\beta_d|^{1/d}$ at the
+level of moduli, but the Stokes-cocycle phase and the
+character of the corresponding Borel singularity are
+expected to differ. A separate analysis is open.
+
+\end{enumerate}
+
+\section*{AI Disclosure}
+
+The SIARC v1.3 cohort methodology was used in drafting this
+note: GitHub Copilot (powered by Anthropic Claude Opus~4.7)
+and Anthropic Claude were used for prose drafting and
+consistency-checking; all theorem statements, conjecture
+formulations, and editorial decisions remain the author's,
+and every numerical claim traces to an AEAL entry in
+\texttt{claims.jsonl} with a SHA-$256$ output hash on the
+SIARC bridge under \texttt{sessions/2026-05-02/D2-NOTE-DRAFT/}.
+
+\bibliographystyle{plain}
+\bibliography{annotated_bibliography}
+
+\end{document}
