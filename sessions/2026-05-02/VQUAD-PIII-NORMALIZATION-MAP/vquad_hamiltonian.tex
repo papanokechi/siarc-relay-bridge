@@ -1,0 +1,156 @@
+% vquad_hamiltonian.tex --- Phase A deliverable
+% Session VQUAD-PIII-NORMALIZATION-MAP, 2026-05-02
+%
+% Compile flags: standalone or pdflatex on top of amsmath, amssymb.
+
+\section*{V$_\mathrm{quad}$ scalar ODE and Hamiltonian form}
+\label{sec:vquad-ham}
+
+\paragraph{Setting.}
+Let $\Vquad$ denote the PCF family with
+$(\alpha_1,\alpha_0,\beta_2,\beta_1,\beta_0)=(0,1,3,1,1)$, i.e.\
+the recurrence
+\[
+  Q_n = (3 n^2 + n + 1)\,Q_{n-1} + Q_{n-2}, \qquad Q_0 = 1,
+\]
+and let $f(z) := \sum_{n\ge 0} Q_n z^n$ be the formal OGF.
+This matches the convention used in CT~v1.3, eq.~\textsf{eq:Lf-cc}.
+
+\paragraph{Scalar ODE.}
+With $\theta = z \, d/dz$, the OGF $f$ satisfies the
+\emph{inhomogeneous} second-order linear ODE
+\[
+  \boxed{\;
+    L\,f(z) := f - z\bigl[3(\theta+1)^2+(\theta+1)+1\bigr]\,f
+            - z^2\,f \;=\; 1.\;}
+\]
+Expanding
+$3(\theta+1)^2+(\theta+1)+1 = 3\theta^2+7\theta+5
+ = 3 z^2 \partial_z^2 + 10 z\, \partial_z + 5$,
+the homogeneous operator becomes
+\[
+  L_h := 3 z^3 \partial_z^2 + 10 z^2 \partial_z + (5z + z^2 - 1),
+\]
+\[
+  \boxed{\;
+    L_h\,f(z) = 0
+    \quad\Longleftrightarrow\quad
+    3 z^3 f''(z) + 10 z^2 f'(z) + (5z + z^2 - 1)\,f(z) = 0.
+    \;}
+\]
+\textbf{Verification.} The exact rational coefficients above
+are obtained by sympy expansion of the recurrence; the result
+is reproducible from \texttt{verify\_vquad\_ode.py}
+(SHA-256: see \texttt{claims.jsonl}, entry \textsf{G15-A0}).
+
+\paragraph{Newton polygon at $z=0$.}
+Lattice points (order in $\partial_z$ vs.\ order in $z$):
+\[
+  \{(0,0),\ (1,2),\ (2,3)\}.
+\]
+Newton-polygon points $(k, q_k - k)$:
+\[
+  \{(0,0),\ (1,1),\ (2,1)\}.
+\]
+Lower convex hull: a single edge $(0,0)\to(2,1)$ of slope
+$\tfrac{1}{2}$. This is the rank-$\tfrac{1}{2}$ irregular
+singularity at $z=0$ (Gevrey-$2$-in-$z$, Gevrey-$1$-in-$u$
+under $z = u^2$).
+
+\paragraph{Birkhoff normal form (formal pair).}
+Writing $z = u^2$ and substituting the trans-series ansatz
+\[
+  f_{\pm}(u) = \exp\!\bigl(\pm c_0 / u\bigr)\,u^{\rho}\,
+  \Bigl(1 + \sum_{k\ge 1} a_k^{\pm}\,u^k\Bigr),
+\]
+direct substitution into $L_h$ (verified symbolically) yields
+\[
+  \begin{aligned}
+    \text{[$u^0$ balance]:}\quad
+      &1 - \tfrac{3}{4}\,c_0^2 \;=\; 0
+        \;\Longrightarrow\;
+        c_0 = \pm \tfrac{2}{\sqrt{3}}, \\
+    \text{[$u^1$ balance, $c_0>0$]:}\quad
+      &\sqrt{3}\,\Bigl(\rho + \tfrac{11}{6}\Bigr) \;=\; 0
+        \;\Longrightarrow\;
+        \rho = -\tfrac{11}{6}.
+  \end{aligned}
+\]
+Both are exact rational/algebraic, agreeing with CT~v1.3
+\textsf{Prop.~xi0} and \textsf{Thm.~vquad-cc}.
+The Borel-plane singular distance is
+\[
+  \boxed{\;
+    \zeta_* \;=\; 2\,c_0 \;=\; \tfrac{4}{\sqrt 3}
+            \;=\; 2.30940107675850305803659512200782982259\ldots
+  \;}
+\]
+
+\paragraph{Hamiltonization of the scalar ODE.}
+Putting $L_h f = 0$ in self-adjoint form: divide by $-3 z^3$
+to obtain
+\[
+  f''(z) + \tfrac{10}{3 z}\,f'(z)
+        + \tfrac{5z + z^2 - 1}{3 z^3}\,f(z) \;=\; 0.
+\]
+The integrating factor for self-adjointness is
+$\mu(z) = \exp\!\bigl(\int \tfrac{10}{3 z} \,dz\bigr)
+       = z^{10/3}$,
+giving the Lagrangian density
+\[
+  \mathcal{L}(z; f, f')
+  \;=\; \tfrac{1}{2}\,z^{10/3}\,(f')^2
+       \;-\; \tfrac{1}{2}\,z^{10/3}\,
+              \tfrac{5z + z^2 - 1}{3 z^3}\,f^2.
+\]
+The conjugate momentum is $p := \partial \mathcal{L}/\partial f' = z^{10/3} f'$
+(set $q := f$). The Hamiltonian
+$H_{\Vquad}(q,p,z) = p\,f' - \mathcal{L}$ is
+\[
+  \boxed{\;
+    H_{\Vquad}(q,p,z)
+    \;=\; \tfrac{1}{2}\, z^{-10/3}\, p^2
+        \;+\; \tfrac{1}{6}\, z^{1/3}\,(5z + z^2 - 1)\,q^2.
+  \;}
+\]
+This is a \emph{linear} Hamiltonian system (quadratic in
+$(q,p)$) with $z$ as a non-autonomous time parameter.
+
+\paragraph{Stokes data of the scalar ODE.}
+The two formal solutions $f_{\pm}(u)$, after Borel--Laplace
+summation along the half-Stokes ray $\arg u = 0$, give an
+analytic gauge in which the connection between the two
+sectors is encoded by the alien amplitude
+\[
+  C \;=\; 8.12733679549507236711257873202358318226454272233879
+       3442962779422864942231170962684449206434528015595\ldots
+\]
+extracted at $108$-digit precision in
+session \textsf{CC-MEDIAN-RESURGENCE-EXECUTE}
+(\texttt{claims.jsonl} entries \textsf{H4-Z01}\ldots\textsf{H4-Z08}).
+The corresponding Stokes constant in V$_\mathrm{quad}$-native
+normalization is
+\[
+  S_{\zeta_*}^{\Vquad} \;=\; 2\pi i\,C
+  \;\approx\; 51.0655631399546622698316746099456615\ldots\,i.
+\]
+
+\paragraph{Where this lands in the Painlev\'e classification.}
+The Hamiltonian $H_{\Vquad}$ above is the Hamiltonization of
+the \emph{scalar} OGF ODE, which is \textbf{linear} in $f$.
+The canonical $P_{III}(D_6)$ Hamiltonian (see
+\texttt{pIII\_canonical.tex}) is genuinely \textbf{nonlinear}
+in $(q,p)$. The CT~v1.3 §3.5 identification
+$\Vquad \rightsquigarrow P_{III}(D_6)$ at parameter point
+$(1/6,0,0,-1/2)$ is therefore \emph{not} a direct change of
+variables on $(f, f', z)$; it is an isomonodromic-deformation
+correspondence: the V$_\mathrm{quad}$ scalar ODE is the
+$L$-equation of a Lax pair whose isomonodromic deformation
+gives $P_{III}(D_6)$, and the Stokes data of the linear
+$L$-equation matches the $P_{III}(D_6)$ Riemann--Hilbert
+datum at the V$_\mathrm{quad}$ parameter point.
+
+The change-of-variables $\Phi$ that closes G15 must therefore
+act on Lax-pair data, not on $(f,f',z)$. This is taken up in
+\texttt{phi\_change\_of\_variables.tex} and is the locus of
+the residual blocker (Okamoto's explicit Lax pair).

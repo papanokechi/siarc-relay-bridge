@@ -1,0 +1,17 @@
+{
+  "okamoto_constraint_mismatch": {
+    "observation": "CT v1.3 Thm:vquad-cc identifies the V_quad parameter point as (1/6, 0, 0, -1/2). These four numbers sum to -1/3, which does NOT satisfy the Okamoto constraint alpha_inf + alpha_0 + beta_inf + beta_0 = 0 quoted in the relay-prompt brief.",
+    "interpretation_options": [
+      "(a) CT v1.3 uses a non-Okamoto convention (e.g. Sakai E_7^(1)/D_7^(1) root data), in which case the four parameters are not constrained to sum to zero;",
+      "(b) one of the four entries is a spectral-type label rather than a Hamiltonian parameter;",
+      "(c) the relay-prompt's quoted constraint is for a different P_III(D_6) parametrization than the one CT v1.3 uses."
+    ],
+    "action": "Flagged as residual R1 in literature_crosscheck.md; do not select between (a)-(c) without Okamoto 1987 \u00a72.",
+    "severity": "informational --- does not block G15 partial closure but does block the final convention pinning."
+  },
+  "scalar_ode_versus_Lax_pair_layer_separation": {
+    "observation": "V_quad's scalar OGF ODE is linear (Hamiltonization gives a quadratic-in-p Hamiltonian). Canonical P_III(D_6) is genuinely nonlinear (quadratic-in-p but with q-p coupling). The two Hamiltonians live at different layers: scalar L-equation versus isomonodromic deformation thereof. This was implicit in CT v1.3's framing 'algebraic identity at Painleve-class level only' but the layer structure is now made explicit in vquad_hamiltonian.tex's closing paragraph and in phi_change_of_variables.tex.",
+    "implication": "Phi cannot be a direct change-of-variables on (f, f', z); it must act on Lax-pair monodromy data. This sharpens the G15 statement and the residual list (R5 is the primary blocker, not R1-R4).",
+    "severity": "structural insight --- recommend Claude review whether CT v1.4 should rephrase \u00a73.5 status from 'algebraic identity DIAGNOSED' to 'algebraic identity DIAGNOSED, with isomonodromic-correspondence statement still PENDING (R5)'."
+  }
+}

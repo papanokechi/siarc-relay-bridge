@@ -1,0 +1,186 @@
+% phi_change_of_variables.tex --- Phase C deliverable
+% Session VQUAD-PIII-NORMALIZATION-MAP, 2026-05-02
+%
+% Verdict: G15_PARTIAL.
+% The change-of-variables Phi is built as a composition of three
+% blocks: Phi = Phi_symp o Phi_shift o Phi_resc.
+% Phi_resc and Phi_shift are pinned (modulo a discrete sign).
+% Phi_symp is the residual blocker; it requires Okamoto's explicit
+% Lax pair for P_III(D_6), which is not in the operator's library.
+
+\section*{Change-of-variables $\Phi: V_\mathrm{quad} \to P_{III}(D_6)$}
+\label{sec:phi}
+
+\subsection*{Architecture}
+
+We seek $\Phi$ as a composition
+\[
+  \Phi \;=\; \Phi_\mathrm{symp} \,\circ\, \Phi_\mathrm{shift}
+            \,\circ\, \Phi_\mathrm{resc},
+\]
+acting on Lax-pair data attached to the V$_\mathrm{quad}$
+scalar ODE. The three blocks have distinct r\^oles:
+
+\begin{itemize}
+  \item $\Phi_\mathrm{resc}$ rescales the spectral parameter
+        $z \mapsto \lambda\,t$ and the wave function
+        normalization, mapping V$_\mathrm{quad}$'s irregular
+        singular point at $z=0$ to the canonical $P_{III}(D_6)$
+        irregular singular point at $t=0$;
+  \item $\Phi_\mathrm{shift}$ accounts for the choice of base
+        point at $t=\infty$ (matching the regular singular
+        point of V$_\mathrm{quad}$ at $z=\infty$ to a
+        canonical $P_{III}(D_6)$ regular point);
+  \item $\Phi_\mathrm{symp}$ is a symplectic transform on the
+        Lax-pair monodromy variety, fixing the discrete
+        choice of Stokes-multiplier labeling.
+\end{itemize}
+
+\subsection*{$\Phi_\mathrm{resc}$ -- determined}
+
+\textbf{Matching the leading exponent.} V$_\mathrm{quad}$
+has $f_\pm(u) = \exp(\pm c_0/u)\, u^\rho\,(1+O(u))$ with
+$z = u^2$, $c_0 = 2/\sqrt 3$, $\rho = -11/6$. Canonical
+$P_{III}(D_6)$ at the irregular singularity $t=0$ has
+trans-series $\exp(\pm 2/\sqrt{t})\,t^{\sigma_0}\,(1+O(\sqrt t))$
+in some normalization (Okamoto~1987 \S3, eq.~3.7; quoted via
+Conte--Musette ch.~7 \S7.4 trans-series tables -- residual
+\textsf{R2}). The exponent matching
+\[
+  \exp\!\Bigl(\pm c_0 / u\Bigr) \;\longleftrightarrow\;
+  \exp\!\Bigl(\pm 2 / \sqrt{t}\,\Bigr)
+\]
+under $u = \sqrt{z}$, $\sqrt{t} = \sqrt{\lambda\,t} / \sqrt{\lambda}$
+forces
+\[
+  \boxed{\;
+    \lambda \;=\; \tfrac{c_0^2}{4} \;=\; \tfrac{1}{3},
+    \qquad
+    z \;=\; \tfrac{1}{3}\,t.
+  \;}
+\]
+\textbf{This is residual-R3-conditional}: the precise
+canonical-form leading exponent at $t=0$ depends on Okamoto's
+sign and prefactor convention.
+
+\textbf{Wave-function rescaling.} The secondary exponent
+$\rho_{\Vquad} = -11/6$ versus the canonical $\sigma_0$ at the
+V$_\mathrm{quad}$ parameter point fixes the multiplicative
+power of $t$ that enters the wave function. Pending R2 we
+write
+\[
+  f(z)\, \stackrel{\Phi_\mathrm{resc}}{\longmapsto}\,
+  \mu\, t^{\sigma_0 - \rho_{\Vquad}/2}\, \tilde f(t),
+  \quad \mu \in \mathbb{C}^\times.
+\]
+
+\subsection*{$\Phi_\mathrm{shift}$ -- partially determined}
+
+V$_\mathrm{quad}$ has a regular singular point at
+$z=\infty$ (the OGF radius is finite, equal to
+$\zeta_* / \beta_2 = 4/(3\sqrt 3)$ in the relevant normalization
+-- this is residual~\textsf{R4}, the OGF radius vs.\ the
+Borel-plane $\zeta_*$ are connected by a Mellin transform that
+we have not made explicit in this session). Canonical
+$P_{III}(D_6)$ has its second irregular singularity at
+$t=\infty$, of identical Poincar\'e rank $1$. The matching
+constrains the affine shift of $t$:
+\[
+  \Phi_\mathrm{shift}: t \mapsto t + t_0,
+  \qquad t_0 \text{ pinned by matching at } z=\infty.
+\]
+Without R4 the value of $t_0$ is not numerically pinned;
+its symbolic form is $t_0 = -\zeta_*\!/\lambda\,$
+(modulo R2-R3).
+
+\subsection*{$\Phi_\mathrm{symp}$ -- residual blocker}
+
+The symplectic transform on $(q, p)$ that maps the linear
+$L$-equation arising as a Lax pair component for V$_\mathrm{quad}$
+to the canonical $P_{III}(D_6)$ Lax pair is fixed by the choice
+of normalisation of the linear isomonodromic system. Without
+the explicit Okamoto~1987 Lax pair (a $2\times 2$ rational
+linear system in a spectral variable $\zeta$, with poles at
+$\zeta=0,\infty$ of Poincar\'e rank $1$), we cannot:
+\begin{enumerate}
+  \item write down the explicit linear-system gauge
+        transformation $\zeta \mapsto a\,\zeta + b/(c\,\zeta + d)$
+        with $ad-bc=1$ that maps V$_\mathrm{quad}$'s scalar
+        ODE to the canonical Okamoto Lax-pair scalar reduction;
+  \item determine the multiplicative factor that the
+        Stokes constant $S_{\zeta_*}^{\Vquad}$ picks up under
+        this gauge transformation.
+\end{enumerate}
+
+\subsection*{Status of the Phase-C matching system}
+
+\textbf{Constraints used so far:}
+\begin{enumerate}
+  \item leading exponent match $\Rightarrow$ $\lambda = 1/3$ (PASS, conditional on R3);
+  \item secondary exponent match $\Rightarrow$
+        $\rho_{\Vquad} = -11/6$ versus canonical $\sigma_0$
+        (UNRESOLVED, conditional on R2);
+  \item regular-singular-point match at $z=\infty$
+        $\Rightarrow$ symbolic form of $t_0$ (UNRESOLVED,
+        conditional on R4).
+\end{enumerate}
+
+\textbf{The matching system is consistent so far.} No
+inconsistency has appeared in the partial determination
+of $(\lambda, \mu, t_0)$. In particular, the Phase-C
+``HALT clause'' \textsf{G15\_NOT\_LIFTABLE} is \emph{not}
+triggered: V$_\mathrm{quad}$'s scalar ODE has the right
+singular-point structure (irregular at $0$ of rank $1/2$
+$\equiv$ rank $1$ in $u$, regular at $\infty$, two formal
+sectors) to be the $L$-component of a $P_{III}(D_6)$ Lax
+pair. The G15 status is \textsc{closure-pending-on-residuals},
+not \textsc{not-liftable}.
+
+\subsection*{Verdict}
+
+\fbox{\parbox{0.95\textwidth}{
+\textbf{Verdict: G15\_PARTIAL.}\\
+$\Phi_\mathrm{resc}$ and $\Phi_\mathrm{shift}$ are pinned
+modulo three residuals (R2, R3, R4) that all reduce to
+items in Okamoto~1987 and Conte--Musette ch.~7 not in the
+operator's library. $\Phi_\mathrm{symp}$ is the substantive
+blocker: it requires the explicit Lax pair, not just the
+Hamiltonian. The numerical Jacobian factor of $\Phi$
+acting on $C$ is therefore not computed in this session;
+$C_\mathrm{can}$ remains \emph{symbolic}.
+The Phase-C matching system is consistent (no
+\textsf{G15\_NOT\_LIFTABLE}); the $\zeta_*$ and $\rho$
+exponents are exact rational/algebraic (no
+\textsf{G15\_NUMERICAL\_DRIFT}).}}
+
+\subsection*{Residual list (operator action items)}
+
+\begin{description}
+  \item[R1] Okamoto-convention identification of CT~v1.3 \S3.5
+        4-tuple $(1/6, 0, 0, -1/2)$ as
+        $(\alpha_\infty,\alpha_0,\beta_\infty,\beta_0)$ or
+        permutation thereof. Source: Okamoto~1987~\S2.
+  \item[R2] Trans-series leading prefactor of $P_{III}(D_6)$
+        at $t=0$ in canonical normalization:
+        $\exp(\pm 2 c_*/\sqrt{t})$ with what $c_*$?
+        Source: Okamoto~1987~\S3 eq.~(3.7) or
+        Conte--Musette ch.~7 \S7.4.
+  \item[R3] Sign and phase convention of the Stokes
+        multiplier at the leading Stokes ray. Source:
+        Lisovyy--Roussillon 2017 (or Boutroux 1913 for the
+        historical baseline).
+  \item[R4] Mellin/Borel transform between OGF radius and
+        Borel-plane $\zeta_*$ in $\Vquad$ native
+        normalisation, used in $\Phi_\mathrm{shift}$.
+        Source: Loday--Richaud 2016 ch.~5
+        (\textsl{Divergent Series, Summability and Resurgence II}).
+  \item[R5] (\textbf{primary blocker}) Explicit Okamoto Lax
+        pair for $P_{III}(D_6)$: $2\times 2$ system in spectral
+        $\zeta$, with poles at $0,\infty$ of rank $1$, and the
+        linear scalar reduction in the spectral parameter that
+        recovers the V$_\mathrm{quad}$ scalar ODE under
+        $\Phi_\mathrm{resc}\circ\Phi_\mathrm{shift}$.
+        Source: Okamoto~1987 \S\S2--3 + Jimbo--Miwa 1981
+        (\textsl{Monodromy preserving deformation II},
+        Physica D 2:407--448).
+\end{description}

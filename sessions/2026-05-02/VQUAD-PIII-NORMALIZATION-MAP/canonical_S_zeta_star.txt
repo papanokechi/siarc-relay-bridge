@@ -1,0 +1,96 @@
+# canonical_S_zeta_star.txt
+# Session: VQUAD-PIII-NORMALIZATION-MAP, 2026-05-02
+# Verdict: G15_PARTIAL --- C_can NOT NUMERICALLY COMPUTED.
+#
+# This file documents the V_quad-native Stokes data and the
+# symbolic form of the canonical-form image under the partial
+# Phi obtained in Phase C.  No numerical canonical value is
+# produced because Phi_symp (the symplectic-transform component
+# acting on Lax-pair monodromy data) requires the Okamoto 1987
+# Lax pair, which is not in the operator's library.
+
+# === V_quad-native (input from CC-MEDIAN-RESURGENCE-EXECUTE) ===
+
+zeta_star_native = 4 / sqrt(3)
+                 = 2.30940107675850305803659512200782982259040700508050
+                   75040744093059359106892117333827748615823429981009008
+                   34855220542270706626593459998603305082207349459164864
+                   70412430920307410942396642680144623323102002041645768
+                   9204430515534229672891895783961636062842
+                 # exact algebraic; agreement with Prompt 005 to
+                 # full digit count of S_zeta_star_digits.txt
+
+C_native       = 8.12733679549507236711257873202358318226454272233879
+                 3442962779422864942231170962684449206434528015595926
+                 6284893592852745976893032602245626894475233206044958
+                 80664420774981598810033884197092823557473226911652785
+                 400664208096248862807283043517884864891234
+                 # measured at 108 digits (Prompt 005, sha256 in claims.jsonl)
+
+S_zeta_star_native = 2 * pi * i * C_native
+                   = 51.0655631399546622698316746099456615679204103033
+                     10390833391103210657180651857438876469837109815493
+                     63002163148911106478170099838308041691055463949550
+                     84964407454087617623793142600716301961173294557270
+                     377426159821745162685075058125774898394383524205288 i
+
+# === Canonical P_III(D_6) image under partial Phi ===
+
+# Phase C established Phi = Phi_symp o Phi_shift o Phi_resc with:
+#
+# Phi_resc:  z = lambda * t,   lambda = c_0^2 / 4 = 1/3   (PASS, R3-conditional)
+#            wave function: f(z) -> mu * t^(sigma_0 - rho/2) * tilde f(t)
+#
+# Phi_shift: t -> t + t_0    (t_0 symbolic, R4-conditional)
+#
+# Phi_symp:  symplectic transform on (q, p) Lax-pair monodromy data
+#            * NOT WRITTEN OUT *  (R5: Okamoto 1987 Lax pair required)
+
+# Therefore:
+#
+#   C_can           = (Jacobian factor of Phi) * C_native
+#   S_zeta_star_can = 2 * pi * i * C_can
+#
+# where the Jacobian factor decomposes as
+#
+#   J(Phi) = J(Phi_resc) * J(Phi_shift) * J(Phi_symp)
+#          = lambda^(some exponent fixed by sigma_0 - rho/2)
+#            * (no contribution from Phi_shift on the Stokes data,
+#               since affine t-shifts act trivially on the Stokes
+#               class in the t=0 sector)
+#            * (Phi_symp factor: a unimodular complex number times
+#               a determinant factor, BOTH UNDETERMINED in this session)
+
+J_resc_symbolic     = lambda^(sigma_0 - rho/2)
+                    = (1/3)^(sigma_0 + 11/12)
+                    # contains R2 (sigma_0).  If sigma_0 = 0 (a guess
+                    # consistent with the toric-monodromy convention,
+                    # but NOT verified against literature), this is
+                    # (1/3)^(11/12) ~ 0.382...
+
+J_shift_symbolic    = 1
+                    # rigorous: affine t-shift fixes the Stokes class
+
+J_symp_symbolic     = exp(i theta) * det(g)^(some power)
+                    # UNDETERMINED.  See R5.
+
+# Pending R2 + R5, the canonical S_zeta_star_can is symbolic only:
+
+S_zeta_star_can = J_resc_symbolic * J_symp_symbolic * S_zeta_star_native
+
+# A numerical value at 50+ digits is NOT produced in this session.
+# Producing one with the (sigma_0 = 0, J_symp = 1) guess would
+# violate the prompt's "Do NOT fabricate parameter values for
+# missing Okamoto / Conte-Musette pieces" clause.
+
+# === HALT-clause check ===
+#
+# G15_NOT_LIFTABLE       : NOT TRIGGERED (matching system consistent so far).
+# G15_NORMALIZATION_AMBIGUOUS : NOT TRIGGERED (Phi family is parameterised
+#                          by R1-R5, which are continuous/discrete-from-
+#                          literature, not ambiguous up to discrete
+#                          choices in this session).
+# G15_NUMERICAL_DRIFT    : NOT TRIGGERED (no numerical comparison
+#                          performed).
+# G15_PROSE_OVERCLAIM    : NOT TRIGGERED (forbidden-verb scan in
+#                          handoff.md and rubber_duck_critique.md).
