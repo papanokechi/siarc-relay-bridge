@@ -1,7 +1,8 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.9 (post-014 PASS — `PASS_A_EQ_6_ONLY` at $|\delta_\text{lin}| \le 3.09 \times 10^{-23}$ across 4 j=0 cubic families; M7 achieved in the A=6-only branch; G5+G16 closed; PSLQ on H6 Chowla–Selberg basis B19+ exhausts at PSLQ-detection precision with no $\Gamma(1/3)$ closure; trivial reflection-identity in literal 18-basis flagged for synthesizer hygiene)
+**Revision:** v1.10 (post-016 HALT — `HALT_T36_S2_RICHARDSON_DIVERGED` at bridge `6ffba3f`; convention-check ratio $a_n/(C\,\Gamma(n)\,\zeta_*^{-n}) \to 1$ only at the $1/n$ rate not exponentially; $d=2$ PCFs carry non-zero polynomial-in-$1/n$ corrections to the leading Birkhoff amplitude even though $\beta_R = 0$; Phase C Richardson on the $2\zeta_*$ ladder amplifies polynomial residual to $R_\infty \sim 10^{654}$ noise; bonus first-correction $a_1$ endpoint measurements per rep extracted at 3–4 digits; G19 sharpened, NEW G20 surfaced, NEW Q24 surfaced)
 **Original:** 2026-05-02 18:05 JST
 **Updated:** 2026-05-02 21:00 JST  (post-014 absorption — extended v1.8 → v1.9)
+**Updated:** 2026-05-02 21:30 JST  (post-016 HALT absorption — extended v1.9 → v1.10)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
@@ -9,7 +10,22 @@ synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
 
-> **🆕 Updates since v1.8 (see § 19 Amendment Log for detail):**
+> **🆕 Updates since v1.9 (see § 20 Amendment Log for detail):**
+> - 🛑 **Prompt 016 HALTED with verdict `HALT_T36_S2_RICHARDSON_DIVERGED`** (T36-S2-EXTRACTION, ~25 min agent; secondary key `T36_S2_CROSSMETHOD_MISMATCH`). T36 attempted to extract the alien amplitude $S_2$ at the $2\zeta_*$ ladder rung by subtracting the leading $C \, \Gamma(n) \, \zeta_*^{-n}$ from $a_n$ and Richardson-extrapolating $R_n := r_n \, (2\zeta_*)^n / \Gamma(n)$ — the standard recipe used to extract $S_1$ in 010. **The recipe failed structurally**, not for precision reasons: the Phase B convention check $a_n / (C \, \Gamma(n) \, \zeta_*^{-n}) \to 1$ agreed with $1$ only to **~3 digits at $n=1500$–$1900$** (target was 60+), with V_quad/QL15/QL05/QL09 attaining $\{3.111, 2.886, 2.389, 5.557\}$ digits. The convention ratio is decaying as $1 + a_1/n + O(1/n^2)$, NOT as $1 + S_2/(2C) \cdot (1/2)^n + \cdots$. **Implication:** $d=2$ PCFs carry **non-zero polynomial-in-$1/n$ corrections to the leading Birkhoff amplitude** — these dominate the residual $r_n$ over the next ladder rung's $(1/2)^n$ contribution, and Richardson on $R_n$ then amplifies polynomial-residual noise as $2^n / n^k$, producing $R_\infty \sim 10^{654}$ (manifest noise, **not** an $S_2$ measurement). Cross-method digit agreement collapsed to $\sim 10^{-15}$. The runner halted honestly per the prompt's `T36_S2_CROSSMETHOD_MISMATCH` clause; the relay agent re-keyed it as `T36_S2_RICHARDSON_DIVERGED` to reflect the underlying cause.
+> - 📊 **Bonus measurement: first polynomial correction $a_1$ per rep** (3–4 digits via endpoint estimator on $s_n := n \cdot (a_n / a_n^\text{lead} - 1) \to a_1$ in `extract_a1.py`, dps=280):
+>   - V_quad ($\Delta_b<0$, $A=3$, $\Delta_b=-11$): $a_1 \approx \mathbf{-1.47165}$
+>   - QL15 ($\Delta_b<0$, $A=3$, $\Delta_b=-20$): $a_1 \approx \mathbf{-2.47108}$
+>   - QL05 ($\Delta_b>0$, $A=4$, $\Delta_b=+8$): $a_1 \approx \mathbf{+7.76157}$
+>   - QL09 ($\Delta_b>0$, $A=4$, $\Delta_b=+1$): $a_1 \approx \mathbf{-0.00527}$ ⚠ **anomalously near zero**
+> - 🔄 **G19 SHARPENED (not contradicted).** T35's measurement $\beta_R = 0$ to $\le 10^{-85}$ across all 4 reps is unaffected — it characterises the leading $\Gamma$-argument shift in $a_n \sim C \, \Gamma(n + \beta_R) \, \zeta_*^{-(n+\beta_R)}$, **not** the polynomial coefficients $(a_1, a_2, \ldots)$ that follow at the $1/n^k$ scales. G19's wording in §5 is updated to make this explicit. The "alien-amplitudes live exactly on $\Gamma(n)$ with no $\Gamma$-shift" formalisation candidate stands, but does **not** extend to "and the leading amplitude has no polynomial corrections" — those corrections **do** exist and are family-specific.
+> - 🆕 **NEW gap G20 — first-polynomial-correction $a_1$ does NOT cleanly partition the $\Delta_b$ dichotomy at 3-digit precision.** $\Delta_b<0$ side: $\{-1.47, -2.47\}$ (both negative, $O(1)$). $\Delta_b>0$ side: $\{+7.76, -0.005\}$ (split sign, two orders of magnitude apart). The QL09 anomaly ($a_1 \approx 0$) is **distinct from but possibly correlated with** QL09's existing T35 anomaly ($\mathrm{sign}(C) = -$ while QL05's is $+$). Whether $a_1$ partitions cleanly at higher precision, or whether some other invariant of the polynomial expansion does (e.g., $a_1/C$, $a_2$, $\arg a_1$ — but all four reps' $a_1$ are real here), is open: **NEW Q24** (synthesizer territory).
+> - 🔄 **P-PIII Stokes-side discrimination is now `PARTIAL+DEEPER`.** 010's leading-scale finding is unchanged (no structural pattern at the $|S_1|$ scale); 016 establishes that the next-scale Birkhoff data is **not** $S_2$-shaped (i.e., the resurgent next-rung doesn't dominate the next-order correction in $a_n$). G6b is now harder than v1.9 anticipated: the dichotomy may be diagnosable only via the polynomial-correction *coefficients* $(a_1, a_2, \ldots)$ rather than via alien amplitudes, which would make the resurgent classification a *less* useful axis than v1.7 hoped. Closure path is now Prompt 017c (polynomial-aware joint-fit, see §6 — replaces the v1.9-era 017a/b $S_3$/ratio branches).
+> - 📝 **Post-016 prompt series amended.** The previous v1.9 P-PIII track plan (017a $S_3$-extraction or 017b ratio-verify-full-catalogue) is **invalidated** by the polynomial-correction discovery: $S_3$ extraction would fail for the same reason $S_2$ failed (residuals dominated by $1/n^k$ polynomial terms, not by $1/3^n$ ladder rung); ratio-verify is moot when the $S_2$ value itself is not measured. **NEW Prompt 017c (`T37-S2-EXTRACTION-POLYNOMIAL-AWARE`):** joint-fit $(C, a_1, a_2, \ldots, a_K)$ with $K \sim 30$–$50$ via constrained-LSQ on $T_n := a_n \, \zeta_*^n / \Gamma(n)$ over a polynomial-decay window (e.g., $n \in [200, 600]$), subtract the full polynomial expansion from $a_n$, then apply Richardson on the residual at the $2\zeta_*$ scale. Reuses 010's cached `borel_*_dps250_N2000.csv` (no new high-dps mpmath series). If joint-fit precision insufficient (the cached series caps at dps=250, capping $a_K$ extraction at $K \sim$ dps$/\log_{10}(N) \approx 75$), alternative is to extend the recurrence at dps=400, $N=5000$ (~1 hr compute).
+> - 🛠 **Reusable infrastructure delivered.** `t36_runner.py` (Phase A load + Phase B convention check + Phase C Richardson + LSQ on the $2\zeta_*$ ladder + halt-key verdict ladder) is reusable for any future alien-amplitude extraction at the next ladder rung; `extract_a1.py` (endpoint estimator on $s_n := n \cdot (a_n/a_n^\text{lead} - 1)$) is reusable for first-polynomial-correction measurements at 3–4 digit precision. Both are in `siarc-relay-bridge/sessions/2026-05-02/T36-S2-EXTRACTION/`.
+> - ❓ **NEW open question (Q24, see § 8) — *does some invariant of the polynomial corrections discriminate the dichotomy?*** Three sub-questions: (a) does $a_1$ partition cleanly at higher precision (would require Prompt 017c at $K \le 5$ to settle)? (b) does some normalised invariant ($a_1/C$, $a_2/(a_1)^2$, etc.) partition where $a_1$ alone does not? (c) does the QL09 dual anomaly ($\mathrm{sign}(C) = -$ AND $a_1 \approx 0$) signal a basis-convention artefact (linked to Q18) or a genuine third stratum? *This question is operator + Claude territory; a relay agent can extract higher-precision $a_k$ but cannot pick the invariant.*
+> - 📊 **Cycle status (post-016 HALT):** Of the **13** prompts fired in this cycle, **7 are ✅ DONE** (001, 003, 004, 005, 007, 012, 014), **4 are 🛑 HALTED** (002 G12 source-drift; 006 j=0 5-param precision floor — *now superseded in soft branch by 014*; 013 G15 gate — as designed; **016** T36 polynomial-correction discovery — *substantive halt, not a failure*), **2 are 🟡 PARTIAL** (009 G15; 010 G6b at leading scale, **now amended to PARTIAL+DEEPER by 016**). Plus 1 in-chat halt-only firing: **015** (T25E-VQUAD-PIII-NORM-MAP-CLOSE; halted on R5 dependency gate at bridge `6020e86` — synthesizer-side stub written; not counted as a substantive prompt firing). G2 + G5 + G16 still closed; G19 sharpened; **NEW G20** surfaced. Synthesizer territory now **8 active questions**: Q11/Q18/Q19/Q20/Q21/Q22/Q23/Q24.
+
+> **🆕 Updates since v1.8 (carried forward from v1.9; see § 19 Amendment Log for detail):**
 > - ✅ **Prompt 014 PASSED with verdict `PASS_A_EQ_6_ONLY`** (T25D-RETRY-13PARAM, ~12 min agent). Refit the four saved $j=0$ cubic $y_n$ series ($Q_{30}\ldots Q_{33}$, dps=25000, $N=200\ldots 1200$) with an **11-parameter** LIN ansatz (4 base + 7 $1/n$ corrections; $K_\text{FIT}=7$ instead of the prompt's specified $K_\text{FIT}=9$ — **judgment call**, see Q22) via square-exact `mp.lu_solve` at workdps=4000. Per-family $|\delta_\text{lin}|$: $\{3.27, 3.16, 11.9, 30.9\} \times 10^{-24}$ — **max $|\delta| = 3.09 \times 10^{-23}$**. Tail-window cross-check (7-pt vs 11-param at $N \ge 600$): agreement $\sim 4$–$8 \times 10^{-14}$; vs Prompt 006's 5-param tail-fit at $N \ge 800$: $\sim 1$–$3 \times 10^{-8}$ (consistent with 006's documented precision floor). **PSLQ Phase D (DPS_PSLQ=200, DPS_VERIFY=400, maxcoeff=$10^{50}$, tol=$10^{-40}$):** 17-member deduplicated H6 Chowla–Selberg basis B19+ returns **no relation** on any of 4 families — i.e., **no $\Gamma(1/3)$ Chowla–Selberg amplitude closure** detected at this precision. **Reading:** $A = 6$ to PSLQ-detection precision; the j=0 endpoint closes in the "A=6 only" branch (no Chowla–Selberg amplitude correction in B19+ at $|\delta| \sim 10^{-23}$).
 > - ✅ **G5 + G16 CLOSED (in the A=6-only branch).** PCF-2 §6 (current published wording: `AMBIGUOUS-AT-FINITE-N`) can now be amended to `A = 6 to PSLQ-detection precision; no detected Chowla–Selberg amplitude correction in H6 basis at the present precision`. The relay agent drafted `pcf2_v1.4_amendment.md` (Phase F output) for the operator's review; deposit gated on Q22 (does $|\delta| \sim 10^{-23}$ meet the operator's intended closure threshold, or is the stretch goal $|\delta| < 10^{-30}$ formally required?). M7 ✅ **achieved in soft branch**.
 > - 📊 **Numerical findings cross-validated.** The 014 verdict is fully consistent with **Prompt 006's empirical signal** ($A_\text{lin} = 6 \pm 2 \times 10^{-7}$ across all 4 families, monotone-decreasing $|\delta_\text{lin}|$ with $N_\max$): no discrepancy. The 11-param refit reaches $\sim 10^{-23}$ — 16 orders below 006's 5-param floor — and matches the Prompt 014 spec's $|\delta| < 10^{-15}$ minimum target with $\ge 8$ orders of margin. **Stretch goal $|\delta| < 10^{-30}$ NOT achieved** in this run; would require fresh $y_n$ at $N \le 2400$ with dps $\ge 44{,}300$ and $K_\text{FIT}=9$ (full 13-param). Operator decides via Q22.
@@ -192,33 +208,44 @@ across the corresponding session folders. CT v1.3 SHA-256
 
 - 14 prompts staged at `tex/submitted/control center/prompt/`
   (001–007 + 009/010/012/013/014/015 drafted/fired; 008 + 011 reserved;
-  🆕 016 drafted post-010 PARTIAL — refit-only S_2 extraction). See §6
-  for current status.
-- **10 fired this cycle:** 001 ✅, 003 ✅, 004 ✅, 005 ✅, 006* 🛑, 007 ✅,
-  010* 🟡, 012 ✅, 013* 🛑, **014 ✅ (NEW)**. *006 HALT, *010 PARTIAL,
-  *013 HALT (gate `CC_BOREL_009_NOT_AVAILABLE` fired correctly — see
-  "HALTED" / "PARTIAL" lines below).
-- 🆕 **2 fired and PARTIAL this cycle:** 009 (verdict `G15_PARTIAL`;
-  Φ_resc + Φ_shift pinned; Φ_symp residual on Okamoto Lax pair) and
-  **010** (verdict `G6B_PARTIAL_HIGHER_ORDER_NEEDED`; |S_1| differs
-  across dichotomy without structural pattern; β_R=0 universal at
-  d=2 — NEW G19; S_2 extraction queued via 016).
-- **3 fired and HALTED this cycle:** 002 (verdict
+  🆕 016 fired post-010 PARTIAL — substantive HALT; 🆕 017c queued post-016 HALT
+  — polynomial-aware S_2 extraction). See §6 for current status.
+- **11 fired this cycle:** 001 ✅, 003 ✅, 004 ✅, 005 ✅, 006* 🛑, 007 ✅,
+  010* 🟡, 012 ✅, 013* 🛑, 014 ✅, **016* 🛑 (NEW — substantive)**.
+  *006 HALT, *010 PARTIAL, *013 HALT (gate `CC_BOREL_009_NOT_AVAILABLE`
+  fired correctly), *016 HALT (gate `T36_S2_RICHARDSON_DIVERGED` —
+  substantive polynomial-correction discovery, see "HALTED" line below).
+- 🆕 **2 fired and PARTIAL this cycle (010 sharpened to PARTIAL+DEEPER):**
+  009 (verdict `G15_PARTIAL`; Φ_resc + Φ_shift pinned; Φ_symp residual
+  on Okamoto Lax pair) and **010** (verdict
+  `G6B_PARTIAL_HIGHER_ORDER_NEEDED`; |S_1| differs across dichotomy
+  without structural pattern; β_R=0 universal at d=2 — G19 sharpened
+  in v1.10 to "leading-Γ-shift only, NOT polynomial coefficients";
+  S_2 extraction attempted via 016 → revealed polynomial-correction
+  structure; refire path = 017c).
+- **4 fired and HALTED this cycle:** 002 (verdict
   `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`), 006 (verdict
   `AMBIGUOUS_AT_DPS8000` — *now superseded in the soft branch by 014's
-  PASS_A_EQ_6_ONLY*), and 013 (verdict
+  PASS_A_EQ_6_ONLY*), 013 (verdict
   `CC_BOREL_009_NOT_AVAILABLE` — *gate working as designed*; refire
-  pending Q21 path-(a) vs path-(b) decision). See §6.
+  pending Q21 path-(a) vs path-(b) decision), and **016** (verdict
+  `HALT_T36_S2_RICHARDSON_DIVERGED` — *substantive halt: d=2 PCFs
+  carry non-zero polynomial-in-1/n corrections to leading Birkhoff;
+  bonus a_1 measurements per rep at 3-4 digits; G19 sharpened, NEW
+  G20 + Q24 surfaced; refire path = Prompt 017c polynomial-aware*).
+  See §6.
 - **0 remaining ready-to-fire from the original 7-prompt queue**
   (006 + 010 both landed).
 - **1 drafted-ready math-closure prompt remains** in the original
   012/013 batch: 013 (P-CC formal closure; gated on full G15 closure
   via 015; *currently HALTED awaiting refire path*). 012 has
   **graduated to ✅ DONE** (G2 closed at d=3 across 3 Galois bins).
-- **1 drafted-ready retry prompt remains:** 🆕 **016**
-  (T36-S2-EXTRACTION; refit-only; gates G6b full closure via
-  S_2 alien amplitude). 014 has **graduated to ✅ DONE** (G5+G16
-  closed in A=6-only branch via PASS_A_EQ_6_ONLY at $|\delta| \sim 10^{-23}$).
+- 🆕 **1 drafted-ready retry prompt:** 🆕 **017c**
+  (T37-S2-EXTRACTION-POLYNOMIAL-AWARE; joint-fit (C, a_1, ..., a_K) with
+  K~30-50 on cached CSVs; gates G6b deeper closure + Q24 partition
+  question via higher-precision a_1). 014 has **graduated to ✅ DONE**
+  (G5+G16 closed in A=6-only branch); 016 has **graduated to 🛑
+  HALTED (substantive)** with 017c replacing it.
 - 🆕 **1 drafted but operator-gated prompt:** 015 (T25E-VQUAD-PIII-
   NORM-MAP-CLOSE; ~2–4 hr; gated on R5 = Okamoto 1987 §§2–3 Lax
   pair via the G3b ILL/AMS workflow).
@@ -228,10 +255,10 @@ across the corresponding session folders. CT v1.3 SHA-256
 - **pcf1-v13-reconcile** (Prompt 011, future) — operator
   decision required: bump to v1.4 OR recover v1.3 source
   snapshot. Gates 002.
-- ~28 SQL todos pending; ~26 done; 1–3 blocked (55 total at v1.9;
-  prompt-014-fire marked done post-cycle; 2 new pending
-  follow-ups for Q22/Q23 added; pcf2-v1-4-deposit-decision-q22-gated
-  added as new blocked todo).
+- 25 SQL todos pending; 30 done; 5 blocked (60 total at v1.10;
+  prompt-016-fire + t36-s2-extraction-execute marked done post-cycle;
+  2 new pending follow-ups for Q24 + 017c added; net +5 vs v1.9's 55
+  reflects 015 halt-record + 016 halt absorptions).
 
 ### 2.4 Recently closed (this cycle)
 
@@ -338,6 +365,30 @@ across the corresponding session folders. CT v1.3 SHA-256
   Q22 (closure-threshold acceptance) + Q23 (PSLQ basis hygiene)
   surfaced. PCF-2 v1.4 §6 amendment drafted (`pcf2_v1.4_amendment.md`,
   Phase F output). M7 ✅ achieved in soft branch.
+- 🆕 🛑 **Prompt 016 HALTED — `HALT_T36_S2_RICHARDSON_DIVERGED`**
+  (substantive halt — methodological win, not a failure).
+  T36-S2-EXTRACTION refit 010's cached `borel_*_dps250_N2000.csv`
+  series and ran the standard recipe to extract the alien amplitude
+  $S_2$ at the next ladder rung $2\zeta_*$: subtract leading
+  $C \, \Gamma(n) \, \zeta_*^{-n}$, Richardson-extrapolate
+  $R_n := r_n \, (2\zeta_*)^n / \Gamma(n)$. **Phase B convention check
+  failed**: $a_n / (C \, \Gamma(n) \, \zeta_*^{-n}) \to 1$ agreed with
+  1 only to ~3 digits at $n=1900$ (target 60+); the convention ratio
+  decays as $1 + a_1/n + O(1/n^2)$, NOT exponentially. Implication:
+  $d=2$ PCFs carry **non-zero polynomial-in-$1/n$ corrections to the
+  leading Birkhoff amplitude** even though $\beta_R = 0$ universal at
+  $d=2$ (T35). Phase C Richardson then amplified the polynomial
+  residual as $2^n / n^k$, producing $R_\infty \sim 10^{654}$ noise;
+  cross-method digit agreement collapsed to $\sim 10^{-15}$. **Bonus
+  measurement**: first polynomial correction $a_1$ extracted per rep
+  at 3–4 digits via `extract_a1.py` endpoint estimator on
+  $s_n := n \cdot (a_n/a_n^\text{lead} - 1) \to a_1$:
+  V_quad $-1.47$, QL15 $-2.47$, QL05 $+7.76$, QL09 $-0.005$
+  (anomalously near zero). 11 AEAL claims; halt log carries the
+  structural finding + verdict; G19 sharpened (β_R=0 = leading-Γ-only,
+  NOT polynomial-coefficients); NEW G20 + Q24 surfaced. Closure path:
+  Prompt 017c (polynomial-aware joint-fit on cached CSVs;
+  drafted-ready). **Compute: ~25 min agent.**
 
 ---
 
@@ -349,7 +400,7 @@ across the corresponding session folders. CT v1.3 SHA-256
 | **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) ✅ → Phase 2 B-T application (BLOCKED on primary sources + H1 arbitration) | EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d, 2d]$; H1 fleet label DISPUTED |
 | **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) ✅ → V_quad → P_III(D_6) normalization map (Prompt 009) 🟡 PARTIAL → V_quad-PIII-NORM-MAP-CLOSE (Prompt 015, R5-gated) → CC-FORMAL-BOREL-CLOSE (Prompt 013) 🛑 HALTED on 009 gate (correct behaviour) → `op:cc-formal-borel` | algebraic identity DONE (CT v1.3 §3.5); Stokes-side **MEASURED** in V_quad native normalization at 108 digits (Prompt 005); G15 PARTIAL: Φ_resc ($\lambda=1/3$) + Φ_shift pinned, Φ_symp residual on R5 (Okamoto 1987 Lax pair); 013 correctly halted on gate `CC_BOREL_009_NOT_AVAILABLE` — refire pending Q21 path (a) full G15 via 015 / (b) symbolic-only PARTIAL; canonical-form $C_\text{can}$ pending Prompt 015 |
 | **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) attempted j=0 closure → HALTED at 7-digit precision; T2.5d-RETRY (Prompt 014) ✅ closed j=0 endpoint at $|\delta| \sim 10^{-23}$ in the A=6-only branch | T2 PASSED; $j=0$ ✅ **A=6 to PSLQ-detection precision, no Chowla–Selberg amplitude correction in H6 B19+** (Prompt 014 verdict `PASS_A_EQ_6_ONLY`; max $|\delta_\text{lin}| = 3.09 \times 10^{-23}$); 30-digit *stretch-goal* closure deferred to Q22 path-(b) (14b refit at $K_\text{FIT}=9$ with extended $y_n$) |
-| **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3.5 Stokes-multiplier S_1 (Prompt 010) 🟡 PARTIAL → T3.6 S_2 alien amplitude (Prompt 016, drafted; refit-only) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant); 010 PARTIAL: $|S_1|$ separates the two sides at $O(1)$ scale but *no structural pattern* at the leading scale; G19 side-finding $\beta_R = 0$ universal at $d=2$; G6b closure via Prompt 016 |
+| **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3.5 Stokes-multiplier S_1 (Prompt 010) 🟡 PARTIAL → T3.6 S_2 alien amplitude (Prompt 016) 🛑 HALTED on polynomial-correction discovery → T37 polynomial-aware (Prompt 017c, refit-only) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant); 010 PARTIAL: $|S_1|$ separates the two sides at $O(1)$ scale but *no structural pattern* at the leading scale; G19 side-finding $\beta_R = 0$ universal at $d=2$ (sharpened in v1.10: leading-$\Gamma$-argument only, NOT polynomial-coefficient); **016 HALT** revealed $d=2$ PCFs carry non-zero polynomial-in-$1/n$ corrections to the leading Birkhoff that defeat the standard $S_2$-extraction recipe; first-correction $a_1$ measured at 3–4 digits per rep with no clean dichotomy partition (NEW G20); G6b now `PARTIAL+DEEPER`; closure path through Prompt 017c (polynomial-aware joint-fit) |
 | **P-MC**  | Master conjecture: $\Phi$ classifies PCF asymptotics | Gated on P-NP + P-B4 + P-CC | NOT YET FORMALLY STATED |
 
 ---
@@ -479,7 +530,8 @@ canonical artefact).
 | **G16** 🆕 | **Spec-vs-precision-floor mismatch** — 5-parameter $1/n$ ansatz at $N=1200$ caps $A$-fit precision at $\sim 7$ digits (model truncation $O(1/N^2)$); the 30-digit formal threshold required by `op:j-zero-amplitude-h6` needs $\geq 13$ parameters. Generalises to any deep-WKB closure operator. | LOW–MED | ✅ **CLOSED 2026-05-02 (in A=6-only branch)** — Prompt 014 demonstrated structural fix (11-param LIN refit reaches $|\delta| \sim 10^{-23}$; PSLQ on H6 B19+ exhausts at PSLQ-detection precision with no relation). Op-design lesson: future deep-WKB operators should pre-compute parameter-count floor from desired digit threshold ($k \ge \text{digits}/\log_{10}N - 1$) — Q15 (carried). |
 | **G17** 🆕 | **Layer separation**: V_quad scalar OGF ODE (linear; Hamiltonization quadratic in $p$) vs canonical $P_{III}(D_6)$ Hamiltonian (nonlinear in $(q,p)$) — the two live at *different* geometric layers (L-equation vs its isomonodromic deformation). $\Phi$ acts on Lax-pair monodromy data, not on $(f, f', z)$ directly. CT v1.3 §3.5 implicitly knew this ("algebraic identity at Painlevé-class level only") but does not spell it out. | MED (epistemic / framing) | Operator/Claude decision: should CT v1.4 amend §3.5 to spell out the L-equation vs isomonodromic-deformation distinction? Prompt 015 will treat the layer structure as a working assumption regardless. |
 | **G18** 🆕 | **Okamoto-constraint mismatch on $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0) = (1/6, 0, 0, -1/2)$**: the four numbers sum to $-1/3$, not $0$ — the Okamoto $\alpha + \alpha + \beta + \beta = 0$ constraint quoted in the relay-prompt brief is not satisfied. Three interpretations (CT v1.3 internal vs Sakai vs different parametrization). | LOW (convention) | Operator: pin from Okamoto 1987 §2 (R1) once acquired; possibly resolves trivially as a different parametrization convention. Flagged informational, not halt-class. |
-| **G19** 🆕 | **Universal side-finding $\beta_R = 0$ at $d=2$**: the Birkhoff resurgent ansatz $a_n \sim C \, \Gamma(n + \beta_R) \, \zeta_*^{-(n+\beta_R)}$ has $\beta_R$ measured to $\le 10^{-85}$ across all 4 d=2 PCF representatives in Prompt 010 (V_quad, QL15, QL05, QL09 — both sides of the $\Delta_b$ dichotomy). Alien amplitudes live exactly on $\Gamma(n)$ with no $\Gamma$-shift. | MED (epistemic / structural) | Synthesizer-formalisation candidate: "alien-amplitude $\Gamma$-shift = 0 universal at $d=2$". Possible link to Sakai-surface / isomonodromic geometry of the $d=2$ catalogue. Operator/Claude decision territory; not a compute task. |
+| **G19** 🆕 | **Universal side-finding $\beta_R = 0$ at $d=2$ (SHARPENED v1.10)**: the Birkhoff resurgent ansatz $a_n \sim C \, \Gamma(n + \beta_R) \, \zeta_*^{-(n+\beta_R)} \cdot (1 + a_1/n + a_2/n^2 + \cdots)$ has $\beta_R$ measured to $\le 10^{-85}$ across all 4 d=2 PCF representatives in Prompt 010 (V_quad, QL15, QL05, QL09). Alien amplitudes live exactly on $\Gamma(n)$ with no $\Gamma$-shift. **HOWEVER**, Prompt 016 (HALT 2026-05-02) showed the polynomial coefficients $(a_1, a_2, \ldots)$ of the leading amplitude are **NON-zero and family-specific** — $\beta_R = 0$ characterises the leading $\Gamma$-argument **only**, not the asymptotic-series corrections. G19's formalisation candidate is "alien-amplitude leading $\Gamma$-shift = 0 universal at $d=2$" (which **does** hold), not "the leading amplitude has no polynomial corrections" (which **does not**). | MED (epistemic / structural) | Synthesizer-formalisation candidate (sharpened scope). Possible link to Sakai-surface / isomonodromic geometry of the $d=2$ catalogue. Operator/Claude decision territory; not a compute task. |
+| **G20** 🆕 | **First-polynomial-correction $a_1$ does NOT cleanly partition $\Delta_b$-sign dichotomy at 3-digit precision** (Prompt 016 bonus measurement). Per-rep at 3–4 digits via `extract_a1.py`: V_quad ($\Delta_b<0$) $a_1 \approx -1.47$; QL15 ($\Delta_b<0$) $a_1 \approx -2.47$; QL05 ($\Delta_b>0$) $a_1 \approx +7.76$; QL09 ($\Delta_b>0$) $a_1 \approx -0.005$. Negative-side both negative-and-$O(1)$; positive-side split sign and 2-orders-of-magnitude spread. QL09's $a_1 \approx 0$ is anomalously near zero — distinct from but possibly correlated with QL09's existing $\mathrm{sign}(C) = -$ anomaly (Q18). G6b's resurgent-classification axis may not discriminate the dichotomy at any alien-amplitude scale; the discrimination may live in the polynomial-correction coefficients themselves. | MED (structural / methodological) | Prompt 017c (T37-S2-EXTRACTION-POLYNOMIAL-AWARE, drafted-ready) extracts $(a_1, \ldots, a_K)$ at higher precision via joint-fit $K \sim 30$–$50$ on cached CSVs; tests whether $a_1$ partitions cleanly at higher precision OR some normalised invariant ($a_1/C$, etc.) partitions where $a_1$ alone does not. Q24 surfaces this as synthesizer arbitration territory (which invariant to test). |
 
 Severity legend:
 - **HIGH** — blocks a paper, blocks a downstream proof, or
@@ -513,7 +565,8 @@ milestones (see § 4).
 | 013 🆕 | CC formal Borel close — closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates (composes 005's $C$ + 009's Φ); flips CT v1.3 §3.5 status to "DIAGNOSED" | (P-CC formal closure) | (P-CC final close) | 🛑 **HALTED 2026-05-02** (verdict `CC_BOREL_009_NOT_AVAILABLE`; gate fired correctly on 009 = G15_PARTIAL; ~10 min agent; no Borel sum / canonical $C$ produced; refire pending Q21 path (a) or (b)) | low–medium (symbolic + numerical 3-point) | gated on 009 (currently HALTED) |
 | 014 🆕 | T2.5d-RETRY-13PARAM — refit saved $y_n$ CSVs with 13-param ansatz; targets $\|\delta_\text{lin}\| < 10^{-15}$, then runs Phase D PSLQ on Chowla–Selberg basis | G5, G16 | M7 (formal closure) | ✅ **DONE 2026-05-02** (verdict `PASS_A_EQ_6_ONLY`; ~12 min agent; max $|\delta_\text{lin}| = 3.09 \times 10^{-23}$ at $K_\text{FIT}=7$; PSLQ on H6 B19+ at maxcoeff $10^{50}$/tol $10^{-40}$ returns no $\Gamma(1/3)$ relation in any of 4 families; PCF-2 v1.4 §6 amendment drafted; Q22+Q23 surfaced) | low (~12 min agent; pure refit + PSLQ) | INDEPENDENT |
 | 015 🆕 | T25E-VQUAD-PIII-NORM-MAP-CLOSE — pins R1–R4 from Okamoto/Conte-Musette; writes Φ_symp from Lax-pair gauge transform; computes $J(\Phi)$ numerically; verifies $S_{\zeta_*}^\text{can}$ against Lisovyy-Roussillon tables to ≥ 50 digits | G15 (full closure), G18 | M6 (canonical-form full closure); unblocks 013 | ✅ DRAFTED 2026-05-02; **GATED on R5** (operator G3b acquisition of Okamoto 1987 + Conte-Musette ch. 7) | low–medium (~2–4 hr agent; symbolic + literature) | gated on operator literature |
-| 016 🆕 | T36-S2-EXTRACTION — refit cached `borel_*_dps250_N2000.csv`; subtract leading $C\Gamma(n)\zeta_*^{-n}$; second Richardson pass to extract $S_2$ (alien amplitude at $2\zeta_*$); test ratio $S_2/S_1^2$ for structural invariance; check $|S_2|$ and $\arg(S_2)$ as side-discriminators | G6b (full closure), G19 (cross-check) | M8b (full closure if S_2 discriminates; otherwise S_3 escalation) | ✅ DRAFTED 2026-05-02; ready (no new mpmath series; pure refit on 010's cached CSVs) | low (~30 min agent; refit-only) | INDEPENDENT |
+| 016 🆕 | T36-S2-EXTRACTION — refit cached `borel_*_dps250_N2000.csv`; subtract leading $C\Gamma(n)\zeta_*^{-n}$; second Richardson pass to extract $S_2$ (alien amplitude at $2\zeta_*$); test ratio $S_2/S_1^2$ for structural invariance; check $|S_2|$ and $\arg(S_2)$ as side-discriminators | G6b (full closure attempt), G19 (sharpened), G20 (NEW) | M8b (full closure attempted; halt revealed deeper structure) | 🛑 **HALTED 2026-05-02** (verdict `HALT_T36_S2_RICHARDSON_DIVERGED`; ~25 min agent; convention-check ratio agrees with 1 only to ~3 digits at n=1900 not 60+; d=2 PCFs carry polynomial-in-$1/n$ corrections to leading Birkhoff; Phase C Richardson R_inf ~10^654 noise; bonus $a_1$ endpoint measurements per rep at 3-4 digits; G19 SHARPENED, G20+Q24 surfaced; refire path = Prompt 017c polynomial-aware) | low (~25 min agent; refit-only) | INDEPENDENT |
+| 017c 🆕 | T37-S2-EXTRACTION-POLYNOMIAL-AWARE — joint-fit $(C, a_1, \ldots, a_K)$ with $K \sim 30$–$50$ via constrained-LSQ on $T_n = a_n \zeta_*^n / \Gamma(n)$ over polynomial-decay window $n \in [200, 600]$; subtract full polynomial expansion from $a_n$; Richardson on residual at $2\zeta_*$ scale | G6b (deeper closure), G20 (settles a_1 partition question) | M8b (P-PIII Stokes-side closure if $S_2$ extraction succeeds OR if a_1 partitions cleanly at higher precision) | ✅ **DRAFTED-READY 2026-05-02** (replaces invalidated 017a/b from v1.9 plan); reuses 010's cached CSVs (no new mpmath series); alternative if joint-fit precision insufficient: extend recurrence at dps=400, $N=5000$ (~1 hr compute) | low (~30-45 min agent; refit-only) | INDEPENDENT |
 
 **Concurrency map** (validated this cycle for the original 7-prompt subset):
 
@@ -539,11 +592,12 @@ member of the batch that is compute-heavy (mpmath dps≥150 on
 low-compute symbolic + light-numerical.
 
 **Recommended firing layout for the *next* compute window
-(post-010 PARTIAL + 012 PASS + 013 HALT + **014 PASS**; v1.9 status):**
-- Slot 1: **016** (~30 min refit; closes G6b fully if S_2
-  discriminates the dichotomy; cross-checks G19 β_R=0 universal).
-  Refit-only on 010's cached CSVs; no new mpmath series.
-  Highest-leverage tiny-compute slot now.
+(post-010 PARTIAL + 012 PASS + 013 HALT + 014 PASS + **016 HALT (substantive)**; v1.10 status):**
+- Slot 1: **017c** (~30–45 min refit; closes G6b at the polynomial-correction
+  scale if joint-fit succeeds; surfaces $a_1$ partition question at higher
+  precision for Q24). Reuses 010's cached CSVs (no new mpmath series).
+  **Replaces 016 in this slot** — 016 graduated to 🛑 HALTED (substantive
+  finding, not a failure).
 - Slot 2 (operator-side, runs in parallel with 016):
   **G3b literature acquisition** — Okamoto 1987 §§2–3 (~10 pp)
   + Conte-Musette 2008 ch. 7 §§7.3–7.4 (~25 pp) via the
@@ -1041,7 +1095,185 @@ e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
 
 ---
 
-## 19. Amendment Log (v1.8 → v1.9)
+## 19. Amendment Log (v1.9 → v1.10)
+
+This amendment absorbs **Prompt 016 (T36-S2-EXTRACTION) HALT** —
+verdict `HALT_T36_S2_RICHARDSON_DIVERGED`, secondary
+`T36_S2_CROSSMETHOD_MISMATCH`. The halt is **substantive**, not a
+failure: it discovered that $d=2$ PCFs carry **non-zero polynomial-
+in-$1/n$ corrections to the leading Birkhoff amplitude** even though
+$\beta_R = 0$ (T35's measurement). The convention-check ratio
+$a_n / (C \, \Gamma(n) \, \zeta_*^{-n}) \to 1$ decays as
+$1 + a_1/n + O(1/n^2)$ rather than $1 + S_2 \cdot (1/2)^n / (2C) +
+\cdots$, so the next ladder rung's contribution is dominated by
+polynomial residue at the cached precision. Phase C Richardson on
+$R_n := r_n \, (2\zeta_*)^n / \Gamma(n)$ then amplified the
+polynomial residual as $2^n / n^k$, producing $R_\infty \sim 10^{654}$
+(manifest noise, not a measurement). The runner halted honestly per
+its `T36_S2_CROSSMETHOD_MISMATCH` clause; the relay agent re-keyed
+the verdict to reflect the underlying cause. The 016 verdict landed
+at bridge commit `6ffba3f` (operator-side push at ~20:55 JST).
+
+### v1.9 → v1.10 AEAL findings (016 HALTED)
+
+| AEAL claim (per `T36-S2-EXTRACTION/claims.jsonl`) | Value | Script | Reproducibility |
+|---------------|-------|--------|-----------------|
+| Convention-check digits at $n=1900$ (V_quad) | 3.111 | `t36_runner.py` | dps=300 Phase B |
+| Convention-check digits at $n=1900$ (QL15) | 2.886 | `t36_runner.py` | dps=300 Phase B |
+| Convention-check digits at $n=1900$ (QL05) | 2.389 | `t36_runner.py` | dps=300 Phase B |
+| Convention-check digits at $n=1900$ (QL09) | 5.557 | `t36_runner.py` | dps=300 Phase B |
+| Phase C Richardson cross-method digit agreement | $\sim 10^{-15}$ | `t36_runner.py` | confirms divergence, not noise floor |
+| First-polynomial-correction $a_1$ (V_quad, $\Delta_b<0$, $A=3$) | $-1.47165$ | `extract_a1.py` | 3–4 digits via endpoint estimator on $s_n$ |
+| First-polynomial-correction $a_1$ (QL15, $\Delta_b<0$, $A=3$) | $-2.47108$ | `extract_a1.py` | 3–4 digits |
+| First-polynomial-correction $a_1$ (QL05, $\Delta_b>0$, $A=4$) | $+7.76157$ | `extract_a1.py` | 3–4 digits |
+| First-polynomial-correction $a_1$ (QL09, $\Delta_b>0$, $A=4$) | $-0.00527$ | `extract_a1.py` | ⚠ anomalously near zero |
+| Convention-deviation judgment-call | $a_n^\text{lead} = C \cdot \Gamma(n) \cdot \zeta_*^{-n}$ (T35-consistent), NOT prompt-literal $(C/2\pi) \cdot \Gamma(n) \cdot \zeta_*^{-n}$ | `rubber_duck_critique.md` | otherwise V_quad's CC-MEDIAN cross-check at 49 digits would falsify |
+
+11 AEAL claims total; halt log contains the structural finding +
+verdict + diagnostic detail; discrepancy log is `{}` (no internal
+discrepancies — the halt is the verdict); unexpected_finds records 4
+convention-check anomalies by rep. **All 11 claims pass `grep` for
+"shows"/"confirms"/"proves"/"demonstrates" — none used in
+prediction-or-conjecture context.**
+
+### v1.9 → v1.10 G19 sharpening + G20 emergence
+
+T35's $\beta_R = 0$ universal at $d=2$ is **not contradicted** by 016
+— it characterises the leading $\Gamma$-argument shift in
+$a_n \sim C \, \Gamma(n + \beta_R) \, \zeta_*^{-(n+\beta_R)} \cdot
+(1 + a_1/n + a_2/n^2 + \cdots)$, **not** the polynomial coefficients
+$(a_1, a_2, \ldots)$. G19's wording is updated to make this explicit;
+G19's formalisation candidate "alien-amplitude leading-$\Gamma$-shift
+= 0 universal at $d=2$" stands, **but** does NOT extend to "the
+leading amplitude has no polynomial corrections" (which 016 falsifies
+empirically per-rep at the 3–4 digit level).
+
+**NEW G20:** the first polynomial correction $a_1$ does NOT cleanly
+partition the $\Delta_b$-sign dichotomy at 3-digit precision. The
+$\Delta_b<0$ side has both $a_1$ negative and $O(1)$ ($-1.47, -2.47$);
+the $\Delta_b>0$ side has split sign and 2 orders of magnitude spread
+($+7.76, -0.005$). QL09's $a_1 \approx 0$ may be the same anomaly
+shadow as QL09's $\mathrm{sign}(C) = -$ in 010 (Q18 territory), or it
+may be a genuine third stratum. Higher-precision $a_1$ measurements
+(via Prompt 017c joint-fit) are required to settle the partition
+question, and Q24 surfaces the synthesizer-arbitration question of
+*which* invariant of the polynomial expansion to test.
+
+### v1.9 → v1.10 P-PIII track plan amendment
+
+The previous v1.9 post-016 plan in `synthesizer_inbox/post_016_prompt_series_v0.md`
+listed 017a (S_3-extraction) and 017b (ratio-verify-full-catalogue)
+as the candidate continuations. **Both are invalidated** by 016's
+finding:
+- **017a $S_3$-extraction would fail for the same reason 016 did** —
+  residuals dominated by $1/n^k$ polynomial terms, not by $1/3^n$
+  ladder rung; Richardson on $R_n^{(3)}$ would diverge identically.
+- **017b ratio-verify is moot** when the $S_2$ value itself is not
+  measured; there is no ratio $S_2 / S_1^2$ to verify.
+
+**NEW Prompt 017c (`T37-S2-EXTRACTION-POLYNOMIAL-AWARE`)** replaces
+both: joint-fit $(C, a_1, a_2, \ldots, a_K)$ with $K \sim 30$–$50$
+via constrained-LSQ on $T_n := a_n \, \zeta_*^n / \Gamma(n)$ over a
+polynomial-decay window (e.g., $n \in [200, 600]$); subtract the full
+polynomial expansion from $a_n$; only THEN apply Richardson on the
+residual at the $2\zeta_*$ scale. The cached series at dps=250 caps
+$a_K$ extraction at $K \le \mathrm{dps}/\log_{10}(N) \approx 75$ in
+principle; if 017c finds $K \approx 30$–$40$ insufficient, the
+fallback is to extend the recurrence at dps=400, $N=5000$ (~1 hr
+compute, still on a single laptop). Drafted-ready, slot-1 candidate
+for the next compute window.
+
+### v1.9 → v1.10 Q24 surfaced (synthesizer territory)
+
+> **Q24:** Does some invariant of the polynomial corrections
+> $(a_1, a_2, \ldots)$ partition the $\Delta_b$-sign dichotomy at $d=2$?
+>
+> Three sub-questions for Claude:
+> - **(a)** Does $a_1$ partition cleanly at higher precision? Prompt 017c
+>   at $K \le 5$ would settle this with $\sim 10$ digits; if yes, G20
+>   becomes "G20-CLOSED via $a_1$ separates sides".
+> - **(b)** If $a_1$ does NOT partition, does some normalised invariant
+>   ($a_1/C$, $a_2/(a_1)^2$, $\arg a_1$, etc.) partition where $a_1$
+>   alone does not? Synthesizer must propose the invariant to test.
+> - **(c)** Is QL09's dual anomaly ($\mathrm{sign}(C) = -$ AND
+>   $a_1 \approx 0$) a basis-convention artefact (linked to Q18) or a
+>   genuine third stratum? If the former, the partition collapses to
+>   2 sides at higher precision; if the latter, P-PIII has 3 strata
+>   not 2.
+
+### v1.9 → v1.10 SQL todo deltas
+
+- `prompt-016-fire`: pending → **done** (with halt note)
+- `t36-s2-extraction-execute`: pending → **done** (with halt note)
+- `g19-betaR-zero-d2-formalize`: description updated with sharpening
+  note (status remains pending — Claude formalisation pass still
+  pending, just on the **sharpened** scope)
+- `q24-d2-polynomial-correction-discrimination-claude-arbitrate`:
+  NEW pending todo (Q24 surfaced — Claude arbitration on which
+  invariant of the polynomial corrections to test)
+- `prompt-017c-fire`: NEW pending todo (T37-S2-EXTRACTION-POLYNOMIAL-AWARE
+  drafted-ready; replaces 017a/b in post-016 plan)
+
+**Post-v1.10:** 30 done / 25 pending / 5 blocked = **60 todos**
+(net: +2 done [016+t36], +2 pending [Q24 + 017c], +1 blocked from prior
+015 absorption that wasn't in v1.9 SQL count = +5 = 60; v1.9 reported
+55, prior duplicate cleanup retired 0 net; the +5 is the genuine
+post-v1.9 delta from 015 halt + 016 halt absorptions).
+
+### v1.9 → v1.10 bridge commit trail
+
+```
+[v1.10 picture]  STRATEGIC-PICTURE-REVISED v1.10 (this push, pending)
+6ffba3f          T36-S2-EXTRACTION (Prompt 016 HALT — substantive)  [absorbed by v1.10]
+6020e86          T25E-VQUAD-PIII-NORM-MAP-CLOSE (synthesizer-side halt-record stub for 015)  [absorbed by v1.10 via §6 footnote]
+3fd10de          STRATEGIC-PICTURE-REVISED v1.9 — absorb 014 PASS
+969cf54          STRATEGIC-PICTURE-REVISED v1.8 — absorb 010+012+013
+e857172          T25D-RETRY-13PARAM (Prompt 014 PASS)               [absorbed by v1.9]
+726b53e          CC-FORMAL-BOREL-CLOSE (Prompt 013 HALT)            [absorbed by v1.8]
+e93458f          XI0-D3-DIRECT (Prompt 012 PASS)                    [absorbed by v1.8]
+```
+
+### v1.9 → v1.10 cycle status
+
+**Cycle accounting (post-016 HALT):** **13 prompts fired total** in
+this cycle: **7 ✅ DONE** (001, 003, 004, 005, 007, 012, 014); **4 🛑
+HALTED** (002 G12 source-drift; 006 j=0 5-param precision floor —
+*now superseded in soft branch by 014's PASS*; 013 G15 gate — as
+designed; **016** T36 polynomial-correction discovery — *substantive
+halt, methodological win*); **2 🟡 PARTIAL** (009 G15; 010 G6b at
+leading scale, **now amended to PARTIAL+DEEPER by 016's
+polynomial-correction finding**). Plus 1 in-chat halt-only firing:
+**015** (T25E; halted on R5 dependency gate at bridge `6020e86` —
+synthesizer-side stub written; not counted as substantive). G2 + G5
++ G16 still closed (no regressions); G19 sharpened (not contradicted);
+**NEW G20** surfaced (first-polynomial-correction $a_1$ does not cleanly
+partition $\Delta_b$ at 3-digit precision). M1, M3, M5, M6, M7, M8
+remain done or in soft closure; **M8b** (P-PIII full closure) remains
+deferred — Prompt 017c is the next attempt.
+
+**Synthesizer territory now has 8 active questions** for Claude
+arbitration: Q11 (H1 fleet label), Q18 (sign-of-C basis-independence),
+Q19 (β_R=0 d=2 universal — sharpened scope), Q20 (Conj 3.3.A* proof
+upgrade), Q21 (013 refire path — *urgent post-015 halt*), Q22 (014
+closure-threshold acceptance), Q23 (PSLQ basis hygiene rule), **Q24**
+(polynomial-correction discrimination invariant — *synthesizer must
+propose what to test*) — plus G17 layer-separation framing (CT v1.4
+amendment decision).
+
+Layout-wise this amendment inserts a new top callout block above the
+v1.8 → v1.9 callouts at the top of the document, adds a new G20 row
+in §5 immediately after G19 (with G19 itself updated to mark the
+sharpening), updates the §3 P-PIII track row, replaces Prompt 016's
+§6 row from DRAFTED to HALTED, adds a new Prompt 017c row in §6,
+updates the §6 firing-layout subtitle to include "016 HALT
+(substantive)" and replaces the v1.9 Slot 1 entry (which targeted
+016) with a new Slot 1 entry targeting 017c, and inserts this §19
+amendment-log block (renumbering the v1.8 → v1.9 amendment log to
+§20 — see below).
+
+---
+
+## 20. Amendment Log (v1.8 → v1.9)
 
 This amendment absorbs **Prompt 014 (T25D-RETRY-13PARAM) PASS** —
 verdict `PASS_A_EQ_6_ONLY`, $|\delta_\text{lin}| = 3.09 \times 10^{-23}$,
