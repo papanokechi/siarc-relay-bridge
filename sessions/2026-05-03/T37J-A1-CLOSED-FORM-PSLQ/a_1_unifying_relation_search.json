@@ -1,0 +1,451 @@
+{
+  "joint_pslq": {
+    "configs": [
+      {
+        "atom_names": [
+          "a1_V",
+          "a1_QL15",
+          "a1_QL05",
+          "1"
+        ],
+        "rel_tol_1e-30": [
+          1,
+          -1,
+          0,
+          -1
+        ],
+        "rel_tol_1e-30_explained": "+1*a1_V -1*a1_QL15 -1*1",
+        "rel_tol_1e-12": [
+          1,
+          -1,
+          0,
+          -1
+        ],
+        "rel_tol_1e-12_explained": "+1*a1_V -1*a1_QL15 -1*1",
+        "hygiene_flag_loose_only": false
+      },
+      {
+        "atom_names": [
+          "a1_V",
+          "a1_QL15",
+          "a1_QL05",
+          "Db_V",
+          "Db_QL15",
+          "Db_QL05",
+          "1"
+        ],
+        "rel_tol_1e-30": [
+          0,
+          0,
+          0,
+          -1,
+          1,
+          1,
+          1
+        ],
+        "rel_tol_1e-30_explained": "-1*Db_V +1*Db_QL15 +1*Db_QL05 +1*1",
+        "rel_tol_1e-12": [
+          0,
+          0,
+          0,
+          -1,
+          1,
+          1,
+          1
+        ],
+        "rel_tol_1e-12_explained": "-1*Db_V +1*Db_QL15 +1*Db_QL05 +1*1",
+        "hygiene_flag_loose_only": false
+      },
+      {
+        "atom_names": [
+          "a1_V",
+          "a1_QL15",
+          "a1_QL05",
+          "Db_V/(2A)^2",
+          "Db_QL15/(2A)^2",
+          "Db_QL05/(2A)^2",
+          "1"
+        ],
+        "rel_tol_1e-30": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -8,
+          1
+        ],
+        "rel_tol_1e-30_explained": "-8*Db_QL05/(2A)^2 +1*1",
+        "rel_tol_1e-12": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -8,
+          1
+        ],
+        "rel_tol_1e-12_explained": "-8*Db_QL05/(2A)^2 +1*1",
+        "hygiene_flag_loose_only": false
+      },
+      {
+        "atom_names": [
+          "a1_V",
+          "a1_QL15",
+          "a1_QL05",
+          "Db_V/A^2",
+          "Db_QL15/A^2",
+          "Db_QL05/A^2",
+          "1"
+        ],
+        "rel_tol_1e-30": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -2,
+          1
+        ],
+        "rel_tol_1e-30_explained": "-2*Db_QL05/A^2 +1*1",
+        "rel_tol_1e-12": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -2,
+          1
+        ],
+        "rel_tol_1e-12_explained": "-2*Db_QL05/A^2 +1*1",
+        "hygiene_flag_loose_only": false
+      }
+    ]
+  },
+  "functional_form_scan": [
+    {
+      "form": "Delta_b/(2A)^2",
+      "residuals": [
+        {
+          "rep": "V_quad",
+          "predicted": "-0.305555555555555555555555555556",
+          "residual": "1.16667"
+        },
+        {
+          "rep": "QL15",
+          "predicted": "-0.555555555555555555555555555556",
+          "residual": "1.91667"
+        },
+        {
+          "rep": "QL05",
+          "predicted": "0.125",
+          "residual": "7.625"
+        }
+      ],
+      "max_residual": "7.625",
+      "max_residual_below_1e-30": false
+    },
+    {
+      "form": "(Delta_b - 1)/(2A)^2",
+      "residuals": [
+        {
+          "rep": "V_quad",
+          "predicted": "-0.333333333333333333333333333333",
+          "residual": "1.13889"
+        },
+        {
+          "rep": "QL15",
+          "predicted": "-0.583333333333333333333333333333",
+          "residual": "1.88889"
+        },
+        {
+          "rep": "QL05",
+          "predicted": "0.109375",
+          "residual": "7.64062"
+        }
+      ],
+      "max_residual": "7.64062",
+      "max_residual_below_1e-30": false
+    },
+    {
+      "form": "Delta_b/A^2",
+      "residuals": [
+        {
+          "rep": "V_quad",
+          "predicted": "-1.22222222222222222222222222222",
+          "residual": "0.25"
+        },
+        {
+          "rep": "QL15",
+          "predicted": "-2.22222222222222222222222222222",
+          "residual": "0.25"
+        },
+        {
+          "rep": "QL05",
+          "predicted": "0.5",
+          "residual": "7.25"
+        }
+      ],
+      "max_residual": "7.25",
+      "max_residual_below_1e-30": false
+    },
+    {
+      "form": "Delta_b/(A*(A-1))",
+      "residuals": [
+        {
+          "rep": "V_quad",
+          "predicted": "-1.83333333333333333333333333333",
+          "residual": "0.361111"
+        },
+        {
+          "rep": "QL15",
+          "predicted": "-3.33333333333333333333333333333",
+          "residual": "0.861111"
+        },
+        {
+          "rep": "QL05",
+          "predicted": "0.666666666666666666666666666667",
+          "residual": "7.08333"
+        }
+      ],
+      "max_residual": "7.08333",
+      "max_residual_below_1e-30": false
+    },
+    {
+      "form": "Delta_b/(4*A)",
+      "residuals": [
+        {
+          "rep": "V_quad",
+          "predicted": "-0.916666666666666666666666666667",
+          "residual": "0.555556"
+        },
+        {
+          "rep": "QL15",
+          "predicted": "-1.66666666666666666666666666667",
+          "residual": "0.805556"
+        },
+        {
+          "rep": "QL05",
+          "predicted": "0.5",
+          "residual": "7.25"
+        }
+      ],
+      "max_residual": "7.25",
+      "max_residual_below_1e-30": false
+    },
+    {
+      "form": "Delta_b*A/(2A)^2 = Db/(4A)",
+      "residuals": [
+        {
+          "rep": "V_quad",
+          "predicted": "-0.916666666666666666666666666667",
+          "residual": "0.555556"
+        },
+        {
+          "rep": "QL15",
+          "predicted": "-1.66666666666666666666666666667",
+          "residual": "0.805556"
+        },
+        {
+          "rep": "QL05",
+          "predicted": "0.5",
+          "residual": "7.25"
+        }
+      ],
+      "max_residual": "7.25",
+      "max_residual_below_1e-30": false
+    },
+    {
+      "form": "Delta_b/(A^2 - 1)",
+      "residuals": [
+        {
+          "rep": "V_quad",
+          "predicted": "-1.375",
+          "residual": "0.0972222"
+        },
+        {
+          "rep": "QL15",
+          "predicted": "-2.5",
+          "residual": "0.0277778"
+        },
+        {
+          "rep": "QL05",
+          "predicted": "0.533333333333333333333333333333",
+          "residual": "7.21667"
+        }
+      ],
+      "max_residual": "7.21667",
+      "max_residual_below_1e-30": false
+    },
+    {
+      "form": "(Delta_b - 9/4)/A^2  [V_quad+QL15 fit]",
+      "residuals": [
+        {
+          "rep": "V_quad",
+          "predicted": "-1.47222222222222222222222222222",
+          "residual": "7.07543e-58"
+        },
+        {
+          "rep": "QL15",
+          "predicted": "-2.47222222222222222222222222222",
+          "residual": "9.0287e-57"
+        },
+        {
+          "rep": "QL05",
+          "predicted": "0.359375",
+          "residual": "7.39062"
+        }
+      ],
+      "max_residual": "7.39062",
+      "max_residual_below_1e-30": false
+    },
+    {
+      "form_affine_3eq3unk": {
+        "form": "a_1 * (2A)^2 = c1*Delta_b + c2*A + c3",
+        "c1": "4.0",
+        "c2": "473.0",
+        "c3": "-1428.0",
+        "c1_rational_guess": "4",
+        "c2_rational_guess": "473",
+        "c3_rational_guess": "-1428"
+      }
+    }
+  ],
+  "polynomial_fit": {
+    "families": [
+      {
+        "family": "a_1 = c0 + c1*Delta_b + c2/A^2",
+        "coefficients": [
+          "16.003968253968253968253968254",
+          "0.111111111111111111111111111111",
+          "-146.285714285714285714285714286"
+        ],
+        "coeff_rational_guess": [
+          "4033/252",
+          "1/9",
+          "-1024/7"
+        ],
+        "max_residual": "1.49322e-300",
+        "fits_to_machine_zero": true
+      },
+      {
+        "family": "a_1 = c0 + c1*Delta_b + c2*A",
+        "coefficients": [
+          "-21.5833333333333333333333333333",
+          "0.111111111111111111111111111111",
+          "7.11111111111111111111111111111"
+        ],
+        "coeff_rational_guess": [
+          "-259/12",
+          "1/9",
+          "64/9"
+        ],
+        "max_residual": "1.49322e-300",
+        "fits_to_machine_zero": true
+      },
+      {
+        "family": "a_1 = c0/A + c1*Delta_b/A + c2*Delta_b/A^2",
+        "coefficients": [
+          "-0.75",
+          "14.875",
+          "-43.625"
+        ],
+        "coeff_rational_guess": [
+          "-3/4",
+          "119/8",
+          "-349/8"
+        ],
+        "max_residual": "2.61314e-300",
+        "fits_to_machine_zero": true
+      },
+      {
+        "family": "a_1 = c0 + c1*Delta_b/(2A)^2 + c2/A",
+        "coefficients": [
+          "29.75",
+          "4.0",
+          "-90.0"
+        ],
+        "coeff_rational_guess": [
+          "119/4",
+          "4",
+          "-90"
+        ],
+        "max_residual": "1.49322e-300",
+        "fits_to_machine_zero": true
+      }
+    ]
+  },
+  "ql09_boundary": {
+    "a1_QL09_measured": "-0.000000000000000000000000000000000000000000000000000000001...",
+    "candidate_evaluations": [
+      {
+        "form": "Delta_b/(2A)^2",
+        "f_at_QL09": "0.015625",
+        "delta_vs_measured_a1": "0.015625",
+        "consistent_with_a1_eq_0": false
+      },
+      {
+        "form": "(Delta_b - 1)/(2A)^2",
+        "f_at_QL09": "0.0",
+        "delta_vs_measured_a1": "1.70857e-57",
+        "consistent_with_a1_eq_0": true
+      },
+      {
+        "form": "Delta_b/A^2",
+        "f_at_QL09": "0.0625",
+        "delta_vs_measured_a1": "0.0625",
+        "consistent_with_a1_eq_0": false
+      },
+      {
+        "form": "Delta_b/(A*(A-1))",
+        "f_at_QL09": "0.0833333333333333333333333333333",
+        "delta_vs_measured_a1": "0.0833333",
+        "consistent_with_a1_eq_0": false
+      },
+      {
+        "form": "Delta_b/(4*A)",
+        "f_at_QL09": "0.0625",
+        "delta_vs_measured_a1": "0.0625",
+        "consistent_with_a1_eq_0": false
+      },
+      {
+        "form": "Delta_b/(A^2 - 1)",
+        "f_at_QL09": "0.0666666666666666666666666666667",
+        "delta_vs_measured_a1": "0.0666667",
+        "consistent_with_a1_eq_0": false
+      }
+    ],
+    "affine_evaluation": {
+      "form": "affine_3eq3unk on (V_quad, QL15, QL05)",
+      "f_at_QL09_a1": "7.3125",
+      "delta_vs_measured_a1": "7.3125",
+      "consistent_with_a1_eq_0": false
+    },
+    "polynomial_family_evaluations": [
+      {
+        "family": "a_1 = c0 + c1*Delta_b + c2/A^2",
+        "f_at_QL09": "6.97222222222222222222222222224",
+        "delta_vs_measured_a1": "6.97222",
+        "consistent_with_a1_eq_0": false
+      },
+      {
+        "family": "a_1 = c0 + c1*Delta_b + c2*A",
+        "f_at_QL09": "6.97222222222222222222222222225",
+        "delta_vs_measured_a1": "6.97222",
+        "consistent_with_a1_eq_0": false
+      },
+      {
+        "family": "a_1 = c0/A + c1*Delta_b/A + c2*Delta_b/A^2",
+        "f_at_QL09": "0.8046875",
+        "delta_vs_measured_a1": "0.804688",
+        "consistent_with_a1_eq_0": false
+      },
+      {
+        "family": "a_1 = c0 + c1*Delta_b/(2A)^2 + c2/A",
+        "f_at_QL09": "7.3125",
+        "delta_vs_measured_a1": "7.3125",
+        "consistent_with_a1_eq_0": false
+      }
+    ]
+  }
+}
