@@ -1,0 +1,13 @@
+{
+  "verdict": "AMBIGUOUS_AT_DPS8000",
+  "spec_dps_min": 8000,
+  "spec_N_min": 1200,
+  "literal_spec_dps_8000_internally_infeasible_at_A_eq_6": true,
+  "literal_spec_infeasibility_argument": "For an A=6 cubic continued fraction, |L_N - L_ref| ~ exp(-6 N log N). At N=1200, log10|L_N - L_ref| ~ -22150, so resolving y_N at N=1200 requires dps >= ~22150. The literal dps=8000 + N>=1200 reading cannot be honoured simultaneously without precision underflow. We honour the prompt's `dps>=8000` clause by setting dps=25000 (a safety buffer above the 22150-digit floor at N=1200) and run N up to 1200.",
+  "actual_dps": 25000,
+  "actual_N_max": 1200,
+  "actual_N_ref": 1320,
+  "halt_info": {
+    "reason": "LIN/EXP 5-param ansatze disagree on A by 2.31741260807e-6 > 1e-30; finite-N bias is not eliminable at dps=8000."
+  }
+}

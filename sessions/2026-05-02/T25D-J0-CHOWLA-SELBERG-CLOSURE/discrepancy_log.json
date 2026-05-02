@@ -1,0 +1,9 @@
+{
+  "spec_vs_run": {
+    "dps_spec_min": 8000,
+    "dps_run": 25000,
+    "N_min_spec": 1200,
+    "N_max_run": 1200,
+    "rationale": "Literal dps=8000 cannot resolve y_N at N=1200 for A=6 cubics (needs dps>=22150). Prompt's `dps>=8000` clause honoured by setting dps=25000."
+  }
+}
