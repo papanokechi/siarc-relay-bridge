@@ -1,0 +1,109 @@
+% pIII_canonical.tex --- Phase B deliverable
+% Session VQUAD-PIII-NORMALIZATION-MAP, 2026-05-02
+
+\section*{Canonical $P_{III}(D_6)$ Hamiltonian form}
+\label{sec:pIII-canonical}
+
+\paragraph{Convention.}
+We adopt the Okamoto $\sigma$-form Hamiltonian for
+$P_{III}(D_6)$ (Okamoto 1987, ``Studies on the Painlev\'e
+equations.~IV. Third Painlev\'e equation $P_{III}$'',
+\textsl{Funkcial.~Ekvac.}~30, 305--332; reproduced in
+Conte--Musette 2008, Ch.~7), which has parameters
+$(\alpha_\infty,\alpha_0,\beta_\infty,\beta_0)$ subject to the
+constraint
+\[
+  \alpha_\infty + \alpha_0 + \beta_\infty + \beta_0 = 0.
+\]
+The Hamiltonian, as quoted in the relay-prompt 009 brief
+(consistent with Okamoto--Sakai normalization), reads
+\[
+  \boxed{\;
+    t\,H_{III(D_6)}(q,p;t) \;=\;
+      2\,q^2 p^2
+      \;-\;\bigl(2 t\,q^2 + (2\alpha_\infty+1)\,q - 2 t\bigr)\,p
+      \;+\;(\alpha_\infty + \alpha_0)\,t\,q,
+  \;}
+\]
+with Hamilton's equations $t\,q' = \partial(t H)/\partial p$,
+$t\,p' = -\partial(t H)/\partial q$:
+\[
+  \begin{aligned}
+    t\,q' &= 4\,q^2 p - 2\,t\,q^2 - (2\alpha_\infty+1)\,q + 2\,t, \\
+    t\,p' &= -4\,q\,p^2 + 4\,t\,q\,p + (2\alpha_\infty+1)\,p
+              - (\alpha_\infty+\alpha_0)\,t.
+  \end{aligned}
+\]
+Eliminating $p$ yields the standard $P_{III}$ equation in $q(t)$
+\[
+  q'' = \tfrac{(q')^2}{q} - \tfrac{q'}{t}
+       + \tfrac{1}{t}\bigl(\alpha\,q^2 + \beta\bigr)
+       + \gamma\,q^3 + \tfrac{\delta}{q},
+\]
+with the standard $(\alpha,\beta,\gamma,\delta)$ parameters
+related to $(\alpha_\infty,\alpha_0,\beta_\infty,\beta_0)$ by
+the Okamoto--Sakai dictionary.
+
+\paragraph{Singular structure of $P_{III}(D_6)$.}
+The equation has irregular singularities at $t=0$ and
+$t=\infty$, both of Poincar\'e rank $1$ (level-$1$ trans-series
+in $1/t^{1/2}$ at $t=0$ and in $t^{1/2}$ at $t=\infty$). The
+$D_6$ refinement specifies the local-monodromy data at $t=0$
+to be of toric type with full irregular structure (as opposed
+to $P_{III}(D_7)$ and $P_{III}(D_8)$ degenerations).
+
+\paragraph{V$_\mathrm{quad}$ parameter point.}
+CT~v1.3 §3.5, \textsf{Thm.~vquad-cc}, identifies the
+V$_\mathrm{quad}$ family with $P_{III}(D_6)$ at the parameter
+point
+\[
+  (1/6,\ 0,\ 0,\ -1/2)
+  \quad\text{in some convention of }
+  (\alpha_\infty,\alpha_0,\beta_\infty,\beta_0).
+\]
+\textsc{Caveat.} The mapping
+$(\text{CT v1.3 4-tuple})\to(\alpha_\infty,\alpha_0,\beta_\infty,\beta_0)$
+is \emph{not} pinned by any source local to the operator's
+library: CT~v1.3 \textsf{Thm.~vquad-cc} cites the parameter
+point but defers the explicit Okamoto-convention
+identification to \textsf{op:cc-formal-borel}. This is exactly
+the residual G15 question.
+
+\paragraph{Constraint check.}
+The numerical values $\{1/6, 0, 0, -1/2\}$ sum to
+$1/6 - 1/2 = -1/3 \neq 0$. They therefore do \emph{not}
+directly satisfy the Okamoto-convention constraint
+$\alpha_\infty+\alpha_0+\beta_\infty+\beta_0=0$. This means
+either (a) CT~v1.3 §3.5 uses a different convention (e.g.\
+the Sakai $E_7^{(1)}/D_7^{(1)}$ root-data convention, where
+the four parameters are not constrained to sum to zero), or
+(b) one of the four entries should be reinterpreted as a
+spectral-type label rather than a Hamiltonian parameter.
+
+\textbf{This convention question is residual~R1 of G15.}
+Without Okamoto~1987 §2 or Conte--Musette ch.~7 §7.3 we cannot
+disambiguate.
+
+\paragraph{Tau function and Stokes data.}
+The $P_{III}(D_6)$ tau function $\tau(t)$, with
+$H_{III(D_6)} = (\log\tau)'$, has connection (Stokes) data
+between the $t=0$ irregular sector and the $t=\infty$
+irregular sector encoded by a pair of Stokes multipliers
+$(s_0, s_\infty)$ taking values on a complex algebraic surface
+(the cubic surface of monodromy data; see Lisovyy--Roussillon
+2017 for a modern treatment). The literature's standard
+``canonical'' Stokes-data normalization fixes:
+\begin{enumerate}
+  \item the multiplicative scale of the Lax-pair connection
+        matrix at $t=0$ (a free factor in the formal
+        fundamental solution),
+  \item the relative phase between the $t=0$ and $t=\infty$
+        sectors (a $\mathrm{U}(1)$ ambiguity that is fixed by
+        Boutroux's principal asymptotic value),
+  \item the labeling of the two Stokes rays at each irregular
+        sector (combinatorial $\mathbb{Z}/2$).
+\end{enumerate}
+The map from \emph{V$_\mathrm{quad}$-native} Stokes data
+$(C, \zeta_*)$ to canonical $P_{III}(D_6)$ Stokes data
+$(s_0^{\mathrm{can}}, s_\infty^{\mathrm{can}})$ is precisely
+$\Phi$ of \texttt{phi\_change\_of\_variables.tex}.
