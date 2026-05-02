@@ -1,0 +1,25 @@
+{
+  "minor_findings": [
+    {
+      "id": "UF-V13-1",
+      "kind": "build_glitch_recovered",
+      "description": "Initial pass-1 build failed because the new \\S3.6 paragraph used the macro \\Q (lifted from the umbrella v2.0 source), which is not defined in the v1.2 channel-theory preamble. Fixed by switching to \\mathbf{Q} (the macro convention used elsewhere in this document); no theorem or numerical content affected.",
+      "severity": "info",
+      "blocking": false
+    },
+    {
+      "id": "UF-V13-2",
+      "kind": "build_glitch_recovered",
+      "description": "Initial bibtex pass produced a .bbl file that broke pdflatex pass-3 because the new bib note fields used inline math (V$_{\\mathrm{quad}}$) and underscore-bearing plain text (Delta_d, MEDIAN_RESURGENCE_GIVES_30+_DIGITS) that BibTeX's plain.bst interpreter mangled. Resolved by replacing in-note math with macro-free LaTeX-safe equivalents (V\\_quad, $\\Delta_d$ in math mode, escaped underscores via brace pairs). No bibliographic substance changed.",
+      "severity": "info",
+      "blocking": false
+    },
+    {
+      "id": "UF-V13-3",
+      "kind": "section_numbering_observation",
+      "description": "The user prompt uses the cite handle [SIARC v2.0, \\S4.4] for the umbrella's invariant-triple framing. The actual section numbering in tex/submitted/umbrella_program_paper/main.tex places the invariant-triple subsections at \\S3.1--\\S3.5 (Definitions / Disc / Pet-norm / xi_0 / cells); there is no section \\S4.4 in the umbrella v2.0 source under the present TOC. v1.3 follows the user-supplied cite handle verbatim ([SIARC v2.0, \\S4.4]) per the explicit instructions. If the umbrella's section numbering changes in a v2.x revision, the cite handle in v1.3 \\S3.5 / \\S3.6 / \\S10 / abstract should be re-checked.",
+      "severity": "info",
+      "blocking": false
+    }
+  ]
+}

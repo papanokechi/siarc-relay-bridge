@@ -1,0 +1,60 @@
+<!-- ===== Title ===== -->
+
+Channel Theory for Polynomial Continued Fractions v1.3
+
+<!-- ===== v1.0 / v1.1 / v1.2 description (preserved verbatim from v1.2) ===== -->
+
+Channel Theory for Polynomial Continued Fractions: Asymptotic Channels, the ξ₀ = 2/√β₂ Identity, and a Bridge Conjecture (v1.2).
+
+Position. We propose, define, and catalogue *asymptotic channels* for sequences arising from polynomial continued fractions (PCFs), formalised as triples (D, T, S) consisting of a formal-series space D, an asymptotic gauge T, and an analytic-continuation section S. Three concrete channels appear in the SIARC stack: the recurrence-parameter channel L(t), the Borel-of-trans-series channel BoT, and the connection-coefficient channel CC. Empirically (six Δ < 0 degree-2 families), the three channels are non-cofinal: L(t) and BoT both fail where CC succeeds on the V_quad → P_III(D₆) detection task. This outline is a top-level posting (concept DOI 10.5281/zenodo.19941678, preserved across versions); v1.1 (10.5281/zenodo.19941679) and v1.2 (10.5281/zenodo.19951331) are superseded by v1.3.
+
+Universality findings (CC-PIPELINE-G + PCF2-SESSION-Q1, 2026-05-01). For every degree-2 PCF (1, b) in scope with b(n) = β₂ n² + β₁ n + β₀ (β₂ > 0), a Newton-polygon analysis of the order-2 ODE governing the partial-denominator generating function f(z) = Σ Q_n zⁿ at z = 0 yields a single slope-1/2 edge of multiplicity 2 with characteristic polynomial 1 − (β₂/4) c² and hence Borel-singularity radius ξ₀ = 2/√β₂; the secondary indicial exponent at the irregular singular point in the uniformiser u = √z is ρ = −3/2 − β₁/β₂ (Proposition 3.3.A). At d = 4, the same Newton-polygon construction gives a single slope-1/4 edge with characteristic polynomial 1 − (β₄/4⁴) c⁴ and hence ξ₀ = 4/β₄^(1/4), verified at dps = 80 across 8 quartic representatives with spread 0 (Proposition 3.3.A', PCF2-SESSION-Q1). This promotes the cross-degree formula to a universality conjecture (Conjecture 3.3.A*): ξ₀(b) = d/β_d^(1/d) for every degree-d PCF in scope, proven at d = 2, verified at d = 4, with d = 3 verification deferred to op:xi0-d3-direct. The earlier v1.1 candidate c(d) = 2√((d−1)!) — which agrees with d = 2 by coincidence — is empirically falsified at d = 4 (predicts ≈ 4.899, measured 4, ≈22% disagreement; Remark 3.3.E). The map (α₁, α₀, β₂, β₁, β₀) ↦ ξ₀ is non-injective: QL01 and QL02 share both ξ₀ = 2 and ρ = −5/2 and split only at a₂ (Proposition 3.3.B). The K-SCAN marginal coincidence between V_quad and QL15 (both β₂ = 3, both ξ₀ = 2/√3 to 200 digits) is structurally explained by Proposition 3.3.A — same β₂ forces same ξ₀ without forcing same Painlevé label (Remark 3.3.C). V_quad's known P_III(D₆) reduction is recovered through the CC channel as an exact algebraic identity to 200 digits, modulo Borel-Laplace summation of the formal coefficient series (Theorem 3.3.D).
+
+Bridge conjecture and open problems. The bridge identity Φ_b connecting the CC datum (ξ₀, ρ, a₁, a₂, …) to a Painlevé P-class label is functorial in the coefficient tuple rather than in the discriminant alone, and stratifies into three observed tiers: B1 (β₂-only witness; the weakest tier, witnessed by the universal ξ₀ identity), B2 (β₂ plus one secondary; the QL01/QL02 splitting case), B3 (full coefficient tuple; the general case). The K-SCAN reject of QL15 already pushes V_quad's tier-B1 witness down to B2 or higher.
+
+<!-- ===== v1.3 update paragraph (appended 2026-05-02) ===== -->
+
+v1.3 update (2026-05-02). v1.3 is a purely additive framing revision: no v1.0 / v1.1 / v1.2 theorem, proposition, or conjecture is rewritten or retracted. Three external inputs are absorbed.
+
+What is new in v1.3 (release-level summary):
+
+- New §3.5 "Median Écalle resurgence as the residual Laplace step (v1.3)". One numbered remark (rem:h4-median) records the Theory-Fleet H4 prediction (sessions/2026-05-01/THEORY-FLEET/H4/) as a *theoretical prediction at HIGH confidence* — explicitly NOT an executed measurement — that median Écalle resurgence on the V_quad formal coefficient series at 5000 coefficients with mpmath dps = 250 will extract the leading alien amplitude S_{ζ*} at ζ* = 4/√3 to 30–50 digits, with a central forecast of ~40 digits. The recipe (fit branch exponent from large-order tail; extract Stokes constant via half-Stokes prescription; cross-check by local Borel singular-germ fitting) and the cross-reference to the new op:cc-median-resurgence-execute are recorded; H4 explicitly does not forecast a closed-form S_{ζ*}.
+
+- New §3.6 "The cross-degree invariant triple of the SIARC umbrella (v1.3)". The post-T2 refactor of the SIARC umbrella v2.0 (10.5281/zenodo.19965041, [SIARC v2.0, §4.4]) packages the cross-degree SIARC stack as a bridge functor Φ : PCF(1,b) ↦ (Δ_d(b), ‖Δ‖_Pet(τ_b), ξ_0(b)). The Borel-radius axis carried by Channel Theory since v1.0 is the third coordinate. The modular-discriminant axis is established empirically by PCF-2 v1.3 / PCF2-SESSION-T2 at Spearman ρ = +0.638, p_Bonferroni = 8.6×10⁻⁶ on n = 50 cubic families, beating the bare log|j| baseline by ~30× in Bonferroni p. Channel Theory adds nothing structurally new on the Δ_d or ‖Δ‖_Pet axes (those are PCF-1/PCF-2/umbrella-v2.0 territory); §3.6 records the compatibility expectation that any successful bridge identity Φ_b will factor through Φ on the relevant axes, and a (β_d, ‖Δ‖_Pet, ξ_0)-coordinatised refinement of the B1/B2/B3 tiering.
+
+- New open problem op:cc-median-resurgence-execute (first entry of §9). Run median Écalle resurgence on the V_quad formal coefficient series at 5000 coefficients / dps 250, with ζ* = 4/√3 pinned at 200 digits. Resolves the residual Laplace step of op:cc-formal-borel for V_quad and would conditionally close the V_quad → P_III(D6) correspondence at the Stokes-data level under a documented normalisation map. 1–3 sessions of compute.
+
+- Refreshed open-problems list. op:cc-formal-borel — Status (v1.3): PARTIALLY DIAGNOSED by Theory-Fleet H4. op:xi0-d3-direct — Status (v1.3): Carried forward unchanged; tractability re-checked at 1–2 hours of computation, no halt. op:bridge-witness-tier — appended (v1.3) note that tier discrimination is now also informed by the umbrella's ‖Δ‖_Pet axis. op:cc-channel-existence (legacy) — appended (v1.3) note that the cubic case is now bound to PCF-2 v1.3 (Conjecture B5/B6 in their d = 3 restricted form).
+
+- Refreshed §10 SIARC sessions list with the 2026-05-{01,02} cohort: SIARC umbrella v2.0, PCF-2 v1.3, PCF2-SESSION-T2, Theory-Fleet H4, Theory-Fleet AGGREGATOR, PCF2-V13-RELEASE, SIARC-UMBRELLA-V2-RELEASE.
+
+- Bibliography expanded with four new entries: siarc_umbrella_v2 (concept 19885549, version 19965041), siarc_pcf2_v13 (concept 19936297, version 19963298), siarc_pcf2_session_t2 (bridge), siarc_theory_fleet_h4 (bridge; explicitly marked as theoretical prediction).
+
+- AI Disclosure refreshed to credit umbrella v2.0 / PCF-2 v1.3 / Theory-Fleet H4 absorption and to extend the AEAL-record reference to sessions/2026-05-{01,02}/.
+
+AEAL schema (v1.3 canonical form). Each per-session claims.jsonl entry conforms to the schema {"claim_id": ..., "task_id": ..., "claim": ..., "evidence_type": "file_inspection|computation|build", "dps": ..., "reproducible": true, "script": ..., "output_hash": "<sha256>"}, with claim_id and verdict optional. Numerical claims with no hashable script (e.g. theoretical predictions cited from sister sessions) are admissible only if the source session's claims.jsonl entry carries the underlying hash.
+
+No conjecture or theorem from v1.0–v1.2 is retracted. v1.3 is purely additive framing wrap.
+
+Concept DOI preserved (10.5281/zenodo.19941678); v1.0, v1.1, and v1.2 are superseded by this version. The 17-page v1.3 PDF integrates all v1.3-narrative inline (§3.5, §3.6, §10 v1.3 subsection, refreshed §9 open-problems entries, abstract sentence, AI disclosure paragraph) and is mirrored on the SIARC bridge at https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/CHANNEL-THEORY-V13-RELEASE/.
+
+<!-- ===== Related Identifiers (DataCite, operator-applied at upload) ===== -->
+
+Is new version of:
+  10.5281/zenodo.19951331   (Channel Theory v1.2)
+References:
+  10.5281/zenodo.19885549   (SIARC umbrella concept; cite-all)
+  10.5281/zenodo.19965041   (SIARC umbrella v2.0)
+  10.5281/zenodo.19936297   (PCF-2 concept; cite-all)
+  10.5281/zenodo.19963298   (PCF-2 v1.3)
+  10.5281/zenodo.19931635   (PCF-1 concept; cite-all)
+  10.5281/zenodo.19937196   (PCF-1 v1.3)
+  10.5281/zenodo.19783311   (T2B concept; cite-all)
+Is documented by:
+  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/CHANNEL-THEORY-V13-RELEASE/
+  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-01/THEORY-FLEET/H4/
+  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/PCF2-SESSION-T2/
+
+All "References" identifiers: DataCite resource type = Publication / Preprint.
+
+Method. AEAL/SIARC multi-agent methodology (cf. Paper P8). AI tools (GitHub Copilot powered by Anthropic Claude Opus 4.7, and Anthropic Claude) used for prose drafting, consistency-checking, and structural re-organisation; all conjectures, theorem statements, and editorial decisions remain the author's. All numerical claims trace to exact computations stored under sessions/2026-05-{01,02}/ on the SIARC bridge with AEAL claim entries in claims.jsonl.

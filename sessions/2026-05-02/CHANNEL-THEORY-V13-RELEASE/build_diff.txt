@@ -1,0 +1,415 @@
+diff --git "a/sessions\\2026-05-02\\CHANNEL-THEORY-V13-RELEASE\\archive\\channel_theory_outline_v1.2_baseline.tex" "b/sessions\\2026-05-02\\CHANNEL-THEORY-V13-RELEASE\\channel_theory_outline.tex"
+index 92ae206..0284d46 100644
+--- "a/sessions\\2026-05-02\\CHANNEL-THEORY-V13-RELEASE\\archive\\channel_theory_outline_v1.2_baseline.tex"
++++ "b/sessions\\2026-05-02\\CHANNEL-THEORY-V13-RELEASE\\channel_theory_outline.tex"
+@@ -49,8 +49,8 @@ the $\xi_0 = 2/\sqrt{\beta_2}$ identity,\\
+ and a bridge conjecture}
+ 
+ \author{The SIARC author}
+-\def\version{1.2}
+-\date{2026-05-01 (v\version)}
++\def\version{1.3}
++\date{2026-05-02 (v\version)}
+ 
+ \begin{document}
+ \maketitle
+@@ -99,6 +99,14 @@ $\xi_0(b) = d/\beta_d^{1/d}$
+ (Conjecture~3.3.A$^{\star}$), proven at $d=2$, verified at
+ $d=4$, with $d=3$ verification deferred to
+ \textsf{op:xi0-d3-direct}.
++Version~1.3 (2026-05-02) folds the Borel-radius identity
++$\xi_0(b) = d/\beta_d^{1/d}$ into the three-axis cross-degree
++invariant of the SIARC umbrella v2.0
++(\cite{siarc_umbrella_v2}, \S4.4) and reframes
++\textsf{op:cc-formal-borel} as partially diagnosed by the
++Theory-Fleet H4 prediction \cite{siarc_theory_fleet_h4} that
++median \'Ecalle resurgence at $5000$ coefficients delivers the
++$V_{\mathrm{quad}}$ alien amplitude at $30$--$50$ digits.
+ \end{abstract}
+ 
+ \tableofcontents
+@@ -131,13 +139,34 @@ radii drift unboundedly under truncation extension.
+ \end{enumerate}
+ Item~(c) rules out the most naive interpretation of the
+ Master Conjecture's \emph{channel functor}
+-$\chi : \Sigmaspace \to \Channel$ \cite{siarc_umbrella},
++$\chi : \Sigmaspace \to \Channel$ \cite{siarc_umbrella_v2},
+ namely that any deformation channel detects any reduction.
+ The empirical record of (a)--(c) shows that $\chi$ is
+ non-trivial: $\chi(\Sigma_{\Lt}) \ne \chi(\Sigma_{\CC})$,
+ and the two channels carry genuinely different analytic data
+ about the same underlying sequence.
+ 
++\paragraph{Strategic position at v1.3.}
++Following the SIARC umbrella v2.0 refactor of 2026-05-02
++\cite{siarc_umbrella_v2}, Channel Theory is now the
++$\xi_0$-axis component of a three-axis cross-degree story.
++The other two axes -- the polynomial discriminant $\Delta_d$
++and the Petersson modular discriminant
++$\|\Delta\|_{\mathrm{Pet}}$ at $d=3$ -- are owned by PCF-1
++\cite{siarc_pcf1_v13} and PCF-2 v1.3
++\cite{siarc_pcf2_v13}, with the modular-discriminant axis
++empirically established at $\rho = +0.638$,
++$p_{\mathrm{Bonf}} = 8.6\times10^{-6}$ on the $n=50$ cubic
++catalogue of PCF2-SESSION-T2 \cite{siarc_pcf2_session_t2}.
++The present outline adds nothing structurally new on the
++$\Delta_d$ or $\|\Delta\|_{\mathrm{Pet}}$ axes; instead, it
++makes the $\xi_0$ axis interoperable with them. The natural
++next leverage move identified by the umbrella v2.0 is the
++cubic CC-channel extension of median resurgence
++(umbrella \textsf{prob:median-resurgence-extension},
++$\to$ \textsf{op:cc-median-resurgence-execute} of
++\Cref{sec:open}).
++
+ \paragraph{What is new in v1.1.}
+ Version~1.1 promotes the keystone test
+ ``does the $\CC$ channel actually recover $\Vquad$'s
+@@ -171,6 +200,38 @@ $\xi_0(b) = d/\beta_d^{1/d}$. Concept DOI is preserved
+ v1.1 (\href{https://doi.org/10.5281/zenodo.19941679}{10.5281/zenodo.19941679})
+ is superseded.
+ 
++\paragraph{What is new in v1.3.}
++Version~1.3 (2026-05-02) is a purely additive framing
++revision: no v1.0 / v1.1 / v1.2 theorem, proposition, or
++conjecture is rewritten or retracted. Three external inputs
++are absorbed. (i)~The SIARC umbrella v2.0
++\cite{siarc_umbrella_v2}, \S4.4 reorganises the post-T2
++SIARC stack around the cross-degree \emph{invariant triple}
++$\Phi : \PCF(1,b) \mapsto
++(\Delta_d(b),\,\|\Delta\|_{\mathrm{Pet}}(\tau_b),\,\xi_0(b))$;
++the Borel-radius axis $\xi_0$ that this outline has carried
++since v1.0 is its third coordinate. (ii)~The PCF-2 v1.3 T2
++result \cite{siarc_pcf2_v13} (Petersson modular discriminant
++$\|\Delta\|_{\mathrm{Pet}}$ beats $\log|j|$ by ${\sim}30\times$
++in Bonferroni $p$ at Spearman $\rho = +0.638$,
++$p_{\mathrm{Bonf}} = 8.6\times10^{-6}$ on $n=50$ cubic
++families) supplies the second axis. (iii)~Theory-Fleet H4
++\cite{siarc_theory_fleet_h4} predicts at HIGH confidence that
++median \'Ecalle resurgence at $5000$ coefficients / dps $250$
++will extract the $V_{\mathrm{quad}}$ alien amplitude at
++$\zeta_* = 4/\sqrt 3$ to $30$--$50$ digits; this is folded in
++as the structural answer to v1.2's
++\textsf{op:cc-formal-borel}, which is now \emph{partially
++diagnosed}, with a sharper sub-problem
++\textsf{op:cc-median-resurgence-execute} (new at v1.3, \S\ref{sec:open})
++carrying the residual execution. \textsf{op:xi0-d3-direct}
++is carried forward unchanged at v1.3; tractability is
++re-checked at $1$--$2$ hours of computation, no halt.
++Concept DOI is preserved
++(\href{https://doi.org/10.5281/zenodo.19941678}{10.5281/zenodo.19941678});
++v1.2 (\href{https://doi.org/10.5281/zenodo.19951331}{10.5281/zenodo.19951331})
++is superseded.
++
+ \paragraph{Scope.}
+ We restrict throughout to PCF families
+ \[
+@@ -803,6 +864,18 @@ verified to $\geq 13$ decimal digits in
+ five families in \cite{siarc_cc_pipeline_f}.
+ \end{proposition}
+ 
++\Cref{prop:wkb} fixes the leading WKB exponent of
++$\log|\dn|$ but \emph{not} the residual Laplace step that
++converts the Birkhoff-factored formal pair $f_\pm(u)$ of the
++$\CC$ channel into Stokes data; that step is formally
++separate, and Theory-Fleet H4 (see \Cref{rem:h4-median}
++of \S\ref{ssec:h4-median}, and the new
++\textsf{op:cc-median-resurgence-execute} of
++\Cref{sec:open}) predicts that median \'Ecalle resurgence
++on the V$_{\mathrm{quad}}$ formal coefficient series at
++$5000$ coefficients / dps $250$ extracts the alien
++amplitude at $\zeta_*=4/\sqrt 3$ to $30$--$50$ digits.
++
+ The relevance of \Cref{prop:wkb} for v1.1 is the
+ cross-reference to the cubic case
+ $A = 2d = 6$ \cite{siarc_pcf2_v11}: the degree-$2$ split
+@@ -816,11 +889,141 @@ turn motivates the $\xi_0$-extension problem
+ resolved at $d=2,4$ via the linear formula
+ $\xi_0 = d / \beta_d^{1/d}$ (\Cref{conj:xi0-univ}).
+ 
++% =====================================================================
++\subsection{Median \'Ecalle resurgence as the residual
++Laplace step (v1.3)}
++\label{ssec:h4-median}
++
++The $\CC$-channel recovery of $\Vquad$
++(\Cref{thm:vquad-cc}) is exact-modulo-Laplace at the
++algebraic level: $\xi_0 = 2/\sqrt 3$ and $\rho = -11/6$ are
++verified to $200$ digits, but the connection-coefficient
++ratio still requires a numerical Borel--Laplace summation
++of the formal coefficient series $\sum_{k} a_k u^k$ to
++extract the Stokes constant attached to the Borel
++singularity at $\zeta_* = 4/\sqrt 3$. The Pad\'e--Borel
++estimator used in CC-PIPELINE-G \cite{siarc_cc_pipeline_g}
++showed slow convergence (Domb--Sykes secondary metric drift
++in the leading digits), consistent with global
++approximation to a branch cut rather than lack of
++information in the coefficients. Theory-Fleet H4 of
++2026-05-01 \cite{siarc_theory_fleet_h4} identifies the
++correct local object as the alien derivative
++$\Delta_{\zeta_*}$ in the sense of \'Ecalle--Sauzin
++\cite{ecalle1981fonctions, sauzin2014resurgent,
++mitschi2016divergent} and the correct unambiguous real
++resummation as the median sum
++$\mathcal S_{\mathrm{med}}$.
++
++\begin{remark}[Median resurgence prediction; theoretical, H4]
++\label{rem:h4-median}
++Theory-Fleet H4 \cite{siarc_theory_fleet_h4} is a
++\emph{theoretical prediction at HIGH confidence} -- not an
++executed measurement -- that median \'Ecalle resurgence on
++the V$_{\mathrm{quad}}$ formal coefficient series, run at
++$5000$ coefficients with mpmath working precision
++$\mathrm{dps} = 250$ and $\zeta_* = 4/\sqrt 3$ pinned to
++$200$ digits, will extract the leading alien amplitude
++$S_{\zeta_*}$ at $\zeta_*$ to $30$--$50$ digits, with a
++central forecast of $\sim 40$ digits. The recipe is: fit
++the branch exponent from the large-order tail by
++Borel--Darboux relations, extract the Stokes coefficient
++from the half-Stokes prescription
++$\mathcal S_{\mathrm{med}} = \mathcal S_{0^-} \circ
++\mathfrak S_0^{1/2}$, and cross-check via local Borel
++singular-germ fitting in a neighbourhood of $\zeta_*$.
++H4 explicitly does \emph{not} forecast a closed-form
++$S_{\zeta_*}$ (Gamma products at thirds/sixths are
++plausible candidates but the literature alone does not
++prove the form). The sub-problem of executing the
++prediction is logged as
++\textsf{op:cc-median-resurgence-execute}
++(\Cref{sec:open}, new at v1.3); resolving it would close
++the residual Laplace step of \textsf{op:cc-formal-borel}
++for $V_{\mathrm{quad}}$ and would conditionally close the
++$\Vquad \rightsquigarrow P_{III}(D_6)$ correspondence at
++the level of Stokes data, modulo a documented
++normalisation map to the $P_{III}(D_6)$ isomonodromic
++Stokes datum of \cite{lodayrichaud2016divergent,
++boalch2001stokes}.
++\end{remark}
++
++% =====================================================================
++\subsection{The cross-degree invariant triple of the SIARC
++umbrella (v1.3)}
++\label{ssec:invariant-triple}
++
++The post-T2 refactor of the SIARC umbrella v2.0
++\cite{siarc_umbrella_v2}, \S4.4 packages the cross-degree
++SIARC stack as a \emph{bridge functor}
++\[
++  \Phi : \PCF(1,b) \;\longmapsto\;
++  \bigl(\Delta_d(b),\;\|\Delta\|_{\mathrm{Pet}}(\tau_b),\;
++        \xi_0(b)\bigr),
++\]
++the \emph{invariant triple}: the polynomial discriminant
++$\Delta_d(b) = \mathrm{disc}(b) \in \mathbf{Q}^\times$, the
++Petersson-normalised modular discriminant
++$\|\Delta\|_{\mathrm{Pet}}(\tau_b) =
++|\Delta(\tau_b)| \cdot (\mathrm{Im}\,\tau_b)^6$ at the
++period $\tau_b$ of the curve $E_b: y^2 = b(x)$ (cubic case
++$d=3$), and the Borel radius $\xi_0(b) = d/\beta_d^{1/d}$
++of \Cref{conj:xi0-univ}. The Borel-radius axis that this
++outline has carried since v1.0 is, in this language, the
++third coordinate of $\Phi$.
++
++The empirical content of the modular-discriminant axis is
++the headline of PCF-2 v1.3 \cite{siarc_pcf2_v13}, T2 phase
++B/C: on the deep R1.3 cubic catalogue ($n=50$ irreducible
++non-singular cubic families, deep WKB at
++$\mathrm{dps} = 4000$, $N_{\max} = 480$), the Petersson
++height $\log\|\Delta\|_{\mathrm{Pet}}(\tau_b)$ correlates
++with the residual $\delta = A_{\mathrm{fit}} - 6$ at
++Spearman
++\[
++  \rho\bigl(\log\|\Delta\|_{\mathrm{Pet}}(\tau_b),\,\delta_{\mathrm{deep}}\bigr)
++   \;=\; +0.638,
++  \qquad p_{\mathrm{Bonf}}(K{=}14) = 8.6\times 10^{-6},
++\]
++\emph{beating} the bare-$\log|j|$ baseline
++($\rho = -0.568$, $p_{\mathrm{Bonf}} = 2.34\times 10^{-4}$)
++by a factor ${\sim}30$ in Bonferroni $p$
++\cite{siarc_pcf2_session_t2}. Bare $\log|E_4(\tau_b)|$
++alone underperforms $\log|j|$, consistent with the
++modular identity $1728\,\Delta = E_4^3 - E_6^2$: at the
++equianharmonic ($j = 0$) cell $E_4$ has a simple zero so
++$\log|E_4|$ is locally pinned, while
++$\log\|\Delta\|_{\mathrm{Pet}}
++= 6\log\mathrm{Im}\,\tau + \log|\Delta|$ remains
++well-conditioned globally.
++
++Channel Theory adds nothing structurally new on either the
++$\Delta_d$ or the $\|\Delta\|_{\mathrm{Pet}}$ axis: those
++are PCF-1 / PCF-2 / umbrella-v2.0 territory
++\cite{siarc_pcf1_v13, siarc_pcf2_v13, siarc_umbrella_v2}.
++The contribution of the present outline is to identify the
++$\xi_0$ axis component of $\Phi$ -- proven at $d=2$
++(\Cref{prop:xi0}), verified at $d=4$ (\Cref{prop:xi0-d4}),
++conjectural at $d \ne 2,4$ (\Cref{conj:xi0-univ}) -- and
++to operationalise it through the channel functor $\chi$ of
++\S\ref{sec:functor}. As a bookkeeping note, the bridge
++conjecture's three observed tiers B1/B2/B3
++(\Cref{conj:bridge}) are now naturally re-tiered against
++the full triple: a
++$(\beta_d,\,\|\Delta\|_{\mathrm{Pet}},\,\xi_0)$-coordinatised
++refinement is the structurally correct framing, and the
++$d=3$ Petersson-height signal of T2 is a missing
++ingredient that the umbrella v2.0 now supplies. We do
++\emph{not} restate B1/B2/B3 as theorems here; we simply
++record the compatibility expectation that any successful
++bridge identity $\Phi_b$ will factor through $\Phi$ on the
++relevant axes.
++
+ % =====================================================================
+ \section{The channel functor}
+ \label{sec:functor}
+ 
+-The Master Conjecture \cite{siarc_umbrella} posits a functor
++The Master Conjecture \cite{siarc_umbrella_v2} posits a functor
+ $\chi : \Sigmaspace \to \Channel$ where $\Sigmaspace$ is a
+ category of deformations of PCF families. We make
+ $\Sigmaspace$ slightly more precise.
+@@ -1087,6 +1290,48 @@ The novel structural content of v1.1 is
+ \Cref{prop:xi0,prop:noninj,thm:vquad-cc} and the
+ B1/B2/B3 tier reformulation of \Cref{conj:bridge}.
+ 
++\subsection{Additional sessions cited at v1.3}
++\label{ssec:sessions-v13}
++v1.3 additionally cites the post-T2 cohort of 2026-05-01 /
++2026-05-02:
++\begin{itemize}
++\item SIARC umbrella v2.0 \cite{siarc_umbrella_v2} (concept
++DOI \href{https://doi.org/10.5281/zenodo.19885549}{10.5281/zenodo.19885549};
++v2.0 at \href{https://doi.org/10.5281/zenodo.19965041}{10.5281/zenodo.19965041})
++-- post-T2 cross-degree refactor of the umbrella around
++the invariant triple
++$(\Delta_d,\,\|\Delta\|_{\mathrm{Pet}},\,\xi_0)$;
++\S4.4 supplies the cite handle for the $\xi_0$ axis.
++\item PCF-2 v1.3 \cite{siarc_pcf2_v13} (concept DOI
++\href{https://doi.org/10.5281/zenodo.19936297}{10.5281/zenodo.19936297};
++v1.3 at \href{https://doi.org/10.5281/zenodo.19963298}{10.5281/zenodo.19963298})
++-- cubic-modular framing absorbed at v1.3; T2 Petersson
++height result at $\rho = +0.638$ on $n=50$ cubic families.
++\item PCF2-SESSION-T2 \cite{siarc_pcf2_session_t2}
++(bridge URL
++\href{https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/PCF2-SESSION-T2/}{sessions/2026-05-02/PCF2-SESSION-T2/})
++-- Petersson-height correlation at
++$\rho = +0.638$, $p_{\mathrm{Bonf}} = 8.6\times 10^{-6}$
++on $n=50$ cubic families.
++\item THEORY-FLEET H4 \cite{siarc_theory_fleet_h4}
++(bridge URL
++\href{https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-01/THEORY-FLEET/H4/}{sessions/2026-05-01/THEORY-FLEET/H4/})
++-- HIGH-confidence theoretical prediction
++\textsf{MEDIAN\_RESURGENCE\_GIVES\_30+\_DIGITS} for
++$V_{\mathrm{quad}}$ at $\zeta_* = 4/\sqrt 3$.
++\item THEORY-FLEET AGGREGATOR (bridge URL
++\href{https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-01/THEORY-FLEET/AGGREGATOR/}{sessions/2026-05-01/THEORY-FLEET/AGGREGATOR/})
++-- unified verdict aggregating H1--H6 of the multi-agent
++theoretical fleet of 2026-05-01.
++\item PCF2-V13-RELEASE (bridge URL
++\href{https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/PCF2-V13-RELEASE/}{sessions/2026-05-02/PCF2-V13-RELEASE/})
++and SIARC-UMBRELLA-V2-RELEASE (bridge URL
++\href{https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/SIARC-UMBRELLA-V2-RELEASE/}{sessions/2026-05-02/SIARC-UMBRELLA-V2-RELEASE/})
++-- companion release sessions on 2026-05-02 producing
++PCF-2 v1.3 and SIARC umbrella v2.0 respectively, whose
++content this v1.3 outline absorbs.
++\end{itemize}
++
+ % =====================================================================
+ \section{Implications for the Master Conjecture}
+ \label{sec:implications}
+@@ -1126,7 +1371,39 @@ is correspondingly narrowed to $d \ge 5$ (PCF-2's
+ $A = 2d = 8$ is verified $60/60$ at $d=4$ in
+ PCF2-SESSION-Q1 \cite{siarc_pcf2_session_q1}).
+ 
++\begin{problem}[\textsf{op:cc-median-resurgence-execute} (new at v1.3)]
++Run median \'Ecalle resurgence on the V$_{\mathrm{quad}}$
++formal coefficient series at $5000$ coefficients with
++mpmath working precision $\mathrm{dps} = 250$, with
++$\zeta_* = 4/\sqrt 3$ pinned to $200$ digits. Extract the
++leading alien amplitude $S_{\zeta_*}$ at $\zeta_*$, fit the
++branch exponent from the large-order tail by Borel--Darboux
++relations, and cross-check via local Borel singular-germ
++fitting in a neighbourhood of $\zeta_*$. Theory-Fleet H4
++\cite{siarc_theory_fleet_h4} \emph{predicts at HIGH
++confidence} a $30$--$50$ digit precision (central forecast
++${\sim}40$ digits) for $S_{\zeta_*}$. Resolves the
++residual Laplace step of \textsf{op:cc-formal-borel} for
++V$_{\mathrm{quad}}$ and would conditionally close the
++$\Vquad \rightsquigarrow P_{III}(D_6)$ correspondence at
++the Stokes-data level under a documented normalisation map.
++\emph{Tractability.} $1$--$3$ sessions of compute (mpmath
++$+$ a custom alien-derivative extractor); the bottleneck is
++the $5000$-coefficient generation, not the alien-amplitude
++extraction.
++\end{problem}
++
+ \begin{problem}[\textsf{op:cc-formal-borel}]
++\textbf{Status (v1.3):} \emph{PARTIALLY DIAGNOSED} by
++Theory-Fleet H4 \cite{siarc_theory_fleet_h4}, which
++predicts at HIGH confidence that median \'Ecalle
++resurgence at $5000$ coefficients / $\mathrm{dps}\,250$
++will extract the alien amplitude at $\zeta_* = 4/\sqrt 3$
++to $30$--$50$ digits. The residual question is now the
++\emph{execution} of that prediction
++(\textsf{op:cc-median-resurgence-execute}, new at v1.3),
++not its formulation.
++
+ Numerically Borel--Laplace sum the V$_\mathrm{quad}$
+ formal coefficient series $\sum_k a_k u^k$ at convergent
+ tail accuracy. The Domb--Sykes secondary metric in
+@@ -1157,6 +1434,10 @@ general-$d$ Newton-polygon proof.
+ \end{problem}
+ 
+ \begin{problem}[\textsf{op:xi0-d3-direct}]
++\textbf{Status (v1.3):} Carried forward unchanged.
++Tractability re-checked at $1$--$2$ hours of computation,
++no halt.
++
+ Carry out the direct Newton-polygon test of
+ \Cref{conj:xi0-univ} at $d=3$: select one cubic
+ representative per Galois bin of PCF-2 v1.1
+@@ -1182,6 +1463,14 @@ candidate set if their Painlev\'e labels matched; they do
+ not (K-SCAN artefact, \Cref{rem:kscan}), pushing the
+ $\Vquad$ witness toward B2 or higher.
+ \emph{Tractability.} Hinges on \textsf{op:cc-monodromy-RH}.
++
++\textbf{(v1.3):} Tier discrimination is now also informed
++by the umbrella's $\|\Delta\|_{\mathrm{Pet}}$ axis
++\cite{siarc_pcf2_v13}; for the cubic catalogue the
++modular-discriminant signal is at $\rho = +0.638$ ($n=50$,
++Bonferroni $p = 8.6\times 10^{-6}$), suggesting a
++$(\beta_d,\,\|\Delta\|_{\mathrm{Pet}},\,\xi_0)$-coordinatised
++refinement of the B1/B2/B3 tiering.
+ \end{problem}
+ 
+ \begin{problem}[\textsf{op:coefficient-tuple-functoriality}]
+@@ -1242,6 +1531,11 @@ generalisation) still admit a Newton-polygon Birkhoff
+ formal pair, i.e., does the $\CC$ channel exist as a non-empty
+ triple $(D, T, S)$?
+ \emph{Tractability.} Joint with \textsf{op:xi0-degree-d}.
++
++\textbf{(v1.3):} The cubic case is now bound to PCF-2 v1.3
++\cite{siarc_pcf2_v13} (Conjecture B5/B6 in their $d=3$
++restricted form), which gives a structural footprint to
++test in the cubic CC channel.
+ \end{problem}
+ 
+ \begin{problem}[\textsf{op:painleve-classification}]
+@@ -1279,6 +1573,20 @@ findings). All numerical claims trace to exact computations
+ stored under \texttt{sessions/2026-05-01/} on the SIARC
+ bridge.
+ 
++The v1.3 revision additionally absorbs the SIARC umbrella
++v2.0 invariant-triple framing \cite{siarc_umbrella_v2}, the
++PCF-2 v1.3 cubic-modular Petersson-height result
++\cite{siarc_pcf2_v13}, and the Theory-Fleet H4
++median-resurgence prediction
++\cite{siarc_theory_fleet_h4}. AI tools (GitHub Copilot
++powered by Anthropic Claude Opus 4.7, Anthropic Claude)
++were used for prose drafting, consistency-checking, and
++structural re-organisation; all conjectures, theorem
++statements, and editorial decisions remain the author's.
++All numerical claims trace to exact computations stored
++under \texttt{sessions/2026-05-\{01,02\}/} on the SIARC
++bridge with AEAL claim entries in \texttt{claims.jsonl}.
++
+ % =====================================================================
+ \bibliographystyle{plain}
+ \bibliography{annotated_bibliography}
