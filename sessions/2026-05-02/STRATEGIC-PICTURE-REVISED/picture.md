@@ -1,7 +1,7 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.3 (post-firing cycle 2 + 002 HALT)
+**Revision:** v1.4 (post-firing cycle 2 + 002 HALT + 005 PASS)
 **Original:** 2026-05-02 18:05 JST
-**Updated:** 2026-05-02 18:30 JST  (post-001/003/004/007 + 002 HALT)
+**Updated:** 2026-05-02 18:55 JST  (post-001/003/004/007 + 002 HALT + 005 PASS)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
@@ -9,7 +9,14 @@ synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
 
-> **🆕 Updates since v1.2 (see § 12 Amendment Log for detail):**
+> **🆕 Updates since v1.3 (see § 14 Amendment Log for detail):**
+> - ✅ **Prompt 005 PASSED with verdict `H4_EXECUTED_PASS_108_DIGITS`** — the cross-method Stokes-amplitude agreement is **108 digits**, far exceeding the forecast 30–50 (central 40). Three independent extractors (ratio test, three-point, Δ²-log) cross-validated. **M6 is achieved** with substantial precision margin.
+> - 📈 **H4 *refined* by the data, not falsified.** The branch exponent fits to **β = 0 (logarithmic Borel singularity)** to ≥ 107 digits across all three methods, *not* the half-integer "square-root class" that was the leading expectation. This sits inside H4's broader "algebraic-LOGARITHMIC" hedge — strictly a refinement of the prediction, not a contradiction.
+> - 📊 **Stokes-amplitude measurement (V_quad native normalization):** $C = 8.12733679549507236711257873202358318226454272233879\ldots$; $S_{\zeta_*} = 2\pi i C \approx 51.06556\ldots\, i$ (purely imaginary).
+> - ⚠ **Phase D method substitution.** The relay agent substituted "polynomial LSQ in $1/n$ at order 40" for the prescribed "local Padé-of-Padé Borel fit" because the prescribed method collapses to roundoff equality with Phase C when β=0. Self-documented in the session's `rubber_duck_critique.md`. Cross-method agreement (108 digits) holds across the substituted Phase D.
+> - 🆕 **NEW HIGH-severity gap G15**: The H4 result is in **V_quad native normalization** (the $b_n = 3n^2+n+1$ recurrence coordinates), not in $P_{III}(D_6)$ Hamiltonian-form coordinates. CT v1.3 §3.5's algebraic identity is at the Painlevé-class level only — the explicit change-of-variables that maps the Stokes data to canonical $P_{III}(D_6)$ form has not been written out. **Gates `op:cc-formal-borel`** (the formal closure of the channel-theory pipeline) and any synthesizer comparison against external $P_{III}(D_6)$ Stokes literature.
+
+> **Updates since v1.2 (carried forward from v1.3):**
 > - 🛑 **Prompt 002 HALTED with verdict `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`.** 4/5 records (umbrella v2.0, PCF-2 v1.3, CT v1.3, T2B v3.0) built clean with matching page counts. **PCF-1 v1.3 source has drifted** — local rebuild = 21 pp, Zenodo v1.3 = 16 pp; the workspace `p12_journal_main.tex` has likely been overwritten by an in-progress v1.4 draft. Per the prompt's HALT clause, no git push was performed; deliverables are staged locally only at `sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/`.
 > - ⚠ **Anomaly 002-A**: Channel Theory v1.3 source carries `\author{The SIARC author}` literal placeholder. arXiv submission of record #4 will be rejected until this is replaced with the real-name+affiliation block. (Zenodo PDF is unaffected — placeholder visible only in the source.)
 > - ⚠ **Anomaly 002-B**: Endorsement-request templates for math.NT records #2 (PCF-1 v1.3) and #4 (CT v1.3) are skeletons only. Candidate endorser names declined per the no-fabrication clause; `.bib` files lack arXiv user-id handles.
@@ -140,12 +147,12 @@ across the corresponding session folders. CT v1.3 SHA-256
 
 - 7 prompts staged at `tex/submitted/control center/prompt/`
   (001 – 007). See §6 for current status.
-- **4 fired and complete this cycle:** 001, 003, 004, 007.
+- **5 fired and complete this cycle:** 001, 003, 004, 005, 007.
 - **1 fired and HALTED this cycle:** 002 (verdict
   `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2` — see §6).
   Deliverables staged locally only; no bridge push.
-- **2 still ready to fire:** 005, 006 (compute-heavy;
-  serialize per §6 concurrency map).
+- **1 still ready to fire:** 006 (compute-heavy; can run after
+  005 completes since 005 is now done).
 - **t1-phase-2-bt-apply** (Prompt 008, conditional; not yet
   drafted) is BLOCKED on primary-source acquisition + Claude's
   H1 label arbitration.
@@ -153,10 +160,13 @@ across the corresponding session folders. CT v1.3 SHA-256
   T3 recommended: t2c-style high-dps Stokes-multiplier
   discrimination to resolve the PCF-1 dichotomy below the
   Painlevé-class scale. Independent of all other items.
-- 🆕 **pcf1-v13-reconcile** (Prompt 011, future) — operator
+- **pcf1-v13-reconcile** (Prompt 011, future) — operator
   decision required: bump to v1.4 OR recover v1.3 source
   snapshot. Gates 002.
-- 15 SQL todos pending; 18 done (33 total at snapshot v1.3).
+- 🆕 **vquad-pIII-normalization-map** (NEW, no prompt yet) —
+  document the explicit V_quad → P_III(D_6) change-of-variables
+  for the Stokes data. Gates `op:cc-formal-borel`.
+- 17 SQL todos pending; 18 done; 1 blocked (36 total at v1.4).
 
 ### 2.4 Recently closed (this cycle)
 
@@ -172,7 +182,10 @@ across the corresponding session folders. CT v1.3 SHA-256
 - ✅ D2-NOTE v1.0 drafted (004); awaits operator Zenodo upload.
 - ✅ T3 Painlevé test (007) — 60/60 LABELED; H3 negatively
   closed; V_quad sanity confirmed.
-- 🆕 ⚠ Prompt 002 partially built (4/5 records OK; PCF-1 HALT).
+- ⚠ Prompt 002 partially built (4/5 records OK; PCF-1 HALT).
+- 🆕 ✅ **Prompt 005 PASSED at 108 digits** (forecast 30–50).
+  M6 achieved. β=0 logarithmic-class refinement (consistent
+  with H4 hedge); V_quad-native Stokes amplitude measured.
 
 ---
 
@@ -182,7 +195,7 @@ across the corresponding session folders. CT v1.3 SHA-256
 |-----|---------|------------|--------|
 | **P-NP**  | Newton-polygon universality $\xi_0=d/\beta_d^{1/d}$ at all $d \ge 2$ | D2-NOTE (Prompt 004) for $d=2,4$; downstream proof for general $d$ | $d=2$ PROVEN; $d=4$ VERIFIED; $d=3$ DEFERRED; general-$d$ CONJECTURED |
 | **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) ✅ → Phase 2 B-T application (BLOCKED on primary sources + H1 arbitration) | EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d, 2d]$; H1 fleet label DISPUTED |
-| **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) closes the Stokes side | algebraic identity DONE (CT v1.3 §3.5); Stokes-side PENDING |
+| **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) ✅ → V_quad → P_III(D_6) normalization map (G15) → `op:cc-formal-borel` | algebraic identity DONE (CT v1.3 §3.5); Stokes-side **MEASURED** in V_quad native normalization at 108 digits (Prompt 005); canonical-form Stokes data PENDING G15 |
 | **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) closes the $j=0$ endpoint | PASSED; $j=0$ AMBIGUOUS-AT-FINITE-N |
 | **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3 Stokes-multiplier follow-up (Prompt 010, future) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant; PCF-1 dichotomy lives at the Stokes-multiplier level) |
 | **P-MC**  | Master conjecture: $\Phi$ classifies PCF asymptotics | Gated on P-NP + P-B4 + P-CC | NOT YET FORMALLY STATED |
@@ -217,6 +230,12 @@ M5: V_quad -> P_III(D_6) algebraic identity              [DONE — CT v1.3]
                           │
                           ▼
 M6: V_quad alien amplitude S_{zeta*} measured at 30+ digits
+    ✅ COMPLETE 2026-05-02 (Prompt 005) — verdict H4_EXECUTED_PASS_108_DIGITS
+    Headline: cross-method agreement 108 digits (forecast 30-50);
+              C = 8.12733679...; S_{zeta*} = 2 pi i C ~ 51.0656 i;
+              beta = 0 (logarithmic Borel singularity, refines H4).
+    Caveat: measurement is in V_quad native normalization;
+            canonical P_III(D_6) form awaits G15 (vquad-pIII-norm-map).
     [Prompt 005, ready to fire]
                           │
                           ▼
@@ -260,7 +279,8 @@ canonical artefact).
 | **G2**  | $\xi_0$ at $d=3$ not directly verified at high dps (`op:xi0-d3-direct`) | MED  | Future prompt; deferred in 004 |
 | **G3a** | Conjecture B4 ($A_n = 2d$) literature bracket $A \in [d, 2d]$ established (was: "lacks proof") | HIGH | ✅ T1 Phase 1 complete (003); literature bracket pinned, Adams reading favored by empirics |
 | **G3b** 🆕 | Wasow-vs-Adams normalization match unresolved from secondary sources (BLOCKER for Phase 2) | HIGH | Operator: ILL/AMS request for B-T 1933 + Adams 1928 + Wasow §X.3 → Phase 2 (Prompt 008, future) |
-| **G4**  | $V_{\mathrm{quad}}$ alien amplitude $S_{\zeta_*}$ is a *theoretical prediction* (H4), not a measurement | HIGH | Prompt 005 (ready to fire) |
+| **G4**  | $V_{\mathrm{quad}}$ alien amplitude $S_{\zeta_*}$ is a *theoretical prediction* (H4), not a measurement | HIGH | ✅ **Prompt 005 PASSED 2026-05-02** — measured at 108 digits in V_quad native normalization. Canonical-form value awaits G15. |
+| **G15** 🆕 | V_quad → P_III(D_6) normalization map for Stokes data not written out (CT v1.3 §3.5 only matches at Painlevé-class level) | HIGH | New tracked item `vquad-pIII-normalization-map` — symbolic, medium tractability, gates `op:cc-formal-borel` |
 | **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | Prompt 006 (ready to fire) |
 | **G6a** | Conte–Musette algorithmic Painlevé test on $d=2,3$ catalogues | MED  | ✅ Prompt 007 complete (60/60 LABELED) |
 | **G6b** 🆕 | PCF-1 v1.3 §3 sign-of-$\Delta_b$ dichotomy ($A=4$ vs $A=3$) lives below the Painlevé-class resolution scale; Conte–Musette test is invariant under sign of $\Delta_b$ | MED | Future Prompt 010 (Stokes-multiplier discrimination via t2c-style precision escalation) |
@@ -294,7 +314,7 @@ milestones (see § 4).
 | 002 | arXiv mirror runbook (5 records) | G9 | (visibility) | 🛑 HALTED 2026-05-02 (`ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`; 4/5 OK; PCF-1 21pp local vs 16pp Zenodo; deliverables staged locally only); reactivate after G12+G13+G14 close | low | gated on G12+G13+G14 |
 | 003 | T1 Phase 1 — B-T lit review + gap-prop | G3a | M3 | ✅ DONE 2026-05-02 (verdict GAPTYPE_C) | low (lit work) | — |
 | 004 | D2-NOTE — Newton-polygon universality | G1, G8 | M1 | ✅ DRAFTED 2026-05-02 (awaits Zenodo upload) | low (drafting + AEAL re-derivation) | — |
-| 005 | H4 / `op:cc-median-resurgence-execute` | G4 | M6 | ⏳ READY | **HIGH** (mpmath dps 250, $N=5000$) | INDEPENDENT |
+| 005 | H4 / `op:cc-median-resurgence-execute` | G4 | M6 | ✅ DONE 2026-05-02 (`H4_EXECUTED_PASS_108_DIGITS`; β=0 refinement; G15 surfaced) | **HIGH** (mpmath dps 250, $N=5000$) | — |
 | 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | ⏳ READY | **HIGH** (mpmath dps≥8000, $N\ge 1200$) | INDEPENDENT |
 | 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6a | M8 | ✅ DONE 2026-05-02 (60/60 LABELED; H3 negatively closed) | medium (symbolic) | — |
 | 008 | T1 Phase 2 — B-T applied to $\delta_n$ (proves B4 at $d \ge 3$) | G3b | M4 | 🛑 BLOCKED (G3b primary sources + G11 H1 arbitration) | medium | gated |
@@ -316,16 +336,18 @@ milestones (see § 4).
 ✗ = dependency; ⚠ = compute-heavy, serialize on a single laptop.
 
 **Recommended firing layout for the *next* compute window
-(post-001/003/004/007 + 002 HALT; v1.3 status):**
-- Slot 1: **005** (6–12 hr, mpmath dps 250 / N=5000). Compute-heavy.
-- Slot 2: **006** (6–10 hr, mpmath dps≥8000). Compute-heavy —
-  serialize against 005 on a single laptop, parallel on a
-  beefy workstation.
+(post-001/003/004/005/007 + 002 HALT; v1.4 status):**
+- Slot 1: **006** (6–10 hr, mpmath dps≥8000). Compute-heavy.
+  Now the only remaining ready-to-fire prompt in the original
+  queue (005 just landed).
 - Future Prompt 010 (Stokes-multiplier discrimination) — defer
   until a session is freed; independent of all current work.
 - Future Prompt 011 (PCF1-V13-RECONCILE) — gated on operator
   decision (option (a) v1.4 deposit OR option (b) v1.3 source
   recovery). Once decided, this is a small, low-compute relay.
+- 🆕 Future relay for **vquad-pIII-normalization-map (G15)** —
+  symbolic; medium tractability; gates `op:cc-formal-borel`.
+  Can run in parallel with anything; no new compute load.
 - **Prompt 002 stays HALTED** until G12 + G13 + G14 are closed.
   Re-fire only against either (a) the new v1.4 DOI for record
   #2 or (b) the recovered v1.3 source snapshot. The other 4
@@ -467,7 +489,7 @@ deferred):
     $(\Delta_d, \|\Delta\|_\text{Pet}, \xi_0)$? If yes,
     P-MC's functor $\Phi$ has more structure than v1.0
     of this picture suggested.
-11. 🆕 **(v1.3) PCF-1 v1.3 release-discipline question.**
+11. **(v1.3) PCF-1 v1.3 release-discipline question.**
     Prompt 002's HALT exposed that the workspace
     `p12_journal_main.tex` has drifted from the published
     v1.3 (16 pp) to a v1.4-in-draft (21 pp) state, *but*
@@ -480,6 +502,38 @@ deferred):
     the disciplined path. The asymmetry matters: v1.4 may
     contain content that has not yet been internally
     AEAL-reviewed.
+12. 🆕 **(v1.4) β=0 vs square-root expectation.** Prompt
+    005's three independent extractors fit the V_quad
+    Borel-singularity branch exponent to **β = 0** to ≥ 107
+    digits — i.e., a *logarithmic* singularity, not the
+    half-integer "square-root class" that was the leading
+    expectation in H4. This sits inside H4's broader
+    "algebraic-LOGARITHMIC" hedge, so the prediction is
+    refined rather than falsified. **Question:** does the
+    logarithmic-class outcome have a *theoretical*
+    explanation in the V_quad → P_III(D_6) framing, or is
+    it specific to the V_quad case at $d=2$? If the latter,
+    Conjecture B4-CC at higher $d$ may need a separate
+    branch-class prediction per Galois bin. If the former,
+    H4 should be amended to predict β=0 as the canonical
+    class (with a caveat about cases where the logarithm is
+    structurally absent).
+13. 🆕 **(v1.4) Phase D method substitution.** Prompt 005's
+    relay agent self-substituted "polynomial LSQ in $1/n$
+    at order 40" for the prescribed "local Padé-of-Padé
+    Borel fit" because the prescribed method collapses to
+    roundoff equality with Phase C when β=0. The
+    substitution is documented in the session's
+    `rubber_duck_critique.md`. **Question:** is this
+    substitution acceptable as a one-off (since the
+    cross-method agreement at 108 digits is the
+    operative evidence), or should the canonical
+    op:cc-median-resurgence operator definition be
+    updated to make the Padé-of-Padé branch conditional
+    on β ≠ 0? For the synthesizer: this is also a
+    case-study of the AEAL-honest substitution pattern —
+    deviation from spec was surfaced rather than papered
+    over.
 
 ---
 
@@ -510,10 +564,12 @@ Channel Theory v1.3: 10.5281/zenodo.19972394   (concept 19941678)
                      PDF md5    e58951de…
 ```
 
-Bridge head at v1.3 snapshot time: post-T3 + post-v1.2;
-002 HALTED locally (no push). Recent commit timeline:
+Bridge head at v1.4 snapshot time: post-005 PASS;
+002 still locally HALTED (no push). Recent commit timeline:
 ```
-[v1.3 picture]  STRATEGIC-PICTURE-REVISED v1.3 (this push)
+[v1.4 picture]  STRATEGIC-PICTURE-REVISED v1.4 (this push)
+[005 PASS]      CC-MEDIAN-RESURGENCE-EXECUTE (Prompt 005)  [108-digit agreement; β=0; G15 surfaced]
+18c8833         STRATEGIC-PICTURE-REVISED v1.3
 [002 HALT]      ARXIV-MIRROR-RUNBOOK (Prompt 002) — STAGED LOCAL ONLY (no push per HALT clause)
 9ea4c48         STRATEGIC-PICTURE-REVISED v1.2
 5d9f8d0         STRATEGIC-PICTURE-REVISED v1.1
@@ -524,6 +580,71 @@ e96641c         T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (003)     [verdict GAPTYPE_C]
 e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
 8be2f17         CHANNEL-THEORY-V13-RELEASE (post-publish edits)
 ```
+
+---
+
+## 14. Amendment Log (v1.3 → v1.4)
+
+**Updated:** 2026-05-02 18:55 JST
+**Trigger:** completion of Prompt 005 (CC-MEDIAN-RESURGENCE-EXECUTE)
+with verdict `H4_EXECUTED_PASS_108_DIGITS`.
+
+**Substantive changes:**
+
+| Section | v1.3 → v1.4 |
+|---------|-------------|
+| Header  | Added v1.3 → v1.4 callout. Earlier callouts retained for the synthesizer's full audit trail. |
+| § 2.3 (in-flight) | "5 fired/done" (was: 4); "1 ready" (was: 2). New entry for `vquad-pIII-normalization-map` (no prompt yet — small symbolic task). Counts updated (17 pending / 18 done / 1 blocked of 36). |
+| § 2.4 (recently closed) | Added Prompt 005 PASS line. |
+| § 3 P-CC row | Status changed from "Stokes-side PENDING" to "Stokes-side MEASURED in V_quad native normalization at 108 digits (Prompt 005); canonical-form Stokes data PENDING G15". |
+| § 4 milestones | M6 marked COMPLETE with the precision-margin headline + canonical-form caveat. |
+| § 5 gaps | G4 status changed from "Prompt 005 ready to fire" to "PASSED 2026-05-02; canonical-form value awaits G15". New row G15 (V_quad → P_III(D_6) normalization map for Stokes data). |
+| § 6 prompts table | 005 marked DONE with verdict and parenthetical β=0 + G15 callout. Firing layout rewritten (only 006 remaining in the original queue; G15 added as a parallel symbolic task). |
+| § 8 open questions | Added Q12 (β=0 logarithmic-class refinement — theoretical explanation? per-Galois-bin variation?) and Q13 (Phase D method substitution — one-off or amend canonical operator definition?). |
+| § 10 footer | Bridge head bumped (005 commit added); commit timeline extended. |
+| § 14 (this section) | NEW. |
+
+**Unchanged:**
+
+§ 1 (mission statement), § 9 (AEAL hygiene), the publication
+ladder table, the six-program decomposition, and § 7 decision
+tree are intact. The concurrency map (§ 6) is unchanged in
+shape; the *content* of the firing layout has shifted (only
+006 left, plus G15's symbolic add-on).
+
+**Key invariant (carried from v1.1 + v1.2 + v1.3):**
+
+The strategic picture's framing of *what success means* is
+unchanged. P-MC closure still requires P-NP + P-B4 + P-CC.
+v1.4 records:
+- a *positive* event on the P-CC axis (108-digit Stokes-amplitude
+  measurement; M6 done with substantial margin), and
+- a refinement of H4 (β=0 logarithmic class instead of the
+  expected half-integer; consistent with the existing hedge),
+- and surfaces a *new* coordinate-system gap (G15) that gates
+  the *canonical* version of `op:cc-formal-borel` and any
+  external-literature comparison.
+
+The headline number — $S_{\zeta_*} \approx 51.0656\, i$ in
+V_quad native form — is a measurement of historic
+significance for SIARC: P-CC's prediction-and-measurement
+loop is now closed at extreme precision, and the
+remaining work on the channel-theory axis is *coordinate
+discipline* (G15) rather than fresh computation.
+
+**Epistemic posture observation:**
+
+Prompt 005's relay agent demonstrated three healthy
+behaviours: (i) self-validation of the recurrence against
+the upstream `formal_solve` reference solver, (ii)
+substitution-with-disclosure of Phase D when the
+prescribed method became degenerate, and (iii) honest
+identification of the V_quad → P_III(D_6) normalization
+gap as a residual rather than burying it inside the
+verdict. The 108-digit cross-method agreement is the
+operative evidence, but the *meta*-evidence — that the
+agent surfaced the substitution and the gap — is itself
+the AEAL discipline working as designed.
 
 ---
 
@@ -658,4 +779,4 @@ v1.1 update only changes *the path to P-B4*, not the goal.
 
 ---
 
-*End of revised picture (v1.3).*
+*End of revised picture (v1.4).*
