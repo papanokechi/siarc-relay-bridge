@@ -1,0 +1,18 @@
+{
+  "branch_exponent_class_unexpected": {
+    "description": "H4 verdict expected the Borel singularity at zeta_* = 4/sqrt(3) to be square-root class (beta a half-integer in {1/2, 3/2, ...}). The fitted exponent is consistent with beta = 0 to >= 107 digits across three independent extractors (ratio, three-point, second-difference of log).",
+    "fitted_beta_M1_ratio": "2.18803285172899266083291260384e-108",
+    "fitted_beta_M2_threepoint": "1.46525239564743889136631903159e-107",
+    "fitted_beta_M3_logdiff": "1.46525239564743889136922845073e-107",
+    "interpretation": "beta = 0 corresponds to a LOGARITHMIC Borel singularity, B(w) ~ -C log(1 - w/zeta_*) + analytic. This is consistent with H4's broader characterisation 'simple-resurgent algebraic-LOGARITHMIC branch point' but refines the 'expected square-root component' to the logarithmic boundary case (alpha = 0 in (1 - w/zeta_*)^{-alpha}).",
+    "verdict_consistency": "Not a falsification: H4 hedged 'exponent must be fitted from large-order data' and noted simple-resurgent log structure as part of the algebraic-logarithmic class. The HALT condition 'fitted beta disagrees with H4-prescribed beta by 1 part in 1e4' did not trigger because no specific beta was prescribed, only an expectation."
+  },
+  "digit_count_far_exceeds_forecast": {
+    "description": "H4 forecast 30-50 digits central 40. Achieved >= 108 digits cross-check (Phase C vs Phase D LSQ). Working precision dps=250 was barely stretched; Richardson on the 5000-coefficient tail saturated at ~250 digits internally.",
+    "interpretation": "Resurgent large-order extraction is far more precision-efficient than the H4 verdict anticipated. The H4 forecast was conditioned on Pade-Borel-Laplace convergence, but direct Richardson on a_n * zeta_*^n / Gamma(n + beta) bypasses that route and reaches working-precision saturation."
+  },
+  "stokes_constant_purely_imaginary": {
+    "description": "S_{zeta_*} = 2 pi i C with C real positive => S_{zeta_*} is purely imaginary. C = 8.12733679549507236711...",
+    "interpretation": "Consistent with V_quad coefficients being real and the Stokes line on the positive real axis: median resurgence places the alien amplitude on the imaginary axis."
+  }
+}
