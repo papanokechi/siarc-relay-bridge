@@ -1,0 +1,28 @@
+# Empirical first polynomial correction a_1 (Richardson)
+# ansatz: a_n = C * Gamma(n) * zeta_*^(-n) * (1 + a_1/n + a_2/n^2 + ...)
+
+V_quad (side=neg, A=3, Delta_b=-11):
+   a1_richardson    = -23345622348505.7500913202456388
+   s(1500)          = -1.47150087328509154
+   s(1900)          = -1.47165254817272203
+   |s(1500)-s(1900)| -> rel digits ~ 3.98685
+
+QL15 (side=neg, A=3, Delta_b=-20):
+   a1_richardson    = 35046146737934.8107187848707573
+   s(1500)          = -2.47077927338453711
+   s(1900)          = -2.47108276077957017
+   |s(1500)-s(1900)| -> rel digits ~ 3.91069
+
+QL05 (side=pos, A=4, Delta_b=8):
+   a1_richardson    = -50876954304073.8549427623718638
+   s(1500)          = 7.76465468008989781
+   s(1900)          = 7.76157498412698605
+   |s(1500)-s(1900)| -> rel digits ~ 3.40161
+
+QL09 (side=pos, A=4, Delta_b=1):
+   a1_richardson    = 7895221656112.18701976583714971
+   s(1500)          = -0.00667703695566696269
+   s(1900)          = -0.00526962139039800555
+   |s(1500)-s(1900)| -> rel digits ~ 2.85158
+
+wrote C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-05-02\T36-S2-EXTRACTION\a1_polynomial_corrections.csv
