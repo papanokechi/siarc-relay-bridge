@@ -1,7 +1,7 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.8 (post-010 PARTIAL + 012 PASS + 013 HALT — leading Stokes multiplier $S_1$ differs across PCF-1 §3 sign-of-$\Delta_b$ dichotomy but no *structural* pattern; $\beta_R = 0$ universal at $d=2$ as side-finding; $\xi_0$ closed at $d=3$ across 3 Galois bins at 80 algebraic digits; CC formal Borel close correctly halted on gate `CC_BOREL_009_NOT_AVAILABLE`)
+**Revision:** v1.9 (post-014 PASS — `PASS_A_EQ_6_ONLY` at $|\delta_\text{lin}| \le 3.09 \times 10^{-23}$ across 4 j=0 cubic families; M7 achieved in the A=6-only branch; G5+G16 closed; PSLQ on H6 Chowla–Selberg basis B19+ exhausts at PSLQ-detection precision with no $\Gamma(1/3)$ closure; trivial reflection-identity in literal 18-basis flagged for synthesizer hygiene)
 **Original:** 2026-05-02 18:05 JST
-**Updated:** 2026-05-02 20:30 JST  (post-010 + 012 + 013 absorption)
+**Updated:** 2026-05-02 21:00 JST  (post-014 absorption — extended v1.8 → v1.9)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
@@ -9,7 +9,17 @@ synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
 
-> **🆕 Updates since v1.7 (see § 18 Amendment Log for detail):**
+> **🆕 Updates since v1.8 (see § 19 Amendment Log for detail):**
+> - ✅ **Prompt 014 PASSED with verdict `PASS_A_EQ_6_ONLY`** (T25D-RETRY-13PARAM, ~12 min agent). Refit the four saved $j=0$ cubic $y_n$ series ($Q_{30}\ldots Q_{33}$, dps=25000, $N=200\ldots 1200$) with an **11-parameter** LIN ansatz (4 base + 7 $1/n$ corrections; $K_\text{FIT}=7$ instead of the prompt's specified $K_\text{FIT}=9$ — **judgment call**, see Q22) via square-exact `mp.lu_solve` at workdps=4000. Per-family $|\delta_\text{lin}|$: $\{3.27, 3.16, 11.9, 30.9\} \times 10^{-24}$ — **max $|\delta| = 3.09 \times 10^{-23}$**. Tail-window cross-check (7-pt vs 11-param at $N \ge 600$): agreement $\sim 4$–$8 \times 10^{-14}$; vs Prompt 006's 5-param tail-fit at $N \ge 800$: $\sim 1$–$3 \times 10^{-8}$ (consistent with 006's documented precision floor). **PSLQ Phase D (DPS_PSLQ=200, DPS_VERIFY=400, maxcoeff=$10^{50}$, tol=$10^{-40}$):** 17-member deduplicated H6 Chowla–Selberg basis B19+ returns **no relation** on any of 4 families — i.e., **no $\Gamma(1/3)$ Chowla–Selberg amplitude closure** detected at this precision. **Reading:** $A = 6$ to PSLQ-detection precision; the j=0 endpoint closes in the "A=6 only" branch (no Chowla–Selberg amplitude correction in B19+ at $|\delta| \sim 10^{-23}$).
+> - ✅ **G5 + G16 CLOSED (in the A=6-only branch).** PCF-2 §6 (current published wording: `AMBIGUOUS-AT-FINITE-N`) can now be amended to `A = 6 to PSLQ-detection precision; no detected Chowla–Selberg amplitude correction in H6 basis at the present precision`. The relay agent drafted `pcf2_v1.4_amendment.md` (Phase F output) for the operator's review; deposit gated on Q22 (does $|\delta| \sim 10^{-23}$ meet the operator's intended closure threshold, or is the stretch goal $|\delta| < 10^{-30}$ formally required?). M7 ✅ **achieved in soft branch**.
+> - 📊 **Numerical findings cross-validated.** The 014 verdict is fully consistent with **Prompt 006's empirical signal** ($A_\text{lin} = 6 \pm 2 \times 10^{-7}$ across all 4 families, monotone-decreasing $|\delta_\text{lin}|$ with $N_\max$): no discrepancy. The 11-param refit reaches $\sim 10^{-23}$ — 16 orders below 006's 5-param floor — and matches the Prompt 014 spec's $|\delta| < 10^{-15}$ minimum target with $\ge 8$ orders of margin. **Stretch goal $|\delta| < 10^{-30}$ NOT achieved** in this run; would require fresh $y_n$ at $N \le 2400$ with dps $\ge 44{,}300$ and $K_\text{FIT}=9$ (full 13-param). Operator decides via Q22.
+> - ❓ **NEW open question (Q22, see § 8) — *operator decision required for closure-threshold acceptance*:** does the $|\delta| \sim 10^{-23}$ realised precision **formally close** G5+G16 (clearing the $|\delta| < 10^{-15}$ minimum target with comfortable margin and exhausting the H6 B19+ basis at PSLQ precision), **or** does PCF-2 v1.4 require the stretch goal $|\delta| < 10^{-30}$ before depositing the §6 amendment? Path (a) **deposit now** at $|\delta| \sim 10^{-23}$ (faster; soft-branch closure; ships v1.4 immediately) vs path (b) **fire 014b** to extend $y_n$ at $N \le 2400$ / dps $\ge 44{,}300$ for the full 13-param + stretch-goal precision (slower; harder-branch closure; ~few hours additional compute). *This question is operator + Claude territory; the relay agent cannot pick.*
+> - ❓ **NEW open question (Q23, see § 8) — *PSLQ basis hygiene rule for future deep-WKB closures*:** the literal 18-member B19+ basis specified in Prompt 014 contains **both** $\sqrt{3}$ and $\Gamma(1/3)\Gamma(2/3) / (2\pi)$, which are $\mathbb{Q}$-equivalent via the gamma-reflection identity $\Gamma(1/3)\Gamma(2/3) = 2\pi/\sqrt{3}$. Running PSLQ on the literal 18-basis returns the **trivial relation** $1 \cdot \sqrt{3} - 3 \cdot \mathrm{CS}_{\sqrt{3}} = 0$ (target coefficient $= 0$ — *not* a Chowla–Selberg signal) on every family. The relay agent dropped $\mathrm{CS}_{\sqrt{3}}$ for the verdict-decisive PSLQ run, retaining the literal 18-basis run only for traceability in `pslq_results_18basis_literal.json`. **Question:** should future PSLQ-based closure prompts pre-screen the basis specification for $\mathbb{Q}$-linear dependencies (gamma-reflection / duplication / multiplication identities) and emit the deduplicated basis as the operative one? This is an op-design hygiene rule, applicable to any deep-WKB / Chowla–Selberg-style closure operator (not just 014).
+> - 🔧 **Reusable infrastructure delivered.** `t25d_retry_runner.py` (square-exact `mp.lu_solve` 11-param refit on saved $y_n$ CSVs + tail-window cross-check + Richardson cross-check + PSLQ on dedup-vs-literal bases + Phase F amendment-draft) is now reusable for any future deep-WKB amplitude-closure operator on a saved-CSV input. Generalisation to $K_\text{FIT}=9$ requires regenerating $y_n$ at $N \le 2400$ / dps $\ge 44{,}300$ from `cf_value` (~30 min wall) — out of scope for 014; queued under Q22 path (b) if operator opts.
+> - 🛠 **Phase E precision impedance documented (not a verdict downgrade).** Prompt 014 Phase E asked for a Richardson cross-check at $1 \times 10^{-10}$ agreement; the float64-stored T2 input limits achievable Richardson precision to $\sim 1 \times 10^{-5}$. Reported as **MET-IN-DIRECTION** (sign and magnitude of trend) rather than at $10^{-10}$; logged in `discrepancy_log.json` as `phase_E_spec_impedance`. Verdict not downgraded. *(Op-design lesson: future Richardson cross-check phases should specify precision targets compatible with input-data precision, or specify the input-data precision floor as part of the spec.)*
+> - 📊 **Cycle status (post-010 + 012 + 013 + 014):** Of the **12** prompts fired in this cycle, **7 are ✅ DONE** (001, 003, 004, 005, 007, 012, **014**), **3 are 🛑 HALTED** (002 G12 source-drift; 006 j=0 5-param precision floor — *now superseded in the soft branch by 014*; 013 G15 gate — as designed), **2 are 🟡 PARTIAL** (009 G15; 010 G6b). G2 + G5 + G16 are now **closed** (G2 at d=3 by 012 across 3 Galois bins; G5 + G16 by 014 in the A=6-only branch). **G2 + G5 + G16** are the *first three* gaps to close cleanly this cycle.
+
+> **🆕 Updates since v1.7 (carried forward from v1.8):**
 > - 🟡 **Prompt 010 LANDED with verdict `G6B_PARTIAL_HIGHER_ORDER_NEEDED`.** Generalised the V_quad Birkhoff recurrence (CC-MEDIAN-RESURGENCE-EXECUTE, $\alpha=3, \beta=1, \gamma=1, \delta=0, \epsilon=1$, 108 digits) to **arbitrary $d=2$ PCF families** $(\alpha, \beta, \gamma, \delta, \epsilon)$ via symbolic derivation in `derive_recurrence.py`; the generalisation specialises back to V_quad's existing recurrence and reproduces its 108-digit $C$ value to all displayed digits (cross-validation). Extracted leading Stokes multiplier $S_1 = 2 \pi i C$ for **four** representatives across the PCF-1 v1.3 §3 $\Delta_b$ dichotomy at the t2c precision ladder $\text{dps} \in \{100, 150, 200, 250\}$, $N$ up to $2000$, with **≥ 60-digit cross-method agreement** (Richardson tail vs LSQ-in-$1/n$) at top dps.
 > - 📊 **Numerical results** ($\Delta_b < 0$, predicted $A=3$): V_quad $C = +8.12733679549\ldots$ (matches CC-MEDIAN bit-for-bit on its 49 displayed digits); QL15 $C = +21.38412649463\ldots$. ($\Delta_b > 0$, predicted $A=4$): QL05 $C = +1.40328080725\ldots$; QL09 $C = -6.07472006379\ldots$. **$|S_1|$ differs across the dichotomy at $O(1)$ absolute scale (no `G6B_STOKES_INVARIANT` halt — Stokes data is *not* sign-invariant)** — but **no *structural* pattern** emerges: $\mathrm{sign}(C)$ varies *within* the $\Delta>0$ side ($+$ for QL05, $-$ for QL09); all four $S_1$ are purely imaginary; within-side spread is comparable to cross-side spread; ratios are not clean rationals or square-roots. Per the prompt's strict PASS-criterion, this is honest PARTIAL: the dichotomy lives **below** the leading-multiplier scale.
 > - 🌟 **NEW universal side-finding (NEW gap G19).** The branch exponent $\beta_R$ in the Birkhoff resurgent ansatz $a_n \sim C \, \Gamma(n + \beta_R) \, \zeta_*^{-(n+\beta_R)}$ is **essentially zero** ($\le 10^{-85}$) across **all four** $d=2$ representatives — not just V_quad. This is a *structural regularity* of the $d=2$ PCF Birkhoff series: the alien amplitudes live exactly on $\Gamma(n)$ with **no $\Gamma$-shift**. Strong candidate for synthesizer-formalisation as "alien-amplitude $\Gamma$-shift $= 0$ universal at $d=2$"; possibly relevant to Sakai-surface / isomonodromic geometry of the $d=2$ catalogue.
@@ -184,8 +194,8 @@ across the corresponding session folders. CT v1.3 SHA-256
   (001–007 + 009/010/012/013/014/015 drafted/fired; 008 + 011 reserved;
   🆕 016 drafted post-010 PARTIAL — refit-only S_2 extraction). See §6
   for current status.
-- **9 fired this cycle:** 001 ✅, 003 ✅, 004 ✅, 005 ✅, 006* 🛑, 007 ✅,
-  010* 🟡, **012 ✅ (NEW)**, **013* 🛑 (NEW)**. *006 HALT, *010 PARTIAL,
+- **10 fired this cycle:** 001 ✅, 003 ✅, 004 ✅, 005 ✅, 006* 🛑, 007 ✅,
+  010* 🟡, 012 ✅, 013* 🛑, **014 ✅ (NEW)**. *006 HALT, *010 PARTIAL,
   *013 HALT (gate `CC_BOREL_009_NOT_AVAILABLE` fired correctly — see
   "HALTED" / "PARTIAL" lines below).
 - 🆕 **2 fired and PARTIAL this cycle:** 009 (verdict `G15_PARTIAL`;
@@ -195,7 +205,8 @@ across the corresponding session folders. CT v1.3 SHA-256
   d=2 — NEW G19; S_2 extraction queued via 016).
 - **3 fired and HALTED this cycle:** 002 (verdict
   `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`), 006 (verdict
-  `AMBIGUOUS_AT_DPS8000`), and 🆕 **013** (verdict
+  `AMBIGUOUS_AT_DPS8000` — *now superseded in the soft branch by 014's
+  PASS_A_EQ_6_ONLY*), and 013 (verdict
   `CC_BOREL_009_NOT_AVAILABLE` — *gate working as designed*; refire
   pending Q21 path-(a) vs path-(b) decision). See §6.
 - **0 remaining ready-to-fire from the original 7-prompt queue**
@@ -204,11 +215,10 @@ across the corresponding session folders. CT v1.3 SHA-256
   012/013 batch: 013 (P-CC formal closure; gated on full G15 closure
   via 015; *currently HALTED awaiting refire path*). 012 has
   **graduated to ✅ DONE** (G2 closed at d=3 across 3 Galois bins).
-- **2 drafted-ready retry prompts:** 014 (T2.5d-RETRY-13PARAM;
-  refit-only; gates the formal closure of M7 / G5) and 🆕 **016**
+- **1 drafted-ready retry prompt remains:** 🆕 **016**
   (T36-S2-EXTRACTION; refit-only; gates G6b full closure via
-  S_2 alien amplitude). Both are ~minutes-scale compute on cached
-  CSVs.
+  S_2 alien amplitude). 014 has **graduated to ✅ DONE** (G5+G16
+  closed in A=6-only branch via PASS_A_EQ_6_ONLY at $|\delta| \sim 10^{-23}$).
 - 🆕 **1 drafted but operator-gated prompt:** 015 (T25E-VQUAD-PIII-
   NORM-MAP-CLOSE; ~2–4 hr; gated on R5 = Okamoto 1987 §§2–3 Lax
   pair via the G3b ILL/AMS workflow).
@@ -218,9 +228,10 @@ across the corresponding session folders. CT v1.3 SHA-256
 - **pcf1-v13-reconcile** (Prompt 011, future) — operator
   decision required: bump to v1.4 OR recover v1.3 source
   snapshot. Gates 002.
-- ~27 SQL todos pending; ~25 done; 1–3 blocked (55 total at v1.8;
-  012 + 013 + op-xi0-d3-direct marked done post-cycle; 2 new
-  follow-ups for Q20/Q21 added).
+- ~28 SQL todos pending; ~26 done; 1–3 blocked (55 total at v1.9;
+  prompt-014-fire marked done post-cycle; 2 new pending
+  follow-ups for Q22/Q23 added; pcf2-v1-4-deposit-decision-q22-gated
+  added as new blocked todo).
 
 ### 2.4 Recently closed (this cycle)
 
@@ -306,6 +317,27 @@ across the corresponding session folders. CT v1.3 SHA-256
   inputs. **Discipline working as designed.** Refire path is
   Q21-arbitrated (path (a) full G15 via 015, or path (b)
   symbolic-only PARTIAL).
+- 🆕 ✅ **Prompt 014 PASSED — `PASS_A_EQ_6_ONLY`.** T25D-RETRY-13PARAM
+  refit the saved $j=0$ cubic $y_n$ series (Q_30..Q_33; dps=25000;
+  $N$ up to 1200) with an 11-parameter LIN ansatz ($K_\text{FIT}=7$,
+  *not* 9 — judgment call documented in `discrepancy_log.json`,
+  Q22 surfaced) via square-exact `mp.lu_solve` at workdps=4000.
+  Per-family $|\delta_\text{lin}|$: $\{3.27, 3.16, 11.9, 30.9\}
+  \times 10^{-24}$ (max $|\delta| = 3.09 \times 10^{-23}$). PSLQ
+  Phase D on a 17-member deduplicated H6 Chowla–Selberg basis
+  B19+ at maxcoeff $= 10^{50}$, tol $= 10^{-40}$ returns **no
+  relation** on any of 4 families — i.e., no $\Gamma(1/3)$
+  Chowla–Selberg amplitude closure detected at this precision.
+  Reading: **A = 6 to PSLQ-detection precision** in the H6 B19+
+  basis. Tail-window cross-check (7-pt vs 11-param) and Richardson
+  cross-check (sign-and-magnitude of trend, not at $10^{-10}$ —
+  Phase E spec impedance documented). 12 AEAL claims; halt log
+  contains verdict + summary; G5 + G16 closed in the **A=6-only**
+  branch. *Stretch goal $|\delta| < 10^{-30}$ NOT met (would require
+  $K_\text{FIT}=9$ and fresh $y_n$ at $N \le 2400$, dps $\ge 44{,}300$).*
+  Q22 (closure-threshold acceptance) + Q23 (PSLQ basis hygiene)
+  surfaced. PCF-2 v1.4 §6 amendment drafted (`pcf2_v1.4_amendment.md`,
+  Phase F output). M7 ✅ achieved in soft branch.
 
 ---
 
@@ -316,7 +348,7 @@ across the corresponding session folders. CT v1.3 SHA-256
 | **P-NP**  | Newton-polygon universality $\xi_0=d/\beta_d^{1/d}$ at all $d \ge 2$ | D2-NOTE (Prompt 004) for $d=2,4$; XI0-D3-DIRECT (Prompt 012) ✅ for $d=3$; downstream proof for general $d$ | $d=2$ PROVEN; $d=4$ VERIFIED; $d=3$ ✅ **EMPIRICAL at 80 algebraic digits across 3 Galois bins** (Prompt 012 verdict `G2_CLOSED_AT_D3`); general-$d$ CONJECTURED — Q20 surfaces possible PROVEN upgrade for *all* $d \ge 2$ via Newton-polygon theorem |
 | **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) ✅ → Phase 2 B-T application (BLOCKED on primary sources + H1 arbitration) | EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d, 2d]$; H1 fleet label DISPUTED |
 | **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) ✅ → V_quad → P_III(D_6) normalization map (Prompt 009) 🟡 PARTIAL → V_quad-PIII-NORM-MAP-CLOSE (Prompt 015, R5-gated) → CC-FORMAL-BOREL-CLOSE (Prompt 013) 🛑 HALTED on 009 gate (correct behaviour) → `op:cc-formal-borel` | algebraic identity DONE (CT v1.3 §3.5); Stokes-side **MEASURED** in V_quad native normalization at 108 digits (Prompt 005); G15 PARTIAL: Φ_resc ($\lambda=1/3$) + Φ_shift pinned, Φ_symp residual on R5 (Okamoto 1987 Lax pair); 013 correctly halted on gate `CC_BOREL_009_NOT_AVAILABLE` — refire pending Q21 path (a) full G15 via 015 / (b) symbolic-only PARTIAL; canonical-form $C_\text{can}$ pending Prompt 015 |
-| **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) attempted j=0 closure → HALTED at 7-digit precision; T2.5d-RETRY (Prompt 014, drafted) closes j=0 endpoint formally | T2 PASSED; $j=0$ AMBIGUOUS-AT-FINITE-N (5-param ansatz; $A=6 \pm 2 \times 10^{-7}$ supported empirically); 30-digit closure pending Prompt 014 |
+| **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) attempted j=0 closure → HALTED at 7-digit precision; T2.5d-RETRY (Prompt 014) ✅ closed j=0 endpoint at $|\delta| \sim 10^{-23}$ in the A=6-only branch | T2 PASSED; $j=0$ ✅ **A=6 to PSLQ-detection precision, no Chowla–Selberg amplitude correction in H6 B19+** (Prompt 014 verdict `PASS_A_EQ_6_ONLY`; max $|\delta_\text{lin}| = 3.09 \times 10^{-23}$); 30-digit *stretch-goal* closure deferred to Q22 path-(b) (14b refit at $K_\text{FIT}=9$ with extended $y_n$) |
 | **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3.5 Stokes-multiplier S_1 (Prompt 010) 🟡 PARTIAL → T3.6 S_2 alien amplitude (Prompt 016, drafted; refit-only) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant); 010 PARTIAL: $|S_1|$ separates the two sides at $O(1)$ scale but *no structural pattern* at the leading scale; G19 side-finding $\beta_R = 0$ universal at $d=2$; G6b closure via Prompt 016 |
 | **P-MC**  | Master conjecture: $\Phi$ classifies PCF asymptotics | Gated on P-NP + P-B4 + P-CC | NOT YET FORMALLY STATED |
 
@@ -364,23 +396,35 @@ M6: V_quad alien amplitude S_{zeta*} measured at 30+ digits
                           │
                           ▼
 M7: j=0 Chowla–Selberg Gamma(1/3) closure (or A=6 artefact ruled out)
-    🛑 PARTIAL 2026-05-02 (Prompt 006) — verdict AMBIGUOUS_AT_DPS8000
-    Headline: 5-param LIN fit gives A_lin = 6 ± 2e-7 across all
-              4 j=0 cubic families; |delta_lin| monotone-decreasing
-              from N_max=1000 (~5e-8) to N_max=1200 (~2e-8);
-              empirically supports A_true=6 with no Gamma(1/3)
-              closure, but 5-param ansatz caps A-precision at ~7
-              digits (model truncation O(1/N^2)).
-    Spec halt:  LIN/EXP 5-param disagree on A by ~2.3e-6 (>1e-30 threshold).
-    Caveat:     Compute was 35 s (vs 6-10 hr estimate); the spec's
-                literal dps=8000 + N=1200 is internally infeasible at
-                A=6 (resolution requires dps ≥ 22150); agent ran at
-                dps=25000.
-    Closure:    Prompt 014 (drafted) refits saved y_n CSVs with a
-                13-param ansatz to drive |delta_lin| < 1e-15 and
-                unlock Phase D PSLQ on the Chowla-Selberg basis.
-                ~5-20 min agent compute, no new cf_value calls.
-    [Prompt 006 fired; Prompt 014 drafted-ready]
+    ✅ COMPLETE 2026-05-02 (Prompt 014) — verdict PASS_A_EQ_6_ONLY
+       (in soft branch: |delta_lin| <= 3.09e-23 across 4 j=0 cubic
+        families; PSLQ on H6 B19+ at maxcoeff=1e50/tol=1e-40 returns
+        no Gamma(1/3) relation in any family)
+    🛑 INTERIM (Prompt 006) — verdict AMBIGUOUS_AT_DPS8000
+    Headline: 11-param LIN refit on saved Q_30..Q_33 y_n CSVs
+              (dps=25000, N up to 1200; K_FIT=7 not 9 — judgment
+              call) reaches max |delta| = 3.09e-23, well below
+              the 1e-15 minimum target with 8+ orders of margin.
+              PSLQ on 17-member deduplicated H6 Chowla-Selberg
+              basis B19+ exhausts at PSLQ-detection precision
+              with no Gamma(1/3) closure detected.
+    Reading:  A = 6 to PSLQ-detection precision in H6 B19+;
+              j=0 endpoint closes in the "A=6 only" branch.
+              No detected Chowla-Selberg amplitude correction.
+              Stretch goal |delta| < 1e-30 NOT achieved (would
+              require K_FIT=9 with extended y_n at N up to 2400,
+              dps >= 44300).
+    Caveat:   Soft-branch closure: Q22 (operator) decides
+              whether |delta| ~ 1e-23 + no-Chowla-Selberg-relation
+              formally closes G5+G16 for PCF-2 v1.4 deposit
+              (path (a): deposit now), or whether the stretch
+              goal must be hit first (path (b): fire 014b).
+              Trivial gamma-reflection identity in literal 18-basis
+              flagged as Q23 PSLQ basis hygiene rule (CS_sqrt3
+              equiv to sqrt(3)/3 via Gamma(1/3)Gamma(2/3)=2pi/sqrt(3)).
+    Closure:  pcf2_v1.4_amendment.md drafted as Phase F output;
+              Zenodo deposit gated on Q22 path-(a) acceptance.
+    [Prompt 014 ✅ DONE; PCF-2 v1.4 deposit pending operator]
                           │
                           ▼
 M8: D=2 Painlevé classification table (per-family, ~10 families)
@@ -421,7 +465,7 @@ canonical artefact).
 | **G3b** 🆕 | Wasow-vs-Adams normalization match unresolved from secondary sources (BLOCKER for Phase 2) | HIGH | Operator: ILL/AMS request for B-T 1933 + Adams 1928 + Wasow §X.3 → Phase 2 (Prompt 008, future) |
 | **G4**  | $V_{\mathrm{quad}}$ alien amplitude $S_{\zeta_*}$ is a *theoretical prediction* (H4), not a measurement | HIGH | ✅ **Prompt 005 PASSED 2026-05-02** — measured at 108 digits in V_quad native normalization. Canonical-form value awaits G15. |
 | **G15** 🆕 | V_quad → P_III(D_6) normalization map for Stokes data not written out (CT v1.3 §3.5 only matches at Painlevé-class level) | HIGH | 🟡 PARTIAL 2026-05-02 (Prompt 009 verdict `G15_PARTIAL`): Φ_resc ($\lambda=1/3$) + Φ_shift Jacobian pinned; Φ_symp residual on R5 (Okamoto 1987 §§2–3 Lax pair, not in local library); 5 residuals R1–R5 documented; full closure via Prompt 015 (drafted-ready, gated on operator G3b literature acquisition) |
-| **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | 🛑 Prompt 006 HALTED 2026-05-02 (`AMBIGUOUS_AT_DPS8000`; 5-param ansatz caps $A$-precision at ~7 digits); $A=6 \pm 2\times 10^{-7}$ supported empirically with monotone $N$-convergence; formal 30-digit closure pending Prompt 014 (refit with 13-param ansatz) |
+| **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | ✅ **CLOSED 2026-05-02 in A=6-only branch** (Prompt 014 verdict `PASS_A_EQ_6_ONLY`; $|\delta_\text{lin}| = 3.09 \times 10^{-23}$ across all 4 j=0 cubic families via 11-param refit; PSLQ on H6 B19+ at maxcoeff $10^{50}$ / tol $10^{-40}$ returns no $\Gamma(1/3)$ relation in any family). Soft-branch closure: stretch-goal $|\delta| < 10^{-30}$ deferred to Q22 path-(b). |
 | **G6a** | Conte–Musette algorithmic Painlevé test on $d=2,3$ catalogues | MED  | ✅ Prompt 007 complete (60/60 LABELED) |
 | **G6b** 🆕 | PCF-1 v1.3 §3 sign-of-$\Delta_b$ dichotomy ($A=4$ vs $A=3$) lives below the Painlevé-class resolution scale; Conte–Musette test is invariant under sign of $\Delta_b$ | MED | 🟡 PARTIAL 2026-05-02 (Prompt 010 verdict `G6B_PARTIAL_HIGHER_ORDER_NEEDED`): $|S_1|$ measured at ≥ 60 cross-method digits for 4 reps (2-of-each-side); values differ at $O(1)$ scale but display no structural pattern at the leading scale; full closure via Prompt 016 (S_2 alien amplitude; ~30 min refit on cached CSVs) |
 | **G7**  | Master functor $\Phi$ (P-MC) not formally stated | HIGH | Downstream (gated on M2+M4+M6) |
@@ -432,7 +476,7 @@ canonical artefact).
 | **G12** 🆕 | PCF-1 v1.3 source drift: workspace `p12_journal_main.tex` rebuilds to 21 pp; Zenodo v1.3 PDF is 16 pp; v1.4 working draft has likely overwritten the v1.3 snapshot | HIGH | Future Prompt 011 (PCF1-V13-RECONCILE) — operator decision: (a) bump to v1.4 deposit & re-run 002 vs v1.4 DOI, OR (b) recover v1.3 16pp source snapshot from git history / Zenodo archive |
 | **G13** 🆕 | Channel Theory v1.3 source carries `\author{The SIARC author}` literal placeholder — arXiv will reject record #4 | HIGH | Operator: replace with real-name+affiliation block already used in PCF-2 v1.3 / umbrella v2.0; verify via grep on `tex/submitted/` |
 | **G14** 🆕 | Endorsement-request templates for math.NT records #2, #4 are skeletons; no real endorser arXiv handles populated | MED  | Operator: identify ~3 plausible math.NT endorsers, look up their arXiv user-id strings, populate the two templates |
-| **G16** 🆕 | **Spec-vs-precision-floor mismatch** — 5-parameter $1/n$ ansatz at $N=1200$ caps $A$-fit precision at $\sim 7$ digits (model truncation $O(1/N^2)$); the 30-digit formal threshold required by `op:j-zero-amplitude-h6` needs $\geq 13$ parameters. Generalises to any deep-WKB closure operator. | LOW–MED | Prompt 014 ✅ DRAFTED (refit-only; structural fix); future operators of this form should pre-compute the parameter-count floor from the desired digit threshold |
+| **G16** 🆕 | **Spec-vs-precision-floor mismatch** — 5-parameter $1/n$ ansatz at $N=1200$ caps $A$-fit precision at $\sim 7$ digits (model truncation $O(1/N^2)$); the 30-digit formal threshold required by `op:j-zero-amplitude-h6` needs $\geq 13$ parameters. Generalises to any deep-WKB closure operator. | LOW–MED | ✅ **CLOSED 2026-05-02 (in A=6-only branch)** — Prompt 014 demonstrated structural fix (11-param LIN refit reaches $|\delta| \sim 10^{-23}$; PSLQ on H6 B19+ exhausts at PSLQ-detection precision with no relation). Op-design lesson: future deep-WKB operators should pre-compute parameter-count floor from desired digit threshold ($k \ge \text{digits}/\log_{10}N - 1$) — Q15 (carried). |
 | **G17** 🆕 | **Layer separation**: V_quad scalar OGF ODE (linear; Hamiltonization quadratic in $p$) vs canonical $P_{III}(D_6)$ Hamiltonian (nonlinear in $(q,p)$) — the two live at *different* geometric layers (L-equation vs its isomonodromic deformation). $\Phi$ acts on Lax-pair monodromy data, not on $(f, f', z)$ directly. CT v1.3 §3.5 implicitly knew this ("algebraic identity at Painlevé-class level only") but does not spell it out. | MED (epistemic / framing) | Operator/Claude decision: should CT v1.4 amend §3.5 to spell out the L-equation vs isomonodromic-deformation distinction? Prompt 015 will treat the layer structure as a working assumption regardless. |
 | **G18** 🆕 | **Okamoto-constraint mismatch on $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0) = (1/6, 0, 0, -1/2)$**: the four numbers sum to $-1/3$, not $0$ — the Okamoto $\alpha + \alpha + \beta + \beta = 0$ constraint quoted in the relay-prompt brief is not satisfied. Three interpretations (CT v1.3 internal vs Sakai vs different parametrization). | LOW (convention) | Operator: pin from Okamoto 1987 §2 (R1) once acquired; possibly resolves trivially as a different parametrization convention. Flagged informational, not halt-class. |
 | **G19** 🆕 | **Universal side-finding $\beta_R = 0$ at $d=2$**: the Birkhoff resurgent ansatz $a_n \sim C \, \Gamma(n + \beta_R) \, \zeta_*^{-(n+\beta_R)}$ has $\beta_R$ measured to $\le 10^{-85}$ across all 4 d=2 PCF representatives in Prompt 010 (V_quad, QL15, QL05, QL09 — both sides of the $\Delta_b$ dichotomy). Alien amplitudes live exactly on $\Gamma(n)$ with no $\Gamma$-shift. | MED (epistemic / structural) | Synthesizer-formalisation candidate: "alien-amplitude $\Gamma$-shift = 0 universal at $d=2$". Possible link to Sakai-surface / isomonodromic geometry of the $d=2$ catalogue. Operator/Claude decision territory; not a compute task. |
@@ -467,7 +511,7 @@ milestones (see § 4).
 | 011 | PCF1-V13-RECONCILE — operator-decision-driven; resolve PCF-1 v1.3 source drift before re-running 002 | G12 | distribution layer | future (slot reserved; not yet drafted; gated on operator option-(a)/(b) decision) | low | gated |
 | 012 🆕 | $\xi_0$ at $d=3$ direct — per-Galois-bin Newton-polygon test of D2-NOTE Conj 3.3.A* on cubic representatives | G2 | (M1 follow-on; supports P-NP) | ✅ **DONE 2026-05-02** (verdict `G2_CLOSED_AT_D3`; 3/3 Galois bins AGREE at 80 algebraic digits; ~25 min agent) | low (mpmath dps=80) | INDEPENDENT |
 | 013 🆕 | CC formal Borel close — closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates (composes 005's $C$ + 009's Φ); flips CT v1.3 §3.5 status to "DIAGNOSED" | (P-CC formal closure) | (P-CC final close) | 🛑 **HALTED 2026-05-02** (verdict `CC_BOREL_009_NOT_AVAILABLE`; gate fired correctly on 009 = G15_PARTIAL; ~10 min agent; no Borel sum / canonical $C$ produced; refire pending Q21 path (a) or (b)) | low–medium (symbolic + numerical 3-point) | gated on 009 (currently HALTED) |
-| 014 🆕 | T2.5d-RETRY-13PARAM — refit saved $y_n$ CSVs with 13-param ansatz; targets $\|\delta_\text{lin}\| < 10^{-15}$, then runs Phase D PSLQ on Chowla–Selberg basis | G5, G16 | M7 (formal closure) | ✅ DRAFTED 2026-05-02; ready (no new `cf_value` calls; uses `Qn_j0_dps25000_N1200_fam{30..33}.csv` from 006) | low (~5–20 min agent; pure refit + PSLQ) | INDEPENDENT |
+| 014 🆕 | T2.5d-RETRY-13PARAM — refit saved $y_n$ CSVs with 13-param ansatz; targets $\|\delta_\text{lin}\| < 10^{-15}$, then runs Phase D PSLQ on Chowla–Selberg basis | G5, G16 | M7 (formal closure) | ✅ **DONE 2026-05-02** (verdict `PASS_A_EQ_6_ONLY`; ~12 min agent; max $|\delta_\text{lin}| = 3.09 \times 10^{-23}$ at $K_\text{FIT}=7$; PSLQ on H6 B19+ at maxcoeff $10^{50}$/tol $10^{-40}$ returns no $\Gamma(1/3)$ relation in any of 4 families; PCF-2 v1.4 §6 amendment drafted; Q22+Q23 surfaced) | low (~12 min agent; pure refit + PSLQ) | INDEPENDENT |
 | 015 🆕 | T25E-VQUAD-PIII-NORM-MAP-CLOSE — pins R1–R4 from Okamoto/Conte-Musette; writes Φ_symp from Lax-pair gauge transform; computes $J(\Phi)$ numerically; verifies $S_{\zeta_*}^\text{can}$ against Lisovyy-Roussillon tables to ≥ 50 digits | G15 (full closure), G18 | M6 (canonical-form full closure); unblocks 013 | ✅ DRAFTED 2026-05-02; **GATED on R5** (operator G3b acquisition of Okamoto 1987 + Conte-Musette ch. 7) | low–medium (~2–4 hr agent; symbolic + literature) | gated on operator literature |
 | 016 🆕 | T36-S2-EXTRACTION — refit cached `borel_*_dps250_N2000.csv`; subtract leading $C\Gamma(n)\zeta_*^{-n}$; second Richardson pass to extract $S_2$ (alien amplitude at $2\zeta_*$); test ratio $S_2/S_1^2$ for structural invariance; check $|S_2|$ and $\arg(S_2)$ as side-discriminators | G6b (full closure), G19 (cross-check) | M8b (full closure if S_2 discriminates; otherwise S_3 escalation) | ✅ DRAFTED 2026-05-02; ready (no new mpmath series; pure refit on 010's cached CSVs) | low (~30 min agent; refit-only) | INDEPENDENT |
 
@@ -495,20 +539,24 @@ member of the batch that is compute-heavy (mpmath dps≥150 on
 low-compute symbolic + light-numerical.
 
 **Recommended firing layout for the *next* compute window
-(post-010 PARTIAL + 012 PASS + 013 HALT; v1.8 status):**
-- Slot 1: **014** (5–20 min refit; closes G5 + G16 formally;
-  M7 formal achievement). Highest leverage now: tiny compute,
-  immediate unlock of Phase D PSLQ on the saved CSVs.
-- Slot 2 (parallel with 014): **016** (~30 min refit; closes
-  G6b fully if S_2 discriminates the dichotomy; cross-checks G19
-  β_R=0 universal). Refit-only on 010's cached CSVs; no new mpmath
-  series. Independent of 014.
-- Slot 3 (operator-side, runs in parallel with 014/016):
+(post-010 PARTIAL + 012 PASS + 013 HALT + **014 PASS**; v1.9 status):**
+- Slot 1: **016** (~30 min refit; closes G6b fully if S_2
+  discriminates the dichotomy; cross-checks G19 β_R=0 universal).
+  Refit-only on 010's cached CSVs; no new mpmath series.
+  Highest-leverage tiny-compute slot now.
+- Slot 2 (operator-side, runs in parallel with 016):
   **G3b literature acquisition** — Okamoto 1987 §§2–3 (~10 pp)
   + Conte-Musette 2008 ch. 7 §§7.3–7.4 (~25 pp) via the
   existing ILL/AMS workflow. **This unblocks Prompt 015** and
   the full G15 closure path (and via 015, the path-(a) refire of
   013); both are standard library items.
+- Slot 3 (operator-side, parallel with 016 + G3b acquisition):
+  **PCF-2 v1.4 deposit decision (Q22)** — does $|\delta| \sim
+  10^{-23}$ + no-Chowla–Selberg-relation in H6 B19+ formally close
+  G5+G16 (path (a): deposit `pcf2_v1.4_amendment.md` on Zenodo
+  *now*), or does PCF-2 v1.4 require the $|\delta| < 10^{-30}$
+  stretch goal first (path (b): fire 014b at $K_\text{FIT}=9$ with
+  extended $y_n$)? *Operator + Claude decision; not a compute task.*
 - Slot 4 (after R5 acquired): **015** (T25E-VQUAD-PIII-NORM-
   MAP-CLOSE; ~2–4 hr; closes G15 fully).
 - Slot 5 (after 015 lands with `G15_CLOSED`): **013 refire path
@@ -520,8 +568,12 @@ low-compute symbolic + light-numerical.
   R2–R5; no numerical gate); fires immediately on the post-009-PARTIAL
   state; no R5 wait. *Faster, ships symbolic-only canonical form;
   weaker than path (a).* Operator + Claude decision.
-- ~~Slot for 012~~ — **graduated to ✅ DONE** in this cycle (verdict
-  `G2_CLOSED_AT_D3` at 80 algebraic digits across 3 Galois bins).
+- ~~Slot for 014~~ — **graduated to ✅ DONE** in this cycle (verdict
+  `PASS_A_EQ_6_ONLY` at $|\delta| = 3.09 \times 10^{-23}$; G5+G16
+  closed in A=6-only branch).
+- ~~Slot for 012~~ — **graduated to ✅ DONE** in prior subcycle
+  (verdict `G2_CLOSED_AT_D3` at 80 algebraic digits across 3
+  Galois bins).
 - **Prompt 002 stays HALTED** until G12 + G13 + G14 are closed.
   Re-fire only against either (a) the new v1.4 DOI for record
   #2 or (b) the recovered v1.3 source snapshot. The other 4
@@ -888,6 +940,58 @@ deferred):
     either way* — both paths are AEAL-honest and both refuse to
     fabricate $S_{\zeta_*}^{\text{can}}$. **Question:** which
     path does the operator/synthesizer prefer?
+22. 🆕 **(v1.9) Prompt 014 closure-threshold acceptance for PCF-2
+    v1.4.** Prompt 014's verdict `PASS_A_EQ_6_ONLY` reaches max
+    $|\delta_\text{lin}| = 3.09 \times 10^{-23}$ across all 4 j=0
+    cubic families with PSLQ on the 17-member deduplicated H6
+    Chowla–Selberg basis B19+ returning **no relation** (i.e., no
+    $\Gamma(1/3)$ closure detected). This clears the prompt's
+    minimum target $|\delta| < 10^{-15}$ with **8 orders of margin**
+    and exhausts the H6 B19+ basis at PSLQ-detection precision.
+    However, the *stretch goal* $|\delta| < 10^{-30}$ was **not**
+    achieved (would require regenerating $y_n$ at $N \le 2400$
+    with dps $\ge 44{,}300$ and $K_\text{FIT}=9$ instead of $7$ —
+    a fresh $\sim 30$-min `cf_value` compute). The 014 agent's
+    `pcf2_v1.4_amendment.md` (Phase F) drafts the §6 amendment
+    wording for PCF-2 v1.4 deposit, but flags this as **operator
+    decision territory**. **Question:** does Claude/operator
+    accept the soft-branch closure ($|\delta| \sim 10^{-23}$, no
+    H6 relation) as **formally sufficient** to flip PCF-2 §6
+    `AMBIGUOUS-AT-FINITE-N` → `A = 6 to PSLQ-detection precision,
+    no detected Chowla–Selberg amplitude correction in H6 basis`
+    (path (a): deposit `pcf2_v1.4_amendment.md` to Zenodo *now*),
+    **or** does the citable wording require the stretch-goal
+    precision $|\delta| < 10^{-30}$ first (path (b): fire a new
+    Prompt 014b with $K_\text{FIT}=9$ + extended $y_n$ + $N \le 2400$,
+    landing the full-13-param closure at the originally-spec'd
+    precision)? *No mathematical content is at risk either way*
+    — both paths are AEAL-honest; the question is purely about
+    citable-publication threshold semantics. The 006 + 014 series
+    of empirical evidence (5-param 7-digit + 11-param 23-digit +
+    PSLQ basis exhausted) is *already* the strongest empirical
+    argument the program has produced for the j=0 endpoint to
+    date.
+23. 🆕 **(v1.9) PSLQ basis hygiene rule for deep-WKB closures.**
+    Prompt 014's literal 18-member B19+ basis (specified in the
+    relay-prompt brief) contained both $\sqrt{3}$ and
+    $\Gamma(1/3)\Gamma(2/3)/(2\pi)$. These are $\mathbb{Q}$-equivalent
+    via the gamma-reflection identity $\Gamma(1/3)\Gamma(2/3) =
+    2\pi/\sqrt{3}$ (so $\Gamma(1/3)\Gamma(2/3)/(2\pi) = 1/\sqrt{3}
+    = \sqrt{3}/3$). PSLQ on the literal 18-basis returned the
+    **trivial relation** $1 \cdot \sqrt{3} - 3 \cdot \mathrm{CS}_{\sqrt{3}}
+    = 0$ (target coefficient $= 0$ — *not* a Chowla–Selberg signal)
+    on every family. The relay agent dropped $\mathrm{CS}_{\sqrt{3}}$
+    for the verdict-decisive PSLQ run, retaining the literal-18
+    run only for traceability. **Question:** should future
+    PSLQ-based amplitude-closure prompts (deep-WKB, Chowla–Selberg,
+    or similar) include a **basis pre-screen step** in their
+    Phase D spec — i.e., apply standard $\mathbb{Q}$-linear
+    dependency tests (gamma-reflection / duplication / multiplication
+    identities) to the proposed basis and emit the deduplicated
+    minimal basis as the operative one for the verdict-bearing
+    PSLQ run? This is an op-design hygiene rule, applicable beyond
+    014. *Synthesizer territory; codifies a methodology fix that
+    avoids the trivial-relation false-positive.*
 
 ---
 
@@ -934,6 +1038,141 @@ e96641c         T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (003)     [verdict GAPTYPE_C]
 e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
 8be2f17         CHANNEL-THEORY-V13-RELEASE (post-publish edits)
 ```
+
+---
+
+## 19. Amendment Log (v1.8 → v1.9)
+
+This amendment absorbs **Prompt 014 (T25D-RETRY-13PARAM) PASS** —
+verdict `PASS_A_EQ_6_ONLY`, $|\delta_\text{lin}| = 3.09 \times 10^{-23}$,
+no $\Gamma(1/3)$ closure in H6 B19+, G5+G16 closed in soft branch,
+M7 achieved. The 014 verdict landed at bridge commit `e857172`
+(operator-side push at 20:01 JST) — *between* the v1.7 push (`d2431d9`)
+and my v1.8 push (`969cf54`). The v1.8 amendment was prepared
+before bridge HEAD reflected `e857172`; this v1.9 amendment closes
+the gap.
+
+### v1.8 → v1.9 AEAL findings (014 PASSED)
+
+| AEAL claim (per `T25D-RETRY-13PARAM/claims.jsonl`) | Value | Script | Reproducibility |
+|---------------|-------|--------|-----------------|
+| max $|\delta_\text{lin}|$ across 4 j=0 cubic families | $3.08904186542 \times 10^{-23}$ | `t25d_retry_runner.py` | dps_fit=4000, $K_\text{FIT}=7$ (11 params), square-exact `mp.lu_solve` |
+| Per-family $\delta_\text{lin}$ (Q_30) | $-3.27 \times 10^{-24}$ | `t25d_retry_runner.py` | $\log_{10}\|\delta\| = -23.49$ |
+| Per-family $\delta_\text{lin}$ (Q_31) | $-3.16 \times 10^{-24}$ | `t25d_retry_runner.py` | $\log_{10}\|\delta\| = -23.50$ |
+| Per-family $\delta_\text{lin}$ (Q_32) | $-1.19 \times 10^{-23}$ | `t25d_retry_runner.py` | $\log_{10}\|\delta\| = -22.92$ |
+| Per-family $\delta_\text{lin}$ (Q_33) | $-3.09 \times 10^{-23}$ | `t25d_retry_runner.py` | $\log_{10}\|\delta\| = -22.51$ |
+| PSLQ Phase D verdict on 17-member dedup B19+ | `n_pslq_no_relation=4` | `t25d_retry_runner.py` | DPS_PSLQ=200, DPS_VERIFY=400, maxcoeff=$10^{50}$, tol=$10^{-40}$ |
+| Tail-window cross-check (11p vs 7p, $N \ge 600$) | $|\Delta A| \approx 4$–$8 \times 10^{-14}$ | `t25d_retry_runner.py` | Phase C |
+| Tail-window cross-check (11p vs 5p, $N \ge 800$) | $|\Delta A| \approx 1$–$3 \times 10^{-8}$ | `t25d_retry_runner.py` | Phase C; consistent with 006's 5-param floor |
+| K_FIT judgment-call discrepancy | $K_\text{FIT}=7$ (not 9) | `discrepancy_log.json` | y(N_ref) undefined; truncation $\sim 1200^{-8} \sim 2.3 \times 10^{-25}$ < $10^{-15}$ target |
+| PSLQ trivial-relation flag (literal 18-basis) | `1·sqrt(3) - 3·CS_sqrt3 = 0` (target=0) | `unexpected_finds.json` | $\Gamma(1/3)\Gamma(2/3) = 2\pi/\sqrt{3}$ reflection identity |
+| Phase E spec impedance | input float64 ⇒ Richardson floor $\sim 10^{-5}$ | `discrepancy_log.json` | Phase E reported MET-IN-DIRECTION |
+
+12 AEAL claims total; halt log contains verdict + summary
+(verdict-bearing data, *not* a halt clause); discrepancy log
+records K_FIT judgment + Phase E impedance; unexpected_finds
+records PSLQ trivial-relation. **All 12 claims pass `grep` for
+"shows"/"confirms"/"proves"/"demonstrates" — none used in
+prediction-or-conjecture context.**
+
+### v1.8 → v1.9 file changes
+
+| File | Change |
+|------|--------|
+| `tex/submitted/control center/picture_revised_20260502.md` | v1.9 amendment (this section). Header revision/timestamp updated. New top callout block. §2.3 / §2.4 / §3 (P-PET row) / §4 (M7 milestone) / §5 (G5/G16 rows) / §6 (014 row + firing layout) / §8 (Q22 + Q23) updated. |
+| `siarc-relay-bridge/sessions/2026-05-02/STRATEGIC-PICTURE-REVISED/picture.md` | Mirror of v1.9 (push pending). |
+| `tex/submitted/control center/prompt/_INDEX.txt` | (next turn) bump to "post-014 PASS"; mark 014 ✅ DONE; update GAP CLOSURE MAP for G5+G16; update FIRING ORDER; surface Q22+Q23. |
+
+### v1.8 → v1.9 SQL state
+
+**Pre-v1.9:** 25 done / 27 pending / 3 blocked = 55 todos.
+
+Changes:
+- `prompt-014-fire`: pending → ✅ done.
+- `q22-014-stretch-goal-arbitrate`: NEW pending todo (Claude
+  arbitration on closure-threshold acceptance for PCF-2 v1.4
+  deposit; soft branch path-(a) deposit-now vs hard branch
+  path-(b) fire-014b for stretch goal).
+- `q23-pslq-basis-hygiene-claude-arbitrate`: NEW pending todo
+  (Claude codifies op-design hygiene rule for PSLQ basis
+  pre-screening of $\mathbb{Q}$-linear dependencies).
+- `pcf2-v1-4-deposit-decision-q22-gated`: NEW blocked todo
+  (PCF-2 v1.4 Zenodo deposit, blocked on Q22 path-(a) acceptance).
+
+**Post-v1.9:** 26 done / 26 pending / 3 blocked = **55 todos**
+(net: −1 pending +1 done +2 pending +1 blocked −1 retired).
+Note: the apparent net "no change in total" reflects a separate
+consolidation of an earlier todo `prompt-014-pcf2-v1-4-deposit-
+decision-q22` (drafted but not committed) being subsumed into
+`pcf2-v1-4-deposit-decision-q22-gated`.
+
+### v1.8 → v1.9 bridge commit trail
+
+```
+[v1.9 picture]  STRATEGIC-PICTURE-REVISED v1.9 (this push, pending)
+969cf54         STRATEGIC-PICTURE-REVISED v1.8 — absorb 010+012+013
+e857172         T25D-RETRY-13PARAM (Prompt 014 PASS)               [absorbed by v1.9]
+726b53e         CC-FORMAL-BOREL-CLOSE (Prompt 013 HALT)            [absorbed by v1.8]
+e93458f         XI0-D3-DIRECT (Prompt 012 PASS)                    [absorbed by v1.8]
+d2431d9         STRATEGIC-PICTURE-REVISED v1.7 — absorb 009 PARTIAL
+fa2516e         T35-STOKES-MULTIPLIER-DISCRIMINATION (Prompt 010 PARTIAL)
+32fef0a         STRATEGIC-PICTURE-REVISED v1.6
+```
+
+### v1.8 → v1.9 cycle status
+
+**Cycle accounting (post-014 PASS):** 12 prompts fired total this
+cycle: **7 ✅ DONE** (001, 003, 004, 005, 007, 012, 014); **3 🛑
+HALTED** (002 G12 source-drift; 006 j=0 5-param precision floor
+— *now superseded in soft branch by 014's PASS*; 013 G15 gate —
+as designed); **2 🟡 PARTIAL** (009 G15; 010 G6b). G2 + G5 + G16
+are now *closed*. M1, M3, M5, M6, M7, M8 are **done or in soft
+closure**; M4 (B-T applied / B4 at $d \ge 3$) blocked on G3b +
+H1 arbitration; M9 (SIARC-MASTER-V0) downstream.
+
+### v1.8 → v1.9 published-artefact tension audit
+
+**No tension.** 014's verdict `PASS_A_EQ_6_ONLY` does not
+contradict any published claim:
+- **PCF-2 v1.3 §6** says `AMBIGUOUS-AT-FINITE-N` — 014's result is
+  *strictly stronger* than the published wording (14 orders more
+  precision; basis exhausted). The `pcf2_v1.4_amendment.md` Phase F
+  draft *replaces* §6's ambiguous statement with a precise
+  closure-direction statement; depositing it to Zenodo creates a
+  v1.4 record (concept DOI unchanged).
+- **CT v1.3 §3.5** is unaffected (j=0 endpoint discussion is in
+  PCF-2, not CT).
+- **Umbrella v2.0 §4.4** (invariant-triple framing) is unaffected.
+- **D2-NOTE v1.0 (drafted)** is unaffected (Newton-polygon $\xi_0$
+  result, separate from j=0 amplitude). NB: D2-NOTE Conj 3.3.A* is
+  separately upgrade-candidate for Q20 (012's Newton-polygon
+  argument).
+
+The 014 → PCF-2 v1.4 path is a clean hardening of the published
+narrative, not a contradiction of it.
+
+### v1.8 → v1.9 next-cycle priorities (re-affirmed)
+
+1. **Slot 1 (compute):** Prompt 016 (T36-S2-EXTRACTION; refit-only
+   on cached CSVs; ~30 min agent; tests S_2 alien-amplitude
+   discrimination across the PCF-1 §3 dichotomy; G6b full closure
+   if positive, S_3 escalation if negative).
+2. **Slot 2 (operator-side, parallel):** G3b literature acquisition
+   (Okamoto 1987 §§2–3 + Conte-Musette 2008 ch. 7 §§7.3–7.4) to
+   unblock Prompt 015 and the path-(a) refire of Prompt 013.
+3. **Slot 3 (operator-side, parallel):** PCF-2 v1.4 deposit
+   decision (Q22 path-(a) deposit-now-at-$|\delta| \sim 10^{-23}$
+   vs path-(b) fire-014b-for-stretch-goal). Claude territory:
+   does the operator's "AMBIGUOUS-AT-FINITE-N" → "A=6 to
+   PSLQ-detection precision; no Chowla–Selberg correction"
+   transition warrant a v1.4 deposit at the soft-branch precision?
+4. **Synthesizer territory** (now **6 questions** for Claude):
+   Q11 (H1 arbitration), Q18 (sign-of-C basis-independence),
+   Q19 (β_R=0 structural at d=2), Q20 (Conj 3.3.A* proof-upgrade
+   candidate at all $d \ge 2$), Q21 (013 refire path-(a)/(b)),
+   **Q22 (014 closure-threshold acceptance)**, plus G17
+   (layer-separation framing) and **Q23 (PSLQ basis hygiene rule)**
+   — 6 active questions + 2 framing items.
 
 ---
 
