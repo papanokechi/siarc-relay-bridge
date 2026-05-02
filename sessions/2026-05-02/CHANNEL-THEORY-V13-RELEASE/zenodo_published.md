@@ -106,12 +106,50 @@ by the verbatim-v1.2 description block per the design comment in
 (`<!-- v1.0 / v1.1 / v1.2 description (preserved verbatim from v1.2) -->`).
 The v1.3 update section already documents v1.3-specific AI use. No action.
 
-## AEAL claim added
+## AEAL claims added
 
-`claims.jsonl` line 12 (CT-V13-A12): records the published-DOI fact, the
-isNewVersionOf chain, the file-size and SHA-256 verification, and the
-Zenodo-side md5. `output_hash` is the PDF SHA-256
-(`df3b90e808e49e84fbba53e5663a851256303496fc1536fefbf962aba2ebdc18`).
+- `claims.jsonl` line 12 (**CT-V13-A12**): records the published-DOI fact,
+  the isNewVersionOf chain, the file-size and SHA-256 verification, and the
+  Zenodo-side md5. `output_hash` is the PDF SHA-256
+  (`df3b90e808e49e84fbba53e5663a851256303496fc1536fefbf962aba2ebdc18`).
+- `claims.jsonl` line 13 (**CT-V13-A13**): records the operator's
+  post-publish metadata polish (TIER 1 description fix + TIER 2 related-id
+  cleanup) applied 2026-05-02 ~17:37 JST and the readback verification that
+  both tiers landed clean.
+
+## Post-edit state (2026-05-02 ~17:37 JST) — TIERS 1 + 2 applied ✓
+
+Both metadata polish tiers applied via Zenodo `Edit metadata` and verified
+via `Invoke-RestMethod https://zenodo.org/api/records/19972394` readback:
+
+| Tier | Status | Detail |
+|------|--------|--------|
+| TIER 1 — description supersede line | ✓ FIXED | `…is superseded by v1.2.` → `…and v1.2 (10.5281/zenodo.19951331) are superseded by v1.3.` (length 10048 → 10084) |
+| TIER 2 — stale related identifiers | ✓ CLEAN | 6/6 removed; total 18 → 12 |
+| PDF | ✓ UNCHANGED | size 581459 B; md5 `e58951de5cbf1be7cdd26f335bc359af`; sha256 `df3b90e8…` (matches CT-V13-A8 anchor) |
+| DOI | ✓ UNCHANGED | `10.5281/zenodo.19972394` (metadata edits never mint a new DOI) |
+| Concept DOI | ✓ PRESERVED | `10.5281/zenodo.19941678` |
+
+Final related-identifier set (12 entries):
+
+```
+isNewVersionOf  10.5281/zenodo.19951331   (Channel Theory v1.2)
+references      10.5281/zenodo.19885549   (SIARC umbrella concept)
+references      10.5281/zenodo.19965041   (SIARC umbrella v2.0)
+references      10.5281/zenodo.19936297   (PCF-2 concept)
+references      10.5281/zenodo.19963298   (PCF-2 v1.3)
+references      10.5281/zenodo.19931635   (PCF-1 concept)
+references      10.5281/zenodo.19937196   (PCF-1 v1.3)
+references      10.5281/zenodo.19783311   (T2B concept)
+isDocumentedBy  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/CHANNEL-THEORY-V13-RELEASE/
+isDocumentedBy  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-01/THEORY-FLEET/H4/
+isDocumentedBy  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/PCF2-SESSION-T2/
+isDocumentedBy  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-01/PCF2-SESSION-Q1/
+```
+
+The set matches the staged `zenodo_description_v1.3.txt` lines 41–58 target,
+plus one historical-lineage `isDocumentedBy` (PCF2-SESSION-Q1) kept by
+operator decision.
 
 ## Next steps
 
