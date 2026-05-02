@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "session": "T1-BIRKHOFF-TRJITZINSKY-LITREVIEW",
+  "date": "2026-05-02",
+  "items": [
+    {
+      "id": "D-01",
+      "kind": "bibliographic_metadata_mismatch",
+      "where": "relay prompt INPUTS / Q2 row (i)",
+      "claim_in_prompt": "Birkhoff 1930 ('General theory of linear difference equations'), Trans. Amer. Math. Soc. 12, 243-284",
+      "verified_record": "Trans. AMS volume 12 corresponds to 1911. The closest match by title and pagination is Birkhoff (G. D.), 'General theory of linear difference equations', Trans. Amer. Math. Soc. 12 (1911), 243-284 (DOI 10.2307/1988577).",
+      "resolution": "bibliography_pass1.bib uses 1911. Year discrepancy noted in entry @article{Birkhoff1911} 'note' field.",
+      "impact": "Cosmetic; the predecessor paper to B-T 1933 is correctly identified by title and pagination."
+    },
+    {
+      "id": "D-02",
+      "kind": "bibliographic_metadata_mismatch",
+      "where": "relay prompt INPUTS / Q2 row (v)",
+      "claim_in_prompt": "Immink 1991+ ('Asymptotics of analytic difference equations'), LNM 1085 and subsequent Compositio Mathematica papers",
+      "verified_record": "Lecture Notes in Mathematics 1085 is the 1984 Immink monograph 'Asymptotics of Analytic Difference Equations' (DOI 10.1007/BFb0100128). The 1991+ Compositio Math papers are subsequent refinements.",
+      "resolution": "bibliography_pass1.bib uses Immink1984 for the LNM monograph. Year discrepancy noted in 'note' field.",
+      "impact": "Cosmetic; the work is correctly identified."
+    },
+    {
+      "id": "D-03",
+      "kind": "bibliographic_metadata_unverified",
+      "where": "relay prompt INPUTS / Q2 row (vi)",
+      "claim_in_prompt": "Braaksma 1991+ ('Multisummability of formal power series solutions of nonlinear meromorphic differential equations'), Compositio 100",
+      "verified_record": "The agent could not verify a Braaksma paper in Compositio Mathematica volume 100 with this title. The closest matches are: (a) Braaksma, 'Multisummability and Stokes multipliers of linear meromorphic differential equations', J. Differential Equations 92 (1991), 45-75; (b) Braaksma, 'Multisummability of formal power series solutions of nonlinear meromorphic differential equations', Annales de l'Institut Fourier 42 (1992), 517-540 (this matches the title in the relay prompt and is the most likely intended reference).",
+      "resolution": "bibliography_pass1.bib includes both @article{Braaksma1991} and @article{Braaksma1992}. The Phase-1 prose cites the 1992 Ann. Inst. Fourier paper as the primary reference under the title given in the relay prompt; the 1991 J. Diff. Eqs. paper is the linear-meromorphic companion.",
+      "impact": "Possibly substantive: if the operator intended a third Braaksma paper that the agent could not locate, the Phase-2 specification may need to update its dependency list. Operator confirmation requested."
+    },
+    {
+      "id": "D-04",
+      "kind": "phase_label_inconsistency",
+      "where": "Theory-Fleet H1 verdict.md vs Phase-1 reading of B-T 1933 + descendants",
+      "claim_in_prompt": "Theory-Fleet H1 issued the verdict label 'B4_PROVED_AT_d>=3_RESIDUE_AT_d=2' and the umbrella v2.0 absorbed this as 'B-T proves the leading slope A = 2d for every d >= 2 generically'.",
+      "verified_record": "B-T 1933 establishes the FORMAL Newton-polygon slope analysis (Q1.a, Q1.b). The formal-to-analytic upgrade (sectorial-analytic existence in the SIARC normalisation) requires Turrittin 1955 / Immink 1984; the SIARC-specialisation argument matching the formal slope to the SIARC ansatz A in log|delta_n| = -A n log n + ... is NOT in the literature consulted in Phase 1. Therefore the Phase-1 reading is that B-T 1933 (alone or with descendants) PREDICTS / IS CONSISTENT WITH A = 2d at d >= 3 but does NOT rigorously establish it. H1's 'PROVED' label is heuristic-grade rather than theorem-grade.",
+      "resolution": "Logged here for Claude / human-reviewer arbitration. The Phase-1 deliverable does NOT auto-rewrite H1's verdict label per relay-prompt DO-NOT clause. recommended_next_phase_t1.md flags disposition of D-04 as a Phase-2 pre-condition.",
+      "impact": "Substantive: the umbrella v2.0 main.tex line 295 'extends A = 2d to all d via the Birkhoff-Trjitzinsky asymptotic theory' should be re-read with a 'predicted by / consistent with' caveat until Phase 2 closes the lower-bound lift."
+    },
+    {
+      "id": "D-05",
+      "kind": "normalisation_match_ambiguity",
+      "where": "Q3 sec 3 — derivation of psi_lower(d) and psi_upper(d)",
+      "claim_in_prompt": "(implicit) the SIARC ansatz A in log|delta_n| = -A n log n + ... corresponds to Wasow 1965 sec X.3's sigma normalisation rather than Adams 1928's 2*sigma normalisation",
+      "verified_record": "The agent could not pin the normalisation match from secondary sources alone. Wasow 1965 sec X.2-X.3 uses one normalisation; Adams 1928 uses another. The match between SIARC's A and either of these is implicit in PCF-1 v1.3 sec 2 / PCF-2 v1.3 sec 2.1 but not derived explicitly anywhere the agent consulted.",
+      "resolution": "Q3 takes the Wasow-normalisation reading as the working hypothesis (consistent with all secondary sources used) and explicitly flags the alternative (Adams reading) as a major-halt branch in Phase-2 verdict labels.",
+      "impact": "Critical pre-condition for Phase 2: the operator should resolve the normalisation match from primary B-T 1933 / Adams 1928 / Wasow 1965 access before Phase 2 launches."
+    }
+  ]
+}
