@@ -1,0 +1,307 @@
+{
+  "bracket_recovery": {
+    "bracket_string_017f": "alpha/16 + gamma - beta^2/(4 alpha)",
+    "source_file": "sessions\\2026-05-02\\T37F-Q18-NUMERICAL-PROBE\\unexpected_finds.json",
+    "source_hash": "f19a8a0008ae6c02ed11659cd2c2f2890826346e5ea434d08d9add5ab2c4ad2d",
+    "extracted_from_field": "implication_for_Q18 / structural_proof_sketch (017f Find #1)"
+  },
+  "bracket_sympy": {
+    "bracket_sympy": "alpha/16 + gamma - beta**2/(4*alpha)",
+    "bracket_sympy_together": "(alpha**2 + 16*alpha*gamma - 4*beta**2)/(16*alpha)",
+    "bracket_latex": "\\frac{\\alpha}{16} + \\gamma - \\frac{\\beta^{2}}{4 \\alpha}",
+    "matches_017f": true
+  },
+  "B_at_T35_reps": {
+    "V_quad": {
+      "alpha": 3,
+      "beta": 1,
+      "gamma": 1,
+      "B_value_str": "1.1041666666666667406815349750104360282421112060546875",
+      "B_abs_log10": "0",
+      "B_is_zero_to_50_digits": false
+    },
+    "QL15": {
+      "alpha": 3,
+      "beta": -2,
+      "gamma": 2,
+      "B_value_str": "1.8541666666666667406815349750104360282421112060546875",
+      "B_abs_log10": "0",
+      "B_is_zero_to_50_digits": false
+    },
+    "QL05": {
+      "alpha": 1,
+      "beta": -2,
+      "gamma": -1,
+      "B_value_str": "-1.9375",
+      "B_abs_log10": "0",
+      "B_is_zero_to_50_digits": false
+    },
+    "QL09": {
+      "alpha": 2,
+      "beta": 3,
+      "gamma": 1,
+      "B_value_str": "0.0",
+      "B_abs_log10": "-inf",
+      "B_is_zero_to_50_digits": true
+    }
+  },
+  "algebraic_locus": {
+    "bracket": "alpha/16 + gamma - beta^2/(4 alpha)",
+    "polynomial_form": "alpha^2 + 16*alpha*gamma - 4*beta^2 = 0",
+    "polynomial_sympy": "a**2 + 16*a*g - 4*b**2",
+    "solved_for_gamma": "-a/16 + b**2/(4*a)",
+    "solved_for_gamma_latex": "- \\frac{a}{16} + \\frac{b^{2}}{4 a}",
+    "dimension": 2,
+    "free_parameters": [
+      "alpha",
+      "beta"
+    ],
+    "classification": "2d_quadric_surface_in_alpha_beta_gamma_space",
+    "note": "alpha=0 is a separate degenerate case (excluded since alpha is the leading coefficient of b(n) = alpha n^2 + beta n + gamma; alpha != 0 required by family definition)."
+  },
+  "QL09_on_locus": true,
+  "QL09_on_locus_tolerance": "1e-50",
+  "other_T35_reps_distance_from_locus": {
+    "V_quad": "1.1041666666666667407",
+    "QL15": "1.8541666666666667407",
+    "QL05": "1.9375"
+  },
+  "integer_lattice_search_box": {
+    "alpha_max": 10,
+    "beta_max": 20
+  },
+  "integer_lattice_count": 46,
+  "integer_lattice_points": [
+    {
+      "alpha": 2,
+      "beta": -19,
+      "gamma": 45
+    },
+    {
+      "alpha": 2,
+      "beta": -17,
+      "gamma": 36
+    },
+    {
+      "alpha": 2,
+      "beta": -15,
+      "gamma": 28
+    },
+    {
+      "alpha": 2,
+      "beta": -13,
+      "gamma": 21
+    },
+    {
+      "alpha": 2,
+      "beta": -11,
+      "gamma": 15
+    },
+    {
+      "alpha": 2,
+      "beta": -9,
+      "gamma": 10
+    },
+    {
+      "alpha": 2,
+      "beta": -7,
+      "gamma": 6
+    },
+    {
+      "alpha": 2,
+      "beta": -5,
+      "gamma": 3
+    },
+    {
+      "alpha": 2,
+      "beta": -3,
+      "gamma": 1
+    },
+    {
+      "alpha": 2,
+      "beta": -1,
+      "gamma": 0
+    },
+    {
+      "alpha": 2,
+      "beta": 1,
+      "gamma": 0
+    },
+    {
+      "alpha": 2,
+      "beta": 3,
+      "gamma": 1
+    },
+    {
+      "alpha": 2,
+      "beta": 5,
+      "gamma": 3
+    },
+    {
+      "alpha": 2,
+      "beta": 7,
+      "gamma": 6
+    },
+    {
+      "alpha": 2,
+      "beta": 9,
+      "gamma": 10
+    },
+    {
+      "alpha": 2,
+      "beta": 11,
+      "gamma": 15
+    },
+    {
+      "alpha": 2,
+      "beta": 13,
+      "gamma": 21
+    },
+    {
+      "alpha": 2,
+      "beta": 15,
+      "gamma": 28
+    },
+    {
+      "alpha": 2,
+      "beta": 17,
+      "gamma": 36
+    },
+    {
+      "alpha": 2,
+      "beta": 19,
+      "gamma": 45
+    },
+    {
+      "alpha": 4,
+      "beta": -18,
+      "gamma": 20
+    },
+    {
+      "alpha": 4,
+      "beta": -14,
+      "gamma": 12
+    },
+    {
+      "alpha": 4,
+      "beta": -10,
+      "gamma": 6
+    },
+    {
+      "alpha": 4,
+      "beta": -6,
+      "gamma": 2
+    },
+    {
+      "alpha": 4,
+      "beta": -2,
+      "gamma": 0
+    },
+    {
+      "alpha": 4,
+      "beta": 2,
+      "gamma": 0
+    },
+    {
+      "alpha": 4,
+      "beta": 6,
+      "gamma": 2
+    },
+    {
+      "alpha": 4,
+      "beta": 10,
+      "gamma": 6
+    },
+    {
+      "alpha": 4,
+      "beta": 14,
+      "gamma": 12
+    },
+    {
+      "alpha": 4,
+      "beta": 18,
+      "gamma": 20
+    },
+    {
+      "alpha": 6,
+      "beta": -15,
+      "gamma": 9
+    },
+    {
+      "alpha": 6,
+      "beta": -9,
+      "gamma": 3
+    },
+    {
+      "alpha": 6,
+      "beta": -3,
+      "gamma": 0
+    },
+    {
+      "alpha": 6,
+      "beta": 3,
+      "gamma": 0
+    },
+    {
+      "alpha": 6,
+      "beta": 9,
+      "gamma": 3
+    },
+    {
+      "alpha": 6,
+      "beta": 15,
+      "gamma": 9
+    },
+    {
+      "alpha": 8,
+      "beta": -20,
+      "gamma": 12
+    },
+    {
+      "alpha": 8,
+      "beta": -12,
+      "gamma": 4
+    },
+    {
+      "alpha": 8,
+      "beta": -4,
+      "gamma": 0
+    },
+    {
+      "alpha": 8,
+      "beta": 4,
+      "gamma": 0
+    },
+    {
+      "alpha": 8,
+      "beta": 12,
+      "gamma": 4
+    },
+    {
+      "alpha": 8,
+      "beta": 20,
+      "gamma": 12
+    },
+    {
+      "alpha": 10,
+      "beta": -15,
+      "gamma": 5
+    },
+    {
+      "alpha": 10,
+      "beta": -5,
+      "gamma": 0
+    },
+    {
+      "alpha": 10,
+      "beta": 5,
+      "gamma": 0
+    },
+    {
+      "alpha": 10,
+      "beta": 15,
+      "gamma": 5
+    }
+  ],
+  "T35_compatibility": "locus contains an infinite family of integer (alpha,beta,gamma) triples; T35's 4-rep catalogue populates only QL09 (2,3,1); additional points (delta, epsilon) are free parameters of the b(n)/a(n) ODE and do NOT enter B."
+}
