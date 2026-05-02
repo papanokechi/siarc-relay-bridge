@@ -1,0 +1,31 @@
+{
+  "key": "T36_S2_RICHARDSON_DIVERGED",
+  "secondary_key": "T36_S2_CROSSMETHOD_MISMATCH",
+  "underlying_cause": "polynomial_in_inv_n_corrections_to_leading_birkhoff",
+  "evidence": {
+    "convention_check_ratio_a_n_over_a_n_lead_at_n_1500": {
+      "V_quad": "0.99902 (agree-with-1 ~3.0 digits, NOT 60+)",
+      "QL15":   "0.99835 (agree-with-1 ~2.8 digits)",
+      "QL05":   "1.00518 (agree-with-1 ~2.3 digits)",
+      "QL09":   "0.999996 (agree-with-1 ~5.4 digits)"
+    },
+    "interpretation": "a_n / (C * Gamma(n) * zeta_*^(-n)) -> 1 only at the 1/n rate, NOT exponentially. The prompt-016 working-hypothesis that the leading subtraction has an exponentially-small (1/2)^n residual at the 2 zeta_* ladder rung is falsified at this dps level: d=2 PCFs DO carry polynomial-in-1/n corrections to the leading Birkhoff amplitude even though their leading Gamma-argument shift beta_R is zero (T35 measurement).",
+    "phase_C_consequence": "R_n := r_n * (2 zeta_*)^n / Gamma(n) diverges like 2^n / n^k because r_n is dominated by polynomial-in-1/n terms, NOT by the next ladder rung. Richardson on R_n produces an apparent R_inf ~ 10^654 (manifest noise amplification); cross-method digit agreement collapses to ~10^-15 digits.",
+    "richardson_min_cross_method_digits_at_top_window": "2.16e-15"
+  },
+  "what_was_extracted_instead": {
+    "first_polynomial_correction_a1_3_digit_endpoint_estimate": {
+      "V_quad_neg": "-1.47165",
+      "QL15_neg":   "-2.47108",
+      "QL05_pos":   "+7.76157",
+      "QL09_pos":   "-0.00527"
+    },
+    "method": "Richardson + endpoint estimator on s_n := n * (a_n/a_n_lead - 1) -> a_1; ~3-4 stable digits at n in {1500, 1900}",
+    "why_only_3_digits": "the cached series is at dps=250 and Richardson on the polynomial-correction sequence runs out of precision floor; deeper precision requires extending the recurrence at higher dps (out of scope here)."
+  },
+  "consistency_with_prior_claims": {
+    "T35_C_amplitudes_unchanged": "T35's C values are NOT contradicted; the convention-check failure at the 60-digit level reflects the omitted polynomial-in-1/n corrections, not a falsification of T35's C extraction (which used Richardson on the asymptotically-dominant Gamma(n+beta_R) term and is robust to the polynomial corrections in the COEFFICIENTS of the leading amplitude).",
+    "G19_beta_R_zero_unchanged": "T35's beta_R = 0 measurement is unaffected; it characterises the leading Gamma-argument shift, not the higher-order coefficients of the asymptotic series."
+  },
+  "recommended_next_step_for_prompt_018": "Use a polynomial-correction-aware ansatz: jointly fit (a_1, a_2, ..., a_K) with C via constrained-LSQ on T_n = a_n * zeta^n / Gamma(n) over a polynomial-decay window, then form the residual r_n with the FULL polynomial expansion subtracted, and only then apply Richardson at the 2 zeta_* scale. K must be large enough that the polynomial residual at the inner window is below the dps-250 noise floor, i.e. K ~ 30-50."
+}
