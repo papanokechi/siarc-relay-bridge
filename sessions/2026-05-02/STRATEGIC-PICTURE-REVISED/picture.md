@@ -1,7 +1,7 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.8 (post-010 PARTIAL — leading Stokes multiplier $S_1$ differs across PCF-1 §3 sign-of-$\Delta_b$ dichotomy but no *structural* pattern; $\beta_R = 0$ across $d=2$ PCF family as universal side-finding)
+**Revision:** v1.8 (post-010 PARTIAL + 012 PASS + 013 HALT — leading Stokes multiplier $S_1$ differs across PCF-1 §3 sign-of-$\Delta_b$ dichotomy but no *structural* pattern; $\beta_R = 0$ universal at $d=2$ as side-finding; $\xi_0$ closed at $d=3$ across 3 Galois bins at 80 algebraic digits; CC formal Borel close correctly halted on gate `CC_BOREL_009_NOT_AVAILABLE`)
 **Original:** 2026-05-02 18:05 JST
-**Updated:** 2026-05-02 19:50 JST  (post-010 absorption)
+**Updated:** 2026-05-02 20:30 JST  (post-010 + 012 + 013 absorption)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
@@ -17,6 +17,10 @@ epistemic review pass before the next firing cycle.
 > - 🛠 **Reusable infrastructure delivered.** `derive_recurrence.py` (symbolic derivation of the $d=2$ Birkhoff recurrence in $(\alpha, \beta, \gamma, \delta, \epsilon)$) and `t35_runner.py` (numerical extraction with t2c precision-ladder discipline, Richardson + LSQ cross-method) are now reusable for any future $d=2$ PCF Stokes-data extraction. Generalisation to $d=3$ requires deriving a new recurrence from Conte-Musette's $d=3$ ODE (different singular structure: rank $4/3$ at $0$, $2/3$ at $\infty$) — out of scope for 010/016, deferred to a later prompt.
 > - ❓ **NEW open question for synthesizer (Q18, see § 8).** Is $\mathrm{sign}(C)$ a basis-independent invariant in the resurgent classification, or does it depend on the Birkhoff basis-of-formal-solutions choice ($f_+$ vs $f_-$, with $c = +2/\sqrt{\alpha}$ vs $c = -2/\sqrt{\alpha}$)? The runner used a uniform $c = +2/\sqrt{\alpha}$ convention; if Claude's reading of the literature pins sign$(C)$ as basis-dependent, the QL05 vs QL09 sign disagreement is a convention artefact, not a genuine asymmetry.
 > - 📊 **Status:** P-PIII Stokes-side discrimination is **PARTIAL** — leading scale shows the dichotomy is real but unstructured; closure via Prompt 016 ($S_2$ scale) is the next test. **G6b** is no longer "future" — it has a measured leading-order verdict and a concrete S_2 follow-up path.
+> - ✅ **Prompt 012 LANDED with verdict `G2_CLOSED_AT_D3`** (XI0-D3-DIRECT, ~25 min agent). All **K=3 Galois bins** of the $d=3$ cubic catalogue (`+_C3_real`, `+_S3_real`, `-_S3_CM`) verify $\xi_0 = 3 / \alpha_3^{1/3}$ to **80 algebraic digits** (`xi0_d3_runner.py`, dps=80) via Newton-polygon characteristic-root test on the slope-$1/3$ edge of $L = 1 - z B(\theta+1) - z^2$. Numerical Borel-singularity ladder via the $Q_n$ recurrence at $N \in \{500, 1000, 1500\}$ confirms the asymptotic direction (3.2–3.4 digits at $N=1500$, consistent with $O(1/N)$ subleading). 5 AEAL claims; halt log `{}`. **G2 closed cleanly at $d=3$** — D2-NOTE Conj 3.3.A* now has empirical support at $d=2,3,4$. **NEW open question (Q20, see § 8) — *proof upgrade candidate*:** the Newton-polygon test depends only on $\alpha_3$ via standard Newton-polygon theorems; the 80-digit per-bin agreement is *uniformity evidence*, but the underlying operator-level argument may already constitute a **proof** (modulo standard Newton-polygon / irregular-singular-point machinery), not just empirical support. If Claude judges yes, Conj 3.3.A* could be upgraded **DEFERRED → PROVEN** at $d=3$ — and by the same structural argument, **EMPIRICAL → PROVEN** at $d=4$ — closing $G_2$ in the strongest sense for *all* $d \ge 2$ simultaneously.
+> - 🛑 **Prompt 013 HALTED with verdict `CC_BOREL_009_NOT_AVAILABLE`** (CC-FORMAL-BOREL-CLOSE, ~10 min agent — *gate fired correctly, not a failure*). Prompt 013 was hard-gated on Prompt 009 returning `G15_CLOSED`; 009 is `G15_PARTIAL` with five unresolved residuals (R1–R5) and explicit `C_can NOT NUMERICALLY COMPUTED`. The relay agent inspected the upstream session, triggered the named halt clause **before any phase ran**, and produced no Borel sum, no closed-form expression, no canonical Stokes constant — i.e., refused to fabricate $S_{\zeta_*}^{\text{can}}$ or silently substitute $S_{\zeta_*}^{\text{native}} \approx 51.0656i$ in the canonical-coordinate formula (the prompt's Do-Not list explicitly bars this). CT v1.3 §3.5 status was **not** flipped. 1 AEAL halt-record claim with upstream hashes pinning 005 + 009 inputs for refire reproducibility. **Discipline working as designed:** the gate kept a flawed result out of CT v1.4 territory.
+> - ❓ **NEW open question (Q21, see § 8) — *operator decision required for 013 refire*:** two paths: **(a)** acquire Okamoto 1987 + Conte-Musette 2008 ch. 7 (G3b workflow), refire Prompt 015 to lift 009 to `G15_CLOSED`, refire 013 unchanged (the **stronger** result; numerical 30-digit closure of $S_{\zeta_*}^{\text{can}}$); **(b)** synthesizer reformulates 013 to accept `G15_PARTIAL` by writing the Borel sum **symbolically modulo R2–R5**, landing at `CC_FORMAL_BOREL_SYMBOLIC_PARTIAL` with no numerical gate (the **faster** result; unblocks the rest of the channel-theory roadmap immediately, but ships a symbolic-only canonical-form expression). Path (a) is preferred if the literature is acquirable on a reasonable timeline; path (b) is the right call if the operator wants to ship CT v1.4 *now* and accept canonical-form Stokes-amplitude as "pending Lax-pair closure" prose. *This question is operator + Claude territory; the relay agent cannot pick.*
+> - 📊 **Cycle status (post-010 + 012 + 013):** Of the 11 prompts fired in this cycle, **6 are ✅ DONE** (001, 003, 004, 005, 007, 012), **3 are 🛑 HALTED** (002 at G12 source-drift; 006 at j=0 5-param precision floor; 013 at G15 gate — the latter as designed), **2 are 🟡 PARTIAL** (009 G15; 010 G6b). G2 is now the *first* gap to close at *all* tested $d \in \{2, 3, 4\}$ — and possibly upgradable to PROVEN-at-all-$d$ pending Q20 arbitration.
 
 > **🆕 Updates since v1.6 (carried forward from v1.7):**
 > - 🟡 **Prompt 009 LANDED with verdict `G15_PARTIAL`.** V_quad's scalar OGF ODE re-derived from scratch by sympy: $3 z^3 f''(z) + 10 z^2 f'(z) + (5z + z^2 - 1) f(z) = 0$ (exact rational coefficients; Newton-polygon slope $1/2$; $c = \pm 2/\sqrt{3}$; $\zeta_* = 4/\sqrt{3}$; $\rho = -11/6$ — all exact rationals/algebraics, agreeing with the 250-digit V_quad-native measurement from Prompt 005). The change-of-variables decomposes as $\Phi = \Phi_\text{symp} \circ \Phi_\text{shift} \circ \Phi_\text{resc}$. **Φ_resc parameter $\lambda = 1/3$ pinned** by leading-exponent matching (R3-conditional on Stokes sign convention); **Φ_shift Jacobian $= 1$** (affine-shift triviality); **Φ_symp residual** — requires Okamoto 1987 (*Funkcial. Ekvac.* **30**:305–332) §§2–3 explicit `2×2` Lax pair, **not in operator's local library**. Five residuals R1–R5 documented; R5 (Lax pair) is the primary blocker. Canonical-form numerical value $C_\text{can}$ deliberately *not* produced (would require fabricating R2/R3/R5; prompt's "Do NOT fabricate" clause forbids).
@@ -180,20 +184,26 @@ across the corresponding session folders. CT v1.3 SHA-256
   (001–007 + 009/010/012/013/014/015 drafted/fired; 008 + 011 reserved;
   🆕 016 drafted post-010 PARTIAL — refit-only S_2 extraction). See §6
   for current status.
-- **7 fired this cycle:** 001 ✅, 003 ✅, 004 ✅, 005 ✅, 006* 🛑, 007 ✅,
-  010* 🟡. *006 HALT, *010 PARTIAL — see "HALTED" / "PARTIAL" lines.
+- **9 fired this cycle:** 001 ✅, 003 ✅, 004 ✅, 005 ✅, 006* 🛑, 007 ✅,
+  010* 🟡, **012 ✅ (NEW)**, **013* 🛑 (NEW)**. *006 HALT, *010 PARTIAL,
+  *013 HALT (gate `CC_BOREL_009_NOT_AVAILABLE` fired correctly — see
+  "HALTED" / "PARTIAL" lines below).
 - 🆕 **2 fired and PARTIAL this cycle:** 009 (verdict `G15_PARTIAL`;
   Φ_resc + Φ_shift pinned; Φ_symp residual on Okamoto Lax pair) and
   **010** (verdict `G6B_PARTIAL_HIGHER_ORDER_NEEDED`; |S_1| differs
   across dichotomy without structural pattern; β_R=0 universal at
   d=2 — NEW G19; S_2 extraction queued via 016).
-- **2 fired and HALTED this cycle:** 002 (verdict
-  `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`) and 006 (verdict
-  `AMBIGUOUS_AT_DPS8000`). See §6.
+- **3 fired and HALTED this cycle:** 002 (verdict
+  `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`), 006 (verdict
+  `AMBIGUOUS_AT_DPS8000`), and 🆕 **013** (verdict
+  `CC_BOREL_009_NOT_AVAILABLE` — *gate working as designed*; refire
+  pending Q21 path-(a) vs path-(b) decision). See §6.
 - **0 remaining ready-to-fire from the original 7-prompt queue**
   (006 + 010 both landed).
-- **2 drafted-ready math-closure prompts:** 012 (G2),
-  013 (P-CC formal closure; gated on full G15 closure via 015).
+- **1 drafted-ready math-closure prompt remains** in the original
+  012/013 batch: 013 (P-CC formal closure; gated on full G15 closure
+  via 015; *currently HALTED awaiting refire path*). 012 has
+  **graduated to ✅ DONE** (G2 closed at d=3 across 3 Galois bins).
 - **2 drafted-ready retry prompts:** 014 (T2.5d-RETRY-13PARAM;
   refit-only; gates the formal closure of M7 / G5) and 🆕 **016**
   (T36-S2-EXTRACTION; refit-only; gates G6b full closure via
@@ -208,7 +218,9 @@ across the corresponding session folders. CT v1.3 SHA-256
 - **pcf1-v13-reconcile** (Prompt 011, future) — operator
   decision required: bump to v1.4 OR recover v1.3 source
   snapshot. Gates 002.
-- ~28 SQL todos pending; ~22 done; 1–3 blocked (53 total at v1.8).
+- ~27 SQL todos pending; ~25 done; 1–3 blocked (55 total at v1.8;
+  012 + 013 + op-xi0-d3-direct marked done post-cycle; 2 new
+  follow-ups for Q20/Q21 added).
 
 ### 2.4 Recently closed (this cycle)
 
@@ -266,6 +278,34 @@ across the corresponding session folders. CT v1.3 SHA-256
   on $\Gamma(n)$ with no $\Gamma$-shift at $d=2$. Closure path
   through Prompt 016 ($S_2$ extraction; ~30 min refit on cached
   CSVs).
+- 🆕 ✅ **Prompt 012 PASSED — `G2_CLOSED_AT_D3`.** XI0-D3-DIRECT
+  ran a per-Galois-bin Newton-polygon test on cubic representatives
+  drawn from `cubic_family_catalogue.json` (PCF2-SESSION-A). Two
+  complementary tests at dps=80: (A) algebraic characteristic-root
+  of $L = 1 - z B(\theta+1) - z^2$ along the slope-$1/3$ edge,
+  (B) numerical Borel-singularity ladder via the $Q_n$ recurrence
+  at $N \in \{500, 1000, 1500\}$. All **K=3 bins** (`+_C3_real`
+  family 19 $b = n^3 - 3n^2 + 1$; `+_S3_real` family 14
+  $b = n^3 - 3n^2 - n + 1$; `-_S3_CM` family 50 $b = n^3 - 2n^2 - 1$)
+  verify $\xi_0 = 3 / \alpha_3^{1/3}$ to **80 algebraic digits**.
+  Numerical ladder: 3.18, 3.18, 3.35 digits at $N=1500$, consistent
+  with $O(1/N)$ subleading. Aggregate verdict `G2_CLOSED_AT_D3`
+  (3/3 AGREE). 5 AEAL claims (3 per-bin + summary + Galois-bin
+  coverage); empty halt/discrepancy/unexpected logs. **Compute:
+  ~25 min agent.** D2-NOTE Conj 3.3.A* now empirically-supported
+  at $d \in \{2, 3, 4\}$; Q20 surfaced re possible **PROVEN**
+  upgrade by Newton-polygon theorem.
+- 🆕 🛑 **Prompt 013 HALTED — `CC_BOREL_009_NOT_AVAILABLE`** (gate
+  fired correctly, *not* a failure). CC-FORMAL-BOREL-CLOSE was
+  hard-gated on 009 returning `G15_CLOSED`; 009 is `G15_PARTIAL`
+  with R5 unresolved. The relay agent inspected the upstream
+  session, triggered the named halt clause **before any phase
+  ran**, and produced no Borel sum / closed-form / canonical
+  Stokes constant. CT v1.3 §3.5 status was **not** flipped.
+  1 AEAL halt-record claim with upstream hashes pinning 005 + 009
+  inputs. **Discipline working as designed.** Refire path is
+  Q21-arbitrated (path (a) full G15 via 015, or path (b)
+  symbolic-only PARTIAL).
 
 ---
 
@@ -273,9 +313,9 @@ across the corresponding session folders. CT v1.3 SHA-256
 
 | Tag | Program | Closes via | Status |
 |-----|---------|------------|--------|
-| **P-NP**  | Newton-polygon universality $\xi_0=d/\beta_d^{1/d}$ at all $d \ge 2$ | D2-NOTE (Prompt 004) for $d=2,4$; downstream proof for general $d$ | $d=2$ PROVEN; $d=4$ VERIFIED; $d=3$ DEFERRED; general-$d$ CONJECTURED |
+| **P-NP**  | Newton-polygon universality $\xi_0=d/\beta_d^{1/d}$ at all $d \ge 2$ | D2-NOTE (Prompt 004) for $d=2,4$; XI0-D3-DIRECT (Prompt 012) ✅ for $d=3$; downstream proof for general $d$ | $d=2$ PROVEN; $d=4$ VERIFIED; $d=3$ ✅ **EMPIRICAL at 80 algebraic digits across 3 Galois bins** (Prompt 012 verdict `G2_CLOSED_AT_D3`); general-$d$ CONJECTURED — Q20 surfaces possible PROVEN upgrade for *all* $d \ge 2$ via Newton-polygon theorem |
 | **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) ✅ → Phase 2 B-T application (BLOCKED on primary sources + H1 arbitration) | EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d, 2d]$; H1 fleet label DISPUTED |
-| **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) ✅ → V_quad → P_III(D_6) normalization map (Prompt 009) 🟡 PARTIAL → V_quad-PIII-NORM-MAP-CLOSE (Prompt 015, R5-gated) → `op:cc-formal-borel` | algebraic identity DONE (CT v1.3 §3.5); Stokes-side **MEASURED** in V_quad native normalization at 108 digits (Prompt 005); G15 PARTIAL: Φ_resc ($\lambda=1/3$) + Φ_shift pinned, Φ_symp residual on R5 (Okamoto 1987 Lax pair); canonical-form $C_\text{can}$ pending Prompt 015 |
+| **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) ✅ → V_quad → P_III(D_6) normalization map (Prompt 009) 🟡 PARTIAL → V_quad-PIII-NORM-MAP-CLOSE (Prompt 015, R5-gated) → CC-FORMAL-BOREL-CLOSE (Prompt 013) 🛑 HALTED on 009 gate (correct behaviour) → `op:cc-formal-borel` | algebraic identity DONE (CT v1.3 §3.5); Stokes-side **MEASURED** in V_quad native normalization at 108 digits (Prompt 005); G15 PARTIAL: Φ_resc ($\lambda=1/3$) + Φ_shift pinned, Φ_symp residual on R5 (Okamoto 1987 Lax pair); 013 correctly halted on gate `CC_BOREL_009_NOT_AVAILABLE` — refire pending Q21 path (a) full G15 via 015 / (b) symbolic-only PARTIAL; canonical-form $C_\text{can}$ pending Prompt 015 |
 | **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) attempted j=0 closure → HALTED at 7-digit precision; T2.5d-RETRY (Prompt 014, drafted) closes j=0 endpoint formally | T2 PASSED; $j=0$ AMBIGUOUS-AT-FINITE-N (5-param ansatz; $A=6 \pm 2 \times 10^{-7}$ supported empirically); 30-digit closure pending Prompt 014 |
 | **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3.5 Stokes-multiplier S_1 (Prompt 010) 🟡 PARTIAL → T3.6 S_2 alien amplitude (Prompt 016, drafted; refit-only) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant); 010 PARTIAL: $|S_1|$ separates the two sides at $O(1)$ scale but *no structural pattern* at the leading scale; G19 side-finding $\beta_R = 0$ universal at $d=2$; G6b closure via Prompt 016 |
 | **P-MC**  | Master conjecture: $\Phi$ classifies PCF asymptotics | Gated on P-NP + P-B4 + P-CC | NOT YET FORMALLY STATED |
@@ -376,7 +416,7 @@ canonical artefact).
 | ID | Gap | Severity | Closes via |
 |----|------|---------|------------|
 | **G1**  | $\xi_0$ universality not proven at general $d$ (only $d=2$ proven; $d=4$ verified) | HIGH | ✅ Prompt 004 drafted — *closure pending Zenodo upload*; downstream M2 still open |
-| **G2**  | $\xi_0$ at $d=3$ not directly verified at high dps (`op:xi0-d3-direct`) | MED  | Future prompt; deferred in 004 |
+| **G2**  | $\xi_0$ at $d=3$ not directly verified at high dps (`op:xi0-d3-direct`) | MED  | ✅ **CLOSED 2026-05-02** (Prompt 012 verdict `G2_CLOSED_AT_D3`; 80 algebraic digits across all K=3 Galois bins of the cubic catalogue; `xi_0 = 3 / α_3^{1/3}` confirmed via Newton-polygon characteristic-root test). **Q20 footnote:** the operator-level argument depends only on $\alpha_3$ and may upgrade Conj 3.3.A* DEFERRED → PROVEN at $d=3$ (and EMPIRICAL → PROVEN at $d=4$) by Newton-polygon theorem; Claude arbitration territory. |
 | **G3a** | Conjecture B4 ($A_n = 2d$) literature bracket $A \in [d, 2d]$ established (was: "lacks proof") | HIGH | ✅ T1 Phase 1 complete (003); literature bracket pinned, Adams reading favored by empirics |
 | **G3b** 🆕 | Wasow-vs-Adams normalization match unresolved from secondary sources (BLOCKER for Phase 2) | HIGH | Operator: ILL/AMS request for B-T 1933 + Adams 1928 + Wasow §X.3 → Phase 2 (Prompt 008, future) |
 | **G4**  | $V_{\mathrm{quad}}$ alien amplitude $S_{\zeta_*}$ is a *theoretical prediction* (H4), not a measurement | HIGH | ✅ **Prompt 005 PASSED 2026-05-02** — measured at 108 digits in V_quad native normalization. Canonical-form value awaits G15. |
@@ -425,8 +465,8 @@ milestones (see § 4).
 | 009 | V_quad → P_III(D_6) normalization map (change-of-variables Φ; apply to 005's $C$ to report $S_{\zeta_*}^{\text{can}}$) | G15 (partial), G17, G18 | M6 (canonical-form PARTIAL); 013 now gated on 015 | 🟡 PARTIAL 2026-05-02 (`G15_PARTIAL`; Φ_resc + Φ_shift pinned; Φ_symp residual on R5; substantive layer-separation finding) | low (symbolic; ~75 min agent) | INDEPENDENT |
 | 010 🆕 | T3.5 — Stokes-multiplier discrimination (t2c-style high-dps connection coefficients to resolve sign-of-$\Delta_b$ dichotomy) | G6b (partial), G19 | M8b (partial); 016 follow-on | 🟡 PARTIAL 2026-05-02 (`G6B_PARTIAL_HIGHER_ORDER_NEEDED`; \|S_1\| measured for 4 reps at ≥ 60 cross-method digits; differs across dichotomy at $O(1)$ scale; no structural pattern at leading order; β_R=0 universal at d=2) | medium (mpmath dps=250, $N=2000$; ~2 min agent) | INDEPENDENT |
 | 011 | PCF1-V13-RECONCILE — operator-decision-driven; resolve PCF-1 v1.3 source drift before re-running 002 | G12 | distribution layer | future (slot reserved; not yet drafted; gated on operator option-(a)/(b) decision) | low | gated |
-| 012 🆕 | $\xi_0$ at $d=3$ direct — per-Galois-bin Newton-polygon test of D2-NOTE Conj 3.3.A* on cubic representatives | G2 | (M1 follow-on; supports P-NP) | ✅ DRAFTED 2026-05-02; ready | low (mpmath dps=80) | INDEPENDENT |
-| 013 🆕 | CC formal Borel close — closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates (composes 005's $C$ + 009's Φ); flips CT v1.3 §3.5 status to "DIAGNOSED" | (P-CC formal closure) | (P-CC final close) | ✅ DRAFTED 2026-05-02; **HARD-GATED on 009** | low–medium (symbolic + numerical 3-point) | gated on 009 |
+| 012 🆕 | $\xi_0$ at $d=3$ direct — per-Galois-bin Newton-polygon test of D2-NOTE Conj 3.3.A* on cubic representatives | G2 | (M1 follow-on; supports P-NP) | ✅ **DONE 2026-05-02** (verdict `G2_CLOSED_AT_D3`; 3/3 Galois bins AGREE at 80 algebraic digits; ~25 min agent) | low (mpmath dps=80) | INDEPENDENT |
+| 013 🆕 | CC formal Borel close — closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates (composes 005's $C$ + 009's Φ); flips CT v1.3 §3.5 status to "DIAGNOSED" | (P-CC formal closure) | (P-CC final close) | 🛑 **HALTED 2026-05-02** (verdict `CC_BOREL_009_NOT_AVAILABLE`; gate fired correctly on 009 = G15_PARTIAL; ~10 min agent; no Borel sum / canonical $C$ produced; refire pending Q21 path (a) or (b)) | low–medium (symbolic + numerical 3-point) | gated on 009 (currently HALTED) |
 | 014 🆕 | T2.5d-RETRY-13PARAM — refit saved $y_n$ CSVs with 13-param ansatz; targets $\|\delta_\text{lin}\| < 10^{-15}$, then runs Phase D PSLQ on Chowla–Selberg basis | G5, G16 | M7 (formal closure) | ✅ DRAFTED 2026-05-02; ready (no new `cf_value` calls; uses `Qn_j0_dps25000_N1200_fam{30..33}.csv` from 006) | low (~5–20 min agent; pure refit + PSLQ) | INDEPENDENT |
 | 015 🆕 | T25E-VQUAD-PIII-NORM-MAP-CLOSE — pins R1–R4 from Okamoto/Conte-Musette; writes Φ_symp from Lax-pair gauge transform; computes $J(\Phi)$ numerically; verifies $S_{\zeta_*}^\text{can}$ against Lisovyy-Roussillon tables to ≥ 50 digits | G15 (full closure), G18 | M6 (canonical-form full closure); unblocks 013 | ✅ DRAFTED 2026-05-02; **GATED on R5** (operator G3b acquisition of Okamoto 1987 + Conte-Musette ch. 7) | low–medium (~2–4 hr agent; symbolic + literature) | gated on operator literature |
 | 016 🆕 | T36-S2-EXTRACTION — refit cached `borel_*_dps250_N2000.csv`; subtract leading $C\Gamma(n)\zeta_*^{-n}$; second Richardson pass to extract $S_2$ (alien amplitude at $2\zeta_*$); test ratio $S_2/S_1^2$ for structural invariance; check $|S_2|$ and $\arg(S_2)$ as side-discriminators | G6b (full closure), G19 (cross-check) | M8b (full closure if S_2 discriminates; otherwise S_3 escalation) | ✅ DRAFTED 2026-05-02; ready (no new mpmath series; pure refit on 010's cached CSVs) | low (~30 min agent; refit-only) | INDEPENDENT |
@@ -455,7 +495,7 @@ member of the batch that is compute-heavy (mpmath dps≥150 on
 low-compute symbolic + light-numerical.
 
 **Recommended firing layout for the *next* compute window
-(post-010 PARTIAL; v1.8 status):**
+(post-010 PARTIAL + 012 PASS + 013 HALT; v1.8 status):**
 - Slot 1: **014** (5–20 min refit; closes G5 + G16 formally;
   M7 formal achievement). Highest leverage now: tiny compute,
   immediate unlock of Phase D PSLQ on the saved CSVs.
@@ -463,17 +503,25 @@ low-compute symbolic + light-numerical.
   G6b fully if S_2 discriminates the dichotomy; cross-checks G19
   β_R=0 universal). Refit-only on 010's cached CSVs; no new mpmath
   series. Independent of 014.
-- Slot 3 (parallel with 014 + 016): **012** (low-compute numerical;
-  closes G2). Mutually independent of 014 + 016.
-- Slot 4 (operator-side, runs in parallel with 014/016/012):
+- Slot 3 (operator-side, runs in parallel with 014/016):
   **G3b literature acquisition** — Okamoto 1987 §§2–3 (~10 pp)
   + Conte-Musette 2008 ch. 7 §§7.3–7.4 (~25 pp) via the
   existing ILL/AMS workflow. **This unblocks Prompt 015** and
-  the full G15 closure path; both are standard library items.
-- Slot 5 (after R5 acquired): **015** (T25E-VQUAD-PIII-NORM-
+  the full G15 closure path (and via 015, the path-(a) refire of
+  013); both are standard library items.
+- Slot 4 (after R5 acquired): **015** (T25E-VQUAD-PIII-NORM-
   MAP-CLOSE; ~2–4 hr; closes G15 fully).
-- Slot 6 (after 015 lands with `G15_CLOSED`): **013** (formal
-  P-CC closure; composes 005 + 009 + 015).
+- Slot 5 (after 015 lands with `G15_CLOSED`): **013 refire path
+  (a)** (formal P-CC closure with numerical 30-digit gate;
+  composes 005 + 009 + 015).
+- Slot 5 alt (Q21 path (b) — if operator opts for *symbolic-only*
+  PARTIAL closure of P-CC now): **synthesizer reformulates 013**
+  to a `CC_FORMAL_BOREL_SYMBOLIC_PARTIAL` form (Borel sum modulo
+  R2–R5; no numerical gate); fires immediately on the post-009-PARTIAL
+  state; no R5 wait. *Faster, ships symbolic-only canonical form;
+  weaker than path (a).* Operator + Claude decision.
+- ~~Slot for 012~~ — **graduated to ✅ DONE** in this cycle (verdict
+  `G2_CLOSED_AT_D3` at 80 algebraic digits across 3 Galois bins).
 - **Prompt 002 stays HALTED** until G12 + G13 + G14 are closed.
   Re-fire only against either (a) the new v1.4 DOI for record
   #2 or (b) the recovered v1.3 source snapshot. The other 4
@@ -783,6 +831,63 @@ deferred):
     result that did not exist before 010 and which Claude may
     want to either formalise (G19) or earmark as a $d=3$
     follow-up probe.
+20. 🆕 **(v1.8) Conj 3.3.A* — *proof-upgrade candidate* at
+    $d \ge 2$?** Prompt 012's XI0-D3-DIRECT closes $G_2$ at $d=3$
+    via a per-Galois-bin Newton-polygon characteristic-root test:
+    $|c_\text{root}| = \xi_{0,\text{conj}} = 3 / \alpha_3^{1/3}$
+    to **80 algebraic digits** across all K=3 bins. The relay
+    agent surfaced a *structural* observation in
+    `XI0-D3-DIRECT/handoff.md`: the algebraic test depends only
+    on $\alpha_3$ via standard Newton-polygon theorems, and the
+    same operator-level argument applies *uniformly* at all
+    $d \ge 2$ (the $d=4$ framework PCF2-SESSION-Q1 has the same
+    property). If Claude judges the operator-level derivation to
+    be a **proof modulo Newton-polygon / irregular-singular-point
+    machinery** (Wasow §X, Adams 1928, et al.), then D2-NOTE
+    Conj 3.3.A* could be upgraded:
+    * $d=2$ already PROVEN (Prompt 004 main theorem).
+    * $d=3$ DEFERRED → **PROVEN** (this argument).
+    * $d=4$ EMPIRICAL → **PROVEN** (same argument).
+    * general $d \ge 2$ CONJECTURED → **PROVEN** (uniform argument).
+
+    This would close $G_1 + G_2$ in the *strongest* sense for
+    *all* $d \ge 2$ simultaneously, and unblock M2 ahead of
+    schedule. **Question:** does Claude judge the
+    Newton-polygon characteristic-root argument as a proof in
+    the SIARC publication standard (modulo a single citation to
+    standard NPT machinery), or is it still empirical-grade and
+    requires explicit theorem statement + proof in D2-NOTE-V2?
+    The DO-NOT clause in Prompt 012 forbade modifying D2-NOTE in
+    012's session; a future PROMPT-012-AMENDMENT could draft the
+    upgrade for Zenodo if Claude says yes. *This question is
+    Claude territory; the relay agent declined to self-promote
+    in 012 per the DO-NOT clause.*
+21. 🆕 **(v1.8) Prompt 013 refire path — (a) full G15 vs (b)
+    symbolic-only PARTIAL.** Prompt 013 (CC-FORMAL-BOREL-CLOSE)
+    halted on its 009-gate `CC_BOREL_009_NOT_AVAILABLE` — *as
+    designed*. The refire requires an operator + Claude decision:
+    **path (a)** acquire Okamoto 1987 §§2–3 + Conte-Musette 2008
+    ch. 7 (G3b workflow), refire Prompt 015 to lift 009 to
+    `G15_CLOSED`, then refire 013 unchanged with the original
+    numerical 30-digit gate; produces a **fully numerical**
+    canonical-form Borel sum + canonical Stokes constant
+    $S_{\zeta_*}^{\text{can}}$ verified against Lisovyy-Roussillon
+    tables; **stronger** result; gated on literature acquisition
+    timeline. **Path (b)** synthesizer reformulates 013 to accept
+    `G15_PARTIAL` by writing the Borel sum **symbolically modulo
+    R2–R5**, landing at `CC_FORMAL_BOREL_SYMBOLIC_PARTIAL` with
+    *no* numerical gate; **faster** result; ships
+    canonical-coordinate Borel formula as a symbolic expression
+    with explicit "pending Lax-pair closure" prose; unblocks the
+    rest of the channel-theory roadmap immediately. The relay
+    agent surfaced both paths in `CC-FORMAL-BOREL-CLOSE/handoff.md`
+    "What would have been asked"; the choice is operator + Claude
+    territory and depends on whether (i) CT v1.4 ships *now* with
+    a symbolic canonical-form Borel sum, or (ii) waits for the
+    full numerical closure. *No mathematical content is at risk
+    either way* — both paths are AEAL-honest and both refuse to
+    fabricate $S_{\zeta_*}^{\text{can}}$. **Question:** which
+    path does the operator/synthesizer prefer?
 
 ---
 
@@ -834,17 +939,37 @@ e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
 
 ## 18. Amendment Log (v1.7 → v1.8)
 
-This amendment absorbs **Prompt 010 PARTIAL** (verdict
-`G6B_PARTIAL_HIGHER_ORDER_NEEDED`, fired 2026-05-02 ~19:40 JST,
-operator-side run; pushed at bridge commit `a35e8a7` —
-`T35-STOKES-MULTIPLIER-DISCRIMINATION` session) and the new
-side-finding G19, the new follow-up Prompt 016, and the new open
-questions Q18 + Q19.
+This amendment absorbs **three relay-agent verdicts** that landed
+in the post-v1.7 compute window (operator-side runs):
+
+1. **Prompt 010 — `G6B_PARTIAL_HIGHER_ORDER_NEEDED`**
+   (T35-STOKES-MULTIPLIER-DISCRIMINATION; ~2 hr agent; pushed at
+   bridge commit `fa2516e`).
+2. **Prompt 012 — `G2_CLOSED_AT_D3`** ✅ (XI0-D3-DIRECT;
+   ~25 min agent; pushed at bridge commit `e93458f`).
+3. **Prompt 013 — `CC_BOREL_009_NOT_AVAILABLE`** 🛑 (CC-FORMAL-
+   BOREL-CLOSE; ~10 min agent; pushed at bridge commit
+   `726b53e`; *gate fired correctly — discipline working as
+   designed, not a result failure*).
+
+It also adds the new side-finding G19, the new follow-up Prompt
+016, and the four new open questions Q18 (sign-of-$C$
+basis-independence), Q19 ($\beta_R = 0$ structural consequence),
+**Q20 (Conj 3.3.A* proof-upgrade candidate)**, **Q21 (013 refire
+path — full G15 via 015 vs symbolic-only PARTIAL)**.
 
 **Status changes:**
+- `G2` (gap): Future prompt → ✅ **CLOSED at $d=3$ across 3 Galois
+  bins at 80 algebraic digits** (Prompt 012). With Q20 arbitration,
+  potential PROVEN upgrade for *all* $d \ge 2$ via Newton-polygon
+  theorem.
 - `G6b` (gap): `Prompt 010 ✅ DRAFTED` → 🟡 **PARTIAL** (Prompt 010
   landed; closure path through Prompt 016).
 - `prompt-010-fire` (SQL todo): pending → **done**.
+- `prompt-012-fire` (SQL todo): pending → **done**.
+- `op-xi0-d3-direct` (SQL todo): pending → **done** (graduated via 012).
+- `prompt-013-fire` (SQL todo): pending → **done** (HALTED;
+  refire pending Q21 decision).
 - **NEW gap G19**: $\beta_R = 0$ universal across the $d=2$ PCF
   Birkhoff resurgent ansatz. MED severity (epistemic / structural).
 - **NEW Prompt 016 (T36-S2-EXTRACTION)**: ~30 min refit-only
@@ -852,9 +977,10 @@ questions Q18 + Q19.
   alien amplitude at $2\zeta_*$ via residual Richardson; tests
   $|S_2|$, $\arg(S_2)$, and the canonical-resurgence ratio
   $S_2 / S_1^2$ as discriminators of the $\Delta_b$ dichotomy.
-- **NEW open questions Q18 + Q19** in § 8 (sign$(C)$
-  basis-independence; $\beta_R = 0$ structural consequence — both
-  Claude territory).
+- **NEW open questions Q18–Q21** in § 8 (sign$(C)$
+  basis-independence; $\beta_R = 0$ structural consequence; Conj
+  3.3.A* proof-upgrade candidate; 013 refire path arbitration —
+  all Claude / operator territory).
 
 **AEAL findings (Prompt 010, 8 entries in `claims.jsonl`):**
 
@@ -867,6 +993,34 @@ questions Q18 + Q19.
 | Cross-method digit agreement | 67–77 digits at dps=250 | Richardson vs LSQ-in-$1/n$ |
 | V_quad cross-validation | exact agreement on all 49 displayed digits | new $d=2$ generalised recurrence vs CC-MEDIAN cached series |
 | $\beta_R$ across all 4 reps | $\le 10^{-85}$ | LSQ-in-$1/n$ residual |
+
+**AEAL findings (Prompt 012, 5 entries in `claims.jsonl` — 3 per-bin
+verifications + 1 D2-NOTE consistency summary + 1 Galois-bin
+coverage certificate):**
+
+| Bin | Family | $(a_3, a_2, a_1, a_0)$ | Alg agreement digits | Num digits @ N=1500 | Verdict |
+|-----|--------|------------------------|----------------------|---------------------|---------|
+| `+_C3_real` | 19 | $(1, -3, 0, 1)$ | 80.0 | 3.18 | **AGREES** |
+| `+_S3_real` | 14 | $(1, -3, -1, 1)$ | 80.0 | 3.18 | **AGREES** |
+| `-_S3_CM`   | 50 | $(1, -2, 0, -1)$ | 80.0 | 3.35 | **AGREES** |
+
+Aggregate **`G2_CLOSED_AT_D3`** (3/3 AGREE). All representatives
+have $\alpha_3 = 1$ in the smallest-coefficient selection rule, so
+$\xi_{0,\text{conj}} = 3$ across all 3 bins (a coincidence of the
+representative-selection rule; the test verdict is invariant
+under this choice since the characteristic root depends only on
+$\alpha_3$).
+
+**AEAL findings (Prompt 013, 1 entry in `claims.jsonl` — halt
+record only):**
+
+| Quantity | Value | Method |
+|----------|-------|--------|
+| Halt clause triggered | `CC_BOREL_009_NOT_AVAILABLE` | Upstream verdict inspection (009 = `G15_PARTIAL`, not `G15_CLOSED`) |
+| Upstream 005 input hash | `C_native = 8.127336795495072367\ldots` (108 digits) | (referenced; not recomputed) |
+| Upstream 009 input | $S_{\zeta_*}^{\text{can}}$ symbolic-only as $J_\text{resc} \cdot J_\text{symp} \cdot S_{\zeta_*}^{\text{native}}$ with $J_\text{resc} = (1/3)^{\sigma_0 + 11/12}$ (R2-conditional), $J_\text{symp}$ undetermined (R5: Okamoto 1987 Lax pair missing) | (referenced; not recomputed) |
+| Borel sum produced? | **No** (halted before any phase ran) | — |
+| CT v1.3 §3.5 status flipped? | **No** (flip requires PASS or PARTIAL, not HALT) | — |
 
 **5 anomalies / open questions surfaced (Prompt 010 handoff §
 "Anomalies"):**
@@ -887,6 +1041,32 @@ questions Q18 + Q19.
   observed agreement is $\le 0.03$ digits (sides genuinely differ).
   Stokes data is correctly NOT sign-invariant.
 
+**Prompt 012 anomaly (W1): structural-triviality / proof-upgrade
+candidate.** The algebraic Newton-polygon test depends only on
+$\alpha_3$; the 80-digit per-bin agreement is *uniformity*
+evidence, not bin-specific verification. The relay agent
+surfaced this in `XI0-D3-DIRECT/handoff.md` and noted that the
+operator-level argument *may* already constitute a proof modulo
+standard Newton-polygon / irregular-singular-point theorems — in
+which case Conj 3.3.A* could be upgraded DEFERRED → PROVEN at
+$d=3$ (and EMPIRICAL → PROVEN at $d=4$) by the same uniform
+argument. Promoted to Q20 (§ 8); Claude arbitration territory;
+no D2-NOTE modification performed in 012's session per the
+DO-NOT clause.
+
+**Prompt 013 synthesizer-intent ambiguity surfaced.** The agent
+surfaced in `CC-FORMAL-BOREL-CLOSE/handoff.md` that the gating
+language ("MUST NOT be fired until 009's verdict is `G15_CLOSED`"
+and "if 009 returns `G15_PARTIAL` ... this prompt is reformulated
+by the synthesizer before firing") suggests the synthesizer may
+have expected to gate 013 out at *planning* time, not to
+*fire-and-halt*. Either way, the named halt clause
+`CC_BOREL_009_NOT_AVAILABLE` is the AEAL-honest behaviour. The
+two refire paths (Q21) are: **(a)** wait for 015 to close G15,
+refire unchanged; **(b)** reformulate 013 to accept `G15_PARTIAL`
+with symbolic-only Borel sum and no numerical gate (verdict
+`CC_FORMAL_BOREL_SYMBOLIC_PARTIAL`).
+
 **Reusable infrastructure delivered (010, in
 `sessions/2026-05-02/T35-STOKES-MULTIPLIER-DISCRIMINATION/`):**
 - `derive_recurrence.py` — symbolic derivation of the general
@@ -902,49 +1082,100 @@ questions Q18 + Q19.
   to dps=250, $N=2000$. **Direct input to Prompt 016** — no new
   mpmath series needed for $S_2$ extraction.
 
+**Reusable infrastructure delivered (012, in
+`sessions/2026-05-02/XI0-D3-DIRECT/`):**
+- `xi0_d3_runner.py` — per-Galois-bin Newton-polygon
+  characteristic-root test; reusable for $d \ge 4$ extension if
+  D2-NOTE proof-upgrade (Q20) is rejected.
+- `bin_representatives.json` — 3 cubic Galois-bin representatives
+  in PCF2-SESSION-A-compatible format.
+- 3 per-bin CSVs (`xi0_d3_+_C3_real.csv`, `xi0_d3_+_S3_real.csv`,
+  `xi0_d3_-_S3_CM.csv`) with the $Q_n$ recurrence at
+  $N \in \{500, 1000, 1500\}$, dps=80.
+- `newton_d3_results.json` (algebraic test summary) +
+  `borel_d3_results.json` (numerical test summary).
+- `d2note_consistency.md` — documents the D2-NOTE Conj 3.3.A*
+  consistency check at $d=3$.
+
 **File changes in this amendment:**
 - header `Revision:` v1.7 → v1.8.
-- header `Updated:` 2026-05-02 19:30 JST → 19:50 JST (post-010
-  absorption).
-- new top callout block "🆕 Updates since v1.7".
-- §2.3 in-flight: 13 → 14 prompts staged; 6 fired complete →
-  7 fired (010 added); 1 PARTIAL → 2 PARTIAL (010 added);
-  drafted-ready math closure 3 → 2 (010 graduated to fired); new
-  refit prompt count 1 → 2 (016 added).
-- §2.4 recently closed: appended 010 PARTIAL entry.
+- header `Updated:` 2026-05-02 19:30 JST → 20:30 JST (post-010 +
+  012 + 013 absorption).
+- new top callout block "🆕 Updates since v1.7" (extended for all
+  three verdicts plus the Q20 + Q21 follow-ups).
+- §2.3 in-flight: 7 fired → 9 fired (012 + 013 added); 2 PARTIAL
+  unchanged; 2 HALTED → 3 HALTED (013 added); drafted-ready math
+  closure 2 → 1 (012 graduated, 013 HALTED but counted under
+  HALTED); SQL pending 28 → 26; SQL done 22 → 24.
+- §2.4 recently closed: appended 010 PARTIAL, 012 PASS, 013 HALT
+  entries.
+- §3 P-NP row: revised to ✅ EMPIRICAL at $d=3$ via Prompt 012,
+  with Q20 footnote re proof-upgrade candidate.
+- §3 P-CC row: revised to note 013 HALT on gate (correct
+  behaviour) + Q21 refire path arbitration.
 - §3 P-PIII row: revised to 010 🟡 PARTIAL → 016 (drafted)
-  follow-on; β_R=0 universal note added.
+  follow-on; β_R=0 universal note added (no change in this
+  edit batch — already done).
+- §5 G2 row: future prompt → ✅ CLOSED via Prompt 012 with Q20
+  proof-upgrade footnote.
 - §5 G6b row: drafted-ready → PARTIAL via 010; full closure
-  via 016.
-- §5 NEW G19 row: $\beta_R=0$ universal at $d=2$ side-finding.
+  via 016 (no change in this edit batch — already done).
+- §5 G15 row: residuals R1–R5 documented; R5 chokepoint
+  emphasised by 013 halt (no separate edit; G15 row already
+  correct from v1.7).
+- §5 NEW G19 row: $\beta_R=0$ universal at $d=2$ side-finding
+  (no change — already done in v1.7→v1.8 first pass).
 - §6 prompts table: 010 row revised to PARTIAL with details;
-  NEW row 016.
-- §6 firing layout: rewritten for v1.8 (010 done; 016 added to
-  parallel-with-014 slot 2; subsequent slots renumbered).
-- §6 NEW v1.8 note on 016 cascade-to-S_3 + Q18 escalation path.
-- §8 NEW Q18 (sign$(C)$ basis-independence — Claude territory).
-- §8 NEW Q19 ($\beta_R = 0$ structural consequence — Claude
-  territory).
-- this NEW §18 amendment log inserted above existing §17.
-- closing marker bumped to v1.8.
+  012 row revised to ✅ DONE; 013 row revised to 🛑 HALTED with
+  refire-path note; NEW row 016.
+- §6 firing layout: rewritten for v1.8 (010 + 012 + 013 done;
+  016 added to parallel-with-014 slot 2; subsequent slots
+  renumbered; 013 refire path (a)/(b) Q21 split surfaced).
+- §6 NEW v1.8 note on 016 cascade-to-S_3 + Q18 escalation path
+  (no change — already done in v1.7→v1.8 first pass).
+- §8 NEW Q18 (sign$(C)$ basis-independence — Claude territory),
+  Q19 ($\beta_R = 0$ structural consequence — Claude territory),
+  **Q20 (Conj 3.3.A* proof-upgrade candidate — Claude territory)**,
+  **Q21 (013 refire path arbitration — operator + Claude
+  territory)**.
+- this NEW §18 amendment log replaces the original 010-only
+  draft to absorb all three verdicts.
+- closing marker bumped to v1.8 (no change — already done).
 
-**SQL state (post-010 absorption):**
-- 22 done (was 20; +2 = `prompt-010-fire` and `t3-stokes-multiplier-followup` — the latter was the original placeholder for the 010 follow-up that 010 itself superseded).
-- 28 pending (was 26; +4 new: `t36-s2-extraction-execute`,
-  `prompt-016-fire`, `g19-betaR-zero-d2-formalize`,
-  `op-basis-convention-claude-arbitrate`; −2 graduated to done).
+**SQL state (post-010 + 012 + 013 absorption):**
+- 25 done (was 22 at v1.8 first pass; +3 = `prompt-012-fire`,
+  `prompt-013-fire`, `op-xi0-d3-direct` — the latter graduated
+  via 012's execution).
+- 27 pending (was 28; −3 graduated, +2 new follow-ups
+  `q20-conj33a-proof-upgrade-claude-arbitrate` and
+  `q21-013-refire-path-arbitrate`).
 - 3 blocked (unchanged).
-- Total: 53 todos.
+- Total: 55 todos.
 
-**No published-artefact tension.** Prompt 010 makes no claim that
-contradicts any line of CT v1.3, PCF-1 v1.3, PCF-2 v1.3, or
-umbrella v2.0. The PCF-1 v1.3 §3 dichotomy is *measured*, not
-*explained*, by 010 at the leading scale; further explanation
-will come from 016 (S_2) or downstream.
+**Bridge-side commit trail (post-v1.7 push):**
+```
+[v1.8 push]   STRATEGIC-PICTURE-REVISED v1.8 (this push)
+726b53e       CC-FORMAL-BOREL-CLOSE (Prompt 013) — HALT on G15 gate
+e93458f       XI0-D3-DIRECT (Prompt 012) — G2_CLOSED_AT_D3
+d2431d9       STRATEGIC-PICTURE-REVISED v1.7 (prior push)
+fa2516e       T35-STOKES-MULTIPLIER-DISCRIMINATION (Prompt 010) — G6B_PARTIAL_HIGHER_ORDER_NEEDED
+32fef0a       STRATEGIC-PICTURE-REVISED v1.6
+6f3e91a       VQUAD-PIII-NORMALIZATION-MAP (Prompt 009) — G15_PARTIAL
+```
 
-**No HALT.** All `G6B_*` halt clauses (Stokes invariance, ladder
-nonconvergence, recurrence-mismatch, mpmath overflow) are
-explicitly NOT triggered. Halt log is `{}`.
+**No published-artefact tension.** Prompts 010, 012, 013 each
+make no claim that contradicts any line of CT v1.3, PCF-1 v1.3,
+PCF-2 v1.3, or umbrella v2.0. PCF-1 v1.3 §3 dichotomy is
+*measured*, not *explained*, by 010 at the leading scale. D2-NOTE
+v1.0 (drafted, awaiting Zenodo) is *strengthened* but not
+modified by 012's $d=3$ closure. CT v1.3 §3.5 is *not* flipped by
+013 (correct behaviour for HALT).
+
+**No HALTs of concern.** Prompt 010's `G6B_*` halt clauses are
+explicitly NOT triggered (halt log `{}`). Prompt 012's halt log
+is `{}` (no halt). Prompt 013's halt log carries
+`CC_BOREL_009_NOT_AVAILABLE` — this is the *intended* halt
+clause, fired by design as the gate, *not* a result failure.
 
 ---
 

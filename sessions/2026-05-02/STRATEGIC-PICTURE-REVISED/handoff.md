@@ -1,8 +1,8 @@
 # Handoff — STRATEGIC-PICTURE-REVISED
 **Date:** 2026-05-02
 **Agent:** GitHub Copilot CLI (Claude Opus 4.7 xhigh)
-**Session duration:** ~125 minutes (cumulative across v1.0 → v1.8)
-**Status:** COMPLETE (v1.8 amendment — 010 PARTIAL absorbed, Prompt 016 drafted as refit-only S_2 follow-up; G19 side-finding β_R=0 universal at d=2 surfaced)
+**Session duration:** ~155 minutes (cumulative across v1.0 → v1.8)
+**Status:** COMPLETE (v1.8 amendment — 010 PARTIAL + 012 PASS + 013 HALT all absorbed; Prompt 016 drafted as refit-only S_2 follow-up; G2 closed at d=3 across 3 Galois bins at 80 algebraic digits via Prompt 012; 013 halted correctly on 009-gate; G19 side-finding β_R=0 universal at d=2 surfaced; Q18/Q19/Q20/Q21 added as Claude/operator decision items)
 
 ## What was accomplished
 
