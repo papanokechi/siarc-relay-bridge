@@ -1,11 +1,19 @@
 # SIARC Strategic Picture — Revised
-**Date:** 2026-05-02 18:05 JST
+**Revision:** v1.1 (post-firing cycle 1)
+**Original:** 2026-05-02 18:05 JST
+**Updated:** 2026-05-02 18:20 JST  (post-001, post-003, post-004)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
 synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
+
+> **🆕 Updates since v1.0 (see § 11 Amendment Log for detail):**
+> - ✅ Prompt 001 fired and verified (Item 19 spliced into submission_log.txt; CT v1.3 DOI now of record).
+> - ✅ Prompt 003 fired with verdict `T1_PHASE1_GAPTYPE_C` — **B4 reframed from "proof gap" to "literature bracket $A \in [d, 2d]$"**. Phase 2 now has a defined target (lift $\psi_\text{lower}$ to $2d$), but is BLOCKED on primary-source acquisition + Theory-Fleet H1 label arbitration.
+> - ✅ Prompt 004 fired with verdict `D2_NOTE_DRAFTED` — 4-page note built clean, 8 AEAL claims, awaits operator Zenodo upload. M1 achieved on the drafting side; closure on G1+G8 lands once the note is published.
+> - ⚠ **NEW HIGH-severity gap G11**: T1's primary-literature reading flags Theory-Fleet H1 verdict `B4_PROVED_AT_d≥3` as heuristic-grade; logged for Claude / human-reviewer arbitration (does not affect any *published* artefact's framing because all current Zenodo records cite "verified"/"support", not "proven").
 
 ---
 
@@ -92,24 +100,44 @@ across the corresponding session folders. CT v1.3 SHA-256
   v2.0 §4.4 invariant-triple framing and Theory-Fleet H4 median-
   resurgence prediction; reframed `op:cc-formal-borel` from
   PARTIALLY DIAGNOSED to (DIAGNOSED via H4 + new exec op).
+- **🆕 T1 Phase 1 lit review (003) — `T1_PHASE1_GAPTYPE_C`.**
+  Literature-derivable bracket $A \in [d, 2d]$ for the SIARC PCF
+  stratum at $d \ge 3$ under the Wasow-vs-Adams normalization
+  framing. SIARC empirical $A_\text{fit}\approx 2d$ at $d=3,4$
+  favors the Adams reading (= Conjecture B4 at the upper bound);
+  primary-source resolution required to pin which normalization
+  the SIARC stratum actually corresponds to.
+- **🆕 D2-NOTE drafted (004) — `D2_NOTE_DRAFTED`.** 4-page note,
+  343,419 B, SHA-256 `f2be89c1…22bd94b8`, 8 AEAL claims; 0
+  unresolved citations. Three results consolidated: $d=2$
+  PROVEN, $d=4$ VERIFIED, general-$d$ CONJECTURED (Conj 3.3.A*).
+  Operator action pending: Zenodo upload via the runbook in
+  the session folder.
 
-### 2.3 In-flight (queued but not yet fired)
+### 2.3 In-flight / open
 
 - 7 prompts staged at `tex/submitted/control center/prompt/`
-  (001 – 007). See §6.
-- 12 SQL todos pending; 14 done (26 total).
-- T1 Phase 1 (Birkhoff–Trjitzinsky lit review) is the gating
-  KEYSTONE for P-B4. Prompt 003 is ready to fire.
+  (001 – 007). See §6 for current status.
+- **3 fired and complete this cycle:** 001, 003, 004.
+- **4 still ready to fire:** 002, 005, 006, 007 (parallel-able
+  per §6 concurrency map). 002 unblocked by 001's completion.
+- **t1-phase-2-bt-apply** (Prompt 008, conditional; not yet
+  drafted) is BLOCKED on primary-source acquisition + Claude's
+  H1 label arbitration.
+- 14 SQL todos pending; 16 done (30 total at snapshot v1.1).
 
 ### 2.4 Recently closed (this cycle)
 
 - ✅ Zenodo "New version" upload of CT v1.3 (operator).
 - ✅ Post-publish metadata polish (TIER 1 description supersede
   line + TIER 2 stale related-identifier cleanup).
-- ✅ Submission-log Items 17 + 18 spliced (PCF-2 v1.3 + umbrella
-  v2.0).
+- ✅ Submission-log Items 17 + 18 + **19** spliced
+  (PCF-2 v1.3 + umbrella v2.0 + **CT v1.3** — Item 19 via
+  Prompt 001 today).
 - ✅ RESUME cheat-sheet updated.
 - ✅ Strategic prompt queue drafted (4 new prompts 004–007).
+- 🆕 ✅ T1 Phase 1 lit review verdict landed (003).
+- 🆕 ✅ D2-NOTE v1.0 drafted (004); awaits operator Zenodo upload.
 
 ---
 
@@ -118,7 +146,7 @@ across the corresponding session folders. CT v1.3 SHA-256
 | Tag | Program | Closes via | Status |
 |-----|---------|------------|--------|
 | **P-NP**  | Newton-polygon universality $\xi_0=d/\beta_d^{1/d}$ at all $d \ge 2$ | D2-NOTE (Prompt 004) for $d=2,4$; downstream proof for general $d$ | $d=2$ PROVEN; $d=4$ VERIFIED; $d=3$ DEFERRED; general-$d$ CONJECTURED |
-| **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) → Phase 2 B-T application | EMPIRICAL d=3,4; PROOF GAP |
+| **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) ✅ → Phase 2 B-T application (BLOCKED on primary sources + H1 arbitration) | EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d, 2d]$; H1 fleet label DISPUTED |
 | **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) closes the Stokes side | algebraic identity DONE (CT v1.3 §3.5); Stokes-side PENDING |
 | **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) closes the $j=0$ endpoint | PASSED; $j=0$ AMBIGUOUS-AT-FINITE-N |
 | **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | Conte–Musette test (Prompt 007) | $d=2$ AMBIGUOUS (H3); $d=3$ partial |
@@ -129,42 +157,48 @@ across the corresponding session folders. CT v1.3 SHA-256
 ## 4. Milestones to Reach
 
 ```
-                     ┌─────────────────────────── M1 ──────────────────┐
-                     │                                                   │
-                     │ M1: D2-NOTE published (xi_0 universality)         │
-                     │     d=2 (PROVEN) + d=4 (VERIFIED) citable        │
-                     │     [Prompt 004]                                  │
-                     │                                                   │
+M1: D2-NOTE drafted (xi_0 universality)  ✅ DRAFTED 2026-05-02 (Prompt 004)
+    d=2 (PROVEN) + d=4 (VERIFIED) consolidated   ⏳ AWAITS OPERATOR ZENODO UPLOAD
+    general-d (CONJECTURED 3.3.A*) recorded
+    [PDF sha256 f2be89c1…22bd94b8, 4pp]
+
 M2: General-d xi_0 proof in print     ◀──── (downstream)
     [post-D2-NOTE; not yet a prompt]
 
 M3: T1 Phase 1 — B-T lit review + gap-prop A in [psi_lower, psi_upper]
-    [Prompt 003]
+    ✅ COMPLETE 2026-05-02 (Prompt 003) — verdict T1_PHASE1_GAPTYPE_C
+    Literature bracket: psi_lower(d) = d, psi_upper(d) = 2d
                           │
                           ▼
 M4: T1 Phase 2 — B-T applied to delta_n recurrence
     proves Conjecture B4 at d >= 3
-    [conditional Prompt 008, gated on M3]
-                          │
-                          ▼
+    🛑 BLOCKED on:
+       (a) operator primary-source acquisition (B-T 1933 Acta Math vol 60;
+           Adams 1928; Wasow 1965 §X.3) — see § 5 G3b
+       (b) Claude H1-label arbitration — see § 5 G11
+    [conditional Prompt 008, target: lift psi_lower from d to 2d]
+
 M5: V_quad -> P_III(D_6) algebraic identity              [DONE — CT v1.3]
                           │
                           ▼
 M6: V_quad alien amplitude S_{zeta*} measured at 30+ digits
-    [Prompt 005]
+    [Prompt 005, ready to fire]
                           │
                           ▼
 M7: j=0 Chowla–Selberg Gamma(1/3) closure (or A=6 artefact ruled out)
-    [Prompt 006]
+    [Prompt 006, ready to fire]
                           │
                           ▼
 M8: D=2 Painlevé classification table (per-family, ~10 families)
-    [Prompt 007]
+    [Prompt 007, ready to fire]
                           │
                           ▼
 M9: SIARC-MASTER-V0 announcement — Phi formally stated and the
     master classification result conditional on P-NP + P-B4 + P-CC
     [downstream; gated on M2 + M4 + M6]
+    NB: M9 is one step further out under v1.1 because M4's path
+    now requires primary-source resolution before Phase 2 can
+    even start.
 ```
 
 Each milestone has a hash-anchored AEAL exit criterion (claim
@@ -177,16 +211,18 @@ canonical artefact).
 
 | ID | Gap | Severity | Closes via |
 |----|------|---------|------------|
-| **G1**  | $\xi_0$ universality not proven at general $d$ (only $d=2$ proven; $d=4$ verified) | HIGH | Prompt 004 (cites + conjectures); downstream M2 |
+| **G1**  | $\xi_0$ universality not proven at general $d$ (only $d=2$ proven; $d=4$ verified) | HIGH | ✅ Prompt 004 drafted — *closure pending Zenodo upload*; downstream M2 still open |
 | **G2**  | $\xi_0$ at $d=3$ not directly verified at high dps (`op:xi0-d3-direct`) | MED  | Future prompt; deferred in 004 |
-| **G3**  | Conjecture B4 ($A_n = 2d$) lacks proof at $d \ge 3$ | HIGH | Prompts 003 → 008 |
-| **G4**  | $V_{\mathrm{quad}}$ alien amplitude $S_{\zeta_*}$ is a *theoretical prediction* (H4), not a measurement | HIGH | Prompt 005 |
-| **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | Prompt 006 |
-| **G6**  | $d=2$ PCF Painlevé reduction ambiguous (H3 = `D=2_REDUCTION_AMBIGUOUS`); not algorithmically classified | MED  | Prompt 007 |
+| **G3a** | Conjecture B4 ($A_n = 2d$) literature bracket $A \in [d, 2d]$ established (was: "lacks proof") | HIGH | ✅ T1 Phase 1 complete (003); literature bracket pinned, Adams reading favored by empirics |
+| **G3b** 🆕 | Wasow-vs-Adams normalization match unresolved from secondary sources (BLOCKER for Phase 2) | HIGH | Operator: ILL/AMS request for B-T 1933 + Adams 1928 + Wasow §X.3 → Phase 2 (Prompt 008, future) |
+| **G4**  | $V_{\mathrm{quad}}$ alien amplitude $S_{\zeta_*}$ is a *theoretical prediction* (H4), not a measurement | HIGH | Prompt 005 (ready to fire) |
+| **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | Prompt 006 (ready to fire) |
+| **G6**  | $d=2$ PCF Painlevé reduction ambiguous (H3 = `D=2_REDUCTION_AMBIGUOUS`); not algorithmically classified | MED  | Prompt 007 (ready to fire) |
 | **G7**  | Master functor $\Phi$ (P-MC) not formally stated | HIGH | Downstream (gated on M2+M4+M6) |
-| **G8**  | D2-NOTE not yet a citable artefact ($\xi_0$ result scattered across PCF-1 + CT) | LOW–MED | Prompt 004 |
-| **G9**  | arXiv mirroring not done (5 records); visibility gap | LOW  | Prompts 002 (after 001) |
+| **G8**  | D2-NOTE not yet a citable artefact ($\xi_0$ result scattered across PCF-1 + CT) | LOW–MED | ✅ Prompt 004 drafted — *closure pending Zenodo upload* |
+| **G9**  | arXiv mirroring not done (5 records); visibility gap | LOW  | Prompts 002 (now unblocked, ready to fire) |
 | **G10** | AEAL methodology paper (D7) not drafted; the program's epistemic discipline is undocumented externally | LOW  | Future Prompt 009 (deferred) |
+| **G11** 🆕 | Theory-Fleet H1 verdict `B4_PROVED_AT_d≥3` flagged as heuristic-grade by T1's primary-literature reading; not yet arbitrated | HIGH | Claude / synthesizer arbitration pass on T1 handoff.md |
 
 Severity legend:
 - **HIGH** — blocks a paper, blocks a downstream proof, or
@@ -203,15 +239,16 @@ Seven prompts staged at
 prompts close one or more gaps (see § 5) and advance one or more
 milestones (see § 4).
 
-| # | Prompt | Closes gap | Advances milestone | Runtime | Compute | Independent? |
-|---|--------|------------|--------------------|---------|---------|--------------|
-| 001 | submission-log Item 19 splice | — (admin) | (post-publication hygiene) | ~10 min | low | needs CT v1.3 DOI on chat line 1 (`10.5281/zenodo.19972394`) |
-| 002 | arXiv mirror runbook (5 records) | G9 | (visibility) | ~2–3 hr | low | depends on 001 |
-| 003 | T1 Phase 1 — B-T lit review + gap-prop | G3 | M3 | ~3–4 hr | low (lit work) | INDEPENDENT |
-| 004 | D2-NOTE — Newton-polygon universality | G1, G8 | M1 | ~4–6 hr | low (drafting + AEAL re-derivation) | INDEPENDENT |
-| 005 | H4 / `op:cc-median-resurgence-execute` | G4 | M6 | ~6–12 hr | **HIGH** (mpmath dps 250, $N=5000$) | INDEPENDENT |
-| 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | ~6–10 hr | **HIGH** (mpmath dps≥8000, $N\ge 1200$) | INDEPENDENT |
-| 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6 | M8 | ~4–8 hr | medium (symbolic) | INDEPENDENT |
+| # | Prompt | Closes gap | Advances milestone | Status | Compute | Independent? |
+|---|--------|------------|--------------------|--------|---------|--------------|
+| 001 | submission-log Item 19 splice | — (admin) | (post-publication hygiene) | ✅ DONE 2026-05-02 | low | — |
+| 002 | arXiv mirror runbook (5 records) | G9 | (visibility) | ⏳ READY (now unblocked) | low | (was: depends on 001 — now cleared) |
+| 003 | T1 Phase 1 — B-T lit review + gap-prop | G3a | M3 | ✅ DONE 2026-05-02 (verdict GAPTYPE_C) | low (lit work) | — |
+| 004 | D2-NOTE — Newton-polygon universality | G1, G8 | M1 | ✅ DRAFTED 2026-05-02 (awaits Zenodo upload) | low (drafting + AEAL re-derivation) | — |
+| 005 | H4 / `op:cc-median-resurgence-execute` | G4 | M6 | ⏳ READY | **HIGH** (mpmath dps 250, $N=5000$) | INDEPENDENT |
+| 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | ⏳ READY | **HIGH** (mpmath dps≥8000, $N\ge 1200$) | INDEPENDENT |
+| 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6 | M8 | ⏳ READY | medium (symbolic) | INDEPENDENT |
+| 008 | T1 Phase 2 — B-T applied to $\delta_n$ (proves B4 at $d \ge 3$) | G3b | M4 | 🛑 BLOCKED (G3b primary sources + G11 H1 arbitration) | medium | gated |
 
 **Concurrency map** (validated this cycle):
 
@@ -227,14 +264,23 @@ milestones (see § 4).
 
 ✗ = dependency; ⚠ = compute-heavy, serialize on a single laptop.
 
-**Recommended firing layout (single laptop, 4–6 cores):**
-- Slot 1: **001** (10 min, fire-and-forget once DOI is in chat line 1).
-- Slot 2: **003** (3–4 hr, lit review).
-- Slot 3: **004** (4–6 hr, D2-NOTE drafting).
-- Slot 4: **007** (4–8 hr, symbolic test).
-- Slot 5: **005** (6–12 hr, compute-heavy).
-- After 005 lands: **006** in slot 5 (compute-heavy, serialized).
-- After 001 lands: **002** in any free slot (lap-around hygiene).
+**Recommended firing layout for the *next* compute window
+(post-001/003/004; v1.1 status):**
+- Slot 1: **002** (2–3 hr, arXiv mirror runbook). Now unblocked.
+- Slot 2: **007** (4–8 hr, symbolic Painlevé test).
+- Slot 3: **005** (6–12 hr, mpmath dps 250 / N=5000). Compute-heavy.
+- After 005 lands: **006** in slot 3 (compute-heavy, serialized).
+
+Operator-side parallel actions (independent of compute slots):
+- 🆕 **Zenodo upload of D2-NOTE** (operator; ~10 min via the
+  upload runbook in `sessions/2026-05-02/D2-NOTE-DRAFT/`).
+  Closes G1 + G8 fully on publication; mints the M1 DOI.
+- 🆕 **Item-20 splice prompt** (drafting agent; future) once
+  the D2-NOTE Zenodo DOI is minted.
+- 🆕 **Primary-source ILL/AMS request** for B-T 1933, Adams 1928,
+  Wasow 1965 §X.3. Unblocks G3b and the future Prompt 008.
+- 🆕 **Send T1 + strategic-picture URLs to Claude** for H1
+  label arbitration (G11). Independent of compute.
 
 ---
 
@@ -253,10 +299,14 @@ not just one. The reasoning:
    PARTIALLY DIAGNOSED to DIAGNOSED. FAIL halts
    `H4_PREDICTION_FALSIFIED` and triggers a reckoning on the
    median-resurgence framing of the channel theory.
-3. **003 is the one HIGH-severity gap that does not have a
-   downstream prompt yet.** Phase 2 (T1 Phase 2 = B-T applied
-   to $\delta_n$) waits on 003's gap-proposition formalisation.
-   Without 003, P-B4 has no defined target.
+3. **003 ✅ landed with verdict `T1_PHASE1_GAPTYPE_C`.** The
+   literature gives a bracket $A \in [d, 2d]$, not a proof of
+   $A = 2d$. Phase 2's target is now precisely defined: lift
+   $\psi_\text{lower}$ from $d$ to $2d$ via the correct
+   Wasow-vs-Adams normalization match. **Two new gating items
+   were surfaced** — primary sources (G3b BLOCKER) and
+   Theory-Fleet H1 label arbitration (G11 HIGH); see § 4 M4
+   and § 5.
 4. **006 + 007 are independent closures.** They do not gate
    anything else; they're program-internal cleanup that
    strengthens P-PET and P-PIII respectively, without which
@@ -267,8 +317,10 @@ not just one. The reasoning:
 **What this cycle CANNOT do** (and therefore is correctly
 deferred):
 - Prove P-MC (gated on M2 + M4 + M6).
-- Prove general-$d$ $\xi_0$ (M2; downstream of D2-NOTE).
-- Apply B-T to $\delta_n$ (M4; downstream of 003).
+- Prove general-$d$ $\xi_0$ (M2; downstream of D2-NOTE
+  publication).
+- Apply B-T to $\delta_n$ (M4; gated on primary sources + H1
+  arbitration — was: only "downstream of 003").
 - Draft the methodology paper D7 (low priority; long-arc).
 
 ---
@@ -314,6 +366,22 @@ deferred):
    methodology *story* is well-formed. A single note would
    protect the program against future referee challenges
    on epistemic grounds.
+8. 🆕 **(v1.1) Theory-Fleet H1 label arbitration.** T1 Phase 1
+   flags `B4_PROVED_AT_d≥3` as heuristic-grade. **Decision
+   needed:** does H1 stand as PROVEN, get downgraded to
+   HEURISTIC, or get split (proven for some $d$, heuristic for
+   others)? *No published artefact is affected by either
+   outcome* (CT v1.3 + PCF-2 v1.3 + umbrella v2.0 all cite
+   "verified"/"support"), but the SIARC-MASTER-V0 announcement
+   gating (§ 4 M9) depends on this resolution.
+9. 🆕 **(v1.1) Phase-2 target — $\psi_\text{lower}$-lift
+   tractability.** T1 Phase 1 places Phase 2's target at
+   "lift $\psi_\text{lower}$ from $d$ to $2d$". **Question:**
+   is this a *single*-step proof (one normalization match
+   pinning the slope) or a *multi*-step proof (slope match +
+   characteristic-exponent doubling + sign analysis)? Affects
+   whether Prompt 008 should be drafted as one agent run or
+   split into 008a / 008b.
 
 ---
 
@@ -344,10 +412,59 @@ Channel Theory v1.3: 10.5281/zenodo.19972394   (concept 19941678)
                      PDF md5    e58951de…
 ```
 
-Bridge head at snapshot time: `8be2f17`
-("CHANNEL-THEORY-V13-RELEASE — operator applied post-publish
-edits; verify TIER 1 + TIER 2 clean on Zenodo readback").
+Bridge head at v1.1 snapshot time: `9accc6e`
+("D2-NOTE-DRAFT — draft 4-page Newton-polygon universality
+note; 8 AEAL claims; PDF 343419 B").
+
+Recent commit timeline:
+```
+9accc6e  D2-NOTE-DRAFT (Prompt 004)              ← v1.1 head
+e96641c  T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (003) [verdict GAPTYPE_C]
+3294387  SUBMISSION-LOG-PATCH-ITEM19 (001)       [Item 19 spliced]
+e33db9e  STRATEGIC-PICTURE-REVISED (this doc, v1.0)
+8be2f17  CHANNEL-THEORY-V13-RELEASE (post-publish edits)
+```
 
 ---
 
-*End of revised picture.*
+## 11. Amendment Log (v1.0 → v1.1)
+
+**Updated:** 2026-05-02 18:20 JST
+**Trigger:** completion of three relay-agent firings (001, 003, 004)
+on the same day as v1.0 was first written.
+
+**Substantive changes:**
+
+| Section | v1.0 → v1.1 |
+|---------|-------------|
+| Header  | Added "🆕 Updates since v1.0" callout listing the three completed firings + the new HIGH-severity gap G11. |
+| § 2.2 (verified) | Added two new bullets: T1 Phase 1 verdict bullet + D2-NOTE drafting bullet. |
+| § 2.3 (in-flight) | Restructured: 3 fired/done, 4 still ready, 1 (Prompt 008) blocked. |
+| § 2.4 (recently closed) | Added Item 19 splice, T1 Phase 1, D2-NOTE drafting. |
+| § 3 P-B4 row | Status changed from "EMPIRICAL d=3,4; PROOF GAP" to "EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d,2d]$; H1 fleet label DISPUTED". |
+| § 4 milestones | M1 marked DRAFTED (awaits upload). M3 marked DONE. M4 marked BLOCKED with explicit gating items. M9 explanatory note about being one step further out. |
+| § 5 gaps | G3 split into G3a (literature bracket established, ✅) + G3b (normalization match BLOCKER, HIGH). G1 + G8 marked as "drafted; closure pending Zenodo upload". G11 ADDED (HIGH, H1 label arbitration). |
+| § 6 prompts table | Status column added; 001/003/004 marked DONE; 002 marked unblocked; Prompt 008 row added (BLOCKED). |
+| § 6 firing layout | Rewritten for the *next* compute window. Added operator-side parallel actions (Zenodo upload, primary-source ILL, Claude H1 review). |
+| § 7 decision tree | Point 3 rewritten to reflect 003's actual verdict; "What this cycle CANNOT do" updated for M4's new gating. |
+| § 8 open questions | Added Q8 (H1 arbitration) and Q9 (Phase 2 single-vs-multi-step). |
+| § 10 footer | Bridge head bumped to `9accc6e`; commit timeline added. |
+| § 11 (this section) | NEW. |
+
+**Unchanged:**
+
+§ 1 (mission statement), § 9 (AEAL hygiene), and the publication
+ladder table are intact. The six-program decomposition is
+unchanged. The concurrency map (§ 6) is unchanged (no new
+inter-prompt dependencies were introduced; only the row-level
+"status" column was added).
+
+**Key invariant:**
+
+The strategic picture's framing of *what success means* is
+unchanged. P-MC closure still requires P-NP + P-B4 + P-CC; the
+v1.1 update only changes *the path to P-B4*, not the goal.
+
+---
+
+*End of revised picture (v1.1).*
