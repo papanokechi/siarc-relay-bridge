@@ -1,0 +1,20 @@
+{
+  "verdict": "T37J_RATIONAL_PER_REP_ONLY",
+  "rationale": "Phase B verifies per-rep rationals (V_quad -53/36, QL15 -89/36, QL05 +31/4) at tol=1e-30 maxcoeff=1e15 with HARD HYGIENE (tol=1e-30 vs tol=1e-12) passing identically. Phase C finds no parsimonious unifying f(Delta_b, A) consistent with all 3 non-anomalous reps to <1e-30. Phase D finds no 4-rep-consistent candidate. Per-rep rationals stand as a discrete catalogue; G20 closure via 017c (partition-with-per-rep-rationals) is unchanged.",
+  "previous_verdict_label": "T37_PARTIAL_a_1_PARTITIONS",
+  "phase_b_per_rep_rationals_verified": {
+    "V_quad": "a_1 = -53/36 at residual 7.07e-58",
+    "QL15": "a_1 = -89/36 at residual 9.03e-57",
+    "QL05": "a_1 = +31/4 at residual 2.53e-50"
+  },
+  "phase_c_unifying_form_search": "no_form_predicts_all_3_non_anomalous_reps_to_1e-30",
+  "phase_d_ql09_boundary": "no_4_rep_consistent_candidate",
+  "structural_subfindings_flagged_for_claude": [
+    "A=3 sub-family: (2A)^2 * a_1 = 4*Delta_b - 9 fits {V_quad, QL15} but FAILS QL05 (residual 7.39) and QL09 (residual 0.359)",
+    "2-rep linear: a_1[V_quad] - a_1[QL15] = 1 (algebraic restriction of A=3 sub-family)"
+  ],
+  "picture_recommendation": "hold v1.10; do NOT amend to v1.11; A=3 sub-family relation is candidate axiom for future A-stratified picture once more A=4 non-anomalous reps are available (Q24-(b))",
+  "hard_halts": [],
+  "soft_halts": [],
+  "aeal_claim_count": 19
+}

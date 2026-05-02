@@ -1,0 +1,32 @@
+[
+  {
+    "id": "T37J-UF1",
+    "finding": "A=3 sub-family closed form: (2A)^2 * a_1 = 4*Delta_b - 9",
+    "evidence": {
+      "V_quad": "36 * (-53/36) = -53 = 4*(-11) - 9 (consistent to 1e-57)",
+      "QL15":   "36 * (-89/36) = -89 = 4*(-20) - 9 (consistent to 1e-57)"
+    },
+    "counter_evidence": {
+      "QL05_A_eq_4": "predicts a_1 = 23/64; measured 31/4; residual 7.39",
+      "QL09_A_eq_4": "predicts a_1 = -5/64; measured ~ 1.7e-57; residual 0.078"
+    },
+    "interpretation": "Closed form, if it exists, may be A-stratified rather than rep-independent. The 4*Delta_b - 9 numerator is a candidate axiom for the A=3 stratum. A=4 stratum is under-determined with one non-anomalous rep (QL05) plus one anomalous (QL09).",
+    "recommended_followup": "Q24-(b): identify additional non-anomalous A=4 PCFs in the T35 catalogue and re-run 017c-style stage1 LSQ to extract a_1; then re-test for f_A(Delta_b) closed form per A-stratum.",
+    "claude_review_required": true
+  },
+  {
+    "id": "T37J-UF2",
+    "finding": "2-rep linear relation: a_1[V_quad] - a_1[QL15] = 1 exactly",
+    "evidence": "PSLQ joint config 1 found relation +1*a1_V -1*a1_QL15 -1*1 = 0 at tol=1e-30. Algebraically: -53/36 - (-89/36) = 36/36 = 1. Both reps share A=3 and differ in Delta_b by 9; the relation is the algebraic consequence of UF1's A=3 closed form.",
+    "interpretation": "Not independent of UF1; same content. Recorded for completeness because the joint PSLQ found it as a candidate cross-rep relation.",
+    "claude_review_required": false
+  },
+  {
+    "id": "T37J-UF3",
+    "finding": "Functional form (Delta_b - 1)/(2A)^2 vanishes trivially at QL09",
+    "evidence": "Phase D: f(1, 4) = 0 / 64 = 0 vs measured a_1_QL09 ~ 1.7e-57; consistent within QL09 envelope (1.04e-42).",
+    "counter_evidence": "Same form fails V_quad (residual 1.14), QL15 (1.89), QL05 (7.64). NOT a unifying form.",
+    "interpretation": "Trivial coincidence (Delta_b_QL09 = 1 makes the numerator zero); does not support a closed form for the non-anomalous reps. Only flagged for completeness because Phase D recorded it as 'consistent_with_a1_eq_0=true'.",
+    "claude_review_required": false
+  }
+]
