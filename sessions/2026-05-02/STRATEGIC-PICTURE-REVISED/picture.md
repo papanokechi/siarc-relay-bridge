@@ -1,7 +1,7 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.1 (post-firing cycle 1)
+**Revision:** v1.2 (post-firing cycle 2)
 **Original:** 2026-05-02 18:05 JST
-**Updated:** 2026-05-02 18:20 JST  (post-001, post-003, post-004)
+**Updated:** 2026-05-02 18:25 JST  (post-001, post-003, post-004, post-007)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
@@ -9,7 +9,13 @@ synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
 
-> **🆕 Updates since v1.0 (see § 11 Amendment Log for detail):**
+> **🆕 Updates since v1.1 (see § 11 Amendment Log for detail):**
+> - ✅ Prompt 007 fired with verdict `T3_LABELED_60_OF_60`. All 60 families (10 d=2 + 50 d=3) algorithmically labelled.
+>   V_quad sanity check **PASSES** as `P_III(D_6)` (matches CT v1.3 §3.5 algebraic identity).
+> - ⚠ **H3 *negatively* closed.** The Conte–Musette algorithmic test on the linear OGF ODE is **invariant across $\mathrm{sign}(\Delta_b)$** — produces uniform labels and **cannot reproduce** the PCF-1 v1.3 §3 dichotomy ($A=4$ for $\Delta>0$, $A=3$ for $\Delta<0$). The $d=2$ catalogue is uniformly `P_III(D_6)`; the $d=3$ catalogue is uniformly `PAINLEVE_UNCLASSIFIED` (rank $4/3$ at $0$, $2/3$ at $\infty$). The PCF-1 dichotomy lives below the Painlevé-class resolution scale — at the Stokes-multiplier level.
+> - 🆕 **Future Prompt 010 (Stokes-multiplier discrimination) queued** to close the residual sign-split using a t2c-style precision-escalation pipeline.
+
+> **Updates since v1.0 (carried forward from v1.1):**
 > - ✅ Prompt 001 fired and verified (Item 19 spliced into submission_log.txt; CT v1.3 DOI now of record).
 > - ✅ Prompt 003 fired with verdict `T1_PHASE1_GAPTYPE_C` — **B4 reframed from "proof gap" to "literature bracket $A \in [d, 2d]$"**. Phase 2 now has a defined target (lift $\psi_\text{lower}$ to $2d$), but is BLOCKED on primary-source acquisition + Theory-Fleet H1 label arbitration.
 > - ✅ Prompt 004 fired with verdict `D2_NOTE_DRAFTED` — 4-page note built clean, 8 AEAL claims, awaits operator Zenodo upload. M1 achieved on the drafting side; closure on G1+G8 lands once the note is published.
@@ -113,18 +119,31 @@ across the corresponding session folders. CT v1.3 SHA-256
   PROVEN, $d=4$ VERIFIED, general-$d$ CONJECTURED (Conj 3.3.A*).
   Operator action pending: Zenodo upload via the runbook in
   the session folder.
+- **🆕 T3 Painlevé test (007) — `T3_LABELED_60_OF_60`.** All
+  60 families algorithmically labelled. $d=2$ uniformly
+  `P_III(D_6)` (10/10); $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`
+  (50/50; rank $4/3$ at $0$, rank $2/3$ at $\infty$). V_quad
+  sanity check PASSES as `P_III(D_6)`, matching the CT v1.3
+  §3.5 algebraic identity. **H3 negatively closed:** the
+  algorithmic test on the linear OGF ODE is sign-of-$\Delta_b$
+  invariant and cannot reproduce the PCF-1 v1.3 §3 dichotomy
+  ($A=4$ for $\Delta>0$, $A=3$ for $\Delta<0$).
 
 ### 2.3 In-flight / open
 
 - 7 prompts staged at `tex/submitted/control center/prompt/`
   (001 – 007). See §6 for current status.
-- **3 fired and complete this cycle:** 001, 003, 004.
-- **4 still ready to fire:** 002, 005, 006, 007 (parallel-able
-  per §6 concurrency map). 002 unblocked by 001's completion.
+- **4 fired and complete this cycle:** 001, 003, 004, 007.
+- **3 still ready to fire:** 002, 005, 006 (parallel-able
+  per §6 concurrency map).
 - **t1-phase-2-bt-apply** (Prompt 008, conditional; not yet
   drafted) is BLOCKED on primary-source acquisition + Claude's
   H1 label arbitration.
-- 14 SQL todos pending; 16 done (30 total at snapshot v1.1).
+- 🆕 **t3-stokes-multiplier-followup** (Prompt 010, future) —
+  T3 recommended: t2c-style high-dps Stokes-multiplier
+  discrimination to resolve the PCF-1 dichotomy below the
+  Painlevé-class scale. Independent of all other items.
+- 15 SQL todos pending; 17 done (32 total at snapshot v1.2).
 
 ### 2.4 Recently closed (this cycle)
 
@@ -136,8 +155,10 @@ across the corresponding session folders. CT v1.3 SHA-256
   Prompt 001 today).
 - ✅ RESUME cheat-sheet updated.
 - ✅ Strategic prompt queue drafted (4 new prompts 004–007).
-- 🆕 ✅ T1 Phase 1 lit review verdict landed (003).
-- 🆕 ✅ D2-NOTE v1.0 drafted (004); awaits operator Zenodo upload.
+- ✅ T1 Phase 1 lit review verdict landed (003).
+- ✅ D2-NOTE v1.0 drafted (004); awaits operator Zenodo upload.
+- 🆕 ✅ T3 Painlevé test (007) — 60/60 LABELED; H3 negatively
+  closed; V_quad sanity confirmed.
 
 ---
 
@@ -149,7 +170,7 @@ across the corresponding session folders. CT v1.3 SHA-256
 | **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) ✅ → Phase 2 B-T application (BLOCKED on primary sources + H1 arbitration) | EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d, 2d]$; H1 fleet label DISPUTED |
 | **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) closes the Stokes side | algebraic identity DONE (CT v1.3 §3.5); Stokes-side PENDING |
 | **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) closes the $j=0$ endpoint | PASSED; $j=0$ AMBIGUOUS-AT-FINITE-N |
-| **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | Conte–Musette test (Prompt 007) | $d=2$ AMBIGUOUS (H3); $d=3$ partial |
+| **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3 Stokes-multiplier follow-up (Prompt 010, future) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant; PCF-1 dichotomy lives at the Stokes-multiplier level) |
 | **P-MC**  | Master conjecture: $\Phi$ classifies PCF asymptotics | Gated on P-NP + P-B4 + P-CC | NOT YET FORMALLY STATED |
 
 ---
@@ -190,7 +211,17 @@ M7: j=0 Chowla–Selberg Gamma(1/3) closure (or A=6 artefact ruled out)
                           │
                           ▼
 M8: D=2 Painlevé classification table (per-family, ~10 families)
-    [Prompt 007, ready to fire]
+    ✅ COMPLETE 2026-05-02 (Prompt 007) — verdict T3_LABELED_60_OF_60
+    Headline: 10/10 d=2 LABELED (P_III(D6) uniformly);
+              50/50 d=3 LABELED (PAINLEVE_UNCLASSIFIED uniformly).
+    Caveat: H3 negatively closed (test sign-of-Delta invariant;
+            cannot reproduce PCF-1 dichotomy → needs Stokes-mult
+            follow-up at M8b).
+
+M8b: 🆕 Stokes-multiplier discrimination (per-family, with
+     t2c-style precision escalation) to resolve the PCF-1
+     sign-of-Delta dichotomy below the Painlevé-class scale
+     [future Prompt 010, INDEPENDENT]
                           │
                           ▼
 M9: SIARC-MASTER-V0 announcement — Phi formally stated and the
@@ -217,7 +248,8 @@ canonical artefact).
 | **G3b** 🆕 | Wasow-vs-Adams normalization match unresolved from secondary sources (BLOCKER for Phase 2) | HIGH | Operator: ILL/AMS request for B-T 1933 + Adams 1928 + Wasow §X.3 → Phase 2 (Prompt 008, future) |
 | **G4**  | $V_{\mathrm{quad}}$ alien amplitude $S_{\zeta_*}$ is a *theoretical prediction* (H4), not a measurement | HIGH | Prompt 005 (ready to fire) |
 | **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | Prompt 006 (ready to fire) |
-| **G6**  | $d=2$ PCF Painlevé reduction ambiguous (H3 = `D=2_REDUCTION_AMBIGUOUS`); not algorithmically classified | MED  | Prompt 007 (ready to fire) |
+| **G6a** | Conte–Musette algorithmic Painlevé test on $d=2,3$ catalogues | MED  | ✅ Prompt 007 complete (60/60 LABELED) |
+| **G6b** 🆕 | PCF-1 v1.3 §3 sign-of-$\Delta_b$ dichotomy ($A=4$ vs $A=3$) lives below the Painlevé-class resolution scale; Conte–Musette test is invariant under sign of $\Delta_b$ | MED | Future Prompt 010 (Stokes-multiplier discrimination via t2c-style precision escalation) |
 | **G7**  | Master functor $\Phi$ (P-MC) not formally stated | HIGH | Downstream (gated on M2+M4+M6) |
 | **G8**  | D2-NOTE not yet a citable artefact ($\xi_0$ result scattered across PCF-1 + CT) | LOW–MED | ✅ Prompt 004 drafted — *closure pending Zenodo upload* |
 | **G9**  | arXiv mirroring not done (5 records); visibility gap | LOW  | Prompts 002 (now unblocked, ready to fire) |
@@ -247,8 +279,9 @@ milestones (see § 4).
 | 004 | D2-NOTE — Newton-polygon universality | G1, G8 | M1 | ✅ DRAFTED 2026-05-02 (awaits Zenodo upload) | low (drafting + AEAL re-derivation) | — |
 | 005 | H4 / `op:cc-median-resurgence-execute` | G4 | M6 | ⏳ READY | **HIGH** (mpmath dps 250, $N=5000$) | INDEPENDENT |
 | 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | ⏳ READY | **HIGH** (mpmath dps≥8000, $N\ge 1200$) | INDEPENDENT |
-| 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6 | M8 | ⏳ READY | medium (symbolic) | INDEPENDENT |
+| 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6a | M8 | ✅ DONE 2026-05-02 (60/60 LABELED; H3 negatively closed) | medium (symbolic) | — |
 | 008 | T1 Phase 2 — B-T applied to $\delta_n$ (proves B4 at $d \ge 3$) | G3b | M4 | 🛑 BLOCKED (G3b primary sources + G11 H1 arbitration) | medium | gated |
+| 010 🆕 | T3.5 — Stokes-multiplier discrimination (t2c-style high-dps connection coefficients to resolve sign-of-$\Delta_b$ dichotomy) | G6b | M8b | future (not yet drafted) | medium–high | INDEPENDENT |
 
 **Concurrency map** (validated this cycle):
 
@@ -265,21 +298,24 @@ milestones (see § 4).
 ✗ = dependency; ⚠ = compute-heavy, serialize on a single laptop.
 
 **Recommended firing layout for the *next* compute window
-(post-001/003/004; v1.1 status):**
+(post-001/003/004/007; v1.2 status):**
 - Slot 1: **002** (2–3 hr, arXiv mirror runbook). Now unblocked.
-- Slot 2: **007** (4–8 hr, symbolic Painlevé test).
-- Slot 3: **005** (6–12 hr, mpmath dps 250 / N=5000). Compute-heavy.
-- After 005 lands: **006** in slot 3 (compute-heavy, serialized).
+- Slot 2: **005** (6–12 hr, mpmath dps 250 / N=5000). Compute-heavy.
+- Slot 3: **006** (6–10 hr, mpmath dps≥8000). Compute-heavy —
+  serialize against 005 on a single laptop, parallel on a
+  beefy workstation.
+- Future Prompt 010 (Stokes-multiplier discrimination) — defer
+  until a session is freed; independent of all current work.
 
 Operator-side parallel actions (independent of compute slots):
-- 🆕 **Zenodo upload of D2-NOTE** (operator; ~10 min via the
+- **Zenodo upload of D2-NOTE** (operator; ~10 min via the
   upload runbook in `sessions/2026-05-02/D2-NOTE-DRAFT/`).
   Closes G1 + G8 fully on publication; mints the M1 DOI.
-- 🆕 **Item-20 splice prompt** (drafting agent; future) once
+- **Item-20 splice prompt** (drafting agent; future) once
   the D2-NOTE Zenodo DOI is minted.
-- 🆕 **Primary-source ILL/AMS request** for B-T 1933, Adams 1928,
+- **Primary-source ILL/AMS request** for B-T 1933, Adams 1928,
   Wasow 1965 §X.3. Unblocks G3b and the future Prompt 008.
-- 🆕 **Send T1 + strategic-picture URLs to Claude** for H1
+- **Send T1 + strategic-picture URLs to Claude** for H1
   label arbitration (G11). Independent of compute.
 
 ---
@@ -382,6 +418,20 @@ deferred):
    characteristic-exponent doubling + sign analysis)? Affects
    whether Prompt 008 should be drafted as one agent run or
    split into 008a / 008b.
+10. 🆕 **(v1.2) PCF-1 sign-of-$\Delta$ dichotomy resolution.**
+    T3 demonstrated that the Conte–Musette algorithmic
+    Painlevé test cannot distinguish the two sign branches.
+    The PCF-1 v1.3 §3 dichotomy ($A=4$ vs $A=3$) therefore
+    lives at the Stokes-multiplier level — *below* the
+    Painlevé-class scale. **Question:** is this consistent
+    with the CT v1.3 §3.5 V_quad → P_III(D_6) identity
+    (which sits at the Painlevé-class scale and is
+    sign-invariant), and does it imply that the SIARC
+    invariant-triple framing (umbrella v2.0 §4.4) needs a
+    *Stokes-data* fourth coordinate beyond
+    $(\Delta_d, \|\Delta\|_\text{Pet}, \xi_0)$? If yes,
+    P-MC's functor $\Phi$ has more structure than v1.0
+    of this picture suggested.
 
 ---
 
@@ -412,18 +462,63 @@ Channel Theory v1.3: 10.5281/zenodo.19972394   (concept 19941678)
                      PDF md5    e58951de…
 ```
 
-Bridge head at v1.1 snapshot time: `9accc6e`
-("D2-NOTE-DRAFT — draft 4-page Newton-polygon universality
-note; 8 AEAL claims; PDF 343419 B").
+Bridge head at v1.2 snapshot time: post-T3 + post-v1.1
+(picture-v1.2 commit pending). Recent commit timeline:
+```
+[v1.2 picture]  STRATEGIC-PICTURE-REVISED v1.2 (this push)
+5d9f8d0         STRATEGIC-PICTURE-REVISED v1.1
+663e95c         T3-CONTE-MUSETTE-PAINLEVE-TEST (Prompt 007) [60/60 LABELED; H3 negatively closed]
+9accc6e         D2-NOTE-DRAFT (Prompt 004)
+e96641c         T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (003)     [verdict GAPTYPE_C]
+3294387         SUBMISSION-LOG-PATCH-ITEM19 (001)           [Item 19 spliced]
+e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
+8be2f17         CHANNEL-THEORY-V13-RELEASE (post-publish edits)
+```
 
-Recent commit timeline:
-```
-9accc6e  D2-NOTE-DRAFT (Prompt 004)              ← v1.1 head
-e96641c  T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (003) [verdict GAPTYPE_C]
-3294387  SUBMISSION-LOG-PATCH-ITEM19 (001)       [Item 19 spliced]
-e33db9e  STRATEGIC-PICTURE-REVISED (this doc, v1.0)
-8be2f17  CHANNEL-THEORY-V13-RELEASE (post-publish edits)
-```
+---
+
+## 12. Amendment Log (v1.1 → v1.2)
+
+**Updated:** 2026-05-02 18:25 JST
+**Trigger:** completion of Prompt 007 (T3 Conte–Musette
+Painlevé test) on the same day as v1.1.
+
+**Substantive changes:**
+
+| Section | v1.1 → v1.2 |
+|---------|-------------|
+| Header  | Added v1.1 → v1.2 callout. v1.0 → v1.1 callout retained for the synthesizer's full audit trail. |
+| § 2.2 (verified) | Added T3 verdict bullet (60/60 LABELED; V_quad PASS; H3 negatively closed). |
+| § 2.3 (in-flight) | 4 fired/done (was: 3); 3 still ready (was: 4). New entry for `t3-stokes-multiplier-followup` (future Prompt 010). Counts updated. |
+| § 2.4 (recently closed) | Added T3 line. |
+| § 3 P-PIII row | Status changed from "$d=2$ AMBIGUOUS (H3); $d=3$ partial" to detailed T3 result + H3 negative-closure caveat. |
+| § 4 milestones | M8 marked COMPLETE with the negative-closure caveat. New M8b added for the Stokes-multiplier follow-up. |
+| § 5 gaps | G6 split into G6a (✅ Conte–Musette test complete) + G6b (Stokes-multiplier discrimination needed). |
+| § 6 prompts table | 007 marked DONE; new row for Prompt 010 (future). Firing layout rewritten for next compute window (002, 005, 006). |
+| § 8 open questions | Added Q10 — does the H3 negative closure imply that P-MC's invariant triple needs a Stokes-data fourth coordinate? |
+| § 10 footer | Bridge head bumped; commit timeline extended. |
+| § 12 (this section) | NEW. |
+
+**Unchanged:**
+
+§ 1 (mission statement), § 9 (AEAL hygiene), the publication
+ladder table, and the six-program decomposition are intact.
+The concurrency map (§ 6) is unchanged.
+
+**Key invariant (carried from v1.1):**
+
+The strategic picture's framing of *what success means* is
+unchanged. P-MC closure still requires P-NP + P-B4 + P-CC.
+v1.2 adds a *resolution-scale observation* about P-PIII: the
+algorithmic Painlevé test sits one resolution scale *above*
+the PCF-1 v1.3 §3 sign dichotomy, so per-family Painlevé
+classification at that scale is necessarily uniform. The
+sign-split discrimination is a separate (Stokes-multiplier)
+question.
+
+---
+
+*End of revised picture (v1.2).*
 
 ---
 
@@ -467,4 +562,4 @@ v1.1 update only changes *the path to P-B4*, not the goal.
 
 ---
 
-*End of revised picture (v1.1).*
+*End of revised picture (v1.2).*
