@@ -1,0 +1,46 @@
+[19:58:58] === T25D-RETRY-13PARAM runner start ===
+[19:58:58] K_FIT=7 (=> 11 parameters per family)
+[19:58:58] DPS_INPUT=25000, DPS_FIT=4000, DPS_PSLQ=200, DPS_VERIFY=400
+[19:58:58] === Phase A: load + hash-verify CSVs ===
+[19:58:58]   fam30: 11 rows, sha256=bce3591182909e94 OK
+[19:58:59]   fam31: 11 rows, sha256=da520bd38845a6d3 OK
+[19:58:59]   fam32: 11 rows, sha256=7258a42ea8b8fd0c OK
+[19:58:59]   fam33: 11 rows, sha256=b24d512f03685990 OK
+[19:58:59] === Phase B: 11-param LIN refit (square-exact) ===
+[19:58:59]   fam30: 11-param LIN refit (k_fit=7)
+[19:58:59]     A_lin = 5.99999999999999999999999
+[19:58:59]     delta = -0.0000000000000000000000  (log10|delta| = -23.4861)
+[19:58:59]   fam31: 11-param LIN refit (k_fit=7)
+[19:58:59]     A_lin = 5.99999999999999999999999
+[19:58:59]     delta = -0.0000000000000000000000  (log10|delta| = -23.5008)
+[19:58:59]   fam32: 11-param LIN refit (k_fit=7)
+[19:58:59]     A_lin = 5.99999999999999999999998
+[19:58:59]     delta = -0.0000000000000000000000  (log10|delta| = -22.9246)
+[19:58:59]   fam33: 11-param LIN refit (k_fit=7)
+[19:58:59]     A_lin = 5.99999999999999999999996
+[19:58:59]     delta = -0.0000000000000000000000  (log10|delta| = -22.5102)
+[19:58:59] === Phase C: tail-window cross-check ===
+[19:58:59]   fam30: |A_11 - A_7| = 3.95379473924e-14, |A_11 - A_5| = 1.24351405174e-8
+[19:59:00]   fam31: |A_11 - A_7| = 3.92584398841e-14, |A_11 - A_5| = 1.24364073868e-8
+[19:59:00]   fam32: |A_11 - A_7| = 5.8612189215e-14, |A_11 - A_5| = 1.86542940305e-8
+[19:59:00]   fam33: |A_11 - A_7| = 7.78277995631e-14, |A_11 - A_5| = 2.48721805412e-8
+[19:59:00] === Phase D: PSLQ on H6 B19+ basis (17-member, deduplicated) ===
+[19:59:00]   fam30: PSLQ on delta=-0.0000000000000000000000 (|delta|=3.26507e-24) ...
+[19:59:00]     [17-basis] -> no relation at maxcoeff=1e50, tol=1e-40
+[19:59:00]     [18-basis literal] -> relation len=19, target_coeff=0  (expected trivial: target_coeff=0, sqrt(3) vs CS_sqrt3)
+[19:59:00]   fam31: PSLQ on delta=-0.0000000000000000000000 (|delta|=3.15615e-24) ...
+[19:59:01]     [17-basis] -> no relation at maxcoeff=1e50, tol=1e-40
+[19:59:01]     [18-basis literal] -> relation len=19, target_coeff=0  (expected trivial: target_coeff=0, sqrt(3) vs CS_sqrt3)
+[19:59:01]   fam32: PSLQ on delta=-0.0000000000000000000000 (|delta|=1.1897e-23) ...
+[19:59:02]     [17-basis] -> no relation at maxcoeff=1e50, tol=1e-40
+[19:59:02]     [18-basis literal] -> relation len=19, target_coeff=0  (expected trivial: target_coeff=0, sqrt(3) vs CS_sqrt3)
+[19:59:02]   fam33: PSLQ on delta=-0.0000000000000000000000 (|delta|=3.08904e-23) ...
+[19:59:03]     [17-basis] -> no relation at maxcoeff=1e50, tol=1e-40
+[19:59:03]     [18-basis literal] -> relation len=19, target_coeff=0  (expected trivial: target_coeff=0, sqrt(3) vs CS_sqrt3)
+[19:59:03] === Phase E: Richardson cross-check (float64 input) ===
+[19:59:03]   fam30: richardson_1overN_residue = 1.007e-04, tail slope p ~ 2.938
+[19:59:03]   fam31: richardson_1overN_residue = 6.805e-06, tail slope p ~ 1.293
+[19:59:03]   fam32: richardson_1overN_residue = -3.044e-04, tail slope p ~ 4.362
+[19:59:03]   fam33: richardson_1overN_residue = -3.128e-03, tail slope p ~ 8.177
+[19:59:03] === Verdict: PASS_A_EQ_6_ONLY ===
+[19:59:03] === runner done ===

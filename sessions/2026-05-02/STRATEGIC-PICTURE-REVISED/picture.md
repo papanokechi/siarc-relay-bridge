@@ -1,7 +1,7 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.7 (post-009 PARTIAL — V_quad → P_III(D_6) Φ_resc/shift pinned; Φ_symp residual on Okamoto Lax pair)
+**Revision:** v1.8 (post-010 PARTIAL — leading Stokes multiplier $S_1$ differs across PCF-1 §3 sign-of-$\Delta_b$ dichotomy but no *structural* pattern; $\beta_R = 0$ across $d=2$ PCF family as universal side-finding)
 **Original:** 2026-05-02 18:05 JST
-**Updated:** 2026-05-02 19:30 JST  (post-009 absorption)
+**Updated:** 2026-05-02 19:50 JST  (post-010 absorption)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
@@ -9,7 +9,16 @@ synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
 
-> **🆕 Updates since v1.6 (see § 17 Amendment Log for detail):**
+> **🆕 Updates since v1.7 (see § 18 Amendment Log for detail):**
+> - 🟡 **Prompt 010 LANDED with verdict `G6B_PARTIAL_HIGHER_ORDER_NEEDED`.** Generalised the V_quad Birkhoff recurrence (CC-MEDIAN-RESURGENCE-EXECUTE, $\alpha=3, \beta=1, \gamma=1, \delta=0, \epsilon=1$, 108 digits) to **arbitrary $d=2$ PCF families** $(\alpha, \beta, \gamma, \delta, \epsilon)$ via symbolic derivation in `derive_recurrence.py`; the generalisation specialises back to V_quad's existing recurrence and reproduces its 108-digit $C$ value to all displayed digits (cross-validation). Extracted leading Stokes multiplier $S_1 = 2 \pi i C$ for **four** representatives across the PCF-1 v1.3 §3 $\Delta_b$ dichotomy at the t2c precision ladder $\text{dps} \in \{100, 150, 200, 250\}$, $N$ up to $2000$, with **≥ 60-digit cross-method agreement** (Richardson tail vs LSQ-in-$1/n$) at top dps.
+> - 📊 **Numerical results** ($\Delta_b < 0$, predicted $A=3$): V_quad $C = +8.12733679549\ldots$ (matches CC-MEDIAN bit-for-bit on its 49 displayed digits); QL15 $C = +21.38412649463\ldots$. ($\Delta_b > 0$, predicted $A=4$): QL05 $C = +1.40328080725\ldots$; QL09 $C = -6.07472006379\ldots$. **$|S_1|$ differs across the dichotomy at $O(1)$ absolute scale (no `G6B_STOKES_INVARIANT` halt — Stokes data is *not* sign-invariant)** — but **no *structural* pattern** emerges: $\mathrm{sign}(C)$ varies *within* the $\Delta>0$ side ($+$ for QL05, $-$ for QL09); all four $S_1$ are purely imaginary; within-side spread is comparable to cross-side spread; ratios are not clean rationals or square-roots. Per the prompt's strict PASS-criterion, this is honest PARTIAL: the dichotomy lives **below** the leading-multiplier scale.
+> - 🌟 **NEW universal side-finding (NEW gap G19).** The branch exponent $\beta_R$ in the Birkhoff resurgent ansatz $a_n \sim C \, \Gamma(n + \beta_R) \, \zeta_*^{-(n+\beta_R)}$ is **essentially zero** ($\le 10^{-85}$) across **all four** $d=2$ representatives — not just V_quad. This is a *structural regularity* of the $d=2$ PCF Birkhoff series: the alien amplitudes live exactly on $\Gamma(n)$ with **no $\Gamma$-shift**. Strong candidate for synthesizer-formalisation as "alien-amplitude $\Gamma$-shift $= 0$ universal at $d=2$"; possibly relevant to Sakai-surface / isomonodromic geometry of the $d=2$ catalogue.
+> - 📝 **NEW Prompt 016 (`T36-S2-EXTRACTION`) drafted.** Reuses the four cached series CSVs (`borel_*_dps250_N2000.csv`); **no new `mpmath` series computation**. Subtracts the leading $C \, \Gamma(n) \, \zeta_*^{-n}$ from $a_n$ and applies a second Richardson pass to the residual to extract $S_2$ (alien amplitude at $2\zeta_*$). Tests whether (a) $|S_2|$ discriminates the dichotomy, (b) the ratio $S_2 / S_1^2$ is structurally invariant (canonical for connected resurgent algebras), (c) $\arg(S_2)$ separates the two sides. Compute is light (~30 min agent; pure refit). **Closes G6b fully or escalates to S_3.**
+> - 🛠 **Reusable infrastructure delivered.** `derive_recurrence.py` (symbolic derivation of the $d=2$ Birkhoff recurrence in $(\alpha, \beta, \gamma, \delta, \epsilon)$) and `t35_runner.py` (numerical extraction with t2c precision-ladder discipline, Richardson + LSQ cross-method) are now reusable for any future $d=2$ PCF Stokes-data extraction. Generalisation to $d=3$ requires deriving a new recurrence from Conte-Musette's $d=3$ ODE (different singular structure: rank $4/3$ at $0$, $2/3$ at $\infty$) — out of scope for 010/016, deferred to a later prompt.
+> - ❓ **NEW open question for synthesizer (Q18, see § 8).** Is $\mathrm{sign}(C)$ a basis-independent invariant in the resurgent classification, or does it depend on the Birkhoff basis-of-formal-solutions choice ($f_+$ vs $f_-$, with $c = +2/\sqrt{\alpha}$ vs $c = -2/\sqrt{\alpha}$)? The runner used a uniform $c = +2/\sqrt{\alpha}$ convention; if Claude's reading of the literature pins sign$(C)$ as basis-dependent, the QL05 vs QL09 sign disagreement is a convention artefact, not a genuine asymmetry.
+> - 📊 **Status:** P-PIII Stokes-side discrimination is **PARTIAL** — leading scale shows the dichotomy is real but unstructured; closure via Prompt 016 ($S_2$ scale) is the next test. **G6b** is no longer "future" — it has a measured leading-order verdict and a concrete S_2 follow-up path.
+
+> **🆕 Updates since v1.6 (carried forward from v1.7):**
 > - 🟡 **Prompt 009 LANDED with verdict `G15_PARTIAL`.** V_quad's scalar OGF ODE re-derived from scratch by sympy: $3 z^3 f''(z) + 10 z^2 f'(z) + (5z + z^2 - 1) f(z) = 0$ (exact rational coefficients; Newton-polygon slope $1/2$; $c = \pm 2/\sqrt{3}$; $\zeta_* = 4/\sqrt{3}$; $\rho = -11/6$ — all exact rationals/algebraics, agreeing with the 250-digit V_quad-native measurement from Prompt 005). The change-of-variables decomposes as $\Phi = \Phi_\text{symp} \circ \Phi_\text{shift} \circ \Phi_\text{resc}$. **Φ_resc parameter $\lambda = 1/3$ pinned** by leading-exponent matching (R3-conditional on Stokes sign convention); **Φ_shift Jacobian $= 1$** (affine-shift triviality); **Φ_symp residual** — requires Okamoto 1987 (*Funkcial. Ekvac.* **30**:305–332) §§2–3 explicit `2×2` Lax pair, **not in operator's local library**. Five residuals R1–R5 documented; R5 (Lax pair) is the primary blocker. Canonical-form numerical value $C_\text{can}$ deliberately *not* produced (would require fabricating R2/R3/R5; prompt's "Do NOT fabricate" clause forbids).
 > - 🧠 **Substantive structural finding (NEW gap G17 — Claude review candidate).** V_quad's scalar ODE Hamiltonization is *linear* (Hamiltonian quadratic in $p$), while canonical $P_{III}(D_6)$ is *nonlinear* in $(q, p)$. The two Hamiltonians **live at different layers of the geometry**: V_quad's scalar ODE is the **L-equation** of an isomonodromic Lax pair (linear, frozen at the V_quad parameter point), while $P_{III}(D_6)$ is the **isomonodromic deformation** of that L-equation (nonlinear, in coordinates that are monodromy data of the Lax pair). CT v1.3 §3.5's framing "algebraic identity at Painlevé-class level only" gestures at this layer separation but does not spell it out. **Implication:** $\Phi$ cannot be a direct change-of-variables on $(f, f', z)$ — it must act on the Lax-pair monodromy variety. This sharpens the G15 statement and flags a possible CT v1.4 amendment to §3.5.
 > - 🔍 **Convention question (NEW gap G18, residual R1).** CT v1.3 §3.5's parameter point $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0) = (1/6, 0, 0, -1/2)$ does **not** satisfy the Okamoto constraint $\alpha_\infty + \alpha_0 + \beta_\infty + \beta_0 = 0$ (sums to $-1/3$). Three interpretations: (a) CT v1.3 uses a non-Okamoto convention (e.g., Sakai $E_7^{(1)}/D_7^{(1)}$ root data); (b) one entry is a spectral-type label rather than a Hamiltonian parameter; (c) the relay-prompt's quoted constraint is for a different $P_{III}(D_6)$ parametrization. **No selection without R1 resolution from Okamoto §2.** Flagged as informational anomaly, not halt-class.
@@ -167,24 +176,29 @@ across the corresponding session folders. CT v1.3 SHA-256
 
 ### 2.3 In-flight / open
 
-- 13 prompts staged at `tex/submitted/control center/prompt/`
-  (001–007 + 009/010/012/013/014 drafted/fired; 008 + 011 reserved;
-  🆕 015 drafted post-009 PARTIAL — gated on operator literature
-  acquisition). See §6 for current status.
-- **6 fired and complete this cycle:** 001, 003, 004, 005, 006*, 007.
-  *006 fired with HALT verdict — see "HALTED" line below.
-- 🆕 **1 fired and PARTIAL this cycle:** 009 (verdict `G15_PARTIAL`;
-  Φ_resc + Φ_shift pinned; Φ_symp residual on Okamoto Lax pair).
+- 14 prompts staged at `tex/submitted/control center/prompt/`
+  (001–007 + 009/010/012/013/014/015 drafted/fired; 008 + 011 reserved;
+  🆕 016 drafted post-010 PARTIAL — refit-only S_2 extraction). See §6
+  for current status.
+- **7 fired this cycle:** 001 ✅, 003 ✅, 004 ✅, 005 ✅, 006* 🛑, 007 ✅,
+  010* 🟡. *006 HALT, *010 PARTIAL — see "HALTED" / "PARTIAL" lines.
+- 🆕 **2 fired and PARTIAL this cycle:** 009 (verdict `G15_PARTIAL`;
+  Φ_resc + Φ_shift pinned; Φ_symp residual on Okamoto Lax pair) and
+  **010** (verdict `G6B_PARTIAL_HIGHER_ORDER_NEEDED`; |S_1| differs
+  across dichotomy without structural pattern; β_R=0 universal at
+  d=2 — NEW G19; S_2 extraction queued via 016).
 - **2 fired and HALTED this cycle:** 002 (verdict
   `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`) and 006 (verdict
   `AMBIGUOUS_AT_DPS8000`). See §6.
 - **0 remaining ready-to-fire from the original 7-prompt queue**
-  (006 just landed with HALT).
-- **3 drafted-ready math-closure prompts:** 010 (G6b), 012 (G2),
-  013 (P-CC formal closure; previously gated on 009 → now
-  extended-gated on full G15 closure via 015).
-- **1 drafted-ready retry prompt:** 014 (T2.5d-RETRY-13PARAM;
-  refit-only; gates the formal closure of M7 / G5).
+  (006 + 010 both landed).
+- **2 drafted-ready math-closure prompts:** 012 (G2),
+  013 (P-CC formal closure; gated on full G15 closure via 015).
+- **2 drafted-ready retry prompts:** 014 (T2.5d-RETRY-13PARAM;
+  refit-only; gates the formal closure of M7 / G5) and 🆕 **016**
+  (T36-S2-EXTRACTION; refit-only; gates G6b full closure via
+  S_2 alien amplitude). Both are ~minutes-scale compute on cached
+  CSVs.
 - 🆕 **1 drafted but operator-gated prompt:** 015 (T25E-VQUAD-PIII-
   NORM-MAP-CLOSE; ~2–4 hr; gated on R5 = Okamoto 1987 §§2–3 Lax
   pair via the G3b ILL/AMS workflow).
@@ -194,7 +208,7 @@ across the corresponding session folders. CT v1.3 SHA-256
 - **pcf1-v13-reconcile** (Prompt 011, future) — operator
   decision required: bump to v1.4 OR recover v1.3 source
   snapshot. Gates 002.
-- ~24 SQL todos pending; ~20 done; 1–2 blocked (44+ total at v1.7).
+- ~28 SQL todos pending; ~22 done; 1–3 blocked (53 total at v1.8).
 
 ### 2.4 Recently closed (this cycle)
 
@@ -235,6 +249,23 @@ across the corresponding session folders. CT v1.3 SHA-256
   different layers (L-equation vs isomonodromic deformation
   thereof). M6 canonical-form completion deferred to Prompt 015
   once R5 acquired.
+- 🆕 🟡 **Prompt 010 PARTIAL — `G6B_PARTIAL_HIGHER_ORDER_NEEDED`.**
+  Generalised V_quad Birkhoff recurrence to arbitrary $d=2$
+  $(\alpha, \beta, \gamma, \delta, \epsilon)$ via sympy
+  derivation (cross-validated: re-derives V_quad's 108-digit $C$
+  to all displayed digits). Extracted $S_1 = 2\pi i C$ for four
+  representatives at dps $\le 250$, $N \le 2000$, ≥ 60-digit
+  cross-method agreement: V_quad $C=+8.127\ldots$, QL15
+  $C=+21.384\ldots$ ($\Delta<0$); QL05 $C=+1.403\ldots$, QL09
+  $C=-6.075\ldots$ ($\Delta>0$). $|S_1|$ differs across the
+  dichotomy at $O(1)$ scale; no structural pattern (sign(C)
+  varies within $\Delta>0$ side; all $S_1$ purely imaginary;
+  within-side spread comparable to cross-side spread). **NEW
+  universal structural fact (G19):** $\beta_R = 0$ to ≥ 85
+  digits across all four reps — alien amplitudes live exactly
+  on $\Gamma(n)$ with no $\Gamma$-shift at $d=2$. Closure path
+  through Prompt 016 ($S_2$ extraction; ~30 min refit on cached
+  CSVs).
 
 ---
 
@@ -246,7 +277,7 @@ across the corresponding session folders. CT v1.3 SHA-256
 | **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) ✅ → Phase 2 B-T application (BLOCKED on primary sources + H1 arbitration) | EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d, 2d]$; H1 fleet label DISPUTED |
 | **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) ✅ → V_quad → P_III(D_6) normalization map (Prompt 009) 🟡 PARTIAL → V_quad-PIII-NORM-MAP-CLOSE (Prompt 015, R5-gated) → `op:cc-formal-borel` | algebraic identity DONE (CT v1.3 §3.5); Stokes-side **MEASURED** in V_quad native normalization at 108 digits (Prompt 005); G15 PARTIAL: Φ_resc ($\lambda=1/3$) + Φ_shift pinned, Φ_symp residual on R5 (Okamoto 1987 Lax pair); canonical-form $C_\text{can}$ pending Prompt 015 |
 | **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) attempted j=0 closure → HALTED at 7-digit precision; T2.5d-RETRY (Prompt 014, drafted) closes j=0 endpoint formally | T2 PASSED; $j=0$ AMBIGUOUS-AT-FINITE-N (5-param ansatz; $A=6 \pm 2 \times 10^{-7}$ supported empirically); 30-digit closure pending Prompt 014 |
-| **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3 Stokes-multiplier follow-up (Prompt 010, future) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant; PCF-1 dichotomy lives at the Stokes-multiplier level) |
+| **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3.5 Stokes-multiplier S_1 (Prompt 010) 🟡 PARTIAL → T3.6 S_2 alien amplitude (Prompt 016, drafted; refit-only) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant); 010 PARTIAL: $|S_1|$ separates the two sides at $O(1)$ scale but *no structural pattern* at the leading scale; G19 side-finding $\beta_R = 0$ universal at $d=2$; G6b closure via Prompt 016 |
 | **P-MC**  | Master conjecture: $\Phi$ classifies PCF asymptotics | Gated on P-NP + P-B4 + P-CC | NOT YET FORMALLY STATED |
 
 ---
@@ -352,7 +383,7 @@ canonical artefact).
 | **G15** 🆕 | V_quad → P_III(D_6) normalization map for Stokes data not written out (CT v1.3 §3.5 only matches at Painlevé-class level) | HIGH | 🟡 PARTIAL 2026-05-02 (Prompt 009 verdict `G15_PARTIAL`): Φ_resc ($\lambda=1/3$) + Φ_shift Jacobian pinned; Φ_symp residual on R5 (Okamoto 1987 §§2–3 Lax pair, not in local library); 5 residuals R1–R5 documented; full closure via Prompt 015 (drafted-ready, gated on operator G3b literature acquisition) |
 | **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | 🛑 Prompt 006 HALTED 2026-05-02 (`AMBIGUOUS_AT_DPS8000`; 5-param ansatz caps $A$-precision at ~7 digits); $A=6 \pm 2\times 10^{-7}$ supported empirically with monotone $N$-convergence; formal 30-digit closure pending Prompt 014 (refit with 13-param ansatz) |
 | **G6a** | Conte–Musette algorithmic Painlevé test on $d=2,3$ catalogues | MED  | ✅ Prompt 007 complete (60/60 LABELED) |
-| **G6b** 🆕 | PCF-1 v1.3 §3 sign-of-$\Delta_b$ dichotomy ($A=4$ vs $A=3$) lives below the Painlevé-class resolution scale; Conte–Musette test is invariant under sign of $\Delta_b$ | MED | Prompt 010 ✅ DRAFTED 2026-05-02 (Stokes-multiplier discrimination via t2c-style precision escalation) |
+| **G6b** 🆕 | PCF-1 v1.3 §3 sign-of-$\Delta_b$ dichotomy ($A=4$ vs $A=3$) lives below the Painlevé-class resolution scale; Conte–Musette test is invariant under sign of $\Delta_b$ | MED | 🟡 PARTIAL 2026-05-02 (Prompt 010 verdict `G6B_PARTIAL_HIGHER_ORDER_NEEDED`): $|S_1|$ measured at ≥ 60 cross-method digits for 4 reps (2-of-each-side); values differ at $O(1)$ scale but display no structural pattern at the leading scale; full closure via Prompt 016 (S_2 alien amplitude; ~30 min refit on cached CSVs) |
 | **G7**  | Master functor $\Phi$ (P-MC) not formally stated | HIGH | Downstream (gated on M2+M4+M6) |
 | **G8**  | D2-NOTE not yet a citable artefact ($\xi_0$ result scattered across PCF-1 + CT) | LOW–MED | ✅ Prompt 004 drafted — *closure pending Zenodo upload* |
 | **G9**  | arXiv mirroring not done (5 records); visibility gap | LOW  | Prompt 002 — 🛑 HALTED 2026-05-02 (page-count drift on PCF-1; staged locally, not pushed); reactivate after G12+G13+G14 |
@@ -364,6 +395,7 @@ canonical artefact).
 | **G16** 🆕 | **Spec-vs-precision-floor mismatch** — 5-parameter $1/n$ ansatz at $N=1200$ caps $A$-fit precision at $\sim 7$ digits (model truncation $O(1/N^2)$); the 30-digit formal threshold required by `op:j-zero-amplitude-h6` needs $\geq 13$ parameters. Generalises to any deep-WKB closure operator. | LOW–MED | Prompt 014 ✅ DRAFTED (refit-only; structural fix); future operators of this form should pre-compute the parameter-count floor from the desired digit threshold |
 | **G17** 🆕 | **Layer separation**: V_quad scalar OGF ODE (linear; Hamiltonization quadratic in $p$) vs canonical $P_{III}(D_6)$ Hamiltonian (nonlinear in $(q,p)$) — the two live at *different* geometric layers (L-equation vs its isomonodromic deformation). $\Phi$ acts on Lax-pair monodromy data, not on $(f, f', z)$ directly. CT v1.3 §3.5 implicitly knew this ("algebraic identity at Painlevé-class level only") but does not spell it out. | MED (epistemic / framing) | Operator/Claude decision: should CT v1.4 amend §3.5 to spell out the L-equation vs isomonodromic-deformation distinction? Prompt 015 will treat the layer structure as a working assumption regardless. |
 | **G18** 🆕 | **Okamoto-constraint mismatch on $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0) = (1/6, 0, 0, -1/2)$**: the four numbers sum to $-1/3$, not $0$ — the Okamoto $\alpha + \alpha + \beta + \beta = 0$ constraint quoted in the relay-prompt brief is not satisfied. Three interpretations (CT v1.3 internal vs Sakai vs different parametrization). | LOW (convention) | Operator: pin from Okamoto 1987 §2 (R1) once acquired; possibly resolves trivially as a different parametrization convention. Flagged informational, not halt-class. |
+| **G19** 🆕 | **Universal side-finding $\beta_R = 0$ at $d=2$**: the Birkhoff resurgent ansatz $a_n \sim C \, \Gamma(n + \beta_R) \, \zeta_*^{-(n+\beta_R)}$ has $\beta_R$ measured to $\le 10^{-85}$ across all 4 d=2 PCF representatives in Prompt 010 (V_quad, QL15, QL05, QL09 — both sides of the $\Delta_b$ dichotomy). Alien amplitudes live exactly on $\Gamma(n)$ with no $\Gamma$-shift. | MED (epistemic / structural) | Synthesizer-formalisation candidate: "alien-amplitude $\Gamma$-shift = 0 universal at $d=2$". Possible link to Sakai-surface / isomonodromic geometry of the $d=2$ catalogue. Operator/Claude decision territory; not a compute task. |
 
 Severity legend:
 - **HIGH** — blocks a paper, blocks a downstream proof, or
@@ -375,7 +407,7 @@ Severity legend:
 
 ## 6. Suggested Next Steps — Queued Prompts
 
-Eleven prompts staged at
+Fourteen prompts staged at
 `tex/submitted/control center/prompt/`. Cross-references:
 prompts close one or more gaps (see § 5) and advance one or more
 milestones (see § 4).
@@ -391,12 +423,13 @@ milestones (see § 4).
 | 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6a | M8 | ✅ DONE 2026-05-02 (60/60 LABELED; H3 negatively closed) | medium (symbolic) | — |
 | 008 | T1 Phase 2 — B-T applied to $\delta_n$ (proves B4 at $d \ge 3$) | G3b | M4 | 🛑 BLOCKED (G3b primary sources + G11 H1 arbitration); slot reserved | medium | gated |
 | 009 | V_quad → P_III(D_6) normalization map (change-of-variables Φ; apply to 005's $C$ to report $S_{\zeta_*}^{\text{can}}$) | G15 (partial), G17, G18 | M6 (canonical-form PARTIAL); 013 now gated on 015 | 🟡 PARTIAL 2026-05-02 (`G15_PARTIAL`; Φ_resc + Φ_shift pinned; Φ_symp residual on R5; substantive layer-separation finding) | low (symbolic; ~75 min agent) | INDEPENDENT |
-| 010 🆕 | T3.5 — Stokes-multiplier discrimination (t2c-style high-dps connection coefficients to resolve sign-of-$\Delta_b$ dichotomy) | G6b | M8b | ✅ DRAFTED 2026-05-02; ready | medium–high (mpmath dps≥150) | INDEPENDENT |
+| 010 🆕 | T3.5 — Stokes-multiplier discrimination (t2c-style high-dps connection coefficients to resolve sign-of-$\Delta_b$ dichotomy) | G6b (partial), G19 | M8b (partial); 016 follow-on | 🟡 PARTIAL 2026-05-02 (`G6B_PARTIAL_HIGHER_ORDER_NEEDED`; \|S_1\| measured for 4 reps at ≥ 60 cross-method digits; differs across dichotomy at $O(1)$ scale; no structural pattern at leading order; β_R=0 universal at d=2) | medium (mpmath dps=250, $N=2000$; ~2 min agent) | INDEPENDENT |
 | 011 | PCF1-V13-RECONCILE — operator-decision-driven; resolve PCF-1 v1.3 source drift before re-running 002 | G12 | distribution layer | future (slot reserved; not yet drafted; gated on operator option-(a)/(b) decision) | low | gated |
 | 012 🆕 | $\xi_0$ at $d=3$ direct — per-Galois-bin Newton-polygon test of D2-NOTE Conj 3.3.A* on cubic representatives | G2 | (M1 follow-on; supports P-NP) | ✅ DRAFTED 2026-05-02; ready | low (mpmath dps=80) | INDEPENDENT |
 | 013 🆕 | CC formal Borel close — closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates (composes 005's $C$ + 009's Φ); flips CT v1.3 §3.5 status to "DIAGNOSED" | (P-CC formal closure) | (P-CC final close) | ✅ DRAFTED 2026-05-02; **HARD-GATED on 009** | low–medium (symbolic + numerical 3-point) | gated on 009 |
 | 014 🆕 | T2.5d-RETRY-13PARAM — refit saved $y_n$ CSVs with 13-param ansatz; targets $\|\delta_\text{lin}\| < 10^{-15}$, then runs Phase D PSLQ on Chowla–Selberg basis | G5, G16 | M7 (formal closure) | ✅ DRAFTED 2026-05-02; ready (no new `cf_value` calls; uses `Qn_j0_dps25000_N1200_fam{30..33}.csv` from 006) | low (~5–20 min agent; pure refit + PSLQ) | INDEPENDENT |
 | 015 🆕 | T25E-VQUAD-PIII-NORM-MAP-CLOSE — pins R1–R4 from Okamoto/Conte-Musette; writes Φ_symp from Lax-pair gauge transform; computes $J(\Phi)$ numerically; verifies $S_{\zeta_*}^\text{can}$ against Lisovyy-Roussillon tables to ≥ 50 digits | G15 (full closure), G18 | M6 (canonical-form full closure); unblocks 013 | ✅ DRAFTED 2026-05-02; **GATED on R5** (operator G3b acquisition of Okamoto 1987 + Conte-Musette ch. 7) | low–medium (~2–4 hr agent; symbolic + literature) | gated on operator literature |
+| 016 🆕 | T36-S2-EXTRACTION — refit cached `borel_*_dps250_N2000.csv`; subtract leading $C\Gamma(n)\zeta_*^{-n}$; second Richardson pass to extract $S_2$ (alien amplitude at $2\zeta_*$); test ratio $S_2/S_1^2$ for structural invariance; check $|S_2|$ and $\arg(S_2)$ as side-discriminators | G6b (full closure), G19 (cross-check) | M8b (full closure if S_2 discriminates; otherwise S_3 escalation) | ✅ DRAFTED 2026-05-02; ready (no new mpmath series; pure refit on 010's cached CSVs) | low (~30 min agent; refit-only) | INDEPENDENT |
 
 **Concurrency map** (validated this cycle for the original 7-prompt subset):
 
@@ -422,15 +455,17 @@ member of the batch that is compute-heavy (mpmath dps≥150 on
 low-compute symbolic + light-numerical.
 
 **Recommended firing layout for the *next* compute window
-(post-009 PARTIAL; v1.7 status):**
+(post-010 PARTIAL; v1.8 status):**
 - Slot 1: **014** (5–20 min refit; closes G5 + G16 formally;
   M7 formal achievement). Highest leverage now: tiny compute,
   immediate unlock of Phase D PSLQ on the saved CSVs.
-- Slot 2 (parallel with 014): **012** (low-compute numerical;
-  closes G2). Mutually independent of 014.
-- Slot 3 (parallel with 014 + 012): **010** (medium–high
-  compute; closes G6b). Independent of 014 + 012.
-- Slot 4 (operator-side, runs in parallel with 014/012/010):
+- Slot 2 (parallel with 014): **016** (~30 min refit; closes
+  G6b fully if S_2 discriminates the dichotomy; cross-checks G19
+  β_R=0 universal). Refit-only on 010's cached CSVs; no new mpmath
+  series. Independent of 014.
+- Slot 3 (parallel with 014 + 016): **012** (low-compute numerical;
+  closes G2). Mutually independent of 014 + 016.
+- Slot 4 (operator-side, runs in parallel with 014/016/012):
   **G3b literature acquisition** — Okamoto 1987 §§2–3 (~10 pp)
   + Conte-Musette 2008 ch. 7 §§7.3–7.4 (~25 pp) via the
   existing ILL/AMS workflow. **This unblocks Prompt 015** and
@@ -446,11 +481,18 @@ low-compute symbolic + light-numerical.
   hashes are already AEAL-logged in the local
   `ARXIV-MIRROR-RUNBOOK/claims.jsonl`).
 
-**Note (v1.7):** 013 is now hard-gated on **full G15 closure**,
-which requires Prompt 015 to land cleanly (i.e., R5 acquired
-and $S_{\zeta_*}^\text{can}$ verified against Lisovyy-Roussillon
-tables). The 009-only `G15_PARTIAL` verdict does *not* unblock
-013 by itself.
+**Note (v1.8):** 016 is the natural follow-up to 010's PARTIAL
+verdict and reuses 010's cached `borel_*_dps250_N2000.csv` series
+(no new high-dps mpmath calls). If 016 also lands PARTIAL (i.e.,
+$S_2$ does not discriminate either), the next escalation is to S_3
+or to a *basis-convention pinning* prompt (017, future) addressing
+Q18's sign-of-C ambiguity before further alien-amplitude work.
+
+**Note (v1.7, carried forward):** 013 is hard-gated on **full G15
+closure**, which requires Prompt 015 to land cleanly (i.e., R5
+acquired and $S_{\zeta_*}^\text{can}$ verified against
+Lisovyy-Roussillon tables). The 009-only `G15_PARTIAL` verdict
+does *not* unblock 013 by itself.
 
 Operator-side parallel actions (independent of compute slots):
 - **Zenodo upload of D2-NOTE** (operator; ~10 min via the
@@ -697,6 +739,50 @@ deferred):
     constraint mismatch does not contradict any numerical
     result in CT v1.3, but does block a clean comparison
     against external $P_{III}(D_6)$ Stokes-data tables.
+18. 🆕 **(v1.8) Sign-of-$C$ basis-independence.** Prompt 010
+    used a uniform Birkhoff convention $c = +2/\sqrt{\alpha}$
+    across all four representatives. Under this convention,
+    the four leading Stokes amplitudes were $+8.13$ (V_quad,
+    $\Delta<0$), $+21.38$ (QL15, $\Delta<0$), $+1.40$ (QL05,
+    $\Delta>0$), $-6.07$ (QL09, $\Delta>0$). The $-$ sign on
+    QL09 is what breaks the cleanest possible discrimination
+    rule "sign$(C)$ flips with sign$(\Delta_b)$". **Question:**
+    is sign$(C)$ a basis-independent invariant in the resurgent
+    classification, or does it depend on which root of $c^2 =
+    4/\alpha$ is named the "$+$" branch? In particular, the
+    Birkhoff series $f_+ = e^{+c/u} u^\rho S_+$ has a partner
+    $f_-$ with the opposite $c$-sign; the alien amplitude is
+    in principle defined up to *the choice* of which solution
+    is named $f_+$. If the literature pins a unique convention
+    (e.g., principal-branch / Stokes-direction-based) that
+    enforces consistent choices across the family, the QL09
+    sign disagreement may be a convention artefact rather than
+    a structural fact — which would lift G6b's PARTIAL closer
+    to a PASS at the leading scale. *This question is Claude
+    territory* (literature reading + resurgent-conventions
+    arbitration); a numerical follow-up cannot answer it.
+19. 🆕 **(v1.8) $\beta_R = 0$ universal at $d=2$ — structural
+    consequence?** Prompt 010 measured the Birkhoff branch
+    exponent $\beta_R$ in $a_n \sim C\Gamma(n+\beta_R)
+    \zeta_*^{-(n+\beta_R)}$ to $\le 10^{-85}$ across all four
+    $d=2$ PCF representatives — i.e., the alien amplitudes live
+    *exactly* on $\Gamma(n)$ with no $\Gamma$-shift. This is
+    not predicted by any prior part of the SIARC framework, and
+    it is uniform across both sides of the $\Delta_b$ dichotomy.
+    **Question:** is this a structural consequence of the
+    $P_{III}(D_6)$ class (e.g., from Okamoto's surface
+    $E_7^{(1)}$ / $D_7^{(1)}$ symmetry, or from the rank
+    structure of the $d=2$ Birkhoff Newton polygon), or is it
+    coincidental at $d=2$? If structural, it generalises a
+    known feature of certain isomonodromic cases and could be
+    a *new* candidate for formalisation at the SIARC-MASTER-V0
+    level. If coincidental, the prediction is that $\beta_R$
+    becomes nontrivial at $d=3$ (rank $4/3$ at $0$, $2/3$ at
+    $\infty$), which would be a clean experimental test of the
+    "structural" hypothesis. Either way, this finding is a side
+    result that did not exist before 010 and which Claude may
+    want to either formalise (G19) or earmark as a $d=3$
+    follow-up probe.
 
 ---
 
@@ -743,6 +829,122 @@ e96641c         T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (003)     [verdict GAPTYPE_C]
 e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
 8be2f17         CHANNEL-THEORY-V13-RELEASE (post-publish edits)
 ```
+
+---
+
+## 18. Amendment Log (v1.7 → v1.8)
+
+This amendment absorbs **Prompt 010 PARTIAL** (verdict
+`G6B_PARTIAL_HIGHER_ORDER_NEEDED`, fired 2026-05-02 ~19:40 JST,
+operator-side run; pushed at bridge commit `a35e8a7` —
+`T35-STOKES-MULTIPLIER-DISCRIMINATION` session) and the new
+side-finding G19, the new follow-up Prompt 016, and the new open
+questions Q18 + Q19.
+
+**Status changes:**
+- `G6b` (gap): `Prompt 010 ✅ DRAFTED` → 🟡 **PARTIAL** (Prompt 010
+  landed; closure path through Prompt 016).
+- `prompt-010-fire` (SQL todo): pending → **done**.
+- **NEW gap G19**: $\beta_R = 0$ universal across the $d=2$ PCF
+  Birkhoff resurgent ansatz. MED severity (epistemic / structural).
+- **NEW Prompt 016 (T36-S2-EXTRACTION)**: ~30 min refit-only
+  agent on cached `borel_*_dps250_N2000.csv` series; extracts $S_2$
+  alien amplitude at $2\zeta_*$ via residual Richardson; tests
+  $|S_2|$, $\arg(S_2)$, and the canonical-resurgence ratio
+  $S_2 / S_1^2$ as discriminators of the $\Delta_b$ dichotomy.
+- **NEW open questions Q18 + Q19** in § 8 (sign$(C)$
+  basis-independence; $\beta_R = 0$ structural consequence — both
+  Claude territory).
+
+**AEAL findings (Prompt 010, 8 entries in `claims.jsonl`):**
+
+| Quantity | Value | Method |
+|----------|-------|--------|
+| V_quad $C$ | $+8.12733679549507236711257873202358318226454272234\ldots$ | Richardson tail, dps=250, N=2000 |
+| QL15 $C$ ($\Delta_b=-20$) | $+21.38412649463506525828438453625561662911360599660\ldots$ | Richardson tail, dps=250, N=2000 |
+| QL05 $C$ ($\Delta_b=8$) | $+1.40328080725296497994724250152093112017966978359\ldots$ | Richardson tail, dps=250, N=2000 |
+| QL09 $C$ ($\Delta_b=1$) | $-6.07472006379093506128527538224945464230395636102\ldots$ | Richardson tail, dps=250, N=2000 |
+| Cross-method digit agreement | 67–77 digits at dps=250 | Richardson vs LSQ-in-$1/n$ |
+| V_quad cross-validation | exact agreement on all 49 displayed digits | new $d=2$ generalised recurrence vs CC-MEDIAN cached series |
+| $\beta_R$ across all 4 reps | $\le 10^{-85}$ | LSQ-in-$1/n$ residual |
+
+**5 anomalies / open questions surfaced (Prompt 010 handoff §
+"Anomalies"):**
+- A1: sign$(C)$ varies *within* the $\Delta>0$ side (QL05 $+$,
+  QL09 $-$). Promoted to Q18 (basis-independence of sign$(C)$).
+- A2: $\beta_R = 0$ across all 4 reps to $\ge 85$ digits.
+  Promoted to G19 + Q19.
+- A3: PASS-criterion strictness — $|S_1|$ differs across the
+  dichotomy at $O(1)$ scale, but the prompt's PASS clause
+  requires a *structural* pattern; verdict is therefore PARTIAL,
+  not PASS. Pre-registered behaviour, no change to op definition.
+- A4: Within-side spread $\sim 3\times$ larger than cross-side
+  spread on $|C|$. Consistent with "Stokes data fingerprints the
+  family, not the side". The informative content of the partial
+  result.
+- A5: No HARD HALT triggered. `G6B_STOKES_INVARIANT` halt clause
+  required cross-side agreement of $|C|$ to $\ge 30$ digits;
+  observed agreement is $\le 0.03$ digits (sides genuinely differ).
+  Stokes data is correctly NOT sign-invariant.
+
+**Reusable infrastructure delivered (010, in
+`sessions/2026-05-02/T35-STOKES-MULTIPLIER-DISCRIMINATION/`):**
+- `derive_recurrence.py` — symbolic derivation of the general
+  $d=2$ Birkhoff recurrence in $(\alpha, \beta, \gamma, \delta,
+  \epsilon)$. Specialises to V_quad's existing recurrence;
+  reusable for any $d=2$ PCF Stokes-data extraction.
+- `t35_runner.py` — numerical extractor with t2c precision-ladder
+  discipline, Richardson + LSQ cross-method, structural-pattern
+  analysis. Reusable for future $d=2$ extractions including the
+  Prompt 016 $S_2$ refit (with the leading-term subtraction
+  appended).
+- 8 cached `borel_<rep>_dps<dps>_N<N>.csv` series files with $a_n$
+  to dps=250, $N=2000$. **Direct input to Prompt 016** — no new
+  mpmath series needed for $S_2$ extraction.
+
+**File changes in this amendment:**
+- header `Revision:` v1.7 → v1.8.
+- header `Updated:` 2026-05-02 19:30 JST → 19:50 JST (post-010
+  absorption).
+- new top callout block "🆕 Updates since v1.7".
+- §2.3 in-flight: 13 → 14 prompts staged; 6 fired complete →
+  7 fired (010 added); 1 PARTIAL → 2 PARTIAL (010 added);
+  drafted-ready math closure 3 → 2 (010 graduated to fired); new
+  refit prompt count 1 → 2 (016 added).
+- §2.4 recently closed: appended 010 PARTIAL entry.
+- §3 P-PIII row: revised to 010 🟡 PARTIAL → 016 (drafted)
+  follow-on; β_R=0 universal note added.
+- §5 G6b row: drafted-ready → PARTIAL via 010; full closure
+  via 016.
+- §5 NEW G19 row: $\beta_R=0$ universal at $d=2$ side-finding.
+- §6 prompts table: 010 row revised to PARTIAL with details;
+  NEW row 016.
+- §6 firing layout: rewritten for v1.8 (010 done; 016 added to
+  parallel-with-014 slot 2; subsequent slots renumbered).
+- §6 NEW v1.8 note on 016 cascade-to-S_3 + Q18 escalation path.
+- §8 NEW Q18 (sign$(C)$ basis-independence — Claude territory).
+- §8 NEW Q19 ($\beta_R = 0$ structural consequence — Claude
+  territory).
+- this NEW §18 amendment log inserted above existing §17.
+- closing marker bumped to v1.8.
+
+**SQL state (post-010 absorption):**
+- 22 done (was 20; +2 = `prompt-010-fire` and `t3-stokes-multiplier-followup` — the latter was the original placeholder for the 010 follow-up that 010 itself superseded).
+- 28 pending (was 26; +4 new: `t36-s2-extraction-execute`,
+  `prompt-016-fire`, `g19-betaR-zero-d2-formalize`,
+  `op-basis-convention-claude-arbitrate`; −2 graduated to done).
+- 3 blocked (unchanged).
+- Total: 53 todos.
+
+**No published-artefact tension.** Prompt 010 makes no claim that
+contradicts any line of CT v1.3, PCF-1 v1.3, PCF-2 v1.3, or
+umbrella v2.0. The PCF-1 v1.3 §3 dichotomy is *measured*, not
+*explained*, by 010 at the leading scale; further explanation
+will come from 016 (S_2) or downstream.
+
+**No HALT.** All `G6B_*` halt clauses (Stokes invariance, ladder
+nonconvergence, recurrence-mismatch, mpmath overflow) are
+explicitly NOT triggered. Halt log is `{}`.
 
 ---
 
@@ -1174,4 +1376,4 @@ v1.1 update only changes *the path to P-B4*, not the goal.
 
 ---
 
-*End of revised picture (v1.7).*
+*End of revised picture (v1.8).*

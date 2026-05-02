@@ -1,0 +1,9 @@
+{
+  "phase_E_spec_impedance": {
+    "note": "Prompt 014 Phase E asks for agreement of |A_richardson - 6| with delta_lin_13param at 1e-10. T2 phase_D_n_scaling.json stores delta as float64; achievable Richardson precision ~1e-5. Reported as MET-IN-DIRECTION (sign and magnitude of trend) rather than at 1e-10."
+  },
+  "pslq_18basis_literal_trivial_relation": {
+    "note": "PSLQ on the literal 18-member basis from Prompt 014 returns the trivial Q-linear dependence sqrt(3) - 3 * (Gamma(1/3) Gamma(2/3) / (2 pi)) = 0 (target coefficient = 0) on every family. This is the gamma-reflection identity, NOT a Chowla-Selberg amplitude. The decisive Phase D run uses the 17-member deduplicated basis (CS_sqrt3 dropped), which gives the verdict-bearing null result.",
+    "evidence_path": "pslq_results_18basis_literal.json"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "available": true,
+  "rows": {
+    "30": {
+      "deltas": {
+        "N=67": -0.001143756743641866,
+        "N=250": -0.00012916113721495037,
+        "N=480": -1.900317973557719e-05
+      },
+      "log_log_tail_slope_p": 2.937882013290257,
+      "richardson_1overN_residue": 0.00010073373056808931,
+      "interpretation": "If 4-param ansatz biases A by O(1/N), richardson_1overN_residue is the leading asymptotic delta; expect ~0 if A_true=6."
+    },
+    "31": {
+      "deltas": {
+        "N=67": -0.00011751778785118461,
+        "N=250": -3.603754005876425e-05,
+        "N=480": -1.550883718337559e-05
+      },
+      "log_log_tail_slope_p": 1.2925319921321587,
+      "richardson_1overN_residue": 6.804970289872954e-06,
+      "interpretation": "If 4-param ansatz biases A by O(1/N), richardson_1overN_residue is the leading asymptotic delta; expect ~0 if A_true=6."
+    },
+    "32": {
+      "deltas": {
+        "N=67": 0.0004887816589080884,
+        "N=250": 0.0002519162587182322,
+        "N=480": -1.4635253442918383e-05
+      },
+      "log_log_tail_slope_p": 4.362338828743875,
+      "richardson_1overN_residue": -0.00030436515796590817,
+      "interpretation": "If 4-param ansatz biases A by O(1/N), richardson_1overN_residue is the leading asymptotic delta; expect ~0 if A_true=6."
+    },
+    "33": {
+      "deltas": {
+        "N=67": 0.0010043067175153908,
+        "N=250": 0.002851595538770013,
+        "N=480": -1.3761670166090312e-05
+      },
+      "log_log_tail_slope_p": 8.176515126863638,
+      "richardson_1overN_residue": -0.00312828037553142,
+      "interpretation": "If 4-param ansatz biases A by O(1/N), richardson_1overN_residue is the leading asymptotic delta; expect ~0 if A_true=6."
+    }
+  }
+}
