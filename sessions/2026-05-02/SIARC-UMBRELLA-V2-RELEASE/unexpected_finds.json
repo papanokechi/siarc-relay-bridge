@@ -1,0 +1,32 @@
+{
+  "page_count_below_spec_band": {
+    "observed_pages": 12,
+    "spec_band": "18-22",
+    "v1_pages": 7,
+    "halt_condition_threshold": 7,
+    "status": "non-blocking",
+    "note": "Spec assumed v1 was ~13 pp; v1 was actually 7 pp. v2.0 at 12 pp is the proportional analogue (1.7x v1 length). §4 Cross-Degree Framing intentionally compressed to ~3 pp per the prompt's 'goal is organisation, not exposition' directive. Halt condition (pages < v1) not triggered.",
+    "follow_up": "If a longer v2.0 is desired, the natural expansion targets are: (i) a worked χ/Φ example in §4.5 (~1 pp); (ii) a small numerical illustration of the T2 correlation in §4.3 (~1 pp); (iii) a short §4.6 'Algorithmic computation of the triple' (~1 pp). All three are deferred to D2-NOTE per spec."
+  },
+  "siarc_portfolio_map_png_status": {
+    "file": "tex/submitted/umbrella_program_paper/siarc_portfolio_map.png",
+    "size_bytes": 315247,
+    "status": "kept_in_repo_but_not_referenced_in_v2.0_source",
+    "note": "v1 main.tex did not actually \\includegraphics this PNG (verified by grep on archive/main_v1_baseline.tex: no 'includegraphics' or 'siarc_portfolio_map' citation). v2.0 likewise does not reference it. Figure 1 (depgraph) is a tikz diagram regenerated in §3.1 for v2.0. The PNG file remains in the umbrella_program_paper/ directory unchanged. Recommended follow-up: separate matplotlib session to refresh the PNG with the post-March stack (PCF-1, PCF-2, CT, jSN nodes) if a portfolio figure is desired in a future v2.x.",
+    "follow_up": "schedule_matplotlib_refresh_session"
+  },
+  "abstract_b5_b6_indirection": {
+    "observation": "Abstract refers to 'the cubic-modular framing of PCF-2 v1.3' rather than naming Conjecture B5/B6 directly.",
+    "rationale": "v2.0 is a program statement; B5/B6 are PCF-2 v1.3's conjectures, not v2.0's. The abstract therefore *cites* B5/B6 by indirection, while §4.3 of v2.0 restates Conjecture B5/B6 in d=3-restricted form for completeness.",
+    "status": "intentional_notation_choice",
+    "logged_per_rubber_duck_critique_focus_b": true
+  },
+  "overfull_hboxes": {
+    "count": 4,
+    "lines": [626, 752, 806, 850],
+    "max_overfull_pt": 167.26,
+    "max_overfull_location": "line 850 (bibliography entry with long Zenodo URL)",
+    "status": "cosmetic_only",
+    "note": "All four overfulls are in long URLs / DOIs in href tokens within the bibliography or in a single long row of the Companion Papers longtable. None affect content correctness. Acceptable for a v2.0 program-statement release. Could be eliminated in a future v2.0.x by adding \\sloppy or sectional \\sloppypar."
+  }
+}
