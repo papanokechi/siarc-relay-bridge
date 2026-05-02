@@ -1,8 +1,8 @@
 # Handoff — STRATEGIC-PICTURE-REVISED
 **Date:** 2026-05-02
 **Agent:** GitHub Copilot CLI (Claude Opus 4.7 xhigh)
-**Session duration:** ~95 minutes (cumulative across v1.0 → v1.6)
-**Status:** COMPLETE (v1.6 amendment — 006 HALT absorbed, Prompt 014 retry drafted)
+**Session duration:** ~110 minutes (cumulative across v1.0 → v1.7)
+**Status:** COMPLETE (v1.7 amendment — 009 PARTIAL absorbed, Prompt 015 drafted as R5-gated full-G15 closure path)
 
 ## What was accomplished
 
