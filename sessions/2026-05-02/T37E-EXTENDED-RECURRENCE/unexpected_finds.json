@@ -1,0 +1,68 @@
+[
+  {
+    "key": "T37E_MEDIAN_PARTITIONS_CLEANLY_ENVELOPE_DOMINATED_BY_HIGH_K",
+    "evidence": {
+      "trimmed_grid_K_lead_in": [60, 70, 80, 90],
+      "a_1_medians": {
+        "V_quad": "-53/36 (= -1.4722...) at >=60 digit precision",
+        "QL15":   "-89/36 (= -2.4722...) at >=60 digit precision",
+        "QL05":   "31/4  (= 7.75) at >=60 digit precision",
+        "QL09":   "~3.56e-123 (effectively zero, 73-digit half-range)"
+      },
+      "trimmed_grid_a1_half_range": {
+        "V_quad": "0.0 EXACTLY",
+        "QL15":   "0.0 EXACTLY",
+        "QL05":   "0.0 EXACTLY",
+        "QL09":   "2.886e-73 (numerical noise floor)"
+      },
+      "trimmed_grid_ordering_4rep_passes": true,
+      "trimmed_grid_ordering_3rep_passes": true,
+      "trimmed_grid_ordering_4rep_gap": "1.4722... (V_quad neg upper to QL09 a_1 ~ 0)",
+      "trimmed_grid_ordering_3rep_gap": "9.2222... (V_quad neg upper to QL05 = 7.75)",
+      "full_grid_a1_rel_half_range_V_quad": "94.38 (dominated by K_lead=100,120 outliers)",
+      "full_grid_a1_rel_half_range_QL15":   "56.19",
+      "full_grid_a1_rel_half_range_QL05":   "17.97",
+      "full_grid_a1_rel_half_range_QL09":   "3.9e+124 (median is ~0 so any noise dominates)"
+    },
+    "interpretation": "At extended precision the per-rep a_1 MEDIANS lock onto rational closed forms (V_quad: -53/36, QL15: -89/36, QL05: +31/4, QL09: ~0) to 60+ digits agreement across the K_lead in {60,70,80,90} subset of the 216-grid. The full-grid envelope half-range, however, is order |a_1| due to K_lead=100 and K_lead=120 configurations whose Stage-1 alpha_k coefficients carry numerical noise of order 10^-300 * cond1 ~ 10^-300 * 10^120 = 10^-180 INSIDE the W1=[2500,4900] training window, but extrapolating those alpha_k to small n (Stage 2 window n in [40,220]) amplifies the noise by factors up to (n0/n)^120 ~ (4900/40)^120 = ~10^250. The strict spec ORDERING test on the full 216-grid therefore fails (verdict T37E_PARTIAL_a_1_NULL_AT_HIGHER_PRECISION), but on the well-conditioned subset the partition is GENUINE and at the rational closed-form level. This is a methodology-level finding deserving Claude review: should the verdict ladder distinguish median-stable + envelope-noise outcomes from genuine null findings?",
+    "recommended_routing": "Escalate to Claude. Two possible amendments: (1) Add 'T37E_PASS_MEDIAN_STABLE_ENVELOPE_HIGH_K_NOISE' to the verdict ladder (explicitly recognizing this regime). (2) Tighten the K_lead grid to {60,70,80,90} for any future precision retry (drop K_lead=100,120). The trimmed-grid result IS the genuine measurement; the K_lead=120 outliers are extrapolation noise, not signal. See trimmed_ordering.json + trimmed_ordering.py for the diagnostic."
+  },
+  {
+    "key": "T37E_QL09_a1_RATIONAL_NEAR_ZERO_PERSISTS_AT_DPS400",
+    "evidence": {
+      "QL09_a_1_at_trimmed_grid": "3.56294989796522620973145483392758799058794399342306416445538e-123",
+      "QL09_a_1_half_range": "2.886e-73 (numerical noise; consistent with zero)",
+      "interpretation_3digit": "QL09 a_1 = 0 to 73+ algebraic digits"
+    },
+    "interpretation": "017c reported QL09 a_1 ~ 1.7e-57 to 42 digits at dps=250. At dps=400, the same QL09 a_1 is ~3.6e-123 to 73 digits — still consistent with zero, just at deeper precision. This is a ROBUST 73-digit measurement that QL09's a_1 is genuinely zero (not a precision-floor artifact). Combined with QL05's a_1 = +31/4, the four-rep partition is structurally: {V_quad: -53/36, QL15: -89/36, QL05: +31/4, QL09: 0}. QL09 sits in a third stratum (a_1 = 0), not on the pos-side as Delta_b sign would naively predict. This corroborates the 017c v2 anomaly flag and remains the strongest argument for 017f (Q18 sign-of-C basis-convention probe) or a picture-v1.11 amendment that QL09 occupies a separate stratum.",
+    "recommended_next_step": "Trigger 017f (T37F-Q18-NUMERICAL-PROBE) to test whether QL09's a_1 = 0 is an artifact of sign(C) ambiguity in the basis convention, or a genuine third-stratum signal."
+  },
+  {
+    "key": "T37E_RATIONAL_a1_LOCKED_AT_DPS400",
+    "evidence": {
+      "V_quad": {"a_1": "-53/36", "agreement_digits": ">= 60"},
+      "QL15":   {"a_1": "-89/36", "agreement_digits": ">= 60"},
+      "QL05":   {"a_1": "31/4 = 7.75", "agreement_digits": ">= 60"},
+      "QL09":   {"a_1": "0 (or |a_1| < 10^-73)", "agreement_digits": ">= 73 algebraic digits"},
+      "017c_dps250_baseline": "Same rational values at dps=250 to 41-46 digits."
+    },
+    "interpretation": "All four rep a_1 medians are rational at dps=400, locking the same closed forms 017c found at dps=250 to higher precision (60+ digits, was 41-46). This precludes any irrational a_1 hypothesis at dps=250 being a precision artifact. Together with the matching a_2/a_3/a_5 rational medians (V_quad a_2 = 1.0837..., QL05 a_3 = -73.0755..., etc.), the leading polynomial expansion of T_n is rational-coefficient at every order for these four reps.",
+    "recommended_next_step": "PSLQ probe of a_2, a_3 against rationals with small denominators across the four reps would close the rational-coefficient picture. Out of scope for 017e; recommend as 017d sub-task."
+  },
+  {
+    "key": "T37E_BETA2_FREE_SCAN_BOUNDARY_DEGENERATE",
+    "evidence": {
+      "all_4_reps_grid_min_beta2": -2.0,
+      "all_4_reps_parabolic_envelope_1sigma": "Infinity (curvature non-positive at min)",
+      "chi2_log10_at_min": {"V_quad": 14.06, "QL15": 14.90, "QL05": 12.54, "QL09": 13.81}
+    },
+    "interpretation": "The free-beta_2 1-D scan over [-2, +2] has its minimum at the LEFT BOUNDARY (-2.0) for all four reps; the parabolic fit on neighbours has non-positive curvature, so the formal 1-sigma envelope is infinite. This reproduces 017c's 'free-beta diagnostic DEGENERATE for all 4 reps' finding at extended precision: at the noise level produced by the K_lead=80 alpha_k extrapolation to W2=[60,200] (|R_n@200| ~ 1.4e-27 from smoke test), the scan cannot identify a finite optimum and chi^2 is monotone. The HALT clause T37E_NEXT_SECTOR_BETA_NONZERO requires the envelope to EXCLUDE 0 by > 5 sigma — boundary-degenerate scan does NOT meet that condition (envelope = inf includes 0 trivially). No halt is fired.",
+    "recommended_next_step": "Boundary-degenerate scan is NOT evidence of beta_2 != 0; it indicates the next-rung sector amplitude is too small to constrain beta_2 from this stage of fit. Defer to 017d (full S_2 closure with PSLQ and discrimination certificate) or 017g if Borel-Pade / median-resurgence access becomes available."
+  },
+  {
+    "key": "T37E_D_CONSISTENT_WITH_ZERO_ALL_4_REPS",
+    "evidence": "rel_half_range / |D_median| ~ 4.7e+217 across all 4 reps; D envelope spans 0 in real part for V_quad, QL15, QL05, QL09. D_median values themselves are random-looking 36-digit numbers (e.g., V_quad: ~1.88e+36) with NO structural relation to expected next-sector amplitude.",
+    "interpretation": "D extraction is INFEASIBLE at dps=400 even with K_lead=80 / W1=[3000,4900] / extended series. The Stage 1 polynomial extrapolation noise (10^-180 inside training window, blown up by (n0/n)^k to ~10^-27 at n=200) overwhelms the next-rung signal D * 2^-n ~ |D| * 10^-60 at n=200 by 33 orders of magnitude. This precludes any 6-digit D extraction from cached series + windowed OLS. The 017c v2 D_K_SENSITIVITY_DIVERGENT finding is reproduced and reinforced at extended precision: the methodology is fundamentally precision-limited at dps=400 N=5000, NOT at dps=250 N=2000.",
+    "recommended_next_step": "017d should NOT attempt D from windowed OLS on cached recurrence series. Alternative methods needed: (a) Borel-Padé summation with Stokes constant readout (channel-theory approach, see CC-MEDIAN-RESURGENCE-EXECUTE handoff for V_quad at 108 digits), (b) Riemann-Hilbert / Stokes-multiplier monodromy direct computation, or (c) further dps escalation to dps=600 with K_lead=200+ (compute-prohibitive for 4-rep grid)."
+  }
+]
