@@ -1,0 +1,196 @@
+T37 runner | mp.dps = 200
+Grid size per rep: 24
+
+============================================================
+[V_quad] starting
+============================================================
+[V_quad] loaded series N=2000, a_0=1.0
+[V_quad] C_T35=8.12733679549507236711257873202, zeta*=2.309401076758503058
+[V_quad] Delta_b=-11, side=neg
+[V_quad] window diag: {'eps_next_at_n1_lo_log10': -240.82399653118495, 'eps_lead_trunc_at_n1_hi_log10': -134.42889763906598, 'eps_next_at_n2_lo_log10': -12.041199826559248, 'eps_lead_trunc_at_n2_hi_log10': -82.0}
+[V_quad] computing T_n array (n=1..2000)...
+[V_quad] T_1900 = 8.12104173449
+[V_quad] T_100  = 8.00854413746
+    [V_quad] cfg 1/24: K_lead=20 K_next=4 w1=[800,1900] w2=[40,100]  D=-9.35964e-7  r2=1.1e-25
+    [V_quad] cfg 2/24: K_lead=20 K_next=4 w1=[800,1900] w2=[60,120]  D=-0.00355031  r2=1.32e-28
+    [V_quad] cfg 3/24: K_lead=20 K_next=6 w1=[800,1900] w2=[40,100]  D=-3.02328e-5  r2=1.69e-26
+    [V_quad] cfg 4/24: K_lead=20 K_next=6 w1=[800,1900] w2=[60,120]  D=-0.319743  r2=2.85e-29
+    [V_quad] cfg 5/24: K_lead=20 K_next=4 w1=[600,1800] w2=[40,100]  D=-7.18963e-7  r2=8.3e-26
+    [V_quad] cfg 6/24: K_lead=20 K_next=4 w1=[600,1800] w2=[60,120]  D=-0.00246958  r2=9.0e-29
+    [V_quad] cfg 7/24: K_lead=20 K_next=6 w1=[600,1800] w2=[40,100]  D=-2.26127e-5  r2=1.24e-26
+    [V_quad] cfg 8/24: K_lead=20 K_next=6 w1=[600,1800] w2=[60,120]  D=-0.215736  r2=1.89e-29
+    [V_quad] cfg 9/24: K_lead=25 K_next=4 w1=[800,1900] w2=[40,100]  D=4.20957e-11  r2=3.58e-30
+    [V_quad] cfg 10/24: K_lead=25 K_next=4 w1=[800,1900] w2=[60,120]  D=3.73735e-8  r2=1.07e-33
+    [V_quad] cfg 11/24: K_lead=25 K_next=6 w1=[800,1900] w2=[40,100]  D=8.62046e-10  r2=3.61e-31
+    [V_quad] cfg 12/24: K_lead=25 K_next=6 w1=[800,1900] w2=[60,120]  D=2.28326e-6  r2=1.6e-34
+    [V_quad] cfg 13/24: K_lead=25 K_next=4 w1=[600,1800] w2=[40,100]  D=3.03972e-11  r2=2.52e-30
+    [V_quad] cfg 14/24: K_lead=25 K_next=4 w1=[600,1800] w2=[60,120]  D=2.38911e-8  r2=6.66e-34
+    [V_quad] cfg 15/24: K_lead=25 K_next=6 w1=[600,1800] w2=[40,100]  D=6.00313e-10  r2=2.45e-31
+    [V_quad] cfg 16/24: K_lead=25 K_next=6 w1=[600,1800] w2=[60,120]  D=1.40105e-6  r2=9.55e-35
+    [V_quad] cfg 17/24: K_lead=30 K_next=4 w1=[800,1900] w2=[40,100]  D=0.000828092  r2=3.98e-23
+    [V_quad] cfg 18/24: K_lead=30 K_next=4 w1=[800,1900] w2=[60,120]  D=0.226974  r2=5.29e-27
+    [V_quad] cfg 19/24: K_lead=30 K_next=6 w1=[800,1900] w2=[40,100]  D=0.0103523  r2=3.41e-24
+    [V_quad] cfg 20/24: K_lead=30 K_next=6 w1=[800,1900] w2=[60,120]  D=10.2691  r2=5.95e-28
+    [V_quad] cfg 21/24: K_lead=30 K_next=4 w1=[600,1800] w2=[40,100]  D=-2.28516e-9  r2=9.72e-29
+    [V_quad] cfg 22/24: K_lead=30 K_next=4 w1=[600,1800] w2=[60,120]  D=-5.34497e-7  r2=1.21e-32
+    [V_quad] cfg 23/24: K_lead=30 K_next=6 w1=[600,1800] w2=[40,100]  D=-2.64962e-8  r2=8.43e-30
+    [V_quad] cfg 24/24: K_lead=30 K_next=6 w1=[600,1800] w2=[60,120]  D=-2.31927e-5  r2=1.31e-33
+[V_quad] C envelope: median=8.1273367954950723671, hr=2.33e-51
+[V_quad] a_1 envelope: median=-1.472222222, hr=6.27e-48, stable=True
+[V_quad] a_2 envelope: median=1.083719136, hr=6.48e-44, stable=True
+[V_quad] D envelope: median=-1.12738333e-9, hr=5.29, stable=False
+[V_quad] free-beta diagnostic (default config)...
+[V_quad] free-beta best_beta2 = 2.0999934
+[V_quad] holdout check on [120,250]...
+[V_quad] holdout max_err = 3.87086e-39
+[V_quad] feasibility flags: tight=False excl0=False r2_ok=True holdout_ok=True -> PARTIAL/BLOCKED
+[V_quad] DONE in 165.7s
+
+============================================================
+[QL15] starting
+============================================================
+[QL15] loaded series N=2000, a_0=1.0
+[QL15] C_T35=21.3841264946350652582843845363, zeta*=2.309401076758503058
+[QL15] Delta_b=-20, side=neg
+[QL15] window diag: {'eps_next_at_n1_lo_log10': -240.82399653118495, 'eps_lead_trunc_at_n1_hi_log10': -134.42889763906598, 'eps_next_at_n2_lo_log10': -12.041199826559248, 'eps_lead_trunc_at_n2_hi_log10': -82.0}
+[QL15] computing T_n array (n=1..2000)...
+[QL15] T_1900 = 21.3563149439
+[QL15] T_100  = 20.8600132087
+    [QL15] cfg 1/24: K_lead=20 K_next=4 w1=[800,1900] w2=[40,100]  D=9.97067e-5  r2=1.17e-23
+    [QL15] cfg 2/24: K_lead=20 K_next=4 w1=[800,1900] w2=[60,120]  D=0.370602  r2=1.37e-26
+    [QL15] cfg 3/24: K_lead=20 K_next=6 w1=[800,1900] w2=[40,100]  D=0.00319823  r2=1.78e-24
+    [QL15] cfg 4/24: K_lead=20 K_next=6 w1=[800,1900] w2=[60,120]  D=33.238  r2=2.96e-27
+    [QL15] cfg 5/24: K_lead=20 K_next=4 w1=[600,1800] w2=[40,100]  D=7.79927e-5  r2=8.96e-24
+    [QL15] cfg 6/24: K_lead=20 K_next=4 w1=[600,1800] w2=[60,120]  D=0.262475  r2=9.54e-27
+    [QL15] cfg 7/24: K_lead=20 K_next=6 w1=[600,1800] w2=[40,100]  D=0.00243577  r2=1.33e-24
+    [QL15] cfg 8/24: K_lead=20 K_next=6 w1=[600,1800] w2=[60,120]  D=22.8327  r2=1.99e-27
+    [QL15] cfg 9/24: K_lead=25 K_next=4 w1=[800,1900] w2=[40,100]  D=-3.4497e-9  r2=2.91e-28
+    [QL15] cfg 10/24: K_lead=25 K_next=4 w1=[800,1900] w2=[60,120]  D=-2.97954e-6  r2=8.5e-32
+    [QL15] cfg 11/24: K_lead=25 K_next=6 w1=[800,1900] w2=[40,100]  D=-6.99282e-8  r2=2.91e-29
+    [QL15] cfg 12/24: K_lead=25 K_next=6 w1=[800,1900] w2=[60,120]  D=-0.000180792  r2=1.26e-32
+    [QL15] cfg 13/24: K_lead=25 K_next=4 w1=[600,1800] w2=[40,100]  D=-2.59299e-9  r2=2.13e-28
+    [QL15] cfg 14/24: K_lead=25 K_next=4 w1=[600,1800] w2=[60,120]  D=-1.99504e-6  r2=5.54e-32
+    [QL15] cfg 15/24: K_lead=25 K_next=6 w1=[600,1800] w2=[40,100]  D=-5.07766e-8  r2=2.07e-29
+    [QL15] cfg 16/24: K_lead=25 K_next=6 w1=[600,1800] w2=[60,120]  D=-0.000116433  r2=7.92e-33
+    [QL15] cfg 17/24: K_lead=30 K_next=4 w1=[800,1900] w2=[40,100]  D=-0.00111823  r2=5.44e-23
+    [QL15] cfg 18/24: K_lead=30 K_next=4 w1=[800,1900] w2=[60,120]  D=-0.311507  r2=7.28e-27
+    [QL15] cfg 19/24: K_lead=30 K_next=6 w1=[800,1900] w2=[40,100]  D=-0.0140856  r2=4.65e-24
+    [QL15] cfg 20/24: K_lead=30 K_next=6 w1=[800,1900] w2=[60,120]  D=-14.1544  r2=8.22e-28
+    [QL15] cfg 21/24: K_lead=30 K_next=4 w1=[600,1800] w2=[40,100]  D=5.50222e-9  r2=2.34e-28
+    [QL15] cfg 22/24: K_lead=30 K_next=4 w1=[600,1800] w2=[60,120]  D=1.28776e-6  r2=2.91e-32
+    [QL15] cfg 23/24: K_lead=30 K_next=6 w1=[600,1800] w2=[40,100]  D=6.38155e-8  r2=2.03e-29
+    [QL15] cfg 24/24: K_lead=30 K_next=6 w1=[600,1800] w2=[60,120]  D=5.58882e-5  r2=3.15e-33
+[QL15] C envelope: median=21.384126494635065258, hr=2.34e-49
+[QL15] a_1 envelope: median=-2.472222222, hr=2.39e-46, stable=True
+[QL15] a_2 envelope: median=2.167052469, hr=2.48e-42, stable=True
+[QL15] D envelope: median=1.454613556e-9, hr=23.7, stable=False
+[QL15] free-beta diagnostic (default config)...
+[QL15] free-beta best_beta2 = 2.0999934
+[QL15] holdout check on [120,250]...
+[QL15] holdout max_err = 2.96155e-37
+[QL15] feasibility flags: tight=False excl0=False r2_ok=True holdout_ok=True -> PARTIAL/BLOCKED
+[QL15] DONE in 88.2s
+
+============================================================
+[QL05] starting
+============================================================
+[QL05] loaded series N=2000, a_0=1.0
+[QL05] C_T35=1.40328080725296497994724250152, zeta*=4.0
+[QL05] Delta_b=8, side=pos
+[QL05] window diag: {'eps_next_at_n1_lo_log10': -240.82399653118495, 'eps_lead_trunc_at_n1_hi_log10': -134.42889763906598, 'eps_next_at_n2_lo_log10': -12.041199826559248, 'eps_lead_trunc_at_n2_hi_log10': -82.0}
+[QL05] computing T_n array (n=1..2000)...
+[QL05] T_1900 = 1.40901326473
+[QL05] T_100  = 1.5150069382
+    [QL05] cfg 1/24: K_lead=20 K_next=4 w1=[800,1900] w2=[40,100]  D=4.13082  r2=4.81e-19
+    [QL05] cfg 2/24: K_lead=20 K_next=4 w1=[800,1900] w2=[60,120]  D=14990.9  r2=5.54e-22
+    [QL05] cfg 3/24: K_lead=20 K_next=6 w1=[800,1900] w2=[40,100]  D=131.43  r2=7.3e-20
+    [QL05] cfg 4/24: K_lead=20 K_next=6 w1=[800,1900] w2=[60,120]  D=1.33777e+6  r2=1.19e-22
+    [QL05] cfg 5/24: K_lead=20 K_next=4 w1=[600,1800] w2=[40,100]  D=3.2972  r2=3.77e-19
+    [QL05] cfg 6/24: K_lead=20 K_next=4 w1=[600,1800] w2=[60,120]  D=10840.6  r2=3.93e-22
+    [QL05] cfg 7/24: K_lead=20 K_next=6 w1=[600,1800] w2=[40,100]  D=102.159  r2=5.57e-20
+    [QL05] cfg 8/24: K_lead=20 K_next=6 w1=[600,1800] w2=[60,120]  D=938394.0  r2=8.17e-23
+    [QL05] cfg 9/24: K_lead=25 K_next=4 w1=[800,1900] w2=[40,100]  D=-0.000710909  r2=5.92e-23
+    [QL05] cfg 10/24: K_lead=25 K_next=4 w1=[800,1900] w2=[60,120]  D=-0.590616  r2=1.67e-26
+    [QL05] cfg 11/24: K_lead=25 K_next=6 w1=[800,1900] w2=[40,100]  D=-0.0141929  r2=5.86e-24
+    [QL05] cfg 12/24: K_lead=25 K_next=6 w1=[800,1900] w2=[60,120]  D=-35.5234  r2=2.47e-27
+    [QL05] cfg 13/24: K_lead=25 K_next=4 w1=[600,1800] w2=[40,100]  D=-0.000555177  r2=4.5e-23
+    [QL05] cfg 14/24: K_lead=25 K_next=4 w1=[600,1800] w2=[60,120]  D=-0.41174  r2=1.14e-26
+    [QL05] cfg 15/24: K_lead=25 K_next=6 w1=[600,1800] w2=[40,100]  D=-0.010712  r2=4.33e-24
+    [QL05] cfg 16/24: K_lead=25 K_next=6 w1=[600,1800] w2=[60,120]  D=-23.8319  r2=1.61e-27
+    [QL05] cfg 17/24: K_lead=30 K_next=4 w1=[800,1900] w2=[40,100]  D=6.76513e-5  r2=3.19e-24
+    [QL05] cfg 18/24: K_lead=30 K_next=4 w1=[800,1900] w2=[60,120]  D=0.0180335  r2=4.18e-28
+    [QL05] cfg 19/24: K_lead=30 K_next=6 w1=[800,1900] w2=[40,100]  D=0.000834851  r2=2.73e-25
+    [QL05] cfg 20/24: K_lead=30 K_next=6 w1=[800,1900] w2=[60,120]  D=0.809793  r2=4.67e-29
+    [QL05] cfg 21/24: K_lead=30 K_next=4 w1=[600,1800] w2=[40,100]  D=-1.30874e-7  r2=5.8e-27
+    [QL05] cfg 22/24: K_lead=30 K_next=4 w1=[600,1800] w2=[60,120]  D=-2.55834e-5  r2=5.49e-31
+    [QL05] cfg 23/24: K_lead=30 K_next=6 w1=[600,1800] w2=[40,100]  D=-1.43426e-6  r2=4.5e-28
+    [QL05] cfg 24/24: K_lead=30 K_next=6 w1=[600,1800] w2=[60,120]  D=-0.00103003  r2=5.52e-32
+[QL05] C envelope: median=1.4032808072529649799, hr=9.03e-45
+[QL05] a_1 envelope: median=7.75, hr=1.41e-40, stable=True
+[QL05] a_2 envelope: median=22.03125, hr=1.46e-36, stable=True
+[QL05] D envelope: median=3.376022894e-5, hr=6.69e+5, stable=False
+[QL05] free-beta diagnostic (default config)...
+[QL05] free-beta best_beta2 = 2.0999934
+[QL05] holdout check on [120,250]...
+[QL05] holdout max_err = 5.60602e-32
+[QL05] feasibility flags: tight=False excl0=False r2_ok=False holdout_ok=True -> PARTIAL/BLOCKED
+[QL05] DONE in 82.3s
+
+============================================================
+[QL09] starting
+============================================================
+[QL09] loaded series N=2000, a_0=1.0
+[QL09] C_T35=-6.07472006379093506128527538225, zeta*=2.8284271247461900976
+[QL09] Delta_b=1, side=pos
+[QL09] window diag: {'eps_next_at_n1_lo_log10': -240.82399653118495, 'eps_lead_trunc_at_n1_hi_log10': -134.42889763906598, 'eps_next_at_n2_lo_log10': -12.041199826559248, 'eps_lead_trunc_at_n2_hi_log10': -82.0}
+[QL09] computing T_n array (n=1..2000)...
+[QL09] T_1900 = -6.07470321565
+[QL09] T_100  = -6.06850386769
+    [QL09] cfg 1/24: K_lead=20 K_next=4 w1=[800,1900] w2=[40,100]  D=0.142655  r2=1.65e-20
+    [QL09] cfg 2/24: K_lead=20 K_next=4 w1=[800,1900] w2=[60,120]  D=504.415  r2=1.86e-23
+    [QL09] cfg 3/24: K_lead=20 K_next=6 w1=[800,1900] w2=[40,100]  D=4.49858  r2=2.48e-21
+    [QL09] cfg 4/24: K_lead=20 K_next=6 w1=[800,1900] w2=[60,120]  D=44771.7  r2=3.96e-24
+    [QL09] cfg 5/24: K_lead=20 K_next=4 w1=[600,1800] w2=[40,100]  D=0.116121  r2=1.32e-20
+    [QL09] cfg 6/24: K_lead=20 K_next=4 w1=[600,1800] w2=[60,120]  D=372.331  r2=1.34e-23
+    [QL09] cfg 7/24: K_lead=20 K_next=6 w1=[600,1800] w2=[40,100]  D=3.56693  r2=1.93e-21
+    [QL09] cfg 8/24: K_lead=20 K_next=6 w1=[600,1800] w2=[60,120]  D=32062.4  r2=2.78e-24
+    [QL09] cfg 9/24: K_lead=25 K_next=4 w1=[800,1900] w2=[40,100]  D=2.311e-6  r2=2.41e-25
+    [QL09] cfg 10/24: K_lead=25 K_next=4 w1=[800,1900] w2=[60,120]  D=0.00334853  r2=1.01e-28
+    [QL09] cfg 11/24: K_lead=25 K_next=6 w1=[800,1900] w2=[40,100]  D=5.9505e-5  r2=2.75e-26
+    [QL09] cfg 12/24: K_lead=25 K_next=6 w1=[800,1900] w2=[60,120]  D=0.221238  r2=1.62e-29
+    [QL09] cfg 13/24: K_lead=25 K_next=4 w1=[600,1800] w2=[40,100]  D=5.35787e-7  r2=7.97e-26
+    [QL09] cfg 14/24: K_lead=25 K_next=4 w1=[600,1800] w2=[60,120]  D=0.0013038  r2=4.0e-29
+    [QL09] cfg 15/24: K_lead=25 K_next=6 w1=[600,1800] w2=[40,100]  D=1.97942e-5  r2=9.97e-27
+    [QL09] cfg 16/24: K_lead=25 K_next=6 w1=[600,1800] w2=[60,120]  D=0.0874696  r2=6.4e-30
+    [QL09] cfg 17/24: K_lead=30 K_next=4 w1=[800,1900] w2=[40,100]  D=0.00237085  r2=1.14e-22
+    [QL09] cfg 18/24: K_lead=30 K_next=4 w1=[800,1900] w2=[60,120]  D=0.649311  r2=1.51e-26
+    [QL09] cfg 19/24: K_lead=30 K_next=6 w1=[800,1900] w2=[40,100]  D=0.0296274  r2=9.75e-24
+    [QL09] cfg 20/24: K_lead=30 K_next=6 w1=[800,1900] w2=[60,120]  D=29.371  r2=1.7e-27
+    [QL09] cfg 21/24: K_lead=30 K_next=4 w1=[600,1800] w2=[40,100]  D=-1.36103e-8  r2=2.29e-28
+    [QL09] cfg 22/24: K_lead=30 K_next=4 w1=[600,1800] w2=[60,120]  D=-1.6962e-6  r2=3.58e-32
+    [QL09] cfg 23/24: K_lead=30 K_next=6 w1=[600,1800] w2=[40,100]  D=-1.083e-7  r2=2.95e-29
+    [QL09] cfg 24/24: K_lead=30 K_next=6 w1=[600,1800] w2=[60,120]  D=-6.65388e-5  r2=3.51e-33
+[QL09] C envelope: median=-6.0747200637909350613, hr=2.89e-46
+[QL09] a_1 envelope: median=-1.708566178e-57, hr=1.04e-42, stable=False
+[QL09] a_2 envelope: median=-10.0, hr=1.08e-38, stable=True
+[QL09] D envelope: median=0.0585484889, hr=2.24e+4, stable=False
+[QL09] free-beta diagnostic (default config)...
+[QL09] free-beta best_beta2 = 2.0999934
+[QL09] holdout check on [120,250]...
+[QL09] holdout max_err = 4.85069e-34
+[QL09] feasibility flags: tight=False excl0=False r2_ok=False holdout_ok=True -> PARTIAL/BLOCKED
+[QL09] DONE in 124.2s
+
+============================================================
+Phase C: a_1 partition test
+============================================================
+  a_1: ordering_pass=True (neg<pos); strong=False
+  a_2: ordering_pass=False (overlap); strong=False
+  a_3: ordering_pass=True (neg>pos); strong=False
+
+[VERDICT] HALT_T37_K_SENSITIVITY_DIVERGENT
+[ELAPSED TOTAL] 460.7s
+
+Verdict: HALT_T37_K_SENSITIVITY_DIVERGENT
+Total claims: 53
+Total halts: 8

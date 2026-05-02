@@ -1,0 +1,35 @@
+Loading V_quad series...
+  N=2000, a_0=1.0, a_1900=3.11085e+4713
+  C_T35=8.1273367954950723671, zeta*=2.30940107676
+Computing T array...
+  T_1900=8.12104173449, T_100=8.00854413746
+  (Should be ~ C_T35 + corrections; C_T35=8.1273367955)
+
+Stage 1 fit: K_lead=25, [800, 1900]...
+  done in 6.2s
+  C_fit = 8.12733679549507236711257873202
+  C_T35 = 8.12733679549507236711257873202
+  |diff| = 5.74661e-64
+  a_1 = -1.472222222
+  a_2 = 1.083719136
+  residual_inf = 3.79961e-79
+  cond_A = 1.12207e+26
+  effective_rank = 26 / 41
+
+Stage 1 polynomial extrapolation to low n:
+  n=  40: T_n_lead_pred = 7.8333750834, T_n_data = 7.8333750834, diff = 8.32495e-26
+  n=  60: T_n_lead_pred = 7.93026451633, T_n_data = 7.93026451633, diff = 1.25188e-30
+  n=  80: T_n_lead_pred = 7.97910630827, T_n_data = 7.97910630827, diff = 4.1683e-34
+  n= 100: T_n_lead_pred = 8.00854413746, T_n_data = 8.00854413746, diff = 7.48127e-37
+  n= 200: T_n_lead_pred = 8.0677281585, T_n_data = 8.0677281585, diff = 7.44843e-46
+  n= 500: T_n_lead_pred = 8.1034413691, T_n_data = 8.1034413691, diff = 7.82238e-61
+
+Stage 2 fit: K_next=6, [40, 100]...
+  done in 0.1s
+  D_fit = 8.62045802125e-10
+  b_1 = -250.57475
+  residual_inf = 3.61112e-31
+  r_data_max = 8.32495e-26
+  cond_A = 2.41829e+10
+
+Total smoke-test time: 6.8s
