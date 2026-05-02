@@ -1,0 +1,7 @@
+{
+  "k_fit_choice": {
+    "spec_K_FIT": 9,
+    "actual_K_FIT": 7,
+    "rationale": "Saved CSVs contain 11 (N, y_n) rows; Prompt 014 Option B1 proposes adding a 12th (N_ref, y(N_ref)) row, but y(N_ref)=log|0| is undefined since N_ref was the reference point for the residual. We use 11 params (4 base + K_FIT=7 corrections), giving a square-exact 11x11 system. Truncation cost at N=1200 from dropped 1/n^8, 1/n^9 terms is ~1200^{-8} ~ 2.3e-25, well below the 1e-15 target."
+  }
+}
