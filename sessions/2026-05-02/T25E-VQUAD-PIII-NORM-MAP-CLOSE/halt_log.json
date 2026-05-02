@@ -1,0 +1,45 @@
+{
+  "halt_key": "R5_LITERATURE_NOT_AVAILABLE",
+  "halt_clause_source": "Prompt 015 dependency-gate clause (R5 = Okamoto 1987 §§2-3 Lax pair; R5_BACKUP = Jimbo-Miwa 1981; R3 = Lisovyy-Roussillon 2017 §4; R1+R4 = Conte-Musette 2008 ch. 7)",
+  "halt_record_author": "synthesizer-side stub (GitHub Copilot CLI, session 5d95be1e)",
+  "halt_record_reason": "the Prompt-015 relay agent halted in-chat after the operator answered halt_on_missing=yes to its 5 ask_user dependency questions; no halt_log.json was produced by that agent and no commit was pushed to bridge; this stub is written by the synthesizer-side session for AEAL paper trail completeness",
+  "fired_at": "2026-05-02T20:33Z (estimated from operator screenshot timestamp)",
+  "halted_at": "2026-05-02T20:35Z (estimated from operator confirmation timestamp)",
+  "agent_runtime_minutes": "~2 (interactive ask_user only; no compute phase ran)",
+  "phases_executed": "phase_0_dependency_gate ONLY (no symbolic, no numeric, no PSLQ phases ran)",
+  "artefacts_produced_by_agent": "NONE (in-chat halt; no halt_log.json, no handoff.md, no Phi_symp draft, no C_can computation)",
+  "operator_first_chat_line": "(empty / not provided — gate fired correctly)",
+  "operator_ask_user_answers": {
+    "Q1_okamoto_1987_path": "(none)",
+    "Q2_R5_BACKUP_jimbo_miwa_1981_path": "(none)",
+    "Q3_R3_lisovyy_roussillon_2017_path": "(none)",
+    "Q4_R1_R4_conte_musette_2008_path": "(none)",
+    "Q5_halt_on_missing": "yes"
+  },
+  "downstream_impact": {
+    "G15_state": "unchanged — remains G15_PARTIAL from Prompt 009 (residuals R1-R5 still open)",
+    "Prompt_013_state": "unchanged — remains HALTED on CC_BOREL_009_NOT_AVAILABLE (its gate condition is now strictly worse, not better)",
+    "M6_state": "unchanged — canonical-form Stokes constant C_can still not numerically computed",
+    "CT_v1.3_status": "unchanged — §3.5 stays at algebraic-identity-only level",
+    "vquad-pIII-norm-map-close_todo": "blocked (was pending) — full G15 closure now requires either (a) R5 literature acquisition or (b) Q21 path-(b) arbitration to reformulate as symbolic-only PARTIAL",
+    "r5-okamoto-1987-acquire_todo": "still pending — operator-side G3b literature acquisition unchanged"
+  },
+  "next_step_options": [
+    "(A) Operator acquires R5 (Okamoto 1987) or R5_BACKUP (Jimbo-Miwa 1981) via G3b ILL/AMS workflow, then refires Prompt 015 unchanged (the strongest result; numerical closure of C_can to 30+ digits)",
+    "(B) Synthesizer (Claude) arbitrates Q21 in favor of path-(b): redraft Prompt 015 as T25E-SYMBOLIC-ONLY landing at G15_PARTIAL+ with the Borel sum written symbolically modulo R1-R5; then refire Prompt 013 as CC-FORMAL-BOREL-SYMBOLIC-PARTIAL with no numerical gate (the faster result; unblocks CT v1.4 channel-theory roadmap)",
+    "(C) Alternative R5 source: if the operator has Conte-Musette 2008 ch. 7 (R1+R4) or Lisovyy-Roussillon 2017 §4 (R3) locally, partial-substitution may give a degraded G15_PARTIAL+ — this is a path-(a)/(b) hybrid"
+  ],
+  "claude_arbitration_required": true,
+  "claude_arbitration_questions": [
+    "Q21 (now urgent): pick path (a) full G15 closure pending literature vs path (b) symbolic-only PARTIAL re-route?",
+    "Q11 (carried): H1 label arbitration",
+    "Q18 (carried): sign(C) basis-independence",
+    "Q19 (carried): beta_R=0 d=2 universal formalisation",
+    "Q20 (carried): Conj 3.3.A* proof-upgrade candidate from XI0-D3-DIRECT",
+    "Q22 (carried): 014 closure-threshold acceptance",
+    "Q23 (carried): PSLQ basis hygiene rule for deep-WKB closures"
+  ],
+  "aeal_status": "halt-record written for paper-trail completeness; no numerical claims produced; halt is gate-firing-as-designed not a failure",
+  "supersedes": null,
+  "superseded_by": null
+}
