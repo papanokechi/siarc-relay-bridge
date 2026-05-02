@@ -1,0 +1,45 @@
+{
+  "halt_key": "CC_BOREL_009_NOT_AVAILABLE",
+  "task_id": "CC-FORMAL-BOREL-CLOSE",
+  "session_date": "2026-05-02",
+  "trigger": "Gating clause: Prompt 013 must not fire until Prompt 009 (VQUAD-PIII-NORMALIZATION-MAP) verdict is G15_CLOSED.",
+  "observed_009_verdict": "G15_PARTIAL",
+  "observed_009_session": "sessions/2026-05-02/VQUAD-PIII-NORMALIZATION-MAP/",
+  "evidence": {
+    "009_handoff_status_line": "**Status:** PARTIAL",
+    "009_handoff_verdict_line": "Verdict reached: **G15_PARTIAL**.",
+    "009_canonical_S_zeta_star_excerpt": "G15_PARTIAL --- C_can NOT NUMERICALLY COMPUTED.",
+    "blocking_residuals_in_009": ["R2 (sigma_0)", "R3 (Stokes sign)", "R4 (t_0 shift)", "R5 (Okamoto 1987 Lax pair)"],
+    "primary_blocker": "R5 (Okamoto 1987 Lax pair, not in operator's library)"
+  },
+  "upstream_hashes": {
+    "009_handoff_md_sha256": "0b661d4ea3f0c20fe5a3eba684c9e1db8327ea0518245e47e5e2f9986954eda5",
+    "009_canonical_S_zeta_star_txt_sha256": "ceb019cbf135fc2ca8c96c4e52fc4de27d83d340b178d69c25601c7654be5a4f",
+    "009_phi_change_of_variables_tex_sha256": "9686d56d9898c58f7d25fc25f8ffa074cc2fdaf230ca0d5f237518c649a2f544",
+    "009_claims_jsonl_sha256": "336b0dff26a0ba3df915bf0801e389d3e15025f206716f758e3dc5fe53dbccd5",
+    "005_handoff_md_sha256": "d4295c28211d783e48963629b12f6fa00ebcc7a802907c101632594ba2dc16d6",
+    "005_claims_jsonl_sha256": "0ce079cdcd595d64e187392525ced6b6aafb3dd57caa14e6c1a6a9b766a8d45d"
+  },
+  "phases_executed": [],
+  "phases_skipped": ["A", "B", "C", "D", "E"],
+  "deliverables_produced": [
+    "halt_log.json",
+    "claims.jsonl (halt entry only)",
+    "handoff.md",
+    "cc_formal_borel_status.md (NO-FLIP record)",
+    "discrepancy_log.json",
+    "unexpected_finds.json",
+    "rubber_duck_critique.md"
+  ],
+  "deliverables_NOT_produced": [
+    "canonical_input.json",
+    "borel_sum_formula.tex",
+    "numerical_verification.csv",
+    "cc_formal_borel_runner.py"
+  ],
+  "fabrication_check": "No numerical Borel sum, no closed-form formula, and no S_zeta_star_can value were produced or guessed. Prompt's 'Do NOT use V_quad-native S_{zeta*} in canonical-coordinate formula' clause is honored by writing no canonical-coordinate formula at all.",
+  "ct_v13_status_flip_performed": false,
+  "ct_v13_status_flip_rationale": "Prompt 013's flip from PARTIALLY DIAGNOSED -> DIAGNOSED requires PASS or PARTIAL verdict on this prompt. A halt is neither; CT v1.3 §3.5 status remains PARTIALLY DIAGNOSED.",
+  "recommended_next_step": "Synthesizer reformulates Prompt 013 (or refires Prompt 009 with literature unblocking R5) before this prompt can fire. Operator decision: (a) acquire Okamoto 1987 Funkcial. Ekvac. 30:305-332 + Conte-Musette 2008 ch. 7 and refire 009; or (b) reformulate 013 to accept G15_PARTIAL by producing Borel sum modulo R2-R5 symbolically (no numerical verification, returning PARTIAL-symbolic instead of PASS).",
+  "halt_timestamp_utc": "2026-05-02T00:00:00Z"
+}
