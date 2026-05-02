@@ -1,7 +1,7 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.4 (post-firing cycle 2 + 002 HALT + 005 PASS)
+**Revision:** v1.5 (post-firing cycle 2 + 002 HALT + 005 PASS + queue 009-013 drafted)
 **Original:** 2026-05-02 18:05 JST
-**Updated:** 2026-05-02 18:55 JST  (post-001/003/004/007 + 002 HALT + 005 PASS)
+**Updated:** 2026-05-02 19:10 JST  (post-005 absorption + math-closure batch 009/010/012/013 drafted)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
@@ -9,7 +9,16 @@ synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
 
-> **🆕 Updates since v1.3 (see § 14 Amendment Log for detail):**
+> **🆕 Updates since v1.4 (see § 15 Amendment Log for detail):**
+> - 📝 **Math-closure prompt batch DRAFTED.** Four new relay prompts staged at `tex/submitted/control center/prompt/` to close the residuals surfaced by the v1.2/v1.3/v1.4 verdicts:
+>   - **009 — `vquad-pIII-normalization-map`** closes G15 (V_quad → P_III(D_6) Stokes-data change-of-variables Φ; symbolic; ~4–8 hr).
+>   - **010 — `t35-stokes-multiplier-discrimination`** closes G6b (PCF-1 §3 sign-of-Δ_b dichotomy at the Stokes-multiplier scale; numerical mpmath dps≥150; ~6–10 hr).
+>   - **012 — `xi0-d3-direct`** closes G2 (per-Galois-bin Newton-polygon test of D2-NOTE Conj 3.3.A* at d=3; numerical mpmath dps=80; ~3–10 hr).
+>   - **013 — `cc-formal-borel-close`** closes P-CC formally (composes 005's $C$ + 009's Φ into closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates; **HARD-GATED on 009**; ~4–8 hr).
+> - 📊 **Status snapshot:** 11 prompts now drafted (001–007 + 009/010/012/013); 008 + 011 slots reserved (gated). After this batch fully lands, the only open math gaps are G3b (operator literature acquisition), G7 (P-MC formalization), and the general-d $\xi_0$ proof — closure path becomes operator-side rather than compute-side.
+> - 🔁 **No mathematical content changes** in §§ 1–5: this revision is a scaffolding bump that converts "future / not yet drafted" entries in § 6 into "DRAFTED; ready". No SQL state changes beyond pending-todo additions.
+
+> **Updates since v1.3 (carried forward from v1.4):**
 > - ✅ **Prompt 005 PASSED with verdict `H4_EXECUTED_PASS_108_DIGITS`** — the cross-method Stokes-amplitude agreement is **108 digits**, far exceeding the forecast 30–50 (central 40). Three independent extractors (ratio test, three-point, Δ²-log) cross-validated. **M6 is achieved** with substantial precision margin.
 > - 📈 **H4 *refined* by the data, not falsified.** The branch exponent fits to **β = 0 (logarithmic Borel singularity)** to ≥ 107 digits across all three methods, *not* the half-integer "square-root class" that was the leading expectation. This sits inside H4's broader "algebraic-LOGARITHMIC" hedge — strictly a refinement of the prediction, not a contradiction.
 > - 📊 **Stokes-amplitude measurement (V_quad native normalization):** $C = 8.12733679549507236711257873202358318226454272233879\ldots$; $S_{\zeta_*} = 2\pi i C \approx 51.06556\ldots\, i$ (purely imaginary).
@@ -303,7 +312,7 @@ Severity legend:
 
 ## 6. Suggested Next Steps — Queued Prompts
 
-Seven prompts staged at
+Eleven prompts staged at
 `tex/submitted/control center/prompt/`. Cross-references:
 prompts close one or more gaps (see § 5) and advance one or more
 milestones (see § 4).
@@ -315,13 +324,16 @@ milestones (see § 4).
 | 003 | T1 Phase 1 — B-T lit review + gap-prop | G3a | M3 | ✅ DONE 2026-05-02 (verdict GAPTYPE_C) | low (lit work) | — |
 | 004 | D2-NOTE — Newton-polygon universality | G1, G8 | M1 | ✅ DRAFTED 2026-05-02 (awaits Zenodo upload) | low (drafting + AEAL re-derivation) | — |
 | 005 | H4 / `op:cc-median-resurgence-execute` | G4 | M6 | ✅ DONE 2026-05-02 (`H4_EXECUTED_PASS_108_DIGITS`; β=0 refinement; G15 surfaced) | **HIGH** (mpmath dps 250, $N=5000$) | — |
-| 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | ⏳ READY | **HIGH** (mpmath dps≥8000, $N\ge 1200$) | INDEPENDENT |
+| 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | ⏳ IN FLIGHT 2026-05-02 | **HIGH** (mpmath dps≥8000, $N\ge 1200$) | INDEPENDENT |
 | 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6a | M8 | ✅ DONE 2026-05-02 (60/60 LABELED; H3 negatively closed) | medium (symbolic) | — |
-| 008 | T1 Phase 2 — B-T applied to $\delta_n$ (proves B4 at $d \ge 3$) | G3b | M4 | 🛑 BLOCKED (G3b primary sources + G11 H1 arbitration) | medium | gated |
-| 010 | T3.5 — Stokes-multiplier discrimination (t2c-style high-dps connection coefficients to resolve sign-of-$\Delta_b$ dichotomy) | G6b | M8b | future (not yet drafted) | medium–high | INDEPENDENT |
-| 011 🆕 | PCF1-V13-RECONCILE — operator-decision-driven; resolve PCF-1 v1.3 source drift before re-running 002 | G12 | distribution layer | future (not yet drafted; gated on operator option-(a)/(b) decision) | low | gated |
+| 008 | T1 Phase 2 — B-T applied to $\delta_n$ (proves B4 at $d \ge 3$) | G3b | M4 | 🛑 BLOCKED (G3b primary sources + G11 H1 arbitration); slot reserved | medium | gated |
+| 009 🆕 | V_quad → P_III(D_6) normalization map (change-of-variables Φ; apply to 005's $C$ to report $S_{\zeta_*}^{\text{can}}$) | G15 | M6 (canonical-form completion); gates 013 | ✅ DRAFTED 2026-05-02; ready | low (symbolic) | INDEPENDENT |
+| 010 🆕 | T3.5 — Stokes-multiplier discrimination (t2c-style high-dps connection coefficients to resolve sign-of-$\Delta_b$ dichotomy) | G6b | M8b | ✅ DRAFTED 2026-05-02; ready | medium–high (mpmath dps≥150) | INDEPENDENT |
+| 011 | PCF1-V13-RECONCILE — operator-decision-driven; resolve PCF-1 v1.3 source drift before re-running 002 | G12 | distribution layer | future (slot reserved; not yet drafted; gated on operator option-(a)/(b) decision) | low | gated |
+| 012 🆕 | $\xi_0$ at $d=3$ direct — per-Galois-bin Newton-polygon test of D2-NOTE Conj 3.3.A* on cubic representatives | G2 | (M1 follow-on; supports P-NP) | ✅ DRAFTED 2026-05-02; ready | low (mpmath dps=80) | INDEPENDENT |
+| 013 🆕 | CC formal Borel close — closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates (composes 005's $C$ + 009's Φ); flips CT v1.3 §3.5 status to "DIAGNOSED" | (P-CC formal closure) | (P-CC final close) | ✅ DRAFTED 2026-05-02; **HARD-GATED on 009** | low–medium (symbolic + numerical 3-point) | gated on 009 |
 
-**Concurrency map** (validated this cycle):
+**Concurrency map** (validated this cycle for the original 7-prompt subset):
 
 |        | 001 | 002 | 003 | 004 | 005 | 006 | 007 |
 |--------|-----|-----|-----|-----|-----|-----|-----|
@@ -335,19 +347,27 @@ milestones (see § 4).
 
 ✗ = dependency; ⚠ = compute-heavy, serialize on a single laptop.
 
+**Concurrency for the 009/010/012/013 batch:** all four are
+mutually independent in input data; **013 is hard-gated on 009**
+(must wait for verdict `G15_CLOSED`). 009/010/012 can be fired
+in parallel with each other and with 006. None of them touches
+PCF-1 v1.3 source (no interaction with G12). 010 is the only
+member of the batch that is compute-heavy (mpmath dps≥150 on
+2-of-each-side dichotomy representatives); 009/012/013 are
+low-compute symbolic + light-numerical.
+
 **Recommended firing layout for the *next* compute window
-(post-001/003/004/005/007 + 002 HALT; v1.4 status):**
-- Slot 1: **006** (6–10 hr, mpmath dps≥8000). Compute-heavy.
-  Now the only remaining ready-to-fire prompt in the original
-  queue (005 just landed).
-- Future Prompt 010 (Stokes-multiplier discrimination) — defer
-  until a session is freed; independent of all current work.
-- Future Prompt 011 (PCF1-V13-RECONCILE) — gated on operator
-  decision (option (a) v1.4 deposit OR option (b) v1.3 source
-  recovery). Once decided, this is a small, low-compute relay.
-- 🆕 Future relay for **vquad-pIII-normalization-map (G15)** —
-  symbolic; medium tractability; gates `op:cc-formal-borel`.
-  Can run in parallel with anything; no new compute load.
+(post-006 in flight; v1.5 status):**
+- Slot 1: **006** is in flight (operator's current session;
+  6–10 hr, mpmath dps≥8000). Unchanged.
+- Slot 2 (after a session frees up): **009** (low-compute
+  symbolic; closes G15; gates 013). Highest leverage.
+- Slot 3 (parallelizable with 009): **012** (low-compute
+  numerical; closes G2). Independent of 009.
+- Slot 4 (parallelizable with 009 + 012): **010** (medium–high
+  compute; closes G6b). Independent.
+- Slot 5 (after 009 lands with `G15_CLOSED`): **013** (formal
+  P-CC closure; composes 005 + 009).
 - **Prompt 002 stays HALTED** until G12 + G13 + G14 are closed.
   Re-fire only against either (a) the new v1.4 DOI for record
   #2 or (b) the recovered v1.3 source snapshot. The other 4
@@ -365,12 +385,12 @@ Operator-side parallel actions (independent of compute slots):
   Wasow 1965 §X.3. Unblocks G3b and the future Prompt 008.
 - **Send T1 + strategic-picture URLs to Claude** for H1
   label arbitration (G11). Independent of compute.
-- 🆕 **PCF-1 v1.3 source-drift decision (G12)**: pick option
+- **PCF-1 v1.3 source-drift decision (G12)**: pick option
   (a) v1.4 bump or option (b) v1.3 source recovery, then draft
   Prompt 011.
-- 🆕 **CT v1.3 author placeholder fix (G13)**: 1-line edit on
+- **CT v1.3 author placeholder fix (G13)**: 1-line edit on
   the source `.tex`; commit; verify by grep.
-- 🆕 **Endorser handle acquisition (G14)**: identify ~3 math.NT
+- **Endorser handle acquisition (G14)**: identify ~3 math.NT
   endorsers from cited authors, look up arXiv user-ids,
   populate the two templates already staged at
   `sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/`.
@@ -583,6 +603,68 @@ e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
 
 ---
 
+## 15. Amendment Log (v1.4 → v1.5)
+
+**Updated:** 2026-05-02 19:10 JST
+**Trigger:** drafting of the math-closure prompt batch
+(009 / 010 / 012 / 013) at `tex/submitted/control center/prompt/`,
+addressing the residuals surfaced by the v1.2 / v1.3 / v1.4 verdicts.
+
+**Substantive changes:**
+
+| Section | v1.4 → v1.5 |
+|---------|-------------|
+| Header  | Added v1.4 → v1.5 callout. Earlier callouts retained for the synthesizer's full audit trail. |
+| § 6 prompts table | Expanded from 9 to 13 rows. Added 009 (G15), 010 (G6b — was "future"), 012 (G2), 013 (P-CC formal closure, hard-gated on 009). 010 row converted from "future / not yet drafted" to "DRAFTED; ready". 011 row updated wording ("future / not yet drafted" → "future (slot reserved)"). Counted: 7 done/in-flight + 4 newly drafted-ready + 2 reserved = 13. |
+| § 6 firing layout | Rewritten to reflect 5-slot post-006 sequence: 006 (in flight) → 009 → 012 → 010 (parallel) → 013 (after 009 lands). 010 demoted from "defer" to "ready". G15 line removed (now Prompt 009). |
+| § 6 concurrency note | New paragraph documenting that 009/010/012 are mutually independent and parallelizable, with 013 hard-gated on 009. |
+| § 15 (this section) | NEW. |
+
+**Unchanged:**
+
+§§ 1–5 (mission, status, programs, milestones, gaps), § 7
+(decision tree), § 8 (open questions), § 9 (AEAL hygiene),
+§ 10 (footer/DOIs). The 7×7 concurrency map (§ 6) is retained
+unchanged — the new prompts are documented in the surrounding
+prose since they neither depend on nor are dependencies for
+prompts 001–007 (other than the standing hard-gate of 013 on
+009, called out in § 6 inline).
+
+**No SQL or AEAL changes:**
+
+This revision does not produce new computational artefacts and
+does not record new claims. AEAL claim count is unchanged
+relative to v1.4. SQL todo additions are scaffolding entries
+(prompt-fire trackers for 009 / 010 / 012 / 013) and do not
+reflect new mathematical state.
+
+**Why bump now (rather than wait for 006's verdict):**
+
+The four drafted prompts represent the operator's queue *for
+the next compute window* — synthesizer review of v1.5 can
+proceed in parallel with Prompt 006's in-flight execution. The
+post-006 verdict (whatever its label) will trigger v1.6 (or
+later) absorption; v1.5 is the snapshot that defines what
+*will be fired* once 006 lands. This is the same rhythm used
+for v1.1 (queue 001/002/003 drafted before any of them fired)
+and v1.4 (009/010/012/013 *rebroadcast* now that 005 + 007
+have surfaced their residuals).
+
+**Epistemic posture observation:**
+
+The v1.4 → v1.5 transition is the first "scaffolding-only"
+amendment in the picture's history. Earlier amendments
+(v1.0 → v1.1 → v1.2 → v1.3 → v1.4) each absorbed a verdict
+or a HALT. v1.5 records the *operator's* response — a
+batch of prompts engineered to convert the residuals into
+closures. This separation of "verdict-absorbing" amendments
+from "queue-drafting" amendments keeps the synthesizer's
+audit trail clean: v1.5 says "the queue is now fully
+populated to address all v1.4 residuals", and a later v1.6
+will say "the queue's first member has fired with verdict X".
+
+---
+
 ## 14. Amendment Log (v1.3 → v1.4)
 
 **Updated:** 2026-05-02 18:55 JST
@@ -779,4 +861,4 @@ v1.1 update only changes *the path to P-B4*, not the goal.
 
 ---
 
-*End of revised picture (v1.4).*
+*End of revised picture (v1.5).*
