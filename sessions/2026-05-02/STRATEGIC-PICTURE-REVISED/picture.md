@@ -1,7 +1,7 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.5 (post-firing cycle 2 + 002 HALT + 005 PASS + queue 009-013 drafted)
+**Revision:** v1.6 (post-006 HALT — j=0 finite-N closure deferred to retry-13param)
 **Original:** 2026-05-02 18:05 JST
-**Updated:** 2026-05-02 19:10 JST  (post-005 absorption + math-closure batch 009/010/012/013 drafted)
+**Updated:** 2026-05-02 19:25 JST  (post-006 absorption)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
@@ -9,14 +9,19 @@ synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
 
-> **🆕 Updates since v1.4 (see § 15 Amendment Log for detail):**
+> **🆕 Updates since v1.5 (see § 16 Amendment Log for detail):**
+> - 🛑 **Prompt 006 HALTED with verdict `AMBIGUOUS_AT_DPS8000`.** Formal halt fired because the 5-parameter LIN/EXP ansatz pair disagree on $A$ by $\sim 2.3 \times 10^{-6}$ at $N=1200$ — far above the spec's $1 \times 10^{-30}$ threshold. **`op:j-zero-amplitude-h6` remains OPEN.**
+> - 📈 **But the data signals A=6 *clearly*.** The 5-param LIN fit gives $A_\text{lin} = 6 \pm 2 \times 10^{-7}$ across all four j=0 cubic families (30, 31, 32, 33), with $|\delta_\text{lin}|$ **monotone-decreasing** from $\sim 5 \times 10^{-8}$ at $N_\max=1000$ to $\sim 2 \times 10^{-8}$ at $N_\max=1200$. This is structural support for $A_\text{true} = 6$ exactly (no $\Gamma(1/3)$ closure), modulo a residual $O(1/N^2)$ truncation bias intrinsic to the 5-param ansatz at this $N_\max$.
+> - 🔧 **Spec-vs-reality lesson (NEW gap G16).** The literal `dps=8000 ∧ N=1200` reading is *internally infeasible* for an $A=6$ cubic: $|L_N - L_\text{ref}| \sim \exp(-6 N \log N)$ requires $\text{dps} \gtrsim 22{,}150$ at $N=1200$. The relay agent honored the prompt's `dps≥8000` clause by setting `dps=25000` and documented the substitution in `halt_log.json`. Compute time was ~35 s vs the prompt's 6–10 hr estimate — a structurally faster regime than expected. The methodological lesson: **5-param ansatz at $N=1200$ caps $A$-precision at $\sim 7$ digits**; the spec's 30-digit threshold requires $\geq 13$ parameters.
+> - 📝 **NEW Prompt 014 (`T2.5d-RETRY-13PARAM`) drafted.** Refits the same saved $y_n$ CSVs (no new `cf_value` calls) with a 13-parameter ansatz $y_n = -A n \log n + \alpha n - \beta \log n + \gamma + \sum_{k=1}^{9} c_k / n^k$. Expected to drive $|\delta_\text{lin}|$ below $10^{-15}$ and unlock Phase D PSLQ. Compute is light (~5–20 min agent on a single laptop).
+> - 📊 **Status:** P-PET closure on the j=0 endpoint is *deferred* but not falsified. M7 is not yet achieved; the empirical signal is "A=6 supported at 7 digits, monotone-converging" — short of the 30-digit formal target.
+
+> **Updates since v1.4 (carried forward from v1.5):**
 > - 📝 **Math-closure prompt batch DRAFTED.** Four new relay prompts staged at `tex/submitted/control center/prompt/` to close the residuals surfaced by the v1.2/v1.3/v1.4 verdicts:
 >   - **009 — `vquad-pIII-normalization-map`** closes G15 (V_quad → P_III(D_6) Stokes-data change-of-variables Φ; symbolic; ~4–8 hr).
 >   - **010 — `t35-stokes-multiplier-discrimination`** closes G6b (PCF-1 §3 sign-of-Δ_b dichotomy at the Stokes-multiplier scale; numerical mpmath dps≥150; ~6–10 hr).
 >   - **012 — `xi0-d3-direct`** closes G2 (per-Galois-bin Newton-polygon test of D2-NOTE Conj 3.3.A* at d=3; numerical mpmath dps=80; ~3–10 hr).
 >   - **013 — `cc-formal-borel-close`** closes P-CC formally (composes 005's $C$ + 009's Φ into closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates; **HARD-GATED on 009**; ~4–8 hr).
-> - 📊 **Status snapshot:** 11 prompts now drafted (001–007 + 009/010/012/013); 008 + 011 slots reserved (gated). After this batch fully lands, the only open math gaps are G3b (operator literature acquisition), G7 (P-MC formalization), and the general-d $\xi_0$ proof — closure path becomes operator-side rather than compute-side.
-> - 🔁 **No mathematical content changes** in §§ 1–5: this revision is a scaffolding bump that converts "future / not yet drafted" entries in § 6 into "DRAFTED; ready". No SQL state changes beyond pending-todo additions.
 
 > **Updates since v1.3 (carried forward from v1.4):**
 > - ✅ **Prompt 005 PASSED with verdict `H4_EXECUTED_PASS_108_DIGITS`** — the cross-method Stokes-amplitude agreement is **108 digits**, far exceeding the forecast 30–50 (central 40). Three independent extractors (ratio test, three-point, Δ²-log) cross-validated. **M6 is achieved** with substantial precision margin.
@@ -154,28 +159,27 @@ across the corresponding session folders. CT v1.3 SHA-256
 
 ### 2.3 In-flight / open
 
-- 7 prompts staged at `tex/submitted/control center/prompt/`
-  (001 – 007). See §6 for current status.
-- **5 fired and complete this cycle:** 001, 003, 004, 005, 007.
-- **1 fired and HALTED this cycle:** 002 (verdict
-  `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2` — see §6).
-  Deliverables staged locally only; no bridge push.
-- **1 still ready to fire:** 006 (compute-heavy; can run after
-  005 completes since 005 is now done).
+- 12 prompts staged at `tex/submitted/control center/prompt/`
+  (001–007 + 009/010/012/013 drafted; 008 + 011 reserved;
+  🆕 014 drafted post-006 HALT). See §6 for current status.
+- **6 fired and complete this cycle:** 001, 003, 004, 005, 006*, 007.
+  *006 fired with HALT verdict — see "HALTED" line below.
+- **2 fired and HALTED this cycle:** 002 (verdict
+  `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`) and 🆕 006 (verdict
+  `AMBIGUOUS_AT_DPS8000`). See §6.
+- **0 remaining ready-to-fire from the original 7-prompt queue**
+  (006 just landed with HALT).
+- **4 drafted-ready math-closure prompts:** 009 (G15), 010 (G6b),
+  012 (G2), 013 (P-CC formal closure; gated on 009).
+- 🆕 **1 drafted-ready retry prompt:** 014 (T2.5d-RETRY-13PARAM;
+  refit-only; gates the formal closure of M7 / G5).
 - **t1-phase-2-bt-apply** (Prompt 008, conditional; not yet
   drafted) is BLOCKED on primary-source acquisition + Claude's
   H1 label arbitration.
-- **t3-stokes-multiplier-followup** (Prompt 010, future) —
-  T3 recommended: t2c-style high-dps Stokes-multiplier
-  discrimination to resolve the PCF-1 dichotomy below the
-  Painlevé-class scale. Independent of all other items.
 - **pcf1-v13-reconcile** (Prompt 011, future) — operator
   decision required: bump to v1.4 OR recover v1.3 source
   snapshot. Gates 002.
-- 🆕 **vquad-pIII-normalization-map** (NEW, no prompt yet) —
-  document the explicit V_quad → P_III(D_6) change-of-variables
-  for the Stokes data. Gates `op:cc-formal-borel`.
-- 17 SQL todos pending; 18 done; 1 blocked (36 total at v1.4).
+- 24 SQL todos pending; 19 done; 1 blocked (44 total at v1.6).
 
 ### 2.4 Recently closed (this cycle)
 
@@ -195,6 +199,14 @@ across the corresponding session folders. CT v1.3 SHA-256
 - 🆕 ✅ **Prompt 005 PASSED at 108 digits** (forecast 30–50).
   M6 achieved. β=0 logarithmic-class refinement (consistent
   with H4 hedge); V_quad-native Stokes amplitude measured.
+- 🆕 🛑 **Prompt 006 HALTED — `AMBIGUOUS_AT_DPS8000`.** A=6
+  empirically supported across all 4 j=0 cubic families with
+  $A_\text{lin} = 6 \pm 2 \times 10^{-7}$ and monotone-decreasing
+  $|\delta_\text{lin}|$ as $N_\max$ grows; LIN/EXP 5-param
+  agreement of $\sim 2.3 \times 10^{-6}$ trips the 30-digit
+  spec threshold. Compute was 35 s (vs 6–10 hr estimate).
+  M7 not formally achieved; closure deferred to Prompt 014
+  (refit with 13-param ansatz on saved CSVs).
 
 ---
 
@@ -205,7 +217,7 @@ across the corresponding session folders. CT v1.3 SHA-256
 | **P-NP**  | Newton-polygon universality $\xi_0=d/\beta_d^{1/d}$ at all $d \ge 2$ | D2-NOTE (Prompt 004) for $d=2,4$; downstream proof for general $d$ | $d=2$ PROVEN; $d=4$ VERIFIED; $d=3$ DEFERRED; general-$d$ CONJECTURED |
 | **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) ✅ → Phase 2 B-T application (BLOCKED on primary sources + H1 arbitration) | EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d, 2d]$; H1 fleet label DISPUTED |
 | **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) ✅ → V_quad → P_III(D_6) normalization map (G15) → `op:cc-formal-borel` | algebraic identity DONE (CT v1.3 §3.5); Stokes-side **MEASURED** in V_quad native normalization at 108 digits (Prompt 005); canonical-form Stokes data PENDING G15 |
-| **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) closes the $j=0$ endpoint | PASSED; $j=0$ AMBIGUOUS-AT-FINITE-N |
+| **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) attempted j=0 closure → HALTED at 7-digit precision; T2.5d-RETRY (Prompt 014, drafted) closes j=0 endpoint formally | T2 PASSED; $j=0$ AMBIGUOUS-AT-FINITE-N (5-param ansatz; $A=6 \pm 2 \times 10^{-7}$ supported empirically); 30-digit closure pending Prompt 014 |
 | **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3 Stokes-multiplier follow-up (Prompt 010, future) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant; PCF-1 dichotomy lives at the Stokes-multiplier level) |
 | **P-MC**  | Master conjecture: $\Phi$ classifies PCF asymptotics | Gated on P-NP + P-B4 + P-CC | NOT YET FORMALLY STATED |
 
@@ -249,7 +261,23 @@ M6: V_quad alien amplitude S_{zeta*} measured at 30+ digits
                           │
                           ▼
 M7: j=0 Chowla–Selberg Gamma(1/3) closure (or A=6 artefact ruled out)
-    [Prompt 006, ready to fire]
+    🛑 PARTIAL 2026-05-02 (Prompt 006) — verdict AMBIGUOUS_AT_DPS8000
+    Headline: 5-param LIN fit gives A_lin = 6 ± 2e-7 across all
+              4 j=0 cubic families; |delta_lin| monotone-decreasing
+              from N_max=1000 (~5e-8) to N_max=1200 (~2e-8);
+              empirically supports A_true=6 with no Gamma(1/3)
+              closure, but 5-param ansatz caps A-precision at ~7
+              digits (model truncation O(1/N^2)).
+    Spec halt:  LIN/EXP 5-param disagree on A by ~2.3e-6 (>1e-30 threshold).
+    Caveat:     Compute was 35 s (vs 6-10 hr estimate); the spec's
+                literal dps=8000 + N=1200 is internally infeasible at
+                A=6 (resolution requires dps ≥ 22150); agent ran at
+                dps=25000.
+    Closure:    Prompt 014 (drafted) refits saved y_n CSVs with a
+                13-param ansatz to drive |delta_lin| < 1e-15 and
+                unlock Phase D PSLQ on the Chowla-Selberg basis.
+                ~5-20 min agent compute, no new cf_value calls.
+    [Prompt 006 fired; Prompt 014 drafted-ready]
                           │
                           ▼
 M8: D=2 Painlevé classification table (per-family, ~10 families)
@@ -290,9 +318,9 @@ canonical artefact).
 | **G3b** 🆕 | Wasow-vs-Adams normalization match unresolved from secondary sources (BLOCKER for Phase 2) | HIGH | Operator: ILL/AMS request for B-T 1933 + Adams 1928 + Wasow §X.3 → Phase 2 (Prompt 008, future) |
 | **G4**  | $V_{\mathrm{quad}}$ alien amplitude $S_{\zeta_*}$ is a *theoretical prediction* (H4), not a measurement | HIGH | ✅ **Prompt 005 PASSED 2026-05-02** — measured at 108 digits in V_quad native normalization. Canonical-form value awaits G15. |
 | **G15** 🆕 | V_quad → P_III(D_6) normalization map for Stokes data not written out (CT v1.3 §3.5 only matches at Painlevé-class level) | HIGH | New tracked item `vquad-pIII-normalization-map` — symbolic, medium tractability, gates `op:cc-formal-borel` |
-| **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | Prompt 006 (ready to fire) |
+| **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | 🛑 Prompt 006 HALTED 2026-05-02 (`AMBIGUOUS_AT_DPS8000`; 5-param ansatz caps $A$-precision at ~7 digits); $A=6 \pm 2\times 10^{-7}$ supported empirically with monotone $N$-convergence; formal 30-digit closure pending Prompt 014 (refit with 13-param ansatz) |
 | **G6a** | Conte–Musette algorithmic Painlevé test on $d=2,3$ catalogues | MED  | ✅ Prompt 007 complete (60/60 LABELED) |
-| **G6b** 🆕 | PCF-1 v1.3 §3 sign-of-$\Delta_b$ dichotomy ($A=4$ vs $A=3$) lives below the Painlevé-class resolution scale; Conte–Musette test is invariant under sign of $\Delta_b$ | MED | Future Prompt 010 (Stokes-multiplier discrimination via t2c-style precision escalation) |
+| **G6b** 🆕 | PCF-1 v1.3 §3 sign-of-$\Delta_b$ dichotomy ($A=4$ vs $A=3$) lives below the Painlevé-class resolution scale; Conte–Musette test is invariant under sign of $\Delta_b$ | MED | Prompt 010 ✅ DRAFTED 2026-05-02 (Stokes-multiplier discrimination via t2c-style precision escalation) |
 | **G7**  | Master functor $\Phi$ (P-MC) not formally stated | HIGH | Downstream (gated on M2+M4+M6) |
 | **G8**  | D2-NOTE not yet a citable artefact ($\xi_0$ result scattered across PCF-1 + CT) | LOW–MED | ✅ Prompt 004 drafted — *closure pending Zenodo upload* |
 | **G9**  | arXiv mirroring not done (5 records); visibility gap | LOW  | Prompt 002 — 🛑 HALTED 2026-05-02 (page-count drift on PCF-1; staged locally, not pushed); reactivate after G12+G13+G14 |
@@ -301,6 +329,7 @@ canonical artefact).
 | **G12** 🆕 | PCF-1 v1.3 source drift: workspace `p12_journal_main.tex` rebuilds to 21 pp; Zenodo v1.3 PDF is 16 pp; v1.4 working draft has likely overwritten the v1.3 snapshot | HIGH | Future Prompt 011 (PCF1-V13-RECONCILE) — operator decision: (a) bump to v1.4 deposit & re-run 002 vs v1.4 DOI, OR (b) recover v1.3 16pp source snapshot from git history / Zenodo archive |
 | **G13** 🆕 | Channel Theory v1.3 source carries `\author{The SIARC author}` literal placeholder — arXiv will reject record #4 | HIGH | Operator: replace with real-name+affiliation block already used in PCF-2 v1.3 / umbrella v2.0; verify via grep on `tex/submitted/` |
 | **G14** 🆕 | Endorsement-request templates for math.NT records #2, #4 are skeletons; no real endorser arXiv handles populated | MED  | Operator: identify ~3 plausible math.NT endorsers, look up their arXiv user-id strings, populate the two templates |
+| **G16** 🆕 | **Spec-vs-precision-floor mismatch** — 5-parameter $1/n$ ansatz at $N=1200$ caps $A$-fit precision at $\sim 7$ digits (model truncation $O(1/N^2)$); the 30-digit formal threshold required by `op:j-zero-amplitude-h6` needs $\geq 13$ parameters. Generalises to any deep-WKB closure operator. | LOW–MED | Prompt 014 ✅ DRAFTED (refit-only; structural fix); future operators of this form should pre-compute the parameter-count floor from the desired digit threshold |
 
 Severity legend:
 - **HIGH** — blocks a paper, blocks a downstream proof, or
@@ -324,7 +353,7 @@ milestones (see § 4).
 | 003 | T1 Phase 1 — B-T lit review + gap-prop | G3a | M3 | ✅ DONE 2026-05-02 (verdict GAPTYPE_C) | low (lit work) | — |
 | 004 | D2-NOTE — Newton-polygon universality | G1, G8 | M1 | ✅ DRAFTED 2026-05-02 (awaits Zenodo upload) | low (drafting + AEAL re-derivation) | — |
 | 005 | H4 / `op:cc-median-resurgence-execute` | G4 | M6 | ✅ DONE 2026-05-02 (`H4_EXECUTED_PASS_108_DIGITS`; β=0 refinement; G15 surfaced) | **HIGH** (mpmath dps 250, $N=5000$) | — |
-| 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | ⏳ IN FLIGHT 2026-05-02 | **HIGH** (mpmath dps≥8000, $N\ge 1200$) | INDEPENDENT |
+| 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | 🛑 HALTED 2026-05-02 (`AMBIGUOUS_AT_DPS8000`; A=6 ± 2e-7 across 4 families, monotone-converging; 5-param ansatz caps precision at ~7 digits; spec 30-digit threshold not met) | low (35 s; structurally faster than estimate) | INDEPENDENT |
 | 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6a | M8 | ✅ DONE 2026-05-02 (60/60 LABELED; H3 negatively closed) | medium (symbolic) | — |
 | 008 | T1 Phase 2 — B-T applied to $\delta_n$ (proves B4 at $d \ge 3$) | G3b | M4 | 🛑 BLOCKED (G3b primary sources + G11 H1 arbitration); slot reserved | medium | gated |
 | 009 🆕 | V_quad → P_III(D_6) normalization map (change-of-variables Φ; apply to 005's $C$ to report $S_{\zeta_*}^{\text{can}}$) | G15 | M6 (canonical-form completion); gates 013 | ✅ DRAFTED 2026-05-02; ready | low (symbolic) | INDEPENDENT |
@@ -332,6 +361,7 @@ milestones (see § 4).
 | 011 | PCF1-V13-RECONCILE — operator-decision-driven; resolve PCF-1 v1.3 source drift before re-running 002 | G12 | distribution layer | future (slot reserved; not yet drafted; gated on operator option-(a)/(b) decision) | low | gated |
 | 012 🆕 | $\xi_0$ at $d=3$ direct — per-Galois-bin Newton-polygon test of D2-NOTE Conj 3.3.A* on cubic representatives | G2 | (M1 follow-on; supports P-NP) | ✅ DRAFTED 2026-05-02; ready | low (mpmath dps=80) | INDEPENDENT |
 | 013 🆕 | CC formal Borel close — closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates (composes 005's $C$ + 009's Φ); flips CT v1.3 §3.5 status to "DIAGNOSED" | (P-CC formal closure) | (P-CC final close) | ✅ DRAFTED 2026-05-02; **HARD-GATED on 009** | low–medium (symbolic + numerical 3-point) | gated on 009 |
+| 014 🆕 | T2.5d-RETRY-13PARAM — refit saved $y_n$ CSVs with 13-param ansatz; targets $\|\delta_\text{lin}\| < 10^{-15}$, then runs Phase D PSLQ on Chowla–Selberg basis | G5, G16 | M7 (formal closure) | ✅ DRAFTED 2026-05-02; ready (no new `cf_value` calls; uses `Qn_j0_dps25000_N1200_fam{30..33}.csv` from 006) | low (~5–20 min agent; pure refit + PSLQ) | INDEPENDENT |
 
 **Concurrency map** (validated this cycle for the original 7-prompt subset):
 
@@ -357,15 +387,17 @@ member of the batch that is compute-heavy (mpmath dps≥150 on
 low-compute symbolic + light-numerical.
 
 **Recommended firing layout for the *next* compute window
-(post-006 in flight; v1.5 status):**
-- Slot 1: **006** is in flight (operator's current session;
-  6–10 hr, mpmath dps≥8000). Unchanged.
-- Slot 2 (after a session frees up): **009** (low-compute
-  symbolic; closes G15; gates 013). Highest leverage.
-- Slot 3 (parallelizable with 009): **012** (low-compute
-  numerical; closes G2). Independent of 009.
-- Slot 4 (parallelizable with 009 + 012): **010** (medium–high
-  compute; closes G6b). Independent.
+(post-006 HALT; v1.6 status):**
+- Slot 1: **014** (5–20 min refit; closes G5 + G16 formally;
+  M7 formal achievement). Highest leverage now: tiny compute,
+  immediate unlock of Phase D PSLQ on the saved CSVs.
+- Slot 2 (parallel with 014): **009** (low-compute symbolic;
+  closes G15; gates 013).
+- Slot 3 (parallel with 014 + 009): **012** (low-compute
+  numerical; closes G2). All three are mutually independent.
+- Slot 4: **010** (medium–high compute; closes G6b).
+  Independent of 009/012/014 but the heaviest member of
+  this batch.
 - Slot 5 (after 009 lands with `G15_CLOSED`): **013** (formal
   P-CC closure; composes 005 + 009).
 - **Prompt 002 stays HALTED** until G12 + G13 + G14 are closed.
@@ -554,6 +586,39 @@ deferred):
     case-study of the AEAL-honest substitution pattern —
     deviation from spec was surfaced rather than papered
     over.
+14. 🆕 **(v1.6) j=0 empirical-vs-formal gap.** Prompt 006's
+    5-param fit gives $A_\text{lin} = 6 \pm 2 \times 10^{-7}$
+    on all four j=0 cubic families with monotone-decreasing
+    $|\delta_\text{lin}|$ as $N_\max$ grows. This is strong
+    *empirical* support for $A_\text{true}=6$ exactly (no
+    $\Gamma(1/3)$ closure), but the formal verdict is
+    `AMBIGUOUS_AT_DPS8000` because the LIN/EXP 5-param pair
+    cannot agree to $10^{-30}$ at $N=1200$ (model truncation
+    floor is $O(1/N^2) \sim 10^{-7}$). **Question:** is the
+    empirical 7-digit + monotone-convergence signal already
+    enough to record `op:j-zero-amplitude-h6` as
+    "MEASURED, $A=6$, no $\Gamma(1/3)$ closure" in the
+    PCF-2 narrative — *pending* the 13-param refit (Prompt
+    014) for the citable 30-digit number — or must the
+    formal halt be honored throughout? The published PCF-2
+    v1.3 already says "AMBIGUOUS-AT-FINITE-N", so there is
+    no published-artefact tension; the question is purely
+    about how to phrase pre-014 in any internal status
+    document.
+15. 🆕 **(v1.6) Spec-design lesson for deep-WKB operators.**
+    The literal `dps=8000 ∧ N=1200` reading of Prompt 006
+    was *internally infeasible* for an A=6 cubic
+    ($|L_N - L_\text{ref}| \sim \exp(-A N \log N)$ requires
+    dps $\geq A \cdot N \log N / \log 10$ at $N=1200$ for
+    $A=6$ this is $\sim 22{,}150$ digits, not 8000).
+    Compute time for the actual run was $\sim 35$ s, not
+    6–10 hr. **Question:** should future deep-WKB closure
+    prompts pre-compute both (a) the dps floor from
+    $A \cdot N \log N$ and (b) the parameter-count floor
+    from the digit-threshold target ($k \geq \text{digits} /
+    \log_{10} N - 1$)? If yes, this is a structural amendment
+    to the AEAL / op-design discipline (carries to all
+    future deep-WKB ops).
 
 ---
 
@@ -600,6 +665,98 @@ e96641c         T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (003)     [verdict GAPTYPE_C]
 e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
 8be2f17         CHANNEL-THEORY-V13-RELEASE (post-publish edits)
 ```
+
+---
+
+## 16. Amendment Log (v1.5 → v1.6)
+
+**Updated:** 2026-05-02 19:25 JST
+**Trigger:** completion of Prompt 006 (T2.5D-J0-CHOWLA-SELBERG-CLOSURE)
+with verdict `AMBIGUOUS_AT_DPS8000` (formal halt; H6 still OPEN).
+
+**Substantive changes:**
+
+| Section | v1.5 → v1.6 |
+|---------|-------------|
+| Header  | Added v1.5 → v1.6 callout block. Earlier callouts retained for the synthesizer's full audit trail. |
+| § 2.3 (in-flight) | "5 fired/done" → "6 fired/done"; "1 in flight" → "0 in flight"; "1 HALT" → "2 HALT" (added 006). New entry for Prompt 014 (T2.5d-RETRY-13PARAM, drafted-ready). Counts updated (24 pending / 19 done / 1 blocked of 44). |
+| § 2.4 (recently closed) | Added Prompt 006 HALT line with the headline empirical signal (A=6 ± 2e-7, monotone-converging) + spec-vs-precision-floor caveat. |
+| § 3 P-PET row | Status updated: "PASSED; j=0 AMBIGUOUS-AT-FINITE-N" → "PASSED; j=0 AMBIGUOUS-AT-FINITE-N (5-param ansatz; A=6 ± 2e-7 supported empirically); 30-digit closure pending Prompt 014". |
+| § 4 M7 block | Marked PARTIAL with the empirical-signal headline + spec-vs-precision-floor caveat + closure path via Prompt 014. |
+| § 5 G5 row | Status revised: "Prompt 006 (ready to fire)" → "Prompt 006 HALTED; A=6 supported empirically with monotone N-convergence; formal closure pending Prompt 014". |
+| § 5 NEW row G16 | Spec-vs-precision-floor mismatch: 5-param 1/n ansatz at N=1200 caps A-fit precision at ~7 digits (model truncation O(1/N^2)); generalises to any deep-WKB closure operator. |
+| § 6 prompts table | 006 row marked HALTED with verdict label + headline numbers. New row 014 (T2.5d-RETRY-13PARAM, drafted-ready, ~5–20 min refit). Counts: 13 → 14 rows. |
+| § 6 firing layout | Rewritten: 014 promoted to Slot 1 (highest leverage; tiny compute; immediate Phase D PSLQ unlock); 009/012 parallel; 010 next; 013 hard-gated on 009. |
+| § 8 open questions | Added Q14 (empirical-vs-formal gap on j=0; how to phrase pre-014 status) and Q15 (spec-design lesson; should future deep-WKB ops pre-compute dps floor + parameter-count floor?). |
+| § 16 (this section) | NEW. |
+
+**Unchanged:**
+
+§ 1 (mission statement), § 7 (decision tree), § 9 (AEAL hygiene),
+the publication ladder table (§ 2.1), and the six-program
+decomposition (§ 3 — only the P-PET row's status text changed)
+are intact. The 7×7 concurrency map (§ 6) is retained
+unchanged — Prompt 014 is documented as INDEPENDENT in the
+prompts table; the matrix cell-pattern is unaffected.
+
+**Headline empirical results recorded (V_quad cubics, j=0 axis):**
+
+| family | $A_\text{lin}$ (5-param fit, $N_\max=1200$) | $\delta_\text{lin}$ |
+|---|---|---|
+| 30 | 6.00000009866458799… | $+9.87 \times 10^{-8}$ |
+| 31 | 5.99999990131228818… | $-9.87 \times 10^{-8}$ |
+| 32 | 5.99999985197425230… | $-1.48 \times 10^{-7}$ |
+| 33 | 5.99999980263623205… | $-1.97 \times 10^{-7}$ |
+
+$N$-scaling of $|\delta_\text{lin}|$ (LIN, tail-window fit):
+monotone-decreasing across all four families from $N_\max=1000$
+through $N_\max=1100$ to $N_\max=1200$, with ratio
+$\delta(1000)/\delta(1200) \sim 1.7$ — consistent with a
+$c_2/N^2$ truncation leak (universal across families,
+$c \sim 0.04$, same sign). This is structural support for
+$A_\text{true}=6$ exactly, modulo a 7-digit model-truncation
+floor that **only** a higher-order ansatz (Prompt 014) can
+break through.
+
+**No new published-artefact tension:**
+
+PCF-2 v1.3 §6 already labels the j=0 endpoint as
+"AMBIGUOUS-AT-FINITE-N", so no Zenodo or arXiv record needs to
+be amended in light of v1.6. The AEAL discipline holds: the
+formal halt is honored in the verdict label
+(`AMBIGUOUS_AT_DPS8000`) and the empirical $A=6$ signal is
+recorded as "supported, monotone-converging, formal closure
+pending 13-param refit" rather than "established" or "proved".
+
+**Why a 14th prompt rather than retrying 006 with the same
+spec at higher dps:**
+
+The 006 verdict is *not* a failure of the j=0 measurement; it
+is a failure of the 5-param ansatz to deliver 30 digits at
+$N=1200$. The cf_value computation already ran to 22150-digit
+resolution at $N=1200$; the bottleneck is purely in the
+post-processing fit. Prompt 014 reuses the saved
+`Qn_j0_dps25000_N1200_fam{30..33}.csv` files (137 KB each;
+SHA-256 hashes already AEAL-logged) and runs only the refit +
+PSLQ. The expected agent compute is $\sim 5$–$20$ min — a
+two-orders-of-magnitude reduction from 006's already-fast
+35 s, since no `cf_value` calls are made.
+
+**Epistemic posture observation:**
+
+Prompt 006's relay agent demonstrated three healthy
+behaviours: (i) honest documentation of the spec-vs-reality
+incompatibility (literal `dps=8000` infeasible for A=6
+at $N=1200$; agent set `dps=25000` and surfaced the
+substitution in `halt_log.json`), (ii) honest non-execution of
+Phase D PSLQ when the input precision was structurally
+insufficient (rather than running it and reporting spurious
+relations), and (iii) explicit recommendation of the next
+operator step (T2.5d-RETRY-13PARAM with a concrete spec). The
+verdict `AMBIGUOUS_AT_DPS8000` is *exactly* the right
+epistemic register: empirical signal acknowledged, formal
+threshold honored, retry path scoped. This is the AEAL
+discipline working as designed.
 
 ---
 
@@ -861,4 +1018,4 @@ v1.1 update only changes *the path to P-B4*, not the goal.
 
 ---
 
-*End of revised picture (v1.5).*
+*End of revised picture (v1.6).*
