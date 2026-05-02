@@ -1,0 +1,58 @@
+{
+  "halts": [
+    {
+      "key": "T37G_GATE_NOT_SATISFIED",
+      "reason": "Prior session halt keys are not in the gate set. Phases B-F not run.",
+      "observed": {
+        "T37-S2-EXTRACTION-POLYNOMIAL-AWARE": {
+          "present": true,
+          "halt_keys": [
+            "T37_K_SENSITIVITY_DIVERGENT",
+            "T37_D_CONSISTENT_WITH_ZERO",
+            "T37_K_SENSITIVITY_DIVERGENT",
+            "T37_D_CONSISTENT_WITH_ZERO",
+            "T37_K_SENSITIVITY_DIVERGENT",
+            "T37_D_CONSISTENT_WITH_ZERO",
+            "T37_K_SENSITIVITY_DIVERGENT",
+            "T37_D_CONSISTENT_WITH_ZERO"
+          ],
+          "verdict_label": null,
+          "gate_match": false
+        },
+        "T37E-EXTENDED-RECURRENCE": {
+          "present": true,
+          "halt_keys": [],
+          "verdict_label": "T37E_PARTIAL_a_1_NULL_AT_HIGHER_PRECISION",
+          "gate_match": false
+        }
+      }
+    }
+  ],
+  "gate_set": [
+    "T37E_NEXT_SECTOR_BETA_NONZERO",
+    "T37_NEXT_SECTOR_BETA_NONZERO"
+  ],
+  "prior_session_survey": {
+    "T37-S2-EXTRACTION-POLYNOMIAL-AWARE": {
+      "present": true,
+      "halt_keys": [
+        "T37_K_SENSITIVITY_DIVERGENT",
+        "T37_D_CONSISTENT_WITH_ZERO",
+        "T37_K_SENSITIVITY_DIVERGENT",
+        "T37_D_CONSISTENT_WITH_ZERO",
+        "T37_K_SENSITIVITY_DIVERGENT",
+        "T37_D_CONSISTENT_WITH_ZERO",
+        "T37_K_SENSITIVITY_DIVERGENT",
+        "T37_D_CONSISTENT_WITH_ZERO"
+      ],
+      "verdict_label": null,
+      "gate_match": false
+    },
+    "T37E-EXTENDED-RECURRENCE": {
+      "present": true,
+      "halt_keys": [],
+      "verdict_label": "T37E_PARTIAL_a_1_NULL_AT_HIGHER_PRECISION",
+      "gate_match": false
+    }
+  }
+}
