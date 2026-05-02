@@ -2,7 +2,7 @@
 **Date:** 2026-05-02
 **Agent:** GitHub Copilot CLI (Claude Opus 4.7 xhigh)
 **Session duration:** ~10 minutes
-**Status:** COMPLETE (v1.3 amendment)
+**Status:** COMPLETE (v1.4 amendment)
 
 ## What was accomplished
 
