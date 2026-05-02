@@ -1,0 +1,92 @@
+T37L-A1ZERO-CATALOGUE-SCAN start 2026-05-03 06:46:05
+  dps=300 N=2000 K_lead=25 W1=(400, 1900)
+  all input files present
+
+=== Phase A.1: recover bracket form from 017f ===
+  017f bracket : alpha/16 + gamma - beta^2/(4 alpha)
+  sympy rederiv: alpha/16 + gamma - beta**2/(4*alpha)
+  matches_017f : True
+
+=== Phase A.2: B numerical sanity at T35 reps ===
+  B(V_quad: alpha=3, beta=1, gamma=1) = 1.10416666667
+  B(QL15: alpha=3, beta=-2, gamma=2) = 1.85416666667
+  B(QL05: alpha=1, beta=-2, gamma=-1) = -1.9375
+  B(QL09: alpha=2, beta=3, gamma=1) = 0.0
+
+=== Phase A.3: algebraic solution of B = 0 ===
+  classification: 2d_quadric_surface_in_alpha_beta_gamma_space
+  free parameters: ['alpha', 'beta']
+  gamma = -a/16 + b**2/(4*a)
+
+=== Phase A.4: integer lattice on B=0 within T35 search box ===
+  found 46 integer lattice points (alpha<=10, |beta|<=20)
+    (alpha,beta,gamma) = 2, -19, 45
+    (alpha,beta,gamma) = 2, -17, 36
+    (alpha,beta,gamma) = 2, -15, 28
+    (alpha,beta,gamma) = 2, -13, 21
+    (alpha,beta,gamma) = 2, -11, 15
+    (alpha,beta,gamma) = 2, -9, 10
+    (alpha,beta,gamma) = 2, -7, 6
+    (alpha,beta,gamma) = 2, -5, 3
+    (alpha,beta,gamma) = 2, -3, 1
+    (alpha,beta,gamma) = 2, -1, 0
+    (alpha,beta,gamma) = 2, 1, 0
+    (alpha,beta,gamma) = 2, 3, 1
+    (alpha,beta,gamma) = 2, 5, 3
+    (alpha,beta,gamma) = 2, 7, 6
+    (alpha,beta,gamma) = 2, 9, 10
+    (alpha,beta,gamma) = 2, 11, 15
+    (alpha,beta,gamma) = 2, 13, 21
+    (alpha,beta,gamma) = 2, 15, 28
+    (alpha,beta,gamma) = 2, 17, 36
+    (alpha,beta,gamma) = 2, 19, 45
+    (alpha,beta,gamma) = 4, -18, 20
+    (alpha,beta,gamma) = 4, -14, 12
+    (alpha,beta,gamma) = 4, -10, 6
+    (alpha,beta,gamma) = 4, -6, 2
+    (alpha,beta,gamma) = 4, -2, 0
+    (alpha,beta,gamma) = 4, 2, 0
+    (alpha,beta,gamma) = 4, 6, 2
+    (alpha,beta,gamma) = 4, 10, 6
+    (alpha,beta,gamma) = 4, 14, 12
+    (alpha,beta,gamma) = 4, 18, 20
+
+=== Phase B: candidate generation ===
+
+=== Phase C: numerical confirmation per candidate ===
+
+  -- Q1_QL09_repro (alpha=2, beta=3, gamma=1, delta=5, epsilon=0) --
+    recurrence a_1 = 0.0 (should be 0 exactly when B=0)
+    fit-level a_1 (K_lead=25, W1=(400, 1900)) = -3.651325e-50
+    a_1 envelope: median=-2.1727171e-61  half_range=1.6956624e-40
+
+  -- Q2_alpha2_b1_g0 (alpha=2, beta=1, gamma=0, delta=1, epsilon=0) --
+    recurrence a_1 = 0.0 (should be 0 exactly when B=0)
+    fit-level a_1 (K_lead=25, W1=(400, 1900)) = -1.9207335e-52
+    a_1 envelope: median=-1.8989899e-55  half_range=7.7763527e-43
+
+  -- Q3_alpha2_b5_g3 (alpha=2, beta=5, gamma=3, delta=1, epsilon=0) --
+    recurrence a_1 = 0.0 (should be 0 exactly when B=0)
+    fit-level a_1 (K_lead=25, W1=(400, 1900)) = -5.3930438e-53
+    a_1 envelope: median=-5.9789117e-56  half_range=6.258733e-44
+
+  -- Q4_alpha4_b2_g0 (alpha=4, beta=2, gamma=0, delta=1, epsilon=0) --
+    recurrence a_1 = 0.0 (should be 0 exactly when B=0)
+    fit-level a_1 (K_lead=25, W1=(400, 1900)) = 1.7059126e-54
+    a_1 envelope: median=1.9425826e-57  half_range=5.9667879e-46
+
+  -- Q5_alpha4_b6_g2 (alpha=4, beta=6, gamma=2, delta=1, epsilon=0) --
+    recurrence a_1 = 0.0 (should be 0 exactly when B=0)
+    fit-level a_1 (K_lead=25, W1=(400, 1900)) = 5.3604298e-55
+    a_1 envelope: median=7.5685994e-65  half_range=5.6677486e-47
+
+  -- Q6_alpha8_b4_g0 (alpha=8, beta=4, gamma=0, delta=1, epsilon=0) --
+    recurrence a_1 = 0.0 (should be 0 exactly when B=0)
+    fit-level a_1 (K_lead=25, W1=(400, 1900)) = 2.619597e-57
+    a_1 envelope: median=2.700742e-60  half_range=7.1594572e-47
+
+=== Phase D: classification ===
+  verdict: T37L_THIRD_STRATUM_HIGHER_DIM
+  n_confirmed = 6 / 6
+
+DONE  wall=369.0s  verdict=T37L_THIRD_STRATUM_HIGHER_DIM

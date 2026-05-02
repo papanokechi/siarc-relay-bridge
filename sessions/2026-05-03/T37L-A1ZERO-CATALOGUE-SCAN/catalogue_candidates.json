@@ -1,0 +1,71 @@
+{
+  "K_cand": 6,
+  "selection_criteria": [
+    "must lie on B=0 algebraic locus (verified to 50+ digits)",
+    "(alpha,beta,gamma) integer lattice points",
+    "algebraically-distinct from QL09 (varied alpha across {2,4,8} and beta across multiple lattice rays)",
+    "delta=1 (or QL09's delta=5 for baseline rep), epsilon=0 (canonical small choice; delta/epsilon do NOT affect a_1 since k=1 has no a_{k-2} or a_{k-3} contribution)"
+  ],
+  "candidates": [
+    {
+      "id": "Q1_QL09_repro",
+      "alpha": 2,
+      "beta": 3,
+      "gamma": 1,
+      "delta": 5,
+      "epsilon": 0,
+      "rationale": "baseline reproduction of QL09 at this prompt's precision",
+      "B_value_str": "0.0"
+    },
+    {
+      "id": "Q2_alpha2_b1_g0",
+      "alpha": 2,
+      "beta": 1,
+      "gamma": 0,
+      "delta": 1,
+      "epsilon": 0,
+      "rationale": "smallest alpha=2 lattice point != QL09",
+      "B_value_str": "0.0"
+    },
+    {
+      "id": "Q3_alpha2_b5_g3",
+      "alpha": 2,
+      "beta": 5,
+      "gamma": 3,
+      "delta": 1,
+      "epsilon": 0,
+      "rationale": "alpha=2 lattice point further along beta direction",
+      "B_value_str": "0.0"
+    },
+    {
+      "id": "Q4_alpha4_b2_g0",
+      "alpha": 4,
+      "beta": 2,
+      "gamma": 0,
+      "delta": 1,
+      "epsilon": 0,
+      "rationale": "alpha=4 lattice point near locus origin",
+      "B_value_str": "0.0"
+    },
+    {
+      "id": "Q5_alpha4_b6_g2",
+      "alpha": 4,
+      "beta": 6,
+      "gamma": 2,
+      "delta": 1,
+      "epsilon": 0,
+      "rationale": "alpha=4 lattice point in interior",
+      "B_value_str": "0.0"
+    },
+    {
+      "id": "Q6_alpha8_b4_g0",
+      "alpha": 8,
+      "beta": 4,
+      "gamma": 0,
+      "delta": 1,
+      "epsilon": 0,
+      "rationale": "alpha=8 lattice point",
+      "B_value_str": "0.0"
+    }
+  ]
+}
