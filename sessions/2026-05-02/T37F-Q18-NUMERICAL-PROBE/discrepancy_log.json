@@ -1,0 +1,12 @@
+{
+  "discrepancies": [
+    {
+      "title": "017c D_branch_plus median (BLOCKED) differs from 017f single-config recomputation",
+      "017c_value": "0.05854848890371023828005246426486915120311006... (median over 24 configs; D_half_range = 22385.87 -> feasibility=BLOCKED)",
+      "017f_recomputed_branch_plus": "-1.17011824427e-5 (single config, K_next=6, W2=[40,100])",
+      "017f_branch_minus": "-0.218435675446686508086732436295",
+      "interpretation": "017c flagged QL09 D extraction as BLOCKED (D_half_range/|D_median| ratio ~10^11). The 017c median is therefore not a meaningful estimate of D; my 017f single-config value is also not a meaningful estimate. This is consistent with 017c's 'D consistent with zero / K-sensitivity divergent' soft halt. The |D| RATIO invariant in invariant_comparison.json is therefore NOT a basis-independence test in the strong sense; both values are noise-floor.",
+      "action": "Do not treat |D| RATIO as evidence for or against any classification. Phase D classification is driven by |a_1| only. D extraction would require longer series (e.g. dps=400 N=5000), which is out-of-scope for 017f."
+    }
+  ]
+}

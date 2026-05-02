@@ -1,0 +1,25 @@
+{
+  "branch_plus": {
+    "c": "+2/sqrt(alpha) = +sqrt(2)",
+    "zeta_star_signed": "+2*c = +2*sqrt(2)  (positive; convergent action)",
+    "C_value_017c_branch_plus": "-6.0747200637909350612... (017c d_extraction_feasibility.json)"
+  },
+  "branch_minus": {
+    "c": "-2/sqrt(alpha) = -sqrt(2)",
+    "zeta_star_signed": "+2*c = -2*sqrt(2)  (negative; convergent action in branch (-))",
+    "C_value_to_be_measured_in_phaseB": true,
+    "rationale": "In branch (-) the convergent dominant action is 2c (signed); with zeta_star_signed = 2c<0 the test sequence T_n = a_n_minus * zeta_star_signed^n / Gamma(n) has a real limit C_minus rather than oscillating. Using |2c|^n would produce a (-1)^n alternation that is a convention artefact, not a genuine divergence."
+  },
+  "common": {
+    "rho": "-3/2 - beta/alpha = -3 (for QL09 alpha=2, beta=3)",
+    "alpha": 2,
+    "beta": 3,
+    "gamma": 1,
+    "delta": 5,
+    "epsilon": 0,
+    "A": 4,
+    "Delta_b": 1
+  },
+  "recurrence_form_invariance": "Only c (and hence the diagonal premultiplier alpha*c/2 and the U_{k-2} = -c*delta/2 piece) flips sign across branches. U_{k-1}(k) and U_{k-3}(k) are c-INDEPENDENT and identical.",
+  "a_1_basis_independence": "a_1 = U_{k-1}(1) / ( (alpha*c/2) * 1 ) and U_{k-1}(1) = alpha/16 + gamma - beta^2/(4*alpha). For QL09 this bracket evaluates to 1/8 + 1 - 9/8 = 0, so a_1 = 0 in BOTH branches to all orders of precision. This is a structural, basis-INDEPENDENT vanishing."
+}

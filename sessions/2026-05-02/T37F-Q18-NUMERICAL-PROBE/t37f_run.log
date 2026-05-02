@@ -1,0 +1,34 @@
+T37F-Q18-NUMERICAL-PROBE  start  2026-05-02 22:48:35
+  dps=300  N=2000  K_lead=25  W1=(400, 1900)  W2=(40, 100)
+=== Phase A: gate check + baseline load ===
+  gate G1 satisfied: ql09_a1_anomalous=True, |a_1|~1.70856617821583e-57
+  baseline loaded: C+ = -6.074720063790935061285275382..., a_1+ = -0.000000000000000000000000000...
+
+=== Phase 0: derive series in both branches ===
+    [B sign=+1] k=  400 a_k~10^686 t=0.1s
+    [B sign=+1] k=  800 a_k~10^1613 t=0.2s
+    [B sign=+1] k= 1200 a_k~10^2631 t=0.2s
+    [B sign=+1] k= 1600 a_k~10^3708 t=0.3s
+    [B sign=+1] k= 2000 a_k~10^4829 t=0.3s
+    [B sign=-1] k=  400 a_k~10^686 t=0.0s
+    [B sign=-1] k=  800 a_k~10^1613 t=0.1s
+    [B sign=-1] k= 1200 a_k~10^2631 t=0.4s
+    [B sign=-1] k= 1600 a_k~10^3708 t=0.5s
+    [B sign=-1] k= 2000 a_k~10^4829 t=0.6s
+  recurrence a_1_plus  = 0.0
+  recurrence a_1_minus = 0.0
+  sanity n=100: |a_minus/a_plus| = 1.0
+
+=== Phase B: stage1+stage2 fit, opposite branch ===
+  stage1 (-) C=-6.07472006379093506128527538225 a_1=-3.651325014e-50 a_2=-10.0 a_3=-23.3333333333333
+  stage1 residual_inf=4.46e-64 rank=26
+  stage1 (+) C=-6.07472006379093506128527538225 a_1=-3.651325014e-50  (cross-check vs 017c)
+  stage2 D_minus=-0.218435675446686508086732436295 residual_inf=8.1e-22
+  stage2 D_plus (recomputed) =-0.0000117011824427089609994234031497
+
+=== Phase C: invariant comparison ===
+
+=== Phase D: classification ===
+  classification: THIRD_STRATUM_CONFIRMED
+
+DONE. verdict=T37F_Q18_THIRD_STRATUM
