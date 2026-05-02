@@ -1,0 +1,49 @@
+Raw coefficient of u^n (un-substituted):
+  [u^0]: alpha*c**2/4 - 1
+  [u^1]: a1*alpha*c**2/4 - a1 - alpha*c*rho/2 - 3*alpha*c/4 - beta*c/2
+  [u^2]: -a1*alpha*c*rho/2 - 5*a1*alpha*c/4 - a1*beta*c/2 + a2*alpha*c**2/4 - a2 + alpha*rho**2/4 + alpha*rho + alpha + beta*rho/2 + beta + gamma
+  [u^3]: a1*alpha*rho**2/4 + 3*a1*alpha*rho/2 + 9*a1*alpha/4 + a1*beta*rho/2 + 3*a1*beta/2 + a1*gamma - a2*alpha*c*rho/2 - 7*a2*alpha*c/4 - a2*beta*c/2 + a3*alpha*c**2/4 - a3 - c*delta/2
+  [u^4]: -a1*c*delta/2 + a2*alpha*rho**2/4 + 2*a2*alpha*rho + 4*a2*alpha + a2*beta*rho/2 + 2*a2*beta + a2*gamma - a3*alpha*c*rho/2 - 9*a3*alpha*c/4 - a3*beta*c/2 + a4*alpha*c**2/4 - a4 + delta*rho/2 + 2*delta + epsilon
+  [u^5]: a1*delta*rho/2 + 5*a1*delta/2 + a1*epsilon - a2*c*delta/2 + a3*alpha*rho**2/4 + 5*a3*alpha*rho/2 + 25*a3*alpha/4 + a3*beta*rho/2 + 5*a3*beta/2 + a3*gamma - a4*alpha*c*rho/2 - 11*a4*alpha*c/4 - a4*beta*c/2 + a5*alpha*c**2/4 - a5
+  [u^6]: a2*delta*rho/2 + 3*a2*delta + a2*epsilon - a3*c*delta/2 + a4*alpha*rho**2/4 + 3*a4*alpha*rho + 9*a4*alpha + a4*beta*rho/2 + 3*a4*beta + a4*gamma - a5*alpha*c*rho/2 - 13*a5*alpha*c/4 - a5*beta*c/2 + a6*alpha*c**2/4 - a6
+  [u^7]: a3*delta*rho/2 + 7*a3*delta/2 + a3*epsilon - a4*c*delta/2 + a5*alpha*rho**2/4 + 7*a5*alpha*rho/2 + 49*a5*alpha/4 + a5*beta*rho/2 + 7*a5*beta/2 + a5*gamma - a6*alpha*c*rho/2 - 15*a6*alpha*c/4 - a6*beta*c/2 + a7*alpha*c**2/4 - a7
+  [u^8]: a4*delta*rho/2 + 4*a4*delta + a4*epsilon - a5*c*delta/2 + a6*alpha*rho**2/4 + 4*a6*alpha*rho + 16*a6*alpha + a6*beta*rho/2 + 4*a6*beta + a6*gamma - a7*alpha*c*rho/2 - 17*a7*alpha*c/4 - a7*beta*c/2 + a8*alpha*c**2/4 - a8
+
+Substituting rho = -3/2 - beta/alpha and alpha*c^2 = 4:
+  [u^-2] = 0
+  [u^-1] = 0
+  [u^0] = 0
+  [u^1] = 0
+  [u^2] = -a1*alpha*c/2 + alpha/16 + gamma - beta**2/(4*alpha)
+  [u^3] = 9*a1*alpha/16 + a1*gamma - a1*beta**2/(4*alpha) - a2*alpha*c - c*delta/2
+  [u^4] = (-4*a2*beta**2 + alpha*(-8*a1*c*delta + 25*a2*alpha + 16*a2*gamma - 24*a3*alpha*c + 20*delta + 16*epsilon) - 8*beta*delta)/(16*alpha)
+  [u^5] = 7*a1*delta/4 + a1*epsilon - a1*beta*delta/(2*alpha) - a2*c*delta/2 + 49*a3*alpha/16 + a3*gamma - a3*beta**2/(4*alpha) - 2*a4*alpha*c
+  [u^6] = (-8*a2*beta*delta - 4*a4*beta**2 + alpha*(36*a2*delta + 16*a2*epsilon - 8*a3*c*delta + 81*a4*alpha + 16*a4*gamma - 40*a5*alpha*c))/(16*alpha)
+  [u^7] = 11*a3*delta/4 + a3*epsilon - a3*beta*delta/(2*alpha) - a4*c*delta/2 + 121*a5*alpha/16 + a5*gamma - a5*beta**2/(4*alpha) - 3*a6*alpha*c
+  [u^8] = (-8*a4*beta*delta - 4*a6*beta**2 + alpha*(52*a4*delta + 16*a4*epsilon - 8*a5*c*delta + 169*a6*alpha + 16*a6*gamma - 56*a7*alpha*c))/(16*alpha)
+
+Recurrence form (coeff on each a_j at order [u^n]):
+  [u^2] :
+      a_1 : -alpha*c/2
+  [u^3] :
+      a_1 : 9*alpha/16 + gamma - beta**2/(4*alpha)
+      a_2 : -alpha*c
+  [u^4] :
+  [u^5] :
+      a_1 : 7*delta/4 + epsilon - beta*delta/(2*alpha)
+      a_2 : -c*delta/2
+      a_3 : 49*alpha/16 + gamma - beta**2/(4*alpha)
+      a_4 : -2*alpha*c
+  [u^6] :
+  [u^7] :
+      a_3 : 11*delta/4 + epsilon - beta*delta/(2*alpha)
+      a_4 : -c*delta/2
+      a_5 : 121*alpha/16 + gamma - beta**2/(4*alpha)
+      a_6 : -3*alpha*c
+  [u^8] :
+
+V_quad numerical check:
+  [u^2] (V_quad) = -sqrt(3)*a1 + 53/48
+  [u^3] (V_quad) = 125*a1/48 - 2*sqrt(3)*a2
+  [u^4] (V_quad) = 269*a2/48 - 3*sqrt(3)*a3 + 1
+  [u^5] (V_quad) = a1 + 485*a3/48 - 4*sqrt(3)*a4
