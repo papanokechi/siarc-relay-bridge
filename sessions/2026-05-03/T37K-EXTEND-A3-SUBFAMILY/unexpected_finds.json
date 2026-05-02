@@ -1,0 +1,29 @@
+{
+  "summary": "(2A)^2*a_1 = 4*Delta_b - 9 was a 2-point coincidence; falsified by third A=3 rep at Delta_b=-16",
+  "third_rep": {
+    "id": "T37K_A3_third",
+    "alpha": 2, "beta": 0, "gamma": 2, "delta": 0, "epsilon": 1,
+    "Delta_b": -16, "A_pred": 3, "side": "neg",
+    "source": "parametric enumeration (T37K Phase A.3)"
+  },
+  "measured_a_1_rational": "-17/4 (= -153/36)",
+  "predicted_by_relation": "-73/36",
+  "residual": "-20/9 (about -2.222...)",
+  "structural_curiosity_for_claude_review": {
+    "claim": "3-parameter linear ansatz 36*a_1 = c0 + c1*Delta_b + c2*alpha fits all 3 A=3 reps exactly with (c0, c1, c2) = (-249, 4, 80)",
+    "verification": [
+      "V_quad (alpha=3, Delta_b=-11): -249 + 4*(-11) + 80*3 = -249 - 44 + 240 = -53 = 36*(-53/36) OK",
+      "QL15  (alpha=3, Delta_b=-20): -249 + 4*(-20) + 80*3 = -249 - 80 + 240 = -89 = 36*(-89/36) OK",
+      "third (alpha=2, Delta_b=-16): -249 + 4*(-16) + 80*2 = -249 - 64 + 160 = -153 = 36*(-17/4) OK"
+    ],
+    "epistemic_status": "degenerate by counting (3 points, 3 parameters); not a claim",
+    "next_step_to_falsify_or_strengthen": "fourth A=3 rep with novel (alpha, Delta_b) tuple (e.g. alpha=1 or alpha=4 at Delta_b not in {-11, -16, -20})"
+  },
+  "denominator_pattern": {
+    "V_quad_a_1_denom": 36,
+    "QL15_a_1_denom": 36,
+    "third_a_1_denom": 4,
+    "note": "third rep (alpha=2) has denominator 4; alpha=3 reps have denominator 36. May reflect alpha-stratum structure or be a 1-rep coincidence."
+  },
+  "QL09_unchanged": "QL09 (A=4, a_1=0) is outside the A=3 sub-family scope of 017k; the Q18 anomaly is not addressed by this prompt."
+}
