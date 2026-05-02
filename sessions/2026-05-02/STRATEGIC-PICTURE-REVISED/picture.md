@@ -1,13 +1,21 @@
 # SIARC Strategic Picture — Revised
-**Revision:** v1.6 (post-006 HALT — j=0 finite-N closure deferred to retry-13param)
+**Revision:** v1.7 (post-009 PARTIAL — V_quad → P_III(D_6) Φ_resc/shift pinned; Φ_symp residual on Okamoto Lax pair)
 **Original:** 2026-05-02 18:05 JST
-**Updated:** 2026-05-02 19:25 JST  (post-006 absorption)
+**Updated:** 2026-05-02 19:30 JST  (post-009 absorption)
 **Operator:** papanokechi
 **Supersedes:** `20260502_picture.docx` (preserved as the historical
 introspective draft; this document is the formal snapshot for
 synthesizer review)
 **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
 epistemic review pass before the next firing cycle.
+
+> **🆕 Updates since v1.6 (see § 17 Amendment Log for detail):**
+> - 🟡 **Prompt 009 LANDED with verdict `G15_PARTIAL`.** V_quad's scalar OGF ODE re-derived from scratch by sympy: $3 z^3 f''(z) + 10 z^2 f'(z) + (5z + z^2 - 1) f(z) = 0$ (exact rational coefficients; Newton-polygon slope $1/2$; $c = \pm 2/\sqrt{3}$; $\zeta_* = 4/\sqrt{3}$; $\rho = -11/6$ — all exact rationals/algebraics, agreeing with the 250-digit V_quad-native measurement from Prompt 005). The change-of-variables decomposes as $\Phi = \Phi_\text{symp} \circ \Phi_\text{shift} \circ \Phi_\text{resc}$. **Φ_resc parameter $\lambda = 1/3$ pinned** by leading-exponent matching (R3-conditional on Stokes sign convention); **Φ_shift Jacobian $= 1$** (affine-shift triviality); **Φ_symp residual** — requires Okamoto 1987 (*Funkcial. Ekvac.* **30**:305–332) §§2–3 explicit `2×2` Lax pair, **not in operator's local library**. Five residuals R1–R5 documented; R5 (Lax pair) is the primary blocker. Canonical-form numerical value $C_\text{can}$ deliberately *not* produced (would require fabricating R2/R3/R5; prompt's "Do NOT fabricate" clause forbids).
+> - 🧠 **Substantive structural finding (NEW gap G17 — Claude review candidate).** V_quad's scalar ODE Hamiltonization is *linear* (Hamiltonian quadratic in $p$), while canonical $P_{III}(D_6)$ is *nonlinear* in $(q, p)$. The two Hamiltonians **live at different layers of the geometry**: V_quad's scalar ODE is the **L-equation** of an isomonodromic Lax pair (linear, frozen at the V_quad parameter point), while $P_{III}(D_6)$ is the **isomonodromic deformation** of that L-equation (nonlinear, in coordinates that are monodromy data of the Lax pair). CT v1.3 §3.5's framing "algebraic identity at Painlevé-class level only" gestures at this layer separation but does not spell it out. **Implication:** $\Phi$ cannot be a direct change-of-variables on $(f, f', z)$ — it must act on the Lax-pair monodromy variety. This sharpens the G15 statement and flags a possible CT v1.4 amendment to §3.5.
+> - 🔍 **Convention question (NEW gap G18, residual R1).** CT v1.3 §3.5's parameter point $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0) = (1/6, 0, 0, -1/2)$ does **not** satisfy the Okamoto constraint $\alpha_\infty + \alpha_0 + \beta_\infty + \beta_0 = 0$ (sums to $-1/3$). Three interpretations: (a) CT v1.3 uses a non-Okamoto convention (e.g., Sakai $E_7^{(1)}/D_7^{(1)}$ root data); (b) one entry is a spectral-type label rather than a Hamiltonian parameter; (c) the relay-prompt's quoted constraint is for a different $P_{III}(D_6)$ parametrization. **No selection without R1 resolution from Okamoto §2.** Flagged as informational anomaly, not halt-class.
+> - 📝 **NEW Prompt 015 (`T25E-VQUAD-PIII-NORM-MAP-CLOSE`) drafted.** Hard-gated on R5 (operator acquires Okamoto 1987 §§2–3 + Conte-Musette 2008 ch. 7 via the existing G3b ILL/AMS workflow). Pins R1–R4 from the literature, writes Φ_symp explicitly from the Lax-pair gauge transform, computes $J(\Phi)$ numerically, verifies $S_{\zeta_*}^\text{can}$ against Lisovyy-Roussillon's $P_{III}$ connection-problem tables to ≥ 50 digits. Estimated runtime 2–4 hr; **gates 013** (full G15 closure required for `G15_CLOSED`).
+> - 🟢 **Prompt 014 (`T2.5d-RETRY-13PARAM`) remains highest-leverage tiny-compute slot** for the next compute window — unchanged from v1.6.
+> - 📊 **Status:** P-CC `op:cc-formal-borel` is now **PARTIAL** (Φ_resc/shift pinned; Φ_symp residual; symbolic decomposition documented). Full closure is operator-side gated (literature acquisition), not compute-side. M6 canonical-form completion deferred to Prompt 015.
 
 > **🆕 Updates since v1.5 (see § 16 Amendment Log for detail):**
 > - 🛑 **Prompt 006 HALTED with verdict `AMBIGUOUS_AT_DPS8000`.** Formal halt fired because the 5-parameter LIN/EXP ansatz pair disagree on $A$ by $\sim 2.3 \times 10^{-6}$ at $N=1200$ — far above the spec's $1 \times 10^{-30}$ threshold. **`op:j-zero-amplitude-h6` remains OPEN.**
@@ -159,27 +167,34 @@ across the corresponding session folders. CT v1.3 SHA-256
 
 ### 2.3 In-flight / open
 
-- 12 prompts staged at `tex/submitted/control center/prompt/`
-  (001–007 + 009/010/012/013 drafted; 008 + 011 reserved;
-  🆕 014 drafted post-006 HALT). See §6 for current status.
+- 13 prompts staged at `tex/submitted/control center/prompt/`
+  (001–007 + 009/010/012/013/014 drafted/fired; 008 + 011 reserved;
+  🆕 015 drafted post-009 PARTIAL — gated on operator literature
+  acquisition). See §6 for current status.
 - **6 fired and complete this cycle:** 001, 003, 004, 005, 006*, 007.
   *006 fired with HALT verdict — see "HALTED" line below.
+- 🆕 **1 fired and PARTIAL this cycle:** 009 (verdict `G15_PARTIAL`;
+  Φ_resc + Φ_shift pinned; Φ_symp residual on Okamoto Lax pair).
 - **2 fired and HALTED this cycle:** 002 (verdict
-  `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`) and 🆕 006 (verdict
+  `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2`) and 006 (verdict
   `AMBIGUOUS_AT_DPS8000`). See §6.
 - **0 remaining ready-to-fire from the original 7-prompt queue**
   (006 just landed with HALT).
-- **4 drafted-ready math-closure prompts:** 009 (G15), 010 (G6b),
-  012 (G2), 013 (P-CC formal closure; gated on 009).
-- 🆕 **1 drafted-ready retry prompt:** 014 (T2.5d-RETRY-13PARAM;
+- **3 drafted-ready math-closure prompts:** 010 (G6b), 012 (G2),
+  013 (P-CC formal closure; previously gated on 009 → now
+  extended-gated on full G15 closure via 015).
+- **1 drafted-ready retry prompt:** 014 (T2.5d-RETRY-13PARAM;
   refit-only; gates the formal closure of M7 / G5).
+- 🆕 **1 drafted but operator-gated prompt:** 015 (T25E-VQUAD-PIII-
+  NORM-MAP-CLOSE; ~2–4 hr; gated on R5 = Okamoto 1987 §§2–3 Lax
+  pair via the G3b ILL/AMS workflow).
 - **t1-phase-2-bt-apply** (Prompt 008, conditional; not yet
   drafted) is BLOCKED on primary-source acquisition + Claude's
   H1 label arbitration.
 - **pcf1-v13-reconcile** (Prompt 011, future) — operator
   decision required: bump to v1.4 OR recover v1.3 source
   snapshot. Gates 002.
-- 24 SQL todos pending; 19 done; 1 blocked (44 total at v1.6).
+- ~24 SQL todos pending; ~20 done; 1–2 blocked (44+ total at v1.7).
 
 ### 2.4 Recently closed (this cycle)
 
@@ -207,6 +222,19 @@ across the corresponding session folders. CT v1.3 SHA-256
   spec threshold. Compute was 35 s (vs 6–10 hr estimate).
   M7 not formally achieved; closure deferred to Prompt 014
   (refit with 13-param ansatz on saved CSVs).
+- 🆕 🟡 **Prompt 009 PARTIAL — `G15_PARTIAL`.** V_quad scalar ODE
+  re-derived from scratch (sympy-exact: $3z^3 f'' + 10z^2 f' +
+  (5z + z^2 - 1) f = 0$); Newton-polygon slope $1/2$; $c =
+  \pm 2/\sqrt{3}$; $\rho = -11/6$ — all exact rationals/algebraics
+  matching CT v1.3 §3.5. Φ_resc parameter $\lambda = 1/3$ pinned
+  (R3-conditional). Φ_shift Jacobian $= 1$. Φ_symp **residual**
+  on R5 (Okamoto 1987 §§2–3 Lax pair, not in local library).
+  $C_\text{can}$ deliberately *not* numerically computed (no
+  fabrication; prompt forbids). Substantive structural finding:
+  V_quad scalar ODE vs $P_{III}(D_6)$ Hamiltonian live at
+  different layers (L-equation vs isomonodromic deformation
+  thereof). M6 canonical-form completion deferred to Prompt 015
+  once R5 acquired.
 
 ---
 
@@ -216,7 +244,7 @@ across the corresponding session folders. CT v1.3 SHA-256
 |-----|---------|------------|--------|
 | **P-NP**  | Newton-polygon universality $\xi_0=d/\beta_d^{1/d}$ at all $d \ge 2$ | D2-NOTE (Prompt 004) for $d=2,4$; downstream proof for general $d$ | $d=2$ PROVEN; $d=4$ VERIFIED; $d=3$ DEFERRED; general-$d$ CONJECTURED |
 | **P-B4**  | Conjecture B4: $A_n(b) = 2d$ unsplit at $d \ge 3$ | T1 Phase 1 lit review (003) ✅ → Phase 2 B-T application (BLOCKED on primary sources + H1 arbitration) | EMPIRICAL d=3,4; LITERATURE BRACKET $A \in [d, 2d]$; H1 fleet label DISPUTED |
-| **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) ✅ → V_quad → P_III(D_6) normalization map (G15) → `op:cc-formal-borel` | algebraic identity DONE (CT v1.3 §3.5); Stokes-side **MEASURED** in V_quad native normalization at 108 digits (Prompt 005); canonical-form Stokes data PENDING G15 |
+| **P-CC**  | $V_{\mathrm{quad}} \to P_{\mathrm{III}}(D_6)$ formal closure (channel theory) | H4 execution (Prompt 005) ✅ → V_quad → P_III(D_6) normalization map (Prompt 009) 🟡 PARTIAL → V_quad-PIII-NORM-MAP-CLOSE (Prompt 015, R5-gated) → `op:cc-formal-borel` | algebraic identity DONE (CT v1.3 §3.5); Stokes-side **MEASURED** in V_quad native normalization at 108 digits (Prompt 005); G15 PARTIAL: Φ_resc ($\lambda=1/3$) + Φ_shift pinned, Φ_symp residual on R5 (Okamoto 1987 Lax pair); canonical-form $C_\text{can}$ pending Prompt 015 |
 | **P-PET** | Petersson modular discriminant axis as the canonical $d=3$ stratification coordinate | T2 PASSED; T2.5d (Prompt 006) attempted j=0 closure → HALTED at 7-digit precision; T2.5d-RETRY (Prompt 014, drafted) closes j=0 endpoint formally | T2 PASSED; $j=0$ AMBIGUOUS-AT-FINITE-N (5-param ansatz; $A=6 \pm 2 \times 10^{-7}$ supported empirically); 30-digit closure pending Prompt 014 |
 | **P-PIII** | Painlevé reduction landscape at $d=2$ and $d=3$ (per-family classification) | T3 Conte–Musette test (007) ✅ → T3 Stokes-multiplier follow-up (Prompt 010, future) | $d=2$ uniformly `P_III(D_6)`; $d=3$ uniformly `PAINLEVE_UNCLASSIFIED`; **H3 negatively closed** (Conte–Musette test is sign-of-$\Delta$ invariant; PCF-1 dichotomy lives at the Stokes-multiplier level) |
 | **P-MC**  | Master conjecture: $\Phi$ classifies PCF asymptotics | Gated on P-NP + P-B4 + P-CC | NOT YET FORMALLY STATED |
@@ -256,8 +284,12 @@ M6: V_quad alien amplitude S_{zeta*} measured at 30+ digits
               C = 8.12733679...; S_{zeta*} = 2 pi i C ~ 51.0656 i;
               beta = 0 (logarithmic Borel singularity, refines H4).
     Caveat: measurement is in V_quad native normalization;
-            canonical P_III(D_6) form awaits G15 (vquad-pIII-norm-map).
-    [Prompt 005, ready to fire]
+            canonical P_III(D_6) form PARTIAL via Prompt 009
+            (Φ_resc + Φ_shift pinned; Φ_symp residual on R5 =
+            Okamoto 1987 §§2-3 Lax pair). Full closure via
+            Prompt 015 once operator acquires Okamoto 1987 +
+            Conte-Musette ch. 7 (G3b workflow).
+    [Prompt 005 ✅ DONE; Prompt 009 🟡 PARTIAL; Prompt 015 drafted]
                           │
                           ▼
 M7: j=0 Chowla–Selberg Gamma(1/3) closure (or A=6 artefact ruled out)
@@ -317,7 +349,7 @@ canonical artefact).
 | **G3a** | Conjecture B4 ($A_n = 2d$) literature bracket $A \in [d, 2d]$ established (was: "lacks proof") | HIGH | ✅ T1 Phase 1 complete (003); literature bracket pinned, Adams reading favored by empirics |
 | **G3b** 🆕 | Wasow-vs-Adams normalization match unresolved from secondary sources (BLOCKER for Phase 2) | HIGH | Operator: ILL/AMS request for B-T 1933 + Adams 1928 + Wasow §X.3 → Phase 2 (Prompt 008, future) |
 | **G4**  | $V_{\mathrm{quad}}$ alien amplitude $S_{\zeta_*}$ is a *theoretical prediction* (H4), not a measurement | HIGH | ✅ **Prompt 005 PASSED 2026-05-02** — measured at 108 digits in V_quad native normalization. Canonical-form value awaits G15. |
-| **G15** 🆕 | V_quad → P_III(D_6) normalization map for Stokes data not written out (CT v1.3 §3.5 only matches at Painlevé-class level) | HIGH | New tracked item `vquad-pIII-normalization-map` — symbolic, medium tractability, gates `op:cc-formal-borel` |
+| **G15** 🆕 | V_quad → P_III(D_6) normalization map for Stokes data not written out (CT v1.3 §3.5 only matches at Painlevé-class level) | HIGH | 🟡 PARTIAL 2026-05-02 (Prompt 009 verdict `G15_PARTIAL`): Φ_resc ($\lambda=1/3$) + Φ_shift Jacobian pinned; Φ_symp residual on R5 (Okamoto 1987 §§2–3 Lax pair, not in local library); 5 residuals R1–R5 documented; full closure via Prompt 015 (drafted-ready, gated on operator G3b literature acquisition) |
 | **G5**  | $j=0$ amplitude finite-$N$ ambiguity (`op:j-zero-amplitude-h6`); $A \to 6$ vs $\Gamma(1/3)$ closure | MED  | 🛑 Prompt 006 HALTED 2026-05-02 (`AMBIGUOUS_AT_DPS8000`; 5-param ansatz caps $A$-precision at ~7 digits); $A=6 \pm 2\times 10^{-7}$ supported empirically with monotone $N$-convergence; formal 30-digit closure pending Prompt 014 (refit with 13-param ansatz) |
 | **G6a** | Conte–Musette algorithmic Painlevé test on $d=2,3$ catalogues | MED  | ✅ Prompt 007 complete (60/60 LABELED) |
 | **G6b** 🆕 | PCF-1 v1.3 §3 sign-of-$\Delta_b$ dichotomy ($A=4$ vs $A=3$) lives below the Painlevé-class resolution scale; Conte–Musette test is invariant under sign of $\Delta_b$ | MED | Prompt 010 ✅ DRAFTED 2026-05-02 (Stokes-multiplier discrimination via t2c-style precision escalation) |
@@ -330,6 +362,8 @@ canonical artefact).
 | **G13** 🆕 | Channel Theory v1.3 source carries `\author{The SIARC author}` literal placeholder — arXiv will reject record #4 | HIGH | Operator: replace with real-name+affiliation block already used in PCF-2 v1.3 / umbrella v2.0; verify via grep on `tex/submitted/` |
 | **G14** 🆕 | Endorsement-request templates for math.NT records #2, #4 are skeletons; no real endorser arXiv handles populated | MED  | Operator: identify ~3 plausible math.NT endorsers, look up their arXiv user-id strings, populate the two templates |
 | **G16** 🆕 | **Spec-vs-precision-floor mismatch** — 5-parameter $1/n$ ansatz at $N=1200$ caps $A$-fit precision at $\sim 7$ digits (model truncation $O(1/N^2)$); the 30-digit formal threshold required by `op:j-zero-amplitude-h6` needs $\geq 13$ parameters. Generalises to any deep-WKB closure operator. | LOW–MED | Prompt 014 ✅ DRAFTED (refit-only; structural fix); future operators of this form should pre-compute the parameter-count floor from the desired digit threshold |
+| **G17** 🆕 | **Layer separation**: V_quad scalar OGF ODE (linear; Hamiltonization quadratic in $p$) vs canonical $P_{III}(D_6)$ Hamiltonian (nonlinear in $(q,p)$) — the two live at *different* geometric layers (L-equation vs its isomonodromic deformation). $\Phi$ acts on Lax-pair monodromy data, not on $(f, f', z)$ directly. CT v1.3 §3.5 implicitly knew this ("algebraic identity at Painlevé-class level only") but does not spell it out. | MED (epistemic / framing) | Operator/Claude decision: should CT v1.4 amend §3.5 to spell out the L-equation vs isomonodromic-deformation distinction? Prompt 015 will treat the layer structure as a working assumption regardless. |
+| **G18** 🆕 | **Okamoto-constraint mismatch on $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0) = (1/6, 0, 0, -1/2)$**: the four numbers sum to $-1/3$, not $0$ — the Okamoto $\alpha + \alpha + \beta + \beta = 0$ constraint quoted in the relay-prompt brief is not satisfied. Three interpretations (CT v1.3 internal vs Sakai vs different parametrization). | LOW (convention) | Operator: pin from Okamoto 1987 §2 (R1) once acquired; possibly resolves trivially as a different parametrization convention. Flagged informational, not halt-class. |
 
 Severity legend:
 - **HIGH** — blocks a paper, blocks a downstream proof, or
@@ -356,12 +390,13 @@ milestones (see § 4).
 | 006 | T2.5d — $j=0$ Chowla–Selberg closure | G5 | M7 | 🛑 HALTED 2026-05-02 (`AMBIGUOUS_AT_DPS8000`; A=6 ± 2e-7 across 4 families, monotone-converging; 5-param ansatz caps precision at ~7 digits; spec 30-digit threshold not met) | low (35 s; structurally faster than estimate) | INDEPENDENT |
 | 007 | T3 — Conte–Musette Painlevé test on $d=2,3$ catalogues | G6a | M8 | ✅ DONE 2026-05-02 (60/60 LABELED; H3 negatively closed) | medium (symbolic) | — |
 | 008 | T1 Phase 2 — B-T applied to $\delta_n$ (proves B4 at $d \ge 3$) | G3b | M4 | 🛑 BLOCKED (G3b primary sources + G11 H1 arbitration); slot reserved | medium | gated |
-| 009 🆕 | V_quad → P_III(D_6) normalization map (change-of-variables Φ; apply to 005's $C$ to report $S_{\zeta_*}^{\text{can}}$) | G15 | M6 (canonical-form completion); gates 013 | ✅ DRAFTED 2026-05-02; ready | low (symbolic) | INDEPENDENT |
+| 009 | V_quad → P_III(D_6) normalization map (change-of-variables Φ; apply to 005's $C$ to report $S_{\zeta_*}^{\text{can}}$) | G15 (partial), G17, G18 | M6 (canonical-form PARTIAL); 013 now gated on 015 | 🟡 PARTIAL 2026-05-02 (`G15_PARTIAL`; Φ_resc + Φ_shift pinned; Φ_symp residual on R5; substantive layer-separation finding) | low (symbolic; ~75 min agent) | INDEPENDENT |
 | 010 🆕 | T3.5 — Stokes-multiplier discrimination (t2c-style high-dps connection coefficients to resolve sign-of-$\Delta_b$ dichotomy) | G6b | M8b | ✅ DRAFTED 2026-05-02; ready | medium–high (mpmath dps≥150) | INDEPENDENT |
 | 011 | PCF1-V13-RECONCILE — operator-decision-driven; resolve PCF-1 v1.3 source drift before re-running 002 | G12 | distribution layer | future (slot reserved; not yet drafted; gated on operator option-(a)/(b) decision) | low | gated |
 | 012 🆕 | $\xi_0$ at $d=3$ direct — per-Galois-bin Newton-polygon test of D2-NOTE Conj 3.3.A* on cubic representatives | G2 | (M1 follow-on; supports P-NP) | ✅ DRAFTED 2026-05-02; ready | low (mpmath dps=80) | INDEPENDENT |
 | 013 🆕 | CC formal Borel close — closed-form $\mathcal{B}[V_{\text{quad}}]$ in canonical $P_{III}(D_6)$ coordinates (composes 005's $C$ + 009's Φ); flips CT v1.3 §3.5 status to "DIAGNOSED" | (P-CC formal closure) | (P-CC final close) | ✅ DRAFTED 2026-05-02; **HARD-GATED on 009** | low–medium (symbolic + numerical 3-point) | gated on 009 |
 | 014 🆕 | T2.5d-RETRY-13PARAM — refit saved $y_n$ CSVs with 13-param ansatz; targets $\|\delta_\text{lin}\| < 10^{-15}$, then runs Phase D PSLQ on Chowla–Selberg basis | G5, G16 | M7 (formal closure) | ✅ DRAFTED 2026-05-02; ready (no new `cf_value` calls; uses `Qn_j0_dps25000_N1200_fam{30..33}.csv` from 006) | low (~5–20 min agent; pure refit + PSLQ) | INDEPENDENT |
+| 015 🆕 | T25E-VQUAD-PIII-NORM-MAP-CLOSE — pins R1–R4 from Okamoto/Conte-Musette; writes Φ_symp from Lax-pair gauge transform; computes $J(\Phi)$ numerically; verifies $S_{\zeta_*}^\text{can}$ against Lisovyy-Roussillon tables to ≥ 50 digits | G15 (full closure), G18 | M6 (canonical-form full closure); unblocks 013 | ✅ DRAFTED 2026-05-02; **GATED on R5** (operator G3b acquisition of Okamoto 1987 + Conte-Musette ch. 7) | low–medium (~2–4 hr agent; symbolic + literature) | gated on operator literature |
 
 **Concurrency map** (validated this cycle for the original 7-prompt subset):
 
@@ -387,25 +422,35 @@ member of the batch that is compute-heavy (mpmath dps≥150 on
 low-compute symbolic + light-numerical.
 
 **Recommended firing layout for the *next* compute window
-(post-006 HALT; v1.6 status):**
+(post-009 PARTIAL; v1.7 status):**
 - Slot 1: **014** (5–20 min refit; closes G5 + G16 formally;
   M7 formal achievement). Highest leverage now: tiny compute,
   immediate unlock of Phase D PSLQ on the saved CSVs.
-- Slot 2 (parallel with 014): **009** (low-compute symbolic;
-  closes G15; gates 013).
-- Slot 3 (parallel with 014 + 009): **012** (low-compute
-  numerical; closes G2). All three are mutually independent.
-- Slot 4: **010** (medium–high compute; closes G6b).
-  Independent of 009/012/014 but the heaviest member of
-  this batch.
-- Slot 5 (after 009 lands with `G15_CLOSED`): **013** (formal
-  P-CC closure; composes 005 + 009).
+- Slot 2 (parallel with 014): **012** (low-compute numerical;
+  closes G2). Mutually independent of 014.
+- Slot 3 (parallel with 014 + 012): **010** (medium–high
+  compute; closes G6b). Independent of 014 + 012.
+- Slot 4 (operator-side, runs in parallel with 014/012/010):
+  **G3b literature acquisition** — Okamoto 1987 §§2–3 (~10 pp)
+  + Conte-Musette 2008 ch. 7 §§7.3–7.4 (~25 pp) via the
+  existing ILL/AMS workflow. **This unblocks Prompt 015** and
+  the full G15 closure path; both are standard library items.
+- Slot 5 (after R5 acquired): **015** (T25E-VQUAD-PIII-NORM-
+  MAP-CLOSE; ~2–4 hr; closes G15 fully).
+- Slot 6 (after 015 lands with `G15_CLOSED`): **013** (formal
+  P-CC closure; composes 005 + 009 + 015).
 - **Prompt 002 stays HALTED** until G12 + G13 + G14 are closed.
   Re-fire only against either (a) the new v1.4 DOI for record
   #2 or (b) the recovered v1.3 source snapshot. The other 4
   records' deliverables remain valid and can be reused (their
   hashes are already AEAL-logged in the local
   `ARXIV-MIRROR-RUNBOOK/claims.jsonl`).
+
+**Note (v1.7):** 013 is now hard-gated on **full G15 closure**,
+which requires Prompt 015 to land cleanly (i.e., R5 acquired
+and $S_{\zeta_*}^\text{can}$ verified against Lisovyy-Roussillon
+tables). The 009-only `G15_PARTIAL` verdict does *not* unblock
+013 by itself.
 
 Operator-side parallel actions (independent of compute slots):
 - **Zenodo upload of D2-NOTE** (operator; ~10 min via the
@@ -619,6 +664,39 @@ deferred):
     \log_{10} N - 1$)? If yes, this is a structural amendment
     to the AEAL / op-design discipline (carries to all
     future deep-WKB ops).
+16. 🆕 **(v1.7) Layer separation between scalar OGF ODE and
+    isomonodromic deformation.** Prompt 009's substantive
+    structural finding: V_quad's scalar OGF ODE is the
+    **L-equation** of an isomonodromic Lax pair (linear,
+    frozen at the V_quad parameter point), while $P_{III}(D_6)$
+    is the **isomonodromic deformation** of that L-equation
+    (nonlinear, in coordinates that are monodromy data of the
+    Lax pair). $\Phi$ therefore cannot be a direct
+    change-of-variables on $(f, f', z)$ — it acts on the
+    Lax-pair monodromy variety. CT v1.3 §3.5's framing
+    "algebraic identity at Painlevé-class level only" gestures
+    at this layer separation but does not spell it out.
+    **Question:** should CT v1.4 amend §3.5 to spell out the
+    L-equation vs isomonodromic-deformation distinction
+    explicitly? If yes, this is a CT v1.4 amendment candidate
+    (operator/Claude decision territory, not agent territory).
+    For the synthesizer: this is also the principal reason
+    Prompt 015 needs the Lax pair (R5) — the canonical-form
+    transform Φ is a gauge transformation on the Lax pair, not
+    a coordinate change on the scalar ODE.
+17. 🆕 **(v1.7) CT v1.3 §3.5 parameter-convention pinning.**
+    The $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0) =
+    (1/6, 0, 0, -1/2)$ point quoted in CT v1.3 §3.5 sums to
+    $-1/3$, not $0$, so it does *not* satisfy the Okamoto
+    constraint $\alpha_\infty + \alpha_0 + \beta_\infty +
+    \beta_0 = 0$. Three interpretations (Sakai $E_7^{(1)} /
+    D_7^{(1)}$ root data; one entry is a spectral-type label;
+    different parametrization convention) are open until R1
+    is pinned from Okamoto 1987 §2. **Question:** should CT
+    v1.4 explicitly state which convention §3.5 uses? The
+    constraint mismatch does not contradict any numerical
+    result in CT v1.3, but does block a clean comparison
+    against external $P_{III}(D_6)$ Stokes-data tables.
 
 ---
 
@@ -665,6 +743,84 @@ e96641c         T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (003)     [verdict GAPTYPE_C]
 e33db9e         STRATEGIC-PICTURE-REVISED (this doc, v1.0)
 8be2f17         CHANNEL-THEORY-V13-RELEASE (post-publish edits)
 ```
+
+---
+
+## 17. Amendment Log (v1.6 → v1.7)
+
+**Updated:** 2026-05-02 19:30 JST
+**Trigger:** completion of Prompt 009 (VQUAD-PIII-NORMALIZATION-MAP)
+with verdict `G15_PARTIAL` (Φ_resc + Φ_shift pinned; Φ_symp
+residual on Okamoto 1987 §§2–3 Lax pair).
+
+**Substantive changes:**
+
+| Section | v1.6 → v1.7 |
+|---------|-------------|
+| Header  | Revision bumped v1.6 → v1.7. New v1.6 → v1.7 callout block prepended above v1.5 → v1.6 block. Earlier callouts retained for the synthesizer's full audit trail. |
+| § 2.3 (in-flight) | "12 prompts" → "13 prompts" (added 015). New "1 fired and PARTIAL" line for Prompt 009. "4 drafted-ready math-closure prompts" → "3 drafted-ready" (009 moved to PARTIAL). New entry for Prompt 015 (drafted but operator-gated on R5). Prompt 014 entry retained unchanged. |
+| § 2.4 (recently closed) | Added Prompt 009 PARTIAL line with the headline structural finding (V_quad scalar ODE re-derived; Φ_resc/shift pinned; Φ_symp residual on Okamoto Lax pair; layer-separation insight; no fabricated $C_\text{can}$). |
+| § 3 P-CC row | Inserted Prompt 009 PARTIAL into the closure path: `005 ✅ → 009 🟡 → 015 R5-gated → op:cc-formal-borel`. Status text revised to spell out "Φ_resc + Φ_shift pinned, Φ_symp residual on R5". |
+| § 4 M6 caveat | Updated: canonical-form completion is now PARTIAL (009); full closure via Prompt 015 once operator acquires Okamoto 1987 + Conte-Musette ch. 7 via G3b workflow. |
+| § 5 G15 row | Status revised: "✅ DRAFTED" → "🟡 PARTIAL (Prompt 009): Φ_resc + Φ_shift pinned; Φ_symp residual on R5; full closure via Prompt 015". |
+| § 5 NEW row G17 | **Layer separation** between V_quad scalar OGF ODE (linear; L-equation) and canonical $P_{III}(D_6)$ Hamiltonian (nonlinear; isomonodromic deformation thereof). Φ acts on Lax-pair monodromy data, not on $(f, f', z)$. CT v1.4 amendment candidate. |
+| § 5 NEW row G18 | **Okamoto-constraint mismatch** on (1/6, 0, 0, -1/2) parameter point (sums to -1/3, not 0). Convention question; informational, not halt-class. |
+| § 6 prompts table | 009 row marked PARTIAL with verdict + structural-finding callout. New row 015 (T25E-VQUAD-PIII-NORM-MAP-CLOSE; drafted; gated on R5). 14 → 15 rows. |
+| § 6 firing layout | Rewritten: 013's hard-gate clarified (now requires *full* G15 closure via 015, not just the 009 PARTIAL). NEW Slot 4 (operator-side G3b literature acquisition), NEW Slot 5 (Prompt 015 once R5 acquired), Slot 6 = 013. 014 + 012 + 010 remain in parallel slots 1–3. |
+| § 8 open questions | Added Q16 (layer separation; CT v1.4 amendment candidate) and Q17 (parameter-convention pinning; R1 from Okamoto §2). |
+| § 17 (this section) | NEW. |
+
+**Unchanged:**
+
+§ 1 (mission statement), § 7 (decision tree), § 9 (AEAL hygiene),
+the publication ladder table (§ 2.1), the empirically verified
+list (§ 2.2), and the publication-ladder/concurrency-map
+infrastructure of § 6 are intact. The 7×7 concurrency map (§ 6)
+is retained unchanged (Prompt 015 documented as gated on operator
+literature acquisition; the matrix cell-pattern between
+001–007 is unaffected). Prompts 001/003/004/005/006/007 status
+descriptions in § 2.4 / § 4 / § 6 are carried forward verbatim.
+Prompt 014 status text is unchanged.
+
+**Headline AEAL findings recorded (V_quad scalar ODE side):**
+
+- $3 z^3 f''(z) + 10 z^2 f'(z) + (5z + z^2 - 1) f(z) = 0$ —
+  exact rational coefficients, sympy-verified from the
+  $b_n = 3n^2 + n + 1$ recurrence (`verify_vquad_ode.py` /
+  log sha256 `9c6c7865…e451213`).
+- Newton polygon at $z=0$: single edge of slope $1/2$
+  (rank-$1/2$ irregular singularity); exact.
+- Characteristic exponent: $c = \pm 2/\sqrt{3}$; exact algebraic.
+- Borel-plane singular distance: $\zeta_* = 4/\sqrt{3}$; exact
+  algebraic (matches Prompt 005 measurement to 250 digits).
+- Secondary Birkhoff exponent: $\rho = -11/6$; exact rational.
+- $\Phi_\text{resc}$ parameter $\lambda = c_0^2 / 4 = 1/3$
+  (exact, R3-conditional on Stokes-sign convention).
+- $\Phi_\text{shift}$ Jacobian on Stokes data: $1$ (exact;
+  affine-shift triviality).
+- $\Phi_\text{symp}$ Jacobian: NOT computed (residual R5).
+- $C_\text{can}$, $S_{\zeta_*}^\text{can}$: NOT numerically
+  computed in Prompt 009 (no fabrication; deferred to
+  Prompt 015 once R5 acquired).
+
+**Residuals on G15 (5 documented in `phi_change_of_variables.tex`):**
+
+- **R1**: convention pinning of $(\alpha_\infty, \alpha_0,
+  \beta_\infty, \beta_0) = (1/6, 0, 0, -1/2)$ from CT v1.3 vs
+  Okamoto vs Sakai — needs Okamoto 1987 §2.
+- **R2**: trans-series leading prefactor of $P_{III}(D_6)$ at
+  $t=0$ — needs Okamoto 1987 §3 eq. (3.7).
+- **R3**: Stokes-multiplier sign and phase convention — needs
+  Lisovyy-Roussillon 2017 §4.
+- **R4**: cross-check on R1, R2 — Conte-Musette 2008 ch. 7
+  §§7.3-7.4.
+- **R5** (PRIMARY BLOCKER): explicit `2×2` Lax pair for
+  $P_{III}(D_6)$ — Okamoto 1987 §§2-3 (preferred) or
+  Jimbo-Miwa 1981 §3 (alternate route).
+
+All five have known-citable references in standard ILL/AMS-
+accessible journals; the operator's existing G3b workflow
+handles this.
 
 ---
 
@@ -1018,4 +1174,4 @@ v1.1 update only changes *the path to P-B4*, not the goal.
 
 ---
 
-*End of revised picture (v1.6).*
+*End of revised picture (v1.7).*
