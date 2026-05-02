@@ -1,0 +1,22 @@
+{
+  "spec_vs_canonical_artifact": [
+    {
+      "phase": "A5/E1",
+      "spec_says": "count of '^19. Filename:' lines must be 0 pre-splice, 1 post-splice",
+      "actual": "count is 1 pre-splice (journal item 19 at line 133, pcf_desert_negative_result.pdf), will be 2 post-splice",
+      "interpretation": "applied corrected derived delta +1 (pre=1 -> post=2). The journal-section match is unrelated to the Zenodo-subsection Item 19 being spliced."
+    },
+    {
+      "phase": "E4",
+      "spec_says": "continuation-line indent on every spliced continuation line is exactly 11 spaces",
+      "actual": "indent histogram of spliced block: {0: 1, 4: 8, 11: 17, 12: 2, 23: 55, 19: 13, 24: 2}",
+      "interpretation": "the canonical Item 18 (and the bridge patch's Item 19) use a mixed-indent scheme (4/11/12/19/23/24 spaces) for primary keys vs. wrap continuations; the spec's '11 spaces always' rule is not consistent with the canonical Item 17/18 it points to. Verified instead that the spliced block is byte-equal to the bridge patch's Item 19 block modulo the single __VERSION_DOI__ -> 10.5281/zenodo.19972394 substitution."
+    },
+    {
+      "phase": "E6",
+      "spec_says": "byte_count_delta in [7000, 9000]",
+      "actual": "byte_delta = 6253",
+      "interpretation": "the canonical bridge patch's Item-19 block is 6251 bytes (98 lines + 1 trailing blank, log_nl='\\r\\n'); the spec author's [7000, 9000] range was an overestimate. Replaced with derived check pre + (sep+block bytes) == post; PASSED."
+    }
+  ]
+}

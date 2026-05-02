@@ -1,0 +1,6 @@
+{
+  "finds": [
+    "Spec PHASE A5 expected '^19. Filename:' count == 0 pre-splice, but the journal-section Item 19 (pcf_desert_negative_result.pdf, line 133) also matches that regex, so actual pre count is 1. Used corrected derived delta (+1) and confirmed the post-splice second match is the new channel_theory_outline_v1.3.pdf entry.",
+    "Spec PHASE E4 stated continuation-line indent is exactly 11 spaces, but Item 18 (siarc_umbrella_v2.0) and the bridge patch's Item 19 both use a mixed-indent scheme (4-space primary keys, 11/12/19/23/24-space wrap continuations). The 'exactly 11 spaces' rule, taken literally, would have rejected the canonical bridge patch. Substituted equivalence-to-canonical-patch check."
+  ]
+}
