@@ -1,0 +1,84 @@
+SUBMISSION LOG patch — item 18 (SIARC umbrella v2.0 release)
+============================================================
+Source: sessions/2026-05-02/SIARC-UMBRELLA-V2-RELEASE/
+Patch type: append a new item-18 block to the Zenodo subsection of
+            tex/submitted/submission_log.txt (immediately after item 17).
+Note:       items 1–17 remain unchanged. This patch is APPEND-ONLY per
+            the AEAL append-only history requirement; v1 child DOI is
+            retained as a superseded child line inside item 18.
+
+APPEND BLOCK (paste verbatim AFTER the current item 17, in the Zenodo
+subsection of tex/submitted/submission_log.txt):
+
+18. Filename: siarc_umbrella_v2.0.pdf
+    Title: An Arithmetic Stratification of Polynomial Continued
+           Fractions — v2.0 (Modular-Discriminant Framing)
+    Series: P-9 / SIARC umbrella program statement (12pp v2.0)
+    Submitted on: 2nd May 2026
+    Status: Published on Zenodo (Version 2.0 current)
+    Submission ID: DOI 10.5281/zenodo.__VERSION_DOI__  (v2.0, current — 12pp,
+                       refactors the umbrella around the post-T2
+                       cross-degree invariant triple
+                       (Δ_d, ‖Δ‖_Pet, ξ_0); integrates PCF-1 v1.3,
+                       PCF-2 v1.3, Channel Theory v1.2, and the
+                       polished standalone j-invariant note. New §4
+                       Cross-Degree Framing with subsections on each
+                       axis and the E / P_k / B cell decomposition;
+                       refreshed Open Problems list (op:finer-cubic-split
+                       closed; new op:j-zero-amplitude-h6,
+                       op:j-1728-wedge, op:shallow-j-effect-d4,
+                       prob:b4-allD, prob:modular-discriminant-
+                       stratification, prob:Pk-cells-structure,
+                       prob:median-resurgence-extension,
+                       op:chi-Phi-compatibility); Companion Papers
+                       table extended 7 → 16 entries
+                       (Published / Drafting / Carried-over);
+                       AI Disclosure rewritten around multi-agent
+                       fleet methodology; bibliography extended with
+                       PCF-1 / PCF-2 / CT / jSN / Birkhoff 1930 /
+                       Birkhoff–Trjitzinsky 1933 / Chowla–Selberg 1967.
+                       Purely additive revision: no v1 claim
+                       retracted. Build clean: 12pp, 0 errors,
+                       0 missing citations, 0 unresolved
+                       cross-references.)
+                   DOI 10.5281/zenodo.19885550 (v1, concept DOI,
+                       superseded; v1 was the only previously
+                       published version)
+                   Cite-all DOI: 10.5281/zenodo.19885550
+    Related identifiers:
+                   Is new version of → 10.5281/zenodo.19885550 (v1)
+                   References → 10.5281/zenodo.19931635 (PCF-1 concept;
+                       v1.3 at 10.5281/zenodo.19937196)
+                   References → 10.5281/zenodo.19936297 (PCF-2 concept;
+                       v1.3 at 10.5281/zenodo.19963298)
+                   References → 10.5281/zenodo.19941678 (Channel Theory
+                       concept; v1.2 at 10.5281/zenodo.19951331)
+                   References → 10.5281/zenodo.19783311 (T2B concept;
+                       v3.0 at 10.5281/zenodo.19915689)
+                   Is supplemented by → arXiv:__ARXIV_ID__ (standalone
+                       j-invariant note; forthcoming, math.NT)
+                   Is documented by → https://github.com/papanokechi/siarc-relay-bridge
+                       (sessions/2026-05-02/SIARC-UMBRELLA-V2-RELEASE/)
+                   Is documented by → https://github.com/papanokechi/pcf-research
+    Verdict: N/A
+    Notes: Substrate program statement that downstream program-level
+           papers (D1-PAPER, D2-NOTE, SIARC-MASTER-V0, D7-AEAL) cite
+           as "[SIARC v2.0, §X]". Carries the full v1 four-tier
+           hierarchy and Trans-Stratum two-class conjecture, plus
+           the new cross-degree invariant triple of §4 and the
+           refreshed Open Problems list. v2.0 supersedes v1; concept
+           DOI preserved (10.5281/zenodo.19885550). Closes the
+           Fleet-F audit caveat F2-M3 (stale (2,1)-only framing prose
+           carried from v1).
+
+NOTES
+-----
+- The v2.0 child DOI is reserved on upload; replace
+  __VERSION_DOI__ with the minted DOI returned by Zenodo's
+  "Publish" action (Phase D of SIARC-UMBRELLA-V2-RELEASE).
+- v1 line is retained as a superseded entry under
+  "Submission ID:" (per AEAL append-only history requirement); v1
+  was the only previously published version of the umbrella.
+- The arXiv ID for the standalone j-invariant note is reserved
+  (placeholder __ARXIV_ID__) and will be back-filled in a follow-up
+  session once the note is posted to math.NT.
