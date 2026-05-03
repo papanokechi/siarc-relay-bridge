@@ -1,0 +1,544 @@
+================================================================
+SIARC RELAY PROMPT 017m — T37M-DIRECT-BOREL-D-EXTRACTION
+================================================================
+TASK ID:        T37M-DIRECT-BOREL-D-EXTRACTION
+COMPOSED:       2026-05-03 ~05:55 JST
+DRAFTED-BY:     Copilot CLI (Claude Opus 4.7 xhigh)
+GATES:          Conditional follow-on to Prompt 017e. Fires on
+                T37E_PARTIAL_a_1_NULL_AT_HIGHER_PRECISION
+                (FIRED 2026-05-03 ~05:50 JST: 4 reps' Birkhoff
+                series at dps=400 N=5000, a_1 rationals locked
+                at 60+ digits, but D extraction via Stage-2 LSQ
+                INFEASIBLE with rel half-range ~10^217).
+                ESCALATION FROM FORECLOSED PATH gate: 017c +
+                017e BOTH produced D-extraction infeasibility
+                via Stage-2 LSQ. The entire Stage-2-LSQ branch
+                of S_2 closure is foreclosed; higher precision
+                will not unblock 017d. 017m tests a fundamentally
+                different methodology: direct Borel-Padé
+                singularity analysis of the Borel transform
+                B[a_n](xi) at xi = 2*zeta_*, bypassing the
+                Stage-2 fit entirely.
+                Rationale: the Stage-2 fit struggles because it
+                tries to PROJECT OUT the leading exp(-zeta_* * n)
+                contribution and recover a sub-leading
+                exp(-2*zeta_* * n) term whose absolute size is
+                ~10^-2000 below the leading coefficient at
+                large n. Direct Borel-Padé does not need this
+                projection: it locates the Borel-plane
+                singularities directly and reads off residues.
+PRIOR PROMPTS:  017c — verdict T37_PARTIAL_a_1_PARTITIONS
+                          (D infeasible at dps=250).
+                017e — verdict T37E_PARTIAL_a_1_NULL_AT_HIGHER_PRECISION
+                          (D infeasible at dps=400 too).
+COMPUTE BUDGET: ~2-3 hr agent. Borel transform + Padé
+                approximants per rep dominate; cached
+                extended-recurrence series (017e) sufficient
+                — NO new mpmath series.
+RUNTIME PROFILE:single-laptop CPU; mpmath dps=400 (matches 017e
+                cache); sympy / mpmath.pade for Padé
+                approximants; mpmath complex-plane root finding
+                for Borel singularities.
+INPUT DATA:     siarc-relay-bridge/sessions/2026-05-02/
+                  T37E-EXTENDED-RECURRENCE/
+                    handoff.md
+                    a_1_per_rep_dps400.json
+                    *.csv  (per-rep a_n series at dps=400 N=5000;
+                            critical input)
+                    derive_recurrence_dps400.py (the canonical
+                                                  recurrence routine
+                                                  if needed for
+                                                  cross-validation)
+                  T37-S2-EXTRACTION-POLYNOMIAL-AWARE/
+                    representatives.json
+                    d_extraction_feasibility.json (017c's
+                                                    infeasibility
+                                                    record — for
+                                                    cross-method
+                                                    null-result
+                                                    consistency)
+                  T35-STOKES-MULTIPLIER-DISCRIMINATION/
+                    representatives.json (alpha, beta, gamma,
+                                          A, Delta_b, zeta_*
+                                          per rep)
+                    stokes_multipliers_per_rep.csv (S_1, S_2
+                                                     T35-side
+                                                     reference
+                                                     values
+                                                     where
+                                                     applicable)
+DELIVERABLE:    a session folder under
+                siarc-relay-bridge/sessions/2026-05-03/
+                  T37M-DIRECT-BOREL-D-EXTRACTION/
+                  containing:
+                    t37m_runner.py
+                    borel_transform_per_rep.json
+                    pade_approximants_per_rep.json
+                    borel_singularities_per_rep.json
+                    d_extraction_per_rep.json
+                    s_2_per_rep.json
+                    s_2_partition_certificate.md
+                    handoff.md
+                    verdict.md
+                    halt_log.json
+                    discrepancy_log.json
+                    unexpected_finds.json
+                    claims.jsonl                       (>= 22 entries)
+                    rubber_duck_critique.md
+
+================================================================
+0. CONTEXT (READ THIS FIRST)
+================================================================
+
+The d=2 PCF Birkhoff transseries has the structure:
+    a_n ~ C * Gamma(n) * zeta_*^(-n) * (1 + a_1/n + a_2/n^2 +...)
+          + D * Gamma(n) * (2*zeta_*)^(-n) * (1 + ...)
+          + E * Gamma(n) * (3*zeta_*)^(-n) * (1 + ...)
+          + ...
+
+The Stage-2 LSQ approach (017c, 017e) attempts to:
+  1. fit C and {a_k} from large-n data,
+  2. subtract the leading term,
+  3. fit D from the residual.
+
+This struggles because the leading-term subtraction must be
+exact to ~50 digits to leave a clean D signal at the next
+rung. With cached / extended series at dps=400 N=5000, the
+fit residual is dominated by polynomial-in-1/n corrections
+to the LEADING amplitude, which Stage-2 cannot disentangle
+from the next-rung amplitude — and pushing precision to
+dps=400 / 800 / ... only postpones the problem (rel half-
+range went from 10^4 at dps=250 to 10^217 at dps=400; doesn't
+shrink with precision because the Stage-2 conditioning fails
+algebraically).
+
+The DIRECT BOREL approach reads D off without projection:
+
+    B[a_n](xi) := sum_{n>=0} a_n * xi^n / Gamma(n+1)
+
+For a typical Birkhoff series, B[a_n] is meromorphic in a
+disk around xi = 0 with the nearest singularities on the
+positive real axis at:
+    xi_1 = zeta_*       (leading; residue ~ C * f_1(D, ...))
+    xi_2 = 2 * zeta_*   (next rung; residue ~ D * (sign factor))
+    xi_3 = 3 * zeta_*   (next-next; residue ~ E)
+    ...
+
+Padé approximants of B[a_n] capture these singularities
+explicitly: an order-[M, M] Padé has up to M poles, and the
+nearest 3-5 poles approximate xi_1, xi_2, xi_3, ... with
+residues that converge as M increases.
+
+The methodology is well-established in resurgence / borel
+summation (Costin "Asymptotics and Borel Summability";
+Loday-Richaud "Divergent series, summability and resurgence";
+the M.Marino-Reis "Resurgence in Quantum Field Theory" review).
+What 017m brings is the AEAL discipline: cross-validation
+across multiple Padé orders, multiple windowed truncations,
+hard hygiene against spurious poles, and PARTITION TEST on
+|D| / |S_2| against Delta_b sign.
+
+Goal (one sentence): extract D / S_2 per rep via direct
+Borel-Padé singularity analysis at xi = 2*zeta_*, with
+cross-validated AEAL bounds, and test the |S_2| Delta_b
+partition that Stage-2 LSQ could not measure.
+
+================================================================
+1. ANCHOR FILES (read these from the bridge before starting)
+================================================================
+
+  1. 017e session: siarc-relay-bridge/sessions/2026-05-02/
+     T37E-EXTENDED-RECURRENCE/
+       * handoff.md (read full — esp. on D-extraction
+                     infeasibility for context on what
+                     Stage-2 LSQ couldn't do)
+       * a_1_per_rep_dps400.json (cross-check polynomial
+                                   coefficients used in §3.3
+                                   subtraction for cleanness)
+       * per-rep CSVs (the dps=400 N=5000 series; PRIMARY
+                       INPUT for Borel transform)
+
+  2. T35 representatives.json: zeta_* per rep (target
+     singularity locations xi_1 = zeta_*, xi_2 = 2*zeta_*,
+     xi_3 = 3*zeta_*); cross-check.
+
+  3. T35 stokes_multipliers_per_rep.csv: S_1 reference values
+     per rep where T35 reports them. The relation
+     S_2 = 2*pi*i*D applies; cross-validate where applicable.
+
+  4. T37c d_extraction_feasibility.json: 017c's per-rep
+     infeasibility flag. Use as CONSISTENCY CHECK: if 017m
+     extracts D successfully, the absolute value should be
+     within the (very wide) envelope spanned by 017c's
+     unstable Stage-2 attempts (NOT a precision check;
+     just a sign-and-order-of-magnitude sanity).
+
+If any required file is missing or contradicts, halt with
+T37M_INPUT_INVALID.
+
+================================================================
+2. PHASES
+================================================================
+
+PHASE A — INPUT VALIDATION + BOREL TRANSFORM SETUP
+---------------------------------------------------
+
+A.1  Load 017e per-rep series a_n for n in [0, N_max],
+     N_max = 5000 (or whatever 017e cached). Verify
+     load_count = N_max + 1 per rep; halt
+     T37M_INPUT_TRUNCATED otherwise.
+
+A.2  Load (alpha, beta, gamma, A, Delta_b, zeta_*) per rep
+     from T35 representatives.json. Compute target
+     singularity locations xi_1 = zeta_*, xi_2 = 2*zeta_*,
+     xi_3 = 3*zeta_*.
+
+A.3  POLYNOMIAL-CORRECTION SUBTRACTION (cleanness step):
+     The Borel transform B[a_n](xi) of the LEADING amplitude
+     C * Gamma(n) * zeta_*^(-n) * (1 + a_1/n + a_2/n^2 + ...)
+     is meromorphic with leading pole at xi = zeta_*. To
+     improve Padé conditioning at xi = 2*zeta_*, OPTIONALLY
+     subtract the polynomial-correction-RESUMMED leading
+     transmonomial using 017e's measured a_1, ..., a_K (K=25)
+     before computing the Borel transform. This CLEANNESS
+     STEP makes xi_2 the dominant singularity in the
+     residual series.
+
+     Concretely: define
+         a_n_residual := a_n - C * Gamma(n) * zeta_*^(-n) *
+                                sum_{k=0}^{K} a_k / n^k
+     (with a_0 := 1) and apply Borel-Padé to a_n_residual
+     instead of a_n.
+
+     If 017e's K_lead=25 a_k values are not all available
+     to >= 60 digits per rep, halt T37M_LEADING_DATA_INCOMPLETE.
+
+     Cross-check: a_n_residual should decay as
+     |D| * Gamma(n) * (2*zeta_*)^(-n) at large n (factor
+     ~2^n smaller than a_n itself). At n = 5000, residual
+     should be ~10^-1500 below a_n in absolute value (test
+     to within 10x).
+
+A.4  Record borel_transform_per_rep.json with per-rep
+     (a_n_residual_first_5, a_n_residual_last_5,
+     leading_subtraction_mode "subtracted" / "raw",
+     residual_decay_estimate, ...) for cross-validation.
+
+PHASE B — BOREL TRANSFORM + PADÉ APPROXIMANTS
+----------------------------------------------
+
+B.1  Per rep, compute the Borel transform coefficients
+     b_n := a_n_residual / Gamma(n+1)
+     for n in [0, N_max]. Use mpmath at dps=400.
+
+B.2  Compute Padé approximants P_M(xi) of order [M, M] of
+     the truncated Borel polynomial sum_{n=0}^{M_in} b_n * xi^n
+     for:
+         M_in in {2000, 3000, 4000, 4900}
+         M    in {N_in/3 - 50, N_in/3, N_in/3 + 50}
+     (i.e., each M_in gives 3 Padé orders; total 12 Padé
+     approximants per rep).
+
+     Use mpmath.pade or sympy.series.formal.pade. If the
+     library does not provide Padé at mpmath precision,
+     implement directly via the linear-algebra recipe
+     (solve M Hankel-like equations for numerator + denominator
+     coefficients).
+
+B.3  Per Padé approximant P_M, locate POLES in the complex
+     xi-plane via mpmath.findroot or mpmath.polyroots on the
+     denominator. Filter to physical poles:
+         |xi - real_axis| / |xi| < 0.05  (essentially real)
+         Re(xi) > 0                     (positive real axis)
+         |xi| < 5 * |zeta_*|            (within first 5 rungs)
+
+B.4  Per Padé, identify the pole CLOSEST to xi_2 = 2*zeta_*
+     (within tolerance 0.1 * |zeta_*|). Record:
+         xi_2_pade (complex value),
+         |xi_2_pade - 2*zeta_*| / |2*zeta_*|,
+         residue_at_xi_2_pade (computed via
+                                lim_{xi -> xi_2_pade}
+                                (xi - xi_2_pade) * P_M(xi)).
+
+B.5  Halt T37M_PADE_DIVERGENT if:
+       - All 12 Padés (per rep) fail to find a pole near
+         xi_2;
+       - OR the spread of |xi_2_pade - 2*zeta_*| across
+         the 12 Padés is > 1% (i.e., locations don't
+         converge);
+       - OR the spread of residues across the 12 Padés is
+         > 10% (i.e., residue value doesn't converge).
+
+B.6  Halt T37M_BOREL_SINGULARITY_NOT_AT_2ZETA if a clearly-
+     defined pole is found at a location significantly
+     offset from 2*zeta_* (i.e., the Borel-plane structure
+     is not what the leading-order Birkhoff theory predicts
+     — methodology question, not a normal failure).
+
+PHASE C — D EXTRACTION + S_2 PARTITION
+---------------------------------------
+
+C.1  Per rep, take the median residue from the 12 Padé
+     approximants at xi_2_pade as the canonical estimate:
+         D_estimate = median(residue_at_xi_2_pade) / convention_factor
+     where convention_factor accounts for the Birkhoff-
+     transseries convention used by T35 / 017c (read this
+     factor from T35's documentation; it is typically
+     (2*pi*i) or 1 depending on whether D is defined as
+     S_2 / (2*pi*i) or as S_2 itself).
+
+C.2  Compute envelope half_range_relative as
+         (max(residues) - min(residues)) / (2 * |median|)
+     across the 12 Padés per rep.
+
+C.3  S_2_per_rep := 2 * pi * i * D_estimate (if convention_factor
+                    chose D := S_2 / (2*pi*i)) or = D_estimate
+                    (otherwise). Document.
+
+C.4  PARTITION TEST: do |S_2| values partition by Delta_b sign?
+     With T35's reps grouped as
+         Delta_b < 0: V_quad (-11), QL15 (-20)
+         Delta_b > 0: QL05 (+8), QL09 (+1)
+     compute the gap
+         gap := min{|S_2_neg|} - max{|S_2_pos|}
+     across the 4 reps' D_estimate values.
+
+     If gap > 5 * (max envelope half_range across reps),
+     ORDERING_PASS. Otherwise INDETERMINATE.
+
+C.5  CROSS-VALIDATION against 017c's d_extraction_feasibility:
+     for each rep, the 017m D_estimate should be:
+       - finite, non-zero,
+       - magnitude consistent with 017c's infeasible-Stage-2
+         estimates (within 10x of any 017c attempt's median;
+         this is a very loose check, since Stage-2 was wildly
+         unstable);
+       - sign-stable across all 12 Padés (for clean
+         extraction).
+
+C.6  Record d_extraction_per_rep.json + s_2_per_rep.json
+     with per-rep (D_estimate, |D|, arg(D), envelope,
+     ordering_pass, padé_orders_used, etc.).
+
+PHASE D — CERTIFICATE + RUBBER-DUCK + HANDOFF
+----------------------------------------------
+
+D.1  Compose s_2_partition_certificate.md with:
+         * Borel-Padé methodology summary (cite Costin,
+           Loday-Richaud, M.Marino if appropriate)
+         * Per-rep D_estimate + envelope + S_2
+         * Partition test outcome (ORDERING_PASS / FAIL)
+         * Cross-validation against 017c
+         * Recommendation for picture v1.11 (G6b closure
+           at S_2) + CT v1.4 paper section
+
+D.2  Rubber-duck pass. Check at minimum:
+       (a) Phase A.3 cleanness step subtracted leading
+           transmonomial with K=25 polynomial corrections.
+       (b) Phase B.2 grid spans M_in in {2000, 3000, 4000,
+           4900}; multiple M per M_in; 12 Padés per rep.
+       (c) Phase B.5 / B.6 halt conditions actually
+           checked.
+       (d) Phase C.4 ORDERING gap is computed against
+           envelope (not just point estimates).
+       (e) Verdict in §6 supported by ORDERING outcome.
+     Write rubber_duck_critique.md.
+
+D.3  Compose verdict (§6).
+
+D.4  Run standard SIARC final step (§7).
+
+================================================================
+3. AEAL CLAIMS REQUIRED
+================================================================
+
+Minimum 22 entries. At least:
+
+  * 4 entries: per-rep a_n_residual decay rate (Phase A.3
+               cross-check)
+  * 4 entries: per-rep canonical xi_2_pade location +
+               distance from 2*zeta_*
+  * 4 entries: per-rep canonical residue at xi_2 + envelope
+  * 4 entries: per-rep D_estimate + envelope half_range
+  * 4 entries: per-rep |S_2| value
+  * 1 entry: 4-rep partition gap (ORDERING test)
+  * 1 entry: cross-validation against 017c (consistency
+             order of magnitude)
+  * 1 entry: verdict label
+  (additional entries for sub-checks welcome)
+
+Each entry: claim, evidence_type, dps, reproducible, script,
+output_hash. Padé / residue claims must include order
+(M_in, M) and cross-Padé spread.
+
+================================================================
+4. HALT CLAUSES (HARD HALT — do NOT continue past these)
+================================================================
+
+T37M_INPUT_INVALID
+    017e session, T35 representatives, or T37c feasibility
+    record missing or contradictory.
+
+T37M_INPUT_TRUNCATED
+    Per-rep series shorter than expected (017e cache should
+    have N_max = 5000).
+
+T37M_LEADING_DATA_INCOMPLETE
+    017e's K_lead=25 polynomial coefficients a_1, ..., a_25
+    not all available to >= 60 digits per rep. Phase A.3
+    cleanness step cannot proceed cleanly.
+
+T37M_PADE_DIVERGENT
+    Padé approximants don't converge: 12 orders disagree by
+    > 1% on xi_2 location or > 10% on residue. Precision
+    insufficient even for direct Borel extraction. S_2 may
+    be genuinely non-extractable from cached series.
+
+T37M_BOREL_SINGULARITY_NOT_AT_2ZETA
+    Padés agree on a singularity location, but it is not at
+    xi_2 = 2*zeta_*. Methodology question; the d=2 PCF
+    Birkhoff structure may have a non-standard next-rung
+    location. Halt for review.
+
+T37M_RANK_LOSS
+    Padé linear system is rank-degenerate (e.g., spurious
+    zeros in numerator + denominator).
+
+T37M_PROSE_OVERCLAIM
+    Forbidden-verb tripwire (§5).
+
+T37M_HALT_LOG_INCOMPLETE
+    Halt fires but halt_log.json missing required fields.
+
+================================================================
+5. FORBIDDEN-VERB HYGIENE
+================================================================
+
+Same controlled vocabulary as 017c v2 / 017e / 017f / 017j /
+017L.
+
+In all prose deliverables:
+    proves    confirms    shows    demonstrates    establishes
+    validates    verifies    certifies
+
+NOT in any prediction-or-conjecture context.
+
+For 017m specifically: a clean partition |S_2_neg| > |S_2_pos|
+with gap > 5*envelope is "consistent with G6b closure at
+S_2"; AEAL elevation requires Claude review + cross-check
+against the canonical resurgence ratio R = S_2 / S_1^2 +
+literature comparison.
+
+If any forbidden verb appears in a prediction-or-conjecture
+context, halt with T37M_PROSE_OVERCLAIM.
+
+================================================================
+6. OUTCOME LABELS (in handoff Status: line)
+================================================================
+
+T37M_S2_EXTRACTED_PARTITIONS
+    D_estimate extracted per rep with envelope half_range_rel
+    < 0.1; |S_2| partitions Delta_b sign with gap >
+    5*envelope. G6b CLOSED at S_2 — major result. Picture
+    v1.11 amends G6b with the Borel-Padé S_2 measurement.
+
+T37M_S2_EXTRACTED_NO_PARTITION
+    D_estimate extracted per rep with envelope < 0.1, but
+    |S_2| does NOT partition Delta_b sign. Either S_2 is not
+    a Delta_b-discriminating invariant (escalate to S_3 via
+    a future 017i-direct-Borel prompt) or the four reps are
+    all on the same side at the S_2 rung.
+
+T37M_S2_EXTRACTED_PARTIAL
+    Some reps have clean Padé convergence; others do not.
+    Per-rep partition test inconclusive. Document; halt
+    T37M_PARTIAL_EXTRACTION.
+
+T37M_S2_NOT_EXTRACTABLE
+    Padés agree but cluster at low precision (envelope
+    > 0.1); S_2 may be genuinely non-extractable from the
+    cached series at this precision. Recommend operator
+    extend recurrence to dps=600 N=8000 (compute ~12 hr).
+
+HALT_T37M_INPUT_INVALID
+HALT_T37M_INPUT_TRUNCATED
+HALT_T37M_LEADING_DATA_INCOMPLETE
+HALT_T37M_PADE_DIVERGENT
+HALT_T37M_BOREL_SINGULARITY_NOT_AT_2ZETA
+HALT_T37M_RANK_LOSS
+HALT_T37M_PROSE_OVERCLAIM
+    Halt outcomes; see §4.
+
+================================================================
+7. STANDING FINAL STEP
+================================================================
+
+After all task deliverables are written:
+
+  B1  Collect deliverables: t37m_runner.py,
+      borel_transform_per_rep.json,
+      pade_approximants_per_rep.json,
+      borel_singularities_per_rep.json,
+      d_extraction_per_rep.json, s_2_per_rep.json,
+      s_2_partition_certificate.md, handoff.md, verdict.md,
+      halt_log.json, discrepancy_log.json, unexpected_finds.json,
+      claims.jsonl, rubber_duck_critique.md.
+
+  B2  Stage in
+      siarc-relay-bridge/sessions/2026-05-03/T37M-DIRECT-BOREL-D-EXTRACTION/
+      after `git pull origin main`.
+
+  B3  Write handoff.md per the standing template, with
+      explicit "G6b closure status" section per the verdict.
+
+  B4  Commit with message
+      "T37M-DIRECT-BOREL-D-EXTRACTION — <one-line, e.g.,
+      'S_2 extracted via Borel-Padé, |S_2| partitions Delta_b
+      sign with gap +X.YZ at envelope < 1e-N'>"
+      and push. If the push is rejected as non-fast-forward
+      (concurrent parallel session pushed first), run
+        git pull --rebase origin main && git push
+      Do not retry more than once.
+
+  B5  Output BRIDGE: and CLAUDE_FETCH: URLs.
+
+================================================================
+8. OUT-OF-SCOPE / DO NOT DO
+================================================================
+
+* Do NOT re-run Stage-2 LSQ extraction. 017c + 017e have
+  foreclosed that path. Direct Borel-Padé only.
+
+* Do NOT attempt to extract D from raw a_n directly without
+  the polynomial-correction subtraction (Phase A.3); the
+  leading-amplitude polynomial in 1/n dominates the raw
+  Borel-Padé and obscures xi_2.
+
+* Do NOT use Padé orders M > N_in / 2; they are over-fit and
+  produce spurious poles that cluster near the unit circle
+  rather than tracking physical singularities.
+
+* Do NOT extend the recurrence to higher precision before
+  running Borel-Padé. Cached 017e series at dps=400 N=5000
+  is sufficient (~17000 digits of effective precision in
+  Padé numerator; if Padé still diverges, escalation comes
+  in handoff form, not by extending in this prompt).
+
+* Do NOT extend to S_3 / S_4 / ... in this prompt. ONE rung
+  (S_2) per agent run. S_3 is a separate prompt (017i-direct-
+  Borel candidate).
+
+* Do NOT amend picture v1.10 directly. Recommendation in
+  handoff.
+
+* Do NOT use "proves" / "shows" / "confirms" in any
+  prediction-or-conjecture context. Even a clean S_2
+  partition with gap > 10*envelope is "consistent with
+  G6b closure"; AEAL elevation requires Claude review.
+
+* Do NOT relabel verdict-ladder labels. The verdicts in §6
+  are the controlled vocabulary.
+
+================================================================
+END OF PROMPT 017m
+================================================================
