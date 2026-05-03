@@ -1,0 +1,549 @@
+================================================================
+SIARC RELAY PROMPT 017L — T37L-A1ZERO-CATALOGUE-SCAN
+================================================================
+TASK ID:        T37L-A1ZERO-CATALOGUE-SCAN
+COMPOSED:       2026-05-03 ~05:55 JST
+DRAFTED-BY:     Copilot CLI (Claude Opus 4.7 xhigh)
+GATES:          Conditional follow-on to Prompt 017f. Fires on
+                T37F_THIRD_STRATUM_CONFIRMED (FIRED 2026-05-03
+                ~05:47 JST: |a_1_branch_minus|~2e-61 across 9
+                envelope configs; QL09 a_1=0 is structural via
+                bracket-vanishing condition).
+                NEW STRUCTURAL FINDING gate: 017f closed Q18
+                numerically, finding that QL09's a_1 = 0 is
+                NOT a basis-convention shadow but a STRUCTURAL
+                identity of the d=2 PCF Birkhoff recurrence
+                via the bracket
+                    B(alpha, beta, gamma) := alpha/16 + gamma
+                                             - beta^2/(4*alpha)
+                vanishing for QL09. Picture v1.11 G20 → 3 strata
+                at d=2:
+                  (i)   a_1 < 0 rational sub-stratum
+                        (V_quad -53/36, QL15 -89/36)
+                  (ii)  a_1 > 0 rational sub-stratum
+                        (QL05 +31/4)
+                  (iii) a_1 = 0 sub-stratum (QL09 only,
+                        currently a singleton)
+                017L populates sub-stratum (iii) by scanning
+                T35's representative catalogue + extension via
+                algebraic enumeration of B-vanishing PCFs.
+PRIOR PROMPT:   017f — verdict T37F_THIRD_STRATUM_CONFIRMED
+                landed 2026-05-03 ~05:47 JST.
+COMPUTE BUDGET: ~1-2 hr agent. Algebraic enumeration is light
+                (sympy solve over a parametrized PCF family);
+                numerical confirmation per algebraically-found
+                candidate dominates wall-time.
+RUNTIME PROFILE:single-laptop CPU; mpmath dps=300 for numerical
+                confirmation; sympy for algebraic phase; PSLQ at
+                maxcoeff <= 10^15 for bracket identity check.
+INPUT DATA:     siarc-relay-bridge/sessions/2026-05-02/
+                  T37F-Q18-NUMERICAL-PROBE/
+                    handoff.md
+                    verdict.md
+                    invariant_comparison.json
+                    unexpected_finds.json (Find #1 records the
+                                           bracket form as
+                                           literally derived from
+                                           the recurrence)
+                  T35-STOKES-MULTIPLIER-DISCRIMINATION/
+                    representatives.json (4 reps: V_quad, QL15,
+                                          QL05, QL09 — verify
+                                          bracket numerically per rep)
+                    derive_recurrence.py (the canonical d=2 PCF
+                                          Birkhoff recurrence
+                                          derivation)
+                  T37E-EXTENDED-RECURRENCE/
+                    a_1_per_rep_dps400.json (60-digit rationals
+                                             for 4 reps + QL09 73
+                                             digit zero)
+                  T37-S2-EXTRACTION-POLYNOMIAL-AWARE/
+                    representatives.json (cross-check rep params)
+DELIVERABLE:    a session folder under
+                siarc-relay-bridge/sessions/2026-05-03/
+                  T37L-A1ZERO-CATALOGUE-SCAN/
+                  containing:
+                    t37L_runner.py
+                    bracket_algebraic_solution.json
+                    catalogue_candidates.json
+                    candidates_a_1_numerical_confirmation.json
+                    third_stratum_certificate.md
+                    handoff.md
+                    verdict.md
+                    halt_log.json
+                    discrepancy_log.json
+                    unexpected_finds.json
+                    claims.jsonl                       (>= 16 entries)
+                    rubber_duck_critique.md
+
+================================================================
+0. CONTEXT (READ THIS FIRST)
+================================================================
+
+017f closed Q18 by deriving the recurrence in the opposite
+Birkhoff branch (c = -2/sqrt(alpha)) for QL09, finding:
+
+  (a) For all d=2 PCFs the recurrence yields the algebraic
+      identity a_n(-c) = (-1)^n * a_n(+c), so with
+      zeta_signed := 2c the resurgent transmonomial T_n is
+      literally branch-identical and the c-branch is provably
+      NOT a degree of freedom at the T_n level.
+
+  (b) QL09's a_1 = 0 measurement (017c at 42 digits, 017e at
+      73 digits, 017f at ~61 orders) is therefore NOT a
+      basis-convention shadow. Reading the recurrence by hand
+      reveals the cause: the leading coefficient of the
+      a_1-defining equation has a polynomial factor in
+      (alpha, beta, gamma) that VANISHES IDENTICALLY for QL09's
+      parameter values.
+
+  (c) Reading 017f's session: the polynomial factor is
+
+         B(alpha, beta, gamma) := alpha/16 + gamma
+                                  - beta^2 / (4 * alpha)
+
+      and the structural condition for a_1 = 0 in the d=2
+      family is B = 0.
+
+017L's job is to populate sub-stratum (iii) of G20 by:
+
+  Phase A. ALGEBRAIC: solving B(alpha, beta, gamma) = 0 over
+           the parametric d=2 PCF family that T35 / 010 / 017c
+           used. Determine whether the locus B = 0 is:
+             - a single point (only QL09; sub-stratum (iii)
+               is genuinely a singleton);
+             - a 1-parameter curve (sub-stratum (iii) is a
+               1-dim sub-variety of PCF parameter space);
+             - or higher-dimensional.
+
+  Phase B. NUMERICAL: pick algebraically-distinct points on
+           the B = 0 locus (if it has positive dimension) and
+           CONFIRM numerically that a_1 = 0 to >= 30 digits
+           per candidate at dps=300, N=2000.
+
+  Phase C. CATALOGUE: produce a structured certificate
+           classifying sub-stratum (iii) and recording
+           per-candidate (alpha, beta, gamma, A, Delta_b, ...).
+
+If the algebraic phase finds B = 0 holds as an identity for
+some natural sub-family of the parametrization (e.g. when a
+linear constraint between (alpha, beta, gamma) holds), that's a
+structural finding warranting a picture v1.11 sub-axiom.
+
+If the algebraic phase finds B = 0 is satisfied ONLY by the
+exact QL09 parameter triple, sub-stratum (iii) is a singleton
+in the T35 catalogue and operator-side family extension is
+required to populate it further (handoff to operator).
+
+Goal (one sentence): characterize the locus B = 0 in PCF
+parameter space and confirm any algebraically-found candidates
+have a_1 = 0 at AEAL precision.
+
+================================================================
+1. ANCHOR FILES (read these from the bridge before starting)
+================================================================
+
+  1. 017f session: siarc-relay-bridge/sessions/2026-05-02/
+     T37F-Q18-NUMERICAL-PROBE/
+       * handoff.md (read the Unexpected Find #1 section
+                     carefully — the bracket form B is recorded
+                     there; do NOT guess B from this prompt's §0)
+       * verdict.md
+       * unexpected_finds.json
+       * invariant_comparison.json (per-rep numerical bracket
+                                     evaluation, if provided)
+
+  2. T35 representatives.json:
+     siarc-relay-bridge/sessions/2026-05-02/
+       T35-STOKES-MULTIPLIER-DISCRIMINATION/representatives.json
+
+     Per-rep parameters (alpha, beta, gamma, A, Delta_b).
+     Numerically evaluate B at each of the 4 reps; expect
+     B(QL09) ~ 0 to >= 30 digits, B(others) clearly non-zero.
+     This is a sanity check on the algebraic form before
+     proceeding.
+
+  3. T35 derive_recurrence.py: read the symbolic recurrence
+     derivation. Identify by inspection where B appears as
+     a polynomial coefficient in the a_1-defining equation.
+     If 017f's handoff already pinpoints the line numbers,
+     follow them; otherwise derive de novo with sympy.
+
+  4. T37E a_1_per_rep_dps400.json: cross-validate that V_quad,
+     QL15, QL05 all have non-zero a_1 (and B != 0) and QL09 has
+     a_1 = 0 at >= 73 digits (and B = 0 to >= 30 digits).
+
+If any required file is missing or contradicts, halt with
+T37L_INPUT_INVALID.
+
+================================================================
+2. PHASES
+================================================================
+
+PHASE A — ALGEBRAIC SOLUTION OF B = 0
+--------------------------------------
+
+A.1  Read 017f's handoff and recover the EXACT polynomial form
+     of B in the (alpha, beta, gamma) parametrization actually
+     used by T35's derive_recurrence.py. If 017f gives B as
+     "alpha/16 + gamma - beta^2/(4*alpha)", verify this form
+     by re-deriving the d=2 Birkhoff recurrence symbolically
+     with sympy and inspecting the a_1-defining equation's
+     leading polynomial.
+
+A.2  Numerical sanity-check: evaluate B at each of T35's 4
+     reps using their (alpha, beta, gamma) values from
+     representatives.json. Expect:
+         B(V_quad) != 0 at clear separation from machine epsilon
+         B(QL15)   != 0 at clear separation
+         B(QL05)   != 0 at clear separation
+         B(QL09)    = 0 to >= 30 digits
+     If any of these fails, halt T37L_BRACKET_FORM_INCONSISTENT
+     (suggests the bracket form recovered in A.1 is wrong; debug
+     A.1 before proceeding).
+
+A.3  Algebraic enumeration: solve B(alpha, beta, gamma) = 0
+     symbolically over the PCF family used by T35. Use
+     sympy.solve, sympy.solveset, or hand-manipulation as
+     appropriate. Classify the solution set:
+         - 0-dim (discrete points): list them; expect QL09's
+           parameter triple to be among them;
+         - 1-dim (curve): give a parametrization, e.g.
+           {(alpha(t), beta(t), gamma(t)) : t in some range};
+         - higher-dim: parametrize.
+
+     If QL09's parameter triple does NOT lie on the algebraic
+     locus B = 0 (despite the numerical sanity check passing
+     in A.2), halt T37L_ALGEBRAIC_NUMERICAL_DISAGREEMENT.
+
+A.4  CONSTRAINT-COMPATIBILITY CHECK: the T35 representative
+     catalogue may have additional family-defining constraints
+     (e.g., A = 3 or A = 4 quantization condition; integer
+     Delta_b; rational coefficients for genus pinning). Apply
+     these constraints to the locus B = 0 and re-classify:
+         - Does B = 0 intersect the T35 family in a positive-
+           dim sub-variety? If so, sub-stratum (iii) is rich;
+           extension reps lie on this locus.
+         - Or does B = 0 intersect the T35 family ONLY at the
+           QL09 parameter triple? Then sub-stratum (iii) is
+           a singleton in T35's enumerated catalogue.
+
+A.5  Record bracket_algebraic_solution.json with:
+         - bracket_form (LaTeX + sympy expr string)
+         - solution_set_classification ("singleton",
+                                         "1d_curve",
+                                         "2d_surface",
+                                         "intersection_of_constraints")
+         - parametrization (if positive dim)
+         - QL09_on_locus (bool, with separation tolerance)
+         - other_T35_reps_on_locus (per-rep distance from
+                                     locus, log scale)
+
+PHASE B — CANDIDATE GENERATION (algebraically-distinct points)
+---------------------------------------------------------------
+
+B.1  If Phase A finds B = 0 is a singleton (only QL09), emit
+     candidate_count = 1 and skip Phase C numerical
+     confirmation for new candidates (QL09 is already
+     confirmed at 73 digits in 017e); record the singleton
+     finding and proceed to Phase D.
+
+B.2  If Phase A finds B = 0 is positive-dim, generate
+     between 3 and 6 algebraically-distinct candidate triples
+     (alpha_k, beta_k, gamma_k) k=1..K_cand from the
+     parametrization. Selection criteria:
+         (a) Must satisfy any T35-family constraints from A.4
+             (e.g., A integer; integer Delta_b; rational
+             coefficients).
+         (b) Must be DISTINCT from QL09 (separated by at
+             least 1e-1 in normalized parameter distance).
+         (c) Should sample diverse regions of the locus
+             (one near QL09, others farther; vary A across
+             {3, 4, 5} where compatible with B = 0; vary
+             sign(Delta_b)).
+     Record candidates_summary.json with per-candidate
+     parameters and selection rationale.
+
+B.3  If Phase A finds B = 0 is positive-dim BUT no
+     algebraically-distinct points satisfy the T35-family
+     constraints from A.4 (i.e., the only T35-compatible
+     point on the locus is QL09 itself), record this as
+     "operator_extension_required" in candidates_summary.json
+     and proceed to Phase D with K_cand = 0 numerical
+     confirmations.
+
+PHASE C — NUMERICAL CONFIRMATION OF CANDIDATES
+-----------------------------------------------
+
+C.1  Per algebraically-found candidate (alpha_k, beta_k,
+     gamma_k) from B.2, derive the Birkhoff recurrence at
+     dps=300 using T35's derive_recurrence.py (or an
+     equivalent routine). Compute a_n for n in [1, 2000].
+
+C.2  Apply the same TWO-STAGE windowed fit as 017c / 017e
+     with K_lead=25 (which is the 017c-measured stable
+     optimum at dps=300; recall: K_lead=40+ blows up at
+     this precision). Extract a_1, a_2, a_3, a_5 medians.
+
+C.3  Per candidate, record:
+         a_1_median (mpmath str),
+         |a_1_median| (float, log10),
+         a_1_envelope_half_range (across, e.g., 9 K_lead × W_1
+                                   stability configs),
+         confirms_a_1_zero (bool: True iff |a_1_median| <
+                            1e-30 AND envelope < 1e-25).
+     Halt T37L_NUMERICAL_DISAGREEMENT if a candidate from the
+     algebraic locus has a_1 not consistent with 0 at the
+     1e-30 threshold.
+
+C.4  Cross-validate: compute B numerically at each candidate
+     and confirm B = 0 to working precision. (This is a
+     consistency check on Phase A's algebra; should pass
+     trivially.)
+
+C.5  Record candidates_a_1_numerical_confirmation.json with
+     per-candidate (params, B_numerical, a_1_median,
+     a_1_envelope, K_lead_grid, confirms_a_1_zero, etc.).
+
+PHASE D — CATALOGUE + STRUCTURAL INTERPRETATION
+------------------------------------------------
+
+D.1  Classify the third stratum. The four cases:
+
+       (i)   SUB-STRATUM_SINGLETON_T35:
+             Locus B = 0 intersects T35 family only at QL09;
+             sub-stratum (iii) is a singleton in T35's
+             catalogue. Operator-side family extension required
+             to populate. Record as
+             T37L_THIRD_STRATUM_SINGLETON.
+
+       (ii)  SUB-STRATUM_1PARAMETER_CURVE_T35_COMPATIBLE:
+             Locus B = 0 intersects T35 family in a 1-dim
+             curve, with K_cand >= 3 algebraically-distinct
+             candidates that all numerically confirm a_1 = 0.
+             G20+ closure: third stratum is a 1-parameter
+             family. Major structural finding.
+             Record as T37L_THIRD_STRATUM_1PARAMETER.
+
+       (iii) SUB-STRATUM_HIGHER_DIM:
+             Locus B = 0 intersects T35 family in a 2-dim or
+             higher sub-variety. Even more structurally
+             interesting.
+             Record as T37L_THIRD_STRATUM_HIGHER_DIM.
+
+       (iv)  SUB-STRATUM_PARTIAL:
+             Some candidates confirm a_1 = 0; others do not
+             (tolerable subset only). Methodology issue or
+             partial-locus disagreement. Document per
+             candidate; halt T37L_PARTIAL_CONFIRMATION.
+
+D.2  Compose third_stratum_certificate.md with:
+         * Bracket form B from 017f (cited)
+         * Algebraic locus classification (Phase A)
+         * Candidate set (Phase B)
+         * Per-candidate numerical confirmation (Phase C)
+         * Sub-stratum classification (D.1)
+         * Picture v1.11 amendment recommendation
+
+D.3  Rubber-duck pass. Check at minimum:
+       (a) Phase A.1 verified the bracket form against 017f's
+           recorded form, NOT this prompt's §0 description.
+       (b) Phase A.2 sanity check passed (B(QL09) = 0,
+           B(others) != 0).
+       (c) Phase A.4 applied T35-family constraints before
+           candidate generation.
+       (d) Phase C used K_lead=25 (017c-stable), NOT 40+.
+       (e) Verdict in §6 is supported by the strongest
+           confirmed sub-stratum case.
+     Write rubber_duck_critique.md.
+
+D.4  Compose verdict (§6).
+
+D.5  Run standard SIARC final step (§7).
+
+================================================================
+3. AEAL CLAIMS REQUIRED
+================================================================
+
+Minimum 16 entries. At least:
+
+  * 1 entry: bracket form recovered from 017f handoff
+  * 4 entries: B numerical evaluation per T35 rep (sanity check)
+  * 1 entry: algebraic locus classification (singleton /
+             1d curve / etc.)
+  * 1 entry: T35-family-constraint compatibility
+  * K_cand entries (at least 3 if positive-dim locus): per
+    candidate, a_1_median + envelope + confirms_a_1_zero
+  * 1 entry: sub-stratum classification
+  * 1 entry: picture v1.11 amendment recommendation
+  * remainder reserved for additional candidates / cross-checks
+  * 1 entry: verdict label
+
+Each entry: claim, evidence_type, dps, reproducible, script,
+output_hash. Algebraic claims must include the symbolic form
+(LaTeX or sympy str) and the verification method (sympy.simplify,
+sympy.solve, etc.).
+
+================================================================
+4. HALT CLAUSES (HARD HALT — do NOT continue past these)
+================================================================
+
+T37L_INPUT_INVALID
+    017f session, T35 representatives, or T37E a_1 data missing
+    or contradictory.
+
+T37L_BRACKET_FORM_INCONSISTENT
+    Phase A.2 sanity check fails (e.g., B(QL09) is not 0 to
+    30 digits, or B(other rep) is suspiciously close to 0).
+
+T37L_ALGEBRAIC_NUMERICAL_DISAGREEMENT
+    QL09 satisfies B = 0 numerically but does NOT lie on the
+    algebraic solution set produced by sympy. Indicates an
+    error in the symbolic derivation.
+
+T37L_NUMERICAL_DISAGREEMENT
+    A candidate from the algebraic locus has a_1 not consistent
+    with 0 at the 1e-30 threshold. The locus formula is wrong
+    or higher-precision needed.
+
+T37L_PARTIAL_CONFIRMATION
+    Some candidates confirm a_1 = 0; others do not. Sub-stratum
+    classification is ambiguous. Document per-candidate and
+    halt for Claude review.
+
+T37L_RANK_LOSS
+    PSLQ basis (if used in any sub-step) is rank-degenerate.
+
+T37L_PROSE_OVERCLAIM
+    Forbidden-verb tripwire (§5).
+
+T37L_HALT_LOG_INCOMPLETE
+    Halt fires but halt_log.json missing required fields.
+
+================================================================
+5. FORBIDDEN-VERB HYGIENE
+================================================================
+
+Same controlled vocabulary as 017c v2 / 017e / 017f / 017j.
+
+In all prose deliverables:
+    proves    confirms    shows    demonstrates    establishes
+    validates    verifies    certifies
+
+NOT in any prediction-or-conjecture context.
+
+For 017L specifically: even a clean B = 0 algebraic identity
+on a 1-parameter curve with K_cand = 5 candidates all confirming
+a_1 = 0 to >= 30 digits is "consistent with the third stratum
+being a 1-parameter family" — NOT "proves" or "establishes" the
+1-parameter family. AEAL elevation requires Claude review +
+cross-check against the T35 family-constraint structure.
+
+If any forbidden verb appears in a prediction-or-conjecture
+context, halt with T37L_PROSE_OVERCLAIM.
+
+================================================================
+6. OUTCOME LABELS (in handoff Status: line)
+================================================================
+
+T37L_THIRD_STRATUM_SINGLETON
+    Locus B = 0 intersects T35 family only at QL09. Sub-stratum
+    (iii) is a singleton in T35's catalogue. Operator-side
+    family extension required to populate further. Picture
+    v1.11 records sub-stratum (iii) as singleton-in-T35.
+
+T37L_THIRD_STRATUM_1PARAMETER
+    Locus B = 0 intersects T35 family in a 1-dim curve;
+    K_cand >= 3 algebraically-distinct candidates all confirm
+    a_1 = 0 to >= 30 digits. G20+ closure: third stratum is
+    a 1-parameter family. Picture v1.11 amends G20 with the
+    parametrization.
+
+T37L_THIRD_STRATUM_HIGHER_DIM
+    Locus B = 0 intersects T35 family in 2-dim or higher
+    sub-variety; multiple algebraically-distinct candidates
+    confirm a_1 = 0. Even more structurally interesting.
+    Picture v1.11 amends accordingly.
+
+T37L_THIRD_STRATUM_OPERATOR_EXTENSION_REQUIRED
+    Locus B = 0 has positive dimension but no algebraically-
+    distinct points satisfy T35-family constraints. Operator
+    must extend T35's representative family to access the
+    sub-stratum.
+
+HALT_T37L_INPUT_INVALID
+HALT_T37L_BRACKET_FORM_INCONSISTENT
+HALT_T37L_ALGEBRAIC_NUMERICAL_DISAGREEMENT
+HALT_T37L_NUMERICAL_DISAGREEMENT
+HALT_T37L_PARTIAL_CONFIRMATION
+HALT_T37L_RANK_LOSS
+HALT_T37L_PROSE_OVERCLAIM
+    Halt outcomes; see §4.
+
+================================================================
+7. STANDING FINAL STEP
+================================================================
+
+After all task deliverables are written:
+
+  B1  Collect deliverables: t37L_runner.py,
+      bracket_algebraic_solution.json,
+      catalogue_candidates.json,
+      candidates_a_1_numerical_confirmation.json,
+      third_stratum_certificate.md, handoff.md, verdict.md,
+      halt_log.json, discrepancy_log.json, unexpected_finds.json,
+      claims.jsonl, rubber_duck_critique.md.
+
+  B2  Stage in
+      siarc-relay-bridge/sessions/2026-05-03/T37L-A1ZERO-CATALOGUE-SCAN/
+      after `git pull origin main`.
+
+  B3  Write handoff.md per the standing template, with explicit
+      "Picture v1.11 amendment recommendation" section
+      classifying sub-stratum (iii) per the verdict.
+
+  B4  Commit with message
+      "T37L-A1ZERO-CATALOGUE-SCAN — <one-line, e.g.,
+      'sub-stratum (iii) is 1-parameter curve B(alpha,beta,gamma)=0
+      with K_cand=5 numerically-confirmed candidates'>"
+      and push. If the push is rejected as non-fast-forward
+      (concurrent parallel session pushed first), run
+        git pull --rebase origin main && git push
+      Do not retry more than once.
+
+  B5  Output BRIDGE: and CLAUDE_FETCH: URLs.
+
+================================================================
+8. OUT-OF-SCOPE / DO NOT DO
+================================================================
+
+* Do NOT use this prompt's §0 bracket form B "alpha/16 + gamma
+  - beta^2/(4*alpha)" as authoritative. READ 017f's handoff
+  for the actual recorded form, and re-derive symbolically if
+  needed. The §0 form is a paraphrase.
+
+* Do NOT extend to a_2, a_3, ... bracket conditions. ONE
+  quantity (a_1) per candidate, ONE structural identity (B = 0)
+  to test. Higher-order brackets are a separate prompt.
+
+* Do NOT use K_lead > 30 in Phase C numerical confirmation.
+  At dps=300 N=2000, K_lead=40 catastrophically blows up
+  (017c probe_K finding); use K_lead = 25 stable optimum.
+
+* Do NOT generalize beyond the d=2 PCF family. The bracket B
+  is specific to d=2; d=3 / d=4 PCFs have different structural
+  identities for a_1 = 0 (not investigated here).
+
+* Do NOT amend picture v1.10 directly. Recommendation in
+  handoff.
+
+* Do NOT use "proves" / "shows" / "confirms" in any
+  prediction-or-conjecture context. Even a clean
+  algebraic + numerical confirmation of a 1-parameter curve
+  is "consistent with"; AEAL elevation requires Claude review.
+
+* Do NOT relabel verdict-ladder labels. The verdicts in §6
+  are the controlled vocabulary.
+
+================================================================
+END OF PROMPT 017L
+================================================================
