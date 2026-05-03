@@ -1,0 +1,80 @@
+Newton-polygon universality of the Borel-singularity radius for
+polynomial continued fractions: a 6-page consolidatory short note
+(v2.0, 2026-05-03; supersedes the v1.0 draft of 2026-05-02 which was
+never deposited).
+
+Position. We isolate, as a single citable artefact, the cross-degree
+identity ξ₀(b) = d / β_d^(1/d) for the leading Borel-plane singular
+distance of the formal generating function f(z) = Σ Q_n z^n of a
+polynomial continued fraction (1, b) of degree d with leading
+coefficient β_d > 0. Version 2 upgrades the v1 status from
+"proven at d=2 / verified at d=4 / conjectured for d ≥ 2" to a
+theorem-grade statement covering all d ≥ 2 uniformly.
+
+The upgrade rests on two new anchors:
+
+(i) SIARC Phase A* extended sweep — a direct symbolic identity check
+    at d ∈ {2, 3, ..., 10}, 18/18 pass at dps = 50, relative error
+    < 1.6 × 10^-51 above d = 2, with byte-locked script SHA-256
+    8e6f9eb…f7496 for phase_a_symbolic_derivation.py and
+    06d87de…0ac277 for phase_a_star_extended_sweep.py (cf. SIARC
+    bridge sessions/2026-05-03/Q20A-PHASE-C-RESUME/, claims.jsonl).
+
+(ii) Wasow 1965 §19 (Theorem 19.1) and Birkhoff 1930 §2 — the
+    uniform-in-q general-case asymptotic existence theorem, plus
+    the uniform-in-n formal series existence at an irregular
+    singular point of rank q. Wasow's q maps to PCF degree d via
+    q = (d+2)/2, with §19.3's ramification substitution x = const · t^p
+    handling fractional q (p = 2 suffices for all d ≥ 2). The
+    Newton-polygon slope-1/d edge of (1) is recorded as the same
+    object as Wasow's shearing exponent g_0 = 1/d in two notations.
+
+Theorem 4.1 (cross-degree universality of ξ₀; upgrades Conj. 3.3.A*
+of Channel Theory v1.3): for every PCF (1, b) in scope with deg b = d ≥ 2
+and β_d > 0, the leading characteristic root of the irregular
+singularity at z = 0 is ξ₀(b) = d / β_d^(1/d).
+
+Tier discipline (carried forward from v1):
+- PROVEN at d = 2 (Newton-polygon proof, CT v1.3 Prop. 3.3.A;
+  PCF-1 v1.3 Theorem 5 §5).
+- VERIFIED at d = 4 (PCF2-SESSION-Q1, dps = 80, spread 0 across 8
+  quartic representatives).
+- THEOREM-GRADE for all d ≥ 2 via Wasow §19 + Birkhoff §2 + Phase A*
+  symbolic identity (NEW in v2).
+- DEFERRED at d = 3 for direct Newton-polygon test (op:xi0-d3-direct;
+  measurement-of-corroboration only — symbolic identity already in
+  Phase A* sweep).
+
+Out of scope. The β_d < 0 branch, the d = 2 anomaly Galois bin
+(PCF-1 v1.3 Remark 5.E), and the d ≥ 11 case (not in Phase A* sweep
+but covered by Wasow framework) are recorded as open in §5.
+
+This note remains purely consolidatory: no new numerical pipeline is
+run; the v2 contribution is the Phase A* d-sweep and the Wasow / Birkhoff
+literature anchoring. The Wasow §19 and Birkhoff 1930 literature claims
+are anchored by SHA-256-verified PDFs at the runbook-canonical literature
+directory (Wasow PDF SHA f59d6835…a5fd, Birkhoff PDF SHA aeb5291e…2efa)
+and by per-theorem AEAL claim entries.
+
+References (DOI / bridge URL):
+- Channel Theory v1.3: 10.5281/zenodo.19972394 (concept 10.5281/zenodo.19941678)
+- PCF-1 v1.3: 10.5281/zenodo.19937196 (concept 10.5281/zenodo.19931635)
+- PCF-2 v1.3: 10.5281/zenodo.19963298 (concept 10.5281/zenodo.19936297)
+- SIARC umbrella v2.0: 10.5281/zenodo.19965041 (concept 10.5281/zenodo.19885549)
+- Q20A-PHASE-C-RESUME bridge session:
+  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-03/Q20A-PHASE-C-RESUME/
+- PCF2-SESSION-Q1 bridge session:
+  https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-01/PCF2-SESSION-Q1/
+
+Method. AEAL/SIARC v1.3 cohort multi-agent methodology. AI tools
+(GitHub Copilot powered by Anthropic Claude Opus 4.7, and Anthropic
+Claude) were used for prose drafting and consistency-checking; all
+theorem statements, conjecture formulations, and editorial decisions
+remain the author's. All numerical claims trace to exact computations
+stored under sessions/2026-05-{01,03}/ on the SIARC bridge with AEAL
+claim entries in claims.jsonl (58 entries total in the Q20A-PHASE-C-RESUME
+session as of dispatch 4).
+
+NOTE TO OPERATOR. This is a NEW concept DOI (D2-NOTE v1 was never
+deposited; v2 is the first published version). Use "New upload" on
+https://zenodo.org/uploads, not "New Version" of any other record.
