@@ -1,0 +1,15 @@
+{
+  "HALT_Q20_LITERATURE_MISSING": {
+    "phase": "C.0 gate",
+    "missing_sources": [
+      "Wasow 1965 (Asymptotic Expansions for Ordinary Differential Equations) sec X.3",
+      "Adams 1928 (Trans. AMS 30) sec 3-5",
+      "Birkhoff 1930 (Formal theory of irregular linear difference equations) sec 2-3",
+      "Birkhoff-Trjitzinsky 1933 (Acta Math 60) sec 4-6"
+    ],
+    "evidence_for_halt": "T1-BIRKHOFF-TRJITZINSKY-LITREVIEW (2026-05-02) handoff Q3 + recommended_next_phase_t1.md flag all four as needed-but-not-acquired primary sources; operator has paraphrased / secondary-source readings only.",
+    "scope_of_halt": "Phases C, D, E (in original full-Phase-E form) deferred. Partial Phases A + B + reduced D produced.",
+    "aggregate_verdict_under_halt": "UPGRADE_PARTIAL_PENDING_LITERATURE",
+    "resumable_on": "Operator acquisition of Wasow 1965 sec X.3, Adams 1928 sec 3-5, Birkhoff 1930 sec 2-3, Birkhoff-Trjitzinsky 1933 sec 4-6 (per T1-BIRKHOFF-TRJITZINSKY-LITREVIEW PHASE 2 acquisition target). Conditional on C_LITERATURE_UNIFORM at general d, verdict UPGRADES to UPGRADE_FULL for Conj 3.3.A* (xi_0-only) scope."
+  }
+}
