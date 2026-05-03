@@ -94,9 +94,9 @@ verdict trail.
 
 **Resource type:** Publication → Preprint
 
-**Title:**
+**Title** (matches the v2 PDF cover page and `\title{}` of the LaTeX source verbatim; this is **NOT** the v1 title — v1 said "Newton-polygon universality" and was retitled in v2 to reflect the upgrade from a Newton-polygon construction to a cross-degree theorem):
 
-> Newton-polygon universality of the Borel-singularity radius for polynomial continued fractions
+> Cross-degree universality of the Borel-singularity radius for polynomial continued fractions
 
 **Authors:**
 
@@ -144,10 +144,13 @@ The description for v2 is below; save it as
 its contents into Zenodo's description field at upload time.
 
 ```
-Newton-polygon universality of the Borel-singularity radius for
+Cross-degree universality of the Borel-singularity radius for
 polynomial continued fractions: a 6-page consolidatory short note
 (v2.0, 2026-05-03; supersedes the v1.0 draft of 2026-05-02 which was
-never deposited).
+never deposited; v2 retitles v1's "Newton-polygon universality…" to
+reflect the upgrade from a Newton-polygon construction (heuristic in
+v1) to a cross-degree theorem (theorem-grade in v2 via Wasow §19 and
+Birkhoff §2)).
 
 Position. We isolate, as a single citable artefact, the cross-degree
 identity ξ₀(b) = d / β_d^(1/d) for the leading Borel-plane singular
