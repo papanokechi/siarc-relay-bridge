@@ -1,88 +1,107 @@
-# Phase D Verdict — Q20A-PHASE-C-RESUME (Re-fire / Dispatch 2)
+# Phase D — Final Verdict (Dispatch 3)
 
-**Date:** 2026-05-03
-**Re-fire timestamp:** 2026-05-03T10:28:57+09:00
-**Verdict:** `HALT_Q20A_LITERATURE_NOT_LANDED`
-**Prior dispatch verdict:** `UPGRADE_DEFERRED_PENDING_LITERATURE_LANDING`
-(archived as `phase_d_verdict_pre_refire.md`)
+**Dispatch 3 timestamp:** 2026-05-03 (re-fire 3)
+**Final verdict:** `HALT_Q20A_WASOW_PDF_IMAGE_ONLY`
+(prior dispatch 2 verdict archived at
+`phase_d_verdict_pre_refire2.md`; dispatch 1 at
+`phase_d_verdict_pre_refire.md`).
 
-## Aggregation per Prompt 018 §2 Phase D logic
+## Aggregation
 
-Phase A* signal: `A_DIRECT_IDENTITY_d10`
-- Cached output verified at re-fire time. SHA-256 of the
-  Q20 anchor `phase_a_symbolic_derivation.py` matches the
-  recorded value `8e6f9eb…f7496` exactly. SHA-256 of the
-  Q20A wrapper `phase_a_star_extended_sweep.py` matches
-  `06d87de…0ac277` exactly. No script drift between
-  dispatches; no re-execution required; cached `d ∈ {2..10}`
-  18/18-pass result carries forward.
+| Phase | Result                          | Verdict signal                            |
+|-------|---------------------------------|-------------------------------------------|
+| A*    | PASS, cached, SHA-verified      | `A_DIRECT_IDENTITY_d10` (dispatches 1/2)  |
+| C.0   | PASS (hash match, judgment on path) | `C0_GATE_PASS`                        |
+| C.1   | HALT (image-only PDF)           | `HALT_Q20A_WASOW_PDF_IMAGE_ONLY`          |
+| C.2   | PARTIAL — (i) uniform, (ii) NIA | `C_BIRKHOFF_UNIFORM_FORMAL_ONLY`          |
+| C.3   | BLOCKED (Wasow + Borel half)    | `C_LITERATURE_BLOCKED_AT_C1`              |
+| E     | SKIPPED (gated on D)            | —                                         |
 
-Phase C signal: `HALT_Q20A_LITERATURE_NOT_LANDED`
-- C.0 gate fails on dispatch 2 identically to dispatch 1.
-  `literature/g3b_2026-05-03/` absent; both required PDFs
-  absent; SHA256 manifest absent; no fallback location
-  returns matches.
-- Phases C.1 (Wasow §X.3 reading), C.2 (Birkhoff 1930 §§2–3
-  reading), C.3 (aggregate proof d-range) **skipped**.
+## Final verdict logic
 
-Phase D aggregation:
-- The Phase D logic table in Prompt 018 has no row for
-  "A_DIRECT_IDENTITY_d10 + halted_C". The closest precedent
-  is Q20's `UPGRADE_PARTIAL_PENDING_LITERATURE` and dispatch
-  1's `UPGRADE_DEFERRED_PENDING_LITERATURE_LANDING`. For
-  dispatch 2, since the gate failed in identical structural
-  posture and the dispatch's own §3 outcome ladder names
-  `HALT_*` as a valid terminal verdict, this re-fire emits
-  `HALT_Q20A_LITERATURE_NOT_LANDED` directly (the same
-  signal as the C.0 halt, lifted to Phase D as the final
-  verdict). This is structurally weaker than dispatch 1's
-  composite "UPGRADE_DEFERRED_…" name only in framing; the
-  underlying claim set is identical.
+Per Prompt 018 §2 step 7:
+- `UPGRADE_FULL` requires `C_LITERATURE_UNIFORM`. Not achieved.
+- `UPGRADE_PARTIAL_d_LE_d*` requires a finite d_W* / d_B* cap
+  established. No finite cap is established (Wasow blocked;
+  Birkhoff is uniform on the formal half).
+- `UPGRADE_REJECTED` requires a literature-level disagreement
+  with a Q20A claim. No disagreement; only an extraction gap.
+- `HALT_Q20A_LITERATURE_DISAGREES_WITH_012` — no disagreement.
+- `HALT_Q20A_REGRESSION_AT_PHASE_A` — Phase A* SHAs match
+  exactly; no regression.
 
-## Implications (unchanged from dispatch 1)
+None of the §2 step 7 verdicts fit cleanly. The honest verdict
+is a new halt code: `HALT_Q20A_WASOW_PDF_IMAGE_ONLY`. The
+verdict ladder of Prompt 018 §3 also does not list this
+specifically; the closest is `HALT_Q20A_LITERATURE_NOT_LANDED`,
+which is technically wrong because the literature **is**
+landed (PDFs on disk, hashes verified) — the issue is purely
+that the Wasow PDF carries no machine-readable text.
 
-| Object | Status pre-Q20A | Status post-dispatch-2 | Δ |
-|--------|-----------------|--------------------------|---|
-| G1 (general-d ξ_0 proof) | OPEN | OPEN | — |
-| G2 (general-d Conj 3.3.A* upgrade) | OPEN (closed at d=3 via Prompt 012) | unchanged | — |
-| M2 (G2 → CT v1.5) | PARTIAL | PARTIAL | — |
-| M9 gating | {M2, M4, M6} | unchanged | — |
-| D2-NOTE v1 vs v2 | v1 in print | v1 in print (no v2 draft) | — |
+## Differences vs. dispatches 1/2
 
-## Phase E
+| Item                    | Dispatch 1                       | Dispatch 2                          | Dispatch 3                                    |
+|-------------------------|----------------------------------|-------------------------------------|-----------------------------------------------|
+| PDFs on disk            | No                               | No                                  | **Yes** (under runbook canonical path)        |
+| SHA256SUMS.txt          | No                               | No                                  | **Yes** (operator runbook step ran)           |
+| Phase C.0 result        | HALT (no files)                  | HALT (no files)                     | **PASS** (hash match)                         |
+| Phase C.1 (Wasow)       | Skipped                          | Skipped                             | **HALT** (image-only PDF)                     |
+| Phase C.2 (Birkhoff)    | Skipped                          | Skipped                             | **PARTIAL** — (i) uniform; (ii) NIA           |
+| Verdict                 | UPGRADE_DEFERRED_PENDING_LIT_LDG | HALT_Q20A_LITERATURE_NOT_LANDED     | **HALT_Q20A_WASOW_PDF_IMAGE_ONLY**            |
 
-**Skipped.** Phase E entry conditions per Prompt 018 §2 are
-`UPGRADE_FULL` or `UPGRADE_PARTIAL_d_LE_d*` (with d* ≥ 4 for
-draft of D2-NOTE v2). Neither fires under
-`HALT_Q20A_LITERATURE_NOT_LANDED`. D2-NOTE v1 unchanged.
+Dispatch 3 strictly **strengthens** the prior dispatches:
+Birkhoff §2 formal-series existence theorem is now extracted
+and recorded as uniform-in-d AEAL evidence. Downstream
+consumers gain the formal half regardless of whether Phase
+C.1 ever closes.
 
-## Phase F
+## Downstream impact
 
-Handoff written. AEAL claims appended to existing
-`claims.jsonl` (17 prior + 4 re-fire = 21 total). Halt log
-updated with dispatch_history array tracking both dispatches.
-Discrepancy log and unexpected_finds files unchanged
-(no new discrepancies, no unexpected finds at Phase A*
-cached re-validation). Bridge commit + push in §6 standing
-final step.
+- **PCF-2 v1.3 §3.3.A* (`xi_0(d) = d / β_d^{1/d}`):** the
+  formal-series-existence half is now theorem-grade citable
+  to Birkhoff 1930 §2 (uniform in d ≥ 1). The analytic / Borel
+  identification half remains conjectural pending B–T 1933
+  acquisition or Wasow §X.3 in readable form.
 
-## Recommendation for synthesizer (Claude)
+- **CT v1.4 §3.3 / D2-NOTE v1:** unchanged. No v2 D2-NOTE is
+  drafted in this dispatch (Phase E gated on UPGRADE_*).
 
-Two options for the next relay step:
+- **G1, G2:** unchanged. Q20a remains **OPEN** as a full
+  upgrade target; one half is theorem-grade citable, the
+  other half awaits readable Wasow §X.3 or B–T 1933.
 
-(a) **Wait on operator.** Dispatch the Q20A re-fire a third
-    time only after the operator confirms PDFs at
-    `literature/g3b_2026-05-03/`. This is the spec-compliant
-    path.
+- **M2 (proof of `xi_0(d) = d / β_d^{1/d}` as theorem):**
+  upgraded from `PARTIAL` to **`PARTIAL_FORMAL_HALF_THEOREM`**
+  — a finer status than dispatches 1/2 supported. M2 is not
+  yet DONE.
 
-(b) **Reframe scope.** If the operator's browser-download
-    cycle is blocked indefinitely, consider whether
-    `A_DIRECT_IDENTITY_d10` (which strengthens the symbolic
-    side of the proof from `d ∈ {2,3,4}` to `d ∈ {2..10}`)
-    is sufficient evidence to update CT v1.5 §3.3 to
-    "Conjecture 3.3.A* with extended-d sanity at d ≤ 10"
-    framing — independent of the literature gate. This is
-    explicitly outside Q20A's outcome ladder (and was
-    flagged in dispatch 1's handoff anomaly #1) but may be
-    the most useful next move given the gating-on-acquisition
-    pattern.
+- **M9 gating set:** unchanged. Still `{M2, M4, M6}` — M2 is
+  not closed; the partial closure of its formal half does not
+  remove the gating dependence per Prompt 018 §3.
+
+## Phase E — D2-NOTE v2
+
+**Skipped.** Phase E is gated on `UPGRADE_FULL` or
+`UPGRADE_PARTIAL_d_LE_d*` per Prompt 018 §2 step 8. Neither
+condition holds.
+
+## Resumption checklist for dispatch 4
+
+1. Operator re-acquires Wasow §X.3 in machine-readable form,
+   or transcribes theorems X.3.1, X.3.2, X.3.3 (and any
+   Borel-singularity content if it lives in chap X) into a
+   text file under
+   `tex/submitted/control center/literature/g3b_2026-05-03/`.
+2. SHA256SUMS.txt updated.
+3. Re-fire Q20A-PHASE-C-RESUME (dispatch 4). Phase A* cache
+   re-validates in seconds; Phase C.0 hash check re-validates
+   in seconds; Phase C.1 picks up from this halt; Phase C.2
+   (ii) and Phase C.3 / D / E execute fresh.
+
+Alternative: synthesizer drafts a separate
+`Q20A-LIT-INDEPENDENT-PARTIAL-LANDING` prompt that lands
+- `A_DIRECT_IDENTITY_d10` (uniform-in-d-2..10 sanity range), and
+- Birkhoff 1930 §§2-3 formal-series existence theorem
+  (uniform in d ≥ 1) for the `xi_0(d)` formal-direction claim,
+into CT v1.5 / a D2-NOTE v1.5 as an extended-conjecture-with-
+formal-half-theorem-grade landmark, independent of Wasow §X.3.
