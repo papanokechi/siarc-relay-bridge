@@ -1,0 +1,304 @@
+==============================================================================
+PHASE A ΓÇö Symbolic derivation of formal exponents
+==============================================================================
+
+
+[A.1-A.4] Analysis at d = 2, 3, 4 for three conventions
+==============================================================================
+
+ΓòÉΓòÉ DEGREE d = 2 ΓòÉΓòÉ
+--- d = 2, convention = ╬▒-direction (PCF-1 v1.3 ┬º6) (deg a = 1, deg b = 2) ---
+  Balance (I)   dominant solution:  ╬╝_dom = 2, ╬│_dom = c_b
+     (subdominant check: deg_a - 2╬╝_dom = 1 - 4 = -3 < 0 Γ£ô)
+  Balance (III) subdominant solution: ╬╝_sub = -1, ╬│_sub = -c_a/c_b
+     (RHS dominates LHS check: 2 deg_b - deg_a = 3 > 0 Γ£ô)
+  PREDICTION: A = ╬╝_dom - ╬╝_sub = 2 - (-1) = 3
+  TARGET (Conjecture B4): A = 2d = 4
+  MATCH B4? NO Γ£ù (DRIFT by 1)
+
+--- d = 2, convention = symmetric (gap_prop ┬º1) (deg a = 2, deg b = 2) ---
+  Balance (I)   dominant solution:  ╬╝_dom = 2, ╬│_dom = c_b
+     (subdominant check: deg_a - 2╬╝_dom = 2 - 4 = -2 < 0 Γ£ô)
+  Balance (III) subdominant solution: ╬╝_sub = 0, ╬│_sub = -c_a/c_b
+     (RHS dominates LHS check: 2 deg_b - deg_a = 2 > 0 Γ£ô)
+  PREDICTION: A = ╬╝_dom - ╬╝_sub = 2 - (0) = 2
+  TARGET (Conjecture B4): A = 2d = 4
+  MATCH B4? NO Γ£ù (DRIFT by 2)
+
+--- d = 2, convention = ╬┤-direction (class label) (deg a = 3, deg b = 2) ---
+  Balance (I)   dominant solution:  ╬╝_dom = 2, ╬│_dom = c_b
+     (subdominant check: deg_a - 2╬╝_dom = 3 - 4 = -1 < 0 Γ£ô)
+  Balance (III) subdominant solution: ╬╝_sub = 1, ╬│_sub = -c_a/c_b
+     (RHS dominates LHS check: 2 deg_b - deg_a = 1 > 0 Γ£ô)
+  PREDICTION: A = ╬╝_dom - ╬╝_sub = 2 - (1) = 1
+  TARGET (Conjecture B4): A = 2d = 4
+  MATCH B4? NO Γ£ù (DRIFT by 3)
+
+
+ΓòÉΓòÉ DEGREE d = 3 ΓòÉΓòÉ
+--- d = 3, convention = ╬▒-direction (PCF-1 v1.3 ┬º6) (deg a = 2, deg b = 3) ---
+  Balance (I)   dominant solution:  ╬╝_dom = 3, ╬│_dom = c_b
+     (subdominant check: deg_a - 2╬╝_dom = 2 - 6 = -4 < 0 Γ£ô)
+  Balance (III) subdominant solution: ╬╝_sub = -1, ╬│_sub = -c_a/c_b
+     (RHS dominates LHS check: 2 deg_b - deg_a = 4 > 0 Γ£ô)
+  PREDICTION: A = ╬╝_dom - ╬╝_sub = 3 - (-1) = 4
+  TARGET (Conjecture B4): A = 2d = 6
+  MATCH B4? NO Γ£ù (DRIFT by 2)
+
+--- d = 3, convention = symmetric (gap_prop ┬º1) (deg a = 3, deg b = 3) ---
+  Balance (I)   dominant solution:  ╬╝_dom = 3, ╬│_dom = c_b
+     (subdominant check: deg_a - 2╬╝_dom = 3 - 6 = -3 < 0 Γ£ô)
+  Balance (III) subdominant solution: ╬╝_sub = 0, ╬│_sub = -c_a/c_b
+     (RHS dominates LHS check: 2 deg_b - deg_a = 3 > 0 Γ£ô)
+  PREDICTION: A = ╬╝_dom - ╬╝_sub = 3 - (0) = 3
+  TARGET (Conjecture B4): A = 2d = 6
+  MATCH B4? NO Γ£ù (DRIFT by 3)
+
+--- d = 3, convention = ╬┤-direction (class label) (deg a = 4, deg b = 3) ---
+  Balance (I)   dominant solution:  ╬╝_dom = 3, ╬│_dom = c_b
+     (subdominant check: deg_a - 2╬╝_dom = 4 - 6 = -2 < 0 Γ£ô)
+  Balance (III) subdominant solution: ╬╝_sub = 1, ╬│_sub = -c_a/c_b
+     (RHS dominates LHS check: 2 deg_b - deg_a = 2 > 0 Γ£ô)
+  PREDICTION: A = ╬╝_dom - ╬╝_sub = 3 - (1) = 2
+  TARGET (Conjecture B4): A = 2d = 6
+  MATCH B4? NO Γ£ù (DRIFT by 4)
+
+
+ΓòÉΓòÉ DEGREE d = 4 ΓòÉΓòÉ
+--- d = 4, convention = ╬▒-direction (PCF-1 v1.3 ┬º6) (deg a = 3, deg b = 4) ---
+  Balance (I)   dominant solution:  ╬╝_dom = 4, ╬│_dom = c_b
+     (subdominant check: deg_a - 2╬╝_dom = 3 - 8 = -5 < 0 Γ£ô)
+  Balance (III) subdominant solution: ╬╝_sub = -1, ╬│_sub = -c_a/c_b
+     (RHS dominates LHS check: 2 deg_b - deg_a = 5 > 0 Γ£ô)
+  PREDICTION: A = ╬╝_dom - ╬╝_sub = 4 - (-1) = 5
+  TARGET (Conjecture B4): A = 2d = 8
+  MATCH B4? NO Γ£ù (DRIFT by 3)
+
+--- d = 4, convention = symmetric (gap_prop ┬º1) (deg a = 4, deg b = 4) ---
+  Balance (I)   dominant solution:  ╬╝_dom = 4, ╬│_dom = c_b
+     (subdominant check: deg_a - 2╬╝_dom = 4 - 8 = -4 < 0 Γ£ô)
+  Balance (III) subdominant solution: ╬╝_sub = 0, ╬│_sub = -c_a/c_b
+     (RHS dominates LHS check: 2 deg_b - deg_a = 4 > 0 Γ£ô)
+  PREDICTION: A = ╬╝_dom - ╬╝_sub = 4 - (0) = 4
+  TARGET (Conjecture B4): A = 2d = 8
+  MATCH B4? NO Γ£ù (DRIFT by 4)
+
+--- d = 4, convention = ╬┤-direction (class label) (deg a = 5, deg b = 4) ---
+  Balance (I)   dominant solution:  ╬╝_dom = 4, ╬│_dom = c_b
+     (subdominant check: deg_a - 2╬╝_dom = 5 - 8 = -3 < 0 Γ£ô)
+  Balance (III) subdominant solution: ╬╝_sub = 1, ╬│_sub = -c_a/c_b
+     (RHS dominates LHS check: 2 deg_b - deg_a = 3 > 0 Γ£ô)
+  PREDICTION: A = ╬╝_dom - ╬╝_sub = 4 - (1) = 3
+  TARGET (Conjecture B4): A = 2d = 8
+  MATCH B4? NO Γ£ù (DRIFT by 5)
+
+==============================================================================
+[A.5] Verify against PCF-1 v1.3 ┬º6 Theorem 5 (d=2)
+==============================================================================
+
+PCF-1 v1.3 ┬º6 Theorem 5 statement: 'A Γêê {3, 4}' at d=2.
+                                    A = 4 for V_quad
+                                    A = 3 for QL01, QL02, QL06, QL15, QL26
+
+Naive Newton-polygon predictions at d=2:
+  ╬▒-direction (deg a=1, deg b=2):  A = 3 = d+1
+  symmetric  (deg a=2, deg b=2):   A = 2 = d
+  ╬┤-direction (deg a=3, deg b=2):  A = 1 = d-1
+
+Γ£ô ╬▒-direction A=3 MATCHES the PCF-1 v1.3 lower branch (QL families)
+Γ£ù A=4 (V_quad upper branch = 2d) is NOT recovered by naive Newton-polygon
+    analysis. This branch requires the SIARC stratum to sit at an
+    EXCEPTIONAL LOCUS where the leading-order ╬ô(n)^{-(d+1)} cancellation
+    occurs (P2.1 + P2.2 sub-claims of gap_proposition_for_d_ge_3.md).
+
+==============================================================================
+[A.6+A.7] Verify against PCF-2 v1.3 R1.1 + R1.3 + Q1 (d=3, d=4)
+==============================================================================
+
+PCF-2 v1.3 R1.1 + R1.3 + Q1 empirical record:
+  d=3: 50/50 cubic families A_fit Γëê 6 = 2d (high-precision tail-window fit)
+  d=4: 60/60 quartic families mean A_fit = 7.954 Γëê 8 = 2d, ╧â = 3.7e-3
+
+Naive Newton-polygon predictions at d=3, d=4:
+  d=3: ╬▒-dir A=4=d+1, symmetric A=3=d, ╬┤-dir A=2=d-1
+  d=4: ╬▒-dir A=5=d+1, symmetric A=4=d, ╬┤-dir A=3=d-1
+
+Γ£ù NONE of the three naive Newton-polygon predictions match 2d at d ΓëÑ 3.
+  This is a FACTOR-OF-2 DISCREPANCY (consistent across d=3, d=4).
+
+DIAGNOSTIC INTERPRETATION:
+  The empirical A = 2d at d ΓëÑ 3 implies the SIARC PCF stratum sits at a
+  SPECIAL LOCUS where the leading-order formal expansion exhibits a
+  structural cancellation of the n^╬╝_dom ╬│_dom^n leading factor relative
+  to the naive Newton-polygon prediction. This is exactly P2.1 (Newton-
+  polygon non-degeneracy: the SIARC stratum has SINGLE slope at d, with
+  no spurious lower-slope vertices) + P2.2 (formal-exponent extremality:
+  no resonance cancellation drops -A n log n to lower-slope -A' n log n).
+
+Naive Newton-polygon analysis CANNOT recover A = 2d without the additional
+argument that the stratum is at this exceptional locus.
+
+VERDICT SIGNAL: A_INDICIAL_DRIFT_AT_d_GE_3
+  (Phase A's chi_d(c) at d ΓëÑ 3 doesn't recover the empirical 2d via
+  naive Newton-polygon analysis; the upper branch / exceptional-locus
+  argument is the actual content of Phase 2 P2.1 + P2.2 sub-claims and
+  is NOT closed by symbolic derivation alone.)
+
+==============================================================================
+[A.5'-A.7'] HONEST INTERPRETATION OF PHASE A RESULT
+==============================================================================
+
+The naive Newton-polygon analysis is the formal-level baseline. It says:
+  - For GENERIC (c_a, c_b) with no algebraic cancellation, A = d+1 (╬▒-dir)
+    or A = d (symmetric) or A = d-1 (╬┤-dir).
+  - The d=2 lower branch (A=3 for QL families) MATCHES generic ╬▒-direction.
+  - The d=2 upper branch (A=4 for V_quad) and dΓëÑ3 (A=2d) require the SIARC
+    PCF stratum to be at a SPECIAL LOCUS where this baseline is bumped up.
+
+This is a STRUCTURAL OBSERVATION: the empirical A = 2d cannot be derived
+from Newton-polygon analysis ALONE without specifying:
+  (i)  the algebraic condition defining the special locus (P2.1)
+  (ii) the proof that all SIARC PCF strata at d ΓëÑ 3 lie on this locus (P2.2)
+  (iii) the formal-to-analytic upgrade (P2.3) ΓÇö out of scope for Phase A.
+
+Output structural summary at end-of-script.
+==============================================================================
+
+==============================================================================
+PHASE A FINDINGS (JSON for AEAL claims.jsonl)
+==============================================================================
+{
+  "task": "T1-BIRKHOFF-PHASE2-LIFT-LOWER, Phase A",
+  "method": "naive Newton-polygon balance analysis on y(n) - b_n y(n-1) - a_n y(n-2) = 0",
+  "ansatz": "y(n) ~ \u0393(n)^\u03bc \u03b3^n n^\u03c1 S(1/n)",
+  "results_by_d_and_convention": [
+    {
+      "d": 2,
+      "convention": "\u03b1-direction (PCF-1 v1.3 \u00a76)",
+      "deg_a": 1,
+      "deg_b": 2,
+      "mu_dom": 2,
+      "gamma_dom": "c_b",
+      "mu_sub": -1,
+      "gamma_sub": "-c_a / c_b",
+      "A_predicted_naive": 3,
+      "A_target_B4": 4,
+      "match_B4": false
+    },
+    {
+      "d": 2,
+      "convention": "symmetric (gap_prop \u00a71)",
+      "deg_a": 2,
+      "deg_b": 2,
+      "mu_dom": 2,
+      "gamma_dom": "c_b",
+      "mu_sub": 0,
+      "gamma_sub": "-c_a / c_b",
+      "A_predicted_naive": 2,
+      "A_target_B4": 4,
+      "match_B4": false
+    },
+    {
+      "d": 2,
+      "convention": "\u03b4-direction (class label)",
+      "deg_a": 3,
+      "deg_b": 2,
+      "mu_dom": 2,
+      "gamma_dom": "c_b",
+      "mu_sub": 1,
+      "gamma_sub": "-c_a / c_b",
+      "A_predicted_naive": 1,
+      "A_target_B4": 4,
+      "match_B4": false
+    },
+    {
+      "d": 3,
+      "convention": "\u03b1-direction (PCF-1 v1.3 \u00a76)",
+      "deg_a": 2,
+      "deg_b": 3,
+      "mu_dom": 3,
+      "gamma_dom": "c_b",
+      "mu_sub": -1,
+      "gamma_sub": "-c_a / c_b",
+      "A_predicted_naive": 4,
+      "A_target_B4": 6,
+      "match_B4": false
+    },
+    {
+      "d": 3,
+      "convention": "symmetric (gap_prop \u00a71)",
+      "deg_a": 3,
+      "deg_b": 3,
+      "mu_dom": 3,
+      "gamma_dom": "c_b",
+      "mu_sub": 0,
+      "gamma_sub": "-c_a / c_b",
+      "A_predicted_naive": 3,
+      "A_target_B4": 6,
+      "match_B4": false
+    },
+    {
+      "d": 3,
+      "convention": "\u03b4-direction (class label)",
+      "deg_a": 4,
+      "deg_b": 3,
+      "mu_dom": 3,
+      "gamma_dom": "c_b",
+      "mu_sub": 1,
+      "gamma_sub": "-c_a / c_b",
+      "A_predicted_naive": 2,
+      "A_target_B4": 6,
+      "match_B4": false
+    },
+    {
+      "d": 4,
+      "convention": "\u03b1-direction (PCF-1 v1.3 \u00a76)",
+      "deg_a": 3,
+      "deg_b": 4,
+      "mu_dom": 4,
+      "gamma_dom": "c_b",
+      "mu_sub": -1,
+      "gamma_sub": "-c_a / c_b",
+      "A_predicted_naive": 5,
+      "A_target_B4": 8,
+      "match_B4": false
+    },
+    {
+      "d": 4,
+      "convention": "symmetric (gap_prop \u00a71)",
+      "deg_a": 4,
+      "deg_b": 4,
+      "mu_dom": 4,
+      "gamma_dom": "c_b",
+      "mu_sub": 0,
+      "gamma_sub": "-c_a / c_b",
+      "A_predicted_naive": 4,
+      "A_target_B4": 8,
+      "match_B4": false
+    },
+    {
+      "d": 4,
+      "convention": "\u03b4-direction (class label)",
+      "deg_a": 5,
+      "deg_b": 4,
+      "mu_dom": 4,
+      "gamma_dom": "c_b",
+      "mu_sub": 1,
+      "gamma_sub": "-c_a / c_b",
+      "A_predicted_naive": 3,
+      "A_target_B4": 8,
+      "match_B4": false
+    }
+  ],
+  "verdict_signal": "A_INDICIAL_DRIFT_AT_d_GE_3",
+  "interpretation": "Naive Newton-polygon analysis recovers d=2 lower branch (A=3 = d+1 for \u03b1-direction asymmetric coefficients) but NOT V_quad upper branch (A=4 = 2d at d=2) nor the empirical A=2d at d \u2265 3. The 'upper branch' requires the SIARC stratum to sit at an EXCEPTIONAL LOCUS where the leading-order formal expansion exhibits a structural cancellation of the dominant \u0393(n)^{\u03bc_dom} \u03b3_dom^n factor relative to the naive prediction. This is the actual content of P2.1 (Newton-polygon non-degeneracy) + P2.2 (formal-exponent extremality) sub-claims of gap_proposition_for_d_ge_3.md, and IS NOT closed by symbolic derivation of chi_d(c) alone \u2014 it requires the additional algebraic + analytic-upgrade argument (P2.3 sectorial uniformity).",
+  "structural_finding": "At every d \u2208 {2,3,4}, naive Newton-polygon analysis gives a baseline A_naive \u2208 {d-1, d, d+1} depending on (deg a, deg b) convention. The empirical A = 2d at d \u2265 3 is BELOW the literature upper bound 2d only in the sense that 2d = A_naive at d=1 only; for d \u2265 2 there is a consistent gap between A_naive (Newton-polygon baseline) and A_target (empirical / B4). The gap is closed not by chi_d(c) at the formal level but by the SIARC-stratum-specific algebraic condition \u2014 Phase 2 sub-claim P2.2 (formal-exponent extremality).",
+  "script_sha256": "2fc6e39267768791912cc53aa59bc231c40483a1a93e92104b13f07809f16248",
+  "script_path": "phase_a_symbolic_derivation.py"
+}
+
+Written findings to: phase_a_findings.json
+
+==============================================================================
+PHASE A COMPLETE (with HALT signal)
+==============================================================================
