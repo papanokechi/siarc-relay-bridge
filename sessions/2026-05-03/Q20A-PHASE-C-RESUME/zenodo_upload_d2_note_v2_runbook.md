@@ -37,7 +37,7 @@ upload:
 
 | File                          | Required | Purpose                                   |
 |-------------------------------|----------|-------------------------------------------|
-| `d2_note_v2.pdf`              | YES      | Main artefact (6 pp, 400 559 B)           |
+| `d2_note_v2.pdf`              | YES      | Main artefact (6 pp, 403 232 B)           |
 | `d2_note_v2.tex`              | YES      | LaTeX source for reproducibility          |
 | `annotated_bibliography.bib`  | YES      | Bibliography source                       |
 
@@ -64,17 +64,18 @@ Get-FileHash -Algorithm SHA256 `
     claims.jsonl | Format-Table Hash, Path
 ```
 
-**Expected hashes** (verified 2026-05-03):
+**Expected hashes** (post-author-block-fix rebuild, 2026-05-03; previous build hashes `3496d5b6…3dc09` (PDF) and `823b82fe…6816` (TeX) are superseded by this rebuild — see audit `b4c6748` Action 1):
 
 | File                              | SHA-256 (full)                                                       | Size (B) |
 |-----------------------------------|----------------------------------------------------------------------|----------|
-| `d2_note_v2.pdf`                  | `3496D5B6E0EAF992842CCFDAF3BF51AA0BEECB34C3F99E76391C876072E3DC09`   | 400 559  |
-| `d2_note_v2.tex`                  | `823B82FE14A96DD986E35DF62B3076427A2A900F7B219C8CFDC8CECA3F2B6816`   | 21 192   |
+| `d2_note_v2.pdf`                  | `1BB2311B80808E9B6805AABF4308B3AAC5CB373CA5887E8D2A328966C6ECEB06`   | 403 232  |
+| `d2_note_v2.tex`                  | `31E1CB2D0C094269514BA70095C2A829A3A4785D1920DA3C77675BD3DCFEBDD5`   | 22 084   |
 | `annotated_bibliography.bib`      | `80D1A0BC82F47A88063D947EB56271426C1881136C35C352813347A23CD6DC80`   | 34 092   |
-| `claims.jsonl` (58 entries)       | `1FD307498C6A0ACA898B760BB51C0CDA2C9033986D8F21A938AAC6A20BAF645D`   | 27 162   |
+| `claims.jsonl` (59 entries)       | (recomputed at upload time after appending claim 59 — see §5)        | (varies) |
 
 If any hash mismatches: STOP, re-pull from the bridge `main` branch
-(commit `1642b24`) and re-verify. Do not upload a drifted artefact.
+(post-fix commit; see `git log` for the latest "AUTHOR-INFO-AUDIT
+fix" commit) and re-verify. Do not upload a drifted artefact.
 
 ### 1.2 Page count + integrity sanity
 
@@ -100,9 +101,9 @@ verdict trail.
 
 **Authors:**
 
-| # | Name                        | Affiliation                                    | ORCID                       |
-|---|-----------------------------|------------------------------------------------|-----------------------------|
-| 1 | Echizen Kubo, Mauricio      | Independent researcher, Yokohama, Japan        | (operator: paste your ORCID)|
+| # | Name         | Affiliation                                    | ORCID                       |
+|---|--------------|------------------------------------------------|-----------------------------|
+| 1 | Papanokechi  | Independent researcher, Yokohama, Japan        | 0009-0000-6192-8273         |
 
 **Publication date:** 2026-05-03
 **Language:** English
@@ -300,12 +301,12 @@ $version = "10.5281/zenodo.<VERSION>"
 $ts = Get-Date -Format "yyyy-MM-ddTHH:mm:ssK"
 
 $claim = [ordered]@{
-  claim         = "D2-NOTE v2.0 published on Zenodo. Concept DOI $concept; version DOI $version; published $ts. PDF SHA-256 3496d5b6e0eaf992842ccfdaf3bf51aa0beecb34c3f99e76391c876072e3dc09 (matches Q20a Phase E build hash; should match Zenodo readback exactly). v1 superseded (never deposited; see runbook §0)."
+  claim         = "D2-NOTE v2.0 published on Zenodo. Concept DOI $concept; version DOI $version; published $ts. PDF SHA-256 1bb2311b80808e9b6805aabf4308b3aac5cb373ca5887e8d2a328966c6eceb06 (matches the post-audit author-block-fix rebuild; should match Zenodo readback exactly). v1 superseded (never deposited; see runbook §0)."
   evidence_type = "file_inspection"
   dps           = $null
   reproducible  = $true
   script        = "Invoke-RestMethod https://zenodo.org/api/records/<VERSION>"
-  output_hash   = "3496d5b6e0eaf992842ccfdaf3bf51aa0beecb34c3f99e76391c876072e3dc09"
+  output_hash   = "1bb2311b80808e9b6805aabf4308b3aac5cb373ca5887e8d2a328966c6eceb06"
 }
 $line = $claim | ConvertTo-Json -Compress
 Add-Content -Path claims.jsonl -Value $line
@@ -319,8 +320,8 @@ $pub = "https://zenodo.org/records/$ver/files/d2_note_v2.pdf?download=1"
 Invoke-WebRequest $pub -OutFile zenodo_readback_v2.pdf
 $h = (Get-FileHash zenodo_readback_v2.pdf -Algorithm SHA256).Hash
 Write-Host "Readback SHA-256: $h"
-Write-Host "Expected         : 3496D5B6E0EAF992842CCFDAF3BF51AA0BEECB34C3F99E76391C876072E3DC09"
-if ($h -ieq "3496D5B6E0EAF992842CCFDAF3BF51AA0BEECB34C3F99E76391C876072E3DC09") {
+Write-Host "Expected         : 1BB2311B80808E9B6805AABF4308B3AAC5CB373CA5887E8D2A328966C6ECEB06"
+if ($h -ieq "1BB2311B80808E9B6805AABF4308B3AAC5CB373CA5887E8D2A328966C6ECEB06") {
   Write-Host "MATCH" -ForegroundColor Green
   Remove-Item zenodo_readback_v2.pdf
 } else {
