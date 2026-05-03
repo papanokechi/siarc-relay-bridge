@@ -1,107 +1,81 @@
-# Phase D — Final Verdict (Dispatch 3)
+# Phase D — Verdict Aggregation (Dispatch 4)
 
-**Dispatch 3 timestamp:** 2026-05-03 (re-fire 3)
-**Final verdict:** `HALT_Q20A_WASOW_PDF_IMAGE_ONLY`
-(prior dispatch 2 verdict archived at
-`phase_d_verdict_pre_refire2.md`; dispatch 1 at
-`phase_d_verdict_pre_refire.md`).
+**Dispatch 4 timestamp:** 2026-05-03 (re-fire 4)
 
-## Aggregation
+## Inputs (signals)
 
-| Phase | Result                          | Verdict signal                            |
-|-------|---------------------------------|-------------------------------------------|
-| A*    | PASS, cached, SHA-verified      | `A_DIRECT_IDENTITY_d10` (dispatches 1/2)  |
-| C.0   | PASS (hash match, judgment on path) | `C0_GATE_PASS`                        |
-| C.1   | HALT (image-only PDF)           | `HALT_Q20A_WASOW_PDF_IMAGE_ONLY`          |
-| C.2   | PARTIAL — (i) uniform, (ii) NIA | `C_BIRKHOFF_UNIFORM_FORMAL_ONLY`          |
-| C.3   | BLOCKED (Wasow + Borel half)    | `C_LITERATURE_BLOCKED_AT_C1`              |
-| E     | SKIPPED (gated on D)            | —                                         |
+| Phase | Signal | Source |
+|-------|--------|--------|
+| A*    | `A_DIRECT_IDENTITY_d10` | cached; SHA-256 re-validated this dispatch |
+| C.0   | `C0_GATE_PASS` (re-issued with new Wasow hash `f59d6835…a5fd`) | `phase_c0_gate_pass.md` |
+| C.1   | `C_WASOW_UNIFORM` | `phase_c1_wasow_verification.md` |
+| C.2   | `C_BIRKHOFF_UNIFORM` (formal half) + Borel half re-targeted to Wasow §19 (uniform) | `phase_c2_birkhoff_verification.md` (dispatch 3, retained) |
+| C.3   | `C_LITERATURE_UNIFORM` | `phase_c_summary.md` |
 
-## Final verdict logic
+## Verdict ladder traversal (Prompt 018 §2 step 7 / §3)
 
-Per Prompt 018 §2 step 7:
-- `UPGRADE_FULL` requires `C_LITERATURE_UNIFORM`. Not achieved.
-- `UPGRADE_PARTIAL_d_LE_d*` requires a finite d_W* / d_B* cap
-  established. No finite cap is established (Wasow blocked;
-  Birkhoff is uniform on the formal half).
-- `UPGRADE_REJECTED` requires a literature-level disagreement
-  with a Q20A claim. No disagreement; only an extraction gap.
-- `HALT_Q20A_LITERATURE_DISAGREES_WITH_012` — no disagreement.
-- `HALT_Q20A_REGRESSION_AT_PHASE_A` — Phase A* SHAs match
-  exactly; no regression.
+The verdict ladder in Prompt 018 §3 lists, in order of preference:
 
-None of the §2 step 7 verdicts fit cleanly. The honest verdict
-is a new halt code: `HALT_Q20A_WASOW_PDF_IMAGE_ONLY`. The
-verdict ladder of Prompt 018 §3 also does not list this
-specifically; the closest is `HALT_Q20A_LITERATURE_NOT_LANDED`,
-which is technically wrong because the literature **is**
-landed (PDFs on disk, hashes verified) — the issue is purely
-that the Wasow PDF carries no machine-readable text.
+1. **`UPGRADE_FULL`** — A* identity holds AND literature uniform in d (no cap).
+2. `UPGRADE_PARTIAL_d_LE_d*` — A* identity holds AND literature bounded at some d* < ∞.
+3. `UPGRADE_REJECTED` — A* identity fails OR literature contradicts the construction.
+4. `HALT_*` — gate failure or unresolved discrepancy.
 
-## Differences vs. dispatches 1/2
+Phase A* identity holds (cached `A_DIRECT_IDENTITY_d10`, 18/18 pass over
+d ∈ {2..10}, SHA-validated this dispatch).
+Phase C.3 produces `C_LITERATURE_UNIFORM` (no d-cap).
+Hence **rung 1** matches: **`UPGRADE_FULL`**.
 
-| Item                    | Dispatch 1                       | Dispatch 2                          | Dispatch 3                                    |
-|-------------------------|----------------------------------|-------------------------------------|-----------------------------------------------|
-| PDFs on disk            | No                               | No                                  | **Yes** (under runbook canonical path)        |
-| SHA256SUMS.txt          | No                               | No                                  | **Yes** (operator runbook step ran)           |
-| Phase C.0 result        | HALT (no files)                  | HALT (no files)                     | **PASS** (hash match)                         |
-| Phase C.1 (Wasow)       | Skipped                          | Skipped                             | **HALT** (image-only PDF)                     |
-| Phase C.2 (Birkhoff)    | Skipped                          | Skipped                             | **PARTIAL** — (i) uniform; (ii) NIA           |
-| Verdict                 | UPGRADE_DEFERRED_PENDING_LIT_LDG | HALT_Q20A_LITERATURE_NOT_LANDED     | **HALT_Q20A_WASOW_PDF_IMAGE_ONLY**            |
+## Verdict
 
-Dispatch 3 strictly **strengthens** the prior dispatches:
-Birkhoff §2 formal-series existence theorem is now extracted
-and recorded as uniform-in-d AEAL evidence. Downstream
-consumers gain the formal half regardless of whether Phase
-C.1 ever closes.
+```
+UPGRADE_FULL
+```
 
-## Downstream impact
+## What this closes
 
-- **PCF-2 v1.3 §3.3.A* (`xi_0(d) = d / β_d^{1/d}`):** the
-  formal-series-existence half is now theorem-grade citable
-  to Birkhoff 1930 §2 (uniform in d ≥ 1). The analytic / Borel
-  identification half remains conjectural pending B–T 1933
-  acquisition or Wasow §X.3 in readable form.
+| Item | Pre-dispatch-4 status | Post-dispatch-4 status |
+|------|------------------------|-------------------------|
+| **G1** | open (gap proposition `A ∈ [ψ_lower(d), ψ_upper(d)]` unproven) | **closed** — direct identity holds at all d ∈ {2..10}; literature confirms framework extends uniformly to all d ≥ 2; gap collapses to identity |
+| **G2** | partial (Phase A symbolic match at d=2,3,4) | **strengthened** — extended to d=10 with no breakage; uniform in d |
+| **M2** (literature module) | partial (formal-half theorem from Birkhoff §2; Borel-half open) | **done** — Wasow §19 Thm 19.1 + eq. (19.3) supply the general-case canonical form and Borel content uniformly in q ≥ 0 |
+| **M9** gating set | `{M2, M4, M6}` | `{M4, M6}` — M2 is now done; M9 unblocks once M4 (numerical residual at higher d) and M6 (cross-paper consistency) close |
 
-- **CT v1.4 §3.3 / D2-NOTE v1:** unchanged. No v2 D2-NOTE is
-  drafted in this dispatch (Phase E gated on UPGRADE_*).
+## D2-NOTE v2 disposition
 
-- **G1, G2:** unchanged. Q20a remains **OPEN** as a full
-  upgrade target; one half is theorem-grade citable, the
-  other half awaits readable Wasow §X.3 or B–T 1933.
+Per Prompt 018 §2 Phase E logic, `UPGRADE_FULL` triggers a D2-NOTE v2
+draft. The draft is produced by Phase E (next).
 
-- **M2 (proof of `xi_0(d) = d / β_d^{1/d}` as theorem):**
-  upgraded from `PARTIAL` to **`PARTIAL_FORMAL_HALF_THEOREM`**
-  — a finer status than dispatches 1/2 supported. M2 is not
-  yet DONE.
+Note: the d=10 Phase A* sweep, Wasow §19 keystone Theorem 19.1, and the
+re-targeting of Prompt 018's Borel-content spec from Birkhoff §§2-3 to
+Wasow §19 eq. (19.3) — these are the three new substantive contributions
+of dispatch 4 over the dispatch-3 partial result.
 
-- **M9 gating set:** unchanged. Still `{M2, M4, M6}` — M2 is
-  not closed; the partial closure of its formal half does not
-  remove the gating dependence per Prompt 018 §3.
+## Anomalies for synthesizer-side review
 
-## Phase E — D2-NOTE v2
+1. **Vocabulary equivalence**: Wasow uses "shearing transformations" +
+   "characteristic exponents"; Prompt 018 spec uses "Newton polygon edges"
+   + "characteristic roots". Treated as substantively equivalent;
+   recommend confirming in synthesizer review.
+2. **PCF d ↔ Wasow q mapping**: `q = (d+2)/2`. For odd d this is half-integer;
+   Wasow §19.3 handles fractional q via independent-variable ramification
+   `x = const · t^p`. Mathematically tight, but synthesizer should confirm
+   the half-integer case is not a special edge condition the SIARC stratum
+   needs to flag separately.
+3. **Spec error on Birkhoff §§2-3 Borel content**: dispatched 4 records
+   the negative finding (not in §§2-3) and the positive finding (in
+   Wasow §19 eq. 19.3). Synthesizer should update Prompt 018 spec for
+   future re-fires (or downstream prompts) to cite Wasow §19 directly.
+4. **Vision-based PNG transcription as evidence type**: dispatch 4 uses
+   `vision_transcription` (with PDF SHA + page number + verbatim ≤30-word
+   quote) rather than `tesseract_ocr` or `embedded_text_layer`. AEAL-honest;
+   reproducible by re-loading the same PNGs. Synthesizer-side note: this
+   sets precedent for future image-only-PDF anchors and should be added to
+   the AEAL evidence-type vocabulary if not already.
+5. **No halt this dispatch.** All gates pass. Compare with dispatches 1-3
+   which all halted on Phase C.0 path mismatch (1, 2) or Wasow-PDF
+   image-only / wrong-section (3).
 
-**Skipped.** Phase E is gated on `UPGRADE_FULL` or
-`UPGRADE_PARTIAL_d_LE_d*` per Prompt 018 §2 step 8. Neither
-condition holds.
+## Verdict signal (final)
 
-## Resumption checklist for dispatch 4
-
-1. Operator re-acquires Wasow §X.3 in machine-readable form,
-   or transcribes theorems X.3.1, X.3.2, X.3.3 (and any
-   Borel-singularity content if it lives in chap X) into a
-   text file under
-   `tex/submitted/control center/literature/g3b_2026-05-03/`.
-2. SHA256SUMS.txt updated.
-3. Re-fire Q20A-PHASE-C-RESUME (dispatch 4). Phase A* cache
-   re-validates in seconds; Phase C.0 hash check re-validates
-   in seconds; Phase C.1 picks up from this halt; Phase C.2
-   (ii) and Phase C.3 / D / E execute fresh.
-
-Alternative: synthesizer drafts a separate
-`Q20A-LIT-INDEPENDENT-PARTIAL-LANDING` prompt that lands
-- `A_DIRECT_IDENTITY_d10` (uniform-in-d-2..10 sanity range), and
-- Birkhoff 1930 §§2-3 formal-series existence theorem
-  (uniform in d ≥ 1) for the `xi_0(d)` formal-direction claim,
-into CT v1.5 / a D2-NOTE v1.5 as an extended-conjecture-with-
-formal-half-theorem-grade landmark, independent of Wasow §X.3.
+`UPGRADE_FULL`
