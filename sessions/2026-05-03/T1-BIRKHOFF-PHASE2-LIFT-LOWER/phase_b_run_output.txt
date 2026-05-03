@@ -1,0 +1,68 @@
+==============================================================================
+PHASE B ΓÇö Extended sweep at d Γêê [3, 8]
+==============================================================================
+
+--- d = 3 ---
+  alpha-direction (PCF-1 v1.3)       : A_naive= 4, target=2d=6, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  symmetric (gap_prop)               : A_naive= 3, target=2d=6, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  delta-direction (class)            : A_naive= 2, target=2d=6, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+
+--- d = 4 ---
+  alpha-direction (PCF-1 v1.3)       : A_naive= 5, target=2d=8, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  symmetric (gap_prop)               : A_naive= 4, target=2d=8, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  delta-direction (class)            : A_naive= 3, target=2d=8, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+
+--- d = 5 ---
+  alpha-direction (PCF-1 v1.3)       : A_naive= 6, target=2d=10, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  symmetric (gap_prop)               : A_naive= 5, target=2d=10, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  delta-direction (class)            : A_naive= 4, target=2d=10, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+
+--- d = 6 ---
+  alpha-direction (PCF-1 v1.3)       : A_naive= 7, target=2d=12, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  symmetric (gap_prop)               : A_naive= 6, target=2d=12, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  delta-direction (class)            : A_naive= 5, target=2d=12, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+
+--- d = 7 ---
+  alpha-direction (PCF-1 v1.3)       : A_naive= 8, target=2d=14, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  symmetric (gap_prop)               : A_naive= 7, target=2d=14, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  delta-direction (class)            : A_naive= 6, target=2d=14, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+
+--- d = 8 ---
+  alpha-direction (PCF-1 v1.3)       : A_naive= 9, target=2d=16, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  symmetric (gap_prop)               : A_naive= 8, target=2d=16, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+  delta-direction (class)            : A_naive= 7, target=2d=16, borderline(deg_a=2deg_b)=no , non-resonant(diff Γêë Z)=NO
+
+==============================================================================
+STRUCTURAL OBSERVATION (Phase B)
+==============================================================================
+
+Across d Γêê [3, 8] for all three conventions:
+  - Newton-polygon baseline A_naive Γêê {d-1, d, d+1}
+  - Borderline case deg_a = 2 deg_b is NEVER met for these conventions
+    (would require deg_a = 2d in ╬▒-dir or symmetric, which is ╬┤+1 or ╬┤)
+  - Indicial exponents are ALWAYS integers (normal case at q=1)
+  - Strict non-resonance (╬╝ differences Γêë Z) FAILS GENERICALLY
+
+This is the standard Wimp-Zeilberger normal case. The non-resonance/
+non-degeneracy that the relay prompt ┬º2 Phase B asks for refers to the
+BORDERLINE case (q=2 fractional rank) where the two formal solutions
+coalesce at leading order and split at sub-leading sub-exponential order
+(exp(┬▒B ΓêÜn) corrections per Birkhoff-Trjitzinsky 1933 ┬º1 anormal case).
+
+VERDICT SIGNAL: B_BORDERLINE_NOT_MET_BY_NAIVE_ANSATZ
+  Phase B's naive sweep confirms the SIARC stratum at deg_a < 2 deg_b
+  sits in the NORMAL case, where A_naive Γëñ d+1, not 2d. The empirical
+  A = 2d at d ΓëÑ 3 must come from the SIARC stratum being at the
+  exceptional locus of the borderline case OR from a different
+  asymptotic-fitting convention than Wimp-Zeilberger predicts.
+
+CONSEQUENCE:
+  Phase B (extended sweep) does not by itself close A = 2d at d ΓëÑ 3.
+  Same structural observation as Phase A: the lift to A = 2d requires
+  P2.1 + P2.2 + P2.3 sub-claims, not just symbolic chi_d verification.
+
+Written findings to: phase_b_findings.json
+
+==============================================================================
+PHASE B COMPLETE
+==============================================================================
