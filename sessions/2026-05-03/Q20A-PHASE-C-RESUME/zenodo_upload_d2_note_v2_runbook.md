@@ -64,14 +64,14 @@ Get-FileHash -Algorithm SHA256 `
     claims.jsonl | Format-Table Hash, Path
 ```
 
-**Expected hashes** (post-pre-deposit-fix rebuild, 2026-05-03; supersedes the post-bib-fix hashes from commit 328c0ee. The pre-deposit fix landed: PCF-1 v1.3 + PCF-2 v1.3 DOIs in references [4]-[5], "Pap'a-Nokechi" → "Papanokechi" rendering for those entries, ORCID added to the end-of-paper address footer):
+**Expected hashes** (post-pre-deposit-fix + abstract-spacing-fix rebuild, 2026-05-03; supersedes the post-pre-deposit-fix hashes from commit b7922bb. The spacing fix landed: line 117 of d2_note_v2.tex changed `notations).The note` → `notations). The note` per operator's abstract review):
 
 | File                              | SHA-256 (full)                                                       | Size (B) |
 |-----------------------------------|----------------------------------------------------------------------|----------|
-| `d2_note_v2.pdf`                  | `7943DA064B369FFE2760E7B989764BD5F175AEBDC6C26224358F22C8AE840B85`   | 404 837  |
-| `d2_note_v2.tex`                  | `27535AF28D23EF72825DCE3866ED3BEF2417C1ECA05AA245014BB28B1F1D0F57`   | 22 129   |
+| `d2_note_v2.pdf`                  | `B9954D12BFE4F0C54351D9E87409C0D6870AF6D53FF4904DAF30E78E0E7ECE66`   | 404 837  |
+| `d2_note_v2.tex`                  | `2323A99D65B59ABFA74EA1BA39E1A5194AAD2B4B363425339A6B9ABA5A8F4E79`   | 22 130   |
 | `annotated_bibliography.bib`      | `27CABE7C76B850796034AE39F4128510453EF2E06DDAD844190B9BA63E0C4BBE`   | 34 268   |
-| `claims.jsonl` (62 entries)       | `4A2E36A89BF002EE70F97A209EDE16560BB4360A487466E87941C6A384C0B2AC`   | 33 419   |
+| `claims.jsonl` (63 entries)       | `FBF0FC67FA4916D2600B6A32566CC51F56891DEBBC3DEDEBCEE7508C153B60B4`   | 34 927   |
 
 If any hash mismatches: STOP, re-pull from the bridge `main` branch
 (post-fix commit; see `git log` for the latest "AUTHOR-INFO-AUDIT
@@ -301,12 +301,12 @@ $version = "10.5281/zenodo.<VERSION>"
 $ts = Get-Date -Format "yyyy-MM-ddTHH:mm:ssK"
 
 $claim = [ordered]@{
-  claim         = "D2-NOTE v2.0 published on Zenodo. Concept DOI $concept; version DOI $version; published $ts. PDF SHA-256 7943da064b369ffe2760e7b989764bd5f175aebdc6c26224358f22c8ae840b85 (matches the pre-deposit-fix rebuild; should match Zenodo readback exactly). v1 superseded (never deposited; see runbook §0)."
+  claim         = "D2-NOTE v2.0 published on Zenodo. Concept DOI $concept; version DOI $version; published $ts. PDF SHA-256 b9954d12bfe4f0c54351d9e87409c0d6870af6d53ff4904daf30e78e0e7ece66 (matches the pre-deposit-fix + abstract-spacing-fix rebuild; should match Zenodo readback exactly). v1 superseded (never deposited; see runbook §0)."
   evidence_type = "file_inspection"
   dps           = $null
   reproducible  = $true
   script        = "Invoke-RestMethod https://zenodo.org/api/records/<VERSION>"
-  output_hash   = "7943da064b369ffe2760e7b989764bd5f175aebdc6c26224358f22c8ae840b85"
+  output_hash   = "b9954d12bfe4f0c54351d9e87409c0d6870af6d53ff4904daf30e78e0e7ece66"
 }
 $line = $claim | ConvertTo-Json -Compress
 Add-Content -Path claims.jsonl -Value $line
@@ -320,8 +320,8 @@ $pub = "https://zenodo.org/records/$ver/files/d2_note_v2.pdf?download=1"
 Invoke-WebRequest $pub -OutFile zenodo_readback_v2.pdf
 $h = (Get-FileHash zenodo_readback_v2.pdf -Algorithm SHA256).Hash
 Write-Host "Readback SHA-256: $h"
-Write-Host "Expected         : 7943DA064B369FFE2760E7B989764BD5F175AEBDC6C26224358F22C8AE840B85"
-if ($h -ieq "7943DA064B369FFE2760E7B989764BD5F175AEBDC6C26224358F22C8AE840B85") {
+Write-Host "Expected         : B9954D12BFE4F0C54351D9E87409C0D6870AF6D53FF4904DAF30E78E0E7ECE66"
+if ($h -ieq "B9954D12BFE4F0C54351D9E87409C0D6870AF6D53FF4904DAF30E78E0E7ECE66") {
   Write-Host "MATCH" -ForegroundColor Green
   Remove-Item zenodo_readback_v2.pdf
 } else {
