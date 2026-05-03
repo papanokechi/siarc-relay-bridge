@@ -1,0 +1,1389 @@
+
+===== PAGE 1 =====
+FORYlAL THEORY OF IRREGULAR LINEAR DIFFERENCE 
+EOUATI0 qS. 
+BY 
+GEORGE D. BIRKHOFF 
+of CAMBRIDGE, MASS., U. S. A. 
+Introduction. 
+The gen4ral theory of ordinary linear differential equations with rational 
+coefficients must be regarded now as known in its broad outlines: there exist 
+in all cases whatsoever a full quota of formal series (normal and anormal) for 
+each singular point; on the basis of these series, the behavior of the solutions 
+in the neighbourhood of the singular points can be adequately characterized, their 
+nature in the large can be determined by means of the monodromic group, and 
+finally the inverse Riemann problem can be formulated and solved by direct use 
+of the Fredholm theory of integral equations or otherwise. 1 The details have 
+not been carried through except when the series which enter are of normal type, 
+but the corresponding formulation and attack in the most general case are 
+sufficiently evident. 
+On the other hand the situation is much less satisfactory for ordinary 
+linear difference equations with rational coefficients. If these equations be 
+written as a linear system, 
+i (I) yi(x+ I) aij(x)yj(x) (i-~-- I, 2,... n), 
+j=l 
+in which the n ~ rational functions aij(x) are analytic at x =~ or have a pole 
+1 Cf. my paper, The Generalized Riemann Problem for Linear Differential Equations and 
+the Allied Problems for Linear Difference and q-Difference Equations, Proc. Am. Acad. Arts and 
+Sciences, vol. 49 (I913), PP. 52I--558. 
+
+===== PAGE 2 =====
+206 George D. Birkhoff. 
+of maximum order tt there, then it is only the regular case in which the charac- 
+teristic equation in e, 
+(2) leech,j- I = o 
+(&j= i, i=j; ~,j=o, i #j; a(~)---- lim a,~(x)/x~), 
+has n distinct roots Q1, Q,,... Q,*, not zero, that has been treated adequately. 
+To be sure, NSrlund, in his fundamental work on linear difference equations, 
+has given a powerful general method by which solutions analytic in certain 
+limited regions of "the complex plane can be constructed always 1, but this method 
+affords little indication as to the nature of those simplest analytic solutions, 
+devoid of a~ificial singularities, which are of central theoretic imp0rtance. 
+The most general examination hitherto made of linear difference equations 
+not of this special type is due to Adams. ~ He discusses the extent to which 
+my own method of approach tO the regular case s admits of extension to the 
+irregular case, and finds that while similar results can be obtained in certain 
+more general cases, yet the method appears to break down. In brief, he finds 
+that so long as there are n types of formal series with elements of the form 
+( ) x~**e~xr a + b 4-... (/z*_--< F), 
+X 
+the same method is applicable. Since these formal series are of the same kind 
+as appear in the regular case, it is natural to group this particular irregular 
+case closely with the regular case. In more general cases Adams only establishes 
+highly restricted results. The difficulties which he meets with are of three types : 
+(i) he does not arrive at a full quota of formal series in all cases~; (2) the 
+sequences defining the 'determinant limits' converge, if at all, in much less exten- 
+sive regions of the x plane than in the regular case; and (3)in consequence, the 
+Of. N. E. NSrlund, Differenzenrechnung, Berlin, 1924, chap. IO. 
+2 C. R. Adams, On the Irregular Cases of Linear Ordinary Diference Equafions, Trans. Am. 
+Math. Soe., vol. 3 ~ (1928), pp. 5o7--54 I. In this paper references to the work Of Barnes, Horn, 
+Batchelder, Perron, and Galbrun may be found. 
+s General Theory of Linear Difference Equations, Trans. Am. Math. Soc., vol. I2 (I9II), 
+pp. 243--284. 
+4 Not even in the ease n=2, in which many but not all cases have been treated by 
+Batehelder. Batchelder has not published these results. 
+
+===== PAGE 3 =====
+Formal Theory of Irregular Lifiear Difference Equations. 207 
+determination of 'intermediate solutions' and 'principal solutions', as in my paper 
+by means of series and contour integTals, fails. 
+It is the aim of the present paper to show that, when certain further types 
+of formal series involving logarithms are taken account of, there will always be 
+a full quota of n such formal series solutions. By way of application of this 
+basic result, certain interesting formal questions are also treated. 
+In a subsequent paper devoted to the analytic theory of irregular difference 
+equations, also to appear in these pages, I expect to present the extension of 
+my earlier theory to the truly general case. Such an extension would of course 
+be impossible without the result of the present paper. It involves appropriatc 
+modifications in the method of contour integration as well as other changes of 
+consequence. 
+w i. The Linear Difference System and the Single Equation. 
+Without essential restriction it may be assumed that the determinant 
+l a~(x)l in (I) is not identically zero. In fact in the contrary case there is 
+obviously at least one identical linear homogeneous relation between yl(x+ I) .... 
+yn(x+ I) with coefficients which are explicitly given in terms of the minors of 
+this determinant. If we replace x by x--I in this relation, we obtain a like 
+relation between yl(x), ... y,,(x). On solving for one of the dependent variables, 
+say y,,(x), in-this relation, and elimination Of y,~(x)in the first n--I equations (I), 
+we obtain a like equivalent system of order n--I. Proceeding successively in 
+this way we arrive finally at an equivalent linear system of order <n; for which 
+the determinant in question does not vanish identically. 
+Now for such a system (I) let us write Now for such a system (I) let us write 
+R 
+(3) y (x) = z, (x) y, (x) +. + z,, (x) y,, (x) --- Y, z~ (~) yo(x) 
+where ).~(x), ... ~.,,(x) are n functions, rational in x but otherwise arbitrary. By 
+use of the equations (I) we obtain successively 
+y(x+ i) = ~ Zo(x+ ~)ao~(x)~,~(x), it, ~=I 
+(3') ............... 
+y(~+,) = >~ Z~ a,,(x)y~(x). 
+
+===== PAGE 4 =====
+208 George D. Birkhoff. 
+On the right-hand sides of (3), (3') we have n+ I linear homogeneous expressions 
+in yl(x),.., y,,(x). Hence from these equations we obtain at least one linear 
+homogeneous equation of the form 
+(4) L(y) =-- ao(x)y(x + n) + a, (x)y(x + n-- x) +... + an(x)y(x) = o, 
+in which not all of the coefficients hi(X)vanish identically, and furthermore these 
+coefficients are explicitly expressible in terms of the functions /.i, aij. 
+It is possible to choose ~, ... ~,~ so that neither a0 nor an vanishes identic- 
+ally, i.e. so that the linear difference equation (4) is actually of ~he nth order. 
+To establish this fact we consider the determinant of the linear homogeneous 
+expressions in y~(x),.., y,,(x) which appear in the first n of the n+ I equations 
+(3), (3'). The elements of the first row are ~,(x), ... ;~(x) which may clearly be 
+taken at pleasure at an arbitrary point x. The elements of the second row are 
+n n 
+E X~(x+ ,).~ Y, Xo(x+ i)a~,,(x) a~ 1 (z~ 1 
+respectively. But ~,(x-~ I), ... ,~n(X'~- I) may clearly be assigned values at pleasure 
+without affecting the values of XI(X),... ;~n(x) already selected. Inasmuch as 
+]a,j(x)] is not identically zero, it is therefore clear that the elements of this 
+second row may be independently selected at will. For the third row a similar 
+consideration leads to the conclusion that these elements too may be indepen- 
+dently assigned at the given value of x, since the determinant which enters is 
+[.~.,,~(x + ,).~(x)[- I a,~(x+ 0 11.,~(x)l ~ o. 
+By proceeding in this manner it becomes apparent that the determinant of the 
+coefficients of Yl .... yn in the first equations (3), (3') can be made not to vanish 
+identically, since all of its elements can be taken arbitrarily at any point x o 
+such that [aij(x)[ is defined and does not vanish for x=x o, Xo+ I,... xo+n--2. 
+Likewise the similar determinant for the last n of these equations can be made 
+not to vanish. Hence the equation (3), obtained by equating the determinant 
+of the augmented system (3), (3') to zero will have the desired property 
+.o(X) ~ o, an(X) ~ o. 
+
+===== PAGE 5 =====
+Formal Theory of Irregular Linear Difference Equations. 209 
+Therefore it appears that to a fundamental set of solutions of the system 
+(i) with l aij(x)l~o there corresponds a fundamental set of solutions of some 
+single equation (4) of the nth order, and vice versa. 
+If then we can establish that the single linear difference equation (4) pos- 
+sesses a set Of n formal series solutions in the usual sense 1, it is evident that 
+the general system (I) will also ppssess a set of n formal solutions, obtainable 
+from the formal solutions of (4) by means of the equation (3). 
+These obvious considerations iustify us in focussing attention upon the 
+formal series solutions of a single ordinary linear difference equation of the 
+nth order of the type (4) with ao(X), a,~(x) not identically zero. 
+w 2. Statement ot the Formal Problem. 
+In order to deal conveniently with the questions which, arise concerning 
+the formal series solutions, it is desirable to broaden somewhat the initial 
+formulation. Let us demand mere!y that the coefficients a~(x) of the equation 
+(4) under consideration are to be formal (i.e. convergent or divergent)power 
+1 
+series in descending integral powers of x, or, more generally, of x ~ (p, a positive 
+integer). Here only a finite number of positive integral powers are permitted 
+to enter. Of course the corresponding assumption for the linear difference system 
+(I) is "that the coefficients are similar formal power series, and the same integer 
+p~I is evidently involved in associated equations (I) and (4), even if Z,(x), ... 
+1 
+Z,(x) in (3) are also such series in x~. It is obvious then that for the-complete 
+specification we must not only give the equation (4), but also the value of the 
+'basic integer' p which is to be adopted; all possible values of p are evidently 
+positive integral multiples of a least value P0 ~ I. 
+The usual method ~ for the determination of formal series begins with the 
+substitution of a series 
+1 We regard a set of n formal solutions as distinct (i.e. linearly independent) in case there 
+is no identical linear homogeneous relation between them in which the coefficients are either 
+constants or of the more general form ce21z]/~x (l, an integer). 
+Generalized here to the extent that we allow p to exceed I. 
+27--29643. Acta mathematlca. 54. Iznprim6 le 12 avril 1930. 
+
+===== PAGE 6 =====
+210 George D. Birkhoff. 
+~'--~p ep (~)x, ( b (6) s(x) : x a + --- + 
+X p 
+p--1 
+P(x) = 7x + ~x~- + 
+) 
+in the equation and the attempt~ to determine it, 7, 6,...7 a, b,... by the 
+method of undetermined coefficients. Here the formal identities: 
+t~(z+i) 
+~(z+i) ~x ~,( x) v ~_x ~_/( t~__/ ~, .~ ) (x+i) p =xpxp i+ --xpxp e~ +e~ ~ § ; ~gg 
+e~(~+~):e~e~i; ed(X+i)(P-1)lP:eJX(P-1)/P(i +6(P--~)i+ ...); ... 
+px p 
+X 
+for i~ I, 2, ... n enable us to remove a factor x p eP(x)xr from the given equa- 
+tion after this substitution y~s(x) has been made. When this factor is removed, 
+the n+ I leading terms in the n + I series which appear on the left are precisely 
+/Ln "--jo+#n # (n--l) -'--jl+g (~--1) --in 
+tT0j0 e p x la a0j~ e P x P , ~ . . . (~njnX p 
+--Ji 
+where we have written aiji for the coefficient of the leading term aij~x P in 
+a~(x) for i=o, I,... n. Obviously neither 3"o nor j~ can be infinite since neither 
+ao(X ) nor a~(x)is identically o. 
+Now if such a formal identity is to be possible, there must be two leading 
+terms of the same degree in x, so that 
+j l -- jm 
+it-- 1-- m 
+for some 1 and m (1 ~ m), while all other terms are not of higher degree, i.e. 
+whence 
+-j, + t~(,-i)<= --j,, + t~("-'~) if=o, i,... n) 
+i,-j,,>-_ -t~(i-m). (i=o, i,... n). 
+
+===== PAGE 7 =====
+Formal Theory of Irregular' Linear Difference Equations. 211 
+But these conditions admit of a very simple geometric interpretation. 1 Let 
+(i,j) represen~ the cartesian coordinates of a point in the plane for which the i 
+axis is directed horizontally to the right and the j axis is directed upwards. 
+Mark the n + I points (i, j~.) where i= o, I, ... ~ (see figure f). Evidently the 
+conceivable values of /~ are given by the negatives of the slopes of all possible 
+lines through two of these points, while the inequality imposed will only be 
+satisfied if all the remaining points lie above or on such a line whose equation is 
+= - g(r m). 
+J 
+(O, jo) 
+\ /, 
+/ 
+/ 
+/ L 
+t 
+Fig. 1. 
+This leads us to a unique broken line L, concave upwards, whose vertices fall 
+at certain of these points, while all of the other points lie above or on this 
+line L. Furthermore the points (i, j) (i, j, being integers) which fall below this 
+line can correspond to no terms in the n§ I series under consideration. 
+When., however, /~ has one of these values, and the coefficient of the 
+highest power of x on the left is equated to zero, we obtain the 'characteristic 
+equation' in Q = eT, 
+[{ i a~j~Qe-Pl + ... + acj~,\Qevl j a = o, 
+in which the first and last terms in parentheses correspond to the extreme 
+vertices (i,A, (i',j~,)of the line segment of slope # in the above diagram, and 
+1 Cf., for instance, bl. E. Srlund, Differenzenrechnung, pp. 312--313 . 
+
+===== PAGE 8 =====
+212 George D. Birkhoff. 
+in which the intermediate terms correspond to the intermediate marked points 
+on that line segment. Clearly in this manner are obtained as many equations 
+as there are values of t~. If these values of /~ are denoted by /~1,/~,.../~k 
+with /~1 >/z~ > .. >/zk, the total number of non-zero roots (counted according to 
+multiplicity in the separate equations) is precisely n; for if io----o, il,.., ik--~n 
+be the values of i for the successive vertices, these roots are in number precisely 
+il--io, i~--il,..., i~--ik-1 respectively. Thus there are in general k characteristic 
+equations, rather than a single characteristic equation as in the regular case. 
+It is the essential advantage of the single equation (4) over the system (I), as 
+basis from the formal point of view, that all of the possible values of /~ are 
+immediately obtained for an equation (4). 
+If now we proceed further in the attempt to obtain a formal series solu- 
+1 
+tion by comparison of the terms of successively lower degrees in xV we are 
+immediately led to the following results (Cf. Adams, loc. cir., w I). 
+If the values /z~,.../~k are all integral, and none of the characteristic 
+equations have a multiple non-zero root, the first comparison determines ~, as 
+indicated above, the remaining comparisons give ~,..., a, b,... in succession, 
+as specific functions of the previously determined constants, and with b, c,... 
+in particular involving a as a multiplicative factor. Hence in this case there is 
+obtained a full quo~ of formal series solutions of the type (5) under considera- 
+tion, and these are evidently determined up to a factor 
+ae 2k'~)~ (k, an integer) 
+corresponding to the arbitrary multiplicative constant a, and the ambiguity in 
+the determination of 7. Inasmuch as the detailed proof is entirely straight- 
+forward and of familiar type; and is not necessary for our later purposes, it is 
+omitted here. 
+More generally, if some of the values /~1,.../~k are fractional, but no 
+multiple non-zero roots occur in the characteristic equations, let such a fraction 
+be m/l in lowest terms. There exist then corresponding series of the following 
+anormal type 
+(6') S(x) = x p eZ'(~)x ~ a + ~_ +. 9 
+X ! P 
+( P(x)=~,x+dxlP +...+ 
+
+===== PAGE 9 =====
+Formal Theory of Irregular Linear Difference Equations. 213 
+Such a formal series solution has evidently l formally distinct determinations in 
+all cases, since if x makes p positive circuits of x----o in the complex x plane, 
+u5 x 
+the. factor x v is multiplied by a 'factor e 2"s~f~, ~nd y is thus augmented by 
+z~r/~V-i, where i~-~m/l is not an integer. Here again there are always 
+precisely n formal series, when these various determinations are taken into ac- 
+count. But inasmuch as the method is perfectly straightforward and of familiar 
+type, and moreover not necessary for our later purposes, it is omitted here. 
+As Adams has noted (loe. cir., w 1) the 'general' ease in which some of 
+the roots Q of the single characteristic equations are of 1 fold multiplicity while 
+t~ is an integer als0 leads to corresponding anormal series of type (6'), so that 
+again a full quota of series is obtained unless a certain secondary characteristic 
+equation holds. Unfortunately, the method of direct comparison may lead to 
+indefinite algebraic complications if this secondary equation is satisfied. 
+There is, however, a third type of formal solution which may arise, but 
+whose importance seems to have been largely overlooked. I Let s(x)be any 
+formal series of the type (6) or (6'), and let t(x) be a second such formal series 
+with the same coefficient preceding the power series .as s(x), save that the 
+constant r may be modified by an integral multiple of I/lp. Then, for instance, 
+there may exist two formal series solutions of the form 
+(6") s(x), s(x)logx + t(x) 
+in the case l= I, or zl such series in the general case l~ i. More generally, 
+if s(x)', t(x), ... w(x) are )~ series of the form (6), (6'), all with the same /~, P(x), 
+and if the constants r which enter differ at most by a multiple of I/1p, then 
+there may exist kl solutions 
+(6") s(x), ks(x) log x+ t(x), ... s(x) (log x) k § t(x)(log x) ~--~ + .... § w(x). 
+It will be observed that when log x is changed to any one of its other determina- 
+tions, each formal solution is augmented by a linear combination of the preced- 
+ing ones affected with constant multipliers. We shall regard such series (6")as 
+of normal type if 1-~ I and as of anormal type if l > I. 
+1 See, however, N. E. NSrlund, Differenzenrechnung, chap. If, w I, where a specialized case 
+(6") of this logarithmic type is considered for those linear difference equations of 'Fuchsian type', 
+in which the series ai(x)/ao(x ) begin with a term of not higher than degree --i in x. 
+
+===== PAGE 10 =====
+214 George D. Birkhoff. 
+It is our primary purpose in Part I of this paper to solve what may be termed 
+the formal problem of linear difference equations of type (4), and thus of type (I) 
+of course, by proving that there always exist .precisely n formal series solutions of 
+the three iypes (6), (6'), (6"). 
+The method of direct comparison hitherto employed fails because it does 
+not take due account of the algebraic nature of the difficulties involved. We 
+propose to attack the problem by a method based upon the notion of reducibility, 
+which leads to a successive reduction of these difficulties by a well-defined series 
+of steps, each involving only the solution of linear algebraic equations. 
+w 3. Solution of the Converse Problem. 
+It is an easy matter to solve the converse problem by demonstrating that 
+to every such set of n (linearly independent) formal series there corresponds a 
+uniquely determined linear difference equation of the n-th order. 
+Suppose, for instance, that sl(x).,.., sn(x) are n series of the simplest type 
+(6). The corresponding difference equation is then essentially given by 
+I y(x+n) y(x+,-i).., y(x) ! 
+I s,(~ + n) s1(~ + n--I)... Sx(X) = o. 
+In this case we have only to divide the (i+ i)-th row (i--~ I,... n) by the ex- 
+ponential factor x~XeP~(X)xri in order to obtain the equation desired. Moreover, 
+even if certain groups of the n series are of the anormal form (6'), a similar 
+conclusion is possible, although the coefficients ao(x), a,(x),.., an(x) obtained 
+are given in the first place as power series in descending powers of some root 
+1 
+of xp. However, it is obvious that .the equation written is in reality not altered 
+if the various determinations of these series be permuted, so that actually the 
+1 
+coefficients a0(~), al(x), ... an(x) do not involve fractional powers of x~ after a 
+suitable factor is removed. To indicate briefly the situation in the case when 
+logarithmic terms enter as in (6"), we consider the simplest possible case, namely 
+the case n: 2, p----I, l: I in which there are a pair of solutions, 
+s(x), s(x) log x + t(x), 
+
+===== PAGE 11 =====
+Formal Theory of Irregular Linear Difference Equations. 215 
+in which s(x), t(x) are of the type (6) with the same /*, 7, r. The corresponding 
+equation is then 
+I y(x+2) V(X+I) y(x) 
+S(X+ 2) S(~+~) S(~) 
+S(X+2) Iog(x+2)+ t(X+2) S(X+I)Iog(x+I)+t(x+I) S(X) Iogx+t(x) 
+~O. 
+If we multiply the second row by log x, subtract from the third, and make use 
+of the formal identity 
+i log(x+i)~---logx + + ... (i-~ I, 2), x 
+we may eliminate the logarithms and thus obtain the desired equation of type (4). 
+Obviously a similar manipulation leads to the same result in the most general 
+logarithmic case. 
+The solution of the converse formal problem thus obtained in all cases 
+is evidently unique, since if we write out equation (4)with y(x)replaced by 
+st(x),... Sn(X)respectively, we obtain n linear homogeneous equations in the 
+n + I coefficients ao(X)', a,(x), ... an(x), which determine them up to a multiplicative 
+series factor, just because the formal determinant of the n-th order ]s~(x+j-.I)] 
+is not identically zero. 
+3- Solution of the Formal Problem for n~ I. 
+We Will begin with a proof of the following fact: 
+Every equation (4) of the first order (n = I) has a series solution of the form (5). 
+Such an equation may be written in the form 
+~'( ~- a~ ) v(x + ~) - ~ e~" + -~ + ' v(x) 
+x p 
+when tt is an integer and Q is a constant not zero, inasmuch as we may divide 
+the equation through by ao(X ) and trunspose the term in y(x). 
+If we change the dependent variable by substituting 
+y(x) = x" e~(x) 
+
+===== PAGE 12 =====
+216 George D. Birkhoff. 
+.. 
+and divide through by the coefficient of !)(x+ 0, the modified equation takes a 
+similar form, simplified to the extent that tt is zero and Q is I: 
+x p 
+Now introduce the dependent variable z ~-logy, 
+(formally) 
+log + 2 
+x p 2x p 
+and we obtain at once 
++ 9 
+c 1 c~. ~-~+--~§ .--. 
+x~ 
+If in this last equation we write 
+1 2 1 --1 
+1---- 1 .... 
+Z(X)=Z---p+lX P:i-Z--p+2X p+...+Z_lXP+zologx+zlxp + .... 1, 
+it is immediately found that 2r Z--p+2,...z 0 are uniquely determined with 
+el C2 ~p--1 
+Z--p+1-- -- ~ ~--p+2-- -- ~ 9 9 9 ,if--1 
+I 2 p--i I---- I---- 1---- 
+P P P 
+, Zo~Cp. 
+both sides. 
+the form 
+--1 --2 
+These results emerge by direct comparison of thd terms in x v , x v ,... x-1 on 
+--k 
+Now the comparison of terms in x "7" (k>p) leads to equations of 
+--k+Pzk.--v + q~k = ck (k=p4- I, p+2,...), 
+P 
+in which ~k is a known polynomial in the coefficients zi which precede zk--v. 
+Thus zl, z, .... are determined in succession and uniquely. 
+Evidently the formal series for z(x) so obtained leads to a formal series of 
+type (6) for y, so that the proof of the italicized statement is completed. 
+In the case p--~ I, this is to be written as 
+z(x) = Zo log a + z~x ~-t + 9 - .. 
+
+===== PAGE 13 =====
+Formal Theory of Irregular Linear Difference Equations. 217 
+w 4. Simplification of the Formal Problem. 
+We propose to simplify the formal problem by establishing the following 
+fact: 
+There will necessarily exist always a complete set of fOX,hal series solutions of 
+types (6), (6'), (6") if only every equation (4) admits at least one formal series solu- 
+tion of the non-logarithmic types (6), (6'). 
+The truth of this statement may be argued as follows: 
+Suppose if possible that the statement is false. In this case, even though 
+such a formal series solution (6), (6') always exists, yet there are equations (4) 
+for which a complete set of series solutions does not exist. There will then be 
+a least value of n for which a complete set does not exist, and, according to 
+the result of w 3, we must have n> I. 
+Let s(x) be one of the formal series solutions (6), (6')of such an equation 
+(4) of least order n> I for which the theorem fails, and write y:s(x)~. After 
+division through by a suitable factor (for instance, s(x+n)), we obtain an equa- 
+tion of the form (4) in !), and of order n, in which, however, the basic integer 
+p is perhaps replaced by some integral multiple lp. But this new equation in 
+admits of the obvious formal solution ~----1, so that if we write the equation 
+in terms of ~, J~, jn~, the term in ~ disappears; in other words we have to 
+deal with an equation (4) of order n--k in dl:~ where jk~ is the lowest order 
+difference to appear explicitly. But this is an equation of the form (4) in jk~ 
+of order n--k<n, and hence our hypothesis ensures that it admits a complete 
+set of n--k formal series solutions $(x). 
+Thus we are led to consider the formal difference equation 
+= 
+It is clear that if we can show that this equation admits n- k formal solutions 
+corresponding to the n--k known series $(x), we are led to a contradiction and 
+the italicized statement must be true. In fact the equation in ~ is satisfied by 
+the n--k series so obtained and in addition by the k distinct series forms, 
+I, x~,.., x ~-1 for which ztk~ is o, so that the n series exist and are obviously 
+linearly independent. 
+Consequently it is clear that the italicized statement will hold if the follow- 
+ing lemma can be established: 
+28- 29643. Acta mathematica. 54. Imprim6 le 14 avril 1930. 
+
+===== PAGE 14 =====
+218 George D. Birkhoff. 
+Lemma. If s(x) is a formal series of type (6), (6'), (6"), then the equation 
+~y = s(~) 
+admits of a formal series solution of type (6), (6'), (6"). 
+In fact we need only apply the lemma repeatedly to the equation Jky=g(x) 
+written above, when we find after k steps a series solution for each series g(x). 
+Let us first prove that the equation of the lemma admits such a solution 
+if s(x) is of the form (6) or (6'). We have then to consider an equation 
+Jy=x v eVl~>x ~ So +-~_ + ~ (So~O), 
+x p 
+where ~ is an integer, since we may replace p by the integral multiple Ip in (6'). 
+In the case /~ < o we substitute 
+y(x) = xp eP(~)xr~(x), 
+and, upon division through by the coefficient of ~(x) in this equation, obtain 
+[g(x+l)log(l+l) ~xPe P{~+I)-P(x) (I -/- I) ]r y(x-/- I)--y(x)=s o ~ ~81 -~ .-. 
+x p 
+where the factor in brackets on the left has the form 
+X p xP 
+If now we substitute in this modified equation for ~, 
+~(x) = ~o + ~ + ", 
+x p 
+it is obvious that Yo, Y~,.. are determined in succession by direct comparison, 
+k 
+with Yo~- so for instance. More precisely, the terms in x P lead to an equa- 
+tion of the form 
+~k -- ~k ---- sk (k >_- I), 
+
+===== PAGE 15 =====
+Formal Theory of Irregular Linear Difference Equations. 219 
+where ~k is a polynomial in Y0, Yl,..-~k-1. Thus 91, Y2, "'" are determined in 
+succession by taking k: I, 2,..., and the desired series solution y(x) is found. 
+When /~ ~ o, we substitute 
+/~x te 
+y (x) = J ? (x) 
+but divide through by the same factor as before. We obtain 
+r__~ 
+[/-~ (I) ] --~ 81 l~ 1) ~ P(x~-I)-P(x) I + P y(X+I)--xP-y(x)=80 +5+ "'" (~>O). 
+X p 
+If now we replace ~ by the same series as before, and note that the term in 
+1 
+brackets is a power series in negative powers of x p, starting off with a constant 
+term not zero, we see at once that Yo, Yl,... are uniquely determined, with 
+te 
+~0----s0 e-~-~ for instance, and again the desired solution is obtained. 
+There remains the possibility that s(x) is of type (6) or (6') with /~-~o. 
+The same substitution for y as in the first case leads to an equation 
+[ ( e P(z+l)-P(z) I q- ~(x-[- I)--~(x) = -~ ~- .. ~ ~ 
+X p 
+where the term in brackets is of the form 
++ ... 
+X p X p 
+When we substitute the series for ?~ a.s before, we discover at once that Yo, Yl,-.. 
+are in general uniquely determined in succession with ?/0, for instance, equal to 
+So/(e~--I). This determination fails when e~ is I, and then only; in this case we 
+may take Z~-o. 
+But when ~ ~ o, inspection of the bracket shows that if the leading term 
+k 
+in P(x) is uxP (k<p). then the series in brackets begins as follows: 
+xk 
+I -~- k -~ "'', 
+px P 
+
+===== PAGE 16 =====
+220 George D. Birkhoff. 
+and the equation in ~ may be written 
+xk 
+px P 
+81 
+-~ .... ~(x~ ~)-=8o + -1 + 
+X p 
+(k <p). 
+Consequently by writing 
+] ~(x)=x P ~20+ + , 
+x p 
+we find that ~)o-~sop/xk, ~1,... are determined in succession and a solution is 
+reached, unless indeed k is o, so that P(x) reduces identically to o. But in this 
+case the original equation in y becomes 
+( 81 ) dy-~x ~ s0+~+ "'~ , 
+X p 
+which can be at once satisfied if we write 
+X p 
+with yo-~So/(r+ I), Yl,... determined, unless indeed r is a multiple of I//q9 with 
+r~- I, and a term in x -1 actually appears on the right-hand side. In such a 
+case we may eliminate this term by writing 
+y(x) = ~(x) + 8(~§ 
+and proceed as before, except that the constant term in the series for y is 
+arbitrary. 
+Consequently in all cases whatsoever when s(x) is of type (6) or (6'), a solu- 
+tion is obtained. It will be noted that this solution is of the same type unless 
+it involves a linear logarithmic term c logx. This last case of type (6") arises 
+only when tt-~o, P(x):o, and a term in x -1 appears in s(x). 
+Thus the lemma will be proved if we can deal with the case when s(x) 
+is of type (6"). We shah dispose of this case by showing how the solution of 
+the equation .dy-~sl.(x), in which st(x) is of the type (6") with logarithms which 
+enter to the 1-th degree, can always be reduced to that of a similar equation 
+
+===== PAGE 17 =====
+Formal Theory of Irregular Linear Difference Equations. 221 
+in which 1 is reduced by unity and so finally to an equation of the type 1--o 
+already disposed of. 
+To achieve this reduction, suppose that we have to consider 
+~y = ~(~) = s0(x)(log ~), + s~_~(x) 
+where so(x ) is of type (5), (5'). Write 
+y(x)=s(x)(logx)~ ~(x), 
+where $(x) is a solution of 
+~(~)=s0(~), 
+which we know to exist of course, according to what has been proved above. 
+Upon substitution we find that ~) has to satisfy the corresponding equation 
+z9 = s0(x)(log x) , - (.%(x) + ~(x))/log (x + ~))~ 
++ ~(x)(log ~)~+ ~_~(~). 
+But the right-hand member may be written as a sum of three terms 
+-- 8 0 (X) [(log (X -~ I ))l __ (lOg Xy] -- ,~ (X) [(log (X 4" I ))l __ (log X)*] + S/--I (X). 
+Inasmuch as the identity 
+(log (X -F I ))l __ (log X) l ~ (log X -{- ,~ (log X)) l -- (log X) ~ 
+l(logx)t-IJlogx + 9 + (Jlogx) ~ 
+obtains, where 
+i I 
+X 2X ~ 
+§ .., 
+it is clear that the first term in this sum, as well as the last, involves log x 
+to a power not exceeding l--I. Moreover, on account of the presence of the 
+factor Jlogx, the middle term will have the same property unless .~(x)involves 
+log x. :Hence it is only necessary to examine into this last possibility. 
+But it has already been noted that the solution of an equation of the type 
+J~):so(x), where So(X ) is of the form (5), (5'), can only involve logarithms linearly, 
+and that this can only happen in the case /~----P(x)--o when a term in x -1 
+
+===== PAGE 18 =====
+222 George D. Birkhoff. 
+appears in so(x ). Therefore the only case requiring further consideration is that 
+in which the equation takes the form 
+Zy = 8o(X) (log x) 1 -~ Sl-l(X) 
+where 
+( v*' ) (x) = x ~ So + + ' 8O 
+X p 
+and where So(X ) contains a term in x -1. It is clear that all the difficulty arises 
+from this single term, and that if we can find a solution for the simple equation 
+Jy = (J log x)(log x)', 
+the. difficulty is disposed of. 
+we find 
+But if we substitute 
+(io~'X)'+l + ~(X) v(x)- ~ +~ 
+i [(log(z+ i)),+1_ (10g.),+i] z~ = (~ log x) (log.)' - F+I 
+-- l(logx)t-,(._41ogx)~ ' (Jlog x)~+,. 1.2 /+I 
+Now on the right-hand side there appears a sum involving log x to the (1--i)-st 
+power at most. Consequently in every case we can reduce the problem to one 
+of a similar type but with l decreased by at least one, as we desired to prove. 
+Thus, whatever be the series s(x) in the equation of the lemma, we are 
+led to a corresponding solution of type (6), (6'), (6"), and the lemma is fully 
+established. 
+w 6. The Formal Problem and Formal Reducibility. 
+Let us term the equation (4), namely L(y)=o, 'reducible' in case we may 
+write symbolically 
+L (y) -- M~--4 (La(y)) 
+
+===== PAGE 19 =====
+Formal Theory of Irregular Linear Difference Equations. 223 
+where M~-~ and Lg are difference expressions of the same type as L, of orders 
+n- d and d respectively. 
+Now if there exists no equation L(y)-~-o without a formal series solution 
+(6), (6'), we have seen that a full quota of formal series necessarily exists (w 5), 
+and the formal problem is solved. In the contrary case there exists an equation 
+L(y)~-o of least order n >I for which no solution (6), (6') exists. 
+Such an equation E must necessarily be irreducible for any admissible basic 
+integer p. 
+In fact if we could factor L symbolically as indicated above, then every 
+solution of Ld(y)~o would also satisfy L(y):o. But the equation Ld(y)~-o is 
+of lower order-than L(y)~--o, and so. possesses at least one series solution (6), 
+(6'), by hypothesis. Hence L(y)----o would possess the same solution, which would 
+be absurd. 
+Moreover, if we effect any change of variables in E of the general form 
+y(x) = xp eP(')x"~(x), 
+lhe new equation in y must obviously also be irreducible in the same sense, no matter 
+how the integer ~, the polynomial P(x), and the constant r be chosen. 1 
+In consequence we proceed to consider several cases in which specific types 
+9 of reducibility are established (w167 7--Io). It will then be easy to prove that 
+such an equation E cannot exist, so that a complete set of formal solutions is 
+thereby proved to be present always. 
+w 7. First Reducible Case. 
+An equation L(y)~-o with k> i values of ~, say ~t~, ~t~,... I~k, with ~1-~o 
+and #i < o (i-~2 .... k), is necessarily reducible with a symbolic factor of order d 
+equal to the number d of non-zero roots Q corresponding to ?el ~o. 
+In the first place we observe that by definition of pd, the hypothesis made 
+ensures that the first segment of the broken line in the (i,j) diagram (Fig. x) 
+is horizontal while the later segments have positive slope. Hence, after the 
+leading coefficient of L(y):o is made equal to I by division through by ao(x), 
+we may write (4) in the form 
+1 Note that this change of variables leaves the equation of the same general form (4), although 
+the basic integer p may be altered. 
+
+===== PAGE 20 =====
+224 George D. Birkhoff. 
+(7) L (y) -- y(x + n) + a 1 (x) y (x + n - i) +--. + a~ (x) y (x) -~ o, 
+where the series a~(x), a~(x),.., a~(x) in the equation so obtained can contain 
+1 
+no positive powers of x p, while aa(x) has a constant term not zero, corresponding 
+to the second vertex of the horizontal segment. Furthermore it is apparent that 
+the series a~(x) for i > d are series of the same type but lacking constant terms. 
+We propose to search for a symbolic factor of the form 
+(8) Ld (X, y) ~ y (X + d) + Pl (x)y (x + d-- I ) zr " " " -~- ~gd (X)y (X), 
+1 
+where p~(x),...pa(x) are power series in negative integral powers of x p, con- 
+~aining constant terms identical with those in a~(x),.., ad(X) respectively, but 
+otherwise arbitrary. The more explicit notation Ld(x, y) is used instead of La~), 
+since we shall have occasion to change the x in the expression to x+i. Now 
+if La is such a factor we must have 
+(9) L(y) -~ La(x+ n--d, y) + ~(x)La(x+ n--d-- I, y) +... + ~n--d(x)La(x, y). 
+Here we shall restrict ~l(x), ... ~n---a(x) to be similar power series but lacking 
+constant terms; this restriction is actually required if such an identity is to hold. 
+In the first place we observe that, in the coefficients of y(x+n),.., y(x) 
+which enter, at least the constant terms agree on both sides, in virtue of the 
+particular choice made of the constant terms in Ti(x) and hi(x). Let us consider 
+1 
+next the terms in x P in these coefficients. The comparison under consideration 
+is more easily effected if we write the above identity in the form of n explicit 
+equations between these coefficients: 
+al (x) --= pl (x + n-- d) + ~, (x), 
+a~ (x) ~-- p~ (x + n ~ d) + ,~ (x)p 1 (x + n -- d -- I) + )~2 (x), 
+(,o) ..................... 
+an-1 (x) ---- ~n--d--, (x)p~ (X + I) + ~,,--~ (X)pd--i (X), 
+a (x) -- 
+where the law of formation is obvious. 
+Since the constant terms ~i0,pi0 in ~t;pi have been specified as stated, the 
+1 
+comparison of the terms in x P gives the following n equations: 
+
+===== PAGE 21 =====
+Formal Theory of Irregular Linear Difference Equations. 225 
+all----Pll + ~11, 
+...... . ....... 
+a,~-l, 1 -- )~.-a-1,1 pdo + ]~n--d, 1pal--l,0, 
+a~l = )~n--d, l pdo, 
+_J_ 
+where we employ the notation f,.j, to denote the coefficient of x P in any 
+series fi(x). Hence the last written equation determines J~n--d,1 since J0d0~O; 
+the next to the last equation determines Z,--d--a,1, and so on, until the (d+ i)-th 
+equation determines Jtll. But then if we turn to the remaining first d equations 
+we see that these in order determine p~,p~,...pdx. Thus the coefficients of 
+1 
+x p in its(x) and pt(x) are uniquely determined by this comparison. 
+Next we may proceed to the determination of the second and higher order 
+k 
+coefficients 2ik and Pik by comparison of the coefficients of x P for k----e, 3,.... 
+Equations are obtained of a similar form 
+(IIk) 
+alk~--plk + ~lk + Alk, 
+a2k----p2k + ~tlkpl0 + A~k, 
+9 . o .... 9 9 , , . ~ ...... 
+an--l,k ~ ~n--d--l, kpdo § )~n--4, kPd--LO § An--Lk, 
+auk -~ ~n--d, kpdO § Ank, 
+where Aik are known functions of the coefficients pij, ~j ~<k). 
+Thus for k-~e, for instance, we see that ~ and pt2 are again uniquely 
+determined, and clearly this process may be indefinitely continued, so that L(y) 
+can be symbolically factored as stated, and the statement under consideration 
+is proved. 
+w 81 Second Reducible Case. 
+An equation L(y)=o with a single value of l~=o, and so With a characteristic 
+equation in Q of degree n with no zero roots (w 2), is necessarily reducible unless the 
+n values of Q are all equal. 
+29--29643. Acta ma~matica. 54. Imprim4 le 14 avril 1930. 
+
+===== PAGE 22 =====
+9~26 George D. Birkhoff. 
+The equation L(y)=o under consideration is of course still taken in the 
+allowable form (7) above. In the case before us the coefficients a~(x) in it are 
+1 
+evidently power series in negative powers of x ~, of which at least the last, 
+an(x), contains a constant term ano. 
+If the n values of Q are not equal, ~let Q~ denote some particular root of 
+multiplicity d<n. We now attempt to find a symbolic factor La(x, y) of order 
+d < n, corresponding to this root, which shall be of the same form (8) as in the 
+preceding paragraph, except that pt(x), (i=I, 2,... d) will here be taken as 
+1 
+power series in negative powers of x ~ with constant terms as follows: 
+d(d-- ( 1 2) Pl0 = -- d ~1, P20 -- I ) ~ 1.2 , ..-Pal0=(-- I)d014. 
+Hence the single characteristic equation of La(x, y)=o is necessarily (e--Q1)a~o. 
+Furthermore we write L(y) once more in the form (9), except that the series 
+1 
+hi(x), (i= I, 2, ... n--d), are power series in negative powers of x p whose con- 
+stant terms we proceed to specify. 
+In the first place we observe that the characteristic equation of the symbolic 
+product is clearly 
+(~--el)d(~ n-d "~ ~10~ }n-d-1 -{- " "~ ~n--d,O) = O. 
+Hence this product will have the same characteristic equation as L(y)-=o if 
+itlo .... J,,,--d,O are properly determined, and this determination is obviously uni- 
+que, with 
+~2"--~ + ~,~oQ? -~-~ + ". + X,-~,o #o, L,-a,o ~ o. 
+At this stage then, pto and s are uniquely determined, and the constant terms 
+in the coefficients on both sides of (9) agree. The equations (lO) simply state 
+the equality of corresponding coefficients of course. 
+1 
+We have next to consider the terms in x P on both sides of (io). The 
+equations obtained differ somewhat in form from (I I1) inasmuch as the constants 
+~10 need not be o in the case before us. These equations are in fact 
+
+===== PAGE 23 =====
+(I3,) 
+Formal Theory of Irregular Linear Difference Equations. 
+aH---~Pxl + 'Zll, 
+~,x =p.x + (zxop. + .~,,p~o) + z.,, 
+............ ~ . 
+an--l,1 ---- (Zn--d--l,O pdX "[= Zn.~d--l,l pdO) 
++ O,,~--a, opdx + 2~-m, xpgo), 
+anx = (~,n--d, Opdl "+ ),n--d, xpd0). 
+227 
+But the equations (I31) are the same equations as result from the algebraic 
+identity in u, 
+(131') Z as i u '~-q =-- A a (u) An-a-x (u) + Bn-a (u) IIa-x (u), 
+j=l 
+where Aa and B,~-a are the known polynomials 
+A.(~) ~ (u_e,)~_-- ~. + p,o~-x +. + p.o, 
+Bn-a(u)-~ u '~-~ + ~1o u'-a-x +"" + ~..--a,o, 
+and An-a-x, [/d--l' are to be determined from the equations 
+-//n---d--l(U) ~ ~11 un-d-1 ~- ~21 un-d-2 -[-"''-~ ~n.--d,X, 
+11d--l(U) ---- pXX ud-1 -b p~lU d-2 -b "'" -t- pal--l, 1, 
+in which the coefficients are arbitrary. 
+This is readily seen if we write the j-th equation (I31) in the form 
+.~x= Z (x,0p~-,,1 + X, lpj-,,o) t 
+(j= I,... n), 
+where we take ~oo= I, ~o~-=O,Poo----I,po~-o, and all the subscripts are to be 
+positive or zero of course. 
+But the polynomials An, Bn--~ are relatively prime, while -//n--~-i and 114-1 
+are entirely arbitrary polynomials of degrees n--d'I and d--I at most respec- 
+tively. On the left of (I31') stands a known polynomial of degree n--I at most 
+in u. It is ~hen a familiar and fundamental theorem of algebra that -4~--d--1 
+and Ha-1 can be uniquely determined so tJaat ~his identity holds. In conse- 
+quence Xz'x and p~x are uniquely determined by the stated conditions. 
+
+===== PAGE 24 =====
+228 George D. Birkhoff. 
+k 
+More generally if we compare the coefficients of x P on both sides of (I O), 
+we obtain a set of equations (I3k) related to (i3~) as the equations (Ilk) are to 
+(111). More precisely, the second subscripts I are changed to k, and in addition 
+there appears on the right of the j4h equation a further term Ajk which is a 
+known polynomial in the coefficients )Ul, 9 9 9 ~;,k-~, pi~, 9 9 9 pi, k-1. Thus we see 
+at once that ~ti2,pi2, )u3, pi3, ... are uniquely determined in succession, and the 
+statement under consideration is established. 
+w 9. Third Reducible Case. 
+Suppose that the difference equation L(y)=o has a single value of ~t, namely 
+tt~-o, and that the n roo~ of the characteristic equation are equal to 1, so that 
+the difference equation may be written 
+(14) L(y) ~ A~y + b~(x)An-~y +... + b~(x)y = o, 
+., 1 
+where bl(x) .... bn(x) are formal power series in negative powers of x~ without 
+constant terms. Suppose, however, that the n series 
+xbl(x), x'b2(x) .... 
+1 
+do not all contain only negative powers of x p with or without constant terms. 
+unless the modified equation in z, 
++ + .+ 
+Then, 
+has a single (negative) value of tt and all the roots of its characteristic equation 
+are equal, the equation (14) is necessarily reducible, at least after the basic integer 
+p is replaced by lp. 
+Before entering upon the proof, it is interesting to remark that, from a 
+formal point of view, a difference equation of type (I4) is much more closely 
+allied to an ordinary linear differential equation than is the most general dif- 
+ference equation (4). This fact explains the usefulness of the difference notation 
+employed. We note indeed that the above difference equation is to be considered 
+as analogous to an ordinary linear differential equation with an irregular singular 
+point of rank at most I at x ~ 0r On this account we may expect a new type 
+
+===== PAGE 25 =====
+Formal Theory of Irregular Linear Difference Equations. 229 
+of characteristic equation, analogous to that of the corresponding differential 
+equation, to play a r&le. It will be our first step to introduce appropriate de- 
+finitions. 
+In analogy with the definitions of w 2, let us denote by bij~ the coefficient 
+-Ji 
+of ~he leading term in x P of the power series for b~(x), with bo(x)~--I and so 
+i0:o. Furthermore, if b,(x) were to vanish identically, the equation (I4)would 
+be obviously reduci.ble, so that we may take jn to be finite. 
+J 
+,/mj,,; J 
+,,c I 
+N 
+Fig. 2. 
+Now mark the n+z points (i, ji) as in Fig..I, w 2, and draw the cor- 
+responding broken line, concave upwards, whose vertices are chosen from among 
+these points, while all of the remaining points lie on or above the line (Fig. 2). 
+Evidently this broken line M starts at the origin with a positive slope, which 
+is less than p, however, according to the hypothesis of the italicized statement. 
+It is obvious that 21/ is precisely the line L of w 2 for the modified equa- 
+tion in z. In accordance with the italicized statement, we have to prove that 
+when this line consists of more than a single segment, and even when it consists 
+of a single segment but the roots of the characteristic equation are not all equal, 
+the equation (I4) is reducible. 
+If the broken line M is made up of more than a single segment, let d < n 
+be the integer which gives the coordinate i of the right-hand end point of the 
+firstsegment. From the geometric construction it is clear that if we write 
+
+===== PAGE 26 =====
+230 George D. Birkhoff. 
+r-~j~/d so that x is the slope of the first segment, the following inequalities 
+must obtain 
+j~ _--> xi, (i _--< d); j~ > x i, (i > d). 
+We may write x in the form m/1 where the positive integers 1 ~ I and m are 
+relatively prime. 
+Thus the equation under consideration is essentially of the form 
+(i4')  "v+x , 
+1 
+where el(x),.., cn(x) are power series in negative powers of x ~v, among which 
+c,~(x) at least contains a constant term while the series c~(x) for i> d contain 
+no such term. 
+In this case when the modified equation of the lemma in z has It> I 
+values of /~ of which the first is /~l~---z so that /~>--p, the corresponding 
+characteristic equation is 
+( I -'i ee ~- +cl0~QeV! +-..+c~0=o, 
+so far as the non-zero roots are concerned. 
+We shall show that such an equation is reducible if the basic integer is 
+taken to be lp. 1 With this change of basic integer, x is replaced by lj~/d, an 
+integer. Of course the relation x <p continues to hold after this modification, 
+where p and u refer to the modified basic integer and modified x. 
+Now let us introduce the difference operator J such that 
+We find then 
+and furthermore 
+Ju:xPJu. 
+Ju -= x p ,du 
+1 
+1 As a matter of fact the symbolic factorization accomplished only involves powers of xP 
+in the coefficients, so that the stated reducibility is effective for the original basic integer. We 
+omit, however, the proof of this fact, which is easily made directly. 
+
+===== PAGE 27 =====
+Formal Theory of Irregular Linear Difference Equations. 9.31 
+J~ = (x+ ~)~-~(2~) + ~ x~- ~ 
+--2x p X -- --I 
+:X p I + 2U+ -- X p +-.. , . 
+This gives immediately 
+~ J'. = 23. + 07, (x) 2' u + 0(:)(x) 2.. 
+1 
+where O~2)(x), O~2)(x) are power series in negative powers of xp without constant 
+terns. 
+Moreover we find that in general for m => 1, 
+mx m--1 
+j=o 
+1 
+where Oa(.~)(x ) are definite power series in negative powers of xp without constant 
+terms. This has already been demonstrated above for m= I, 2, and is readily 
+proved in general by induction. We have merely to observe that we have 
+,o+,,, ,[o, ( )] x P H'~+lu=xP x-pH" Ju 
+x --x 9 m--1 t --x 
+j=O 
+if the formula holds for the particular m under consideration, and to expand 
+the terms involved. To this end we note that since 
+,~r ~--- U(X+ I)JV + (z~CU)V, 
+we have 
+2(uv) = ,~(~+ ~)2v + (9.)v. 
+Likewise we find 
+9~(uv) = 2(.(x + I)2v + (gu)v) 
+= u(x+ 2)2~v + 2,~.(x+ i)gv + (9~u)v 
+
+===== PAGE 28 =====
+232 George D. Birkhoff. 
+by another application of the same formula. Thus in general we readi~ deduce 
+the identity 
+(I6) 9k(uv) = qI,(X Ji- ]g)91CV --]- ]g g~(X21- ~-- I)Jk--I.v -~.- . . . -~ (gku)v, 
+which is of familiar form. Applying this expansion, the formula (I5) is seen 
+to hold for m + I ; the fact that the operator J applied to a power series actually 
+lowers the degree of each term is to be borne in mind. Thus (I5)is established 
+by induction. 
+By use of ('5), the difference equation (I4') may evidently be given the 
+form (I 4") : 
+(14") x-~ L(y) -- J,,y § cl(x)z~,-ly -1- ... q- cn(x)y -~ o 
+1 
+where e~(x), ... c,(x)are power series in negative powers of x p in which a con- 
+stan~ term certainly appears in ~(x) but not in any ~i(x) for i> d. More pre- 
+cisely, it is apparent that the constant terms in el(x), ... ca(x) are the same as 
+in el(x),.., ca(x) respectively. 
+We propose to demonstrate that this expression admitsof a symbolic factor 
+of the form 
+Ld(y) ~ 9ay + p~(x)ga--iy +." + pa(x)y 
+1 
+where pl(x),.., pa(x) are power series in negative powers of x ~ with the same 
+constant terms as c~(x), ... e~(x) respectively. To achieve thi.s factorization, we 
+shall set up an identity of the form 
+(I7) 
+n~ 
+x~- L (y) -- 9 '~---a(La (y)) + Zl (x) ja--d--1 (Ld (y)) -[-"" "[- J~n-.-d (X) Ld(y) 
+1 
+where ~(x), ... Zn-a(x) are to be power series in xp without constant terms but 
+not otherwise specified at the outset. I In order to effec~ the comparison of 
+both sides we need to expand terms of the type 
+(i=>o, j>o), 
+Note the formal analogy here and later with the method used in the preceding paragraphs. 
+
+===== PAGE 29 =====
+Formal Theory of Irregular Linear Difference Equations. 
+and to do so we employ the identity (I6) which gives the expansion 
+233 
+pj(x + n-- d--i)J"-x~y + (n--d--i)Jpj(x + n -d--i-- I) gn--i--j--lff "~- ''" 
++ (9"-~-~p~(~)) 9~-Jy. 
+This leads to the explicit identities 
+~, (~) -= p~ (x + .- d) + z, (x), 
+~2 (x) ~ ~0. 2 (x -3v ~, -- d) -~- (n -- d) zJ~91 (x 2i- n -- d-- i ) --~ Z 1 (x)p 1 (x -~ ~/-- d-- i ) -~- Z.~ (x), 
+(I8) ............................. 
+a.,__,(.) __----(,,_d)~,n-~,-lp~,(. + ~) + (n--d--~)Z,(*)J'~-'~-:~pd(* + I)+ 
++ Z~,--d--,(X)pd(* + ~)+ J"<P~,--i(*)+ Z, (*)J"--~'--~J'd-*(*) + 
+-~- Z,,l--d (X)pd--1 (X), 
+~(X) = jn--~p~(Z)+ Z~(X)jn--~--~O~(~) +.'' + Z,~(X)~O~(X). 
+The close analogy of these equations with the equations (Io) of w 7 should 
+be noted. Since the operation d applied to any power series in negative powers 
+1 --k 
+of xV lowers the degree of the initial term, it is clear that the coefficients of x P 
+on the right-hand sides can only involve the constants ~ij, pi~ for j _--< k, and that 
+the terms involving the operator J can never give rise to terms involving ~ik, pik. 
+But, when these terms are omitted, the expressions on the right are identical 
+with those on the right in (IO). 
+It is apparent that, because of the way in which ~0, pio were chosen, the 
+constant terms on both sides agree. Also, according to the preceding remark, 
+--1 --2 
+the comparison for the terms in x P , x p ,... will determine ~1,p,1, Z,2,p~2,... 
+uniquely, the equations of determination being precisely like (i I1) for k= I and 
+(I I k) for k=2, 3,..., except that aij is replaced by cij of course. 
+The stated reducibility is thereby proved in the case when the broken line 
+M consists of more than a segment so that the modified equation in z has more 
+than a single value of #. 
+There remains then the case when there is but one such value of # >--p, 
+in which case it is necessary to establish that so long as the roots of the single 
+characteristic equation for z are not all equal, the equation (~4)is s~illreducibte, 
+at least if lp is taken as the. basic integer. 
+30--29643. Acta mathematica. 54. Imprim$ le 14 avril 1930. 
+
+===== PAGE 30 =====
+234 George D. Birkhoff. 
+g 
+If we write Q=~ee in this characteristic equation, it takes the form 
+O" + CloQ "-I + '" + C.o=O, # o), 
+and the equation in ~ also has not all equal roots. 
+Now in this case we can still adopt the preceding form (I4")although here 
+the last coefficient ~(x) has a constant term not zero. Furthermore if ~L is a 
+root of the equation above of d fold multiplicity (d < n), we may again propose 
+a symbolic factorization (i7) where we choose 
+jo~o=--d~, P-*o ...... q,,... Pdo-(--I)a~ d, 2 
+and then /-~0, .-. 2,,~,0 so that the following identity holds: 
+('~'--QI)d (UN-"r + ZI0U n---~/-1 +"" + Z,|--d, 0) 
+U" + Clo u"-I + "" + C.o. 
+In this way the constant terms on the two sides in the coefficients of (I7) are 
+--1 
+made to agree. Likewise the comparison of the terms in x v clearly yields 
+equations of the form (t31) which determine ~il, p,'l uniquely; more generally, 
+the comparison of terms in x-~ (k> i) leads to equations related to (I31) just 
+as the equations (IIk) are related to (I 11) , and so determine 2i~, p~2, ~i3, P;.~, .. 9 
+in succession uniquely. 
+Thus here again the desired reducibility is established. 
+w io. Fourth Reducible Case. 
+If the equatio~ L(y)=o may be written in the form 
+x"d"y + x"-lbl(x)J"-ly +... + b,(x)y =o, 
+1 
+where bl(x), .. b,(x) are power series in negative powers of x v with or without 
+constant terms, then the equation is reducible with a-symbolic factor of degree I. 
+
+===== PAGE 31 =====
+Formal Theory of Irregular Linear Difference Equations. 235 
+This case is analogous to that of an ordinary linear differential equation 
+of Fuchsian type and the fact stated above is easily proved. 1 
+If we substitute in this equation 
+y=x ~ +y2x p +... 
+and compare coefficients of like powers of x, we find a set of equations 
+f (Z)Vo = o, 
+Yl + ~ O, 
+where we have written for brevity 
+f(l) = l(l--I)--(l--n+ I) + blol(l--I) (l--n+2) + + bno 
+and where F~ is a known polynomial in l, Yo, Yl, ... yi-i for any i. 
+But the polynomial f in 1 is clearly of the n4h degree and has obviously. 
+at least one root 1 such that l--~, 1--2,... are not roots. For such a value 
+P 
+of l, it is evident that the first equation is satisfied for any Yo, while Yl, Y~,.-. 
+are successively determined uniquely by the following equations, as soon as Yo 
+is assigned, so that a formal series solution of.this type is determined. However, 
+if this series be denoted by g(x), and if we write 
+,<t1(/, y) --~ y(X+ I) g(x+ I) y(X) (g(x+ I) -- I q- ~ +''') 
+g(x) : ' 
+x p 
+it is clear that we may express L(y) in the form 
+Z(.v)  (x)v 
+where M,,-1 is a linear difference operator of order n--I .2 But if we substitute 
+t See N. E. N6rlund, Differenzenrechnung, Chap. I I. 
+2 We have merely to employ successively the relations 
+g(x+n) y(x+n! = .q(x+n_x)y(x+n--I)+ zft(x+n--I,y) 
+g(x+n--I) , . y(x+n--i) ~2)Y~xn-n--2)+ Al(x+n--2, y) 
+in order to express Z(y) in this form. 
+
+===== PAGE 32 =====
+236 George D. Birkhoff. 
+for y the series g(x) we conclude c(x)g(x)~o, so that c(x) is identically zero. 
+Thus it is clear that L(y) is certainly reducible with symbolic factor J~(x, y), 
+and the proof of the italicized statement is thereby completed. 
+w i i. Completion of Solution of Formal Problem. 
+We are now prepared to resume the argument begun in w 6. 
+If an equation E of the type there specified exists, and if /~1,... #k are 
+the corresponding values of /-~, we can at once prove that k must be I. In fact 
+if k ~ I, let #~ be the greatest value of #. Make the transformation 
+y=-xP #, 
+which is at once verified to yield a new equation of the same form with values 
+of # 
+o,/~ -- #l, 9 9 ~uk-- #l 
+of which one is zero and the others negative. By the result of w 7 this equa- 
+tion would be reducible, and admit a symbolic factor L~(y)of lower order, having 
+at least one series solution (6), (6') shared of course by the equation E. This 
+would be absurd. 
+Hence the equation E has only one value of /~, say #~, which, by the 
+transformation already employed leads to an equation E for which this value 
+of ~ is o. 
+Now this modified equation E will fulfill all the conditions prescribed in 
+the italicized statement of w 8 and so be reducible unless all of the roots of 
+its characteristic equation are equal, say to Q~. The further transformation 
+will then lead to a like equation E in which these equal values of Q are replaced 
+by I, since the effect of the last transformation is to divide the roots of the 
+characteristic equation by QI. 
+Consequently we are led to an equation E of .the form (I4) which would 
+fulfill the hypotheses of the italicized statement of w 9 or of w IO and so be 
+reducible, unless the equation in z has only a single negative value of u, say 
+--z, with x <p, and all of the roots of its characteristic equation are equal. 
+
+===== PAGE 33 =====
+Formal Theory of Irregular Linear Difference Equations. 237 
+However, in this remaining case, since the characteristic equation must 
+contain a complete set of terms 1, a first conclusion is that x must be a positive 
+integer and in addition that the equation under discussion has the form (I4') 
+1 
+where the coefficients ci(x) are power series in negative powers of x v, with con- 
+stant terms as follows: 
+elo= --9~QI, C~o-- I'e"t,... Cno=(--I)n07, 1.2 
+where ~ is the single value of Qe v . 
+Suppose now we make the transformation 
+in (I4'). Evidently this transformation takes the equation E into another of the 
+same type E. In order to characterize it in more detail, we substitute 
+Atiy = ~O(X'Jl-i) Al' ~ JI- i AI ~(X "F i--I)Ali--i~ "~ .... -F (~/~O(X))~ 
+for i= I, 2,... n and divide through by ~(x+n). The equation obtained may 
+then be written 
+[ -. ,,. ] i Al"q~(x) + ~, odx)Al.-l~(x) +. + ~ -~ ~.(x)f(x) ~ = o. 
+It suffices for our present purposes to observe that every coefficient so obtained 
+1 
+can contain no positive power of xV or even a constant term, and also that the 
+coefficient of Aln-~ is given by a series in negative powers which starts off 
+with a term of lower degree than --x/p. In fact we find readily 
+( ) : ~(x+,) -, e,x" + ;x,, ~l(x) ~(x ~i +' 
+so that this is the case. 
+All of these terms must appear when all of the roots are equal. 
+
+===== PAGE 34 =====
+238 George D. Birkhoff. 
+But the equation E thus obtained has of course, for reasons already pre: 
+sented, but a single value of tt-~ --~ and all the roots of its characteristic equation 
+equal. It will therefore be reducible unless it is of the exceptional type (I4)in 
+which the modified equation in z has the properties stated. Of course it cannot 
+be of the type treated in w I o, which is always reducible. Moreover, by the 
+argument given above, the value of ~ for the equation in y must again be a 
+positive integer, and, on account of the nature of the coefficient of "-~- A p,z 
+will be at least one more than in the first equation. 
+Thus, step by step, we are able to increase the integer x in the equation 
+(14'), until at last we are led to the case z~p. But this has been proved to 
+be reducible in all cases (w Io). 
+Hence such an equation E cannot exist. Thus we have proved the following 
+fundamental result: 
+Any difference equation (4) (or difference system (I)) in which the coefficients 
+1 
+are formal power series in negative descending powers of xV (p>= 1), such that 
+ao(X) ~ o, a,,(x) ~ o (] a,j(x)[~ o) admits of n linearly independent formal series solu- 
+tions with elements of the types (6), (6'), (6"). 
+w ~2. A Theorem on Reducibility. 
+Let Sa(X), ... s,~(x) be a set of n linearly independent formal solutions of 
+an equation (4). It is apparent that s,(x),... S,~(x) are not determined at least 
+up to a constant multiple of e 2t~r-~ where l is an integer, and that if any sum 
+such as 
++ + 
+is of the type (6), (6'), or (6") the set sl(x),.., s,,(x) admits of still further modi- 
+fication. We shall refer to the complete collection $(x)so obtained as the family 
+of formal solutions. Evidently it has the further proper~y that if ~(x) is in the 
+family of formal solutions, so also is every determination of ~(x) for the given 
+basic integer p. Any subset of formal series of types (6), (6'), (6") with this 
+double property will be termed a 'natural family' of formal series, and the number 
+of linearly independent elements in the family will be designated as its 'order'. 
+We propose to prove the following 
+
+===== PAGE 35 =====
+Formal Theory of Irregular Linear Difference Equations. 239 
+Theorem: To any decomposition of L(y) of order n into 6"reducible symbolic 
+factors LI, L~, ... Lk so that 
+L ~ LkLk-1 . . . LI, 
+there corresponds a sequence of natural families of formal solutions F1, ... Fk each 
+containing the preceding as a sub-family, but such that there exists no further inter- 
+mediate ,atural families, and such that the general solution of Ll(y ) = o is furnished 
+by F~, of L~(L,(y))=o by F~, etc. 
+Conversely to a set of families of formal solutions F1, F~, ... F~, each con- 
+taining the preceding, but in such wise that there exist no further intermediate fa- 
+milies, there is a corresponding irreducible factorization which is essentially unique. 
+Let us establish th e first par~ of this theorem. 
+Evidently Li(y),L~L~(y)-~-o, ... L(y):o define a sequence of expanding 
+families El, F2, ... F~. But if there exists any intermediate family F* between 
+1;'~_~ and F~ for instance, the equation L*(y)=o admits L~_~... L~(y)=o as a 
+symbolic factor. In fact we can write 
+L*(y) =--ML~-I... L~(y) + Q(y), 
+where Q is of lower order than Lt-1 9 9 . L~(y). But if we substitute any member 
+y of Fi--1 for y in this identity we conclude Q(y)=o, so that Q must vanish 
+identically. Similarly we can prove 
+LiLy-1... Ll(y) =-- NL*(y). 
+Therefore we have 
+L(y) -~ LkLk--1. . . L,+~ NL*(y) 
+--LkLk-1... L~+I NML~-I ... LI(y), 
+and it follows at once that 
+L~Lk-1.. . Lt+I(NM--Li)Li-~ . . Ll(y)=---o. 
+Hence we prove successively that the factors Lk, Lk-~, ... L;+I on the left may 
+be removed so that 
+(NM--Li)L~-~ ... LI~y)-~ o. 
+
+===== PAGE 36 =====
+240 George D. Birkhoff. 
+If NM:L~ were not identically zero, we could continue this process and finally 
+conclude y~-o which is absurd. Consequently the factor Li must be identical 
+with the product NM and so not irreducible, contrary to our hypothesis. 
+This establishes the first part of the theorem. 
+To prove the second part of the theorem we set up the equation L~(y)= o 
+with the family F~ as its general formal solution. Obviously L~ is determined 
+1 
+up to a multiplication power series in x P. Likewise we let Pi(y)=o be the 
+equation with general solution F/ for i=2,.., k. We can then readily estab- 
+lish that L1 is a factor of /)2, P~ of Ps, and so on, with P~L: 
+-P~- L, L1, Pa= L3P,, . . . L~ LI:-PI,~I. 
+It follows that L is expressible as a symbolic product 
+L ~ L~.Pk-1 ~ Lk L~-IP~2 ~'" ~ Lk Lk--1 - - 9 LI. 
+To complete the proof that to such a sequence of natural families correspond 
+irreducible factors LL, L~,... Lk it is only necessary to observe that if any Li 
+is not reducible we obtain further intermediate families, contraxy to hypothesis. 
+This theorem may be regarded as fundamental for all questions concerning 
+reducibility of a single equation (4) with a given basic integer p. As an illustra- 
+tion of this fact we cite the following two special results: 
+A necessa~:y and sufficient condition that L(y)--o of order n be completely 
+reducible (~. e. expressible as a product of n symbolic factors) is that there exists no 
+anormal series solution (6')with 1 > I. Every irreducible factorization will then in- 
+volve n factors, each of the first order. 
+A necessary and sufficient condition that L(y)~o of order n > I be irreducible 
+is that the complete set of formal solutions consists of a single solution (6') with 1 = n, 
+and its various determinations. 
+The necessity of the condition of the first statement is obvious, since in 
+the expanding set of families /,'~, ... he, we necessarily add all of the determina- 
+tions of series of anormal type when we add a single one of course. The suf- 
+ficiency may be seen as follows. At the i-th step the family -~)-1 is expanded 
+by the addition of at least one new member of normal type. This may be ex- 
+pressed in the form (see (6")) 
+S(X) (].ogx) m -'}- t(.~) (log x) m-1 "-}" ' ' 9 + t,/)(X) 
+
+===== PAGE 37 =====
+Formal Theory of Irregular Linear Difference Equations. 241 
+with m _--> o. If m = o (i, e. the solution does not involve logarithms), it is evident 
+that the addition of this new member leads to a larger natural family of order 
+one greater, which must then be F~-. But if m > o, the solution 
+m8(37) (log x) + (m- ,)t(x)(log 37)m-2 +... + v(z) 
+must be in Fi-1; otherwise it would suffice to add this last solution only with 
+its various determinations to form a smaller F~. But if these are in/}}-,, since 
+l= I we obtain a natural family of order one greater only, which must of course 
+be /~'i. Thus the irreducible factors will always be of the first order if there are 
+no anormal series. 
+The truth of the second statement is obvious. In fact the family of all 
+formal solutions not containing logarithms yields a factor Of L(y):o unless 
+there are no solutions containing logarithms. Thus for the completely irreduc- 
+ible case we are restricted to the types (6), (6') of series. But each such type 
+and its various determinations yields a natural family and a corresponding factor. 
+We conclude that there can exist one single series solution of anormal type with 
+l=n. But in this case L(y)~o is evidently irreducible. 
+w I3. Equivalence, Normal Forms and Invariants. 
+There is a second method of decomposition of natural families of series 
+solutions which is of importance in dealing with the notion of equivalence, 
+namely that in which it is sought to break up the given natural family into a 
+maximum number of entirely distinct natural families. Inasmuch as the formal 
+significance of this process is most apparent when we use a linear system (I) 
+instead of a single equation (4), we introduce the matrix notation at this point. 
+In matrix notation we may write the system (I) in the form 
+Y(x + ,) = A (37) Y(37) (IA (37)1 o), 
+where Y= S(x) will be taken to denote the matrix of formal solutions, one in 
+each column of S(x), which are such that ]S(x)]~ o. 
+Now suppose that we have a second equation 
+Y(x q- i) = A (37) Y(37), 
+31 -- 29643. Aeta mathematical 54. Imprim6 ]o I mai 1930. 
+
+===== PAGE 38 =====
+242 George D. Birkhoff. 
+which is obtained from the first by a linear transformation 
+Y(x) = B(x)Y(x), 
+so that 
+A(.,') = B-l(x+ I)A(x)B(x) (IA( )I o). 
+1 
+If the elements of B(x) are power series in .~:- P (p, the given basic integer) we 
+shall say that the equations in Y and Y are 'properly equivalent'. But if the 
+equations in Y and ]-~ are only 'properly equivalent' after p has been replaced 
+by a suitable multiple of p, we shall merely speak of the equations as 'improp- 
+erly equivalent'. We propose to deal here only with the latter type of equi- 
+valence. Evidently the relation of equivalence in either sense is transitive. 
+It is clear that equivalent systems possess formal solutions which are of 
+essentially similar type. 
+For the purpose before 
+to the exponential factors 
+us we group the formal solutions si(x) according 
+;s PeP(x) 
+which occur in the series for each particular solution. Evidently all the solu- 
+tions then fall into a set of entirely distinct families, provided that we regard 
+two factors as essentially the same if the constant # is the same in each and 
+the two polynomials P(x) differ at most by a term 21~]/-~-Ix (1, an integer). 
+Aside from this factor, we have in any particular set of this kind a linear 
+family of precisely the same type as presents itself in a linear differential system 
+with a regular singular point at x = ~. 
+On this account, we can list the formal solutions in entirely distinct families, 
+each of which has the following form 
+8,,(x), 
+sn(x)mlogx + t,l(x), ... s,(x)mlogx + t,(x), 
+9 . o . 9 . 9 . .......... 
+8il (logx) "| -~-''" "~- ~(',I(X),..* '~il(X)(log X) m -~''" "~- '~q)i'(X), 
+in which s,l(x),.., s,z(x), t,~(x).., t,,(x),.., all involve precisely the same expo- 
+nential factor and m ~ o indicates the degree to which logarithms enter. Fur- 
+thermore for all of these elements the constant r may be regarded as the same. 
+
+===== PAGE 39 =====
+Formal Theory of Irregular Linear Difference Equations. 243 
+Suppose that there are k_--> I such families with complete exponential factors 
+x p eP(~) x r, 
+which we designate by e~(x), . .. ek(x) respectively. If we denote by ~;j, [~j,... ~)ij 
+the parts of the respective series s~j, t~j, ... w~j in such a family aside from the 
+corresponding exponential factors, say el(x), it is clear that the matrix of formal 
+solutions can be expressed as a product matrix of the form 
+gH tlt ... '~l~ ... 
+9 ..... . 
+Snl ~nl . .. gn2 ... 
+II e, (x) e l(x) m log x... e, (x) (log x) m, ... 
+o e,(x) ... e,(x)(log x)', -1 ... 
+o o .., e~(x) 
+which may be written B(x)E(x), where B(x) is made up of elements such that 
+the linear transformation Y(x)=B(x)Y(x) takes the given equation into an 
+(improperly) equivalent equation. But this equation in Y has E(x)as matrix 
+solution so that we have 
+A (x) = E(x + I)~1 (x). 
+Hence we are led to the following result: 
+Theorem. An arbitrary system (1) of this type is (improperly) equivale~Tt to 
+a normal system 
+Y(x+ I) -- 7i(x) Y(x) (74(x) = E(x+ I)E-'(x)), 
+in which the matrix .E(x) has elements o except for square blocks along the diagonal 
+of the form 
+e(x) e(x)m log x . . . e(x) (log x) m 
+o e(x) ... e(x)(logx) m-' 
+where 
+o o ... e(x) 
+e(x) = xp eP(~)x" 
+lp--I 
+P(x) = 7x + dx ~P 
+- 
++ "" ~2 
+
+===== PAGE 40 =====
+244 George D. Birkhoff. 
+and ll~ 'is an integer. Furthermore with any e(x) and m there are also l--I blocks 
+in the other l--Ideterminations of e(x) and with the 8ame m in case l > i. 
+Evidently the functions e(x) and ~he integers m are to be regarded as in- 
+variantive characteristics. In other words in order that two systems (I)be 
+(improperly) equivalent it is necessary and sufficient that they possess the same 
+set of functions e(x) and corresponding integers m, each with the same multi- 
+plicity. 
+This theorem enables us to deal with most questions arising out of the 
+notion of equivalence. We cite merely the following two special- results, which 
+are readily proven: 
+There exists a set of n distinct natural families of solutions if and only 
+if the formal series are of normal type and no logarithms enter. In. this ease the 
+normal form is as follows: 
+,a i x 
+r i 
+yi(x+I (I q- I) p ['] : X p- e l'i(xr 1)--Pi(x)yi(x) (d: I, . .. n) 
+x 
+in which ~ .... ~,, are intege~w. 
+No two distinct natural families of solutions can be found when and only 
+when there is a ,ingle exponential factor e(x) which is not repeated, together with its 
+various determinations. 
+w ~4. Difference and Differential Systems. 
+It has been stated above that in certain cases difference and differential 
+systems are closely rela~ed from a formal point of view. If we bear in mind 
+that the formal solutions of linear differential systems 
+Y'(x)=B(x) Y(x), 
+in which of course the elements of B(x) are formal power series in descending 
+1 
+powers of xp, are the same in type as those of linear difference systems (I) for 
+which tt:o, we conclude that the matrix S(x) of formal solutions of a linear 
+difference system is also the solution of a linear differential system if every /~i 
+is o. If we fix the arbitrary exponential factors e 2~V-I~ in these formal solu- 
+tions, this corresponding linear differential system is uniquely determined, since 
+we have B(x)=S'(x)S-i(x). 
+
+===== PAGE 41 =====
+Formal Theory of Irregular Linear Difference Equations. 245 
+The fact that the polynomials P~(x) which enter are of degreenot exceeding 
+i in x indicates that the corresponding differential system has formal solutions 
+which are of rank a.t most I. 
+Thus we obtain the following theorem: 
+Theorem: A necessary a,nd sufficient condition that a li~ear difference system (1) 
+]r(X + I ) d (x) Y(x), 
+1 
+in which the elements of A (x) are descending formal power series in xP, be form- 
+ally compatible with some li~war differential system 
+= B(x) 
+(i. e. that both admit a common formal matrix solution S(x)) is that the values of # 
+in the formal solutions of the d~ilference system are all o. Here the elements of B(x) 
+1 
+are also power series in descending powers of x v, and the following formal identity 
+holds." 
+A'(z) = B (x -~ i ) A (x) -- A (x) B (x). 
+Conversely, if a linear d(fferential system of this type admits of formal solu- 
+tions which are all of rank at most I, it will be compatible with such a linear 
+d~fference system, and the same formal identity will hold. 
+The formal identity is obtained by noting the relations 
+S'(X-{- I)~--- B(x-~- I)~(x-~- I)~--- B(x-t- i)A(x)S(x) 
+and at the same time 
+S'(x+ I)= A(x)S'(x) + A'(x)S(x) 
+= [A(x)B(x) + A'(x)]S(x). 
+As we shall show in our second paper on irregular difference equations, 
+an actual linear differential system of this type is not only formally but also 
+actually compatible with a difference system, so that the solutions of the differential 
+system are also solutions of the difference system. 
+Hitherto we have taken the given difference system in a form involving x 
+and x+ I, rather than x and x+d. The question arises as to when two linear 
+difference systems with distinct values of d, say d 1 and d2, can be compatible 
+
+===== PAGE 42 =====
+246 George D. Birkhoff. 
+in the formal sense specified above. Since the formal series in such equations 
+are at once seen to involve exponential factors x ~p, it is clear that at least 
+when the ratio dl/d ~ is not a rational number, every value of /~ must be o; 
+note that /~ itself is oRher integral or rational. Hence in this case the two 
+difference systems are both formally compatible with a linear differential system. 
+On the other hand if the ratio dt/d~ is rational, and if d denotes the greatest 
+common submultiple of d 1 and d~, so that d~=kld, d~=k2d where kl and k~ are 
+relatively prime integers, we may find integers l~, l~ such that kal~ + k~12= I. 
+Consequently we may express Y(x+d) as A(x)Y(x) by repeated use of the given 
+difference equations. Thus we are led to the following results: 
+Two linear d~fferenee systems 
+Y(x + d,) : A~(x) Y(x), Y(x + d~) = A~(x) Y(x) 
+are formaUy compatible in the case when dl/de is not a rational number if and only 
+if they are both compatible with a linear differential system 
+r'(x) = B(x)r(x) 
+of the type referred to above. Here the following formal identity holds: 
+A,(x + = A (x + dl)A (x). 
+In case dJ.d2 is rational and d is the greatest common submultiple of dl and d2, 
+these systems are formally compatible if and only if we have 
+A i(x) ~ A (x + dl-- d) A (x + d 1- 2 d)... A (x), 
+A~ (x) ~ A (x + d~-- d) A (x + d~-- 2 d)'" A (x). 
+We defer to our second paper all discussion as to the relation between the 
+formal situations considered in the last three paragraphs, and the corresponding 
+analytic situations. 
