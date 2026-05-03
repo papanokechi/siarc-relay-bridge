@@ -1,0 +1,62 @@
+{
+  "halt_signal": "HALT_Q20A_LITERATURE_NOT_LANDED",
+  "phase": "C.0 (gate)",
+  "date": "2026-05-03",
+  "task_id": "Q20A-PHASE-C-RESUME",
+  "dispatch_history": [
+    {
+      "dispatch_n": 1,
+      "task_id_full": "Q20A-PHASE-C-RESUME",
+      "halt_signal": "HALT_Q20A_LITERATURE_NOT_LANDED",
+      "verdict": "UPGRADE_DEFERRED_PENDING_LITERATURE_LANDING",
+      "phase_a_star": "A_DIRECT_IDENTITY_d10 (executed)",
+      "literature_dir_present": false,
+      "wasow_pdf_present": false,
+      "birkhoff_pdf_present": false,
+      "sha256sums_present": false,
+      "notes": "G3b runbook landed earlier same day; operator browser-download cycle not yet completed."
+    },
+    {
+      "dispatch_n": 2,
+      "task_id_full": "Q20A-PHASE-C-RESUME-REFIRE-DISPATCH",
+      "timestamp": "2026-05-03T10:28:57+09:00",
+      "halt_signal": "HALT_Q20A_LITERATURE_NOT_LANDED",
+      "verdict": "HALT_Q20A_LITERATURE_NOT_LANDED",
+      "phase_a_star": "A_DIRECT_IDENTITY_d10 (cached; SHA-256 8e6f9eb...f7496 verified, no re-execution)",
+      "literature_dir_present": false,
+      "wasow_pdf_present": false,
+      "birkhoff_pdf_present": false,
+      "sha256sums_present": false,
+      "precondition_mismatch": "Re-fire prompt §0/§Preconditions assert A1+A2 complete; on-disk Test-Path returns False; PDFs absent; gate fails identically to dispatch 1.",
+      "notes": "Dispatch 2 was fired before operator's browser-download cycle completed. No state change on disk between dispatches. Resumption procedure unchanged: operator must place PDFs at literature/g3b_2026-05-03/ before dispatch 3."
+    }
+  ],
+  "expected_paths": [
+    "literature/g3b_2026-05-03/wasow_1965_chap_X.pdf",
+    "literature/g3b_2026-05-03/birkhoff_1930.pdf",
+    "literature/g3b_2026-05-03/SHA256SUMS.txt"
+  ],
+  "search_results_refire": {
+    "literature_dir_present": false,
+    "test_path_result": "False",
+    "get_childitem_result": "ENOENT (parent literature/ contains no g3b_2026-05-03 subfolder)",
+    "wasow_glob_match_count": 0,
+    "birkhoff_pdf_glob_match_count": 0,
+    "sha256sums_glob_match_count": 0
+  },
+  "antecedent": {
+    "g3b_runbook_path": "tex/submitted/control center/g3b_literature_acquisition_runbook_20260503.md",
+    "g3b_runbook_landed": "2026-05-03",
+    "operator_action_required": "Browser-download Wasow 1965 chap X + Birkhoff 1930 §§2-3 per runbook §§3-4; place at literature/g3b_2026-05-03/; run hashing step."
+  },
+  "resumable": true,
+  "resumption_procedure": "Operator completes G3b acquisition for Wasow + Birkhoff 1930 (other 4 sources out of scope for Q20A). Place PDFs at literature/g3b_2026-05-03/. Run runbook hashing script. Re-fire Q20A-PHASE-C-RESUME (dispatch 3).",
+  "phase_a_star_executed_dispatch_1": true,
+  "phase_a_star_executed_dispatch_2": false,
+  "phase_a_star_cached_verified_dispatch_2": true,
+  "phase_a_star_verdict": "A_DIRECT_IDENTITY_d10",
+  "phases_skipped_dispatch_2": ["C.1", "C.2", "C.3", "E"],
+  "verdict_dispatch_2": "HALT_Q20A_LITERATURE_NOT_LANDED",
+  "verdict_dispatch_1": "UPGRADE_DEFERRED_PENDING_LITERATURE_LANDING",
+  "predecessor_q20_verdict": "UPGRADE_PARTIAL_PENDING_LITERATURE"
+}

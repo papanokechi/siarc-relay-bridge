@@ -1,1 +1,26 @@
-{}
+{
+  "dispatch_3": {
+    "finding_1": {
+      "title": "Spec inaccuracy: Borel-singularity radius theorem is NOT in Birkhoff 1930 §§2-3",
+      "where": "Prompt 018 §2 step 5 (Phase C.2 spec)",
+      "what": "Step 5 names two theorems to extract from Birkhoff 1930 §§2-3: (i) formal-series existence/uniqueness, and (ii) 'Borel transform B[f] has leading singularity at xi = c^{-1}'. Item (ii) is not in §§2-3 of this paper. §2 builds the Newton-polygon construction and characteristic equations; §3 builds the converse formal-series-to-equation correspondence. The word 'Borel' does not appear in §§2-3.",
+      "evidence": "birkhoff.txt full text dump (42 pages); §2 spans paper pp.209-214 (text dump pp.6-10), §3 spans paper pp.214-217 (text dump pp.10-13). No Borel transform content.",
+      "where_content_actually_lives": "Likely Birkhoff-Trjitzinsky 1933 (Acta Math 60:1-89), the analytic-theory companion to Birkhoff 1930; or Wasow 1965 chap X (which the relay agent cannot read in this dispatch due to image-only PDF).",
+      "downstream_action": "Synthesizer should either (a) re-target Phase C.2 (ii) to B-T 1933 in a future Prompt 015 / 019 dispatch, or (b) re-target it to Wasow §X.3 contingent on a readable Wasow PDF landing. Prompt 018 spec text should be amended for dispatch 4."
+    },
+    "finding_2": {
+      "title": "Wasow Dover reprint borrowed via IA controlled digital lending produces image-only PDFs",
+      "where": "Phase C.1 (Wasow text extraction)",
+      "what": "The 870 587-byte 7-page wasow_1965_chap_X.pdf produced by the operator's IA borrow-viewer page-save workflow has zero embedded text. Both pypdf 6.x and pdfminer.six extract 0 printable characters across all 7 pages.",
+      "evidence": "extract_pdfs.py output: wasow.txt contains only the seven '<empty>' page markers. pdfminer extract_text returns 7 bytes, all 0x0c.",
+      "downstream_action": "Future operator instructions for IA-borrow-viewer-sourced PDFs should include either (a) running tesseract OCR on the resulting PDF before saving, or (b) screen-OCR'ing in the borrow viewer itself (some IA viewer modes allow text-selection that survives PDF export), or (c) sourcing a different copy of Wasow chap X from a library-internal scan with text layer.",
+      "tesseract_install_status": "Not installed in the relay agent's environment (where.exe tesseract returns no path). Install would require operator system action; outside agent's autonomous capability."
+    },
+    "finding_3": {
+      "title": "Path-mismatch judgment call accepted: Phase C.0 gate now matches on runbook-canonical path",
+      "where": "Phase C.0 (gate)",
+      "what": "Prompt 018 spec gated on workspace-root path 'literature/g3b_2026-05-03/'; operator placed PDFs at the runbook-canonical 'tex/submitted/control center/literature/g3b_2026-05-03/' (the more natural location, given the runbook lives in 'tex/submitted/control center/'). Hashes still match SHA256SUMS.txt byte-exactly. Dispatch 3 accepted this as gate PASS.",
+      "downstream_action": "Spec should pin the runbook path going forward; OR operator runs the documented one-line copy step (per _OPERATOR_INSTRUCTIONS.md line 130-134) to also place files at workspace-root. Either resolution is fine; current state works for dispatch 3."
+    }
+  }
+}
