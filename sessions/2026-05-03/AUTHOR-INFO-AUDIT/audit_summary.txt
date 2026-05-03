@@ -1,0 +1,103 @@
+AUTHOR-INFO-AUDIT — TL;DR
+Date: 2026-05-03T14:50+09:00 (UTC: 2026-05-03T05:50Z)
+Scope: B + D + targeted-C  (D2-NOTE v2 + 5 SIARC cohort papers + G13/G14)
+Files audited: 10
+
+VERDICT: NEEDS_PRE_DEPOSIT_FIXES
+  (D2-NOTE v2 has 2 HIGH issues blocking O2; both fixable in 1 edit)
+
+═══════════════════════════════════════════════════════════════
+BLOCKING — fix before D2-NOTE v2 Zenodo deposit (O2):
+═══════════════════════════════════════════════════════════════
+
+[#2 HIGH] D2-NOTE v2 \author{} = "Mauricio Echizen Kubo"
+          (legal name) — disagrees with PCF-1/PCF-2/T2B = "Papanokechi"
+          and umbrella v2.0 = "papanokechi". Edit line 69 of
+          d2_note_v2.tex to \author{Papanokechi}.
+
+[#3 HIGH] D2-NOTE v2 has no ORCID in author block.
+          \usepackage{orcidlink} loaded (line 28) but never invoked.
+          PCF-1, PCF-2, T2B all carry ORCID 0009-0000-6192-8273
+          via \thanks{}. Add \thanks{ORCID:
+          \href{https://orcid.org/0009-0000-6192-8273}{0009-0000-6192-8273}.}
+          to the author line (or fold the existing \section*{AI
+          Disclosure} prose into a single \thanks{} block per
+          PCF-1's idiom).
+
+   Bundled fix: 1 edit, 1 rebuild cycle, 4 hashes change
+   (d2_note_v2.tex, d2_note_v2.pdf, claims.jsonl with append, and
+   the runbook §1.1 expected-hashes table).
+
+═══════════════════════════════════════════════════════════════
+ALREADY-DEPOSITED-CRITICAL (informational; mitigate via Zenodo
+metadata edits, not source re-deposit):
+═══════════════════════════════════════════════════════════════
+
+[#1 CRITICAL] CT v1.3 \author{The SIARC author} placeholder
+              shipped to Zenodo (10.5281/zenodo.19972394).
+              Canonical G13 issue from v1.11 picture. Mitigation:
+              metadata-edit Zenodo "Authors" field to "Papanokechi"
+              + ORCID; land corrected source in CT v1.4 (open todo
+              ct-v14-narrative-draft).
+
+[#4 MEDIUM]   umbrella v2.0 \author{papanokechi} only — no
+              affiliation, no ORCID. Already deposited
+              (10.5281/zenodo.19965041). Metadata-edit on Zenodo
+              if desired; source fix in v2.1.
+
+═══════════════════════════════════════════════════════════════
+NON-BLOCKING (LOW / INFO):
+═══════════════════════════════════════════════════════════════
+
+[#5 MED]   D2-NOTE v2 capitalisation choice: "Papanokechi" (3
+           prior deposits) vs "papanokechi" (1 prior deposit).
+           Default recommendation: Papanokechi.
+[#6 LOW]   Email drift: shkubo@protonmail.com (D2-NOTE) vs
+           shkubo@outlook.jp (T2B / git committer). Operator
+           preference question.
+[#7 LOW]   PCF-1 v1.3 \email{} blank — already deposited; cosmetic.
+[#8 INFO]  Endorsement templates have <endorser name>,
+           <endorser candidates>, <operator-supplied> placeholders
+           (DEFERRED_OPERATOR_ACTION per G14 / SQL todo
+           endorsement-handles-acquire — by design, not a bug).
+[#9 INFO]  CMB.txt not present in workspace (audit §2 SCOPE A
+           mentioned it; recorded as N/A).
+
+═══════════════════════════════════════════════════════════════
+SUMMARY MATRIX
+═══════════════════════════════════════════════════════════════
+
+                  | Author     | ORCID | Affil | Email | AI Disc |
+                  | (canonical | (in   | (Ind. | (any) |         |
+                  | papanokechi)| author| res.) |       |         |
+                  |            | block)|       |       |         |
+------------------+------------+-------+-------+-------+---------+
+D2-NOTE v2  ⚠️    | LEGAL_NAME | NO    | YES   | YES   | YES     |
+PCF-1 v1.3        | YES (Pap)  | YES   | YES   | blank | YES     |
+PCF-2 v1.3        | YES (Pap)  | YES   | YES   | none  | YES     |
+CT v1.3     🛑    | PLACEHOLDER| NO    | NO    | NO    | YES     |
+umbrella v2.0     | YES (pap)  | NO    | NO    | NO    | YES     |
+T2B v3.0          | YES (Pap)  | YES   | YES   | YES   | YES (TBC)|
+------------------+------------+-------+-------+-------+---------+
+canonical (§1)    | papanokechi| YES   | YES   | (opt) | YES     |
+                  | / Papanokechi |    |       |       |         |
+
+⚠️ = blocking O2 deposit
+🛑 = critical historical issue (Zenodo-deposited; mitigate via
+     metadata edit, not retraction)
+
+═══════════════════════════════════════════════════════════════
+NEXT STEPS
+═══════════════════════════════════════════════════════════════
+
+1. Operator: edit d2_note_v2.tex per Action 1 (audit_report.md §
+   "Pre-O2-deposit").
+2. Rebuild PDF; re-hash; update O1 review and runbook §1.1.
+3. Fire O2 (Zenodo deposit) per the v2 runbook.
+4. Post-O2: metadata-edit CT v1.3 + umbrella v2.0 Zenodo records
+   (Actions 2 + 3) — no file re-deposit needed; only the visible
+   "Authors" / ORCID metadata.
+5. Long-term: CT v1.4 + umbrella v2.1 source-side fixes (open
+   todos already queued).
+
+End of TL;DR. Full report at audit_report.md.
