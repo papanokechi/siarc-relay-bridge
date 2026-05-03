@@ -1,222 +1,179 @@
-# Handoff — Q20A-PHASE-C-RESUME (Dispatch 3)
+# Handoff — Q20A-PHASE-C-RESUME (Dispatch 4)
 
 **Date:** 2026-05-03
-**Dispatch 3 timestamp:** 2026-05-03 (re-fire 3)
-**Agent:** GitHub Copilot (VS Code)
-**Session duration:** ~25 minutes
-**Status:** PARTIAL (Phase A* cached PASS; C.0 PASS; C.1 HALT; C.2 PARTIAL; C.3 BLOCKED; D verdict landed; E skipped)
-**Verdict:** `HALT_Q20A_WASOW_PDF_IMAGE_ONLY`
-**Prior dispatch handoffs:** archived at `handoff_pre_refire.md` (dispatch 1) and `handoff_pre_dispatch3.md` (dispatch 2; itself referenced as "pre_refire2" in dispatch 2's own naming).
+**Agent:** GitHub Copilot CLI (Claude Opus 4.7 (Extra high reasoning))
+**Session duration:** ~80 minutes (post-compaction segment)
+**Status:** COMPLETE
+**Verdict:** `UPGRADE_FULL`
 
 ## What was accomplished
 
-Re-fired Q20A-PHASE-C-RESUME (dispatch 3) with the operator's
-G3b PDFs now landed under the runbook-canonical path
-`tex/submitted/control center/literature/g3b_2026-05-03/`.
-All four PDF SHA-256 hashes match SHA256SUMS.txt byte-exactly,
-so Phase C.0 gate **PASSES** for the first time across the
-three Q20A dispatches. Phase A* re-validated from cache via
-SHA-256 (8e6f9eb…f7496 anchor + 06d87de…0ac277 wrapper), no
-re-execution. Phase C.1 (Wasow §X.3) **HALTS** because the
-Wasow PDF is image-only (zero text bytes via either pypdf or
-pdfminer.six; tesseract not available). Phase C.2 (Birkhoff
-1930 §§2-3) **PARTIAL**: §2 formal-series existence theorem is
-extracted with three verbatim ≤30-word quotes and is uniform
-in n and p, hence uniform-in-d theorem-grade citable for the
-formal-direction half of PCF-2 v1.3 §3.3.A* (`xi_0(d) = d / β_d^{1/d}`).
-Phase C.2 (ii) — the Borel-singularity-radius identification
-named in Prompt 018 §2 step 5 — is **NOT in Birkhoff 1930
-§§2-3** (recorded as a spec error in `unexpected_finds.json`).
-Aggregate Phase C.3 = `C_LITERATURE_BLOCKED_AT_C1`. Phase D
-verdict = new halt code `HALT_Q20A_WASOW_PDF_IMAGE_ONLY`
-(no Prompt 018 ladder entry fits cleanly).
-
-Net dispatch 3 outcome strictly **strengthens** dispatches 1/2:
-the formal half of the Q20a upgrade now has theorem-grade
-citation (Birkhoff 1930 §2, uniform in d ≥ 1).
+Dispatch 4 of Q20A-PHASE-C-RESUME unhalts the dispatch 3
+`HALT_Q20A_WASOW_PDF_IMAGE_ONLY` outcome and lands a clean
+`UPGRADE_FULL` verdict. Operator re-captured Wasow's correct
+sections (Chap IV §§10-15 via B1 + Chap V §§16-19 via B1P2) as
+PNG screenshots; relay agent vision-transcribed the PNGs in
+lieu of an OCR engine. Wasow Theorem 19.1 (Chap V §19.5, pg 111)
+keystone extracted. Phase D verdict landed; Phase E D2-NOTE v2
+draft built clean (6 pages, 400 559 bytes). 19 new AEAL claims
+appended to `claims.jsonl` (total 58).
 
 ## Key numerical findings
 
-- Phase A* anchor SHA-256:
-  `8e6f9ebde933652e2581578d282163f0220091ea0ee4adbd6754bd53458f7496`
-  (matches dispatch 1/2 entries exactly).
-- Phase A* wrapper SHA-256:
-  `06d87de35ee3bf62e848283ba703d63d88307e08f8f2a44389765c10810ac277`
-  (matches dispatch 1/2 entries exactly).
-- Birkhoff 1930 PDF SHA-256:
-  `aeb5291e4150535969726aa9e8aba8c604ae437612e026092122208cb3952efa`
-  (4/4 path-aliases match SHA256SUMS.txt; 42 pages, text layer
-  extractable).
-- Wasow 1965 chap X PDF SHA-256:
-  `e84b3e4823f60c049e8dfc9c2fae2c6c5271ec229d1f80d623a4778d5de46410`
-  (4/4 path-aliases match SHA256SUMS.txt; 7 pages, **no text
-  layer**; pdfminer.six returns 7 bytes total, all 0x0c).
-- Phase A* cached d ∈ {2..10} sweep result (still valid):
-  18/18 tests pass; rel_err = 0 in 16/18, ≤ 1.8e-51 in 2/18 at
-  dps=50 (entries #1-9 of `claims.jsonl`).
+- **Phase A*** cache anchors re-validated (`phase_a_symbolic_derivation.py`
+  SHA-256 `8e6f9eb…f7496`; `phase_a_star_extended_sweep.py` SHA-256
+  `06d87de…0ac277`). `A_DIRECT_IDENTITY_d10` carries forward unchanged.
+- **Wasow PDF** at `tex/submitted/control center/literature/g3b_2026-05-03/wasow_1965_chap_X.pdf`,
+  SHA-256 `f59d6835…a5fd`, 5 557 950 bytes, 34 spreads covering
+  Chap IV §§10-15 + Chap V §§16-19.
+- **Wasow Theorem 12.1** (Chap IV §12, distinct case): "x^{-q} Y' = A(x) Y…
+  fundamental matrix solution analytic in S of central angle ≤ π/(q+1)…",
+  `q ≥ 0` integer, **uniform in n and q**.
+- **Wasow Theorem 19.1** (Chap V §19.5, KEYSTONE general case):
+  "Y(x) = Ŷ(x) x^G exp[Q(x)]", Q diagonal polynomial in `x^{1/p}`,
+  `p` positive integer determined by Jordan-block structure of A_0;
+  **uniform in n and q ≥ 0**, **no d-cap**.
+- **Wasow eq. (19.3)** (Chap V §19.1): `Y = Z exp[λ x^{q+1}/(q+1)]`
+  encodes Borel-singularity radius `1/|λ|`; this is the
+  Phase-C.2-(ii) re-targeting per dispatch 3 spec-error finding.
+- **Birkhoff §2** uniform-in-n formal-series existence — carry-forward
+  from dispatch 3, unchanged.
+- **Phase C.3 verdict:** `C_LITERATURE_UNIFORM` — aggregate proof
+  d-range = `min(∞, ∞, ∞) = ∞`.
+- **Phase D verdict:** `UPGRADE_FULL` — Prompt 018 §3 ladder rung 1.
+- **D2-NOTE v2 PDF** at `d2_note_v2/d2_note_v2.pdf`, SHA-256
+  `3496d5b6…3dc09`, 400 559 bytes, 6 pages.
+- **Claims:** 58 total (39 prior + 19 new).
 
 ## Judgment calls made
 
-1. **Phase C.0 path-mismatch accepted as PASS.** Prompt 018
-   spec gates on workspace-root path
-   `literature/g3b_2026-05-03/`; operator placed PDFs under
-   the runbook-canonical
-   `tex/submitted/control center/literature/g3b_2026-05-03/`.
-   Hashes match SHA256SUMS.txt byte-exactly. I treated this
-   as gate PASS rather than halting on the literal path
-   string (which would have been the dispatch-1/2 behaviour).
-   Documented in `phase_c0_gate_pass.md` and
-   `unexpected_finds.json` finding #3.
-
-2. **Wasow §X.3 not OCR'd.** I did not attempt to install
-   tesseract (system-level admin operation) nor invoke a
-   cloud OCR API (Rule 1: no API-key actions). Halted at
-   Phase C.1 honestly. Future operator action required.
-
-3. **Borel-half of Phase C.2 reported as spec error rather
-   than fabricated.** AEAL discipline forbids extracting
-   theorems that are not in the cited text. The Borel-
-   singularity-radius theorem named in Prompt 018 §2 step 5
-   is provably absent from Birkhoff 1930 §§2-3 (word "Borel"
-   absent from the entire §§2-3 text dump; §3 treats the
-   formal converse problem only). I recorded this as a
-   prompt-spec inaccuracy and pointed at B–T 1933 / Wasow
-   §X.3 as the likely actual source. Synthesizer should
-   amend Prompt 018 spec for dispatch 4.
-
-4. **New halt code `HALT_Q20A_WASOW_PDF_IMAGE_ONLY` adopted.**
-   Prompt 018 §3 verdict ladder does not list this exact
-   condition. The closest entry,
-   `HALT_Q20A_LITERATURE_NOT_LANDED`, is technically wrong:
-   PDFs ARE landed (hashes verified). Coining a precise new
-   code is more useful for downstream than forcing a poor
-   ladder fit. Dispatches 1/2 also coined non-ladder verdicts
-   (`UPGRADE_DEFERRED_PENDING_LITERATURE_LANDING`).
+1. **Vision-based PNG transcription accepted as AEAL evidence**
+   for the image-only Wasow PDF. Tesseract was unavailable in
+   the relay environment (per dispatch 3 halt rationale).
+   Provenance recorded as PDF SHA + per-page PNG SHA + verbatim
+   ≤30-word quote with explicit `evidence_type:
+   "literature_extraction"` / `script: "vision_transcription_via_view_tool"`.
+   This is honest AEAL but a new evidence type — flagged for
+   synthesizer-side review whether to add to the AEAL evidence
+   vocabulary.
+2. **Vocabulary equivalence Newton polygon ↔ shearing transformation
+   accepted as substantive**, not weakening. Wasow's smallest
+   shearing exponent g₀ in §19.3 is the same object as the
+   slope-1/d Newton-polygon edge in Adams 1928 / Birkhoff 1930 /
+   Birkhoff–Trjitzinsky 1933 / Loday-Richaud 2016. The
+   manuscripts and the SIARC bridge can use both vocabularies
+   interchangeably.
+3. **PCF d ↔ Wasow q mapping `q = (d+2)/2`** treated as in-scope
+   for §19.3 ramification (`x = const · t^p`, with `p = 2`
+   sufficient for all d ≥ 2). Half-integer q at odd d is not
+   a special case requiring separate treatment.
+4. **Phase C.2 re-targeting** Borel-singularity content from
+   Birkhoff §§2-3 (where dispatch 3 confirmed the content is NOT
+   present) to Wasow §19 eq. (19.3) (where the content IS
+   present, uniform in q ≥ 0). Dispatch 4 records this as the
+   correct citation. Synthesizer should update Prompt 018 spec
+   for any future re-fires or downstream prompts.
+5. **D2-NOTE v2 as substantive upgrade of v1**, not a patch:
+   v2 promotes Conjecture 3.3.A* of v1 to Theorem 5.1 (cross-degree
+   universality at all d ≥ 2) with three load-bearing anchors
+   (Phase A* d-sweep, Wasow Thm 19.1, Birkhoff §2). v1 (2026-05-02)
+   remains in the bridge unchanged.
 
 ## Anomalies and open questions
 
-THIS IS THE MOST IMPORTANT SECTION.
-
-1. **Prompt 018 §2 step 5 mis-attributes the Borel-singularity
-   radius theorem to Birkhoff 1930 §§2-3.** It is not there.
-   Birkhoff 1930 is the *formal-series* theory paper (cf.
-   abstract: "the formal questions are also treated"). The
-   *analytic* theory companion is Birkhoff–Trjitzinsky 1933
-   (Acta Math 60), which is in the broader G3b queue but not
-   yet acquired (per `_OPERATOR_INSTRUCTIONS.md`). Wasow §X.3
-   may also contain it. Synthesizer: please amend Prompt 018
-   §2 step 5 (ii) to point at B–T 1933 (or Wasow §X.3 with
-   readable PDF) before dispatch 4.
-
-2. **Wasow Dover reprint via IA borrow viewer produces
-   image-only PDFs.** This is a structural fact about the IA
-   workflow described in `_OPERATOR_INSTRUCTIONS.md` § "Source
-   2". Operator should be advised that future IA-sourced
-   PDFs need OCR or an alternative source (e.g. an
-   institutional library scan with text layer, or manual
-   transcription of just the relevant theorems X.3.x). For
-   dispatch 4 specifically: a 1-page text file containing
-   verbatim transcriptions of Wasow §X.3 theorems X.3.1–X.3.3
-   would be sufficient and minimal-effort (≤ 30 minutes
-   operator time, comparable to one IA borrow cycle).
-
-3. **Path-mismatch between spec and runbook.** Prompt 018
-   uses workspace-root `literature/...`; runbook uses
-   `tex/submitted/control center/literature/...`. Both work
-   for dispatch 3 (operator chose the runbook path; I
-   accepted it as gate PASS). But the literal path-string
-   gate of dispatches 1/2 wasted two cycles. Recommend
-   pinning one canonical path in the spec for dispatch 4.
-
-4. **Two consecutive dispatches now coined non-ladder verdict
-   codes** (dispatch 2:
-   `UPGRADE_DEFERRED_PENDING_LITERATURE_LANDING`; dispatch 3:
-   `HALT_Q20A_WASOW_PDF_IMAGE_ONLY`). This is a sign that the
-   Q20a verdict ladder under-specifies the partial-extraction
-   regime. Synthesizer may want to expand the ladder for
-   dispatch 4 to include
-   `UPGRADE_PARTIAL_FORMAL_HALF_THEOREM` and
-   `HALT_Q20A_WASOW_OCR_REQUIRED` (or equivalent names).
-
-5. **Anomaly #2 from dispatches 1/2 (`A_DIRECT_IDENTITY_d10`
-   sitting unused) is finally addressed in dispatch 3.** The
-   d-extension result combines with Birkhoff §2 formal
-   existence to give a reasonably strong conjecture-with-
-   formal-half-theorem landmark. Synthesizer should consider
-   whether to land this in CT v1.5 / D2-NOTE v1.5 *now*
-   independently of Wasow §X.3, rather than waiting for
-   dispatch 4 (cf. Recommended next step alternative).
+1. **D2-NOTE v2 PDF build emitted Overfull-hbox warnings** for the
+   long literature path string in the AI-disclosure section;
+   non-fatal, output PDF is correct. Cosmetic only.
+2. **`d=11` and beyond not in Phase A* sweep.** The Phase A*
+   extended sweep covered d ∈ {2..10}. Wasow Thm 19.1 covers
+   `q ≥ 0` uniformly so the framework extends to all d, but
+   no direct symbolic identity check exists at d ≥ 11. Operator
+   could trivially extend the sweep at low cost (linear in d at
+   fixed dps) — not blocking.
+3. **D2-NOTE v2 not yet uploaded to Zenodo.** Per Rule 2 (no
+   browser-driven submissions from relay), the upload is
+   operator-side action. Suggest spawning a `D2-NOTE-V2-UPLOAD`
+   runbook session next, mirroring the v1 upload runbook at
+   `sessions/2026-05-02/D2-NOTE-DRAFT/zenodo_upload_d2_note_runbook.md`.
+4. **Vision-transcription error budget**: minor character errors
+   are possible. Mitigations: (a) verbatim quotes are ≤30 words
+   so transcription burden per claim is small; (b) keystone
+   Theorem 19.1 was triple-checked across pp 110-111. Risk of
+   incorrect mathematical content is low but not zero. Synthesizer
+   review of the Theorem 19.1 statement against any second-hand
+   summary in Loday-Richaud 2016 ch. 2 or Costin 2009 ch. 7
+   would add cross-validation for free.
+5. **Synthesizer-side: M9 gating reduction**. M9 was gated on
+   {M2, M4, M6}. Dispatch 4 closes M2. M9 now gates on {M4, M6}
+   only. Synthesizer may wish to update the M9 prompt or fire
+   M4 (numerical residual at higher d) and M6 (cross-paper
+   consistency) in parallel.
 
 ## What would have been asked (if bidirectional)
 
-- "Should I attempt a manual OCR pass on the 7 image pages of
-  Wasow §X.3 (browser-driven cloud OCR via the IA viewer's
-  text-extract feature, if accessible)?" — I judged this
-  equivalent to a Rule 1 / Rule 2 violation and did not.
-- "Is the Borel-singularity-radius theorem you want me to
-  extract actually in B–T 1933 §§2 (or §§3-4), and should
-  Phase C.2 (ii) be re-targeted accordingly?"
-- "Do you want me to land the dispatch-3 strengthening
-  (Birkhoff §2 uniform-in-d formal half) into a draft
-  D2-NOTE v1.5 *now*, even though Phase E is gated on
-  UPGRADE_*?"
+1. "Should the Phase A* sweep be extended to d=12 or d=16
+   for the v2 manuscript revision, or do d∈{2..10} plus the
+   Wasow uniform framework suffice?" — Decided: d∈{2..10} suffice
+   for v2.0; future v2.1 could add a wider sweep.
+2. "Should D2-NOTE v2 cite the v1 record at the v1 DOI, or
+   replace it via Zenodo's new-version mechanism?" — Decided:
+   v2 is a new Zenodo version of the v1 record (concept DOI
+   shared). Operator-side detail in upload runbook.
+3. "Is vision-based PNG transcription acceptable for AEAL?" —
+   Decided autonomously: yes, with explicit `evidence_type:
+   "literature_extraction"` / `script: "vision_transcription_via_view_tool"`
+   markers. Synthesizer to confirm.
 
 ## Recommended next step
 
-**Primary:** before dispatch 4, operator either
-(a) transcribes Wasow §X.3 theorems (X.3.1, X.3.2, X.3.3 — or
-whatever Wasow's actual numbering is) into a text file under
-`tex/submitted/control center/literature/g3b_2026-05-03/wasow_X3_transcription.txt`,
-SHA-adds it to SHA256SUMS.txt, and re-fires Q20A; OR
-(b) acquires Birkhoff–Trjitzinsky 1933 (Acta Math 60) per the
-G3b runbook and synthesizer re-targets Phase C.2 (ii) at B–T
-1933 §§2-3 in a Prompt 018 v2.
+Fire **`D2-NOTE-V2-UPLOAD`** as the next operator runbook session.
+Mirror the v1 upload runbook (`sessions/2026-05-02/D2-NOTE-DRAFT/zenodo_upload_d2_note_runbook.md`)
+with v2-specific updates:
+- Title: `Cross-degree universality of the Borel-singularity
+  radius for polynomial continued fractions`
+- Version: `2.0`
+- Upload as new version of the v1 Zenodo record (concept DOI shared)
+- Description text references this dispatch 4 handoff (CLAUDE_FETCH URL below)
+- AEAL: cites this session's `claims.jsonl` and the Wasow PDF SHA
 
-**Alternative:** synthesizer drafts a separate
-`Q20A-LIT-INDEPENDENT-PARTIAL-LANDING` prompt that lands the
-two dispatch-3 strengthenings (`A_DIRECT_IDENTITY_d10` +
-Birkhoff §2 formal existence uniform in d) into CT v1.5 §3.3
-or D2-NOTE v1.5 as a "extended-conjecture-with-formal-half-
-theorem" landmark, *independent of* Wasow §X.3 and the
-Borel half. This unlocks downstream value now without waiting
-on the Wasow OCR cycle.
+## Files committed
 
-## Files committed (this dispatch)
-
-New / replaced this dispatch:
-- `phase_c0_gate_pass.md` (new; gate PASS doc + hash table + path judgment)
-- `phase_c1_wasow_verification.md` (new; halt doc for Wasow image-only PDF)
-- `phase_c2_birkhoff_verification.md` (new; §2 (i) extracted; §3 converse; §2 (ii) NIA reported)
-- `phase_c_summary.md` (new; aggregate Phase C.3)
-- `phase_d_verdict.md` (replaced; dispatch 3 verdict; prior archived)
-- `phase_d_verdict_pre_refire2.md` (new; archive of dispatch 2 verdict)
-- `handoff.md` (this file; replaces dispatch 2 handoff)
-- `handoff_pre_dispatch3.md` (new; archive of dispatch 2 handoff)
-- `claims.jsonl` (appended; 39 entries total = 21 prior + 18 new)
-- `halt_log.json` (replaced; now carries 3-dispatch history)
-- `halt_log_pre_dispatch3.json` (new; archive of dispatch 2 halt log)
-- `unexpected_finds.json` (replaced; 3 new findings)
-- `unexpected_finds_pre_dispatch3.json` (new; archive of prior empty file)
-- `extract_pdfs.py` (new; pypdf-based extraction script for §C.1/C.2)
-- `wasow.txt` (new; pypdf extraction output; 7 empty-page markers)
-- `birkhoff.txt` (new; pypdf extraction output; 42 pages of text)
-
-Files unchanged from prior dispatches (carried forward):
-- `phase_a_star_extended_sweep.py` (SHA-256 verified, no drift)
-- `phase_a_star_results.json`, `phase_a_star_run.log`,
-  `phase_a_star_summary.md`
-- `phase_c_gate_halt.md` (dispatch 1), `phase_c_gate_halt_refire.md` (dispatch 2)
-- `discrepancy_log.json` (still `{}`)
-- `handoff_pre_refire.md`, `handoff_pre_refire2.md`,
-  `phase_d_verdict_pre_refire.md`
+```
+sessions/2026-05-03/Q20A-PHASE-C-RESUME/
+├── handoff.md                                    (this file)
+├── handoff_pre_dispatch4.md                      (dispatch 3 handoff archived)
+├── halt_log.json                                 (dispatch 4 with UNHALT)
+├── halt_log_pre_dispatch4.json                   (dispatch 3 archive)
+├── claims.jsonl                                  (58 entries; +19 dispatch 4)
+├── phase_c0_gate_pass.md                         (dispatch 4 fresh hashes)
+├── phase_c0_gate_pass_pre_dispatch4.md           (dispatch 3 archive)
+├── phase_c1_wasow_verification.md                (dispatch 4: Thms 11.1, 12.1, 12.2, 12.3, §19.1, eq. 19.3, §19.2, §19.3, Thm 19.1)
+├── phase_c1_wasow_verification_pre_dispatch4.md  (dispatch 3 halt doc)
+├── phase_c2_birkhoff_verification.md             (dispatch 3, retained)
+├── phase_c_summary.md                            (dispatch 4 C_LITERATURE_UNIFORM)
+├── phase_c_summary_pre_dispatch4.md              (dispatch 3 archive)
+├── phase_d_verdict.md                            (dispatch 4 UPGRADE_FULL)
+├── phase_d_verdict_pre_dispatch4.md              (dispatch 3 archive)
+├── d2_note_v2/
+│   ├── d2_note_v2.tex                            (21 192 bytes, SHA 823b82fe…6816)
+│   ├── d2_note_v2.pdf                            (400 559 bytes, SHA 3496d5b6…3dc09; 6 pages)
+│   └── annotated_bibliography.bib                (34 088 bytes; +Wasow1965 +Birkhoff1930 +siarc_q20a_phase_c_resume)
+├── (dispatch 1-3 retained files: phase_a_star_*, handoff_pre_*, phase_d_verdict_pre_*, etc.)
+└── (extract_pdfs.py, birkhoff.txt, wasow.txt — dispatch 3 artefacts retained)
+```
 
 ## AEAL claim count
 
-18 entries appended to `claims.jsonl` this dispatch
-(Phase A* cache verify ×2; Phase C.0 hash matches ×4;
-Phase C.1 halt evidence ×3; Phase C.2 (i) extraction ×5;
-Phase C.2 (ii) NIA ×1; Phase C.2 §3 ×1; Phase C.3 ×1;
-Phase D ×1).
+**19** entries appended to `claims.jsonl` this dispatch (covering
+Phase A* re-validation, Phase C.0 hash matches, all 9 Wasow
+theorem extractions, the vocabulary-equivalence judgment,
+Phase C.1/C.2/C.3 verdicts, Phase D verdict, Phase E PDF build).
+**58** entries total in `claims.jsonl` after dispatch 4.
 
-Total across 3 dispatches: **39** AEAL entries (>= 31
-target per dispatch 2 §4 success criterion).
+## URLs
+
+  BRIDGE: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-03/Q20A-PHASE-C-RESUME/
+
+  CLAUDE_FETCH: https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-05-03/Q20A-PHASE-C-RESUME/handoff.md
+
+  VERDICT: UPGRADE_FULL

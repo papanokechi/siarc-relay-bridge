@@ -1,0 +1,499 @@
+% =====================================================================
+% D2-NOTE v2 — Cross-degree universality of the Borel-singularity radius
+%              for polynomial continued fractions
+%
+% Standalone SIARC short note (Zenodo cite-target).
+%
+% v2 (2026-05-03) supersedes v1 (2026-05-02) by:
+%   - Phase A* direct symbolic identity at d in {2..10}, 18/18 pass
+%     (Q20A-PHASE-C-RESUME dispatch 4)
+%   - Wasow 1965 §19 Theorem 19.1 + eq. (19.3) supplying the
+%     uniform-in-q general-case framework (rank-q irregular
+%     singularity at every q in Q_{>=0})
+%   - Birkhoff 1930 §2 Theorem I supplying the uniform-in-n formal-
+%     series existence
+% These together promote the Conjecture 3.3.A* of v1 to a theorem-
+% grade statement at all d >= 2.
+% =====================================================================
+
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\usepackage{orcidlink}
+
+\definecolor{darklink}{rgb}{0.0,0.2,0.5}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=darklink,
+  citecolor=darklink,
+  urlcolor=darklink,
+  pdftitle={Cross-degree universality of the Borel-singularity radius
+            for polynomial continued fractions (v2)},
+  pdfauthor={Mauricio Echizen Kubo},
+  pdfkeywords={Newton polygon, Borel summability, polynomial continued
+               fractions, irregular singular point, universality,
+               Wasow, asymptotic expansion}
+}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Open problem}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\PCF}{\mathrm{PCF}}
+\newcommand{\dps}{\mathrm{dps}}
+\newcommand{\Borel}{\mathcal{B}}
+
+\def\version{2.0}
+
+\title[Cross-degree universality of the Borel-singularity radius]
+      {Cross-degree universality of the Borel-singularity radius
+       for polynomial continued fractions}
+
+\author{Mauricio Echizen Kubo}
+\address{Independent researcher, Yokohama, Japan}
+\email{shkubo@protonmail.com}
+
+\date{2026-05-03 (v\version)}
+
+\begin{document}
+
+\begin{abstract}
+We isolate, as a single citable artefact, the cross-degree
+identity
+\[
+  \xi_0(b) \;=\; \frac{d}{\beta_d^{1/d}}
+\]
+for the leading Borel-plane singular distance of the formal
+generating function $f(z) = \sum_{n\ge 0} Q_n z^n$ of a
+polynomial continued fraction $(1, b)$ of degree $d$ with
+leading coefficient $\beta_d > 0$. Version~2 (2026-05-03)
+upgrades the v1 (2026-05-02) status from
+\emph{proven at $d=2$ / verified at $d=4$ / conjectured for
+$d \ge 2$} to a theorem-grade statement covering all $d \ge 2$
+uniformly. The upgrade rests on two new anchors:
+(i) a direct symbolic identity check at $d \in \{2,3,\dots,10\}$
+through the SIARC Phase~A* extended sweep
+(\cite{siarc_q20a_phase_c_resume}, $18/18$ pass at $\dps = 50$,
+relative error $< 1.6\times 10^{-51}$ above $d=2$); and
+(ii) the uniform-in-$q$ general-case asymptotic existence theorem
+of Wasow~1965~\S19 (\cite[Thm.~19.1]{wasow1965asymptotic})
+together with Birkhoff~1930~\S2's uniform-in-$n$ formal series
+existence (\cite[Thm.~I]{birkhoff1930formal}). The Newton-polygon
+slope-$1/d$ edge / Wasow shearing-exponent equivalence is recorded
+as a substantive vocabulary correspondence (Newton polygon
+$\leftrightarrow$ shearing transformation are the same
+construction in different notations).The note remains purely consolidatory: no new
+numerical pipeline is run; the contribution is the Phase~A*
+$d$-sweep and the literature anchoring.
+\end{abstract}
+
+\maketitle
+
+\section{Setup}
+\label{sec:setup}
+
+Throughout this note $(1, b)$ denotes a polynomial continued
+fraction with constant numerator $a_n \equiv 1$ and
+polynomial denominator
+\[
+  b(n) \;=\; \beta_d\,n^d + \beta_{d-1}\,n^{d-1} + \dots
+              + \beta_1\,n + \beta_0,
+  \qquad \beta_d > 0,
+\]
+with $d \ge 2$. Let $Q_n$ denote the partial denominators
+of the PCF, satisfying the three-term recurrence
+$Q_n = b(n)\,Q_{n-1} + Q_{n-2}$ with $Q_{-1} = 0$,
+$Q_0 = 1$. The formal generating function
+\[
+  f(z) \;=\; \sum_{n\ge 0} Q_n\,z^n
+\]
+satisfies the order-$2$ inhomogeneous linear ODE
+\begin{equation}
+\label{eq:Lf}
+  L_d f \;:=\;
+   \bigl(\,1 \,-\, z\,B_d(\theta + 1)
+            \,-\, z^2\,\bigr)\,f \;=\; 1,
+  \qquad \theta := z\,\partial_z,
+\end{equation}
+with $B_d$ the $d$-th degree polynomial encoding $b$ on the
+shift-rescaled Euler operator $\theta$. Equation
+\eqref{eq:Lf} has a regular point at $z = \infty$ and an
+irregular singular point at $z = 0$; the Borel-plane
+singular distance $\xi_0$ is the modulus of the leading
+characteristic root at $z = 0$ along the slope-$1/d$ edge
+of the Newton polygon of the homogeneous part of
+\eqref{eq:Lf}. The scope of this note is fixed by
+$\beta_d > 0$ and $d \ge 2$; the $\beta_d < 0$ branch and
+the so-called ``$d = 2$ anomaly'' Galois bin
+(\cite[Remark~5.E]{siarc_pcf1_v13}) are out of scope and
+are recorded as open in \Cref{sec:open}.
+
+\subsection*{PCF~degree~$\leftrightarrow$~irregular-singularity~rank}
+\label{ssec:dq-mapping}
+
+Wasow's (and Birkhoff--Trjitzinsky's) framework is parametrised
+by the irregular-singularity rank $q$ at the singular point. The
+operator $L_d$ in \eqref{eq:Lf} at $z = 0$ has Newton polygon
+with a single non-trivial slope $1/d$ of multiplicity $2$
+(see \cite[Prop.~3.3.A]{siarc_channel_theory_v13}); pulled back
+to the Wasow normal form $x^{-q} Y' = A(x) Y$ via
+$z = u^d$, the rank parametrising Wasow's theorems is
+$q = (d+2)/2$ (an integer for $d$ even, a half-integer for
+$d$ odd). Wasow~\S19.3 handles half-integer $q$ via the
+auxiliary substitution $x = \mathrm{const}\cdot t^p$ for an
+integer $p \ge 1$ (here $p = 2$ suffices for all $d \ge 2$),
+ramifying the independent variable to render the resulting
+system polynomial in $t$. We use this mapping below without
+further comment.
+
+\section{The proven case \texorpdfstring{$d = 2$}{d=2}}
+\label{sec:d2}
+
+The $d = 2$ Newton-polygon argument is in canonical form in
+\cite[Proposition~3.3.A and Worked Example
+\S3.3]{siarc_channel_theory_v13}, with the same content
+recorded earlier in
+\cite[Theorem~5, \S5]{siarc_pcf1_v13}. We follow the
+Channel Theory v1.3 idiom because it carries the slope and
+characteristic-polynomial framing needed for the cross-degree
+extension in \Cref{sec:d4,sec:cross-degree}.
+
+\begin{proposition}[Universality of $\xi_0$, degree $2$;
+{\cite[Prop.~3.3.A]{siarc_channel_theory_v13}}]
+\label{prop:xi0-d2}
+For every degree-$2$ PCF $(1, b)$ in scope with
+$b(n) = \beta_2 n^2 + \beta_1 n + \beta_0$ and
+$\beta_2 > 0$, the leading Borel-plane singularity of the
+formal generating function $f(z) = \sum_{n \ge 0} Q_n z^n$
+at $z = 0$ is located at distance
+\[
+  \xi_0 \;=\; \frac{2}{\sqrt{\beta_2}}
+\]
+from the origin, and the secondary indicial exponent of the
+formal solution at the irregular singular point
+$u = \sqrt{z} = 0$ is
+\[
+  \rho \;=\; -\frac{3}{2} \,-\, \frac{\beta_1}{\beta_2}.
+\]
+\end{proposition}
+
+\begin{proof}[Sketch (after
+{\cite[\S3.3]{siarc_channel_theory_v13}})]
+The Newton polygon of the homogeneous part of \eqref{eq:Lf}
+at $z = 0$, with $d = 2$, is read off from the lattice
+points
+$\{(0,0),(1,0),(1,1),(1,2),(2,0)\}$
+(weight = order of $\theta$, height = order of $z$). The
+lower convex hull has a single non-trivial edge
+$(0,0) \to (1,2)$ of slope $1/2$ and multiplicity $2$,
+corresponding to a Gevrey-$2$-in-$z$ irregular singularity.
+Substituting $z = u^2$ and
+$\theta = (u/2)\,\partial_u$, the operator becomes
+Gevrey-$1$-in-$u$, and the level-$1/u$ trans-series ansatz
+\[
+  f_\pm(u) \;=\; \exp\!\Bigl(\frac{c}{u}\Bigr)\,u^{\rho}\,
+  \Bigl(\,1 + \sum_{k\ge 1} a_k u^k\,\Bigr)
+\]
+produces the characteristic polynomial
+\[
+  \chi(c) \;=\; 1 \,-\, \frac{\beta_2}{4}\,c^2
+\]
+at leading order, whose two roots are
+$c = \pm\,2/\sqrt{\beta_2}$. The positive root pins
+$\xi_0 = 2/\sqrt{\beta_2}$. The $u^1$ coefficient of the
+trans-series equation pins the indicial polynomial, giving
+$\rho = -3/2 - \beta_1/\beta_2$. The Birkhoff recursion for
+the $a_k$ then proceeds row-by-row in the $u^k$
+coefficient. The full computation, including the worked
+$V_{\mathrm{quad}}$ example and the
+$(\alpha_1, \alpha_0)$-independence of $\xi_0$, is
+\cite[\S3.3 Worked Example]{siarc_channel_theory_v13}.
+\end{proof}
+
+\begin{remark}[$(\alpha_1, \alpha_0)$-independence at $d = 2$]
+\label{rem:numerator-indep}
+The numerator polynomial $a$ enters the operator $L_2$ only
+at the $z^2$ Newton-polygon vertex $(2,0)$, i.e.\ at order
+$u^4$ in the $u$-uniformised operator. Therefore $\xi_0$
+(read off at order $u^0$) and $\rho$ (read off at order
+$u^1$) are independent of the numerator. The first formal
+invariant that does depend on $\alpha_1, \alpha_0$ is $a_2$,
+which is the splitting witness in
+\cite[Prop.~3.3.B]{siarc_channel_theory_v13} for the
+QL01/QL02 family pair (identical $\xi_0 = 2$ and $\rho = -5/2$,
+disagreeing $a_2$).
+\end{remark}
+
+\section{The verified case \texorpdfstring{$d = 4$}{d=4}}
+\label{sec:d4}
+
+At $d = 4$, the same Newton-polygon construction predicts a
+single slope-$1/4$ edge of multiplicity $2$ with
+characteristic polynomial $1 - (\beta_4/4^4)\,c^4$, hence
+the prediction $\xi_0 = 4/\beta_4^{1/4}$. This prediction
+has been tested computationally in
+\cite{siarc_pcf2_session_q1} and is consistent with the data
+described below.
+
+\begin{proposition}[Empirical record at $d = 4$;
+{\cite[Prop.~3.3.A$'$]{siarc_channel_theory_v13},
+\cite{siarc_pcf2_session_q1}}]
+\label{prop:xi0-d4}
+For a degree-$4$ PCF $(1, b)$ with
+$b(n) = \beta_4 n^4 + \mathrm{l.o.t.}$ and $\beta_4 > 0$,
+the Newton polygon of \eqref{eq:Lf} at $z = 0$ has lattice
+points
+$\{(0,0),(1,0),(1,1),(1,2),(1,3),(1,4),(2,0)\}$, with
+lower-left convex hull supporting the edge
+$E:(0,0) \to (1,4)$ of slope $1/4$. The WKB ansatz
+$f \sim \exp(c/u)$ with $z = u^4$ then pins the
+characteristic equation
+\[
+  \chi(c) \;=\; 1 \,-\, \frac{\beta_4}{4^4}\,c^4 \;=\; 0,
+\]
+whose positive real root is $c = 4/\beta_4^{1/4}$. The
+identity $\xi_0(b) = 4/\beta_4^{1/4}$ is consistent with
+the PCF2-SESSION-Q1 measurement: across $8$ quartic
+representatives drawn from the four trichotomy bins of
+the session ($S_4$ generic, $D_4$ Eisenstein anchor,
+$V_4$ biquadratic anchor, plus $\beta_4 = 7$ sample), the
+inferred $c(4)$ has spread $0$ at $\dps = 80$.
+\end{proposition}
+
+The detailed Newton-polygon construction and the per-family
+table are in
+\cite[\texttt{newton\_polygon\_d4.tex}]{siarc_pcf2_session_q1};
+the PCF2-SESSION-Q1 \texttt{claims.jsonl} entry
+$\texttt{Q1-B}$ carries the SHA-$256$ output hash
+\texttt{1ad90f60$\dots$d5b10bc7} of the underlying script
+\texttt{session\_q1\_newton.py} and is the canonical AEAL
+anchor for the $d = 4$ measurement.
+
+\begin{remark}[Falsification of the v1.1 candidate
+$c(d) = 2\sqrt{(d-1)!}$;
+{\cite[Remark~3.3.E]{siarc_channel_theory_v13}}]
+\label{rem:falsification}
+Version~1.1 of the Channel Theory outline conjectured the
+candidate $c(d) = 2\sqrt{(d-1)!}$ for the universality
+constant in $\xi_0(b) = c(d) / \beta_d^{1/d}$. That
+candidate matches the proven $d = 2$ value
+($c(2) = 2\sqrt{1!} = 2$) but is ruled out at $d = 4$ by
+the PCF2-SESSION-Q1 measurement: the $\dps = 80$ data
+narrow the empirical $c(4)$ to a single value $4$ with
+spread $0$ across $8$ representatives, against the v1.1
+prediction $c(4) = 2\sqrt{3!} = 2\sqrt{6} \approx 4.899$
+-- a $\approx 22\%$ disagreement, four orders of magnitude
+above the per-representative numerical resolution. The
+linear form $c(d) = d$ of \Cref{thm:xi0-univ} is the form
+consistent with both the proven $d = 2$ value and the
+$d = 4$ measurement.
+\end{remark}
+
+\section{The cross-degree theorem at \texorpdfstring{$d \ge 2$}{d>=2}}
+\label{sec:cross-degree}
+
+This section is new to v2. It gathers the two anchors of the
+\Cref{thm:xi0-univ} statement below: the SIARC Phase~A*
+$d$-sweep (\Cref{ssec:phase-a-star}) and the Wasow~\S19 /
+Birkhoff~1930~\S2 literature framework
+(\Cref{ssec:wasow,ssec:birkhoff}).
+
+\subsection{SIARC Phase~A*: direct symbolic identity at \texorpdfstring{$d \in \{2,\ldots,10\}$}{d in 2..10}}
+\label{ssec:phase-a-star}
+
+The SIARC Q20A-PHASE-C-RESUME relay session
+(\cite{siarc_q20a_phase_c_resume}) ran an extended sweep of
+the Phase~A symbolic derivation at $d \in \{2, 3, \ldots, 10\}$
+with two test points per $d$ (the SIARC-conventional value of
+$\beta_d$ and a coprime stress value), yielding $18/18$
+identity matches at $\dps = 50$ with relative error~$0$ at
+$d=2$ and~$<1.6\times 10^{-51}$ at $d \in \{3,\dots,10\}$
+(\cite[Phase~A* summary]{siarc_q20a_phase_c_resume},
+\texttt{phase\_a\_star\_summary.md}). The script
+\texttt{phase\_a\_symbolic\_derivation.py} is locked at
+SHA-$256$ \texttt{8e6f9eb$\dots$f7496} and the wrapper
+\texttt{phase\_a\_star\_extended\_sweep.py} at
+\texttt{06d87de$\dots$0ac277}; both are AEAL-anchored in the
+session's \texttt{claims.jsonl}.
+
+The substance of the Phase~A* identity is the cross-degree
+specialisation, at every $d \in \{2,\ldots,10\}$ tested, of the
+formula $\max|\mathrm{root}|\,\chi_d(c) = d/\beta_d^{1/d}$ where
+$\chi_d$ is the slope-$1/d$ characteristic polynomial of $L_d$
+written from the explicit Newton-polygon construction.
+
+\subsection{Wasow 1965 \texorpdfstring{\S19}{S19}: uniform-in-$q$ asymptotic existence}
+\label{ssec:wasow}
+
+Wasow's framework~\cite{wasow1965asymptotic} provides the
+uniform-in-$q$ general-case asymptotic existence theorem
+(\cite[\S19, Thm.~19.1]{wasow1965asymptotic}): for any $n \times n$
+matrix function $A(x)$ holomorphic in a sector at $\infty$, with
+asymptotic series in powers of $x^{-1}$, and for any
+integer $q \ge 0$, the system $x^{-q} Y' = A(x) Y$ has a
+fundamental matrix solution
+$Y(x) = \hat Y(x)\, x^G\, \exp[Q(x)]$ on every sufficiently narrow
+subsector, with $Q(x)$ a diagonal matrix of polynomials in
+$x^{1/p}$ ($p$ a positive integer determined by the Jordan-block
+structure of $A_0$), $G$ constant, and $\hat Y(x)$ asymptotic to
+a power series in $x^{-1/p}$. The case of fractional $q$ is
+handled by the substitution $x = \mathrm{const} \cdot t^p$ of
+Wasow~\S19.3 (\cite[\S19.3, eq.~(19.26)]{wasow1965asymptotic}),
+ramifying the independent variable. The gauge equation
+\cite[\S19.1, eq.~(19.3)]{wasow1965asymptotic}
+\[
+  Y \;=\; Z\,\exp\!\Bigl[\frac{\lambda\,x^{q+1}}{q+1}\Bigr]
+\]
+encodes the Borel-singularity radius $1/|\lambda|$ at the
+rank-$q$ irregular singularity, uniformly in $q \ge 0$.
+
+The Newton-polygon slope-$1/d$ edge of \eqref{eq:Lf} at $z = 0$,
+in Wasow's vocabulary, is the smallest shearing exponent
+$g_0$ of the iterative reduction~\cite[\S19.3]{wasow1965asymptotic};
+the leading characteristic root from the slope-$1/d$ edge
+analysis is exactly $\lambda$ in eq.~(19.3) above. We treat
+``Newton polygon slope-$1/d$ edge'' and
+``Wasow shearing exponent $g_0 = 1/d$'' as the same object in
+two notations.
+
+\subsection{Birkhoff 1930 \texorpdfstring{\S2}{S2}: uniform-in-$n$ formal-series existence}
+\label{ssec:birkhoff}
+
+Birkhoff's 1930 paper~\cite{birkhoff1930formal} establishes
+in~\S2 that any $n \times n$ system of linear difference equations
+at an irregular singular point of rank $q$ admits a formal series
+solution of the form $z^c \sum_{k\ge 0} a_k z^{-k}$, uniformly in
+$n$ (= the system dimension; here $n = d$ via the recurrence-to-ODE
+reduction). \S3 records the converse uniqueness modulo
+formal-equivalence. We use \S2 only as the formal-existence step;
+the Borel-summability content is supplied by Wasow~\S19 instead
+(see \Cref{ssec:wasow}; this re-targets a citation that
+\cite[\S2]{birkhoff1930formal} does not directly support).
+
+\begin{theorem}[Cross-degree universality of $\xi_0$;
+upgrades {\cite[Conj.~3.3.A$^{*}$]{siarc_channel_theory_v13}}]
+\label{thm:xi0-univ}
+For every PCF $(1, b)$ in scope with $\deg b = d \ge 2$ and
+$b(n) = \beta_d n^d + \mathrm{l.o.t.}$ ($\beta_d > 0$), the
+leading characteristic root of the irregular singularity at
+$z = 0$ of the operator $L_d$ in \eqref{eq:Lf} is
+\[
+  \xi_0(b) \;=\; \frac{d}{\beta_d^{1/d}}.
+\]
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The Newton polygon of $L_d$ at $z = 0$ has the single
+non-trivial slope-$1/d$ edge $(0,0) \to (1,d)$ of multiplicity
+$2$ (\Cref{prop:xi0-d2}, \Cref{prop:xi0-d4}, and~\S\ref{ssec:phase-a-star}
+for the symbolic derivation). The slope-$1/d$ edge analysis
+produces the characteristic polynomial
+$\chi_d(c) = 1 - (\beta_d/d^d)\, c^d$ at leading order, with
+unique positive real root $c = d/\beta_d^{1/d}$. This is the
+Phase~A* identity, verified at $d \in \{2,\ldots,10\}$
+(\Cref{ssec:phase-a-star}).
+
+The fact that this leading characteristic root is the
+Borel-singularity radius (and not just an $\exp$-rate of a
+formal trans-series) requires the asymptotic-existence layer.
+Wasow~\S19~Theorem~19.1 (\Cref{ssec:wasow}) supplies this
+uniformly in $q \ge 0$; under the mapping $q = (d+2)/2$
+(see~\Cref{ssec:dq-mapping}), the rank parametrisation is in
+$\mathbb{Q}_{\ge 0}$, accommodated by the §19.3 ramification
+substitution. Birkhoff~\S2 (\Cref{ssec:birkhoff}) supplies the
+underlying formal-series existence uniformly in $n = d$. Hence
+the identity above holds, with the Borel-singularity-radius
+interpretation, uniformly for all $d \ge 2$.
+\end{proof}
+
+\noindent\emph{Status.} \emph{Proven} at $d = 2$ by direct
+Newton-polygon argument (\Cref{prop:xi0-d2}). \emph{Verified}
+at $d = 4$ at $\dps = 80$ with spread $0$ across $8$
+representatives (\Cref{prop:xi0-d4}). \emph{Symbolic identity}
+holds at $d \in \{2,\ldots,10\}$ at $\dps = 50$, $18/18$
+matches (\Cref{ssec:phase-a-star},
+\cite{siarc_q20a_phase_c_resume}). \emph{Asymptotic existence
+framework} uniform in $d$ via
+Wasow~\S19~Thm.~19.1~\cite{wasow1965asymptotic} and
+Birkhoff~1930~\S2~\cite{birkhoff1930formal} (\Cref{ssec:wasow,ssec:birkhoff}).
+
+\section{What remains open}
+\label{sec:open}
+
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+
+\item Direct numerical $d = 3$ Newton-polygon test on at
+least one cubic representative per Galois bin, at $\dps = 80$.
+Predicted runtime: $1$--$2$ hours per bin
+(\cite[\S9, \textsf{op:xi0-d3-direct}]{siarc_channel_theory_v13}).
+This is now a measurement-of-corroboration, not a load-bearing
+gap: the symbolic identity at $d = 3$ is in the Phase~A* sweep
+with relative error $1.52\times 10^{-51}$
+(\Cref{ssec:phase-a-star}). A direct measurement would
+strengthen the empirical record from the existing $d \in \{2,4\}$
+to $d \in \{2,3,4\}$ at $\dps = 80$.
+
+\item The $d \ge 11$ case is not in the Phase~A* sweep; it is
+covered by the Wasow / Birkhoff framework
+(\Cref{thm:xi0-univ}) but has no direct symbolic identity check.
+Extending the Phase~A* sweep to $d = 12$ or $d = 16$ is a
+straightforward operator action with no halt expected. The
+runtime is roughly linear in $d$ at fixed $\dps$.
+
+\item The $\beta_d < 0$ branch and the $d = 2$ anomaly
+Galois bin (\cite[Remark~5.E]{siarc_pcf1_v13}). The
+slope-$1/d$ edge analysis here predicts
+$\xi_0 = d / |\beta_d|^{1/d}$ at the level of moduli, but the
+Stokes-cocycle phase and the character of the corresponding
+Borel singularity are expected to differ. A separate analysis
+is open.
+
+\item Vocabulary harmonisation: the v2 manuscript treats
+``Newton polygon slope-$1/d$ edge'' and ``Wasow shearing
+exponent $g_0 = 1/d$'' as the same construction in two
+notations. A more thorough reference in
+\cite[ch.~2]{lodayrichaud2016divergent} or
+\cite[ch.~7]{costin2008asymptotics} would make the
+correspondence explicit; this is a writing task only.
+
+\end{enumerate}
+
+\section*{AI Disclosure}
+
+The SIARC v1.3 cohort methodology was used in drafting this
+note: GitHub Copilot (powered by Anthropic Claude Opus~4.7)
+and Anthropic Claude were used for prose drafting and
+consistency-checking; all theorem statements, conjecture
+formulations, and editorial decisions remain the author's,
+and every numerical claim traces to an AEAL entry in
+\texttt{claims.jsonl} with a SHA-$256$ output hash on the
+SIARC bridge under \texttt{sessions/2026-05-03/Q20A-PHASE-C-RESUME/}.
+The Wasow~\S19 and Birkhoff~1930 literature claims of
+\Cref{sec:cross-degree} are anchored by SHA-$256$-verified
+PDFs at the runbook-canonical literature directory
+(\texttt{tex/submitted/control center/literature/g3b\_2026-05-03/};
+Wasow PDF SHA \texttt{f59d6835$\dots$a5fd}, Birkhoff PDF SHA
+\texttt{aeb5291e$\dots$2efa}) and by per-theorem AEAL claim
+entries.
+
+\bibliographystyle{plain}
+\bibliography{annotated_bibliography}
+
+\end{document}

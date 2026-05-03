@@ -1,9 +1,8 @@
 {
-  "halt_signal": "NONE",
-  "phase": "all phases complete (dispatch 4)",
+  "halt_signal": "HALT_Q20A_WASOW_PDF_IMAGE_ONLY",
+  "phase": "C.1 (Wasow theorem extraction)",
   "date": "2026-05-03",
   "task_id": "Q20A-PHASE-C-RESUME",
-  "current_verdict": "UPGRADE_FULL",
   "dispatch_history": [
     {
       "dispatch_n": 1,
@@ -65,51 +64,6 @@
       "phase_d_verdict": "HALT_Q20A_WASOW_PDF_IMAGE_ONLY",
       "phase_e_drafted": false,
       "notes": "First dispatch with PDFs actually on disk. Phase C.0 hash check passes for all 4 file slots (2 runbook-named + 2 Q20A-spec-named aliases). Phase C.1 blocked by Wasow's image-only PDF. Phase C.2 partially executes: Birkhoff §2 existence theorem extracted (uniform in d, no cap). Spec error noted: Borel-singularity claim (theorem ii of C.2) is not in §§2-3 of Birkhoff 1930; lives in B-T 1933 / Wasow X.3."
-    },
-    {
-      "dispatch_n": 4,
-      "task_id_full": "Q20A-PHASE-C-RESUME (dispatch 4)",
-      "timestamp": "2026-05-03 (re-fire 4)",
-      "halt_signal": "NONE",
-      "verdict": "UPGRADE_FULL",
-      "unhalt_of_dispatch_3_signal": "HALT_Q20A_WASOW_PDF_IMAGE_ONLY",
-      "unhalt_mechanism": "Operator re-captured Wasow's correct sections (B1: Chap IV §§10-15; B1P2: Chap V §§16-19) as PNG screenshots; relay agent vision-transcribed PNGs in lieu of OCR engine. Vision-based PNG transcription declared as AEAL evidence type 'literature_extraction' / 'vision_transcription' with PNG SHA-256 + page number + verbatim ≤30-word quote per claim.",
-      "phase_a_star": "A_DIRECT_IDENTITY_d10 (cached; SHA-256 of phase_a_symbolic_derivation.py = 8e6f9eb...f7496 and phase_a_star_extended_sweep.py = 06d87de...0ac277 both verified)",
-      "literature_dir_present_workspace_root": false,
-      "literature_dir_present_runbook_canonical": true,
-      "wasow_pdf_present": true,
-      "wasow_pdf_sha256": "f59d6835db58d2de59eab843b881b97106eee6c66e56bfce43de5788bbbaa5fd",
-      "wasow_pdf_text_extractable_via_layer": false,
-      "wasow_pdf_text_extractable_via_vision": true,
-      "wasow_pdf_size_bytes": 5557950,
-      "wasow_pdf_spreads": 34,
-      "wasow_pdf_coverage_chap_iv": "§§10-15 pp. 48-87 (20 spreads)",
-      "wasow_pdf_coverage_chap_v": "§§16-19 pp. 88-115 (14 spreads)",
-      "wasow_pdf_supersedes": [
-        "e84b3e4823f60c049e8dfc9c2fae2c6c5271ec229d1f80d623a4778d5de46410 (dispatch 3 wrong-section Chap X §§37-39)",
-        "bb638ade...78e652 (interim B1 Chap IV §§10-15 only)"
-      ],
-      "birkhoff_pdf_present": true,
-      "birkhoff_pdf_sha256": "aeb5291e4150535969726aa9e8aba8c604ae437612e026092122208cb3952efa (unchanged)",
-      "sha256sums_present": true,
-      "sha256sums_match_count": 4,
-      "phase_c0_result": "PASS",
-      "phase_c1_result": "PASS — C_WASOW_UNIFORM (Theorem 19.1 keystone extracted at pg 111; Theorems 11.1, 12.1, 12.2, 12.3, §19.1 reduction lemma, eq. (19.3), §19.2, §19.3 shearing all extracted; uniform in n and q ≥ 0; fractional q via §19.3 ramification x = const · t^p)",
-      "phase_c2_result_part_i": "PASS (carry-forward from dispatch 3: Birkhoff §2, uniform in n=d)",
-      "phase_c2_result_part_ii": "PASS via Wasow §19 re-targeting (eq. (19.3), uniform in q ≥ 0); spec error in Prompt 018 §2 step 5 (ii) confirmed; Borel content lives in Wasow §19, not Birkhoff §§2-3",
-      "phase_c3_result": "C_LITERATURE_UNIFORM",
-      "phase_d_verdict": "UPGRADE_FULL",
-      "phase_e_drafted": true,
-      "phase_e_pdf_pages": 6,
-      "phase_e_pdf_sha256": "3496d5b6e0eaf992842ccfdaf3bf51aa0beecb34c3f99e76391c876072e3dc09",
-      "phase_e_pdf_size_bytes": 400559,
-      "claims_total_after_dispatch_4": 58,
-      "claims_added_dispatch_4": 19,
-      "phase_a_star_cached_verified_dispatch_4": true,
-      "phases_complete_dispatch_4": ["A* (cached, SHA-validated)", "C.0", "C.1", "C.2 (i and ii)", "C.3", "D", "E", "F"],
-      "phases_skipped_dispatch_4": [],
-      "phases_partial_dispatch_4": [],
-      "notes": "Dispatch 4 closes the Q20A relay session at UPGRADE_FULL. G1 closes; G2 strengthened; M2 done; M9 gating reduces from {M2, M4, M6} to {M4, M6}. D2-NOTE v2 ready for Zenodo upload (operator-side action, not relay). Vision-based PNG transcription established as new AEAL evidence type for image-only-PDF anchors."
     }
   ],
   "expected_paths_workspace_root": [
@@ -117,7 +71,7 @@
     "literature/g3b_2026-05-03/birkhoff_1930.pdf",
     "literature/g3b_2026-05-03/SHA256SUMS.txt"
   ],
-  "actual_paths_dispatch_4": [
+  "actual_paths_dispatch_3": [
     "tex/submitted/control center/literature/g3b_2026-05-03/wasow_1965_chap_X.pdf",
     "tex/submitted/control center/literature/g3b_2026-05-03/birkhoff_1930.pdf",
     "tex/submitted/control center/literature/g3b_2026-05-03/SHA256SUMS.txt"
@@ -126,13 +80,19 @@
     "g3b_runbook_path": "tex/submitted/control center/g3b_literature_acquisition_runbook_20260503.md",
     "g3b_runbook_landed": "2026-05-03",
     "operator_action_completed_dispatch_3": "PDFs landed under runbook-canonical path; SHA256SUMS.txt generated.",
-    "operator_action_completed_dispatch_4": "Wasow Chap IV §§10-15 + Chap V §§16-19 captured as PNG screenshots; PDF re-assembled (34 spreads, 5,557,950 bytes); SHA256SUMS.txt updated; vision-based transcription completed by relay agent."
+    "operator_action_remaining_for_dispatch_4": "Wasow §X.3 in machine-readable form (OCR'd PDF, transcribed text file, or alternative source) under the literature directory; SHA256SUMS.txt updated."
   },
-  "resumable": false,
+  "resumable": true,
+  "resumption_procedure": "Operator provides Wasow §X.3 in machine-readable form (text file or OCR'd PDF). Re-fire Q20A-PHASE-C-RESUME (dispatch 4). Phase A* and Phase C.0 cache forward; Phase C.1 picks up from this halt; Phase C.2 (ii) requires either Wasow §X.3 (Borel content) or B-T 1933 acquisition.",
+  "phase_a_star_executed_dispatch_1": true,
+  "phase_a_star_cached_verified_dispatch_2": true,
+  "phase_a_star_cached_verified_dispatch_3": true,
+  "phase_a_star_verdict": "A_DIRECT_IDENTITY_d10 (carried forward unchanged)",
+  "phases_skipped_dispatch_3": ["E"],
+  "phases_partial_dispatch_3": ["C.1 (halt)", "C.2 (partial)", "C.3 (blocked)"],
+  "phases_complete_dispatch_3": ["A* (cached)", "C.0", "C.2 (i)", "D"],
   "verdict_dispatch_1": "UPGRADE_DEFERRED_PENDING_LITERATURE_LANDING",
   "verdict_dispatch_2": "HALT_Q20A_LITERATURE_NOT_LANDED",
   "verdict_dispatch_3": "HALT_Q20A_WASOW_PDF_IMAGE_ONLY",
-  "verdict_dispatch_4": "UPGRADE_FULL",
-  "predecessor_q20_verdict": "UPGRADE_PARTIAL_PENDING_LITERATURE",
-  "session_status": "COMPLETE"
+  "predecessor_q20_verdict": "UPGRADE_PARTIAL_PENDING_LITERATURE"
 }
