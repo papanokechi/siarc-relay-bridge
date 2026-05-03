@@ -4,6 +4,29 @@
 **Date:** 2026-05-02
 **Companion file:** `descendants_synthesis_matrix.tsv` (one row per
 author / line, machine-readable).
+
+---
+
+> **⚠ AMENDED 2026-05-03 per A-01 verdict** (`T1-A01-NORMALIZATION-RESOLUTION`,
+> verdict label `A01_WASOW_READING_CONFIRMED`).
+>
+> The Phase-1 paraphrase commentary "$\sigma_{\mathrm{Wasow}} = 2 \sigma_{\mathrm{Adams}}$"
+> (which appears in the companion file `gap_proposition_for_d_ge_3.md`,
+> not in this matrix's main rows) was identified as a **paraphrase artefact**
+> arising from incomplete primary-source access. Direct on-disk evidence
+> from B-T 1933 page 5 footnote 2 + Birkhoff 1930 page 2 footnote 2
+> establishes that **no factor-of-2 ambiguity at the normalisation level**
+> exists — Wasow / Birkhoff / B-T / Adams $\sigma$ all share the same $\mu$-units
+> (per A-01 verdict 2026-05-03; see `T1-A01-NORMALIZATION-RESOLUTION` handoff).
+>
+> **Phase-1 AEAL-logged claims are NOT contradicted**; this is a
+> paraphrase commentary correction. The GAP_TYPE_C classification (Q3) and
+> the literature bracket $A \in [d, 2d]$ stand under the Wasow-normalisation
+> reading. The D-04 inconsistency note (last section of this file) on
+> H1's `B4_PROVED_AT_d≥3_RESIDUE_AT_d=2` label disposition is also
+> **PHASE_2_GATED** per synthesizer ruling 2026-05-03.
+
+---
 **Scope:** One paragraph per cited author / line, plus a closing
 "what's still open" paragraph that feeds Q3.
 

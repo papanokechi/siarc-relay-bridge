@@ -10,6 +10,35 @@ conditional on the classification.
 
 ---
 
+> **⚠ AMENDED 2026-05-03 per A-01 verdict** (`T1-A01-NORMALIZATION-RESOLUTION`,
+> verdict label `A01_WASOW_READING_CONFIRMED`).
+>
+> All passages below that frame "$\sigma_{\mathrm{Wasow}} = 2 \sigma_{\mathrm{Adams}}$"
+> as a possible normalisation-level factor-of-2 ambiguity (notably § 2 lines
+> ~77–86, the Caveat block at § 4, and the "Halt-on-normalisation mismatch"
+> bullet at § 5) are **resolved**: direct evidence from B-T 1933 page 5
+> footnote 2 + Birkhoff 1930 page 2 footnote 2 + PCF-1 v1.3 §6 Thm 5 ansatz
+> shows **no factor-of-2 ambiguity at the normalisation level** — Wasow /
+> Birkhoff / B-T / Adams $\sigma$ all share the same $\mu$-units (per A-01
+> verdict 2026-05-03). The Phase-1 worry was a paraphrase artefact (likely
+> from a confused secondary-source recollection), not a real literature
+> ambiguity.
+>
+> **Net effect on this document:** the **Wasow-normalisation reading** is
+> confirmed (so the document's best-guess GAP_TYPE_C classification stands);
+> the alternative GAP_TYPE_A scenario (which would have placed $B4 = 2d$
+> outside the literature bracket) is **falsified** at the primary-source
+> level. The remaining open work is the **lift** of $\psi_{\mathrm{lower}}$
+> from $d$ to $2d$, not the normalisation match.
+>
+> No Phase-1 AEAL-logged claim is contradicted by this amendment; only the
+> paraphrase commentary is corrected. The original Phase-1 prose is
+> preserved below for audit-trail purposes; readers should treat the
+> "$\sigma_{\mathrm{Wasow}} = 2 \sigma_{\mathrm{Adams}}$" framing as
+> historical Phase-1 worry, **not** as a current open question.
+
+---
+
 ## §1. Statement of B4 and the SIARC normalisation
 
 **SIARC Conjecture B4 (sharp, umbrella v2.0 main.tex line 290).**
@@ -84,6 +113,10 @@ The chain of reasoning is:
    agent could not pin this down from the secondary literature
    alone**. This is the central paraphrase ambiguity flagged
    in `handoff.md`.
+   *[⚠ AMENDED 2026-05-03 per A-01: this factor-of-2 ambiguity
+   is FALSIFIED — see top-of-file amendment block. Wasow,
+   Birkhoff, B-T, Adams $\sigma$ all share the same $\mu$-units.
+   Read the paragraph above as historical Phase-1 framing only.]*
 
 3. **Sectorial-analytic upgrade (Turrittin 1955 / Immink 1984).**
    Once the formal slope is fixed, Turrittin 1955 (regular-
