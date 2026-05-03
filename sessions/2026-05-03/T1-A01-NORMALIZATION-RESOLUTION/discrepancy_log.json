@@ -1,0 +1,20 @@
+{
+  "discrepancies": [
+    {
+      "id": "T1A01-DISC-1",
+      "type": "primary-source-NIA",
+      "description": "Wasow 1965 chapter X (04_wasow_1965_dover.pdf) is image-only on disk; OCR layer absent. Wasow §X.2 (sigma definition) and §X.3 (polynomial-coefficient slope theorem) cannot be primary-quoted in this session. Documented in D2 (wasow_section_X_normalization.md). Triangulation flows through Birkhoff 1930 + B-T 1933 directly; the verdict A01_WASOW_READING_CONFIRMED is reached without Wasow primary access."
+    },
+    {
+      "id": "T1A01-DISC-2",
+      "type": "secondary-paraphrase-residual",
+      "description": "The bracket-derivation half of the Phase-1 claim (the upper bound mu <= 2d in terms of polynomial degree d) is sourced from Phase-1's paraphrase of Wasow §X.3 and Birkhoff 1911. The present session resolves the normalisation-match half but does not re-derive the bracket; the bracket-tightness remains paraphrase-grade. Acknowledged in verdict.md caveat 3 and h1_label_disposition_advisory.md. Not a contradiction; a residual."
+    },
+    {
+      "id": "T1A01-DISC-3",
+      "type": "phase1-paraphrase-correction",
+      "description": "Phase-1 (gap_proposition_for_d_ge_3.md §2 and §4) stated 'sigma_Wasow = 2 sigma_Adams' as a possible factor-of-2 ambiguity. The present session's direct B-T 1933 + Birkhoff 1930 evidence does NOT support a factor-of-2 between Adams and Birkhoff/B-T conventions; rather, both Birkhoff 1930 page 2 and B-T 1933 page 5 cite Adams 1928 as using the same convention. The Phase-1 'sigma_Wasow = 2 sigma_Adams' assertion is therefore identified as a paraphrase artefact (likely from a confused secondary-source recollection) rather than a real ambiguity. This is a CORRECTION to a Phase-1 paraphrase, not a contradiction with a Phase-1 AEAL-logged claim. Logged here for synthesizer transparency."
+    }
+  ],
+  "pointer_to_unexpected_finds": "see unexpected_finds.json for any items above the threshold for A-01 surprise."
+}

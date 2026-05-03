@@ -1,0 +1,18 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "T1A01-UF-1",
+      "label": "phase1_factor_of_2_was_paraphrase_artefact",
+      "description": "Phase-1 (2026-05-02 T1-BIRKHOFF-TRJITZINSKY-LITREVIEW) flagged a possible factor-of-2 ambiguity between Adams's sigma and Wasow's sigma (the A-01 ambiguity). The present session's direct evidence from Birkhoff 1930 page 2 and B-T 1933 page 5 reveals NO factor-of-2 at the primary-source level: both papers cite Adams 1928 with the same convention. The Phase-1 worry was a paraphrase artefact, not a real literature ambiguity. Mildly unexpected (the agent expected to need primary Adams or Wasow access to resolve; in fact the on-disk Birkhoff 1930 + B-T 1933 was sufficient).",
+      "magnitude": "low",
+      "implication": "The Phase-1 GAP_TYPE_C classification stands. Phase 2 (T1-BIRKHOFF-PHASE2-LIFT-LOWER) may launch with target B4 = 2d. No Phase-1 AEAL-logged claim is contradicted; only a paraphrase commentary was."
+    },
+    {
+      "id": "T1A01-UF-2",
+      "label": "wasow_pdf_image_only_reconfirmed",
+      "description": "The 04_wasow_1965_dover.pdf on disk has no OCR layer. This was already known from the 2026-05-03 Q20A-PHASE-C-RESUME dispatch but was reconfirmed in this session. The Wasow PDF appears to be a scan-only Dover reprint without a runtime-extractable text layer. Operator-side OCR (e.g. tesseract on the page images, or acquisition of a different scan with text layer) would be needed for primary §X.2-§X.3 quotation.",
+      "magnitude": "low (already known)",
+      "implication": "Wasow §X.3 polynomial-coefficient slope bound remains paraphrase-grade pending operator-side action. Does not block the present verdict (which is carried by Birkhoff 1930 + B-T 1933 directly)."
+    }
+  ]
+}

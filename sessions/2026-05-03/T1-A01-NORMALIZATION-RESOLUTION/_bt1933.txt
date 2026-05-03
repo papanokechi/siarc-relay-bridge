@@ -1,0 +1,2943 @@
+
+===== PAGE 1 =====
+ANALYTIC THEORY OF SINGULAR DIFFERENCE 
+By 
+GEORGE D. BIRKHOFF 
+Of CAMBRIDGE, M~flSS.~ U. S. A. 
+and 
+W. J. TRJITZINSKY. I 
+EQUATIONS. 
+I. 
+w 2. 
+w 3. 
+w 4' 
+w 5. 
+w 6. 
+w 7. 
+w 8. 
+w 9. 
+IO. 
+II. 
+I2. 
+Introduction. 
+On B' and proper curves. 
+Lemmas on iteration. 
+A lemma on summation. 
+Construction of proper solutions to the right of a proper curve. 
+A lemma on factorization. 
+Products of completely proper operators. 
+Completion of the proof of the Theorem of w 7. 
+The Fundamental Existence Theorem. 
+Connection between 'upper' and 'lower' solutions. 
+The converse problem. 
+The related Riemann problem. 
+w I. Introduction. 
+In the present paper we study a linear difference system of order n in 
+y~ (~),... y, (x), 
+(~) y~(x+ i)= ~ .~j(x) y~(x) 
+j=l 
+(](aij(x))]~o; i= I, 2,... ?~), 
+1 National Research Fellow, Harvard University. 
+1--32511. Acta mathematica. 60. hnprim~ ]e 1 septembre 1932. 
+
+===== PAGE 2 =====
+George D. Birkhoff and W. J. Trjitzinsky. 
+in which the coefficients aij(x) will be taken either as known rational functions 
+of x or, more generally, as series convergent for Ixl > r which, except for a 
+1 
+finite number of ascending powers, are in descending powers of x or of xl, 
+(p, a positive integer). Still more generally it may be supposed that the coeffi- 
+cients are merely represented asymptotically by such series in certain regions of 
+the complex plane. 
+The equations (I) will be written in the matrix form as follows 
+(I a) Y(x+i)=A(x) Y(x), 
+(Y(x)~(yij (x)); A (x) ------- (a~-j (x))); 
+here, for j-- I, 2,... ~t, the elements yu(x),.., y,,j(x) in the j-th column of 
+Y(x) form a solution 
+of the equations (I). Such a solution Y(x) of the matrix equation (I a) will be 
+called a matrix solution in case I Y(x)[ ~ o. 
+In a preceding paper by Birkhoff ~ the well known fact was pointed out, 
+that such a system (I) may be related to a single difference equation of the 
+~-th order 
+(2) L, (y) --= a o (x) y (x + ,) + a, (x) y (x + n --I ) -F'' a- an (X) y (X) : O, 
+(ao (x) o; (x) o) 
+by means of a linear transformation 
+n 
+(3) y (x) = F, (x) yj (x), 
+j=l 
+in such a wise that whenever Yl (x) .... y~(x) is a solution of (I), the correspond- 
+ing y(x) obtained from (3)is a solution of (2), and, conversely, whenever y(x) 
+is a solution of (z), then the ~2 functions y~(x), ... y~(x) determined by the n 
+equations 
+1 Formal Theory of Irregular Linear Difference Equations, these Acta, vol. 54, I93O, PP. 
+205--246 (cited hereafter as (I)). 
+
+===== PAGE 3 =====
+Analytic Theory of Singular Difference Equations. 
+y (,~) = ~ zJ (~) yj (~), 
+j--1 
+(4) y(x-[- I) = Z ~j(x ~- I)ajj,(x)yj,(x), 
+j, jl=l 
+:~](Z + ~ --" I)-- .~ ~j (.93 + n -- I) gjjI(X ~- ~--2) .... ajn_2jn_l(X) yjn_l(32) 
+J,j ..... Jn~l 
+form a solution of (I). Here a o(x) .... a~(x) are known functions of the same 
+type as the a~j(x) while Z~(x) .... Z~(x) are known rational functions of x, ar- 
+bitrary except that certain special conditions are not to be satisfied. Conversely 
+of course an equation (2) can be related to a system (I), for instance by writing 
+(5) Yl(X-}-I) = y2(x), ~]2(X+ I) :ff3(X), . .., yt~--I(X-]- I) = yn(z), 
+~0 (x) y~ (x + ~) = - ~1 (x) y~ (x) - ~.~ (x) yn-~ (x) ..... ~,, (z) ~1 (x) 
+in which case y = Yl (x) will satisfy (2). Since in (2) we have a o (x)~o, without 
+any loss of generality it may be supposed that ao(x)~ ~. In much of the text, 
+along with an equation of type (2) there will be occasion to consider the 
+related system 
+(6) ]~(X -]- I) : D(x) ]7(x), 
+O~ I~ O~ . . . 0 
+D(x)=t o,o,I o .... t~(([ij(x)). 
+If Y(x)= (yij(x)) is a matrix solution of (6) then 
+(6 a) (Yi j (X)) : (yj (X ~- i-- I)) 
+and the functions Yl (x),... y,~(x) will constitute a fundamental set of solutions 
+of (2). The converse is also true. 
+The fundamental result of the paper referred to above is that every system 
+of type (i), or single equation (2), admits precisely n linearly independent formal 
+solutions with elements of the general type 
+
+===== PAGE 4 =====
+(7) 
+where 
+George D. Birkhoff and W. J. Trjitzinsky. 
+p--1 1 
+ee(~)s(x), Q(x)=~xlogx +Tx + dxV + ... + ~xV 
+( 1 1 
+s(x):x ~ a+bx P+...)+(al+blx ~+- .)logx+... 
+(7 a) 
+1 + (a ~+b "~x ~;+...)log~x , 
+p is a positive integer, /~p is an integer and m is a positive integer or o. Here 
+p does not need to be the same as the integer, denoted by the same letter, 
+occurring in connection with the coefficients of a system, or single equation. 
+The following definition will be introduced. 
+Definition 1. A formal series s (x) which is of the form (7 a) will be termed 
+an s-series. 
+An element e q(~)s(x) may be thought of as representative of y(x) for in- 
+stance, in which case the corresponding yl(x) .... y,(x) are given by such 
+&series with the same exponential factor e ~(~). Two series (7)which differ merely 
+by a periodic factor e 2~~V~ ()., an integer) are considered to be linearly 
+dependent. The series involved may converge but in general will diverge. 
+With an equation of order n, of type (2), there will be associated n functions 
+Qj(x)(j = I, ....). 
+For purposes of classification the following terminology is found to be 
+convenient. The difference system (I) or single equation (2) will be called nor- 
+mal if p ~ I in all of the formal series, so that each Qj(x) reduces merely to 
+g/x log X+TiX; otherwise it will be called anormal, since then there enter anor- 
+mal series with p > x. This agreement is in accordance with that used for 
+linear differential eqtmtions. Moreover the system (I) or equation (2) will be 
+called regular or irregular, according as there is only a single value of #j or 
+more than one such value. Finally any difference system (I) or equation (2) is 
+cailed singular when it is not both normal and regular. 
+The earlier methods of NSrlund, Galbrun, Carmichael and Birkhoff were 
+applied primarily to the regular normal case1; for a system (I), this ease may 
+be looked upon as the 'general' case from a certain point of view. 
+I Cf. N. E. NSrlund, Differenzen Rechnung, Berlin (1924). See also Birkhoff's papers Ge- 
+neral Theory of Linear Difference Equations, Trans. Am. Math. Soc., vol. I2 (I9II) pp. 243--284 
+(hereafter cited as (II)); The Generalized Riemann Problem for Linear Differenlial Equations and 
+the Allied ~roblems for Linear Difference and q-Difference Equations, Proc. Am. Acad. Arts and 
+Sciences, vo]. 49 (I913), PP. 521--568 (hereafter cited as (III)). 
+
+===== PAGE 5 =====
+Analytic Theory of Singular Difference Equations. 
+Furthermore Galbrun ~ has treated a single difference equation of order n 
+with rational coefficients in the special case of the special anormal regular type 
+in which ~ pair of anormal series enter with p -~ 2, so that the two correspond- 
+ing polynomials Q (x) in Vx have the respective forms 
+z(x) + yx - 
+In a recent important paper Adams 2 has shown that to some extent Birkhoff's 
+methods continue to apply in the irregular normal case. 
+In the present paper the analytic theory of linear difference system (or 
+single equation) is developed so as to upply without restriction upon the form 
+of the formal series. The methods consist, on one hand, of suitable modifica- 
+tions of those of paper II; on the other hand, an important rSle is played by 
+certain new methods involving factorization and group summations. The main 
+result of the paper is embodied in the Fundamental Existence Theorem of sec- 
+tion 9. In most of the text preceding section 8 we restrict ourselves to a 
+quadrant I', 
+z=< arg x <= ~ + ~ (Ixl> # > o) 2 
+the lower boundary of which, h, is a portion of a line parallel to the axis of 
+reuls and lying below this axis. In quadrants other than F results will hold 
+precisely analogous to those obtained with reference to F. 
+As a matter of notation we shall write 
+(x) = (x) - 
+Moreover, in addition to definition (I), it will be found convenient to set 
+forth the following definitions. 
+Definiton 2. A branch extending to infinity and satisfying the equation 
+Q'ij(x): o will be called a B' curve. If ~Q'~j(x)~ o there is no B' curve. 
+Definition 3. Let G denote a part of F with the right boundary coincident 
+with that of F: Let the left boundary of G have a limiting direction at infinity; 
+1 g. Galbrun, Sur certaines solutions exceptionnelles d'une dquation lin6aire aux diffdrences 
+finies, Bull. Soc. Math. de France, vol. 49 (I9ZI), PP. 2o6--24I. 
+" C. R. Adams, On the Irregular Cases of the Linear Ordinary Difference Equations, Trans. 
+Am. Math. Soc., vol. 3 ~ (I928), pp. 5o7--54. 
+
+===== PAGE 6 =====
+George D. Birkhoff and W. J. Trjitzinsky. 
+if this direction is coincident with that of the negative axis of reals assume this 
+boundary to be of the form v = h(-- u)e(h>o; I > e > o; x ~ u + l 5:- Iv). Let C 
+denote a curve in G, with a limiting direcffon at infinity. V(x) will be said to 
+possess an order k o along C if, as Ixl--*r162 along C, 
+--,o ~k<ko 
+lev(~)- 2"~ ~:l/~q-'l l --~oc k> k o. 
+A function V(x) will be said to be proper in G, or le"( )l will be said to be com- 
+parable with p'~V~ll~ I in G, if along every curve C, lying in G and of the above 
+description, V(x) has an order k o (in general, dependent on C). A set Qj(x) 
+(j= I,...~:) will be said to be proper in e if all the Q~j(x) (i,j~-I,...n) are 
+ln'oper in G. The region G may reduce to a single curve C. 
+Definition 4. An operator L,(y) (or equation L,, (y)= o), with coefficients 
+known in a region G and of the type, in G, which has been assumed with reference 
+to (I) and (2), wiU be termed proper in G if the equation L,,(y)=o has a funda- 
+mental set of solutions with the asymptotic form of the formal series in each of the 
+several regions, separated by B' curves, which form G. Solutions of this kind will 
+be said to be proper. 
+Definition 5. A fi~nction p (x), of period uniO and analytic in an upper 
+half plane, will be called proper if 
+p (x) ~ pe ~'~V=il~ 
+(p, a constant; 1t, an integer) 
+in a region whose left boundary is of the form v-=- h (--u) e and whose right boundary 
+is of the form v=hu ~ (h > o, e > o). 
+Definition 6. An operator L, (y) (or equation Ln (y)--o) which is proper in 
+G will be called completely proper in G if, in G, proper fundamental sets of solu- 
+tions exist which are connected by proper periodic functions. 
+Definition 7. A set 
+Q, (x) , . . . q,, (x) 
+has a point of division in G if this set can be separated into two groups 
+
+===== PAGE 7 =====
+Analytic Theory of Singular Difference Equations. 
+q, (x),... Q,,(x); Q~+~ (~),... Qn(x) 
+(I ~ 1"< n) 
+so that for x in G 
+Q'~ (x) => ~ Q'~+. (x) 
+(~= I',... F; ~= I, ... n-- F). 
+Definition 8. Let G denote a subregion of F, the lower boundaries of G and 
+F being coincident. An operator L,,(y) (or equation L~(y)= o) with coefficie~ts of 
+the same kind, in G, as in (I) and (2) will be said to be Q-factorable in G if the 
+set of Q's, 
+Q, (x), ... Q, (x), 
+belonging to L~ (y), has a point of divi,~ion in G. 
+Definition 9. Let F be a curve extending to infinity and lying in I. Let 
+RF be the portion of F between F and the right boundary of F. The curve 9 and 
+the region RF will be termed proper for the set 
+Q, (x), Q, (~) 
+if this set is proper along F and ah'o in RF. 
+2. 
+Let us write 
+Some Properties of B' and Proper Curves. 
+(I) Qj (x) = ~tj x log x -}- Pj (x) (j = i, ... n). 
+With a system (or equation) of order n we have associated n polynomials, 
+1_ 
+Pj(x) (j--~ I, ... n), in xP, of degree not greater than p and without constant 
+terms. These polynomials occur in the exponential parts of the formal series 
+(7, (7 a); w I). In this connection subscripts I to n are attached to p, m, r, 7, 
+(I, ... v so as to differentiate between the n exponential factors which accompany 
+the n formal power series (when we consider a single equation)or so as to 
+differentiate between the n columns of the formal matrix (when a system is 
+considered). Unless stated otherwise, we shall take for each of these elements a 
+common value of p and m; this can always be effected by taking these integers 
+
+===== PAGE 8 =====
+George D. Birkhoff and W. J. Trjitzinsky. 
+1 
+sufficiently great. It is obvious of course that if one determination of x~ 
+and of log x is made in such a formal solution, all of other determinations of 
+1 
+xPJ , namely 
+1 1 1 
+o~ xPj, O)2 xPj, . . . fDpj--l xPj 
+where w is a primitive pi-th root of unit)', and certain of the other determina- 
+tions of log x, namely 
+/- .... 
+logx+2~l ~-I, log, x§ I,... log x+ 2(mj-I)zV- I, 
+yield other related formal solutions. Thus with one such formal solution is 
+associated a group of mjpj solutions which are linearly independent. 
+For the present we suppose a cut made along the positive axis of reals 
+1 
+and take the principal determination of x v and log x on the upper side of the 
+cut. In much of the text we deal with 'solutions the left' in such a cut plane. 
+When we 'work from the right' there is a similar procedure, with a cut made 
+along the negative axis of reals. 
+The B' curves will be seen to be of outstanding importance (Def. 2; w I). 
+Along such a curve ~ Q'ij (x) ~- o; conversely, any curve for which ~ Q';j (x) ~ o 
+(i~j) is a B' curve, except when tt; :ttj while P'~i(x) is a pure imaginary con- 
+stant. In fact, the equation 
+2) ~ r Q ,~. (x) = o 
+can be written more explicitly in the form 
+,uij (log Ix] + I) ~,- ~P'i5 (x) = o 
+( ~ ~) p--I -- 
+P'ij(X)=Ti j + .... d~jx P+ ...; ~ij=l~--,uj, 7~.~-----7~--7J, d~= di-- ; 
+P 
+this justifies the last statement. There is no B'~j eurve 1 when g~r since for 
+Ixl large the first member of the above equation would be arbitrarily large 
+while the seeond term would remain finite in fact approaehing ~t7~ J. Conse- 
+quently it follows that for the existence of a B'ij curve it is necessary that 
+r ( p 
+1 The B' curve along which ~Qij~x)= o is denoted by B ij. 
+
+===== PAGE 9 =====
+Analytic Theory of Singular Difference Equations. 9 
+~tij ~ ~}~Tij ~ O. 
+are algebraic. Thus when a B'ij curve exists it is 
+Ri~ (~) - ~t [P'~j (~) - r~Jt = o 
+6ijx P+-.. + =o. 
+If there exists an anormal series (with pi > I), the pi determinations of 
+yield p~ associated series solutions with the s~me value of ~t and the same 
+Obviously the B' curves 
+given by the equation 
+or 
+1 
+xPi 
+real part of y; in this case the necessary conditions for the existence of a B'~j 
+curve are satisfied. 
+If pi--p~'= I there exists no B'.. , w curve since then Pij(x) is a pure im- 
+aginary constant. It is clear then that if a B'~j curve exists it satisfies an 
+equation 
+(2 b) ~ ~ijx + ' + -~ijx v = o 
+P 
+(wJ=lwJ]e'-~'iJ; wj#o; i=<s~p- ~). 
+The leading term in (z b) is 
+consequently 
+by the equation 
+(a z arg x); 
+there will be several B'ij curves with limiting directions a defined 
+o 
+It is of interest to determine in what cases there are no B' curves. From 
+preceding it is clear that whe must then have for all i and j either the 
+ttij # o or #ij ~ o, ~T!J # o, or else ttij = o, }}~7ij z o, P'ij -- 7ij ==- O. Suppose 
+then that we consider those formal series for which tti has a given value and 
+at the same time }tl7~ has a given value. For the corresponding formal solu- 
+tions we shall have 
+2--32511. Acta mathematica. 60. Imprim6 le 1 septembre 1932, 
+
+===== PAGE 10 =====
+l0 George D. Birkhoff and W. J. Trjitzinsky. 
+P%. (x) - -= P(x). 
+Now if Pi(x) has various determinations, then pi and ~7i are the same for all 
+of these, so that these determinations fall into the same group, and P'~j-7ij-~o 
+in all eases. Consequently P'~(x)-'/~ must be identically zero, so that Pi(x)~TiX. 
+The case in which there are no B' curves is accordingly the general normal 
+case, regular or irregular. 
+The B' curves are important for the analytic theory since they limit the 
+scope of validity of iterations and summations. 
+In the cases hitherto treated with success there hare been no B' curves. 
+Generally speaking the B' curves, or any other curves depending on the 
+Q(x)'s are not to be regarded as fixed up to a translation. The region F 
+consists of several consecutive regions separated by B' curves. These regions 
+will be denoted as 
+9 (2) .... (,,), ... 
+where (I) is the region having for its lower boundary that of I'. Unless there 
+is only one such region, so that (I) is 1", the upper boundary of (I) will be 
+denoted by B'; in general, the right boundary of (n~) will be denoted by Bm. 
+The number of these regions is finite, the right boundary of the last one of 
+them being coincident with that of F (i.e., with the positive half of the axis of 
+imaginaries or a line parallel to that axis). Moreover, these regions may be 
+considered overlapping in the sense that any such two consecutive regions may 
+be considered as having a strip of, say, unit width in common. In the sections 
+leading up to w 9 it will be assumed that B" curves are simple in the sense that 
+as we pass across such a curre precisely two of the functions ~ Q' (x) are inter- 
+changed in order. How to meet the situation when the above is not the case 
+will be apparent from the text. 
+The following lemma will be now proved. 
+axis 
+Then 
+(3) 
+Lemma 1. Let B m be a B'ij curve with the limiting direction of the negative 
+of reals. Assume that it is not coincident with the negative axis of reals. 
+sij 
+]/-- .... (bij l~j Qij(X) ..... -- I (6ijX -~ aij(-- x) p ~- ) ~- ( .... X) I~-+ ) 
+(a,a,... b,..., real; a, b~o; p>sij>l) i>=I) 
+
+===== PAGE 11 =====
+Analytic Theory of Singular Difference Equations. 11 
+and the equation of B "~ will be of the form 
+di j 
+(3 a) v = ~ (- u) ~ + ... 
+(x=uH-V-Iv; dij=p--sij+ I)j; c>o). 
+Moreover, in the region between a curve t~ri#, 
+(3 b) v -- 7 (-- u) ' (7 > o) 
+(lying, of course, below B ~) and the positive axis of ima.qinaries (as well as farther 
+to the right) the function Q~i(x) is proper. 
+rij 
+Proof. Writing Qq(x) in the form (3) we note that a term in xP with 
+p>Fii>=I actually enters, since otherwise the negative axis of reals is evidently 
+the only possible corresponding B' curve; this possibility is excluded by hypo- 
+thesis. Hence bij~o. The equation of the curve will be of the form 
+[ p(_~) + + 
+§ -- " + .... O. 
+p(--x) 
+If sij < l'~j the dominant term in the parenthesis is clearly the second one 
+of those displayed. The expression in the parenthesis would be nearly real for 
+Ix] large, Hence there could be no B" curve of the specified type in this case. 
+If sr the parenthesis has a dominant term 
+sij 
+and this is also impossible since bij yA O. 
+There remains the case 8ij>Fij with a~# r o, when the dominant term 
+is the first explicitly written. Here there is actually a B' curve with horizontal 
+direction to the left, Now we may write the above equation in the form 
+
+===== PAGE 12 =====
+12 George D. Birkhoff and W. J. Trjitzinsky. 
+~h(x)=o, h(x)~ (_ x) --~;---~p-*'i[( s~.jaii + 4- V-~: i ...... ~,.7_~.~ -4- ... . 
+(-.) ; 
+Along the curve, for [x] large, h'(x) will be arbitrarily near to a small real 
+value. Furthermore by suitably ordering i and j we may make a~j negative so 
+that h (x) will approach a positive value. Introducing a new variable s 
+h (x) becomes 
+r 
+I __ I I 8ij aij 
+1) -- si j P-- si J l P 
+(--~) ~ (-~) ,, 
++.], 
+' I ( "-';' )] ,,_<; ~+V::i at(--2)- i; +... 
+(-~) ,, 
+(dl ~ o). 
+In the last parenthesis the power series has real cofficients. 
+follows that 
+-P [ %~'-q.~ ] 
+-- 2 = h (x) v- "~j I 4- If--- ~ d, h (x) v-*,j + .... 
+By inversion it 
+(d., ~ o). 
+Hence, writing 2 = ~ + 1/-- I e, we have 
+--p p--s i j + F i j 
+--(t=h(x)P-siJ(I+...), --,e-~d,h(x) p-~ij + ... 
+so that the B' curve in the 2 plane will have the form 
+di j 
+a =d3(-~) p + ..-(G~o; p>&.; =p-si~+i~j_>,). 
+Consequently the equation in the x plane will be of the form (3 a). 
+We shall prove now that the function Qij(x) is proper in a region RFri j 
+between a curve Frii, given by (3 b), aud the positive axis of imaginaries (as 
+well as further to the right until a line, in the first quadrant, is reached making 
+an arbitrarily small angle with the positive axis of reals). In other words, we 
+wish to show that along any particular curve, lying in R~,ri j and having a 
+limiting direction at infinity, a definite finite order k o (depending on the curve) 
+
+===== PAGE 13 =====
+Analytic Theory of Singular Difference Equations. 13 
+for eqiJ (z) as compared with e 2~V-ix exists in the sense that, as [x[ becomes in- 
+finite along this curve, we have 
+(4) lira e eij(x)-2kztl/~x=~~176 (k > ko) 
+(o (~ < ko). 
+(If we work below the real axis, e 2~V~i~ is replaced by e-~zl/-~.) It can 
+be easily verified that, since in Q~j(x) the constant #~j is zero, @j(x) will be 
+proper in the whole plane excepting possibly in two arbitrarily small sectors 
+containing the positive and negative axes of reals, respectively. In other words, 
+Qij(x) will certainly be proper in any region in which there can be no curves 
+having limiting direction at infinity, coinciding with that of the real axis. For 
+simplicity of demonstration ~he subscripts i, j in the following will be omitted. 
+It is sufficient to consider curves F~ lying in /~ie r and given by equations of 
+the form 
+(5) v=h(-uF (h>o;p>~_-_r); 
+here 6 is not necessarily an integer. 
+For x on F~ we shall have 
+so that, along Fs, 
+(5 a) 
+and 
+(5 b) 
+-- a : tg -x -- p-0~ -~ .... 
+(--u) " 
+s 
+8hlxl~ 
+( ~) .' ~(~_ ~)-- p +. ~}~ V--I (--X) p ]xIP sin P p_~ 
+(- uU- 
+/7 F F F m(- ~)~ =1@ cos -(~-~)= I~1 ~ +.... p 
+Using (5), (5 a), (5b) and the fact that, along F~., IXl =--u +... we have 
+for x on Fa 
+~ [sha ~+~-~ ] ~ [Q (x) - 2 ~ ~ y~I x] = (2 ~ ~- o) h (- u)~ + t~ (- u) ~' + 
+(5 c) + b(--u)~+... ; 
+
+===== PAGE 14 =====
+14 George D. Birkhoff and W. J. Trjitzinsky. 
+here the terms displayed in the parentheses are correspondingly the leading 
+ones. When ~-~ F the leading term in the second member of (5 c)will be 
+1" 
+[(2 kz -- o)h + b] (-- u)~; on the other hand, when ~> F the leading term will be 
+d 
+(2 kz--a)h(--u)~. In the first case the order ko will satisfy the equation 
+(2koJr--a)h + b=o 
+and in the second case it will satisfy the equation 
+2koZ--a-~O. 
+This completes the proof of the lemma. ~ 
+The following lemma will be proved. 
+Lemma 2. If in the region (I) + ... + (m) the set 
+... 
+has no point of division then this set has a proper curve F in (m) or further to 
+the left (Of. Def. 7; w I). 
+Proof. This is obviously true, in any case when the limiting direction of 
+the upper boundary of (I) + -.. + (m) is not that of the negative axis of reals. 
+Accordingly we assume that the upper boundaries of the regions (I), ... (m), 
+B 1, B~,...B "~, 
+each have limiting directions coinciding with that of the negative axis of reals. 
+By hypothesis, if the set of functions Q(x) is separated into two groups 
+(6) te (x); q:+,(x) .... Q/x) 
+there exists at least one member of the first group and at least one member 
+of the second group which interchange order in (I)+ .- +(m). This statement 
+will hold true for s=I,Z,...F--i. Consider (6) with s= I. Let Qk1(x) be 
+the member with the least subscript which interchanges order with Ql(x). This 
+would necessitate existence, in (I)+.-. + (m), of a B'~, ~ curve. Obviously there 
+I It is sufficiently obvious that existence of an order k o along F F insures the desired result, 
+
+===== PAGE 15 =====
+Analytic Theory of Singular Difference Equations. 15 
+could be no B'ij(j= z,... ]c~ -- I) curves in (~)+... + (m), but necessarily curves 
+p p B;, kl, B3, kl, 9 9 9 Bk~-l, kl 
+exist in (I)~-"'-[-(N). On applying Lemma (,) it follows then that the func- 
+tions Q,. ~I (x), Q2, kl (x),... Qkl-~, kl (x) are proper on and above a curve F in (m). 
+Noting that 
+Qij (x) = Q~I (x) -F Ql j (x) (i =< i, j ~< ]~) 
+we conclude that the functions Qij(x)(I ~=i, j~]cl) are all proper on and above 
+F. If ~here are any other Q(x)'s changing order with Q~ (x) let 
+be the member, lying nearest to Qkl(x), which has this property. 
+that there is a B'I,t:~ curve in (I)+. 
+can be no curves 
+J~i, ~+j (j = ~, .. ~': - ~ - i). 
+Hence necessarily the following curves would exist in (I)+... + (m) 
+Bpt ]1 kl. +l, 2, 
+By Lemma (I) the functions 
+It follows 
++ (m), and that, in (I)+... + (m), there 
+B;~-I, k~ and B'I, ~.~. 
+Qk~ -F1, k~,. Qk~--l. ]1 and Q1, i~ (x) 
+are proper on and above a curve F in (m) (F will now stand for the upper one 
+of the two F-curves so far considered; we proceed in this fashion in each of 
+the consecutive steps). Now 
+O.j (x) = Q~, k~ (x)+ Qk~,j (x) 
+so that the Q~j (x)(kl~ + I ~ i, j ~ ]r are proper on and above F. We note, 
+further, that 
+Q~j (x) = Qi, ~I +o (x) = Qi, ~I (x) + Q~I,1 (x) + 
+Ql.k~(x)+Qk{,kl+.(x) (I _-<_i~<k',; k',-~-I ~<j'-<]~'._; I ~a~k'2--#~li). 
+
+===== PAGE 16 =====
+16 George D, Birkhoff and W. J. Trjitzinsky. 
+Here the terms of the 
+above Q~j(x) have the 
+follows that the 
+last member are proper on and above F so that the 
+same property. In conjunction with the preceding it 
+Q,j(x) (x <=i, jg ~'~) 
+are proper above F. 
+Suppose that Qk](X), Qk~(x),... Q~(x)(,ji~-I) 
+(2=kl <~; ... <~,) 
+are all the Q(x)'s which change order with Q~(x) in (I)~--..+(~). By the 
+reasoning of the kind just employed we can demonstrate that the Q~j(x)(i ~=i, 
+jGkj,) are proper above a curve F lying in (m). 
+Consider (6) with s= kj',. Let Qs~ (x)(3_~ > i) be the Q (x) of the first group 
+which has the least subscript and changes order, in (I)+ ... + (m), with at least 
+one of the set of Q(x)'s of the second group. Such a subscript (~s(I<&2G}~,) 
+exists. Let all the Q(x)'s of the second group, having this pro- certainly 
+perry, be 
+Qk~ (x), Q~i (x), ... Q~j: (x)(j~ ~ i) 
+(kj. + i _-<~', <k~ < : < k;:). 
+By the reasoning already employed and using the proved fact that the 
+Qij(x) (I < i, j <=k),) 
+are proper above F, we conclude that the functions 
+Q~j (x) (~ <= i, j <= k;~) 
+are proper above a curve /" in (m). Unless k.7 .0 ~ F, when the desired result is 
+achieved, we consider (6) again, with s ~ k~., and continue the process as speci- 
+fied above (we have ~.~ ~(~2~(~1 ~ I). The proof of the lemma can be completed 
+by induction and is seen to be applicable also when the B' curves are not 'simple'. 
+Another lemma will be essential for the purposes at hand. 
+Lemm& 3. If the set 
+(7) QI (x), ... Q,~ (x) 
+has no poi.t of divisio, i. (,)+ + (m+ i) but in (,)+ + (m) there is a poi.t 
+of division, then this set has a proper cur~'e F in (m). 
+
+===== PAGE 17 =====
+Analytic Theory of Singular Difference Equations. 17 
+Proof. Suppose that the point of division in (:) + ..- + (m) is between the 
+F4h and F + I-St members of the above set. Since the set (7) has no point of 
+division in (I)+ ... + (m + :) it follows that B m, the right boundary of (m), is 
+a fir, e curve with, say, r_--<I" and, necessarily, e>F+ :. In fact, if we had 
+r, ~ _--< F or r, Q > F + : the set (7) would have a point of division (between the 
+F-th and F + :-st members) in (I) +.-. + (m + :). Now the set 
+(7 a) Q~(x),... Qr(x) 
+has no point of division in (I) +... + (m), the same being true for the set 
+(7 b) Qr+~(x), ... Q,(x). 
+The truth of this statement follows from the fact that B " is B'r, ~ (r < F; 
+> F+ I) so that a point of division, in (I) + ..- + (m), of either one of the 
+sets (7 a), (7 b) would imply a corresponding point of division for the set (7) in 
+(~) + ..- + (m + :); the latter situation, however, had been excluded by hypothesis. 
+Hence, by Lemma 2, the sets (7 a) and (7 b) are each proper to the right of a 
+curve F lying in (m). In other words, we have the functions 
+(8) QAj(x) (I ~ ~, j ~ /7) 
+proper to the right of F (in (m)), and the functions 
+(s a) Q~j(x) (r+ l<=r 
+also proper to the right of this curve. 
+Consider 
+(s b) Q~j(x) = ~2~, ,,+ ~ (x) 
+(I =<i=<F; /'-]- I ~j ~< 9~; I ~ if<: ~t-- F). 
+Any one of the functions (8 b) could be written in the form 
+Q~j(x) = Q~, r+o(X)= q~ r(x) + q~, ~(x) + qe, r+~(x) 
+(i,r<F; Q, F+ o>I'+ I). 
+Now Q~,r(X) is a function of (8) and Qe, r+~(x) is a function of (8 a); these two 
+functions are proper to the right of F, in (m). On the other hand Qr, e(x) cor- 
+responds to B m, the right boundary of (m). Thus on applying, if necessary, 
+3--32511. Acta mathematica. 60. Imprim6 le 1 septembre 1932. 
+
+===== PAGE 18 =====
+18 George D. Birkhoff and W. J. Trjitzinsky. 
+Lemma I we conclude that Qr.e(x) is proper to the right of a curve F lying in 
+(m). Consequently the functions given by (8 b) have the same property. 
+Consider 
+(9) (2~j(x) (I <= i, j ~ ~). 
+Any particular Q~j(x) of the set (9) belongs to one of the sets (8), (8 a), (8 b)~; 
+hence the functions (9)are all proper to the right of a curve F, in (m). This 
+completes the proof of the lemma. By a similar, though slightly more complicated 
+reasoniug, we show that the Lemma is true also. when B' curves which are ~wt 
+'simple' are admitted. 
+Proper curves will be seen to be important since, as will be shown later, 
+along paths lying in proper regions bounded by such curves, certain summations 
+are possible. Such curves (and regions) are also essential in demonstrating that 
+the periodic functions connecting certain sets of solutions are proper (Cf. Def. 
+5;w i). 
+w 3. Lemmas on Iteration. 
+Consider the quadrant F and the consecutive regions 
+(I), (2), ... (m), ... 
+which are separated by B' curves, B 1, B ~, ... B", . .. and constitute 1" (see w 2). 
+On the other hand, there is a quadrant _Q of a similar kind lying below the 
+negative axis of reals and having for its upper boundary, (ht), a portion of a 
+line v=-c > o. The consecutive regions of .(2 separated by B' curves will be 
+denoted by 
+[,], [2], ... Ira] .... ; 
+here [I] will be the region having (h i) for its upper boundary. In some of the 
+following sections we propose to envisage a process of iteration from the left 
+(or equally from the right of course). Such a process will be first applied to 
+region of type (t) or of type (I) + [z]. 
+As seen from w 2 the upper boundary of (I) extends indefinitely upwards 
+while the lower boundary of [I] will extend indefinitely downwards. The neg- 
+ative axis of reals may be a B' curve or it may not. In the latter case a region 
+of type (I) + It] is suitable for iteration. Regions like (I) or (I) + [2] will be 
+Qij(x) and Qji(x) =- Qij(x) are both considered as belonging to the same set. 
+
+===== PAGE 19 =====
+Analytic Theory of Singular Difference Equations. 19 
+said to be of type K. More generally, K will denote a region either having the 
+negative axis of reals for a part of its boundary or containing this axis; such a 
+region will be allowed to extend to the right but always excepting a neighbour- 
+hood of the positive axis I bounded, say, by curves of the form v= +_ hue(h, e>o). 
+The following lemma will be proved. 
+Lemma 4. Suppose that in a region K (that is, a region of type K) we have 
+(~) ~Q'I(x)>= ~Q~(x) (j 5, . .n) 
+the set Qj(x) (j = I, . . . n) being associated with a difference system (I) 0r (I a); (w I). 
+Let the matrix of formal solutions of this system be denoted by 
+(I a) S(x)- (eQJ(%~j(x)) 
+(here the series s~j(x) are s-series (Deft I ; w I)) and let i(x) be a matrix, 
+(i b) T(~) = (eQ~ (~) t~(~)), 
+in which tcj(x)(i, j I,... n) denotes 8ij(X) with the power series terminated after k 
+terms (k being sufficiently great). Form the matrix 
+r X (2) y,(x) = (y,j( ))= A(x -- ~) A(~ --r)T(z -- r). 
+The following holds true. For x in K the limits 
+(5 a) lira yri(x ) = Yil(X) (i = I,... n), 
+exist, are independent of k, are analytic and are the elements of a solution of the 
+syste,n r(x + ~) = A(x)r(x). ZZoreover, in K, 
+(3) yiX(X) -- eQ,(z)Sil(X) (i-- I, . . . n). 2 
+Proof. The matrix ]Z~(x) can be expressed as follows 
+(4) yr(x) = T(x) Y~(x) ( Y~(x) = (~rj(x)), 
+r 
+Y"(x) : HT-I(x- i.-~- 1) d(x--i) T(x-- i). 
+i~1 
+1 That is, when working from the left. 
+2 Relations like (3) are to be construed as denoting asymptotic relationship with respect to 
+the power series factors, 
+
+===== PAGE 20 =====
+20 George D. Birkhoff and W. J. Trjitzinsky. 
+Now define a matrix B(x)~ (bij(x)) by the relation 
+B(x) = T(x + ,)~(x). 
+On the other hand, we have formally 
+A (x) ~- (a,j(x)) : S(x -~- ,) S -l(x); 
+here the aij(x) are in K of the form specified in the beginning of w I. 
+direct computation ~ we show that 
+I 
+(5) A(x) -- B(x) = xy. ' H(x) (H(x)-= (h,j(x)) 
+k where Ih~.i(x) l ~ h, for x in K, while k~ .... d~ (d I ~ o; k~--~ 
+P 
+Now IA(x) l ~ o so that IB(x) l ~ o; thus, writing 
+(5 a) A (x) ~- It(x)[I + N(x)] 
+(I = (cl~j) = identity matrix), 
+we have 
+I B-'(x) H(x) (B -l(x):(b,j (x)). X(z) = x"' 
+By a 
+as ~-~ ~r 
+The bij(x), if not bounded (for I xl >p > o), are infinite at x = ~ to finite order. 
+Hence 
+(~ b) 
+k2=p--d~; d~-->_o; k 2 
+now the product 
+Writing 
+' c(~) N(x) = g~ ( C(x) -(c,j(~))) 
+; here, for x in K, I cii(x) I _--< c. Consider 
+r -~ (x + I)A (x) T(x) -~ T-' (x)B -~ (x)A (x) T(x) 
+(z ~ ) i = T -l(x) + -- C(x) r(x) = 1 -[ ...... ~[,-1 (x) C(x) T(x). Xk~ Xke . 
+T-~ (x) = (~-Q, Ix) i,~(x)) 
+T -1 (x) C(x) T(x) = (e~ ~ (~) ri~(x)) 
+' Compare with the analogous procedure in (II). 
+
+===== PAGE 21 =====
+Analytic Theory of Singular Difference Equations. 21 
+where 
+i~(~) = y, ~,(x)~,~.~(x) t~j(x). 
+2~,, Lz:l 
+The Fij(x), 
+sequently 
+(6) 
+if not bounded, axe infinite aA~ x = or (in K) to finite order. Con- 
+I H(x), T-a(x + I)A(x)T(x) : I + xb 
+H(x) - (n~j(x)) = (~ ~ (~) h~j(~)) 
+k (Ih~(x) l =< h in K; b = -- d; d ~ o; b-~ r162 as k--~ w). 
+P 
+(7) 
+By (4) and (6) 
+?"(z) = (I ~-(XI i)bH( x I)) 9 9 9 ([ @ (X I_,~H(x ---~') ) 
+r H(X--- kl)H(x -- k2) 
++ Y' (x:k~i~(~:k~) ~ + kl < k~ 
++ 
+r H(X-- k,)... H(~ - k~) 
+k~ < ... < k s 
++ .. 
+so that 
+(7 a) 
+r -r ~ Uil_ (x ~.~!) 
+yil(X) : (~il @ / I (X -- ]~1) b ~-" 
+k~ 
++ 
+r I 
+~1 <.~.. <ks(X -- Jill) b . .(X --]cs)bl.. 
+n 
+Z Hi2,(X --- ~1) " 9 " H),,s--ll(X --ks) d-'" 
+~8--1 = 1 m 
+r = dil + ~e ~l~(~-k~)hil(x - kl) 
++ 
+kl < "' <k s 
+A[_ .., 
+(x - kl) ~ 
+(x - ki)b... (x -- k~) ~ 
+kl k s 
+e G~ .... 2s-l(X)hi~(x" kl)h21k2(x k2) h2s ll(X ks) -t- 
+i b 
+__ __ . . . , -- -- . . . 
+21" ' ' ~s--i= 1 
+
+===== PAGE 22 =====
+22 George D. Birkhoff and W. J. Trjitzinsky. 
+Take k sufficiently great so that b > 2; then the series (7 a) will converge 
+uniformly to a function analytic in K (for i = I .... n) provided that the func- 
+tions ~i '~s 9 ..~s-~(x) have a non-positive or limited positive real part. Now such 
+a function is expressible as follows 
+c~:iii~Z(x) = Q~,~(x- k~) + ~+,(x - k,) + 
+§ O~s__l'.s__2(X -- ~s--i) § (~i~s__l(X- ~'s) 
+= Qli(/) -t- (Qil(:c) @l(x - x-l)) -i- ((2~,1(x - kl) - Q~.,l(X - k~)) 
++ + ( O~s _~ (~ - ks-~) -- O~s_~ (x - ks)) 
+J / T 1 = Qli(X) + (~'~'l(X)dX + Qi, l(x)dx + .-- + Qi~_~,(x)dx. 
+x--k~ x--h. x--k s 
+If ~x~ = ~x, 0lx 1 < 0{x, then with path of integration along the straight 
+line goining x I and x we have 
+? / 9~ Q'(x)dx= 9l <o O'(x)~lx = 
+3" 1 2t'! 
+inasmuch as OlQ'(x) ~ ' =~)t@,~(x) <= o. The latter inequality holds, in K, for 
+s-= l,...n. Hence, in K, 
+k I. .. k~ ~ X (7 b) ~6~ .... s ~Q,~(). 
+Using the fact that [h~j(x) l< h (in K) we conclude that the limits 
+lim Y~I (x) = Yil (x) r~ao 
+exist. In fact 
+1~i1(:c)_6i11< I e~Qli(x)( ~ nh 
+= . Ix- k, I ~ 
+= ,,' e'Q"(x' [(( ~ 
+(~h)~ ) 
+k .... Jx-- - ks] ~ + ' 
+~h nh 
+
+===== PAGE 23 =====
+Analytic Theory of Singular Difference Equations. 23 
+Moreover, using formulas (I~), (I3) of (II; p. z48), we have, for x in K, 
+and 
+#i~(x) = ~1 + 
+eQleO') mi(x) 
+xb--1 
+(Im~(x)l _-<~; ~_-< ~;., any fixed number), 
+yel(x)~---~il -]- 
+e Ql e (x) ,~ (x) 
+~b--1 
+(I.~ (x) l < ~9~1; ~X : V; ~ ~ (I; I~" I >= d) 
+where c is a sufficiently great positive number. Using (4) we ge~, for x in K, 
+yil(X) = lim y~(x) = ~, e Q~(~) (te~(x) (lim ~)~a(x)) 
+2=1 
+2~=1 
+Thus we have for x in K and for i= I,...~ 
+(8) vi(x)l yea(X) = e Q'(x) ~/l(X) ~- x~--~l 
+(Iw(x)l =< v; u__<a), 
+yex(x) = eQ,(~/ tel(X) + e-I ! 
+(Iv~(x)l--< 71; u >_- a). 
+Noting that if the functions ~];(x), V~ (x) are not bounded they are infinite 
+to finite order at infinity (in the two regions, respectively), we have the two 
+formulas, valid in K, 
+~i(x// (S a) yil(X) : e Q'(x) tel(X) "~- XC j 
+(I ~,(x) l _-< ~; u _-< a), 
+( (8 b) ye~(x) : e Q'(x) tel(x) ~- ~V l XC ] 
+(I .~ (~)I --<- ~; u => a). 
+
+===== PAGE 24 =====
+~4 George D. Birkhoff and W. J. Trjitzinsky. 
+, d 1 In the above c~---d 1 ~0 and c--* 0r as k--~ and fl is the maximum 
+P 
+order to which the ~(x), V~ (x) may be infinite at infinity. Now, as specified 
+previously, the region K is not allowed to contain a neighbourhood of the posi- 
+rive axis Of reals bounded by curves of the form 
+v = +_ hu~(h, e > o). 
+Consequently for x in K, in a right half plane, 
+Thus Ix I - v 
+Ixl 1/ "V u. = ~ +~=< ~ + h.~u~ 
+~l--e 
+(I + ...). 
+may become infinite along a path to infinity but not faster than I xl ~-~ 
+where I --e ~ I. It follows then that a relation of the form (8a) will hold 
+throughout K with the constant c possibly smaller near the right boundary of 
+K. However, for the whole region K, the relation (8 a) will hold with c--~ 
+as k--~ ~. That is, by taking h sufficiently great c can be made arbitrarily 
+great. 
+The y~(x) are the constituent elements of a solution of the system Y(x + I) -- 
+A(x) Y(x). Moreover, the limits are independent of k. This can be demonstrated 
+by the reasoning of the kind employed for an analogous purpose in (II). This 
+completes the proof of the lemma. 
+The above lemma is concerning determinant limits of first order. We shall 
+now consider determinant limits of higher order. Determinant limits of various 
+orders have been previously used by Birkhoff in the paper (II). In this connec- 
+tion the following facts, needed for the purposes at hand, will be stated. With 
+the system 
+2, . . .~), 
+(9) 
+where 
+(9 a) 
+(I a) (8 I) there is associated a difference system of order ~(k = 
+Y~.(x + i) = Adx) I~(x) 
+= (a, .... j, 
+(i 1 .... ik, Jl,-''J~'= I,...n; i 1<i s < "" <i~.; Jl <j~ < " <jk). 
+The multiple subscripts in the above and in what follows are to be construed 
+in the sense made apparent by the relationship 
+
+===== PAGE 25 =====
+Analytic Theory of Singular Difference Equations. 
+(Io) h~ .... ~~; J,.. ~k 
+while in the matrix (of order C~) 
+25 
+y~(~) = (y; .... ;~; J .... j~(~)) 
+will constitute u matrix solution of (9). 
+With the above in view we shall state the following lemma. 
+Lemma 5. Suppose that in a region K the coefficients o.f a system (I a) (w ~) 
+are known. Assume, moreover, that i~ K, for all Jl, . . .J~ ~= n With ja < . < jk, 
+(i2) ~[Q',(=) + ~ Qi(=)] >= ~[Qi~(x) + + Qi~(x)]. 
+The functions Q~(x),... Qk(x) are to be coqTsidered as associated with the first, 
+second, ... and k-th columns of S(x), respectively. Tbrm the determinants 
+y,~ ,,~;, ~(x) 
+by mea, s of the elements y~'j(x) of the matrix Yr(x), defi,ed by (2). 
+The following is true. For x in K the determinant limits 
+(i2a) limy~ i ~ k(x)= Yi~ ..ik;1 ~.(X) ~ao "'" k; ....... 
+(il .... ik = I,... n) 
+4--32511. Acta mathematica. 60. Imprimg,: ]e 1 septembre 1932. 
+the set of subscripts (il... ik) refers to a row and the set of subscripts (Jl...jk) 
+refers to a column of the matrix. The difference system (9) possesses a formal 
+matrix solution 
+( I I ) Sic (x) = (e Qjl (x)+... + QJk (x)8 i .... ik; J .... Jk (X)). 
+The formal series si .... ik; j,...jk(x) are s-series (Def. I ; w 1) and linearly independent. 
+If (yij(x))is a matrix solution of Y(x + I)= A(x)Y(x) then 
+
+===== PAGE 26 =====
+26 George D. Birkhoff and W. J. Trjitzinsky. 
+exist, are iudependent of the number of terms retai~ed in the power series factors 
+of the t~i(x) and they are the co~stituent elements of a solution of the system Yk(x + I)= 
+=A~.(x) ]~.(x)((9), (9 a)). Moreover, i~z K, 
+(I2 b) Y~" .... i~.; 1...~-(x) ~ eCa(r +Qh(~)s,,...q.; ,...k(x) 
+(i~,... i~. = I,... ~). 
+Proof. By Lemma 4 this lemma is true for k= I. When ]c--2, as can 
+be seen from (II; pp. 253--254), there is the following situation. With reference 
+to the system (9), formed for k ~ 2, consider the product 
+(I 3) F~(x) = (y;; ij (x)) -~ As (x -- l ) . . . As (x -- r) Ts (x ~ r) 
+= (y~:i.,;j,.i,(x)) (i,.i-- I, ... Of; i,, ...Js - I, .... ,) 
+where Ts(x ) is Ss(x) with the power series factors terminated after a sufficiently 
+great number of terms. Let the columns be so ordered that the function Q(x) 
+of the first column of Ss(x) is Ql(x)+ Qs(x). With (I2) assumed in Kfor k= 2, 
+by Lemma 4 it would follow that the limits of the elements in the first column 
+of (I3) exists in K. Moreover, these limits will satisfy all other properties spe- 
+cified, in the lemma, for the determinant limits (of order two). Now by the 
+reasoning precisely of the kind employed in (II; p. 254 ) it follows that the 
+elements in the first column I of I'~(x) (r = I, 2, . . .) are correspondingly identical 
+with the determinants 
+yr.. s(x)- [Y,~,I(x), 'J,~,2(x)l. 
+.... ;i [ y,.1  (x), (x) 
+The cases k----3 .... n can be treated in a similar way. 
+We shall consider now a region R bounded on the left by a curve with a 
+limiting direction at infinity, and extending indefinitely upwards (or downwards) 
+while to the right such a region will be allowed to extend at most up to a 
+curve of the form 
+v = +_ h u" (h, e > o) 
+(In general both boundaries of R will be B' curves). 
+this type will be specified by the following lemma. 
+]terations for regions of 
+1 The column specified by the pair of subscripts (.Jl,J~)= (~ 2.. 
+
+===== PAGE 27 =====
+Analytic Theory of Singular Difference Equations. 27 
+Lemma 6. Let V denote a strip of unit width sitaated immediately to the 
+right of the left boundary of R (a region specified above). Suppose that we know 
+in V a set of s(n >= s >= i) solutions of the system (I a) (w I), 
+y~j (x) 
+which sati,~fy in V the asymptotic relations 
+and are analytic in V. Moreover, assume that in R 
+(I 4) ~ Q,', (x) ~ ~ Qj (:'~) 
+.(i= I,...n;j= I,...s) 
+j ~ 2~ . . 
+and. that in the first column of S(x) (and of T(x)) we have Q(x)= Q, (x). 
+the 
+(~5) 
+n) 
+Letting Tt(x) denote T(x), with the first s columns correspondingly replaced by 
+y~.j(x) (i = ,,... n; j = I,... s), and defining the matrix Y"X(x) by the product 
+Yr,(x) = (y~i~(~))= A(~, - i)... A(x -- rx)T'(x --r~) 
+(z- r~ in V; A(x) known in R) 
+the following can be asserted. 
+The y'ix(x) (i= I,... n; j ~ I,... s) are s solutions in R, and constitute ana- z3 
+lytie extensions to R of the s solutions originally assumed as known in V. The 
+asymptotic form of the elements of the first one of these solutions will be 
+(I 5 a) y~] (x) = yil (x) ~ e Q~ (x)8i1 (x) 
+(i= I,... n; x in R). 
+Proof. It is observed that 
+where 
+y'~(x) = T(x) Z'~(x) 
+_ [rx-1 ] ~Trx(x) = [ H T--I(x -- i ~- I)A(x -- i) T(x -- i) 9 
+i=l 
+9 (T-I(x -- r~ + ~)A(x -- r~)T'(x --r~)). 
+Here the expression for YrS'(x) differs from that given before for Y"(x) in the 
+last factor, and that just in the power series factors, by arbitrarily great powers of 
+
+===== PAGE 28 =====
+28 George D. Birkhoff and W. J. Trjitzinsky. 
+1 
+x ~). This 
+lemma, 
+is due to the fact that, as a consequence of the conditions of the 
+T'(x) ~ S(x). 
+Moreover, for every fixed x we have r~ finite, so that there is no necessity for 
+passing to the limit. Making direct use of the matrix equation (I a) (w I) it is 
+immediately obvious that the first s columns of Y~(x) are analytic extensions 
+of the solutions whose asymptotic forms have been assumed in V. Using (I4) 
+and applying the reasoning of the kind employed in proving Lemma 4 we derive 
+the relations (I 5 a) thereby establishing the lemma. 
+For determinant limits we have, by application of Lemma 6, the following 
+result. 
+Leman& 7. Let R and V have the meani~g indicated in Lemma 6. Suppose 
+that we know in V a set (f s (C'kY >= s >= I) solutions of the system (9), 
+y~ .... ,~; j,...jk(x) 
+(i,, . . . i~ = ,,... ,; s sets G . . . jk)) 
+(I6) 
+which satisfy in V the asymptotic relations 
+yi .... ~k; .J ..... ik(x) ~ e% (~)+ ' ' " + % (~') s,.1 .... k; .J ..... j~.(x) 
+and are analytic in V. Assume that in 11 
+(~6 a) ~[Q;(z)+. + ~-(x)l _>- ~[G(~')+ + G(x)] 
+(j~< .-. <j~ = i,... ,2) 
+and that in the first column of Sk(x) (I I)(and of Tk(x)) we have Q(x) Qi(x) + 
++ Q~(x). 
+Let T' k(x) denote Tk(x), with the first s columns (corresponding to the s sets 
+(j', ...j~.) in. 06)) replaced by the elements of (I6), respectively. Define the matrix 
+yrg; [ \ 
+k ~x) by the product 
+(I7) ~ ~rx/ \ Ak(x I). Ak(x rx)r~(x ".r) k ix)= -- .. -- -- 
+= (y;? 9 ,~;~ ..... j~(x)) 
+(~- ,.~ i. v; A(x) ~no~n i,, R). 
+
+===== PAGE 29 =====
+Analytic Theory of Singular Difference Equations. 29 
+The functions y~]~..ik; j ..... ]k(X) (i,... i~: -- I,... ~; the s sets' (]~ . . .jk) of (I6)) 
+will be constituent elements of s solutions, in R, of the system (9) and will represent 
+analytic extensions to R of solutions (I6) originally assumed as known, in V. The 
+elements of the first one of these solutions will have in R the asymptotic form 
+(I7 a) Yi .... ik; i...k(X) --- Yi .... ik; 1...~(X) 
+e Qx (x) + " ' ' T Qk (X) si .... i~:; 1...k(X) 
+(i~< <ik=I,...n). 
+Theorems entirely analogous to those of this section may be formulated 
+when we work from the right instead of from the left. In this case a cut is 
+made along the negative axis of reals to fix the determination of S(x) and we 
+consider the symbolic product 
+Y:(x) -~ A-~(x)A-~(x + i) . . . A-~(x + r-- I)T(x + r) 
+instead of Yr(x). In this case we exclude the neighborhood of the negative 
+axis of reals bounded by curves of the form 
+v : + h(--u) ~ (h, e > o). 
+w 4. A Lemma on Summation. 
+We shall now establish a modification of the method of contour summation 
+used in (II). 
+Let R denote a region the left boundary of which is either h (the lower 
+boundary of F (w ~)) or a curve, extending indefnitely upwards, with a limiting 
+direction at infinity. Let the right boundary of R be a curve, extending inde- 
+finitely upwards, with a limiting direction at infinity. This latter boundary, if 
+with the limiting direction of the axis of reals will be assumed to be a curve 
+of the form v= hu t (h, e > o). The left boundary of R, if extending upwards 
+and with its limiting direction coincident with that of the negative axis, will 
+be of the form v=h(--u) e+ ...(h>o; I >e>o). 
+The following lemma will be proved. 
+
+===== PAGE 30 =====
+30 George D. Birkhoff and W. J. Trjitzinsky. 
+Lemma 8. Assume that the function 
+(I ) H(z) = eQ (~1 h (x) 
+1 
+is analytic in R while Q(x) = ttx log x + 7x+ ... +vx v is proper on and in the 
+neighborhood of the right boundary of R and 
+(I a) h(x) ~ H(x) (in R) 
+where l~(x) ,is a formal s-series (Def. r; w i). Furthermore, suppose that 
+(I b) 9~ Q'(x) ~ o (in R). 
+The equation 
+(2) u(x + ~) - .u(x) = e~(X~h(x) 
+possesses a solution y(x), analytic in a region R' interior to R by a dista~ce e(> o), 
+for which an asymptotic relation, 
+(~ a) u(~) ~ e~I~)s(x), 
+where s(x) is a formal s-series, is maintained in the above region. 
+Proof. The formal equation 
+y(~ + ~) - u(x) = r 
+is formally satisfied by !](x)= eq(~)s(x) where s(x)is an s-series. This follows 
+from a Lemma proved by Birkhoff in (I; p. 2~8). Let t(x) denote s(x) wi~h the 
+power series factors terminated after m terms (with m sufficiently great). Sub- 
+stitute in (2) 
+( (3) u(x) = ~(~ t(x) + x~ I ~ = m 
+The new variable z(x) will satisfy the equation 
+(3 a) q(x @ I),~(x -l-- I) -- q(x)z'(x) .... Xkr~- 
+( ~) k' ) q(x)= " --,~ as k--,~r . 3gk 
+
+===== PAGE 31 =====
+Analytic Theory of Singular Difference Equations. 31 
+Here 
+xk, -- eQ(X)h(x) -- Aeq(X)t(x) 
+and fl~(x) is analytic and bounded I ~) in R. To demonstrate the truth 
+of the lemma we need first to show that (3 a) has a solution z(x) analytic in 
+R' and, if not bounded in R', infinite at x= ~ to a finite order k which is 
+such that k- k approaches infinity with k. 
+The equation (3 a) withthe second member replaced by zero is satisfied by 
+Hence 
+(3 b) 
+(3 c) 
+tk ' 
+t~x 
+- = 
+t~x+.l t=zt 
+will be a solution of (3 a) provided the operation ~ is suitably specified. 
+t--X 
+With x in R' let L denote a contour lying interior to B and defined as 
+follows. When ~Q(x)=o along the negative axis of reals while the lower 
+boundary of R is h (the lower boundary of F) then L is to consist of h and of 
+a path L* near the right boundary of R. In all other cases L is to consist of 
+a path near the right boundary of R. With x not nes congruent to L (that 
+is, if x' represents the point on L for which ~x'= ~x we have ~(x--x') not 
+an integer) let x + ks (k~. ~ o) be the last one of the Sequence of points x, x+ I, 
+... lying to the left of L. Let l~ denote a loop which contains the points, x, 
+x+ I, ..., x+ks and passes between x--I and x and between x+ /Cx and L. 
+Now, by hypothesis, Q(x) is proper along L (and also at least within ~ limited 
+distance from L). Hence a least integer ~ can be found so that 
+(4) ~a(x) = 2~v + ~Q(x) -* + ~ (~x = v) 
+as I xl-~ m upwards from the axis of reals along L. If # ~ o, L is near the 
+' ~(x) could be considered to be a function asymptotic in /~ to a formal s-series whose 
+1 
+power series factors begin with low powers of x P. 
+
+===== PAGE 32 =====
+32 George D. Birkhoff and W. J. Trjitzinsky. 
+imaginary axis of reals) This integer ), will be unchanged if L is shifted a 
+finite distance in the direction of the axis of reals. 
+Write, for x in B', 
+(5) e c~(t) fl(t)_ f e~_V-~;.i~-t)+~(t)fl(t)d! 
+)I) ,] (I -- e =~|' ::i(x-t)) t k" " 
+t~x L.r 
+Here ~ will be supposed to have the value specified above. The path Lx is to 
+consist of L, described upwards (if L = h + L*, then h is described from infinity 
+to the neighborhood of the origin and L* is described upwards), and of lx, de= 
+scribed in the clockwise direction. When x approaches a position of congruency 
+to L we shif~ L through a suitable distance. The integral (5) will converge 
+since r remains bounded along L; moreover, it will represent a sum formula 
+in the sense of (3 e), and the function of x given by the second member of (5) 
+will be analytic in R'. It remains to show that this function is such that z(x), 
+as defined by (3 b), has the desired properties. 
+Let x' be the point on L for which I/=/:i. Denote the portion of L up 
+to that point by L~ and from that point up by L.~. If L=h + L*, let L* 
+denote the part of L* up to x' and let L~ denote the part of L* up from x'. 
+For t on L and for x in R' we have 
+(S a) ] I -- e  ~ ~ | --1(x--t)[ > d > o. 
+The inequality 
+(6) ~ Q (~) > ~, Q (~) 
+(,~x = ~x,; ~x < ~x~; x, x~ in R) 
+will be also needed. It is seen to hold, in virtue of (I b), since we have 
+Xl 
+f ~Q'( ) 95 Q = - x dx. 
+With these preliminaries in view consider the integral along lx, 
+i This is due to the fact that along such a path and, in general, along a path extending 
+upwards with its limiting direction coinciding with that of the positive axis of imaginaries we 
+have t~:,x log x) hehaving as a constant multiple of Ix[ % e. v). 
+
+===== PAGE 33 =====
+Analytic Theory of Singular Difference Equations. 33 
+(7) f _ e~c~)fl(x) e~c~+')fl(x+ I) ..... eec~+~)#(x+k=) 
+X k' (X -}- I) k' (X ~- kx) k' 
+l x 
+In virtue of (6), for x in B', 
+(7 a) -<-e~('~)fl + Ix+II k'+ + Ix+-k,F; " 
+I x 
+Now, substituting z =- x + I in an inequality of Birkhoff 1, 
+we find that 
+i <~_ 
+I~ I ~'-~ i=I 
+~1~ + il ~'< ~1~- I I ~'-~ i=0 
+(~z<o), 
+(}}~X> I) 
+so that, if R extends to the right of the imaginary axis, 
+J h 1 
+(7 b) Izl ~' + ,,. + ix+k=l ~'~ I~1~'--~ 
+(91x = u > o; hl independent of k'). 
+Let x([x] > Q > o; u~o) and x+k~ be above curves 
+(8) V=hl(--u) el (hl>O; i>el>o), 
+(8 a) v=h~u ~' (h2->o; i>e~>o), 
+Substituting z=--x+ ~ in the inequality (I3) of (II), 
+2 I 
+Z I <1;: + i=1 
+(!Rz>o; ~z=v), 
+it is found that 
+I I h', 
+(s b) ix I w + ' + I x + k~ F ~ ~' (u _-< o; ,3x =v), 
+1 See formul~ 12 in (II). 
+5--32511. Acta mathemotica. 60. Imprlm6 le 2 septembre 1932. 
+
+===== PAGE 34 =====
+34 George D. Birkhoff and W. J. Trjitzinsky. 
+Let ~.(fi<o) be the value of u for the point on the curve (8)whose ordinate 
+is ~x=v. Then, from (8b), ~t follows that 
+h', h','(k') 
+~.~,_, < l~-l~;i-~;_,) ' 
+Now for a suitable l, independent of x (u =< o), 
+I~1->- tlxl, 
+whenever x is above the curves (8), (8 a). Whence 
+I I h~' (/c') 
+IxF + ' + Ix + kxl ~' ~ IxP(':-'~ (u=<o; x above (8)). 
+Thus the inequality 
+I I h' 
+(9) iX F + ' + ix + k~l ~, < ixl~. 
+holds, whenever *(I x I> e > o)lies above curves of form (8), (8 a). Here k 2 can 
+be made arbitrarily great by taking k' sufficiently great and h' is independent 
+of x. Hence for x in //, above curves of type (8), (8 a), we have 
+(Io) Ifl<flh'e'~('~) = i;i~.; 9 
+Ix 
+Whenever R contains the negative axis of reals the inequality (IO)will continue 
+to hold in the whole region R' provided that along the negative axis of reals, 
+for Ix] sufficiently great, 9~Q(x)~o. In fact, from (7) it follows that 
+I 0 a) 
+Gemqtx)fl I a" § I x+II k' + 
+1 x 
+§ (x+k~,) k' l' 
+on the other hand, we have 
+(IO b) ~(q (x') --Q (~)) 
+=~x; ~x<~x', x, in R) 
+
+===== PAGE 35 =====
+Analytic Theory of Singular Difference Equations. 35 
+diminishing very rapidly as x'--x increases. So it is clear that the sum of 
+terms in (Ioa), involving factors of the form (IOb), is negligible to the extent 
+that (Io) would hold throughout R'. 
+The only case when the inequality (Io) is not asserted is when R contains 
+the negative axis of reals, while x is in R' below a curve of the form (8) and 
+e ~Q(~) remains bounded as x moves to the left along a line parallel to the nega- 
+tive axis. In the sequel it will be seen that it is precisely in this case that it 
+is not necessary to consider the integral 
+f lx 
+[In particular, see Case II below]. 
+There are two cases to be considered. 
+Case I. Along the negative axis of reals, forlxlsufficiently great, ~ Q(x)~o. 
+In this case along any line in R, parallel to the axis of reals, ~ Q (x)in- 
+creases not slower than a positive fractional power of I xl, as x moves along 
+such a line to the left. This is an immediate consequence of the nature of the 
+function Q(x) and of the inequality (I b) (which insures (5)). 
+Now, taking into consideration (5 a) and the integrand in (5), 
+< d J 1il k' " 
+L1 L1 
+By (4) the integrand in the above increases exponentially along L 1 and attains 
+its maximum at x', the upper end point of L~. The integral will be of the order 
+of magnitude of the value of this integrand at x'. Thus 
+X k3 
+L~ 
+(k~ = k' -- d3; d3 > o; k 3 --, ~ as k' --~ ~ ; ~x = ,3x'). 
+In the case at hand, the function 
+IX ks x x I g(x) 
+approaches zero very rapidly as x moves to the left from x' along a line through 
+
+===== PAGE 36 =====
+36 George D. Birkhoff and W. J. Trjitzinsky. 
+x' parallel to the axis of reals. When x remains in a sufficiently close neigh- 
+borhood of x' and does not part from x' too rapidly as v(: ~x ~-~x') increase, 
+the fact can be used that ~(Q(x') - Q(x)) < o (~x <= ~x'); we shall then have 
+g (x) either bounded or infinite at infinity to an order k:~ such that ka- k3--~ or 
+as k s--, oo. More precisely, this will be the case for x in any region bounded 
+on the left by a curve of the form 
+v=h(--u) ~ 
+where e can be taken arbitrarily small. 
+(h, e > o) 
+If there is occasion to consider a region 
+below such a curve, for x in such a region (with e sufficiently small) we shall 
+have e ~(q(~')-q(x)) approaching zero exponentially (i.e., as e -rlxly (F, Z > o))as 
+j xJ~. oo along any path to infinity in that re,on. It is clear then that 
+(ix) if] < e q,z) IxP 
+L~ 
+(k4-~ ~ as k' --,0r x in R'). 
+The integral along L~ will be written in the form 
+( e ~ V~ i (~.-~)(~-t) + ~ (~)~ (t) d t I ' 
+L.., L~ 
+For x in R' 
+]f[ fl[e2aV-l(J'-UX] f ee~'-l(t)[dt] 
+< - ~ ~j --i~ik~ - L2 L,~ 
+As t moves along L~ from x' upwards we have r (t) bounded. Therefore the maxi- 
+mum of the integrand, last written, occurs at x'. The reasoning of the type used 
+in deriving (I I) will show that 
+(~i a) < I~b 
+L~ 
+(k 5~ ~ as k'-~ ~; x in /3') 
+so that 
+(i2) [f[<~, e~Q,x, L 
+(k" k'--, 9 ---, oo as oo, x in R'). 
+
+===== PAGE 37 =====
+AnMytic Theory of Singular Difference Equations. 
+0ase II. Along the negative axis of reals ~lt Q(x)= o. 
+If the left boundary of B is not h this boundary will be of the form 
+37 
+v = h(- ,), + ... (h, e > o). 
+An inequality like (I2) will continue to hold in R'. This can be shown by the 
+reasoning used to derive (I2). If the lower boundary of R is h the contour L 
+will consist of 
+L=h+ L*-=-h§ + L*. 
+The contour Lx, in (5), will then be deformed into a loop, described in the 
+counter clockwise direction and extending to infinity, containing the points x -- I, 
+x--2 .... and not containing the points x, x + I, ... The formula (5)will 
+yield the following 
+(I3) ~ eq(t)fl(t) eQ(x--1) fl(x-- I) eq(Z--2)~(x -- 2) 
+t k' = (x-~)~' + (x-2)~' +' 
+t~X 
+inasmuch as convergence may be asserted. 
+Now 
+(I3 a) Q (x) -- ~, I z I log I ~ I co~ ~ ~ (/.-/' v) 
+8 
+(7 7' § V~-I "; [ e]/-Z-i = ~-~-[~ n,...;x=[x[eV~11'~; p>s~ I). 
+Necessarily /L-~ 7'= 0 and, whenever a coefficient V in Q(x) is not zero, 
+(I 3 b) cos + pTc = O. 
+Hence Q (x) = ]f-I 7" X § ~ xv +" (P > s > I) while 
+(I 3 C) 
+8 
+,, s (~ _ 6) +-.. 
+~Q(x)= -:, v+ I,~llxFsin~, 
+(p > 8 >__-- I); 
+
+===== PAGE 38 =====
+38 George D. Birkhoff and W. J. Trjitzinsky. 
+here we 
+of (13 b), 
+may have [7[= o. This relation is derived by noting that, in virtue 
+(*) cos ~+pa = + sin s(z__a). 
+P 
+If 9~Q(x)=-7"v then 
+(I 3 d) 9~ [q (x - i) - Q (.)] ~ o (i=I, 2,...). 
+If in (I 3 c) 17[~ o, we define a curve FH in I', by an equation 
+/ 
+(I4) ,, = h(-- .)" (h 
+For x in R below Fu we have 
+;) >o;H-~-I-- . 
+and 
+so that 
+V V 
+,~ _ a = tg.-1 =--- +. --U .... ~t 
+p =p + 
+(I 4 a) 
+Thus, below ~)1, 
+(I4b) 
+P (~ [ h s (-- u) u sin s --a) < p -(-22,;i ~ § . 
+1,711xl; sin~(._~,)<=l'~lh*lxl"ixi" Ivih* 
+p Ixi + p 
++ .... 
+since ]x]=--u+ . 
+Similarly, if x is in R below Flt, 
+(I 4 e) 1711x-il i sin ~(~--~,)_--< 171h*+ . 
+p io 
+(x- i=]x- ild/---l~i; i= i, 2,...) 
+Noting that 
+[q(x - i) - Q(x)] = [_+ 1711 [ 
+we have by (I 4 b) and (x4 c) 
+x - il . sin ~ (~ - ~) + .. 
+[ * ] - _+.[Tl[xO'sin;(~-~)+ , 
+
+===== PAGE 39 =====
+Analytic Theory of Singular Difference Equations. 39 
+(I5) ~[Q(x-i)- Q(x)]__<2'~'h sl i q-... < q 
+p 
+(q independent of x, i; x in R below /~; i = [, 2,...). 
+Hence, whether ~ Q (x) = - 7"v or I vl in (I 3 e) is not zero, the inequalities 
+([5) are seen to hold at least for x in R below F~z. Thus, from (x3) it follows 
+that 
+t< I < Z I~-il < t=x i=1 
+(x in R', below Fit). 
+Further, by formula ([2) of ([I), 
+(I 5 a) ~ cQ(t) (t) I ~eOe~'Q(x> 
+t k' ~- 2 x ~'-1 i t~x 
+(x in R', below FH). 
+If R extends above F~ the expression (I3) does not appear useful for pur- 
+poses of demonstration, whenever x is above FI~. In this case we use the re- 
+lation 
+ =f§ t=x I x Lx L~ 
+The first of the last three integrals satisfies inequality ([o). As to the second 
+one, we have the integrand (as displayed in the second member of (5)) bounded 
+along h (while x has a fixed value in R' (on or above Ftl)). We have 
+LI Iq 
+Here ()~ (t) is bounded along h and increasing exponentially along the remaining 
+part of Lj, i.e., along L*. Hence 
+LI 
+e  ~ (x) I x p 
+I 
+( . ~ ~ t ) 
+
+===== PAGE 40 =====
+40 George D. Birkhoff and W. J. Trjitzinsky. 
+With x restricted as stated, we have x~ behaving in the most unfavorable 
+way when x is on F~z; we have then 
+/-./ (I6) ~ ~ ........ + .... ~u)i,, 
+v h(-- 
+Thus, for x in B' on and to the right of F1t, 
+< i xl~:; - 
+Lt 
+A similar inequality is obtained for (, valid in the same region. 
+.] 
+Le 
+this inequality we again make use of (t6). Hence 
+{i7) 
+I 
++ .... h (- u); +.., < hlxl~. 
+(k. : ks H ~ oo as k'---~ ~). 
+In proving 
+(k'[-> oo as k' 
+< jxi,<; 
+L:r 
+-, 0r x in R' on and above FIt). 
+But in virtue of (I 5 a) an inequality like (t7) is seen to hold throughout R'. 
+This completes the examination of Case II. 
+The result just mentioned, together with (Io) and (I2), enables us to assert 
+that an inequality like (I7) holds, for x in R', in any case. It follows therefore 
+that z(x), as given by (3 b), satisfies in R' an inequality 
+Iz(x)l < fl'~ Ixl z" (k = k -- k:). 
+Now k--k = k',' and approaches infinity as k approaches infinity (see (3 a)). In 
+(3) attach subscript to y (x), t(x), z (x). It is clear then that (e) holds for yk(x) 
+to m (k) termes (m (Z:)-o or as k--, ~). 
+It remains to show that (yo(x)--yk(x))e -Q(z) (-~g~:(x); a>k)-o in R'. If h 
+is part of L, g~k(x)~o; otherwise, Igok(x)l <= h~ke--()~ (x) (in R'). Application of (4) 
+and (6) completes the proof. 
+w 5 Construction of Proper Solutions to the Right of a Proper Curve. 
+The following theorem will be proved. 
+
+===== PAGE 41 =====
+Analytic Theory of Singular Difference Equations. 41 
+Theorem I. Assume that the coefficients of an equation L,(y) ~o (2; w l) 
+are known (eft w :) i~ a subregion of F (w ,), 
+(; = (:) + (~) +-. + (m) + + (~). 
+Let the corresponding functions Q(x) be 
+(I) Q1 (x), ... Qn (X). 
+Suppose that F, a proper curve (Def. 9; w I)for the set (I), is the left boundary 
+of (m) (2 ~ m ~ ~) or lies to the left of it. Assun~e that in a strip V, of un.it width 
+and with its left boundary coincident with the left boundary of (m), there exists a 
+proper fundamental set of solutions (Def. 4; w I) satisfying the equation Ln(y)-~ o. 
+It will necessarily follow that L,,(y) is completely proper (Def. 6; w I) in (m)+... + (V). 
+If F, a proper curve for the set (I), exists in the region (:) then the above 
+assumption concerning existence of solutions in V may be omitted and it will ne- 
+cessarily follow that L,i(y) is completely proper in (m) +.. + (~) (m = I). 
+Proof. 
+curves, 
+(2) 
+As stated previously the regions (~), (2), .. 
+B 1,B 2,...B', -1. 
+(~) are separated by B' 
+In any region (s) of this set of regions the Qj'(x) (j = i, .. n) maintain a certain 
+ordering. We shall write 
+(3) ,~,QI' (x) > ~,Q~' (x) > > ~,Q,' (x). (x in (s)). 
+In connection with this ordering the subscript s will be attached, from the left, 
+to some other symbols; thus, ~S(x) will denote the formal matrix of a difference 
+system corresponding to Ln(y):o, with sQj(x) entering in the j-th column. 
+The set [~Ql(x); ~Q~(x), ...~Q~(x)] is merely a permutation of the set [QI(x), 
+Q~ (x), Q~ (x)]. 
+It is sufficient to prove the theorem for the system Y(x + I):D(x)Y(x), 
+related to the given equation (2; w I) and given by (6; w I). This follows from 
+the relationship (6 a; w 1) between solutions of the system and the single equa- 
+tion. It is clear that the dij(x) are known and of the same character as the 
+aj(x) (j : 1, ... n), the coefficients of L~,(y). The process of construction of solu- 
+6--32511, Acta mathematica. 60. Imprim~ le 2 septembre 1932. 
+
+===== PAGE 42 =====
+42 George D. Birkhoff and W. J. Trjitzinsky. 
+tions, about to be given, is of course equally applicable to any system Y(x+ I)= 
+Z(x) Y(x)(I a; w 1). 
+By iteration (3) we construct, in (m), determinant limits of orders I, 2,... n 
+corresponding to the ~Q(x)'s 
+~Q, (x), ~Q1 (x) + ~Q, (x), ..., mQl (x) + - + ,~Q,,(x), 
+respectively. When m = i this process will be carried on by ,>iteration from the 
+infinite left, (Lemmas 4 and 5; w 3) When m > I the process wiII be carried 
+on by iteration from the strip V, specified in the theorem. In the latter case 
+use will be made of the existence of solutions in V, as stated in the theorem; 
+in this connection Lemmas 6 and 7 (w 3) are to be used. Generally speaking, 
+application of Lemmas 4, 5, 6 and 7 is possible in virtue of the inequalities (3) 
+being valid in (m) (for s--m). 
+In agreement with the notation of w 3 let these determinant limits be 
+denoted, for k= i,... n, by 
+(4) my, .... ,k;1...k(X) (i 1 < < ik; i,, ... ik= I, ... n). 
+These functions are analytic in (m) and satisfy the asymptotic relations 
+(4a) ,~y, .... ik;,...k(x)~e~q'(')+'~Q'-(')+ +~Qa'(~),,~Si .... ik;, ... k(X) 
+(ix < < i~.; i, .... ik= I, ... n; x in (m)). 
+For k-- I the functions (4) are elements of a solution of the system Y(x+ I)= 
+D (x) Y (x); write 
+(4 b) ,n&, (x) = myi;1 (X) (i = I, ... ). 
+This solution is proper in (m). Assume that, for k-- I ~ I, there exist k-- I 
+solutions, 
+(4C) ,nZ, j(x) (/=I,...n; j=I,...k--I). 
+which are analytic in (rn), satisfy the relations 
+(4d) ~ .... ,~;~ .~(x)--~w .... ,,~;~ .~(~) 
+(i, < <is= I, . . . n; s= T, . .. k-- *; x in (m)) 
+and are such that, in (m) 
+
+===== PAGE 43 =====
+(4 e) 
+Analytic Theory of Singular Difference Equations9 43 
+mzij(x) ~ e mQj(x) m8ij(x) (i= I,... ~q; j= I,.., k-- I). 
+Existence of a matrix of solutions, proper in (m), will be demonstrated by 
+induction if we show that there exists a solution ,,z~k(x) (i--= I,... n) analytic 
+in (m) and such that (4 d), (4 e) will hold for s = k, j = k. Analogous to a similar 
+construction, in II, such a solution can be found in terms of certain determinant 
+limits and the solutions (4 c). For this purpose use will be made of the following 
+formulas, found in (ii). 
+of (II)). 
+We have 
+(5) 
+(The notation used in this paper is different from that 
+k--1 
+j=l t~x 
+.~ v~j (t), 
+(5 a) mo(~) (t),,~j, k-~ (t) 
+m vkj (t)= too(k-l)(t)m O(k-1) (t "Jr" I)' 
+(5 b) m~41j, k--1 (t) = (-- I) k-l+j 
+,~zil(t+k--2) ...... 
+In ] I (5c) mO(~)(t): dli,(t) Zdli~(t+ i)dili,(t) + ..... myli,, ik_l;1..k(t). 
+il ... ik__l=l i1=1 
+Moreover, for x in (m), 
+(5 d) ~0(k) (x) - 
+while 
+(5 e) 
+l emQ1 (x) ms1 (x), 
+emQl(x+])m,91.(~, i'~- I), 
+I e m~l(~+~-~) mSl (X + k-- I), 
+.~0(k) (x)= 
+.,Zll (x + k- I), 
+mQ'-" (z) I e m82 (X), . . e "~k (~) rusk (x) 
+
+===== PAGE 44 =====
+44 George D. Birkhoff and W. J. Trjitzinsky. 
+The symbol ~ stands for summation and is to be suitably determined. It is 
+M.J 
+t~x 
+seen that the ,~mj, k--~(t) (j = I, .. . k--I) and mO(k)(t) are known and analytic 
+in (m): 
+Using (5 b) and the known asymptotic forms (4 e) the asymptotic form of 
+mini, k-1 (x) will be seen to be 
+(6) mm , k--x (X) e +'"+ +.--+ mt j. (x) 
+(,,,!tj, k--1 (X), an s-series; x in (m)). 
+On the other h~nd, making use of (5 d) and taking account of the way several 
+formal series with logarithms in the s-series factors are related (See ([); in 
+particular, (6") on p. 213), we conclude that 
+(6 a) ,~0 (k) (X) ~ e mch (x) +"+ mQk(x} mq9 (k) (X) (X in (m)) 
+where mT (k)(x) is an s-series without logarithms. ~ The series ,,~{~') (x) (k= i, ... n) 
+cannot be identically zero since the formal series are assumed to be linearly 
+independent. Consequently, by (5 a), (6) and (6 a), 
+(6 b) m Vk j (x} ~ e mQk j (~) ,,vk j (x) 
+(j=I .... k--I; x in (m)). 
+Here the series ,~v~j(x) are all s-series; moreover, by ((3); s m), 
+3t P 
+{~, mQkj (X) <_~ 0 (j ~- I, ... k -- I ; x in (n~)). 
+It is easily seen that Lemma 8 (w 4) is applicable for evaluation of any of the 
+expressions 
+(6 c) ~ m Vkj (t) (j = I, ... ]C -- I) 
+t~x 
+occurring in (5). In that lemma we only need to take R = (m), Q(x)---,,,Qkj(x) 
+h(x)=~vkj(x). Thus, by the methods of w 4 we evaluate (6c) as a function 
+analytic in a region (m)', slightly interior to (m), and satisfying in (m)' an asymp- 
+totic relation 
+1 We can show this by a reasoning, applied to the second member of (5 d), similar to that 
+in (I; p. 215). 
+
+===== PAGE 45 =====
+Analytic Theory of Singular Difference Equations. 45 
+t=x 
+where ,~ukj (x) is an s-series. Since the boundaries of (m) can be translated, it 
+may be considered that (6 d) holds in (m). Substituting (4 e) and (4 d) in (5) it 
+is seen that .mz~ k(x) is analytic in (m) and 
+(7) mz~k (x) ~ e m~k(~) ,~al~ (x) (x in (m)), 
+where ,~al k (x) is a formal s-series. 
+The remaining elements ,~zik(x) (i = 2,... n) of the ' solution may be de- 
+termined as follows. We have 
+mZlk (X -t- q) = ~ ~I ).~ (30 -~ q --I) d).~ 2~ (x ~- q -- 2)... d).q_ 1 Zq (x) mZZqk (X) 
+),i .,. ).q=l 
+(q = ~, .. . ,). 
+By the reasoning of (II; p. 259 ) these equations have a non-vanishing determinant 
+so that 
+(8) ,~ (x) = ~ l(X)m~,~ (~ + i) + + ~,~(x)~1~ (~ + .) 
+(i= I,...,). 
+Here the (l~j(x) (i,j = I,... n) are known in (m) and are of the same nature as 
+the d~j(x). Thus, by (7) and (8), the elements ~zik(x) (i= ],... n) are analytic 
+in (m) and satisfy, in (m), the asymptotic relations 
+(9) ,~zik (x) ~ e mQk(x) mqik (x) (~ = I, ... n) 
+where the series ma~k(x) are s-series. Necessarily the relations (4 d) will be satis- 
+fied for s = I,... /c. The function ~zlk(x) is such that (5 e) holds; thus, using 
+tha asymptotic relationships (hd), (4e) and (9), we conclude that the ,~a~k(x) 
+(i-= I; ... n) in (9) can be replaced by the ~sik(x) (i = I, ... ~), respectively. Thus 
+a solution ~zik(x) (i ~ x,... n), possessing all the desired properties, has been 
+constructed, This proves existence of a matrix solution proper in (m). The above 
+indicates also the actual process of construction in any given case which satisfies 
+the specified hypotheses. It is essential to note that in applying Leinma 8 we 
+have, according to the hypotheses of the Theorem and as required by the Lemma, 
+
+===== PAGE 46 =====
+46 George D. Birkhoff and W. J. Trjitzinsky. 
+the function Q(x)= mQkj(x) proper along the portion of the path of integration 
+near the right boundary of (m). If in the various summations involved in (5) 
+additive periodic functions are admitted the kth solution, ~z~k(x)(i---I,... k), 
+will be modified by addition of linear expressions (with periodic coefficients) in 
+the elements of the preceding k--I solutions. Unless stated otherwise such 
+periodic functions will not be introduced, the summations in (5) being specified 
+by w 4. The n solutions constituting the n columns of the matrix 
+(Io) ,,Z(x) = (,,z,j(x)) (i,j = I,... ,) 
+may be spoken of as 'associated with determinant limits'. 
+The regions (I), (2), ... (7) may be considered as having strips V~,j+I (between 
+(j) and (j+ I); j-~ I, ... ~-- I), of unit width, in common. In the case at hand, 
+there exists a proper matrix solution in Vm, ,,+1 (if m + I ~ ~7). By the process 
+indicated for the construction of ,~Z (x) we now obtain a matrix solution, 
+a) m+,Z (x) = (x)), 
+proper in (m + I), the constituent solutions (columns) being associated with the 
+determinant limits, known in terms of the ,,zij(x) in (m+ I). By a finite 
+number of steps proper matrix solutions, rZ(X): (,.zij(x))(r:m, ... n), are 
+constructed in (m), (m + I), ... (7); these solutions will be associated with deter- 
+minant limits. 
+It remains to demonstrate that the periodic functions connecting these 
+solutions are proper (Def. 5; w I). Let Z r(x) : (z[j(x)) denote ~Z(x) with the 
+columns so rearranged that 
+(I I) Zr(x)-S(x)=(eQJ(X)sij(x)) (x in (r); r~ m). 
+Write 
+(II a) Zr(x) = Zr+l(x) l)r'r+l(x), -pr'r+i(x) ~-- (Pijr'r+l(x))" 
+Let ~xr= ~x, x--xr ~-integer and restrict xr to lie in the strip V,,~+I (when 
+~x >= 0 > o). We have then for the Inatrix Pr, r+l(x) of periodic functions the 
+relation 
+(II b) .pr, r+l(x ) = .pr, r+l(Xr) = Zr+l-l(xr)Zr(xr)" 
+For x(=x,) in V,.,r+~ the following asymptotic relation will hold in virtue of (I I) 
+
+===== PAGE 47 =====
+(12) 
+Analytic Theory of Singular Difference Equations. 
+1Dr'r+l(x) -- S--i(x)S(x)= (eQJ i(x) ~0) 
+((60) = I). 
+In other words, for .~x > ~ > o, 
+47 
+in the above k can be made arbitrarily great and the ]b;j(x,.)], for a fixed k, 
+are bounded. The strips V~,~+~ (r=rn, ... V--I) extend indefinitely upwards (i.e., 
+when Ix[ approaches infinity in Vr,~+~, v=~x--*+~). These strips are to the 
+right of a proper curve F and they are in a proper region R~ (Def. 9; w I). 
+The term 'proper' refers, in this connection, to the set 
+Q,(~),... Q,(~). 
+By (II b) the t'ij~'~'~+l(x) are analytic for v => Q > o. By (12 a) and in virtue of 
+the fac~ ~h~t ~he @j(x,.) are proper in V~,,~+~ (Def. 3; w I) it follows that 
+(I3) 
+(i, j=I, ...... n; r=m, V -I', H"'r+i'ij an integer); 
+here the power series converge within a sufficiently small circle with z=o for 
+r,r+l center and, unless Pij (x)==o, it may be supposed that p~,~+l #o. Now ij; o 
+I~1=1~-~,1=~-~+; thus, it is clear that 
+(I3 a) 
+~z -- rlr, r+l 
+=T,~+~(x ) ~.~.r+~'-lmj = ## ri); o ~" 
+(i,j=I,...n; r=m, . .. V--I) 
+in every region of the kind indicated in (Def. 5; w I). Hence, in accordance 
+with this definition, these periodic functions are proper. In view of the rela- 
+tionship between solutions of the single equation L,~(y)=o, and those of the 
+system, L~(y) is seen to be completely proper in (m)+... +(V). 
+
+===== PAGE 48 =====
+48 George D. Birkhoff and W. J. Trjitzinsky. 
+w 6. A Lemma on Faetorization. 
+The following lemma will be indispensible as a preliminary to establishing 
+the fundamental result. 
+Lemma 9. Let coefficients of 
+(,) Ln(y) = y(x + n) + al(x)y(x + n -- I) § .. + a,(x) y(x) = o 
+be known (and be of the kind specified in the beginning of w x) i~ (I)+ "''-{-(7~), 
+a subregion of F. If the equation is Q-factorable in (I)+-., +(m) (Def. 8; w I), 
+a point of division being between the I'-th and F+ I-st terms (not belonging to the 
+same logarithmic group t of the sequence 
+Q,(x),... Q.(z) (i < I'< ~), 
+it necessarily follows that the equation is factorable, 
+(~ a) Ln(y) ==- L,-r Lr(y) = o, 
+so that the eoefficie~#s i~ the operators L,-r(z), Lr(y) are of the same kind as in (l). 
+With the eQJ(~)s~(x) (j=I,...~2) denoting a Ill, early independent set of formal 
+solutions of (~), the ,factorization (~ a) ea~ be so eI]~cted that the series 
+(I b) e ~'l~/Sl(X), ... e qr(x) Sr(X) 
+are formal solutions of Lr(y)= o. 
+Proof. In connection with the system IV(x+ I)-~D(x)Y(x)(6; w I), usso- 
+ciated with (I), functions yri(x ) are defined by the product 
+(2) Y (x) = 
+: D(x- D(x--,-)T(x--,') 
+where T(x) denotes S(x) [-- (eQJ(x)so(x)) = (eQi (x+i-1) sj(x +i-I))] with the s-series 
+factors in the involved elements terminated after, say, k terms (k being suffici- 
+ently great). In accordance with the notation of ~ 3 we write 
+Cf. 0" (p. 213; I. 
+
+===== PAGE 49 =====
+(2 a) 
+where 
+Analytic Theory of Singular Difference Equations. 
+I Yill (X), . , . YitF(X) 
+yr ~(x) ......... h , . . iF;1, ] r r 
+yirl(X), ... y@r(X) 
+i1<i2< 9 <it and il, i2,...ir= ],...n. 
+Since, by hypothesis, 
+~[Q'~(x)+ + Q'~(x)] >-_ ~[Q'~.,(~)+. 
+(jl <"<jI'--- I,...~t; X in (I)+ 
+in virtue of Lemma 5 (w 3) ~he limits 
+(2 b) lilIl yr 1" (X) = yil iF. 1 r~ h...ip; 1. ...... , 
+(i 1< "'" <i/'= I,... n) 
+9 +Q~r(x)] 
+9 +(m)) 
+F(x) 
+49 
+will exist in (I)+ ... § and will be analytic in this region; moreover, the 
+asymptotic relations 
+(2~) v~ .... iF;l~ F(x)~e~l(~)§ 9 § ~:,,~1 r(x) 
+(i1< <iF= I,...n) 
+will hold in (I)+... 4-(m). Form the operator 
+, (x) 
+(]) LtrF(I]) ~ (__ i)F]y(X-[-I) : yr l(x) .,..Y2/' (.X) 
+r), 
+tr = b"o (x)y(x + F)+... + b r ~(x) y(x + s) + ... + b'~,(x) y(x); 
+here 
+(3 a) b'r ' ' r--~t~ ---- (-- ')~--~ V" &)" 1...s,s+2, .F-kl;1... 
+From the way asymptotic relations (2 c) were derived in w 3 it follows that 
+(3 b) yr .. 1... S, S'I-2... F-~-I; 1... F(x) ~ eQt(:v)+'"-~-QF(x) 81...s, sT2.. F+I;1 F(X) 
+(s=o,... F; x in (I)§ ''"-t-(ffi); r=I, 2 .... ). 
+Hence an equation L'~r(y)-=o will possess in (I)+... +(m), formM solutions 
+7--32511. Acta mathematica. 60. Imprim6 ]e 2 septembre 1932. 
+
+===== PAGE 50 =====
+50 
+In virtue 
+equation 
+(4) 
+of 
+George D. Birkhoff and W. J. Trjitzinsky. 
+e Ql-<x) Sl(X), e Q~(x) s2(x ) .... e QF(x) ST'(X). 
+(2 c) and of the fact just stated, if L'r(y) denotes lim L r(Y), the 
+L'r(y)  b'o(x)y(x+I + --+b'l,(x)y(x)=o 
+will possess the same formal solutions. 
+(4a) 
+In particular, 
+zero for s=o 
+formal series. 
+Here 
+b'l,--.r (x) -- e Q1 ('v} +''" + (~F(X) Sl... 8,.~ +2... I'+ 1;1 ,, I'(X) 
+(s=o, I,... F; x in (I)+ "''-~(,,)). 
+the s-series in the second member of (4 a) cannot be identically 
+and s=F; this is a consequence of linear independence of the 
+Hence 
+b'o(X) o, b'r(x) o. 
+Thus the equation (4) is actually of order F. Dividing out the coefficient b'o(X) 
+we write (4) in the form 
+(~) nl.(y) ~ y(x+ F)+ "" + bz~s(x) y(x+3)+ "" + br(x) y(x) = o 
+(bF--s(X) = btl~R(x)/bto(X); s=o, . . . /~--I). 
+The coefficients in (5) are analytic in (I)+ .-. +(m); moreover, 
+(5 a) bT__s(X ) -- (__ i)i,_ 8 Sl... 8, 8+2... 1'+1;1... F(X) 
+3t.,. F;1. , . z'(X) = #I~s(X) 
+(S:O,... r--i; x in (i)+ ... +(~t)). 
+Now, the formal series Sl...,,~+2...r+l;1...r(x) (s=o, I, . . 
+logarithms since the columns in the formal determinants 
+F) will contain no 
+can be so combined as to get rid of these logarithms (Cf. I; in particular, 
+pp. 213, 215). It is clear, moreover, that there will be only rational powers of 
+x present in the formal series flr--~(x) since the constants r occurring in (7 a; w I) 
+differ by rational fractions in the consecutive formal series (7 a; w ~) in any 
+
+===== PAGE 51 =====
+Analytic Theory of Singular Difference Equations. 51 
+group (I; p. 213) of such series (containing logarithms). Thus the operator 
+Lr(y) has all the properties required by the lemm~. The factorization (I ~) follows 
+immediately. The coefficients in the operator Ln-~.(z), 
+(6) L,,-r(z)=z(x+n--I')+e,(x)z(x+n--F--I)+ ... +c,,-r(x)z(x), 
+will be analytic in (I)+ ... + (m) and will be of the required character in 
+(I)+.-. +(m). The lemma is therefore proved. 
+The equation 
+the series 
+(6 u) 
+L~-z,(z):o will be formally satisfied, in (I)+ ... +(m), by 
+(~: ~, ... n- r). 
+On taking account of the established nature of the br--~(x) 
+it is seen that the series ar+~(x) are s-series. 
+8=0, I, . . . F--I), 
+(i) 
+belonging to an equation 
+w 7. On Products of Completely Proper Operators. 
+The following theorem will be now proved. 
+Theorem II. Suppose that the set 
+QI(~),-.. Q,~(x), 
+n~ (y) -- o, 
+has a point of division in (I)+... +(m). Here, as before, (0 ~-. +(m) is a sub- 
+region of F the constituent regions (I), ... (m) being separated by B' curves. Assume 
+that corresponding to this point of division we have 
+Q'~(x) > ~ Q'r+.(~) 
+(z=~,...r;,=~,...n-r;~in(O+. +(m)), 
+where an equality sign is admitted on the boundary of (~)+ ... +(m). With ~he 
+coefficients in (I a) of the right kind (Cf w I) in (I)+.. +(m), let 
+1 Whenever a formal series is formed by writing Lr(eQ(x) s(x)) (s(x) an s.series) the coeffi- 
+cients in Lr, if not representable by convergent series, are replaced by the formal series to which 
+these coefficients are asymptotic. 
+
+===== PAGE 52 =====
+52 George D. Birkhoff and W. J. Trjitzinsky. 
+(I b) Ln(y) ~ Ln-rLr(y) (I < I" < n) 
+be the correspondi~g factorization, as specified in Lemma 9 (w 6). Suppose, more- 
+over, that i~, (m) (or ft~rther to the left) there is a curve F which is proper with 
+respect to the set (I). 
+It will necessarily follow that, if the operators Ln-r(z), Lr(y) are completely 
+proper (Def. 6; w I) in (I)+-.. +(m), the product L,,(y) will be completely proper in 
+.+(m). 
+Proof. As an immediate consequence of the hypotheses of the theorem 
+the following is true. 
+The equation 
+(2) LF(y) -- y(x + I') + bl (x) y (x + I'-- I ) +.-. + b,.(x) y(x) = o 
+possesses, in (I)+ ..- +(m), F linearly independent formal series solutions 
+(2 a) eQ:(~)ss(x) (j=I, .. 1~). 
+The related system of order 1" 
+(2 b) Yr(x+ I) = Dr(x) Y,.(x), 
+/ o,i, ... o 
+o 
+possesses, in (I)+ 9 +(m), a formal matrix solution 
+(2 C) SF(X) = (eQJ (x} sij(x)) ~-- (eQJ (x +i--1)sj(X Jr- i-- I)) 
+(i,j= I,... F) 
+(the s~j(x), s-series). This system is satisfied by a matrix solution 
+(z d) Y"(x) = (y~(x)) = (yy(x + i-- ,)) (i, j-= ,,.. F) 
+consisting of elements analytic in (a) and of the asymptotic form 
+(2 e) Y~ ~ St(x) (x in (a); a-~I,., m). 
+
+===== PAGE 53 =====
+Analytic Theory of Singular Difference Equations9 53 
+Of course, the elements in the first row of Ya(x) form a fundamental set of 
+solutions of (2), and conversely. By hypothesis, such matrices Y~(x) (s~-I,... m) 
+exist so that the matrices R~(x), of periodic functions, defined by the relations 
+(3) Y~(x) = r~ +~(~) ~,.(x) 
+are asymptotically representable as follows 
+(3 a) R~(x) ~,~('~" ~:~ ~,~ 'ij~~ ~ 
+(the ~r integers; s= I, . . . m-- I', ~x => Q > o) 
+9 .s* is not zero unless for x in any region as in (Def. 5, w I). Here a constant ~.j 
+the corresponding function r~j(x) is. 
+Letting V~,,+I have the same meaning as in w S and reasoning as at the 
+end of that section we conclude that, for ~x >_--Q > o, 
+( (3 b) (rSj(x)) = (eQji(xs) 0~j(xs)), (0;~(xs)) = (~0 ~- x k f 
+s-~ I, . . . m-- I ; ~x~-~xs; ~{(x--x~), integer; x~ in V~,~+i). 
+Here k can be made arbitrarily great and the a~j(x)are bounded in V~,~+I. ~ 
+B ~, the right boundary of (s), while a B' curve for the set (I), may be not a B' 
+curve for the set Qi(x) (j: I,.../1). In such a case (r~j(x)) can be taken as 
+x( = (~j)). 
+Analogous facts can be stated concerning the equatiQn 
+(4) L,-r(Z) ~ z(x.+n--I')+el(x)z(x+n+ F--I)+ ... +C~-r(X)Z(X) = o. 
+In (I)+... +(m) it possesses n--F formal solutions 
+(4 ~) e~+~ (~) ~§ = L~(e~§247 
+(re-=i, ... n--F; the ar+~(x), formal s-series), 
+the eqJ (~)sj(x) (j-=I,... n) constituting a linearly independent set of formal solu- 
+tions of (I a). The related system of order n--F 
+i Relations (3 b) would continue to hold if the operator Li,(y) were merely proper (Def. 4', w I). 
+
+===== PAGE 54 =====
+54 George D. Birkhoff and W. J. Trjitzinsky. 
+(4 b) Z,~-r(x + l) -- D~-r(x) Z,~-~.(x), 
+O, I ... ) 
+| o,o,, : 
+will possess, in (I)+-. +(m), a formal matrix solution 
+(4 C) 8n--F(X) = eqr+J (x) Or+,, F+j(X)) ~ (eqr+J (x+i-l) (lf4-j(x -~- i-- I)) 
+(i, j = i,....-r) 
+(the ar+i,r+j(x), s-series). There exists a matrix solution of (4 b) 
+(4 d) Z~ = (z~+ i, r+ i(x)) = (z],+j (x + i- I)) 
+(i, j- ~ .... n-r) 
+with elements analytic in (a) and of the asymptotic form 
+(4e) Z~ (x in (a); a=I, ...m). 
+Matrix solutions, like these, exist with the additional property that the matrices 
+P~(x), of periodic functions defined by the relations 
+(5) Z,(x) = z~§ P~(x) 
+are of the asymptotic form 
+(P'~(x)=(pr+~, :+~ (x))) 
+~e 1% i, F+j xl)s~ p+i, l,+j) 
+(the ~* ~ --. /r+/,r+j, integers; s=I,.., m--l; ~x--> o > o) 
+~x for x in any region as in (Def. 5; w I). Unless a function p;:i(. ) is identically 
+zero the corresponding constant p~j* is not zero. Moreover, for ~x ~ 0 > o, 
+(5 b) (p~,+,:, r+j(x)) --~ (eqr+j, r+ ;~.~) ni,+i ' r+y(x,,)), 
+xk l 
+(s=I,...m--I; ~x-~yxs; {R(x--xs), integer; x~ in V,~,s+~). 
+In the above k can be made arbitrarily great and the l~i~.(x)are bounded in V~,,s+l 
+
+===== PAGE 55 =====
+Analytic Theory of Singular Difference Equations. 55 
+A process of group summation will be now applied for the purpose of solv- 
+ing the equation 
+(6) Lr(y) = zSr+~(x) (I <= tt <= n--I'; I <= s <= m). 
+Let 8. Z~,+~ denote the matrix of order F 
+l O ... O 1 (6 a) Z~+,~(x) = o ... o 
+,5+,(x)... z;.+,(,) 
+In each of the several rows the elements of the matrix 
+(6 b) Y" (x) ~ Y s-1 (t + i) Zr+~(t) MJ 
+t~x 
+l~x+l t~9~ 
+are the same. An element of the first row will be a solution of (6); denote it 
+by y~,+~(x). This function will be also a solution of (~ a). Writing Y~-l(x)-~ 
+= (9~j(~)) (i, j= ~ .... r) we have 
+r 
+8 8 
+(7) Yr+u(x) = ~ Yl~(x) ~)~r(t + I)zSr+,(t). 
+~=1 t=x 
+Here the summations are to be suitably determined. Consider a summand 
+9]r(t+ 1)z~r+~,(t). By (3) 
+(7 a) Y~(x) = Ye(x)R(x) (s < e < m) 
+where 
+R (x) = (r;j(z)) = R~-,(.) R ~-2(~) ... R e(x) 
+and 
+(7 b) r 0 (x) ~ e ~'~'~ ~ij~ r~ 
+(i, j= I, ... F; the ro, integers; ,~x > q > o). 
+Thus, noting that 
+
+===== PAGE 56 =====
+56 George D. Birkhoff and W. J. Trjitzinsky. 
+(7 e) 0Z~ (x)): R-~(.) Y~-~ (~) 
+(n_,(~) = (~;j(~)) _ (~,=~,j~,), y~-,(~) = (uS), 
+we have 
+(7 d) 
+On the other hand, by (5), 
+(s) 
+where 
+and 
+(8 a) 
+], 
+~r(t+ I) = ~ Cao(t):oeF(t+ I) 
+Z' (x) : Z ~ (x) P(x) 
+P(x) = (pr+;,,.+j(x))= p*-,(x)P*-~(x).., p,(x) 
+pr+i, r+j(x) ~ e 2~' -1 pr+~, r+j~p~+i ' r+j 
+(i, j= I,... n-- F; the pr+i, r+j, integers) 
+(s < e ~ m) 
+in any region extending indefinitely upwards, as in (Def. 5; w 1). Hence 
+n--T' 
+(8 b) z"r+ , (t) = ~ zer ,~(t)pr+,,, r+,(t). r" + ' 
+With the periodic functions in (7 a) and (8)formed for e=m and using 
+relations (2 e), (4 e) we conclude that, for x in (m), 
+(9) 
+I' n--F 
+2] 2] ~.+,~(~)9;r(x+ ~1 r~(xlp,.+,,,, i.+,d~) 0=1 W=, 
+I' n--/' 
+a~l W=I 
+(z= ,,... r). 
+In the above the ~r(x) are s-series defined by the relation 
+sT1 (x) = (eQ~ (~) s~j(x))-' - (e-Q, c~) ,~;j(x)) 
+(i, j = x .... F). 
+This is a consequence of the fact, pointed out before that I(sij(x))l (i,j~-I,... F) 
+
+===== PAGE 57 =====
+Analytic Theory of Singular Difference Equations. 57 
+has no logarithms present. In a strip Vm,,~+] of, say, unit width and situated 
+in (m) near the right boundary of (m) the real part of some exponent, 
+(9 a) 
+corresponding to 
+real parts of all 
+Let a:~', w:w' 
+non zero constants rz~,-* pr+~,* r+~ is equal or greater than the 
+other exponents (corresponding to non zero constants ~=*, p*). 
+be subscripts for which this occurs. Then, for x in l~,~, ,~+1, 
+(IO) y~./~(X-~- I)Z~,_F~(X ) -- 
+Now, by hypothesis, to the left of V~. ~+1 there is a curve F which is proper 
+with respect to the set (I). Consequently along every path, extending to infinity 
+and lying in V,,,,~+~ the function l eer+~',~(~) I has a definite order with respect 
+to le2~r---i~[; in fact, the exponential facto," in the second membe,'of (IO)will 
+have the same property. The expression g~.t~(x) stands for a sum of a finite 
+number of products of the form 
+(io a) p(x) 4x) 
+where [p(x)[= I and s(x) is a formal s-series. Such terms may be present only 
+if there are more than one exponent (9 a) with the same real part (which is 
+greater than the real parts of all other exponents 5. 
+Suppose again that s < e ~ m. Consider (7 a), but in place of (7 b) use 
+(3 b). We have 
+(~ ~) (r~(x)) -1 = (~(x)) = (eQJ,(~r ~ (x~)), 
+(~(x)) = (~,j 
+the 5q(x) are bounded in Vq, q§ and k~ can be made arbitrarily great. where 
+Thus 
+I I a) 
+8--32511. 
+(~(x + i))= (~(x))(~(x + ,)) 
+Acta mathematica. 60. Imprlm~ le 3 septembre 1932. 
+
+===== PAGE 58 =====
+58 George D. Birkhoff and W. J. Trjitzinsky. 
+F 
+= (2, . .~. 2e__ae?2 i (:r~)+Q2~)'1(Xs+ l)+ " " +Q2e--s)'e--.~--I (:~r " 
+9 0~21(Xs) 021 2~ (XS+ 1) 9 9 9 02e__s__ 1).e_s[xc-1) Yze .... i( x -~- I " 
+Now, by (2 e), for x in (e) 
+(~(~)) ~ ~7.'(~) = (~-~,l-).~o(~)) (i,j=~,... r) 
+where the gij(x) are s-series. If we write 
+(II b) (~)~(x+ I)) ~ (e-Oil,) ,~).(x)) (x in (e)), 
+it is apparent that the ~j(x) are s-series. The relations (II a), (II b) give the 
+asymptotic form of the #~.(x+ I), for x in (e), in such a way that the exponential 
+factors are explicitly given in terms of the Qj(x) (j-~I,... F). 
+Similarly, by (8) and (5 b), 
+(i2) (r F+/x)) = (~+,, F§ ~§ 
+X e--1 s = ('~'el~+i, I'+j()) (~)P+/. ,,+j(X))..o (~Pq-i. ,,+j(X)) 
+75 --/" 
+-~- { Z eqr+r r+a'(~c--1)+qr+~' r+a'-'(~e--2)+'"+Qr+J" r+~e--~(xs) " 
+t 
+a I . . ff~?__ 8 ~ 1 
+r+~,, r+..~v ~-lj ~+~.~, r+~(x~-2) 9 9 
+(r = ~,....-r). 
+For x in (e) the z~,+i,r+j(x ) satisfy the asymptotic relations (4 e)(with a=e). Thus 
+we have an expression for the asymptotic form, in (e), of the z~.+i,r+r ) in which 
+the exponential factors are in terms of the Qv+j(x) (j:I,... n--F). 
+(s < e), the following asymptotic relationship Consequently, for x in (e) 
+will hold, with I ~F, 
+(i3) 
+r ~-r B- ~ .... ~-~-~; t.'(x~ 
+).l...),e__s~l at...ae_s~l 
+
+===== PAGE 59 =====
+Here 
+(I 3 a) 
+where 
+(I3 b) 
+and 
+(~3c) 
+Analytic Theory of Singular Difference Equations. 59 
+H;i~:"a-e-s; l~(x) =" QF+o.,, ),e s (x) -~- [Q~,, )~(xs) ~-- Q;~,~, ).,(xs 41) -Jr... Ze__S; ).\ 
+* X * * X + Q~_~, ~.~_~_~( ~_~)] + [Q,~+~ Q'~+,.~,~.+Ax~-~)+ ... + Q,~+~,,,,+o~_~( ~)] 
+qj~(x~) = QAX) + log ~(x) 
+(i,j = I,... F; s ~ q) 
+Qt+j, r+i(xq) ~- Qr+j, r+i(xq)+ log z~q F+i(xq) l'+i, , 
+(/,j= I,... n- F). 
+The expressions Q* involved in (I 3 b), (I 3 c) are logarithms of corresponding periodic 
+functions. We take suitable determinations of the logarithms. Whenever a periodic 
+function is identically zero the corresponding term in (I3) , or in any similar 
+sum, will be zero. The summation signs in (I3) will be considered as extended 
+only over those terms for which the periodic functions are not zero. Only 
+superscripts and subscripts corresponding to terms actually present will be con- 
+sidered. 
+In the sum 
+superscripts 
+(I 3 d) (Z~.. 
+such that 
+(I 3 e) 
+Accordingly, for x in (e) 
+(i4) 
+where.., stands 
+which 
+13), for any given x in (e), there is a set of subscripts and 
+ze_~) = (z'~... z'~_s), (,,... ~_~)- (o'~... ~'~_,) 
+(/Pl ...... 
+H~,, ~176 ~ ~ (x) > ~H~: ~e-s; ~ Ix) 
+[(Z~... Z~_~; o~....~_~) ~ (Z'x... Z%_~; ~'~... o%_~); Z~... L-~= ~ ... r; 
+al...ae-s-~ 1...n--F]. 
+(8 < e), 
+~Ir(x + i)z~+~(x) ~ 
+0"1 " " " a'g-- S ; 
+p 9 
+(I G Le--s<Z F; I __--~ al ~ n--r ) 
+for a sum of finite number of products of the form (Ioa), 
+may be present only if there are more ghan one se~ of subscripts-super- 
+
+===== PAGE 60 =====
+60 George D. Birkhoff and W. J. Trjitzinsky. 
+scripts (I 3 d) for which (t3e) holds. In the sequel the inequalities satisfied by 
+)/e-s and a' 1 will be found essential. 
+In (s) the asymptotic form of ~.r(x+ ~)z~,+,(x) will be (Cf. (2e), (4e)) 
+(~s) ;( ( ;r'l ! 
+91 ~(x + 1)z~+~ (x) - e ~+'~, 9 ~ ~ ~(x) ,~-+,~(x) 
+(~>= ~;- ~. < r). 
+Since by hypothesis, for x in (I)+--. + (m), 
+Q'~(x) > 9l Q'~+,,(x) 
+(except possibly along the boundary) so that 
+~i (d'~+., ~(x) < o, 
+q~+,. ~(x) > ~ qr+~,. ~.(x') 
+(3x = 3x'; ~x < O~x') 
+whenever x and x' are in (I) +---+ (m). 
+it follows that 
+(I5 a) 
+Define the function Lr+l~,~.(x) as follows 
+(~6) 
+By (I 5 a) 
+(~6a) ~L~+~,, ;.(x) > ~Lr+,, ).(x') 
+(,~x = ,~x'; 9~x < ~x'; x, x' in (~')). 
+provided that x is in (s) while x' is in (s)+.. + (m), say, in (e) (s<e~m); 
+while ~ is a real magnitude negligible in a sense to be specified below, which 
+for x' in (s) can be taken as zero. Assume for a momen~ that (I7) holds. In 
+virtue of (I6), (I3a), (13b) and (I3 c) the inequality (I7) can be written in 
+the form 
+(I ~/.=< 1"; I ~!t~n--F) 
+(x in (.~)), 
+(x in (e); ~ < e < ~). 
+It will be proved now that, more generally, 
+(,~x -,~x'; ~tx < ~x') 
+
+===== PAGE 61 =====
+('7~) 
+where 
+(,7b) 
+Analytic Theory of Singular Difference Equations. 
+~)~ Q~,+~,, ~(x) > ~ { q~+~,,, ~,~_~.(x') + [Q~, ~. (x~) + Q~,_,~,~ (x~+~) +... 
+-~- e~'c__s_l~'e__8__2(Xe--2) ~- e)Je_s.~'g_8_l(Xe--1)] ~- [Q[,+o,$,y.+a,(Xe__l) 
++ ~+.,~, ~+.,~(~_~) + + Q~+.,~_~+~,_~_~(x~+~) 
+7~--1 . . . s+l -~" log] i,+a,,F+a,(Xe--i) T~ii,+a,e_s_l,F+a,e_s(Xs-]-l)]. 
+61 
+Ib(~ ')] 
+(I 7 c) ~1 ~ x,k 
+where [b(x')l is bounded and ]r can be made arbitrarily great. Let ~=--~. 
+If (I 7 a) is demonstrated, with ~--~, the inequality (i7) will have been de- 
+monstrated (with ~-~- ~1). Regrouping terms in (I 7 a), with the inequality sign 
+displayed tentatively, 
+(I 7 d) ,~ QF+I~ ' ).(x) > ~ { QF+a',, ).'e_s(x') + [ QI.+a,2, ~'e_s_l(Xe--1) -- QF+a',, ).'e_s(Xe--1)] 
++ [Q~+~,~,~,~_~_~(x~_~)- Q~+.,~,~,~_~_~(x0_~)] + 
++ [Q~+~ Q~+~,~_~_~,~,~(x~+~)] + [Q~+.,~(xs)- Q~+.,~_~,~,.(x~)]} 
+or 
+(I7e) 
+Now 
++ [QF-ka'~, ~.'e__s_l(.Xe--1)- QI'+a'2, ).'e_s_l(Xe--2)] + [qF+o'3, )Je--s--2(Xe--2) 
+-- QF+a'3, ~.'e_s.___2(Xe--3)] -~ .... ~- [QI'+a'e_8, .~.',(Xs+i) -- QT'+a'e_s, ~',(Xs)]}. 
+('7 f) ~x ~ ~x~ ~3xz+1 ~ ~xe--1 ~ ' 
+~x < !}tx~ < ~x~+~ <... < ~xe-~ < !}Ix'. 
+Since (I6 a) holds it is necessary to consider only the case I < e. The points 
+xs...xe-1, while correspondingly in the strips Vs,~+l, ... Ve-l,e, depend on 
+x' (x'--x~,... x'--xe-1 are integers). By (If) and (sb) the real function ~lmay 
+approach --~ as Ix']--~r162 but, in any case, 
+
+===== PAGE 62 =====
+62 George D. Birkhoff and W. J. Trjitzinsky. 
+The functions Q(~), with double subscripts, occurring in (i7e) have increasing 
+real parts as ~ moves to the left parallelly to the axis of reals and within the 
+region (I) + -- + (m). This follows from the fact that the firs~ subscript, in such 
+a function, is greater than F and the second subscript is equal or less than F 
+(see I5a). Taking account of (I7f) we conclude that the left member in (i7e) 
+is positive while the real parts of the differences occurring in the square brackets 
+in the second member of (I 7 e) are negative. Hence (I 7 e) holds. The steps by 
+means of which (I 7 e) was derived are reversible. Thus (i7)is demonstrated with 
+= -- ~l (~ = o in (s); (I 7 b), (I 7 e)). 
+In view of the preceding we are led to consider a summand 
+(I8) H(x) (= ~*~r(X + I)z*r+,(x)) = eL(~)h{x) 
+where L(x) (-~ Lp+p.2.(x)) ,atisl~e, (i6) and (I7)while 
+(IS a) h(.)- H(x) (x i,, (,) +-.. + (m)). 
+Here the formal expression H(x) is a formal s-series (Ho(x)=a'~.r(X)ar+~(x); (I5)) 
+for x in (s); in (e) (s < e _--< m) H(x) is a sum of a finite number of formal expres- 
+sions of the form (ma)(H(x)=J~., e_ r(x)ar+o',(x)+ "; see (I4)). Furthermore, 
+H(.) i. ~,~ZVti~ i,, (,)+... + (,~). 
+In this connection, as well as throughout, when we say that a function is 
+asymptotic to a formal expression it is meant that the function is representable 
+by this expression with the power series factors terminated after a sufficiently 
+great number of terms, while in place of the discarded terms expressions are 
+b (x) introduced of the form -xk- (Ib(x)l, for k fixed, bounded; k arbitrarily great). 
+In order to obtain an evaluation of 
+y(x) = ~ eZ'(t)h(t), 
+t~x 
+that is, a solution of 
+(~9) y(x + l) -- y(x) = eLI*lh(x) 
+consider first the formal equation 
+(I9a) y(x q- I) -- y(x) ~- eq(X)Ho(x) (= eQv+t*,a(x)a'ar(x)av+l,(x)). 
+
+===== PAGE 63 =====
+Analytic Theory of Singular Difference Equations. 63 
+By a Lemma 
+possess a formal solution 
+(I9b) 
+where s(x) is an s-series. 
+minuted after m' terms, m' being sufficiently great. 
+~(~)~ (~o) v(~) = ~Q(~) t(~) + -~I 
+of Birkhoff, previously quoted, such an equation certainly will 
+Let t(x) denote s(x) wi~h the power series factors ter- 
+Substitute 
+(k=m'/p) 
+in (I9). The new variable z(x) will satisfy the equation 
+(:o a) 
+where H'o(X) is 
+number of terms. 
+(20 b) 
+hence 
+q(x + I)z(x + I) -- q(x)z(x) = F(x) (q(x) = eq(~)x-k), 
+F(x) = e L (~) h(~) -- ~Q(~) t(x) = ~'~ (~) + F~(x), 
+F~(x) = e ~ (~) h(x) -- e~ (~) ~o(X), ~'~(x) = e~ (~') H'o(X) -- ~ ~Q(~') t(x) 
+Ho(x ) with the power series factors terminated after a suitable 
+The function /-/'0(x) is analytic in (,J +..-+ (m) and 
+U'o(X)- Uo(~) (= ~'~(~)~+,~(x)) 
+(x in (s) +... + (m)); 
+(20 c) F2(X ) -- eQ(~) fl~(x) X k" 
+where fl~(x) is analytic and bounded in (s)+ ..-+ (m), and k" can be made 
+arbitrarily great. On the other hand, for x in (s), 
+(2od) FI(X ) -- eQ(~)~I(X) (] ~I(X) ] < ~1) 1 
+xk' 
+where k' is arbitrarily great. 
+Writing 
+(2I) ~F(t)-- ~F~(t) + ~F2(t) t~93 t~X t~x 
+we evaluate ~F~(t), precisely as in ~ 4 by means of a contour integral with 
+t~w 
+1 The same remark can be made to hold for fl~(x), fl~(x) as previously made regarding fl(x) 
+of (3a; w 4). 
+
+===== PAGE 64 =====
+64 George D. Birkhoff and W. J. Trjitzinsky. 
+path of integration in (m) near the right boundary of (m). Thus ~F2(t ) 
+be considered to be a known function, analytic in (s) + ... + (m) such that 
+may 
+(~I a) x~;,; t~x 
+(1~'~001 < fl'~ in (~)+... + (,,,); ~",-~ as ~--~).' 
+Let x be in (s). Write, in accordance with w 4 (Cf. (5)), 
+f e 2"F=D-(~-t) F~(t)dt (22) FI(t) = I -- e 2"! ~-l(~-t) 
+t. -x L x 
+where Lx is a contour, formed as in w 4, with the constituent part L situated 
+in (m) near the right boundary of (m). The integer ). is determined depending 
+on the order (with respect to ]e 2€ along L, of the exponential factor of 
+Fl(t ). Existence of such an order may be ascertained as follows. We have 
+F~(t)-~ eL(t)h(t)- eq(t)H'o(t). A strip V of limited width can certainly be found, 
+in (m), near the right boundary of (m) so that throughout V either ~L(t) ~ ~ Q(t) 
+or ~Q(t)>=~L(t). Confine L to V. Taking account of the statement in italics, 
+following (IO), and noting that by hypothesis Q(t) (= Qr+,,;.(t)) is proper in V 
+(since the proper curve F may be supposed to be to the left of V) it is con- 
+cluded that in V the exponential factor of Fl(t) has a definite order with respect 
+tO [e2alF~t]. 
+By (~7) 
+~L(x') -- ~ Q(x) < -- ~ : ~, 
+(,~x:~x'; ~x<~x'; x in (s); x' in (s)+ +(m)) 
+where ~1 is small (see 17c). Also, by (I5 a), 
+Q(x') - ~ Q(x) < o 
+(~x = ~ ' ~x ;,~x ~. O~x', x in (s); x' in (s)+ + (-0). 
+As ~(x'--x) increases, these differences diminish sufficiently rapidly to secure, 
+in virtue of (20 d), the following relation 
+Here /q'.~(x) is of the same nature as ,2l(x) and fl2(x}. 
+
+===== PAGE 65 =====
+Analytic Theory of Singular Difference Equations. 65 
+(22 a) 
+Thus ~ F(t) 
+t~ 
+(23) 
+9@'1 
+t=x 
+may be considered us known and anMytic in (s)~nd such that 
+Xk 
+t=x 
+A solution z(x) of (2o a) may be given as follows 
+(24) Z(x) == X k e -Q(x) ~ s 
+t~9~ 
+where  F(t) 
+t~2c 
+is given by (23). Thus, this solution may be considered to be a 
+known function, 
+(24 a) Z(X)---~ X~--~'//(X) (] fl(X) l ~ fl in (8)), 
+analytic in (s). 
+tion of ~ e L(t) h(t) 
+t~X 
+(2 5) ~ e L c~l h (t) - eQ/=t s (x) 
+t~x 
+where s(x) is the proper series of (I9b) and m(k)---, ~ as k-~ ~r 
+Using this determination of z(x) and (20) we obtain an evalua- 
+as a function analytic in (s) such that, to re(k) terms 
+(x in (s)) 
+The integer Z in (22) we define as follows. Let e v(t) be the exponential 
+factor of F~(t) (for t in V). If s < m let Z be the greatest integer such that, as 
+It]~ in F, 
+(2~ a) 2~(z- ~)v + ~ v(t)~ - ~ (v= ~t). 
+If s = m let Z be the least integer such that 
+(25 b) 2zZv + ~V(t)-* + ~, 
+9--32511. Acta mathemat@a. 60. Imprim6 Io 3 septembre 1932. 
+
+===== PAGE 66 =====
+66 George D. Birkhoff and W. J. Trjitzinsky. 
+By (25 a), (z5 b) it follows that, for k fixed, (z5) holds to infinity of terms 
+(Cf. w 4). 
+As a consequence of this method of summation and of the asymptotic 
+forms of the y~(x) ().: I, ... F), known in (8), by (7) it follows that, for x in (s), 
+(26) ySr+:,(x ) ~ e Qr+.lz). s-series. 
+The second member of (26) is apparently a formal series solution; it has 
+the same exponential factor and, on that account, necessarily essentially 
+the same s-series factor as in the, originally known, formal series solution 
+eqF+#(z)tr§162 ). This construction can be effected for !t = I, ... n- F and for 
+s = I, ... m. Thus, the operator Ln(y) is proper. 
+w 8. Completion of the Proof of the Theorem of ~ 7- 
+It remains to prove that L~(y) is completely proper; i.e., that the periodic 
+functions, connecting the m proper matrix solutions of the system ((5); w I), 
+related to (I a; ~ 7), 
+(i) 
+ure proper. 
+(i a) 
+(I b) 
+Y~'(x) = (y~(x)) = (?1~(x + i- i)) 
+(i,j = I, ...~; 8 = I, ...~.), 
+We have 
+Y~(x) ~ S(x) -- (~ QJ~) 8,j(x)) = (eQJ(~'+~-%~(x + r i)) 
+(x in (s); s = I, ... m; i,j = I, ... ~); 
+~g~S(X ) : ~Ts-t-I(x ) es(x), es(x) -~- (~sj(x)) 
+(8 = I, ...19~- I; es(x-J- I)~--- es(x)). 
+Accordingly, for s < m, 
+(2) 
+~ (x) = rm (x) G (x) (G (x) -- (gij (x))), 
+G(x) = Gm-l(x) .. GS(x). 
+It will be proved first that the ffij(x) are proper periodic functions. 
+Consider o~F~(t), as given by (2z; w 7). This is a function analytic in 
+t=x 
+(8) +...+ (m); in (s) it is given by (22a; ~ 7). Let x be in the strip V (8 7) 
+to the left of L and, of course, not nearly congruent to L (when a position of 
+
+===== PAGE 67 =====
+Analytic Theory of Singular Difference Equations. 67 
+congruency is approached L is suitably shifted). Taking account of the fact 
+that Q(x) and L(x) [see statement in italics following (m; w 7)] are proper 
+(Def. 3; w ~), in V, and that F~(t) is given by (2on; w 7), it is concluded that, 
+for x in V, the exponential factor of 
+f Lx 
+~.v-~(x-t) ~; (t) dt 
+I -- e 2 ~ V~11 (x--t) 
+is comparable with le~'Y~x I. Taking account of this fact, of (2~ a; w 7) and 
+of (2I; w 7) it is observed that the exponential factor of z(x) (see (24; w 7)) has 
+the same property for x in V. 
+Hence the function y(x), as given by (2o; w 7), that is, 
+t=x 
+(i _<). ~< I'; i<~tt<=n--F) 
+has its exponential factor comparable with [e2~V~[ for x in V. This func- 
+tion is analytic in (8) +.-. + (m) (to the left of L). 
+Consideration of (Ta; w 7; e:rn), (7c; w 7; e:m) and the fact that the 
+@ij(x) (i, j = I, ... n) are proper in V make it clear that each of the functions 
+()'. ~ I, ... /1; see (7; w 7)) 
+has its exponential factor comparable with [e2nV--la" I for x in V. Consequently, 
+an element 
+will have the same property. 
+Therefore 
+y~+,(x) (i~tt~=n--F; (7; w 7)) 
+(3) YS(x)- S*(x) (x in V) 
+where the elements of the matrix S*(x) are formal series with exponential factors 
+comparable with l e~'~V-~xl for x in V. On the other hand, 
+y~,(x) ~ s(x) 
+for x in (m) and, in particular, in V. Hence, by (2), 
+G(x) - s-l(~) s*(~) : i"(x) (x in V). 
+
+===== PAGE 68 =====
+68 George D. Birkhoff and W. J. Trjitzinsky. 
+The exponential factors of the elements of the matrix S-l(x) are the e qji(xl and 
+hence are comparable, in V, with [e2aY'-T~x[. Consequently the same will be 
+true of the exponential factors in the formal matrix F(x). 
+The elements of G(x) are analytic in an upper half plane and, by what 
+precedes, they are of the asymptotic form 
+(4) G(x) = (g;/x)) - 
+(the gij, integers; gij*, constants; ~x ~ 0 ~ o) 
+as in (Def. 5; ~ I). Thus the gij(x) are proper periodic functions. 
+Write for this matrix G(x) 
+G(x) = em~(x) -~ (gS~(x)). 
+The matrices G'~(x) (s ~ I,... m-- I) all consist of proper periodic functions. 
+A matrix GS(x) (I <=s<= m-- I), occurring in (1 a) is representable as 
+(4 a) GS(x) _= (g~, ,+1 (x))-' (gimj~(x)) (s = I .... m -- 2). 
+The determinant [(gi~.,~+X(x)[ could not vanish since otherwise at least one of 
+the set of determinants 
+[Gm--l(;~)l, [G~tn-2(x)[,... [Gs+l(x)[ 
+would vanish. This, in virtue of (t b), would imply that not all the matrices 
+Y~(x) (a= I,... m) are fundamental matrix solutions. Thus, the elements of the 
+matrix (f',~+l(x))--i o" , are proper periodic functions. The same will be true for the 
+elements of the product (4a). The matrix G"-~(x) is really G",r"-~(x), and its 
+elements are also proper periodic functions. It is seen, then, that the elements 
+of each of the matrices GS(x) (s~ I, ... n~--I) are of this type. Hence Ln(y) is 
+completely proper, and the Theorem is proved. 
+An application of Theorem I (w 5) and of the methods of w 5 will yield 
+the following Lemma. 
+Lemma 10. Suppose that the conditions of Theorem II (w 7) hold. Assume, 
+moreover, that the coefficients in Ln(y) are known and of the right kind (see w I) 
+not only in (I) + ... + (m) but also in a more extensive subregion of F, 
+(,)+ + (m) + + > m). 
+It will necessarily follow that L,~(y) is completely proper in (1) +... + (~). 
+
+===== PAGE 69 =====
+Analytic Theory of Singular Difference Equations. 69 
+w 9. The Fundamental Existence Theorem. 
+The results of the preceding sections have prepared the way for the proof 
+of the main result of this paper. This result is embodied in the Theorem. 
+Fundamental Theorem. Every equation L~(y)~ o (or system), with 
+coefficients of the kind specified in w I and known in the complete neigh- 
+borhood of infinity, is completely proper in each of the several quadrants 
+associated with the equation (or system). ~ 
+Proof. It is sufficient to give the proof for some quadrant. Let F be 
+this quadrant. We may assume the implication of the statement in italics pre- 
+ceding Lemma I (w 2). The methods so far developed indicate how to meet the 
+situation when the condition of that statement does not hold. In fact, it is 
+sufficient, whenever necessary, to replace a 'multiple' B' curve by several cor- 
+responding 'simple' B' curves, 'parallel' to each other. This is always possible 
+since, as stated before, B' curves are to be considered to be determined except 
+for a translation. 
+Certain terms, embodied in the following definition, will be found con- 
+venient. 
+Definition 10. A set 
+... 
+which has a point of division in a region G between the F-th a~d F + I-st eler~ents 
+of the set, will be said to have a point of separation, in G, if 
+Qi(x) > ~ Q'~+,(x) 
+(Z:I, ...F; ~-I, ...n-F; x in G). 
+The Q-factorization corresponding to a point of separation will be called Q*-fac- 
+torization. 
+We note also the following simple fact. If ~ Q~(x)~ ~ Qj(x), while interior 
+to e (along some curve) ~Q~(x): ~Q~(x), then in some portion of G 
+Q;(x) > m Qj(x), 
+A similar result will hold, for more restricted regions, when the coefficients of Ln(y) (or 
+those involved in a system) are of the right kind (w I) in certain portions of the plane only. 
+
+===== PAGE 70 =====
+70 George D. Birkhoff and W. J, Trjitzinsky. 
+while in another part of G 
+< 
+If the theorem is not true, there are equations L,~(y)-~ 0 (~ > 2) of least 
+order n for which the theorem fails in F. Let 
+(I) L,,(y) ~- o 
+be an equation of this kind. If the set of Q(x)'s 
+(I a) (~1(37), . .. Qn(X), 
+belonging to this equation, is such that !}~Q~(x)= ~{Q'~(x)=~..-=-9~Q',,(x)the 
+equation will be seen to be completely proper in I" (see Theorem I; w 5)- Hence 
+not all the 9~ Qj(x) (j-~- I, ... n) are identical. 
+Suppose now that in F the set (I a) has a point of division. Necessarily 
+there will be a point of separation in F. By Lemma 9 (w 6) there will be a 
+factorization 
+(I b) L,,(y) ~ L,,-~.Lr(y) = o 
+(I </'< ~; x in F) 
+corresponding to the point of separation. In 1", near enough to the positive 
+axis of imaginaries, there is a curve F which is proper (Def. 9; w I) for the 
+set (I @1 Now, the operators L,-r(z), Lr(y) are completely proper in F, since 
+n--F<~ and F<~. Theorem II (w 7) is applicable and, consequently, L,~(y) 
+is completely proper in F. Hence there can be no point of division in F. 
+Accordingly, assume that the set (i a) has a point of division in (t) + ... + (m) 
+(a subregion of F) and has no point of division in (I)+ .. + (m + I). ~ Necessarily 
+there can be only one point of division in (I) +... + (m). Since the O~Q~(x) 
+(j = i, ... ~) are not all identical this point of division is necessarily a point of 
+separation in (I) +... + (m). L,~(y) is correspondingly Q*-factorable. Let 
+(2) Ln(ff) =-- L,-r Lr(y) = o 
+(I~F<n; x in (I)+.. +(m)) 
+be the corresponding factorization according to Lemma 9 (~ 6). By Lemma 3 
+t This will be true, of course, for any set of Q(x)'s. 
+Incidentally, this would mean that ~7~ ..... ~;'n and tt~ ~tt2 ..... ,u n. 
+
+===== PAGE 71 =====
+Analytic Theory of Singular Difference Equations. 71 
+(8 2) there exists a curve F, in (m), which is proper for the set (I a). Suppose 
+that L~,-r(z), Lr(y) are both completely proper in (I) +.-. + (m). By Theorem II 
+(8 7) it would then follow that Ln(y)is completely proper in (I)+ ... + (m). 
+Furthermore, by Lemma ~o (8 9), L,.(y) would be completely proper in F. Hence 
+at least one of the above two factors is not completely proper in (I) + ..- + (m). 
+Let it be denoted by L ~. 
+Consider the equation 
+Ll(y) -- o. 
+Its coefficients are known in (I)-~-''"-~ (m). NOW, Ll(y) is not Q-factorable 
+in (I) +... + (m). There exists an integer "h, 2~m l<m, such that L~(y) is 
+Q-factorable (and, of course, correspondingly factorable) in (I)+--. + (ml) and 
+is not Q-factorable in (I)+ .-. + (m~+ I). ~ This Q-factorization of L~(y) is 
+necessarily unique in (I)+-.-+ (m~). The ~Q'(x) belonging to Ll(y) cannot, of 
+course, be all identical. Hence this Q-factorization is a Q*-factorization. By 
+Lemma 3 (8 2) the set of Q(x)'s belonging to Ll(y) will be proper (Def. 3; w I) 
+to the right of a curve F~, lying in (m~). If both factors of L~(y)=o, known 
+in (I)+ ... + (m~) and corresponding to the Q*-factorization, were completely 
+proper in (~)+... ~-(m~) it would follow by Theorem II (8 7) that L'(y)is 
+completely proper in (~ + -.. + (m~). By Lemma Io (8 8) L~(y) will be completely 
+proper in (I) ~ .... + (m). Hence at least one of the two factors of Ll(y) is not 
+completely proper in (I)+--. + (m~). Denote it by L 2. 
+The equation 
+Le(y) = o, 
+with coefficients known in (I)+... + (nh) is not Q-factorable in (I)+... + (m~). 
+There exists an integer me, 2 ~ m~ ~ ml, such that Le(y) ~ o is Q-factorable in 
+(I) +... + (me) and is not Q-factorable in (I) +-.. + (m 2 + I). By the reasoning 
+applied to L~(y)= o, previously, it is shown that of the two factors of Le(y), 
+which correspond to the Q-factorization (necessarily Q*-factorization), at least 
+one is not completely proper in (I)+--. + (me). Denote this factor by L 3. 
+Continuing the indicated process, we obtain a sequence of integers mi 
+2 <= . . . < mi < . .. .< ml < m 
+and a sequence of equations Li(y)~-o such that the following conditions hold. 
+1 An equation which is not Q-factorable might be factorable (in the usual sense}. 
+
+===== PAGE 72 =====
+72 George D. Birkhoff and W. J. Trjitzinsky. 
+,% L~(y)is not completely proper in (I)+...-4-(~[/i-1) (m0 ~-~v/$). 
+2 ~ . L*(y) is Q*-factorable in (I)+,-. + (mi) and is not Q-factorable in 
+(i) +... + (m, + i). 
+For a certain i (~-~ i') we have me--~ 2. Correspondingly there will exist an 
+equation Lr = o with coefficients of the right kind (Cf. w I) in (t) +..- + (~,~,-~) 
+(2 < mi'-~), Q*-factorable in (I) + (2) and not Q-factorable in (I) + (2) + (3). By 
+Lemnla 9 (8 6) there will be a corresponding factorization 
+L~'(y) ~ Lk-r Lr(y) = o 
+(I < I'< k; x in (I) + (2)). 
+Necessarily the factors will be of order one and two. The B' curve, separating 
+(I) from (2), will correspond to the two Q(x)'s belonging to the factor of order 
+two; that is, the subscripts associated with this curve will be those of the two 
+mentioned Q(x)'s. Hence, in view of Lemma I (w 2), Theorem I (w 5)will 
+certainly be applicable to the factor of order two. Thus tbe two factors are 
+completely proper in (I)+ (2). Now L~'(y) is Q*-factorable in (I)+ (2) and is not 
+Q-factorable in (I)+(2)+(3). Hence, by Lemma 3 (8 2), the set of Q(x)'s 
+belonging to L*'(y) is proper to the right of a curve F, lying in (2). By 
+Theorem I[ (8 7) the operator L~'(y) will be completely proper in (I)+(2). 
+Moreover, in virtue of" Lemma to (8 8), Lr will be seen to be completely 
+proper in (I)+-.-+ (m~,-1). We have thus arrived at a contradiction. Thus, 
+the Theorem has been proved for I'. 
+For the several other quadrants (below the axis of reals, to the right of 
+the axis of imaginaries, and for various ranges of arg x)the demonstration would 
+be entirely analogous and structurally identical with the one just given. Thus 
+the Theorem is seen to be true. 
+It is essential to note that given any particular equation the preceding 
+sections give actual methods for construction of those solutions and of those 
+periodic functions whose existence has been established in the Fundamental 
+Theorem. 
+If we consider two adjacent quadrants with a common strip V along, say, 
+the positive axis of imaginaries it is noted that the two proper sets of solutions 
+corresponding to the two overlapping sub-regions of the quadrants are connected 
+by proper periodic functions. This is seen to hold because every set of Q(x)'s 
+is proper in such a strip. In this sense, every equation L,(y)= o (or system), 
+
+===== PAGE 73 =====
+Analytic Theory of Singular Difference Equations. 73 
+with coefficients of the right kind in the complete neighborhood of infinity, is completely 
+proper in each of the several upper and lower half-planes associated with the equation. 
+w io. Connection between 'upper' and 'lower' Solutions. 
+Consider two adjacent quadrants F and g2 above and below the negative 
+axis of reals, respectively. We shall write 
+r=(~)+(~)+. , .q={H+[2]+ 
+(see w 3). Let K denote the combined region (I)+ [I]; this region extends in- 
+definitely upwards and downwards from the negative axis of reals. It may 
+happen that the negative axis of reals is a B' curve. In any case, (I) and [I] 
+may be considered as overlapping along a strip H: 
+-Q_-<~x=<e(e>o), Ixl>_-~>o. 
+~r Q', (x) _>_. ~ ~ Q;,,(x) 
+will be maintained in K, if the negative axis of reals is not a B' curve. In the 
+contrary case assume this ordering in the region (I) down including the nega- 
+tive axis. The lower boundary of (I), h, will consist of a portion ot the line 
+~x~--Q. The upper boundary of [I], h*, will consist of a portion of the line 
+Let P~(x) be a matrix solution, consisting of elements analytic in (I), such 
+that 
+(i a) r~ (x) - (Y5 (x)) - s (x) = (eQ~ <~) sij(~)) 
+(i,j~-- I, ...n; x in (I)). 
+Let Yt(x) be a matrix solution, with elements analytic in [I], such that 
+(I b) Y~ (x) : (YI'j (x)) ~ S (x). (x in [I ]) 
+The matrix P(x)(~ (p~j (x))) of periodic functions, defined by the relation 
+N) Y~ (~) = Y~ (x) p (~), 
+consists of elements analytic in H. By (I a) and (I b) it follows that 
+10--32511. Acta mathematica. 60. lmprim6 Iv 3 septembre 1932. 
+An ordering 
+(i) 
+
+===== PAGE 74 =====
+74 George D. Birkhoff and W. J. Trjitzinsky. 
+(2a) (pi.i(x)) = (eQJi(~) ((~ij + ~))), 
+where k can be made arbitrarily great while the Qij(x) are bounded in H. 
+Along the negative axis of reals the ordering (1) holds, that is 
+Qj, (x) => o. (j < i) 
+Hence ~Qji(x) (? < i) is non increasing as [xl--+m along the negative axis. 
+virtue of (2 a) and the periodicity of the po(x) we shall have 
+Po" (x) = lim p;j (x') = o 
+I~'i~= 
+(,~ x = ,~ x' = o; 9{ x > ]{ x'; x -- x', integer) 
+for i >j; on the other hand, 
+.pii(x) = limp//(x')-- I (i = I, ... 9~). 
+Iz'l 
+Since the pij(X) are analytic it would follow that 
+(~ b) pij (x) ~ o (i > j), 
+p,,(x) =- I (i = ,, .. ,). 
+Definition 11. 
+(i > j), while h,i(x) ~ x (i= I, ... n). 
+Use the transformation 
+A matrix (hij(x)) will be termed a half matrix if h~y (x)=--o 
+p (x) -= G (~) = (g,j (,)). 
+The g~j (z) are analytic for e -~ < [z I < e2", ~ Letting e, denote the circle [z I = 
+= e-2~, ~ and ca denote the circle I z[= e2"~ the following will hold for any func- 
+tion g(z) analytic for e-2"e <lz] < e 2~'~ 
+(3) v (*) = a (-~) + b (,), 
+(,(~), fv~g)d~, b(z)_ I f g(~)d~ 2~|7 1 2 ~ l/7i j ~-77 
+C~ C 1 
+In 
+Write 
+(2 c) 
+z = e 2~V--~ x. 
+
+===== PAGE 75 =====
+Analytic Theory of Singular Difference Equations. 75 
+where c~ is described in the counter clockwise direction and c~ is described in 
+the clockwise direction. The function a (z) will be analytic interior to c~, while 
+b (z) will be analytic exterior to Cl. 
+We seek to de~ermine half matrices B (z) (~ (bij (z))) and A (z)(= ((a,j (z))), 
+with the bij(z) analytic exterior to c* and the aij (Z) analytic interior to c*, so 
+that 
+(4) P (x) = G (z) = B (z) A (z); 
+here the radius of the circle c~ is to be slightly greater than e-2S~ while the 
+radius of the circle c~ is to be slightly less than e 2~Q. 
+From (4) we have 
+(4 a) g,:~ (~) = F, b. (~) ~.5(~)- 
+~1 
+Let i>j. In the second member bii(z)=o for i>), so that Z=Z. In the 
+).21 2=i 
+latter sum the subscripts of the aij(z) satisfy the inequalities 
+Z >i>j; 
+thus these a),j(z) are 
+should have 
+zero. Hence (4a) is satisfied for i >j. For i~-j we 
+(4 b) I = Z bjz(z) azj (z) (i = I, ... n). 
+t=1 
+The equations (4b) are obviously 
+(i > i) while b,,(~) = ai,(~) = i. It 
+equations take the form 
+satisfied since bii (z) -- o (i > i), aii (z) = o 
+remains to consider (4 a) for i <j. These 
+J 
+(4 c) gij(z) = ~ b,z (z) azj (z) (i <j; i,j-= I, ... n). 
+They will be grouped, for a = I, 2,..., as follows 
+i+o 
+(5) g,, f+a (z) = Z 5i~ (z) ai, z'+~ (z) 
+An equation 
+gi, i+l (Z) = ai, f+l (Z) "47 hi, i+1 (~) 
+(i --- I, . .. n - 0). 
+
+===== PAGE 76 =====
+76 George D. Birkhoff and W. J. Trjitzinsky. 
+of the set (5; a= I) will be solved by letting 
+2zV:21 ~--z ' c~ 
+These are functions of the desired type. The function 
+(5 b) 2 gi, i ~- 2 (~) ~- gi, /+2 (Z)- hi, i+1 (.~)ai+l. i+2 (~) 
+is consequently known and analytic in a closed Laurent ring (c~, c~) slightly in- 
+terior to the ring (c~, c~). The set (5; a= 2) can be written in the form 
+(5 c) a,~,,+~ (,)= ~,,,+~ (3) + b~,,+~ (~) 
+(i= i, n-2). 
+Solutions of this set, of the desired kind, are obtained by writing 
+(5 d) 2 
+Suppose that desired solutions of (5) have been obtained for a= I, 2,... m-- i, 
+with reference to a Laurent ring (c': ~-1 , c~-1), slightly interior to the ring 
+(c~, c~). As a consequence, the function 
+(6) g~.,ti+ m (Z) ~- g,, i+m (3) ~- [bi, i+1 (~) ai+l, ,+m (Z) 
+"~ hi, i+2 (z) ai+2,i+m (z) ~- " " ~- hi, i+m-1 (~) ai+m-.1, i+m (Z)] 
+will be known and analytic in a closed ring (c~, c'~), interior to (c~ m-l, c~-1). 
+The set (5; a= m) can then be written in the form 
+(6 a) g'~ (z) - a; ,+.~ (3) + b~..., (z) i, i4-m 
+(i= I,... n- l) 
+
+===== PAGE 77 =====
+Analytic Theory of Singular Difference Equations. 
+and can be solved by writing 
+(6 b) ~,, ~+~ (~) -- 
+2~V-~ J ~-z ' 
+77 
+I fg~ 
+Thus the matrix equation (4) may be considered solved as required. The 
+elements of A(e) will be analytic for ]zl < e 2"~c and those of B(e) will be ana- 
+lytic for [z[>e -~~ (e>c>o). In virtue of (6b) the aii(x)(~aii(z)) are of 
+period uni~y, analytic for .~x >--c and of the form 
+(~) ~. (x) = e ~'~r ~J ~ ~,.*j + ,. 
+(a~j, integer, > o; .~ x > -- c) 
+where the second member is a convergent series in positive powers of e ~V-~'. 
+Similarly, 
+(7a) fl,j (x) = e -2~g:i ~,J ~ +.. 
+(Oh j, integer, >= i ; ~ x ~ c) 
+where the second member is a series in positive powers of e -2~g-i~. Conse- 
+quently, the aij (x) are proper in an upper half plane, and the fl~j(x) are 'proper 
+in a lower half plane'. ~ That is, in suitable regions 
+(s) ~ (x) ~ e ~v-~ ~ 9 ~b 
+({~ij, integer, >o;= ~x>_ -- c; a~i= o; a*-=,~ I," i,j = I, . . . n), 
+(8a) ~i~ (x) - e -~r ~,j 9 ~ 
+(fl~j, integer, ~ I; ~x~'c; fl~i=o; 8T,:=I; i,j-~I, ...n). 
+Besides, (aij(x)), (flij (x)) are half matrices. It can be easily shown that (aij (x))-' 
+(~ ((~ii (x))) also is a half matrix, with elements analytic for ~ x ~- c and pro- 
+per in an upper half plane; 
+The meaning of the latter term is made obvious by analogy to (Def. 5: w I), which was 
+given for an upper half plane. 
+
+===== PAGE 78 =====
+78 
+(8 b) 
+(9) 
+In this case, 
+identically, 
+(9 a) 
+George D. Birkhoff and W. J. Trjitzinsky. 
+-~j (x) ~ e"~V-~o '~ ~5 
+-- -* ~ I). (aij, integer; ~x~--c; aii-~o; aii 
+Examine the situation when 
+Q~ (x) ..... 9~ qj (x) 
+(a <j; x on negative axis of reals). 
+by (2 a), it would follow that along the negative axis, and hence 
+p,,, (x) = o (i < m; ~ _-< i, m =< j). 
+It will follow that gj_,,j (z) (= g'j-,..i (z)) -= o so that, by (5 a), 
+~j_,,j (~) = bj_,.j (z) = o. 
+If a =<j- 2, by (9 a), gj-2,j(Z)--~" O. The relations 
+gj_., j (~) -- aj_,,j (~) = o 
+would imply that g]-2.j(z) (see 5 b) is zero. This, in turn, would mean that 
+aj--2,j (Z) = bj--2,j (z) : o (see (5 d)). 
+By induction, it could be shown without difficulty that (9) implies the relations 
+(m) ~,~ (x)= ~+,,j(x) ..... ~-,j (x)=- o, 
+,~,,,~(x) = ~o+,,~(x) ..... ~j-,,j (x) -- o. 
+These relations would necessarily follow if in place of (9)it were merely assumed 
+that 
+(IOa) ~)~ Qj,j-l(X), ~ Qj, j-2(x), .. . ~ (t~j,o(x) ~ 
+along the negative axis of reals. 
+Now, for 3= I, z, ..., 
+j+s--1 
+(II) Z ~i, 2 (X)~2, i+s(X) ~- (~i,i+s(X) ~ gi, i+s(X) = o 
+~.=i+ I 
+(i = i .... n- s). 
+Suppose (Io) holds. By (t I; s= I) 
+
+===== PAGE 79 =====
+Analytic Theory of Singular Difference Equations. 79 
+(II a) ~/,i+l(X) =-- tti,/+l (x) (i= I .... n- I) 
+so that, since qi-l,j(x)=o, we have ~j_l,j(x)~-o. By (1I; 8=2), for i ~- 
+fXi, i+2 (X) ~- ~f, i+2 (X) "~- ~,, i+1 (X) {Xi+I, i+2 (X) = O. 
+~_~,~ (x) + ~j_~,j (~) + ~j,j_~ (~) ~_,,j (~) = o 
+in (IO) a_--<j--2, necessarily ad-2.j(x)=o. 
+Thus 
+so that, if By induction it follows 
+easily that the first line in (IO) implies that 
+(i 2) ~o, j(x) = ~+l,j(x) .... = ~;-1,j(x) -= o 
+Thus, (IOn) implies (Io) and (I2). 
+Consider the matrix Z(x) (= z~j(x)) defined by the relations 
+(I 3) yu (x)(6ij (x)) = Y~ (x)(~i~ (x)) = Z (x). 
+This is apparently a matrix solution. Its elements are analytic in K(= (I)+[I]). 
+This follows by (2) and in virtue of the relation (4), 
+p (~) = (~,j (~)) ((~,j (x)) 
+For x in K and ~x ~-- e, on account of (I a) and (8b), 
+r5 (~) " t~3 a) z,5(x) = e~<~I t.(x) + ~ + r/~(x) , 
+y--~ ( u 
+(I3 b) rij(X) = Z eQ2J(X)+2g]fl-----la2jz ti2(X) + I-~'z(~ (~,i + "" ") 2~1 Xk I " 
+Here hi(x) denotes sij(x) with the power series factors terminated after k terms 
+(k sufficiently large); for a fixed k the /'~j (x) are bounded in K for ~ x ~- c, 
+while k~ can be made arbitrarily great by taking k sufficiently great. The ~Q)4 (x) 
+(Z = i, ... j-- i) are non-increasing, in virtue of (I), as x--, 0r along the nega- 
+tive axis of reals. In fact, at least for Ixl sufficiently large, the inequalities (i) 
+would imply that, for x in K in a strip 
+(~4) o _-< .q z _--< d (o < d), 
+wa have 
+(I4 a) ~R Q1 (x) ~ 9~ Qe (x) _-<.-. =< ~ q,, (x); 
+
+===== PAGE 80 =====
+80 George D. Birkhoff and W. J. Trjitzinsky. 
+moreover, (14) will hold, in K, in a wider strip 
+(14b) -- d ~ ~x ~ d 
+if (I) is maintained throughout K. 
+If ~ Qj--Lj(x) approaches --~ along the negative axis, the same will be 
+true of the ~ Q).j (x) ().-~ I, . . . j -- 2), and, more generally, this would be the 
+situation in a strip (I4) or (I4b), as the case may be. Thus, if ~Qj.j-~(x) is 
+not bounded along the negative axis of reals, all the exponential factors in (I 3 b) 
+will diminish rapidly enough, as x-~ in K in the strip (14), to insure the 
+asymptotic form 
+in this strip. If ~ Qj, j_~ (x) is not bounded along the negative axis of reals and 
+(1) is maintained in K, (t5) will hold in the strip (14b). 
+Suppose thai, the functions 
+:)i Q~,;-1 (x), .~]l q~.,j-2 (x), ... ,~ Qj, ~ (x) 
+are bounded along the negative axis of reals. In view of the statement in ita- 
+lics, following (I2) it is clear that (I2) will hold. Thus, if a- J, 
+,-,~ (x) -= o. 
+On the other hand, if a > i 
+a--1 
+(~6) r,s(x) = ~ .. 
+).~1 
+The exponential factors in the latter sum may be supposed to approach zero in 
+the strip (I4 a) (or in the strip (I4 b)). Consequently the asymptotic relation (15) 
+will certainly hold in the strip (I4), in K. It will be maintained in a strip (I4 b) 
+if (I) holds throughout K. 
+Consider all those curves which lie in F and satisfy equations 
+(I7) ~ [Qij (x) + 2 7oF -- i ctij95.1 = o (i <j) 
+formed for all 
+axis of reals. 
+curves (I7) in 
+such i and j that ~ Qii(x) approaches --~ along the negative 
+Let B': denote the lowest of these curves. In the case of no 
+1" we let B' denote the right boundary of 11 . If the limiting 
+
+===== PAGE 81 =====
+Analytic Theory of Singular Difference Equations. 81 
+direction of B~ ~ is that of the negative axis of reals, this curve will be neces- 
+sarily of the form 
+(I7a) v=h(--u)e'+ '' (x=u+V--iv; h>o; i >el>o). 
+Let B u denote some curve in F, to the left of BI ~, with a limiting direction 
+slightly different from that of B~ if Be is not of the form (x 7 a). In the con- 
+trary case let B u satisfy an equation 
+(17 b) v = h (-- u)e, (el > e > o). 
+In any case B u is to be in F. 
+We shall have 
+(i 8) z (x) - s (x) 
+in the closed region /~u consisting of the part of K bounded below by the ne- 
+gative axis of reals and bounded above by the lower one of the two curves B' 
+(upper boundary of K), /~. 
+If the ordering (I) is maintained in K the relation 
+z (x) = Y~ (x) (#,j (x)) 
+may be used t,o show that (18) holds also in a closed region K * consisting of 
+the part of K bounded above by the negative axis and bounded below by a 
+curve B t, lying in ~2, or by the lower boundary of K. The curve B z is to be 
+considered as determined With reference to the set of equations 
+[Qij (x) - 2 ~r lf~i ~,j x] -~- o (i < j) 
+just as B u has been specified on the basis of the equations (I7). 
+Consequently the following has been made evident. Given matrix solu- 
+tions Y'(x), Y~(x): proper in (I) and [I], respectively, there exists a matrix solution 
+Z(x), with elements analytic in K (--(I) + [I]), such that Z(x)----- Y~(x)pU(x)-~ 
+~- Yt(x) U(x). Here P"(x), t~(x) are half matrices consisting of periodic functions 
+proper in an upper and lower half plane, respectively. Moreover, Z(x) may be so 
+constructed that Z(x) ~ S(x) in a sub-region of K, extendin 9 from the negative axis 
+upwards (or downwards) at least to a curve of form v ~-h (--u) ~. In the latter 
+equation h is positive (or negative) while 1 > e > o. In particular, if the negative 
+axis is not B' curve, Z (x) ~ S (x) in a sub-region of K (or in K itself), extending 
+from the negative axis upwards and downwards at least to curves of the form 
+11--32511. Acta mathematica. 60. Imprim6 le 3 septembre 1932. 
+
+===== PAGE 82 =====
+82 George D. Birkhoff and W. J. Trjitzinsky. 
+v~h(--u) ~ (h real, ~o; I >e>o). 
+It is clear that analogous facts will hold wi~h reference to quadrants, above 
+and below, the positive axis, to the right of the axis of imagin~ries. 
+I I. The Converse Theorem. 
+In this section the problem, inverse to the one solved in the Fundamental 
+Theorem, will be considered. The result, in this connection, will be embodied 
+in the theorem. 
+Theorem III. Let 
+(I) eQ, (" s~ (x), e~: (~) s~ (x), . . e% (" s~ (~) 
+be a linearly independent set of formal se~4es where the Qj(x) and the formal 
+s-series sj (x) (] : l, ... n) are of the same general description as might occur in con- 
+nection with a d(fference equation of order n. Let R 1, R 2 .... R,, R,+l, ... be 
+the set of consecutive regions, formed with reference to the set of Qj (x) (j : l, ... n) 
+as on the preceding pages. Let two such consecutive regions have at least a strip 
+of, say, unit width i~ common. 
+Let there be associated with each region R~ (s : i, 2, . . .) a set of n functions 
+(2) y~ (x), y~ (x),... y~(x) 
+analytic in R,, and such that 
+(~ a) v~ (x) - ,Q~ C~) sj (x) (j = I, ... ~; x i?~ Rs). 
+Assume that, for s = I, 2, ..., 
+7~ 
+(2 b) ?(f (x) = ~ y~+l (x) r~)s"s+lt.3 (X) (j = I, ... n) 
+)~-1 
+8.,+1 of period one. where the pij (x) are 
+It will necessarily follow that there exists a d(tference equation of order n 
+(3) L,~ (y) ~. y (x + n) + al (x) y (x + n -- i) +''" + an (X) y (X) = O, 
+with coefficients of the same kind in the complete J~eighborhood of infini 0 as postu- 
+
+===== PAGE 83 =====
+Analytic Theory of Singular Difference Equations. 83 
+lated in w I, possessing the following properties. 
+of formal solutions of (3). Each set (2) will 
+of (3). 
+Proof. Form the determinant 
+The series (x) will constitute a set 
+be a fundamental set of solutions 
+(4) D~ (y) 
+y (~ + n), y'~ (x + .), ... y,~ (z + ,) 
+y (x + n -- ~), y'; (x + ,~ -- ~), ... y~(x + n -- ~) 
+y (x), ~ (x) ... y~ (x) 
+--d~o (x)y (~ + n) + d: (x)y (x + n- ~) + .... ~ d,~ (x)y (x). 
+On account of (2 a) and of the linear independence of the series (I), 
+d'~o (x) ~ o, d~ (x) ~ o. 
+The coefficients d2(x) (j = o, i,... n) are analytic in R~. They will be asymp- 
+totic, for x in Rs, to the formal series obtained by replacing the elements in 
+expressing these coefficients, by corresponding formal series. the determinants, 
+Thus write 
+(4 a) d; (x) ~ e~,l~/§ § (x) 
+(j=o, I,... n; x in B,) 
+where dj(x) is an s-series. Now the logarithms in the s-series of factors in 
+(I) and the Qj(x) enter in such a way that it is possible to combine the co- 
+lumns in the mentioned determinants so that the logarithms will not enter in 
+the djIx) (j =o, I,... n). On the other hand, if we write 
+(5) ~ (x) - d~ (x) 9 di (~) (s = ,, 
+we shall have @(x) analytic in IR~ (for I xl sufficiently great) and 
+(5 b) a~ (x) N aj (x) 
+(j =- I, ... n; x in R,; a~(x) ~ o; s = I, ... n) 
+1 
+where the formal series aj(x) are in negative powers of x~ (p, 
+with, possibly, a few positive powers present. 
+positive 
+9 . , n)~ 
+integer) 
+
+===== PAGE 84 =====
+84 
+Noting that 
+George D. Birkhoff and W. J. Trjitzinsky. 
+( - ~)~ d; (x) =- 
+y~ (x + n --j + I) 
+(x + n --j -- I) 
+v~ (x) 
+and combining columns, having (2 b) (with s replaced by s -- I) in view, we con- 
+clude that 
+-- s--lt #" s--1 (6) d~ (x) -- p (x) dJ (x) 
+(j=o, z,... n; s=2, 3,...; pS-l'S(x) periodic, ~o.) 
+If Rs and Rs-1 have a strip along the negative axis of reals in common, neces- 
+sarily pS-~,'(x) is analytic near the real axis. Otherwise, R, and R,-1 will have 
+a strip in common extending indefinitely upwards (or downwards) from the axis 
+of reals. In this case 
+p~,, s(x), 
+in virtue of periodicity, is analytic in an upper (or lower 
+By (5) and (6) 
+(7) a~(x) = ~--l(x) (j= I, 
+half plane. 
+.n; s=2, 3,...). 
+A function a.j(x), defined as the analytic extension of, say, q~(x), will be analytic 
+in virtue of (7) in each of the regions 
+R1, R~, .... 
+Moreover, the asymptotic relations 
+(8) aj(X) -- ,](X) (j= I, ....) 
+will be maintained in these regions. 
+The equation 
+(9) L~(V) =-- v(~ + n) + a,(x)v(x + ,,-- ~) +.-. + ~,~(x)v(~) = o 
+will be actually of order n and with coefficients of the required type. Each of 
+
+===== PAGE 85 =====
+Analytic Theory of Singular Difference Equations. 85 
+the sets (2) will be a fundamental set of solutions of (9). This follows from the 
+form of the determinant expression for the operator L~,(y). [n view of (2 a)and 
+the definition of the ak(x)(k= I,... n) in terms of the y~(x) the series (I) will 
+formally satisfy (9) in R1, R~,... The proof of the Theorem is thus completed. 
+w 12. The Related Riemann Problem. 
+Let T(x) (~-(eQJ(~)bj(x))) denote a matrix whose elements are those of a 
+formal matrix S(x) (~- (eqJ(~)sij(x))) with the power series factors terminated after 
+a number of terms. Suppose that S(x) has the general character of a matrix 
+of formal solutions which might occur in connection with a difference system of 
+order n, of the type indicated in w I. The set of Q(x)'s, 
+(I)  21(x) .... Qn(x) 
+defines a sequence of consecutive regions 
+(2) R1, R2, .. 9162 (Ixl > e > o), 
+us indicated on the preceding pages. For definiteness suppose that R 1 is the 
+lower one of the regions constituting the quadrant 
+~rg 
+--~argx~-+ e. 2 
+The regions (2) will cover (outside the circle Ix I = Q) the extended complex plane 
+over the range 
+(2 a) --eGargx=<2zp+ ~, 
+where p is u suitable integer depending on the Qj(x). When a particular region 
+/t, is considered it is essential to keep in view the corresponding range of arg x. 
+As we proceed in the counter clockwise direction, let B ~ denote the last one of 
+the boundaries of Rs encountered. In R~ a fixed determination of T(x) will be 
+supposed as given. As a consequence, T(x) will be known uniquely in each of 
+the regions (2). For x in Rm, in the neighborhood of B m (a portion of a line 
+,~x = c > o), the Q/x) (j= I,... n) will correspondingly be the same as in /~. 
+On the other hand, the rid(x) may be different. The latter situation will take 
+
+===== PAGE 86 =====
+Theorem 4. 
+periodic functions, 
+86 George D. Birkhoff and W. J. Trjitziusky. 
+place if a factor x rij has rij not equal to an integral multiple of I/p or if there 
+are logarithms present in some of the tij(x). 
+Assume that associated with B ~ we have a matrix 
+i3) /~'$+I(x) = (p~.'js-cl(x)) i s= I, 2,...), 
+consisting of elements of period one. Suppose that P~,'+*(x) has the general 
+eharaeter of a matrix of periodic functions which might occur, as indicated on 
+the preceding pages, in connection with a different system of order n, formally 
+satisfied by S(x). More specifically, the following is assumed. 
+The p~jS, s+, (x) (i, j = I .... n) are proper, unless B ~ is a portion of a lineparaUel 
+to lhe axis of reals. In the latter case they are analyffc in a strip along the axis 
+of reals. Along B ~ (and within a limited distance of B'), in the vicinity of x-~ ~, 
+(3 a~) A s, s+ l(x ) .~_ (a~j.#+l (x)) = r(* ).Pf, s+! (x) T -1 (x) - X, 
+while the deri~'atives of all orders of the matrix A~,~+'(x) are asymptotic, along B ~, 
+to ~e~'o. 
+The following theorem will be proved. 
+Let T(x), the corresponding regions (2) and the matrices (3) of 
+/~,~+~(x) (s- i, :,...), 
+be given. Co,cerni~g these periodic fanctiop~s asstnne the stateme~d in italics pre- 
+ceding this theorem. 
+There exist then matrices 
+(4) 
+such that 
+(5) 
+Furthern~ore, for x in Rs, 
+and [ Y~(x)[ ~ o, while 
+(5 a) 
+Y~(x), Y~(x), ... L(x), .. 
+~s(X)-- ~s+l(X)~'s+l(x) (S= I, 2,...). 
+the elements of Y~(x) will be analytic isave at x= ~) 
+Y.(x)- 8(x) ix i~ R,~). 
+The exponential factors e q(~), occurri~g in the elements of the formal matrix S(x), 
+are correspondingly the same as in the matrix T(x). 
+
+===== PAGE 87 =====
+Analytic Theory of Singular Difference Equations. 87 
+Proof. For the purpose ~t hand the following theorem established by 
+Birkhoff ~ will be used. 
+'Let C1,... Cr be r simple closed curves in the extended complex plane. 
+Let A~(x),... At(x) be matrices of functions defined and indefinitely differentiable 
+along C~,... C,. respectively, analytic save at a finite number of points of these 
+curves and of determinant not zero. If furthermore at any point of intersection 
+of 6~, C~ the matrices A,~(x), Aft(x) are such that. the formal derivatives of all 
+orders of the matrix 
+{6) A,~(x)A#(x) -- A#(x)A,~(x) 
+vanish, there exists a matrix @(x) with the following properties: 
+(I) each element of O(x) is analytic except along C~ .... C, and at an 
+arbitrary point x ~ a where the elements may become infinite to finite order; 
+]@(x)] nowhere vanishes save possibly at x= a; 
+(2) the elements of @(x) are continuous and indefinitely differentiable along 
+each curve C~ from either side, analytic from either Side save at points of inter- 
+section of the curves, or at those points where an element of Ai(x) fails to be 
+analytic, or at x:a; if a lies on a curve Ci, the matrix (x--a)ZAi(x)[orx-~J~(x) 
+if a~ oQ] is indefinitely differentiable along Ci for a suitable l; 
+(3) if a + and -- side of each curve Ci are chosen, then, 
+(7) lim O(x) = [lim @(x)] Ai(xi) (i= I,... r) 
+where the approach to the arbitrary point x~ of C~ is along the + and -- side 
+respectively.' 
+The curves C~ may be subjected to weaker restrictions and may extend to 
+infinity. Thus, for instance C~ (s=I, 2, ...), may be defined as consisting of 
+B ~ up to a point on the circle ]xl=#; inside of this circle a portion of Cs will 
+consist of a curve P, through x = o, joining the mentioned point on the rim 
+of the circle with another suitable point on the rim of the circle; from the latter 
+point on, C~ will consist of a curve B ~ extending to infinity (and analytic in 
+every finite part of the plane); moreover, the component parts B s, P, B~ of Ca 
+will be supposed so joined that Cs is a simple curve with a continuously turning 
+t Cf. III. Methods developed with a view of application to the classical Riemann problem, 
+can be found in papers by Hilbert (G5tt. Nachr., I9O 5, pp. 3o7--338) and Plemelj (Mom~tsch. f. 
+Math. u. Phys., I9o8, pp. 205--246). 
+
+===== PAGE 88 =====
+88 George D. Birkhoff and W. a. Trjitzinsky. 
+tangent; furthermore, if the limiting direction of B s is as that of j~s is to be 
+considered as a, + z; finally, the several curves C8 are to have points in common 
+only at x~o and at x~ ~. 
+The matrices As(x) may be defined as follows. Along B '~ 
+(s) As(x) = AS,~+~(.); 
+along j~s 
+(8 a) A.(x) = I. 
+We take e sufficiently great. On the other hand, along P the elements of As(x) 
+are defined so that the conditions of the above theorem of Birkhoff hold with 
+respect to As(x). Thus, except at infinity, the elements of As(x) are analytic 
+along 6'. for ]x]> O; for x on (~ 
+I A s(.)l # o. 
+The condition stated with respect to (6) will certainly hold at x = ~. In the 
+neighborhood of x-~o the elements of the matrices As(x) may be so determined 
+that this condition will hold at x=o as well. 1 The point x = a will be sup- 
+posed to lie interior the circle Ix[--r 
+There will exist a matrix a)(x), with elements analytic for I xl > Q except 
+along B 1,B ~ .... and except at x=~, such that [@(x)[#o ([x[>o). Along 
+each curve B s the elements of O(x) will be analytic from either side (for Ix[ >~, 
+and excepting x-----~). Moreover, for xs on B s, 
+(9) lira a~(z) = [lim ~O(x)] As,,+~(.,). 
+Here As, s+l(x) is given by (3 a). The + side of B s will be taken corresponding 
+to an approach from the interior of Rs. The asymptotic form, at x=~, of 
+q)(x) will be the same along both sides of B ~ since As, s+l(xs)~ I. Thus, there 
+exist matrices 
+(9 a) v~ (x), v.4*) .... 
+t Determination of As(x) as stated, involves an approximation problem a solution of which 
+had been given by A. Besikowitsch (Mathematische Zeitschrift, Band 2I, Heft I/2, 1924). Another 
+solution had been given by Trjitzinsky. (Cf. forthcoming paper 'Approximation by analytic func- 
+tions with prescribed derivatives' to apper in the Am. Jour. of Math.). 
+
+===== PAGE 89 =====
+Analytic Theory of Singular Difference Equations. 89 
+such that the elements of U,(x) (s~ I, 2,...) are analytic (save at x-~ 0r in B, 
+and such that lU~(x)[r o ([xl>Q) in R,. Moreover, 
+(9b) U,(x) = U,+l(X)A~,~+~(x) (s= i, 2,...). 
+It is evident, in the light of the papers referred to above and treating Riemann 
+problems, that the elements of Us(x) (s~ I, 2,...) behave at infinity essentially 
+as rational functions. For x in Rs 
+(9C) Us(x) ~ V(x) -~- (uij(x)) (8~-- I, 2,...), 
+Whether the elements of the formal matrix 
+s-series is left, for the present, undecided. 
+Write 
+U(x) can be made to be formal 
+(io) = us(x) T(x). 
+Then (5) will hold. Moreover, for x in Rs, 
+= = (e J 
+It follows immediately that the theorem is true. 
+In a future paper one of the present authors (Trjitzinsky)proposes to 
+develop the analytic theory of linear difference equations with rational coef- 
+ficients which is a case of particular interest in which more special results can 
+be obtained. Itere it would be desirable to find those 'principal solutions' which 
+stand out because of their peculiar analytic simplicity and to formulate the 
+corresponding Riemann problem. The same author proposes also to develop in 
+an analogous manner the analytic theory of q-difference equations and of the 
+ordinary linear differential equations. 
+|2--3251I. Acta mathematica. 60. Irnprimd le I9 novembre 1932. 
