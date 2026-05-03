@@ -1,3 +1,71 @@
+# SIARC RELAY PROMPT SPEC — QS-2
+
+**TASK ID:**            `D2-NOTE-V2-1-WASOW-FULL-CLOSURE`
+**PROMPT FAMILY:**      QS-2 (synthesizer-arbitrated; merged with retired Prompt 7 / Wasow Q20 full-closure)
+**STATUS:**             DRAFT — synthesizer-side draft, NOT YET FIRED
+**COMPOSED:**           2026-05-03 (post-QS-A acquisition of B-T 1933 / Acta 60)
+**DRAFTED-BY:**         Copilot CLI (Claude Opus 4.7 xhigh) — synthesizer-side prompt drafting
+**EXPECTED RUNTIME:**   ~4–6 hr agent (literature reading: ~1.5 hr; Newton-polygon Lemma derivation:
+                        ~45 min; Phase E ~10pp LaTeX rewrite + 4-pass build: ~2 hr; verification + handoff: ~30 min)
+**DEPENDENCIES:**       QS-A (B-T 1933 acquisition) — ✅ DONE 2026-05-03 (slot 03 at
+                        `tex/submitted/control center/literature/g3b_2026-05-03/03_birkhoff_trjitzinsky_1933_acta60.pdf`,
+                        SHA-256 `dcd7e3c6b2a12ae1ce917d322763ff9dde5ec69ab5f23080d043699822d68fe6`,
+                        89 pp, §§4–6 verified). Operator `g3b-acquire-bt-1933` SQL todo flipped to **done**.
+**PARALLEL-SAFE WITH:** any task NOT modifying `siarc-relay-bridge/sessions/2026-05-03/Q20A-PHASE-C-RESUME/d2_note_v2/`
+                        or the runbook-canonical literature directory.
+**MERGES:**             retired Prompt 7 / `wasow-q20-full-closure-fire` (Q-S3 ruling). On a
+                        non-`HALT_*` outcome of this task, the SQL todo
+                        `prompt-7-wasow-q20-full-closure-fire` retires automatically; the
+                        Wasow synthesizer-arbitration verdict that Prompt 7 would have produced
+                        is the verdict produced by **Phase D** of this task.
+
+---
+
+## How to fire
+
+The relay-prompt body below (between the `=====` rules) is what the operator pastes into
+a fresh Copilot CLI session in the `claude-chat` workspace, at the next compute window
+after operator inspection. The agent will then execute Phase A → Phase F and write the
+deliverables to `siarc-relay-bridge/sessions/<TODAY>/D2-NOTE-V2-1-WASOW-FULL-CLOSURE/`
+(distinct from this synthesizer-draft directory; the live session is opened on whatever
+`<TODAY>` is at firing time, even if that crosses midnight).
+
+This synthesizer-draft directory (the one you are reading) holds:
+
+- `prompt_spec.md` — this document (the spec the operator inspects)
+- `handoff.md`     — the synthesizer-side handoff for Claude review (NOT the relay handoff)
+
+The relay-execution session will create its own handoff, claims, and v2.1 PDF at
+`<TODAY>/D2-NOTE-V2-1-WASOW-FULL-CLOSURE/` at fire time.
+
+---
+
+## Synthesizer rulings embedded in this spec
+
+| Ruling | Source | Effect on this prompt |
+|--------|--------|-----------------------|
+| **Q-S1** | picture v1.14 §24 | Theorem 4.1 retains its `\begin{theorem}` framing (NOT demoted to conjecture); Phase E adds the explicit citation chain (B-T 1933 §§4–6 OR Loday-Richaud 2016 ch. 2 OR Costin 2008 ch. 5) for the Borel-summability step that the v2 bib note admitted as missing; the proof body explicitly bridges Wasow §19's sectorial-asymptotic existence to the Borel-singularity-radius statement. **Rev-C(b) (demote-to-conjecture) is NOT applied.** |
+| **Q-S2** | picture v1.14 §24 | Path A (revise-first) — the deliverable is **v2.1**, deposited as a NEW VERSION on the existing concept DOI `10.5281/zenodo.19996689`. NOT v3, NOT a supersede. NOT a fresh concept DOI. Build is clean across `pdflatex` passes 1, 2, 3 (with `bibtex` after pass 1). |
+| **Q-S3** | picture v1.14 §24 | Prompt 7 (Wasow Q20 full-closure) is MERGED into this task. Phase C absorbs prompt 7's Wasow goal; Phase D produces the Wasow synthesizer-arbitration verdict. Single relay session produces both v2.1 PDF + the Wasow Q20 closure verdict. |
+| **Q-S4** | picture v1.14 §24 | Picture v1.14 already pushed; this prompt assumes v1.14 framing. No further synthesizer-side picture amendment is required by THIS prompt's verdict (a future synthesizer pass absorbs THIS task's outcome into picture v1.15). |
+
+| Revision | Origin | Action in Phase E |
+|----------|--------|-------------------|
+| **Rev-A** | Reviewer convergent finding (F1; all 5 reviewers C3 ≤ 4) | Cite B-T 1933 §§4–6 (PRIMARY; REQUIRED) for Borel-summability step in §3 (Wasow subsection) and in the proof of Theorem 4.1; add the corresponding `.bib` entry to `annotated_bibliography.bib`. Loday-Richaud 2016 ch. 2 + Costin 2008 ch. 5 are SECONDARY/TERTIARY but ETHICS-GATED (Phase C.4): cite "see also" only IF the agent has opened the Tier-2 PDF on disk and verified the chapter content; otherwise mention as unconsulted-but-recommended in the handoff Anomalies section, do NOT add to the bib. |
+| **Rev-B** | Reviewer R2/R4 (rigour) | Replace the v2 line "by Phase A* symbolic derivation" with an explicit **Lemma** (Newton-polygon characteristic-polynomial identity at all $d \ge 2$) carrying a 6–10-line derivation; the Phase A* sweep then becomes a *verification* of this Lemma at $d \in \{2,\ldots,10\}$ rather than the load-bearing source of the identity itself. |
+| **Rev-C(a)** | Reviewer R1/R3 (chain) — Q-S1 | Supply the FULL implication chain in the proof of Theorem 4.1: (Newton-polygon slope-$1/d$ edge) ⟹ (characteristic polynomial $\chi_d(c) = 1 - (\beta_d/d^d)c^d$ via Lemma) ⟹ (formal-trans-series-with-rate by Birkhoff §2) ⟹ (sectorial-asymptotic existence by Wasow §19 Thm 19.1) ⟹ (Borel-summability of the formal series by B-T 1933 §§4–6) ⟹ (the Borel-singularity radius equals $|c|$). Each ⟹ has a one-sentence justification with a citation. |
+| **Rev-C(b)** | Reviewer R1 (alternative) | **NOT APPLIED** per Q-S1 — Theorem 4.1 retains theorem framing (theorem-with-documented-residual is the wrong metaphor now that the residual is closed by Rev-A). |
+| **Rev-D** | Reviewer R1/R2/R5 (3 of 5 explicit) | Recommendation recorded in `arxiv_classification_recommendation.md` as a Phase F deliverable: math.CA primary / math.NT cross-list. Per Rule 2, the relay agent does **NOT** drive arXiv submission; the operator decides Q31. |
+| **Rev-E (PARTIAL)** | Reviewer R3/R4 (self-containment; F2; 4 of 5 C4 ≤ 4) | Expand v2 (6 pp) → v2.1 (~10 pp) by adding: (i) a self-contained reproduction of the $d=2$ Newton-polygon proof (~1 page; replacing the citation-only treatment in v2 §2); (ii) an explicit definition of $B_d(\theta+1)$ in §1 with the worked $d=2,3,4$ specialisations (~½ page); (iii) a falsification context block recapping the v1.1 candidate $c(d) = 2\sqrt{(d-1)!}$ rejected at $d=4$ (~½ page). **NOT** full self-containment — that is PCF-3 monograph territory; aim for "reader can follow the proof without leaving the artefact". |
+| **Rev-F** | Reviewer R5 (provenance) | Add an Appendix A (~1 page) listing the bridge sessions whose outputs are cited (Q20A-PHASE-C-RESUME for Phase A* sweep; PCF2-SESSION-Q1 for $d=4$ verification) with their handoff-URL stems and the SHA-256 of the cited scripts. This anchors the v2.1 artefact's provenance trail to the SIARC bridge. |
+| **Rev-G** | Reviewer R3 (technical) | Expand the existing §1.1 PCF-degree-↔-irregular-singularity-rank subsection (~half page → ~full page) to derive $q = (d+2)/2$ from the substitution $z = u^d$ on equation (1) (the order-2 ODE for $f(z) = \sum Q_n z^n$). The derivation should be explicit enough that the reader can verify it without consulting v1 of CT. |
+| **Rev-H** | Reviewer R4 (peer-review provenance) | Add an in-body footnote at first cite of each non-peer-reviewed self-citation (PCF-1 v1.3, PCF-2 v1.3, CT v1.3, the Phase A* SIARC bridge session) clarifying that those are SIARC Zenodo deposits with internal review only. The note acknowledges this without retracting the citations. |
+
+---
+
+## RELAY-PROMPT BODY  (operator pastes everything below into a fresh CLI session)
+
+```
 ================================================================
 SIARC RELAY PROMPT  QS-2  —  D2-NOTE-V2-1-WASOW-FULL-CLOSURE
                               (D2-NOTE v2.1 with closed Borel-
@@ -6,7 +74,7 @@ SIARC RELAY PROMPT  QS-2  —  D2-NOTE-V2-1-WASOW-FULL-CLOSURE
                                Q20 full-closure)
 ================================================================
 TASK_ID:           D2-NOTE-V2-1-WASOW-FULL-CLOSURE
-TODAY_DATE:        2026-05-03
+TODAY_DATE:        <fill in current date YYYY-MM-DD at run time>
 EXPECTED RUNTIME:  4–6 hours
 COMPUTE BUDGET:    no new mpmath series; no new Phase A symbolic runs.
                    pdflatex / bibtex passes only. The Phase A* sweep
@@ -1270,3 +1338,108 @@ Do not retry more than once.
 ================================================================
 END OF RELAY-PROMPT BODY  (operator-paste boundary)
 ================================================================
+```
+
+---
+
+## Synthesizer notes (NOT part of the operator-paste body)
+
+### Why this is one prompt, not two
+
+Per Q-S3, prompt 7 (Wasow Q20 full-closure synthesizer arbitration)
+is ABSORBED. The Wasow-arbitration verdict that prompt 7 would
+have produced is identical to what Phase C / Phase D produce here:
+the Borel-summability chain via B-T 1933 §§4–6 either closes
+(publication-grade proof) or it doesn't. There is no separate
+"Wasow Q20 closure" task remaining once this prompt fires; running
+both would re-do the same literature reading twice.
+
+### Why not v3 / fresh concept DOI
+
+Per Q-S2, v2.1 is a NEW VERSION on the existing Zenodo concept
+DOI 19996689, not a fresh concept. The mathematics is unchanged;
+the citation chain is closed, and the artefact is expanded for
+self-containment. Zenodo's new-version flow preserves the concept
+DOI and gives the new artefact its own version DOI. No "supersede"
+language is appropriate.
+
+### Why theorem framing is retained (not demoted)
+
+Per Q-S1, with the citation chain closed by Rev-A, the residual
+that motivated "theorem-with-documented-residual" no longer exists.
+"Theorem 4.1" stays a theorem. Demoting it would over-correct.
+
+### Tier-2 sources (Loday-Richaud, Costin) are optional AND ethics-gated
+
+If the operator hasn't acquired Loday-Richaud 2016 ch. 2 or Costin
+2008 ch. 5 by fire time, the relay proceeds with B-T 1933 alone.
+Synthesizer Rev-A grants single-source closure. Per Phase C.4's
+ethics gate, the relay agent does NOT add Tier-2 entries to the
+bib unless it has opened the file and verified the chapter
+content matches the F1-closure topic. Unconsulted Tier-2 sources
+are mentioned only in the handoff "Anomalies and open questions"
+section as "modern restatements suggested by synthesizer review,
+not consulted in this session" — making the unconsulted-but-
+recommended status explicit without misrepresenting consultation.
+
+### Page-count budget
+
+v2 is 6 pp. v2.1 is targeted at 9–12 pp via:
+  - Rev-E (i):  +1 page (d=2 self-contained reproduction)
+  - Rev-E (ii): +0.5 page (B_d definition + worked specialisations)
+  - Rev-E (iii):+0.5 page (Falsification context promoted)
+  - Rev-G:      +0.5 page (q = (d+2)/2 derivation expanded)
+  - Rev-F:      +1 page  (Appendix A)
+  - Rev-B:      +0.3 page (Lemma + proof body)
+  - Rev-A + Rev-C(a): +0.5 page (chain expanded in proof of
+                                  Theorem 4.1)
+  - Rev-H footnotes: ≤ +0.2 page total
+Net: 6 + ~4.5 = ~10.5 pp; the [9, 12] gate accommodates ±1
+page of LaTeX flow variation.
+
+### What the operator should look for at inspection
+
+1. The relay-prompt body in the code block above is what
+   gets pasted; the markdown around it is for synthesizer-
+   review only.
+2. <TODAY> placeholders in the prompt body are filled at
+   firing time, not before.
+3. The prompt does NOT depend on Loday-Richaud / Costin being
+   on disk — Tier 2 is optional. If they ARE on disk, the
+   "see also" citations land naturally.
+4. The §4 halt conditions are the safety net; if any fires,
+   the operator gets a clean halt log to triage.
+5. The Standing Final Step (§7) closes the loop on the bridge.
+
+### Recommended firing order at next compute window
+
+1. (DONE) QS-A — B-T 1933 acquisition. ✅
+2. (NEXT) QS-2 — this prompt. Operator inspects this spec,
+   then pastes the relay-prompt body into a fresh CLI session.
+3. (POST-QS-2) Operator-side Zenodo new-version deposit per
+   `zenodo_upload_d2_note_v2_1_runbook.md` produced by F.3.
+4. (POST-DEPOSIT) Picture v1.15 amendment (synthesizer-side)
+   absorbing QS-2 verdict; closes M9 gating reduction
+   unconditionally if UPGRADE_V2_1_FULL.
+5. (PARALLEL with 4) Q31 (arXiv classification confirmation)
+   + future arXiv-mirror task on v2.1.
+
+### Synthesizer disclaimer
+
+This spec was drafted by the Copilot CLI (Claude Opus 4.7
+xhigh) from picture v1.14 §24 + the v2 source + the runbook-
+canonical literature directory + retired prompt 7's stated
+Wasow Q20 closure goal. It has NOT been reviewed by Claude
+(synthesizer) before operator inspection; the operator may
+choose to forward this spec to claude.ai for a synthesizer-
+review pass before firing. Recommended.
+
+---
+
+## Provenance
+
+- **Drafted from:** picture v1.14 (`tex/submitted/control center/picture_revised_20260503.md` §24 v1.13→v1.14 amendment log)
+- **Anchored to:** `sessions/2026-05-03/Q20A-PHASE-C-RESUME/` (v2 source + Phase A* sweep + claims baseline)
+- **Literature anchored to:** `tex/submitted/control center/literature/g3b_2026-05-03/SHA256SUMS.txt` (slot 01 + slot 03 + slot 04, all 6/6 hashes verify OK)
+- **Pre-firing dependency:** SQL todo `g3b-acquire-bt-1933` ⇒ done (post-QS-A); SQL todo `prompt-d2-note-v2-1-wasow-full-closure-fire` ⇒ pending (this spec); SQL todo `prompt-7-wasow-q20-full-closure-fire` ⇒ MERGED (Q-S3); operator confirms readiness before firing.
+- **Drafted-by:** Copilot CLI (Claude Opus 4.7 xhigh), 2026-05-03, synthesizer-side prompt drafting task `PRE-DRAFT-D2-NOTE-V2-1-WASOW-FULL-CLOSURE-PROMPT`.

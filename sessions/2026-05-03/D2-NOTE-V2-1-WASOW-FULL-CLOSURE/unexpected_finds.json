@@ -1,0 +1,27 @@
+{
+  "session": "D2-NOTE-V2-1-WASOW-FULL-CLOSURE",
+  "date": "2026-05-03",
+  "unexpected_finds": [
+    {
+      "category": "literature_disposition",
+      "finding": "Phase 0 ETHICS-GATE blocked Loday-Richaud / Mitschi citation as load-bearing because the PDF was not on disk in the runbook-canonical literature directory. v2.1 keeps the bib entry (carry-forward from v2) but removes the load-bearing \\cite in §5(d) and replaces it with a prose acknowledgement that the volume was not consulted at v2.1 preparation time. This is recorded transparently in the manuscript and in rubber_duck_critique.md item 7.",
+      "severity": "informational",
+      "action_taken": "Removed \\cite{lodayrichaud2016divergent} from §5(d); kept Costin 2008 ch.5 §5.0a as the modern Borel-Laplace see-also reinforcement.",
+      "downstream_owner": "operator (writing task for v2.2 if Loday-Richaud volume PDF is sourced)"
+    },
+    {
+      "category": "page_count_edge",
+      "finding": "v2.1 PDF lands at exactly 9 pages, the lower edge of the FULL band [9, 12] in Phase E.10. Within band; no halt, but worth noting.",
+      "severity": "informational",
+      "action_taken": "None. Recommendations in rubber_duck_critique.md items 6 / 1, 2, 4 list candidate paragraphs that would push to ~10 pp if a v2.2 polish pass is desired.",
+      "downstream_owner": "Claude review / future operator polish pass"
+    },
+    {
+      "category": "bib_entry_year",
+      "finding": "The pre-existing bib entry birkhofftrjitzinsky1932analytic in annotated_bibliography.bib lists year=1932, but the canonical Acta Mathematica 60 record is 1933 (DOI 10.1007/BF02398269 publication year 1933). The new birkhoff_trjitzinsky_1933 entry added in v2.1 uses the canonical 1933 year. The 1932 entry is left untouched (unused by v2.1) for backward compatibility with v2.",
+      "severity": "informational",
+      "action_taken": "Added new birkhoff_trjitzinsky_1933 entry with year=1933; v2.1 \\cite calls reference the new key.",
+      "downstream_owner": "no action; cleanup deferrable"
+    }
+  ]
+}

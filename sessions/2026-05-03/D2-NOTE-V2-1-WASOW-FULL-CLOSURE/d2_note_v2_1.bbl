@@ -1,0 +1,91 @@
+\begin{thebibliography}{1}
+
+\bibitem{birkhoff1930formal}
+George~D. Birkhoff.
+\newblock Formal theory of irregular linear difference equations.
+\newblock {\em Acta Mathematica}, 54:205--246, 1930.
+\newblock Section~2 (formal canonical form) establishes uniformly that any $n
+  \times n$ linear system at an irregular singular point of rank $q$ admits a
+  formal series solution carrying the standard $z$-power factor; Section~3
+  records the converse uniqueness modulo formal-equivalence. The
+  Borel-summability content is treated in the companion Birkhoff--Trjitzinsky
+  1933 paper, not in \S\S2--3 of this 1930 paper (cf.\ Q20A dispatch~3
+  spec-error finding).
+
+\bibitem{birkhoff_trjitzinsky_1933}
+George~D. Birkhoff and Waldemar~J. Trjitzinsky.
+\newblock Analytic theory of singular difference equations.
+\newblock {\em Acta Mathematica}, 60:1--89, 1933.
+
+\bibitem{costin2008asymptotics}
+Ovidiu Costin.
+\newblock {\em Asymptotics and {B}orel summability}, volume 141 of {\em Chapman
+  \& Hall/CRC Monographs and Surveys in Pure and Applied Mathematics}.
+\newblock CRC Press, Boca Raton, FL, 2008.
+
+\bibitem{siarc_channel_theory_v13}
+Papanokechi.
+\newblock Channel theory for polynomial continued fractions, v1.3: Asymptotic
+  channels, the {$\xi_0 = 2/\sqrt{\beta_2}$} identity, and a bridge conjecture,
+  2026.
+\newblock Concept DOI 10.5281/zenodo.19941678. Carries the canonical
+  Newton-polygon proof of $\xi_0 = 2/\sqrt{\beta_2}$ at $d=2$ (Prop.~3.3.A),
+  the empirical record of $\xi_0 = 4/\beta_4^{1/4}$ at $d=4$ (Prop.~3.3.A$'$),
+  the cross-degree universality conjecture (Conj.~3.3.A$^{*}$), the
+  falsification of the v1.1 candidate $c(d) = 2\sqrt{(d-1)!}$ at $d=4$
+  (Remark~3.3.E), and the $d=3$ deferred operator entry
+  \textsf{op:xi0-d3-direct} (\S9). PDF SHA-256
+  df3b90e808e49e84fbba53e5663a851256303496fc1536fefbf962aba2ebdc18.
+
+\bibitem{siarc_pcf1_v13}
+Papanokechi.
+\newblock {PCF}-1 v1.3: {S}tokes signal and channel scope for $\delta<0$
+  degree-2 polynomial continued fractions, 2026.
+\newblock Version DOI 10.5281/zenodo.19937196; concept DOI
+  10.5281/zenodo.19931635.
+
+\bibitem{papanokechi_pcf2_v13}
+Papanokechi.
+\newblock {PCF}-2 v1.3: {P}olynomial continued fractions at degree three
+  (cubic-modular framing) and the cross-degree universality $\xi_0(b) =
+  d/\beta_d^{1/d}$, 2026.
+\newblock Version DOI 10.5281/zenodo.19963298; concept DOI
+  10.5281/zenodo.19936297. Section~3.4 carries the PCF2-SESSION-Q1 quartic
+  measurement at $d=4$ ($60/60$, mean $A=7.954$, $\sigma=3.7\times 10^{-3}$)
+  and the direct Newton-polygon proof of the linear universality
+  $\xi_0=d/\beta_d^{1/d}$ at $d=4$ (spread $0$ at $\dps=80$ across $8$
+  representatives), folding in the bridge-session measurement of
+  sessions/2026-05-01/PCF2-SESSION-Q1/. Falsifies the v1.1 candidate
+  $c(d)=2\sqrt{(d-1)!}$.
+
+\bibitem{siarc_q20a_phase_c_resume}
+Papanokechi.
+\newblock {SIARC} {Q20A}-{PHASE}-{C}-{RESUME} -- cross-degree universality of
+  the {B}orel-singularity radius: {P}hase~$a^*$ $d$-sweep ($d=2..10$) and
+  {P}hase~{C} literature anchoring ({W}asow~1965~{\S}19,
+  {B}irkhoff~1930~{\S}2), 2026.
+\newblock Bridge session containing four dispatches of Q20A. Dispatch~4
+  (2026-05-03) achieves \texttt{UPGRADE\_FULL}: Phase~$A^*$ direct identity
+  $d/\beta_d^{1/d}$ confirmed at $d \in \{2,...,10\}$ with $18/18$ pass at
+  $\dps=50$, relative error $< 1.6 \times 10^{-51}$ above $d=2$; literature
+  uniform in $d$ via Wasow~Theorem~19.1 plus eq.~(19.3) and
+  Birkhoff~\S2~Theorem~I. \texttt{claims.jsonl} carries the AEAL entries with
+  per-claim SHA-256 output hashes.
+
+\bibitem{wasow1965asymptotic}
+Wolfgang Wasow.
+\newblock {\em Asymptotic Expansions for Ordinary Differential Equations}.
+\newblock Pure and Applied Mathematics, Vol.~XIV. Interscience Publishers, John
+  Wiley \& Sons (Reprint: Dover, 1987), 1965.
+\newblock Chapter IV \S\S10--15 (distinct-eigenvalue case) and Chapter V
+  \S\S16--19 (general / multiple-eigenvalue case) carry the Main Asymptotic
+  Existence Theorem uniformly in the irregular-singularity rank. Theorem~12.1
+  (\S12, distinct case): for nonnegative integer rank, the corresponding linear
+  system has a fundamental matrix solution analytic in any sector of central
+  angle bounded by a $1/(\mathrm{rank}+1)$ fraction of $\pi$, asymptotic to the
+  formal solution. Theorem~19.1 (\S19.5, general case): same conclusion for any
+  holomorphic coefficient matrix, with formal solution carrying a Puiseux
+  gauge. Equation~(19.3) is the gauge form encoding the Borel-singularity
+  radius at the rank-$q$ irregular singular point.
+
+\end{thebibliography}

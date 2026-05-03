@@ -1,0 +1,36 @@
+D2-NOTE v2.1 — Cross-degree universality of the Borel-singularity radius for polynomial continued fractions
+
+Standalone short note (~9 pp) closing the Borel-summability citation residual admitted in v2's annotated bibliography. Version 2.1 anchors the Borel-summability layer in Birkhoff–Trjitzinsky 1933 §§4–6 (Acta Math. 60, 1–89; doi 10.1007/BF02398269) — the paper George D. Birkhoff and Waldemar J. Trjitzinsky published as the analytic-theory companion to Birkhoff 1930 — promoting v2's theorem-with-documented-residual to a theorem with a closed citation chain at all d ≥ 2 uniformly.
+
+Three new contributions over v2 (also dated 2026-05-03):
+
+(i) An explicit Newton-polygon characteristic-polynomial Lemma (Lemma 3.1 in the new §3.1) with a 3-step mechanical proof — Newton diagram + WKB balance + characteristic-polynomial extraction — replacing v2's "by Phase A* symbolic derivation" black-box. The Lemma yields chi_d(c) = 1 - (beta_d/d^d) c^d with unique positive real root c = d / beta_d^(1/d), uniformly in d ≥ 2.
+
+(ii) Numerical verification of the Lemma at d ∈ {2, 3, …, 10} via the SIARC Phase A* extended sweep (18/18 PASS at dps = 50, max relative error 1.73 × 10^{-51} above d = 2).
+
+(iii) Closed Borel-summability citation chain: Newton-polygon Lemma → Birkhoff 1930 §2 Theorem I (uniform-in-n formal-series existence) → Wasow 1965 §19 Theorem 19.1 + eq.(19.3) (uniform-in-q sectorial-asymptotic resummation) → Birkhoff–Trjitzinsky 1933 §§4–6 (Lemma 8 + Theorem I + Lemma 9, the Borel-summability proper) → Phase A* numerical verification. Costin 2008 ch.5 §5.0a is cited as a modern restatement of the Borel-Laplace radius identification.
+
+Additional v2.1 expansions (writing-quality only, no new mathematics): the d = 2 Newton-polygon argument is reproduced in self-contained form (the proven case is now readable without consulting the SIARC Channel Theory v1.3 outline); the q = (d+2)/2 derivation from z = u^d is written out in full in §1.1; the v1.1-candidate falsification c(d) = 2√((d-1)!) (recorded as a remark in v2) is promoted to its own subsection §2.5; Appendix A "Bridge session provenance" lists the four SIARC bridge sessions whose AEAL claim entries underpin the per-theorem evidence; SIARC-disclosure footnotes mark first cite of each non-peer-reviewed self-citation.
+
+The Newton-polygon slope-1/d edge / Wasow shearing-exponent equivalence is recorded as a substantive vocabulary correspondence.
+
+The note remains purely consolidatory: no new numerical pipeline is run.
+
+Status:
+- Proven at d = 2 by direct Newton-polygon argument (Proposition 2.3).
+- Verified at d = 4 at dps = 80 with spread 0 across 8 representatives (Proposition 3.1).
+- Newton-polygon Lemma (Lemma 3.1) gives the closed-form characteristic polynomial uniformly in d ≥ 2.
+- Symbolic identity numerically verified at d ∈ {2..10} at dps = 50, 18/18 matches (§4.2).
+- Borel-summability framework uniform in d via Birkhoff 1930 §2 + Wasow §19 Thm. 19.1 + Birkhoff–Trjitzinsky 1933 §§4–6; modern restatement of the Borel-Laplace radius identification in Costin 2008 ch.5.
+
+Open items (none load-bearing):
+- Direct numerical d = 3 Newton-polygon test on at least one cubic representative per Galois bin at dps = 80 (corroboration; symbolic identity already in Phase A* sweep at d = 3 with rel. err. 1.52 × 10^{-51}).
+- Extending the Phase A* sweep beyond d = 10.
+- The β_d < 0 branch and the d = 2 anomaly Galois bin.
+- A full cross-reference to the Loday-Richaud / Mitschi modern Borel-Laplace volume (writing task only; volume not on disk at preparation time).
+
+Methodology: SIARC v1.3 multi-agent computational research (AEAL provenance with SHA-256 output hashes; AI assistants used for code generation, cross-checking, and prose drafting; all theorem statements and editorial decisions remain the author's). Bridge session: github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-03/D2-NOTE-V2-1-WASOW-FULL-CLOSURE/
+
+Keywords: Newton polygon; Borel summability; polynomial continued fractions; irregular singular point; universality; Wasow; Birkhoff; Trjitzinsky; asymptotic expansion.
+
+This is a new version (v2.1) deposited on the existing concept DOI 10.5281/zenodo.19996689. v2.1 supersedes v2 (deposited 2026-05-03).
