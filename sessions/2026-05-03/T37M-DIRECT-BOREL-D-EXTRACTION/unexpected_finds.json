@@ -1,0 +1,88 @@
+{
+  "PADE_LOCATION_NOT_CONVERGED_TO_2": {
+    "interpretation": "At our laptop-feasible Pade orders (M_in=200, M in {60,70,80}), the closest-physical-pole-to-eta=2 wanders at relative spread 14-43% across the 3 orders for every rep. This is consistent with the Pade order being insufficient to resolve the sub-leading singularity given our 17000+ digit-equivalent input precision but ~10^-46 Borel-coefficient floor at n=200. Note: for QL05 and V_quad, M=60 and M=80 both find off-axis complex poles at |eta|~0.85-1.05 (likely spurious), while M=70 picks up a real-axis pole near eta~2.2 for QL05/QL15/QL09 and a real-axis pole at eta=1.77 for V_quad. The pattern is suggestive but UNDERDETERMINED: whether eta=2 is the true sub-leading singularity location for these reps cannot be decided from the M_in=200 ladder alone.",
+    "per_rep_locations_at_M200": {
+      "V_quad": [
+        {
+          "M": 60,
+          "eta_real": "1.77101970499612150557726704483",
+          "eta_imag": "4.19943711973223846417578363349e-10",
+          "abs_residue": "36390494.63794857"
+        },
+        {
+          "M": 70,
+          "eta_real": "1.31296401193479942712490479502",
+          "eta_imag": "2.35476123421101394263535985946e-89",
+          "abs_residue": "6.401256912957068e-27"
+        },
+        {
+          "M": 80,
+          "eta_real": "1.05320183556376115583721559392",
+          "eta_imag": "2.01660095537474670239625663520e-56",
+          "abs_residue": "4.014510484469124e-37"
+        }
+      ],
+      "QL15": [
+        {
+          "M": 60,
+          "eta_real": "2.25482031484141569605721185096",
+          "eta_imag": "2.66609643928660993155789783839e-153",
+          "abs_residue": "1.0878726934152498e-11"
+        },
+        {
+          "M": 70,
+          "eta_real": "1.38257277587707890545631690369",
+          "eta_imag": "2.73559260907266505921881249067e-129",
+          "abs_residue": "1.207065359858611e-22"
+        },
+        {
+          "M": 80,
+          "eta_real": "1.09123644185862936241835149015",
+          "eta_imag": "-9.40784900985977737926454866008e-81",
+          "abs_residue": "4.229173563600241e-38"
+        }
+      ],
+      "QL05": [
+        {
+          "M": 60,
+          "eta_real": "1.00604164771695413568178585584",
+          "eta_imag": "-0.0498406689428706859227447800071",
+          "abs_residue": "7.656941909074481e+20"
+        },
+        {
+          "M": 70,
+          "eta_real": "2.20656609684671572513511072077",
+          "eta_imag": "-1.25493569103529729122255339004e-97",
+          "abs_residue": "1.5970283515169245e-06"
+        },
+        {
+          "M": 80,
+          "eta_real": "0.849243680030424462135046406927",
+          "eta_imag": "-0.0238152126134874302093952449356",
+          "abs_residue": "7.674007671505758e+20"
+        }
+      ],
+      "QL09": [
+        {
+          "M": 60,
+          "eta_real": "2.29990474755338016732530495796",
+          "eta_imag": "-3.75582834667632553183509492626e-89",
+          "abs_residue": "2.237932338530885e-07"
+        },
+        {
+          "M": 70,
+          "eta_real": "2.64381958046346961916068204883",
+          "eta_imag": "-5.62089826715211091269632277895e-130",
+          "abs_residue": "1.3658376735716642e-05"
+        },
+        {
+          "M": 80,
+          "eta_real": "2.16739194262681328009038550439",
+          "eta_imag": "-9.79894909772235143752469735421e-151",
+          "abs_residue": "2.502010863850834e-08"
+        }
+      ]
+    },
+    "recommendation": "Operator-side action: extend the cached recurrence to dps=600 N=8000 (~12h compute) AND re-run t37m_runner.py at dps=200 with M_in in {400, 600, 800, 1500} to push the Pade-order envelope below the polynomial-tail floor. Alternatively, switch methodology to channel-theory median-resurgence direct extraction (CT v1.3 sec 3.5)."
+  }
+}
