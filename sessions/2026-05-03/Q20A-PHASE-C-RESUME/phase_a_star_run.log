@@ -1,0 +1,44 @@
+========================================================================
+Q20A-PHASE-C-RESUME  Phase A* extended sweep
+========================================================================
+Q20 anchor script: C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-05-03\Q20-CONJ33A-PROOF-UPGRADE\phase_a_symbolic_derivation.py
+Q20 SHA-256:       8e6f9ebde933652e2581578d282163f0220091ea0ee4adbd6754bd53458f7496
+Match expected:    True
+
+[Phase A*.1] Extended sweep d in {2..10}, 2 betas per d
+------------------------------------------------------------------------
+  d= 2 beta=  3: max_abs=   1.154700538379251529018297561  rel=0.00e+00  match=True  [AEAL-CACHED]
+  d= 2 beta=  7: max_abs=0.755928946018454454429033072468  rel=0.00e+00  match=True  [stress]
+  d= 3 beta=  1: max_abs=                             3.0  rel=0.00e+00  match=True  [AEAL-CACHED]
+  d= 3 beta=  5: max_abs= 1.75441064292771963930407241608  rel=1.52e-51  match=True  [stress]
+  d= 4 beta=  1: max_abs=                             4.0  rel=0.00e+00  match=True  [AEAL-CACHED]
+  d= 4 beta=  9: max_abs= 2.30940107675850305803659512201  rel=0.00e+00  match=True  [stress]
+  d= 5 beta=  1: max_abs=                             5.0  rel=0.00e+00  match=True  [stress]
+  d= 5 beta= 11: max_abs= 3.09521960341922786443260685649  rel=1.73e-51  match=True  [stress]
+  d= 6 beta=  1: max_abs=                             6.0  rel=0.00e+00  match=True  [stress]
+  d= 6 beta= 13: max_abs= 3.91285743800967605994223485127  rel=0.00e+00  match=True  [stress]
+  d= 7 beta=  1: max_abs=                             7.0  rel=0.00e+00  match=True  [stress]
+  d= 7 beta= 15: max_abs= 4.75428270822048742611863219756  rel=0.00e+00  match=True  [stress]
+  d= 8 beta=  1: max_abs=                             8.0  rel=0.00e+00  match=True  [stress]
+  d= 8 beta= 17: max_abs= 5.61414818760147699187561645114  rel=0.00e+00  match=True  [stress]
+  d= 9 beta=  1: max_abs=                             9.0  rel=0.00e+00  match=True  [stress]
+  d= 9 beta= 19: max_abs= 6.48871614570268011275830210887  rel=0.00e+00  match=True  [stress]
+  d=10 beta=  1: max_abs=                            10.0  rel=0.00e+00  match=True  [stress]
+  d=10 beta= 23: max_abs= 7.30848258425932731110055681816  rel=0.00e+00  match=True  [stress]
+
+  18 / 18 pass
+
+[Phase A*.2] AEAL cross-checks at d in {2,3,4}
+------------------------------------------------------------------------
+  d=2 beta=3: expected=1.154700538379251529018297561  computed=1.154700538379251529018297561  rel=0.00e+00  match=True
+    cached source: PCF-1 v1.3 / Prompt 005 / CT v1.3 º3.3 (250 digits)
+  d=3 beta=1: expected=3.0  computed=3.0  rel=0.00e+00  match=True
+    cached source: Prompt 012 G2_CLOSED_AT_D3 (80 algebraic digits)
+  d=4 beta=1: expected=4.0  computed=4.0  rel=0.00e+00  match=True
+    cached source: PCF2-SESSION-Q1 (spread 0 across 8 reps, dps=80)
+
+  3 / 3 pass
+
+VERDICT: A_DIRECT_IDENTITY_d10
+
+Wrote: C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-05-03\Q20A-PHASE-C-RESUME\phase_a_star_results.json
