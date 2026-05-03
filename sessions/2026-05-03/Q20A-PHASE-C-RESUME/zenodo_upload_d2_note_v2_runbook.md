@@ -37,7 +37,7 @@ upload:
 
 | File                          | Required | Purpose                                   |
 |-------------------------------|----------|-------------------------------------------|
-| `d2_note_v2.pdf`              | YES      | Main artefact (6 pp, 401 948 B)           |
+| `d2_note_v2.pdf`              | YES      | Main artefact (6 pp, 404 837 B)           |
 | `d2_note_v2.tex`              | YES      | LaTeX source for reproducibility          |
 | `annotated_bibliography.bib`  | YES      | Bibliography source                       |
 
@@ -64,14 +64,14 @@ Get-FileHash -Algorithm SHA256 `
     claims.jsonl | Format-Table Hash, Path
 ```
 
-**Expected hashes** (post-audit + email-removal + bib-fix-and-redaction rebuild, 2026-05-03; all earlier hash sets are superseded — see audit `b4c6748` + commits 5d8eefe + 6dfa97f):
+**Expected hashes** (post-pre-deposit-fix rebuild, 2026-05-03; supersedes the post-bib-fix hashes from commit 328c0ee. The pre-deposit fix landed: PCF-1 v1.3 + PCF-2 v1.3 DOIs in references [4]-[5], "Pap'a-Nokechi" → "Papanokechi" rendering for those entries, ORCID added to the end-of-paper address footer):
 
 | File                              | SHA-256 (full)                                                       | Size (B) |
 |-----------------------------------|----------------------------------------------------------------------|----------|
-| `d2_note_v2.pdf`                  | `30F9B3AF2D8841164A052578502C490717DD7BD3D2452F9B8B4A346C9F827391`   | 401 948  |
-| `d2_note_v2.tex`                  | `340778247868F4D978C1C1B79AC27730AE424D33405560FA8AF6F67115EA244D`   | 22 053   |
-| `annotated_bibliography.bib`      | `2D889A18514D880A2DDE45305B7B7DA4853956587BED0E786A71C0C80A445458`   | 34 071   |
-| `claims.jsonl` (61 entries)       | `0C7A773DD9FD9AA27A10772F8F8D795D2B9287441B056CC92305197383364CCE`   | 31 115   |
+| `d2_note_v2.pdf`                  | `7943DA064B369FFE2760E7B989764BD5F175AEBDC6C26224358F22C8AE840B85`   | 404 837  |
+| `d2_note_v2.tex`                  | `27535AF28D23EF72825DCE3866ED3BEF2417C1ECA05AA245014BB28B1F1D0F57`   | 22 129   |
+| `annotated_bibliography.bib`      | `27CABE7C76B850796034AE39F4128510453EF2E06DDAD844190B9BA63E0C4BBE`   | 34 268   |
+| `claims.jsonl` (62 entries)       | `4A2E36A89BF002EE70F97A209EDE16560BB4360A487466E87941C6A384C0B2AC`   | 33 419   |
 
 If any hash mismatches: STOP, re-pull from the bridge `main` branch
 (post-fix commit; see `git log` for the latest "AUTHOR-INFO-AUDIT
@@ -301,12 +301,12 @@ $version = "10.5281/zenodo.<VERSION>"
 $ts = Get-Date -Format "yyyy-MM-ddTHH:mm:ssK"
 
 $claim = [ordered]@{
-  claim         = "D2-NOTE v2.0 published on Zenodo. Concept DOI $concept; version DOI $version; published $ts. PDF SHA-256 30f9b3af2d8841164a052578502c490717dd7bd3d2452f9b8b4a346c9f827391 (matches the post-audit + email-removal + bib-fix-and-redaction rebuild; should match Zenodo readback exactly). v1 superseded (never deposited; see runbook §0)."
+  claim         = "D2-NOTE v2.0 published on Zenodo. Concept DOI $concept; version DOI $version; published $ts. PDF SHA-256 7943da064b369ffe2760e7b989764bd5f175aebdc6c26224358f22c8ae840b85 (matches the pre-deposit-fix rebuild; should match Zenodo readback exactly). v1 superseded (never deposited; see runbook §0)."
   evidence_type = "file_inspection"
   dps           = $null
   reproducible  = $true
   script        = "Invoke-RestMethod https://zenodo.org/api/records/<VERSION>"
-  output_hash   = "30f9b3af2d8841164a052578502c490717dd7bd3d2452f9b8b4a346c9f827391"
+  output_hash   = "7943da064b369ffe2760e7b989764bd5f175aebdc6c26224358f22c8ae840b85"
 }
 $line = $claim | ConvertTo-Json -Compress
 Add-Content -Path claims.jsonl -Value $line
@@ -320,8 +320,8 @@ $pub = "https://zenodo.org/records/$ver/files/d2_note_v2.pdf?download=1"
 Invoke-WebRequest $pub -OutFile zenodo_readback_v2.pdf
 $h = (Get-FileHash zenodo_readback_v2.pdf -Algorithm SHA256).Hash
 Write-Host "Readback SHA-256: $h"
-Write-Host "Expected         : 30F9B3AF2D8841164A052578502C490717DD7BD3D2452F9B8B4A346C9F827391"
-if ($h -ieq "30F9B3AF2D8841164A052578502C490717DD7BD3D2452F9B8B4A346C9F827391") {
+Write-Host "Expected         : 7943DA064B369FFE2760E7B989764BD5F175AEBDC6C26224358F22C8AE840B85"
+if ($h -ieq "7943DA064B369FFE2760E7B989764BD5F175AEBDC6C26224358F22C8AE840B85") {
   Write-Host "MATCH" -ForegroundColor Green
   Remove-Item zenodo_readback_v2.pdf
 } else {
