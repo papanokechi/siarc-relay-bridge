@@ -1,0 +1,16 @@
+{
+  "task": "WITTE-FORRESTER-2010-ACQUISITION",
+  "date": "2026-05-04",
+  "halts": [
+    {
+      "id": "HALT_WF10_BIBLIOGRAPHIC_TARGET_NOT_FOUND",
+      "phase": "A.1",
+      "type": "spec_target_does_not_exist",
+      "trigger": "Spec primary target identifiers (DOI 10.1088/1751-8113/43/23/235202 + arXiv:0911.1762) reproducibly resolve to two unrelated 2010 papers. There is no Witte-Forrester paper at J. Phys. A 43 (2010) 235202 / arXiv:0911.1762.",
+      "evidence": "discrepancy_log.json WF10_DISC_001 (route_findings.md Phase A); both author arXiv listings cross-checked.",
+      "halt_action": "Phases A.3 (OA verification of OA status of spec target), B (route probes per spec list), and C (slot 17 deposit under spec label) were halted. Phase A was completed against substitute (math/0512142). Phase B was repurposed to substitute selection. Phase C was completed against substitute, with slot 17 deposit deferred pending Claude/operator authorization (cannot mis-label slot 17).",
+      "spec_halt_condition_match": "Not directly listed in spec section 4 (which only lists homomorphism-disagreement halts), but qualifies under SOP standing halt: 'Any result contradicts a prior AEAL-logged claim' (here, the spec's own bibliographic claim) plus 'unexpected positive/negative result' clause.",
+      "downstream_consequence": "Verdict transitions from §7 ladder UPGRADE_WF10_ACQUIRED_W_HOMOMORPHISM_FOUND/NOT_IN_WF10/NIA_PAYWALL to a fourth, ladder-extending verdict UPGRADE_WF10_SPEC_BIBLIOGRAPHIC_ERROR_SUBSTITUTE_PROBED — reported in handoff.md."
+    }
+  ]
+}

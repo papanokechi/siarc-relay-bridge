@@ -1,0 +1,46 @@
+{
+  "task": "WITTE-FORRESTER-2010-ACQUISITION",
+  "date": "2026-05-04",
+  "discrepancies": [
+    {
+      "id": "WF10_DISC_001",
+      "phase": "A.1",
+      "severity": "high",
+      "type": "spec_bibliographic_target_does_not_exist",
+      "spec_claim": {
+        "title": "tau-function evaluations of gap probabilities in the spectra of Painleve III' systems",
+        "authors": "Witte, N. S. & Forrester, P. J.",
+        "journal_ref": "J. Phys. A: Math. Theor. 43 (2010) 235202",
+        "doi": "10.1088/1751-8113/43/23/235202",
+        "arxiv_id": "0911.1762"
+      },
+      "observed": {
+        "doi_resolves_to": {
+          "title": "New identities from quantum-mechanical sum rules of parity-related potentials",
+          "authors": "O. A. Ayorinde, K. Chisholm, M. Belloni, R. W. Robinett",
+          "journal_ref": "J. Phys. A: Math. Theor. 43 (2010) 235202",
+          "published": "2010-05-13",
+          "publisher_url": "https://iopscience.iop.org/article/10.1088/1751-8113/43/23/235202",
+          "topic": "quantum-mechanical sum rules; symmetric/parity-restricted potentials; Airy function zeros; harmonic oscillator"
+        },
+        "arxiv_resolves_to": {
+          "title": "Supermatrix models, loop equations, and duality",
+          "authors": "Patrick Desrosiers, Bertrand Eynard",
+          "arxiv_id": "0911.1762",
+          "submitted": "2009-11-09",
+          "journal_ref": "J. Math. Phys. 51 (2010) 123304",
+          "doi": "10.1063/1.3430564",
+          "topic": "Hermitian supermatrix integrals; topological expansion; symplectic invariants"
+        }
+      },
+      "implication": "No paper matching the spec target exists. Both identifiers reproducibly point to unrelated 2010 publications. The spec target is not retrievable.",
+      "audit_routes_attempted": [
+        "https://arxiv.org/abs/0911.1762 (fetched 2026-05-04)",
+        "https://iopscience.iop.org/article/10.1088/1751-8113/43/23/235202 (fetched 2026-05-04)",
+        "Peter Forrester arXiv author listing https://arxiv.org/a/forrester_p_1.html (~89 papers; no PIII' tau function 2010 J Phys A 43 235202 entry)",
+        "Nicholas Witte arXiv author listing https://arxiv.org/a/witte_n_1.html (~51 papers; no matching 2009-2010 J Phys A submission)"
+      ],
+      "remediation_taken": "Re-targeted to closest thematic substitute arXiv:math/0512142 (Forrester-Witte 2005, the only Forrester-Witte arXiv paper with 'Painleve III'' in the title). Phase D readback executed against substitute."
+    }
+  ]
+}
