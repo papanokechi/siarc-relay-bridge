@@ -1,0 +1,61 @@
+% =====================================================================
+% CT v1.4 §3.5 — VERBATIM EXTRACTION
+% Source: siarc-relay-bridge/sessions/2026-05-03/CT-V14-NARRATIVE-DRAFT/
+%         ct_v1.4_main.tex
+% Source SHA-256: 0600A4456803A43D967788196C501534716852652030FC4225E6B42921AE77E1
+% Source size:    91605 bytes / 2050 lines
+% Source mtime:   2026-05-03 09:48:46
+% Section range:  lines 948–995 (subsection start through last line
+%                 before next \subsection at line 996)
+% Notes: §3.5 is "The locked WKB exponent identity"; the §3 parent
+%        is "Catalogue of channels in the SIARC stack" (line 510).
+%        See section_numbering_note in handoff.md for the
+%        v1.4-vs-G17-handoff §3.5 / §3.3 ambiguity discussion.
+% =====================================================================
+
+\subsection{The locked WKB exponent identity}
+\label{ssec:wkb}
+
+\begin{proposition}[WKB exponent identity, empirical;
+\cite{siarc_pcf1_v13,siarc_borel_kscan,siarc_cc_pipeline_f}]
+\label{prop:wkb}
+For each of the six $\Delta<0$ degree-$2$ families surveyed,
+the leading trans-series exponents of
+$\log|\dn| = -A n \log n + \alpha n - \beta \log n + \gamma
++ \sum_{k \ge 1} h_k / n^k$
+satisfy the closed form
+\[
+  A \;=\; \begin{cases} 4 & a_n \equiv \text{const}, \\
+                        3 & a_n = c_a n + d_a, \end{cases}
+  \qquad
+  \alpha \;=\; A \;-\; 2 \log c_b \;+\; \log|c_a|,
+\]
+verified to $\geq 13$ decimal digits in
+\cite{siarc_borel_kscan} and to $\ge 23$ digits in
+five families in \cite{siarc_cc_pipeline_f}.
+\end{proposition}
+
+\Cref{prop:wkb} fixes the leading WKB exponent of
+$\log|\dn|$ but \emph{not} the residual Laplace step that
+converts the Birkhoff-factored formal pair $f_\pm(u)$ of the
+$\CC$ channel into Stokes data; that step is formally
+separate, and Theory-Fleet H4 (see \Cref{rem:h4-median}
+of \S\ref{ssec:h4-median}, and the new
+\textsf{op:cc-median-resurgence-execute} of
+\Cref{sec:open}) predicts that median \'Ecalle resurgence
+on the V$_{\mathrm{quad}}$ formal coefficient series at
+$5000$ coefficients / dps $250$ extracts the alien
+amplitude at $\zeta_*=4/\sqrt 3$ to $30$--$50$ digits.
+
+The relevance of \Cref{prop:wkb} for v1.1 is the
+cross-reference to the cubic case
+$A = 2d = 6$ \cite{siarc_pcf2_v11}: the degree-$2$ split
+$A \in \{3, 4\}$ may be a low-degree artefact and the
+universal form $A = 2d$ may hold for all $d \ge 3$ (PCF-2
+\textsf{op:d2-anomaly}). At v1.2 the quartic confirmation
+$A = 2d = 8$ ($60/60$ at $d=4$, PCF2-SESSION-Q1
+\cite{siarc_pcf2_session_q1}) supports this reading. This in
+turn motivates the $\xi_0$-extension problem
+\textsf{op:xi0-degree-d} (\Cref{sec:open}), now empirically
+resolved at $d=2,4$ via the linear formula
+$\xi_0 = d / \beta_d^{1/d}$ (\Cref{conj:xi0-univ}).

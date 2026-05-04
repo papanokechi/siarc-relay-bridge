@@ -1,0 +1,51 @@
+--- a/siarc-relay-bridge/sessions/2026-05-03/CT-V14-NARRATIVE-DRAFT/ct_v1.4_main.tex
++++ b/siarc-relay-bridge/sessions/2026-05-03/CT-V14-NARRATIVE-DRAFT/ct_v1.4_main.tex
+@@ -985,6 +985,46 @@
+ turn motivates the $\xi_0$-extension problem
+ \textsf{op:xi0-degree-d} (\Cref{sec:open}), now empirically
+ resolved at $d=2,4$ via the linear formula
+ $\xi_0 = d / \beta_d^{1/d}$ (\Cref{conj:xi0-univ}).
+ 
++% ---------------------------------------------------------------
++% v1.4 amendment (G17-LAYER-SEPARATION-LIT-ANCHOR, 2026-05-04):
++% layer-separation note — explicitly distinguishes the L-equation
++% function-space layer from the isomonodromic-deformation
++% Hamiltonian / monodromy-data layer. Anchored in B-T 1933 +
++% Costin 2008 ch.5 (L-equation); Jimbo--Miwa 1981 II + Okamoto 1987
++% + BLMP 2024 §4.1 (deformation). NEW BIBKEYS REQUIRED before
++% apply: okamoto1987studies, barhoumilisovyy2024transcendence,
++% birkhoff1930generalized. See sec_35_cite_keys_check.md.
++% ---------------------------------------------------------------
++\paragraph{Layer note (added v1.4).}
++The residual Laplace step invoked above is naturally
++described in two formally distinct layers, in the sense of
++the asymptotic / isomonodromic literature
++\cite{costin2008asymptotics,birkhofftrjitzinsky1932analytic,jimbomiwa1981monodromy}.
++The \emph{L-equation layer} is the linear differential or
++difference operator $L(y)=0$ whose formal-series solutions
++$e^{Q(x)}\,s(x)$ are the OGF / wave-function objects of the
++underlying analytic problem; it is satisfied by --- not equal
++to --- the OGF in the $(z,w)$ function-space layer
++(Birkhoff--Trjitzinsky 1933 for the difference setting;
++Costin 2008 ch.~5 for the differential / Borel-summability
++setting). The \emph{isomonodromic-deformation layer}
++describes how the monodromy data (Stokes constants,
++connection matrices) of $L$ deform as a parameter $t$ varies;
++it lives in the $(q,p,t)$ Hamiltonian / monodromy-data layer
++(Okamoto 1987 for the $P_{III}'$ / $P_{III}$ Hamiltonian
++formulation; Jimbo--Miwa 1981 II for the Lax-pair
++monodromy-preserving-deformation construction;
++Barhoumi--Lisovyy--Miller--Prokhorov 2024 §4.1 for the
++canonical textbook statement). The bridge between the two
++layers is the over-determined Lax pair
++$(\Lambda(\lambda,x),\,X(\lambda,x))$ whose compatibility
++condition $[\partial_x - X,\,\partial_\lambda - \Lambda] = 0$
++returns the deformation equation. In particular, the
++$\Vquad$ recovery of \Cref{thm:vquad-cc} is read as an
++identity at the level of monodromy data on the deformation
++side, \emph{not} as an identification of the $\Vquad$ scalar
++ODE with the $(q,p,H_{III'}(t;q,p))$ Hamiltonian on the
++function-space side.
++
+ % =====================================================================
+ \subsection{Median \'Ecalle resurgence as the residual
