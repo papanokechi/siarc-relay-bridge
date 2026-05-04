@@ -1,0 +1,28 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-038-1",
+      "title": "Spec §5 sub-task C arXiv-ID slots are author-and-year-only — pre-resolution gate forced",
+      "description": "Per copilot-instructions Bibliographic ID Pre-Verification rule (post-031 verdict 2026-05-04), all literature-hunt prompts citing specific DOI / arXiv IDs as acquisition targets must pre-resolve those IDs before the relay fires. Prompt 038 §5 sub-task C P3-P5-P8 cite Mazzocco / BLT / Iwaki / Clavier-Cournod / Lisovyy-Roussillon by AUTHOR + YEAR only without specific IDs. This is technically compliant (no hallucinated IDs to pre-resolve) but creates a pre-fire gap: a synthesizer-side or operator-side ID-pinning step would have unblocked deep-probing for these candidates. Without it, this researcher's own ID guesses (4 attempts; all hallucinated to unrelated papers) consumed probe budget that was wasted. Recommend: synthesizer flag this pattern for future prompt-drafting (post-031 rule extension: author-and-year-only candidate references should ALSO be pre-resolved by the prompt-drafter to a canonical arXiv ID + DOI before fire).",
+      "scope": "Process-discipline finding, not a research finding"
+    },
+    {
+      "id": "UF-038-2",
+      "title": "Costin 2008 ch.5 fractional-rank q ≥ 2 borderline-anormal case is structurally absent (negative finding)",
+      "description": "Verbatim search of the 13550-line pypdf-extracted text-layer of slot 06 (`06_costin_2008_chap5.pdf` SHA 436c6c11…) returns 0 hits for 'fractional rank' and 0 hits for 'borderline-anormal'; 9 hits for 'borderline' all in rank-1 / Borel-plane localisation context. The post-Wasow §X.3 borderline-anormal case at fractional rank q ≥ 2 — which is exactly what M4 Phase 3 needs to lift A ∈ [d, 2d] → A = 2d at d ≥ 3 — is NOT in Costin 2008 ch.5 even though Costin is the canonical post-1965 monograph descendant of Wasow. This is a substantive gap in the post-1965 monograph literature, not just a probe budget limitation. Implication: the M4 Phase 3 lift may genuinely require either Wasow §X.3 OCR (prompt 019 scope) or a SIARC primary derivation — there is no obvious mid-rank monograph anchor to fall back to.",
+      "scope": "Substantive negative-finding for synthesizer M4-scheduling decision"
+    },
+    {
+      "id": "UF-038-3",
+      "title": "Sakai 1999 slot 13 is a strong-fit precedent for SIARC M9 announcement format",
+      "description": "Sakai 1999 introduction lays out a 7-section research program with EXPLICIT sub-section partition (Section 2 motivation; Section 3 surface theory recall; Section 4 classification; Section 5 parametrisation; Section 6 Cremona action realisation; Section 7 discrete Painlevé construction + 'elliptic' difference equation as 'most generic'). The '(see § 7; 4)' explicit-deferral marker is the announcement-format equivalent of SIARC M9's 'M4 partial / M7 soft / M8b numerically foreclosed' caveat catalogue. This precedent is at the OPPOSITE end of the spectrum from Langlands 1967 (aesthetic-justification-only) and is structurally closer to the M9 partiality profile than any other R-row in §D.",
+      "scope": "Substantive structural-fit finding for synthesizer M9-format decision"
+    },
+    {
+      "id": "UF-038-4",
+      "title": "Hidden process-cost: spec PRIOR ANCHORS section uses bridge folder names that drifted",
+      "description": "Of 5 bridge anchor folders cited in spec PRIOR ANCHORS, 3 had drifted names (T1-BIRKHOFF-PHASE2-LIFT-LOWER → T1-BIRKHOFF-TRJITZINSKY-LITREVIEW; T2.5D-J0-CHOWLA-SELBERG → T25D-J0-CHOWLA-SELBERG-CLOSURE; T3-CONTE-MUSETTE-D2D3 → T3-CONTE-MUSETTE-PAINLEVE-TEST). Same applies to slot-13 / slot-14 PDF filenames. None triggered HALT_038_MISSING_ANCHOR (content-match verified in all 5 cases) but the strict §1 phrasing 'If any anchor file is missing: HALT_038_MISSING_ANCHOR' is brittle against renames-after-prompt-drafting. Recommend: synthesizer add a verify-by-content-and-not-just-by-path discipline to future spec §1 anchor blocks, OR the bridge directory layout adopt a strict-no-rename policy.",
+      "scope": "Process-discipline finding"
+    }
+  ]
+}

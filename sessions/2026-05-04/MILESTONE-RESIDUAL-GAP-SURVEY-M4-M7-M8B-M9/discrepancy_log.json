@@ -1,0 +1,41 @@
+{
+  "discrepancies": [
+    {
+      "id": "DISC-038-1",
+      "type": "anchor_path_drift",
+      "spec_section": "§1 ANCHOR FILES",
+      "spec_citation": "13_sakai_2001.pdf, 14_kny_2017.pdf, sessions/2026-05-04/T1-BIRKHOFF-PHASE2-LIFT-LOWER/, sessions/2026-05-02/T2.5D-J0-CHOWLA-SELBERG/, sessions/2026-05-02/T3-CONTE-MUSETTE-D2D3/",
+      "actual_on_disk": "13_sakai_1999_preprint_kyoto99_10.pdf, 14_kajiwara_noumi_yamada_2017_geometric_aspects.pdf, sessions/2026-05-04/T1-BIRKHOFF-TRJITZINSKY-LITREVIEW/, sessions/2026-05-02/T25D-J0-CHOWLA-SELBERG-CLOSURE/, sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/",
+      "resolution": "Naming drift only; content match per prior bridge verdicts (029 SAKAI-2001-ACQUISITION 2026-05-04 confirms slot-13 1999 preprint = 2001 published version; T1-Phase-2 LIFT-LOWER deliverables landed in T1-BIRKHOFF-TRJITZINSKY-LITREVIEW folder per bridge `37c939f`); HALT_038_MISSING_ANCHOR NOT triggered",
+      "action_taken": "Documented in claims.jsonl entry 14; dossier §1 narrative uses actual on-disk paths"
+    },
+    {
+      "id": "DISC-038-2",
+      "type": "researcher_arxiv_id_hallucination",
+      "spec_section": "§5 sub-task C P3-P5-P8 (author-and-year-only references)",
+      "scope": "This researcher's own arXiv-ID probe guesses",
+      "details": "Spec §5 P3 (Mazzocco), P4 (Bonelli-Lisovyy-Tanzini), P8 (Lisovyy-Roussillon) are stated by author + year only without specific arXiv IDs. This researcher attempted 4 arXiv-ID guesses to find canonical preprints: arXiv:2407.21184 → resolves to 'Optical Computing for DNN Acceleration' (cs.AR; Pasricha 2024); arXiv:2305.17839 → 'Absolute light yield of EJ-204 plastic scintillator' (physics.ins-det; Brown et al. 2023); arXiv:1612.08719 → 'Equilibrium mappings in polar-isotropic confined active particles' (cond-mat.soft; Fily-Baskaran-Hagan 2016); arXiv:1806.08398 → 'Things that go bump in the night: From J/ψφ to other mass spectrum' (hep-ph; Yi 2018). NONE relate to Painlevé III / connection coefficients / Stokes data.",
+      "anchor_to_prior_finding": "Same hallucination pattern as 031 WITTE-FORRESTER-2010-ACQUISITION verdict 2026-05-04 where DOI 10.1088/1751-8113/43/23/235202 + arXiv:0911.1762 both resolved to unrelated 2010 papers",
+      "resolution": "Per copilot-instructions Bibliographic ID Pre-Verification rule: do NOT cite hallucinated IDs; revert to author-and-year-only NIA tagging in dossier rows C.P3 / C.P4 / C.P5 / C.P8; flag here for synthesizer review",
+      "action_taken": "Dossier rows C.P3 / C.P4 / C.P8 carry NIA tags with explicit pre-resolution-failure rationale; this discrepancy logged for synthesizer escalation; NO hallucinated IDs cited in dossier prose or claims.jsonl entries"
+    },
+    {
+      "id": "DISC-038-3",
+      "type": "spec_citation_year_drift",
+      "spec_section": "§3 sub-task A P5",
+      "spec_citation": "Ramis-Sibuya 1996, 'A new proof of multisummability of formal power series solutions of ODE', Funkcialaj Ekvacioj 39 (1996) 139-163",
+      "discrepancy": "Braaksma 1992 NUMDAM bibliography reference [16] (verified verbatim in this session) cites Ramis-Sibuya, 'Hukuhara domains and fundamental existence and uniqueness theorems for asymptotic solutions of Gevrey type', Asymp. Analysis 2 (1989) 39-94 — different paper, different journal, different year",
+      "resolution": "Both papers exist independently (Braaksma references the 1989 Asymp. Analysis paper; the spec cites the 1996 Funkcialaj Ekvacioj paper); both are by Ramis-Sibuya; cross-reference recorded for synthesizer awareness",
+      "action_taken": "Dossier row A.P5 notes both citations; not a fabrication, just spec-vs-corpus citation-overlap"
+    },
+    {
+      "id": "DISC-038-4",
+      "type": "spec_year_attribution_drift",
+      "spec_section": "§4 sub-task B P1",
+      "spec_citation": "Chowla-Selberg 1949, 'On Epstein's Zeta-function', J. reine angew. Math. 227, pp. 86-110",
+      "discrepancy": "GDZ verifies J. reine angew. Math. (Crelle) vol. 227 is from 1967, not 1949; the 1949 Chowla-Selberg paper is the SHORT note in PNAS 35 (1949) 371-374; the long Crelle paper appeared 1967. Spec conflates 1949 PNAS short note with 1967 Crelle long paper",
+      "resolution": "Documented in dossier row B.P1; landing page year-of-volume verified as 1967 via GDZ metadata",
+      "action_taken": "Dossier row B.P1 carries clarification; not a fabrication"
+    }
+  ]
+}
