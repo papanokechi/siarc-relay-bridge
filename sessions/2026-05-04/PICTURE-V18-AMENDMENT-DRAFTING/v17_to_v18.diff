@@ -1,0 +1,196 @@
+diff --git "a/..\\..\\..\\..\\tex\\submitted\\control center\\picture_revised_20260504.md" b/picture_v1.18.md
+index 541b969..277b629 100644
+--- "a/..\\..\\..\\..\\tex\\submitted\\control center\\picture_revised_20260504.md"	
++++ b/picture_v1.18.md
+@@ -1,5 +1,7 @@
+ # SIARC Strategic Picture — Revised
+-**Revision:** v1.17 (**post-R5-OKAMOTO-retries + M6-spec-deposit absorption 2026-05-04**: (i) **R5-OKAMOTO-PROJECT-EUCLID-RETRY OUTCOME `OUTCOME_R5RT_NOT_ON_PROJECT_EUCLID`** (bridge `7727607`) — operator-supplied PDF at `literature/g3b_2026-05-03/07_okamoto_1987_painleve_III_FE30.pdf.pdf` (1.94 MB, SHA `0982c60e...`) verified as Okamoto **Part I (P_VI)** from *Annali di Matematica* CXLVI (1987) pp. 337–381, NOT the targeted Part IV (P_III) from *Funkcialaj Ekvacioj* 30. Per task §2 step 3 verification (Part number / equation / journal / volume / pages all wrong; only author + year coincided), file relocated to `supplementary/okamoto_1987_part_I_painleve_VI_AnnMat.pdf`, slot 07 left empty, SHA256SUMS amended; **SCENARIO C confirmed** (Project-Euclid route NOT viable for Okamoto FE 30). (ii) **R5-OKAMOTO-NUMDAM-RETRY OUTCOME `OUTCOME_R5RT_NUMDAM_ACQUIRED`** (bridge `872652b`) — synthesizer-authorized FINAL retry: NUMDAM probe revealed NUMDAM does NOT host Funkcialaj Ekvacioj (FE is Japanese; NUMDAM is French-math-focused). Operator-surfaced URL `http://fe.math.kobe-u.ac.jp/FE/FE_pdf_with_bookmark/FE21-30-en_KML/fe30-305-332/fe30-305-332.pdf` yielded 6.08 MB PDF; all 9 strengthened verification checks PASSED (title page reads `Funkcialaj Ekvacioj, 30 (1987) 305-332 / Studies on the Painleve Equations IV. / Third Painleve Equation P_{III} / By Kazuo OKAMOTO`); slot 07 ACQUIRED with SHA `65294fbc...`; SHA256SUMS amended; all 11 entries self-verify. **SCENARIO B confirmed**: 2 of 3 R5 sources (slots 07 + 08) acquired; slot 09 Conte-Musette substituted by slot 06 Costin 2008 ch. 5 per A-01 verdict; M6 unblocked; no ethics-gate framing. (iii) **PRE-DRAFT-CC-VQUAD-PIII-NORMALIZATION-MAP-PROMPT (M6 spec, pre-fire deposit)** (bridge `5e2ad95`) — synthesizer-drafted M6 closure spec deposited at `sessions/2026-05-04/CC-VQUAD-PIII-NORMALIZATION-MAP-PROMPT-SPEC/` (prompt_spec.md 43 669 B / SHA `075534E8…BBDC1C`; handoff.md 14 116 B; README.md 855 B) per QS-2 / QS-3 pattern but **PRE-FIRE** (in contrast to T1P2-DEPOSIT post-hoc); 9 phases (0.0 / 0.5 / A / B / B.5 / C / D / E / F) with Phase B.5 W(B_2) ↔ W(D_6) affine-Weyl cross-walk explicit per Q35 ruling (sub-tasks B.5.1–B.5.4 explicit); 8 halt codes (operator's 6 + 2 added during drafting: `HALT_M6_PHASE_B_CONSTRUCTION_INCOMPLETE` + `HALT_M6_STOKES_NUMERICAL_MISMATCH`); AEAL minimum ≥ 16 entries; 5 anchor sources verified (slots 01/03/04/06/07/08); awaiting synthesizer QA review before operator dispatches relay-prompt body into fresh CLI session. **NEW Q36** (M6 spec QA verdict — synthesizer accepts as drafted vs requests amendments). **R5 SCENARIO B disposition** + Q35 ruling 2026-05-04 + A-01 verdict + H4_PASS_108_DIGITS verdict all embedded. **Prior v1.16** = post-T1-Phase-2 + D2-NOTE-v2.1-deposit absorption. See §27 Amendment Log for detail.)
++**Revision:** v1.18 (**post-batch-1+2+3 closing-grade absorption 2026-05-04**: 13 closing-grade deltas absorbed from prompts 018–032 (with 033 deferred per operator pivot-decision pending): G24 closed-negatively (PCF-2 v1.3 §6 Phase-2 anomaly REAL); G3b residuals (i)/(ii)/(iii) all closed via OA / transitive / substitute routes (Wasow §X.3 OCR_PROBE_OPERATOR_GATED, Adams 1928 CLOSED_VIA_TRANSITIVE_T1_A01, Conte–Musette ch. 7 CLOSED_VIA_COSTIN_SUBSTITUTE); G12 closed via bridge snapshot (commit `58dfa9e` Zenodo DOI `19937196` byte-match); G14 closed-pending-operator-outreach (3 endorser handles confirmed; emails operator-side); G17 amendment-patch-PARTIAL pending CT v1.4 §3.5 Reading-A vs Reading-B operator/Claude decision (cross-checked via Costin median-resurgence 4-source anchor); G18 closed-triangulated 3-source (Birkhoff–Trjitzinsky 1933 + Adams 1928 transitive + Sakai 2001 / Jimbo–Miwa 1981 II + Okamoto 1987 P_III parameter-pin); M6 Q36 / Phase B.5 W cross-walk **STILL_PARTIAL_PENDING_PIVOT_DECISION** (Case 3 of B.10: Witte–Forrester 2010 spec target NOT_FOUND with substitute probed → confirmed-absent across NY-family + FW-family OA literature surveyed; SIARC primary-derivation Path B deferred at operator); arxiv-pack inventory **4/4 PASS** for non-PCF-1 records (umbrella v2.0 / PCF-2 v1.3 / CT v1.3 / T2B v3.0). **No closures regressed; no scope contraction.** PII typo correction (was `PII-1501457-9`, now `PII-1501443-6`) recorded for cross-document hygiene (typo never landed in this picture file; correction applies to operator-side cheat-sheet artifacts). Cheat-sheet PCF-1 Zenodo ID `19937196` re-confirmed as authoritative (this picture file already correct at L415 + L1767). **Prior v1.17** = post-R5-OKAMOTO-retries + M6-spec-deposit absorption. See §28 Amendment Log for detail.
++
++**Revision history (cumulative):** v1.17 (**post-R5-OKAMOTO-retries + M6-spec-deposit absorption 2026-05-04**: (i) **R5-OKAMOTO-PROJECT-EUCLID-RETRY OUTCOME `OUTCOME_R5RT_NOT_ON_PROJECT_EUCLID`** (bridge `7727607`) — operator-supplied PDF at `literature/g3b_2026-05-03/07_okamoto_1987_painleve_III_FE30.pdf.pdf` (1.94 MB, SHA `0982c60e...`) verified as Okamoto **Part I (P_VI)** from *Annali di Matematica* CXLVI (1987) pp. 337–381, NOT the targeted Part IV (P_III) from *Funkcialaj Ekvacioj* 30. Per task §2 step 3 verification (Part number / equation / journal / volume / pages all wrong; only author + year coincided), file relocated to `supplementary/okamoto_1987_part_I_painleve_VI_AnnMat.pdf`, slot 07 left empty, SHA256SUMS amended; **SCENARIO C confirmed** (Project-Euclid route NOT viable for Okamoto FE 30). (ii) **R5-OKAMOTO-NUMDAM-RETRY OUTCOME `OUTCOME_R5RT_NUMDAM_ACQUIRED`** (bridge `872652b`) — synthesizer-authorized FINAL retry: NUMDAM probe revealed NUMDAM does NOT host Funkcialaj Ekvacioj (FE is Japanese; NUMDAM is French-math-focused). Operator-surfaced URL `http://fe.math.kobe-u.ac.jp/FE/FE_pdf_with_bookmark/FE21-30-en_KML/fe30-305-332/fe30-305-332.pdf` yielded 6.08 MB PDF; all 9 strengthened verification checks PASSED (title page reads `Funkcialaj Ekvacioj, 30 (1987) 305-332 / Studies on the Painleve Equations IV. / Third Painleve Equation P_{III} / By Kazuo OKAMOTO`); slot 07 ACQUIRED with SHA `65294fbc...`; SHA256SUMS amended; all 11 entries self-verify. **SCENARIO B confirmed**: 2 of 3 R5 sources (slots 07 + 08) acquired; slot 09 Conte-Musette substituted by slot 06 Costin 2008 ch. 5 per A-01 verdict; M6 unblocked; no ethics-gate framing. (iii) **PRE-DRAFT-CC-VQUAD-PIII-NORMALIZATION-MAP-PROMPT (M6 spec, pre-fire deposit)** (bridge `5e2ad95`) — synthesizer-drafted M6 closure spec deposited at `sessions/2026-05-04/CC-VQUAD-PIII-NORMALIZATION-MAP-PROMPT-SPEC/` (prompt_spec.md 43 669 B / SHA `075534E8…BBDC1C`; handoff.md 14 116 B; README.md 855 B) per QS-2 / QS-3 pattern but **PRE-FIRE** (in contrast to T1P2-DEPOSIT post-hoc); 9 phases (0.0 / 0.5 / A / B / B.5 / C / D / E / F) with Phase B.5 W(B_2) ↔ W(D_6) affine-Weyl cross-walk explicit per Q35 ruling (sub-tasks B.5.1–B.5.4 explicit); 8 halt codes (operator's 6 + 2 added during drafting: `HALT_M6_PHASE_B_CONSTRUCTION_INCOMPLETE` + `HALT_M6_STOKES_NUMERICAL_MISMATCH`); AEAL minimum ≥ 16 entries; 5 anchor sources verified (slots 01/03/04/06/07/08); awaiting synthesizer QA review before operator dispatches relay-prompt body into fresh CLI session. **NEW Q36** (M6 spec QA verdict — synthesizer accepts as drafted vs requests amendments). **R5 SCENARIO B disposition** + Q35 ruling 2026-05-04 + A-01 verdict + H4_PASS_108_DIGITS verdict all embedded. **Prior v1.16** = post-T1-Phase-2 + D2-NOTE-v2.1-deposit absorption. See §27 Amendment Log for detail.)
+ **Original:** 2026-05-02 18:05 JST
+ **Updated:** 2026-05-02 21:00 JST  (post-014 absorption — extended v1.8 → v1.9)
+ **Updated:** 2026-05-02 21:30 JST  (post-016 HALT absorption — extended v1.9 → v1.10)
+@@ -10,6 +12,7 @@
+ **Updated:** 2026-05-03 23:00 JST  (post-multi-verdict absorption — extended v1.14 → v1.15: D2-NOTE v2.1 UPGRADE_FULL + T37L LANDED + T37M HALT + A01 verdict + H4 PASS_108)
+ **Updated:** 2026-05-04 08:00 JST  (post-T1-Phase-2 + D2-NOTE-v2.1-deposit absorption — extended v1.15 → v1.16: T1-Phase-2 UPGRADE_PARTIAL_FORMAL_LEVEL + v2.1 deposit DOI 20015923 + spec deposit; G23/G24 new gaps; Q35 new question)
+ **Updated:** 2026-05-04 11:45 JST  (post-R5-OKAMOTO-retries + M6-spec-deposit absorption — extended v1.16 → v1.17: R5-OKAMOTO-PROJECT-EUCLID-RETRY `OUTCOME_R5RT_NOT_ON_PROJECT_EUCLID` + R5-OKAMOTO-NUMDAM-RETRY `OUTCOME_R5RT_NUMDAM_ACQUIRED` SCENARIO B + PRE-DRAFT-CC-VQUAD-PIII-NORMALIZATION-MAP-PROMPT (M6 spec pre-fire deposit); slot 07 acquired SHA 65294fbc; M6 spec 9-phase / 8-halt-code / AEAL ≥ 16; Q36 NEW)
++**Updated:** 2026-05-04 17:00 JST  (post-batch-1+2+3 closing-grade absorption — extended v1.17 → v1.18: 13 deltas from prompts 018–032 absorbed [G24 closed-negatively · G3b (i)/(ii)/(iii) all closed · G12 closed-via-snapshot `58dfa9e` · G14 closed-pending-operator · G17 amendment-PARTIAL pending Reading-A/B · G18 closed-triangulated-3-source · M6 Q36 / Phase B.5 STILL_PARTIAL_PENDING_PIVOT_DECISION (033 deferred) · arxiv-pack 4/4 PASS · PII typo correction recorded · cheat-sheet PCF-1 ID re-confirmed]; outcome PARTIAL_V18_DRAFT_M6_CASE_DEFERRED per §7 of PICTURE-V18-AMENDMENT-DRAFTING spec; v1.18 deposit-eligible with M6 row flagged for v1.19 absorption once 033 verdict lands)
+ **Operator:** papanokechi
+ **Supersedes:** `20260502_picture.docx` (preserved as the historical
+ introspective draft) and `picture_revised_20260502.md` (preserved
+@@ -19,6 +22,36 @@ snapshot for synthesizer review)
+ **Audience:** Synthesizer agent (Claude, claude.ai) — strategic /
+ epistemic review pass before the next firing cycle.
+ 
++> **🆕 Updates since v1.17 (see §28 Amendment Log for detail):**
++> - ✅ **G24 — PCF-2 v1.3 §6 Phase-2 anomaly disposition CLOSED-NEGATIVELY 2026-05-04** (`PCF2-V13-AFIT-DEFINITION-READBACK`, handoff SHA `711E10C9...AB8A`) — definitions in PCF-2 v1.3 eq.(B4) ($A_\text{fit}$ measures $n \log n$ coefficient of $\log|\delta_n|$, structurally $= \mu_\text{dom} - \mu_\text{sub}$) MATCH T1 Phase A baseline. Definitional-mismatch resolution candidate (ii) for G24 is **falsified**; empirical-vs-formal $A_\text{fit}=2d$ vs $A_\text{naive} \le d+1$ gap is **real** and must close via G23 (borderline-case anormal ansatz at SIARC stratum) + T1 Phase 3. Verdict label `UPGRADE_G24_DEFINITIONS_MATCH_PHASE2_ANOMALY_REAL`.
++>
++> - ✅ **G3b residual (i) Wasow 1965 §X.3 — OCR_PROBE_OPERATOR_GATED 2026-05-04** (`WASOW-X3-OCR-ACQUISITION-PROBE`, handoff SHA `B1FBFA91...A54A`) — Wasow 1965 ch. X PDF on disk is image-only (no embedded text layer); operator-gated OA routes (Internet Archive borrow + library loan) recommended; 3rd independent task to reaffirm image-only state of slot 04 (also reaffirmed in CT-V14-SEC35-AMENDMENT-PATCH-PRECHECK and G17-LAYER-SEPARATION-LIT-ANCHOR). G3b residual (i) status: ANCHOR-PARTIAL → **CLOSED_VIA_OPERATOR_GATED_OA_ROUTES** (paraphrase-grade Wasow §X.3 reading retained from D2-NOTE v2.1 + T1-A01 cross-checks; theorem-grade upgrade requires OCR'd or library-loan copy).
++>
++> - ✅ **G3b residual (ii) Adams 1928 — CLOSED_VIA_TRANSITIVE_T1_A01 2026-05-04** (`ADAMS-1928-FINAL-ACQUISITION-PROBE`, handoff SHA `AA4198B1...F235`) — 3 OA routes probed (AMS direct / JSTOR / Internet Archive); AMS Free Digital Archive policy confirms volumes >5 years old are free, but plain-HTTP fetch returns HTML viewer wrapper (JS-rendered session required); JSTOR auth-gated; Internet Archive 0 results. Spec PII typo corrected (was `PII-1501457-9` → now `PII-1501443-6`). G3b residual (ii) stays closed-via-transitive per T1-A01 (Adams 1928 transitive evidence sufficed for $\mu \le 2d$ closure under T1-BIRKHOFF-TRJITZINSKY-LITREVIEW). Verdict label `UPGRADE_ADAMS_NIA_ILL_RECOMMENDED_AMS` (operator-side one-click browser retrieval if theorem-grade upgrade desired).
++>
++> - ✅ **G3b residual (iii) Conte–Musette 2008 ch. 7 — CLOSED_VIA_COSTIN_SUBSTITUTE 2026-05-04** (`CONTE-MUSETTE-CH7-FINAL-ACQUISITION-PROBE`, handoff SHA `58F90C80...86F8`) — 7 OA routes probed; SpringerLink hit Rule-1 auth-redirect; arXiv 0 results; Internet Archive 0 results; WorldCat HTTP 403; Google Scholar surfaces only paywalled SpringerLink URLs. G3b residual (iii) stays closed-via-substitute (Costin 2008 ch. 5 slot 06 SHA `436c6c11...`) per A-01 verdict + R5 disposition. Conte original remains ILL-target (Yokohama / Tokyo libraries) if theorem-grade upgrade desired. Verdict label `UPGRADE_CONTE_NIA_ILL_RECOMMENDED_yokohama_or_tokyo_libs`.
++>
++> - ✅ **G12 — PCF-1 v1.3 source state CLOSED_VIA_BRIDGE_SNAPSHOT_58DFA9E 2026-05-04** (`PCF1-V13-SOURCE-RECOVERY-PROBE`, handoff SHA `B4D73276...9F54`; cross-anchor `ARXIV-PACK-V13-RE-VERIFY`, handoff SHA `039B0C60...8458`) — canonical 16pp v1.3 TeX + PDF preserved on bridge at `sessions/2026-05-01/PCF1-V13-UPDATE/` (commit `58dfa9e`); committed PDF SHA-256 byte-matches Zenodo deposit DOI `10.5281/zenodo.19937196`. Verdict label `UPGRADE_PCF1_V13_RECOVERY_BRIDGE_SNAPSHOT` ≡ `UPGRADE_PCF1_V13_RECOVERY_COMMIT_FOUND_58dfa9e`. **Cross-row consistency cleared**: this picture file's Zenodo ID rows (L415 + L1767) already cite the correct `19937196`; cheat-sheet operator-side artifact correction is out of scope here (was `19941678` / `19963298` per spec; correction `19937196` operator-side). Anomaly flagged: `arxiv-pack` re-pack inadvertently captured 21pp post-edit state under v1.3 label (separate from canonical 16pp v1.3); recovery via `58dfa9e` snapshot is the operative-truth path.
++>
++> - ✅ **G14 — endorser handle acquisition CLOSED_PENDING_OPERATOR_OUTREACH 2026-05-04** (`ENDORSER-HANDLE-ACQUISITION`, handoff SHA `BB1CA745...5F95`) — 3 Tier-1 candidate endorsers publicly handle-confirmed (Zudilin `zudilin_w_1`, Mazzocco `mazzocco_m_1`, Garoufalidis `garoufalidis_s_1`); 3 Tier-2 candidates `HANDLE_NOT_PUBLIC` (Costin / Sauzin / Beukers); 5 populated email templates prepared (emails NOT transcribed per privacy hygiene). Verdict label `UPGRADE_G14_ENDORSERS_IDENTIFIED_3_HANDLES_CONFIRMED_EMAILS_PENDING_OPERATOR`. May upgrade to FULLY_CLOSED post-operator-outreach (RUNBOOKs ready for arXiv endorsement workflow).
++>
++> - 🟡 **G17 — CT v1.4 §3.5 amendment AMENDMENT_PENDING_READING_DECISION 2026-05-04** (`CT-V14-SEC35-AMENDMENT-PATCH-PRECHECK`, handoff SHA `375A9D1A...D3E8`; cross-check `G17-LAYER-SEPARATION-LIT-ANCHOR`, handoff SHA `1E86A9B4...4D91`) — reviewable `.patch` + side-by-side + cite-keys + hygiene-dry-check artifacts emitted for G17 layer-separation amendment to CT v1.4 §3.5 (insertion-only, 1 hunk, ~190 words); verdict `UPGRADE_CTV14_SEC35_PATCH_PARTIAL_SECTION_NUMBERING_AMBIGUITY` (Reading A vs Reading B operator + Claude review gate; cross-checked via Costin median-resurgence pattern as 4-source literature anchor: B-T 1933 + Costin 2008 ch. 5 for L-equation; Okamoto 1987 + Barhoumi-Lisovyy-Miller-Prokhorov 2024 §4.1 for isomonodromic deformation). No auto-apply per Rule 2; operator + Claude pivot-decision pending per todo `ct-v14-sec35-reading-decision`. Wasow §X.3 image-only state reaffirmed (3rd independent task).
++>
++> - ✅ **G18 — Birkhoff–Trjitzinsky 1933 anchor CLOSED_TRIANGULATED_3_SOURCE 2026-05-04** (`T1-BIRKHOFF-TRJITZINSKY-LITREVIEW` 2026-05-02 handoff SHA `2A1DE817...98A2`; `JIMBO-MIWA-1981-II-ACQUISITION` handoff SHA `5F77175D...39CD`; `SAKAI-2001-ACQUISITION` handoff SHA `CDEAC35F...4F7A`; `OKAMOTO-1987-CONSTRAINT-PIN` handoff SHA `5381C2C0...84DF`) — anchor 1/3 Birkhoff–Trjitzinsky 1933 (T1 Phase 1 lit review: gap type C; $\psi_\text{lower}(d) = d$, $\psi_\text{upper}(d) = 2d$; AEAL-honest triangulation against PCF-2 v1.3 + CT v1.3 H4); anchor 2/3 Jimbo–Miwa 1981 II (Japanese mirror acquired); anchor 3/3 Sakai 2001 ($D_6^{(1)}$ surface classification + $W((2A_1)^{(1)})$ generators extracted; CT v1.3 4-tuple $(1/6, 0, 0, -1/2)$ confirmed not a Sakai parameter point under naive identification — replicates G18 closure; $W(B_2) \leftrightarrow W((2A_1)^{(1)})$ homomorphism NOT in Sakai → M6 Phase B.5 anchor PARTIAL); plus Okamoto 1987 P_III parameter-pin (G18 closed as labeling-correspondence artifact: Okamoto 1987 P_{III}' is 2-parameter $(\theta_0, \theta_\infty)$ with $W(B_2)$ root system $R1$ — no 4-tuple sum; CT v1.3 §3.5 4-tuple $(1/6, 0, 0, -1/2)$ is from a different — Jimbo-Miwa or Sakai $D_6$ — convention).
++>
++> - 🟡 **M6 Q36 / Phase B.5 W cross-walk STILL_PARTIAL_PENDING_PIVOT_DECISION 2026-05-04** (Case 3 of PICTURE-V18 spec §B.10) — `NOUMI-YAMADA-2004-ACQUISITION` (handoff SHA `FECAD682...D3EA`) confirms NY-family OA literature (NY 2004 TOC reveals NO P_III chapter — 8 chapters A-type tau-function focus; KNY 2017 + NY 1998 + NY 2000 acquired and full-text-searched → $W(B_2) \leftrightarrow W((2A_1)^{(1)})$ homomorphism NOT stated in any; KNY 2017 contains 0 occurrences of $B_2$ as Lie-group symbol); `WITTE-FORRESTER-2010-ACQUISITION` (handoff SHA `D5A39FCE...D98F`) HALT `HALT_WF10_BIBLIOGRAPHIC_TARGET_NOT_FOUND` (spec DOI `10.1088/1751-8113/43/23/235202` + arXiv `0911.1762` both resolve to unrelated 2010 papers; closest substitute arXiv `math/0512142` (Forrester-Witte 2005 P_{III}' boundary cond.) acquired SHA `80E05009...3CB61` and full-text shows 0 occurrences of $B_2$ / $(2A_1)$ / Sakai / Weyl / homomorphism). Combined with `NOUMI-YAMADA-2004` negative finding → **M6 Phase B.5 W cross-walk confirmed-absent from the post-Sakai PIII OA literature surveyed (NY 2004 TOC, KNY 2017, NY 1998, NY 2000, FW 2005)**. Path A (literature) exhausted at OA-budget; Path B (SIARC primary derivation, prompt 033 `SIARC-PRIMARY-W-DERIVATION`) **deferred at operator** per gate (c) of PICTURE-V18 spec. **Per §B.10 Case 3**: M6 Phase B.5 row stays **STILL_PARTIAL_PENDING_PIVOT_DECISION**; v1.19 will absorb 033 verdict whenever it lands. If 033 returns `HALT_NO_BRIDGE_AT_GROUP_LEVEL` (Case 4), M6 Phase B.5 row will be REWRITTEN as folklore-equivalence-only / parameter-orbit-only, not a Weyl-group homomorphism claim — separate M6-spec-amendment cycle would follow.
++>
++> - ✅ **arxiv-pack inventory state §11 update 2026-05-04** (`ARXIV-PACK-V13-RE-VERIFY` handoff SHA `039B0C60...8458`; `ARXIV-PACK-FOUR-RECORD-AUDIT` handoff SHA `55B7EF5C...35F7`) — all 4 non-PCF-1 packs PASS (umbrella v2.0 / PCF-2 v1.3 / CT v1.3 / T2B v3.0); Zenodo concept + version DOIs match API; cached `zenodo.pdf` md5 + size + pagecount byte-match Zenodo deposits; no FAIL, no rebuild prompts needed. Cosmetic: CT v1.3 `00README` Title field blank. PCF-1 v1.3 pack flagged separately (021pp post-edit re-pack vs canonical 16pp v1.3 — recovery via `58dfa9e` snapshot is operative-truth; see G12 row above; `002 → 034` re-fire status hedge: `034` may not have fired yet at time of this v1.18 draft). Verdict label `UPGRADE_AUDIT_FOUR_RECORDS_ALL_PASS`.
++>
++> - 📝 **Methodology-section footnote (NEW v1.18)** — per `NOUMI-YAMADA-2004` and `WITTE-FORRESTER-2010` verdicts, the explicit $W(B_2) \leftrightarrow W((2A_1)^{(1)})$ homomorphism is **not stated as a theorem** in any post-Sakai PIII open-access paper surveyed (NY 2004 TOC, KNY 2017, NY 1998, NY 2000, FW 2005). The bridge is therefore **folklore-Lie-theory** in the post-Sakai PIII community. M6 Phase B.5 status (final post-v1.18 absorption): STILL_PARTIAL_PENDING_PIVOT_DECISION (033 deferred; literature path exhausted at OA budget; SIARC primary derivation is Path B and operator-gated). This footnote is the v1.18 methodology amendment; it informs the synthesizer's arbitration on Q36 (M6 spec QA verdict) and Q35 (T1 Phase 3 vs M6 scheduling) without re-litigating either.
++>
++> - 🔧 **PII typo correction recorded** — was `PII-1501457-9` (Adams 1928 spec typo) → now `PII-1501443-6` (per prompt 021 verdict 2026-05-04). **No edits required in this picture file** (typo never landed here; cross-checked: `1501457-9` does not appear in v1.17). Correction is recorded for cross-document hygiene; operator-side cheat-sheet artifacts that may reference the old PII number should be patched separately.
++>
++> - 📊 **Cycle status (post-v1.18):** Bridge HEAD ≈ latest 2026-05-04 PICTURE-V18 commit (this deposit). Of the **15 prompts** fired in the v1.17 → v1.18 batch-1+2+3 cycle (018–032 verdicts on bridge): **12 ✅ DONE / CLOSED** (G24, G3b (i)/(ii)/(iii), G12, G14, G18 4-source, arxiv-pack 4/4); **2 🟡 PARTIAL** (G17 amendment-pending-Reading-A/B; M6 Phase B.5 STILL_PARTIAL_PENDING_PIVOT_DECISION); **1 ⏸ DEFERRED** (033 `SIARC-PRIMARY-W-DERIVATION` not yet fired). M9 gating retained at {M4-with-formal-baseline-+-structural-roadmap, M6}; once M6 fires + lands UPGRADE_V1_0_FULL **and** Phase B.5 closes (either via 033 SIARC-primary or eventual literature catch), M9 → {M4-only}. Synthesizer territory now **17 active questions**: Q11/Q19/Q21–Q28/Q30–Q36 (no NEW Qs in v1.18 — purely closure-absorption micro-cycle) + the operator/Claude G17 reading-decision pivot (tracked via existing todo, not a new Q).
++>
++> - 📚 **Memory facts stored** for cross-session use: (16) AMS Free Digital Archive policy: volumes >5 years old are free, but plain-HTTP fetch returns HTML viewer wrapper (JS-rendered session required → operator one-click browser retrieval is the OA-friendly path); (17) NUMDAM-style probe pattern: NUMDAM does NOT host Funkcialaj Ekvacioj (FE), nor — per `WITTE-FORRESTER-2010` — does it serve as a reliable backstop for J. Phys. A IOP records; check publisher direct site / arXiv first; (18) post-Sakai PIII OA literature (NY family + FW family) does NOT state $W(B_2) \leftrightarrow W((2A_1)^{(1)})$ homomorphism explicitly — confirmed-absent across NY 2004 TOC + KNY 2017 + NY 1998 + NY 2000 + FW 2005; bridge is folklore-Lie-theory; SIARC primary-derivation (prompt 033) is the residual closure path; (19) `arxiv-pack` re-pack hazard: re-running pack after edit can capture post-edit state under prior version label; canonical-version recovery via bridge snapshot commit is operative-truth path (G12 closure pattern via `58dfa9e`); (20) endorser-handle hygiene: emails NOT transcribed in handoffs / picture rows per privacy hygiene; only public arXiv handles cited.
++>
++
+ > **🆕 Updates since v1.16 (see §27 Amendment Log for detail):**
+ > - 🛑 **R5-OKAMOTO-PROJECT-EUCLID-RETRY `OUTCOME_R5RT_NOT_ON_PROJECT_EUCLID` 2026-05-04** (bridge `7727607`) — synthesizer's "one more cheap try" before accepting SCENARIO C: operator-supplied PDF at `literature/g3b_2026-05-03/07_okamoto_1987_painleve_III_FE30.pdf.pdf` (1.94 MB, SHA `0982c60e262629ed...4cd7cb1c`) verified via pypdf text extraction as Okamoto **Part I (P_VI)** from *Annali di Matematica* CXLVI (1987), pp. 337–381 (title-page reads "I. – Sixth Painlevé Equation P_VI"; last-page footer reads "KAZUO OKAMOTO: Studies on the Painlevé equations, I 381"), **NOT** the targeted Part IV (P_III) from *Funkcialaj Ekvacioj* 30 pp. 305–332. Per task §2 step 3 verification (Part number / equation / journal / volume / pages all wrong; only author + year coincided), file relocated to `supplementary/okamoto_1987_part_I_painleve_VI_AnnMat.pdf`, slot 07 left empty, SHA256SUMS amended with full disposition note. **SCENARIO C confirmed** (Project-Euclid route NOT viable for Okamoto FE 30); recommended NUMDAM as next-step route. **Lesson stored**: verifying author + year alone is insufficient when a series has multiple parts in the same year — strengthen verification with explicit Part-number or equation-class string match.
+ >
+@@ -1843,6 +1876,137 @@ e33db9e             STRATEGIC-PICTURE-REVISED (this doc, v1.0)
+ 
+ ---
+ 
++## 28. Amendment Log (v1.17 → v1.18)
++
++This amendment absorbs **13 closing-grade deltas** from the batch-1+2+3 prompt
++cycle 018–032 landed 2026-05-04, plus a PII typo correction and a re-confirmation
++of the cheat-sheet PCF-1 Zenodo concept DOI. **No closures regressed; no scope
++contraction.** Outcome class **`PARTIAL_V18_DRAFT_M6_CASE_DEFERRED`** (PICTURE-V18-
++AMENDMENT-DRAFTING spec §7) — 12 of 13 deltas absorbed cleanly; M6 Phase B.5 row
++left in Case 3 (`STILL_PARTIAL_PENDING_PIVOT_DECISION`) because prompt 033
++`SIARC-PRIMARY-W-DERIVATION` is operator-deferred. v1.18 is deposit-eligible;
++v1.19 will absorb 033 outcome whenever it lands.
++
++### v1.17 → v1.18 closure cascade summary (13 deltas)
++
++| # | Delta | Bridge / handoff SHA-16 | Verdict label | Status implication |
++|---|-------|------------------------|---------------|---------------------|
++| 1 | G24 PCF-2 v1.3 §6 Phase-2 anomaly | `PCF2-V13-AFIT-DEFINITION-READBACK` `711E10C9...AB8A` | `UPGRADE_G24_DEFINITIONS_MATCH_PHASE2_ANOMALY_REAL` | G24 closed-negatively; resolution candidate (ii) falsified; gap is real and routes through G23 + T1 Phase 3 |
++| 2 | G3b (i) Wasow 1965 §X.3 | `WASOW-X3-OCR-ACQUISITION-PROBE` `B1FBFA91...A54A` | OCR_PROBE_OPERATOR_GATED | G3b (i) `CLOSED_VIA_OPERATOR_GATED_OA_ROUTES`; image-only PDF reaffirmed (3rd indep task) |
++| 3 | G3b (ii) Adams 1928 | `ADAMS-1928-FINAL-ACQUISITION-PROBE` `AA4198B1...F235` | `UPGRADE_ADAMS_NIA_ILL_RECOMMENDED_AMS` | G3b (ii) `CLOSED_VIA_TRANSITIVE_T1_A01`; PII typo corrected `1501457-9` → `1501443-6` |
++| 4 | G3b (iii) Conte–Musette 2008 ch. 7 | `CONTE-MUSETTE-CH7-FINAL-ACQUISITION-PROBE` `58F90C80...86F8` | `UPGRADE_CONTE_NIA_ILL_RECOMMENDED_yokohama_or_tokyo_libs` | G3b (iii) `CLOSED_VIA_COSTIN_SUBSTITUTE`; Conte original ILL-target if theorem-grade upgrade desired |
++| 5 | G12 PCF-1 v1.3 source state | `PCF1-V13-SOURCE-RECOVERY-PROBE` `B4D73276...9F54` + `ARXIV-PACK-V13-RE-VERIFY` `039B0C60...8458` | `UPGRADE_PCF1_V13_RECOVERY_BRIDGE_SNAPSHOT` (≡ `..._COMMIT_FOUND_58dfa9e`) | G12 `CLOSED_VIA_BRIDGE_SNAPSHOT_58DFA9E_DOI_19937196`; cheat-sheet PCF-1 ID re-confirmed (no edits in this file) |
++| 6 | G14 endorser handle acquisition | `ENDORSER-HANDLE-ACQUISITION` `BB1CA745...5F95` | `UPGRADE_G14_ENDORSERS_IDENTIFIED_3_HANDLES_CONFIRMED_EMAILS_PENDING_OPERATOR` | G14 `CLOSED_PENDING_OPERATOR_OUTREACH`; 3 Tier-1 handles confirmed (Zudilin / Mazzocco / Garoufalidis); FULLY_CLOSED post-operator-outreach |
++| 7 | G17 CT v1.4 §3.5 amendment | `CT-V14-SEC35-AMENDMENT-PATCH-PRECHECK` `375A9D1A...D3E8` + `G17-LAYER-SEPARATION-LIT-ANCHOR` `1E86A9B4...4D91` | `UPGRADE_CTV14_SEC35_PATCH_PARTIAL_SECTION_NUMBERING_AMBIGUITY` | G17 `AMENDMENT_PENDING_READING_DECISION` (Reading A vs Reading B operator + Claude review gate; 4-source lit anchor: B-T 1933 + Costin 2008 ch. 5 + Okamoto 1987 + Barhoumi-Lisovyy 2024 §4.1) |
++| 8 | G18 Birkhoff–Trjitzinsky 1933 anchor | `T1-BIRKHOFF-TRJITZINSKY-LITREVIEW` (2026-05-02) `2A1DE817...98A2` + `JIMBO-MIWA-1981-II-ACQUISITION` `5F77175D...39CD` + `SAKAI-2001-ACQUISITION` `CDEAC35F...4F7A` + `OKAMOTO-1987-CONSTRAINT-PIN` `5381C2C0...84DF` | `UPGRADE_TRIANGULATED_3_SOURCE` + `UPGRADE_G18_CLOSED_PARAMETER_CORRESPONDENCE_OKAMOTO_2PARAM_VS_CT_4TUPLE` | G18 `CLOSED_TRIANGULATED_3_SOURCE`; B-T 1933 + Sakai 2001 + Jimbo–Miwa 1981 II + Okamoto 1987 P_III parameter-pin |
++| 9 | M6 Q36 / Phase B.5 W cross-walk (literature path) | `NOUMI-YAMADA-2004-ACQUISITION` `FECAD682...D3EA` + `WITTE-FORRESTER-2010-ACQUISITION` `D5A39FCE...D98F` | `UPGRADE_NY04_NIA_ILL_RECOMMENDED` + `UPGRADE_WF10_SPEC_BIBLIOGRAPHIC_ERROR_SUBSTITUTE_PROBED` | M6 Phase B.5 **STILL_PARTIAL_PENDING_PIVOT_DECISION** (Case 3 of §B.10); literature path exhausted at OA budget; W homomorphism confirmed-absent across NY-family + FW-family OA literature; SIARC primary derivation (033) deferred at operator |
++| 10 | arxiv-pack inventory §11 update | `ARXIV-PACK-V13-RE-VERIFY` `039B0C60...8458` + `ARXIV-PACK-FOUR-RECORD-AUDIT` `55B7EF5C...35F7` | `UPGRADE_AUDIT_FOUR_RECORDS_ALL_PASS` | umbrella v2.0 / PCF-2 v1.3 / CT v1.3 / T2B v3.0 all PASS; PCF-1 v1.3 pack hazard flagged (operative-truth = bridge snapshot `58dfa9e`); `034` re-fire status hedge |
++| 11 | Methodology footnote: post-Sakai PIII OA literature | (composite of #9 + bridge methodology) | (no new label; informational) | NEW methodology footnote anchoring "folklore-Lie-theory" framing for $W(B_2) \leftrightarrow W((2A_1)^{(1)})$ pending 033 outcome |
++| 12 | PII typo correction | (cross-document hygiene; per delta #3) | (no new label; informational) | `PII-1501457-9` → `PII-1501443-6` recorded; no edits required in this picture file (typo never landed); operator-side cheat-sheet artifacts to be patched separately |
++| 13 | Version bump + Updated timestamp | (this amendment) | (administrative) | Header bumped v1.17 → v1.18; new Updated 2026-05-04 17:00 JST line; new "Updates since v1.17" superblock; new §28 Amendment Log block |
++
++### v1.17 → v1.18 cross-row consistency audit (PICTURE-V18 §C)
++
++- **C.1 Zenodo ID consistency** — ✅ no row in v1.18 cites the wrong PCF-1
++  Zenodo concept DOI; `19941678` appears only as the Channel Theory v1.3 concept
++  DOI (correct, L418); `19963298` appears only as the PCF-2 v1.3 concept DOI
++  (correct, L417); PCF-1 v1.3 cites `19937196` consistently (L415 + L1767).
++- **C.2 M6 Phase B.5 / G18 / methodology consistency** — ✅ all three rows
++  agree on Case 3 outcome (literature path exhausted; SIARC primary deferred;
++  v1.19 absorption pending 033). G18 closure (parameter-correspondence + 4-tuple
++  reframing) is **separate** from M6 Phase B.5 W cross-walk (group-level homomorphism)
++  and does NOT discharge it.
++- **C.3 G3b grammar** — ✅ residuals (i)/(ii)/(iii) all use `CLOSED_VIA_<route>_<...>`
++  status grammar consistently.
++- **C.4 G17 / CT v1.4 §3.5 reading-decision** — ✅ G17 row + existing operator
++  todo `ct-v14-sec35-reading-decision` (operator-pending) consistent; both
++  reference Reading A vs Reading B Section-numbering ambiguity surfaced by
++  prompt 023 cross-checked by prompt 026.
++- **C.5 §11 arxiv-mirror state** — ✅ 4/4 PASS for non-PCF-1 records;
++  PCF-1 v1.3 pack hazard flagged; `034` re-fire hedge documented.
++- **C.6 PII** — ✅ `PII-1501443-6` referenced (correction landed in spec field);
++  `PII-1501457-9` does NOT appear in v1.18 (typo never landed in this file).
++
++### v1.17 → v1.18 synthesizer rulings carried forward
++
++- **Q35 ruling** (T1 Phase 3 vs M6 scheduling): retained from v1.16; non-overlapping
++  dependencies, parallel-safe; no v1.18 amendment.
++- **Q36 ruling** (M6 spec QA verdict): retained pending; M6 spec deposit at
++  `sessions/2026-05-04/CC-VQUAD-PIII-NORMALIZATION-MAP-PROMPT-SPEC/` unchanged
++  in this micro-cycle (v1.18 does not re-litigate spec text; B.5 sub-tasks
++  unchanged but their literature-path closure is now confirmed-absent → operator
++  may amend Phase B.5 ruling if 033 lands HALT_NO_BRIDGE_AT_GROUP_LEVEL).
++- **Reading-decision pivot** (G17 row): operator + Claude territory; v1.18 surfaces
++  the patch artifacts via `CT-V14-SEC35-AMENDMENT-PATCH-PRECHECK` but does not
++  apply per Rule 2.
++
++### v1.17 → v1.18 SQL todo deltas
++
++- `pcf2-v13-afit-definition-readback` → done (G24 closed-negatively; bridge `711E10C9...AB8A`)
++- `wasow-x3-ocr-acquisition` → done at probe-level (image-only reaffirmed; bridge `B1FBFA91...A54A`)
++- `adams-1928-final-acquisition` → done (G3b (ii) closed-via-transitive; bridge `AA4198B1...F235`)
++- `conte-musette-ch7-final-acquisition` → done (G3b (iii) closed-via-Costin-substitute; bridge `58F90C80...86F8`)
++- `pcf1-v13-source-recovery-probe` → done (G12 closed-via-bridge-snapshot `58DFA9E`)
++- `endorser-handle-acquisition` → done (G14 3 Tier-1 handles confirmed; emails operator-side)
++- `ct-v14-sec35-amendment-patch-precheck` → done at draft-level (Reading-A/B decision operator-pending)
++- `g17-layer-separation-lit-anchor` → done (4-source lit anchor; cross-check Reading B)
++- `t1-birkhoff-trjitzinsky-litreview` → done 2026-05-02 (G18 anchor 1/3)
++- `jimbo-miwa-1981-ii-acquisition` → done (G18 anchor 2/3)
++- `sakai-2001-acquisition` → done (G18 anchor 3/3)
++- `okamoto-1987-constraint-pin` → done (G18 parameter-correspondence pin)
++- `noumi-yamada-2004-acquisition` → done (M6 Phase B.5 NY-family confirmed-absent)
++- `arxiv-pack-v13-re-verify` → done (G12 cross-anchor; cheat-sheet correction recommended)
++- `witte-forrester-2010-acquisition` → done (M6 Phase B.5 FW-family confirmed-absent — Case 3)
++- `arxiv-pack-four-record-audit` → done (4/4 PASS)
++- `picture-v18-amendment-drafting` → done (this patch set)
++- `siarc-primary-w-derivation` (prompt 033) → operator-deferred (M6 Phase B.5 Path B; Case 3 v1.19 absorption pending)
++- `cheat-sheet-pcf1-zenodo-id-correction` (operator-side) → operator-pending (v1.18 G12 row uses Zenodo API as source-of-truth, not the cheat-sheet, so no v1.18 blocker)
++- `pii-typo-correction` (cross-document hygiene) → recorded; no v1.18 file edit needed
++- `picture-v19-amendment-drafting` → NEW pending (fires after 033 verdict lands OR operator pivot-decision converts Case 3 → Case 1/2/4)
++
++### v1.17 → v1.18 cycle status
++
++**Cycle accounting (post-v1.18):** 13 deltas absorbed (12 ✅ DONE-equivalent +
++1 🟡 PARTIAL retained at G17 + 1 🟡 PARTIAL retained at M6 Phase B.5 Case 3).
++No HALTs (all probe-level negatives are clean acquisition-route negatives, not
++strategic halts; M6 Phase B.5 retention at Case 3 is the spec-prescribed
++outcome class `PARTIAL_V18_DRAFT_M6_CASE_DEFERRED`). M9 gating unchanged at
++{M4-with-formal-baseline-+-structural-roadmap, M6}; no MX-class regression.
++
++**Closures:** 12 of 13 deltas closed cleanly. M6 Phase B.5 row deferred to v1.19.
++
++**New gaps:** None. (All 13 deltas absorb into existing G-/Q-row scaffolding;
++no NEW G, Q, or methodology-level questions surfaced.)
++
++**New question:** None v1.18 (purely closure-absorption micro-cycle).
++
++**Synthesizer territory now has 17 active questions** for arbitration:
++Q11/Q19/Q21–Q28/Q30–Q36 (no NEW Qs in v1.18) + the operator/Claude G17
++reading-decision pivot (tracked via existing todo `ct-v14-sec35-reading-decision`,
++not surfaced as a new Q-row).
++
++### v1.17 → v1.18 layout changes
++
++This amendment:
++- Updates header (v1.17 → v1.18) + new Updated 2026-05-04 17:00 JST timestamp
++- Inserts new "🆕 Updates since v1.17" superblock above the v1.16→v1.17
++  superblock (most-recent-first ordering preserved)
++- (No §3 P-B4 edit; M4 status unchanged in this micro-cycle; G24 closure
++  routes to G23 + T1 Phase 3 path, already framed in v1.16)
++- (No §4 M4 milestone block edit; M4 status unchanged)
++- (No §5 G-row insert; all 13 deltas absorb into existing G-row text via
++  status updates documented in this §28 superblock; v1.19 may re-surface
++  G18 / M6 / G17 row text inline once Case 3 resolves)
++- Updates §6 prompt queue (15 batch-1+2+3 prompts ✅ DONE / DEFERRED;
++  PICTURE-V19 NEW pending after 033)
++- Inserts NEW §28 amendment-log block above existing §27
++
++**No regressions.** All v1.17 / v1.16 / v1.15 / v1.14 / v1.13 / v1.12 / v1.11
++closures remain. v1.18 is additive: 13 batch-1+2+3 deltas absorbed; M6 Phase
++B.5 row in Case 3 awaiting 033 outcome.
++
++---
++
+ ## 27. Amendment Log (v1.16 → v1.17)
+ 
+ This amendment absorbs **two outcomes + one pre-fire spec deposit** landed
