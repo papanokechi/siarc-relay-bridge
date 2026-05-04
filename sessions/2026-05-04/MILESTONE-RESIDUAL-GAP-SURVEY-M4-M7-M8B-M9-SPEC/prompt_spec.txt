@@ -1,0 +1,633 @@
+================================================================
+SIARC RESEARCHER PROMPT 038 — MILESTONE-RESIDUAL-GAP-SURVEY-
+                              M4-M7-M8B-M9
+================================================================
+TASK ID:        MILESTONE-RESIDUAL-GAP-SURVEY-M4-M7-M8B-M9
+COMPOSED:       2026-05-04 ~19:35 JST
+DRAFTED-BY:     Copilot CLI (Claude Opus 4.7 xhigh)
+AGENT:          Copilot researcher (web-search + verbatim-
+                quotation literature reconnaissance; NOT a
+                heavy-AEAL relay; no symbolic compute, no
+                numerical compute, no derivation work; pure
+                lit-survey + extraction).
+GATES:          DRAFT-PENDING-SYNTHESIZER-QA. Operator + Claude
+                synthesizer must review §§0–6 of this prompt
+                before fire. Specifically Claude should arbitrate
+                Q38.1 (sub-task scope: 4 sub-tasks ALL parallel
+                vs sequential triage by leverage), Q38.2 (M9
+                sub-task — keep, narrow to 1-page meta-precedent
+                only, or drop entirely), and Q38.3 (M8b sub-task
+                — fold post-017m foreclosure into output schema
+                explicitly so researcher does not propose
+                numerical-revival paths already retired).
+
+                DO NOT FIRE BEFORE SYNTHESIZER QA PASS.
+
+PRIOR ANCHORS:  Picture v1.17 (`tex/submitted/control center/
+                picture_revised_20260504.md` 322,666 B), §4
+                milestone block + §6 prompt table; T1-Phase-2
+                LIFT-LOWER verdict UPGRADE_PARTIAL_FORMAL_LEVEL
+                2026-05-04 (bridge `37c939f`); R5 Okamoto NUMDAM
+                retry verdict OUTCOME_R5RT_NUMDAM_ACQUIRED
+                2026-05-04 (bridge `872652b`; M6 unblocked); 006
+                T2.5d j=0 verdict AMBIGUOUS_AT_DPS8000 2026-05-02;
+                007 T3 Conte-Musette verdict 60/60_LABELED
+                2026-05-02 (M8 ✅ closed; H3 negatively closed);
+                010 T3.5 Stokes-multiplier verdict
+                G6B_PARTIAL_HIGHER_ORDER_NEEDED 2026-05-02;
+                017d T37D-S2-FULL-CLOSURE PERMANENTLY_BLOCKED
+                2026-05-03; 017m T37M-DIRECT-BOREL-D-EXTRACTION
+                verdict HALT_T37M_PADE_DIVERGENT 2026-05-03
+                (S_2 alien amplitude NUMERICALLY foreclosed
+                across all paths for d=2 PCFs; structurally
+                well-defined). Prompt 019 (WASOW-X3-OCR-
+                ACQUISITION-PROBE) drafted same day; prompt
+                033 (SIARC-PRIMARY-W-HOMOMORPHISM-DERIVATION)
+                drafted same day.
+COMPUTE BUDGET: ~3-4 hr researcher (web-search + lit-recon
+                + verbatim quotation extraction; 4 parallel
+                sub-tasks; no compute-heavy steps).
+RUNTIME PROFILE:Web-fetch (Google Scholar / MathSciNet /
+                zbMATH / Semantic Scholar / arXiv / Project
+                Euclid / Springer / publisher-direct);
+                pypdf text-layer extraction for any PDF
+                acquired (text-layer ONLY — no OCR-on-image
+                in this task; image-only PDFs surface as NIA
+                with pypdf-detected text-layer-empty
+                evidence); SHA256 hashing for any acquired
+                file. Per Rule 1: no API keys. Per Rule 2:
+                no submission, no browser-driver, no email
+                send.
+
+================================================================
+§0 GOAL
+================================================================
+
+Produce a single consolidated **synthesizer-input dossier**
+that surveys the residual literature gaps around four SIARC
+milestones — M4, M7, M8b, M9 — to inform the next round of
+synthesizer scheduling decisions (Q-CLAUDE-X class). The
+dossier is NOT a closure attempt for any milestone; it is a
+**reconnaissance product** that maps what the post-1965
+mathematical literature has and has not addressed for each
+residual gap, so synthesizer + operator can decide which
+prompts to fire next (and in what order).
+
+Per Rule 2 / RACI: this researcher does NOT recommend which
+milestone to advance, does NOT rank gaps by leverage, does
+NOT propose follow-on prompts. Researcher's job is verbatim
+literature extraction + classification matrix population.
+Synthesis is downstream.
+
+Each milestone sub-task (§§3–6 below) closes WITHOUT
+attempting to upgrade the milestone status itself. The
+deliverable is a 1-document dossier that gives the
+synthesizer enough verbatim-quoted literature evidence to
+make a Q-CLAUDE-X scheduling decision in one pass.
+
+================================================================
+§1 ANCHOR FILES (preconditions; verify all present before fire)
+================================================================
+
+LIVE WORKSPACE (do NOT modify any of these):
+  - tex/submitted/control center/picture_revised_20260504.md
+    (v1.17; SHA prefix `5DC76D9F45...`)
+  - tex/submitted/control center/literature/g3b_2026-05-03/
+    SHA256SUMS.txt (literature corpus self-verify)
+  - tex/submitted/control center/literature/g3b_2026-05-03/
+    04_wasow_1965_dover.pdf (slot 04; image-only for §X.3 —
+    do NOT re-attempt OCR in this task; prompt 019 owns
+    that scope)
+  - tex/submitted/control center/literature/g3b_2026-05-03/
+    07_okamoto_1987_painleve_III_FE30.pdf (slot 07; SHA
+    prefix `65294fbc...`)
+  - tex/submitted/control center/literature/g3b_2026-05-03/
+    13_sakai_2001.pdf (slot 13; SHA prefix as recorded)
+  - tex/submitted/control center/literature/g3b_2026-05-03/
+    14_kny_2017.pdf (slot 14; SHA prefix as recorded)
+
+BRIDGE ANCHORS (read for context; do NOT re-fire):
+  - sessions/2026-05-04/T1-BIRKHOFF-PHASE2-LIFT-LOWER/
+    handoff.md (M4 partial-formal-level verdict)
+  - sessions/2026-05-04/R5-OKAMOTO-NUMDAM-RETRY/handoff.md
+    (M6 unblocked)
+  - sessions/2026-05-02/T2.5D-J0-CHOWLA-SELBERG/handoff.md
+    (M7 soft-branch closure; AMBIGUOUS_AT_DPS8000)
+  - sessions/2026-05-02/T3-CONTE-MUSETTE-D2D3/handoff.md
+    (M8 closed; H3 negatively closed)
+  - sessions/2026-05-03/T37M-DIRECT-BOREL-D-EXTRACTION/
+    handoff.md (M8b numerical foreclosure)
+
+If any anchor file is missing: HALT_038_MISSING_ANCHOR.
+
+================================================================
+§2 SCOPE — IN / OUT
+================================================================
+
+IN-SCOPE (this task):
+  - Verbatim-quotation literature extraction for each of
+    M4, M7, M8b, M9 sub-tasks
+  - DOI / arXiv-ID / page / theorem-number citation
+    discipline for every quoted claim
+  - Acquisition probes for OA literature (text-layer PDFs
+    only; image-only PDFs flagged as NIA pypdf-detected
+    rather than OCR'd in this task)
+  - Per-sub-task synthesizer-input matrix population
+  - Cross-cut matrix at end of dossier mapping which
+    literature anchors a future closure prompt would cite
+
+OUT-OF-SCOPE (do NOT do these):
+  - Any closure attempt for M4, M7, M8b, M9 themselves
+  - Any leverage ranking or scheduling recommendation
+  - Any follow-on prompt drafting
+  - OCR-on-image-only-PDF (prompt 019 owns Wasow §X.3 OCR;
+    other image-only finds in this task: NIA-flag and stop)
+  - Numerical revival of S_2 alien amplitude paths already
+    retired by 017d / 017m (post-foreclosure paths only:
+    structural / theorem-grade / closed-form literature)
+  - SIARC primary derivation (prompt 033 owns Path B for
+    M6 W cross-walk; this task is literature-only)
+  - Endorser identification (prompt 037 owns endorser
+    template expansion)
+  - Any modification of submission_log / CMB / picture
+
+================================================================
+§3 SUB-TASK A — M4 RESIDUAL (POST-WASOW §X.3 BORDERLINE-
+                              ANSATZ LITERATURE)
+================================================================
+
+CONTEXT:
+  M4 status (v1.17): 🟡 PARTIAL 2026-05-04 —
+  - Empirical d=3,4 confirmation of A=2d ✅
+  - Literature bracket A∈[d,2d] from B-T 1933 ✅
+  - Formal baseline A_naive ≤ d+1 ✅
+  - STRUCTURAL FRAMING of T1 Phase 3 obstruction (P2.1 +
+    P2.2 + P2.3 sub-targets pinned)
+  - GAP: lift A∈[d,2d] → A=2d at d≥3 via borderline-case
+    anormal ansatz at fractional rank q≥2 (Wasow §X.3
+    Theorem 11.1 framework; sectorial asymptotic existence
+    + non-resonance + non-degeneracy)
+
+The Wasow §X.3 angle is owned by prompt 019 (OCR
+acquisition). This sub-task surveys what the **post-1965
+descendant literature** has on the same fractional-rank
+sectorial-asymptotic-existence theorem, in case Wasow §X.3
+OCR fails or in case alternate analytic anchors are
+preferred.
+
+QUESTION (verbatim-extraction target):
+  Q3.A.1 — Which post-1965 monographs / papers state a
+  theorem-grade lift of fractional-rank q≥2 Birkhoff-
+  Trjitzinsky reduction from formal-level to analytic-
+  level (sectorial asymptotic existence with explicit
+  non-resonance + non-degeneracy hypotheses)?
+
+  Q3.A.2 — For each candidate identified, what is the
+  explicit hypothesis structure (irregularity type,
+  non-resonance, non-degeneracy of indicial polynomial,
+  Stokes-direction stability)?
+
+  Q3.A.3 — Does any candidate handle the "borderline /
+  anormal" case explicitly (Wasow's §X.4 terminology) at
+  fractional rank q≥2 with hypotheses applicable to the
+  SIARC PCF δ_n setting?
+
+CANDIDATE SOURCES (priority order; verbatim-quote each):
+  P1 — Costin 2008, "Asymptotics and Borel Summability"
+       (CRC), ch. 4–6 (resurgent transseries +
+       multisummability framework). Already in workspace
+       at slot 03 g3b_2026-05-03 (verified text-layer);
+       researcher should re-extract any §X.3-equivalent
+       theorems.
+  P2 — Loday-Richaud 2014, "Divergent Series, Summability
+       and Resurgence II — Simple and Multiple Summability"
+       (Springer LNM 2154), ch. 3–5. Probe Springer OA;
+       fall back to NIA-paywall flag.
+  P3 — Braaksma 1992, "Multisummability of formal power
+       series solutions of nonlinear meromorphic
+       differential equations", Ann. Inst. Fourier 42(3),
+       pp. 517-540. NUMDAM OA; verify.
+  P4 — Immink 1991/2008, papers on q-difference and
+       differential q-summability at fractional rank.
+  P5 — Ramis-Sibuya 1996, "A new proof of multisummability
+       of formal power series solutions of ODE",
+       Funkcialaj Ekvacioj 39, pp. 139-163. Kobe-U OA
+       (analogous URL pattern to slot 07).
+  P6 — Sauzin 2015, "Resurgent functions and splitting
+       problems", RIMS Kôkyûroku Bessatsu B61. probe.
+  P7 — Balser 2000, "Formal Power Series and Linear
+       Systems of Meromorphic ODE" (Springer LNM 1582).
+  P8 — Sternin-Shatalov 1996, "Borel-Laplace Transform
+       and Asymptotic Theory" (CRC). NIA-paywall likely.
+  P9 — Ecalle 1992-1993 trilogy "Les fonctions
+       résurgentes" (3 vols, Publ. Math. Univ. Paris-Sud).
+       Operator-side ILL likely; NIA-flag if no OA.
+
+OUTPUT SCHEMA (Sub-task A; one row per candidate P1–P9):
+  Source | Acquisition route | Text-layer status |
+  Theorem(s) extracted | Non-resonance hypothesis | Non-
+  degeneracy hypothesis | Borderline-case treatment | Fit
+  to SIARC PCF δ_n setting (Y / N / partial) | NIA tag
+  if any
+
+================================================================
+§4 SUB-TASK B — M7 RESIDUAL (CHOWLA-SELBERG / Γ(1/3) HARD-
+                              BRANCH AT j=0 STRATUM)
+================================================================
+
+CONTEXT:
+  M7 status: ✅ achieved in soft branch via 014 (checkpoint
+  009; 2026-05-02). Hard-branch (peer-review-grade
+  closure) status: 🛑 HALTED via 006 (T2.5d) verdict
+  AMBIGUOUS_AT_DPS8000 — A=6 ± 2e-7 across 4 families,
+  monotone-converging, but 5-param ansatz caps achievable
+  precision at ~7 digits relative to the 30-digit threshold
+  in the prompt spec.
+
+The numerical-extraction path is precision-capped. The
+question is whether literature anchors exist that would
+let a future closure prompt cite a Γ(1/3)-class closed-form
+A=6 evaluation at the j=0 stratum bypassing the 5-param
+ansatz cap entirely (i.e., proving A=6 from CM-point /
+modular-form / Selberg-integral / Chowla-Selberg arguments
+rather than measuring A from numerical PCF data).
+
+QUESTION (verbatim-extraction target):
+  Q3.B.1 — Which post-1949 papers extend Chowla-Selberg
+  to non-imaginary-quadratic settings or to PCF-class
+  ratio universality?
+
+  Q3.B.2 — Are there closed-form Γ(1/3)-class evaluations
+  of Selberg-integral-class quantities (related to PCF
+  asymptotics) that yield A=6 directly?
+
+  Q3.B.3 — Does any modern survey of the Borwein-Zucker
+  Γ-evaluation program treat the j=0 (CM(ω) /
+  equianharmonic / D=2 PCF stratum) case at the level of
+  detail needed for a SIARC peer-review-grade citation?
+
+CANDIDATE SOURCES (priority order; verbatim-quote each):
+  P1 — Chowla-Selberg 1949, "On Epstein's Zeta-function",
+       J. reine angew. Math. 227, pp. 86-110. (DigiZeitschriften
+       OA likely.)
+  P2 — Selberg-Chowla 1967 follow-up, J. Indian Math. Soc.
+  P3 — Borwein-Zucker 1992, "Fast evaluation of the gamma
+       function for small rational fractions using complete
+       elliptic integrals of the first kind", IMA J. Numer.
+       Anal. 12, pp. 519-526. (DOI 10.1093/imanum/12.4.519.)
+  P4 — Borwein-Borwein-Borwein 1989, "Pi and the AGM",
+       Wiley. ch.5–6 on Γ(1/3).
+  P5 — Aldea-Ohno 2018 / similar modern Chowla-Selberg
+       extensions; probe Semantic Scholar for citation
+       graph descendants of P1.
+  P6 — Yamamoto 1996/2003, papers on multiple-zeta-value
+       evaluations at Γ(1/3)-class rationals; probe.
+  P7 — Zudilin papers (Radboud Nijmegen) on Γ(1/3) /
+       Γ(1/4) closure and irrationality; many on arXiv.
+       (NB: same Zudilin who declined PCF-1 endorsement
+       2026-05-04 — task is **literature only**, NOT
+       contact; do not initiate any communication.)
+  P8 — Glaisher 1909 / Watson 1936 historical origin of
+       Γ(1/3) closed forms; via Project Gutenberg /
+       JSTOR backfile.
+  P9 — Wan 2014 / Conrey 2007 / Borwein-Crandall 2013
+       review articles on Γ-evaluation programs; probe.
+
+OUTPUT SCHEMA (Sub-task B; one row per candidate P1–P9):
+  Source | Acquisition route | Text-layer status |
+  Closed-form claim type (Γ(1/3) | Selberg integral | CM
+  point | Other) | A=6 fit to PCF j=0 stratum (Y / N /
+  partial / NIA) | Verbatim theorem statement (or NIA tag)
+  | Bypasses 5-param-ansatz cap (Y / N / unclear)
+
+================================================================
+§5 SUB-TASK C — M8B RESIDUAL (POST-FORECLOSURE STOKES-
+                              MULTIPLIER STRUCTURAL LITERATURE)
+================================================================
+
+CONTEXT:
+  M8 (G6a, D=2 Painlevé classification per-family): ✅
+  DONE 2026-05-02 via 007 T3 Conte-Musette test (60/60
+  LABELED; H3 negatively closed).
+
+  M8b (G6b, Stokes-multiplier sign-of-Δ_b dichotomy at
+  d=2): residual.
+  - 010 T3.5 Stokes-multiplier verdict
+    G6B_PARTIAL_HIGHER_ORDER_NEEDED 2026-05-02 (|S_1|
+    measured ≥60 cross-method digits across 4 reps;
+    differs across dichotomy at O(1) scale; no structural
+    pattern at leading order; β_R=0 universal at d=2).
+  - 017d T37D-S2-FULL-CLOSURE-via-Stage-2-LSQ
+    PERMANENTLY_BLOCKED 2026-05-03 (Stage-2 LSQ branch
+    methodology retired for d=2 PCFs).
+  - 017m T37M-DIRECT-BOREL-D-EXTRACTION halt verdict
+    HALT_T37M_PADE_DIVERGENT 2026-05-03 (Borel-Padé fails
+    at ξ=2ζ* across all reps; alien S_2 amplitude
+    permanently foreclosed across **all numerical paths**
+    for d=2 PCFs; structurally well-defined but
+    numerically inaccessible).
+
+The numerical paths are exhausted. The question is whether
+literature anchors exist that would let a future closure
+prompt characterize S_2 **structurally** (closed-form /
+theorem-grade / connection-coefficient identity / dispersion
+relation) rather than via numerical extraction.
+
+QUESTION (verbatim-extraction target):
+  Q3.C.1 — Which post-2000 papers on PIII(D_6) / σ-form
+  PIII'/ τ-function isomonodromy give a closed-form for
+  S_2 alien-amplitude at the 2ζ_* singularity (or
+  equivalent connection-coefficient) for parameter
+  configurations matching the SIARC d=2 PCF dichotomy?
+
+  Q3.C.2 — Are there resurgent / alien-derivative
+  characterizations of the second-Stokes-multiplier in the
+  PIII(D_6) family that bypass numerical Borel-Padé
+  extraction?
+
+  Q3.C.3 — Does any modern Riemann-Hilbert-problem
+  treatment of PIII(D_6) connection coefficients match the
+  SIARC dichotomy (β_R=0 universal at d=2) at the level of
+  detail needed for theorem-grade S_2 closure?
+
+CANDIDATE SOURCES (priority order; verbatim-quote each):
+  P1 — Costin 2008, "Asymptotics and Borel Summability",
+       ch. 5 (alien derivatives + transseries connection
+       formulas). Already in workspace; re-extract for
+       PIII(D_6) connection-coefficient theorems.
+  P2 — Loday-Richaud 2014 (vol II), ch. 3–5, on
+       resurgent connection formulas. Same probe as §3
+       sub-task A P2.
+  P3 — Mazzocco 2003-2010 papers on Painlevé connection
+       formulas (Painlevé VI primarily, but PIII(D_6)
+       cross-references). Probe arXiv. (NB: Mazzocco was
+       deprioritized to #3 endorsement reserve 2026-05-04
+       — this sub-task is **literature only**, NOT contact.)
+  P4 — Bonelli-Lisovyy-Tanzini 2017 / 2024, "Painlevé
+       τ-functions and gauge-theory partition functions"
+       (arXiv math-ph). Probe arXiv math-ph for
+       PIII(D_6) τ-function expansions.
+  P5 — Iwaki-Saenz 2016, "Quantum Curve and the Kontsevich-
+       Soibelman Wall-Crossing Formula" (and follow-ups).
+       Resurgence + connection coefficients angle.
+  P6 — Iwaki et al. 2020-2024 series on resurgent
+       structures of Painlevé τ-functions. Probe arXiv
+       math.CA + math-ph.
+  P7 — Clavier-Cournod 2024 (or similar) on resurgent
+       second-Stokes-multiplier extraction; probe arXiv.
+  P8 — Lisovyy-Roussillon 2017 on PIII connection
+       problems; probe arXiv 1612.xxxxx.
+  P9 — Jimbo-Miwa-Ueno 1981 + descendants — connection-
+       coefficient programs for monodromy-preserving
+       deformations. (Slot 24 prompt slated; coordinate
+       to avoid duplication.)
+
+OUTPUT SCHEMA (Sub-task C; one row per candidate P1–P9):
+  Source | Acquisition route | Text-layer status | Closed-
+  form S_2 claim (Y / N / partial / NIA) | Connection-
+  coefficient framework (RH problem | resurgence |
+  isomonodromy | gauge-theory) | Parameter regime fit to
+  SIARC d=2 PCF dichotomy (β_R=0; Δ_b dichotomy) |
+  Verbatim theorem (or NIA tag) | Bypasses numerical
+  extraction (Y / N / unclear)
+
+================================================================
+§6 SUB-TASK D — M9 META-PRECEDENT (RESEARCH-PROGRAM
+                                    ANNOUNCEMENT PROTOCOL)
+================================================================
+
+CONTEXT:
+  M9 status (v1.17): SIARC-MASTER-V0 announcement; gating
+  reduces unconditionally to {M4, M6} via D2-NOTE v2.1
+  UPGRADE_FULL 2026-05-03. After R5 Okamoto NUMDAM retry
+  2026-05-04 → M6 ✅; gating now {M4-partial only}.
+
+  M9 has no literature gap of its own — it is a meta /
+  scheduling milestone. The question for synthesizer is
+  WHEN + WHERE + IN-WHAT-FORMAT to announce a research
+  program with this milestone profile (M1 ✅, M2 ✅, M3 ✅,
+  M5 ✅, M6 ✅, M8 ✅; M4 partial; M7 soft-branch; M8b
+  numerically foreclosed).
+
+This sub-task compiles **historical precedent** of
+research-program announcements at analogous partiality
+levels. Output is a precedent matrix only — NO
+recommendation about M9 firing.
+
+QUESTION (verbatim-extraction target):
+  Q3.D.1 — At what partiality level (closed milestones /
+  partial milestones / open milestones) did historically
+  comparable research programs make their first public
+  announcement?
+
+  Q3.D.2 — What venue / format was used (letter to
+  individual; survey article; ICM / Bourbaki seminar;
+  monograph; arXiv preprint; conference talk)?
+
+  Q3.D.3 — How did the announcement frame partial vs
+  closed milestones — explicit caveat language, gap
+  catalogue, or unified-vision-without-caveat?
+
+CANDIDATE PRECEDENTS (priority order; verbatim-quote each):
+  R1 — Langlands 1967 letter to Weil (announcing the
+       Langlands program). Source: Langlands' own website
+       at IAS; verbatim transcription exists in
+       publications.
+  R2 — Birch-Swinnerton-Dyer 1965, "Notes on elliptic
+       curves II", J. reine angew. Math. 218 (the BSD
+       conjecture origin paper).
+  R3 — Iwasawa 1969, original announcement of the main
+       conjecture for cyclotomic fields (Sûgaku 16).
+  R4 — Painlevé 1900 announcement of the Painlevé
+       classification program (Acta Math 25, irreducibility
+       paper) and Gambier 1910 follow-up (Acta Math 33).
+  R5 — Sakai 2001, "Rational surfaces associated with
+       affine root systems and geometry of the Painlevé
+       equations" (Comm. Math. Phys. 220) as a meta-
+       announcement of the surface-type classification
+       program. (Slot 13 in workspace.)
+  R6 — Conte-Musette 2008/2020 monograph framing of the
+       Painlevé-test program as a coherent research
+       program.
+  R7 — Etingof-Schiffmann program announcements on
+       integrable systems (variable years 2000s-2010s);
+       probe.
+  R8 — Wiles 1995 / Taylor-Wiles 1995 — Fermat / modular
+       theorem announcement as model for "many-closed-
+       milestones-one-partial" announcement format.
+
+OUTPUT SCHEMA (Sub-task D; one row per precedent R1–R8):
+  Precedent | Year | Venue | Format | Partiality at
+  announcement (closed milestones | partial | open) |
+  Caveat-framing (explicit | implicit | none) | Verbatim
+  excerpt (≤ 200 words; framing-relevant snippet only) |
+  Cross-cut to SIARC M9 partiality profile (rough fit
+  Y / N / partial)
+
+================================================================
+§7 OUTPUT FORMAT (deliverable structure)
+================================================================
+
+Single Markdown deliverable: `dossier_milestone_residual_
+gap_survey_m4_m7_m8b_m9.md` written to bridge session
+folder `sessions/<TODAY_DATE>/MILESTONE-RESIDUAL-GAP-
+SURVEY-M4-M7-M8B-M9/`. Structure:
+
+  ## Front matter
+    - Task ID, composed date, verdict, AEAL claim count,
+      acquisition success rate (acquired / probed),
+      runtime
+  ## §A — M4 Residual (Sub-task A)
+    - Per-candidate row matrix per §3 schema
+    - NIA-tagged candidates explicit
+  ## §B — M7 Residual (Sub-task B)
+    - Per-candidate row matrix per §4 schema
+  ## §C — M8b Residual (Sub-task C)
+    - Per-candidate row matrix per §5 schema
+  ## §D — M9 Meta-Precedent (Sub-task D)
+    - Per-precedent row matrix per §6 schema
+  ## §E — Cross-cut synthesizer-input matrix
+    - For each milestone (M4, M7, M8b, M9): compact
+      summary line of "what literature exists / what
+      doesn't" with explicit citations to §A–§D rows
+    - NO ranking, NO recommendation, NO scheduling
+      proposal — synthesizer territory
+  ## §F — Acquisition appendix
+    - Every PDF acquired during the run: filename, SHA256,
+      size, slot-assignment if added to literature
+      workspace, text-layer status
+  ## §G — AEAL claims
+    - claims.jsonl entries inline (≥ 12 expected: 1 per
+      successful acquisition + 1 per verbatim-quoted
+      theorem in §A–§D + cross-cut rows)
+
+STANDARD BRIDGE ARTEFACTS (alongside dossier):
+  - handoff.md (status COMPLETE | PARTIAL | HALTED;
+    sections per §B3 standing protocol)
+  - claims.jsonl (≥ 12 AEAL entries)
+  - halt_log.json (`{}` if no halt)
+  - discrepancy_log.json (any verbatim-vs-expected
+    discrepancies surfaced)
+  - unexpected_finds.json (anything unexpected for
+    synthesizer)
+  - prompt_spec_used.md (this document, copied)
+
+================================================================
+§8 HALT CONDITIONS
+================================================================
+
+HALT_038_MISSING_ANCHOR — any §1 anchor file missing.
+
+HALT_038_AEAL_LANGUAGE_BREACH — any "shows" / "confirms" /
+  "proves" wording surfaces in researcher prose outside
+  direct verbatim quotation context. Hard halt; do NOT
+  paraphrase findings as proof. Researcher writes:
+  "Costin 2008 ch.5 §3 Theorem 5.3.2 states verbatim: ..."
+  not "Costin 2008 ch.5 shows that ...".
+
+HALT_038_OUT_OF_SCOPE_NUMERICAL_REVIVAL — if researcher
+  finds itself proposing a numerical revival of the S_2
+  alien-amplitude path (foreclosed by 017d / 017m), halt
+  and surface for synthesizer. Out-of-scope by §2.
+
+HALT_038_DUPLICATE_OF_019 — if researcher finds itself
+  re-attempting Wasow §X.3 OCR (owned by prompt 019), halt
+  and surface; this task's M4 sub-task is post-Wasow
+  descendants only.
+
+HALT_038_DUPLICATE_OF_033 — if researcher finds itself
+  doing SIARC primary derivation (owned by prompt 033),
+  halt and surface; this task is literature-only.
+
+HALT_038_BRIDGE_PUSH_FAIL — fallback to zip pattern per
+  §B5 standing protocol.
+
+================================================================
+§9 AEAL DISCIPLINE
+================================================================
+
+Every claim in §A–§E rows must trace to one of:
+  (a) A verbatim quotation from a verified text-layer
+      source PDF, with DOI / arXiv ID / page / theorem #
+      citation.
+  (b) A NIA tag with explicit failure mode (paywall |
+      image-only-PDF | not-on-OA-platform-X | citation-
+      hallucinated | spec-bibliographic-error).
+  (c) A negative-finding tag with verbatim search-string
+      + zero-occurrence count (e.g., "B_2 / (2A_1) /
+      Sakai / Weyl: 0 hits across full text 168 pp").
+
+Forbidden in researcher prose (outside verbatim quotations):
+  "shows" | "proves" | "confirms" | "establishes" |
+  "demonstrates that" | "implies that" | "follows that"
+
+Allowed (for researcher's own claims):
+  "states verbatim" | "is cited as" | "the theorem
+  numbered X.Y.Z reads" | "page N records" | "the
+  abstract reads" | "the introduction frames"
+
+Allowed (for SIARC residual gap status, factual): direct
+quotation from the picture v1.17 anchor + bridge handoff
+URLs.
+
+================================================================
+§10 SYNTHESIZER QA EXPECTATIONS (PRE-FIRE GATE)
+================================================================
+
+Before this prompt fires, synthesizer (Claude) is asked
+to arbitrate:
+
+  Q38.1 — Sub-task scope. Recommend: 4 sub-tasks ALL
+          parallel (single ~3-4 hr researcher session) vs
+          sequential triage by leverage (M4 first since
+          M9 gates on M4, then M8b/M7/M9). Default in this
+          draft: ALL parallel, single session.
+
+  Q38.2 — M9 sub-task scope. Recommend: keep §6 as drafted
+          (8 precedents), narrow to 1-page meta-precedent
+          (3 precedents), or drop entirely (defer M9
+          announcement-format to a separate
+          synthesizer-side analysis with no researcher
+          input). Default in this draft: keep as drafted.
+
+  Q38.3 — M8b sub-task scope. Recommend: keep §5 as
+          drafted (post-foreclosure structural lit only)
+          vs add explicit forbidden-list of numerical-
+          revival paths to halt conditions. Default in
+          this draft: §2 OUT-OF-SCOPE + §8 HALT_038_OUT_
+          OF_SCOPE_NUMERICAL_REVIVAL covers it.
+
+  Q38.4 — Slot assignment. Default: 038 (next free). If
+          synthesizer prefers a thematic slot (e.g., 039
+          to follow the 037 endorsement-templates ladder),
+          re-slot at QA pass.
+
+  Q38.5 — Compute budget. Default: ~3-4 hr researcher
+          session for all 4 sub-tasks. Synthesizer may
+          shrink if §6 dropped (reduces to ~2-3 hr).
+
+  Q38.6 — Forbidden-verb list completeness. Default:
+          shows / proves / confirms / establishes /
+          demonstrates that / implies that / follows
+          that. Synthesizer may extend.
+
+Only after synthesizer answers Q38.1–Q38.6 + operator
+authorizes does this prompt fire.
+
+================================================================
+§11 STANDING FINAL STEP (post-fire; researcher executes)
+================================================================
+
+Standard §B1–B5 protocol. Bridge folder `sessions/<TODAY_
+DATE>/MILESTONE-RESIDUAL-GAP-SURVEY-M4-M7-M8B-M9/`. Commit
+message:
+  "MILESTONE-RESIDUAL-GAP-SURVEY-M4-M7-M8B-M9 -- 4-sub-task
+   literature reconnaissance dossier deposited; <N> AEAL
+   claims; <K> acquisitions / <P> probed; status COMPLETE
+   | PARTIAL | HALTED"
+
+Output the standard BRIDGE / CLAUDE_FETCH lines.
+
+================================================================
+END OF PROMPT 038
+================================================================
