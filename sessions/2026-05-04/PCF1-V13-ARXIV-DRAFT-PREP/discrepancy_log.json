@@ -1,0 +1,10 @@
+{
+  "DISC_PCF1_ARXIV_001": {
+    "severity": "medium",
+    "description": "Original 00README.txt at sessions/2026-05-04/ARXIV-PACK-V13-RE-VERIFY/pack/pcf1_v1.3/00README.txt L22 contained PCF-2 v1.3 DOIs (concept 10.5281/zenodo.19941678; record 19963298) where PCF-1 v1.3 DOIs (concept 19931635; record 19937196) belonged.",
+    "provenance_hypothesis": "Template-reuse from PCF-2 pack during 030 or 034 rebuild cycle; DOI-swap step missed.",
+    "scope": "00README only — TeX + PDF themselves contain no PCF-2 DOIs; deposit md5/SHA-256 of PDF still match Zenodo per 034 PHASE A.2 audit.",
+    "fix_applied": "Created NEW pack at sessions/2026-05-04/PCF1-V13-ARXIV-DRAFT-PREP/pack/ with corrected 00README + explicit ERRATUM note. Original 00README preserved at ARXIV-PACK-V13-RE-VERIFY/pack/pcf1_v1.3/ for AEAL provenance (deposit-time-snapshot rule).",
+    "follow_up_recommended": "Small task PCF2-V13-PACK-DOI-AUDIT to verify PCF-2 v1.3 pack does NOT have a reciprocal typo (i.e. PCF-1 DOIs erroneously written into PCF-2's 00README). Likely clean per 034 audit but worth confirming."
+  }
+}
