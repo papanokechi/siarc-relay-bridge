@@ -1,0 +1,7 @@
+{
+  "DISC-ABSORB-1": {
+    "summary": "Operator's terminal-trace paste at session start contained 'Created 8 todos' line implying 8 todos were created during researcher session 038, but only 4 todos with id matching dossier-relevant patterns are visible in the absorbing-agent's SQL state.",
+    "resolution": "Agent-side SQL is operator's persistent SQL store; the 'Created 8 todos' line refers to ephemeral todo-tracking inside the researcher session's own context (per researcher session B1-B5 protocol, only handoff.md + claims/discrepancy/halt/unexpected_finds JSON are persisted to bridge). No state mismatch; researcher's internal task tracking does not propagate to operator SQL. Documented for audit clarity only.",
+    "severity": "LOW (cosmetic; no impact on workspace state correctness)"
+  }
+}
