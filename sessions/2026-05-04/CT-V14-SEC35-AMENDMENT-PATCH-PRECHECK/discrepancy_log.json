@@ -1,0 +1,9 @@
+{
+  "items": [
+    {
+      "kind": "section_numbering_anchor_ambiguity",
+      "severity": "REVIEW",
+      "summary": "G17-LAYER-SEPARATION-LIT-ANCHOR Phase C.3 DRAFT references 'CT v1.3 §3.5' but in the v1.4 in-flight TeX source ct_v1.4_main.tex (SHA 0600A445...AE77E1, 2026-05-03 09:48:46) §3.5 is 'The locked WKB exponent identity' (lines 948-995), while the V_quad CC-channel 'exact algebraic identity' theorem `\\thm:vquad-cc` referenced by the layer-separation reading is in §3.3 (lines ~796-820). This precheck adopts Reading A (insert at end of §3.5) and surfaces Reading B (move to end of §3.3 after thm:vquad-cc) as a deferred operator + Claude review decision. See sec_35_side_by_side.md §'§3.5-vs-§3.3 numbering note'."
+    }
+  ]
+}
