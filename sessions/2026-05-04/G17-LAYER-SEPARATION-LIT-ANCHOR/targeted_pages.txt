@@ -1,0 +1,1183 @@
+
+======================================================================
+01_birkhoff_1930  (01_birkhoff_1930_acta54.pdf)  sha256[:8]=aeb5291e
+======================================================================
+
+--- page_idx 0 (len=1483) ---
+FORYlAL THEORY OF IRREGULAR LINEAR DIFFERENCE 
+EOUATI0 qS. 
+BY 
+GEORGE D. BIRKHOFF 
+of CAMBRIDGE, MASS., U. S. A. 
+Introduction. 
+The gen4ral theory of ordinary linear differential equations with rational 
+coefficients must be regarded now as known in its broad outlines: there exist 
+in all cases whatsoever a full quota of formal series (normal and anormal) for 
+each singular point; on the basis of these series, the behavior of the solutions 
+in the neighbourhood of the singular points can be adequately characterized, their 
+nature in the large can be determined by means of the monodromic group, and 
+finally the inverse Riemann problem can be formulated and solved by direct use 
+of the Fredholm theory of integral equations or otherwise. 1 The details have 
+not been carried through except when the series which enter are of normal type, 
+but the corresponding formulation and attack in the most general case are 
+sufficiently evident. 
+On the other hand the situation is much less satisfactory for ordinary 
+linear difference equations with rational coefficients. If these equations be 
+written as a linear system, 
+i (I) yi(x+ I) aij(x)yj(x) (i-~-- I, 2,... n), 
+j=l 
+in which the n ~ rati
+
+--- page_idx 1 (len=2313) ---
+206 George D. Birkhoff. 
+of maximum order tt there, then it is only the regular case in which the charac- 
+teristic equation in e, 
+(2) leech,j- I = o 
+(&j= i, i=j; ~,j=o, i #j; a(~)---- lim a,~(x)/x~), 
+has n distinct roots Q1, Q,,... Q,*, not zero, that has been treated adequately. 
+To be sure, NSrlund, in his fundamental work on linear difference equations, 
+has given a powerful general method by which solutions analytic in certain 
+limited regions of "the complex plane can be constructed always 1, but this method 
+affords little indication as to the nature of those simplest analytic solutions, 
+devoid of a~ificial singularities, which are of central theoretic imp0rtance. 
+The most general examination hitherto made of linear difference equations 
+not of this special type is due to Adams. ~ He discusses the extent to which 
+my own method of approach tO the regular case s admits of extension to the 
+irregular case, and finds that while similar results can be obtained in certain 
+more general cases, yet the method appears to break down. In brief, he finds 
+that so long as there are n types of formal series with elements of the form 
+( ) x~**e~xr a + b 4-... (/z*_--< F), 
+X 
+the sam
+
+--- page_idx 2 (len=2140) ---
+Formal Theory of Irregular Lifiear Difference Equations. 207 
+determination of 'intermediate solutions' and 'principal solutions', as in my paper 
+by means of series and contour integTals, fails. 
+It is the aim of the present paper to show that, when certain further types 
+of formal series involving logarithms are taken account of, there will always be 
+a full quota of n such formal series solutions. By way of application of this 
+basic result, certain interesting formal questions are also treated. 
+In a subsequent paper devoted to the analytic theory of irregular difference 
+equations, also to appear in these pages, I expect to present the extension of 
+my earlier theory to the truly general case. Such an extension would of course 
+be impossible without the result of the present paper. It involves appropriatc 
+modifications in the method of contour integration as well as other changes of 
+consequence. 
+w i. The Linear Difference System and the Single Equation. 
+Without essential restriction it may be assumed that the determinant 
+l a~(x)l in (I) is not identically zero. In fact in the contrary case there is 
+obviously at least one identical linear homogeneous relation between yl(x
+
+--- page_idx 3 (len=2113) ---
+208 George D. Birkhoff. 
+On the right-hand sides of (3), (3') we have n+ I linear homogeneous expressions 
+in yl(x),.., y,,(x). Hence from these equations we obtain at least one linear 
+homogeneous equation of the form 
+(4) L(y) =-- ao(x)y(x + n) + a, (x)y(x + n-- x) +... + an(x)y(x) = o, 
+in which not all of the coefficients hi(X)vanish identically, and furthermore these 
+coefficients are explicitly expressible in terms of the functions /.i, aij. 
+It is possible to choose ~, ... ~,~ so that neither a0 nor an vanishes identic- 
+ally, i.e. so that the linear difference equation (4) is actually of ~he nth order. 
+To establish this fact we consider the determinant of the linear homogeneous 
+expressions in y~(x),.., y,,(x) which appear in the first n of the n+ I equations 
+(3), (3'). The elements of the first row are ~,(x), ... ;~(x) which may clearly be 
+taken at pleasure at an arbitrary point x. The elements of the second row are 
+n n 
+E X~(x+ ,).~ Y, Xo(x+ i)a~,,(x) a~ 1 (z~ 1 
+respectively. But ~,(x-~ I), ... ,~n(X'~- I) may clearly be assigned values at pleasure 
+without affecting the values of XI(X),... ;~n(x) already selected. Inasmuch as 
+]a,j(x)] is not identically zero, it is
+
+--- page_idx 4 (len=2348) ---
+Formal Theory of Irregular Linear Difference Equations. 209 
+Therefore it appears that to a fundamental set of solutions of the system 
+(i) with l aij(x)l~o there corresponds a fundamental set of solutions of some 
+single equation (4) of the nth order, and vice versa. 
+If then we can establish that the single linear difference equation (4) pos- 
+sesses a set Of n formal series solutions in the usual sense 1, it is evident that 
+the general system (I) will also ppssess a set of n formal solutions, obtainable 
+from the formal solutions of (4) by means of the equation (3). 
+These obvious considerations iustify us in focussing attention upon the 
+formal series solutions of a single ordinary linear difference equation of the 
+nth order of the type (4) with ao(X), a,~(x) not identically zero. 
+w 2. Statement ot the Formal Problem. 
+In order to deal conveniently with the questions which, arise concerning 
+the formal series solutions, it is desirable to broaden somewhat the initial 
+formulation. Let us demand mere!y that the coefficients a~(x) of the equation 
+(4) under consideration are to be formal (i.e. convergent or divergent)power 
+1 
+series in descending integral powers of x, or, mor
+
+--- page_idx 5 (len=1268) ---
+210 George D. Birkhoff. 
+~'--~p ep (~)x, ( b (6) s(x) : x a + --- + 
+X p 
+p--1 
+P(x) = 7x + ~x~- + 
+) 
+in the equation and the attempt~ to determine it, 7, 6,...7 a, b,... by the 
+method of undetermined coefficients. Here the formal identities: 
+t~(z+i) 
+~(z+i) ~x ~,( x) v ~_x ~_/( t~__/ ~, .~ ) (x+i) p =xpxp i+ --xpxp e~ +e~ ~ ┬º ; ~gg 
+e~(~+~):e~e~i; ed(X+i)(P-1)lP:eJX(P-1)/P(i +6(P--~)i+ ...); ... 
+px p 
+X 
+for i~ I, 2, ... n enable us to remove a factor x p eP(x)xr from the given equa- 
+tion after this substitution y~s(x) has been made. When this factor is removed, 
+the n+ I leading terms in the n + I series which appear on the left are precisely 
+/Ln "--jo+#n # (n--l) -'--jl+g (~--1) --in 
+tT0j0 e p x la a0j~ e P x P , ~ . . . (~njnX p 
+--Ji 
+where we have written aiji for the coefficient of the leading term aij~x P in 
+a~(x) for i=o, I,... n. Obviously neither 3"o nor j~ can be infinite since neither 
+ao(X ) nor a~(x)is identically o. 
+Now if such a formal identity is to be possible, there must be two leading 
+terms of the same degree in x, so that 
+j l -- jm 
+it-- 1-- m 
+for some 1 and m (1 ~ m), while all other terms are not of higher degree, i.e. 
+whence 
+-j, + t~(,-i)<= --
+
+--- page_idx 23 (len=1908) ---
+228 George D. Birkhoff. 
+k 
+More generally if we compare the coefficients of x P on both sides of (I O), 
+we obtain a set of equations (I3k) related to (i3~) as the equations (Ilk) are to 
+(111). More precisely, the second subscripts I are changed to k, and in addition 
+there appears on the right of the j4h equation a further term Ajk which is a 
+known polynomial in the coefficients )Ul, 9 9 9 ~;,k-~, pi~, 9 9 9 pi, k-1. Thus we see 
+at once that ~ti2,pi2, )u3, pi3, ... are uniquely determined in succession, and the 
+statement under consideration is established. 
+w 9. Third Reducible Case. 
+Suppose that the difference equation L(y)=o has a single value of ~t, namely 
+tt~-o, and that the n roo~ of the characteristic equation are equal to 1, so that 
+the difference equation may be written 
+(14) L(y) ~ A~y + b~(x)An-~y +... + b~(x)y = o, 
+., 1 
+where bl(x) .... bn(x) are formal power series in negative powers of x~ without 
+constant terms. Suppose, however, that the n series 
+xbl(x), x'b2(x) .... 
+1 
+do not all contain only negative powers of x p with or without constant terms. 
+unless the modified equation in z, 
++ + .+ 
+Then, 
+has a single (negative) value of tt and all the ro
+
+======================================================================
+03_birkhoff_trjitzinsky_1933  (03_birkhoff_trjitzinsky_1933_acta60.pdf)  sha256[:8]=dcd7e3c6
+======================================================================
+
+--- page_idx 0 (len=903) ---
+ANALYTIC THEORY OF SINGULAR DIFFERENCE 
+By 
+GEORGE D. BIRKHOFF 
+Of CAMBRIDGE, M~flSS.~ U. S. A. 
+and 
+W. J. TRJITZINSKY. I 
+EQUATIONS. 
+I. 
+w 2. 
+w 3. 
+w 4' 
+w 5. 
+w 6. 
+w 7. 
+w 8. 
+w 9. 
+IO. 
+II. 
+I2. 
+Introduction. 
+On B' and proper curves. 
+Lemmas on iteration. 
+A lemma on summation. 
+Construction of proper solutions to the right of a proper curve. 
+A lemma on factorization. 
+Products of completely proper operators. 
+Completion of the proof of the Theorem of w 7. 
+The Fundamental Existence Theorem. 
+Connection between 'upper' and 'lower' solutions. 
+The converse problem. 
+The related Riemann problem. 
+w I. Introduction. 
+In the present paper we study a linear difference system of order n in 
+y~ (~),... y, (x), 
+(~) y~(x+ i)= ~ .~j(x) y~(x) 
+j=l 
+(](aij(x))]~o; i= I, 2,... ?~), 
+1 National Research Fellow, Harvard University. 
+1--32511. Acta mathematica. 60. hnprim~ ]e 1 septembre 1932. 
+
+
+--- page_idx 1 (len=1560) ---
+George D. Birkhoff and W. J. Trjitzinsky. 
+in which the coefficients aij(x) will be taken either as known rational functions 
+of x or, more generally, as series convergent for Ixl > r which, except for a 
+1 
+finite number of ascending powers, are in descending powers of x or of xl, 
+(p, a positive integer). Still more generally it may be supposed that the coeffi- 
+cients are merely represented asymptotically by such series in certain regions of 
+the complex plane. 
+The equations (I) will be written in the matrix form as follows 
+(I a) Y(x+i)=A(x) Y(x), 
+(Y(x)~(yij (x)); A (x) ------- (a~-j (x))); 
+here, for j-- I, 2,... ~t, the elements yu(x),.., y,,j(x) in the j-th column of 
+Y(x) form a solution 
+of the equations (I). Such a solution Y(x) of the matrix equation (I a) will be 
+called a matrix solution in case I Y(x)[ ~ o. 
+In a preceding paper by Birkhoff ~ the well known fact was pointed out, 
+that such a system (I) may be related to a single difference equation of the 
+~-th order 
+(2) L, (y) --= a o (x) y (x + ,) + a, (x) y (x + n --I ) -F'' a- an (X) y (X) : O, 
+(ao (x) o; (x) o) 
+by means of a linear transformation 
+n 
+(3) y (x) = F, (x) yj (x), 
+j=l 
+in such a wise that whene
+
+--- page_idx 2 (len=1470) ---
+Analytic Theory of Singular Difference Equations. 
+y (,~) = ~ zJ (~) yj (~), 
+j--1 
+(4) y(x-[- I) = Z ~j(x ~- I)ajj,(x)yj,(x), 
+j, jl=l 
+:~](Z + ~ --" I)-- .~ ~j (.93 + n -- I) gjjI(X ~- ~--2) .... ajn_2jn_l(X) yjn_l(32) 
+J,j ..... Jn~l 
+form a solution of (I). Here a o(x) .... a~(x) are known functions of the same 
+type as the a~j(x) while Z~(x) .... Z~(x) are known rational functions of x, ar- 
+bitrary except that certain special conditions are not to be satisfied. Conversely 
+of course an equation (2) can be related to a system (I), for instance by writing 
+(5) Yl(X-}-I) = y2(x), ~]2(X+ I) :ff3(X), . .., yt~--I(X-]- I) = yn(z), 
+~0 (x) y~ (x + ~) = - ~1 (x) y~ (x) - ~.~ (x) yn-~ (x) ..... ~,, (z) ~1 (x) 
+in which case y = Yl (x) will satisfy (2). Since in (2) we have a o (x)~o, without 
+any loss of generality it may be supposed that ao(x)~ ~. In much of the text, 
+along with an equation of type (2) there will be occasion to consider the 
+related system 
+(6) ]~(X -]- I) : D(x) ]7(x), 
+O~ I~ O~ . . . 0 
+D(x)=t o,o,I o .... t~(([ij(x)). 
+If Y(x)= (yij(x)) is a matrix solution of (6) then 
+(6 a) (Yi j (X)) : (yj (X ~- i-- I)) 
+and the functions Yl (x),... y,~(x) will constitute a fu
+
+--- page_idx 3 (len=2422) ---
+(7) 
+where 
+George D. Birkhoff and W. J. Trjitzinsky. 
+p--1 1 
+ee(~)s(x), Q(x)=~xlogx +Tx + dxV + ... + ~xV 
+( 1 1 
+s(x):x ~ a+bx P+...)+(al+blx ~+- .)logx+... 
+(7 a) 
+1 + (a ~+b "~x ~;+...)log~x , 
+p is a positive integer, /~p is an integer and m is a positive integer or o. Here 
+p does not need to be the same as the integer, denoted by the same letter, 
+occurring in connection with the coefficients of a system, or single equation. 
+The following definition will be introduced. 
+Definition 1. A formal series s (x) which is of the form (7 a) will be termed 
+an s-series. 
+An element e q(~)s(x) may be thought of as representative of y(x) for in- 
+stance, in which case the corresponding yl(x) .... y,(x) are given by such 
+&series with the same exponential factor e ~(~). Two series (7)which differ merely 
+by a periodic factor e 2~~V~ ()., an integer) are considered to be linearly 
+dependent. The series involved may converge but in general will diverge. 
+With an equation of order n, of type (2), there will be associated n functions 
+Qj(x)(j = I, ....). 
+For purposes of classification the following terminology is found to be 
+convenient. The difference system (I) or single equation (2) wi
+
+--- page_idx 4 (len=2075) ---
+Analytic Theory of Singular Difference Equations. 
+Furthermore Galbrun ~ has treated a single difference equation of order n 
+with rational coefficients in the special case of the special anormal regular type 
+in which ~ pair of anormal series enter with p -~ 2, so that the two correspond- 
+ing polynomials Q (x) in Vx have the respective forms 
+z(x) + yx - 
+In a recent important paper Adams 2 has shown that to some extent Birkhoff's 
+methods continue to apply in the irregular normal case. 
+In the present paper the analytic theory of linear difference system (or 
+single equation) is developed so as to upply without restriction upon the form 
+of the formal series. The methods consist, on one hand, of suitable modifica- 
+tions of those of paper II; on the other hand, an important rSle is played by 
+certain new methods involving factorization and group summations. The main 
+result of the paper is embodied in the Fundamental Existence Theorem of sec- 
+tion 9. In most of the text preceding section 8 we restrict ourselves to a 
+quadrant I', 
+z=< arg x <= ~ + ~ (Ixl> # > o) 2 
+the lower boundary of which, h, is a portion of a line parallel to the axis of 
+reuls and lying below this axis. I
+
+--- page_idx 51 (len=1197) ---
+52 George D. Birkhoff and W. J. Trjitzinsky. 
+(I b) Ln(y) ~ Ln-rLr(y) (I < I" < n) 
+be the correspondi~g factorization, as specified in Lemma 9 (w 6). Suppose, more- 
+over, that i~, (m) (or ft~rther to the left) there is a curve F which is proper with 
+respect to the set (I). 
+It will necessarily follow that, if the operators Ln-r(z), Lr(y) are completely 
+proper (Def. 6; w I) in (I)+-.. +(m), the product L,,(y) will be completely proper in 
+.+(m). 
+Proof. As an immediate consequence of the hypotheses of the theorem 
+the following is true. 
+The equation 
+(2) LF(y) -- y(x + I') + bl (x) y (x + I'-- I ) +.-. + b,.(x) y(x) = o 
+possesses, in (I)+ ..- +(m), F linearly independent formal series solutions 
+(2 a) eQ:(~)ss(x) (j=I, .. 1~). 
+The related system of order 1" 
+(2 b) Yr(x+ I) = Dr(x) Y,.(x), 
+/ o,i, ... o 
+o 
+possesses, in (I)+ 9 +(m), a formal matrix solution 
+(2 C) SF(X) = (eQJ (x} sij(x)) ~-- (eQJ (x +i--1)sj(X Jr- i-- I)) 
+(i,j= I,... F) 
+(the s~j(x), s-series). This system is satisfied by a matrix solution 
+(z d) Y"(x) = (y~(x)) = (yy(x + i-- ,)) (i, j-= ,,.. F) 
+consisting of elements analytic in (a) and of the asymptotic form 
+(2 e) Y~ ~ St(x) (x in (a); a-~I,., m). 
+
+
+--- page_idx 88 (len=1390) ---
+Analytic Theory of Singular Difference Equations. 89 
+such that the elements of U,(x) (s~ I, 2,...) are analytic (save at x-~ 0r in B, 
+and such that lU~(x)[r o ([xl>Q) in R,. Moreover, 
+(9b) U,(x) = U,+l(X)A~,~+~(x) (s= i, 2,...). 
+It is evident, in the light of the papers referred to above and treating Riemann 
+problems, that the elements of Us(x) (s~ I, 2,...) behave at infinity essentially 
+as rational functions. For x in Rs 
+(9C) Us(x) ~ V(x) -~- (uij(x)) (8~-- I, 2,...), 
+Whether the elements of the formal matrix 
+s-series is left, for the present, undecided. 
+Write 
+U(x) can be made to be formal 
+(io) = us(x) T(x). 
+Then (5) will hold. Moreover, for x in Rs, 
+= = (e J 
+It follows immediately that the theorem is true. 
+In a future paper one of the present authors (Trjitzinsky)proposes to 
+develop the analytic theory of linear difference equations with rational coef- 
+ficients which is a case of particular interest in which more special results can 
+be obtained. Itere it would be desirable to find those 'principal solutions' which 
+stand out because of their peculiar analytic simplicity and to formulate the 
+corresponding Riemann problem. The same author proposes also to devel
+
+======================================================================
+06_costin_2008_chap5  (06_costin_2008_chap5.pdf)  sha256[:8]=436c6c11
+======================================================================
+
+--- page_idx 0 (len=356) ---
+Notation
+L The Laplace transform,
+┬º1.2b
+LΓêÆ1 The inverse Laplace trans-
+form, ┬º1.2c
+B The Borel transform, ┬º4.4
+p Usually the variable in
+Borel plane (after Borel
+transform)
+╦£f A formal expression.
+H(p) Borel transform of h(x)
+Γê╝ Asymptotic to, ┬º1.1a
+Z, N, Q, R The integers, positive inte-
+gers, rational numbers, real
+numbers, complex numbers
+respectively.
+
+--- page_idx 1: EMPTY ---
+
+--- page_idx 2 (len=87) ---
+Asymptotics and Borel
+summability
+CRC PRESS
+Boca Raton London New York Washington, D.C.
+
+--- page_idx 3: EMPTY ---
+
+--- page_idx 4 (len=2205) ---
+Contents
+1 Introduction 11
+1.1 Expansions and approximations . . . . . . . . . . . . . . . . 11
+1.1a Asymptotic expansions . . . . . . . . . . . . . . . . . 13
+1.1b Functions asymptotic to an expansion, in the sense of
+Poincar┬┤ e . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+1.1c Asymptotic power series . . . . . . . . . . . . . . . . . 16
+1.2 Operations with asymptotic power series . . . . . . . . . . . 16
+1.2a Concrete functions and unique expansions . . . . . . . 19
+1.2b Laplace transforms . . . . . . . . . . . . . . . . . . . . 26
+1.2c A Laplace inversion formula . . . . . . . . . . . . . . . 27
+2 Review of some basic analytic tools 29
+2.1 The Phragm┬┤ en-Lindel┬¿ of Theorem . . . . . . . . . . . . . . . 29
+2.1a Some properties of Laplace transforms . . . . . . . . . 29
+2.1b Banach spaces and an essential tool: the contractive
+mapping principle . . . . . . . . . . . . . . . . . . . . 31
+2.1c Fixed points and vector valued analytic functions . . . 33
+2.1d Choice of N . . . . . . . . . . . . . . . . . . . . . . . . 33
+2.1e A nonlinear di∩¼Çerential equation . . . . . . . . . . . . 37
+3 Review of some results in classical asymptotics 39
+3.0f Asymptotics of integrals: ∩¼ürst res
+
+--- page_idx 5 (len=2874) ---
+6
+3.5 Asymptotics of Taylor coe∩¼âcients . . . . . . . . . . . . . . . 67
+3.6 Singularities of di∩¼Çerential equations . . . . . . . . . . . . . . 70
+3.6a Linear meromorphic di∩¼Çerential equations. Regular and
+irregular singularities . . . . . . . . . . . . . . . . . . . 70
+3.6b Singularities of nonlinear di∩¼Çerential equations; formal
+Painlev┬┤ e property . . . . . . . . . . . . . . . . . . . . . 72
+3.7 Singular perturbations . . . . . . . . . . . . . . . . . . . . . 76
+3.7a Introduction to the WKB method . . . . . . . . . . . 76
+3.7b Singularly perturbed Schr┬¿ odinger equation. Setting and
+heuristics . . . . . . . . . . . . . . . . . . . . . . . . . 77
+3.7c Outer region. Rigorous analysis . . . . . . . . . . . . . 79
+3.7d Inner region. Rigorous analysis . . . . . . . . . . . . . 82
+3.7e Matching . . . . . . . . . . . . . . . . . . . . . . . . . 84
+3.8 PDE analog . . . . . . . . . . . . . . . . . . . . . . . . . . . 84
+4 Introduction to transseries and analyzable functions 87
+4.1 Analyzable functions and the theory of ┬┤Ecalle: a preview . . 87
+4.1a Analytic function theory as a toy model of the theory
+of analyzable functions . . . . . . . . . . . . . . . . . . 87
+4.1b Formal asymptotic p
+
+--- page_idx 6 (len=2593) ---
+7
+4.8 Borel summability of solutions of nonlinear equations: an in-
+troduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . 136
+4.8a An example. Borel summability of the main series . . 136
+4.8b Borel summation of the transseries solution . . . . . . 138
+4.8c Analytic structure along R+ . . . . . . . . . . . . . . . 140
+4.8d General setting . . . . . . . . . . . . . . . . . . . . . . 141
+4.8e Some remarks about structure of singularities in Borel
+space and resurgence phenomena . . . . . . . . . . . . 144
+4.9 Normalization procedures . . . . . . . . . . . . . . . . . . . . 145
+5 Ordinary di∩¼Çerential equations. Summability of formal solu-
+tions 149
+5.0a Nonresonance . . . . . . . . . . . . . . . . . . . . . . . 149
+5.0b Further notations and conventions . . . . . . . . . . . 149
+5.0c Main results . . . . . . . . . . . . . . . . . . . . . . . . 152
+5.1 Comments on the proof . . . . . . . . . . . . . . . . . . . . . 157
+5.2 Proofs and further results . . . . . . . . . . . . . . . . . . . . 165
+5.2a Outline of the proofs of the main results . . . . . . . . 165
+5.2b The convolution equation away from Stokes rays . . . 166
+5.2c Behavior of Y0(p) near p = 1. . . . . . . . . . . 
+
+--- page_idx 7 (len=774) ---
+8
+8 Appendix 223
+A Rigorous construction of transseries . . . . . . . . . . . . . . 223
+Aa Abstracting from ┬º4.2b . . . . . . . . . . . . . . . . . 223
+Ab General logarithmic-free transseries . . . . . . . . . . . 234
+Ac Assumption on the inductive step . . . . . . . . . . . . 234
+Ad Passing from step N to step N + 1 . . . . . . . . . . . 236
+Ae General logarithmic-free transseries . . . . . . . . . . . 240
+Af ┬┤EcalleΓÇÖs notation . . . . . . . . . . . . . . . . . . . . . 241
+Ag The space T of general transseries . . . . . . . . . . . 242
+B The CΓêùΓÇôalgebra DΓÇ▓
+m,╬╜ . . . . . . . . . . . . . . . . . . . . . . 245
+C Useful formulas . . . . . . . . . . . . . . . . . . . . . . . . . 253
+D Appendix . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 253
+References 255
+
+--- page_idx 8 (len=1894) ---
+Foreword
+The ∩¼üeld of asymptotics has evolved substantially in the last thirty years or so
+and tools have been developed to extract exact solutions from formal expan-
+sions. The literature on the subject is still relatively scattered and the bulk
+of it is found in relatively specialized articles. The present book is intended
+to provide a self-contained introduction to asymptotic analysis (with some
+emphasis on tools needed in exponential asymptotics, and on applications
+which are not part of usual asymptotics books, such as asymptotics of Taylor
+coe∩¼âcients), and to explain basic ideas, concepts and methods of generalized
+Borel summability, transseries and exponential asymptotics. Transseries are
+∩¼ürst introduced rather heuristically; a complete construction is provided in
+the Appendix.
+To provide a sense on how these latter methods are used in a systematic
+way, general nonlinear ODEs are near a generic irregular singular point are
+analyzed in detail. The analysis of di∩¼Çerence equations, PDEs and other
+types of problems, only supper∩¼ücially touched upon in this book, while cer-
+tainly providing a number of new challenges, is not radically di∩¼Çerent in spirit.
+Mastering the basic techniq
+
+--- page_idx 51 (len=1733) ---
+52 Asymptotics and Borel summability
+PROOF
+The following elementary line of proof is similar to the technique of optimal
+truncation of series, a very useful procedure in asymptotics.
+By Remark 1.32 we can assume, without loss of generality, that the series
+has zero radius of convergence.
+For every z de∩¼üne N(z) = max {N : ΓêÇ n Γëñ N, |anzn/2| Γëñ 2ΓêÆn. We have
+N(z) < Γê₧, otherwise, by AbelΓÇÖs theorem, the series would have nonzero
+radius of convergence. Noting that for any n we have n ln |z| Γåô ΓêÆΓê₧ as |z| Γåô 0
+it follows that N(z) is nonincreasing as |z| decreases and that N(z) ΓåÆ Γê₧ as
+z ΓåÆ 0. Consider
+f(z) =
+N(z)Γêæ
+j=0
+anzn
+Let N be given and choose z0; |z0| < 1 such that N(z0) ΓëÑ N. For |z| < |z0|
+we have N(z) ΓëÑ N(z0) ΓëÑ N and thus
+ΓÅÉΓÅÉΓÅÉΓÅÉΓÅÉf(z) ΓêÆ
+NΓêæ
+n=0
+anzn
+ΓÅÉΓÅÉΓÅÉΓÅÉΓÅÉ =
+ΓÅÉΓÅÉΓÅÉΓÅÉΓÅÉΓÅÉ
+N(z)Γêæ
+n=N+1
+anzn
+ΓÅÉΓÅÉΓÅÉΓÅÉΓÅÉΓÅÉ
+Γëñ
+N(z)Γêæ
+j=N+1
+|zj/2|2ΓêÆj Γëñ |z|N/2+1/2
+Using now Lemma 1.13, the proof follows.
+The function f is certainly not unique. Given a power series there are many
+functions asymptotic to it. Indeed there are many functions asymptotic to the
+(identically) zero power series at zero, in any sectorial punctured neighborhood
+of zero in the complex plane, and even on the Riemann surface of the log on
+C \ {0}, e.g. eΓêÆxΓêÆ1/n
+
+--- page_idx 254 (len=1617) ---
+References
+[1] Abramowitz, M. and Stegun, I. A., Handbook of Mathematical Func-
+tions with Formulas, Graphs, and Mathematical Tables, 9th printing.
+New York: Dover, pp. 804-806, 1972.
+[2] A. Cauchy 188290 Oeuvres completes dAugustin Cauchy, publi┬┤ ees sous
+la direction scienti∩¼üque de lAcademie de sciences et sous les auspices du
+m. le ministre de linstruction publique. Paris: Gauthier-Villars.
+[3] C Bender and S Orszag, Advanced Mathematical Methods for scientists
+and engineers, McGraw-Hill, 1978, Springer-Verlag 1999.
+[4] J. ┬┤Ecalle Fonctions Resurgentes, Publications Mathematiques DΓÇÖOrsay,
+1981
+[5] J. ┬┤Ecalle in Bifurcations and periodic orbits of vector ∩¼üelds NATO ASI
+Series, Vol. 408, 1993
+[6] J. ┬┤Ecalle Finitude des cycles limites.., Preprint 90-36 of Universite de
+Paris-Sud, 1990
+[7] J. ┬┤Ecalle, F. Menous Well behaved averages and the non-accumulation
+theorem.. Preprint
+[8] W. Balser, B.L.J. Braaksma, J-P. Ramis, Y. Sibuya Asymptotic Anal.
+5, no. 1 (1991), 27-45
+[9] B. L. J. Braaksma Ann. Inst. Fourier, Grenoble, 42, 3 (1992), 517-540
+[10] Balser, W. From divergent power series to analytic functions, Springer-
+Verlag, (1994).
+[11] Borel, E. Lecons sur les series divergentes, 
+
+======================================================================
+07_okamoto_1987  (07_okamoto_1987_painleve_III_FE30.pdf)  sha256[:8]=65294fbc
+======================================================================
+
+--- page_idx 0 (len=1875) ---
+Funkcialaj Ekvacioj, 30 (1987)305-332
+Studies on the Painleve Equations IV .
+Third Painleve Equation $/xa5mathrm{P}_{III}$
+By
+Kazuo OKAMOTO
+(Universityof Tokyo, Japan)
+The present article deals with the third Painleve equation $/xa5mathrm{P}_{III}$; we consider instead
+the equation $/xa5mathrm{P}_{ItI^{/xa5prime}}$, equivalent to the former. By de∩¼üning the Painleve system $/xa5ovalbox{/xa5tt/xa5small REJECT}$,
+we consider the group $G_{*}$of birational canonical transformations of $/xa5ovalbox{/xa5tt/xa5small REJECT}$;$/xa5mathrm{G}_{*}$is isomorphic
+to the a∩¼âne Weyl group of the root system of the type $B_{2}$. A sequence of solutions of $/xa5ovalbox{/xa5tt/xa5small REJECT}$
+is obtained from that of $/xa5tau$-functions,satisfying the Toda equation and vice versa. We
+consider also particular solutions of $/xa5ovalbox{/xa5tt/xa5small REJECT}$written in terms of the cylinder function.
+Contents
+Introduction
+╦É1 Painleve system
+1 Painleve equation $/xa5mathrm{P}_{III^{/xa5prime}}$
+2 Painleve system $/xa5ovalbox{/xa5tt/xa5small REJECT}_{III^{/xa5prime}}$
+3 Symmetry of the Hamiltonian $/xa5ovalbox{/xa5tt/xa5small REJECT}_{lIt^{/xa5prime}}$
+4 Auxiliary Hamiltonian function
+5 Painleve syste
+
+--- page_idx 1 (len=2831) ---
+306 K. OKAMOTO
+Introduction
+The present article concerns the third Painleve equation :
+$/xa5mathrm{P}_{III}$$/xa5frac{d^{2}q}{dt^{2}}=/xa5frac{1}{q}(/xa5frac{dq}{dt})^{2}-/xa5frac{1}{t}/xa5frac{dq}{dt}+/xa5frac{1}{t}(aq^{2}+/xa5beta)+/xa5gamma q^{3}+/xa5frac{/xa5delta}{q}$,
+for which we make the assumption , $/xa5gamma/xa5delta/xa5neq 0$, throughout this paper . This equation
+is well -known and investigated by many authors (for example , [3], [5], [6],
+[7]$)$, while we consider in the following mainly the equation :
+$/xa5mathrm{p}_{III^{/xa5prime}}$$/xa5frac{d^{2}q}{dt^{2}}=/xa5frac{1}{q}(/xa5frac{dq}{dt})^{2}-/xa5frac{1}{t}/xa5frac{dq}{dt}+/xa5frac{q^{2}}{4t^{2}}(/xa5gamma q+a)+/xa5frac{/xa5beta}{4t}+/xa5frac{/xa5delta}{4q}$,
+instead . Tbesetwo equations are equivalent each other. In fact, by replacing
+in $/xa5mathrm{p}_{IIl^{/xa5prime}}$, $t$by $t^{2}$and $q$by $tq$, we obtain $/xa5mathrm{P}_{I/xa5mathit{1}I}$. Therefore a result on $/xa5mathrm{p}_{lII^{/xa5prime}}$can
+be translated immediately to that of $/xa5mathrm{P}_{III}$. We do not repeat results one by one.
+We sum up in ╦É1.1 known facts about the equation $/xa5mathrm{p}_{II/xa5mathit{1}^{/xa5prime}}$or $/xa5mathrm{P}_{III}
+
+--- page_idx 2 (len=2852) ---
+ThirdPainleve Equation $/xa5mathrm{P}_{/xa5tau/xa5mathrm{r}I}$ 307
+$(q, p, H, t)$
+such that $H=H_{llI}ΓÇÖ(t;q, p)$(resp.$H=H_{Ill}$($t;q$, $p$)). We consider in this paper
+mainly the Painleve system $/xa5ovalbox{/xa5tt/xa5small REJECT}_{III^{/xa5prime}}$. All of results obtained for $/xa5ovalbox{/xa5tt/xa5small REJECT}_{IIJ^{/xa5prime}}$can be
+translated to what concerns the other $/xa5ovalbox{/xa5tt/xa5small REJECT}_{I/xa5mathit{1}I}$through the canonical transformation :
+$/xa5phi$; $/xa5ovalbox{/xa5tt/xa5small REJECT}_{III^{/xa5prime}}/xa5rightarrow/xa5ovalbox{/xa5tt/xa5small REJECT}_{III}$
+given by (0.2).
+Let $/xa5ovalbox{/xa5tt/xa5small REJECT}$be the Painleve system associated with $/xa5mathrm{p}_{/xa5mathit{1}lI^{/xa5prime}}$. A solution $(q, p)$of
+the system of di∩¼Çerential equations :
+(0.3) $/xa5frac{dq}{dt}=/xa5frac{/xa5partial H}{/xa5partial p}$, $/xa5frac{dq}{dt}=-/xa5frac{/xa5partial H}{/xa5partial q}$,
+with $H=H_{III^{/xa5prime}}(t;q, p)$is called simply a solution of $/xa5ovalbox{/xa5tt/xa5small REJECT}$. The $v$-function related
+to $(q, p)$is de∩¼üned by:
+(0.4) $H=/xa5frac{d}{dt}$$/xa5log$$/xa5tau$,
+where $H$is the Hamiltonian function :
+$H=H(t)=H(t;q(t), p(t))$ .
+In a si
+
+--- page_idx 3 (len=1820) ---
+308 K. OKAMOTO
+transformation $g^{*}$associated with $g$. The homomorphism :
+$/xa5rho:G/xa5rightarrow G_{*}$,
+thus obtained is called , for short, the nonlinear representation of $G$on the Painleve
+system , where $G_{*}$is the group generated by $g^{*}$ΓÇÖs.
+Let $H(/xa5mathrm{v})=H(t;/xa5mathrm{v})$be a Hamiltonian function related to a solution $(q, p)=$
+$(q(/xa5mathrm{v}), p(/xa5mathrm{v}))$of $/xa5ovalbox{/xa5tt/xa5small REJECT}(/xa5mathrm{v})$, We will de∩¼üne the auxiliary Hamiltonian functions :
+(0.6) $h=tH+/xa5frac{1}{4}v_{1}^{2}-/xa5frac{1}{2}t$
+and show it satis∩¼ües the di∩¼Çerential equation :
+(0.7) $(t/xa5frac{d^{2}h}{dt^{2}})^{2}+v_{1}v_{2}/xa5frac{dh}{dt}-/xa5{4(/xa5frac{dh}{dt})^{2}-1/xa5}(h-t/xa5frac{dh}{dt})-/xa5frac{1}{4}(v_{1}^{2}+v_{2}^{2})=0$.
+There is the one-to-one correspondence $/xa5Gamma$from a particular solution $h=h(/xa5mathrm{v})$of
+(0.7)to a solution $(q, p)$of $/xa5ovalbox{/xa5tt/xa5small REJECT}(/xa5mathrm{v})$: see Proposition 1.8. In particular , we have
+$(0.8)_{1}$ $/xa5frac{dh}{dt}=p-1$,
+$(0.8)_{2}$ $t/xa5frac{d^{2}h}{dt^{2}}=-2qp(p-1)+v_{1}p-/xa5frac{1}{2}(v_{1}+v_{2})$.
+We can compute the explicit forms of various birational canonical transformations
+
+
+--- page_idx 4 (len=1780) ---
+ThirdPainleve Equation$/xa5mathrm{P}_{II}/xa5mathrm{r}$ 309
+(0.9)is given by the replacement :
+$q/xa5rightarrow-q$, $p/xa5rightarrow 1-p$,
+$H/xa5rightarrow 1-H$, $t/xa5rightarrow-t$.
+Therefore we consider only the case $v_{1}+v_{2}=0$. By means of the Hamiltonian
+system (0.3),$q$satis∩¼ües the Riccati equation :
+(0.10) $t/xa5frac{dq}{dt}=-q^{2}-/xa5theta_{0}q+t$$(/xa5theta_{0}=v_{1})$,
+which can be linearized by:
+(0.11) $q=-/xa5frac{1}{2}/xa5theta_{0}+t/xa5frac{d_{/xa5delta}}{dt}$.
+We obtain in fact:
+(0.12) $/xa5frac{d_{/xa5delta}^{2}}{dt^{2}}+/xa5frac{1}{t}/xa5frac{d_{3}}{dt}-[/xa5frac{1}{t}+(/xa5frac{/xa5theta_{0}}{2t})^{2}]/xa5delta=0$,
+hence
+$3=Z_{v}(2/xa5sqrt{-t})$, $v$$=/xa5theta_{0}$.
+Here $Z_{v}(r)$is the cylinder function , that is, a solution of the linear equation :
+(0.13) $/xa5frac{q^{2}/xa5mathrm{a}}{dr^{2}}+/xa5frac{1}{r}/xa5frac{d_{3}}{dr}+(1-/xa5frac{v^{2}}{r^{2}})/xa5delta=0$:
+the Bessel function $J_{v}(r)$, the Hankel functions $H_{v}^{(i)}(r)$and so on.
+A solution of the Painleve system $/xa5ovalbox{/xa5tt/xa5small REJECT}$, of the form $(0.11)^{-}(0.12)$, is called a
+classical solution of $/xa5ovalbox{/xa5tt/xa5small REJECT}$. A birational canonical transformation
+
+--- page_idx 26 (len=2140) ---
+ThirdPainleve Equation $/xa5mathrm{P}_{III}$ 331
+then so is the point $/xa5tilde{/xa5parallel}(/xa5mathrm{v})$. Therefore the Painleve system $/xa5tilde{/xa5ovalbox{/xa5tt/xa5small REJECT}}_{m}=/xa5tilde{/xa5ell}^{*}/xa5ovalbox{/xa5tt/xa5small REJECT}_{0}-=(/xa5tilde{q}_{m},/xa5tilde{p}_{m}$,
+$/xa5tilde{H}_{m}$, $t)$has a solution of the form :
+(4.7) $t/xa5frac{d/xa5tilde{q}}{dt}=-/xa5tilde{q}^{2}-(v_{1}+m)/xa5tilde{q}+t$, $/xa5tilde{p}=0$.
+For a solution $q$of the Riccati equation (4.7),set:
+(4.8) $/xa5tilde{q}^{/xa5prime}=/xa5frac{t}{q+v+m}$, $/xa5tilde{p}^{/xa5prime}=0$.
+It is easy to verify $(/xa5tilde{q}^{/xa5prime},/xa5tilde{p}^{/xa5prime})$de∩¼ünes a solution of $/xa5ovalbox{/xa5tt/xa5small REJECT}_{m-1}-$. Hence the restriction of
+the canonical transformation $/xa5tilde{l}_{*}$to (4.7)is given by (4.8).
+The $/xa5mathrm{r}$-function of $/xa5ovalbox{/xa5tt/xa5small REJECT}_{m}-$related to $(/xa5tilde{q}_{m},/xa5tilde{p}_{m})$of the form (4.7)is:
+$/xa5tilde{/xa5tau}_{m}=1$.
+If we write as
+$/xa5mathrm{f}_{m}=/xa5tau(/xa5ell(/xa5tilde{/xa5mathrm{v}}_{m}))=/xa5tau(l/xa5cdot/xa5tilde{p}^{m}(/xa5mathrm{v}))$,
+then it follows from (3.5)that $/xa5mathrm{f}_{m}$satis∩¼ües
+(4.9) $t/xa5frac
+
+--- page_idx 27 (len=2363) ---
+332 K. OKAMOTO
+$/xa5tilde{/xa5mathrm{f}}_{m}=(-t)^{e(m)}e^{-t}/xa5mathrm{f}_{m}$,
+$e(m)=/xa5frac{1}{2}(v_{1}+m)^{2}$,
+then $/xa5{/xa5tilde{/xa5mathfrak{s}}_{m}; m/xa5in Z/xa5}$satis∩¼ües the Toda equation :
+(4.11) $/xa5delta^{2}$$/xa5log$$/xa5tilde{/xa5mathfrak{s}}_{m}=/xa5frac{/xa5tilde{/xa5mathrm{f}}_{m-1}/xa5tilde{/xa5mathrm{T}}_{m+1}}{/xa5mathfrak{s}_{m}^{/xa5tilde{2}}}$.
+Comparing this with (0.15), we have
+$/xa5mathfrak{f}_{m}(t)=t^{-e^{/xa5prime}(m)}Z_{v+m}(2/xa5overline{-t})4^{-e(m)}$,
+$/xa5tilde{/xa5mathfrak{s}}_{m}(t)=Z_{v+m}(2--t)4^{-e(m)}$,
+where $e^{/xa5prime}(m)-/xa5frac{1}{2}(v+m)$.
+References
+[1] Bourbaki, N., Groupes et Algebres de Lie, Chapitre 4, 5 et 6, Masson, Paris, 1981.
+[2] Darboux, G., Legons sur la theoriegenerale des surfaces, til, Chelsea, 1972.
+[3] Gromak, V. I., Solutions of the third Painleve equation, Di∩¼Ç. Uravneniya, 9 (1973),
+1599-16W.
+[4]?, Theory of PainleveΓÇÖs equation, ibid. 11 (1975),373-376.
+[5] Jimbo, M. and Miwa, T., Monodromy preserving deformation of linear ordinary
+di∩¼Çerential equations with rational coe∩¼âcients II, Physica 2D (1981),407-448.
+[6] Lukashevich, N. A., On the theory of the third Painleve equation, Di∩¼Ç. Uravneniya,
+3 (1967),994-9
+
+======================================================================
+08_barhoumi_lisovyy  (08_barhoumi_lisovyy_miller_prokhorov_2024_pIII_D6.pdf)  sha256[:8]=96c49cdd
+======================================================================
+
+--- page_idx 0 (len=2958) ---
+Symmetry, Integrability and Geometry: Methods and Applications SIGMA 20 (2024), 019, 77 pages
+Painlev┬┤ e-III Monodromy Maps Under theD6 ΓåÆ D8
+Confluence and Applications to the Large-Parameter
+Asymptotics of Rational Solutions
+Ahmad BARHOUMI ab, Oleg LISOVYY c, Peter D. MILLER a and Andrei PROKHOROV ad
+a) Department of Mathematics, University of Michigan,
+East Hall, 530 Church St., Ann Arbor, MI 48109, USA
+E-mail: millerpd@umich.edu, andreip@umich.edu
+b) Department of Mathematics, KTH Royal Institute of Technology,
+Lindstedtsv┬¿ agen 25, 114 28, Stockholm, Sweden
+E-mail: ahmadba@kth.se
+c) Institut Denis-Poisson, Universit┬┤ e de Tours, CNRS, Parc de Grandmont, 37200 Tours, France
+E-mail: lisovyi@lmpt.univ-tours.fr
+d) St. Petersburg State University, Universitetskaya emb. 7/9, 199034 St. Petersburg, Russia
+Received July 24, 2023, in final form January 23, 2024; Published online March 09, 2024
+https://doi.org/10.3842/SIGMA.2024.019
+Abstract. The third Painlev┬┤ e equation in its generic form, often referred to as Painlev┬┤ e-
+III(D6), is given by
+d2u
+dx2 = 1
+u
+du
+dx
+2
+ΓêÆ 1
+x
+du
+dx + ╬▒u2 + ╬▓
+x + 4u3 ΓêÆ 4
+u , ╬▒, ╬▓ Γêê C.
+Starting from a generic initial solution u0(x) corresponding to paramete
+
+--- page_idx 1 (len=2629) ---
+2 A. Barhoumi, O. Lisovyy, P.D. Miller and A. Prokhorov
+1 Introduction
+This paper is a study of the confluence of solutions of the generic Painlev┬┤ e-III equation to
+solutions of its parameter-free degeneration. The six Painlev┬┤ e equations and their solutions,
+often referred to as Painlev┬┤ e transcendents, have been the subject of intense study. This is
+largely motivated by the fact that Painlev┬┤ e transcendents are generically transcendental, and
+yet appear in various applications in integrable systems, integrable probability, and random
+matrix theory to name a few.
+1.1 B┬¿ acklund transformations and rational solutions of Painlev┬┤ e-III
+All Painlev┬┤ e equations but the first are actually families of differential equations indexed by
+complex parameters appearing as coefficients. However, certain solutions corresponding to dif-
+ferent parameters can be related via B┬¿ acklund transformations. For example, consider our main
+object of study, the generic Painlev┬┤ e III equation, known as PIII(D6):
+d2u
+dx2 = 1
+u
+du
+dx
+2
+ΓêÆ 1
+x
+du
+dx + ╬▒u2 + ╬▓
+x + 4u3 ΓêÆ 4
+u , ╬▒, ╬▓ Γêê C. (1.1)
+In [17], Gromak discovered that the transformation
+u(x) 7ΓåÆ ╦åu(x) := 2xuΓÇ▓(x) + 4xu(x)2 + 4x ΓêÆ ╬▓u(x) ΓêÆ 2u(x)
+u(x)(2
+
+--- page_idx 2 (len=1988) ---
+Painlev┬┤ e-III Monodromy Maps Under theD6 ΓåÆ D8 Confluence 3
+Figure 1. Left: the rational solution u10(x; 0.25). Right: the limiting solution U(z; 0.25), where we
+recall the notation z = nx for n = 10. All poles of u10(x; 0.25) are simple with residue 1
+2/ΓêÆ 1
+2, indicated
+in the plot with red/yellow circles. Likewise, all zeros of u10(x; 0.25) are simple with derivative 2/ ΓêÆ2,
+indicated in the plot with pink/green squares. On the other hand, all poles and zeros of U(z; 0.25) have
+multiplicity 2 and are marked with red circles and green squares respectively.
+1.2 Results
+To begin with, we prove Conjecture 5 from [5] in this work; to be more precise we establish the
+following theorem.
+Theorem 1.1. Fix m Γêê C\
+ 
+Z+ 1
+2
+
+and let un(x; m) be the family of rational solutions described
+above. There exists a unique solution U(z) = U(z; m) of the Painlev┬┤ e-III(D8) equation (1.3)
+analytic at the origin with U(0; m) = tan
+  ╧Ç
+2
+ 
+m + 1
+2
+
+╠╕= 0 such that
+lim
+jΓåÆΓê₧
+u2j
+ z
+2j ; m
+
+= U(z; m),
+lim
+jΓåÆΓê₧
+u2j+1
+ z
+2j + 1; m
+
+= ΓêÆ1/U(z; m) (1.4)
+for z /Γêê ╬ú(m), where ╬ú(m) denotes the union of all poles and zeros of z 7ΓåÆ U(z; m). The
+convergence is uniform on compact subsets of C \ ╬ú(m).
+We illustrate 
+
+--- page_idx 3 (len=2460) ---
+4 A. Barhoumi, O. Lisovyy, P.D. Miller and A. Prokhorov
+It was shown in [8, 42] that the rational functions sn(x; m) are actually polynomials. In Sec-
+tion 3, we use Corollary 2.4 to deduce asymptotics of the Umemura polynomials themselves. To
+formulate our result, we need to introduce a certain Fredholm determinant; more precisely, let
+Kr : L2[0, r] ΓåÆ L2[0, r] denote the integral operator with the continuous Bessel kernel
+K(x, y) =
+ΓêÜxJ1
+ ΓêÜx
+
+J0
+ ΓêÜy
+
+ΓêÆ J0
+ ΓêÜx
+ΓêÜyJ1
+ ΓêÜy
+
+2(x ΓêÆ y) .
+For any ╬╗ Γêê C, let D╬╗(r) be the Fredholm determinant
+D╬╗(r) := det(1 ΓêÆ ╬╗Kr).
+It is well known (see, e.g., [30, Chapter 24]) that the Fredholm determinant D╬╗(r) is an entire
+function of ╬╗. Since Kr is a trace-class integral operator, one of several equivalent ways to
+define D╬╗ (r) is via the PlemeljΓÇôSmithies formula
+D╬╗(r) = exp
+
+ΓêÆ
+Γê₧X
+Γäô=1
+TrKΓäô
+r
+╬╗Γäô
+Γäô
+
+. (1.8)
+The traces in (1.8) have explicit expressions as iterated integrals
+TrKΓäô
+r :=
+Z r
+0
+K(Γäô)(t, t)dt,
+where
+K(1)(x, y) = K(x, y) and K(Γäô)(x, y) =
+Z r
+0
+K(x, t)K(ΓäôΓêÆ1)(t, y)dt.
+By re-scaling the integrals to bring the r-dependence to the integrand and observing that
+J0
+ ΓêÜxy
+
+and ΓêÜxyJ1
+ ΓêÜxy
+
+are both entire functions with respect to both x and y, we see
+
+--- page_idx 4 (len=3382) ---
+Painlev┬┤ e-III Monodromy Maps Under theD6 ΓåÆ D8 Confluence 5
+In fact, one can check that the expressions on the right-hand side of (1.9) and (1.10) admit
+analytic continuation from a neighborhood of z = 0 to the whole z-plane. Although it does not
+follow from our proof, this suggests that the neighborhood G can be taken to be an arbitrary
+bounded set.
+Our analysis of series solutions in Section 2 points to a more general statement about the
+coalescence of solutions of (1.1) to solutions of (1.3). The technical result leading to Theorem 1.1
+by Maclaurin series (see Theorem 2.1 below) applies not only to rational solutions, but to all
+sequences of solutions with initial conditions converging to finite, nonvanishing limits. This,
+however, is a serious limitation since x = 0 is a singular point of Painlev┬┤ e-III, and generic
+solutions of (1.1) will be singular at this point and behave like u(x) Γëâ axp, |Re(p)| < 1. More
+specifically, based on symbolic computation we expect the asymptotic expansion for solutions
+of (1.1) in the form
+u(x) Γê╝
+Γê₧X
+k=0
+k+1X
+l=0
+ 
+bklx2k+(2lΓêÆ1)p + cklx2k+1+2lp
+as x ΓåÆ 0.
+To tackle this issue, we develop a second approach that avoids series expansions and instead
+
+--- page_idx 5 (len=2576) ---
+6 A. Barhoumi, O. Lisovyy, P.D. Miller and A. Prokhorov
+ΓÇó Condition (ii) implies that generic monodromy parameters are nonvanishing, hence we
+may write
+e1 = ei╧Ç┬╡ and e2 = ei╧Ç╬╖. (1.16)
+ΓÇó Since e2
+1, eΓêÆ2
+1 are the essential quantities related to the complex parameter e1 in our
+parametrization, and the former are insensitive to a change in sign of e1, we may take e1
+to be in the right half plane; in view of (1.16), this corresponds to ΓêÆ 1
+2 < Re(┬╡) Γëñ 1
+2. Note
+that the choice of including the upper versus the lower endpoint of this range is arbitrary.
+ΓÇó Due to e2
+1, eΓêÆ2
+1 being eigenvalues of the same matrix (see (4.27) below), the parame-
+ters ┬╡, ΓêÆ┬╡ correspond to the same solution of (1.1). While we could restrict to parameters
+where Re( ┬╡) > 0 (say), we choose not to and in turn arrive at slightly simpler formul├ª;
+see Remark 6.2 below.
+ΓÇó It turns out that the parameter e2 is determined up to a sign as well, see Remark 4.2
+below. As such, we take it to be in the right half plane as well, or ΓêÆ 1
+2 < Re(╬╖) Γëñ 1
+2.
+With this in mind, we can now state a more general theorem.
+Theorem 1.4. Let u0 be the solution of (1.1) corresponding to monodromy data(╬▒, ╬▓, x1, x2, x3)
+parametrized by gene
+
+--- page_idx 6 (len=3048) ---
+Painlev┬┤ e-III Monodromy Maps Under theD6 ΓåÆ D8 Confluence 7
+Figure 2. Left: the solution u10(x) of (1.1) generated by ten iterations of (1.2) with seed u0(x) cor-
+responding to monodromy data ┬╡ = 0.23 + 0.39i (see (1.16)), e2 = ΓêÆ0.45 ΓêÆ 0.96i and ╬▒ = 40.5 + 0.63i,
+╬▓ = 40.98 + 0.59i. Right: the limiting solution U(z) of (1.3). The labeling of poles and zeros is the same
+as in Figure 1. Note that both u10(x) and U(z) are branched at the origin.
+extension of the set ╬ú(y1, y2, y3). Similar observations apply to Proposition 1.5 and Theorem 1.7
+below.
+We illustrate Theorem 1.4 for solutions that are not single-valued near the origin in Figure 2.
+Note that while the point ( x1, x2, x3) Γêê C3 on the monodromy manifold (1.13) only depends on
+the squares of e1, e2, the point (y1, y2, y3) Γêê C3 on the monodromy manifold (1.15) of the limiting
+solution U(z; y1, y2, y3) of (1.3) has a sign ambiguity in the coordinates y1 and y2. However, if
+either e1 or e2 changes sign, then the signs of y1 and y2 change together, and it turns out that
+the triples ( y1, y2, y3) and ( ΓêÆy1, ΓêÆy2, y3) both lie on the surface (1.15) together and correspond
+to the same solution of (1.3); see Remark 5.2 below. Similarly,
+
+--- page_idx 23 (len=1969) ---
+24 A. Barhoumi, O. Lisovyy, P.D. Miller and A. Prokhorov
+To write the analog of Theorem 1.2 for Dn(x; m) we need to compute the asymptotic behavior
+ofQn
+k=1(2k ΓêÆ 1)!!. We use [38, equation (5.4.2)] to get
+2nΓêÆ1Y
+Γäô=1
+(2Γäô ΓêÆ 1)!! = ╧ÇΓêÆ n
+2 2
+n(n+1)
+2
+nY
+Γäô=1
+╬ô
+
+Γäô + 1
+2
+
+= ╧ÇΓêÆ n
+2 2
+n(n+1)
+2
+G
+ 
+n + 3
+2
+
+G
+  3
+2
+
+Γê╝ n
+n2
+2 + n
+2 eΓêÆ 3n2
+4 ΓêÆ n
+2 2
+n2
+2 +nn
+1
+24 2
+5
+24 eΓêÆ ╬╢ΓÇ▓(ΓêÆ1)
+2 , n ΓåÆ Γê₧.
+Combining this with formul├ª (1.11), (1.12) and using (3.28), we get
+D2j
+ z
+2j + 1; m
+
+Γê╝ 2ΓêÆj(2m+1)(ΓêÆ cos(╧Çm))jj
+m2
+2 + m
+2 2
+1
+4
+ΓêÜ╧Çe
+9╬╢ΓÇ▓(ΓêÆ1)
+2
+G
+  3
+4 ΓêÆ m
+2
+
+G
+  5
+4 ΓêÆ m
+2
+
+G
+  5
+4 + m
+2
+
+G
+  7
+4 + m
+2
+ e2iz
+ U(z; m)
+U(0; m)
+ΓêÆ 1
+4q
+D╬╗(m) (32iz),
+D2jΓêÆ1
+ z
+2j ; m
+
+Γê╝ 2ΓêÆj(2m+1)(cos(╧Çm))jj
+m2
+2 + m
+2 2
+1
+4 +me
+9╬╢ΓÇ▓(ΓêÆ1)
+2
+ΓêÜ╧ÇG
+  1
+4 ΓêÆ m
+2
+
+G
+  3
+4 ΓêÆ m
+2
+
+G
+  3
+4 + m
+2
+
+G
+  5
+4 + m
+2
+e2iz
+ U(z; m)
+U(0; m)
+ 1
+4q
+D╬╗(m) (32iz),
+both in the limit j ΓåÆ Γê₧.
+4 General monodromy data: Painlev┬┤ e-III( D6)
+4.1 Lax pair for Painlev┬┤ e-III( D6)
+Following Jimbo and Miwa [24], we use the fact that each Painlev┬┤ e equation can be recast as an
+isomonodromic deformation condition for a 2├ù2 system of linear ODEs with rational coefficients.
+The case of Painlev┬┤ e-III (D6) corresponds to the situation where the coeffici
+
+--- page_idx 24 (len=1771) ---
+Painlev┬┤ e-III Monodromy Maps Under theD6 ΓåÆ D8 Confluence 25
+In the expressions for ╬¢(6)(╬╗, x) and X(╬╗, x), ╬ÿΓê₧ is a complex parameter and s = s(x), t = t(x),
+v = v(x), y = y(x). The equations (4.1) and (4.3) constitute an over-determined system with
+compatibility condition
+Γêé╬¢(6)
+Γêéx (╬╗, x) ΓêÆ ΓêéX
+Γêé╬╗ (╬╗, x) +
+
+╬¢(6)(╬╗, x), X(╬╗, x)
+
+= 0,
+where
+
+╬¢(6), X
+
+is the commutator. This boils down to the scalar equations
+x dy
+dx = ΓêÆ2xs + ╬ÿΓê₧y, x dv
+dx = ΓêÆ2xt(st ΓêÆ x) ΓêÆ ╬ÿΓê₧,
+x ds
+dx = (1 ΓêÆ ╬ÿΓê₧)s ΓêÆ 2xy + 4yst, x dt
+dx = ╬ÿΓê₧t ΓêÆ 2yt2 + 2v. (4.4)
+If we let
+u(x) := ΓêÆ y(x)
+s(x) , (4.5)
+then it follows from (4.4) that
+x du
+dx = 2x ΓêÆ (1 ΓêÆ 2╬ÿΓê₧)u + 4stu2 ΓêÆ 2xu2,
+which can be seen to be equivalent to (1.1) by taking another x-derivative and using (4.4) again,
+after which the quantity
+I(x) := 2╬ÿΓê₧
+x st ΓêÆ ╬ÿΓê₧ ΓêÆ 2yt
+x (st ΓêÆ x) + 2sv
+x ,
+appears. However, from (4.4) it follows that I ΓÇ▓(x) = 0, so denoting the constant value of I
+by ╬ÿ0, we arrive at (1.1) with parameters
+╬ÿ0 = ╬▒
+4 , ╬ÿΓê₧ = 1 ΓêÆ ╬▓
+4 . (4.6)
+The constants ╬ÿ 0, ╬ÿ Γê₧ can be naturally interpreted on the level of the 2 ├ù 2 system (4.1),
+which we now explore. For all the calculations that follow, we assume for simplicity that x > 0.
+The system (4.1) admits forma
+
+--- page_idx 25 (len=2368) ---
+26 A. Barhoumi, O. Lisovyy, P.D. Miller and A. Prokhorov
+It follows from the classical theory of linear systems that there exist canonical solutions ╬¿(Γê₧)
+k
+and ╬¿(0)
+k analytic for ╬╗ Γêê S(Γê₧)
+k and ╬╗ Γêê S(0)
+k respectively and determined uniquely by the asymp-
+totic condition
+╬¿(╬╜)
+k (╬╗, x) = ╬¿(╬╜)
+formal(╬╗, x), ╬╗ Γêê S(╬╜)
+k , ╬╜ Γêê {0, Γê₧}, k = 1, 2, 3. (4.9)
+In these asymptotic conditions, the meaning of the power functions in (4.7) and (4.8) is deter-
+mined from the range of Arg( ╬╗) in the definition of S(╬╜)
+k . The canonical solutions in consecutive
+Stokes sectors are related to one another by multiplication on the right with Stokes matrices,
+i.e.,
+╬¿(Γê₧,0)
+2 (╬╗, x) = ╬¿(Γê₧,0)
+1 (╬╗, x)SΓê₧,0
+1 , ╬¿(Γê₧,0)
+3 (╬╗, x) = ╬¿(Γê₧,0)
+2 (╬╗, x)SΓê₧,0
+2 , (4.10)
+where for some Stokes multipliers sΓê₧,0
+j Γêê C, j = 1, 2,
+SΓê₧,0
+1 =
+"
+1 sΓê₧,0
+1
+0 1
+#
+, SΓê₧,0
+2 =
+"
+1 0
+sΓê₧,0
+2 1
+#
+. (4.11)
+Likewise, by uniqueness and the different interpretation of the multi-valued powers in the formal
+solutions on the otherwise identical sectors S(Γê₧,0)
+1 and S(Γê₧,0)
+3 , we have the identities
+╬¿(Γê₧)
+3 (╬╗, x) = ╬¿(Γê₧)
+1
+ 
+eΓêÆ2╧Çi╬╗, x
+
+eΓêÆ2╧â3
+Γê₧ , ╬¿(0)
+3 (╬╗, x) = ╬¿(0)
+1
+ 
+eΓêÆ2╧Çi╬╗, x
+
+e2╧â3
+0 , (4.12)
+where, combining (1.14) with (4.6) gives
+e0 = ei╧Ç╬ÿ
+
+--- page_idx 76 (len=3770) ---
+Painlev┬┤ e-III Monodromy Maps Under theD6 ΓåÆ D8 Confluence 77
+[20] Its A.R., Novokshenov V.Yu., The isomonodromic deformation method in the theory of Painlev┬┤ e equations,
+Lect. Notes Math., Vol. 1191, Springer, Berlin, 1986.
+[21] Iwasaki K., Kimura H., Shimomura S., Yoshida M., From Gauss to Painlev┬┤ e. A modern theory of special
+functions, Aspects Math., Vol. E16, Friedr. Vieweg & Sohn, Braunschweig, 1991.
+[22] Jimbo M., Monodromy problem and the boundary condition for some Painlev┬┤ e equations, Publ. Res. Inst.
+Math. Sci. 18 (1982), 1137ΓÇô1161.
+[23] Jimbo M., Miwa T., Ueno K., Monodromy preserving deformation of linear ordinary differential equations
+with rational coefficients. I. General theory and ╧ä-function, Phys. D 2 (1981), 306ΓÇô352.
+[24] Jimbo M., Miwa T., Monodromy preserving deformation of linear ordinary differential equations with ra-
+tional coefficients. II, Phys. D 2 (1981), 407ΓÇô448.
+[25] Kajiwara K., Masuda T., On the Umemura polynomials for the Painlev┬┤ e III equation, Phys. Lett. A 260
+(1999), 462ΓÇô467.
+[26] Kapaev A.A., Scaling limits for the second Painlev┬┤ e transcendent, J. Math. Sci. 83 (1997), 38ΓÇô61.
+[27] Kapaev A.A., Kitaev A.V., The limit transition P 2 ΓåÆ P1, 
