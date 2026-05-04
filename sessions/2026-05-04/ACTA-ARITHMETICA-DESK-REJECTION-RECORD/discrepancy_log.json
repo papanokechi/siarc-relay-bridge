@@ -1,0 +1,17 @@
+{
+  "DISC_ACTA_001": {
+    "type": "metadata_inconsistency",
+    "severity": "low",
+    "subject": "Item 17 title field divergence across submission_log.txt vs CMB.txt + verbatim rejection email",
+    "submission_log_title": "Ratio Universality for Meinardus-Class Partition Functions: Complete Asymptotic Expansion with Seven-Family Veri cation",
+    "submission_log_location": "tex/submitted/submission_log.txt L120",
+    "submission_log_anomaly_note": "appears to have lost 'fi' ligature in 'Verification' suggesting PDF text-extraction artefact at entry creation",
+    "cmb_title": "Ratio Universality for Meinardus-Class Partition Functions and the G-01 Law",
+    "cmb_location": "tex/submitted/CMB.txt L355",
+    "email_title": "Ratio Universality for Meinardus-Class Partition Functions and the G-01 Law",
+    "email_source": "Maciej Radziejewski Secretary Acta Arithmetica 2026-05-04",
+    "consistency_signal": "two-of-three sources agree (CMB + email); submission_log diverges",
+    "resolution_taken": "preserved both as-is per AEAL deposit-time-snapshot rule; not silently reconciled",
+    "follow_up_recommendation": "operator + synthesizer review: normalize submission_log L120 title to match CMB + email or preserve for provenance? Both are operator-authored sources so this is preference not error."
+  }
+}
