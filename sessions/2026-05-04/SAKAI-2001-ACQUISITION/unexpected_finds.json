@@ -1,0 +1,16 @@
+{
+  "finds": [
+    {
+      "id": "UF-SAKAI-001",
+      "summary": "Sakai 2001 has an OA preprint (1999) at the Kyoto Math Dept preprint server, NOT on arXiv. The OA route is not the one suggested by the prompt's preferred ladder (Springer/Project Euclid/arXiv) but Phase B.4 (author's home-institution preprint server). For future Painleve-Japan-author acquisitions: include Kyoto Math Dept + RIMS + U-Tokyo math preprint servers as first-class OA routes, in addition to arXiv.",
+      "expected": false,
+      "severity": "info"
+    },
+    {
+      "id": "UF-SAKAI-002",
+      "summary": "Sakai 2001 does NOT mention W(B_2) or any explicit cross-walk to Okamoto's W(B_2) framing of P_III'. The (2A_1)^{(1)} <-> B_2 cross-walk is folklore in the Painleve-surface community but is not stated in the canonical surface-classification source. M6 Phase B.5 will need a SECOND primary source (Noumi-Yamada 2004 or Witte-Forrester 2010 lecture notes) for the W cross-walk.",
+      "expected": false,
+      "severity": "info"
+    }
+  ]
+}
