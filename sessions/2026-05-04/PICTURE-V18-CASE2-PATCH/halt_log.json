@@ -1,0 +1,26 @@
+{
+  "halt_code": "HALT_V18CASE2_FROM_TO_WORDING_NOT_PROVIDED",
+  "halt_timestamp": "2026-05-04T17:08:00+09:00",
+  "halt_session": "sessions/2026-05-04/PICTURE-V18-CASE2-PATCH/",
+  "task_id": "PICTURE-V18-CASE2-PATCH",
+  "halt_class": "spec-prescribed surface-and-halt (per HALT IF clause)",
+  "halt_rationale": "PICTURE-V18-CASE2-PATCH task spec step 3 references 'Synthesizer follow-up 2026-05-04 ~17:00 JST' for FROM/TO wording but the synthesizer follow-up text was not included in the operator message body. The HALT IF clause states: 'if M6 Phase B.5 row does not match FROM wording, surface actual current wording for re-amendment; do not silently force.' Missing FROM wording is treated as the stronger 'does not match' case per AEAL no-silent-coercion discipline. Agent has surfaced full actual current wording inventory with proposed Case 2 rewordings for operator + synthesizer authorization.",
+  "scope_correction": "Both prior summary and synthesizer QA characterized the patch as 'trivial 1-line'. Actual scope is at least 14 distinct touch-points across the v1.18 picture artefact plus 2 cycle-accounting summaries reading '12 of 13' / '12 DONE / 2 PARTIAL / 1 DEFERRED'. A clean Case 2 upgrade requires consistent rewording across all touch-points, otherwise downstream readers encounter contradictory M6 status statements within the same picture file.",
+  "files_modified": [],
+  "files_emitted": [
+    "actual_current_wording.md",
+    "picture_v1.18.sha256.before.txt",
+    "halt_log.json",
+    "claims.jsonl",
+    "prompt_spec_used.md",
+    "handoff.md"
+  ],
+  "target_file_unmodified": {
+    "path": "sessions/2026-05-04/PICTURE-V18-AMENDMENT-DRAFTING/picture_v1.18.md",
+    "sha256_before_session": "4D852C978DD82275B7B5DBA4F458F10FB6C669E5E2638E7C75414E74CDBAC750",
+    "sha256_after_session": "4D852C978DD82275B7B5DBA4F458F10FB6C669E5E2638E7C75414E74CDBAC750",
+    "size_bytes": 349145,
+    "modified_in_session": false
+  },
+  "next_step_request": "Operator + Synthesizer review actual_current_wording.md and select one of: (1) approve all 14 TP rewordings as drafted; (2) approve with edits (paste precise FROM/TO for revised TPs); (3) defer Case 2 patch to v1.19 cycle. Agent re-fires PICTURE-V18-CASE2-PATCH with explicit FROM/TO wording when option (1) or (2) is selected."
+}
