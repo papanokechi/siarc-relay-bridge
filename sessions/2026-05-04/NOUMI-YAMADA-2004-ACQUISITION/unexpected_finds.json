@@ -1,0 +1,23 @@
+{
+  "spec_typo_corrected": {
+    "field": "§1 Tier-2 list, arXiv ID for 'Symmetries in PIV and Okamoto polynomials'",
+    "spec_value": "math/9806032",
+    "actual_value": "q-alg/9708018",
+    "spec_value_actually_is": "Schlichenmaier 'Sugawara Construction for Higher Genus Riemann Surfaces' (Rept.Math.Phys. 43, 323-339, 1999)",
+    "substantive_impact": "zero (the NY PIV paper is A-type, not the PIII bridge; would not have been acquired regardless)"
+  },
+  "noumi_yamada_2004_no_PIII_chapter": {
+    "finding": "AMS digital TOC for MMONO/223 enumerates 8 chapters (Bäcklund / symmetric form / τ-functions / τ-on-lattice / Jacobi-Trudi / determinants / Gauss-decomposition / Lax). NO chapter is dedicated to Painlevé III.",
+    "why_unexpected": "Spec §0 stated 'The book contains a dedicated chapter on PIII / PIII' with explicit generators in *both* conventions and typically an explicit bridge proposition / corollary.' This characterization appears to be incorrect or based on a different memory of the book's contents.",
+    "implication": "Predicted-absence of W(B_2) ↔ W((2A_1)^(1)) homomorphism in NY 2004 strengthens substantially. ILL is still recommended (operator-side) for definitive confirmation, but probability of homomorphism being present is LOW (estimated <20%)."
+  },
+  "kny_2017_does_not_contain_W_B2": {
+    "finding": "Kajiwara-Noumi-Yamada 2017 (arXiv:1509.08186, J.Phys.A 50, 073001), the canonical 168-page review, contains 0 occurrences of 'B_2' / 'B(2)' / 'B_{2}' as a Lie-group symbol. Only one stray 'B 2' grep hit is the journal name 'Phys. Lett. B 236' in citation [7].",
+    "why_unexpected": "If the W(B_2) → W((2A_1)^(1)) bridge were standard folklore in the NY-circle PIII community, one would expect KNY 2017 (the most comprehensive post-Sakai review by the same author group) to mention it at least in passing. Its complete absence suggests the bridge is *not* part of the working vocabulary of post-Sakai PIII research; the Sakai surface-classification framework has effectively replaced the Okamoto W(B_2) framing without retracing the translation.",
+    "implication_for_M6_phase_B5": "M6 Phase B.5 W cross-walk anchor cannot be sourced from NY-family OA literature. Either (a) the bridge exists in pre-Sakai Okamoto-circle literature that we have not yet probed (Umemura, Watanabe — separate Researcher prompt), or (b) it is folklore-Lie-theory that has never been written out as a theorem in the PIII context, in which case SIARC can derive it directly from Cartan matrix data."
+  },
+  "noumi_yamada_2004_amazon_subtitle_predicts_absence": {
+    "finding": "AMS bookstore abstract verbatim: 'The present book is devoted to the symmetry of Painlevé equations (especially those of types II and IV).'",
+    "implication": "Author-stated focus is W(\\tilde A_1) (PII) and W(\\tilde A_2) (PIV), both simply-laced A-type. PIII (rank-2 non-simply-laced B_2 / extended (2A_1)) is structurally orthogonal to these examples — confirms TOC-based prediction that PIII is at most peripheral in NY 2004."
+  }
+}

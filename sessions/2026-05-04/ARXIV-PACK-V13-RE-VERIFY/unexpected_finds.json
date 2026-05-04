@@ -1,0 +1,30 @@
+{
+  "finds": [
+    {
+      "id": "UF-030-1",
+      "title": "Spec-supplied Zenodo identifiers do not match the actual PCF-1 v1.3 deposit",
+      "severity": "low",
+      "spec_section": "PROMPT 030 \u00a70 + \u00a7D.4 + \u00a7\"Out of scope\"",
+      "spec_claim": "concept DOI 10.5281/zenodo.19941678; version DOI 10.5281/zenodo.19963298",
+      "actual": {
+        "pcf1_v13_record_id": "19937196",
+        "pcf1_v13_doi": "10.5281/zenodo.19937196",
+        "pcf1_v13_version": "1.3",
+        "pcf1_v13_pdf_md5": "fbf5449b2678834b0204360d49aef5e0",
+        "pcf1_v13_pdf_size": 392886
+      },
+      "what_19941678_actually_is": "redirects via Zenodo API to record 19972394 (Channel Theory for Polynomial Continued Fractions paper, DOI 10.5281/zenodo.19972394) -- a different paper",
+      "what_19963298_actually_is": "PCF-2 program statement (DOI 10.5281/zenodo.19963298, file pcf2_program_statement.pdf, 558153 bytes)",
+      "evidence": "GET https://zenodo.org/api/records/19941678 / 19963298 / 19937196 against the public Zenodo API; the existing arxiv_pack_pcf1_v1.3/hash_match.json (written 2026-05-02) already records the correct URL https://zenodo.org/records/19937196/files/p12_pcf1_main.pdf",
+      "impact_on_byte_equality_verification": "none -- the canonical PDF byte-equality (sha256 63420dbf...d9788ff5e, md5 fbf5449b...aef5e0, 392886 bytes, 16 pages) is independently confirmed against record 19937196's file metadata",
+      "recommended_action": "operator/Claude-side: update the RESUME_AFTER_REBOOT cheat-sheet (and any picture v1.14 strategic-row references) to use the correct PCF-1 v1.3 Zenodo record id 19937196 / DOI 10.5281/zenodo.19937196. The IDs 19941678 + 19963298 likely came from an outdated transcription that conflated PCF-1, Channel Theory, and PCF-2 program-statement deposits."
+    },
+    {
+      "id": "UF-030-2",
+      "title": "tar.gz SHA is not deterministic across rebuilds (gzip header timestamp)",
+      "severity": "informational",
+      "context": "The pcf1_v1.3.tar.gz SHA-256 recorded in manifest.txt + hash_match.json is build-time-dependent (gzip header embeds mtime). Re-running this prompt will produce a tarball with byte-identical contents but a different SHA-256.",
+      "recommended_action": "rely on the per-file SHA-256 values in manifest.txt for re-verification, not the tarball SHA itself. If a deterministic tarball is required, use 'gzip -n' or build with SOURCE_DATE_EPOCH set to a fixed value."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+REDIRECT NOTICE
+================
+
+The contents of THIS directory (arxiv_pack_pcf1_v1.3/) inadvertently
+included the post-edit 21-page workspace state of p12_pcf1_main.tex
+under a v1.3 label, as surfaced by the 2026-05-04 PCF1-V13-SOURCE-
+RECOVERY-PROBE session.
+
+The CANONICAL 16-page v1.3 arxiv pack -- byte-equal to the Zenodo
+v1.3 deposit (10.5281/zenodo.19937196, PDF SHA-256 63420dbf...d9788ff5e,
+392,886 bytes, 16 pages) -- has been rebuilt by the 2026-05-04
+ARXIV-PACK-V13-RE-VERIFY session and now lives at:
+
+    ../arxiv_pack_pcf1_v1.3_REBUILT/
+
+Use that directory for the operator-side arXiv math.NT submission
+(record #2; per RUNBOOK_pcf1.md and Prompt 002 re-fire prerequisites).
+
+The contents of THIS directory are retained for forensic diff
+purposes only (operator may diff the contaminated 21pp .tex against
+the canonical 16pp .tex in ../arxiv_pack_pcf1_v1.3_REBUILT/pcf1_v1.3/
+to identify the post-edit additions).
+
+Source for the rebuild:
+  bridge commit:  58dfa9e
+  bridge path:    sessions/2026-05-01/PCF1-V13-UPDATE/p12_pcf1_main.tex
+  rebuilt by:     ARXIV-PACK-V13-RE-VERIFY (2026-05-04)
