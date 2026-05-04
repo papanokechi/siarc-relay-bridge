@@ -1,0 +1,35 @@
+Check (ii):  pi(v) == s(T_{(-1,0)}(v))?
+  LHS = pi(v)            = (-v1 - 1, v2)
+  RHS = s(T(-1,0)(v))    = (-v1 - 1, v2)
+  match: True
+
+Check (iii):  Is T_{(-1, 0)} in Q^v(B_2)?
+  Q^v generic: lambda = (m, 2n-m), m,n integers.
+  Solving (m, 2n-m) = (-1, 0):
+    sol = []
+
+  Cross-check: T_(1, 1) in Q^v? sol = [{m: 1, n: 1}], integer? True
+  Cross-check: T_(1, -1) in Q^v? sol = [{m: 1, n: 0}], integer? True
+
+Check (iv):  pi^2 = id ?
+  pi^2(v) = (v1, v2)
+  match identity: True
+
+Check (v):  P^v(B_2) / Q^v(B_2) classification.
+  In Okamoto basis (e_1, e_2) with (e_i|e_j) = delta_ij,
+  Q^v(B_2) = Z(1,-1) + Z(0,2) = {(a,b) in Z^2 : a+b even}.
+  P^v(B_2) = Z^2.
+  Index = 2.
+
+    (a,b)=(0,0): a+b even? True -> in Q^v? True
+    (a,b)=(1,0): a+b even? False -> in Q^v? False
+    (a,b)=(0,1): a+b even? False -> in Q^v? False
+    (a,b)=(1,1): a+b even? True -> in Q^v? True
+
+  T_{(-1, 0)} = (-1, 0):  -1 + 0 = -1 odd -> NOT in Q^v.  Confirmed.
+  T_{(1, 1)}  = ( 1, 1):   1 + 1 = 2  even -> in Q^v.  l shift OK.
+  T_{(1, -1)} = ( 1,-1):   1 - 1 = 0  even -> in Q^v.  l~ shift OK.
+
+CONCLUSION:  pi is in W^ext(B_2) = W(B_2) x| P^v(B_2)
+but NOT in W^aff(B_2) = W(B_2) x| Q^v(B_2).
+This affirms 033's index-2 finding at the lattice-theory level.
