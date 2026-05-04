@@ -1,0 +1,14 @@
+=== Phase C: substitution check ===
+  (alpha_inf, alpha_0, beta_inf, beta_0) = (1/6, 0, 0, -1/2)
+  sum = -1/3  (= -0.333333)
+  sum == 0 ?  False
+
+=== Phase C: interpret (1/6, -1/2) as Okamoto (v_1, v_2) ===
+  pairing: (v_1, v_2) = (1/6, -1/2)
+    v_1 - v_2 = 2/3  (alpha_1 wall)
+    v_2       = -1/2        (alpha_2 wall)
+    v_1 + v_2 = -1/3  (Bessel/highest-root locus)
+    v_1 + v_2 + 1 = 2/3  (affine wall, s_0 fix-line)
+
+=== Verdict ===
+UPGRADE_G18_CLOSED_PARAMETER_CORRESPONDENCE_OKAMOTO_2PARAM_VS_CT_4TUPLE
