@@ -1,0 +1,30 @@
+{
+  "session": "R5-OKAMOTO-PROJECT-EUCLID-RETRY",
+  "date": "2026-05-04",
+  "findings": [
+    {
+      "id": "wrong_okamoto_paper_supplied",
+      "severity": "minor",
+      "category": "literature_acquisition_mismatch",
+      "summary": "Operator-supplied PDF for slot 07 was the wrong Okamoto paper.",
+      "expected": {
+        "citation": "Okamoto, K. \"Studies on the Painlev\u00e9 equations IV. Third Painlev\u00e9 equation P_III.\" Funkcialaj Ekvacioj 30 (1987), 305\u2013332.",
+        "filename_intent": "07_okamoto_1987_painleve_III_FE30.pdf",
+        "needed_section": "Lax pair construction for P_III(D_6) in canonical Hamiltonian normalisation"
+      },
+      "received": {
+        "citation": "Okamoto, K. \"Studies on the Painlev\u00e9 Equations. I. Sixth Painlev\u00e9 Equation P_VI.\" Annali di Matematica Pura ed Applicata (IV), Vol. CXLVI (1987), 337\u2013381.",
+        "supplied_path": "tex/submitted/control center/literature/g3b_2026-05-03/07_okamoto_1987_painleve_III_FE30.pdf.pdf",
+        "supplied_sha256": "0982c60e262629edb4833c61eeaeb6281b1561b8b9a8da6134bef9824cd7cb1c",
+        "size_bytes": 1944075,
+        "page_count": 45,
+        "title_page_excerpt": "Studies on the Painlev\u00e9 Equations (*). I. - Sixth Painlev\u00e9 Equation P_VI. KAZUO OKAMOTO",
+        "last_page_footer": "KAZUO OKAMOTO: Studies on the Painlev\u00e9 equations, I 381",
+        "submission_dates": "Entrata in Redazione l'8 agosto 1985; versione riveduta il 7 novembre 1985"
+      },
+      "disposition": "File relocated from slot-07 path to literature/g3b_2026-05-03/supplementary/okamoto_1987_part_I_painleve_VI_AnnMat.pdf to remove the misleading filename while preserving the artefact for any future P_VI-related work. Slot 07 (target FE 30 P_III) remains UNFILLED. SHA256SUMS.txt amended with full disposition note.",
+      "strategic_implication": "Part I (P_VI) provides the canonical Hamiltonian / affine-Weyl-group W(F_4) framework of the Okamoto Painlev\u00e9 series and could be useful as a parallel-structure reference, but it does NOT contain the P_III(D_6) Lax pair required for CC-VQUAD-PIII-NORMALIZATION-MAP / G22 closure. Effective acquisition outcome for this retry is the same as 'not acquired' for the M6 purpose.",
+      "synthesizer_arbitration_request": "Note for next-cycle prompt drafting: when re-firing R5 for the FE 30 P_III target, narrow filename verification at acquisition time (require '\u00e9quations IV' or 'Third Painlev\u00e9' string match on title-page OCR before accepting), and consider adding NUMDAM (Funkcialaj Ekvacioj is hosted there) as a primary route ahead of Project Euclid \u2014 Project Euclid does not appear to carry FE backlist."
+    }
+  ]
+}
