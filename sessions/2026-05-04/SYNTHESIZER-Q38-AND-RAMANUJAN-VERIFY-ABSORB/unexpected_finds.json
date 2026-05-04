@@ -1,0 +1,13 @@
+{
+  "UNEXPECTED_001": {
+    "type": "venue_portfolio_collision_risk",
+    "subject": "Item 17 (Meinardus / G-01 Law) and Item 23 (PCF-1 v1.3) dual-Ramanujan-Journal candidacy",
+    "discovered_at": "2026-05-04 ~21:40 JST",
+    "discovered_by": "synthesizer-Claude (during Track 2 Ramanujan Journal verification)",
+    "description": "Item 17 partition-function content fits Ramanujan Journal scope (Hyper-geometric and basic hyper-geometric series q-series; Partitions compositions and combinatory analysis; Circle method and asymptotic formulae) potentially better than PCF-1 v1.3 itself, since partition theory is closer to journal identity than continued-fraction transcendence. If both target Ramanujan Journal as primary, this triggers the simultaneous-submission anti-pattern previously avoided for IJNT JTNB MathComp.",
+    "synthesizer_framing_quote": "The Meinardus / G-01 paper may actually be a stronger Ramanujan Journal candidate than PCF-1 -- partition theory is more central to the journal's identity than continued-fraction transcendence. ... if PCF-1 and Item 17 both target Ramanujan Journal, that's the same anti-pattern (two simultaneous papers from same author at same venue) that I flagged earlier for IJNT, JTNB, and MathComp. Worth thinking about whether one of the two papers should target Ramanujan Journal and the other a different venue. That's a strategic decision for later, not now. Just flagging.",
+    "deferred_to": "Item 17 cross-domain venue inventory pass (separate from PCF-1 Ramanujan pipeline); arbitration logged as SQL todo pcf1-meinardus-ramanujan-portfolio-collision-arbitration",
+    "audit_artefact": "portfolio_collision_flag.md in this same bridge folder",
+    "carry_forward": "When Item 17 venue inventory runs, the four-path resolution tree (PCF-1 first / Item 17 first / sequential / parallel anti-pattern) drives the synthesizer + operator arbitration."
+  }
+}

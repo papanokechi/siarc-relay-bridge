@@ -1,0 +1,15 @@
+{
+  "DISC_RAMANUJAN_001": {
+    "type": "agent_chat_factual_misattribution",
+    "subject": "Ramanujan Journal EiC succession framing",
+    "severity": "low (chat-only, never reached workspace)",
+    "discovered_at": "2026-05-04 ~21:40 JST",
+    "discovered_by": "synthesizer-Claude web-verification pass",
+    "agent_claim": "Berndt stepped down 2024 (as EiC of Ramanujan Journal)",
+    "actual_state": "Founding EiC was Krishnaswami Alladi (1997-2024); current EiC is Ken Ono (UVA, 2024-present); Berndt is on editorial board but was never EiC",
+    "propagation_check": "grep 'Berndt' across tex/submitted/ + bridge sessions/2026-05-04/ -- no matches; error never propagated to workspace files; chat-only",
+    "remediation": "synthesizer correction absorbed in CMB.txt RAMANUJAN JOURNAL VERIFIED FACTS block; bridge audit deposit ramanujan_journal_verification.md records full corrected state with explicit note on prior misattribution; standing-instruction note added: verify EiC succession before submission joins SOP-BIBLIOGRAPHIC-VERIFICATION-APPEND",
+    "non_halt": true,
+    "preserved_per_aeal_deposit_time_snapshot": "yes -- prior misattribution preserved in synthesizer_response_verbatim.md (synthesizer's own self-correction language) and in CMB.txt block as explicit NOTE on prior framing"
+  }
+}
