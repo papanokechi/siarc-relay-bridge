@@ -65,3 +65,52 @@ patch required for default confirmation). Either:
       pass for Q38.2 / Q38.3 high-confidence verification, or
 - (b) operator authorizes fire on current medium / low
       confidence (defensible per synthesizer's own framing)
+
+## §6 patch granularity verification (agent-side, post-arbitration 2026-05-05 ~07:30 JST)
+
+Synthesizer flagged a counter-argument in its 2026-05-05 ~07:29
+JST follow-up response: *"if the M9 framing depends on the
+M6-INDEX-2-final assumption being threaded correctly through
+all of §6 and not just one location, then the high-confidence
+read is worth the round-trip ... Without seeing the spec, I
+can't tell whether the §6 patch applied is at the right
+granularity."*
+
+**Agent-side verification (resolves the hedge):**
+
+The Q38.2 §6 patch is at correct granularity. Specifically:
+
+1. **§6 CONTEXT pre-existing baseline (L466-472)** already
+   contained the load-bearing M6 closure fact:
+   "After R5 Okamoto NUMDAM retry 2026-05-04 → M6 ✅;
+   further closed at INDEX-2 final per 036 SIARC-OKAMOTO-
+   1987-SEC3-SCAN verdict 2026-05-04 (cokernel Z/2 =
+   P^∨(B_2) / Q^∨(B_2) = centre Spin(5) = Sp(2)); gating
+   now {M4-partial only}." — written when 038 was first
+   drafted 2026-05-04 ~19:35 JST.
+
+2. **Q38.2 patch (L474-484)** converts the pre-existing
+   descriptive fact into a load-bearing requirement:
+   surveyor MUST assume; row 4 R4 precedent matrix
+   cross-cut MUST reflect M6 ✅ not M6 partial.
+
+3. **All other M6 references across the spec** were audited:
+   - L36 (resume changelog) — historical state, correct as-is
+   - L179 (bibliography handoff ref) — correct
+   - L215 (prompt 033 scope-exclusion note) — correct
+   - L489-490 (milestone profile inside §6) — already shows
+     `M5 ✅, M6 ✅, M8 ✅` — correct as-is
+
+   No additional locations require patching. The M6-INDEX-2-final
+   assumption is threaded through §6 at all the right granularity
+   levels (headline statement + load-bearing requirement + R4
+   matrix cross-cut + milestone profile bullet).
+
+**Confidence upgrade for Q38.2:** medium → high (agent-side
+verification of granularity completes what the synthesizer
+could not see). The Q38.2 patch is structurally sufficient.
+
+**Implication for option (a) vs (b):** the only outstanding
+synthesizer-side hedge (granularity) is now resolved. Option
+(b) "fire on current arbitration" is fully defensible at
+higher confidence than the original medium-conf framing.
