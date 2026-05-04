@@ -10,18 +10,22 @@ AGENT:          Copilot researcher (web-search + verbatim-
                 heavy-AEAL relay; no symbolic compute, no
                 numerical compute, no derivation work; pure
                 lit-survey + extraction).
-GATES:          DRAFT-PENDING-SYNTHESIZER-QA. Operator + Claude
-                synthesizer must review §§0–6 of this prompt
-                before fire. Specifically Claude should arbitrate
-                Q38.1 (sub-task scope: 4 sub-tasks ALL parallel
-                vs sequential triage by leverage), Q38.2 (M9
-                sub-task — keep, narrow to 1-page meta-precedent
-                only, or drop entirely), and Q38.3 (M8b sub-task
-                — fold post-017m foreclosure into output schema
-                explicitly so researcher does not propose
-                numerical-revival paths already retired).
-
-                DO NOT FIRE BEFORE SYNTHESIZER QA PASS.
+GATES:          DRAFT-PENDING-OPERATOR-FIRE-AUTHORIZATION
+                (was DRAFT-PENDING-SYNTHESIZER-QA at composition
+                2026-05-04 ~19:35 JST; synthesizer-Claude Q38.1–
+                Q38.6 arbitration completed 2026-05-04 ~21:40
+                JST per AMENDMENT 1 below — see also bridge
+                deposit `sessions/2026-05-04/SYNTHESIZER-Q38-
+                AND-RAMANUJAN-VERIFY-ABSORB/`). Operator fire
+                authorization is the only remaining gate.
+                Original arbitration questions retained for
+                traceability: Q38.1 (sub-task scope: 4 sub-tasks
+                ALL parallel vs sequential triage by leverage),
+                Q38.2 (M9 sub-task — keep, narrow to 1-page
+                meta-precedent only, or drop entirely), Q38.3
+                (M8b sub-task — fold post-017m foreclosure into
+                output schema explicitly so researcher does not
+                propose numerical-revival paths already retired).
 
 PRIOR ANCHORS:  Picture v1.17 (`tex/submitted/control center/
                 picture_revised_20260504.md` 322,666 B), §4
@@ -58,6 +62,68 @@ RUNTIME PROFILE:Web-fetch (Google Scholar / MathSciNet /
                 file. Per Rule 1: no API keys. Per Rule 2:
                 no submission, no browser-driver, no email
                 send.
+
+================================================================
+AMENDMENT 1 — 2026-05-04 ~21:40 JST (synthesizer-Claude Q38
+                                     arbitration ABSORBED)
+================================================================
+
+Q38.1 — Sub-task scope: ALL parallel, single ~3-4 hr session.
+        DEFAULT CONFIRMED (synthesizer-Claude high confidence).
+        Reasoning: pure literature reconnaissance is the textbook
+        case for parallelization; "M9 gates on M4" is structurally
+        true but doesn't bind in a literature *survey* context;
+        3-4 hr parallel is materially cheaper than 4 × ~1-1.5 hr
+        sequential sessions.
+
+Q38.2 — M9 sub-task: KEEP with §6 CONTEXT amended to require the
+        surveyor to assume M6 closed at INDEX-2 final per 036
+        SIARC-OKAMOTO-1987-SEC3-SCAN verdict 2026-05-04.
+        Synthesizer-Claude medium confidence; spec patch applied
+        below at §6 CONTEXT block. Rationale: surveying M9
+        announcement-protocol literature without absorbing the
+        036 INDEX-2 closure would produce stale output (would
+        treat M6 as residual when in fact closed-with-residual-
+        zero per 036 verdict cokernel Z/2 = P^∨(B_2) / Q^∨(B_2)
+        = centre Spin(5) = Sp(2)).
+
+Q38.3 — M8b foreclosure-guard adequacy: DEFAULT CONFIRMED
+        (synthesizer-Claude low confidence; no spec read).
+        Current §2 OUT-OF-SCOPE + §8 HALT_038_OUT_OF_SCOPE_
+        NUMERICAL_REVIVAL coverage stands. Synthesizer flagged
+        "if you've seen edge cases that escape the §8 guard,
+        name them and I'll add to halt list" — no escape cases
+        named; no patch applied.
+
+Q38.4 — Slot 038: DEFAULT CONFIRMED (synthesizer-Claude high
+        confidence). Sequential project-internal taxonomy;
+        re-slotting to 040+ as thematic block creates
+        discontinuity without payoff.
+
+Q38.5 — Compute budget ~3-4 hr full: DEFAULT CONFIRMED
+        (synthesizer-Claude high confidence; tied to Q38.2 keep).
+
+Q38.6 — Forbidden-verb list: EXTENDED per synthesizer-Claude
+        medium-high confidence recommendation. Original active-
+        voice-only list extended to include passive voice,
+        reflexive forms, and hand-wave family. Spec patch applied
+        below at §9 AEAL DISCIPLINE.
+
+ARBITRATION AUDIT TRAIL: bridge `sessions/2026-05-04/
+SYNTHESIZER-Q38-AND-RAMANUJAN-VERIFY-ABSORB/` contains:
+- synthesizer_response_verbatim.md (full synthesizer message)
+- q38_arbitration_summary.md (Q-by-Q arbitration table)
+- ramanujan_journal_verification.md (Track 2 verified facts;
+  parallel-absorbed in same synthesizer pass)
+- portfolio_collision_flag.md (Item 17 / Item 23 dual-Ramanujan
+  anti-pattern surfaced by synthesizer; deferred)
+- claims.jsonl (≥ 8 AEAL entries)
+- handoff.md, halt_log.json, discrepancy_log.json,
+  unexpected_finds.json, prompt_spec_used.md
+
+POST-AMENDMENT STATUS: DRAFT-PENDING-OPERATOR-FIRE-
+AUTHORIZATION. All synthesizer-side gates resolved. Operator
+authorization is the only remaining gate.
 
 ================================================================
 §0 GOAL
@@ -400,7 +466,22 @@ CONTEXT:
   M9 status (v1.17): SIARC-MASTER-V0 announcement; gating
   reduces unconditionally to {M4, M6} via D2-NOTE v2.1
   UPGRADE_FULL 2026-05-03. After R5 Okamoto NUMDAM retry
-  2026-05-04 → M6 ✅; gating now {M4-partial only}.
+  2026-05-04 → M6 ✅; further closed at INDEX-2 final per
+  036 SIARC-OKAMOTO-1987-SEC3-SCAN verdict 2026-05-04
+  (cokernel Z/2 = P^∨(B_2) / Q^∨(B_2) = centre Spin(5) =
+  Sp(2)); gating now {M4-partial only}.
+
+  STARTING-CONTEXT REQUIREMENT (synthesizer-Claude Q38.2
+  arbitration 2026-05-04 ~21:40 JST per AMENDMENT 1
+  above): the surveyor MUST assume M6 closed at INDEX-2
+  final per the 036 verdict as the starting context for
+  this §6 D sub-task. Surveying the M9 announcement-
+  protocol literature WITHOUT absorbing the 036 INDEX-2
+  closure would produce stale output — it would treat M6
+  as residual when it is in fact closed-with-residual-
+  zero. The surveyor's row 4 (R4) precedent matrix
+  cross-cut to "SIARC M9 partiality profile" must reflect
+  M6 ✅ (closed at INDEX-2 final), not M6 partial.
 
   M9 has no literature gap of its own — it is a meta /
   scheduling milestone. The question for synthesizer is
@@ -558,8 +639,26 @@ Every claim in §A–§E rows must trace to one of:
       Sakai / Weyl: 0 hits across full text 168 pp").
 
 Forbidden in researcher prose (outside verbatim quotations):
-  "shows" | "proves" | "confirms" | "establishes" |
-  "demonstrates that" | "implies that" | "follows that"
+  Active voice:     "shows" | "proves" | "confirms" |
+                    "establishes" | "demonstrates that" |
+                    "implies that" | "follows that"
+  Passive voice:    "is shown" | "is proven" | "is
+                    established" | "is demonstrated"
+  Reflexive forms:  "it can be shown" | "it can be proven"
+                    | "one can show"
+  Hand-wave family: "clearly" | "obviously" | "trivially"
+                    | "immediately" | "it is easy to see"
+
+  Note: passive / reflexive / hand-wave families added by
+  synthesizer-Claude 2026-05-04 ~21:40 JST per Q38.6
+  arbitration (extension of original active-voice-only
+  list). Original list at composition 2026-05-04 ~19:35
+  JST contained active-voice forms only. The "it is easy
+  to see" pattern is most-common escape route for hand-
+  waving over a step that should actually be checked;
+  banning it explicitly in the surveyor's voice while
+  letting it appear in quoted source text is the right
+  discipline.
 
 Allowed (for researcher's own claims):
   "states verbatim" | "is cited as" | "the theorem
