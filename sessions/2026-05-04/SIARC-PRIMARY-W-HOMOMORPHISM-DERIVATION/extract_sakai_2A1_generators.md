@@ -1,0 +1,134 @@
+# Phase A.2 — Sakai 2001 W((2A_1)^{(1)}) generators (verbatim extraction)
+
+**Source:** H. Sakai, "Rational surfaces associated with affine root
+systems and geometry of the Painlevé equations", preprint Kyoto Univ.
+Math. Dept. preprint No. 99-10 (1999), published as Comm. Math. Phys.
+**220** (2001), 165–229.
+On-disk file: `tex/submitted/control center/literature/g3b_2026-05-03/13_sakai_1999_preprint_kyoto99_10.pdf`
+SHA-256: `EC1BBDA3B77634E6DEF2A784D04947A0C9631BFADE48C72AA0767B22AAF49ED6`
+Page references below.
+
+## A.2.1 Verbatim quote — D_6^{(1)}-surface entry (Add 6, p. 40–41)
+
+Transcribed from `pdftotext -layout` extraction (lines ≈1100–1116):
+
+> Add 6.  D_6^{(1)}-surface:
+>     δ(D_6^{(1)}):  D_1 = E_0 − E_1 − E_2 − E_3;  D_2 = E_3 − E_8;
+>                    D_3 = E_2 − E_3;
+>                    D_4 = E_1 − E_2;  D_5 = E_0 − E_1 − E_4 − E_5;
+>                    D_6 = E_0 − E_1 − E_6 − E_7;
+>                    D_0 = E_8 − E_9;
+>                    δ = D_1 + 2 D_2 + 2 D_3 + 2 D_4 + D_5 + D_6 + D_0;
+>
+>    D_6^{(1)⊥} = (2 A_1)^{(1)}
+>      δ((2 A_1)^{(1)}):
+>           α_1   = E_4 − E_5;
+>           α_0   = 3 E_0 − E_1 − E_2 − E_3 − 2 E_4 − E_6 − E_7 − E_8 − E_9;
+>           α'_0  = E_6 − E_7;
+>           α'_1  = 3 E_0 − E_1 − E_2 − E_3 − E_4 − E_5 − 2 E_6 − E_8 − E_9;
+>           δ = α_1 + α_0 = α'_1 + α'_0.
+
+## A.2.2 Verbatim quote — Cremona group (Table 6, p. 31)
+
+> the type of surface     D_6^{(1)}
+> Painlevé equation       P_III  (= P_III' / D_6^{(1)})
+> Cremona action          Aut(D_6^{(1)}) ⋉ W((2 A_1)^{(1)})
+
+## A.2.3 Verbatim quote — equations of motion (eq.(16)–(18), p. 30)
+
+>     P_III^{D_6^{(1)}}:
+>          df/dt = (4/s)·[ 2 f^2 g − ( f^2 + (a_1 + b_1) f − (s/4) ) ],
+>          dg/dt = −(4/s)·[ 2 f g^2 − ( 2 f g + (a_1 + b_1) g + a_1 ) ],
+>          ds/dt = 4 = 4 (a_1 + a_0) = 4 (b_1 + b_0).
+
+So the parameter constraint is:
+   **a_0 + a_1 = b_0 + b_1 = 1.**
+
+(The two A_1^{(1)}-components of (2A_1)^{(1)} carry parameters
+(a_0, a_1) and (b_0, b_1) respectively, each constrained to sum to 1
+which is the level / imaginary-root pairing.)
+
+## A.2.4 Derived data
+
+### (2A_1)^{(1)} Cartan structure
+The root system (2A_1)^{(1)} = A_1^{(1)} ⊕ A_1^{(1)} is the orthogonal
+direct sum of two affine A_1 components. The 4 simple roots are
+{α_0, α_1, α'_0, α'_1}. The Cartan matrix is block-diagonal:
+```
+        [  2  -2   0   0 ]   α_0
+        [ -2   2   0   0 ]   α_1
+   C  = [  0   0   2  -2 ]   α'_0
+        [  0   0  -2   2 ]   α'_1
+```
+Each `A_1^{(1)}` block has the standard (untwisted) affine Cartan
+matrix `[[2,-2],[-2,2]]`; the off-diagonal `−2` entries reflect that
+the highest root of finite A_1 is `2 α_1 / 2 = α_1` itself, doubled
+in the affine extension.
+
+### Defining relations of W((2A_1)^{(1)})
+Generators: `r_0, r_1` (first A_1^{(1)}) and `r'_0, r'_1` (second).
+   - `r_0^2 = r_1^2 = r'_0^2 = r'_1^2 = e`.
+   - `(r_0 r_1)^∞ = e`, `(r'_0 r'_1)^∞ = e`  (Coxeter `m = ∞`,
+     i.e. `r_0 r_1` has infinite order — this is the affine
+     translation in the first / second A_1^{(1)}).
+   - `[r_i, r'_j] = e` for all `i, j ∈ {0, 1}` (different A_1^{(1)}
+     components commute).
+   Equivalently: `W((2A_1)^{(1)}) = W(A_1^{(1)}) × W(A_1^{(1)})
+                                 = D_∞ × D_∞`.
+
+### Action on parameters (a_0, a_1, b_0, b_1)
+The standard "Kac–Moody / Noumi–Yamada" formula
+`r_i(α_j) = α_j − a_{ij} α_i` gives, with the Cartan matrix above:
+```
+   r_0  : a_0 ↦ −a_0,            a_1 ↦ a_1 + 2 a_0;     b's unchanged.
+   r_1  : a_0 ↦ a_0 + 2 a_1,     a_1 ↦ −a_1;            b's unchanged.
+   r'_0 : b_0 ↦ −b_0,            b_1 ↦ b_1 + 2 b_0;     a's unchanged.
+   r'_1 : b_0 ↦ b_0 + 2 b_1,     b_1 ↦ −b_1;            a's unchanged.
+```
+Each preserves the sum constraint `a_0 + a_1 = 1`, `b_0 + b_1 = 1`
+(verified by direct substitution).
+
+### Aut(D_6^{(1)}) factor
+The diagram automorphism group of `D_6^{(1)}` (affine D_6,
+7 nodes) has order `8 = (Z/2)^3` (two leaf-pair swaps at each fork
+and one chain-end swap). Acting on the orthogonal complement
+`(2A_1)^{(1)}`, it generates the subgroup of permutations of
+`{α_0, α_1, α'_0, α'_1}`:
+   - `π`  : α_0 ↔ α_1 (node swap on first A_1^{(1)} factor);
+   - `π'` : α'_0 ↔ α'_1 (node swap on second A_1^{(1)} factor);
+   - `σ`  : (α_0, α_1) ↔ (α'_0, α'_1) (swap the two A_1^{(1)}
+            components).
+On parameters:
+```
+   π   : a_0 ↔ a_1, b unchanged.
+   π'  : a unchanged, b_0 ↔ b_1.
+   σ   : (a, b) ↔ (b, a).
+```
+The group `⟨π, π', σ⟩ ≅ (Z/2)² ⋊ Z/2 ≅ D_4` (wreath product of two
+Z/2's swapped by σ; order 8). This is the part of `Aut(D_6^{(1)})`
+which acts non-trivially on the orthogonal complement (2A_1)^{(1)};
+we identify `Aut(D_6^{(1)})` with this `D_4` action throughout
+Phase B.
+
+### Cardinality
+   - `|W(A_1^{(1)})| = ∞` (each is `D_∞ = Z ⋊ Z/2`).
+   - `|W((2A_1)^{(1)})| = ∞`.
+   - Translation lattice: rank 2 (one `Z` per A_1^{(1)} component,
+     generated by `r_0 r_1` and `r'_0 r'_1`).
+   - Classical (finite-Weyl) quotient: `(Z/2) × (Z/2)`, order 4.
+   - `|Aut(D_6^{(1)}) ⋉ W((2A_1)^{(1)})| = 8 × ∞`,
+     finite quotient of order `8 × 4 = 32`.
+
+## A.2.5 Cross-check vs. Sakai eq. (5)–(6) for P_II / A_1^{(1)} (slot 13, p. 16)
+
+Sakai writes for the P_II / A_1^{(1)}-case (which is the simpler
+prototype):
+> w_1 : a_1 ↦ −a_1, a_0 ↦ a_0 + 2 a_1, …
+> π   : a_1 ↦ a_0, a_0 ↦ a_1, …
+> Moreover w_1, π generate the extended affine Weyl group of type
+> A_1^{(1)}.
+
+This confirms our parameter-action formulas: `w_1` here is exactly
+our `r_1`, and `π` (Sakai's notation) is the diagram automorphism
+node swap. The formulas for our `r_i, r'_j` above are the
+component-wise generalisation to `(2A_1)^{(1)}`.
