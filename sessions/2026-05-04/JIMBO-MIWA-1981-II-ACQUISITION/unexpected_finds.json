@@ -1,0 +1,14 @@
+{
+  "G17_anchor_paraphrase_correction": {
+    "context": "G17-LAYER-SEPARATION-LIT-ANCHOR Phase B.3 anchor recorded BLMP 2024 §4.1 wording as 'after Jimbo-Miwa 1981 II'.",
+    "verbatim_finding": "BLMP 2024 §4.1 page 24 actual wording is 'Following Jimbo and Miwa [24], ...'. The G17 'after' is a paraphrase, not a verbatim quote.",
+    "impact": "No effect on G17 conclusion (BLMP still attributes the JM81 II isomonodromic Lax-pair construction). Recommend G17 anchor be amended in any CT v1.4 §3.5 narrative to use the verbatim 'Following ... [24]' wording for AEAL hygiene.",
+    "severity": "minor"
+  },
+  "transitive_indication_CT_4tuple_not_from_JM81_II_core": {
+    "context": "Phase D Section D.4 finds via BLMP transitive reading that JM81 II's core Lax-pair convention is 2-parameter (ϴ_0, ϴ_∞), incompatible with the CT v1.3 §3.5 4-tuple (α_∞, α_0, β_∞, β_0)=(1/6, 0, 0, -1/2).",
+    "verbatim_finding": "BLMP eq (4.6) page 25: 'ϴ_0 = α/4, ϴ_∞ = 1 - β/4'. Two parameters, not four; symbol family (ϴ vs α/β) and indexing (0,∞ vs ∞,0,∞,0 doubly) both differ from the CT 4-tuple.",
+    "impact": "If primary-source ILL acquisition confirms BLMP's transitive reading, then CT v1.3 §3.5's 4-tuple is NOT from JM81 II at the level of the core Lax-pair convention. Combined with the prior OKAMOTO-1987-CONSTRAINT-PIN verdict (which already excluded Okamoto 1987 W(B_2) as the source), Sakai 2001 D_6 surface root-system convention becomes the residual canonical candidate. This elevates Prompt 025 (Sakai 2001 acquisition) to high-priority.",
+    "severity": "strategic — drives prompt-025 priority"
+  }
+}
