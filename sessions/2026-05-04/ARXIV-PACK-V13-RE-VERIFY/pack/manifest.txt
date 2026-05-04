@@ -1,0 +1,28 @@
+# manifest.txt -- arxiv_pack_pcf1_v1.3_REBUILT
+# Rebuilt 2026-05-04 from bridge commit 58dfa9e (snapshot at
+# sessions/2026-05-01/PCF1-V13-UPDATE/).
+#
+# Format: <sha256>  <bytes>  <path>
+# All SHAs are SHA-256 (lower-case hex).
+
+# --- files inside pcf1_v1.3.tar.gz ---
+abffae86f8d467382164365f968cd1c5c5b4a3a3b3e26da2daa7eedd4ee2d27e  1993    pcf1_v1.3/00README.txt
+839568a6dcd70047b5889bfa1fd9a3415dd5a947401d00c5e7fa827fd13ee5af  1486    pcf1_v1.3/abstract.txt
+e83bb377f297dbf0837facba257f227df4579e6a3518c139e3146f17174be301  46349   pcf1_v1.3/p12_pcf1_main.tex
+
+# --- wrapper artefacts (alongside tarball) ---
+93770e03c6ab9324ae1acd256b62c3af79e93a21ab83c653d412a0acab216ec9  17560   pcf1_v1.3.tar.gz
+63420dbf4abb7124672f522c37fc04ebdb3f6694ac39959456b2890d9788ff5e  392886  p12_pcf1_main.pdf
+
+# --- provenance ---
+# source_commit:        58dfa9e732b41b65c2d8791037286a13e21c06be
+# source_commit_short:  58dfa9e
+# source_path:          sessions/2026-05-01/PCF1-V13-UPDATE/p12_pcf1_main.tex
+# page_count:           16
+# zenodo_record:        10.5281/zenodo.19937196 (version 1.3)
+# zenodo_pdf_md5:       fbf5449b2678834b0204360d49aef5e0  (matches local)
+# zenodo_pdf_size:      392886                            (matches local)
+# zenodo_pdf_sha256:    63420dbf4abb7124672f522c37fc04ebdb3f6694ac39959456b2890d9788ff5e
+#                       (byte-equality verified via SHA-256 of locally cached
+#                        zenodo.pdf at sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/
+#                        arxiv_pack_pcf1_v1.3/zenodo.pdf)
