@@ -1,0 +1,30 @@
+{
+  "spec": "PICTURE-V18-AMENDMENT-DRAFTING §1 verdict-bridge fetch",
+  "fetched_2026_05_04": [
+    {"delta": "018 G24 PCF2-V13-AFIT-DEFINITION-READBACK", "session": "sessions/2026-05-04/PCF2-V13-AFIT-DEFINITION-READBACK", "handoff_sha256_16": "711E10C9A3B1AB8A", "bytes": 11348},
+    {"delta": "019 G3b(i) WASOW-X3-OCR-ACQUISITION-PROBE", "session": "sessions/2026-05-04/WASOW-X3-OCR-ACQUISITION-PROBE", "handoff_sha256_16": "B1FBFA91270BA54A", "bytes": 7979},
+    {"delta": "020 G18 anchor 1/3 T1-BIRKHOFF-TRJITZINSKY-LITREVIEW", "session": "sessions/2026-05-02/T1-BIRKHOFF-TRJITZINSKY-LITREVIEW", "handoff_sha256_16": "2A1DE817C7D698A2", "bytes": 11052},
+    {"delta": "021 G3b(ii) ADAMS-1928-FINAL-ACQUISITION-PROBE", "session": "sessions/2026-05-04/ADAMS-1928-FINAL-ACQUISITION-PROBE", "handoff_sha256_16": "AA4198B189DEF235", "bytes": 5690},
+    {"delta": "022 G14 ENDORSER-HANDLE-ACQUISITION", "session": "sessions/2026-05-04/ENDORSER-HANDLE-ACQUISITION", "handoff_sha256_16": "BB1CA7456ABA5F95", "bytes": 10861},
+    {"delta": "023 G17 CT-V14-SEC35-AMENDMENT-PATCH-PRECHECK", "session": "sessions/2026-05-04/CT-V14-SEC35-AMENDMENT-PATCH-PRECHECK", "handoff_sha256_16": "375A9D1AA238D3E8", "bytes": 7196},
+    {"delta": "024 G18 anchor 2/3 JIMBO-MIWA-1981-II-ACQUISITION", "session": "sessions/2026-05-04/JIMBO-MIWA-1981-II-ACQUISITION", "handoff_sha256_16": "5F77175DF09939CD", "bytes": 9454},
+    {"delta": "025 G18 anchor 3/3 SAKAI-2001-ACQUISITION", "session": "sessions/2026-05-04/SAKAI-2001-ACQUISITION", "handoff_sha256_16": "CDEAC35F77804F7A", "bytes": 10980},
+    {"delta": "026 G17 cross-check G17-LAYER-SEPARATION-LIT-ANCHOR", "session": "sessions/2026-05-04/G17-LAYER-SEPARATION-LIT-ANCHOR", "handoff_sha256_16": "1E86A9B4F67E4D91", "bytes": 15470},
+    {"delta": "027 G12 PCF1-V13-SOURCE-RECOVERY-PROBE", "session": "sessions/2026-05-04/PCF1-V13-SOURCE-RECOVERY-PROBE", "handoff_sha256_16": "B4D73276F66C9F54", "bytes": 7520},
+    {"delta": "028 G3b(iii) CONTE-MUSETTE-CH7-FINAL-ACQUISITION-PROBE", "session": "sessions/2026-05-04/CONTE-MUSETTE-CH7-FINAL-ACQUISITION-PROBE", "handoff_sha256_16": "58F90C80C7D986F8", "bytes": 5776},
+    {"delta": "029 M6-B5 NOUMI-YAMADA-2004-ACQUISITION", "session": "sessions/2026-05-04/NOUMI-YAMADA-2004-ACQUISITION", "handoff_sha256_16": "FECAD682C467D3EA", "bytes": 10354},
+    {"delta": "030 G12 ARXIV-PACK-V13-RE-VERIFY (cross-anchor)", "session": "sessions/2026-05-04/ARXIV-PACK-V13-RE-VERIFY", "handoff_sha256_16": "039B0C60A9AF8458", "bytes": 7943},
+    {"delta": "031 M6-B5 final WITTE-FORRESTER-2010-ACQUISITION", "session": "sessions/2026-05-04/WITTE-FORRESTER-2010-ACQUISITION", "handoff_sha256_16": "D5A39FCE4531D98F", "bytes": 7743},
+    {"delta": "032 §11 ARXIV-PACK-FOUR-RECORD-AUDIT", "session": "sessions/2026-05-04/ARXIV-PACK-FOUR-RECORD-AUDIT", "handoff_sha256_16": "55B7EF5C925235F7", "bytes": 4832},
+    {"delta": "G18 cross-pin OKAMOTO-1987-CONSTRAINT-PIN (extra; pin-only)", "session": "sessions/2026-05-04/OKAMOTO-1987-CONSTRAINT-PIN", "handoff_sha256_16": "5381C2C0AB3284DF", "bytes": 10942}
+  ],
+  "deferred_or_not_yet_fired": [
+    {"delta": "033 SIARC-PRIMARY-W-DERIVATION", "status": "OPERATOR_DEFERRED", "implication": "M6 Phase B.5 row stays Case 3 STILL_PARTIAL_PENDING_PIVOT_DECISION per PICTURE-V18 §B.10"},
+    {"delta": "034 (referenced in spec §B.11 hedge for arxiv-pack 002 → 034 re-fire)", "status": "MAY_NOT_YET_BE_FIRED", "implication": "§11 row hedges the re-fire status accordingly"}
+  ],
+  "totals": {
+    "verdict_handoffs_fetched": 16,
+    "missing_handoffs": 0,
+    "deferred_or_not_fired": 2
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-1",
+      "context": "PICTURE-V18 §B.5 G12 row drafting",
+      "finding": "Cheat-sheet PCF-1 Zenodo concept DOI in this picture file (rows L415 + L1767) was already correct (`19937196`) at v1.17 time; the spec's hedge about possibly-wrong cheat-sheet IDs `19941678` / `19963298` applies to operator-side cheat-sheet artifacts, NOT to this picture file. v1.18 G12 row therefore consumes the correct DOI without any in-file edit at L415 / L1767. Documented to avoid confusion in v1.19.",
+      "severity": "informational"
+    },
+    {
+      "id": "UF-2",
+      "context": "PICTURE-V18 §B.1 PII typo cross-check",
+      "finding": "v1.17 had 0 occurrences of `1501457-9` (the typo'd PII number). The PII typo correction is therefore informational-only at the picture-file level; no in-file edit was needed. Operator-side cheat-sheet artifacts that may reference the old PII number remain on operator's plate.",
+      "severity": "informational"
+    },
+    {
+      "id": "UF-3",
+      "context": "PICTURE-V18 §B.10 case selection",
+      "finding": "Case 3 was selected (STILL_PARTIAL_PENDING_PIVOT_DECISION) on the basis that prompt 033 SIARC-PRIMARY-W-DERIVATION had not fired by v1.18 draft time and is interpreted as operator-deferred. If operator + Claude review judges 033 should fire first (and v1.18 should wait), the appropriate outcome flips to a deferral pattern (defer this v1.18 draft, fire 033, then absorb 033 outcome directly into v1.19); this is a strategic judgment surfaced for operator + Claude review (not a halt).",
+      "severity": "advisory"
+    },
+    {
+      "id": "UF-4",
+      "context": "PICTURE-V18 §B.11 §11 arxiv-pack inventory hedge",
+      "finding": "Spec mentions a `002 → 034` re-fire status; `034` (whatever it is) does not appear in the bridge sessions tree at v1.18 draft time. v1.18 row 10 hedges this status accordingly. If 034 fires before operator deposits v1.18, a tiny addendum to the §11 row may be desirable.",
+      "severity": "informational"
+    }
+  ]
+}
