@@ -1,0 +1,96 @@
+# G3b literature acquisition - SHA-256 provenance
+# Generated:  2026-05-03T04:21:06Z
+# Amended:    2026-05-03T08:58:00Z  (slot 03: B-T 1933 / Acta 60)
+# Amended:    2026-05-03T10:15:00Z  (slot 06: Costin 2008 / Borel summability)
+# For AEAL claim provenance in Prompt 018 (Q20a-PHASE-C-RESUME) Phase C.0
+# Verify (Linux/WSL): sha256sum -c SHA256SUMS.txt
+# Verify (PowerShell): Get-FileHash on each path
+# Note: aliased files (birkhoff_1930.pdf, birkhoff_trjitzinsky_1933.pdf,
+#       wasow_1965_chap_X.pdf, costin_2008_chap5.pdf) are byte-exact Copy-Item
+#       copies of the runbook-named originals, so their hashes match by
+#       construction.
+# Note: Wasow PDF was re-assembled 2026-05-03 from B1+B1P2 capture covering
+#       Chapter IV §§10-15 pp. 48-87 (20 spreads) AND Chapter V §§16-19
+#       pp. 88-115 (14 spreads) = 34 spreads total. Includes both the
+#       distinct-eigenvalue case (Chap IV) AND the Jordan-block / general
+#       case (§19). Prior wrong-chapter capture (Chap X §§37-39, hash
+#       e84b3e48...46410) and Chap-IV-only capture (hash bb638ade...78e652)
+#       are superseded.
+# Note: B-T 1933 (slot 03) acquired 2026-05-03 from operator browser
+#       session per task G3B-ACQUIRE-BIRKHOFF-TRJITZINSKY-1933.
+#       Verified: title page "Analytic theory of singular difference
+#       equations" by Birkhoff & Trjitzinsky, Acta Math 60, 89 pages,
+#       TOC §4 "A lemma on summation", §5 "Construction of proper
+#       solutions to the right of a proper curve", §6 "A lemma on
+#       factorization" (Borel-summability machinery for irregular
+#       singular points of linear difference equations).
+# Note: Costin 2008 (slot 06) acquired 2026-05-03 from operator-supplied
+#       PDF per task G3B-ACQUIRE-LODAY-RICHAUD-OR-COSTIN (Scenario C:
+#       secondary acquired, Loday-Richaud 2016 ch. 2 not acquired).
+#       File is the FULL CRC Press book "Asymptotics and Borel summability"
+#       (Chapman & Hall/CRC Monographs 141, 2008), 258 PDF pages — superset
+#       of the requested ch. 5. Verified: Notation front-matter (L = Laplace
+#       §1.2b, B = Borel transform §4.4); title page page 2 "Asymptotics
+#       and Borel summability / CRC Press"; TOC begins page 4 with Chapter 1
+#       "Introduction" §1.1a Asymptotic expansions; Chapter 5 "Ordinary
+#       differential equations. Summability of formal solutions" begins at
+#       PDF page 148 with §5.0a Nonresonance (Borel summability machinery
+#       for ODEs at irregular singular points of fractional rank).
+#
+aeb5291e4150535969726aa9e8aba8c604ae437612e026092122208cb3952efa  tex/submitted/control center/literature/g3b_2026-05-03/01_birkhoff_1930_acta54.pdf
+dcd7e3c6b2a12ae1ce917d322763ff9dde5ec69ab5f23080d043699822d68fe6  tex/submitted/control center/literature/g3b_2026-05-03/03_birkhoff_trjitzinsky_1933_acta60.pdf
+f59d6835db58d2de59eab843b881b97106eee6c66e56bfce43de5788bbbaa5fd  tex/submitted/control center/literature/g3b_2026-05-03/04_wasow_1965_dover.pdf
+aeb5291e4150535969726aa9e8aba8c604ae437612e026092122208cb3952efa  tex/submitted/control center/literature/g3b_2026-05-03/birkhoff_1930.pdf
+dcd7e3c6b2a12ae1ce917d322763ff9dde5ec69ab5f23080d043699822d68fe6  tex/submitted/control center/literature/g3b_2026-05-03/birkhoff_trjitzinsky_1933.pdf
+f59d6835db58d2de59eab843b881b97106eee6c66e56bfce43de5788bbbaa5fd  tex/submitted/control center/literature/g3b_2026-05-03/wasow_1965_chap_X.pdf
+436c6c115149052634b103a2ed3b460680ad38cd161897794d5eb1f2f6243289  tex/submitted/control center/literature/g3b_2026-05-03/06_costin_2008_chap5.pdf
+436c6c115149052634b103a2ed3b460680ad38cd161897794d5eb1f2f6243289  tex/submitted/control center/literature/g3b_2026-05-03/costin_2008_chap5.pdf
+
+# Amended:    2026-05-04T08:49:46Z  (slot 08: Lisovyy et al. P_III(D_6) monodromy maps)
+# Note: Slot 08 acquired 2026-05-04 from arXiv 2307.11217 (open-access
+#       CC-BY) per task R5-ACQUISITION-CAMPAIGN. Title:
+#       "Painlevé-III Monodromy Maps Under the D_6 -> D_8 Confluence
+#       and Applications to the Large-Parameter Asymptotics of Rational
+#       Solutions" by A. Barhoumi, O. Lisovyy, P. D. Miller, A. Prokhorov.
+#       Published: SIGMA 20 (2024), 019, 77 pages.
+#       Provides explicit P_III(D_6) Stokes data / monodromy maps in
+#       canonical normalisation; suitable for CC-VQUAD-PIII-NORMALIZATION-
+#       MAP closure of G22.
+#       Note: Originally specified as "Lisovyy-Roussillon" in spec; the
+#       specific P_III(D_6) Stokes tables are in the 2024 Barhoumi-Lisovyy-
+#       Miller-Prokhorov paper, which is the closer fit to the spec
+#       requirement than the 2014/2016/2017 Lisovyy-Roussillon papers
+#       (which are on P_I and P_VI rather than P_III(D_6) specifically).
+96c49cdd51b6c2a395ccd6cc3cb66bffeb623643b1a2374db3f203760f696bb3  tex/submitted/control center/literature/g3b_2026-05-03/08_barhoumi_lisovyy_miller_prokhorov_2024_pIII_D6.pdf
+
+# Amended:    2026-05-04T00:18:06Z  (slot 07 still NOT acquired;
+#             supplementary Okamoto Part I / P_VI added under supplementary/)
+# Note: Task R5-OKAMOTO-PROJECT-EUCLID-RETRY targeted Okamoto's
+#       "Studies on the Painlevé equations IV. Third Painlevé equation P_III",
+#       Funkcialaj Ekvacioj 30 (1987), pp. 305–332 (slot 07).
+#       Operator surfaced a PDF originally placed at the slot-07 path, but
+#       title-page + last-page text extraction confirmed the file is a
+#       DIFFERENT Okamoto paper:
+#         "Studies on the Painlevé Equations. I. Sixth Painlevé Equation P_VI"
+#         by Kazuo Okamoto, Annali di Matematica Pura ed Applicata
+#         (IV) Vol. CXLVI (1987), pp. 337–381 (45 pages).
+#         PDF metadata Title: "Studies on the Painlev&#x00E9; equations"
+#         Creator: 0200.tif (TIFF-source scan, OCR'd).
+#         Last page footer: "KAZUO OKAMOTO: Studies on the Painlevé
+#         equations, I 381".
+#         Submitted "8 agosto 1985; versione riveduta il 7 novembre 1985"
+#         (Italian — "received Aug 8 1985; revised Nov 7 1985").
+#       This is Part I of Okamoto's Painlevé series (P_VI), NOT the
+#       targeted Part IV (P_III in FE 30). Verification per task §2 step 3
+#       FAILS: title page does not read "Studies on the Painlevé equations
+#       IV" and journal/volume is Annali di Matematica vol. CXLVI, not
+#       Funkcialaj Ekvacioj vol. 30.
+#       Outcome: slot 07 remains UNFILLED. The file was relocated to
+#       supplementary/ with an accurate filename so its content is preserved
+#       for any future P_VI-related context (it gives the canonical
+#       Hamiltonian / affine-Weyl-group W(F_4) framework of the Painlevé
+#       series Part I, but does NOT contain the P_III(D_6) Lax pair needed
+#       for CC-VQUAD-PIII-NORMALIZATION-MAP / G22 closure).
+#       Aggregate scenario after this retry: SCENARIO C confirmed
+#       (1 of 3 acquired; only slot 08 Lisovyy/Barhoumi 2024).
+0982c60e262629edb4833c61eeaeb6281b1561b8b9a8da6134bef9824cd7cb1c  tex/submitted/control center/literature/g3b_2026-05-03/supplementary/okamoto_1987_part_I_painleve_VI_AnnMat.pdf
