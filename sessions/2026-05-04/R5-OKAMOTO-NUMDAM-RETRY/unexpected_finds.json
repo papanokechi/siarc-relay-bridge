@@ -1,0 +1,38 @@
+{
+  "session": "R5-OKAMOTO-NUMDAM-RETRY",
+  "date": "2026-05-04",
+  "findings": [
+    {
+      "id": "numdam_does_not_host_fe",
+      "severity": "informational",
+      "category": "literature_acquisition_route_correction",
+      "summary": "NUMDAM does not host Funkcialaj Ekvacioj backlist; the prior R5-OKAMOTO-PROJECT-EUCLID-RETRY agent's recommendation that NUMDAM hosts FE was incorrect.",
+      "evidence": {
+        "numdam_journal_list_scan": "Full https://www.numdam.org/journals/?lang=en listing scanned (~50 journals, primarily French mathematics: Annales de l'Institut Fourier, Bulletin SMF, Compositio Mathematica, Publications IH\u00c9S, etc.). No Funkcialaj Ekvacioj entry.",
+        "url_probes_404": [
+          "/journals/FE/",
+          "/journals/FE/1987/",
+          "/journals/FE/1987/30/",
+          "/item/FE_1987__30__305_0/",
+          "/item/FE/",
+          "/item/FUNKEK/",
+          "/item/FUNKEKVAC/"
+        ],
+        "numdam_root_funkcial_match": "No 'funkcial' substring match in NUMDAM root HTML."
+      },
+      "disposition": "Recorded so future literature-acquisition prompts do not waste cycles on NUMDAM for Japanese math journals. The correct OA route for Funkcialaj Ekvacioj is the Kobe University journal site directly: http://fe.math.kobe-u.ac.jp/FE/ (operator-surfaced).",
+      "synthesizer_arbitration_request": "None. Operator's URL identification immediately resolved the acquisition; the NUMDAM mis-recommendation is now corrected in the bridge record. Future R5-style prompts targeting Japanese math journals (FE, J. Math. Soc. Japan, Proc. Japan Acad., etc.) should try the publishing institution's direct site first before NUMDAM/Project Euclid."
+    },
+    {
+      "id": "okamoto_paper_uses_W_B2_not_W_D6",
+      "severity": "informational",
+      "category": "framework_compatibility",
+      "summary": "Okamoto FE 30 (1987) Part IV uses W(B_2) affine Weyl framework; CC-VQUAD-PIII-NORMALIZATION-MAP relies on the W(D_6) framing of more recent literature (slot 08 Barhoumi-Lisovyy-Miller-Prokhorov 2024 / SIGMA 2024).",
+      "evidence": {
+        "okamoto_1987_root_system_quote": "Section 2.1 of the title page table of contents reads 'Root system' under '\u00a72 Transformation group of P_{III'}'; abstract states 'G_* is isomorphic to the affine Weyl group of the root system of the type B_2'."
+      },
+      "disposition": "Cross-walking the B_2 / D_6 affine-Weyl conventions is a part of the M6 closure's mapping work. This is NOT a blocker; both conventions describe the same Painlev\u00e9 III modulo a known type-correspondence. Note flagged for the M6 prompt drafter so the cross-walk is built into the closure plan rather than discovered mid-execution.",
+      "synthesizer_arbitration_request": "None. Informational note for M6 prompt drafting: include explicit B_2 -> D_6 / D_8 confluence cross-walk as a sub-step of CC-VQUAD-PIII-NORMALIZATION-MAP; cite Okamoto 1987 for the canonical Hamiltonian Lax pair and Barhoumi-Lisovyy-Miller-Prokhorov 2024 for the D_6 monodromy data."
+    }
+  ]
+}
