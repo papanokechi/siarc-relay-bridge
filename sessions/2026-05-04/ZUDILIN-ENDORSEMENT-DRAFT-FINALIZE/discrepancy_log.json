@@ -1,0 +1,23 @@
+{
+  "anomaly_count": 2,
+  "anomalies": [
+    {
+      "id": "DISC_ZUDILIN_001",
+      "type": "spec_template_path_off_by_one_inventory_underspec",
+      "severity": "low",
+      "summary": "Spec STEP 1 directed agent to load endorsement_template_pcf2_v1.3_zudilin.md; spec body said operator intent is PCF-1 v1.3. Investigation showed BOTH a PCF-1 template AND a PCF-2 template exist in the 034 session folder. Agent loaded the PCF-1 template (matching operator intent + cheat-sheet DOI 19937196). Did not halt with HALT_ZUDILIN_TEMPLATE_PAPER_MISMATCH because that halt code anticipated a single Zudilin template whose body either matched or did not match operator intent; the actual situation (two correctly-named templates) had a clean resolution path without the halt.",
+      "resolution": "Used PCF-1 template (endorsement_template_pcf1_v1.3_zudilin.md, SHA B0EFCFA1...F161895). Documented in claim_id spec_step1_path_correction_pcf1_template_used.",
+      "operator_review_required": false
+    },
+    {
+      "id": "DISC_ZUDILIN_002",
+      "type": "spec_premise_falsified_no_stale_newcastle_address",
+      "severity": "low",
+      "summary": "Spec context section claimed: 'The 034 ARXIV-MIRROR-RUNBOOK-REFIRE endorsement template ... almost certainly has the stale University of Newcastle Australia address baked in (wadim.zudilin@newcastle.edu.au)'. Full-text grep of BOTH Zudilin templates for newcastle / wadim.zudilin / @newcastle returned ZERO matches. Both templates already use the placeholder {{ENDORSER_EMAIL_TO_BE_CONFIRMED_BY_OPERATOR}}.",
+      "resolution": "Spec STEP 4 'address correction' simplified to 'placeholder substitution' (placeholder filled with verified w.zudilin@math.ru.nl). Documented in claim_id spec_premise_correction_no_stale_newcastle_address.",
+      "operator_review_required": false
+    }
+  ],
+  "halts_triggered": [],
+  "agent_judgment_calls_summary": "Both anomalies non-blocking; clean substantive paths existed; no halt code triggered. Agent did NOT silently force either correction - both deviations from literal spec wording are documented in claims.jsonl with separate claim IDs (spec_step1_path_correction_pcf1_template_used + spec_premise_correction_no_stale_newcastle_address) and surfaced in handoff.md for synthesizer review."
+}
