@@ -1,0 +1,25 @@
+=== Compatibility with Okamoto -> Sakai parameter map ===
+  [s_0]  Okamoto v -> (-v2 - 1, -v1 - 1) ; phi-image params -> (v2 + 1, -v2, v1 + 1, -v1) ; compat=OK
+  [s_1]  Okamoto v -> (v2, v1) ; phi-image params -> (-v2, v2 + 1, -v1, v1 + 1) ; compat=OK
+  [s_2]  Okamoto v -> (v1, -v2) ; phi-image params -> (-v1, v1 + 1, v2, 1 - v2) ; compat=OK
+  [s_1 s_2]  Okamoto v -> (-v2, v1) ; phi-image params -> (v2, 1 - v2, -v1, v1 + 1) ; compat=OK
+  [s_2 s_0]  Okamoto v -> (-v2 - 1, v1 + 1) ; phi-image params -> (v2 + 1, -v2, -v1 - 1, v1 + 2) ; compat=OK
+  [s_1 s_0]  Okamoto v -> (-v1 - 1, -v2 - 1) ; phi-image params -> (v1 + 1, -v1, v2 + 1, -v2) ; compat=OK
+
+=== Verifying defining relations of W^aff(B_2) under phi ===
+  [s_1^2] phi-image word applied to (a0,a1,b0,b1) = (-v1, v1 + 1, -v2, v2 + 1)  ;  identity=YES
+  [s_2^2] phi-image word applied to (a0,a1,b0,b1) = (-v1, v1 + 1, -v2, v2 + 1)  ;  identity=YES
+  [s_0^2] phi-image word applied to (a0,a1,b0,b1) = (-v1, v1 + 1, -v2, v2 + 1)  ;  identity=YES
+  [(s_1 s_2)^4] phi-image word applied to (a0,a1,b0,b1) = (-v1, v1 + 1, -v2, v2 + 1)  ;  identity=YES
+  [(s_2 s_0)^4] phi-image word applied to (a0,a1,b0,b1) = (-v1, v1 + 1, -v2, v2 + 1)  ;  identity=YES
+  [(s_1 s_0)^2] phi-image word applied to (a0,a1,b0,b1) = (-v1, v1 + 1, -v2, v2 + 1)  ;  identity=YES
+
+=== Cross-walk: induced action of additional Okamoto symmetries ===
+  y (Okamoto v->-v) on params via Okamoto: (v1, 1 - v1, v2, 1 - v2)
+  r_0 r'_0 acting on init_s             : (v1, 1 - v1, v2, 1 - v2)
+  match: YES
+  pi (one-side leaf swap) via params : (v1 + 1, -v1, -v2, v2 + 1)
+  predicted (v_1->-1-v_1) -> params  : (v1 + 1, -v1, -v2, v2 + 1)
+  match: YES
+
+RESULT: ALL CHECKS PASS
