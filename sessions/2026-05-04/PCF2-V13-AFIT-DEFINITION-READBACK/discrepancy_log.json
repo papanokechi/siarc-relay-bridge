@@ -1,0 +1,14 @@
+{
+  "discrepancies": [
+    {
+      "id": "D1",
+      "where": "relay-prompt body §1 + §4 (HALT clause HALT_PCF2_V13_PAGE_COUNT_DRIFT)",
+      "claim_in_prompt": "PCF-2 v1.3 is 16 pp on Zenodo per v1.16 picture",
+      "evidence_on_disk": "PCF-2 v1.3 PDF is 22 pp at tex/submitted/pcf2_program_statement.pdf (pypdf len(r.pages)=22); sessions/2026-05-02/PCF2-V13-RELEASE/build.log L300 records 'Output written on pcf2_program_statement.pdf (22 pages, 558153 bytes)'; V13-RELEASE claims.jsonl V13-A3 records 22 pages at v1.3 release; sessions/2026-05-02/PCF2-V13-RELEASE/handoff.md L9 + L13 + L83 record 22 pp consistently",
+      "diagnosis": "prompt-drafting confusion with PCF-1 v1.3 G12 row (picture v1.17 L983 reads 'PCF-1 v1.3 source drift: workspace p12_journal_main.tex rebuilds to 21 pp; Zenodo v1.3 PDF is 16 pp'); the 16-pp claim applies to PCF-1 not PCF-2; v1.17 picture has no 'PCF-2 16 pp' string",
+      "action_taken": "did NOT trigger HALT_G24_PAGE_COUNT_DRIFT; treated workspace 22-pp build as authoritative v1.3 artefact; surfaced under handoff.md Anomalies for synthesizer review",
+      "severity": "low",
+      "recommendation": "synthesizer audit cross-paper page-count references in next picture revision; consider adding explicit 'PCF-2 v1.3 22 pp' anchor row to picture v1.18 to prevent future cross-paper conflations"
+    }
+  ]
+}
