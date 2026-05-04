@@ -1,0 +1,21 @@
+{
+  "task": "WITTE-FORRESTER-2010-ACQUISITION",
+  "date": "2026-05-04",
+  "unexpected_finds": [
+    {
+      "id": "WF10_UF_001",
+      "type": "spec_bibliographic_target_does_not_exist",
+      "description": "Both bibliographic identifiers in spec section 1 (DOI 10.1088/1751-8113/43/23/235202 + arXiv:0911.1762) point to unrelated 2010 publications (Ayorinde et al. on quantum sum rules; Desrosiers-Eynard on supermatrix models). No Witte-Forrester paper exists at this journal slot.",
+      "implication_for_drafting_workflow": "The spec was drafted by Copilot CLI (Claude Opus 4.7 xhigh). The spec headers state DRAFTED-BY: Copilot CLI. The bibliographic error suggests the drafter hallucinated the target paper from a plausible-but-fictional combination of (a) the post-Sakai PIII' framework, (b) Witte-Forrester's known PIII' oeuvre, and (c) the J. Phys. A 43 / arXiv:0911 number range. Operator and Claude should be alerted that lit-hunt prompts drafted by Copilot CLI may contain fabricated bibliographic identifiers, and a verification gate at prompt-composition time would prevent re-occurrence.",
+      "severity": "moderate",
+      "remediation_in_session": "Re-targeted to closest substitute (arXiv:math/0512142). Verdict re-cast as UPGRADE_WF10_SPEC_BIBLIOGRAPHIC_ERROR_SUBSTITUTE_PROBED."
+    },
+    {
+      "id": "WF10_UF_002",
+      "type": "broader_oeuvre_pattern",
+      "description": "Forrester-Witte's PIII' τ-function papers across 2002-2010 (math-ph/0201051, math-ph/0203049, math/0512142) work uniformly in the σ-form / Hamiltonian / Jimbo-Miwa-Okamoto framework. None of them invoke the W(B_2) Weyl-group structure of Okamoto 1987 or the W((2A_1)^{(1)}) extended affine Weyl group of Sakai 2001. This is a structural pattern of the random-matrix-side τ-function literature, not just an artefact of one paper.",
+      "implication_for_M6_Phase_B5": "Tier-3 lit-hunt options (Conte-Musette ch.6, Joshi-Mazzocco 2003) are unlikely to close the gap either, because they are also σ-form-framework papers. The W(B_2) ↔ W((2A_1)^{(1)}) cross-walk is structurally invisible to the σ-form framework — it is an isomonodromy-side statement. The expected close path is SIARC primary derivation from the Hamiltonian to the surface-type and back, treating the cross-walk as a constructive theorem.",
+      "severity": "high (changes recommended next step)"
+    }
+  ]
+}

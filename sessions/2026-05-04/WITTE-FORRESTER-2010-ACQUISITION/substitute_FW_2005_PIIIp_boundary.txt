@@ -1,0 +1,927 @@
+                                                 BOUNDARY CONDITIONS ASSOCIATED WITH THE
+                                               PAINLEVÉ III′ AND V EVALUATIONS OF SOME RANDOM
+arXiv:math/0512142v1 [math.CA] 6 Dec 2005
+
+
+
+
+                                                                 MATRIX AVERAGES
+
+                                                                        P.J. FORRESTER AND N.S. WITTE
+
+
+                                                    Abstract. In a previous work a random matrix average for the Laguerre uni-
+                                                    tary ensemble, generalising the generating function for the probability that an
+                                                    interval (0, s) at the hard edge contains k eigenvalues, was evaluated in terms
+                                                    of a Painlevé V transcendent in σ-form. However the boundary conditions for
+                                                    the corresponding differential equation were not specified for the full parameter
+                                                    space. Here this task is accomplished in general, and the obtained functional
+                                                    form is compared against the most general small s behaviour of the Painlevé
+                                                    V equation in σ-form known from the work of Jimbo. An analogous study is
+                                                    carried out for the the hard edge scaling limit of the random matrix average,
+                                                    which we have previously evaluated in terms of a Painlevé III′ transcendent in
+                                                    σ-form. An application of the latter result is given to the rapid evaluation of
+                                                    a Hankel determinant appearing in a recent work of Conrey, Rubinstein and
+                                                    Snaith relating to the derivative of the Riemann zeta function.
+
+
+
+
+                                                                                   1. Introduction
+
+                                               The Laguerre unitary ensemble (LUEN ) refers to the eigenvalue probability
+                                            density function (p.d.f.)
+                                                                             N
+                                                                         1   Y                     Y
+                                            (1.1)                                  λal e−λl             (λk − λj )2 ,
+                                                                      CN,a
+                                                                             l=1              1≤j<k≤N
+
+                                            where
+                                                                                   N
+                                                                                   Y −1
+                                            (1.2)                      CN,a :=            Γ(j + 1)Γ(j + a + 1),
+                                                                                    j=0
+
+                                            with support on λl ∈ [0, ∞). For a ∈ Z≥0 , this eigenvalue p.d.f. is realised by
+                                            non-negative matrices X † X where X is an M × N complex Gaussian matrix and
+                                            a = M − N . In our work [3] the average over (1.1)
+                                                                                                   N
+                                                                                    CN,a D Y       (l)
+                                                                                                                    E
+                                            (1.3)    Ẽ2,N ((0, s); a, µ; ξ) :=             (1 − ξχ(0,s) )(λl − s)µ        ,
+                                                                                   CN,a+µ                             LUEN
+                                                                                               l=1
+
+
+                                              2000 Mathematics Subject Classification. 15A52,34M55,58F19.
+                                                                                               1
+2                            P.J. FORRESTER AND N.S. WITTE
+
+         (l)                     (l)
+where χJ = 1 for λl ∈ J, χJ = 0 otherwise, and the normalisation is chosen so
+that
+(1.4)                          Ẽ2,N ((0, s); a, µ; ξ)          := 1,
+                                                          s=0
+was characterised as a τ -function for the Painlevé V system. As a consequence, it
+was shown that
+                                       d                                
+(1.5)              WN (s; a, µ; ξ) := s log s−N µ Ẽ2,N ((0, s); a, µ; ξ) ,
+                                       ds
+satisfies the Jimbo-Miwa-Okamoto σ-form of the Painlevé V equation
+                                                          2
+                                                X3                 Y3
+(1.6)      (sσV′′ )2 − σV − sσV′ + 2(σV′ )2 + (   νj )σV′  + 4       (νj + σV′ ) = 0,
+                                                     j=0                      j=0
+
+with
+                                                                        3
+                                                                        X
+(1.7)      ν0 = 0,    ν1 = −µ,         ν2 = N + a,        ν3 = N,             νj = 2N + a − µ.
+                                                                        j=0
+
+    For this to uniquely characterise WN , a boundary condition must be specified.
+However in [3] only in the cases µ = 0 and µ = 2 were a boundary condition
+specified for general ξ.
+    Also considered in [3] was the hard edge limiting average
+                                          C                t            
+                hard                        N,a
+(1.8)         ẼN    (t; a, µ; ξ) := lim        Ẽ2,N ((0,    ); a, µ; ξ) .
+                                    N →∞ CN,a+µ            4N
+It was shown that
+                                                    Z t
+                                                                            ds
+(1.9)                  Ẽ2hard (t; a, µ; ξ) = exp         uh (s; a, µ; ξ)      ,
+                                                     0                       s
+where setting
+                                                          µ(µ + a)
+(1.10)                   uh (s; a, µ; ξ) = −(σIII′ (s) +            ),
+                                                               2
+the function σIII′ (s) satisfies the Jimbo-Miwa-Okamoto σ-form of the Painlevé
+III′ equation
+           ′′    2          ′     2   ′       ′                   ′        1
+(1.11) (sσIII ′ ) − v1 v2 (σIII′ ) + σIII′ (4σIII′ − 1)(σIII′ − sσIII′ ) −    (v1 − v2 )2 = 0,
+                                                                           43
+with parameters
+(1.12)                         v1 = a + µ,           v2 = a − µ.
+Again only in the cases µ = 0 and µ = 2 were boundary conditions specified for
+general ξ.
+    The aim of this work is to specify the boundary conditions relevant to both
+(1.5) and (1.6) for general values of the parameters. In the case of (1.5) this is done
+by writing the average (1.3) in its equivalent determinant form and evaluating the
+matrix elements in terms of certain 1 F1 hypergeometric functions. With the small
+s behaviour of the matrix elements determined, it turns out that the determinant is
+        BOUNDARY CONDITIONS ASSOCIATED WITH THE PAINLEVÉ III′ AND V...                3
+
+
+such that its corresponding small s behaviour can readily be deduced. The small s
+asymptotic form of (1.3) then follows immediately. Scaling this asymptotic form as
+                                                         hard
+required by (1.8) then gives the small t behaviour of ẼN      (t; a, µ; ξ) and the small
+                 h
+s behaviour of u (s; a, µ; ξ).
+    The general small s asymptotic form of the permitted solutions of (1.6) and
+(1.11) have been given by Jimbo [5]. As part of this study the boundary conditions
+found here are compared against these general forms. It is found that in both cases
+only one of the two branches permitted by the general solution is present in our
+random matrix problem.
+    As an application of our results we specify the rapid computation of the power
+series expansion of a certain Hankel determinant of Bessel functions. The latter is
+                                                     hard
+known form our work [3] to be a special case of ẼN       (t; a, µ; ξ). The coefficients
+in the power series appear in an asymptotic formula obtained recently by Conrey,
+Rubinstein and Snaith [1] for the integer moments of the derivative of the charac-
+teristic polynomial of a unitary random matrix. This in turn has application to the
+study of the derivative of the Riemann zeta function on the critical line.
+
+                     2. Small s Expansion of Ẽ2,N ((0, s); a, µ; ξ)
+
+   A standard result in random matrix theory, which in fact goes back to an identity
+of Heine (see [7]) expresses the random matrix average (1.3) as a determinant
+                                            N !CN,a
+(2.1)           Ẽ2,N ((0, s); a, µ; ξ) =           det[wj+k ]j,k=0,...,N −1 ,
+                                            CN,a+µ
+where
+                              Z ∞
+(2.2)                 wn :=         dλ (1 − ξχ(0,s) )(λ − s)µ λn+a e−λ .
+                              0
+
+Unless µ is a non-negative integer (2.2) is not well defined for s real and positive,
+which is the domain of interest. To remedy this, we note that simple manipulation
+gives
+                 Z ∞                                 Z s
+(2.3)      wn :=     dλ (λ − s)µ λn+a e−λ + (1 − ξ)      dλ (λ − s)µ λn+a e−λ ,
+                     s                                        0
+
+and in the second integral of this expression write (λ − s)µ = eµ log(λ−s) with
+−π < arg log(λ − s) ≤ π. We then obtain
+               Z ∞                                    Z s
+(2.4)   wn :=      dλ (λ − s)µ λn+a e−λ + (1 − ξ)eπiµ     dλ (s − λ)µ λn+a e−λ ,
+                 s                                                0
+
+which is well defined for ℜ(µ) > −1 and ℜ(a) > −1 for s > 0 with the additional
+constraint ℜ(µ + a) > −1 at s = 0.
+   We seek the leading terms in the small s expansion of (2.4). These can be
+read off from an explicit evaluation in terms of the 1 F1 confluent hypergeometric
+function [8].
+4                             P.J. FORRESTER AND N.S. WITTE
+
+
+Proposition 2.1. Subject to the conditions ℜ(µ) > −1, ℜ(a) > −1, ℜ(µ+ a) > −1
+          / Z≥0 we have
+and µ + a ∈
+(2.5)                          wn = an (s) + sn+µ+a+1 bn (s),
+where an (s), bn (s) are analytic about s = 0 and given explicitly by
+               an (s) = Γ(µ + n + a + 1)e−s 1 F1 (−a − n; −µ − a − n; s),
+                                                                           
+                        Γ(µ + 1)Γ(n + a + 1)                      sin πa
+(2.6)          bn (s) =                          (1 − ξ)eπiµ −
+                          Γ(µ + n + a + 2)                     sin π(µ + a)
+                          × e−s 1 F1 (µ + 1; µ + a + n + 2; s).
+In particular, under the above conditions,
+(2.7)                    wn ∼ an (0) + sa′n (0) + sn+µ+a+1 bn (0),
+                             s→0
+where
+             an (0) = Γ(µ + n + a + 1),
+             a′n (0) = −µΓ(µ + n + a),
+(2.8)                                                                           
+                      Γ(µ + 1)Γ(n + a + 1)                           sin πa
+             bn (0) =                           (1 − ξ)eπiµ −                        .
+                        Γ(µ + n + a + 2)                          sin π(µ + a)
+Proof. The results (2.7) and (2.8) are immediate corollaries of (2.5) and (2.6) and
+the fact that
+                                                γ
+                           1 F1 (γ; α; s) = 1 +   s + O(s2 ).
+                                                α
+To derive (2.5), we note that simple manipulation shows
+          Z ∞                                    Z ∞
+              dλ (λ − s)µ λn+a e−λ = sa+n e−s         dλ (1 + λ/s)n+a λµ e−λ .
+             s                                       0
+But with
+                                         Z ∞
+                           z k e−z/2
+        Wk,m (z) =                             dt (1 + t/z)k−1/2+m t−k−1/2+m e−t ,
+                        Γ(1/2 − k + m)    0
+specifying the Whittaker function, it is known that [8]
+                            Γ(−2m)                     Γ(2m)
+         Wk,m (z) =                     Mk,m (z) +                Mk,−m (z)
+                         Γ(1/2 − k − m)            Γ(1/2 − k + m)
+where
+                   Mk,m (z) = z m+1/2 e−z/2 1 F1 (1/2 − k + m; 2m + 1; z).
+Consequently
+      Z ∞
+(2.9)      dλ (λ − s)µ λn+a e−λ = Γ(µ + a + n + 1)e−s 1 F1 (−a − n; −µ − a − n; s)
+         s
+                 Γ(µ + 1)Γ(−µ − a − n − 1) µ+a+n+1 −s
+           +                              s       e 1 F1 (µ + 1; µ + a + n + 2; s).
+                         Γ(−a − n)
+The left-hand side of (2.9) exists for ℜ(µ) > −1 if s > 0 and ℜ(µ + a) > −1 if
+s = 0, whereas the right-hand side is valid in this parameter domain except for
+µ + a + n ∈ Z≥0 , and in this case the individual terms have a simple pole at
+         BOUNDARY CONDITIONS ASSOCIATED WITH THE PAINLEVÉ III′ AND V...                         5
+
+
+a+n ∈  / Z≥0 or are undefined when a + n ∈ Z≥0 . Needless to say the sum of the
+terms on the right-hand side has the same analytic character as the left-hand side.
+   Regarding the second integral in (2.4), we first note that a simple change of
+variables gives
+           Z s                                                Z 1
+                               µ n+a −λ          n+1+a+µ −s
+                 dλ (s − λ) λ         e    =s           e           dx (1 − x)n+a xµ esx .
+            0                                                  0
+
+But the integral on the right hand side is the Euler integral representation of the
+1 F1 function, which shows
+
+          Z s
+(2.10)          dλ (s − λ)µ λn+a e−λ
+           0
+                       Γ(µ + 1)Γ(a + n + 1) µ+a+n+1 −s
+                   =                       s       e 1 F1 (µ + 1; µ + a + n + 2; s).
+                         Γ(µ + a + n + 2)
+
+This latter relation is valid for ℜ(µ) > −1 and ℜ(a) > −1 when s > 0. Substituting
+(2.9) and (2.10) in (2.4) and using the appropriate gamma function identities gives
+(2.5), (2.6).                                                                    
+
+   When µ + a ∈ Z≥0 we have to consider two exceptional cases where one of the
+hypergeometric functions are not defined - the first when a + n ∈ Z≥0 for which the
+hypergeometric function is indeterminate, and the second when a + n ∈    / Z≥0 and
+the hypergeometric function has a simple pole. These two cases can be recovered
+by taking suitable limits and we just state the final results.
+
+Proposition 2.2. When µ + a = j ∈ Z≥0 and a + n = k ∈ Z≥0 with n + j ≥ k we
+have
+                            ( k
+                             X (n + j − l)!
+                       −s
+(2.11) wn = k!e                                  sl
+                                    (k − l)!l!
+                              l=0
+                                                                                          )
+                  n+j+k              (n + j − k)! n+j+1
+         + (−1)              (1 − ξ)              s     1 F1 (n + j + 1 − k; n + j + 2; s) ,
+                                     (n + j + 1)!
+
+and to leading order in small s we have
+(2.12)
+                                                                            (n + j − k)!k! n+j+1
+wn ∼ (n + j)! − (n + j − k)(n + j − 1)!s + (−1)n+j+k (1 − ξ)                              s      .
+   s→0                                                                       (n + j + 1)!
+
+   Note that the condition n + j ≥ k is the same as µ ≥ 0, which falls within the
+domain of interest. The key difference of (2.12) with (2.7) and (2.8) is that the
+non-analytic term is now polynomial and the second part of this term is absent
+having been cancelled by a counterbalancing term.
+6                                  P.J. FORRESTER AND N.S. WITTE
+
+
+                                                / Z≥0 we have
+Proposition 2.3. When µ + a = j ∈ Z≥0 and a + n ∈
+                           ( n+j
+                             X (−a − n)l (n + j − l)!
+                      −s
+(2.13) wn = e                                           (−s)l
+                                           l!
+                             l=0
+               Γ(µ + 1)Γ(a + n + 1)
+             +                       (1 − ξ)eiπµ sn+j+1 1 F1 (µ + 1; n + j + 2; s)
+                   (n + j + 1)!
+                                sin πa Γ(µ + 1)Γ(a + n + 1) n+j+1
+                       + (−1)j                                 s
+                                  π        (n + j + 1)!
+             ∞
+                                                                                        )
+             X                                                            (µ + 1)l sl
+         ×         [ψ(l + 1) + ψ(n + j + l + 2) − ψ(µ + l + 1) − log s]                   ,
+                                                                        (n + j + 2)l l!
+             l=0
+
+and its leading order behaviour for small s is
+
+(2.14) wn ∼ (n + j)! + (a − j)(n + j − 1)!s
+            s→0
+  (a − j)n+j+1 n+j+1 πe−iπa
+                                                                            
++               s            (1 − ξ) + ψ(1) + ψ(n + j + 2) − ψ(µ + 1) − log s .
+   (n + j + 1)!       sin πa
+   The expansion (2.14) differs significantly from (2.7) and (2.8) because of the
+presence of logarithmic terms which now replace the non-analytic contributions of
+the generic case.
+
+Corollary 2.1. Under generic conditions on µ + a we have
+
+(2.15)       det[wj+k ]j,k=0,...,N −1
+                               = det[Γ(µ + a + 1 + j + k)]j,k=0,...,N −1
+               − µs det[Γ(µ + a + j) Γ(µ + a + 1 + j + k)] j=0,...,N −1 + O(s2 )
+                                                                  k=1,...,N −1
+
+               + sµ+a+1 b0 (0) det[Γ(µ + a + 3 + j + k)]j,k=0,...,N −2 {1 + O(s)}
+                                                                                 + O(s2(µ+a+1) ).
+
+Proof. According to (2.7)
+
+    det[wj+k ]j,k=0,...,N −1
+                   ∼ det[aj+k (0) + sa′j+k (0) + sµ+a+1+j+k bj+k (0)]j,k=0,...,N −1
+               s→0
+
+          ∼ det[aj+k (0)]j,k=0,...,N −1 + s[s] det[aj+k (0) + sa′j+k (0)]j,k=0,...,N −1
+         s→0
+
+                                                 + sµ+a+1 b0 (0) det[aj+k+2 (0)]j,k=0,...,N −2 ,
+
+where [s]P (s) denotes the coefficient of s in P (s). Recalling the explicit formula
+for an (0) as given in (2.8) we obtain the constant term and the term proportional
+to sµ+a+1 in (2.15). It remains to compute the coefficient of s, which according to
+(2.8) has the explicit form
+
+(2.16)              [s] det[Γ(µ + a + 1 + j + k) − µsΓ(µ + a + j + k)]j,k=0,...,N −1 .
+       BOUNDARY CONDITIONS ASSOCIATED WITH THE PAINLEVÉ III′ AND V...                                7
+
+
+Using the linearity formula
+        det[a1 · · · aj + bj · · · an ] = det[a1 · · · aj · · · an ] + det[a1 · · · bj · · · an ],
+where the a’s and b’s are column vectors, on each column of the determinant we
+see that of the terms proportional to s only the one obtained from expanding the
+first column in non-zero (all the rest result in two identical columns), and the
+determinant given by (2.15) results.                                          
+
+   It remains to evaluate the determinants. For this task we make use of the
+identity [6]
+                                                   n−1
+                                                   Y                  Y
+              det[Γ(zk + j)]j,k=0,...,n−1 =               Γ(zj )               (zk − zj ).
+                                                    j=0            0≤j<k≤n−1
+
+After straightforward manipulations, gamma function evaluations of all the deter-
+minants in (2.15) can be obtained. Substituting in (2.1), and recalling that the
+normalisation is such that at s = 0 ẼN is equal to unity, we obtain the sought
+small s expansion of ẼN and thus WN valid for general values of the parameters.
+                                                    / Z≥0 we have
+Proposition 2.4. For ℜ(µ) > −1, ℜ(a) > −1 and µ + a ∈
+                                µN
+(2.17) Ẽ2,N ((0, s); a, µ; ξ) = 1 −s + O(s2 )
+                              µ+a
+                                                              
+ Γ(µ + 1)Γ(a + 1)Γ(µ + a + N + 1)           πiµ      sin πa
++ 2                                (1 − ξ)e     −                sµ+a+1 {1 + O(s)}
+  Γ (µ + a + 2)Γ(µ + a + 1)Γ(N )                  sin π(µ + a)
+                                                                                   + O(s2(µ+a+1) ),
+and consequently
+                                 µN
+(2.18) WN (s; a, µ; ξ) = −N µ −     s + O(s2 )
+                                µ+a
+                                                               
+  Γ(µ + 1)Γ(a + 1)Γ(µ + a + N + 1)           πiµ      sin πa
++                                   (1 − ξ)e     −                sµ+a+1 {1 + O(s)}
+   Γ(µ + a + 2)Γ2 (µ + a + 1)Γ(N )                 sin π(µ + a)
+                                                                                   + O(s2(µ+a+1) ).
+
+   In the first exceptional case µ + a = j ∈ Z≥0 and a = k ∈ Z≥0 with j ≥ k
+one can still use (2.17) but omitting the term involving the ratio of sines, in the
+case j = 0, or the whole term if j > 0. The situation of the other exceptional case
+µ + a = j ∈ Z≥0 and a ∈ / Z≥0 is more complicated and more so for larger j, and we
+only give the examples of j = 0, 1.
+Proposition 2.5. For ℜ(µ) > −1, ℜ(a) > −1 with µ + a = 0 we have
+
+(2.19) Ẽ2,N ((0, s); a, µ = −a; ξ) = 1
+   n        πa −iπa                                                             o
++ −1+            e      (1 − ξ) + a [2ψ(2) + ψ(1) − ψ(1 − a) − ψ(N + 1) − log s] N s
+          sin πa
+                                                                           + o(s).
+8                             P.J. FORRESTER AND N.S. WITTE
+
+
+For µ + a = 1 we have
+
+
+(2.20) Ẽ2,N ((0, s); a, µ = 1 − a; ξ) = 1 + (a − 1)N s
+  a(a − 1) n π                                                o
++                  e−iπa (1−ξ)+2ψ(3)+ψ(2)−ψ(2−a)−ψ(N +2)−log s (N +1)N s2
+      4     sin πa
+                                                                + o(s2 ).
+
+
+
+
+                     3. Comparison with the Jimbo solution
+
+    The small s expansion of the most general solution permitted by (1.6), or more
+precisely its corresponding τ -function (see (3.2) below) has been determined by
+Jimbo [5]. However in [5] the equation (1.6) is not treated directly. Instead the
+discussion is based on the equation
+
+                                                       2
+(3.1) (sζ ′′ )2 − ζ − sζ ′ + 2(ζ ′ )2 − (2θ0 + θ∞ )ζ ′
+                 
+
+                                           1                      1
+                   + 4ζ ′ (ζ ′ − θ0 )(ζ ′ − (θ0 − θs + θ∞ ))(ζ ′ − (θ0 + θs + θ∞ )) = 0,
+                                           2                      2
+
+and the small s behaviour of the corresponding τ -function τV (s), specified by the
+the requirement that
+
+                         d              1             1
+(3.2)         ζ(s) = s      log τV (s) + (θ0 + θ∞ )s + [(θ0 + θ∞ )2 − θs2 ],
+                         ds             2             4
+
+was determined.
+   Comparison of (3.1), (3.2) with (1.6), (1.5) shows that for the parameters (1.7)
+
+                                              2
+(3.3)              Ẽ2,N ((0, s); a, µ; ξ) = sN +N (a+µ) e−(N +a/2)s τV (s),
+
+
+while in general
+
+
+(3.4)               θ0 = −ν1 ,     θs = ν2 − ν3 ,   θ∞ = ν1 − ν2 − ν3 .
+
+
+Note that for the parameters (1.7) we thus thus have
+
+
+(3.5)                    θ0 = µ,    θs = a,    θ∞ = −2N − a − µ.
+         BOUNDARY CONDITIONS ASSOCIATED WITH THE PAINLEVÉ III′ AND V...                            9
+
+
+   The relevant result from [5] can now be presented. It states that the most
+general small s behaviour of τV (s) permitted by the equation (3.1) is
+
+                                  (
+                    (σ2 −θ∞
+                          2
+                            )/4            θ∞ (θs2 − θ02 + σ 2 )
+(3.6) τV (s) = Cs                     1−                         s
+                                                   4σ 2
+                          θ + θ + σ )Γ(1 + θs − θ0 + σ )Γ(1 + θ∞ + σ )
+             Γ2 (−σ) Γ(1 + s 20                       2                  2
+        +u                                                                 s1+σ
+            Γ2 (2 + σ)    Γ( θs + θ20 − σ )Γ( θs − θ20 − σ )Γ( θ∞ 2− σ )
+                           θ + θ − σ )Γ(1 + θs − θ0 − σ )Γ(1 + θ∞ − σ )
+          1 Γ2 (σ) Γ(1 + s 20                          2                 2
+        +                                                                  s1−σ
+          u Γ2 (2 − σ)    Γ( θs + θ20 + σ )Γ( θs − θ20 + σ )Γ( θ∞ 2+ σ )
+                                                                                              )
+                                                                                  2(1−ℜ(σ))
+                                                                        + O(|s|               ) ,
+
+
+where C is a normalisation constant, while u and σ are arbitrary parameters. The
+above result was derived subject to the conditions θ0 , θs ∈  / Z, 21 (θ∞ ± σ) ∈/ Z,
+1
+                / Z and that 0 < ℜ(σ) < 1 (a distinct solution was presented for σ =
+2 (θs ± θ0 ± σ) ∈
+0). These conditions therefore strictly apply only to the generic or transcendental
+solutions of the fifth Painlevé equation. For generic parameter values the terms
+given in (3.6) uniquely specify all the subsequent terms in the convergent Puisuex-
+type expansion for ζ(s) about s = 0
+
+                                             ∞ X
+                                             X
+(3.7)                             ζ(s) =                 cj,k sj+kσ ,
+                                             j=0 |k|≤j
+
+
+i.e. with any two of c1,0 , c1,1 or c1,−1 given.
+    To relate this to Ẽ2,N , we see from (3.3) and (3.5) that we require σ 2 = (a + µ)2
+and thus we can choose
+
+(3.8)                                        σ = a + µ.
+
+This relation, σ = θ0 + θs , is a violation of one of the strict conditions given above
+and is in fact a sufficient condition for a classical solution, along with the necessary
+condition θ0 + θs + θ∞ = −2N ∈ Z, which is the type of solution that we are
+dealing with here. However we conjecture that Jimbo’s conditions can be relaxed
+to accommodate such solutions and the corresponding formulae (or limiting forms
+if necessary) still hold. With this choice of σ the coefficient of s1−σ in (3.6) contains
+a factor of
+                                           1         1
+                                                 =
+                                        θ ∞
+                                      Γ( 2 ) + σ   Γ(−N )
+10                          P.J. FORRESTER AND N.S. WITTE
+
+
+and thus vanishes. Simplifying the other terms gives
+                         (
+                2              (2N + a + µ)a
+  τV (s) ∼ Cs−N −N (a+µ) 1 +                 s
+                                  2(a + µ)
+                                                                            )
+                            sin πµ   Γ(a + 1)Γ(µ + 1)Γ(N + 1 + a + µ) 1+a+µ
+                      +u                                              s       .
+                         sin π(a + µ) Γ2 (2 + a + µ)Γ(1 + a + µ)Γ(N )
+
+Substituting in (3.3) we see that this is in precise agreement with (2.17) provided
+we choose
+                         sin πµ                         sin πa
+(3.9)               u              = (1 − ξ)eπiµ −
+                      sin π(a + µ)                   sin π(a + µ)
+
+                               4. The hard edge limit
+
+    The hard edge limit is defined by (1.8). However, only in the cases µ = 0, µ = 2
+do we know how to prove its existence for general ξ (in the case µ = 0 Ẽ2,N can
+be written as a Fredholm determinant, while the case µ = 2 is related to this via
+differentiation). However a log-gas viewpoint ([2]) indicates that the limit will be
+well defined, and moreover we expect that it can be taken term-by-term in the small
+s expansion of Ẽ2,N . In this section we will show that taking the hard edge limit
+of the small s expansion (2.17) give rise to an initial condition for the solution of
+(1.11) consistent with that allowed by Jimbo’s theory of the small s expansion of the
+Painlevé III′ equation. From a practical perspective this specifies Ẽ2hard for general
+values of the parameters according to (1.9), while from a theoretical viewpoint it
+lends weight to the belief that (1.9) is indeed the correct limiting evaluation for
+general values of the parameters.
+    Under the assumption that the hard edge limit can be taken term-by-term in
+the small s expansion of Proposition (2.4) is immediate.
+
+                                                  / Z≥0 we have
+Corollary 4.1. For ℜ(µ) > −1, ℜ(a) > −1 and µ + a ∈
+                               µ
+(4.1) Ẽ2hard (s; a, µ; ξ) = 1 −    s + O(s2 )
+                           4(a + µ)
+                                                          
+      Γ(µ + 1)Γ(a + 1)                 πiµ      sin πa      s µ+a+1
+ + 2                          (1 − ξ)e     −                        {1 + O(s)}
+  Γ (µ + a + 2)Γ(µ + a + 1)                  sin π(µ + a)   4
+                                                                    + O(s2(µ+a+1) ),
+
+and consequently the σ-function σIII′ (s) in (1.10) has the small s expansion
+
+                  µ(µ + a)       µ
+(4.2) σIII′ (s) = −        +          s + O(s2 )
+                     2       4(µ + a)
+                                                          
+       Γ(µ + 1)Γ(a + 1)                πiµ      sin πa      s µ+a+1
+ −              2
+                              (1 − ξ)e     −                        {1 + O(s)}
+   Γ(µ + a + 2)Γ (µ + a + 1)                 sin π(µ + a)   4
+                                                                    + O(s2(µ+a+1) ).
+        BOUNDARY CONDITIONS ASSOCIATED WITH THE PAINLEVÉ III′ AND V...                    11
+
+
+   Some examples of exceptional cases not covered by the preceding corollary are
+the following. They are obtained by taking the hard edge limit of (2.19) and (2.20).
+
+Corollary 4.2. For ℜ(µ) > −1, ℜ(a) > −1 and µ + a = 0 we have
+
+
+(4.3) Ẽ2hard (s; a, µ = −a; ξ) = 1
+      n             πa −πia                                                  os
+     + −1+               e    (1 − ξ) + a[2ψ(2) + ψ(1) − ψ(1 − a) − log(s/4)]
+                  sin πa                                                      4
+                                                                           + o(s),
+
+
+whilst for µ + a = 1 we have
+
+                                                 s
+(4.4) Ẽ2hard (s; a, µ = 1 − a; ξ) = 1 + (a − 1)
+                                                 4
+      a(a − 1) n π                                                         o  s 2
+    +                    e−πia (1 − ξ) + 2ψ(3) + ψ(2) − ψ(2 − a) − log(s/4)
+          4       sin πa                                                       4
+                                                                           + o(s2 ).
+
+    To compare these results to the small independent variable expansions given by
+Jimbo in the theory of III′ , we must first undertake some preliminary calculations
+as the equation (1.11) is not directly studied in [5]. Rather the equation studied is
+
+                                                                                 2
+                                                               v1 + v2
+(4.5)            (tζ ′′ )2 = 4ζ ′ (ζ ′ − 1)(ζ − tζ ′ ) +               − v1 ζ ′        ,
+                                                                  2
+
+where we have identified θ0 = −v2 , θ∞ = −v1 (θ0 , θ∞ are the parameters appearing
+in [5]). In terms of ζ(t) the τ -function τIII′ (t) is specified by the requirement that
+
+
+                                     d                 v 2 − v12
+(4.6)                     ζ(t) = t      log τIII′ (t) + 2        + t,
+                                     dt                    4
+
+and it is the small t expansion of τIII′ (t) presented in [5]. Comparison of (4.5) and
+(1.11) shows that
+
+                                            v1 (v2 − v1 ) s                   s
+(4.7)              ζ(t) = −σIII′ (s) +                   + ,             t=     .
+                                                  4       4                   4
+
+Recalling (1.10), (1.9), (4.7) and (4.6) we see
+
+                                                      2    2
+(4.8)                      Ẽ2hard (s; a, µ; ξ) = t(v2 −v1 )/4 τIII′ (t).
+12                                P.J. FORRESTER AND N.S. WITTE
+
+
+   In [5] the most general small t expansion of τIII′ (t) as permitted by (4.5) is
+presented. It reads
+                                       (
+                        (σ2 −v22 )/4             v1 v2 − σ 2
+(4.9) τIII′ (t) = Ct                       1+                t
+                                                     2σ 2
+                                       v +σ             v +σ
+                        Γ2 (−σ) Γ(1 + 2 2 )Γ(1 + 1 2 ) 1+σ
+                   −u                                        t
+                       Γ2 (2 + σ)   Γ( v2 2− σ )Γ( v1 2− σ )
+                                       v −σ             v −σ
+                     1 Γ2 (σ) Γ(1 + 2 2 )Γ(1 + 1 2 ) 1−σ
+                   −                                         t
+                     u Γ2 (2 − σ)   Γ( v2 2+ σ )Γ( v1 2+ σ )
+                                                                                                )
+                                                                               + O(|t|2(1−ℜ(σ)) ) ,
+
+
+where as in (3.6) C is a normalisation, while u and σ are arbitrary parameters. This
+result was established under the assumptions that 21 (v1 ± σ) ∈ / Z and 21 (v2 ± σ) ∈
+                                                                                    /Z
+along with 0 < ℜσ < 1 (for σ = 0 a distinct solution is given).
+    To see that this structure is consistent with (4.1) and (4.8), recalling (1.12) we
+see that for the right hand side of (4.8) to tend to 1 as t tends to zero we must have
+C = 1 and σ = ±v1 . Again this is a violation of first condition given above but we
+conjecture that the formulae have meaning under the following limiting procedure
+and are correct. Choosing the positive sign for definiteness, and then writing
+
+                                       u          u(v1 − σ)
+                                     v  − σ   =
+                                      1
+                                   Γ( 2     )   2Γ(1 + v1 2− σ )
+
+we see that requiring
+
+                               u               sin πv1
+                                 (v1 − σ) → ũ                   as σ → v1 ,
+                               2                  π
+
+(4.9) reads
+                                       (
+                       (v12 −v22 )/4            v1 v2 − v12
+(4.10) τIII′ (t) ∼ t                       1+               t
+                                                    2v12
+                                                v −v             v + v  1+v1 )
+                        sin π(v1 − v2 )/2 Γ(1 − 2 2 1 )Γ(1 + 2 2 1 ) t
+                   + ũ                                                          .
+                             sin πv1           Γ2 (2 + v1 )Γ(1 + v1 )   4
+
+Recalling again (1.12) and (4.8) we see that this agrees with (4.1) provided
+
+                                sin πµ                       sin πa
+(4.11)                  ũ                = (1 − ξ)eπiµ −              ,
+                             sin π(a + µ)                 sin π(a + µ)
+
+(cf. (3.9)).
+        BOUNDARY CONDITIONS ASSOCIATED WITH THE PAINLEVÉ III′ AND V...                13
+
+
+                                   5. Application
+
+    In a recent work relating to the application of random matrix theory to the study
+of moments of the derivative of the Riemann zeta-function, Conrey, Rubinstein and
+Snaith [1] obtained two asymptotic expressions associated with the derivative of
+characteristic polynomials for random unitary matrices. With U a Haar distributed
+element of the unitary group U (N ), and eiθ1 , . . . , eiθN its eigenvalues, let
+                                          N
+                                          Y
+(5.1)                          ΛA (s) =         (1 − se−iθj ),
+                                          j=1
+
+and
+                                            PN
+(5.2)                 ZA (s) = e−πiN/2 ei       n=1 θn /2   s−N/2 ΛA (s),
+
+(note that ZA (eiθ ) is real for θ real). In terms of this notation, the two results from
+[1] are
+                                                                 2
+(5.3)                    h|Λ′A (1)|2k iA∈U(N ) ∼ bk N k +2k ,
+                                                 N →∞
+
+where
+
+                           k  
+                          X   k
+(5.4) bk = (−1)k(k+1)/2          (k + h)!
+                              h
+                          h=0
+                                              2                √              
+                              × [xk+h ] e−x x−k /2 det[Iα+β−1 (2 x)]α,β=1,...,k ,
+
+and
+                                                                 2
+                            ′
+(5.5)                    h|ZA (1)|2k iA∈U(N ) ∼ b′k N k +2k ,
+                                                 N →∞
+
+where
+                                                2                √              
+(5.6)    b′k = (−1)k(k+1)/2 (2k)![x2k ] e−x/2 x−k /2 det[Iα+β−1 (2 x)]α,β=1,...,k .
+
+In (5.4) and (5.6) the notation [xp ]f (x) denotes the coefficient of xp in f (x).
+    The relevance of these formulae to the present study is that the determinant
+therein can be identified in terms of Ẽ2hard . Thus, we have shown in a previous
+study [3] that for a ∈ Z≥0
+                                              aµ
+                                                                     √
+                                        
+          hard                             2
+(5.7) Ẽ2 (s; a, µ; ξ = 1) = A(a, µ) √            e−s/4 det[Iµ+α−β ( s)]α,β=1,...,a .
+                                            s
+
+where
+                                           a
+                                           Y (j + µ − 1)!
+(5.8)                       A(a, µ) = a!                             .
+                                           j=1
+                                                        j!
+14                           P.J. FORRESTER AND N.S. WITTE
+
+
+Interchanging row β by row a − β + 1 (β = 1, . . . , a in order) we see from this that
+                            k  
+                  (−1)k X k
+            bk =                    (k + h)![xk+h ]Ẽ2hard (4x; k, k; ξ = 1)
+                  A(k, k)       h
+(5.9)                     h=0
+                       k
+                  (−1)                                             
+            b′k =         (2k)![x2k ] ex/2 Ẽ2hard (4x; k, k; ξ = 1)
+                  A(k, k)
+Note that the Painlevé III′ parameters appearing in this solution are µ = a =
+k ∈ N and µ + a = 2k ∈ 2N and thus we are dealing with the exceptional case
+of indeterminacy referred to in Section 2. However as was noted there the generic
+formulae still hold with to the modifications discussed and in particular the σ-
+function has a small argument expansion of a purely analytic form.
+    From ([4]) it is known that the determinants in (5.4) and (5.6) can also be
+expressed as a particular generalised hypergeometric function. Such an observation
+implies, for instance, that
+(5.10)
+                                           k
+       2                 √                Y       j!       (1)
+    x−k /2 det[Iα+β−1 (2 x)]α,β=1,...,k =               0 F1 (; 2k; x1 , . . . , xk )|xj =x ,
+                                          j=1
+                                              Γ(j  + k)
+          (1)
+where 0 F1 (; c; x1 , . . . , xk ) has a series development about x1 , . . . , xk = 0 with an
+explicitly given coefficient for an arbitrary term. However this is not a practical
+or efficient way to compute the coefficients required in (5.4) or (5.6) for moderate
+or large k as it involves the hook lengths of Young diagrams associated with the
+partitions of k.
+    According to (1.9), (1.11) and (4.2)
+                                                  Z 4x                       
+                hard                                    ds                2
+(5.11)        Ẽ2 (4x; k, k; ξ = 1) = exp −                 (σIII (s) + k ) ,
+                                                                 ′
+                                                      0  s
+where σIII′ (s) satisfies the particular σ-Painlevé III′ equation
+                     ′′     2   ′       ′                   ′          k2
+(5.12)            (sσIII ′ ) + σIII′ (4σIII′ − 1)(σIII′ − sσIII′ ) −      = 0,
+                                                                       16
+subject to the boundary condition
+                                                 s
+(5.13)                   σIII′ (s) ∼ −k 2 +        + O(s2 ),     k ∈ N.
+                                  s→0            8
+Substituting
+                                                        s
+(5.14)                                σIII′ (s) = η(s) + ,
+                                                        8
+(5.12) reads
+                                       1               k2
+(5.15)                 (sη ′′ )2 + 4((η ′ )2 −
+                                         )(η − sη ′ ) − 2 = 0.
+                                      64               4
+We see immediately that η(s) can be expanded in an even function of s about s = 0,
+                                ∞
+                                X
+(5.16)                 η(s) =         cn s2n ,     c0 = −k 2 ,    k ∈ N.
+                                n=0
+         BOUNDARY CONDITIONS ASSOCIATED WITH THE PAINLEVÉ III′ AND V...                                 15
+
+
+Moreover the coefficients can be computed by a recurrence relation.
+
+Proposition 5.1. Substituting (5.16) in (5.15) shows
+                                                        1
+(5.17)                                     c1 =                 ,
+                                                   64(4k 2 − 1)
+while for p ≥ 2
+
+                                 1
+(5.18) cp =
+               2c1 p(2p − 1) + (2p − 1)/64 − 8pk 2 c1
+                                            p−2
+                                            X
+                                 ×   4k 2      (l + 1)(p − l)cl+1 cp−l
+                                            l=1
+                      p−2
+                      X
+                    −    (l + 1)(p − l)(2l + 1)(2p − 2l + 1)cl+1 cp−l
+                         l=1
+                                                                             p−1
+                                                                                                   !
+                                                                             X
+                                                                       −           (1 − 2l)cl Ap−l−1 ,
+                                                                             l=1
+
+where
+                                     q
+                                     X
+(5.19)                      Aq =           (l + 1)(q − l + 1)cl+1 cq−l+1 .
+                                     l=0
+
+Proof. With hl := (l + 1)(2l + 1)cl+1 we see
+                                     ∞
+                                     X                               p
+                                                                     X
+                          ′′ 2                       2p
+(5.20)              (sη ) = 4               Hp−1 s ,          Hp =         hl hp−l ,
+                                     p=1                             l=0
+
+and similarly with al := (l + 1)cl+1 we have
+                                           ∞
+                                           X                         p
+                                                                     X
+                           ′ 2        2             2p
+                     (sη ) = 4s                  Ap s ,       Ap =         al ap−l .
+                                           p=0                       l=0
+
+It follows from this latter result that
+                                                     ∞
+                             ′ 2    1                 X
+(5.21)                    (η ) −        (η − sη ′ ) =     Gp s2p ,
+                                   64                 p=0
+
+where
+                   p
+                   X                                       1
+            Gp =         (1 − 2l)cl bp−l ,        b0 = −      ,   bp = 4Ap−1           (p ≥ 1).
+                                                           64
+                   l=0
+
+Substituting (5.20) and (5.21) in (5.15) and equating like coefficients of s2p to zero
+shows that for p ≥ 1
+                                            Hp−1 + Gp = 0.
+
+This for p = 1 implies (5.17), and for p > 1 implies (5.18).                                             
+16                                    P.J. FORRESTER AND N.S. WITTE
+
+
+   Using Proposition 5.1 it is straightforward to calculate, via computer algebra,
+the first k coefficients in (5.16) for any particular value of k. Furthermore use of
+computer algebra gives the power series up to x2k of
+
+                   Ẽ2hard (4x; k, k; ξ = 1) and ex/2 Ẽ2hard (4x; k, k; ξ = 1),
+
+according to (5.11). From these power series the formulae (5.9) are used to compute
+bk and b′k . In [1] the first 15 values of both bk and b′k were tabulated. This can be
+rapidly extended using the present method. However the resulting rational numbers
+quickly become unwieldy to record. Let us then be content by presenting just the
+16th member of the sequences,
+                                              307·23581·92867·760550281759
+          b16 =                                                                                                 ,
+                   2272 ·3130 ·566 ·742 ·1124 ·1321 ·1716 ·1914 ·2310 ·296 ·315 ·373 ·412 ·432 ·47·53·59·61
+
+                       4148297603·7623077808870586151748455369217213506671334530597
+          b′16 =    264
+                                                                                                                .
+                   2      ·3133 ·566 ·742 ·1125 ·1321 ·1716 ·1914 ·2311 ·297 ·316 ·373 ·412 ·432 ·47·53·59·61
+
+
+                                          6. Acknowledgements
+
+    This work was supported by the Australian Research Council. PJF thanks M.
+Rubinstein for relating the results of [1] before publication, and for the organisers
+of the Newton Institute program ‘Random matrix approaches in number theory’
+held in the first half of 2004 for making this possible. NSW wishes to thank the
+organisers of the CRM program ‘Random Matrices, Random Processes and Inte-
+grable Systems’ held in Montreal 2005 for the opportunity to attend the program
+and in particular the hospitality of John Harnad during his stay.
+
+
+                                                   References
+[1] J.B. Conrey, M.O. Rubinstein, and N.C. Snaith. Moments of the derivative of the riemann
+    zeta-function and of characteristic polynomials. math.NT/0508378, 2005.
+[2] P. J. Forrester. Log Gases and Random Matrices.
+    http://www.ms.unimelb.edu.au/˜matpjf/matpjf.html.
+[3] P. J. Forrester and N. S. Witte. Application of the τ -function theory of Painlevé equations to
+     random matrices: PV, PIII, the LUE, JUE and CUE. Commun. Pure Appl. Math., 55:679–727,
+    2002.
+[4] P. J. Forrester and N. S. Witte. Discrete Painlevé Equations, Orthogonal Polynomials on the
+     Unit Circle and n-recurrences for averages over U (N ) – PIII′ and PV τ -functions. Int. Math.
+    Res. Not., 2004(4):159–183, 2004.
+[5] M. Jimbo. Monodromy problem and the boundary condition for some Painlevé equations.
+    Publ. Res. Inst. Math. Sci., 18(3):1137–1161, 1982.
+[6] J.-M. Normand. Calculation of some determinants using the s-shifted factorial. J. Phys. A,
+     37(22):5737–5762, 2004.
+[7] G. Szegö. Orthogonal Polynomials. Colloquium Publications 23. American Mathematical So-
+    ciety, Providence, Rhode Island, third edition, 1967.
+[8] E. T. Whittaker and G. N. Watson. A Course of Modern Analysis. Cambridge University
+     Press, Cambridge, 2nd edition, 1965.
+       BOUNDARY CONDITIONS ASSOCIATED WITH THE PAINLEVÉ III′ AND V...           17
+
+
+   Department of Mathematics and Statistics, University of Melbourne,Victoria 3010,
+Australia
+   E-mail address: p.forrester@ms.unimelb.edu.au
+   E-mail address: n.witte@ms.unimelb.edu.au
+
