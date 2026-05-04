@@ -1,0 +1,18 @@
+{
+  "unexpected_finds": [
+    {
+      "id": 1,
+      "title": "Bridge arxiv_pack pcf1_v1.3 contains the post-edit 21pp source, not the canonical 16pp deposit source",
+      "detail": "siarc-relay-bridge/sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/arxiv_pack_pcf1_v1.3/pack/p12_pcf1_main.tex (SHA 82173a09...) is byte-identical to the workspace tex/submitted/p12_journal_main.tex (also SHA 82173a09...), and the pack's 00README.txt explicitly says 'Expected page count: 21'. The runbook author at 2026-05-02 already knew the local-vs-Zenodo PDF hash mismatch (hash_match.json: match=false) and treated 21pp as canonical. The actual canonical 16pp v1.3 deposit source is preserved one day earlier at sessions/2026-05-01/PCF1-V13-UPDATE/p12_pcf1_main.tex (SHA e83bb377...), with PDF SHA 63420dbf... that byte-matches the Zenodo deposit. The 02 runbook session inadvertently re-packed the workspace post-edit state under the v1.3 label.",
+      "severity": "MEDIUM",
+      "implication_for_g12": "Recovery succeeded only because the bridge commit 58dfa9e from 2026-05-01 preserved both TeX and PDF inline; if only the 02 arxiv-pack had survived, recovery would have been infeasible from bridge alone."
+    },
+    {
+      "id": 2,
+      "title": "Workspace PCF-1 TeX (p12_journal_main.tex) is untracked in workspace .git",
+      "detail": "git ls-files --error-unmatch returned pathspec-not-found for tex/submitted/p12_journal_main.tex. The file lives only on the working tree of the workspace; no workspace-side history exists. All version control for PCF-1 v1.3 lives on the bridge repo, not the workspace repo.",
+      "severity": "LOW",
+      "implication_for_g12": "Workspace-side recovery routes are not available; bridge-side recovery is the sole recovery channel. Operator should be aware that workspace tex/submitted/*.tex files may need to be brought under explicit git tracking if future recovery probes are anticipated."
+    }
+  ]
+}
