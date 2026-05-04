@@ -1,0 +1,16 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-OKAMOTO-1987-IS-2-PARAMETER",
+      "summary": "Okamoto 1987 (FE 30) P_III' is canonically a 2-parameter family on V = {(theta_0, theta_inf)}, NOT a 4-parameter family. The eta_Delta normalization eta_Delta = 1 (Okamoto p.306) is universal in this paper. The 'alpha_inf, alpha_0, beta_inf, beta_0' 4-tuple labeling alleged in CT v1.3 sec.3.5 / Prompt 015 brief is from a different convention (Jimbo-Miwa Fuchs-style or Sakai D_6 surface), not Okamoto 1987.",
+      "implication": "G18 is convention-level only; resolved as labeling-correspondence (interpretation (a) per Prompt 020 sec.0).",
+      "severity": "LOW (informational)"
+    },
+    {
+      "id": "UF-BARHOUMI-2024-ALSO-2-PARAMETER",
+      "summary": "Barhoumi-Lisovyy-Miller-Prokhorov 2024 P_III(D_6) (slot 08) likewise uses 2 parameters (alpha, beta) plus monodromy parameters (e_1, e_2). No 4-tuple linear sum constraint appears in either primary acquired source.",
+      "implication": "The CT v1.3 sec.3.5 4-tuple labeling needs an explicit cite to its actual source convention (probably Jimbo-Miwa, Inventiones 1981, or Ohyama-Kawamuko-Sakai 2006). Out-of-scope here; flagged for v1.18 picture amendment.",
+      "severity": "LOW"
+    }
+  ]
+}
