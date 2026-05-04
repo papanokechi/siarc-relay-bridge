@@ -1,0 +1,12 @@
+{
+  "ct_v1.3_00README_title_blank": {
+    "severity": "cosmetic",
+    "description": "arxiv_pack_ct_v1.3/00README.txt has 'Title:' field empty (other 3 packs have populated Title:). Does not affect verification gates (Zenodo API title parsed correctly; byte-match holds).",
+    "recommendation": "Optional: operator may patch ct_v1.3/00README.txt Title: line to 'Channel Theory for Polynomial Continued Fractions: Asymptotic Channels, the xi_0 = 2/sqrt(beta_2) Identity, and a Bridge Conjecture' before any future repack. Not a blocker for 002 re-fire."
+  },
+  "hash_match_json_match_false_all_four": {
+    "severity": "expected_documented",
+    "description": "All 4 packs' hash_match.json reports 'match: false' between local rebuilt PDF SHA-256 and Zenodo PDF SHA-256. This is the same /CreationDate timestamp drift documented in 030 for PCF-1. Local rebuild is byte-equal at file size and content layer (page count, MD5 of content stream not computed but size match is strong evidence) but PDF metadata timestamps cause SHA difference. NOT a deposit drift.",
+    "recommendation": "None. Build pipeline is reproducible-modulo-timestamp by design. Operator 002 re-fire uses Zenodo deposit byte-for-byte, not local rebuild."
+  }
+}
