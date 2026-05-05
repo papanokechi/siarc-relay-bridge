@@ -1,1 +1,25 @@
-{}
+{
+  "discrepancies": [
+    {
+      "type": "bridge_HEAD_divergence",
+      "expected_per_spec": "5d83797",
+      "actual_at_fire_time": "c6d57ab",
+      "actual_at_re_fire_time": "ae37e5a",
+      "intervening_commits": ["4eb2ae7 (HALT_045 marker-only)", "c6d57ab (HALT_044 marker-only)", "ae37e5a (043' fire by CLI-Synthesizer)"],
+      "resolution": "Operator Option A waiver -- proceed; recorded in halt_log.json"
+    },
+    {
+      "type": "STRATEGYZER_HANDOFF_provenance_supersession",
+      "expected": "operator-pasted verbatim body",
+      "actual_at_fire_time": "synthesizer-reconstruction-from-summary (sha256=98e26139..., size=11100B) authored by CLI-Synthesizer in 043' fire ae37e5a under JC-043P-1 judgment call",
+      "actual_after_re_fire": "operator-pasted verbatim body (sha256=f6fc35af..., size=12323B)",
+      "resolution": "Pre-043 file preserved at tex/submitted/control center/synthesizer_inbox/STRATEGYZER_HANDOFF_2026-05-08.md.pre-043 for audit; bridge ae37e5a remains unchanged in git history; this re-fire commits the operator-verbatim version"
+    },
+    {
+      "type": "tool_state_inconsistency",
+      "observation": "PowerShell Test-Path on tex/submitted/control center/synthesizer_inbox/STRATEGYZER_HANDOFF_2026-05-08.md returned False during pre-flight; subsequent create_file reported the file already exists",
+      "actual_state": "File existed (98e26139... 11100B reconstruction from prior 043' fire); Test-Path discrepancy likely due to fresh shell or directory enumeration timing",
+      "impact": "None substantive -- discrepancy detected and resolved before any data loss; pre-043 preserved as .pre-043"
+    }
+  ]
+}

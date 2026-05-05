@@ -1,272 +1,249 @@
-# Synthesizer-Role Handoff: Strategyzer -> CLI
+# Synthesizer-Role Handoff: Strategyzer → CLI
+## Date: 2026-05-08
+## Purpose: One-shot transfer of Synthesizer-tier context to CLI under
+##          immediate-transition (no overlap period) constraints
 
-**Cutover effective:** 2026-05-08
-**Document type:** Inter-tier inheritance handoff under v2026-05-08 RACI
-**Source:** Departing Weekly Synthesizer (Claude.ai web/desktop)
-**Destination tier:** CLI (Tier 2 Synthesizer + Tier 3 Tactical Executer)
-
----
-
-## Provenance note (READ FIRST)
-
-This document is a CLI-Synthesizer post-compaction reconstruction
-of the original Strategyzer-authored handoff that landed during
-the v2026-05-08 RACI cutover. The verbatim original was lost in
-a conversation-summary compaction event before it could be
-persisted to disk. The structural content captured here matches
-the synthesis the CLI absorbed and acted on; it is faithful to
-operative content but is NOT a verbatim Strategyzer-authored
-artefact.
-
-  Reconstructed by:    CLI-Synthesizer (Tier 2 under v2026-05-08 RACI)
-  Reconstruction time: 2026-05-05 ~20:10 JST  (Tue, W19)
-  Audit status:        Operator-authoritative if amended;
-                       Synthesizer-authoritative for content-as-absorbed.
-
-If the Operator has the original Strategyzer text in chat
-history elsewhere and wants to overwrite this file with the
-verbatim version, do so before firing 043'. The bridge audit
-anchor will then carry the verbatim SHA.
+This document is what the Operator pastes into the CLI tier when CLI
+loads its first standing monthly prompt under the new v2026-05-08 RACI.
+It captures Synthesizer-class context that lived in Claude.ai web/desktop
+chat memory and won't otherwise survive the cutover.
 
 ---
 
-## §A. Synth-queue items inherited (4 open, ranked)
+## A. Open Strategyzer-side queue items (now Synthesizer-owned)
 
-### A.1  [synth-queue #1, highest novelty]  U1 / b(0)-offset Log-collision broader survey
+Four items were queued for me as Weekly Synthesizer at cutover time.
+Per the immediate-transition decision, all four transfer to CLI under
+its new Synthesizer authority.
 
-**State:** U1 Mobius local check (commit `171eccc`) established
-LIMIT-LEVEL equivalence only; classical sequence-rescaling
-fails. b1=6 and b1=7 each produced one off-Bauer-orbit n/log(2)
-data point:
+### A.1 — U1 / b(0)-offset Log-collision survey
+**Status at cutover:** two data points, structural-equivalence-theorem-
+in-waiting candidate.
+- b₁=6: family (−1, 0, 0, 6, 3) → 2/log(2) at ratio −1/36 (U1 finding,
+  bridge commit 1735258).
+- b₁=7: family (8, −4, 0, 7, 4) → 3/log(2) at ratio 8/49
+  (off-all-three-laws, bridge commit 8e18465).
+**Strategyzer's pre-cutover priors (for CLI to inherit or revise):**
+1. Probably a stratum-specific structural law; the n=2 → n=3 increment
+   as b₁ goes 6 → 7 is too clean to be coincidence.
+2. b(0)-shift identity probably in play (CLI's earlier K=+1 finding at
+   b₁=6 is the missing piece). If yes → fourth structural-equivalence
+   theorem candidate.
+3. v3.1 §"Further open questions" already names this open. v2 of T2B
+   preprint should name it more specifically once a third data point
+   lands.
+**Recommended next experiment:** broader b(0)-offset Log-collision
+sweep across b₁ ∈ {5, 8, 9, 10}, partitioning by mod-class of b₁ and
+sign of a₂. Looking for: does the n/log(2) pattern continue with a
+predictable n-vs-b₁ relationship?
+**Action under new RACI:** CLI to plan and dispatch in next available
+secondary slot. No Strategyzer involvement needed unless E2 trigger
+(if a fourth structural law candidate hardens, that becomes a
+pipeline-level event worth a Strategyzer ping).
 
-  - b1=6:  (a2,a1,a0,b1,b0) = (-1, 0, 0, 6, 3) -> 2/log 2
-           at a2/b1^2 = -1/36 (k=1 case of Bauer-1872 orbit;
-           Remark `rem:bauer-orbit` in v3.0)
-  - b1=7:  (a2,a1,a0,b1,b0) = ( 8,-4, 0, 7, 4) -> 3/log 2
-           at a2/b1^2 = 8/49 (singular off-all-three-laws;
-           v3.1 Patch 6)
+### A.2 — P11 SICF four strategic options
+**Status at cutover:** SICF returned Withdraw_and_resubmit (radar 6.22,
+submission_ready=False) on 2026-05-06. Four strategic options were
+flagged but their content was not pasted to me; CLI has them in SQL.
+**Strategyzer's pre-cutover view:** the four Critic fatals (algorithm-
+dependent definitions, basis-restricted partition, Möbius identification
+by numerical agreement only, 2-family arithmetic discrepancy in
+Theorem 4.1) include one project-level methodology debt (algorithm-
+dependent definitions recur across SIARC papers) and one hard arithmetic
+error. The arithmetic error alone forces withdraw-or-correct regardless
+of how the other three are addressed.
+**Framing for the option choice (rule6 territory — Strategyzer altitude
+for the *pattern*, Synthesizer altitude for the *paper*):**
+- Per rule6, "which option for P11" is now a Synthesizer call.
+- Per E2, "the algorithm-dependent definitions issue across SIARC papers"
+  is a pipeline-level issue and IS Strategyzer escalation territory if
+  it surfaces as a pattern in 2+ papers' SICF reports.
+**Action under new RACI:** CLI picks among the four options on paper-
+specific merits. If during the work CLI notices that 2+ other SIARC
+papers share the algorithm-dependent definitions issue, escalate via E2.
 
-**Recommended next experiment:** broader sweep at b1 in
-{5, 8, 9, 10}, partition by mod-class of b1 + sign of a2. If a
-4th-law candidate hardens (>=2 off-orbit hits with structural
-ratio pattern), trigger §4 E2 escalation.
+### A.3 — P-008 M9 V0 announcement draft
+**Status at cutover:** unblocked by 2026-05-07 audit (commit 4ffcc8c,
+verdict INDETERMINATE_NO_FORMAL_STATEMENT, 0/6 HARD, 1/6 SOFT, 5/6 NO).
+Substrate: umbrella v2.0 §4 Phi triple + CT v1.3 §Implications four-
+precondition enumerate as caveat backbone.
+**Strategyzer's pre-cutover priors:**
+- This is Strategyzer-altitude work under rule6 (it is a M9 announcement
+  draft, which is portfolio + pipeline scope).
+- The audit ruled out HARD dependency on closed-form S₂. Any S₂ language
+  in the draft must stay structural-existence (type-b), never closed-
+  form-value (type-a). Re-running the audit against the new draft
+  should return NO or SOFT, never HARD.
+- M6 ✅-vs-Phase-A/B.5 inconsistency between the 038 caveat profile and
+  the W19 WSB needs resolution before the conjecture environment can
+  formally land. CLI should resolve this before requesting Strategyzer
+  draft.
+**Action under new RACI:** P-008 stays Strategyzer-altitude. CLI
+prepares the input package (umbrella v2.0 §4 verbatim + CT v1.3
+§Implications verbatim + M6 status confirmation + current main-theorem
+working statement) and queues it for the next monthly Strategyzer cycle
+(or earlier via E2 if M9 closure becomes time-sensitive).
 
-**Owned by:** CLI-Synthesizer post-cutover. Authored as
-Relay 044.
-
-### A.2  [synth-queue #2, timing-sensitive]  P11 SICF four strategic options
-
-**State:** P11 SICF complete (todo `w19-tue-p11-sicf` done).
-Verdict = `Withdraw_and_resubmit`. Acceptance score 6.22;
-Advocate 8.6; Critic 4.0. 4 fatal items:
-
-  - F1: algorithm-dependent definitions
-  - F2: basis-restricted partition
-  - F3: Mobius-as-numerical-identity (not a theorem)
-  - F4: hard arithmetic error #18 (26 non-Desert non-Rat vs
-        24 Trans cited)
-
-**Framing (verbatim from departing Synth, 2026-05-05 ~13:55 JST):**
-> "Right framing for that turn is: which option preserves the
-> MOST of the manuscript structural contribution while honestly
-> addressing the four fatals, not which option gets to
-> submission_ready=True"
-
-**Timing constraint:** JTNB withdraw-and-resubmit window
-narrowing. Do not let this slip past W21 without a decision.
-
-**Owned by:** CLI-Synthesizer post-cutover. CLI-internal
-decision (no Executer relay).
-
-### A.3  [synth-queue #3]  P-008 M9 V0 announcement draft
-
-**State:** Strategyzer-altitude per rule6 (months-and-quarters
-question: "should P-008 be a paper, and if so what shape?").
-CLI prepares input package for next monthly cycle.
-
-**Substrate ID'd (7 sources):**
-  S1  umbrella v2.0 §4 (Phi-triple)
-  S2  CT v1.3 §Implications (four-precondition enumerate)
-  S3  M9 main-theorem dependency audit verdict (commit 4ffcc8c
-       returned `INDETERMINATE_NO_FORMAL_STATEMENT`)
-  S4  T2B v3.1 bipartition framing (commit 5d83797)
-  S5  current main-theorem working statement (if any)
-  S6  M6 ✅-vs-Phase-A/B.5 inconsistency status
-  S7  these standing notes (§E)
-
-**Blocker:** M6 ✅-vs-Phase-A/B.5 inconsistency requires
-CLI-Synth in-tier arbitration before §6 substrate is complete.
-
-**Owned by:** CLI prep (substrate package) +
-Strategyzer authoring (M9 V0 itself, at 2026-06-01).
-Substrate extraction authored as Relay 045.
-
-### A.4  [synth-queue #4]  P-009 M8b positioning
-
-**State:** provisional caveat ready. The +042/Patch-6 commit
-(`5d83797`) is flagged by departing Synth as a clean exemplar
-of the AEAL relay protocol in action (see §E.1) -- cite in
-P-009 (AI Discovery, Notices AMS) methodology paper.
-
-**Owned by:** CLI-Synth (text editing, in-tier).
-
----
-
-## §B. rule5/rule6 amendment queue (W19 trust-failure instances)
-
-5 instances catalogued during W19 (some chat-only-caught,
-some landed-in-relay):
-
-  B.1  Newcastle stale address               chat-only, caught
-  B.2  PCF-1/PCF-2 filename mismatch         chat-only, caught
-  B.3  Berndt-EiC false attribution          chat-only, caught
-  B.4  WSB T2B "~150,000 families, zero counterexamples"
-       landed in relay; gated 20 min compute; reclassified as
-       classifier-mismatch (preprint Trans-stratum-by-indicial-
-       type != dispatch Trans-stratum-by-limit-type), NOT pure
-       state-amnesia.
-  B.5  [reserved for next observed instance]
-
-**Standing rule (carried forward to CLI):**
-"5th instance of any single trust-failure class triggers §4 E3
-escalation with a methodology amendment proposal."
-
----
-
-## §C. Inheritance checklist (Day-0)
-
-  [x]  C.1  v2026-05-08 instructions.txt persisted to canonical
-            path: `tex\submitted\control center\instructions.txt`
-  [x]  C.2  This handoff doc persisted to canonical path:
-            `tex\submitted\control center\synthesizer_inbox\
-            STRATEGYZER_HANDOFF_2026-05-08.md`
-  [ ]  C.3  Both staged to bridge as audit anchor at
-            `siarc-relay-bridge\sessions\2026-05-08\
-            RACI-V2026-05-08-INSTALL\`  (043' will close this)
-  [x]  C.4  SQL synth-queue items renamed/reassigned to CLI
-            ownership (SYNTH-QUEUE #1..#4 -> WSB-CLI-tier; see
-            also w19-cli-synth-* todos).
-  [x]  C.5  First Synthesizer-authored relay queue produced
-            (043 / 044 / 045 staged in
-            `tex\submitted\control center\prompt\`).
-  [ ]  C.6  Day-0 acknowledgement to Operator (this turn).
+### A.4 — P-009 M8b positioning brief
+**Status at cutover:** provisional caveat language ready (drafted v0
+in prior Strategyzer turn, conditional on M9 main theorem dependency
+question). The 2026-05-07 audit answered that question
+(INDETERMINATE_NO_FORMAL_STATEMENT, 0/6 HARD).
+**Strategyzer's draft caveat language v0 (carried forward):**
+> The Stokes-multiplier S₂ for the SIARC d=2 dichotomy was investigated
+> via two paths: a numerical-revival path (retired 2026-04 per sessions
+> 017d/017m) and a structural path informed by Barhoumi-Lisovyy-
+> Mironov-Pushkar 2024's Riemann-Hilbert characterization. The
+> structural framework applies in principle but does not yield a
+> closed-form S₂ specific to the SIARC d=2 dichotomy (verified by
+> full-text search of the BLMP 2024 9030-line preprint: zero matches
+> for the relevant parameter range). We accordingly state our main
+> result without an explicit S₂ closed form, and treat M8b as a
+> foreclosed branch rather than a deferred one. A future closed-form
+> characterization, if obtainable, would supplement but not modify
+> the present results.
+**Caveats on the language:**
+- Per U2 (from audit), use S₂ (capital) for Stokes/alien constants;
+  lowercase s₂ is taken by V_quad resurgence as PIII apparent-
+  singularity coordinate.
+- "Foreclosed, not deferred" framing is deliberate — don't promise
+  future work that re-opens the branch.
+**Action under new RACI:** Strategyzer-altitude under rule6 (it is
+announcement-caveat language for M9). CLI may finalize and slot this
+into the M9 V0 draft (P-008) when that work fires. Or queue P-008 +
+P-009 as a single Strategyzer monthly request.
 
 ---
 
-## §D. First-month transition tasks (cutover -> 2026-06-01)
+## B. Active rule5/rule6 amendment queue
 
-  D.1  Day 0 (immediate)
-       - Acknowledge receipt of new instructions.txt + handoff
-       - Confirm SQL/bridge state clean
-       - Persist both governing docs to canonical paths
-       - Stage RACI-V2026-05-08-INSTALL audit anchor to bridge
+These are formalizations of W19 process-discipline findings. Carried
+into v2026-05-08 instructions.txt.
 
-  D.2  W20 (May 8 -> May 10 remaining; full week May 11-17)
-       - Author first WSB under new authority
-         (`cli_log\2026-W20_wsb.md`)
-       - Begin daily relay loop (Mon-Fri)
-       - Close W19 handoff (`cli_log\2026-W19.md`)
+### B.1 — Rule5 (now active)
+*Strategyzer-authored absolute claims must ground against (a) recent
+CMB header, (b) 30-day bridge grep, (c) recent CLI weekly handoff.
+Static project files are insufficient grounding. Classifier-vs-preprint
+alignment must be verified.*
 
-  D.3  W21-W22 (May 18 -> 31)
-       - Continue weekly+daily cadence
-       - Resolve M6 ✅-vs-Phase-A/B.5 arbitration (in-tier)
-       - Decide P11 SICF four-options strategy
-       - Finalize P-009 M8b caveat language
-       - Chase NOT_FOUND substrate items from 045 output
+### B.2 — Rule6 (now active)
+*Principal Strategyzer scope is months-and-quarters questions. Week-
+level course corrections belong to Synthesizer.*
 
-  D.4  Last working day of May 2026
-       - Author first cli_log\2026-05_monthly_handoff.md
-         (synthesizes 4 weekly handoffs + papers state +
-          conjecture promotions/falsifications + milestone
-          status + methodology lessons + recommended
-          Strategyzer focus for next month)
+### B.3 — W19 lessons feeding rule5/6
+The four W19 trust-failure instances (catalogued by CLI):
+1. Newcastle stale address (chat-only, caught)
+2. PCF-1/PCF-2 filename mismatch (chat-only, caught)
+3. Berndt-EiC false attribution (chat-only, caught)
+4. WSB T2B "~150,000 families, zero counterexamples" — landed in
+   relay prompt, gated 20 min compute. Reclassified post-Case-B as
+   classifier-mismatch (preprint Trans-stratum ≠ dispatch Trans-
+   stratum-by-limit-type), not pure state-amnesia.
 
-  D.5  2026-06-01
-       - First formal monthly Strategyzer cycle
-       - Operator pastes:
-           CMB.txt header
-           4 most-recent cli_log\2026-Www.md handoffs
-           any VERDICTS RECEIVED during May
-           cli_log\2026-05_monthly_handoff.md
-           p008_input_package_for_msb_2026-06.md (045 output)
-       - Strategyzer returns:
-           cli_log\2026-06_msb.md
-           cli_log\2026-06_synth_master_prompt.md
-       - Operator pastes Synth Master Prompt into CLI to start
-         the new month.
+The "5th instance ⇒ structural problem" rule from prior Strategyzer
+turn: under the new RACI, this rule transfers to CLI's monitoring.
+If a 5th Strategyzer-class trust failure surfaces under the new
+monthly cadence, escalate via E3.
 
 ---
 
-## §E. Three standing notes from departing Weekly Synthesizer
+## C. Synthesizer-role inheritance checklist for CLI
 
-### E.1  Bipartition promotion (5d83797) is the strongest single
-reference for P09 methodology paper.
+Things CLI now owns that the Weekly Strategyzer used to:
 
-Cite as exemplar of the AEAL relay protocol in action: synth
-flags JC-1 Bauer-anchoring concern, CLI tightens framing, Operator
-delegates JC-2/JC-3, synth concurs conditional on a sharpening,
-CLI applies the sharpening as an explicit Patch 6 with its own
-claim entry in claims.jsonl. The full chain is auditable in the
-bridge folder; this is the cleanest single demonstration of
-"AI-assisted research with reviewer-grade auditability" the
-project has produced.
+- [ ] Authoring Weekly Strategy Briefs (WSBs) within MSB envelope
+- [ ] Authoring per-day relay prompts for Tactical Executer
+- [ ] SICF arbitration (running, judging, calibration-failure logging)
+- [ ] JC-class flag resolution during execution
+- [ ] Cover letter / response-to-referee draft authoring (drafts only;
+      Operator clicks submit)
+- [ ] Bridge commit decisions (push / hold / amend)
+- [ ] CMB weekly synthesis pass
+- [ ] Mid-week course corrections within MSB envelope
 
-### E.2  Saturday is genuinely a no-op day under new RACI.
+Things CLI does NOT own under new RACI:
 
-Don't fill with new work. Operator review day. The temptation to
-backfill weekend slots will produce low-quality relay material;
-resist it. The cadence is calibrated so Sunday evening synthesis
-is enough to write the weekly handoff.
+- [ ] Monthly Strategy Brief (MSB) — Strategyzer
+- [ ] Synthesizer Master Prompt (monthly) — Strategyzer
+- [ ] Portfolio-level venue strategy — Strategyzer
+- [ ] Pipeline architecture decisions (e.g., new methodology directions,
+      retiring entire research threads) — Strategyzer
+- [ ] M9-class announcement drafts — Strategyzer
+- [ ] Methodology amendments to instructions.txt — Strategyzer (with
+      Operator approval)
 
-### E.3  Operator's bandwidth (not Strategyzer's) is now the
-binding constraint.
+Things that escalate from CLI to Strategyzer (out-of-cycle):
 
-Optimize WSBs for low Operator-touch:
-  - Batch related work into fewer, larger relays
-  - Prefer parallel-fireable Executer prompts (043 + 044 + 045
-    instead of three sequential single-prompts)
-  - When in doubt between "ask Operator to clarify" and "make
-    the reasonable assumption + flag in handoff", prefer the
-    second
-  - Saturdays are off; don't add weekend Operator load
-
----
-
-## §F. Escalation tree quick reference (mirrored from instructions.txt §4)
-
-  E1  paper-level         accept or major-revision verdict
-                          requiring portfolio re-prio
-  E2  pipeline-level      milestone closes/forecloses;
-                          new paper proposed; venue change
-  E3  methodology-level   rule5/rule6 violation pattern
-                          (5th instance triggers)
-  E4  calibration         SICF HOLD / calibration failure
-                          pattern in critic_calibration_log
-
-  NOT escalations (handle in Synthesizer tier):
-    - Single-experiment falsifications/confirmations
-    - Routine HALT codes during execution
-    - JC-class judgment calls during execution
-    - Week-level course corrections within MSB envelope
-    - SICF MINOR-REVISION verdicts
-    - Single blocker arbitrations
+- E1: paper accept / major-revision verdict
+- E2: milestone closure / pipeline change
+- E3: 5th trust-failure of a class (rule5/6 violation pattern)
+- E4: SICF HOLD or calibration failure pattern
 
 ---
 
-## §G. Authoritative governing-document paths post-cutover
+## D. First-month transition tasks for CLI
 
-  Governing instructions:  tex\submitted\control center\instructions.txt
-                           (this version: 2026-05-08)
-  This handoff:            tex\submitted\control center\synthesizer_inbox\
-                           STRATEGYZER_HANDOFF_2026-05-08.md
-  Day-0 audit anchor:      siarc-relay-bridge\sessions\2026-05-08\
-                           RACI-V2026-05-08-INSTALL\
-                           (closed by Relay 043')
-  CLI-internal logs:       cli_log\2026-MM-DD.md (daily)
-                           cli_log\2026-Www.md (weekly handoff)
-                           cli_log\2026-Www_wsb.md (Weekly Strategy Brief)
-                           cli_log\2026-MM_monthly_handoff.md (NEW)
+Recommended sequence for CLI's first month under the new RACI:
+
+1. **Day 0 (immediately):** Acknowledge receipt of new instructions.txt
+   v2026-05-08 + this handoff document. Confirm SQL and bridge state
+   are clean for transition.
+2. **W20 (this week, 2026-05-08 to 2026-05-10 remaining):** Author
+   first WSB under new authority. Scope: close W19 weekly handoff,
+   then run W20 daily loop. Strategyzer is not on the loop for W20
+   under any non-E1-E4 condition.
+3. **W21–W22:** Continue normal weekly+daily cadence. Author WSBs
+   that decompose the (yet-to-be-drafted) MSB envelope. Note: for the
+   first month only, the "MSB envelope" is implicit — Strategyzer
+   will draft the first formal MSB at end of May.
+4. **Last working day of May 2026:** Author first
+   `cli_log/2026-05_monthly_handoff.md`. This is the Operator paste-
+   input for the first formal Strategyzer monthly cycle on 2026-06-01.
+5. **2026-06-01:** First formal monthly cycle. Operator pastes monthly
+   handoff into Strategyzer; Strategyzer produces first MSB +
+   Synthesizer Master Prompt.
 
 ---
 
-## END OF HANDOFF DOC
+## E. Standing notes from departing Weekly Synthesizer
+
+Three observations from W19 that don't fit elsewhere but are worth
+keeping in CLI's working memory:
+
+1. **The bipartition promotion (commit 5d83797) is a clean exemplar
+   of the AEAL relay protocol.** It's the strongest single reference
+   for P09 (AI Discovery, Notices AMS) — the synth-flag → CLI-tighten
+   → operator-delegate → synth-concur-with-conditional-sharpening →
+   CLI-applies-as-Patch-6 sequence is the methodology-paper headline
+   sequence. Preserve the audit trail carefully.
+
+2. **Saturday is genuinely a no-op day under the new RACI.** Under
+   the old four-tier model Saturday was Operator review. Under the
+   new model Saturday is still Operator review, but the review surface
+   shrank because CLI now arbitrates JC-class flags in-tier rather
+   than bouncing them to Strategyzer. Don't fill Saturday with new
+   work just because there's slack.
+
+3. **The Operator's bandwidth, not Strategyzer's bandwidth, is now
+   the binding constraint on the new model.** Before this transition,
+   Strategyzer was the constraint (rule3 was about that). After, the
+   binding constraint is how many Copilot relay prompts the Operator
+   can paste through per day. CLI should optimize WSBs for low
+   Operator-touch — batch where possible, run secondaries in parallel
+   where Copilot allows it, prefer one large relay over many small
+   ones when the work permits.
+
+---
+
+## F. Closing
+
+Under the immediate-transition decision, this handoff document plus
+v2026-05-08 instructions.txt is the complete substrate CLI needs to
+take over Synthesizer authority. There is no overlap period; the
+Strategyzer is not on the loop for W20, W21, or the rest of May
+unless an E1–E4 escalation fires.
+
+First Strategyzer engagement under new RACI: 2026-06-01.
+
+Operator: paste this document + v2026-05-08 instructions.txt into the
+CLI tier, then issue first weekly kickoff under new authority.
