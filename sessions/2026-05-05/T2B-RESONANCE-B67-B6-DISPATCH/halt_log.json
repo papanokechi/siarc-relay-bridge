@@ -1,5 +1,8 @@
 {
   "reason": "Trans-stratum hit at positive ratio (counterexample to a2/b1^2 = -2/9)",
+  "reason_amended_2026_05_05_11_00_jst": "RECLASSIFIED: Brouncker boundary class member reconfirmed (NOT a counterexample to the preprint's conjecture). Operator-pasted DOI 10.5281/zenodo.19783312 abstract at ~10:55 JST clarifies that the preprint's 'Trans-stratum' is a TECHNICAL TERM excluding the 'Brouncker boundary class at ratio +1/4 (indicial double root 1/2)' which is named as 'a distinct stratum'. The (9,0,0,6,3) hit has a2/b1^2 = 9/36 = 1/4 -- it is a member of the Brouncker boundary class, NOT a Trans-stratum counterexample. Today's dispatch-script classifier labeled it 'Trans' under limit-type-only stratification (transcendental limit = Trans bucket); the preprint's stratum definition requires limit-type AND non-resonant indicial. CLASSIFIER MISMATCH, not falsification. The b1=6 sweep is therefore re-read as a SUCCESSFUL CROSS-RUN REPRODUCTION of the +1/4 Brouncker boundary class membership of (9,0,0,6,3). Synthesizer concurred 2026-05-05 ~10:55 JST; operator concurred 2026-05-05 ~10:58 JST. See sessions/2026-05-05/T2B-E1-AUDIT-STRUCTURAL-IDENTITIES/handoff.md for the structural-identity audit (a2 = b1^2/4 verified across 15/15 PLUS-QUARTER families).",
+  "verdict_label_amended": "BROUNCKER-BOUNDARY-MEMBER-RECONFIRMED",
+  "verdict_label_original": "COUNTEREXAMPLE-FOUND",
   "candidates": [
     {
       "ratio": "1/4",
@@ -49,8 +52,19 @@
         ],
         "residual": "0.0",
         "residual_lt_1e_200": true
-      }
+      },
+      "stratum_post_case_b": "brouncker_boundary",
+      "discriminant_identity_check_post_case_b": "a2 = b1^2/4 satisfied (9 = 36/4)"
     }
   ],
-  "is_reconfirmation_of_2026_04_29_finding": true
+  "is_reconfirmation_of_2026_04_29_finding": true,
+  "case_b_audit_trail": {
+    "operator_paste_zenodo_abstract_jst": "2026-05-05 ~10:55",
+    "synth_concurrence_jst": "2026-05-05 ~10:55",
+    "operator_concurrence_jst": "2026-05-05 ~10:58",
+    "audit_session": "sessions/2026-05-05/T2B-E1-AUDIT-STRUCTURAL-IDENTITIES",
+    "audit_commit": "f9b5f4f",
+    "false_trigger_diagnosis": "dispatch-script classifier (limit-type only) conflated with preprint stratum definition (limit-type AND indicial-type)",
+    "rule5_amendment_queued_for_w20": "Synthesizer-authored relay prompts that reference an empirical absolute claim from a preprint must verify the dispatch-side classifier matches the preprint-side stratum definition."
+  }
 }
