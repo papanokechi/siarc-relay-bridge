@@ -1,0 +1,23 @@
+{
+  "UF-E1-AUDIT-1": {
+    "finding": "Today's T2B-RESONANCE-B67-B6-DISPATCH sweep was scope-restricted to A2_VALUES = list(range(1, 31)), i.e., positive a2 only.",
+    "implication": "The -2/9 leg at b1=6 (predicted a2 = -8) was structurally excluded by the search design. The '1 Trans / 0 -2/9 hits' result is non-informative about the -2/9 leg.",
+    "severity": "medium",
+    "category": "search-design",
+    "next_action": "Sharpened relay prompt T2B-REFINED-V0-B6-RESWEEP must cover a2 in [-30, 30] \\ {0}."
+  },
+  "UF-E1-AUDIT-2": {
+    "finding": "Synthesizer's P-001 candidate refinement (split by sign of a2) is structurally equivalent to the discriminant-identity characterization (a2 = -2 b1^2/9 vs a2 = b1^2/4) which was already proven on 04-29 across both T2B-PLUS-QUARTER-SURVEY (15 families) and T2B-DELTA2-VERIFICATION (94 families).",
+    "implication": "The candidate refinement is not a fresh hypothesis to test on b1=6; it is a deductive consequence of the existing structural record. The relay prompt should test the structural identities directly (with third-stratum search) rather than the sign-only characterization.",
+    "severity": "low (sharpening, not falsification)",
+    "category": "synthesizer-spec-sharpening",
+    "next_action": "Sharpen T2B-REFINED-V0-B6-RESWEEP spec verdict logic to L- = {a2=-8} and L+ = {a2=9} loci; add third-stratum search."
+  },
+  "UF-E1-AUDIT-3": {
+    "finding": "PLUS-QUARTER singleton (9,0,0,6,3) has predicted mate (9,0,0,-6,-3) which has never been searched (outside both 04-29 F25 |a2|<=5 scope and today's b1=6 positive scope).",
+    "implication": "Closing the +1/4 orbit at |b1|=6 is a 30-second compute that should be folded into the refined-statement re-sweep.",
+    "severity": "low",
+    "category": "orbit-completeness",
+    "next_action": "Include (9, *, *, -6, *) candidate templates in T2B-REFINED-V0-B6-RESWEEP."
+  }
+}

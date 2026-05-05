@@ -1,0 +1,56 @@
+{
+  "reason": "Trans-stratum hit at positive ratio (counterexample to a2/b1^2 = -2/9)",
+  "candidates": [
+    {
+      "ratio": "1/4",
+      "coeffs": [
+        9,
+        0,
+        0,
+        6,
+        3
+      ],
+      "L_float": 3.819718634205478,
+      "info": {
+        "L": "3.81971863420548805845321032094",
+        "relation": [
+          12,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "basis": [
+          "1",
+          "L",
+          "pi",
+          "L*pi",
+          "pi^2",
+          "L*pi^2",
+          "log(2)",
+          "L*log(2)"
+        ],
+        "residual": "1.22197e-150"
+      },
+      "deep_verify": {
+        "L": "3.81971863420548805845321032094034468882703149777095476994402",
+        "relation": [
+          12,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "residual": "0.0",
+        "residual_lt_1e_200": true
+      }
+    }
+  ],
+  "is_reconfirmation_of_2026_04_29_finding": true
+}
