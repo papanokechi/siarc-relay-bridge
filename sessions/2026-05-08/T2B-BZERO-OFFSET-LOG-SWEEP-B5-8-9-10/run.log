@@ -1,0 +1,26 @@
+[INIT] script_sha256 = 718ea0e66bddeb401e36f6cb2687058c1a779ea6089b744d15548fe91539929d
+[ENUM] b1 in [5, 8, 9, 10]  a2 in -30..30 (excl 0)  free in -5..5  total=319440
+[STAGE A] float64 K=500 tol=1e-08
+  0%  (0/319440)  elapsed_a=0.0s
+  5%  (15972/319440)  elapsed_a=17.1s
+  10%  (31944/319440)  elapsed_a=33.8s
+  15%  (47916/319440)  elapsed_a=55.1s
+  20%  (63888/319440)  elapsed_a=72.3s
+  25%  (79860/319440)  elapsed_a=91.4s
+  30%  (95832/319440)  elapsed_a=109.4s
+  35%  (111804/319440)  elapsed_a=130.9s
+  40%  (127776/319440)  elapsed_a=149.3s
+  45%  (143748/319440)  elapsed_a=165.7s
+  50%  (159720/319440)  elapsed_a=183.3s
+  55%  (175692/319440)  elapsed_a=203.1s
+  60%  (191664/319440)  elapsed_a=225.5s
+  65%  (207636/319440)  elapsed_a=243.4s
+  70%  (223608/319440)  elapsed_a=268.0s
+  75%  (239580/319440)  elapsed_a=300.5s
+  80%  (255552/319440)  elapsed_a=324.4s
+  85%  (271524/319440)  elapsed_a=346.1s
+  90%  (287496/319440)  elapsed_a=363.9s
+  95%  (303468/319440)  elapsed_a=389.6s
+[STAGE A] 241892/319440 convergent in 423.6s
+[STAGE A] cache written -> stage_a_cache.json
+[STAGE B/C] PSLQ dps=150 N=600  workers...

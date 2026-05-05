@@ -1,0 +1,17 @@
+{
+  "discrepancy_count": 1,
+  "discrepancies": [
+    {
+      "id": "DISC_044_PSLQ_WALL_OVERRUN",
+      "type": "WALL_BUDGET_OVERRUN",
+      "expected_wall_hours": 2.0,
+      "hard_halt_threshold_hours": 3.0,
+      "actual_wall_hours": 3.22,
+      "overrun_minutes": 13,
+      "interpretation": "Stage B/C PSLQ at dps=150 N=600 with 8-element trans basis on 241892 convergent tasks ran 110+ min wall before halt. Per-task PSLQ time substantially exceeds B6/B7 prior estimate (where 79860 families completed in 31 min wall under same dps/N). Possible drivers: (a) Python 3.14 multiprocessing overhead higher than 3.12; (b) ProcessPoolExecutor.map chunksize=64 leaving long-tail chunks on a few workers; (c) higher fraction of hard-PSLQ cases at b1 in {5,8,9,10} relative to b1=6 (e.g. larger irrational L's that resist relation detection). NOT a halt-by-prescreen-discrepancy condition (this is a wall-time anomaly, not a count anomaly).",
+      "stage_a_per_b1_counts_below_threshold_check": "PASS (no >5% deviation flag possible without prior-stratum prediction; B6 gave 50785/79860 convergent at b1=6 = 63.6%; b1=5/8/9/10 gave 54.6%/75.1%/83.2%/90.0% respectively, monotone with b1, no anomaly).",
+      "action": "Halted per HALT IF wall>3hr; partial state pushed; re-fire recommended."
+    }
+  ],
+  "no_count_based_discrepancies": true
+}

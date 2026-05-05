@@ -1,0 +1,10 @@
+{
+  "off_orbit_n_log2_hit_count": null,
+  "note": "Stage B/C PSLQ classification did not complete (HALT_044_WALL_BUDGET_EXCEEDED at 3h13m wall). No PSLQ classifications were extracted from the running pool.map() call. Therefore no n/log(2) hits, on-orbit hits, off-orbit hits, Trans hits, Log hits, Phantom hits, or Desert classifications were produced for any of b1 in {5, 8, 9, 10}. The Outcome A/B/C tag (B7_STAYS_SINGULAR_BROADER / CANDIDATE_4TH_LAW_2POINTS / CANDIDATE_4TH_LAW_HARDEN) is undetermined.",
+  "anchor_known_outliers_excluded_from_sweep_for_reference": [
+    {"label": "b6_bauer_k1", "coeffs": [-1, 0, 0, 6, 3], "L": "2/log(2)", "ratio_a2_b1sq": "-1/36",
+     "note": "On Bauer 1872 orbit (k=1); not in this sweep range; cited only as v3.1 anchor."},
+    {"label": "b7_singular", "coeffs": [8, -4, 0, 7, 4], "L": "3/log(2)", "ratio_a2_b1sq": "8/49",
+     "note": "Off all three v3.1 laws; not in this sweep range; cited only as v3.1 Patch-6 anchor."}
+  ]
+}
