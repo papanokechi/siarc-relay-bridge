@@ -1,0 +1,34 @@
+[ENUM] b1=[6]  a2=1..30  free=-5..5  total=39930
+[STAGE A] float64 K=500 tol=1e-08
+  0%  (0/39930)
+  4%  (1996/39930)
+  9%  (3992/39930)
+  14%  (5988/39930)
+  19%  (7984/39930)
+  24%  (9980/39930)
+  29%  (11976/39930)
+  34%  (13972/39930)
+  39%  (15968/39930)
+  44%  (17964/39930)
+  49%  (19960/39930)
+  54%  (21956/39930)
+  59%  (23952/39930)
+  64%  (25948/39930)
+  69%  (27944/39930)
+  74%  (29940/39930)
+  79%  (31936/39930)
+  84%  (33932/39930)
+  89%  (35928/39930)
+  94%  (37924/39930)
+  99%  (39920/39930)
+[STAGE A] 39926/39930 convergent in 54.0s
+[STAGE B/C] PSLQ dps=150 N=600  workers...
+[STAGE B/C] done in 1049.2s
+[HALT-CHECK] 1 Trans candidate(s); deep-verify
+  [9, 0, 0, 6, 3]  deep={'L': '3.81971863420548805845321032094034468882703149777095476994402', 'relation': [12, 0, 0, -1, 0, 0, 0, 0], 'residual': '0.0', 'residual_lt_1e_200': True}
+
+Wrote C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-05-05\T2B-RESONANCE-B67-B6-DISPATCH\results_b6.json
+Counts: {'Desert': 39154, 'Alg': 722, 'Rat': 49, 'Trans': 1}
+Trans=1 Log=0 Phantom=0
+Total wall: 1103.6s
+results_b6.json SHA256: 6dccb1be098c47c3acb4d4c17e8cc52dc21e93f49b617a7dffe409d228ff663d
