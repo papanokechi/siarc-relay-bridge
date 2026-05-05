@@ -1,0 +1,34 @@
+[ENUM] b1=[6]  a2=-30..30 (excl 0)  free=-5..5  total=79860
+[STAGE A] float64 K=500 tol=1e-08
+  0%  (0/79860)
+  5%  (3993/79860)
+  10%  (7986/79860)
+  15%  (11979/79860)
+  20%  (15972/79860)
+  25%  (19965/79860)
+  30%  (23958/79860)
+  35%  (27951/79860)
+  40%  (31944/79860)
+  45%  (35937/79860)
+  50%  (39930/79860)
+  55%  (43923/79860)
+  60%  (47916/79860)
+  65%  (51909/79860)
+  70%  (55902/79860)
+  75%  (59895/79860)
+  80%  (63888/79860)
+  85%  (67881/79860)
+  90%  (71874/79860)
+  95%  (75867/79860)
+[STAGE A] 50785/79860 convergent in 66.0s
+[STAGE B/C] PSLQ dps=150 N=600  workers...
+[STAGE B/C] done in 1460.6s with 7 workers
+[STAGE D] 4 Trans candidate(s); deep-verify dps=300 N=1500
+  [-8, -4, 4, 6, 4]  ratio=-2/9  ic=trans_stratum_proper  deep={'L': '2.77796905929668542123880922409206227652515473408781440958217', 'relation': [0, 0, 8, -2, 2, -1, 0, 0], 'residual': '0.0', 'residual_lt_1e_200': True}
+  [-8, 4, 0, 6, 2]  ratio=-2/9  ic=trans_stratum_proper  deep={'L': '1.27323954473516268615107010698011489627567716592365158998134', 'relation': [-4, 0, 0, 1, 0, 0, 0, 0], 'residual': '0.0', 'residual_lt_1e_200': True}
+  [-8, 4, 0, 6, 4]  ratio=-2/9  ic=trans_stratum_proper  deep={'L': '3.50387678776821732240781940302290775850079601361148312728094', 'relation': [-4, -2, 0, 1, 0, 0, 0, 0], 'residual': '1.4932218e-300', 'residual_lt_1e_200': True}
+  [9, 0, 0, 6, 3]  ratio=1/4  ic=brouncker_boundary  deep={'L': '3.81971863420548805845321032094034468882703149777095476994402', 'relation': [12, 0, 0, -1, 0, 0, 0, 0], 'residual': '0.0', 'residual_lt_1e_200': True}
+[VERDICT] BIPARTITION_HOLDS
+[SPOT-CHECK] singleton-mate (9,0,0,-6,-3) at dps=300 N=1500
+  singleton-mate deep: {'L': '-3.81971863420548805845321032094034468882703149777095476994402', 'relation': [-12, 0, 0, -1, 0, 0, 0, 0], 'residual': '0.0', 'residual_lt_1e_200': True}
+[DONE] wall=1527.6s  verdict=BIPARTITION_HOLDS
