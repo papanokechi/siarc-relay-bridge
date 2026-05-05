@@ -1,0 +1,131 @@
+{
+  "U1": {
+    "bipartition_impact": "NONE -- bipartition is on Trans stratum (Trans-stratum-proper + brouncker_boundary). This is a Log family, not Trans. Verdict BIPARTITION_HOLDS unaffected.",
+    "title": "Log family at ratio -1/36 numerically equals L- Log family limit (2/log(2))",
+    "ratio_off_locus": "-1/36",
+    "next_action": "FLAG_FOR_SYNTHESIZER -- recommend a follow-up Mobius-equivalence check between the two PCFs before treating as a counterexample. If equivalent, the preprint claim is unaffected (just a representative-class artifact). If genuinely distinct, this is the first off-locus Log family at b1=6 and warrants amendment of the preprint v2.",
+    "preprint_impact": "MILD -- preprint (DOI 10.5281/zenodo.19783312) claimed F(2,5) confirms 56 Trans and 12 Log families, all with the same ratio [-2/9]'. A Log family at ratio -1/36 is technically a counterexample to the \u0007ll Log at -2/9' formulation, IF it is a genuinely-distinct family rather than an equivalence-collapse of the L- Log family.",
+    "relation": [
+      -2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "L_value": "2.885390081777926814719849362",
+    "coeffs_off_locus": [
+      -1,
+      0,
+      0,
+      6,
+      3
+    ],
+    "discriminant_identity_class": "neither",
+    "interpretation": "Same constant 2/log(2) as the L-/Log hit (-8, 0, 0, 6, 4) at ratio -2/9. Either a numerical coincidence or an underlying Mobius-equivalence between (-1, 0, 0, 6, 3) and (-8, 0, 0, 6, 4)."
+  },
+  "log_records": [
+    {
+      "locus_status": "ON_L_MINUS",
+      "relation": [
+        -2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "ratio": "-2/9",
+      "coeffs": [
+        -8,
+        0,
+        0,
+        6,
+        4
+      ],
+      "residual": "1.52747e-151",
+      "L": "2.885390081777926814719849362",
+      "ic": "trans_stratum_proper"
+    },
+    {
+      "relation": [
+        -2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "residual": "1.52747e-151",
+      "flag": "U1_NUMERICAL_COINCIDENCE_OR_MOBIUS_EQUIVALENCE",
+      "L": "2.885390081777926814719849362",
+      "locus_status": "OFF_BOTH_LOCI",
+      "ratio": "-1/36",
+      "coeffs": [
+        -1,
+        0,
+        0,
+        6,
+        3
+      ],
+      "ic": "neither"
+    }
+  ],
+  "U3": {
+    "next_action": "INFORMATIONAL -- archive as direct verification of 2026-04-29 finding singleton + 017f sign-flip lemma. Already present in T2B-RESONANCE-B67-B6-DISPATCH/handoff.md.",
+    "L_value": "-3.81971863420548805845321032094034468882703149777095476994402",
+    "relation": [
+      -12,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Singleton-mate (9, 0, 0, -6, -3) confirmed at L = -12/pi",
+    "coeffs": [
+      9,
+      0,
+      0,
+      -6,
+      -3
+    ],
+    "interpretation": "Sign-flip mate of the b1=6 L+ hit (9, 0, 0, 6, 3) at L = +12/pi. Confirms the structural symmetry a_n(-c) = (-1)^n * a_n(+c) (017f STRUCTURAL FINDING from 2026-05-03) propagates through the limit at b1=-6: L(-c) = -L(+c) for this Brouncker-boundary family.",
+    "bipartition_impact": "NONE -- out of main sweep (b1=-6 not in B1_VALUES=[6]). Spot-check confirms expected mate."
+  },
+  "phantom_records": [],
+  "U2": {
+    "L_values": [
+      "(8*pi + 2*pi^2)/(2*pi + pi^2) approx 2.77797",
+      "4/(pi-2) approx 3.50388"
+    ],
+    "title": "Two more Trans hits at b1=6 on L- locus discovered by negative-a2 extension",
+    "coeffs": [
+      [
+        -8,
+        -4,
+        4,
+        6,
+        4
+      ],
+      [
+        -8,
+        4,
+        0,
+        6,
+        4
+      ]
+    ],
+    "interpretation": "Both new hits land on the predicted L- locus (a2=-8). Yesterday's b1=6 sweep at a2 in [1,30] missed these because it did not include negative a2. Today's [-30,30]\\\\{0} extension recovers them and they obey the bipartition perfectly. Brings b1=6 L- count to 3 + the 2 yesterday-hits at (b0=2 family) = a more complete Trans-stratum-proper roster on L-.",
+    "bipartition_impact": "NONE -- both hits are on L-, ic=trans_stratum_proper, ratio=-2/9 as predicted.",
+    "next_action": "INFORMATIONAL -- include in preprint v2's empirical-base count as part of the cleaned b1=6 sweep. Operator may consider re-running the b1 in {3, 5} sweeps with negative-a2 extension for completeness."
+  }
+}
