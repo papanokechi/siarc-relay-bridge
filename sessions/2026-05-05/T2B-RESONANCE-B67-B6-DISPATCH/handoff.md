@@ -141,3 +141,39 @@ but **NOT pushed** per E1.)
 ## AEAL claim count
 
 4 entries written to `claims.jsonl` this session.
+
+---
+
+## CASE-B AMENDMENT — 2026-05-05 ~11:00 JST (post-operator-paste of preprint abstract)
+
+**Status: VERDICT LABEL RECLASSIFIED. Original `COUNTEREXAMPLE-FOUND` → `BROUNCKER-BOUNDARY-MEMBER-RECONFIRMED`.**
+
+Operator pasted the PCF-2 v1.3 preprint abstract (DOI 10.5281/zenodo.19783312) at ~10:55 JST. The conjecture statement (verbatim):
+
+> "We conjecture (Transcendental Ratio Identity) that for any convergent integer-coefficient degree-(2,1) PCF whose limit is **Trans-stratum**, a_2/b_1^2 = -2/9, equivalently the associated three-term recurrence has indicial exponents {1/3, 2/3} at infinity. **A separate Brouncker boundary class at ratio +1/4 (indicial double root 1/2, 14 families at D=5) is identified as a distinct stratum.**"
+
+The preprint's "Trans-stratum" is a TECHNICAL TERM that EXCLUDES the "Brouncker boundary class at +1/4". The (9,0,0,6,3) hit has `a₂/b₁² = 9/36 = 1/4` ⇒ Brouncker boundary class member, NOT a Trans-stratum (proper) counterexample.
+
+Today's dispatch-script classifier labeled (9,0,0,6,3) as `Trans` under limit-type-only stratification (transcendental limit ⇒ Trans bucket); the preprint's stratum definition requires limit-type AND non-resonant indicial. **Classifier mismatch, not falsification.**
+
+This sweep is therefore re-read as a **successful cross-run reproduction of the +1/4 Brouncker boundary class membership of (9,0,0,6,3)** — evidence FOR the preprint's bipartition, not against it.
+
+### Audit trail
+
+- Synthesizer concurrence (round-2 declined): 2026-05-05 ~10:55 JST. Verbatim: "Round 2 not requested — holding... 7 is coprime to both 3 and 2, so the bipartition predicts zero Trans hits and zero Brouncker hits [at b₁=7]. Any reproducible Trans-stratum hit at b₁=7 falsifies the bipartition-only-loci claim and re-opens the question... it's now a pre-registered prediction with binary outcome."
+- Operator concurrence: 2026-05-05 ~10:58 JST.
+- Companion CLI audit: `sessions/2026-05-05/T2B-E1-AUDIT-STRUCTURAL-IDENTITIES/` (commit `f9b5f4f`) — verifies discriminant identity `a₂ = b₁²/4` across all 15 PLUS-QUARTER-SURVEY families and `a₂ = −2 b₁²/9` across the DELTA2-VERIFICATION 78/94 partition.
+
+### Rule5 amendment (synth-authored, queued for W20 instructions.txt)
+
+> "Synthesizer-authored relay prompts that reference an empirical absolute claim from a preprint must verify the dispatch-side classifier matches the preprint-side stratum definition."
+
+### Downstream consequences
+
+- Wed b₁=7 dispatch (originally cancelled per false-trigger framing) **RE-INSTATED** as a strong-null pre-registered binary test. Predicts 0 Trans-stratum (proper) hits (`9 ∤ 49`) AND 0 Brouncker boundary hits (`4 ∤ 49`).
+- Tue secondary slot will fire `T2B-BIPARTITION-B6-VERIFICATION` (relay 039 reframed; same parameters) which verifies the preprint's stated bipartition at b₁=6 with both signs of a₂.
+- PCF-1 v1.3 manuscript (`pcf_unified_expmath_submission.tex`) audit confirmed: ZERO T2B-conjecture citations. The `2/9` mention is an internal asymptotic for the specific Pi-family CF studied; the `Brouncker` mentions are structural comparison to Brouncker's classical CF for `4/π`. The Zudilin endorsement track is not affected.
+
+### Verdict-label note
+
+The `halt_log.json` has been amended in place with a `reason_amended_2026_05_05_11_00_jst` field, a `verdict_label_amended` field, a `case_b_audit_trail` block, and per-candidate `stratum_post_case_b: brouncker_boundary` + `discriminant_identity_check_post_case_b: "a2 = b1^2/4 satisfied (9 = 36/4)"` fields. The original verdict label and reason are preserved as `verdict_label_original` and `reason` for audit completeness.
