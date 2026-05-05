@@ -1,0 +1,24 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "schema-fragment-coverage",
+      "description": "Channel Theory v1.3 sec 'Implications for the Master Conjecture' (L1336-1349) contains the most explicit precondition list for the Master Conjecture announcement found anywhere in the workspace - a 4-item enumerate environment naming op:cc-monodromy-RH, op:no-go-proof, op:bridge-witness-tier, op:xi0-degree-d. This is closer to a draft Phi caveat-backbone than the umbrella v2.0 schema-only treatment, and may be the natural starting point for synthesizer P-008. Item 1 names 'the full Stokes-matrix datum' which is the strongest Stokes-side invocation across all schema fragments; type (b) structural, not type (a) closed-form-value.",
+      "actionability": "synthesizer P-008 should consider absorbing CT v1.3 sec 'Implications' four-item list verbatim or with light editorial polish into the M9 announcement caveat framing",
+      "ranks_higher_than_expected_in_audit": true
+    },
+    {
+      "id": "U2",
+      "category": "synonym-disambiguation",
+      "description": "vquad_resurgence_R1.tex / R2.tex use s_1, s_2 as PIII apparent-singularity coordinates (NOT Stokes constants). Confirmed by reading line context (L306 'sending $s_1\\mapsto 0$, $s_2\\mapsto 1$ followed by a gauge'; L574-575 'p_0(s_2) = 1 exactly, q_0(s_2) = 0 exactly'). Synthesizer should be careful with notation if the M8b discussion ever appears alongside V_quad resurgence material - 's_1, s_2' (singularity coordinates) and 'S_1, S_2' (Stokes / alien constants) are distinct objects sharing a typographic motif.",
+      "actionability": "ensure P-008/P-009 caveat language consistently uses 'S_2' (capital, with explicit subscript) for Stokes/alien constants and avoids ambiguity with PIII singularity coordinates",
+      "scope": "editorial / disambiguation"
+    },
+    {
+      "id": "U3",
+      "category": "schema-vs-formal-gap",
+      "description": "The picture v1.18 M9 block describes Phi as 'formally stated' as a precondition state but no such formal statement exists yet on disk. This is a SCHEMA-LEVEL TENSE MISMATCH: the picture treats 'Phi formally stated' as the M9 milestone exit-condition, while the umbrella v2.0 explicitly schedules MASTER-V0 to a future companion paper. The two are reconcilable (M9 closure = drafting + landing the formal statement = filling the umbrella v2.0 'Planned' slot) but worth flagging because synthesizer P-008's job is precisely to bridge this gap.",
+      "actionability": "P-008 should produce the formal statement that M9 declares as closed; this audit's INDETERMINATE verdict will then resolve to NO_DEPENDENCY or SOFT_DEPENDENCY on re-audit"
+    }
+  ]
+}
