@@ -1,64 +1,51 @@
-# Handoff --- RACI-V2026-05-08-INSTALL
-
-**Date:** 2026-05-08 (cutover effective)  /  Anchored on 2026-05-05 ~20:18 JST
-**Agent:** GitHub Copilot CLI (acting as both Tier 2 Synthesizer + Tier 3 Tactical Executer in the same session)
-**Session duration:** ~25 min (from 043' authoring at ~20:15 to push at ~20:18)
+# Handoff --- RACI-V2026-05-08-INSTALL (re-fire)
+**Date:** 2026-05-08
+**Agent:** GitHub Copilot (VS Code chat agent)
+**Session duration:** ~30 minutes (across three relay-prompt fires; first two HALTed on missing operator pastes)
 **Status:** COMPLETE
 
 ## What was accomplished
 
-Persisted v2026-05-08 `instructions.txt` + `STRATEGYZER_HANDOFF_2026-05-08.md` to canonical workspace paths and to bridge as audit anchor.  No math claims; pure provenance.
-
-Original Relay 043 (chat-paste variant) fired in a fresh Executer session and halted correctly on `HALT_043_OPERATOR_PASTE_MISSING` because both governing-doc bodies were lost in conversation compaction before the Executer could see them.  CLI-Synthesizer authored 043' (read-from-disk variant), wrote both bodies to disk -- `instructions.txt` verbatim from cached context; handoff doc as Synthesizer-reconstruction-from-summary -- and executed 043' STEP 1-7 in-tier.
-
-### rule5 grounding evidence (3/3 sources):
-  (a) CMB header timestamp: 2026-05-05T20:02:34+09:00
-  (b) Bridge 30-day grep: HEAD=c6d57ab; 8 most-recent commits visible incl.
-      c6d57ab T2B-BZERO-OFFSET-LOG-SWEEP-B5-8-9-10 (HALT_044_RACI_NOT_INSTALLED)
-      4eb2ae7 P008-INPUT-PACKAGE-FOR-MSB-2026-06 (HALT_045_RACI_NOT_INSTALLED)
-      5d83797 PCF-2-V2-BIPARTITION-PROMOTION (v3.1 staging)
-  (c) Latest cli_log: cli_log/2026-05-05.md, 69,467 B, last write 20:02:37 JST.
+Executed relay prompt 043 "RACI V2026-05-08 INSTALL" as an AUDIT-ANCHOR with no math claims. Wrote the operator-pasted v2026-05-08 `instructions.txt` and the operator-pasted `STRATEGYZER_HANDOFF_2026-05-08.md` verbatim to canonical workspace paths under `tex/submitted/control center/`, then staged copies to `sessions/2026-05-08/RACI-V2026-05-08-INSTALL/` in the bridge with provenance manifests. Bridge already contained a prior CLI-Synthesizer "043-prime" fire (commit ae37e5a) that had used a synthesizer-reconstruction handoff doc; this re-fire replaces the reconstruction with the operator-verbatim body. The pre-existing reconstruction is preserved at `tex/submitted/control center/synthesizer_inbox/STRATEGYZER_HANDOFF_2026-05-08.md.pre-043` for audit.
 
 ## Key numerical findings
 
-None.  Substrate-only deliverable.
+None. Substrate-only deliverable.
 
 ## Judgment calls made
 
-**JC-043P-1 (Synthesizer-class, in-tier):** authored `STRATEGYZER_HANDOFF_2026-05-08.md` as a CLI-Synthesizer post-compaction reconstruction rather than asking Operator to re-paste verbatim original.  Trade-off: lower fidelity but unblocks Day-0 audit anchor (and was already blocking 044 + 045 re-fires per c6d57ab + 4eb2ae7).  Operator can overwrite with verbatim original at any time and the bridge will preserve both versions in subsequent commits.  The handoff doc carries an explicit Provenance note in its §header marking this fact for any reader.
-
-**JC-043P-2 (Executer-class, in-tier):** committed only the new `sessions/2026-05-08/RACI-V2026-05-08-INSTALL/` folder via path-specific `git add`.  Bridge working tree has 5+ pre-existing modified files in `sessions/2026-04-29/T2B-RESONANCE-B67/` and many untracked files from older sessions; these are not from this turn's work and were intentionally NOT staged.
+- **Option A waiver for P3 HEAD-pin (operator-authorized):** the relay prompt P3 precondition required bridge HEAD = 5d83797 (PCF-2-V2-BIPARTITION-PROMOTION). At fire time HEAD was c6d57ab (after two halt-marker-only commits 4eb2ae7 + c6d57ab), and at re-fire time HEAD was ae37e5a (the prior 043' fire). The operator chose "Option A -- waive P3 HEAD-pin and proceed" since none of the intervening commits represent substrate changes outside the 043 install scope itself. Recorded in halt_log.json.
+- **Supersession decision (in-tier, agent):** the workspace-side STRATEGYZER_HANDOFF_2026-05-08.md was found to pre-exist with content matching the prior 043' fire's synthesizer-reconstruction (sha256=98e26139..., 11100B). Per relay-prompt STEP 3, the destination must be the operator-pasted body verbatim. The pre-043 reconstruction was preserved as `.pre-043` and the path overwritten with the operator paste (sha256=f6fc35af..., 12323B). The bridge ae37e5a commit is unchanged in git history; this re-fire commits the verbatim version forward.
+- **Aux-file rewrite scope:** rewrote `claims.jsonl`, `halt_log.json`, `discrepancy_log.json`, `unexpected_finds.json`, and `handoff.md` from scratch for this re-fire rather than appending to the ae37e5a versions. The ae37e5a versions remain available via `git show ae37e5a:...`.
 
 ## Anomalies and open questions
 
-**A.1** Original Strategyzer-authored handoff doc verbatim is unavailable post-compaction.  If the Operator can recover it from any persistent storage (notes, separate chat archive, screenshot OCR), prefer that text over the reconstructed version.  Proposed amendment vehicle: a follow-up `RACI-V2026-05-08-AMEND` bridge session that (a) replaces the file content, (b) records the verbatim SHA-256 alongside the reconstruction SHA-256 in claims.jsonl, (c) commits with message `RACI-V2026-05-08-AMEND --- restore Strategyzer-authored verbatim handoff over CLI reconstruction`.
-
-**A.2** instructions.txt was found pre-existing at the canonical path with correct v2026-05-08 content (size 20,774 B / 420 lines) -- this differs from the W19 master prompt's audit which reported "no existing instructions*.txt found".  Cannot determine whether (a) the file was written between the audit and this turn by another mechanism, (b) the audit was incomplete, or (c) my own create attempt earlier in this turn succeeded despite returning "already exists" (writeable racy intermediary).  Either way, content checks pass and the file was used as the canonical source.  Flagged for Synthesizer review.
+- **Bridge HEAD divergence at fire time** (resolved by Option A waiver): expected 5d83797 per relay spec; actual c6d57ab → ae37e5a. The two intervening halt-marker commits (HALT_044 + HALT_045) are correctly the result of those prompts' P1 preconditions failing because v2026-05-08 RACI had not yet landed. After this re-fire lands and is pushed, 044 and 045 can re-fire normally.
+- **Prior 043' fire on bridge (ae37e5a)**: a CLI-Synthesizer agent ran an internal "read-from-disk" variant of 043 around 2026-05-05 20:18 JST. That fire used a synthesizer-reconstruction-from-summary for the handoff doc (carrying its own provenance note). This Copilot re-fire replaces it with the operator-verbatim body. Both versions are preserved (ae37e5a in git, .pre-043 on disk).
+- **PowerShell Test-Path / create_file inconsistency** (resolved): pre-flight Test-Path on the handoff destination returned False, but the subsequent create_file reported file-exists. Get-Item confirmed file existed (the 043' reconstruction). Most likely a stale directory-enumeration cache; no data loss. Documented in `discrepancy_log.json`.
+- **No math, no rule5/grounding obligations beyond installing them**: this was a pure provenance / governance fire. Rule5 grounding is now MANDATORY for subsequent Strategyzer-class claims; see §1 of installed instructions.txt.
 
 ## What would have been asked (if bidirectional)
 
-"Operator, do you have the original Strategyzer-authored handoff text in any persistent storage (notes app, copied to a separate chat, screenshot)?  If so, paste it now; I'll overwrite the reconstruction.  If not, the reconstruction stands."
+Two questions that would have been asked mid-session if the channel allowed:
+1. "Should the supersession of ae37e5a's reconstruction-handoff be a separate commit (this one) or done as a force-push amendment to ae37e5a?" — chose separate commit, since ae37e5a's audit-trail value (showing the JC-043P-1 reconstruction judgment call) is worth preserving in linear history.
+2. "Is the pre-043 reconstruction copy at .pre-043 to be retained indefinitely, or removed once the operator confirms the verbatim is canonical?" — left in place pending operator decision.
 
 ## Recommended next step
 
-Operator can now fire 044 (b(0)-offset broader Log sweep at b1 in {5,8,9,10}) -- synth-queue #1, highest novelty.  Prompt 045 (P-008 input package extraction) can fire in parallel with 044 since substrates are disjoint.  Both 044 and 045 had previously halted on absence of this audit anchor (commits c6d57ab + 4eb2ae7) and are now unblocked.
-
-CLI-Synth in-tier work (no Executer relay) over the rest of W19:
-  - M6 ✅-vs-Phase-A/B.5 arbitration verdict (substrate for 045 §7)
-  - A.4 P-009 M8b caveat finalization (cite +042/Patch-6 as AEAL exemplar)
-  - A.2 P11 SICF four-options decision (timing-sensitive; JTNB window)
-  - W19 closing handoff + W20 WSB by Sunday 2026-05-10
+Fire 044 (A.1 broader b(0)-offset Log-collision sweep at b₁ ∈ {5,8,9,10}). Synthesizer-tier note: prompt 045 (P-008 input package extraction) can fire in parallel with 044 since substrates are disjoint. Both prompts' P1 preconditions are now satisfied by this commit.
 
 ## Files committed
 
-  sessions/2026-05-08/RACI-V2026-05-08-INSTALL/instructions.txt
-  sessions/2026-05-08/RACI-V2026-05-08-INSTALL/STRATEGYZER_HANDOFF_2026-05-08.md
-  sessions/2026-05-08/RACI-V2026-05-08-INSTALL/claims.jsonl
-  sessions/2026-05-08/RACI-V2026-05-08-INSTALL/halt_log.json
-  sessions/2026-05-08/RACI-V2026-05-08-INSTALL/discrepancy_log.json
-  sessions/2026-05-08/RACI-V2026-05-08-INSTALL/unexpected_finds.json
-  sessions/2026-05-08/RACI-V2026-05-08-INSTALL/handoff.md
+Under `sessions/2026-05-08/RACI-V2026-05-08-INSTALL/`:
+- `instructions.txt` (20774 B; sha256=b7add386..., v2026-05-08 verbatim from operator paste; byte-identical content to ae37e5a copy)
+- `STRATEGYZER_HANDOFF_2026-05-08.md` (12323 B; sha256=f6fc35af..., operator-pasted verbatim; SUPERSEDES ae37e5a's 11100B reconstruction)
+- `claims.jsonl` (4 entries)
+- `halt_log.json` (Option A waiver record)
+- `discrepancy_log.json` (HEAD divergence + handoff supersession + Test-Path inconsistency)
+- `unexpected_finds.json` (prior 043' fire + halt-marker commits)
+- `handoff.md` (this file)
 
 ## AEAL claim count
 
-4 entries written to claims.jsonl this session
+4 entries written to `claims.jsonl` this session.

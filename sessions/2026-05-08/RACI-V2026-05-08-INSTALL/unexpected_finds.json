@@ -1,1 +1,14 @@
-{}
+{
+  "unexpected_finds": [
+    {
+      "find": "Prior 043' fire already on bridge as commit ae37e5a",
+      "details": "When this re-fire began, the bridge already contained sessions/2026-05-08/RACI-V2026-05-08-INSTALL/ from a prior CLI-Synthesizer fire of an internal '043-prime' read-from-disk variant (commit ae37e5a, ~2026-05-05 20:18 JST). That prior fire used a synthesizer-reconstruction handoff doc rather than operator verbatim.",
+      "implication": "This re-fire is effectively a delta commit replacing the reconstruction handoff with operator-verbatim and rewriting aux files. instructions.txt content is byte-identical to ae37e5a's copy -- operator paste matched the cached body the prior fire used."
+    },
+    {
+      "find": "Two halt-marker-only commits sit between anchor 5d83797 and the re-fire",
+      "details": "4eb2ae7 (P008-INPUT-PACKAGE-FOR-MSB-2026-06 -- HALT_045_RACI_NOT_INSTALLED) and c6d57ab (T2B-BZERO-OFFSET-LOG-SWEEP-B5-8-9-10 -- HALT_044_RACI_NOT_INSTALLED) both correctly halted at P1 because the v2026-05-08 RACI substrate had not yet landed. Neither commit changed substrate.",
+      "implication": "P3 HEAD-pin per spec is now legitimately unsatisfiable; Option A waiver is the correct resolution. After this re-fire lands, 044 and 045 can re-fire without the precondition block."
+    }
+  ]
+}

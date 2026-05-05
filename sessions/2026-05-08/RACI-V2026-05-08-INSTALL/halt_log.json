@@ -1,1 +1,13 @@
-{}
+{
+  "halt_raised": "HALT_043_BRIDGE_DIRTY",
+  "halt_condition": "P3 precondition (bridge HEAD pinned to 5d83797) failed: actual HEAD at fire time was c6d57ab (two intervening halt-marker-only commits 4eb2ae7 and c6d57ab; later ae37e5a from prior 043' re-fire)",
+  "operator_decision": "Option A -- waive P3 HEAD-pin and proceed",
+  "operator_decision_timestamp": "2026-05-08",
+  "rationale": "intervening commits c6d57ab + 4eb2ae7 are both halt-marker-only commits with no substrate change; ae37e5a is the prior CLI-Synthesizer 043' fire that wrote v2026-05-08 substrate to disk and bridge but used a synthesizer-reconstruction handoff (not operator-verbatim); this re-fire supersedes the reconstruction with the operator-pasted verbatim",
+  "scope_of_waiver": "P3 HEAD-pin only; all other gates (P1 instructions paste, P2 handoff paste, content checks, file integrity) honored",
+  "files_affected": [
+    "tex/submitted/control center/synthesizer_inbox/STRATEGYZER_HANDOFF_2026-05-08.md (overwritten with operator paste; prior preserved as .pre-043)",
+    "siarc-relay-bridge/sessions/2026-05-08/RACI-V2026-05-08-INSTALL/STRATEGYZER_HANDOFF_2026-05-08.md (overwritten with operator paste, was synthesizer-reconstruction in ae37e5a)",
+    "siarc-relay-bridge/sessions/2026-05-08/RACI-V2026-05-08-INSTALL/{claims.jsonl, halt_log.json, discrepancy_log.json, unexpected_finds.json, handoff.md} (rewritten for this re-fire)"
+  ]
+}
