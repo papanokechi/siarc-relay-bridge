@@ -1,0 +1,88 @@
+{
+  "task_id": "T2B-BZERO-OFFSET-LOG-SWEEP-REFIRE",
+  "relay_prompt": "044R",
+  "anchor_044_commit": "42a1318",
+  "outcome_tag": "OUTCOME_B_AT_H7",
+  "outcome_evidence": {
+    "off_orbit_count": 1,
+    "off_orbit_hits": [
+      {
+        "b1": 10,
+        "coeffs": [
+          -9,
+          0,
+          0,
+          10,
+          5
+        ],
+        "ratio": "-9/100",
+        "n": 3,
+        "bauer_on_orbit": false,
+        "bauer_k": 3,
+        "deep_verify_residual": "0.0",
+        "deep_verify_residual_lt_1e_200": true
+      }
+    ],
+    "ambiguous_count": 0,
+    "ambiguous_records": [],
+    "h_bound": 10000000,
+    "interpretation": "Exactly one off-orbit n/log(2) hit at h<=10^7. Combined with the b1=7 (8,-4,0,7,4) outlier this gives a 2-data-point off-orbit family. 044B contingency unblocks. NOTE: absence of additional outliers at h<=10^7 is bounded; higher h may reveal more."
+  },
+  "h_bound": 10000000,
+  "budget_exceeded": false,
+  "halt_triggered": false,
+  "stage_bc_completed": 241892,
+  "stage_bc_total": 241892,
+  "stage_d_completed": 2,
+  "stage_d_total": 2,
+  "off_orbit_n_log2_hits": [
+    {
+      "b1": 10,
+      "coeffs": [
+        -9,
+        0,
+        0,
+        10,
+        5
+      ],
+      "ratio": "-9/100",
+      "n": 3,
+      "bauer_on_orbit": false,
+      "bauer_k": 3,
+      "deep_verify_residual": "0.0",
+      "deep_verify_residual_lt_1e_200": true
+    }
+  ],
+  "on_orbit_n_log2_hits": [],
+  "ambiguous_records": [],
+  "discrepancy_records": [],
+  "anchor_known_outliers_excluded_from_sweep": [
+    {
+      "label": "b6_bauer_k1",
+      "coeffs": [
+        -1,
+        0,
+        0,
+        6,
+        3
+      ],
+      "L": "2/log(2)",
+      "note": "On Bauer orbit (k=1); not in this sweep range."
+    },
+    {
+      "label": "b7_singular",
+      "coeffs": [
+        8,
+        -4,
+        0,
+        7,
+        4
+      ],
+      "L": "3/log(2)",
+      "ratio": "8/49",
+      "note": "Off all three laws; not in this sweep range."
+    }
+  ],
+  "v3_1_commit": "5d83797",
+  "raci_install_anchor": "177bfd7 (RACI-V2026-05-08-INSTALL re-fire)"
+}

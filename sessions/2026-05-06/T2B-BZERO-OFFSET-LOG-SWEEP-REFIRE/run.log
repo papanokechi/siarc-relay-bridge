@@ -1,0 +1,94 @@
+
+[INIT] script_sha256 = 99d2ce7ab28e16b70f298102e4f3be3bdd598e96b9b4c10c94b6ccfa28c18596
+[ENUM] b1 in [5, 8, 9, 10]  a2 in -30..30 (excl 0)  free in -5..5  total=319440
+[STAGE A] 044R strict cache-load mode (recompute disabled)
+[STAGE A] cache load OK: 241892/319440 convergent (cached t_a=423.6s, load took 859ms); per-b1 integrity PASS against stage_a_summary.json
+[STAGE B/C] PSLQ dps=150 N=600  h_max=1e+07  wall_budget=9000s  workers...
+[STAGE B/C] dispatched 241892 tasks to 7 workers
+  [BC] 1/241892 (0.0%)  elapsed_bc=440s  rate=0.0/s  eta_bc=106541114s  wall_total=442s/9000s
+  [BC] 4066/241892 (1.7%)  elapsed_bc=500s  rate=8.1/s  eta_bc=29273s  wall_total=502s/9000s
+  [BC] 7237/241892 (3.0%)  elapsed_bc=560s  rate=12.9/s  eta_bc=18173s  wall_total=562s/9000s
+  [BC] 9524/241892 (3.9%)  elapsed_bc=620s  rate=15.3/s  eta_bc=15139s  wall_total=622s/9000s
+  [BC] 11834/241892 (4.9%)  elapsed_bc=681s  rate=17.4/s  eta_bc=13230s  wall_total=682s/9000s
+  [BC] 15124/241892 (6.3%)  elapsed_bc=741s  rate=20.4/s  eta_bc=11103s  wall_total=742s/9000s
+  [BC] 18325/241892 (7.6%)  elapsed_bc=801s  rate=22.9/s  eta_bc=9767s  wall_total=802s/9000s
+  [BC] 21417/241892 (8.9%)  elapsed_bc=861s  rate=24.9/s  eta_bc=8859s  wall_total=862s/9000s
+  [BC] 24450/241892 (10.1%)  elapsed_bc=921s  rate=26.6/s  eta_bc=8187s  wall_total=922s/9000s
+  [BC] 27500/241892 (11.4%)  elapsed_bc=981s  rate=28.0/s  eta_bc=7644s  wall_total=982s/9000s
+  [BC] 30618/241892 (12.7%)  elapsed_bc=1041s  rate=29.4/s  eta_bc=7180s  wall_total=1042s/9000s
+  [BC] 33608/241892 (13.9%)  elapsed_bc=1101s  rate=30.5/s  eta_bc=6821s  wall_total=1102s/9000s
+  [BC] 36718/241892 (15.2%)  elapsed_bc=1161s  rate=31.6/s  eta_bc=6485s  wall_total=1162s/9000s
+  [BC] 39814/241892 (16.5%)  elapsed_bc=1221s  rate=32.6/s  eta_bc=6195s  wall_total=1222s/9000s
+  [BC] 42868/241892 (17.7%)  elapsed_bc=1281s  rate=33.5/s  eta_bc=5946s  wall_total=1282s/9000s
+  [BC] 46000/241892 (19.0%)  elapsed_bc=1341s  rate=34.3/s  eta_bc=5709s  wall_total=1342s/9000s
+  [BC] 49155/241892 (20.3%)  elapsed_bc=1401s  rate=35.1/s  eta_bc=5492s  wall_total=1402s/9000s
+  [BC] 52285/241892 (21.6%)  elapsed_bc=1461s  rate=35.8/s  eta_bc=5297s  wall_total=1462s/9000s
+  [BC] 55342/241892 (22.9%)  elapsed_bc=1521s  rate=36.4/s  eta_bc=5126s  wall_total=1522s/9000s
+  [BC] 58567/241892 (24.2%)  elapsed_bc=1581s  rate=37.0/s  eta_bc=4948s  wall_total=1582s/9000s
+  [BC] 61831/241892 (25.6%)  elapsed_bc=1641s  rate=37.7/s  eta_bc=4778s  wall_total=1642s/9000s
+  [BC] 65387/241892 (27.0%)  elapsed_bc=1701s  rate=38.4/s  eta_bc=4591s  wall_total=1702s/9000s
+  [BC] 68516/241892 (28.3%)  elapsed_bc=1761s  rate=38.9/s  eta_bc=4456s  wall_total=1762s/9000s
+  [BC] 71588/241892 (29.6%)  elapsed_bc=1821s  rate=39.3/s  eta_bc=4332s  wall_total=1822s/9000s
+  [BC] 74696/241892 (30.9%)  elapsed_bc=1881s  rate=39.7/s  eta_bc=4210s  wall_total=1883s/9000s
+  [BC] 77845/241892 (32.2%)  elapsed_bc=1941s  rate=40.1/s  eta_bc=4090s  wall_total=1943s/9000s
+  [BC] 80834/241892 (33.4%)  elapsed_bc=2001s  rate=40.4/s  eta_bc=3987s  wall_total=2003s/9000s
+  [BC] 83916/241892 (34.7%)  elapsed_bc=2061s  rate=40.7/s  eta_bc=3880s  wall_total=2063s/9000s
+  [BC] 87022/241892 (36.0%)  elapsed_bc=2121s  rate=41.0/s  eta_bc=3775s  wall_total=2123s/9000s
+  [BC] 90166/241892 (37.3%)  elapsed_bc=2181s  rate=41.3/s  eta_bc=3670s  wall_total=2183s/9000s
+  [BC] 93297/241892 (38.6%)  elapsed_bc=2241s  rate=41.6/s  eta_bc=3569s  wall_total=2243s/9000s
+  [BC] 96433/241892 (39.9%)  elapsed_bc=2301s  rate=41.9/s  eta_bc=3471s  wall_total=2303s/9000s
+  [BC] 99538/241892 (41.1%)  elapsed_bc=2361s  rate=42.2/s  eta_bc=3377s  wall_total=2363s/9000s
+  [BC] 102670/241892 (42.4%)  elapsed_bc=2421s  rate=42.4/s  eta_bc=3283s  wall_total=2423s/9000s
+  [BC] 105769/241892 (43.7%)  elapsed_bc=2481s  rate=42.6/s  eta_bc=3193s  wall_total=2483s/9000s
+  [BC] 108833/241892 (45.0%)  elapsed_bc=2541s  rate=42.8/s  eta_bc=3107s  wall_total=2543s/9000s
+  [BC] 111915/241892 (46.3%)  elapsed_bc=2601s  rate=43.0/s  eta_bc=3021s  wall_total=2603s/9000s
+  [BC] 114982/241892 (47.5%)  elapsed_bc=2661s  rate=43.2/s  eta_bc=2937s  wall_total=2663s/9000s
+  [BC] 118043/241892 (48.8%)  elapsed_bc=2721s  rate=43.4/s  eta_bc=2855s  wall_total=2723s/9000s
+  [BC] 121201/241892 (50.1%)  elapsed_bc=2781s  rate=43.6/s  eta_bc=2770s  wall_total=2783s/9000s
+  [BC] 124453/241892 (51.4%)  elapsed_bc=2841s  rate=43.8/s  eta_bc=2681s  wall_total=2843s/9000s
+  [BC] 127755/241892 (52.8%)  elapsed_bc=2901s  rate=44.0/s  eta_bc=2592s  wall_total=2903s/9000s
+  [BC] 131244/241892 (54.3%)  elapsed_bc=2961s  rate=44.3/s  eta_bc=2497s  wall_total=2963s/9000s
+  [BC] 134592/241892 (55.6%)  elapsed_bc=3021s  rate=44.5/s  eta_bc=2409s  wall_total=3023s/9000s
+  [BC] 137549/241892 (56.9%)  elapsed_bc=3081s  rate=44.6/s  eta_bc=2338s  wall_total=3083s/9000s
+  [BC] 140287/241892 (58.0%)  elapsed_bc=3141s  rate=44.7/s  eta_bc=2275s  wall_total=3143s/9000s
+  [BC] 143073/241892 (59.1%)  elapsed_bc=3201s  rate=44.7/s  eta_bc=2211s  wall_total=3203s/9000s
+  [BC] 145769/241892 (60.3%)  elapsed_bc=3261s  rate=44.7/s  eta_bc=2151s  wall_total=3263s/9000s
+  [BC] 148293/241892 (61.3%)  elapsed_bc=3321s  rate=44.6/s  eta_bc=2096s  wall_total=3323s/9000s
+  [BC] 150500/241892 (62.2%)  elapsed_bc=3381s  rate=44.5/s  eta_bc=2053s  wall_total=3383s/9000s
+  [BC] 152899/241892 (63.2%)  elapsed_bc=3441s  rate=44.4/s  eta_bc=2003s  wall_total=3443s/9000s
+  [BC] 155839/241892 (64.4%)  elapsed_bc=3501s  rate=44.5/s  eta_bc=1933s  wall_total=3503s/9000s
+  [BC] 159051/241892 (65.8%)  elapsed_bc=3561s  rate=44.7/s  eta_bc=1855s  wall_total=3563s/9000s
+  [BC] 162293/241892 (67.1%)  elapsed_bc=3622s  rate=44.8/s  eta_bc=1776s  wall_total=3623s/9000s
+  [BC] 165492/241892 (68.4%)  elapsed_bc=3682s  rate=45.0/s  eta_bc=1700s  wall_total=3683s/9000s
+  [BC] 168788/241892 (69.8%)  elapsed_bc=3742s  rate=45.1/s  eta_bc=1621s  wall_total=3743s/9000s
+  [BC] 171894/241892 (71.1%)  elapsed_bc=3802s  rate=45.2/s  eta_bc=1548s  wall_total=3803s/9000s
+  [BC] 175125/241892 (72.4%)  elapsed_bc=3862s  rate=45.4/s  eta_bc=1472s  wall_total=3863s/9000s
+  [BC] 178430/241892 (73.8%)  elapsed_bc=3922s  rate=45.5/s  eta_bc=1395s  wall_total=3923s/9000s
+  [BC] 180902/241892 (74.8%)  elapsed_bc=3982s  rate=45.4/s  eta_bc=1342s  wall_total=3983s/9000s
+  [BC] 184057/241892 (76.1%)  elapsed_bc=4042s  rate=45.5/s  eta_bc=1270s  wall_total=4043s/9000s
+  [BC] 187105/241892 (77.4%)  elapsed_bc=4102s  rate=45.6/s  eta_bc=1201s  wall_total=4103s/9000s
+  [BC] 190337/241892 (78.7%)  elapsed_bc=4162s  rate=45.7/s  eta_bc=1127s  wall_total=4163s/9000s
+  [BC] 193576/241892 (80.0%)  elapsed_bc=4222s  rate=45.9/s  eta_bc=1054s  wall_total=4223s/9000s
+  [BC] 196965/241892 (81.4%)  elapsed_bc=4282s  rate=46.0/s  eta_bc=977s  wall_total=4283s/9000s
+  [BC] 200385/241892 (82.8%)  elapsed_bc=4342s  rate=46.2/s  eta_bc=899s  wall_total=4343s/9000s
+  [BC] 204025/241892 (84.3%)  elapsed_bc=4402s  rate=46.4/s  eta_bc=817s  wall_total=4403s/9000s
+  [BC] 207441/241892 (85.8%)  elapsed_bc=4462s  rate=46.5/s  eta_bc=741s  wall_total=4463s/9000s
+  [BC] 210757/241892 (87.1%)  elapsed_bc=4522s  rate=46.6/s  eta_bc=668s  wall_total=4523s/9000s
+  [BC] 213997/241892 (88.5%)  elapsed_bc=4582s  rate=46.7/s  eta_bc=597s  wall_total=4583s/9000s
+  [BC] 216097/241892 (89.3%)  elapsed_bc=4642s  rate=46.6/s  eta_bc=554s  wall_total=4643s/9000s
+  [BC] 218157/241892 (90.2%)  elapsed_bc=4702s  rate=46.4/s  eta_bc=512s  wall_total=4703s/9000s
+  [BC] 219978/241892 (90.9%)  elapsed_bc=4762s  rate=46.2/s  eta_bc=474s  wall_total=4763s/9000s
+  [BC] 221836/241892 (91.7%)  elapsed_bc=4822s  rate=46.0/s  eta_bc=436s  wall_total=4823s/9000s
+  [BC] 224581/241892 (92.8%)  elapsed_bc=4882s  rate=46.0/s  eta_bc=376s  wall_total=4883s/9000s
+  [BC] 227650/241892 (94.1%)  elapsed_bc=4942s  rate=46.1/s  eta_bc=309s  wall_total=4943s/9000s
+  [BC] 230804/241892 (95.4%)  elapsed_bc=5002s  rate=46.1/s  eta_bc=240s  wall_total=5003s/9000s
+  [BC] 233975/241892 (96.7%)  elapsed_bc=5062s  rate=46.2/s  eta_bc=171s  wall_total=5063s/9000s
+  [BC] 237105/241892 (98.0%)  elapsed_bc=5122s  rate=46.3/s  eta_bc=103s  wall_total=5123s/9000s
+  [BC] 240324/241892 (99.4%)  elapsed_bc=5182s  rate=46.4/s  eta_bc=34s  wall_total=5183s/9000s
+[STAGE B/C] collected 241892/241892 results in 5211.1s with 7 workers (budget_exceeded=False)
+[STAGE D] deep-verify dps=300 N=1500  h_max=1e+07  wall_budget=9000s
+  b1=8 [16, 0, 0, 8, 4]  ratio=1/4  n=None  bauer_on_orbit=False  residual=0.0
+  b1=10 [-9, 0, 0, 10, 5]  ratio=-9/100  n=3  bauer_on_orbit=False  residual=0.0
+[DONE] wall=5213.5s  outcome=OUTCOME_B_AT_H7
+[OUT] C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-05-06\T2B-BZERO-OFFSET-LOG-SWEEP-REFIRE\results_b5_8_9_10.json
+[CLAIMS] 10 entries -> C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-05-06\T2B-BZERO-OFFSET-LOG-SWEEP-REFIRE\claims.jsonl
