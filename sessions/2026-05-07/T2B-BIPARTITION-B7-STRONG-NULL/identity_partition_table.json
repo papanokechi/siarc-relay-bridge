@@ -1,0 +1,23 @@
+{
+  "task": "T2B-BIPARTITION-B7-STRONG-NULL",
+  "b1": 7,
+  "n_trans_total": 0,
+  "n_trans_on_L_minus": 0,
+  "n_trans_on_L_plus": 0,
+  "n_trans_on_other": 0,
+  "n_log_total": 1,
+  "n_u1_collisions": 0,
+  "verdict_label": "STRONG_NULL_HOLDS",
+  "predicted_loci_at_b1_eq_7": {
+    "L_minus": {
+      "required_a2": "-98/9",
+      "integer": false
+    },
+    "L_plus": {
+      "required_a2": "49/4",
+      "integer": false
+    }
+  },
+  "strong_null_prediction": "n_trans_total == 0 (no integer-coefficient family at b1=7 hits either locus)",
+  "epistemic_note": "STRONG_NULL_HOLDS is consistent with the bipartition claim and supports its extension to b1=7; it does not 'prove' or 'establish' the bipartition (R7/_RULES.txt \u00a7D)."
+}
