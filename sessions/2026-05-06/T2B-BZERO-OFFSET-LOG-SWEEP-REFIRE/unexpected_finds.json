@@ -1,0 +1,92 @@
+{
+  "off_orbit_n_log2_hit_count": 1,
+  "off_orbit_n_log2_hits": [
+    {
+      "b1": 10,
+      "coeffs": [
+        -9,
+        0,
+        0,
+        10,
+        5
+      ],
+      "ratio": "-9/100",
+      "n": 3,
+      "bauer_on_orbit": false,
+      "bauer_k": 3,
+      "deep_verify_residual": "0.0",
+      "deep_verify_residual_lt_1e_200": true
+    }
+  ],
+  "phantom_records_per_b1": {
+    "5": [],
+    "8": [],
+    "9": [],
+    "10": []
+  },
+  "log_records_per_b1": {
+    "5": [],
+    "8": [],
+    "9": [],
+    "10": [
+      {
+        "b1": 10,
+        "ratio": "-9/100",
+        "coeffs": [
+          -9,
+          0,
+          0,
+          10,
+          5
+        ],
+        "L_float": 4.328085122666885,
+        "info": {
+          "L": "4.32808512266689022207977404301",
+          "relation": [
+            -3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "basis": [
+            "1",
+            "L",
+            "pi",
+            "L*pi",
+            "pi^2",
+            "L*pi^2",
+            "log(2)",
+            "L*log(2)"
+          ],
+          "residual": "0.0"
+        },
+        "discriminant_identity_class": "neither",
+        "deep_verify": {
+          "L": "4.32808512266689022207977404300567641227993786245895780240635",
+          "relation": [
+            -3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "residual": "0.0",
+          "residual_lt_1e_200": true
+        },
+        "n_log2_extracted": 3,
+        "bauer_orbit": {
+          "on_orbit": false,
+          "k": 3,
+          "reason": "|b1|=10 != 6*k=6*3=18"
+        }
+      }
+    ]
+  }
+}
