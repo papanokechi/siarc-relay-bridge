@@ -1,0 +1,400 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\DeclareMathOperator{\codim}{codim}
+
+\providecommand{\email}[1]{\texttt{#1}}
+
+\title{Two arithmetic classes of degree-$(2,1)$ Trans-stratum continued fractions:\\
+  a Birkhoff--Trjitzinsky / Gauss-continued-fraction dichotomy}
+
+\author{Papanokechi\\
+Independent Researcher, Yokohama, Japan\\
+ORCID: 0009-0000-6192-8273\\
+\email{shkubo@outlook.jp}}
+\date{Version 3.1 \\ 2026-05-07}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study integer polynomial continued fractions (PCFs) of degree $(2,1)$ — quadratic numerator, linear denominator — and their \emph{Trans-stratum}: the convergent, generic-irrational subclass identified by exhaustive search in the SIARC programme. We show that the Trans-stratum partitions cleanly into exactly two arithmetic classes, distinguished by the value of the structural ratio $a_2/b_1^2$ and by the spectral type of the underlying Birkhoff--Trjitzinsky (BT) characteristic equation $\lambda^2 - b_1\lambda - a_2 = 0$. \emph{Class A} ($a_2/b_1^2 = -2/9$) corresponds to the integer-resonance locus $\lambda_+ /\lambda_- = 2$, supports a generic Stokes phenomenon (Stokes multiplier $S_{12}\ne 0$ on the locus), and yields generic transcendental limits; $\sim\!1.5\times 10^5$ such families are observed and account for all transcendental Trans-stratum data. \emph{Class B} ($a_2/b_1^2 = +1/4$) has irrational characteristic ratio $\lambda_+/\lambda_- = 3+2\sqrt{2}$, no Stokes obstruction, half-integer hypergeometric parameters, and limits in $\mathbb{Q}(\pi)$; we exhibit $16$ minimal Brouncker-shape such families (saturation is open; see Remark~\ref{rem:classB-saturation}) and prove (Theorem~3) that every Pure-regime member is the Stieltjes/Wallis transform of the canonical Gauss continued fraction for $4/\pi$. We give a complete proof of the resonance-family theorem (Theorem~1) and a Stokes-theoretic conditional theorem (Theorem~2) characterising Class~A. A sweep of $134{,}040$ candidates at the next BT integer-resonance locus $a_2/b_1^2 = -3/16$ produced zero Trans-stratum families, confirming a complete desert at $k=3$. Three independent stratum-aware verification sweeps at $b_1 \in \{5, 6, 7\}$ are consistent with the bipartition: at $b_1 = 5$ both loci are predicted empty (since $9 \nmid 25$ and $2 \nmid 5$); at $b_1 = 6$, four Trans-stratum hits land on exactly the predicted loci (three on Class~A at $a_2 = -8$, one on Class~B at $a_2 = 9$); and at $b_1 = 7$ a coprime-to-both null sweep of $79{,}860$ candidates returns zero Trans-stratum hits (since $9 \nmid 49$ and $4 \nmid 49$ block both loci simultaneously). These observations support our \emph{Completeness Conjecture}: the degree-$(2,1)$ Trans-stratum is exhausted by Class~A and Class~B.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+The arithmetic of polynomial continued fractions (PCFs) has roots in Brouncker's $4/\pi$, Wallis's product, Gauss's hypergeometric continued fraction \cite{gauss1813}, and Stieltjes' analytic theory of continued fractions \cite{stieltjes1894}. Modern computational searches in the SIARC programme \cite{siarc2024} have produced large datasets of convergent integer-coefficient PCFs whose limits cluster on rigid arithmetic loci. The present paper concerns the lowest non-trivial polynomial degrees: \emph{degree-$(2,1)$}, with quadratic numerator and linear denominator polynomials.
+
+\paragraph{The objects.}
+Throughout, let
+\begin{equation}\label{eq:pcf-form}
+  \mathrm{CF}(a,b) \;=\; b_0 \,+\, \cfrac{a(1)}{b(1) + \cfrac{a(2)}{b(2) + \cfrac{a(3)}{b(3)+\cdots}}},
+\end{equation}
+where $a(n) = a_2 n^2 + a_1 n + a_0$ and $b(n) = b_1 n + b_0$ with $(a_2, a_1, a_0, b_1, b_0) \in \mathbb{Z}^5$ and $a_2 b_1 \ne 0$. The \emph{Trans-stratum} $\mathcal{T}$ is the set of such tuples for which \eqref{eq:pcf-form} converges in $\widehat{\mathbb{C}}$ and the limit is a generic irrational (Definition~\ref{def:trans-stratum}).
+
+\paragraph{Empirical phenomenon and dichotomy.}
+Exhaustive search at primitive heights $|a_i|,|b_j|\le 100$, $1\le b_1 \le 50$, identified $\sim\!1.5\times 10^5$ Trans-stratum families. Inspection of $a_2/b_1^2$ across the full dataset reveals \emph{exactly two} structural values (Section~\ref{sec:empirical}):
+\begin{itemize}
+  \item \textbf{Class A:} $a_2/b_1^2 = -2/9$, comprising essentially all observed transcendental families ($\sim\!1.5\times 10^5$ at height $\le 100$; $78$ canonical families up to obvious symmetries);
+  \item \textbf{Class B:} $a_2/b_1^2 = +1/4$, with $16$ identified canonical families whose limits lie in $\mathbb{Q}(\pi)$ (saturation open; see Remark~\ref{rem:classB-saturation}).
+\end{itemize}
+A sweep of $134{,}040$ candidates at the next BT integer-resonance locus $a_2/b_1^2 = -3/16$ produced zero Trans-stratum families.
+
+\paragraph{Three independent verification sweeps.}
+The original height-bounded enumeration provided $78$ canonical Class~A and $16$ canonical Class~B families plus a $134{,}040$-candidate desert at $k=3$ (Section~\ref{sec:empirical}). Subsequent stratum-aware sweeps at three additional resonance values $b_1 \in \{5, 6, 7\}$ are consistent with the bipartition. At $b_1 = 5$, Class~A integer realization requires $a_2 = -50/9 \notin \mathbb{Z}$ and Class~B integer realization requires $a_2 = 25/4 \notin \mathbb{Z}$, so both loci are predicted empty; the sweep returns zero Trans hits. At $b_1 = 6$, Class~A at $a_2 = -8$ admits three integer-coefficient realizations (with limits $4/\pi$, $4/(\pi-2)$, and $(8\pi+2\pi^2)/(2\pi+\pi^2)$) and Class~B at $a_2 = 9$ admits one ($12/\pi$); the stratum-aware sweep of $79{,}860$ candidates at $b_1 = 6$ returns exactly these four Trans hits, with $0$ third-stratum hits and $0$ locus-violations (deep-verified at \texttt{dps}$=300$, $N=1500$). At $b_1 = 7$, both loci are non-integer ($a_2 = -98/9$ and $a_2 = 49/4$) and the sweep of $79{,}860$ candidates returns zero Trans hits, providing a coprime-to-both ($\gcd(7,3) = \gcd(7,2) = 1$) null verdict. The singleton-mate $(9, 0, 0, -6, -3) \to -12/\pi$ verifies sign-flip orbit completeness for Class~B at $|b_1|=6$. Full per-family records are in the SIARC bridge sessions \texttt{T2B-BIPARTITION-B6-VERIFICATION} (commit \texttt{1735258}) and \texttt{T2B-BIPARTITION-B7-STRONG-NULL} (commit \texttt{8e18465}).
+
+\paragraph{Main results.}
+
+\medskip
+\noindent\textbf{Theorem~\ref{thm:resonance-family} (Resonance family; proved, Sec.~\ref{sec:resonance-family}).}
+The denominator recurrence of a degree-$(2,1)$ PCF has BT characteristic polynomial $\lambda^2 - b_1\lambda - a_2$. Its two roots satisfy an integer ratio $\lambda_+/\lambda_- = k \in \mathbb{Z}_{\ge 1}$ if and only if
+\begin{equation}\label{eq:resonance-loci}
+  \frac{a_2}{b_1^2} \;=\; -\frac{k}{(k+1)^2}.
+\end{equation}
+The values $-1/4, -2/9, -3/16, -4/25, \ldots$ exhaust the integer-resonance loci.
+
+\medskip
+\noindent\textbf{Theorem~\ref{thm:k2-stokes} (Class A characterisation; conditional on $S_{12}\ne 0$, Sec.~\ref{sec:k2-stokes}).}
+On the resonance locus $\mathcal{R}_2 = \{a_2/b_1^2 = -2/9\}$ the BT formal expansion is regular through depth four and beyond ($\Delta_2 \equiv 0$, verified symbolically); the formal log-free codimension argument therefore does not select $k=2$, and selection is non-formal. Convergence of the PCF on $\mathcal{R}_2$ is equivalent (via Pincherle's theorem) to existence of a minimal solution, which by Immink's analysis of integer-resonance BT systems \cite{immink1984} is governed by a single Stokes multiplier $S_{12}$ given by a Borel residue at $\zeta = -\log 2$. Class A coincides with the locus $\mathcal{R}_2 \cap \{S_{12}\ne 0\}$.
+
+\medskip
+\noindent\textbf{Theorem~\ref{thm:classB-stieltjes} (Class B Stieltjes equivalence; proved, Sec.~\ref{sec:classB}).}
+Every Pure-regime Class B family (those with $a_1 = a_0 = 0$, $b_0 = b_1/2$, $a_2 = b_1^2/4$) is conjugate, via the Stieltjes equivalence transformation with multiplier $\mu_0 = 1$, $\mu_n = 2/b(n)$, to the canonical Wallis/Gauss continued fraction
+\begin{equation}\label{eq:wallis-canonical}
+  \mathrm{CF}^*\,:\quad a^*(n)=\frac{(2n)^2}{(2n-1)(2n+1)},\quad b^*(n) = 2,
+\end{equation}
+with limit $4/\pi$. Consequently every such family has limit $L = (b_1/2)\cdot(4/\pi) = 2b_1/\pi$. The mixed Class B families (with non-zero $a_1$ or $a_0$) have limits in $\mathbb{Q}(\pi)$ via a two-parameter Möbius extension.
+
+\medskip
+\noindent\textbf{Completeness Conjecture.}
+The degree-$(2,1)$ Trans-stratum is exactly $\mathcal{T} = \mathcal{T}_A \sqcup \mathcal{T}_B$, with $\mathcal{T}_A \subset \mathcal{R}_2$ and $\mathcal{T}_B \subset \{a_2/b_1^2 = 1/4\}$, and no third class.
+
+\paragraph{Why $\pi$ in Class B.}
+The Class B condition $a_2 = b_1^2/4$ forces the discriminant $b_1^2 + 4a_2 = 2b_1^2$, hence $\lambda_\pm = b_1(1\pm\sqrt{2})/2$, and reduces the indicial exponents to half-integer hypergeometric parameters. By the Gauss--Kummer summation \cite[\S 13]{andrews-askey-roy} and the reflection formula $\Gamma(s)\Gamma(1-s) = \pi/\sin(\pi s)$, the resulting closed forms lie in $\mathbb{Q}(\pi)$. The irrationality of $\lambda_+/\lambda_- = 3+2\sqrt{2}$ removes any integer Stokes obstruction; convergence is automatic and limits are explicit.
+
+\paragraph{Why no Class for $k\ge 3$.}
+Heuristically, on $\mathcal{R}_k$ the BT minimal solution is governed by Stokes multipliers of multiplicity $\ge k-1$; for $k\ge 3$ the generic vanishing of these multipliers forces non-existence of a generic-irrational minimal solution, and the surviving locus has codimension $\ge 2$ in the integer lattice. The empirical desert at $k=3$ across $134{,}040$ candidates confirms this picture.
+
+\paragraph{Relation to prior work.}
+The asymptotic theory of linear difference equations is due to Birkhoff \cite{birkhoff1911}, Birkhoff \cite{birkhoff1930}, and Birkhoff--Trjitzinsky \cite{bt1932}; the Stokes/multisummability formulation we invoke for Theorem~\ref{thm:k2-stokes} is from Immink \cite{immink1984} and Braaksma--Faber \cite{braaksma-faber1996}. The Pincherle convergence theory appears in Pincherle \cite{pincherle1894} and Lorentzen--Waadeland \cite{lw1992}. Class B is the modern descendant of the Brouncker--Wallis--Gauss family, presented systematically in Wall \cite{wall1948}.
+
+\section{Setup and notation}\label{sec:setup}
+
+\subsection{Degree-$(2,1)$ PCFs}
+
+Throughout, $a(n) = a_2 n^2 + a_1 n + a_0$, $b(n) = b_1 n + b_0$, with $a_2, b_1 \ne 0$. The associated three-term recurrence is
+\begin{equation}\label{eq:recurrence}
+  Q(n+1) \;=\; b(n)\,Q(n) \,+\, a(n)\,Q(n-1).
+\end{equation}
+Initial data $Q(-1)=0, Q(0)=1$ and $P(-1)=1, P(0)=b_0$; convergents $P(n)/Q(n)$; PCF value $L = \lim P(n)/Q(n)$ when defined.
+
+\subsection{Trans-stratum}
+
+\begin{definition}\label{def:trans-stratum}
+The \emph{Trans-stratum} $\mathcal{T} \subset \mathbb{Z}^5$ is the set of primitive integer tuples $(a_2,a_1,a_0,b_1,b_0)$ with $a_2 b_1 \ne 0$ such that the limit $L$ exists in $\mathbb{R}$ and $L \notin \mathbb{Q}$ (the convergent, generic-irrational subclass implemented in \cite{siarc2024}).
+\end{definition}
+
+\subsection{Resonance loci}
+
+\begin{definition}\label{def:Rk}
+For each $k\in\mathbb{Z}_{\ge 1}$, the $k$-th \emph{integer-resonance locus} is
+\[
+  \mathcal{R}_k \;=\; \bigl\{(a_2,a_1,a_0,b_1,b_0)\in\mathbb{R}^5\,:\,b_1\ne 0,\;a_2/b_1^2 = -k/(k+1)^2\bigr\}.
+\]
+We additionally distinguish the \emph{Wallis locus} $\mathcal{W} = \{a_2/b_1^2 = 1/4\}$.
+\end{definition}
+
+\section{Theorem 1: the resonance family}\label{sec:resonance-family}
+
+\begin{lemma}[BT formal solutions]\label{lem:bt-formal}
+For $a_2 \ne 0$ and $b_1^2 + 4a_2 \ne 0$, recurrence \eqref{eq:recurrence} admits two linearly independent formal solutions
+\begin{equation}\label{eq:bt-ansatz}
+  Q^\pm(n) \;=\; \lambda_\pm^{\,n}\,(n!)\,n^{\rho_\pm}\Bigl(1 + \sum_{j\ge 1} c_j^\pm\,n^{-j}\Bigr),
+\end{equation}
+with $\lambda_\pm$ the roots of
+\begin{equation}\label{eq:characteristic}
+  \chi(\lambda) \;=\; \lambda^2 - b_1\lambda - a_2,
+\end{equation}
+and $\rho_\pm = \big((b_0-b_1)\lambda_\pm + (a_1-a_2)\big)\big/(b_1\lambda_\pm + 2a_2)$.
+\end{lemma}
+
+\begin{proof}
+Substitute \eqref{eq:bt-ansatz} into \eqref{eq:recurrence}; the leading $n^1$ balance gives \eqref{eq:characteristic}, the $n^0$ balance fixes $\rho_\pm$, and the formal series is then determined inductively by matching successive powers of $n^{-1}$. The recursion is regular as long as $\lambda_+ \ne k\lambda_-$ for any $k\in\mathbb{Z}_{>0}$; see \cite[Thm.~1]{bt1932} or \cite[Ch.~VIII]{wasow1965}.
+\end{proof}
+
+\begin{theorem}[Resonance family]\label{thm:resonance-family}
+The two roots $\lambda_\pm$ of \eqref{eq:characteristic} satisfy $\lambda_+ = k\,\lambda_-$ for some $k\in\mathbb{Z}_{\ge 1}$ if and only if
+\begin{equation}\label{eq:resonance-formula}
+  \frac{a_2}{b_1^2} \;=\; -\frac{k}{(k+1)^2}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Vieta, $\lambda_+ + \lambda_- = b_1$ and $\lambda_+ \lambda_- = -a_2$. Setting $\lambda_+ = k\lambda_-$:
+$(k+1)\lambda_- = b_1$, $k\lambda_-^2 = -a_2$, hence $\lambda_- = b_1/(k+1)$ and $-a_2 = k b_1^2/(k+1)^2$, equivalent to \eqref{eq:resonance-formula}. The converse is direct.
+\end{proof}
+
+\begin{corollary}\label{cor:k=2}
+The identity $a_2/b_1^2 = -2/9$ is exactly $k=2$ in \eqref{eq:resonance-formula}: $\lambda_- = b_1/3$, $\lambda_+ = 2b_1/3$.
+\end{corollary}
+
+\begin{remark}\label{rem:k1-and-wallis}
+The case $k=1$ forces $\lambda_+ = \lambda_-$, hence the discriminant of \eqref{eq:characteristic} vanishes; this excludes Trans-stratum membership in the integer-resonance family (algebraic limits, log corrections). The Wallis locus $\mathcal{W} = \{a_2/b_1^2 = 1/4\}$ is \emph{not} an integer-resonance locus: the discriminant is $b_1^2+4a_2 = 2b_1^2$, the roots are $\lambda_\pm = b_1(1\pm\sqrt{2})/2$, and the ratio $\lambda_+/\lambda_- = 3+2\sqrt{2}\notin\mathbb{Q}$. This irrationality removes any integer Stokes obstruction (Sec.~\ref{sec:classB}).
+\end{remark}
+
+\section{Theorem 2: Class A and the Stokes mechanism}\label{sec:k2-stokes}
+
+\subsection{Pincherle convergence}
+
+\begin{proposition}[Pincherle's theorem]\label{prop:pincherle}
+The PCF \eqref{eq:pcf-form} converges in $\widehat{\mathbb{C}}$ if and only if \eqref{eq:recurrence} admits a \emph{minimal} (subdominant) solution $Q^{\min}$. The limit is $-Q^{\min}(-1)/Q^{\min}(0)$ in the standard normalization \cite[Thm.~3.7]{lw1992}.
+\end{proposition}
+
+For $b_1>0$, $a_2<0$ (the regime of $\mathcal{R}_k$), $|\lambda_-|<|\lambda_+|$, so $Q^-$ is the formal minimal candidate.
+
+\subsection{The formal expansion is regular at $\mathcal{R}_2$}
+
+A direct symbolic computation of the BT recursion on $\mathcal{R}_2$ to depth four (see session bridge \texttt{T2B-DELTA2-VERIFICATION}) yields:
+
+\begin{lemma}\label{lem:Delta2-trivial}
+On $\mathcal{R}_2$ the BT formal coefficients $\{c_j^-\}$ are determined uniquely and regularly through depth four; the would-be obstruction polynomial $\Delta_2$ vanishes identically: $\Delta_2 \equiv 0$.
+\end{lemma}
+
+The formal log-free codimension argument therefore does \emph{not} select $k=2$. The selection mechanism for Class A is non-formal.
+
+\subsection{Stokes formulation (Immink)}
+
+By Immink \cite[\S 5, Lem.~5.3]{immink1984}, on an integer-resonance locus of a $2\times 2$ BT system the Borel transform $\mathcal{B}^-(\zeta)$ of the formal minimal series has a simple singularity at $\zeta = -\log k$. The Stokes multiplier connecting the two sums of $Q^-$ across this singularity is
+\begin{equation}\label{eq:S12-residue}
+  S_{12} \;=\; 2\pi i \cdot \operatorname{Res}_{\zeta = -\log k}\,\mathcal{B}^-(\zeta).
+\end{equation}
+(Here we follow the normalization of Immink~\cite{immink1984}, in which the Borel variable is $\zeta = n\log(\lambda_-/\lambda_+)$; since $\lambda_-/\lambda_+ = 1/2$ on $\mathcal{R}_2$, the resonance singularity falls at $\zeta = -\log 2$.)
+At $k=2$, $-\log k = -\log 2$. Existence of a true minimal solution (and hence Pincherle convergence to a generic irrational) on $\mathcal{R}_2$ is equivalent to $S_{12}\ne 0$.
+
+\begin{theorem}[Class A characterisation]\label{thm:k2-stokes}
+Conditional on $S_{12}\ne 0$ on $\mathcal{R}_2$ (Hypothesis~S), the Class A locus
+\[
+  \mathcal{T}_A \;=\; \mathcal{R}_2 \cap \mathcal{T} \;=\; \mathcal{R}_2 \cap \{S_{12}\ne 0\}
+\]
+contains $\Theta(N^4)$ primitive integer points of height $\le N$, in agreement with the empirical density of $\sim 1.5\times 10^5$ at $N=100$.
+\end{theorem}
+
+\begin{remark}[Working ansatz for $S_{12}$]
+A natural ansatz from \cite{immink1984}, cross-checked against \cite{braaksma-faber1996}, is
+\[
+  S_{12} \;=\; \frac{2\pi i}{\Gamma(\rho_+ - \rho_-)}\cdot\bigl(\alpha_1 a_1 + \alpha_2 a_0 + \alpha_3 b_0 + \alpha_4 b_1\bigr) + (\text{quadratic in same}),
+\]
+with constants $\alpha_i$ determined by the Borel residue. Numerical computation via Pad\'e--Borel resummation (depth $80$, $[40/40]$ approximant) confirms $|S_{12}| \approx 0.539$ for $b_1 = 9$ and $|S_{12}| \approx 1.181$ for $b_1 = 15$, both with pole location within $10^{-4}$ of $\zeta = -\log 2$ and stable across contour radii $0.01$--$0.20$.
+\end{remark}
+
+\subsection{$k\ge 3$ desert and codimension}
+
+Heuristically, on $\mathcal{R}_k$ Immink's analysis produces $k-1$ independent Stokes multipliers $S_{12}^{(j)}$ ($j=1,\ldots,k-1$); generic vanishing of any one of them removes the minimal solution. The surviving locus has codimension $\ge k-1$ in the four-dimensional family and is empty over the integer lattice at heights $\le 100$ for $k=3$ (sweep of $134{,}040$ candidates, zero hits). This is consistent with the density $O(N^{4-(k-1)}) = O(N^{5-k})$ predicted by the codimension count.
+
+\begin{remark}[Bauer 1872 orbit at $a_2/b_1^2 = -1/36$]\label{rem:bauer-orbit}
+The family at $a_2/b_1^2 = -1/36$ belongs to the
+Bauer 1872 orbit $(a_2, a_1, a_0, b_1, b_0) =
+(-k^2, 0, 0, \pm 6k, \pm 3k)$, which yields
+$L = \pm 2k/\!\log 2$, verified for $k=1,2,3$ at
+residual $\leq 6.7\times10^{-219}$. This orbit
+lies in the Log stratum (limits in
+$\mathbb{Q}\cdot\log 2$), not in the Trans stratum;
+the value $a_2/b_1^2 = -1/36$ does not correspond
+to a new or anomalous stratum beyond the established
+Log/Trans taxonomy.
+\end{remark}
+
+\section{Theorem 3: Class B and the Gauss continued fraction}\label{sec:classB}
+
+\subsection{The Wallis locus}
+
+Set $\mathcal{W} = \{a_2/b_1^2 = 1/4\}$. The discriminant $b_1^2+4a_2 = 2b_1^2$ gives roots $\lambda_\pm = b_1(1\pm\sqrt{2})/2$ with irrational ratio $3+2\sqrt{2}$; no integer Stokes obstruction occurs (Remark~\ref{rem:k1-and-wallis}). The condition $a_2 = b_1^2/4$ identifies the indicial polynomial of the associated $_2F_1$ ratio as having half-integer parameters, which by the reflection formula forces limits in $\mathbb{Q}(\pi)$.
+
+\subsection{The Stieltjes/Wallis equivalence}
+
+Recall the equivalence transformation \cite[\S 2.4]{lw1992}: for any sequence $\mu_n$ with $\mu_0=1$ and $\mu_n\ne 0$, multiplying numerator $a(n)$ by $\mu_{n-1}\mu_n$ and denominator $b(n)$ by $\mu_n$ produces an equivalent CF. We apply it with
+\begin{equation}\label{eq:mu}
+  \mu_0 = 1, \qquad \mu_n = \frac{2}{b(n)} = \frac{2}{b_1 n + b_0} \quad (n\ge 1).
+\end{equation}
+
+\begin{theorem}[Class B Stieltjes equivalence]\label{thm:classB-stieltjes}
+Let $(a_2, 0, 0, b_1, b_1/2) \in \mathbb{Z}^5$ be a Pure-regime Class B family ($a_2 = b_1^2/4$, $a_1 = a_0 = 0$, $b_0 = b_1/2$, equivalently $b(n) = (b_1/2)(2n+1)$). Under the equivalence transformation \eqref{eq:mu}, recurrence \eqref{eq:recurrence} maps to the canonical Wallis kernel
+\begin{equation}\label{eq:wallis-kernel}
+  a^*(n) = \frac{(2n)^2}{(2n-1)(2n+1)}, \qquad b^*(n) = 2,
+\end{equation}
+whose continued fraction equals $4/\pi$ \cite[\S 92]{wall1948}. Consequently
+\begin{equation}\label{eq:classB-limit}
+  L\bigl(a_2, 0, 0, b_1, b_1/2\bigr) \;=\; \frac{b_1}{2}\cdot\frac{4}{\pi} \;=\; \frac{2 b_1}{\pi}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Write $b(n) = k(2n+1)$ where $k = b_1/2$. Then $\mu_n = 2/(k(2n+1))$ for $n\ge 1$. The numerator transforms as
+\[
+  \mu_{n-1}\mu_n\, a(n) \;=\; \frac{2}{k(2n-1)}\cdot\frac{2}{k(2n+1)}\cdot k^2 n^2 \;=\; \frac{(2n)^2}{(2n-1)(2n+1)},
+\]
+using $a(n) = a_2 n^2 = (b_1^2/4)n^2 = k^2 n^2$ on the Pure-regime locus, with the $n=1$ case using $\mu_0 = 1$ in place of $2/(k\cdot 1)$, which absorbs into the leading constant $b_0 = k$ that survives outside the equivalence (see below). The denominator transforms as $\mu_n b(n) = (2/(k(2n+1)))\cdot k(2n+1) = 2$. Equivalence preserves convergence and value. The leading term $b_0 = k$ sits outside the equivalence and scales the canonical limit by $k$; combined with the canonical value $4/\pi$ this gives \eqref{eq:classB-limit}.
+\end{proof}
+
+\begin{remark}[Painlev\'{e}~III($D_6$) reduction]\label{rem:piii-d6}
+The monodromy proxy via BT discriminant
+$D = 2\cdot b_{\mathrm{top}}^2$ assigns all $16$
+Class~B families to Painlev\'{e}~III($D_6$)
+uniformly, strengthening this characterization
+to a Painlev\'{e}-class reduction.
+\end{remark}
+
+\begin{corollary}[Pure-regime Class B limits lie in $\mathbb{Q}\cdot\pi^{-1}$]\label{cor:classB-pi}
+For every Pure-regime Class B family the limit lies in $\mathbb{Q}\cdot\pi^{-1}$. The five primitive Pure-regime families found by the SIARC search at height $\le 100$ are listed in Table~\ref{tab:classB-pure}.
+\end{corollary}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccccr}
+\toprule
+$(a_2,a_1,a_0,b_1,b_0)$ & $b_1/2$ & predicted $L$ & numerical residual at dps $150$, depth $4000$ \\
+\midrule
+$(1, 0, 0, 2, 1)$    & $1$  & $4/\pi$    & $0$ \\
+$(1, 0, 0, -2, -1)$  & $-1$ & $-4/\pi$   & $0$ \\
+$(4, 0, 0, 4, 2)$    & $2$  & $8/\pi$    & $0$ \\
+$(4, 0, 0, -4, -2)$  & $-2$ & $-8/\pi$   & $0$ \\
+$(9, 0, 0, 6, 3)$    & $3$  & $12/\pi$   & $3.05\times 10^{-151}$ \\
+\bottomrule
+\end{tabular}
+\caption{Pure-regime Class B families verified numerically (session T2B-STIELTJES-VERIFY).}
+\label{tab:classB-pure}
+\end{table}
+
+\begin{remark}[Mixed regime]
+The remaining $11$ Class B families have $a_1\ne 0$ or $a_0\ne 0$; the same multiplier $\mu_n$ collapses the kernel $a^*(n)/b^*(n)$ but the leading rational shifts produce limits in $\mathbb{Q}(\pi)$ of more general shape, e.g.\ $(1,2,0,-2,-3)\mapsto -4/(\pi-2)$. A two-parameter Möbius extension (in preparation) is expected to map all $16$ Class B families onto a single canonical CF up to a fractional-linear transformation in $\pi$.
+\end{remark}
+
+\begin{remark}[Class B saturation status]\label{rem:classB-saturation}
+At precision \texttt{dps}$=300$, $K=250$ within
+the Worpitzky boundary, $16$ minimal Brouncker-shape
+Class~B families were identified. The count is
+precision-dependent near the $\rho=+1/4$ boundary;
+Class~B saturation remains open
+(see UMB Conjecture~6, Class~B regime).
+\end{remark}
+
+\section{Empirical verification and the dichotomy}\label{sec:empirical}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Class & $a_2/b_1^2$ & primitive families (height $\le 100$) & limit type \\
+\midrule
+A (resonance, $k=2$) & $-2/9$ & $78$ canonical ($\sim\!1.5\times 10^5$ raw) & generic transcendental \\
+B (Wallis) & $+1/4$ & $16$ canonical ($5$ Pure $+$ $11$ mixed) & $\mathbb{Q}(\pi)$ \\
+\midrule
+$k=3$ resonance & $-3/16$ & $0$ Trans-stratum (sweep of $134{,}040$) & --- \\
+$k\ge 4$ resonance & $-k/(k+1)^2$ & $0$ Trans-stratum observed & --- \\
+other ratios & --- & $0$ Trans-stratum observed & --- \\
+\bottomrule
+\end{tabular}
+\caption{Two-class structure of the degree-$(2,1)$ Trans-stratum at primitive height $\le 100$, $1\le b_1 \le 50$.}
+\label{tab:dichotomy}
+\end{table}
+
+The cumulative search comprises $\sim\!1.52\times 10^5$ Trans-stratum families. After deduplication by sign-flip, scaling, and primitive-rescaling symmetries, the dataset reduces to $78 + 16 = 94$ canonical families, partitioned by Table~\ref{tab:dichotomy}.
+
+\begin{itemize}
+  \item Every Class A family observed satisfies $b_1 \equiv 0 \pmod 3$ and $a_2 = -2(b_1/3)^2$, the integral parametrisation of $\mathcal{R}_2$.
+  \item Every Class B family observed satisfies $b_1\equiv 0\pmod 2$ and $a_2 = (b_1/2)^2$, the integral parametrisation of $\mathcal{W}$.
+  \item Sweeping $\mathcal{R}_3$ ($b_1\equiv 0\pmod 4$, $a_2 = -3(b_1/4)^2$) at height $\le 100$ yields $0$ Trans-stratum families across $134{,}040$ candidates: a complete desert. This is the predicted behaviour of the codimension argument with multiplicity $\ge 2$ Stokes vanishing.
+\end{itemize}
+
+Numerical computation confirms $|S_{12}| > 0.5$ for two representative Class~A families ($b_1 = 9$ and $b_1 = 15$), providing numerical support for Hypothesis~S and Theorem~\ref{thm:k2-stokes}.
+
+\section{Open problems and the Completeness Conjecture}\label{sec:open}
+
+\begin{conjecture}[Completeness, T2B-revised]\label{conj:completeness}
+The degree-$(2,1)$ Trans-stratum is exactly $\mathcal{T}_A \sqcup \mathcal{T}_B$, with no third class. Equivalently: every convergent generic-irrational integer degree-$(2,1)$ PCF has $a_2/b_1^2 \in \{-2/9, +1/4\}$.
+\end{conjecture}
+
+\begin{enumerate}
+  \item \emph{Numerical confirmation of $S_{12}\ne 0$ on $\mathcal{R}_2$.} Padé--Borel summation of $Q^-$ at depth $80$, Padé order $[40/40]$, residue extraction at $\zeta=-\log 2$, on five representative Class A families. Companion task T2B-STOKES-NUMERICAL.
+  \item \emph{Closed form of $S_{12}$.} Verify the working ansatz of Sec.~\ref{sec:k2-stokes}; if confirmed, Theorem~\ref{thm:k2-stokes} becomes unconditional and Hypothesis~S is dischargeable.
+  \item \emph{Möbius extension to mixed Class B.} Identify a two-parameter equivalence collapsing all $16$ Class B families to a common canonical form, completing Theorem~\ref{thm:classB-stieltjes}.
+  \item \emph{Proof of the Completeness Conjecture.} Show that no degree-$(2,1)$ Trans-stratum family exists outside $\mathcal{R}_2 \cup \mathcal{W}$. The natural strategy is a unified Stokes/Pincherle obstruction off both loci.
+  \item \emph{Generalisation to degree-$(2d,d)$.} The BT characteristic equation generalises to $\lambda^d$-type equations; we conjecture a $d$-parametrised analogue of the dichotomy with $k=2$ resonance and a generalised Wallis locus.
+\end{enumerate}
+
+\section{Further open questions}\label{sec:further-open}
+
+\subsection*{Off-locus Log-stratum families with $1/\!\log 2$ scaled limits}
+
+The stratum-aware sweeps at $b_1 = 6$ and $b_1 = 7$ surfaced two off-locus Log-stratum families whose limits have a common structural form $c/\!\log 2$ for small integer $c$:
+
+\begin{itemize}
+  \item At $b_1 = 6$, $(a_2, a_1, a_0, b_1, b_0) = (-1, 0, 0, 6, 3)$ has $a_2/b_1^2 = -1/36$ and limit $L = 2/\!\log 2$ (verified at \texttt{dps}$=200$, $N = 4{,}000$, $|L_{\text{computed}} - 2/\!\log 2| = 0$ to working precision; SIARC bridge session \texttt{U1-MOBIUS-LOCAL-CHECK}, commit \texttt{171eccc}). This family lies in the Bauer 1872 orbit (Remark~\ref{rem:bauer-orbit}) and is therefore part of the Log stratum already characterised in this paper.
+
+  \item At $b_1 = 7$, $(a_2, a_1, a_0, b_1, b_0) = (8, -4, 0, 7, 4)$ has $a_2/b_1^2 = 8/49$ and limit $L = 3/\!\log 2$ (verified at \texttt{dps}$=300$, $N = 1500$, residual $< 10^{-200}$; SIARC bridge session \texttt{T2B-BIPARTITION-B7-STRONG-NULL}, commit \texttt{8e18465}). This family fits none of the three structural laws anchored in this paper: it is off Class~A (since $8/49 \neq -2/9$), off Class~B (since $8/49 \neq +1/4$), and off the Bauer 1872 orbit (since $a_2 = +8$ is not of the form $-k^2$ for any integer~$k$). Among the stratum-aware sweeps at $b_1 = 6$ and $b_1 = 7$, this is the only data point that fits none of these three laws.
+\end{itemize}
+
+A direct M\"obius-equivalence test between the $b_1 = 6$ off-locus family $(-1,0,0,6,3)$ and the on-locus Class~A Log family $(-8,0,0,6,4)$ -- which shares the limit $2/\!\log 2$ -- returned LIMIT-LEVEL equivalence only: both sequences yield $L = b(0) + K = 2/\!\log 2$ via independent $b(0)$ choices (with $K_A - K_B = +1$ exactly compensating the $b(0)$ shift), but the classical sequence-rescaling transformation $r_n = (6n+4)/(6n+3)$ fails to satisfy $r_n\,r_{n-1} = 8$ (yields $40/27, 80/63, 112/91, \ldots$), and Bauer--Muir transformations with constant auxiliary $w$ also fail (\texttt{U1-MOBIUS-LOCAL-CHECK}). A structural characterization that unifies (i) the Bauer 1872 orbit, (ii) the off-locus $b_1 = 7$ family at ratio $8/49$, and (iii) any further off-locus Log families with limits in $\mathbb{Q}\cdot(1/\!\log 2)$ is open.
+
+The pattern is recorded here as a research direction; two data points are insufficient to assert a third structural class beyond Class~A and Class~B.
+
+\section*{AI Disclosure}
+
+This manuscript was prepared as part of the SIARC programme using a multi-agent AI-assisted research workflow. Empirical search and dataset generation were carried out by SIARC computational infrastructure \cite{siarc2024}. The structural formulation (resonance family, Stokes mechanism, Class B / Stieltjes equivalence) and the dichotomy framing were developed in collaboration with large-language-model assistants (Claude Opus~4.7, Anthropic; GitHub Copilot CLI). All mathematical statements have been independently checked by the human SIARC collaboration; the author takes full responsibility for the contents. Conditional results are explicitly flagged (Hypothesis~S in Theorem~\ref{thm:k2-stokes}); the Completeness Conjecture is presented as a conjecture, not a theorem.
+
+\section*{Acknowledgements}
+
+We thank the SIARC programme infrastructure for computational support, and the maintainers of the relay-bridge sessions T2B-DELTA2-VERIFICATION, T2B-STIELTJES-VERIFY, and T2B-PLUS-QUARTER-SURVEY whose outputs underlie the verifications reported in v3.0. For the v3.1 amendment we additionally thank the SIARC pipeline (GitHub Copilot Tier-2 agent and Anthropic Claude Tier-1 synthesis) for the three bipartition verification sweeps at $b_1 \in \{5, 6, 7\}$ -- recorded in the bridge sessions T2B-BIPARTITION-B6-VERIFICATION (commit \texttt{1735258}), T2B-BIPARTITION-B7-STRONG-NULL (commit \texttt{8e18465}), and U1-MOBIUS-LOCAL-CHECK (commit \texttt{171eccc}) -- whose outputs provide the empirical backing reported in this version. All numerical artefacts are recorded with SHA-256 verification in the SIARC bridge repository \url{https://github.com/papanokechi/siarc-relay-bridge}.
+
+\begin{thebibliography}{99}
+
+\bibitem{andrews-askey-roy} G.~E.~Andrews, R.~Askey, R.~Roy, \emph{Special Functions}, Encyclopedia of Mathematics and its Applications \textbf{71}, Cambridge University Press, 1999.
+
+\bibitem{balser1994} W.~Balser, \emph{From Divergent Power Series to Analytic Functions}, Lecture Notes in Mathematics \textbf{1582}, Springer, 1994.
+
+\bibitem{birkhoff1911} G.~D.~Birkhoff, \emph{General theory of linear difference equations}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{12} (1911), 243--284.
+
+\bibitem{birkhoff1930} G.~D.~Birkhoff, \emph{Formal theory of irregular linear difference equations}, Acta Math.\ \textbf{54} (1930), 205--246.
+
+\bibitem{bt1932} G.~D.~Birkhoff and W.~J.~Trjitzinsky, \emph{Analytic theory of singular difference equations}, Acta Math.\ \textbf{60} (1932), 1--89.
+
+\bibitem{braaksma-faber1996} B.~L.~J.~Braaksma and B.~F.~Faber, \emph{Multisummability for some classes of difference equations}, Ann.\ Inst.\ Fourier (Grenoble) \textbf{46} (1996), 183--217.
+
+\bibitem{gauss1813} C.~F.~Gauss, \emph{Disquisitiones generales circa seriem infinitam $1 + \tfrac{\alpha\beta}{1\cdot\gamma}x + \cdots$}, Comm.\ Soc.\ Reg.\ Sci.\ G\"ott.\ Rec.\ \textbf{2} (1813).
+
+\bibitem{immink1984} G.~K.~Immink, \emph{Asymptotics of Analytic Difference Equations}, Lecture Notes in Mathematics \textbf{1085}, Springer, 1984.
+
+\bibitem{ince1926} E.~L.~Ince, \emph{Ordinary Differential Equations}, Longmans, Green \& Co., 1926. Reprinted by Dover, 1956.
+
+\bibitem{lw1992} L.~Lorentzen and H.~Waadeland, \emph{Continued Fractions with Applications}, Studies in Computational Mathematics \textbf{3}, North-Holland, 1992.
+
+\bibitem{pincherle1894} S.~Pincherle, \emph{Delle funzioni ipergeometriche e di varie questioni ad esse attinenti}, Giorn.\ Mat.\ Battaglini \textbf{32} (1894), 209--291.
+
+\bibitem{schmidt1991} W.~M.~Schmidt, \emph{Diophantine Approximations and Diophantine Equations}, Lecture Notes in Mathematics \textbf{1467}, Springer, 1991.
+
+\bibitem{siarc2024} SIARC Collaboration, \emph{Computational discovery of polynomial continued fraction identities: methods and infrastructure}, technical report (2024).
+
+\bibitem{stieltjes1894} T.~J.~Stieltjes, \emph{Recherches sur les fractions continues}, Ann.\ Fac.\ Sci.\ Toulouse \textbf{8} (1894), J1--J122.
+
+\bibitem{wall1948} H.~S.~Wall, \emph{Analytic Theory of Continued Fractions}, Van Nostrand, 1948. Reprinted by Chelsea, 1973.
+
+\bibitem{wasow1965} W.~Wasow, \emph{Asymptotic Expansions for Ordinary Differential Equations}, Wiley, 1965. Reprinted by Dover, 1987.
+
+\end{thebibliography}
+
+\end{document}

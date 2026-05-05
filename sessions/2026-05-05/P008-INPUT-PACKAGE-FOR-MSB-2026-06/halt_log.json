@@ -1,39 +1,19 @@
 {
-  "halt_code": "HALT_045_RACI_NOT_INSTALLED",
-  "halt_time_utc": "2026-05-05T11:09:37Z",
-  "precondition_failed": "P1",
-  "spec_quote": "Prompt 043 has fired AND the synthesizer_inbox handoff file exists at canonical path. If 043 not yet landed, HALT_045_RACI_NOT_INSTALLED.",
-  "evidence": {
-    "expected_bridge_session": "siarc-relay-bridge/sessions/2026-05-08/RACI-V2026-05-08-INSTALL/",
-    "expected_bridge_session_status": "NOT_FOUND (no sessions/2026-05-08/ directory exists in bridge tree)",
-    "expected_inbox_handoff": "tex/submitted/control center/synthesizer_inbox/STRATEGYZER_HANDOFF_2026-05-08.md",
-    "expected_inbox_handoff_status": "NOT_FOUND",
-    "043_prompt_text_path": "tex/submitted/control center/prompt/043_raci_v2026-05-08_install.txt",
-    "043_prompt_text_status": "PRESENT (drafted, not executed)"
-  },
-  "grounding_status": "COMPLETE",
-  "grounding_evidence": {
-    "cmb_header_path": "tex/submitted/CMB.txt",
-    "cmb_header_last_updated": "2026-05-04",
-    "cmb_header_mtime_utc": "2026-05-05T11:02:34Z",
-    "bridge_30day_listing": [
-      "2026-05-07",
-      "2026-05-05",
-      "2026-05-04",
-      "2026-05-03",
-      "2026-05-02",
-      "2026-05-01",
-      "2026-04-30",
-      "2026-04-29",
-      "2026-04-28"
-    ],
-    "latest_cli_log": "cli_log/2026-05-05.md",
-    "latest_cli_log_mtime_utc": "2026-05-05T11:02:37Z"
-  },
-  "steps_not_executed": [
-    "STEP 2 substrate manifest",
-    "STEP 3 verbatim package extraction",
-    "STEP 5 full handoff (replaced by halt-stub handoff.md)"
+  "halt_history": [
+    {
+      "halt_code": "HALT_045_RACI_NOT_INSTALLED",
+      "halt_time_utc": "2026-05-05T11:09:37Z",
+      "resolved": true,
+      "resolution_time_utc": "2026-05-05T11:44:25Z",
+      "resolution_evidence": {
+        "043_re_fire_commit": "2c61c95",
+        "inbox_handoff_present": true,
+        "inbox_handoff_path": "tex/submitted/control center/synthesizer_inbox/STRATEGYZER_HANDOFF_2026-05-08.md",
+        "inbox_handoff_sha256": "F6FC35AF0F7EBFEB3FD984F3812AFE1B92F5E5F1F0F38786587A01013C78761D",
+        "inbox_handoff_size_bytes": 12323
+      },
+      "spec_quote": "Prompt 043 has fired AND the synthesizer_inbox handoff file exists at canonical path. If 043 not yet landed, HALT_045_RACI_NOT_INSTALLED."
+    }
   ],
-  "operator_action_required": "Fire prompt 043 (RACI v2026-05-08 install) so that the bridge session sessions/2026-05-08/RACI-V2026-05-08-INSTALL/ and the inbox file tex/submitted/control center/synthesizer_inbox/STRATEGYZER_HANDOFF_2026-05-08.md both exist. Then re-fire 045."
+  "current_halts": []
 }
