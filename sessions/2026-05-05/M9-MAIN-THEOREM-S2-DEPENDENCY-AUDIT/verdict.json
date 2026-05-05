@@ -1,0 +1,134 @@
+{
+  "task_id": "M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT",
+  "date": "2026-05-05",
+  "agent": "GitHub Copilot (VS Code)",
+  "verdict": "INDETERMINATE_NO_FORMAL_STATEMENT",
+  "verdict_reasoning": {
+    "step1_precedence_walk": {
+      "rule_1_formal_theorem_env_in_umbrella": "FAIL - no \\begin{theorem}/\\begin{conjecture} environment labelled Master Conjecture v0 / MASTER-V0 / Phi exists in tex/submitted/umbrella_program_paper/main.tex",
+      "rule_2_pcf1_or_ct_or_pcf2_master_classification": "FAIL - PCF-1 v1.3 has only Logarithmic Ladder + Casoratian; PCF-2 v1.3 has 0 hits for Master Conjecture / MASTER-V0 / S_2 / second Stokes / alien amplitude / Phi formally; CT v1.3 only discusses preconditions for a future announcement",
+      "rule_3_picture_v118_schema": "schema only per spec - cannot serve as statement-of-record",
+      "rule_4_zenodo_umbrella_v2_description": "Phi triple-invariant schema only; description text explicitly defers MASTER-V0 to future companion paper",
+      "rule_5_NONE_triggered": true
+    },
+    "step2_dependency_trace": "non-binding pre-rendering - see dependency_trace.md",
+    "step3_m8b_status": "S_2 PERMANENTLY FORECLOSED numerically (Stage-2-LSQ + Borel-Pade); literature status DEFERRED-PENDING-PRIMARY-DERIVATION (Costin 2008 = S_1 only, BLMP 2024 = RH structural partial)"
+  },
+  "halt_triggered": null,
+  "halt_conditions_evaluated": {
+    "H1_mutually_inconsistent_multiple_statements": false,
+    "H2_hard_dependency_with_type_a_invocation": false,
+    "H3_unauthorised_post_2026_05_01_phi_draft": false,
+    "H4_source_missing_or_unreadable": false,
+    "H5_picture_v118_vs_picture_revised_20260504_divergence": false,
+    "H6_caveat_contains_forbidden_aeal_verbs": false
+  },
+  "statement_of_record": null,
+  "schema_level_fragments_audited": [
+    {
+      "id": "F1",
+      "source": "tex/submitted/umbrella_program_paper/main.tex",
+      "line": 273,
+      "verbatim": "\\Phi : \\PCF(1,b) \\;\\longmapsto\\; \\bigl(\\Delta_d(b),\\ \\PetN{\\Delta}(\\tau_b),\\ \\xi_0(b)\\bigr)",
+      "s2_occurrences": 0,
+      "fragment_dependency": "NO_DEPENDENCY"
+    },
+    {
+      "id": "F2",
+      "source": "tex/submitted/umbrella_program_paper/main.tex",
+      "line_range": [686, 696],
+      "label": "prob:b4-allD",
+      "s2_occurrences": 0,
+      "fragment_dependency": "NO_DEPENDENCY"
+    },
+    {
+      "id": "F3",
+      "source": "siarc-relay-bridge/sessions/2026-05-04/PICTURE-V18-AMENDMENT-DRAFTING/picture_v1.18.md",
+      "line_range": [973, 989],
+      "label": "M9 block",
+      "s2_occurrences_in_M9_block": 0,
+      "s2_occurrences_in_adjacent_M8b_block": 4,
+      "M8b_S2_type": "(c) numerical-foreclosure",
+      "fragment_dependency": "NO_DEPENDENCY"
+    },
+    {
+      "id": "F4",
+      "source": "siarc-relay-bridge/sessions/2026-05-02/CHANNEL-THEORY-V13-RELEASE/channel_theory_outline.tex",
+      "line_range": [1336, 1349],
+      "label": "Implications for the Master Conjecture",
+      "s2_occurrences": 0,
+      "stokes_data_occurrences": 1,
+      "stokes_data_type": "(b) structural-existence",
+      "verbatim_key_clause": "the missing piece is the full Stokes-matrix datum",
+      "fragment_dependency": "SOFT_DEPENDENCY"
+    },
+    {
+      "id": "F5",
+      "source": "siarc-relay-bridge/sessions/2026-05-02/CHANNEL-THEORY-V13-RELEASE/channel_theory_outline.tex",
+      "line": 1026,
+      "label": "channel functor definition",
+      "s2_occurrences": 0,
+      "fragment_dependency": "NO_DEPENDENCY"
+    },
+    {
+      "id": "F6",
+      "source": "tex/submitted/umbrella_program_paper/main.tex",
+      "line_range": [759, 763],
+      "label": "prob:chi-Phi-compatibility",
+      "s2_occurrences": 0,
+      "fragment_dependency": "NO_DEPENDENCY"
+    }
+  ],
+  "aggregate_pre_rendering": {
+    "worst_case_fragment_dependency": "SOFT_DEPENDENCY",
+    "best_case_fragment_dependency": "NO_DEPENDENCY",
+    "no_HARD_DEPENDENCY_in_any_fragment": true,
+    "expected_post_P008_verdict_if_schema_holds": "NO_DEPENDENCY or SOFT_DEPENDENCY (HARD ruled out unless P-008 introduces a closed-form-value clause not present in any audited fragment)"
+  },
+  "m8b_status_crosscheck": {
+    "numerical_S2_extraction": "PERMANENTLY_FORECLOSED",
+    "numerical_paths_retired": [
+      "Stage-2-LSQ (017c dps=250 N=2000; 017e dps=400 N=5000)",
+      "Borel-Pade direct extraction (T37M HALT 2026-05-03)"
+    ],
+    "literature_closed_form_S2": "NOT_AVAILABLE",
+    "literature_evidence": [
+      "Costin 2008 Theorem 5.26: first Stokes constant S_1 only; 0 hits for second-Stokes/S_2 alien-amplitude sense",
+      "BLMP 2024: Riemann-Hilbert characterisation of monodromy data, partial fit to SIARC d=2 PCF dichotomy; 0 hits for SIARC dichotomy markers in 9030-line text"
+    ],
+    "status_label": "DEFERRED-PENDING-PRIMARY-DERIVATION",
+    "cross_source_concordance": {
+      "picture_v118_M8b_block": "S_2 PERMANENTLY FORECLOSED via Stage-2-LSQ + Borel-Pade",
+      "dossier_section_C": "Costin S_1 only; BLMP RH structural partial",
+      "CMB_lines_389_395": "NO closed-form S_2 alien-amplitude formula for the SIARC d=2 PCF dichotomy",
+      "divergence_detected": false
+    }
+  },
+  "picture_v118_vs_picture_revised_20260504_check": {
+    "M8b_block_byte_identical": true,
+    "M9_block_byte_identical": true,
+    "H5_triggered": false
+  },
+  "provisional_caveat_for_P009": {
+    "draft_text": "Stokes-multiplier discrimination (companion milestone M8b) supplies an additional structural axis on which the master classification of \u03a6 refines; current numerical paths to the second Stokes constant S_2 for the d=2 PCF Painlev\u00e9-III dichotomy are foreclosed at laptop-feasible precision (cf. SIARC bridge sessions T37M, 017c, 017e, 2026-05-03), and a literature-direct closed-form expression is not currently available (cf. Costin 2008 Theorem 5.26 = first Stokes constant only; Barhoumi--Lisovyy--Miller--Prokhorov 2024 = Riemann-Hilbert structural characterisation of monodromy data). The classification result of \u03a6 does not depend on a closed-form value of S_2; M8b is enrichment, not gate.",
+    "binding_status": "PROVISIONAL_PENDING_P008",
+    "use_condition": "valid only if P-008 draft Phi statement remains within the schema-level fragments audited (umbrella v2.0 \u00a74 + picture v1.18 M9 block + CT v1.3 \u00a7Implications). If P-008 introduces a closed-form-value clause for S_2, this caveat must be discarded and the audit re-run.",
+    "forbidden_AEAL_verb_check": "PASS - no occurrence of 'shows', 'confirms', 'proves' applied to non-closed milestones; permitted verbs 'supplies', 'refines' used in conjecture context only"
+  },
+  "recommendations": {
+    "next_action_for_synthesizer": "Fire P-008 (M9 V0 announcement draft) using umbrella v2.0 \u00a74 Phi triple as substrate and CT v1.3 \u00a7Implications four preconditions as caveat backbone. After P-008 produces a formal Conjecture environment, re-run this audit in a single relay pass against the new statement-of-record.",
+    "next_action_for_P009": "May proceed using the provisional caveat above with explicit dependency on the audited schema. Re-audit if P-008 schema-shifts.",
+    "M9_gating_recommendation": "{M4, M6} unchanged (per v1.15 unconditional amendment). M8b should remain excluded from M9 gating. Re-evaluation only required if P-008 introduces a closed-form-S_2 clause."
+  },
+  "deliverables": [
+    "handoff.md",
+    "dependency_trace.md",
+    "verdict.json",
+    "claims.jsonl",
+    "halt_log.json",
+    "discrepancy_log.json",
+    "unexpected_finds.json"
+  ],
+  "push_status": "LOCAL_ONLY_AWAITING_OPERATOR_GATE",
+  "aeal_claim_count": 5
+}
