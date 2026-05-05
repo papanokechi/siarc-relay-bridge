@@ -1,0 +1,90 @@
+{
+  "halt_tag": "HALT_044_WALL_BUDGET_EXCEEDED",
+  "task_id": "T2B-BZERO-OFFSET-LOG-SWEEP-B5-8-9-10",
+  "relay_prompt": "044 (re-fire post-043-RACI-install)",
+  "fired_at_local": "2026-05-05 22:12 JST",
+  "halted_at_local": "2026-05-06 01:25 JST",
+  "halted_at_utc": "2026-05-05 16:25 UTC",
+  "wall_seconds": 11580,
+  "wall_hms": "3h13m",
+  "nominal_budget_seconds": 7200,
+  "hard_halt_threshold_seconds": 10800,
+  "overrun_seconds": 780,
+  "reason": "Stage B/C PSLQ classification (n_workers=23 ProcessPoolExecutor, dps=150, 8-element trans basis, 241892 convergent tasks) ran 110+ minutes without completing pool.map(). 7 of 23 workers still active at halt time (each with ~5170s CPU = 86 min of compute per worker). Pool.map() blocks until all workers finish; no partial-result extraction is possible from the running map() call. Per spec HALT IF Total wall > 3 hr (1.5x nominal), halted at 3h13m to push partial state.",
+  "what_was_completed": {
+    "stage_a_convergence_filter": {
+      "status": "COMPLETE",
+      "wall_seconds": 423.6,
+      "total_enumerated": 319440,
+      "total_convergent": 241892,
+      "n_stagea": 500,
+      "tol_stagea": 1e-08,
+      "cache_file": "stage_a_cache.json",
+      "cache_size_bytes": 12933634
+    },
+    "stage_bc_pslq": {
+      "status": "INCOMPLETE_HALTED",
+      "wall_seconds_partial": 11150,
+      "workers_initial": 23,
+      "workers_still_active_at_halt": 7,
+      "workers_already_exited": 16,
+      "total_cpu_seconds_at_halt_visible_workers": 34479,
+      "note": "Initial 16 workers' CPU time lost when they exited cleanly; total cumulative compute likely 50-70 kCPU-s. No results were written from the pool.map() call -- it never returned."
+    },
+    "stage_d_deep_verify": {"status": "NOT_REACHED"},
+    "outcome_determination": {"status": "NOT_REACHED",
+                              "outcome_tag": null,
+                              "interpretation": "Cannot determine A/B/C outcome from Stage A alone."}
+  },
+  "rule5_grounding": {
+    "cmb_header_readable": true,
+    "cmb_path": "tex/submitted/CMB.txt",
+    "cmb_filesystem_mtime_jst": "2026-05-05 20:20:28",
+    "cmb_last_updated_field": "2026-05-04",
+    "bridge_30day_grep_status": "OK",
+    "bridge_head_at_grounding": "645ff79 (P008-INPUT-PACKAGE-FOR-MSB-2026-06)",
+    "raci_install_anchor_seen": "ae37e5a + 177bfd7 (RACI-V2026-05-08-INSTALL)",
+    "cli_log_latest_path": "cli_log/2026-05-05.md",
+    "cli_log_latest_mtime_jst": "2026-05-05 20:20:28",
+    "grounding_partial": false
+  },
+  "preconditions": {
+    "P1_RACI_installed": "PASS (sessions/2026-05-08/RACI-V2026-05-08-INSTALL/ found, 7 files)",
+    "P2_venv_mpmath_numpy": "PASS (python 3.14.3, mpmath 1.3.0, numpy 2.4.4)",
+    "P3_prior_harness_or_ramanujan": "PASS (CLI-Synth-staged sweep_b1_5_8_9_10.py found at sessions/2026-05-08/T2B-BZERO-OFFSET-LOG-SWEEP-B5-8-9-10/, adapted from B6 dispatch)",
+    "P4_rule5_grounding": "PASS (3/3 sources readable)"
+  },
+  "stage_a_per_b1": {
+    "5":  {"total_enumerated": 79860, "convergent": 43580, "convergent_a2_neg": 7284,  "convergent_a2_pos": 36296},
+    "8":  {"total_enumerated": 79860, "convergent": 59976, "convergent_a2_neg": 20046, "convergent_a2_pos": 39930},
+    "9":  {"total_enumerated": 79860, "convergent": 66475, "convergent_a2_neg": 26545, "convergent_a2_pos": 39930},
+    "10": {"total_enumerated": 79860, "convergent": 71861, "convergent_a2_neg": 31931, "convergent_a2_pos": 39930}
+  },
+  "harness_modifications_made_in_session": [
+    "Added stage_a_cache.json persistence (so Stage A can be skipped on re-fire).",
+    "Replaced multiprocessing.Pool with concurrent.futures.ProcessPoolExecutor.map (Python 3.14 + Start-Process -RedirectStandardOutput triggered WinError 87 in spawn_main with mp.Pool; ProcessPoolExecutor + Start-Process WindowStyle Hidden without external redirect was stable).",
+    "Added serial-fallback path if ProcessPoolExecutor fails.",
+    "Added _redirect_to_logfile() at __main__ entry (writes stdout+stderr to run.log internally; required because Start-Process -RedirectStandardOutput broke worker spawn).",
+    "Added explicit mp_proc.set_start_method('spawn', force=True) at __main__."
+  ],
+  "wall_budget_breakdown": {
+    "session_start_local": "2026-05-05 22:12 JST",
+    "halt_local": "2026-05-06 01:25 JST",
+    "first_attempt_failed": "Started ~21:12, multiprocessing.Pool spawn errors with Start-Process -RedirectStandardOutput; parent died, no results.",
+    "harness_repair": "~22:00-22:10 (added cache, ProcessPoolExecutor fallback, internal stdout redirection)",
+    "second_attempt_started": "~22:18 launch with Start-Process WindowStyle Hidden (no external redirect)",
+    "stage_a_run": "22:18 - 22:25 (~7 min)",
+    "stage_bc_run": "22:25 - 01:25 (3h00m, halted incomplete)",
+    "session_total": "3h13m"
+  },
+  "halt_authority": "Relay-prompt-spec HALT IF clause: HALT_044_WALL_BUDGET_EXCEEDED (Total wall > 3 hr / 1.5x nominal).",
+  "downstream_impact": "Outcome A/B/C not determined. Synthesizer arbitration on next-step deferred. v3.1 stratification (Class A/B + Bauer orbit + b1=7 singular) NOT amended/refuted by this run -- the Outcome A 'B7_STAYS_SINGULAR_BROADER' tag, Outcome B 'CANDIDATE_4TH_LAW_2POINTS' tag, and Outcome C 'CANDIDATE_4TH_LAW_HARDEN' tag all remain untested. Re-fire 044 with restored Stage A cache (skipping ~7 min Stage A) is the obvious next step; with the harness now stable, the second attempt should hit only the PSLQ wall.",
+  "recommended_resolution": [
+    "Re-fire 044 with the same harness; Stage A will load from stage_a_cache.json (saves 7 min) and Stage B/C will run from clean state.",
+    "OR: tighten Stage B/C runtime by reducing PSLQ_HMAX_TRANS from 10^9 to 10^7 (much faster on common cases, may miss some hard relations -- discuss with Synthesizer).",
+    "OR: split Stage B/C into 4 per-b1 sub-runs each capped at ~25 min wall, with intermediate checkpoint between b1 values."
+  ],
+  "aeal_claims_count": 9,
+  "no_partial_state_committed_for_pslq": true,
+  "stage_a_state_preserved": true
+}
