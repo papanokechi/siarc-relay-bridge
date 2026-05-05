@@ -1,0 +1,35 @@
+[ENUM] b1=[7]  a2=-30..30 (excl 0)  free=-5..5  total=79860
+[STAGE A] float64 K=500 tol=1e-08
+  0%  (0/79860)
+  5%  (3993/79860)
+  10%  (7986/79860)
+  15%  (11979/79860)
+  20%  (15972/79860)
+  25%  (19965/79860)
+  30%  (23958/79860)
+  35%  (27951/79860)
+  40%  (31944/79860)
+  45%  (35937/79860)
+  50%  (39930/79860)
+  55%  (43923/79860)
+  60%  (47916/79860)
+  65%  (51909/79860)
+  70%  (55902/79860)
+  75%  (59895/79860)
+  80%  (63888/79860)
+  85%  (67881/79860)
+  90%  (71874/79860)
+  95%  (75867/79860)
+[STAGE A] 55813/79860 convergent in 86.1s
+[STAGE B/C] PSLQ dps=150 N=600  workers...
+[STAGE B/C] done in 1768.3s with 7 workers
+[STAGE D-LOG] 1 Log candidate(s) (diagnostic); deep-verify dps=300 N=1500
+  LOG   [8, -4, 0, 7, 4]  ratio=8/49  ic=neither  deep={'L': '4.32808512266689022207977404300567641227993786245895780240635', 'L_full_dps_str': '4.328085122666890222079774043005676412279937862458957802406348220793327657543555239656579868680519033', 'relation': [-3, 0, 0, 0, 0, 0, 0, 1], 'residual': '0.0', 'residual_lt_1e_200': True}
+[VERDICT] STRONG_NULL_HOLDS
+  n_trans_total=0
+  n_trans_on_L_minus=0 (predicted 0)
+  n_trans_on_L_plus =0 (predicted 0)
+  n_trans_on_other  =0
+  n_log_total       =1
+  n_u1_collisions   =0
+[DONE] wall=1855.25s  verdict=STRONG_NULL_HOLDS  trans=0  log=1  collisions=0
