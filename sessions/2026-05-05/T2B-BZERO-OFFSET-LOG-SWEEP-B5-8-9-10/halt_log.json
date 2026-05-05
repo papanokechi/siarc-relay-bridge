@@ -1,0 +1,34 @@
+{
+  "halt_tag": "HALT_044_RACI_NOT_INSTALLED",
+  "task_id": "T2B-BZERO-OFFSET-LOG-SWEEP-B5-8-9-10",
+  "relay_prompt": "044",
+  "fired_at_utc": "2026-05-05",
+  "reason": "Precondition P1 of relay 044 failed: prompt 043 (RACI install at sessions/2026-05-08/RACI-V2026-05-08-INSTALL/) has NOT been fired. Bridge contains no sessions/2026-05-08/ directory at all as of fire time.",
+  "checks_performed": [
+    {"check": "Test-Path sessions/2026-05-08/RACI-V2026-05-08-INSTALL", "result": false},
+    {"check": "Get-ChildItem sessions/2026-05-08/", "result": "directory does not exist"},
+    {"check": "Get-ChildItem sessions -Recurse -Filter *RACI*", "result": "0 matches under sessions/"}
+  ],
+  "rule5_grounding": {
+    "cmb_header_readable": true,
+    "cmb_path": "tex/submitted/CMB.txt",
+    "cmb_last_updated_field": "2026-05-04",
+    "cmb_filesystem_mtime": "2026-05-05 20:02:34",
+    "bridge_30day_grep_status": "OK",
+    "bridge_30day_recent_commits_head": [
+      "5d83797 2026-05-05 PCF-2-V2-BIPARTITION-PROMOTION",
+      "8e18465 2026-05-05 T2B-BIPARTITION-B7-STRONG-NULL",
+      "171eccc 2026-05-05 U1-LIMIT-LEVEL-COLLISION",
+      "1735258 2026-05-05 BIPARTITION-HOLDS (b1=6)"
+    ],
+    "cli_log_latest_readable": true,
+    "cli_log_latest_path": "cli_log/2026-05-05.md",
+    "cli_log_latest_mtime": "2026-05-05 20:02:37",
+    "grounding_partial": false
+  },
+  "downstream_impact": "Sweep over b1 in {5, 8, 9, 10} not executed. No families enumerated. No PSLQ classifications produced. Outcome A/B/C tag NOT assigned. STEP 2-9 of spec not entered. Relay 045 (P-008 input package) remains gated until 044 re-fires post-043.",
+  "recommended_resolution": "Operator-side: fire prompt 043 (RACI v2026-05-08 install) first. Then re-fire 044 with the same parameters. Spec is otherwise self-contained and re-runnable as drafted.",
+  "aeal_claims_count": 3,
+  "halt_authority": "Relay-prompt-spec gate (Preconditions / HALT IF section)",
+  "no_partial_state_to_preserve": true
+}
