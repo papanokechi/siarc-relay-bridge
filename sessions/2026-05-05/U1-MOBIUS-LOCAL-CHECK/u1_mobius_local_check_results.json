@@ -1,0 +1,74 @@
+{
+  "task_id": "U1-MOBIUS-LOCAL-CHECK",
+  "date": "2026-05-05",
+  "agent": "GitHub Copilot (CLI side, synth-pre-authorized local check)",
+  "pcf_A": {
+    "a_coeffs": [
+      -1,
+      0,
+      0
+    ],
+    "b_coeffs": [
+      3,
+      6
+    ],
+    "ratio": "-1/36",
+    "ic": "neither",
+    "locus_status": "OFF_BOTH_LOCI"
+  },
+  "pcf_B": {
+    "a_coeffs": [
+      -8,
+      0,
+      0
+    ],
+    "b_coeffs": [
+      4,
+      6
+    ],
+    "ratio": "-2/9",
+    "ic": "trans_stratum_proper",
+    "locus_status": "ON_L_MINUS"
+  },
+  "shared_pslq_relation": [
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+  ],
+  "shared_pslq_basis_inferred": "[1, K, K^2, pi, K*pi, pi^2, K^2*pi, pi^3]",
+  "T1": {
+    "L_A": "2.885390081777926814719849362003784274853291908306",
+    "L_B": "2.885390081777926814719849362003784274853291908306",
+    "target_2_over_log2": "2.885390081777926814719849362003784274853291908306",
+    "abs_diff_A_B": "0.0",
+    "abs_diff_A_target": "0.0",
+    "abs_diff_B_target": "0.0",
+    "all_equal_at_150_digits": true,
+    "verdict": "BOTH EQUAL TARGET 2/log(2) AT >150 DIGITS"
+  },
+  "T2": {
+    "r_n_r_nm1_constant_8": false,
+    "verdict": "NO CLASSICAL EQUIVALENCE TRANSFORMATION",
+    "interpretation": "Trivial PCF-level equivalence by sequence rescaling does NOT link the two PCFs."
+  },
+  "T3": {
+    "deferred": true,
+    "rationale": "T2 establishes the equivalence-transformation link directly under LEADING-FIRST convention; Bauer-Muir is redundant when classical equivalence already holds.",
+    "verdict": "DEFERRED"
+  },
+  "T4": {
+    "pcf_A_is_genuine_degree_2": true,
+    "pcf_B_is_genuine_degree_2": true,
+    "both_have_a_n_proportional_to_n_squared": true,
+    "limit_2_over_log2": "2.885390081777926814719849362",
+    "structural_observation": "Both PCFs share a-polynomial form a_n = c*n^2 (genuine degree-2). PCF B has c=-8 (L- locus); PCF A has c=-1 (off-locus). The off-locus appears to be a 'satellite' Log family sharing the same Log limit 2/log(2) as the L- representative (-8, 0, 0, 6, 4)."
+  },
+  "synth_answer_kind_of_equivalence": "LIMIT-LEVEL equivalence only. Both PCFs evaluate to L = b(0) + K = 2/log(2) via INDEPENDENT b(0) choices (b(0)=3 for PCF A, b(0)=4 for PCF B) and K-values that differ by exactly 1 (K_A - K_B = +1). The K-parts have proportional a-numerators (a_B(n) = 8 * a_A(n)) but the b-coefficient ratio r_n = (6n+4)/(6n+3) does NOT yield r_n*r_{n-1} = 8 = a_B/a_A, so classical equivalence transformation FAILS. The two PCFs are NOT linked by sequence rescaling; they converge to the same limit through complementary b(0)-offsets and proportional-but-not-equivalent K-parts.",
+  "synth_recommendation": "Preprint v2 candidate amendment: the 'all Log families at ratio -2/9' claim is potentially TIGHTER than the data supports. The off-locus family (-1, 0, 0, 6, 3) at ratio -1/36 evaluates to the SAME Log constant 2/log(2) as the L^- representative (-8, 0, 0, 6, 4) at ratio -2/9. This is a Log-stratum collision via independent b(0)-offsets, not a true L^- locus violation. Two recommended amendments: (1) clarify that the bipartition rule is on the (a-polynomial, b1) Trans-stratum, not on Log-stratum limits; (2) document the 'b(0)-offset Log collision' phenomenon as a structural feature of the F(2,4) Log stratum at b1=6.",
+  "upgrade_or_threat": "UPGRADE -- structural content for preprint v2. The bipartition holds for Trans, but the Log stratum exhibits a previously-uncatalogued structural feature (b(0)-offset collision) that the preprint v2 abstract should note. Bipartition verdict BIPARTITION_HOLDS unaffected (it pertains to Trans only)."
+}

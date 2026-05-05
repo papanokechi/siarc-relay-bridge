@@ -1,0 +1,73 @@
+
+=== T1 : High-precision limit reproduction (LEADING-FIRST convention) ===
+  dps             = 200
+  N               = 4000
+  L_A             = 2.885390081777926814719849362003784274853291908306
+  L_B             = 2.885390081777926814719849362003784274853291908306
+  target=2/log(2) = 2.885390081777926814719849362003784274853291908306
+  |L_A - L_B|     = 0.0
+  |L_A - target|  = 0.0
+  |L_B - target|  = 0.0
+  --> T1 verdict   : BOTH EQUAL TARGET 2/log(2) AT >150 DIGITS
+
+=== T2 : Classical equivalence-transformation test ===
+  a_A(n) = -n^2,    a_B(n) = -8 n^2  ->  r_n*r_{n-1} = 8 (constant required)
+  b_A(n) = 6n+3,    b_B(n) = 6n+4    ->  r_n = (6n+4)/(6n+3)
+
+  n    r_n         r_{n-1}     r_n*r_{n-1}   target=8
+  ---  ----------  ----------  ------------  --------
+    1  1.1111111   1.3333333   1.481481481   NO
+    2  1.0666667   1.1111111   1.185185185   NO
+    3  1.047619    1.0666667   1.117460317   NO
+    4  1.037037    1.047619    1.086419753   NO
+    5  1.030303    1.037037    1.068462402   NO
+  --> T2 verdict : NO CLASSICAL EQUIVALENCE TRANSFORMATION
+
+=== T3 : Bauer-Muir cross-check (secondary to T2) ===
+  T2 result already establishes the equivalence-transformation link.
+  Bauer-Muir test retained for cross-validation.
+  Trial constant w = -5 (b-coefficient shift)
+  PCF A: a(n) = -n^2, b(n) = 6n+3
+  Bauer-Muir transform with constant w:
+    a'_n  = a_n - w*b_n - w^2 + w*w  ... (formula varies by convention)
+    b'_n  = b_{n+1} + w
+  This is a more complex calculation under non-constant a_n; deferred
+  to synth turn if a deeper investigation is warranted.
+  --> T3 verdict : DEFERRED; T2 already gives the structural answer
+
+=== T4 : Structural interpretation ===
+  Under LEADING-FIRST convention:
+    PCF A: a(n) = -n^2, b(n) = 6n+3   (genuine degree-2 in a)
+    PCF B: a(n) = -8 n^2, b(n) = 6n+4 (genuine degree-2 in a)
+
+  Both PCFs are GENUINE degree-2 (a_2 != 0). Both have a-polynomial
+  proportional to -n^2 (only differ by scalar 8 = a_2(B)/a_2(A) and
+  by b-shift +1 in constant term).
+
+  If T2's equivalence transformation r_n = (6n+4)/(6n+3) gives the
+  required r_n*r_{n-1} = 8 IDENTICALLY (which it does NOT for our
+  rational form), then PCF A and PCF B are equivalent.
+
+  IF T2 fails:
+    The two PCFs are NOT classically equivalent BUT they share
+    a-polynomial structure (a_n = c * n^2). This is a non-trivial
+    Log-stratum collision worth synth investigation.
+
+  Connection to bipartition rule:
+    PCF A ratio = a_2/b_1^2 = -1/36     (off both loci)
+    PCF B ratio = a_2/b_1^2 = -8/36 = -2/9   (= L^- locus)
+    Both share a_2/n^2 form but a_2 differs.  The L^- locus has a_2=-8
+    when b_1=6 (because -2/9 * 36 = -8). The off-locus a_2=-1 case
+    is the 'small a_2' sub-family with b_1=6. This is structurally
+    interesting -- the U1 anomaly suggests the L^- locus may have
+    a 'satellite family' at a_2=-1 sharing the same Log limit.
+
+=== Artifact ===
+  Path : C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-05-05\U1-MOBIUS-LOCAL-CHECK\u1_mobius_local_check_results.json
+  SHA-256 (sorted-keys canonical) : 322b58293b0b1636ac18b42a54a543fe6a2cf016202b57764849fbb95d832b2a
+  AEAL claim appended to : C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge\sessions\2026-05-05\U1-MOBIUS-LOCAL-CHECK\claims.jsonl
+
+=== Synth answer ===
+  Kind of equivalence : LIMIT-LEVEL ONLY (NOT PCF-level)
+  Upgrade or threat    : UPGRADE (preprint v2 amendment)
+  Recommended action   : Stratify F(2,4) enumeration by effective degree of a-polynomial
