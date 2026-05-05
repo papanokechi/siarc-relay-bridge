@@ -1,0 +1,72 @@
+{
+  "task_id": "PCF-2-V2-BIPARTITION-PROMOTION",
+  "today_date": "2026-05-07",
+  "v3.0_source_path": "tex/submitted/t2b_paper_draft_v5_withauthor.tex",
+  "v3.0_arxiv_pack_path": "siarc-relay-bridge/sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/arxiv_pack_t2b_v3.0/pack/t2b_paper_draft_v5_withauthor.tex",
+  "v3.0_sha256": "9BDD6A5D799BD8FE956E3F87114E8F9CDA730B96ACED24037B292E80619F538B",
+  "v3.0_size_bytes": 28635,
+  "v3.0_line_count": 289,
+  "byte_identical_with_arxiv_pack": true,
+  "manuscript_version_label": "Version 3.0",
+  "manuscript_date": "2026-04-30",
+  "v3.1_output_path": "sessions/2026-05-07/PCF-2-V2-BIPARTITION-PROMOTION/t2b_paper_v3.1_bipartition_promotion.tex",
+  "v3.1_sha256": "538B897C75908C9E25B2AD5C6F7EE8317A5906D2E7668809DBF58E7DB7755B79",
+  "v3.1_size_bytes": 33762,
+  "v3.1_line_count": 300,
+  "v3.1_version_label": "Version 3.1",
+  "v3.1_date": "2026-05-07",
+  "v3.1_pre_patch6_sha256": "7B6B2B2F6699D00A9E3256F4007F21E34196FDC69191B4AE342EB958E57B76C4",
+  "v3.1_pre_patch6_size_bytes": 33559,
+  "bridge_commit_citations": {
+    "T2B-BIPARTITION-B6-VERIFICATION": {
+      "commit": "1735258",
+      "date": "2026-05-05",
+      "verdict": "BIPARTITION_HOLDS",
+      "handoff_sha256": "ED64DFD24D7309D5F7612691618EAA406204B6EE16CBAB5B498A45C8C88E75EA",
+      "claims_sha256": "CA8CF230D409688D9ABE0C146245FA3E7298B64B28360019007796E1A409D89A"
+    },
+    "T2B-BIPARTITION-B7-STRONG-NULL": {
+      "commit": "8e18465",
+      "date": "2026-05-07",
+      "verdict": "STRONG_NULL_HOLDS",
+      "handoff_sha256": "0A1671D9FAB45154915A8B2C83F94E08283E716633DF28D0089D5F80D2190FFA",
+      "claims_sha256": "6C77713D0683294B9FE00B34C1A187E54361FDFB612333CFC1389CF805EB934F"
+    },
+    "U1-MOBIUS-LOCAL-CHECK": {
+      "commit": "171eccc",
+      "date": "2026-05-05",
+      "verdict": "LIMIT_LEVEL_EQUIVALENCE_ONLY",
+      "handoff_sha256": "274D6E3DFD1EDBC68D13F88AA483A7B3E73DE37CCCD4123E6759B5D9B24FF61E",
+      "claims_sha256": "8C2747B43B12B560504B71D97DFD92A1B7D1A6A4BE2DE7B7B957743D6D940C4E"
+    }
+  },
+  "amendments_applied": [
+    {"location": "\\date", "kind": "version-label-and-date", "v3.0": "Version 3.0 \\\\ 2026-04-30", "v3.1": "Version 3.1 \\\\ 2026-05-07"},
+    {"location": "abstract", "kind": "insert-sentence", "anchor": "before-Completeness-Conjecture", "added_words_approx": 110, "removed_words": 0},
+    {"location": "Section 1 (Introduction), after Empirical-phenomenon itemize", "kind": "insert-paragraph", "anchor": "before-\\paragraph{Main results.}", "added_words_approx": 270, "removed_words": 0},
+    {"location": "new section after sec:open", "kind": "new-section", "label": "sec:further-open", "title": "Further open questions", "added_words_approx": 380, "removed_words": 0},
+    {"location": "Acknowledgements", "kind": "append-sentence", "added_words_approx": 90, "removed_words": 0},
+    {"location": "Section sec:further-open / b1=7 bullet", "kind": "patch-6-synth-conditional-sharpening", "applied_at": "2026-05-05 ~19:23 JST", "trigger": "synth GO on JC-1 conditional on one-sentence off-orbit-relative-to-all-three-laws explicit framing", "v3.1_sha256_pre_patch6": "7B6B2B2F6699D00A9E3256F4007F21E34196FDC69191B4AE342EB958E57B76C4", "v3.1_sha256_post_patch6": "538B897C75908C9E25B2AD5C6F7EE8317A5906D2E7668809DBF58E7DB7755B79", "added_bytes": 203}
+  ],
+  "v3.0_results_unchanged": {
+    "theorem_count_v3.0": 3,
+    "theorem_count_v3.1": 3,
+    "proposition_count_v3.0": 1,
+    "proposition_count_v3.1": 1,
+    "conjecture_count_v3.0": 1,
+    "conjecture_count_v3.1": 1,
+    "lemma_count_v3.0": 2,
+    "lemma_count_v3.1": 2,
+    "corollary_count_v3.0": 2,
+    "corollary_count_v3.1": 2,
+    "table_count_v3.0": 2,
+    "table_count_v3.1": 2,
+    "remark_rem_bauer_orbit_unchanged": true,
+    "remark_rem_classB_saturation_unchanged": true,
+    "ai_disclosure_section_unchanged": true,
+    "h8_compliance": "PASS"
+  },
+  "halt_status": "clean",
+  "halts_evaluated": ["H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8"],
+  "halts_fired": []
+}
