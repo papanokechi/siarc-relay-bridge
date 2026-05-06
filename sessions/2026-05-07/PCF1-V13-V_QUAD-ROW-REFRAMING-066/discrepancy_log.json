@@ -1,0 +1,34 @@
+{
+  "task_id": "PCF1-V13-V_QUAD-ROW-REFRAMING-066",
+  "date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "non-blocking",
+      "category": "project-shorthand vs source structure",
+      "summary": "Relay 066 prompt body, LANE-2 R1 wording (lane2_meta_verdict.md L42), and 064 supplement (phase_a_supplementary_deg_a_zero.md section 5 L222) all reference 'PCF-1 v1.3 §6 Theorem 5'. In the canonical 16pp source p12_pcf1_main.tex (SHA E83BB377F297DBF0..), the WKB theorem and its row table reside at \\section{The WKB Exponent Identity}\\label{sec:wkb} (L516), which is the FIFTH section of the .tex file (counting \\section{...} ordering: §1 Introduction L100, §2 Spec(K) L190, §3 Sharp Dichotomy L272, §4 Structural Evidence L359, §5 WKB Exponent Identity L516, §6 V_quad as the Explicit Prototype L611, §7 AEAL Evidence Chain L720, §8 Open Questions L776). The 'Sharp Dichotomy and Conjecture A v5' content named in the relay 066 prompt body actually resides in §3 (sec:dichotomy). The thm:wkb numbering under the amsart preamble \\newtheorem{theorem}{Theorem}[section] / \\newtheorem{conjecture}[theorem]{Conjecture} renders as 'Theorem 5.1' in the §5 namespace; project shorthand 'Theorem 5' resolves to the same SHA-anchored statement.",
+      "resolution": "Pcf1_v13_v_quad_row_reframing.md §2 quotes the canonical 16pp .tex by SHA + line range (L516, L528-548, L566-577, L578-583), which resolves the shorthand precisely. Project-shorthand wording '§6 Theorem 5' is preserved in surface prose for cross-anchor consistency with R1 + 064 + relay prompt body."
+    },
+    {
+      "id": "D2",
+      "severity": "non-blocking",
+      "category": "v1.4 working draft drift",
+      "summary": "Relay 066 P5 substrate (b) names p12_journal_main.tex L575-957 (workspace v1.4 working draft, 72311 B, SHA 82173A09521D6676..) as a possible row-table fallback. Inspection at fire time finds the v1.4 working draft does NOT contain the WKB row table tab:wkb-exponents at the cited L575-957 region; the v1.4 draft has been reorganised (V_quad mentions appear at L86, L231, L292, L625, L775, L810, L819, L850, L921, L937, L939, L958, L962, L993, L998, L1006, L1011, L1031, L1077, L1108; the L625/L775 tabular rows are spec-table content, not the WKB exponents row table). Substrate path (a) was used (canonical 16pp v1.3 .tex at SHA E83BB377F297DBF0..), per relay 066 P5's 'fall back to (a) only' rule.",
+      "resolution": "P5 substrate path (a) selected; row table quoted verbatim from canonical 16pp v1.3 .tex L566-577 with full SHA anchor. G12 PCF1-V13-RECONCILE jurisdiction is unchanged."
+    },
+    {
+      "id": "D3",
+      "severity": "non-blocking",
+      "category": "section-index numbering ambiguity within project corpus",
+      "summary": "The project has multiple PCF-1 source paths with divergent §-index numbering: (i) canonical 16pp v1.3 source at sessions/2026-05-01/PCF1-V13-UPDATE/p12_pcf1_main.tex (SHA E83BB377..) has 8 sections, with WKB at §5; (ii) v1.4 working draft at tex/submitted/p12_journal_main.tex (SHA 82173A09..) has different section structure with V_quad-specific section at §6 ('The V_quad Painlevé Prototype' near L958). The R1 wording '§6 Theorem 5' may have inherited the §-index from a v1.4-or-later draft layout where V_quad-prototype section is §6 and WKB content was previously included; not directly verifiable without source-archaeology on intermediate v1.x drafts.",
+      "resolution": "066 §2 anchors entirely by SHA + L-numbers in the canonical 16pp v1.3 source; no §-index drift can affect the substrate citation. D3 surfaced for operator awareness; G12 PCF1-V13-RECONCILE may resolve §-index canonical wording at v1.4 dispatch time."
+    },
+    {
+      "id": "D4",
+      "severity": "non-blocking",
+      "category": "065 + 064 commit-hash entanglement",
+      "summary": "Relay 066 P3 cites 064 deposit at bridge 6a150b6. Bridge log shows 6a150b6 shipped both 064 (PHASE-A-DEG_A-ZERO-SUPPLEMENTARY) and 065 (PCF2-CF_VALUE-AUDIT-9IMPLS) under the same hash; addendum c1b8c54 followed (PCF2-CF_VALUE-AUDIT-9IMPLS-065 -- handoff.md addendum: A0 anomaly noting commit 6a150b6 shipped 065 + parallel 064 in same hash). 066 reads from individual SHA-anchored files within sessions/2026-05-06/PHASE-A-DEG_A-ZERO-SUPPLEMENTARY-064/ which are bit-identical to the 6a150b6-time content; commit-hash entanglement does not affect file-level SHAs.",
+      "resolution": "066 P3 verification reads file SHAs directly (80E28568FF142B1A.. for the 064 supplement), not commit-level hashes; D4 is meta-recordkeeping rather than substrate drift. No re-fire required."
+    }
+  ]
+}
