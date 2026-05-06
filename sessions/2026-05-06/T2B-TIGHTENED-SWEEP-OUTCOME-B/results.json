@@ -1,0 +1,534 @@
+{
+  "task_id": "T2B-TIGHTENED-SWEEP-OUTCOME-B",
+  "relay_prompt": "044B (revised 2026-05-06 post-044R verdict)",
+  "script_sha256": "c0b9df78d803623f924bda8e845d484ac09595593e2254178c6341885a5ecdc2",
+  "anchor_044R_commit": "fe15737",
+  "source_044R_unexpected_finds_sha256": "74813228c0994fa8dabb5ba4ec79c9fd91646ec145cafd1da32467aed9048a23",
+  "step1_parse_044r": {
+    "sha256": "74813228c0994fa8dabb5ba4ec79c9fd91646ec145cafd1da32467aed9048a23",
+    "hit": {
+      "b1": 10,
+      "coeffs": [
+        -9,
+        0,
+        0,
+        10,
+        5
+      ],
+      "ratio": "-9/100",
+      "n": 3,
+      "bauer_on_orbit": false,
+      "bauer_k": 3,
+      "deep_verify_residual": "0.0",
+      "deep_verify_residual_lt_1e_200": true
+    }
+  },
+  "p5_b7_reverify": {
+    "coeffs": [
+      8,
+      -4,
+      0,
+      7,
+      4
+    ],
+    "L_60dps": "4.32808512266689022207977404300567641227993786245895780240635",
+    "diff_to_3_over_log2": "0.0",
+    "diff_lt_1e_50": true,
+    "p5_dps": 300,
+    "p5_residual_tol": "1e-50",
+    "pslq_relation": [
+      -3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "pslq_basis": [
+      "1",
+      "L",
+      "pi",
+      "L*pi",
+      "pi^2",
+      "L*pi^2",
+      "log(2)",
+      "L*log(2)"
+    ],
+    "pslq_residual": "0.0",
+    "n_extracted": 3,
+    "ratio": "8/49"
+  },
+  "step2a_sign_orbit": [
+    {
+      "coeffs": [
+        -9,
+        0,
+        0,
+        -10,
+        -5
+      ],
+      "ratio": "-9/100",
+      "ratio_float": -0.09,
+      "L_60dps": "-4.32808512266689022207977404300567641227993786245895780240635",
+      "label": "Log",
+      "relation": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": [
+        "1",
+        "L",
+        "pi",
+        "L*pi",
+        "pi^2",
+        "L*pi^2",
+        "log(2)",
+        "L*log(2)"
+      ],
+      "residual": "0.0",
+      "n_extracted": -3,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": 3,
+        "reason": "|b1|=10 != 6*k=18"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": true,
+      "elapsed_s": 0.09266376495361328
+    },
+    {
+      "coeffs": [
+        -9,
+        0,
+        0,
+        -10,
+        5
+      ],
+      "ratio": "-9/100",
+      "ratio_float": -0.09,
+      "L_60dps": "10.2464684938701108976577918292392975294460688508031184861224",
+      "label": "Desert",
+      "relation": null,
+      "basis": null,
+      "residual": null,
+      "n_extracted": null,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": 3,
+        "reason": "|b1|=10 != 6*k=18"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": false,
+      "elapsed_s": 0.15193724632263184
+    },
+    {
+      "coeffs": [
+        -9,
+        0,
+        0,
+        10,
+        -5
+      ],
+      "ratio": "-9/100",
+      "ratio_float": -0.09,
+      "L_60dps": "-10.2464684938701108976577918292392975294460688508031184861224",
+      "label": "Desert",
+      "relation": null,
+      "basis": null,
+      "residual": null,
+      "n_extracted": null,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": 3,
+        "reason": "|b1|=10 != 6*k=18"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": false,
+      "elapsed_s": 0.15729618072509766
+    },
+    {
+      "coeffs": [
+        -9,
+        0,
+        0,
+        10,
+        5
+      ],
+      "ratio": "-9/100",
+      "ratio_float": -0.09,
+      "L_60dps": "4.32808512266689022207977404300567641227993786245895780240635",
+      "label": "Log",
+      "relation": [
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "basis": [
+        "1",
+        "L",
+        "pi",
+        "L*pi",
+        "pi^2",
+        "L*pi^2",
+        "log(2)",
+        "L*log(2)"
+      ],
+      "residual": "0.0",
+      "n_extracted": 3,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": 3,
+        "reason": "|b1|=10 != 6*k=18"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": true,
+      "elapsed_s": 0.09619593620300293
+    },
+    {
+      "coeffs": [
+        9,
+        0,
+        0,
+        -10,
+        -5
+      ],
+      "ratio": "9/100",
+      "ratio_float": 0.09,
+      "L_60dps": "-5.55124305932321388316114052461308645182887000764028196701503",
+      "label": "Desert",
+      "relation": null,
+      "basis": null,
+      "residual": null,
+      "n_extracted": null,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": null,
+        "reason": "a2 not negative integer (-k^2)"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": false,
+      "elapsed_s": 0.12496447563171387
+    },
+    {
+      "coeffs": [
+        9,
+        0,
+        0,
+        -10,
+        5
+      ],
+      "ratio": "9/100",
+      "ratio_float": 0.09,
+      "L_60dps": "3.71783209371106231148112279612473481263697478387380994243177",
+      "label": "Desert",
+      "relation": null,
+      "basis": null,
+      "residual": null,
+      "n_extracted": null,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": null,
+        "reason": "a2 not negative integer (-k^2)"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": false,
+      "elapsed_s": 0.12037777900695801
+    },
+    {
+      "coeffs": [
+        9,
+        0,
+        0,
+        10,
+        -5
+      ],
+      "ratio": "9/100",
+      "ratio_float": 0.09,
+      "L_60dps": "-3.71783209371106231148112279612473481263697478387380994243177",
+      "label": "Desert",
+      "relation": null,
+      "basis": null,
+      "residual": null,
+      "n_extracted": null,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": null,
+        "reason": "a2 not negative integer (-k^2)"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": false,
+      "elapsed_s": 0.1170499324798584
+    },
+    {
+      "coeffs": [
+        9,
+        0,
+        0,
+        10,
+        5
+      ],
+      "ratio": "9/100",
+      "ratio_float": 0.09,
+      "L_60dps": "5.55124305932321388316114052461308645182887000764028196701503",
+      "label": "Desert",
+      "relation": null,
+      "basis": null,
+      "residual": null,
+      "n_extracted": null,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": null,
+        "reason": "a2 not negative integer (-k^2)"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": false,
+      "elapsed_s": 0.13488078117370605
+    }
+  ],
+  "step2b_bauer_family_summary": {
+    "enumeration_total": 1620,
+    "stage_a_convergent": 1058,
+    "stage_b_log_count": 2,
+    "stage_b_trans_count": 0,
+    "stage_b_phantom_count": 0,
+    "stage_d_record_count": 2,
+    "stage_d_off_orbit_count": 2
+  },
+  "off_orbit_hits": [],
+  "off_orbit_hits_classification": {
+    "raw_hit_record_count": 4,
+    "deduped_unique_tuple_count": 2,
+    "known_anchor_orbit_count": 2,
+    "known_anchor_orbit_hits": [
+      {
+        "source": "step2a_sign_orbit",
+        "coeffs": [
+          -9,
+          0,
+          0,
+          -10,
+          -5
+        ],
+        "ratio": "-9/100",
+        "n_log2_extracted": -3,
+        "deep_residual": "0.0",
+        "sources": [
+          "step2a_sign_orbit",
+          "step2b_bauer_family"
+        ],
+        "known_anchor_class": "b10_044r_orbit"
+      },
+      {
+        "source": "step2a_sign_orbit",
+        "coeffs": [
+          -9,
+          0,
+          0,
+          10,
+          5
+        ],
+        "ratio": "-9/100",
+        "n_log2_extracted": 3,
+        "deep_residual": "0.0",
+        "sources": [
+          "step2a_sign_orbit",
+          "step2b_bauer_family"
+        ],
+        "known_anchor_class": "b10_044r_orbit"
+      }
+    ],
+    "new_off_orbit_count": 0,
+    "new_off_orbit_hits": [],
+    "rationale": "STEP 4 outcome classification counts only structurally new tuples (NOT in the sign-orbit closure of {b7 singular (8,-4,0,7,4), b10 044R (-9,0,0,10,5)}). STEP 2A is the sign-orbit closure of b10 044R BY DEFINITION; any hit inside it is structurally the same datum. Likewise the Bauer-shape sweep includes the 044R tuple as one of its parameter cells; a re-discovery there is not a new data point."
+  },
+  "ratio_pattern_fit": {
+    "anchors": [
+      {
+        "b1": 7,
+        "ratio": "8/49"
+      },
+      {
+        "b1": 10,
+        "ratio": "-9/100"
+      }
+    ],
+    "n_anchors": 2,
+    "linear_fit": {
+      "form": "phi(b1) = slope * b1 + intercept",
+      "slope": "-1241/14700",
+      "intercept": "11087/14700"
+    },
+    "linear_residuals": [
+      {
+        "b1": 7,
+        "ratio": "8/49",
+        "predicted": "8/49",
+        "residual": "0"
+      },
+      {
+        "b1": 10,
+        "ratio": "-9/100",
+        "predicted": "-9/100",
+        "residual": "0"
+      }
+    ],
+    "integer_relation": {
+      "form": "m*a2 + n*b1 + p = 0",
+      "m": 3,
+      "n": 17,
+      "p": -143,
+      "residuals_at_anchors": [
+        0,
+        0
+      ],
+      "fits_all": true,
+      "max_abs_denom": 143
+    }
+  },
+  "anchors_n3_count": 2,
+  "outcome_tag": "B-T-A",
+  "outcome_details": {
+    "interpretation": "Zero new off-orbit n/log(2) hits in STEP 2A and 2B. b7 + b10 044R remain the only two known data points. n=3 coincidence consistent with isolated outliers at h <= 10^9. Two known data points at h <= 10^9; bounded evidence, not absolute.",
+    "off_orbit_hit_count": 0,
+    "anchors_n3_count": 2,
+    "all_n3": true,
+    "distinct_n": [
+      3
+    ]
+  },
+  "wall_s": 20.86046051979065,
+  "wall_budget_s": 10800,
+  "completed_at_local_iso": "2026-05-06 08:57:35",
+  "step2b_stage_d_records": [
+    {
+      "coeffs": [
+        -9,
+        0,
+        0,
+        -10,
+        -5
+      ],
+      "stage_b_label": "Log",
+      "stage_b_relation": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "deep": {
+        "label": "Log",
+        "L": "-4.32808512266689022207977404301",
+        "relation": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "basis": [
+          "1",
+          "L",
+          "pi",
+          "L*pi",
+          "pi^2",
+          "L*pi^2",
+          "log(2)",
+          "L*log(2)"
+        ],
+        "residual": "0.0",
+        "residual_lt_1e_200": true,
+        "L_60dps": "-4.32808512266689022207977404300567641227993786245895780240635",
+        "n_log2": -3
+      },
+      "ratio": "-9/100",
+      "ratio_float": -0.09,
+      "n_log2_extracted": -3,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": 3,
+        "reason": "|b1|=10 != 6*k=18"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": true
+    },
+    {
+      "coeffs": [
+        -9,
+        0,
+        0,
+        10,
+        5
+      ],
+      "stage_b_label": "Log",
+      "stage_b_relation": [
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "deep": {
+        "label": "Log",
+        "L": "4.32808512266689022207977404301",
+        "relation": [
+          -3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "basis": [
+          "1",
+          "L",
+          "pi",
+          "L*pi",
+          "pi^2",
+          "L*pi^2",
+          "log(2)",
+          "L*log(2)"
+        ],
+        "residual": "0.0",
+        "residual_lt_1e_200": true,
+        "L_60dps": "4.32808512266689022207977404300567641227993786245895780240635",
+        "n_log2": 3
+      },
+      "ratio": "-9/100",
+      "ratio_float": -0.09,
+      "n_log2_extracted": 3,
+      "bauer_orbit": {
+        "on_orbit": false,
+        "k": 3,
+        "reason": "|b1|=10 != 6*k=18"
+      },
+      "discriminant_identity_class": "neither",
+      "off_orbit_n_log2": true
+    }
+  ],
+  "step2b_stage_a_records_count": 1058
+}
