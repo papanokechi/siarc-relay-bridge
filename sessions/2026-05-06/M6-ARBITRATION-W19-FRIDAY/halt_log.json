@@ -1,0 +1,25 @@
+{
+  "halt_log": [],
+  "halts_evaluated": [
+    {
+      "code": "HALT_047_NO_SUBSTRATE_DISCREPANCY",
+      "fired": false,
+      "evidence": "12 substrate sources span both M6 readings (S1 'M6 \u2705' caveat-profile token vs S2/S3/S4/S6/S11 'Phase A or B.5 partial / PENDING ARBITRATION'); D1 split-definition diagnosis holds; arbitration produces a non-trivial verdict (two named legs)."
+    },
+    {
+      "code": "HALT_047_VERDICT_INCLUDES_FRAMING",
+      "fired": false,
+      "evidence": "framing_self_check.json outcome = PASS; 7 framing-word hits, 0 forbidden; all hits inside the spec-mandated \u00a7'Spec-rollback or spec-amendment recommendation' section (allowed_by_exception=true)."
+    },
+    {
+      "code": "HALT_047_M6_REQUIRES_E2",
+      "fired": false,
+      "evidence": "Diagnosis branch is D1 (split definition), not D4. No third source contradicts the SIARC framework's existing M6 treatment in PCF-1 v1.3 / T2B v3.1 / CT v1.3 / umbrella v2.0; picture v1.18 absorbs both readings via dual-row co-residence."
+    },
+    {
+      "code": "HALT_047_GROUNDING_PARTIAL",
+      "fired": false,
+      "evidence": "rule5 grounding COMPLETE: (a) CMB header + SYNTH-TRACK appends through 2026-05-06; (b) bridge 30-day non-zero count = 292; (c) cli_log fresh (2026-05-06.md mtime 2026-05-06 09:24 JST). See claim 047-C6."
+    }
+  ]
+}

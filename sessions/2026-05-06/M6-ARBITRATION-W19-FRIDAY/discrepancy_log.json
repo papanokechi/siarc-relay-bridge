@@ -1,0 +1,39 @@
+{
+  "discrepancies": [
+    {
+      "id": "D1",
+      "label": "Split definition of M6 across substrates (PRIMARY)",
+      "sources_affected": ["S1-038-HANDOFF", "S2-W19-WSB", "S3-W19-MASTER-PROMPT", "S4-CLI-LOG-2026-05-05", "S6-PICTURE-V118", "S11-045-P008-PACKAGE"],
+      "summary": "S1's '\u2705' token reads M6 as M6.H4 (alien-amplitude leg, closed 2026-05-02 with H4_EXECUTED_PASS_108_DIGITS); S2/S3/S6 (rows 009/015 + Phase B.5)/S11 read M6 as M6.CC (CC-VQUAD-PIII-NORMALIZATION-MAP canonical-form leg, currently PARTIAL). Both readings are correct under their respective definitions. Resolved by m6_verdict.md as the primary verdict; D1 carried as the C2 diagnosis branch.",
+      "resolution_state": "RESOLVED_BY_VERDICT"
+    },
+    {
+      "id": "D5",
+      "label": "WSB calendar-date typo Fri 05-09 vs calendar Fri W19 = 2026-05-08 (SUBSIDIARY, non-substantive)",
+      "sources_affected": ["S2-W19-WSB", "S3-W19-MASTER-PROMPT"],
+      "summary": "WSB L78 row reads 'Fri | 05-09'; W19_master_prompt L78 reads 'Fri 05-09: M6 Phase A or B.5'. Calendar Fri of W19 2026 is 2026-05-08 (May 1 2026 = Fri; W19 = 2026-05-04..2026-05-10). Relay-047 prompt body cites Fri 2026-05-08 correctly. Off-by-one typo internal to W19 weekly artefacts; does not affect M6 substantive verdict.",
+      "resolution_state": "LOGGED_FOR_OPERATOR_NOTICE",
+      "operator_action_pointer": "next W20 WSB drafting cycle to inherit corrected calendar mapping; W19 artefacts kept as-is (frozen)"
+    },
+    {
+      "id": "D6",
+      "label": "047-prompt body cites 'outline.tex (lines 1336-1353)' for CT v1.3 \u00a7Implications; outline.tex does not exist at tex/submitted/outline.tex (NON-BLOCKING substrate-name drift)",
+      "sources_affected": ["relay-047 prompt body NOTES section (operator-side artefact)", "STEP 1 substrate-list item"],
+      "summary": "047 prompt body NOTES enumerates 'CT v1.3 \u00a7Implications M6-related preconditions (lines 1336-1353 of the outline.tex; uses M6 closure as a gate)'. Workspace search finds zero file at tex/submitted/outline.tex; CT v1.3 main body lives inside siarc-relay-bridge/sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/arxiv_pack_ct_v1.3/ct_v1.3.tar.gz (and post-v1.3 narrative at sessions/2026-05-03/CT-V14-NARRATIVE-DRAFT/ct_v1.4_main.tex). The L1336-1349 line range is anchored in cli_log/2026-05-05.md L283 + L295 (M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT F4 row) and CMB.txt L930 + L972, both pointing at the CT v1.3 main body inside the tar.gz, not at any 'outline.tex' file. Treated as a relay-047 prompt-side substrate-path-name drift; substrate-extract STEP 1 used the M9-DEP-AUDIT F4 row (substrate S12) as the operative anchor for the SOFT-precondition line, and the verdict does not depend on opening the CT v1.3 main body itself.",
+      "resolution_state": "WORKED_AROUND_VIA_S12",
+      "operator_action_pointer": "if a future relay needs the CT v1.3 \u00a7Implications enumerate-block verbatim, extract from siarc-relay-bridge/sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/arxiv_pack_ct_v1.3/ct_v1.3.tar.gz"
+    },
+    {
+      "id": "D7",
+      "label": "Picture v1.18 retains 'Path B (SIARC primary derivation, prompt 033 SIARC-PRIMARY-W-DERIVATION) deferred at operator' even though SIARC-PRIMARY-W-HOMOMORPHISM-DERIVATION committed 2026-05-04 16:12 JST (~1 hour BEFORE picture v1.18 publish at 17:00 JST) with INDEX-2 EMBEDDING verdict (NON-BLOCKING; explicit picture-row absorption pending)",
+      "sources_affected": ["S6-PICTURE-V118 \u00a7S6a", "S8-SIARC-PRIMARY-W \u00a7S8b"],
+      "summary": "S8b Strategic Implication paragraph explicitly leaves picture-row absorption 'pending operator + Claude review of the index-2 embedding vs strict isomorphism framing for the M6 spec'. Picture v1.19 has not been issued. The verdict carries this state forward and recommends (in the spec-amendment \u00a7) absorbing the index-2 verdict into the next picture revision.",
+      "resolution_state": "FOLDED_INTO_VERDICT_RECOMMENDATION_3"
+    }
+  ],
+  "summary": {
+    "primary_discrepancy": "D1 split definition (resolved by verdict)",
+    "subsidiary_count": 3,
+    "blocking_count": 0
+  }
+}
