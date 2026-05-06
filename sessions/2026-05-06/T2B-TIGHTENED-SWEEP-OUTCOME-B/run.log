@@ -1,0 +1,45 @@
+[INIT] script_sha256 = c0b9df78d803623f924bda8e845d484ac09595593e2254178c6341885a5ecdc2
+[INIT] task_id       = T2B-TIGHTENED-SWEEP-OUTCOME-B
+[INIT] relay_prompt  = 044B (revised 2026-05-06 post-044R verdict)
+[STEP 1] parse 044R unexpected_finds.json
+[STEP 1] 044R hit confirmed (b1=10, coeffs=[-9, 0, 0, 10, 5], ratio=-9/100, n=3)
+[STEP 1] source SHA-256 = 74813228c0994fa8dabb5ba4ec79c9fd91646ec145cafd1da32467aed9048a23
+[P5] re-verify b7 singular (8,-4,0,7,4) at dps=300
+[P5] L = 4.32808512266689022207977404300567641227993786245895780240635
+[P5] |L - 3/log(2)| = 0.0
+[P5] PASS  n_extracted=3 relation=[-3, 0, 0, 0, 0, 0, 0, 1]
+[STEP 2A] sign-orbit (8 tuples, dps=300, h<=1e9)
+  (-9, 0, 0, -10, -5)  ratio=-9/100  label=Log  n=-3  off_orbit=True
+  (-9, 0, 0, -10, 5)  ratio=-9/100  label=Desert  n=None  off_orbit=False
+  (-9, 0, 0, 10, -5)  ratio=-9/100  label=Desert  n=None  off_orbit=False
+  (-9, 0, 0, 10, 5)  ratio=-9/100  label=Log  n=3  off_orbit=True
+  (9, 0, 0, -10, -5)  ratio=9/100  label=Desert  n=None  off_orbit=False
+  (9, 0, 0, -10, 5)  ratio=9/100  label=Desert  n=None  off_orbit=False
+  (9, 0, 0, 10, -5)  ratio=9/100  label=Desert  n=None  off_orbit=False
+  (9, 0, 0, 10, 5)  ratio=9/100  label=Desert  n=None  off_orbit=False
+[STEP 2B] Bauer-shape family
+[STEP 2B] enumerated 1620 candidate tuples
+[STEP 2B] Stage A K_500 float screen
+[STEP 2B] Stage A: 1058/1620 convergent in 0.6s
+[STEP 2B] Stage B PSLQ dps=150 h<=10000000
+  [Stage B] 100/1058 (2.8s)
+  [Stage B] 200/1058 (4.4s)
+  [Stage B] 300/1058 (6.1s)
+  [Stage B] 400/1058 (7.8s)
+  [Stage B] 500/1058 (9.5s)
+  [Stage B] 600/1058 (11.1s)
+  [Stage B] 700/1058 (12.8s)
+  [Stage B] 800/1058 (14.5s)
+  [Stage B] 900/1058 (16.2s)
+  [Stage B] 1000/1058 (17.9s)
+[STEP 2B] Stage B: 1058 results in 19.0s
+[STEP 2B] Stage C: 2 Log + 0 Trans + 0 Phantom
+  [Stage D] OFF-ORBIT  (-9, 0, 0, -10, -5) ratio=-9/100 n=-3
+  [Stage D] OFF-ORBIT  (-9, 0, 0, 10, 5) ratio=-9/100 n=3
+[AGG] raw_hit_records=4 deduped_unique_tuples=2 known_anchor_orbit=2 new_off_orbit=0
+============================================================
+[DONE] outcome_tag = B-T-A
+[DONE] off_orbit_hit_count = 0
+[DONE] anchors_n3_count = 2
+[DONE] wall = 20.9s (budget 10800s)
+============================================================

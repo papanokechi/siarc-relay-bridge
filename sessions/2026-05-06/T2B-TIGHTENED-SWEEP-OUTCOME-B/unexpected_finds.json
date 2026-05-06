@@ -1,0 +1,67 @@
+{
+  "new_off_orbit_n_log2_hit_count": 0,
+  "new_off_orbit_n_log2_hits": [],
+  "known_anchor_orbit_hit_count": 2,
+  "known_anchor_orbit_hits": [
+    {
+      "source": "step2a_sign_orbit",
+      "coeffs": [
+        -9,
+        0,
+        0,
+        -10,
+        -5
+      ],
+      "ratio": "-9/100",
+      "n_log2_extracted": -3,
+      "deep_residual": "0.0",
+      "sources": [
+        "step2a_sign_orbit",
+        "step2b_bauer_family"
+      ],
+      "known_anchor_class": "b10_044r_orbit"
+    },
+    {
+      "source": "step2a_sign_orbit",
+      "coeffs": [
+        -9,
+        0,
+        0,
+        10,
+        5
+      ],
+      "ratio": "-9/100",
+      "n_log2_extracted": 3,
+      "deep_residual": "0.0",
+      "sources": [
+        "step2a_sign_orbit",
+        "step2b_bauer_family"
+      ],
+      "known_anchor_class": "b10_044r_orbit"
+    }
+  ],
+  "deduped_unique_tuple_count": 2,
+  "raw_hit_record_count": 4,
+  "anchors_n3_count": 2,
+  "outcome_tag": "B-T-A",
+  "ratio_pattern_fit_summary": {
+    "integer_relation": {
+      "form": "m*a2 + n*b1 + p = 0",
+      "m": 3,
+      "n": 17,
+      "p": -143,
+      "residuals_at_anchors": [
+        0,
+        0
+      ],
+      "fits_all": true,
+      "max_abs_denom": 143
+    },
+    "linear_fit": {
+      "form": "phi(b1) = slope * b1 + intercept",
+      "slope": "-1241/14700",
+      "intercept": "11087/14700"
+    }
+  },
+  "dedup_rationale": "new_off_orbit count excludes the sign-orbit closure of the two known anchors {b7 singular (8,-4,0,7,4), b10 044R (-9,0,0,10,5)}."
+}
