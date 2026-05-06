@@ -1,0 +1,51 @@
+{
+  "session": "BT-BASELINE-NOTE-FOLLOWUP-V1-0-067",
+  "date": "2026-05-07",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "build-pipeline",
+      "title": "pdflatex build cleanly resolved all 11 \\cite keys in one bibtex pass without missing-citation warnings",
+      "detail": "All 11 cited bibkeys (bt_baseline_note_v10, papanokechi_pcf1_v13, papanokechi_pcf2_v13, lane2_dee3c01, lane2_six_item_verdict, lane2_independent_substrate_verification, lane2_independent_depth_probe, phase_a_deg_a_zero_064, cf_value_audit_pcf2_9impls_065, pcf1_v13_v_quad_row_reframing_066, costin2008asymptotics_followup) resolved on first bibtex pass; .blg log shows zero warning$ entries. Build pipeline (pdflatex \u2192 bibtex \u2192 pdflatex \u00d72) produced final 5pp PDF in clean state on first attempt; expected at least one undefined-reference iteration."
+    },
+    {
+      "id": "U2",
+      "category": "section-page-balance",
+      "title": "Page count converged to 5 pp (upper end of 3-5 pp target band) with the four-row table rendered on its own column-width spread",
+      "detail": "First pdflatex pass produced 4pp; after bibtex + bibliography rendering the count rose to 5pp. The 12-row table at \u00a72 (\\Cref{tab:fourrow}) renders comfortably and consumes about 1/2 of a page including caption. Section length distribution: \u00a71 ~1/2 pp, \u00a72 ~1 pp + table, \u00a73 ~1/2 pp, \u00a74 ~1/3 pp, \u00a75 ~1 pp, \u00a76 ~1/3 pp, Acks + AI Disclosure + Bibliography ~1 pp."
+    },
+    {
+      "id": "U3",
+      "category": "substrate-completeness",
+      "title": "All P1\u2013P9 preconditions verified as PASS at draft time; zero halts triggered across STEPS 1\u20138",
+      "detail": "P2 LANE-2 SHAs match (V5/V6/P3 substrate hashes recomputed locally and equal to LANE-2 \u00a7anchor_shas.md and 064 \u00a77 records). P3 064/065 SHAs match (064 80E28568FF142B1A...; 065 16512BCC71C9A19E...). P4 066 LANDED at HEAD 9261c79 with deliverable SHA 79933B694DD2BF99... matching the 066 commit message. P5 v1.0 .tex SHA 6746692C... unchanged. P6 v1.0 PDF readback SHA 23022F0DE77AC838... captured and cited in claims.jsonl 067-C2. P7 forbidden-verb + retraction-language scans both PASS at 0 hits (case-sensitive). P8 W21-vocab footnote present at L342-344. P9 LaTeX build clean (zero Undefined/Error log entries)."
+    }
+  ],
+  "judgment_calls": [
+    {
+      "id": "J1",
+      "title": "Cite v1.0 \u00a74.2 open-content prose at the inclusive range L481-487 rather than the narrower L484-487 cited by the relay prompt",
+      "reason": "On-disk reading of bt_baseline_note.tex shows the sentence beginning 'The V_quad upper branch is consistent with the borderline-locus mechanism' starts at L481, not L484. Citing at L481-487 captures the surrounding lead-in 'The d=2 upper branch ... not recovered by ...' that frames the open-content sentence, and is a strict superset of the prompt's L484-487. SHA-anchored citation eliminates ambiguity."
+    },
+    {
+      "id": "J2",
+      "title": "Use project shorthand 'PCF-1 v1.3 \u00a76 Theorem 5' rather than canonical '\u00a75 Theorem 5.1'",
+      "reason": "Inherited from R1 wording (lane2_meta_verdict.md L42), 064 \u00a75 (phase_a_supplementary_deg_a_zero.md L222), and 066 \u00a72 (which also uses '\u00a76 Theorem 5'). Both labels resolve to the same SHA-anchored prose at p12_pcf1_main.tex L566-577. The PCF-1 v1.4 \u00a76 row-table amendment (forward-pointed in 067 \u00a76) will canonicalise the project shorthand at the source-prose level under the PCF1-V13-RECONCILE jurisdiction."
+    },
+    {
+      "id": "J3",
+      "title": "Deposit 067 in bridge folder sessions/2026-05-07/ (chronological successor to 066) rather than 2026-05-06",
+      "reason": "Bridge HEAD 9261c79 (066) commits 'Wed May 6 21:17:57 2026 +0900' but the bridge tree-path is sessions/2026-05-07/ for 066. Operator routing convention places W20 mid-week post-LANE-2 cascade artefacts at sessions/2026-05-07/. 067 keeps that pattern; LANE-2 + 064 + 065 remain at sessions/2026-05-06/."
+    },
+    {
+      "id": "J4",
+      "title": "Use suffixed bib key costin2008asymptotics_followup to avoid future collision risk with v1.0 bib",
+      "reason": "v1.0 annotated_bibliography.bib defines @book{costin2008asymptotics,...}. If a future omnibus build (e.g., a combined v1.0 + follow-up Zenodo bundle) ever co-loads both .bib files, an unsuffixed key would be silently overwritten by the latter. Using the _followup suffix is a defensive collision-avoidance strategy and does not affect single-document compilation. Other shared keys (papanokechi_pcf1_v13, papanokechi_pcf2_v13) intentionally retained for cross-document citation parity."
+    },
+    {
+      "id": "J5",
+      "title": "Avoid forbidden verbs entirely (not just in prediction context) for STEP 4 conservative-PASS",
+      "reason": "Relay STEP 4 specifies HALT on prediction-context hits. Conservatively zero-hit total (case-sensitive on the regex \\b(shows|confirms|proves|establishes|must)\\b) eliminates any ambiguity over what counts as 'prediction context'. Substituted with: records, states, observes, captures, asserts, identifies, reads, takes, carries, aligns. Same scan discipline as 066 STEP 5 PASS-at-0-hits."
+    }
+  ]
+}
