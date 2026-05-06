@@ -155,6 +155,26 @@ No empirical / dps-precision claims authored in this session.
   on R3 wording was DEFERRED at LANE-2 (cf. handoff.md L185-191
   of LANE-2 deposit `dee3c01`). No action required at 064.
 
+- **A6 (operational; surfaced at B2 staging).** `git status` at
+  staging time revealed a parallel session has independently created
+  and staged a `sessions/2026-05-06/PCF2-CF_VALUE-AUDIT-9IMPLS-065/`
+  deposit (8 files including `cf_value_audit_pcf2_9impls.md` +
+  `repo_sweep_grep_output.txt`), plus modifications to several older
+  session folders (`sessions/2026-04-29/T2B-RESONANCE-B67/*`,
+  `sessions/2026-05-05/T2B-BZERO-OFFSET-LOG-SWEEP-B5-8-9-10/*`).
+  This 064 deposit is committed using a path-scoped commit (`git
+  commit -- sessions/2026-05-06/PHASE-A-DEG_A-ZERO-SUPPLEMENTARY-064/`)
+  so that the sibling session's staged work is NOT included in this
+  commit and remains in the index for the parallel session to
+  commit independently. Cross-reference: HALT_061_DUPLICATE_LANE2
+  precedent earlier today (option A_LET_PARALLEL_FINISH was the
+  prior-art response). The parallel 065 PCF2-CF_VALUE-AUDIT-9IMPLS
+  appears to map to LANE-2 P1 substrate (independent cf_value()
+  audit across pcf-research/pcf2/ — the V2 / harvest-implementation
+  enumeration). If both 065 prompts are intentional cascade
+  parallelism, no action; if duplicate-fire, T1 Synthesizer
+  arbitration is recommended at next CMB-edit pass.
+
 ---
 
 ## What would have been asked (if bidirectional)
