@@ -1,0 +1,22 @@
+[
+  {
+    "id": "D1",
+    "severity": "non-blocking",
+    "kind": "spec-text-internal-inconsistency",
+    "where": "Prompt 060 STEP 4 deposit list",
+    "spec_says": "paste_block_verbatim.txt -- exact 54-line NEW_STR contents",
+    "spec_actually_defines": "NEW_STR = 52 lines (per DRAFT-TIME VERIFY block: 1+1+15+1+15+1+16+1+1 = 52)",
+    "executer_action": "Deposited the 52-line NEW_STR verbatim (matching the actual paste). The 54-line wording in STEP 4 is treated as spec stale wording from earlier draft cycle (recall: prompt body notes Q1 was originally sized 16 + Q4 was originally sized 17 in the off-by-2 caught at draft-time; 16+17 = +2 over actual 15+16, which is consistent with the lingering 54 vs the corrected 52).",
+    "blocking": false
+  },
+  {
+    "id": "D2",
+    "severity": "non-blocking",
+    "kind": "spec-text-internal-inconsistency",
+    "where": "Prompt 060 Halt-list, post-fire halt entry HALT_060_POST_LINE_COUNT",
+    "spec_says": "got != 1972",
+    "spec_actually_gates": "STEP 3 PowerShell asserts $lc -ne 1970 with message expected 1970, and DRAFT-TIME VERIFY computes expected=1970 (1921+49)",
+    "executer_action": "Treated 1970 as canonical (the explicit STEP-3 assertion + arithmetic block agree). The 1972 in the halt-list narration is a stale wording artefact from an earlier draft cycle.",
+    "blocking": false
+  }
+]
