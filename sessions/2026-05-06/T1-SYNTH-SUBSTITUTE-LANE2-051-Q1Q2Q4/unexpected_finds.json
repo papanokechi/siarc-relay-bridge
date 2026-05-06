@@ -1,0 +1,28 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "systemic_pcf1_pcf2_deg_a_zero_corner_test_only",
+      "description": "The protocol-to-stratum mismatch exists IN PCF-1 v1.3 ITSELF, not just PCF-2. PCF-1 v1.3 S6 Theorem 5 V_quad uses a(n) = 1 (deg_a = 0) per algebraic_independence_audit.py L37-40, while PCF-1 v1.3 d=2 stratum at p12_journal_main.tex L124-131 imposes alpha, delta ne 0 strictly (deg_a = 1). V_quad therefore lives OUTSIDE PCF-1 v1.3's d=2 declared stratum -- it is a deg_a = 0 specimen masquerading as a d=2 stratum representative under PCF-1's own framing.",
+      "implication": "The mismatch is SYSTEMIC across the entire SIARC PCF program (PCF-1 v1.3 + PCF-2 v1.3 + bt_baseline_note v1.0 + Phase A baseline). The synth-substitute scoped narrowly to PCF-2 R1.1/R1.3/Q1; LANE-2 elevation to a cross-document program-wide finding is captured as required revision R1 in lane2_meta_verdict.md.",
+      "load_bearing": true,
+      "discovery_method": "V5 (independent inspection of algebraic_independence_audit.py L37-40) + P3 (cross-check against bt_baseline_note v1.0 S4.2 V_quad attribution to mechanism (i'))"
+    },
+    {
+      "id": "U2",
+      "category": "phase_a_three_convention_assumption_excludes_deg_a_zero",
+      "description": "Phase A's WZ table at phase_a_summary.md L34-44 enumerates EXACTLY THREE SIARC conventions (alpha-direction at deg_a = d-1, symmetric at deg_a = d, delta-direction at deg_a = d+1). The deg_a = 0 row was excluded by ASSUMPTION via this three-convention enumeration, not by oversight. Phase D's verdict (UPGRADE_PARTIAL_FORMAL_LEVEL) at phase_d_verdict.md L33-43 framed the gap from A_naive ≤ d+1 to A = 2d as requiring either borderline mechanism (i') or exceptional locus (ii'); both alternatives become unnecessary once the deg_a = 0 row is admitted (which P2 + V6 derive in 5 lines).",
+      "implication": "The 'structural gap' framing of Phase D + bt_baseline_note v1.0 S5 is the proximate consequence of Phase A's three-convention assumption, not of a genuine analytic gap. This explains why bt_baseline_note v1.0 Theorem 1.1's band deg_a in {d-1, d, d+1} cannot recover A_fit ≈ 2d at d>=3 -- the band literally excludes the convention being tested empirically. Required revision R3 in lane2_meta_verdict.md captures this as a primary substrate finding.",
+      "load_bearing": true,
+      "discovery_method": "P2 (independent depth probe; one-row extension of phase_a_summary.md table closes d=2 V_quad + d=3 R1.1+B+C1 + d=4 Q1 records simultaneously)"
+    },
+    {
+      "id": "U3",
+      "category": "intra_document_pcf2_v13_setup_b4_wording_inconsistency",
+      "description": "PCF-2 v1.3 program statement is INTERNALLY ambiguous: S3 setup at L228-234 declares a_n = delta_1 n + delta_0 (linear, deg_a in {0, 1}), while S6 Conjecture B4 at L457 verbatim uses 'PCF (1, b)' notation, implicitly fixing a_n equiv 1 (deg_a = 0). The harvest scripts implement S6 B4's stratum exactly. The mismatch is therefore intra-document (S3 vs S6 within pcf2_program_statement.tex), not 'prose vs scripts' as the synth-substitute's wording suggests.",
+      "implication": "Wording-revision target for PCF-2 v3.x (Item 6 verdict HOLD): if any revision lands, the cleaner direction is to NARROW S3 to match S6 B4's declared (1, b) stratum, not to expand S6 B4 or to require additional empirical sweeps over delta_1 ne 0. Required revision R2 in lane2_meta_verdict.md captures this as a wording refinement.",
+      "load_bearing": false,
+      "discovery_method": "P4 (independent depth probe; verbatim 'PCF (1, b)' notation at pcf2_program_statement.tex L457 + L468 boxed identity)"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "anomalies": [
+    {
+      "id": "D1",
+      "category": "synth_substitute_framing_imprecision",
+      "description": "Synth-substitute frames the mismatch as 'deg_a = 1 declared, deg_a = 0 implemented'. V3 finding refines this: the PCF-2 program statement at L228-234 declares a_n = delta_1 n + delta_0 with NO restriction delta_1 ne 0, so the declared scope is formally deg_a in {0, 1} including the deg_a = 0 corner. The natural reading of the prose 'a_n = delta_1 n + delta_0' implies linear functional form (deg_a = 1 with delta_1 free), but the corner delta_1 = 0, delta_0 = 1 (recovering a_n equiv 1) is technically within the declared scope.",
+      "load_bearing": false,
+      "resolution": "Logged in V1-V6 summary table; folded into Item 6 HOLD verdict reasoning.",
+      "severity": "minor"
+    },
+    {
+      "id": "D2",
+      "category": "synth_substitute_wording_refinement_required",
+      "description": "Synth-substitute uses 'protocol-to-stratum mismatch between the program statement's declared stratum and the harvest-script-implemented stratum' (L116-118). P4 finding refines: the mismatch locus is INTRA-pcf2_program_statement.tex (S3 setup at L228-234 vs S6 B4 at L457 which uses verbatim 'PCF (1, b)' notation). Harvest scripts implement S6 B4's stratum exactly; the inconsistency is between S3 and S6 within the same document, not 'prose vs scripts' as the term suggests.",
+      "load_bearing": false,
+      "resolution": "Captured as required revision R2 in lane2_meta_verdict.md; STEP 5 Item 6 verdict HOLD reflects this.",
+      "severity": "minor"
+    },
+    {
+      "id": "D3",
+      "category": "synth_substitute_scope_understates_pcf1_implications",
+      "description": "Synth-substitute flags V_quad's deg_a = 0 status as 'secondary observation -- not load-bearing in this verdict and flagged for canonical T1-Synth follow-up at next ISO week' (L292-294). LANE-2 V5 + P3 elevate this: bt_baseline_note v1.0 S4.2 L481-487 attributes V_quad's A=4 at d=2 to mechanism (i') (borderline-locus); under the deg_a = 0 reading, A=4 is the natural deg_a=0 row of the WZ normal case, NOT a borderline anomaly. This is a substantive REINTERPRETATION of bt_baseline_note v1.0 S4.2 going beyond synth-substitute's stated scope.",
+      "load_bearing": true,
+      "resolution": "Captured as required revision R1 in lane2_meta_verdict.md; STEP 5 Item 1 RATIFY_WITH_NARROW_REVISION expands scope from PCF-2 R1.1/R1.3/Q1 to include PCF-1 v1.3 V_quad row.",
+      "severity": "moderate"
+    },
+    {
+      "id": "D4",
+      "category": "synth_substitute_phase_a_baseline_under_explained",
+      "description": "Synth-substitute acknowledges the deg_a in {d-1, d, d+1} band but does not state as a primary finding that Phase A's WZ table at phase_a_summary.md L34-44 enumerates EXACTLY THREE SIARC conventions (alpha/symmetric/delta-direction) corresponding to deg_a in {d-1, d, d+1}, EXCLUDING deg_a = 0 by ASSUMPTION. P2 finding makes this explicit: Phase D's 'structural gap' verdict is the proximate consequence of Phase A's three-convention assumption, not of a genuine analytic gap.",
+      "load_bearing": true,
+      "resolution": "Captured as required revision R3 in lane2_meta_verdict.md; STEP 5 Item 2 sub-task 3-A AUTHORIZE reflects that the deg_a = 0 row extension closes Phase D's gap.",
+      "severity": "moderate"
+    }
+  ],
+  "judgment_calls": [
+    {
+      "id": "J1",
+      "decision": "Meta-verdict ACCEPT_WITH_REVISIONS (vs ACCEPT_AS_CANONICAL or REJECT_AND_REPLACE).",
+      "reasoning": "Three substantive refinements (R1, R2, R3) extend the synth-substitute beyond its stated scope. Adopting verbatim as canonical would leave R1/R2/R3 under-acknowledged. REJECT_AND_REPLACE is unwarranted because the synth-substitute's load-bearing claims (V1+V2+V6+P1) are all independently confirmed; no load-bearing errors. ACCEPT_WITH_REVISIONS is the correct middle path.",
+      "alternative_considered": "ACCEPT_AS_CANONICAL would leave R1 (V_quad scope expansion) under-acknowledged. REJECT_AND_REPLACE would force LANE-2 to draft replacement verdict body from scratch, unwarranted given correct core findings."
+    },
+    {
+      "id": "J2",
+      "decision": "Item 4 (rule5 vocab fold-in) DEFER_TO_W21.",
+      "reasoning": "Rule5 vocabulary changes have repo-wide implications. LANE-2 (Copilot Researcher Agent) should not unilaterally extend rule5 vocabulary; this is canonical T1-Synth (Claude.ai weekly cadence) jurisdiction. W20 LANE-1 unavailable per operator chat 2026-05-06 ~17:46 JST; next earliest cadence is W21 (Mon 2026-05-18). Deferring to W21 is the correct epistemic-floor decision.",
+      "alternative_considered": "FOLD_IN now (LANE-2 authority): rejected as unilateral. REJECT_FOLD_IN: premature without LANE-1 review; substrate basis for protocol-to-stratum-mismatch label is strong (V3+V4+V5+P4)."
+    },
+    {
+      "id": "J3",
+      "decision": "Item 3 LEAVE_V1_0_CANONICAL_WITH_VERDICT_AS_FOLLOW_UP_NOTE (vs v1.1 deposit revision).",
+      "reasoning": "v1.0's Theorem 1.1 is correct AS STATED for the band deg_a in {d-1, d, d+1}; deg_a = 0 row is an ADDITIVE EXTENSION, not a correction. v1.1_ADDITIVE creates canonical-version ambiguity (citers must specify v1.0 vs v1.1). v1.1_SECTION_5_REFRAMING is heavier intervention than substrate justifies. Separate follow-up note in bridge cleanly absorbs LANE-2 + P2/P3 findings as additive content.",
+      "alternative_considered": "v1.1_ADDITIVE_DEG_A_ZERO_ROW: rejected for canonical-version ambiguity. v1.1_SECTION_5_REFRAMING: rejected as over-intervention; S5 gap-framing is correct for the band scope."
+    },
+    {
+      "id": "J4",
+      "decision": "Independence floor satisfied via 4 of 6 P# probes (P1, P2, P3, P4).",
+      "reasoning": "Relay 061 prompt floor is >=3 of P1-P6 conducted as fresh investigations. LANE-2 review opted for 4 (P1, P2, P3, P4) for safety margin; P5 (T2B-SHADOW / BRIDGE-COVENANT scan) and P6 (final-form Conjecture B4 compatibility) were NOT pursued because P1-P4 yielded sufficient substantive depth (3 required revisions R1/R2/R3 surfaced). Pursuing P5/P6 would have been completionist; the independence-floor was already cleared by P2 alone (P2 surfaced R3, the Phase A baseline framing finding).",
+      "alternative_considered": "Pursue all 6 probes: rejected as completionist; substantive independence already established by P1-P4."
+    }
+  ]
+}
