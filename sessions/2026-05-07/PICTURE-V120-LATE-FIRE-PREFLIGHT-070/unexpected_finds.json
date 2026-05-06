@@ -1,0 +1,32 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "summary": "Intermediate-amendment count = 7, not 6 as spec said 'e.g. 6'",
+      "detail": "Relay 070 STEP A.4 spec parenthetically said 'expect e.g. 6 intermediate amendments since v1.19 deposit'. Actual count between v1.19 deposit commit b9be706 (2026-05-06) and HEAD 05810a2 (2026-05-07) is 7: 9c75f65, 7578f38, 9d70b4b, c7a3c76, c105645, c1b8c54, 027d7ff. The 7th amendment (027d7ff itself) is the operator LATE-FIRE decision artefact that triggered this preflight, so the count of 7 includes the trigger commit.",
+      "novelty": "low — within order-of-magnitude of spec hint",
+      "implication_for_v120": "v1.20 §29-equiv amendment log will list 7 (not 6) intermediate amendments; minor copy-edit"
+    },
+    {
+      "id": "U2",
+      "summary": "4 of 6 PARALLEL (V4.*) entries pre-date the v1.19 deposit",
+      "detail": "Of 6 V4.* PARALLEL entries, 4 commit dates are 2026-05-06 (V4.a fe15737, V4.b 82001aa, V4.d 6bbd3f0, V4.e 5d83797) which all land on or before the v1.19 deposit commit b9be706 (also 2026-05-06). V4.c 7509e34 and V4.f 8e18465 land on 2026-05-06 close to v1.19 deposit time. This means v1.19 may already incorporate some of these PARALLEL findings implicitly, and the DEFER_TO_V121 footnote in v1.20 should clarify which V4 entries are 'NEW since v1.19' vs 'already absorbed by v1.19'. Cross-reference table needed at v1.20 absorption time.",
+      "novelty": "medium — affects DEFER_TO_V121 footnote scope precision",
+      "implication_for_v120": "v1.20 LATE-FIRE drafter should run a quick is-it-already-in-v1.19 check on the 4 pre-range V4 entries before tagging DEFER_TO_V121"
+    },
+    {
+      "id": "U3",
+      "summary": "V2.b commit df7d6d4 is the OBJECT of LANE-2 review by V2.d (canonical-cascade pattern)",
+      "detail": "V2.b LANE-2 SYNTH SUBSTITUTE VERDICT (T2 acting as T1-Synth-substitute under operator authorization) is reviewed by V2.d LANE-2 canonical reviewer (Copilot Researcher Agent acting in lieu of LANE-1). V2.d explicitly references V2.b commit df7d6d4 and issues ACCEPT_WITH_REVISIONS with 3 required revisions (R1+R2+R3) and 6-item adjudication. This canonical-cascade pattern (T2-substitute-then-canonical-review) is novel for the W20 cadence and may set a procedural template for future cross-tier reviews.",
+      "novelty": "medium — procedural template observation",
+      "implication_for_v120": "v1.20 may want to introduce 'canonical-cascade' terminology in §29-equiv amendment log when describing V2.b/V2.d composite absorption"
+    },
+    {
+      "id": "U4",
+      "summary": "069 verdict semantic-status transition: PARTIAL -> PARTIAL_NUMERICAL_PERSIST is gating-reduction, not gating-escalation",
+      "detail": "058R original verdict was UPGRADE_V1_0_PARTIAL with M6.CC PARTIAL gating reduced from PHASE_2_GATED. 069 attempted Phase D.2 numerical cross-check |M^* C_V| ?= |S_zeta_*^can| but obstructed at sub-step b (gauge transformation) by R1 carry-forward (CT v1.3 sec 3.5 four-tuple -> KNY (a_0,a_1,a_2) chart). 069 verdict UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST is a gating-reduction verdict (058R verdict carries forward UNCHANGED at v1.0 PARTIAL level; numerical cross-check OBSTRUCTED but not FAILED). This is a phase-level PERSIST status — does not contribute to M3 unresolved-dependency count per spec STEP D.1 explicit note. v1.20 should record: 058R+069 composite = PARTIAL_NUMERICAL_PERSIST with gauge-transformation work pending in OQ-069-R1 path-α/β.",
+      "novelty": "medium — semantic-status nomenclature clarification",
+      "implication_for_v120": "v1.20 amendment log entry for V1.c+V1.d composite should use PARTIAL_NUMERICAL_PERSIST (not just PARTIAL) and forward-point OQ-069-R1"
+    }
+  ]
+}

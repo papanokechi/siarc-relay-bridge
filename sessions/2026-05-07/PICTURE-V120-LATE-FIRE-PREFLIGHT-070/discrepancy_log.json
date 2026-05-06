@@ -1,0 +1,44 @@
+{
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "non-blocking",
+      "class": "spec-vs-bridge-state",
+      "summary": "V5.f and V5.g spec entries both resolve to the same canonical artefact",
+      "detail": "Relay 070 spec lists V5.f as folder '048R-EARLY-FIRE-DECISION-SUBSTRATE' and V5.g as commit e7ce5da folder '048R-EARLY-FIRE-SUBSTRATE-PASTE-056'. The actual commit e7ce5da deposits to 'sessions/2026-05-06/048R-EARLY-FIRE-DECISION-SUBSTRATE/' (the V5.f folder name). Spec folder '048R-EARLY-FIRE-SUBSTRATE-PASTE-056' does not exist on disk at HEAD 05810a2. Both spec entries collapse to a single SECONDARY artefact. Treated as ONE SECONDARY entry in catalog (with note in V5.g entry pointing to V5.f).",
+      "blocking": false,
+      "rationale_for_non_blocking": "SECONDARY misses are non-blocking per spec; furthermore this is not a miss but a duplicate-name resolution",
+      "recommended_resolution": "Spec should be updated to remove V5.g entry; update operator-side spec template if 070 re-fires"
+    },
+    {
+      "id": "D2",
+      "severity": "non-blocking",
+      "class": "tooling-artifact",
+      "summary": "PowerShell Get-Content -Line returns 3548 vs LF byte-count 4026 for picture v1.19",
+      "detail": "Get-Content $f | Measure-Object -Line returned 3548 newlines; direct byte-level count of 0x0A bytes via [System.IO.File]::ReadAllBytes($f) | Where-Object {$_ -eq 0x0A} | Measure-Object returned 4026. The 478-line discrepancy is due to PowerShell's default trailing-blank-line filter and possibly CRLF normalisation in Get-Content. Spec value 4026 = LF byte count; matched by direct byte scan.",
+      "blocking": false,
+      "rationale_for_non_blocking": "Direct byte-count agrees with spec; tooling discrepancy is well-understood PowerShell behaviour",
+      "recommended_resolution": "Document in substrate_anchor_shas.md (P2 section) — done"
+    },
+    {
+      "id": "D3",
+      "severity": "non-blocking",
+      "class": "spec-vs-bridge-state",
+      "summary": "V2.e/V2.f/V3.a folder name suffixes drift from spec",
+      "detail": "Spec lists V2.e as '064 PHASE-A-DEG_A-ZERO-SUPPLEMENTARY-DUPLICATE', V2.f as '065 LANE2-SYNTH-SUBSTITUTE-VERDICT', V3.a as '068 CC-VQUAD-PIII-PHASE-D-NUMERICAL-PERSIST'. Actual folder names at HEAD 05810a2 are PHASE-A-DEG_A-ZERO-SUPPLEMENTARY-064, LANE2-SYNTH-SUBSTITUTE-VERDICT-061 (not 065), and CC-VQUAD-PIII-PHASE-D-NUMERICAL-PERSIST-069 (not 068). Spec relay-prompt-NUMBER vs commit-tag suffix appears inconsistent across PRIMARY entries.",
+      "blocking": false,
+      "rationale_for_non_blocking": "Folders located via git show --name-only commit lookup; canonical paths recorded in verdict_catalog.json",
+      "recommended_resolution": "Spec template should standardise on commit-tag suffixes only; update for 070 re-fire"
+    },
+    {
+      "id": "D4",
+      "severity": "non-blocking",
+      "class": "spec-vs-bridge-state",
+      "summary": "Picture v1.19 amendment log section number ambiguity (§28 in spec vs §29 in actual file)",
+      "detail": "Relay 070 spec text refers to '§28-equiv amendment log of v1.20' with footnote treatment of DEFER_TO_V121 entries. Picture v1.19 actual section count is §29 (file inspected at HEAD 05810a2 — picture_v1.19.md uses §29 as amendment log section). Picture v1.20 will likely use §29 or §30 for amendment-log section depending on whether new sections are added. Spec wording '§28-equiv' is approximate forward-pointer.",
+      "blocking": false,
+      "rationale_for_non_blocking": "Section number is an editorial detail; v1.20 author resolves at deposit time",
+      "recommended_resolution": "v1.20 LATE-FIRE deposit prompt should specify the actual amendment-log section number; preflight uses '§29-equiv' phrasing throughout deliverables to match actual v1.19 state"
+    }
+  ]
+}
