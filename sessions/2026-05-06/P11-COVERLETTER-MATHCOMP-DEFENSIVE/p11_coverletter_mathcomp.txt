@@ -1,0 +1,95 @@
+[date — operator to insert at fire time]
+
+To the Editor
+Mathematics of Computation
+American Mathematical Society
+201 Charles Street
+Providence, Rhode Island 02904-2213, USA
+
+Re: Submission of "A Complete Arithmetic Stratification of Degree-2
+Polynomial Continued Fractions: The F(2,4) Base Case"
+2020 MSC primary: 11Y65, 11J70.  Secondary: 11A55, 11J81.
+
+Dear Editor,
+
+I am submitting the manuscript "A Complete Arithmetic Stratification
+of Degree-2 Polynomial Continued Fractions: The F(2,4) Base Case"
+for consideration in Mathematics of Computation.  The paper combines
+exhaustive enumeration of the 531,441 degree-2 polynomial continued
+fractions with integer coefficients bounded by D=4, a three-stage
+PSLQ-based classification pipeline at high precision, and a rigorous
+transcendence proof, to give the decomposition Rat(113,270) sqcup
+Log(0) sqcup Alg(0) sqcup Trans(24) sqcup Des(400,093) = 513,387 of
+the convergent subspace, together with a uniform structural identity
+a_2 / b_1^2 = -2/9 across the 24 transcendental-stratum families.
+
+I believe Mathematics of Computation is the appropriate venue
+because the central contribution is computational: an algorithmic
+classification of an explicit arithmetic family at certified
+precision, with a machine-checkable certificate.  The paper sits
+naturally in the line of recent Math. Comp. work on enumerate-and-
+classify problems in number theory, including Luo and Zhou's
+classification of positive definite ternary quadratic forms of level
+4N (DOI 10.1090/mcom/4130), Tao, Trudgian and Yang's systematic
+exploration of exponent pairs and zero-density estimates (DOI
+10.1090/mcom/4138), Bellotti, Wong and Fiori's high-precision
+estimates for the Riemann zeta-function argument (DOI 10.1090/mcom/
+4133), Enge and Streng's computational class invariants for higher
+degree CM fields (DOI 10.1090/mcom/4118), and the very recent lower
+bound for Egyptian fractions of Bettin, Grenie, Molteni and Sanna
+(DOI 10.1090/mcom/4190).  We argue that the F(2,4) base case
+extends this line by combining enumeration, PSLQ identification,
+and Lindemann-Weierstrass-grade transcendence proof in one
+classification.
+
+On computational reproducibility, we provide a full audit trail.
+The manuscript anchors 35 numerical claims in an AEAL claim ledger
+(supplementary file claims.jsonl), each tagged with its working
+precision (dps = 300-500), the script that produced it
+(f1_base_computation.py), and a SHA-256 output hash.  The
+machine-checkable certificate is supplementary file
+f1_base_certificate.json.  The full session record, including
+intermediate verification logs, is preserved in the public SIARC
+relay-bridge repository at github.com/papanokechi/siarc-relay-bridge,
+and a Zenodo deposit of the preprint accompanies this submission.
+
+Prior-submission disclosure (per AMS policy): this manuscript was
+previously submitted to the Journal de Theorie des Nombres de
+Bordeaux as JTNB-2400 on 2026-04-26, where it received a
+[verdict outcome — operator to insert at fire time] decision dated
+[verdict date — operator to insert] and is no longer under JTNB
+consideration as of [closure date — operator to insert].  The paper
+is not under consideration at any other journal at the time of this
+submission.
+
+For suggested referees, three established arithmetic-CF and
+Painleve-resurgence specialists with research-area overlap and
+publicly confirmed arXiv author identifiers are:
+
+  1. Prof. Wadim Zudilin
+     Radboud University, Nijmegen, Netherlands
+     Email: w.zudilin@math.ru.nl
+     ORCID: 0000-0001-9551-2903
+
+  2. Prof. Marta Mazzocco
+     School of Mathematics, University of Birmingham, United Kingdom
+     Email: [operator to confirm via institutional homepage]
+     ORCID: 0000-0001-9917-2547
+
+  3. Prof. Stavros Garoufalidis
+     SUSTech, Shenzhen, China; secondary: MPIM Bonn, Germany
+     Email: [operator to confirm via SUSTech / MPIM page]
+     ORCID: 0000-0001-5381-1593
+
+The work was carried out without external funding and the author
+declares no conflict of interest.  Correspondence to:
+
+Papanokechi
+Independent researcher
+Yokohama, Japan
+ORCID: 0009-0000-6192-8273
+GitHub: https://github.com/papanokechi
+[mailing address — operator to insert at fire time]
+
+Yours sincerely,
+Papanokechi

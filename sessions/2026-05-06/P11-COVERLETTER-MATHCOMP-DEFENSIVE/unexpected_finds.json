@@ -1,0 +1,16 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1_response_template_provenance_anomaly_carried_forward",
+      "description": "main_R1_response_template.tex header notes that R1 commit b2e1bde was 'not present in the local main repo at template-draft time' (P11-REFEREE-RESPONSE-TEMPLATE-DRAFT handoff, 2026-05-05). This is a pre-existing anomaly carried into this cover-letter work; not new. Cover letter ¶1 numerical claims were anchored to the current main_R1.tex SHA (F191CC79...), which matches the response-template's anchor SHA, so the anomaly does not propagate.",
+      "severity": "info",
+      "follow_up": "Already flagged in 2026-05-05 P11-REFEREE-RESPONSE-TEMPLATE-DRAFT/handoff.md."
+    },
+    {
+      "id": "U2_zudilin_endorsement_relationship_disclosure",
+      "description": "Prof. Zudilin completed an arXiv math.NT endorsement for the author (PCF-1 v1.3) on 2026-05-04. He is suggested as referee #1 in the drafted Math.Comp. cover letter ¶5. This is an asymmetric professional relationship that AMS editorial board may flag. The operator dispatch checklist §B4 carries an explicit instruction to disclose this in a side-note at submission time.",
+      "severity": "medium",
+      "follow_up": "Standard CoI-disclosure protocol; not a blocker."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "discrepancies": [
+    {
+      "id": "D1_jtnb_cover_letter_absent",
+      "description": "Relay-046 §STEP-1 P2 lists `tex/submitted/p11_jtnb_cover_letter.txt` as a precondition source for SHA anchoring + STEP-2 diff. No such file exists in workspace; the original 2026-04-26 JTNB submission cover letter was not preserved as a standalone file in tex/submitted/. Closest in-workspace JTNB-style cover-letter substrate: the 'Cover letter to the handling editor' block at the head of `f1_mathcomp_submission/main_R1_response_template.tex` (a response-to-referee skeleton addressed to Prof. Boris Adamczewski). This was used as the diff substrate for STEP-2.",
+      "severity": "low",
+      "operator_action": "If a copy of the original JTNB-2400 submission cover letter exists outside the workspace (e.g., in the operator's email sent-folder dated ~2026-04-26), preserving it at tex/submitted/p11_jtnb_cover_letter.txt would close this gap for any future re-submit cycle."
+    },
+    {
+      "id": "D2_sicf_arbitrator_path_notional",
+      "description": "Relay-046 §STEP-1 P2 cites `sessions/2026-05-04/P11-SICF-*` as the SICF arbitrator handoff source. No directory matching this pattern exists; the closest analog is `siarc-relay-bridge/sessions/2026-05-08/RACI-V2026-05-08-INSTALL/STRATEGYZER_HANDOFF_2026-05-08.md` §A.2 (and its replica at sessions/2026-05-05/P008-INPUT-PACKAGE-FOR-MSB-2026-06/S7_strategyzer_handoff.md), which narratively summarizes the SICF P11 verdict (Withdraw_and_resubmit, radar 6.22, 2026-05-06) but does not contain a referee/endorser list as substrate for ¶5 of the cover letter.",
+      "severity": "low",
+      "operator_action": "None at this time; substituted with the PCF-1 v1.3 endorser-track list from sessions/2026-05-04/ENDORSER-HANDLE-ACQUISITION/candidate_dossier.md (Tier-1: Zudilin, Mazzocco, Garoufalidis)."
+    },
+    {
+      "id": "D3_mathcomp_referees_vs_editor_policy",
+      "description": "Relay-046 §STEP-3 ¶5 directs `Suggested referees: 3 names with affiliations + emails`. Math.Comp. submission policy actually asks the author to 'suggest an appropriate Editor to review the paper' (per https://www.ams.org/publications/journals/journalsframework/mcomsubmit) — i.e., suggested-Editor model, not suggested-referee model. The drafted ¶5 follows the relay-prompt structure but is non-canonical for AMS Math.Comp.",
+      "severity": "medium",
+      "operator_action": "At fire time, operator should make the decision recorded in operator_dispatch_checklist.md §B1: either replace ¶5 with a suggested-Editor paragraph (Option B1a, recommended), or retain the referees block as supplementary information (Option B1b, suboptimal)."
+    },
+    {
+      "id": "D4_w19_master_prompt_substitution_note_absent",
+      "description": "Relay-046 header cites a 'departing-Synth's note in W19 master prompt L88-92' as the authority for substituting Thursday's 'P11 blocker #3' slot with this cover-letter polish task. Lines 88-92 of cli_log/2026-W19_master_prompt.md contain only the daily-slot allocation table; no explicit substitution note exists. The W19 master prompt continues to schedule 'P11 blocker #3' for Thu 05-08 with no override. Substitution authority therefore rests with the relay-046 prompt itself (which is acceptable; the relay prompt is the contract).",
+      "severity": "low",
+      "operator_action": "Cosmetic; no action required. If P11 blocker #3 is in fact still open (per BLOCKERS.md or the response-template-draft handoff), the next CLI-tier daily prompt should re-queue it explicitly."
+    },
+    {
+      "id": "D5_referee_emails_partial_verification",
+      "description": "Of the 3 suggested referees in ¶5, only Zudilin's email (`w.zudilin@math.ru.nl`) is verified working (per bridge ZUDILIN-SEND-EVENT-LOG, 2026-05-04). Mazzocco's and Garoufalidis's emails are left as `[operator to confirm via institutional homepage]` placeholders, consistent with the privacy-hygiene policy adopted in the 2026-05-04 ENDORSER-HANDLE-ACQUISITION session.",
+      "severity": "low",
+      "operator_action": "Resolve at fire time per operator_dispatch_checklist.md §B2; both institutional homepages are linked in the checklist."
+    }
+  ]
+}
