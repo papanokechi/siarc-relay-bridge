@@ -1,0 +1,31 @@
+{
+  "task_id": "T1-PHASE-3-COSTIN-BORDERLINE-M4-CLOSURE-068",
+  "session_date": "2026-05-07",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "title": "Wasow section X.3 OCR was NOT required for the operative closure",
+      "description": "Relay 068 was designed (pre-rubber-duck QA) around the borderline anormal q = 2 fractional-rank ansatz path requiring the Wasow chap X Theorem 11.1 Newton-polygon factorization theorem as a load-bearing primary-source reference. HALT_068_WASOW_OCR_REQUIRED was provisioned for the case in which Wasow OCR access was required and not available. Outcome: the operative closure ran at the deg_a = 0 row of the four-row enumeration extension, which sits at normal-case (p = 1) Birkhoff baseline; T1-A01 paraphrase-grade Wasow access was sufficient. Wasow OCR remains a forward-pointed open inquiry (Phase E section E.4 item 2) for the post-W21-LANE-1-ratification HIGH-confidence upgrade, but was not blocking.",
+      "implication": "The relay-prompt design budget for Wasow-OCR-acquisition contingency was over-provisioned; future T1 Synth dispatches at the normal-case Birkhoff baseline should not provision Wasow-OCR halts as load-bearing. The borderline-anormal q = 2 path remains a separate verdict ladder branch that would require Wasow OCR access; that path is not the present 068 verdict."
+    },
+    {
+      "id": "U2",
+      "title": "The borderline mechanism (i') and the exceptional-locus mechanism (ii') were both DISSOLVED rather than IDENTIFIED",
+      "description": "The relay 068 prompt was framed around the picture-v1.19 dichotomy: M4 closure at d >= 3 requires either mechanism (i') (borderline anormal q = 2 fractional-rank rescue) or mechanism (ii') (exceptional-locus normal-case rescue at degenerate Newton polygon). Both mechanisms were posited as the candidate operative paths. Outcome: under the four-row enumeration extension introduced by 064 + V6 closed-form, NEITHER mechanism is the operative closure path; both (i') and (ii') are DISSOLVED rather than identified. The closure path is the deg_a = 0 row of the (extended) Phase A enumeration plus V6 closed-form A_naive = 2d - d_a, specialised to deg_a = 0.",
+      "implication": "PCF-2 v1.3 prose in section 6 + section B's framing of 'borderline mechanism (i') / exceptional locus (ii') / one of the two rescues' is forward-pointed for v1.4 amendment to 'deg_a = 0 row of the four-row Phase A WZ-balance enumeration extension' (G12 jurisdiction; Phase E section E.4 item 3). This is a substantive simplification: the M4 closure mechanism is algebraic-combinatorial (closed-form formula in d) rather than analytic-asymptotic (sectorial summability of a borderline-degenerate formal series)."
+    },
+    {
+      "id": "U3",
+      "title": "5/5 over-claim checklist achieved without invoking q = 2 fractional-rank machinery",
+      "description": "The HALT_068_OVER_CLAIM 5-item checklist (rubber-duck-sharpened version added at 2026-05-06 ~21:30 JST) was designed to be a tight discipline against premature M4-closure-FULL claims. Outcome: all 5 items satisfied (Phase D section D.6 + m4_closure_attempt.md section 6) WITHOUT invoking the q = 2 fractional-rank Galbrun ansatz, the Costin Borel-Laplace radius theorem as primary mechanism, or any anormal-case machinery. The closure runs at the V6 closed-form general-d formula + 064 four-row enumeration extension level only, with Costin / B-T 1933 as secondary confirming evidence.",
+      "implication": "The closure mechanism is unexpectedly LIGHT: a closed-form formula in d (A_naive = 2d - d_a) plus the empirical observation that the SIARC stratum sits at deg_a = 0. The substantive load that was originally posited to require Costin Borel-Laplace + B-T anormal q = 2 rescue is in fact carried by the four-row enumeration extension that 064 introduced as a non-load-bearing supplement (deg_a = 0 row was originally added to 064 for completeness, NOT as the M4 closure mechanism). This is a pleasant surprise: M4 closure is closed-form-trivial in retrospect, given the four-row enumeration extension."
+    },
+    {
+      "id": "U4",
+      "title": "The 064/066/067 cascade supersession answer was unambiguous YES",
+      "description": "Phase A.0 supersession gate (P10) was added late (2026-05-06 ~21:35 JST) to relay 068 to check whether the 064 + 065 + 066 + 067 cascade had already superseded the need for the borderline anormal q = 2 path. The cascade was complex (four prior dispatches at SHA-anchored substrate level) and the supersession outcome was not pre-determined. Outcome: A.0 Q.SUP gate fires unambiguous YES (Phase A section A.0 + m4_closure_attempt.md section 2). The supersession is decisive: the SIARC stratum's operative row IS the deg_a = 0 row, AND that row carries A_naive = 2d at general d via V6 closed-form.",
+      "implication": "The cascade pattern (incremental refinement at SHA-anchored substrate level over a four-dispatch sequence, each dispatch adding one structural readback artefact) was load-bearing for the closure even though no individual dispatch was framed as 'closing M4'. The cumulative substrate readback architecture deserves recognition as the actual closure machinery; future SIARC governance documents (picture v1.20 + RACI v2026-05-15) could explicitly recognise 'cumulative substrate readback cascade' as a first-class closure mechanism alongside ratification by formal lift."
+    }
+  ],
+  "summary": "Four unexpected findings recorded; all four are 'pleasant surprises' rather than 'red flags'. U1 + U2 + U3 + U4 collectively indicate that the M4 closure mechanism is structurally LIGHTER than the relay 068 prompt anticipated, with the closure landing via the cumulative substrate readback cascade (064 + V6 + 065 + 066 + 067) rather than via the borderline anormal q = 2 fractional-rank rescue path. None of the four findings undermine the verdict (UPGRADE_FULL_VIA_DEG_A_ZERO_ROW) or its confidence (MEDIUM-HIGH); U2 in particular is forward-pointed for PCF-2 v1.4 amendment (Phase E section E.4 item 3)."
+}
