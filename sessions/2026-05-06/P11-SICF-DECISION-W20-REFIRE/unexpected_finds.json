@@ -1,0 +1,40 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "title": "Three of four SICF options collapse on verdict landing; decision is forced-by-elimination not competitive",
+      "details": "On entering this re-fire under operator-pasted RECEIVED_NEGATIVE 2026-05-06, the four options enumerated at SICF authoring time (cli_log/2026-05-05.md L613-636) sort into status DOMINATED (3 of 4: Options 1, 2, 4) and status LIVE (1 of 4: Option 3). The relay-049 task framing ('which option preserves the MOST of the manuscript substance') resolves trivially because there is only one LIVE option in the post-verdict feasibility space. The four-options scoring matrix retains analytical value as an audit trail (showing that elimination, not preference, drives the result) but the decision itself is single-option forced.",
+      "actionable": false,
+      "implication_for_future_relays": "Future relays that depend on a multi-option SICF arbitrator scoring should explicitly include a 'verdict landed' branch in their decision template, since verdict landing reduces the option space. Relay drafts might benefit from a §STEP-2A pre-filter: 'Apply current-state filter to enumerated options; mark dominated entries before scoring.'"
+    },
+    {
+      "id": "U2",
+      "title": "JTNB instructions-to-authors page is empty / blank in the rendered HTML",
+      "details": "fetch_webpage on https://jtnb.centre-mersenne.org/page/instructions-to-authors/ and the French equivalent /page/instructions-aux-auteurs/ both returned only navigation chrome with no author-instructions text. The journal exists, has a contact, has an editorial board (per legal-notice page), but the published submission instructions are not rendered in the static HTML accessible to the fetch_webpage tool. This is consistent with three possibilities (none verifiable in-session): (a) the page is intentionally blank and submission instructions are conveyed by private editorial correspondence; (b) the page is loaded via JavaScript / SPA and not visible to the agent's HTML scraper; (c) the page is genuinely under construction.",
+      "actionable": "low priority — operator could send a short email to jtnb@math.u-bordeaux.fr asking for current author instructions if the journal becomes a future resubmission target",
+      "implication_for_future_relays": "Future bibliographic-pre-verification or submission-policy-fetch relays should add a fall-back path: if JTNB instructions page is blank, query Centre-Mersenne general instructions or send a direct email to the journal contact."
+    },
+    {
+      "id": "U3",
+      "title": "047 cover-letter polish defensive packet (P11-COVERLETTER-MATHCOMP-DEFENSIVE) is venue-mismatched against the post-verdict reality",
+      "details": "Relay 049 §P4 directed the agent to verify '047 P11 cover-letter polish handoff present (if P11 is in re-submit pivot, the cover letter is already drafted)'. The 2026-05-06 cover-letter packet at sessions/2026-05-06/P11-COVERLETTER-MATHCOMP-DEFENSIVE/ was authored under a counterfactual: 'fires within 1 day if JTNB returns reject / withdraw-and-resubmit' (handoff.md §What was accomplished, ¶1). Under the operator-pasted hard-reject status, the JTNB door is closed; the cover letter was drafted for a Math.Comp re-submission pivot, not for a fresh-venue resubmission. The §1 paragraph (paper subject) is venue-agnostic and re-usable; §2 (positioning + 5 Math.Comp precedents) needs re-writing for the chosen target venue.",
+      "actionable": "yes — operator should fold this into the restructure dispatch checklist (sicf_decision.md §Operator dispatch checklist item 5)",
+      "implication_for_future_relays": "Defensive cover-letter packets should be drafted in venue-agnostic skeleton form with venue-specific paragraph slots filled at dispatch time, not pre-filled with one venue's precedents."
+    },
+    {
+      "id": "U4",
+      "title": "Prior 049 halt-session bundle contains a §What-would-have-been-asked Q3 about SICF arbitrator output migration; remains open",
+      "details": "sessions/2026-05-06/P11-SICF-DECISION-W20/handoff.md §'What would have been asked (if bidirectional)' Q3 reads: 'Should the SICF arbitrator output be migrated to a bridge session (sessions/2026-05-05/P11-SICF-ARBITRATOR/handoff.md) to close D2 permanently? This is a small, cleanly-scoped housekeeping task (~15 min: handoff.md + sha256-anchored copies of the PNG/JSON/MD outputs from sicf-review-system/output/). Recommend yes.' Operator was not asked this in the prior session (operator was asked only the JTNB verdict question + the substrate-substitution question). Q3 is therefore still open after this re-fire.",
+      "actionable": "yes — recommend operator authorise the SICF arbitrator output migration as standalone W20 housekeeping (out-of-cycle, not gated on this re-fire)",
+      "implication_for_future_relays": "Relay drafters should include a 'bridge session anchor' check in §P-block preconditions: if a relay cites a session path, that path should exist or the relay should explicitly authorize substitution."
+    },
+    {
+      "id": "U5",
+      "title": "The relay-049 binding-window framing has no JTNB-policy substrate to anchor against; substrate gap predates this session",
+      "details": "Relay 049 §STEP 3 directs use of 'AMS / JTNB editorial-board policy from sessions/2026-04-*/JTNB-POLICY or web-fetch + SHA-anchor'. The bridge has never had a JTNB-POLICY session (file_search 'JTNB-POLICY*' returns no hits). The relay drafter assumed such a session existed; it does not. Web-fetch returned blank instructions page. The 'window narrowing' framing in the relay prompt is therefore an operator-conceptual framing imported into the relay text, not a sourced policy citation. The prior 049 halt handoff §Anomaly 4 already flagged this as 'days-remaining count is uncited' — but recorded it as a halt-time observation, not as an unexpected find about the relay-prompt substrate gap.",
+      "actionable": "yes — operator should consider creating a sessions/2026-05-XX/JTNB-POLICY/ session (or AMS-RESUBMISSION-POLICY) with the explicit text from a direct editorial correspondence or AMS document, so future relays can cite a stable substrate anchor",
+      "implication_for_future_relays": "Relay drafters should treat 'JTNB withdraw-and-resubmit window' as a placeholder requiring operator-supplied substrate, not as an established policy fact."
+    }
+  ],
+  "find_count": 5
+}

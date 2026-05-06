@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "session": "P11-SICF-DECISION-W20-REFIRE",
+    "date": "2026-05-06",
+    "relay": "049 (re-fire after 2026-05-06 HALT_049_JTNB_VERDICT_AWAITED)",
+    "operator_pasted_jtnb_verdict_status": "RECEIVED_NEGATIVE",
+    "operator_pasted_jtnb_verdict_date": "2026-05-06",
+    "operator_pasted_jtnb_subtype": "Hard reject (no invitation to resubmit; rejection reason verbatim: 'After consideration, we feel that the content of the manuscript does not meet the standards expected for publication in the journal.')",
+    "substrate_source": "cli_log/2026-05-05.md L580-636 (operator-approved this re-fire)",
+    "sicf_run_anchor_sha256": "b3b339507ec0337e7217d426cacf0c64a9c94c37192ff76b813f6a3b750b3453",
+    "venue_labelling_drift_correction": "Per 047 D3, P11 was actually JTNB-only at SICF authoring time (Math.Comp desk-rejected 2026-04-28; resubmitted same day to JTNB-2400). Each option below is scored under both the original Math.Comp framing (counterfactual) and the post-correction JTNB framing (actual)."
+  },
+  "axes": {
+    "axis_1": {
+      "name": "manuscript_substance_preservation_pct",
+      "definition": "Percentage of original P11 v1 (F(2,4) Base Case) manuscript claims surviving the option without semantic weakening. Numerical content (Theorem 4.1 classification table, F(2,4) base-case enumeration, Möbius identification numerical evidence) counts; semantic strength of named theorems counts (e.g., 'Theorem 5.3 (transcendence)' demoted to 'Conjecture 5.3*' is a substance reduction).",
+      "estimation_basis": "qualitative judgment grounded in the four-fatals + #18 inventory at sicf_options_verbatim.md §C; not a measured metric"
+    },
+    "axis_2": {
+      "name": "time_to_resubmit_days",
+      "definition": "Wall-clock days from option-execution start to a resubmission-ready manuscript at a target venue (any venue), excluding subsequent referee turnaround.",
+      "estimation_basis": "verbatim cost figures from sicf_options_verbatim.md §A where given; SICF-roadmap-execution estimates otherwise"
+    },
+    "axis_3": {
+      "name": "aeal_chain_integrity",
+      "definition": "Whether the option requires re-running any computational claim already entered in claims.jsonl. Reported as {rerun_required: bool, rerun_cpu_hr: float, integrity_pct: int}. integrity_pct = 100 if no rerun; lower if any AEAL line needs reverification.",
+      "estimation_basis": "inspection of which fatals touch numerical-versus-narrative content"
+    }
+  },
+  "options": [
+    {
+      "option_id": 1,
+      "name": "No-op (wait for referee verdict)",
+      "verbatim_summary": "If Math of Comp returns Reject, the SICF analysis becomes the resubmission roadmap (4 fatal must-fix items). Cost: zero. Risk: editor sees the same issues independently.",
+      "scoring_pre_verdict_counterfactual": {
+        "axis_1_substance_pct": 100,
+        "axis_2_days": null,
+        "axis_2_note": "wait-state; no resubmission action initiated until verdict lands",
+        "axis_3": {"rerun_required": false, "rerun_cpu_hr": 0.0, "integrity_pct": 100}
+      },
+      "scoring_post_verdict_actual_RECEIVED_NEGATIVE": {
+        "axis_1_substance_pct": 0,
+        "axis_2_days": null,
+        "axis_2_note": "DOMINATED by verdict landing 2026-05-06; the wait-state has zero residual action surface (verdict is in)",
+        "axis_3": {"rerun_required": false, "rerun_cpu_hr": 0.0, "integrity_pct": 100},
+        "status": "DOMINATED"
+      }
+    },
+    {
+      "option_id": 2,
+      "name": "Voluntary corrigendum",
+      "verbatim_summary": "Submit a 1-2 page corrigendum to Math of Comp addressing #18 (2-family arithmetic discrepancy) since that's the one hard error not requiring a full rewrite. Cost: ~1 day. Risk: signals ongoing instability.",
+      "scoring_pre_verdict_counterfactual": {
+        "axis_1_substance_pct": 95,
+        "axis_2_days": 1,
+        "axis_3": {"rerun_required": true, "rerun_cpu_hr": 0.5, "integrity_pct": 98, "rerun_scope": "recount Theorem 4.1 partition (26 vs 24+0+0); minor PSLQ replays at dps=500"}
+      },
+      "scoring_post_verdict_actual_RECEIVED_NEGATIVE": {
+        "axis_1_substance_pct": 0,
+        "axis_2_days": null,
+        "axis_2_note": "DOMINATED by hard reject. A corrigendum requires an accepted-or-published host-journal version to attach to; JTNB rejection without acceptance leaves no editorial relationship to leverage.",
+        "axis_3": {"rerun_required": false, "rerun_cpu_hr": 0.0, "integrity_pct": 100},
+        "status": "DOMINATED"
+      }
+    },
+    {
+      "option_id": 3,
+      "name": "Withdrawal + restructure (resubmit)",
+      "verbatim_summary": "Withdraw, address #1-#4 by reframing the theorem statements as 'T1-relative' and the partition as 'conditional on basis-completeness', resubmit. Cost: 2-3 weeks. Risk: 1 month of review queue restart.",
+      "scoring_pre_verdict_counterfactual": {
+        "axis_1_substance_pct": 80,
+        "axis_1_note": "fatals #1-#3 reframe to T1-relative + algorithm-conditional (no semantic loss in numerical content; loss is in the rhetorical strength of Theorem 4.1's 'completeness' claim and Theorem 5.3's transcendence-proof status). Numerical classification table (513,387/400,093/24/etc.) preserved verbatim. Möbius identification (Prop 5.2) demoted from theorem-grade evidence to conjecture-grade; Theorem 5.3 (transcendence of K) demoted to Conjecture 5.3* or removed from base case. ~80% of original manuscript's substance preserved; ~20% lost in named-theorem demotion + scope qualification.",
+        "axis_2_days": 21,
+        "axis_2_note": "verbatim '2-3 weeks' from sicf_options_verbatim.md \u00a7A",
+        "axis_3": {"rerun_required": true, "rerun_cpu_hr": 1.0, "integrity_pct": 97, "rerun_scope": "reconcile #18 arithmetic (no new computation, recount); re-anchor SHAs after restructure; no large sweeps re-run"}
+      },
+      "scoring_post_verdict_actual_RECEIVED_NEGATIVE": {
+        "axis_1_substance_pct": 80,
+        "axis_1_note": "Same as pre-verdict scoring on the manuscript-content axis. The 'withdraw' verb in the option label is moot under hard reject (rejection already removes from JTNB); only the 'restructure + resubmit' core survives. Resubmission target shifts from 'JTNB R1' to 'a different venue' (originality-friendly because restructured), but axis_1 (substance preservation) is unaffected by venue change.",
+        "axis_2_days": 21,
+        "axis_2_note": "Restructure cost (2-3 weeks) preserved; the 1-month-review-queue-restart-risk note from sicf_options_verbatim.md \u00a7A is now realised in the form of a fresh-venue review cycle (typical 3-6 mo) rather than JTNB queue reset, but that downstream cost is outside axis_2's option-execution-window scope.",
+        "axis_3": {"rerun_required": true, "rerun_cpu_hr": 1.0, "integrity_pct": 97, "rerun_scope": "reconcile #18 arithmetic (no new computation, recount); re-anchor SHAs after restructure; no large sweeps re-run"},
+        "status": "LIVE"
+      }
+    },
+    {
+      "option_id": 4,
+      "name": "Hold for JTNB-2400 leverage (cross-venue strategy)",
+      "verbatim_summary": "If JTNB referee raises any of the 4 SICF fatals, address all four in one R1 response; if Math of Comp referee raises them independently, the JTNB pipeline is harder to defend. Synth strategic call.",
+      "scoring_pre_verdict_counterfactual": {
+        "axis_1_substance_pct": 100,
+        "axis_2_days": null,
+        "axis_2_note": "no-action posture; conditional on referee behaviour at either venue",
+        "axis_3": {"rerun_required": false, "rerun_cpu_hr": 0.0, "integrity_pct": 100},
+        "venue_labelling_drift_note": "Already degenerate at SICF authoring time per 047 D3: there was no parallel Math.Comp submission to leverage against; P11 was JTNB-only after 2026-04-28 desk-rejection. Under D3 correction this option reduces to 'wait for JTNB referee; absorb fatals into JTNB R&R if/when raised', which is structurally equivalent to Option 1."
+      },
+      "scoring_post_verdict_actual_RECEIVED_NEGATIVE": {
+        "axis_1_substance_pct": 0,
+        "axis_2_days": null,
+        "axis_2_note": "DOMINATED by hard reject. JTNB door closed; no leverage to hold. Under venue-drift correction (D3), the option is degenerate to start with; under hard reject it is fully dominated.",
+        "axis_3": {"rerun_required": false, "rerun_cpu_hr": 0.0, "integrity_pct": 100},
+        "status": "DOMINATED"
+      }
+    }
+  ],
+  "decision_summary": {
+    "selected_option_id": 3,
+    "selected_option_name": "Withdrawal + restructure (resubmit)",
+    "selection_basis": "FORCED_BY_ELIMINATION (3 of 4 dominated by post-2026-05-06 hard-reject reality; Option 3 is the only LIVE option)",
+    "manuscript_substance_preservation_pct_selected": 80.0,
+    "time_to_resubmit_days_selected": 21,
+    "aeal_rerun_cpu_hr_selected": 1.0,
+    "aeal_integrity_pct_selected": 97
+  },
+  "binding_window_note": {
+    "window_type": "operator_conceptual_NOT_journal_imposed",
+    "rationale": "JTNB instructions-to-authors page (https://jtnb.centre-mersenne.org/page/instructions-to-authors/) returns blank/empty content via webfetch 2026-05-06; no published 'withdraw-and-resubmit window' policy is exposed. The only published JTNB constraint is the originality requirement: 'publishes original papers on number theory and related topics (not published elsewhere)' (jtnb.centre-mersenne.org root page, fetched 2026-05-06). Under hard reject, the relay-049 'JTNB withdraw-and-resubmit window narrowing' framing (drafted at AWAITED state) does not map to a live journal-side window. The functional binding window is operator-conceptual: SICF-roadmap-freshness while four-fatals-fix decisions are in working memory.",
+    "operator_conceptual_window_days_remaining_estimate": 30,
+    "estimate_rationale": "30 days is the conservative SICF-roadmap-freshness window (4 fatals enumerated 2026-05-05; restructure dispatch within 30 days keeps fatal-fix mental model intact and avoids needing a fresh SICF re-run before resubmission). This is a JUDGMENT CALL, not a derived deadline."
+  }
+}
