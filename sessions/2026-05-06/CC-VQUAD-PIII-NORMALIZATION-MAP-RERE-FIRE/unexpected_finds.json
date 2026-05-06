@@ -1,0 +1,22 @@
+{
+  "session": "058R-CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE",
+  "date": "2026-05-06",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "framing_reconciliation",
+      "title": "Spec's 'W(D_6)' framework has no literature anchor; reconciled to W((2A_1)^(1)) ⊂ W_a(B_2)",
+      "context": "Phase B.5 (Affine Weyl cross-walk) of the 058R spec assumed an existing 'W(D_6)' affine-Weyl action establishing the V_quad → P_III(D_6) Bäcklund symmetry chain. This framework was presumed to be present in BLMP 2024 (the canonical D_6 reference). Direct reading of BLMP 2024 + Sakai 2001 + KNY 2017 + Okamoto 1987 + Noumi-Yamada 1998/2000 finds NO 'W(D_6)' occurrence in the literature. The correct framework: surface type D_6^(1) (Sakai geometric classification, KNY 2017 §8.1.20); symmetry type (2A_1)^(1) (KNY 2017 §8.1.20); Bäcklund group W_a(B_2) = W_a(C_2) (Okamoto 1987 §2.1, generators s_0, s_1, s_2); Sakai's W((2A_1)^(1)) is the index-2 long-root subgroup of Okamoto's W_a(B_2).",
+      "implication": "058R Phase B.5 reframed as 'INDEX-2 EMBEDDING' verdict (B5_VERIFIED_WITH_CAVEAT), upgrading the 2026-05-02 partial session's PARTIAL_HALT_W_HOMOMORPHISM blocker to PASS_WITH_CAVEAT. The Bäcklund-symmetry chain underlying M's compatibility with the canonical-form is preserved, just under correct group-theoretic naming. No numerical impact; substantial framing impact.",
+      "downstream_action": "Operator-side spec amendment v1.2 recommended (D3+D4 in discrepancy_log.json). The amendment should: (1) replace all 'W(D_6)' references in Phase B.5 with 'W((2A_1)^(1)) ⊂ W_a(B_2)'; (2) re-anchor Phase B.3 Lax-pair source from 'Okamoto §§Lax-pair' to 'KNY 2017 §8.5.17 eq. 8.237-8.239'; (3) update bibkey list to include kny2017painleve as PRIMARY (currently auxiliary slot 14)."
+    },
+    {
+      "id": "U2",
+      "category": "structural_R5_closure",
+      "title": "KNY 2017 §8.5.17 closes the long-standing R5 blocker (Φ_symp existence)",
+      "context": "The 2026-05-02 partial CC-VQUAD-PIII-CANONICAL-FORM-MAP session halted at R5 (Φ_symp construction) because the canonical-form Lax pair was not directly available in any single reference at that time. 058R confirms KNY 2017 §8.5.17 contains exactly the needed scalar second-order Lax form L_1 y = 0 (eq. 8.239) with explicit (q, p, t) dependence and explicit P_III(D_6) parameter convention. This is a closure event for the structural side of M6.CC.",
+      "implication": "G15 residual moves PARTIAL → MOSTLY-CLOSED. M6.CC closure status moves from STRUCTURAL-INCOMPLETE → STRUCTURAL-COMPLETE-NUMERICAL-DEFERRED. The follow-up Phase-D-Numerical session is now well-defined (clear input: KNY §8.5.17 Lax form; clear output target: |M^* C_V| =? |S_ζ_*^can|).",
+      "downstream_action": "Recommend P1 priority for follow-up CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL session to drive M6.CC verdict to UPGRADE_V1_0_FULL."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "session": "058R-CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE",
+  "date": "2026-05-06",
+  "anomalies": [
+    {
+      "id": "D1",
+      "severity": "INFO",
+      "title": "R1 carry-forward open from 2026-05-02 partial session",
+      "description": "Okamoto-convention identification of CT v1.3 §3.5 four-tuple (α_∞, α_0, β_∞, β_0) = (1/6, 0, 0, -1/2) in (a_0, a_1, a_2) coordinates remains open. 058R does NOT modify CT v1.3 (out of scope for the canonical-form normalisation map session).",
+      "scope": "carry_forward_from_2026_05_02_partial_session",
+      "action_required": "none_058R; tag for Phase-D-Numerical follow-up session OR T2 dossier amendment"
+    },
+    {
+      "id": "D2",
+      "severity": "INFO",
+      "title": "CT v1.3 §3.5 four-tuple null-sum violation",
+      "description": "The four-tuple (α_∞, α_0, β_∞, β_0) = (1/6, 0, 0, -1/2) sums to -1/3, not 0. Okamoto's canonical P_III(D_6) parameter constraint requires α_∞ + α_0 + β_∞ + β_0 = 0 (Okamoto 1987 §1.2 eq. (1.4)). The four-tuple as currently extracted in CT v1.3 §3.5 violates this null-sum.",
+      "scope": "carry_forward_from_2026_05_02_partial_session",
+      "action_required": "follow-up Phase-D-Numerical session must reconcile via additional shift (e.g., alternative canonical-form normalisation in the (a_0, a_1, a_2) coordinate; Okamoto §3 τ-function chart)"
+    },
+    {
+      "id": "D3",
+      "severity": "STRUCTURAL",
+      "title": "Spec 'W(D_6)' framing has no literature anchor",
+      "description": "058R relay-prompt spec Phase B.5 references 'W(D_6)' affine Weyl framework (presumed inherited from earlier T2 dossier framing). Direct read of BLMP 2024 + Sakai 2001 + KNY 2017 + Okamoto 1987 + Noumi-Yamada 1998/2000 finds NO occurrence of 'W(D_6)' in the canonical P_III(D_6) literature. The correct framework (per KNY 2017 §8.1.20 + Okamoto 1987 §2.1) is: surface type D_6^(1), symmetry type (2A_1)^(1), Bäcklund group W_a(B_2) ⊃ W((2A_1)^(1)) [long-root index-2 inclusion].",
+      "scope": "spec_phase_B5_framing",
+      "action_required": "operator-side spec amendment v1.2: replace 'W(D_6)' with 'W((2A_1)^(1)) ⊂ W_a(B_2)' throughout Phase B.5; add Sakai-Okamoto cross-walk note"
+    },
+    {
+      "id": "D4",
+      "severity": "INFO",
+      "title": "Okamoto 1987 does NOT contain explicit 2x2 Lax pair",
+      "description": "058R Phase B.3 reading of Okamoto 1987 finds: §1 covers Hamiltonian formulation, §2 affine Weyl symmetry, §3 τ-functions, §4 cylinder functions — NO explicit 2x2 Lax pair construction. The Lax pair used in Phase B.3 is from KNY 2017 §8.5.17 (slot 14, auxiliary). Spec C.1 directive 'Okamoto §§Lax-pair input' is therefore re-anchored to KNY 2017 §8.5.17.",
+      "scope": "spec_phase_C1_anchoring",
+      "action_required": "operator-side spec amendment v1.2: re-anchor Phase B.3 Lax-pair source from 'Okamoto 1987 §§Lax-pair' to 'KNY 2017 §8.5.17 eq. 8.237-8.239'"
+    },
+    {
+      "id": "D5",
+      "severity": "INFO",
+      "title": "Φ_symp Jacobian numerical evaluation requires separate session",
+      "description": "Phase B.3 closes the structural R5 blocker (Φ_symp existence + parametric form known via KNY 2017 §8.5.17), but the explicit gauge transformation between V_quad's third-order scalar OGF Lax representation and KNY's second-order scalar Lax form L_1 y = 0 (eq. 8.239) requires a separate symbolic-computation cycle (estimated 4-8h agent runtime). 058R deferred this cleanly via UPGRADE_V1_0_PARTIAL_NUMERICAL verdict.",
+      "scope": "phase_D2_numerical_cross_check",
+      "action_required": "follow-up session CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL to compute |det J(Φ_symp)| numerically and complete the cross-check |M^* C_V| =? |S_ζ_*^can|"
+    }
+  ]
+}
