@@ -1,0 +1,309 @@
+% =====================================================================
+% Annotated bibliography for
+%   "A Newton-polygon formal-level baseline for the Birkhoff--Trjitzinsky
+%    exponent on the SIARC polynomial continued-fraction Wallis stratum"
+%   (T1-PHASE2-BASELINE-NOTE v1.0, 2026-05-06)
+%
+% Entries are scoped tightly to the citations of bt_baseline_note.tex.
+% Three groups:
+%   A. SIARC self-citations (Zenodo deposits + bridge sessions).
+%   B. Primary literature anchors carried over from Phase 2 substrate.
+%   C. Standard textbook references for the Wimp--Zeilberger normal-case
+%      ansatz and the asymptotic theory of linear difference recurrences.
+% =====================================================================
+
+
+% =====================================================================
+% A. SIARC self-citations
+% =====================================================================
+
+@misc{papanokechi_pcf1_v13,
+  author    = {Papanokechi},
+  title     = {{PCF}-1 v1.3: {S}tokes signal and channel scope for
+               $\Delta<0$ degree-2 polynomial continued fractions},
+  year      = {2026},
+  doi       = {10.5281/zenodo.19937196},
+  note      = {Version DOI 10.5281/zenodo.19937196; concept DOI
+               10.5281/zenodo.19931635. Section 6 Theorem 5
+               establishes the $A \in \{3, 4\}$ split at $d=2$ in
+               the $\alpha$-direction Wallis stratum; the lower
+               branch $A = 3$ is realised by the QL01--QL26 family
+               of $26$ representatives, with each representative's
+               $A$-value verified at $\dps = 80$ across a
+               high-precision tail-window fit. PDF SHA-$256$
+               \texttt{63420dbf4abb7124672f522c37fc04ebdb3f6694ac39959456b2890d9788ff5e}.},
+  annote    = {A. Internal SIARC Zenodo deposit. Referenced in
+               \Cref{sec:proof-d2} for the $d = 2$ $\alpha$-direction
+               $\Anaive = 3$ verification at $80$ algebraic digits.}
+}
+
+@misc{papanokechi_pcf2_v13,
+  author    = {Papanokechi},
+  title     = {{PCF}-2 v1.3: {P}olynomial continued fractions at
+               degree three (cubic-modular framing) and the
+               cross-degree universality $\xi_0(b) = d/\beta_d^{1/d}$},
+  year      = {2026},
+  doi       = {10.5281/zenodo.19963298},
+  note      = {Version DOI 10.5281/zenodo.19963298; concept DOI
+               10.5281/zenodo.19936297. R1.1 + R1.3 + Q1: $50/50$
+               cubic representatives at $d=3$ with empirical
+               $\Afit \approx 6 = 2d$, and $60/60$ quartic
+               representatives at $d=4$ with mean
+               $\Afit = 7.954 \approx 8 = 2d$ and standard deviation
+               $\sigma = 3.7 \times 10^{-3}$. Conjecture B4 records
+               the lift $A = 2d$ at $d \ge 3$ as open. PDF SHA-$256$
+               \texttt{87b845a8e382f3c124906ace0c1a6763ce54bd14c5f9593bbadc77bdd81d263f}.},
+  annote    = {A. Internal SIARC Zenodo deposit. Referenced in
+               \Cref{sec:gap-pcf2} for the empirical record and in
+               \Cref{conj:b4} for the statement of Conjecture B4.}
+}
+
+@misc{siarc_channel_theory_v13,
+  author    = {Papanokechi},
+  title     = {{SIARC} channel theory v1.3: a structural outline of
+               channel structure of asymptotic deformations in
+               polynomial continued-fraction dynamics},
+  year      = {2026},
+  doi       = {10.5281/zenodo.19899996},
+  note      = {Channel Theory v1.3 outline document. PDF SHA-$256$
+               \texttt{df3b90e808e49e84fbba53e5663a851256303496fc1536fefbf962aba2ebdc18}.},
+  annote    = {A. Internal SIARC Zenodo deposit. Referenced for the
+               three-convention SIARC framing of \Cref{sec:setup}
+               (in particular the symmetric-convention framing).}
+}
+
+@misc{siarc_t2b_v3,
+  author    = {Papanokechi},
+  title     = {{T2B} v3: {C}lass-{B} saturation and the {P}-06 /
+               140-family {P}ainlev\'e fingerprint},
+  year      = {2026},
+  doi       = {10.5281/zenodo.19915689},
+  note      = {Most recent T2B Zenodo deposit (v3.0). PDF SHA-$256$
+               \texttt{7ac8f204289409b57b8f24653cc39ea381afeec4e666e23b68681c1496651a5b}.},
+  annote    = {A. Internal SIARC Zenodo deposit. Listed in the
+               related-identifiers cross-cite block of the Zenodo
+               description; not load-bearing for any claim in the
+               present note.}
+}
+
+@misc{siarc_umbrella_v2,
+  author       = {Papanokechi},
+  title        = {{SIARC} umbrella v2.0: an arithmetic stratification
+                  of polynomial continued fractions
+                  (modular-discriminant framing)},
+  year         = {2026},
+  doi          = {10.5281/zenodo.19965041},
+  note         = {Version DOI 10.5281/zenodo.19965041; concept DOI
+                  10.5281/zenodo.19885549. PDF SHA-$256$
+                  \texttt{24382421290318ae2a8fd8f22e3a0ec6953d738d35411c61e32c26e7bd8f2037}.},
+  annote       = {A. Internal SIARC Zenodo deposit. Listed in the
+                  related-identifiers cross-cite block of the Zenodo
+                  description; not load-bearing for any claim in the
+                  present note.}
+}
+
+@misc{siarc_d2_note_v21,
+  author    = {Papanokechi},
+  title     = {Cross-degree universality of the {B}orel-singularity
+               radius for polynomial continued fractions (v2.1)},
+  year      = {2026},
+  doi       = {10.5281/zenodo.20015923},
+  note      = {Version DOI 10.5281/zenodo.20015923; concept DOI
+               10.5281/zenodo.19996689. PDF SHA-$256$
+               \texttt{a8b6026a3453f901a0da68c3849a9d7d828138ca4622b8a3686b68f01d5ef74e}.},
+  annote    = {A. Internal SIARC Zenodo deposit. Structural template
+               for the present note (preamble, AI-disclosure,
+               bibliography format reused).}
+}
+
+@misc{siarc_t1_phase2,
+  author    = {Papanokechi},
+  title     = {{SIARC} bridge session
+               \texttt{T1-BIRKHOFF-PHASE2-LIFT-LOWER}: Phase~2 of the
+               {B}irkhoff--{T}rjitzinsky lift for the {SIARC} {PCF}
+               {W}allis stratum},
+  year      = {2026},
+  publisher = {SIARC relay bridge (GitHub)},
+  url       = {https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-03/T1-BIRKHOFF-PHASE2-LIFT-LOWER/},
+  note      = {Bridge session at commit \texttt{37c939f}, 2026-05-04.
+               Verdict \texttt{UPGRADE\_PARTIAL\_FORMAL\_LEVEL}: Phase~A
+               (\texttt{phase\_a\_symbolic\_derivation.py},
+               SHA-$256$
+               \texttt{2fc6e39267768791912cc53aa59bc231c40483a1a93e92104b13f07809f16248})
+               + Phase~B (\texttt{phase\_b\_extended\_sweep.py},
+               SHA-$256$
+               \texttt{39e98db607a5331686cf4ba4890bc50abc1232e8b533b80eeb2d4636c8e10175})
+               establish the formal-level baseline
+               $\Anaive \in \{d-1, d, d+1\}$ across the three SIARC
+               conventions for $d \in [2, 8]$; Phase~C
+               (\texttt{phase\_c\_literature\_verification.md},
+               SHA-$256$
+               \texttt{c6cc2b1ac437647f2cad974b07462cc43422eaa71cc079f8a76e3cc32808ae93})
+               verifies the four C.2 sub-gates against
+               Birkhoff--Trjitzinsky 1933 \S\S 7--9. The Phase~2
+               \texttt{claims.jsonl} carries 16 AEAL entries; the
+               present note carries forward 6 of them as
+               literature-citation entries.},
+  annote    = {A. Internal SIARC bridge session. The substrate of
+               the present note. Referenced throughout
+               \Cref{sec:wz-balance,sec:proof,sec:gap,sec:bt}.}
+}
+
+
+% =====================================================================
+% B. Primary literature anchors
+% =====================================================================
+
+@article{birkhoff_trjitzinsky_1933,
+  author    = {Birkhoff, George D. and Trjitzinsky, Waldemar J.},
+  title     = {Analytic theory of singular difference equations},
+  journal   = {Acta Mathematica},
+  volume    = {60},
+  year      = {1933},
+  pages     = {1--89},
+  doi       = {10.1007/BF02398269},
+  publisher = {Institut Mittag-Leffler},
+  annote    = {B. Primary literature anchor. \S1 specifies the
+               coefficient-of-the-right-kind hypothesis;
+               \S\S 7--9 give the Theorem~II / Lemma~10 /
+               Fundamental Theorem chain establishing existence
+               and factorization of completely-proper formal
+               solutions in each Stokes quadrant; \S11 Theorem~III
+               gives the converse / sectorial-realization. PDF
+               SHA-$256$ \texttt{dcd7e3c6b2a12ae1ce917d322763ff9dde5ec69ab5f23080d043699822d68fe6}
+               anchored at
+               \texttt{tex/submitted/control center/literature/g3b\_2026-05-03/}.}
+}
+
+@book{wimp1984computation,
+  author    = {Wimp, Jet},
+  title     = {Computation with recurrence relations},
+  publisher = {Pitman},
+  address   = {Boston},
+  year      = {1984},
+  annote    = {B. Standard reference for the asymptotic analysis
+               of linear recurrences. The Wimp--Zeilberger
+               normal-case ansatz of \Cref{sec:wz-ansatz-intro}
+               (equation \eqref{eq:wz-ansatz}) is \S6, with the
+               normal / borderline / anormal case distinction
+               \S5--\S6. The borderline-case condition
+               $\dega = 2\degb$ used in
+               \Cref{sec:gap-wz-border} is the threshold between
+               the normal and borderline cases of \S5.}
+}
+
+@article{birkhoff1930formal,
+  author       = {Birkhoff, George D.},
+  title        = {Formal theory of irregular linear difference
+                  equations},
+  journal      = {Acta Mathematica},
+  volume       = {54},
+  pages        = {205--246},
+  year         = {1930},
+  doi          = {10.1007/BF02547522},
+  annote       = {B. The 1930 formal-theory paper companion to
+                  \cite{birkhoff_trjitzinsky_1933}. Section~2
+                  establishes uniformly that any $n \times n$
+                  linear system at an irregular singular point of
+                  rank $q$ admits a formal series solution; the
+                  Borel-summability content is treated in
+                  \cite{birkhoff_trjitzinsky_1933}, not here.
+                  Cited in \Cref{q:sectorial} as the formal-side
+                  half of the sectorial-upgrade chain.}
+}
+
+@book{wasow1965asymptotic,
+  author       = {Wasow, Wolfgang},
+  title        = {Asymptotic Expansions for Ordinary Differential
+                  Equations},
+  publisher    = {Interscience Publishers, John Wiley \& Sons
+                  (Reprint: Dover, 1987)},
+  year         = {1965},
+  series       = {Pure and Applied Mathematics, Vol.~XIV},
+  annote       = {B. Section~X.3 (Theorem~11.1) supplies the
+                  formal-to-analytic sectorial-asymptotic existence
+                  theorem at an irregular singular point of integer
+                  rank $q$. The Wasow~\S X.3 PDF on disk at the time
+                  of preparation of the present note is image-only
+                  (no OCR), and is the first acquisition target of
+                  any T1 Phase~3 follow-on. Cited in
+                  \Cref{q:sectorial}.}
+}
+
+@article{adams1928analytic,
+  author       = {Adams, Charles Raymond},
+  title        = {On the irregular cases of the linear ordinary
+                  difference equation},
+  journal      = {Transactions of the American Mathematical Society},
+  volume       = {30},
+  number       = {3},
+  pages        = {507--541},
+  year         = {1928},
+  doi          = {10.1090/S0002-9947-1928-1501439-2},
+  annote       = {B. The original 1928 sectorial-asymptotic
+                  analysis of the irregular singular case for
+                  linear ordinary difference equations. NIA on disk
+                  at the time of preparation per the upstream A-01
+                  verdict of \cite{siarc_t1_phase2}; the original
+                  Adams argument is transitively covered, for the
+                  purposes of the present note's formal-level
+                  baseline, by Birkhoff--Trjitzinsky 1933~\S\S 7--9.
+                  Cited in \Cref{q:sectorial}.}
+}
+
+@article{turrittin1955convergent,
+  author       = {Turrittin, H. L.},
+  title        = {Convergent solutions of ordinary linear
+                  homogeneous differential equations in the
+                  neighborhood of an irregular singular point},
+  journal      = {Acta Mathematica},
+  volume       = {93},
+  pages        = {27--66},
+  year         = {1955},
+  doi          = {10.1007/BF02392519},
+  annote       = {B. Modern Borel-Laplace formalisation of the
+                  formal-to-analytic sectorial upgrade for
+                  ordinary differential equations at an irregular
+                  singular point. Cited in \Cref{q:sectorial} as
+                  one of the four candidate routes to the
+                  sectorial upgrade.}
+}
+
+@article{immink1984asymptotics,
+  author       = {Immink, G. K.},
+  title        = {Asymptotics of analytic difference equations},
+  journal      = {Lecture Notes in Mathematics},
+  volume       = {1085},
+  publisher    = {Springer},
+  year         = {1984},
+  annote       = {B. The modern reference for the
+                  Borel-summability of formal solutions of analytic
+                  difference equations at irregular singular points
+                  of fractional rank. Not acquired at the time of
+                  preparation of the present note. Cited in
+                  \Cref{q:sectorial} as the natural difference-side
+                  modern reference for the sectorial upgrade.}
+}
+
+@book{costin2008asymptotics,
+  author    = {Costin, Ovidiu},
+  title     = {Asymptotics and {B}orel summability},
+  series    = {Chapman \& Hall/CRC Monographs and Surveys in Pure
+               and Applied Mathematics},
+  volume    = {141},
+  publisher = {CRC Press},
+  address   = {Boca Raton, FL},
+  year      = {2008},
+  annote    = {C. Reference text for the modern Borel-Laplace
+               formalism. Ch.~3 (formal series, Gevrey-$1$
+               classes); Ch.~5 (resurgence, Borel--Laplace radius
+               identification). Cited in \Cref{q:sectorial} as a
+               modern restatement of the Borel-Laplace machinery
+               that any T1 Phase~3 follow-on will need to invoke
+               for the sectorial upgrade.}
+}
+
+
+% =====================================================================
+% End of bibliography.
+% =====================================================================
