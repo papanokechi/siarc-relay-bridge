@@ -1,0 +1,33 @@
+P009-M8B-CAVEAT-FINAL verb-check log
+=========================================
+Date: 2026-05-06
+Target: p009_m8b_caveat_active.txt (v1 NOT_YET_DISPATCHED)
+SHA256: 8EFC6C937283D65A2AC35132E5CF623DDCD49580A0C2C12C1791D1A238F14027
+
+Forbidden verb scan (case-insensitive, word-boundary regex):
+  shows : miss
+  confirms : miss
+  proves : miss
+  establishes : miss
+  show : miss
+  confirm : miss
+  prove : miss
+  establish : miss
+  shown : miss
+  confirmed : miss
+  proven : miss
+  established : miss
+  showing : miss
+  confirming : miss
+  proving : miss
+  establishing : miss
+
+Forbidden hits: 0
+
+Permitted-verb scan:
+  'will supply' : FOUND
+  'is expected to supply' : absent
+  'supplies' : absent
+
+VERDICT: PASS (zero forbidden verbs; v1 permitted form 'will supply' present)
+HALT_050_VERB_CHECK_FAIL: not triggered
