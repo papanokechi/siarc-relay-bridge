@@ -1,0 +1,25 @@
+{
+  "halt_code": "HALT_059_POST_LINE_COUNT",
+  "halt_stage": "STEP 3 (post-paste verification)",
+  "trigger_condition": "post-paste line count != 1922",
+  "expected": 1922,
+  "observed": 1921,
+  "delta": -1,
+  "root_cause_analysis": "Spec arithmetic error in NEW_STR structure summary. Spec text says '22 new lines: 1 blank + ===== + header + ===== + 1 blank + 14-line body + 1 blank + closing =====' which sums to 1+1+1+1+1+14+1+1=21, not 22. Additionally the body in the explicit NEW_STR rendering is 13 lines (counting [OQ-...] header + 12 prose), not 14. Net new lines from explicit NEW_STR (24 lines) minus OLD_STR (3 lines) = 21. Therefore 1900 + 21 = 1921, not 1922.",
+  "content_correctness": "All other STEP 3 invariants PASS: OQ token unique (1), header unique (1), tail line is closing separator, post-SHA != pre-SHA. The pasted content is bit-correct relative to the substrate cmb_open_question_entry.txt. Only the line-count arithmetic in the spec is off-by-one.",
+  "no_rollback_attempted": "Per spec instruction 'DO NOT attempt automatic re-paste under any halt -- operator validates + re-dispatches', the modified CMB.txt is preserved as-is at post-SHA 723E9C60..C3B0. Operator validates content + decides whether to (a) accept 1921-line state and amend spec, (b) manually add one extra blank line to reach 1922, or (c) revert and re-fire with corrected spec.",
+  "secondary_anomaly_l1899_anchor": "Spec OLD_STR specifies L1899 as '  ' (2 spaces). Byte-level inspection of pre-paste CMB.txt showed L1899 was a bare empty line (sequence 66 0A 0A 3D = 'f\\n\\n='). STEP 1 anchors only check L1898 + L1900, not L1899, so the mismatch was not caught by the spec's STEP 1 procedure. Executer corrected OLD_STR to bare empty line (matching actual file content) and applied the same correction to the corresponding line in NEW_STR. Documented as judgment call J1 in handoff.",
+  "post_paste_state": {
+    "file": "tex/submitted/CMB.txt",
+    "pre_sha256": "74073D94F247B59CCAB42A5AA96D608F87070CDBDE20F3D06263778FCF68A5DC",
+    "post_sha256": "723E9C60543E08B574BB4BB7CA6E9407875C4A65100CD30C83CD206699EBC3B0",
+    "pre_lines": 1900,
+    "post_lines": 1921,
+    "pre_bytes": 84473,
+    "post_bytes": 87292,
+    "delta_bytes": 1743,
+    "oq_token_hits": 1,
+    "header_hits": 1,
+    "tail_line": "================================================================"
+  }
+}
