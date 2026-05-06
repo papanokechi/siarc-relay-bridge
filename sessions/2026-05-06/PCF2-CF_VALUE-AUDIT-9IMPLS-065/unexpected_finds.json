@@ -1,0 +1,30 @@
+{
+  "session": "PCF2-CF_VALUE-AUDIT-9IMPLS-065",
+  "date": "2026-05-06",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "additional-impl",
+      "summary": "session_R1_3_2026-05-01/r1_3_family32_deep.py:48 contains a def cf_value impl that LANE-2 P1's listing of 9 omitted.",
+      "details": "P1 enumerated r1_3_extended_enumeration.py and r1_3_residualization.py from session_R1_3 but missed r1_3_family32_deep.py. The missed impl is structurally identical to extended_enumeration's Horner-style cf_value (helper b(k) + recurrence x = b(k) + mp.mpf(1)/x). Classification HC1.",
+      "expected": false,
+      "implication": "P1's grep was narrower than its prose suggested; effective coverage was 8 of 9 within P1's stated scope (Sessions B/C1/Q1/R1.1/R1.2/R1.3). This is a P1-side enumeration miss, not a LANE-2 verdict defect."
+    },
+    {
+      "id": "U2",
+      "category": "additional-impl-in-out-of-scope-session",
+      "summary": "Session A and Session A2 contain PCF-evaluation impls under non-cf_value names (evaluate_cf, L_at, L_at_high) that were never visible to LANE-2 P1's grep.",
+      "details": "session_A_2026-05-01/cubic_family_enumeration.py:154 evaluate_cf (HC0 by signature, HC1 in use); session_A2_2026-05-01/conductor7_verify.py:153 L_at (HC1) and :277 L_at_high (HC1). All three implement the canonical (1, b) recurrence.",
+      "expected": false,
+      "implication": "Strengthens R1 systemic-claim coverage from 9 to 13. The harvest pipeline's cubic-family enumerator (Session A) and conductor-7 verifier (Session A2) have always operated on the deg_a = 0 stratum. This is a coverage-extension finding, not a verdict-changing finding."
+    },
+    {
+      "id": "U3",
+      "category": "parameterization-capability",
+      "summary": "evaluate_cf is the ONLY impl in pcf-research/pcf2/ with a parameterized a_func signature; all other 12 hard-code mp.mpf(1) inline.",
+      "details": "Signature: def evaluate_cf(b_coeffs, a_func=lambda n: mp.mpf(1), N=500, dps=200). Default lambda yields deg_a = 0. No call site in the entire repo invokes evaluate_cf with a non-default a_func.",
+      "expected": false,
+      "implication": "Implementation-layer capability for deg_a > 0 dispatch exists in 1 impl but is unused. Surfaced as caveat C2 in audit doc section 5. Does not falsify LANE-2 R1 (which addresses observed harvest behavior, not impl-layer capability), but should be cited verbatim if R1 framing is ever sharpened to 'no impl admits deg_a > 0 by signature'."
+    }
+  ]
+}

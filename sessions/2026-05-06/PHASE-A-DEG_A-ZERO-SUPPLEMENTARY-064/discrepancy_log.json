@@ -1,0 +1,50 @@
+{
+  "task_id": "PHASE-A-DEG_A-ZERO-SUPPLEMENTARY-064",
+  "date": "2026-05-06",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "non-blocking",
+      "type": "prompt_vs_substrate_table_drift",
+      "summary": "Relay 064 Section 2 (WRITE-UP CONTENT SPEC) renders a draft 12-row WZ-balance table with mu_dom and mu_sub values that diverge from the LANE-2 P2 substrate (independent_depth_probe.md L77-87 + L121-126). Relay 064 also renders A_naive at d=3 rows differently from P2. Substrate values were rendered in supplement per relay 064 STEP 3 directive 'Reproduce P2's extended table verbatim'.",
+      "details": {
+        "rows_with_drift": [
+          {"row": "d=2 (1,b)",       "prompt_064":   {"mu_dom": 0,    "mu_sub": -2,    "A_naive": 4}, "p2_substrate": {"mu_dom": 2, "mu_sub": -2, "A_naive": 4}},
+          {"row": "d=2 alpha",       "prompt_064":   {"mu_dom": "1/2","mu_sub": "-3/2","A_naive": 3}, "p2_substrate": {"mu_dom": 2, "mu_sub": -1, "A_naive": 3}},
+          {"row": "d=2 symmetric",   "prompt_064":   {"mu_dom": 1,    "mu_sub": -1,    "A_naive": 2}, "p2_substrate": {"mu_dom": 2, "mu_sub":  0, "A_naive": 2}},
+          {"row": "d=2 delta",       "prompt_064":   {"mu_dom": "3/2","mu_sub": "-1/2","A_naive": 1}, "p2_substrate": {"mu_dom": 2, "mu_sub":  1, "A_naive": 1}},
+          {"row": "d=3 (1,b)",       "prompt_064":   {"mu_dom": 0,    "mu_sub": -3,    "A_naive": 6}, "p2_substrate": {"mu_dom": 3, "mu_sub": -3, "A_naive": 6}},
+          {"row": "d=3 alpha",       "prompt_064":   {"mu_dom": 1,    "mu_sub": -2,    "A_naive": 5}, "p2_substrate": {"mu_dom": 3, "mu_sub": -1, "A_naive": 4}},
+          {"row": "d=3 symmetric",   "prompt_064":   {"mu_dom": "3/2","mu_sub": "-3/2","A_naive": 4}, "p2_substrate": {"mu_dom": 3, "mu_sub":  0, "A_naive": 3}},
+          {"row": "d=3 delta",       "prompt_064":   {"mu_dom": 2,    "mu_sub": -1,    "A_naive": 3}, "p2_substrate": {"mu_dom": 3, "mu_sub":  1, "A_naive": 2}},
+          {"row": "d=4 (1,b)",       "prompt_064":   {"mu_dom": 0,    "mu_sub": -4,    "A_naive": 8}, "p2_substrate": {"mu_dom": 4, "mu_sub": -4, "A_naive": 8}},
+          {"row": "d=4 alpha",       "prompt_064":   {"mu_dom": "3/2","mu_sub": "-5/2","A_naive": 5}, "p2_substrate": {"mu_dom": 4, "mu_sub": -1, "A_naive": 5}},
+          {"row": "d=4 symmetric",   "prompt_064":   {"mu_dom": 2,    "mu_sub": -2,    "A_naive": 4}, "p2_substrate": {"mu_dom": 4, "mu_sub":  0, "A_naive": 4}},
+          {"row": "d=4 delta",       "prompt_064":   {"mu_dom": "5/2","mu_sub": "-3/2","A_naive": 3}, "p2_substrate": {"mu_dom": 4, "mu_sub":  1, "A_naive": 3}}
+        ],
+        "internal_consistency_of_prompt_table": "Relay 064 prompt table at d=2 alpha-direction has mu_dom=1/2 and mu_sub=-3/2 with A_naive=3, but mu_dom - mu_sub = 1/2 - (-3/2) = 2, not 3. Twelve rows of the prompt table appear to use a different convention than 'A_naive = mu_dom - mu_sub' (or contain transcription errors). The relay 064 STEP 3 directive 'Reproduce P2's extended table verbatim' overrides; the supplement renders P2 substrate verbatim (not the prompt's restated table).",
+        "consistency_check_p2_substrate": "P2 rows uniformly satisfy A_naive = mu_dom - mu_sub: at d=2 alpha: 2 - (-1) = 3 OK; at d=3 alpha: 3 - (-1) = 4 OK; at d=4 alpha: 4 - (-1) = 5 OK; at d=2 (1,b) corner: 2 - (-2) = 4 OK; etc. Twelve rows internally consistent.",
+        "consistency_check_v6_substrate": "V6 (independent_substrate_verification.md L240-282) gives mu_dom=d (Step 2) and mu_sub=-d at deg_a=0 (Step 3), hence A_naive = 2d at deg_a=0. Matches P2 substrate (mu_dom=d,d,d at d=2,3,4 in Phase A original 9-row table). DOES NOT match prompt 064 Section 2 draft table (which shows mu_dom=0 at the (1,b) rows)."
+      },
+      "resolution": "Supplement renders P2 + V6 substrate verbatim (see phase_a_supplementary_deg_a_zero.md sec 2.1, 2.2, 2.3). Relay 064 STEP 3 directive 'Reproduce P2's extended table verbatim' is the operative instruction. The discrepant draft table in relay 064 Section 2 is treated as a stale-draft artefact (Synthesizer to flag for prompt-template review at next CMB-edit pass).",
+      "downstream_action": "If a future re-fire wants the draft table form, supplement v2 can render BOTH conventions side-by-side and identify which (if any) maps to a different normalisation of the Newton-polygon balance equation. Out of scope for this fire."
+    },
+    {
+      "id": "D2",
+      "severity": "non-blocking",
+      "type": "supplement_length_below_target",
+      "summary": "Relay 064 WRITE-UP CONTENT SPEC target length: ~350-450 lines markdown; ~10-15 KB. Actual supplement length: 304 lines, 16792 bytes (~16.4 KB). Lines 46 below floor (304 vs 350); bytes 1.4 KB above ceiling (16792 vs 15000).",
+      "resolution": "Content-completeness over line-count padding. All seven sections of the spec (1 SCOPE, 2 WZ-BALANCE TABLE, 3 BALANCE-III RECAP, 4 PHASE D CONSEQUENCE, 5 V_QUAD ROW-MEMBERSHIP, 6 AEAL CLAIMS, 7 BIBLIOGRAPHY) are rendered with verbatim substrate citations. Line count is below target because verbatim block-quotes are densely formatted; byte count exceeds upper soft target because tables + SHA-anchor bibliography section are byte-heavy. No content cuts; no padding added.",
+      "downstream_action": "If future LANE-1 review requires expanded line count, additional substrate citations (e.g., per-impl P1 verbatim cf_value blocks at all 9 impls; or expanded V_quad lower-vs-upper-branch row-membership comparison table) can be appended without altering the substantive findings."
+    },
+    {
+      "id": "D3",
+      "severity": "non-blocking",
+      "type": "draft_note_v6_line_range_correctness",
+      "summary": "Relay 064 PRECONDITIONS Section 3 draft note suggests V6 spans 'L210-308' to be verified at fire time. Verified: V6 section header at L210, V6 summary table rows at L294-302, V6 closing analysis at L304-308. Confirmed range L210-308 is correct.",
+      "resolution": "No action required; draft note was correct. Cited line range used in supplement sec 3 ('V6, L210-308' for the V6 section as a whole, with sub-step ranges 'V6, L249-258' for Step 3 recessive, 'V6, L274-282' for Step 4 A_naive, 'V6, L240-244' for Step 2 dominant, 'V6, L260-266' for general Wallis case sign).",
+      "downstream_action": "None."
+    }
+  ],
+  "summary": "Three discrepancies surfaced; all non-blocking. D1 (prompt-table vs P2-substrate divergence at all 12 rows) resolved by following relay 064 STEP 3 'Reproduce P2's extended table verbatim' directive. D2 (line count below target) resolved by content-completeness rule. D3 (V6 line range verification) confirmed correct as drafted."
+}

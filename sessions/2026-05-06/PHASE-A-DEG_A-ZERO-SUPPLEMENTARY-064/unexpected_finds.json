@@ -1,0 +1,43 @@
+{
+  "task_id": "PHASE-A-DEG_A-ZERO-SUPPLEMENTARY-064",
+  "date": "2026-05-06",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "severity": "advisory",
+      "type": "stale_draft_artefact_in_relay_prompt_body",
+      "summary": "Relay 064 prompt body at WRITE-UP CONTENT SPEC Section 2 contains a 12-row table with mu_dom and mu_sub values that diverge from the LANE-2 substrate at all 12 rows (and additionally fail to satisfy A_naive = mu_dom - mu_sub at e.g. d=2 alpha-direction where prompt says mu_dom=1/2, mu_sub=-3/2, A_naive=3 but 1/2-(-3/2) = 2). The prompt's STEP 3 'Reproduce P2's extended table verbatim' directive resolves the ambiguity in favour of the substrate (rendered in supplement sec 2.3). Cross-reference: discrepancy_log.json D1.",
+      "where": "relay 064 Section 2 (WRITE-UP CONTENT SPEC -> WZ-BALANCE TABLE) -- the draft 12-row table inserted as a sketch; superseded by the verbatim P2 + V6 rendering in the supplement.",
+      "reading": "The Synthesizer's draft table appears to use a different normalisation of the Newton-polygon balance equation (possibly mu_dom and mu_sub measured per-n rather than per-(n log n)?) but in a non-self-consistent way (sums don't match the rendered A_naive column). The pragmatic interpretation: stale prompt-template draft. This is the second prompt this week with an internal-arithmetic stale-draft artefact (cf. relay 060 STEP 4 line-count off-by-2 self-disclosed).",
+      "implication": "If multiple recent prompts have been compiled with stale-draft tables / line counts, the prompt-drafting loop may benefit from a final consistency-check pass at the Synthesizer side before fire. This is a Synthesizer-side observation; not actionable from the executer side."
+    },
+    {
+      "id": "U2",
+      "severity": "advisory",
+      "type": "supplement_byte_count_above_soft_ceiling",
+      "summary": "Supplement is 16792 B vs target ceiling 15000 B (+1.4 KB / +12% over). Driver: the §7 SHA-anchor bibliography table (with full 64-char SHA-256 hashes for all 8 substrate files plus full file paths) consumes ~3 KB. Trade-off: full SHAs in §7 vs prefix-only SHAs.",
+      "where": "phase_a_supplementary_deg_a_zero.md §7 (Bibliography / SHA anchors).",
+      "reading": "Choosing full SHAs in the bibliography (rather than 16-character prefixes) supports rule5 grounding and re-verification at any future date. The byte-count overshoot is the price of full-anchor citation. AEAL claims (claims.jsonl) carry full SHAs; supplement bibliography mirrors claims.jsonl for self-contained verifiability.",
+      "implication": "If future SIARC convention shifts to mandatory <15 KB supplements, prefix-only SHAs in the body with full hashes only in claims.jsonl + substrate_anchor_shas.md is a viable alternative. Out of scope for this fire."
+    },
+    {
+      "id": "U3",
+      "severity": "informative",
+      "type": "v_quad_row_membership_full_implication_chain",
+      "summary": "The §5 row-membership note at d=2 (V_quad's A=4 corresponds to the deg_a=0 corner row) is the substrate for THREE downstream items, not just the two (3-D and Item 3 follow-up) cited in the prompt: (a) LANE-2 Item 2 sub-task 3-D (PCF-1 v1.3 V_quad row reframing; relay 066), (b) LANE-2 Item 3 follow-up note for bt_baseline_note v1.0 §4.2 (relay 067), and (c) the eventual PCF-1 v1.4 (or successor) revision to §6 Theorem 5 stratum framing if/when the deg_a=0 corner is admitted as a primary stratum (cf. LANE-2 Anomaly D5 surfaced in lane2_meta_verdict.md regarding upstream-framing of PCF-1 v1.3 §6).",
+      "where": "phase_a_supplementary_deg_a_zero.md §5 (V_quad row-membership note).",
+      "reading": "The supplement cites (a) and (b) explicitly per the prompt; (c) is mentioned only obliquely ('substrate for ... two downstream items in the LANE-2 cascade'). The PCF-1 v1.4 / §6 revision possibility is downstream of LANE-2 Item 3 follow-up note adoption and is not in 064 scope; it is recorded here as future-substrate consciousness rather than a 064 deliverable.",
+      "implication": "When relay 067 (Item 3 follow-up note) or relay 066 (Item 2 sub-task 3-D) fires, the upstream PCF-1 v1.4 question may surface. No action in 064."
+    },
+    {
+      "id": "U4",
+      "severity": "informative",
+      "type": "p2_phase_a_omission_assumption_vs_oversight_distinction",
+      "summary": "P2 substrate (independent_depth_probe.md L92-115) makes a careful distinction between 'omission by ASSUMPTION' (the framing 'three SIARC conventions = deg_a in {d-1, d, d+1}' implies a closed enumeration) versus 'omission by OVERSIGHT' (a fourth row was inadvertently dropped). LANE-2 R3 wording adopts the 'by ASSUMPTION' framing verbatim. The supplement preserves this distinction in §1 block quote and §4.",
+      "where": "phase_a_supplementary_deg_a_zero.md §1 (R3 block-quote) and §4 (Phase D consequence).",
+      "reading": "The distinction matters for (i) authorial responsibility framing (no Phase A error to retract; the original framing was internally consistent given its assumed enumeration scope), and (ii) the natural follow-up question 'why did the three-convention framing assume deg_a in {d-1, d, d+1}?' The latter is part of the LANE-2 Anomaly D6 (origin-tracing of the three-convention framing) and is downstream of the supplement.",
+      "implication": "If the LANE-2 cascade returns to origin-tracing the three-convention framing (relay 070 candidate?), the supplement's careful preservation of the by-ASSUMPTION-not-by-OVERSIGHT phrasing is the substrate. No action in 064."
+    }
+  ],
+  "summary": "Four unexpected finds surfaced; all advisory or informative (non-blocking). U1 (stale prompt draft table) resolved by following STEP 3 verbatim directive. U2 (byte count above ceiling) is a documented trade-off favouring full SHAs in bibliography. U3 (V_quad row-membership full implication chain includes possible PCF-1 v1.4 §6 revision) is downstream-substrate awareness; not in 064 scope. U4 (assumption-vs-oversight distinction in Phase A omission) preserved verbatim from P2 + R3 in supplement; supports possible future origin-tracing of three-convention framing."
+}
