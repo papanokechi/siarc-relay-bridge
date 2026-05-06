@@ -1,0 +1,44 @@
+{
+  "session": "BT-BASELINE-NOTE-FOLLOWUP-V1-0-067",
+  "date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "non-blocking",
+      "category": "spec-cross-reference",
+      "title": "Relay prompt P5 cites v1.0 \u00a74.2 mechanism (i') prose at L484-487; on-disk source carries the same prose at L481-487",
+      "detail": "The relay prompt body P5 + WRITE-UP CONTENT SPEC \u00a75 paragraph 1 cite the open-content sentence as 'bt_baseline_note.tex L484-487' (and lane2_six_item_verdict.md \u00a7Item 3 reasoning cites 'bt_baseline_note.tex L484-487' as well). Reading the canonical v1.0 source (SHA 6746692C..., 38023 B), the sentence 'The V_quad upper branch is consistent with the borderline-locus mechanism (i') of \\Cref{prop:gap-framing} -- the closure of which is the open content of \\Cref{sec:open} Q\\ref{q:mechanism}.' actually spans L481-484. To avoid drift, 067 \u00a71 paragraph 2 + 067 \u00a75 paragraph 'The v1.0 open-content sentence' both cite the prose at the inclusive range L481-487, which contains the L484-487 narrower range and matches the broader extent that includes the surrounding 'The d=2 upper branch ...' lead-in. No source edit; bibliographic anchor is by SHA. Cross-relay cite drift inherited from 064 + 066 + LANE-2 \u00a7Item 3.",
+      "blocking": false,
+      "judgment_call": "J1"
+    },
+    {
+      "id": "D2",
+      "severity": "non-blocking",
+      "category": "section-numbering shorthand",
+      "title": "PCF-1 v1.3 row table cited as '\u00a76 Theorem 5' in 067 \u00a73, but the canonical 16pp source numbers it as '\u00a75 Theorem 5.1' (project shorthand inherited from R1 wording, 064, 066)",
+      "detail": "067 \u00a73 cites 'PCF-1 v1.3 \u00a76 Theorem 5 row table' and references the verbatim block at p12_pcf1_main.tex L566-577. The 16pp canonical source orders the WKB section as section 5 in its \\section ordering and renders \\ref{thm:wkb} as 'Theorem 5.1' under the amsart counter scheme (per 066 \u00a72 D1 discussion). Both project shorthand ('Theorem 5' / '\u00a76') and canonical numbering ('Theorem 5.1' / '\u00a75') resolve to the same SHA-anchored prose at L566-577, anchored by SHA E83BB377F297DBF0... in the bibliography entry. Inherited from 066 D1; carried forward to 067 with the same disposition.",
+      "blocking": false,
+      "judgment_call": "J2"
+    },
+    {
+      "id": "D3",
+      "severity": "non-blocking",
+      "category": "date-folder-routing",
+      "title": "Bridge folder for 067 placed under sessions/2026-05-07/ (matching 066 fire date) although the relay prompt was drafted on 2026-05-06 ~21:00 JST",
+      "detail": "Operator-side environment context (date stamp May 6, 2026 in workspace; bridge HEAD 9261c79 from 'Wed May 6 21:17:57 2026 +0900' yet routed to sessions/2026-05-07/). 067 follows the same 2026-05-07 bridge-folder convention as 066 to keep the post-LANE-2 cascade Wave-1 (064) under 2026-05-06 and Wave-2/3 (066/067) under 2026-05-07 in chronological order. Standing-final-step convention 'TODAY_DATE = current date as YYYY-MM-DD' resolves to 2026-05-07 here.",
+      "blocking": false,
+      "judgment_call": "J3"
+    },
+    {
+      "id": "D4",
+      "severity": "non-blocking",
+      "category": "bibliography-key-collision-avoidance",
+      "title": "Follow-up note bibliography uses costin2008asymptotics_followup (suffix _followup) to avoid collision with v1.0 bib key costin2008asymptotics if both bibs ever co-process",
+      "detail": "v1.0 annotated_bibliography.bib already contains @book{costin2008asymptotics, ...}. The 067 follow-up note bibliography file annotated_bibliography_followup.bib uses key costin2008asymptotics_followup for the same reference, suffixed to avoid silent overwrite if a future omnibus build ever consumes both .bib files. All 067 in-source citations use the suffixed key. PCF-1 v1.3 bibkey papanokechi_pcf1_v13 and PCF-2 v1.3 bibkey papanokechi_pcf2_v13 are intentionally identical to v1.0's bib for cross-document citation parity (both files are independent .bib so collision applies only if both are ever loaded together; this is non-blocking under per-document compilation).",
+      "blocking": false,
+      "judgment_call": "J4"
+    }
+  ],
+  "total_discrepancies": 4,
+  "total_blocking": 0
+}
