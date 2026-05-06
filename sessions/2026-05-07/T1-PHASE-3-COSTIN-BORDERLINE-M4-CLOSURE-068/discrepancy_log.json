@@ -1,0 +1,35 @@
+{
+  "task_id": "T1-PHASE-3-COSTIN-BORDERLINE-M4-CLOSURE-068",
+  "session_date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "title": "Costin section reference in relay 068 prompt versus actual chap5 OCR location",
+      "severity": "non-blocking",
+      "description": "Relay 068 prompt (LANE-2 Item 2 sub-task 3-D body) cited Costin 'ch.5 sections 3.5-3.6' as the locus of the Borel-Laplace radius theorem. Actual location of the relevant theorems in chap5 OCR substrate (SHA 93F1E9BF0A5FC4F65F7601F3DE357BD008AFDC892DB8F50097B16D10E415981A): Theorem 4.147 (Watson) at section 4.7a OCR L6478-6500; Theorem 5.11 (analytic structure of Y_0) at section 5.0c OCR L7724-7755. The relay prompt likely referred to an older edition section numbering or a paraphrase mis-citation; the substantive theorems are present and quoted verbatim in Phase B (phase_b_costin_sectorial_upgrade.md).",
+      "resolution": "No action required. Phase B substrate-anchors via SHA + line range; the actual section locations are recorded as canonical in Phase B section B.1 + claims.jsonl C2 / C3. PCF-2 v1.4 PCF-1 v13 amendment cycle could optionally update any Costin citation in PCF-1/-2 prose to reflect actual section numbering; not in 068 jurisdiction."
+    },
+    {
+      "id": "D2",
+      "title": "Newton-polygon coefficient B = sqrt(c_a) not derived because q = 2 not operative",
+      "severity": "non-blocking",
+      "description": "Relay 068 prompt (LANE-2 Item 2 sub-task 3-D body) named the borderline anormal q = 2 fractional-rank Newton-polygon coefficient B = sqrt(c_a) (where c_a is the leading coefficient of a_n) as a quantity to be derived. The deg_a = 0 supersession path means a_n is identically 1 (so c_a is undefined / vacuously trivial) and q = 1 (normal case) is operative; B = sqrt(c_a) is therefore vacuous in the operative closure. The borderline q = 2 ansatz is dispositioned as 'ruled in as not the operative mechanism' (Phase C section C.4 + Phase D section D.5 + m4_closure_attempt.md section 4).",
+      "resolution": "No action required. The B = sqrt(c_a) coefficient would be derived in a counterfactual world where the SIARC stratum sat in the deg_a > 0 anormal q = 2 case, but it does not. Phase C section C.4 records the disposition explicitly."
+    },
+    {
+      "id": "D3",
+      "title": "Prior B.4 anchor 51.066 corrected to 4/sqrt(3) approx 2.3094",
+      "severity": "non-blocking",
+      "description": "Earlier draft of phase_b_costin_sectorial_upgrade.md (pre-rubber-duck-QA) incorrectly cited |zeta_*| = 51.066 as the V_quad Stokes-multiplier magnitude. Correct value per Prompt 005 H4_EXECUTED_PASS verdict + V_quad's P_III(D_6) Lax-pair canonical normalisation: |zeta_*| = 4/sqrt(3) approx 2.3094. The 51.066 figure originated from a misread of a different normalization in an intermediate scratchpad; it does not appear in any sealed PCF-1 / PCF-2 substrate. Phase B section B.4 was corrected before sealing.",
+      "resolution": "Corrected in-session before Phase B was sealed. Phase B section B.4 carries the correct anchor |zeta_*| = 4/sqrt(3) approx 2.3094. No downstream artefacts inherit the incorrect 51.066 figure."
+    },
+    {
+      "id": "D4",
+      "title": "Wasow section X.3 OCR not actually required for closure path",
+      "severity": "non-blocking",
+      "description": "Relay 068 prompt provisioned HALT_068_WASOW_OCR_REQUIRED as a triggering condition if the canonical text-book Newton-polygon factorization theorem (Wasow Asymptotic Expansions for Ordinary Differential Equations chap X Theorem 11.1) verbatim were required to close the M4 derivation at d >= 3. Outcome: the operative closure path (V6 closed-form + 064 four-row enumeration extension specialised to deg_a = 0) runs at the normal-case (p = 1) Birkhoff baseline, NOT the anormal q = 2 fractional-rank rescue path; T1-A01 paraphrase-grade access to Wasow chap X is operationally sufficient for the deg_a = 0 row's Birkhoff-form invocation. HALT_068_WASOW_OCR_REQUIRED was NOT triggered.",
+      "resolution": "Wasow section X.3 OCR acquisition is enumerated as Open Inquiry 2 in Phase E section E.4 (LANE-2 Item 2 sub-task 3-E DEFER class; not blocking for 068 closure but would upgrade verdict confidence MEDIUM-HIGH -> HIGH). Forward-pointed; not in 068 jurisdiction."
+    }
+  ],
+  "summary": "Four non-blocking discrepancies surfaced; none affect the verdict (UPGRADE_FULL_VIA_DEG_A_ZERO_ROW) or its confidence level (MEDIUM-HIGH). D1 is a section-numbering note; D2 records that a relay-prompt-named coefficient is vacuous in the operative path; D3 documents an in-session correction; D4 documents a relay-prompt provisional halt that did not need to fire."
+}
