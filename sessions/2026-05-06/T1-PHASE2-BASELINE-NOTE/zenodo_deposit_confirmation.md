@@ -68,7 +68,7 @@ Per Zenodo "cite all versions" convention: the concept DOI 20048196 is FRESH (no
 
 ### Tier 2 (operator-side, deferred)
 
-- [ ] **Byte-clean readback verification.** Download https://zenodo.org/records/20048197/files/bt_baseline_note.pdf?download=1 and verify SHA-256 matches `23022f0de77ac8388ed584b2196c0ab995cd8cf18b2dd71efbc0488a0f6e5b7c`. Mirrors D2-NOTE v2.0 claim 64 pattern; non-blocking if deferred but provides the canonical byte-identity audit.
+- [x] **Byte-clean readback verification.** Download https://zenodo.org/records/20048197/files/bt_baseline_note.pdf?download=1 and verify SHA-256 matches `23022f0de77ac8388ed584b2196c0ab995cd8cf18b2dd71efbc0488a0f6e5b7c`. Mirrors D2-NOTE v2.0 claim 64 pattern; non-blocking if deferred but provides the canonical byte-identity audit. **DONE 2026-05-06 ~16:16 JST**: HTTP 200, Content-Length 409337, Last-Modified `Wed, 06 May 2026 06:48:31 GMT`. Three-way SHA match (local-expected = Zenodo-actual = local-file recompute). Saved to `%TEMP%/bt_baseline_zenodo_readback.pdf` for operator audit. AEAL claim T1P2B-A12 recorded.
 - [ ] **Optional Zenodo metadata polish.** Edit PCF-1 v1.3 / PCF-2 v1.3 / CT v1.3 / SIARC umbrella v2.0 / D2-NOTE v2.1 records to add `IsCitedBy: 10.5281/zenodo.20048196` (mirrors prior cycle convention; deferred, consistent with the v2.1-cycle posture).
 
 ### Tier 3 (downstream)
@@ -114,7 +114,7 @@ The deposit publishes the **formal-level baseline** only. Two gaps remain explic
 
 - **Substrate session:** `sessions/2026-05-03/T1-BIRKHOFF-PHASE2-LIFT-LOWER/` (commit `37c939fe8990a814eefec0d227b493499608bd31`, 2026-05-04)
 - **Note draft session:** `sessions/2026-05-06/T1-PHASE2-BASELINE-NOTE/` (this folder)
-- **Claims chain:** A1..A6 carry-forward from substrate session + A7..A8 PCF-1/PCF-2 literature anchors + A9 build claim + A10 rubber-duck self-review + **A11 deposit confirmation (this entry)**
-- **Total AEAL claims:** 11
+- **Claims chain:** A1..A6 carry-forward from substrate session + A7..A8 PCF-1/PCF-2 literature anchors + A9 build claim + A10 rubber-duck self-review + A11 deposit confirmation + **A12 byte-clean readback audit (2026-05-06 ~16:16 JST PASS)**
+- **Total AEAL claims:** 12
 
 This file is an additive deposit-time-snapshot per AEAL convention (handoff.md preserved bit-identical; new files added in same folder when post-deposit events occur).
