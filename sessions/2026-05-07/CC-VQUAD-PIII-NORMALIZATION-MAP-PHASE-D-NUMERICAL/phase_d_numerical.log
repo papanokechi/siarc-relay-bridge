@@ -1,0 +1,151 @@
+Phase D.2 numerical follow-up to 058R.
+mpmath dps = 50
+
+========================================================================
+Phase D.2.a -- KNY 2017 º8.5.17 differential Lax pull
+========================================================================
+
+KNY 2017 eq. 8.237 (Hamiltonian H_{D_6}^{KNY}):
+  H = (1/t) * [p(p-1) q^2 + (a_1 + a_2) q p + t p - a_2 q]
+     with a_0 + a_1 = 1.
+
+KNY 2017 eq. 8.239 (Lax operator L_1):
+  L_1 = rho_0(x; q, p, t, a_1, a_2)
+      + rho_1(x; q, a_1, a_2, t) * d/dx
+      + d^2/dx^2
+  rho_0 = -a_2/x + p q / (x (x-q)) - t H / x^2
+  rho_1 = (1 + a_1 + a_2)/x - 1/(x-q) + t/x^2 - 1
+
+V_quad parameter point (CT v1.3 º3.5):
+  (alpha_inf, alpha_0, beta_inf, beta_0) = (1/6, 0, 0, -1/2)
+  Okamoto null-sum: alpha_inf+alpha_0+beta_inf+beta_0 = -1/3
+  ANOMALY D2: null-sum != 0; sums to -1/3.
+
+[STATUS] R1 (CT four-tuple -> KNY (a_0, a_1, a_2)) carry-forward
+         open per 058R + envelope PRE-CONDITION 2 default (B).
+         (a_1, a_2) at V_quad point: NOT PINNED.
+         Phi_resc scalar lambda = 1/3 (058R Phase B PINNED).
+         Phi_shift parameter t_0 = -4*sqrt(3) (058R Phase B PINNED).
+
+========================================================================
+Phase D.2.b -- symbolic gauge transformation construction
+========================================================================
+
+V_quad scalar OGF ODE (z-coordinate; 058R Phase A):
+  3 z^3 f'' + 10 z^2 f' + (z^2 + 5 z - 1) f = 0
+  order: 2 (NOT 3 -- envelope wording 'third-order' refers to
+  the Newton-polygon-edge slope being non-trivial, not derivative order)
+
+V_quad Liouville normal-form invariant I_V(z):
+  I_V(z) = (3*z**2 + 5*z - 3)/(9*z**3)
+
+KNY L_1 invariant I_KNY(x; q, p, t, a_1, a_2):
+  I_KNY = rho_0 - rho_1^2/4 - rho_1'/2
+  -- closed-form requires (a_1, a_2) (R1-gated) + (q(t_0), p(t_0))
+     (Hamiltonian flow integration at t_0 = -4 sqrt(3)).
+  -- neither is in scope for 069 default (B) PRE-CONDITION.
+
+[OBSTRUCTION] Closed-form symbolic gauge G(x) requires:
+  1. R1 closure -> (a_1, a_2) at V_quad point;
+  2. Hamiltonian flow integration of KNY system at t_0 = -4 sqrt(3);
+  3. Schwarzian invariant matching I_V(z(x)) == I_KNY(x).
+  Steps 1+2 are R1-gated; step 3 is conditional on step 1+2 outputs.
+
+[TRIGGER] HALT_069_GAUGE_TRANSFORM_FAILURE candidate at envelope-
+          tier; surfaced for Phase F handoff judgment-call selection.
+
+========================================================================
+Phase D.2.c -- |det J(Phi_symp)| numerical evaluation
+========================================================================
+
+det J(Phi_resc) = lambda^2 = 1/9 (058R Phase B PINNED)
+det J(Phi_shift) = 1 (058R Phase B PINNED)
+
+det J(Phi_symp) at V_quad parameter point:
+  -- depends on the explicit gauge G(x) from Phase D.2.b;
+  -- gauge G(x) is OBSTRUCTED_R1_GATED at envelope-tier;
+  -- numerical Jacobian factor: NOT COMPUTABLE in this session.
+
+Structural form (058R phase_b_canonical_map.md F831F9BD..):
+  Phi_symp is the canonical (q, p) <-> (q, p) gauge transformation
+  identifying Okamoto 1987 H_III with KNY 2017 H_{D_6}^{KNY}.
+  Mapping is bijective on relevant chart; Jacobian non-degenerate.
+  Numerical value at V_quad point requires explicit gauge G(x).
+
+[STATUS] Phase D.2.c numerical Jacobian: NOT COMPUTABLE
+         (R1-gated via Phase D.2.b obstruction).
+
+========================================================================
+Phase D.2.d -- BLMP 2024 º4.28 connection-matrix evaluation
+========================================================================
+
+BLMP 2024 º4 connection-matrix formula (eq. 4.28):
+  |S_{zeta_*}^can| = | integrand(e_1, e_2; a_1, a_2) |
+  with monodromy parameters (e_1, e_2) in (C^*)^2
+  (BLMP 2024 Definition 1.3, eq. 1.16).
+
+[STATUS] (a_1, a_2) at V_quad parameter point: NOT PINNED
+         (R1 carry-forward open per 058R + envelope PRE-CONDITION 2).
+         BLMP 2024 º4.28 integrand at V_quad point: NOT EVALUABLE.
+         |S_{zeta_*}^can| at V_quad point: NOT COMPUTABLE in this session.
+
+[TRIGGER] Runtime-fallback HALT_069_R1_SCOPE_AMBIGUOUS surfaced
+          (NOT halt-listed in envelope; runtime-safety fallback only;
+           operator-decidable PRE-CONDITION 2 default = (B) routes
+           to clean halt for 069r1 preflight relay).
+
+H4 baseline (V_quad-native; PINNED at >=108 dps):
+  |C_V|        = 8.12733679549507236711257873202
+  |S_{zeta_*}^V| = 2 pi C_V (V_quad native; pre-canonical):
+               = 51.065563139954662269831674609923147769762888992158
+  (THIS IS THE V_quad-NATIVE Stokes amplitude, not the BLMP
+   canonical-form value. The cross-check requires |M^* C_V|
+   on the LEFT and INDEPENDENT |S_{zeta_*}^can| from BLMP º4.28
+   on the RIGHT. Without R1 the right-hand side is incomputable.)
+
+========================================================================
+Phase D.2.e -- cross-check + verdict selection
+========================================================================
+
+Cross-check identity (058R phase_d_verdict.md L62-95):
+  | M^* C_V |  ?=  | S_{zeta_*}^can |
+
+Left-hand side  | M^* C_V |:
+  |C_V|                    = 8.12733679549507236711257873202 (H4; PINNED)
+  | det J(Phi_resc) |      = 1/9 (058R Phase B; PINNED)
+  | det J(Phi_shift) |     = 1 (058R Phase B; PINNED)
+  | det J(Phi_symp) |      = NOT_COMPUTABLE_R1_GATED
+  -> | M^* C_V |             NOT COMPUTABLE without Phase D.2.b output.
+
+Right-hand side | S_{zeta_*}^can |:
+  BL2024 º4.28 evaluation  = NOT_COMPUTABLE_R1_GATED
+  -> | S_{zeta_*}^can |     NOT COMPUTABLE without R1 closure.
+
+Delta = | LHS - RHS | / max(LHS, RHS):
+  Delta status              = INCOMPUTABLE
+  Reason                    = both LHS and RHS R1-gated
+
+Verdict-ladder selection (envelope ºVERDICT LADDER):
+  UPGRADE_V1_0_FULL                            (Delta < 1e-5)        : NOT MET
+  UPGRADE_V1_0_PARTIAL_NUMERICAL_PRECISION_DEGRADED                    : NOT MET
+  HALT_069_STOKES_NUMERICAL_MISMATCH           (Delta >= 1e-2)        : NOT MET
+  UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST       (Delta incomputable)   : SELECTED
+
+Selected verdict: UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST
+  (058R verdict UPGRADE_V1_0_PARTIAL_NUMERICAL re-confirmed at 069;
+   no progress on the residual; refire requires either
+   (a) operator dispatch of 069r1 R1-closure preflight, or
+   (b) extended agent budget for inline R1 closure (PRE-COND 2 path A).)
+
+========================================================================
+Phase D.2 summary
+========================================================================
+  Phase D.2.a (KNY pull):                substrate captured; R1-gated parameter point
+  Phase D.2.b (gauge transformation):    OBSTRUCTED_R1_GATED
+  Phase D.2.c (|det J(Phi_symp)|):       NOT_COMPUTABLE_R1_GATED
+  Phase D.2.d (BL2024 º4.28):            NOT_COMPUTABLE_R1_GATED
+  Phase D.2.e (cross-check + verdict):   UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST
+
+Verdict: UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST
+M6.CC status: STRUCTURALLY_CLOSED_AT_058R; numerical residual unchanged
+M9 gating: {M6.CC numerical residual} (no change from 058R)

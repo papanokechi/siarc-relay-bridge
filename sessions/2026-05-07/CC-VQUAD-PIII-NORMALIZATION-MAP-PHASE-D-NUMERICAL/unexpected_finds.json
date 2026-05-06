@@ -1,0 +1,25 @@
+{
+  "session": "069 CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL",
+  "deposit_date": "2026-05-07",
+  "unexpected_finds_count": 3,
+  "finds": [
+    {
+      "id": "069-U1",
+      "category": "MATHEMATICAL_CLEAN_SUBSTRATE",
+      "summary": "V_quad's scalar OGF ODE Liouville normal-form invariant has a clean rational form: I_V(z) = (3 z^2 + 5 z - 3)/(9 z^3). The numerator 3 z^2 + 5 z - 3 has discriminant 25 + 36 = 61 (prime), giving irrational roots z = (-5 ± sqrt(61))/6. The cubic denominator z^3 reflects the rank-1/2 Newton-polygon slope at z = 0. This is a clean piece of V_quad-side substrate for 069r1.",
+      "novelty": "058R Phase A deposited the ODE coefficients but did not compute the Liouville invariant explicitly. The invariant is gauge-invariant under any f -> h(z) f redefinition and therefore the natural object to match against KNY's I_KNY(x) at the Schwarzian level."
+    },
+    {
+      "id": "069-U2",
+      "category": "VERDICT_LADDER_HONESTY_PATTERN",
+      "summary": "All three sub-step obstructions (Phase D.2.b OBSTRUCTED + Phase D.2.c NOT_COMPUTABLE + Phase D.2.d NOT_COMPUTABLE) trace to the SAME upstream R1-gating dependency. The verdict-ladder rung PERSIST is the correct honest verdict: not because Phase D.2 is wrong-in-principle but because R1 is the single bottleneck. This validates the envelope's PRE-CONDITION 2 architectural choice: separating R1 closure into a preflight (069r1) is the cleanest decomposition.",
+      "novelty": "The single-bottleneck pattern was anticipated in 058R recommended-next-step P2 + envelope PRE-CONDITION 2 but not articulated as a sub-step-cascade. 069 confirms that the PERSIST verdict is the correct honest disposition under operator default (B)."
+    },
+    {
+      "id": "069-U3",
+      "category": "FRAMEWORK_SUBSTRATE",
+      "summary": "Envelope V1.2.D3 + V1.2.D4 corrections were absorbed inline at envelope-tier (notational/citation, not structural per 058R judgment-call). 069 prose maintains the corrected wording everywhere except the verbatim spec-body quote in phase_0_readback.md STEP 0.5 (which is the corrective absorption itself). The pattern of envelope-tier inline absorption of 058R recommended-next-step P2 (spec amendment v1.2) is a working-pattern for future relay envelope drafting.",
+      "novelty": "Pattern-confirmation; the V1.2 absorption proved bit-stable across the 4 prose deliverables (forbidden-verb scan PASS, drift-guard PASS)."
+    }
+  ]
+}
