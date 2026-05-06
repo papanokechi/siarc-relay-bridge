@@ -1,0 +1,34 @@
+{
+  "U1": {
+    "category": "specification-line-number-stale",
+    "severity": "blocking",
+    "description": "Of the four cited locations in m6_verdict.md \u00a71 (L930, L972, L985-987, L1517-1518) only L1517-1518 contains a 'M6' token in the baseline CMB.txt. The other three cited line numbers contain no 'M6' token and do not have an unambiguous re-mapping.",
+    "evidence": "halt_log.json + cmb_amendment_target_log.md + claims.jsonl C5",
+    "actionable": true,
+    "next_step": "Synth re-spec; see halt_log.json candidate_resolution_paths"
+  },
+  "U2": {
+    "category": "verdict-cite-off-by-one",
+    "severity": "cosmetic",
+    "description": "m6_verdict.md \u00a71 names L1518 explicitly ('replace M6 with M6.CC in CMB.txt L1518') but the actual M6 token in this bullet is at L1517; L1518 is the continuation line. The bullet runs L1517-L1518 as a single semantic unit, so the intent is unambiguous, but a strict L1518 grep finds no M6 token.",
+    "evidence": "claims.jsonl C5; cmb_amendment_target_log.md \u00a7'Read-context check on the one matching site'",
+    "actionable": true,
+    "next_step": "Synth re-spec corrects L1518 \u2192 L1517 alongside other line-number fixes"
+  },
+  "U3": {
+    "category": "potential-cross-file-cite-confusion",
+    "severity": "informational",
+    "description": "m6_verdict.md \u00a7'Reasoning' \u00a73 explicitly cites picture v1.18 line numbers (e.g. 'picture v1.18 L979-980'). The L972 and L985-987 numerical ranges in \u00a71's CMB.txt cite happen to fall close to picture-v1.18 line numbers around the M9-gating clause and \u00a7S6c. It is plausible the verdict author intermixed picture-v1.18 and CMB.txt line indices in \u00a71's parenthetical CMB.txt cite, despite the prefix 'CMB.txt'. The exact-match L1517 cite is consistent with CMB.txt indexing, so the cite is at minimum partially CMB.txt-side.",
+    "evidence": "m6_verdict.md \u00a73 picture-v1.18 cite pattern; L972 in CMB.txt = 'B.5/W-crosswalk verdict has not yet been substrate-merged' (no M6 token); L985-987 in CMB.txt = U1/U2/U3 unexpected-finds enumerate (no M6 token)",
+    "actionable": true,
+    "next_step": "Synth re-spec disambiguates which line numbers are CMB.txt-side vs picture-v1.18-side"
+  },
+  "U4": {
+    "category": "draft-time-line-shift-hypothesis",
+    "severity": "informational",
+    "description": "If the cited L930 was meant for L941 (CMB.txt-side, +11 offset) and L985-987 was meant for L993 (CMB.txt-side, +6\u20138 offset), the consistent positive offset is consistent with the verdict being drafted while CMB.txt was concurrently growing (e.g. earlier audit text being appended between draft and post-047 SYNTH-TRACK landing). Alternative is the picture-v1.18-cite-confusion hypothesis (U3). The two hypotheses are not mutually exclusive.",
+    "evidence": "cmb_amendment_target_log.md \u00a7'Why do not auto-relocate matters here'",
+    "actionable": false,
+    "next_step": "synth/operator chooses re-spec basis"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "halt_id": "HALT_LINE_LOCATION_MISMATCH",
+  "task_id": "M6-AMENDMENT-1-CMB-GLOSSARY",
+  "relay_prompt": "052",
+  "fired_at_step": 2,
+  "fired_at": "2026-05-06T11:25:00+09:00",
+  "tier": "PERMANENT-RECORD-EDIT",
+  "fire_condition": "Cited line numbers L930, L972, L985-987 from m6_verdict.md §1 'Spec-rollback or spec-amendment recommendation' do not contain a 'M6' token in the baseline tex/submitted/CMB.txt (1874 lines, SHA-256 04F2A040...689771A). Only L1517-1518 matches (M6 token at L1517 exact, with the verdict's explicit M6.CC leg recommendation).",
+  "cited_locations": {
+    "L930":      {"has_m6_token": false, "verbatim": "  F1 umbrella eq:Phi-functor (L273)            \u2192 NO", "nearest_m6_token": "L941 (offset +11)"},
+    "L972":      {"has_m6_token": false, "verbatim": "    B.5/W-crosswalk verdict has not yet been substrate-merged.", "nearest_m6_token": "L941 (offset -31) or L993 (offset +21)"},
+    "L985_987":  {"has_m6_token": false, "verbatim_range": "L985-L987 contains no 'M6' token; nearest is L993", "nearest_m6_token": "L993 (offset +6 to +8)"},
+    "L1517_1518": {"has_m6_token": true, "verbatim_L1517": "  - M6 \u2705-vs-Phase-A/B.5 arbitration (in-tier; required for", "verbatim_L1518": "    045 \u00a77 substrate; pending verdict before 045 fires).", "verdict_explicit_leg": "M6.CC (per m6_verdict.md \u00a71 'replace M6 with M6.CC in CMB.txt L1518')", "note": "M6 token is at L1517, not L1518; verdict's L1518 cite is off by one line (cosmetic)"}
+  },
+  "actual_pre_1644_M6_token_inventory": {
+    "L404":  "M9 caveat profile (M1/M2/M3/M5/M6/M8 \u2705 + M4 ...",
+    "L941":  "M9 GATING (post-v1.15): {M4, M6} UNCONDITIONALLY. M8b NOT in",
+    "L993":  "  - M9 gating: {M4, M6} stands; M8b stays excluded.",
+    "L1483": "       (substrate ID'd; needs templates + M6 inconsistency resolved)",
+    "L1517": "  - M6 \u2705-vs-Phase-A/B.5 arbitration (in-tier; required for",
+    "L1528": "                   M6 arbitration + P-009 caveat",
+    "L1619": "  - M6 arbitration                        [ ] still in-tier",
+    "L1626": "SYNTH-TRACK  2026-05-06  M6 ARBITRATION VERDICT (relay 047)",
+    "L1630": "resolving the M6 \u2705-vs-Phase-A/B.5 status flag carried in",
+    "L1641": "(M6.H4 \u2705, M6.CC \ud83d\udfe1 PARTIAL) are correct under their respective",
+    "L1642": "definitions; the M9-gating clause reads M6 as M6.CC."
+  },
+  "verbatim_block_boundary": {"begin_line": 1644, "end_line": 1837, "marker_begin": "----- begin verbatim m6_verdict.md -----", "marker_end": "----- end verbatim m6_verdict.md -----"},
+  "auto_relocate": "FORBIDDEN by relay-052 prompt explicit rule",
+  "executer_action": "STEP 2 completed (substrate gathered). STEP 3-7 SKIPPED. CMB.txt NOT modified. Deposit is halt-state substrate-only. Surfaced to operator/synth for re-spec.",
+  "halts_not_fired": ["HALT_M6_VERDICT_MISSING (verdict file present, sha256 anchored)", "HALT_GLOSSARY_ALREADY_PRESENT (P5 PASS, 0/0 hits in pre-1644)", "HALT_DEPOSIT_TIME_PRESERVATION (vacuous pass; no edits applied)", "HALT_VERBATIM_BLOCK_MODIFIED (vacuous pass; no edits applied)"],
+  "candidate_resolution_paths": [
+    {"option": "A", "description": "Synth re-spec with corrected CMB.txt line numbers: glossary block + 3 annotations at L941, L993, L1517 (all M6.CC under the gating-context reading rule). Drop L972/L985-987/L1518 cites that don't resolve to a CMB.txt M6 token.", "friction": "lowest"},
+    {"option": "B", "description": "Re-issue cite as picture-v1.18 line numbers (the verdict's reasoning \u00a73 explicitly references picture v1.18 L979-980; L972/L985-987 may have been picture-side line numbers mistakenly labeled CMB.txt). This would make this a picture-v1.19 task rather than a CMB.txt task.", "friction": "medium"},
+    {"option": "C", "description": "Mixed: glossary block in CMB.txt (line-independent, STEP 3 alone) + picture-v1.19 task for the inline annotations against picture-v1.18 line numbers.", "friction": "medium-high"}
+  ],
+  "executer_recommendation": "Option A. Single re-fire delivers glossary block + 3 annotations and respects the verdict's own L1518 (=L1517) CMB.txt-side cite. Defer to synth.",
+  "files_in_deposit": [
+    "cmb_amendment_target_log.md",
+    "claims.jsonl",
+    "halt_log.json",
+    "handoff.md",
+    "discrepancy_log.json",
+    "unexpected_finds.json"
+  ],
+  "files_NOT_modified": ["tex/submitted/CMB.txt"]
+}
