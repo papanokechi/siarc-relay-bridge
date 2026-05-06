@@ -1,0 +1,38 @@
+{
+  "session": "PCF2-CF_VALUE-AUDIT-9IMPLS-065",
+  "date": "2026-05-06",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "non-blocking",
+      "category": "count-of-impls",
+      "summary": "LANE-2 P1 reported 9 cf_value impls; this audit found 13 PCF-evaluation recurrence impls + 1 wrapper.",
+      "details": "P1's grep used the narrow patterns 'def cf_value' + 'x = bk + mp.mpf(1) / x'. This audit's broader sweep (cf_value | continued_fraction | evaluate_pcf | eval_pcf, plus a secondary mp.mpf(1)/x recurrence sweep) caught 4 additional impls: (a) evaluate_cf in session_A_2026-05-01/cubic_family_enumeration.py:154; (b) L_at in session_A2_2026-05-01/conductor7_verify.py:153; (c) L_at_high in same file at L277; (d) cf_value in session_R1_3_2026-05-01/r1_3_family32_deep.py:48. Items (a)-(c) sit outside P1's session-coverage scope (P1 covered B, C1, Q1, R1.1, R1.2, R1.3 only); item (d) sits within P1's scope but was missed by P1's listing.",
+      "impact": "DOES NOT CHANGE LANE-2 R1 verdict. Aggregate remains UNIFORM. Audit ratifies R1 at strictly stronger coverage (9 -> 13). Picture v1.20 / Item 5 absorption should cite 13, not 9."
+    },
+    {
+      "id": "D2",
+      "severity": "non-blocking",
+      "category": "classification-nuance",
+      "summary": "evaluate_cf has a parameterized signature with default a_func=lambda n: mp.mpf(1); strictly speaking it is HC0 by signature though HC1 in 100% of observed call-sites.",
+      "details": "Per relay 065 STEP 2 rubric, HC0 = 'a_n parameterized; requires per-call deg_a inference'. evaluate_cf (session_A_2026-05-01/cubic_family_enumeration.py L154) accepts an optional a_func argument; per-call deg_a inference would inspect the lambda. The default lambda n: mp.mpf(1) yields deg_a = 0. The only call site (L185) uses default. This means at the IMPLEMENTATION layer 1 of 13 impls is HC0; at the EFFECTIVE-USE layer all 13 are HC1.",
+      "impact": "Slightly weakens any future R1 framing of the form 'no impl in pcf2 admits deg_a > 0 by signature'. Does not change effective-use UNIFORM verdict. Surfaced in audit doc section 5 caveat C2."
+    },
+    {
+      "id": "D3",
+      "severity": "non-blocking",
+      "category": "wrapper-bookkeeping",
+      "summary": "cf_estimate (session_A_2026-05-01/cubic_family_enumeration.py L180) is a pure wrapper around evaluate_cf with no recurrence body; included in the audit table for completeness but excluded from the 13-of-13 tally.",
+      "details": "cf_estimate calls evaluate_cf 3 times for N in (500, 1000, 2000) and reports stable digits. No independent recurrence; classified n/a.",
+      "impact": "None. Listed at row 2 in audit table for audit-trail completeness."
+    },
+    {
+      "id": "D4",
+      "severity": "non-blocking",
+      "category": "function-name-variant",
+      "summary": "session_R1_2_2026-05-01/r1_2_quartic_j_probe.py:184 names its impl cf_value_quartic (suffix-disambiguated), not cf_value.",
+      "details": "Distinct symbol but identical recurrence structure (inline mp.mpf(1)/x with a 5-tuple of quartic coefficients). LANE-2 P1 listed it at row 5; the suffixed name is preserved in the audit table.",
+      "impact": "None for verdict. Mentioned for audit-trail clarity."
+    }
+  ]
+}

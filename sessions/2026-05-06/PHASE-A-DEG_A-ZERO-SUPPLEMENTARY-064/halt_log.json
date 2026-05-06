@@ -1,0 +1,43 @@
+{
+  "task_id": "PHASE-A-DEG_A-ZERO-SUPPLEMENTARY-064",
+  "date": "2026-05-06",
+  "halts_evaluated": [
+    {
+      "halt_id": "HALT_064_LANE2_DRIFT",
+      "trigger_condition": "any of the six LANE-2 substrate file SHAs drifts from relay 064 PRECONDITIONS P2 expected prefixes",
+      "outcome": "NOT_TRIGGERED",
+      "evidence": "all six prefixes MATCH at fire time; full hashes in substrate_anchor_shas.md"
+    },
+    {
+      "halt_id": "HALT_064_BT_BASELINE_DRIFT",
+      "trigger_condition": "bt_baseline_note.tex SHA drifts from relay 064 PRECONDITIONS P3 expected prefix 6746692C517DC2523847.. or size differs from 38023 B",
+      "outcome": "NOT_TRIGGERED",
+      "evidence": "SHA matches 6746692C517DC25238473E819527C5682465CDC9E1DEF69D1F6DF31C1014D51B; size 38023 B"
+    },
+    {
+      "halt_id": "HALT_064_FORBIDDEN_VERB",
+      "trigger_condition": "STEP 4 grep finds prediction-context forbidden verbs (shows|confirms|proves|establishes|must) in phase_a_supplementary_deg_a_zero.md",
+      "outcome": "NOT_TRIGGERED",
+      "evidence": "Select-String case-insensitive pattern returns ZERO HITS; scan log at forbidden_verb_scan.md"
+    },
+    {
+      "halt_id": "HALT_064_RETRACTION_LANGUAGE",
+      "trigger_condition": "supplement contains retraction framing of v1.0 §4.2 attribution",
+      "outcome": "NOT_TRIGGERED",
+      "evidence": "single 'retract' token appears at L27 of supplement and is the EXPLICIT NEGATIVE statement that the present document does NOT carry retraction language ('the follow-up note (anticipated as relay 067) carries any retraction language for v1.0 §4.2 (i'); the present document does not'); no positive retraction framing of §4.2 anywhere in the supplement; §5 V_quad row-membership note is phrased as 'row-membership re-attribution under extended enumeration', as required by P5"
+    },
+    {
+      "halt_id": "HALT_064_GROUNDING_PARTIAL",
+      "trigger_condition": "rule5 grounding incomplete (any claim not anchored to file-system fact or LANE-2 substrate via SHA)",
+      "outcome": "NOT_TRIGGERED",
+      "evidence": "every claim in supplement is either (a) a file-system fact (SHA + line range citation) or (b) a verbatim quotation of LANE-2 substrate; no fresh empirical claims; no fresh symbolic re-derivations; bibliography table at sec 7 enumerates all anchors"
+    },
+    {
+      "halt_id": "HALT_064_RE_DERIVATION",
+      "trigger_condition": "Section 3 contains independent re-derivation rather than V6 verbatim quote",
+      "outcome": "NOT_TRIGGERED",
+      "evidence": "Section 3 consists of three labelled block quotations from V6 (Step 3 L249-258, Step 4 L274-282, Step 2 L240-244, and general-Wallis-case L260-266) interleaved with framing prose ('quotes verbatim (no re-derivation here)'); no fresh symbolic computation; all formulas appear inside blockquote markers ('>') with explicit line-range attribution"
+    }
+  ],
+  "summary": "All six halt conditions evaluated; zero triggered. Pre-flight gates P1 (rule5 grounding), P2 (LANE-2 substrate SHA verification), P3 (bt_baseline_note.tex SHA verification), P4 (AEAL forbidden-verb hygiene), P5 (V_quad row-membership re-attribution framing, not retraction) all PASS. Supplement deposited at sessions/2026-05-06/PHASE-A-DEG_A-ZERO-SUPPLEMENTARY-064/."
+}

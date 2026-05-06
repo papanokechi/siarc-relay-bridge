@@ -1,0 +1,37 @@
+{
+  "session": "PCF2-CF_VALUE-AUDIT-9IMPLS-065",
+  "date": "2026-05-06",
+  "halts_triggered": [],
+  "halts_evaluated_pass": [
+    {
+      "halt_id": "HALT_065_LANE2_DRIFT",
+      "result": "PASS",
+      "evidence": "All 9 LANE-2 deposit file SHAs in substrate_anchor_shas.md section A match captured values; deposit at bridge dee3c01 unmodified."
+    },
+    {
+      "halt_id": "HALT_065_REPO_DRIFT",
+      "result": "PASS_WITH_NOTE",
+      "evidence": "pcf-research/pcf2/ tree contains the 10 session directories listed in P1 (release_v12, session_A, session_A2, session_B, session_C1, session_Q1, session_R1, session_R1_1, session_R1_2, session_R1_3); structure intact. Note: P1 itself implicitly excluded session_A and session_A2 from its 9-impl count; this audit re-includes them per relay 065 P4 scope."
+    },
+    {
+      "halt_id": "HALT_065_NON_UNIFORM_R1",
+      "result": "PASS",
+      "evidence": "Aggregate verdict UNIFORM (13 of 13 effective HC1; 0 of 13 PARAM_DEG_A_GT_0). R1 scope-expansion premise NOT falsified."
+    },
+    {
+      "halt_id": "HALT_065_FORBIDDEN_VERB",
+      "result": "PASS",
+      "evidence": "Select-String -Pattern '\\b(shows|confirms|proves|establishes|must)\\b' on cf_value_audit_pcf2_9impls.md returns 0 hits after one in-session rephrase (L209 'must not extend' -> 'permitted without extending')."
+    },
+    {
+      "halt_id": "HALT_065_GROUNDING_PARTIAL",
+      "result": "PASS",
+      "evidence": "All 13 impls cited with absolute-path + line-number; no analytical/empirical mathematical claims; section 6 explicitly disclaims PCF-1 findings."
+    },
+    {
+      "halt_id": "HALT_065_SCOPE_DRIFT",
+      "result": "PASS",
+      "evidence": "Audit confined to pcf-research/pcf2/**/*.py; section 6 advisory note about PCF-1 cross-check explicitly declines to extend scope."
+    }
+  ]
+}
