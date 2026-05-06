@@ -1,0 +1,52 @@
+{
+  "discrepancies": [
+    {
+      "id": "SYNTH-SUB-051-D1",
+      "category": "stratum_mismatch_finding",
+      "blocking": false,
+      "summary": "PCF-2 v1.3 R1.1/R1.3/Q1 cubic+quartic harvest scripts implement (1,b) with a_n ≡ 1 (deg_a = 0), while pcf2_program_statement.tex L230 declares the program scope as a_n = δ_1 n + δ_0 (linear, deg_a ≤ 1). Verbatim cf_value() at session_c1_wkb.py:79-86 implements x = b_k + 1/x backward recurrence (canonical (1,b) CF, no a_k factor on 1/x term).",
+      "impact": "Q1 verdict; recommended T1 Phase 3 sub-task 3-A (extend bt_baseline_note Phase A WZ table to deg_a = 0).",
+      "resolution": "Flagged as PROTOCOL_TO_STRATUM_MISMATCH_FIRST_PIVOT in Q1 verdict; audit deferred to T1 Phase 3 / canonical T1-Synth W20 weekly re-arbitration."
+    },
+    {
+      "id": "SYNTH-SUB-051-D2",
+      "category": "draft_revision",
+      "blocking": false,
+      "summary": "Pre-rubber-duck-critique draft Q1 verdict claimed 'NEITHER (i') NOR (ii') is realised' as absolute and used 'matching empirical EXACTLY' wording. Rubber-duck (C3 + C6) flagged as overreach + non-AEAL-compliant. Revised to 'mechanism (i') likely unnecessary for harvested scripts; mechanism (ii') remains separately audit-worthy' with softened phrasing.",
+      "impact": "Verdict body language and Q1 verdict label.",
+      "resolution": "Adopted in full; verdict label changed to PROTOCOL_TO_STRATUM_MISMATCH_FIRST_PIVOT (from STRATUM_MISMATCH_FIRST_PIVOT in pre-critique draft); per-phrase softening recorded in rubber_duck_critique.md per-finding adoption table."
+    },
+    {
+      "id": "SYNTH-SUB-051-D3",
+      "category": "sign_error_corrected",
+      "blocking": false,
+      "summary": "Pre-rubber-duck-critique draft WZ analysis stated balance (III) γ = +1/c_b. Rubber-duck (C2) flagged: γ for balance (III) is -c_a/c_b, so for c_a = 1 we have γ = -1/c_b. Sign error corrected; A_naive = 2d unaffected (depends only on μ).",
+      "impact": "WZ analysis section in synth_substitute_verdict.md.",
+      "resolution": "Corrected in final verdict text; flagged here for audit completeness."
+    },
+    {
+      "id": "SYNTH-SUB-051-D4",
+      "category": "scope_clarification",
+      "blocking": false,
+      "summary": "Pre-rubber-duck-critique draft Q1 finding generalized to 'all of bt_baseline_note Section 5 dissolves'. Rubber-duck (C5 blind spot 1) flagged: PCF-1 v1.3 (p12_journal_main.tex L128-136) uses a_n = δ n + ε (deg_a = 1) at d=2, distinct from PCF-2 cubic-harvest's deg_a = 0. PCF-1 v1.3 §6 Theorem 5 lower branch QL01-QL26 (A=3) directly matches WZ for deg_a = 1 (A_naive = 2d-1=3). V_quad (A=4) per rubber-duck citation algebraic_independence_audit.py:37-40 may use a_n ≡ 1 (deg_a = 0) → A_naive = 2d = 4 matches; secondary observation, not load-bearing in this verdict.",
+      "impact": "Q1 verdict scope; PCF-1 substrate analysis deferred.",
+      "resolution": "Q1 verdict explicitly scoped to 'PCF-2 R1.1/R1.3/Q1' specifically; PCF-1 V_quad/QL01-QL26 split addressed under 'Audited blind spots' §1; canonical T1-Synth W20 weekly re-arbitration recommended for full PCF-1 substrate audit."
+    },
+    {
+      "id": "SYNTH-SUB-051-D5",
+      "category": "RACI_cross_tier_authorization",
+      "blocking": false,
+      "summary": "T2 (Copilot CLI, daily-cadence executer tier per RACI v2026-05-05 R3) acted cross-tier in T1-Synthesizer (weekly-cadence) capacity for this round. Operator chat instruction 2026-05-06 ~16:40 JST authorized: 'for Q1/Q2/Q4 arbitration, proceed you being the new synthesizer.' Operator-mandated rubber-duck QA executed.",
+      "impact": "Verdict provenance + governance.",
+      "resolution": "Verdict labeled as 'synthesizer-substitute' (not canonical T1); explicitly defers canonical T1-Synth re-arbitration to W20 (Mon 2026-05-11); 6 specific items listed for canonical T1-Synth assent."
+    },
+    {
+      "id": "SYNTH-SUB-051-D6",
+      "category": "rule5_label_extension",
+      "blocking": false,
+      "summary": "Rubber-duck (C5 blind spot 3) suggested 'protocol-to-stratum mismatch' as a more precise label than 'classifier mismatch' (the current rule5 amendment vocabulary), because here both prose AND scripts disagree on the stratum definition (not just labeling). Verdict adopted the new label, which is a slight extension of rule5's vocabulary.",
+      "impact": "rule5 amendment vocabulary may need ratification or fold-in at canonical T1-Synth W20 weekly re-arbitration.",
+      "resolution": "Flagged as item 4 in 'Recommended canonical T1-Synthesizer follow-up (W20, Mon 2026-05-11)' section of synth_substitute_verdict.md."
+    }
+  ]
+}
