@@ -1,0 +1,21 @@
+{
+  "task_id": "PCF1-V13-V_QUAD-ROW-REFRAMING-066",
+  "date": "2026-05-07",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "STEP 6 negation-pattern hits",
+      "summary": "Initial draft of pcf1_v13_v_quad_row_reframing.md contained two negation-pattern uses of 'retraction' ('NOT a retraction of mechanism (i')...') intended as scope disclaimers, plus two meta-references in the AEAL §7 claim names ('retraction-language scan PASS', 'retract/retraction/revoke/revoked/withdraw'). STEP 6 self-check spec (relay 066 STEP 6: 'HALT on any hit referring to mechanism (i') attribution. The word \"re-attribution\" is permitted; \"retraction\" is not.') reads strictly enough that even negation patterns violate the discipline. Reworded all four hits to remove retract-stem entirely from authorial prose: §1 ending paragraph reworded to drop 'NOT \"retraction of mechanism (i')\"' and instead positively state the framing as row-membership re-attribution; §5 closing paragraph reworded similarly; §7 claim 066-C8 renamed from 'retraction-language scan' to 'scope-discipline scan' with the pattern enumeration moved into forbidden_verb_scan.md. Final scan returns zero hits."
+    },
+    {
+      "id": "U2",
+      "category": "v1.4 row-table reorganisation",
+      "summary": "Relay 066 P5 substrate path (b) was unreachable as written: p12_journal_main.tex (v1.4 working draft, 72311 B) does not contain the WKB row table tab:wkb-exponents at the cited L575-957 region. The v1.4 draft has been reorganised since the v1.3 deposit; the WKB row table content does not appear in the v1.4 working draft in the same form. P5 fallback rule was honoured: substrate path (a) (canonical 16pp v1.3 source) was used exclusively. This finding is forward-substrate for G12 PCF1-V13-RECONCILE: any v1.4 amendment that intends to render the row-membership reading explicit at source-prose level will need to first re-introduce the WKB row table to v1.4 (or refer back to v1.3)."
+    },
+    {
+      "id": "U3",
+      "category": "§-index project-shorthand inheritance",
+      "summary": "The 'PCF-1 v1.3 §6 Theorem 5' shorthand inherited from R1 wording (lane2_meta_verdict.md L42) does not match the canonical 16pp v1.3 .tex section index, where the WKB theorem is in §5 (L516 \\section{The WKB Exponent Identity}). The shorthand may have entered the LANE-2 corpus from an intermediate v1.x draft (v1.0 had a different layout per zenodo.19931636 reference at L40 of the .tex thanks-section) that was canonicalised before §6 became 'V_quad as the Explicit Prototype'. SHA + L-anchor citation in 066 §2 resolves the shorthand precisely. Surfaced as D1 + D3 in discrepancy_log.json."
+    }
+  ]
+}
