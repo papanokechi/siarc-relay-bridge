@@ -1,0 +1,16 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1_045_substrate_section_7_is_M6_not_P11",
+      "description": "While verifying the 049 prompt's citation 'verbatim from 045 substrate \\u00a77' I expected to find P11-related framing material at \\u00a77 of siarc-relay-bridge/sessions/2026-05-08/P008-INPUT-PACKAGE-FOR-MSB-2026-06/p008_input_package_for_msb_2026-06.md. Actual content of \\u00a77 (L484-528): 'M6 \\u2705-vs-Phase-A/B.5 status -- PENDING SYNTHESIZER ARBITRATION (in-tier under v2026-05-08 RACI; expected by W20 per W19 master prompt).' The M6 arbitration is itself a separate W20 deliverable (per CMB L1518: 'M6 \\u2705-vs-Phase-A/B.5 arbitration (in-tier; required for 045 \\u00a77 substrate; pending verdict before 045 fires)'). The M6 arbitration is not yet recorded in cli_log; if 049 successor sequencing includes M6, the W20 weekly should slot it before 049 re-fires.",
+      "implication": "Two W20 in-tier deliverables share substrate dependencies: the P11 SICF four-options decision (049, blocked on JTNB verdict) and the M6 \\u2705-vs-Phase-A/B.5 arbitration (045 \\u00a77 substrate, blocked on synthesizer in-tier work). Operator may want to re-verify the W20 WSB schedule to confirm both are slotted.",
+      "logged_for_synthesizer_review": true
+    },
+    {
+      "id": "U2_p11_substrate_concentrated_in_cli_log_no_bridge_artefact",
+      "description": "The P11 SICF arbitrator output (numerical scores, four fatals enumeration, four realistic options, advocate/critic/consensus radar values, AEAL claim sha256) lives entirely in cli_log/2026-05-05.md (workspace file, not in the bridge). The associated artefacts (sicf-review-system/output/sicf_P11_report.md and .json, radar PNG, portfolio map PNG, objection profile PNG, advocate_P11.json, critic_P11.json) are in the workspace at sicf-review-system/output/ but were NOT staged to the bridge under sessions/2026-05-05/. This means: (a) the SICF arbitrator output is not bridge-anchored, (b) the cli_log itself is the canonical record, (c) any future relay that depends on the SICF arbitrator handoff (like 049) must either cite cli_log directly or first migrate the artefacts to a bridge session.",
+      "implication": "Suggests creating a bridge session sessions/2026-05-05/P11-SICF-ARBITRATOR/ with a handoff.md that anchors the cli_log L580-636 + L660-689 content + sha256-anchors the sicf-review-system output PNG/JSON files. This would close D2 permanently and let future relay prompts cite the canonical path (which is what 049's P2 expected). Recommended next-week W20 housekeeping task; not blocking for the JTNB-verdict-landed re-fire of 049.",
+      "logged_for_synthesizer_review": true
+    }
+  ]
+}
