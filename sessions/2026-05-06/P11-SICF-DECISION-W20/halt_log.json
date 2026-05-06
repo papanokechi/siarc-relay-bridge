@@ -1,0 +1,36 @@
+{
+  "halts": [
+    {
+      "id": "HALT_049_JTNB_VERDICT_AWAITED",
+      "trigger_clause": "Relay 049 §HALT IF: 'HALT_049_JTNB_VERDICT_AWAITED: P3 not satisfied.' P3 = 'JTNB verdict status known and operator-pasted at fire time (one of: AWAITED, RECEIVED_POSITIVE, RECEIVED_NEGATIVE, RECEIVED_REJECT_AND_REVISE, WITHDRAWN). HALT if AWAITED -- without verdict the decision is ambiguous; the prompt should fire only after JTNB clock has ticked.'",
+      "operator_paste_at_fire_time": "AWAITED",
+      "operator_paste_method": "vscode_askQuestions response 2026-05-06; question 'jtnb_verdict_status', selected option AWAITED (no freeform override).",
+      "supporting_grounding_evidence": [
+        {
+          "source": "tex/submitted/CMB.txt",
+          "lines": "L24, L34, L59-60, L236, L739-820",
+          "extract": "P11 row in PORTFOLIO STATUS table: '| P11 | F(2,4) Base Case | JTNB | JTNB-2400 | Submitted | 6.0 |' (L24); 'VENUE STATUS: Submitted to JTNB 28 Apr 2026 (ID: JTNB-2400). Handling editor: Boris Adamczewski.' (L59-60); 'Await verdicts on: NON-110708 (P08), JTNB-2400 (P11), ...' (L236); §VERDICTS RECEIVED (L739-820) contains no JTNB-2400 entry.",
+          "implication": "CMB state at last update: JTNB-2400 verdict not received."
+        },
+        {
+          "source": "siarc-relay-bridge/sessions/2026-05-06/P11-COVERLETTER-MATHCOMP-DEFENSIVE/handoff.md",
+          "lines": "L60-62 (Anomalies §1 / Key findings)",
+          "extract": "'HALT_046_JTNB_VERDICT_NEGATIVE_LANDED: NOT TRIGGERED at fire time (CMB shows P11 awaiting JTNB editorial verdict; Withdraw_and_resubmit was an internal SICF verdict, not a journal verdict).'",
+          "implication": "047 (drafted same day, ~05:00 JST earlier on 2026-05-06) explicitly recorded JTNB editorial verdict as awaited."
+        },
+        {
+          "source": "cli_log/",
+          "lines": "directory listing 2026-05-06 09:XX local",
+          "extract": "Files present: 2026-05-05.md, 2026-W19_master_prompt.md, 2026-W19_wsb.md. No 2026-W20*.md or 2026-05-06.md.",
+          "implication": "No subsequent CLI daily log entry recording a verdict landing between 047 and 049."
+        }
+      ],
+      "decision": "Per the prompt's HALT clause, no decision artefacts (sicf_options_verbatim.md, sicf_options_scoring_matrix.json, sicf_decision.md) were generated. STEPS 1-8 not executed. Bridge session bundle includes only the halt artefacts + handoff per standing instruction B1.",
+      "recommended_re_fire_condition": "Fire 049 (or successor relay) once one of {RECEIVED_POSITIVE, RECEIVED_NEGATIVE, RECEIVED_REJECT_AND_REVISE, WITHDRAWN} is operator-pasted. JTNB clock continues to tick during this halt.",
+      "halt_self_check_HALT_049_DECISION_INCLUDES_FRAMING": "Not applicable -- the gate guards the decision artefact (sicf_decision.md) at STEP 7. No decision artefact produced.",
+      "halt_self_check_HALT_049_GROUNDING_PARTIAL": "Not triggered. P1 (rule5 grounding) was completed before halt (CMB header read; 30-day bridge listing inspected via file_search; recent CLI handoff sessions/2026-05-06/P11-COVERLETTER-MATHCOMP-DEFENSIVE/handoff.md read in full)."
+    }
+  ],
+  "halt_count": 1,
+  "session_status": "HALTED"
+}
