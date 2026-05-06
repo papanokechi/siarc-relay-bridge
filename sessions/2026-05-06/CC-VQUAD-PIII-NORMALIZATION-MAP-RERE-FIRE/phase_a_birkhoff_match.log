@@ -1,0 +1,25 @@
+V_quad scalar ODE (homogeneous form):
+        2                                              
+   3 d               2 d          / 2          \     
+3*z *---(f(z)) + 10*z *--(f(z)) + \z  + 5*z - 1/*f(z)
+       2               dz                            
+     dz                                              
+
+Newton polygon at z = 0: single edge, slope 1/2.
+Substitution z = u^2 reduces irregular singularity to rank 1 in u.
+
+Characteristic equation 3 C^2 - 4 = 0 -> C in [-2*sqrt(3)/3, 2*sqrt(3)/3]
+Selected leading branch c_0 = +2/sqrt(3) = 2*sqrt(3)/3
+
+Secondary Birkhoff exponent rho = -3/2 - beta1/beta2 = -11/6
+
+Borel-plane partner action zeta_* = 2 c_0 = 4*sqrt(3)/3
+  numerically: 2.30940107675850305803659512201
+
+--- H4 cross-check ---
+  Birkhoff char-exponent xi_0 (rank in u-coords)   = -1
+  Resurgent branch exponent beta = 1 - rank       = 0   <-- matches H4
+  Borel singular distance |zeta_*|                = 2.3094010767585030580
+  H4-measured |C|                                  = 8.127336795495072367
+
+Phase A signal: A_VERIFIED.
