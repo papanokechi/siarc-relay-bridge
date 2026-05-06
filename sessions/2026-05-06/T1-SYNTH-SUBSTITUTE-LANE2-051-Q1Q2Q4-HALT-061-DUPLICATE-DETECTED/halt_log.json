@@ -1,0 +1,105 @@
+{
+  "halt_code": "HALT_061_DUPLICATE_LANE2",
+  "halt_class": "P5_PRECONDITION_FAIL",
+  "halt_severity": "BLOCKING_BEFORE_STEP_1",
+  "fired_at": "2026-05-06T18:07:00+09:00",
+  "fired_by": "Copilot CLI session in C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\claude-chat (dispatched per operator authorization 2026-05-06 ~17:46 JST)",
+  "halt_reason": "Precondition P5 of relay prompt 061 requires no prior LANE-2 review at sessions/<any-date>/T1-SYNTH-SUBSTITUTE-LANE2-*/. On entering STEP 0 precondition checks, found existing partial deposit at sessions/2026-05-06/T1-SYNTH-SUBSTITUTE-LANE2-051-Q1Q2Q4/ with 3 deliverables actively being written by a concurrent Copilot CLI session (pwsh PID 26620, started 2026-05-06 17:55:08, still alive at halt time with 13.78 CPU seconds). Per HALT_061_DUPLICATE_LANE2 directive (relay 061 §HALTS), this session must halt rather than race the parallel reviewer.",
+  "preconditions_at_halt": {
+    "P1_rule5_grounding": "PASS (no new claims emitted in this halt deposit; only verbatim file-system facts)",
+    "P2_synth_substitute_deposit": "PASS (sessions/2026-05-06/SYNTH-SUBSTITUTE-W19-051-Q1Q2Q4-VERDICT/ contains all 7 expected deliverables: synth_substitute_verdict.md 23262B, rubber_duck_critique.md 8085B, claims.jsonl 5198B, halt_log.json 4B, discrepancy_log.json 4692B, unexpected_finds.json 2695B, handoff.md 10765B)",
+    "P3_relay_051_deposit": "PASS (sessions/2026-05-06/T1-PHASE2-BASELINE-NOTE/ accessible with bt_baseline_note.tex 38023B + bt_baseline_note.pdf 409337B + claims.jsonl 8797B and 8 other deliverables)",
+    "P4_relay_060_paste_landed": "PASS (CMB.txt SHA-256 4EC61E120C2C569285CBE551B8EEF9ED3DF1FB1F869706A518E2B928170F3C82 prefix 4EC61E12 + suffix 3C82 matches expected; line count 1970 matches expected; bytes 89246; last 12 bytes 0x3D x12 matches expected ===========)",
+    "P5_no_prior_lane2_review": "FAIL (concurrent partial deposit detected; this is the halt trigger)",
+    "P6_doi_preverification": "N/A (no new DOI/arXiv citations attempted; halt fires before any verdict drafting)"
+  },
+  "concurrent_lane2_deposit_forensics": {
+    "folder": "sessions/2026-05-06/T1-SYNTH-SUBSTITUTE-LANE2-051-Q1Q2Q4/",
+    "files_present_at_halt_time": [
+      {
+        "name": "anchor_shas.md",
+        "size_bytes": 2170,
+        "sha256": "9C44526E23C2FBFC5C63EE51C34D4F3DA8FFC658B254F6E66A3108895B2B2668",
+        "last_write_time": "2026-05-06T17:56:42+09:00",
+        "git_state": "untracked (no git log entries; not committed)"
+      },
+      {
+        "name": "independent_substrate_verification.md",
+        "size_bytes": 15695,
+        "sha256": "56063BF7BA8AD6A01A89FA30A3C61FCE68F4AAB0BA0DC7C8E561A81188D7B1F5",
+        "last_write_time": "2026-05-06T18:02:04+09:00",
+        "git_state": "untracked"
+      },
+      {
+        "name": "adoption_audit.md",
+        "size_bytes": 8027,
+        "sha256": "4160A88F03FA75F9F695B459FF8492F6E2E63CC603C3EFB8A9BEAB7527368B15",
+        "last_write_time": "2026-05-06T18:04:08+09:00",
+        "git_state": "untracked"
+      }
+    ],
+    "files_expected_per_relay_061_total_floor": 11,
+    "files_actually_present": 3,
+    "completeness": "27% (3/11 deliverables); concurrent agent appears to be executing STEPS 1-3 of relay 061 but has not yet produced STEP 4 (independent_depth_probe.md), STEP 5 (lane2_six_item_verdict.md), STEP 6 (lane2_meta_verdict.md), STEP 7 (claims.jsonl), or STEP 8 (handoff.md / halt_log.json / discrepancy_log.json / unexpected_finds.json)",
+    "concurrent_process": {
+      "pid": 26620,
+      "process_name": "pwsh",
+      "start_time": "2026-05-06T17:55:08+09:00",
+      "cpu_seconds_at_halt": 13.78,
+      "alive_at_halt_time": true,
+      "quiescent_window": "60-second observation 2026-05-06T18:05:58 to 18:06:58 JST: no new file writes detected; folder mtime stable at 18:04:08; process still alive with growing CPU usage"
+    }
+  },
+  "this_session_forensics": {
+    "dispatch_authorization": "operator chat 2026-05-06 ~17:46 JST: 'You are dispatched as Copilot Researcher Agent in T1-Synth-SUBSTITUTE-LANE-2 capacity per operator authorization 2026-05-06 ~17:46 JST.'",
+    "session_start_inferred_from_current_datetime_tag": "2026-05-06T18:01:45+09:00",
+    "dispatch_path": "Copilot CLI in pre-existing PowerShell session (dispatch path (b) `general-purpose` subagent equivalent, OR an unbranded fresh-session — operator did not specify which of (a)/(b)/(c))",
+    "prompt_061_sha256": "BDBBEA6EDA029701297C5B9E405EC10284350393DB3309D2CD39F9461D35182C",
+    "prompt_061_size_bytes": 25856,
+    "prompt_061_line_count": 471,
+    "actions_taken_before_halt": [
+      "git pull origin main on bridge (Already up to date at HEAD df7d6d4)",
+      "P5 enumeration (discovered concurrent deposit)",
+      "P2/P3/P4 verification (all PASS)",
+      "Computed SHA-256 of all 3 concurrent-agent files (in-place; no modification)",
+      "Detected pwsh PID 26620 still alive with 13.78 CPU s",
+      "60-second quiescence observation window",
+      "Decided to halt per HALT_061_DUPLICATE_LANE2"
+    ],
+    "actions_NOT_taken": [
+      "Did NOT modify any file in the concurrent LANE2 folder",
+      "Did NOT read the body of synth_substitute_verdict.md (anchoring guard preserved for any follow-up dispatch)",
+      "Did NOT read the body of the concurrent agent's 3 deliverables (anchoring guard preserved)",
+      "Did NOT execute V1-V6 substrate verifications (halt fires before STEP 1)",
+      "Did NOT terminate pwsh PID 26620 (operator authorization required for parallel-session interruption)",
+      "Did NOT proceed with STEPS 1-9 of relay 061"
+    ]
+  },
+  "operator_resolution_options": [
+    {
+      "option": "A_LET_PARALLEL_FINISH",
+      "description": "Wait for pwsh PID 26620 to complete and produce the full 11-deliverable LANE2 deposit; ratify that as canonical. Discard this halt deposit as informational only (no canonical verdict from this session).",
+      "next_step": "Operator monitors sessions/2026-05-06/T1-SYNTH-SUBSTITUTE-LANE2-051-Q1Q2Q4/ for completion (handoff.md + halt_log.json + claims.jsonl with >=6 entries) and pushes that to bridge."
+    },
+    {
+      "option": "B_TERMINATE_PARALLEL_REDISPATCH_HERE",
+      "description": "Operator stops pwsh PID 26620, deletes or archives the partial LANE2 deposit (3 files), and re-dispatches relay 061 to this session with explicit authorization to overwrite. Then this session executes STEPS 1-9 in full.",
+      "next_step": "Operator: Stop-Process -Id 26620 ; Move-Item sessions/2026-05-06/T1-SYNTH-SUBSTITUTE-LANE2-051-Q1Q2Q4/ to sessions/2026-05-06/T1-SYNTH-SUBSTITUTE-LANE2-051-Q1Q2Q4-PARTIAL-ABANDONED/ ; instruct this session to proceed."
+    },
+    {
+      "option": "C_TWO_INDEPENDENT_REVIEWERS",
+      "description": "Treat this halt as informational, let parallel finish, and ALSO authorize this session (or a fresh dispatch) to produce a SECOND independent LANE-2 review at sessions/2026-05-06/T1-SYNTH-SUBSTITUTE-LANE2-051-Q1Q2Q4-DISPATCH-B/ for cross-verification. Then pick the verdict that best matches substrate, or merge.",
+      "next_step": "Operator authorizes a second LANE-2 dispatch with explicit folder name and reads-only-after-V1-V6 independence floor preserved."
+    }
+  ],
+  "default_recommendation": "A_LET_PARALLEL_FINISH (lowest risk; the parallel agent is already past STEP 3 of 9 and was launched with 9 minutes of head-start; if its CPU usage continues to grow, it is still working productively). Re-evaluate if PID 26620 has been quiescent for >5 minutes by the time the operator reads this halt; in that case, switch to option B.",
+  "post_halt_governance": "This session ceases active work on relay 061 after writing this halt deposit + handoff.md + claims.jsonl + discrepancy_log.json + unexpected_finds.json + bridge B2-B5 push. No STEPS 1-7 deliverables are produced by this session. Any subsequent dispatch must explicitly cite this halt deposit and choose one of options A/B/C above.",
+  "halt_deposit_folder": "sessions/2026-05-06/T1-SYNTH-SUBSTITUTE-LANE2-051-Q1Q2Q4-HALT-061-DUPLICATE-DETECTED/",
+  "halt_deposit_files": [
+    "halt_log.json (this file)",
+    "handoff.md",
+    "claims.jsonl",
+    "discrepancy_log.json",
+    "unexpected_finds.json"
+  ]
+}

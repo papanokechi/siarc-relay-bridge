@@ -1,0 +1,21 @@
+{
+  "discrepancy_id": "D1_PARALLEL_LANE2_REVIEWER_DETECTED",
+  "fired_at": "2026-05-06T18:07:00+09:00",
+  "severity": "BLOCKING_FOR_THIS_SESSION_INFORMATIONAL_FOR_OPERATOR",
+  "summary": "Two LANE-2 reviewers were dispatched for relay 061 within ~6 minutes of each other (parallel pwsh PID 26620 at 17:55:08 JST + this session implied at 18:01:45 JST). Concurrent partial deposit at sessions/2026-05-06/T1-SYNTH-SUBSTITUTE-LANE2-051-Q1Q2Q4/ has 3 files (anchor_shas.md + independent_substrate_verification.md + adoption_audit.md, totals 25892 bytes), corresponding to STEPS 1-3 of relay 061. STEPS 4-9 not yet present in folder.",
+  "discrepancy_class": "CONCURRENT_DISPATCH_RACE",
+  "is_dispatch_path_clear": "no",
+  "spec_text_relevant": "relay 061 §HALTS line: 'HALT_061_DUPLICATE_LANE2 (P5 fail)' + §PRECONDITIONS P5 line: 'No prior LANE-2 review at sessions/<any-date>/T1-SYNTH-SUBSTITUTE-LANE2-*/. HALT_061_DUPLICATE_LANE2 if found.'",
+  "spec_text_ambiguity": "The word 'prior' literally implies pre-existing-before-this-session. A CONCURRENT review (parallel agent still running) is technically not 'prior'. However, the spirit of P5 is 'do not produce duplicate LANE-2 verdicts', and a concurrent reviewer satisfies that intent more strongly than a stale prior deposit. This session interpreted 'concurrent partial deposit + still-alive parallel pwsh' as triggering HALT_061_DUPLICATE_LANE2.",
+  "operator_action_options_summary": "see halt_log.json operator_resolution_options A/B/C",
+  "downstream_impact": [
+    "If parallel agent completes successfully, no impact to W20 SIARC pipeline; that LANE-2 deposit becomes canonical for picture v1.20 + bt_baseline_note v1.x + Phase 3 dispatch + rule5 amendment + PCF-2 v3.x scope.",
+    "If parallel agent stalls (no writes for >10 min from now), operator should fire option B and re-dispatch.",
+    "Without an operator decision, NO LANE-2 verdict is canonical — Item 1-6 adjudications remain unresolved, blocking picture v1.20 absorption + bt_baseline_note v1.x revision drafting + T1 Phase 3 dispatch authorization."
+  ],
+  "non_blocking_observations": [
+    "Bridge git HEAD at halt time: df7d6d4 (synth-substitute deposit; clean working tree apart from the 3 untracked LANE2 files from parallel agent).",
+    "P2/P3/P4 preconditions all PASS independently of P5; the substrate is in good shape for whichever LANE-2 dispatch ultimately wins.",
+    "This session did NOT contaminate the concurrent LANE2 folder (no edits, no reads of body content, only directory listing + SHA-256 hash + file metadata)."
+  ]
+}
