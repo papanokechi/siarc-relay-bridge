@@ -65,6 +65,19 @@ coverage than P1 provided.
 
 ## Anomalies and open questions
 
+- **A0 (deposit-time, post-fact).** The 065 commit at `6a150b6` also
+  shipped the 8-file `PHASE-A-DEG_A-ZERO-SUPPLEMENTARY-064/`
+  directory in the same commit. This is the parallel-dispatched 064
+  task explicitly authorised by relay 065 NOTES TO SYNTHESIZER
+  ("PARALLEL DISPATCH OPPORTUNITY: 064 + 065 share zero file
+  targets..."). The 064 deliverables were authored by a parallel
+  CLI session and entered the git index between this session's
+  `git status` (showing 064 as `??` untracked) and `git commit`
+  step. The commit message is 065-specific; the 064 directory rides
+  along inside the same commit hash. No 064 content was modified by
+  this session. Coupling is benign but worth flagging for any future
+  bisect / blame inspection: commit `6a150b6` represents two
+  conceptually independent task families.
 - **A1 (most important).** The relay-prompt label "9 impls" inherits
   from LANE-2 P1's listing. The audit found 13 recurrence impls — a
   +4 delta. Three of the four are out-of-scope-for-P1 (Sessions A,
