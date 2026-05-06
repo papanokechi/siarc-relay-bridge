@@ -1,0 +1,116 @@
+{
+  "task_id": "M6-ARBITRATION-W19-FRIDAY",
+  "today_date_utc": "2026-05-06",
+  "schema": {
+    "A_declared_status": "verbatim or normalized M6 status as declared in the source",
+    "B_declared_evidence": "evidence the source cites for its declared status",
+    "C_aeal_or_anchor": "AEAL claim citation or bridge SHA anchor that backs the declaration; null if none",
+    "D_timestamp": "source mtime or in-document declared timestamp"
+  },
+  "rows": [
+    {
+      "id": "S1-038-HANDOFF",
+      "extract_ref": "S1 :: handoff.md#L99-L104",
+      "A_declared_status": "M6 \u2705 (closed; bundled inside M9-announcement caveat profile alongside M1/M2/M3/M5/M8 \u2705)",
+      "B_declared_evidence": "structural-fit observation against Sakai 1999 slot 13 7-section partition; UF-038-3 in 'What unblocks now / Anomalies'",
+      "C_aeal_or_anchor": "no per-claim AEAL anchor for the M6 \u2705 token; the line is a pattern-match observation about announcement format (UF-038-3) rather than a milestone-state claim",
+      "D_timestamp": "mtime 2026-05-04; section UF-038-3"
+    },
+    {
+      "id": "S2-W19-WSB",
+      "extract_ref": "S2a/S2b/S2c/S2d :: 2026-W19_wsb.md#L13-L17, L28-L29, L49-L52, L78",
+      "A_declared_status": "M6 leg = CC-VQUAD-PIII-NORMALIZATION-MAP partial (Phase A or Phase B.5 is the Friday target; AEAL minimum 16 per spec)",
+      "B_declared_evidence": "CC-VQUAD prompt_spec.md (=S7); strategy 'keep M6 moving'; one-phase-per-week cadence",
+      "C_aeal_or_anchor": "Spec-anchored at S7 (prompt_spec.md SHA in m6_substrate_manifest.json)",
+      "D_timestamp": "mtime 2026-05-05 08:38 JST; calendar row Fri 05-09 (calendar typo: Fri W19 = 2026-05-08)"
+    },
+    {
+      "id": "S3-W19-MASTER-PROMPT",
+      "extract_ref": "S3a/S3b :: 2026-W19_master_prompt.md#L194-L201, L45-L46",
+      "A_declared_status": "M6 leg = Phase A or Phase B.5 partial; dispatch via prompt_spec.md (S7); HALT aggregation per spec \u00a74 (HALT_M6_*); R6 AEAL floor \u2265 16",
+      "B_declared_evidence": "prompt_spec.md \u00a74 halt aggregation; \u00a73 AEAL floor",
+      "C_aeal_or_anchor": "Spec-anchored at S7",
+      "D_timestamp": "mtime 2026-05-05 08:38 JST"
+    },
+    {
+      "id": "S4-CLI-LOG-2026-05-05",
+      "extract_ref": "S4a/S4b/S4c :: 2026-05-05.md#L322-L324, L1163-L1168, L1232-L1236",
+      "A_declared_status": "M9 gating {M4, M6} stands per v1.15 unconditional amendment; P-008 needs 'M6 \u2705 inconsistency resolved'; M6 \u2705-vs-Phase-A/B.5 arbitration is CLI-Synthesizer in-tier task required for 045 \u00a77",
+      "B_declared_evidence": "v1.15 amendment (picture v1.15 L887-888; carried in v1.16/v1.17/v1.18 L979-980); 045 \u00a77 substrate flag (=S11)",
+      "C_aeal_or_anchor": "v1.15 amendment line is the AEAL anchor for the M9-gating clause; no AEAL anchor for the inconsistency declaration itself (it is a synthesizer-track flag)",
+      "D_timestamp": "mtime 2026-05-05 20:20 JST"
+    },
+    {
+      "id": "S5-CMB-TXT",
+      "extract_ref": "S5a/S5b/S5c :: CMB.txt#L930, L985-L987, L1517-L1518",
+      "A_declared_status": "F4 audit row CT v1.3 \u00a7Implications = SOFT (M6 closure feeds an Implications precondition list rather than a formal Theorem environment); SYNTH-TRACK row L1517-1518 declares M6 arbitration in-tier pending; **no prior M6 verdict row** in any SYNTH-TRACK section",
+      "B_declared_evidence": "M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT (=S12; bridge `4ffcc8c`); RACI v2026-05-08 ABSORBED SYNTH-TRACK block",
+      "C_aeal_or_anchor": "Bridge SHA `4ffcc8c` (audit verdict)",
+      "D_timestamp": "Last SYNTH-TRACK appends 2026-05-06; CMB top-of-file `Last updated: 2026-05-04`"
+    },
+    {
+      "id": "S6-PICTURE-V118",
+      "extract_ref": "S6a/S6b/S6c/S6d/S6e/S6f :: picture_v1.18.md#L42, L46, L50, L363, L1049-L1059, L844",
+      "A_declared_status": "M6 = bundle of two co-resident legs: row 005 H4-leg \u2705 DONE 2026-05-02 (`H4_EXECUTED_PASS_108_DIGITS`; row 005 + row P-CC + L363); row 009/015 canonical-form leg \ud83d\udfe1 PARTIAL (`G15_PARTIAL`; \u03a6_resc + \u03a6_shift pinned, \u03a6_symp residual on R5 = Okamoto 1987 \u00a7\u00a72-3 Lax pair); Phase B.5 = `STILL_PARTIAL_PENDING_PIVOT_DECISION` (Path A literature exhausted at OA-budget; Path B SIARC primary deferred-at-operator at picture publish time, but see S8 SIARC-PRIMARY committed 16:12 JST 2026-05-04 with index-2 embedding verdict pending v1.19 absorption)",
+      "B_declared_evidence": "Prompt 005 (`H4_EXECUTED_PASS_108_DIGITS`); Prompt 009 (`G15_PARTIAL`); Prompt 015 (`T25E-VQUAD-PIII-NORM-MAP-CLOSE` DRAFTED; R5-gated); Prompt 033 SIARC-PRIMARY-W-DERIVATION (deferred-at-operator at v1.18 publish); CT v1.3 \u00a73.5 algebraic identity DONE",
+      "C_aeal_or_anchor": "Bridge `5e2ad95` (picture v1.18); Prompt 005/009/015 AEAL claim files; Prompt 033 deferred",
+      "D_timestamp": "Picture v1.18 published 2026-05-04 17:00 JST; row 005 closure 2026-05-02"
+    },
+    {
+      "id": "S7-CC-VQUAD-SPEC",
+      "extract_ref": "S7a/S7b/S7c/S7d/S7e :: prompt_spec.md#L91-L98, L233, L267, L318-L323, L376-L382",
+      "A_declared_status": "M6 closure = UPGRADE_V1_0_FULL or UPGRADE_V1_0_PARTIAL_NUMERICAL outcome of CC-VQUAD-PIII-NORMALIZATION-MAP execution (Phase A formal Birkhoff series + Phase B canonical map + Phase B.5 mandatory W cross-walk + Phase C literature anchoring + Phase D verdict aggregation + Phase E CC-NOTE v1.0 + Phase F handoff). Phase B.5 = MANDATORY pre-step before Phase B canonical map finalisation. Spec L93 ties M9-gating reduction explicitly to UPGRADE_V1_0_FULL outcome of THIS spec.",
+      "B_declared_evidence": "9-phase / 8-halt-code / AEAL \u2265 16 spec; 5 anchor sources verified (slots 01/03/04/06/07/08)",
+      "C_aeal_or_anchor": "Spec SHA `075534E87048F59D...BBDC1C` (per picture v1.18 L4 deposit notation); also in m6_substrate_manifest.json as S7",
+      "D_timestamp": "Spec deposited 2026-05-04 (bridge `5e2ad95`); awaiting synthesizer QA + operator dispatch (per picture v1.18 L66)"
+    },
+    {
+      "id": "S8-SIARC-PRIMARY-W",
+      "extract_ref": "S8a/S8b :: handoff.md#L162-L185",
+      "A_declared_status": "`CLOSED_M6_PHASE_B5_W_CROSSWALK_BY_SIARC_PRIMARY_DERIVATION` with INDEX-2 EMBEDDING qualifier (not strict isomorphism); image of \u03d5: W^aff(B_2) -> Aut(D_6^{(1)}) \u22ca W((2A_1)^{(1)}) has index 2; cokernel Z/2 generated by leaf-swap \u03c0; recommendation (1) adopt as 'explicit injective homomorphism of index 2', (2) schedule SIARC-PRIMARY-W-COKERNEL-PI-LOCATE follow-up, (3) defer SIARC short note D-08; **strategic implication: M6 Phase B.5 row may be re-marked CLOSED_BY_SIARC_PRIMARY_DERIVATION pending operator + Claude review of 'index-2 embedding vs strict isomorphism' framing**",
+      "B_declared_evidence": "verify_homomorphism.py sympy verification (all 6 W^aff(B_2) relations PASS; ker(\u03d5) = {e}; image-index = 2); Okamoto 1987 \u00a72.1 affine-level reframe; Sakai full Cremona group index-2-larger comparison",
+      "C_aeal_or_anchor": "Bridge `a9d34fd` (per /memories/repo/siarc-primary-w-homomorphism-2026-05-04.md); handoff.md SHA-256 in m6_substrate_manifest.json; claims.jsonl in same session dir (~30 entries)",
+      "D_timestamp": "Session committed 2026-05-04 16:12 JST (~1 hour BEFORE picture v1.18 publish at 17:00 JST)"
+    },
+    {
+      "id": "S9-SAKAI-2001",
+      "extract_ref": "S9 :: handoff.md#L9-L18",
+      "A_declared_status": "`UPGRADE_SAKAI_ACQUIRED_W_HOMOMORPHISM_NOT_IN_SAKAI`: D_6^{(1)} surface + W((2A_1)^{(1)}) generators extracted; W(B_2) <-> W((2A_1)^{(1)}) homomorphism NOT stated in Sakai 2001; M6 Phase B.5 anchor is PARTIAL pre-S8",
+      "B_declared_evidence": "Full-text grep over Sakai 1999 preprint (slot 13) + Sakai 2001 published version; 4-tuple parameter constraint a_1+a_0 = b_1+b_0; Cremona-group folklore note",
+      "C_aeal_or_anchor": "Bridge handoff SHA `CDEAC35F...4F7A` (per picture v1.18 L40 G18 row); also in m6_substrate_manifest.json as S9",
+      "D_timestamp": "2026-05-04 (pre-S8)"
+    },
+    {
+      "id": "S10-NOUMI-YAMADA-2004",
+      "extract_ref": "S10 :: handoff.md#L19",
+      "A_declared_status": "`UPGRADE_NY04_NIA_ILL_RECOMMENDED`: NY 2004 TOC has NO P_III chapter; W(B_2) <-> W((2A_1)^{(1)}) homomorphism NOT stated in any of NY 2004 / KNY 2017 / NY 1998 / NY 2000 / FW 2005; M6 Phase B.5 = literature path exhausted at OA-budget",
+      "B_declared_evidence": "TOC + full-text grep over 5 OA papers; KNY 2017 0 occurrences of B_2 as Lie-group symbol",
+      "C_aeal_or_anchor": "Bridge handoff SHA `FECAD682...D3EA` (per picture v1.18 L42); also in m6_substrate_manifest.json as S10",
+      "D_timestamp": "2026-05-04 (pre-S8)"
+    },
+    {
+      "id": "S11-045-P008-PACKAGE",
+      "extract_ref": "S11 :: p008_input_package_for_msb_2026-06.md#L484-L499",
+      "A_declared_status": "M6 status section \u00a77 = `PENDING SYNTHESIZER ARBITRATION (in-tier under v2026-05-08 RACI; ...)` (verbatim); package-level audit recorded inconsistency without resolving it",
+      "B_declared_evidence": "Cross-reference to S4 (cli_log/2026-05-05.md L1234-1235); cross-reference to S2 (W19 WSB L78); cross-reference to S1 (038 caveat profile)",
+      "C_aeal_or_anchor": "045 P-008 package SHA `1C8BC4ED...965A30B8` (commit `c89effa` then `645ff79` then `d0a8012`)",
+      "D_timestamp": "Package fired 2026-05-05; bridge folder dated 2026-05-08 (forward-dated to monthly cycle target)"
+    },
+    {
+      "id": "S12-M9-DEP-AUDIT",
+      "extract_ref": "S12 :: M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT/handoff.md (audit verdict block)",
+      "A_declared_status": "M9 V0 main-theorem audit verdict `INDETERMINATE_NO_FORMAL_STATEMENT`; F4 audit row classifies CT v1.3 \u00a7Implications L1336-1349 as SOFT precondition (not hard formal-statement gate); M9 gating retained {M4, M6}",
+      "B_declared_evidence": "Audit ladder F1..F7; verbatim grep over PCF-1 v1.3, CT v1.3, PCF-2 v1.3 for formal Conjecture/Theorem environment; CT v1.3 \u00a7Implications enumerate-environment recovered as strongest precondition list",
+      "C_aeal_or_anchor": "Bridge `4ffcc8c`",
+      "D_timestamp": "2026-05-05"
+    }
+  ],
+  "summary": {
+    "total_substrate_sources": 12,
+    "sources_declaring_M6_closed": ["S1-038-HANDOFF", "S6-PICTURE-V118 (row 005 H4-leg only)"],
+    "sources_declaring_M6_partial": ["S2-W19-WSB", "S3-W19-MASTER-PROMPT", "S4-CLI-LOG-2026-05-05 (M6 inconsistency flag)", "S6-PICTURE-V118 (row 009/015 canonical-form leg)", "S7-CC-VQUAD-SPEC", "S9-SAKAI-2001 (Phase B.5 anchor partial pre-S8)", "S10-NOUMI-YAMADA-2004 (literature path exhausted)", "S11-045-P008-PACKAGE (PENDING ARBITRATION)"],
+    "sources_declaring_M6_phase_B5_specifically_closed": ["S8-SIARC-PRIMARY-W (CLOSED at INDEX-2 EMBEDDING grade; pending operator + Claude pivot review)"],
+    "operator_visible_status_string_M6_check": "S1 string '\u2705' bundled in announcement-format caveat; S2/S3/S4/S6 (canonical leg) / S7/S11 string 'partial / Phase A or Phase B.5 / pending arbitration / canonical-form PARTIAL'",
+    "discrepancy_root_cause_candidate": "definitional split between H4-leg M6 (\u2705 DONE 2026-05-02) and CC-VQUAD canonical-form leg M6 (\ud83d\udfe1 PARTIAL); see m6_diagnosis.md"
+  }
+}

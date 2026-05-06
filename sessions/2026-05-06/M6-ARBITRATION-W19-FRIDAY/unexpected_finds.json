@@ -1,0 +1,33 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-047-1",
+      "label": "Picture v1.18 itself co-resides two M6 statuses (\u2705 DONE row 005 H4-leg vs \ud83d\udfe1 PARTIAL row 009/015 canonical-form leg) inside the same prompt-table without a leg-disambiguation column",
+      "context": "STEP 2 substrate read; \u00a7S6e + \u00a7S6f. The dual-status co-residence is the substrate-internal precedent for the verdict's two-named-legs structure, but it had not been previously surfaced as an explicit picture-schema observation. The verdict's spec-amendment recommendation #3 directs picture v1.19 to tabulate M6.H4 and M6.CC as adjacent rows, formalising what picture v1.18 already does implicitly.",
+      "novelty": "low (implicit in picture v1.18; surfaced explicitly here for the first time at synthesizer-track level)"
+    },
+    {
+      "id": "UF-047-2",
+      "label": "SIARC-PRIMARY-W-HOMOMORPHISM-DERIVATION (committed 2026-05-04 16:12 JST, bridge a9d34fd) delivered the M6 Phase B.5 W cross-walk closure ~1 hour BEFORE picture v1.18 publish at 17:00 JST, but picture v1.18 still records 'Path B deferred at operator'",
+      "context": "STEP 2 substrate read; \u00a7S6a vs \u00a7S8a. Cross-checked against /memories/repo/siarc-primary-w-homomorphism-2026-05-04.md (bridge commit a9d34fd; INDEX-2 EMBEDDING verdict). The temporal lag is intentional: \u00a7S8b paragraph leaves picture-row absorption 'pending operator + Claude review of index-2 embedding vs strict isomorphism framing'.",
+      "novelty": "moderate (the temporal sequencing is non-obvious without cross-referencing memory file + bridge git timestamps; relevant for the v1.19 picture revision)"
+    },
+    {
+      "id": "UF-047-3",
+      "label": "Relay-047 prompt's substrate-list item 'CT v1.3 \u00a7Implications M6-related preconditions (lines 1336-1353 of the outline.tex; uses M6 closure as a gate)' references an 'outline.tex' file that does not exist in the workspace",
+      "context": "STEP 1 substrate inventory; D6 in discrepancy_log.json. Worked around by using S12 (M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT F4 row) as the operative anchor for the SOFT-precondition line. Workspace has paper4_takeuchi_outline.tex (33KB, unrelated content) and CT v1.3 lives inside arxiv_pack_ct_v1.3/ct_v1.3.tar.gz.",
+      "novelty": "low (substrate-path-name drift; bibliographic-pre-verification rule from copilot-instructions.md applies to DOI/arXiv IDs but not to internal-workspace file references)"
+    },
+    {
+      "id": "UF-047-4",
+      "label": "Day-2 cli_log L322-324 carries M9-gating clause 'M9 gating: {M4, M6} stands (per v1.15 unconditional amendment); M8b stays excluded'; this is the only post-v1.18 substrate that re-asserts the v1.15 amendment as ground truth",
+      "context": "STEP 2 substrate read; \u00a7S4a. The clause-level wording in S4a uses the bare 'M6' token without leg-disambiguation, propagating the M6-token overload into Day-2 substrate. The verdict's spec-amendment recommendation #1 directs the next CMB-glossary edit to disambiguate.",
+      "novelty": "low"
+    }
+  ],
+  "summary": {
+    "find_count": 4,
+    "blocking_count": 0,
+    "operator_attention_recommended": ["UF-047-2 (picture v1.19 absorption gate)", "UF-047-1 (M6 leg-name schema in picture v1.19)"]
+  }
+}
