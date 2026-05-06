@@ -1,0 +1,28 @@
+{
+  "discrepancies": [
+    {
+      "id": "057-D1",
+      "class": "prompt-body candidate DOI hallucination",
+      "scope": "057 prompt body STEP 3 (NOT spec)",
+      "detail": "057 prompt body suggested DOI 10.1007/BF02547452 for Birkhoff 1930 Acta Math 54; Crossref resolves it to a 1995 chemistry paper (Mishra et al., J. Thermal Analysis 45 1589-1596). Canonical DOI is 10.1007/bf02547522.",
+      "impact_on_058": "none — CC-VQUAD spec §1 does not cite this DOI",
+      "action": "substituted with canonical DOI in doi_resolution_probe.md §A; surfaced in 058_go_no_go.md §5 as non-blocking anomaly"
+    },
+    {
+      "id": "057-D2",
+      "class": "prompt-body Q-label mis-attribution",
+      "scope": "057 prompt body STEP 4",
+      "detail": "057 prompt attributes the Costin-substitutes-Conte-Musette substitution to a 'Q35 ruling 2026-05-04'; Q35 in picture v1.16/v1.19 is actually the T1 Phase 3 vs M6 scheduling arbitration. The substitution is anchored on A-01 verdict + CONTE-MUSETTE-CH7-FINAL-ACQUISITION-PROBE handoff verdict UPGRADE_CONTE_NIA_ILL_RECOMMENDED_yokohama_or_tokyo_libs.",
+      "impact_on_058": "none — substitution chain integrity intact",
+      "action": "documented in q35_substitution_status.md §1; surfaced in 058_go_no_go.md §5 as non-blocking anomaly"
+    },
+    {
+      "id": "057-D3",
+      "class": "external (058 internal) — not blocking 057",
+      "scope": "057 prompt §4 prerequisites table; 058 STEP F",
+      "detail": "057 prompt prerequisites table cites '14 baseline AEAL claims' for 051 T1 Phase 2 baseline note; bridge artefact at commit 9c75f65 (sessions/2026-05-06/T1-PHASE2-BASELINE-NOTE/claims.jsonl) has 10 AEAL claims",
+      "impact_on_058": "may require 058 STEP F count-correction or 051 amendment — out of scope for 057 preflight",
+      "action": "surfaced in 058_go_no_go.md §4 row 4 + recommended-action note for operator/T1 Synth W20 weekly cadence"
+    }
+  ]
+}
