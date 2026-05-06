@@ -1,0 +1,70 @@
+{
+  "session": "069 CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL",
+  "deposit_date": "2026-05-07",
+  "discrepancies_count_NEW": 5,
+  "discrepancies_carried_forward_count": 5,
+  "discrepancies_NEW": [
+    {
+      "id": "069-D1",
+      "severity": "INFO",
+      "phase": "D.2.b + D.2.c + D.2.d",
+      "summary": "Phase D.2 sub-steps b + c + d each cleanly obstructed at the same upstream R1 carry-forward (CT v1.3 §3.5 four-tuple to KNY (a_0, a_1, a_2) identification). The single root cause produces three distinct verdict-ladder downstream effects: D.2.b OBSTRUCTED_R1_GATED + D.2.c NOT_COMPUTABLE_R1_GATED + D.2.d NOT_COMPUTABLE_R1_GATED. The R1-gating dependency was anticipated in envelope PRE-CONDITION 2 but the sub-step decomposition surfaces it as a single-bottleneck pattern.",
+      "impact": "Operator dispatch of 069r1 R1-closure preflight (path B) unblocks all three downstream sub-steps simultaneously; partial R1 closures (e.g. (a_1, a_2) without (q(t_0), p(t_0))) would unblock D.2.d but not D.2.b/c."
+    },
+    {
+      "id": "069-D2",
+      "severity": "INFO",
+      "phase": "D.2.b",
+      "summary": "Envelope wording 'V_quad's third-order scalar-OGF Lax representation' (PHASE D.2.b §1 + §2) does not match the actual derivative order of V_quad's scalar OGF ODE, which is 2 (058R Phase A: 3 z^3 f'' + 10 z^2 f' + (z^2+5z-1) f = 0). The 'third-order' wording likely refers to the Newton-polygon-edge slope of 1/2 yielding a rank-1 essential singularity in the ramified u = sqrt(z) coordinate, not the derivative order. Surfaced for envelope-author awareness (does not change Phase D.2.b mathematical content; gauge problem is between two 2nd-order ODEs).",
+      "impact": "No structural impact; documentation precision issue. 069r1 envelope or future Phase D.2 envelopes may correct the wording to 'V_quad's rank-1-irregular-singular scalar-OGF Lax representation' or similar."
+    },
+    {
+      "id": "069-D3",
+      "severity": "INFO",
+      "phase": "D.2.b",
+      "summary": "Liouville normal-form invariant I_V(z) = (3 z^2 + 5 z - 3)/(9 z^3) for V_quad's scalar OGF ODE is NEW Phase D.2 substrate (sympy-derived at 069 fire time; not in 058R deposit). Useful for any future R1-closure relay (069r1) as the V_quad-side gauge-invariant input to the Schwarzian-invariant matching step.",
+      "impact": "Forward-pointed substrate for 069r1; archived in phase_d_numerical.md §2 + claims.jsonl entry."
+    },
+    {
+      "id": "069-D4",
+      "severity": "INFO",
+      "phase": "D.2.d",
+      "summary": "BLMP 2024 §4.28 connection-matrix integrand at V_quad parameter point requires both (a_1, a_2) (from R1) AND the explicit BLMP-side (e_1, e_2) parameter conversion formula (BLMP 2024 §4 explicit). Even with R1 closed, a follow-up sub-task (D.2.d') is needed to convert KNY (a_1, a_2) -> BLMP (e_1, e_2). Surfaced for 069r1 envelope-author awareness; does not change current verdict but adds a hidden dependency.",
+      "impact": "069r1 envelope should explicitly schedule D.2.d' as a sub-step of Phase D.2.d with substrate-pull from BLMP 2024 §4."
+    },
+    {
+      "id": "069-D5",
+      "severity": "INFO",
+      "phase": "Phase 0 + Phase F",
+      "summary": "Envelope §HALT LIST records HALT_069_OVER_CLAIM checklist item (3) as 'Phase D.2.e residual Delta < 10^{-5} computed from independent left-hand and right-hand sides (no circularity, e.g. canonical-form Stokes constant derived independently of M and not tautologically)'. The 069 prose explicitly invokes this anti-circularity guard at phase_d_numerical.md §4 (forbids using V_quad-native 2 pi C_V as canonical-form stand-in). The guard is effective in the current session; flagged for future-session reference.",
+      "impact": "No current impact; documentation reference for 069r1 + future re-fires."
+    }
+  ],
+  "discrepancies_carried_forward_from_058R_unchanged": [
+    {
+      "id": "058R-D1 (carry-forward)",
+      "severity": "INFO",
+      "summary": "R1 (Okamoto-convention identification of CT v1.3 §3.5 four-tuple) carry-forward open from 2026-05-02 partial session; 058R + 069 do NOT modify CT v1.3 (out of scope)."
+    },
+    {
+      "id": "058R-D2 (carry-forward)",
+      "severity": "INFO",
+      "summary": "CT v1.3 §3.5 four-tuple (alpha_inf, alpha_0, beta_inf, beta_0) = (1/6, 0, 0, -1/2) does not satisfy Okamoto null-sum constraint; sums to -1/3. Reconciliation requires either an additional shift in (a_0, a_1, a_2) chart or a tau-function reparametrisation per Okamoto 1987 §3."
+    },
+    {
+      "id": "058R-D3 (carry-forward)",
+      "severity": "STRUCTURAL (resolved at envelope V1.2.D3)",
+      "summary": "Spec wording W(D_6) corrected to W((2A_1)^(1)); cross-walk INCLUSION not quotient; PRE-LANDED grade INDEX-2 EMBEDDING FINAL via bridges a9d34fd + 95ffa1e."
+    },
+    {
+      "id": "058R-D4 (carry-forward)",
+      "severity": "INFO (resolved at envelope V1.2.D4)",
+      "summary": "Lax-pair anchor corrected from 'Okamoto §§Lax-pair' to KNY 2017 §8.5.17 eq. 8.237-8.239; Okamoto 1987 (slot 07) does NOT contain explicit 2x2 Lax pair."
+    },
+    {
+      "id": "058R-D5 (carry-forward)",
+      "severity": "INFO",
+      "summary": "Phi_symp Jacobian numerical evaluation requires separate symbolic-computation cycle to construct explicit gauge transformation; this is what 069 attempted and was OBSTRUCTED_R1_GATED at Phase D.2.b."
+    }
+  ]
+}

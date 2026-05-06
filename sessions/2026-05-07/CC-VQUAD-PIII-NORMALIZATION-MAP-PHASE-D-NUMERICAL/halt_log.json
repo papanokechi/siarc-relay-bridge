@@ -1,0 +1,46 @@
+{
+  "session": "069 CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL",
+  "deposit_date": "2026-05-07",
+  "halts_fired_count": 1,
+  "halts_fired": [
+    {
+      "halt_code": "HALT_069_GAUGE_TRANSFORM_FAILURE",
+      "tier": "phase-level (envelope §HALTS PHASE-LEVEL)",
+      "phase": "D.2.b",
+      "trigger": "Symbolic gauge transformation G(x) such that L_1^V_quad(x) o G = G o L_1^KNY(x) at V_quad parameter point cannot be constructed in closed form within the agent budget. Closed-form expansion of I_KNY(x; q, p, t, a_1, a_2) requires R1 closure (CT v1.3 §3.5 four-tuple to KNY (a_0, a_1, a_2) identification) plus Hamiltonian flow integration of KNY system at t_0 = -4 sqrt(3); both are R1-gated per 058R + envelope PRE-CONDITION 2 default (B).",
+      "verdict_path": "UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST (058R verdict re-confirmed at 069; no progress on residual)",
+      "downstream_halts_cascaded": [
+        "HALT_069_PHI_SYMP_NUMERICAL_INCONSISTENCY (NOT TRIGGERED; no NaN/inf/divergent value produced; obstruction is upstream R1-gating)",
+        "HALT_069_BL2024_PRECISION_FLOOR_INSUFFICIENT (NOT TRIGGERED; precision-floor question moot when integrand not evaluable due to R1 unpinned (a_1, a_2))",
+        "HALT_069_STOKES_NUMERICAL_MISMATCH (NOT TRIGGERED; Delta is INCOMPUTABLE not >= 1e-2)"
+      ],
+      "refire_path": "Operator dispatch 069r1 R1-closure preflight relay (~1-2 h synthesizer activity) lands clean (a_1, a_2) at V_quad parameter point; permits 069 re-fire on Phase D.2 sub-steps a-e with R1 closed. Alternatively operator may re-fire 069 with extended budget (PRE-CONDITION 2 path A inline) at 6-10 h."
+    }
+  ],
+  "halts_NOT_triggered": {
+    "envelope_level": [
+      "HALT_069_058R_SUBSTRATE_DRIFT (Phase 0 STEP 0.1: 9/9 SHA PASS)",
+      "HALT_069_SPEC_SHA_DRIFT (spec body SHA BE3F8FE9D0857E29.. matches envelope-recorded value)",
+      "HALT_069_PARALLEL_FIRE_DETECTED (bridge HEAD e7bfe49 matches envelope-recorded; session dir absent prior to fire)",
+      "HALT_069_SCOPE_CREEP_INTO_LANDED_PHASE (LANDED phases 0/A/B/B.5/C/E cited at SHA only; no NEW non-citation content)",
+      "HALT_069_OVER_CLAIM (verdict is PERSIST not FULL; 4-item checklist item (3) Delta < 1e-5 not met; correctly re-selected to PERSIST)",
+      "HALT_069_FORBIDDEN_VERB (forbidden-verb scan 0/0 hits across 4 prose deliverables)",
+      "HALT_069_W21_VOCAB_DRIFT (no protocol-to-stratum mismatch / borderline anormal closure phrases; deprecated W(D_6) wording appears only in verbatim spec quote with V1.2.D3 corrective parenthetical)",
+      "HALT_069_GROUNDING_PARTIAL (rule5 grounding complete via substrate_anchor_shas.md SHA-anchor table)"
+    ],
+    "phase_level": [
+      "HALT_069_PHI_SYMP_NUMERICAL_INCONSISTENCY (no NaN/inf/divergent value; obstruction is upstream R1-gating not numerical instability)",
+      "HALT_069_BL2024_PRECISION_FLOOR_INSUFFICIENT (precision-floor question moot when integrand not evaluable)",
+      "HALT_069_STOKES_NUMERICAL_MISMATCH (Delta INCOMPUTABLE; not >= 1e-2)"
+    ]
+  },
+  "runtime_fallback_surfaced": [
+    {
+      "name": "HALT_069_R1_SCOPE_AMBIGUOUS",
+      "type": "runtime-safety fallback (NOT halt-listed in envelope; envelope PRE-CONDITION 2 default settled before fire)",
+      "phase_surfaced": "D.2.d",
+      "operator_default": "(B) R1 OUT OF SCOPE for 069",
+      "resolution": "agent did not hard-halt; routed verdict via HALT_069_GAUGE_TRANSFORM_FAILURE -> UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST per envelope §VERDICT LADDER honesty rules"
+    }
+  ]
+}
