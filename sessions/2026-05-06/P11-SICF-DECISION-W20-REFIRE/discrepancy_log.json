@@ -1,0 +1,53 @@
+{
+  "discrepancies": [
+    {
+      "id": "D1",
+      "title": "Relay 049 §TASK header mis-cites '045 substrate §7' as the framing authority",
+      "inherited_from": "sessions/2026-05-06/P11-SICF-DECISION-W20/discrepancy_log.json D1",
+      "details": "Relay 049 §TASK paragraph 2 states: 'Per W19 SYNTH-SPEC (verbatim from 045 substrate §7 and departing-Synthesizer's note): \"Right framing for that turn is: which option preserves the MOST of the manuscript substance.\"' §7 of 045 substrate (sessions/2026-05-08/P008-INPUT-PACKAGE-FOR-MSB-2026-06/p008_input_package_for_msb_2026-06.md L484-528) is titled 'M6 ✅-vs-Phase-A/B.5 status' and contains M6 arbitration grounding, not P11 framing. The actual quote ('which option preserves the most of the manuscript's structural contribution while honestly addressing the four fatals') is at cli_log/2026-05-05.md L687-689, inside the synth-comment block timestamped ~13:55 JST 2026-05-05.",
+      "blocking": false,
+      "resolution": "Cosmetic; the framing intent is preserved. sicf_options_verbatim.md §B records the actual quote location. Future relay drafters should cite cli_log/2026-05-05.md L687-689 directly."
+    },
+    {
+      "id": "D2",
+      "title": "P11 SICF arbitrator handoff path cited by relay-049 §P2 does not exist",
+      "inherited_from": "sessions/2026-05-06/P11-SICF-DECISION-W20/discrepancy_log.json D2 + 047 P11-COVERLETTER-MATHCOMP-DEFENSIVE D2",
+      "details": "Relay 049 §P2 cites 'sessions/2026-05-04/P11-SICF-ARBITRATOR/handoff.md' as the four-options source. That path does not exist in the bridge. The actual SICF arbitrator output lives at cli_log/2026-05-05.md L580-636 (CLI's writeup of the four-fatals + four realistic options) + L660-689 (synth-comment block). Auto-appended SICF AEAL line in workspace claims.jsonl anchors the SICF run with sha256 b3b339507ec0337e7217d426cacf0c64a9c94c37192ff76b813f6a3b750b3453. The actual artefacts (PNGs, JSONs, MD report) live in sicf-review-system/output/ in the workspace, not in the bridge.",
+      "blocking": false,
+      "resolution": "Operator approved use of cli_log/2026-05-05.md L580-636 + L660-689 as substrate (operator paste this session via vscode_askQuestions, header p2_substrate_path). Recommended W20 housekeeping: migrate SICF arbitrator output to sessions/2026-05-05/P11-SICF-ARBITRATOR/handoff.md to close D2 permanently (~15 min: handoff.md + sha256-anchored copies of the PNG/JSON/MD outputs)."
+    },
+    {
+      "id": "D3",
+      "title": "Four-options block authored under venue-labelling drift (Math.Comp framing)",
+      "inherited_from": "sessions/2026-05-06/P11-SICF-DECISION-W20/discrepancy_log.json D3 + 047 D3",
+      "details": "cli_log/2026-05-05.md L606 reads 'P11 (F(2,4) base case) is currently `under_review` at Math of Comp' and option 4 is framed as 'Hold for JTNB-2400 leverage' against 'the JTNB submission' — implying two parallel submissions. Per CMB.txt L24 / L59-60 / L877-878 and 047 P11-COVERLETTER-MATHCOMP-DEFENSIVE handoff Anomaly #6, P11 was in fact desk-rejected by Math.Comp 2026-04-28 and resubmitted same day to JTNB-2400 (handling editor: Boris Adamczewski). Under the corrected view all four options are about the JTNB submission, so option 4 ('Hold for JTNB-2400 leverage') was already partially degenerate at SICF authoring time.",
+      "blocking": false,
+      "resolution": "sicf_options_scoring_matrix.json options[3].scoring_pre_verdict_counterfactual.venue_labelling_drift_note records the D3 correction explicitly. Under D3 + post-2026-05-06 hard reject, Option 4 is fully dominated; this does not change the selected option (Option 3 remains the LIVE choice)."
+    },
+    {
+      "id": "D4",
+      "title": "JTNB has no published 'withdraw-and-resubmit window' policy accessible to this session",
+      "inherited_from": "new this session",
+      "details": "Relay 049 §STEP 3 directs use of 'AMS / JTNB editorial-board policy from sessions/2026-04-*/JTNB-POLICY or web-fetch + SHA-anchor'. The bridge has no JTNB-POLICY session. fetch_webpage on https://jtnb.centre-mersenne.org/page/instructions-to-authors/ and /page/instructions-aux-auteurs/ returned only navigation chrome (logo, browse-issues, language switcher, contact); no author-instructions text, no submission policy, no withdraw-and-resubmit window, no resubmission policy of any kind was returned in rendered HTML. Possible causes: (a) JTNB conveys submission instructions via private editorial correspondence; (b) page contents loaded via JavaScript / SPA and not visible to fetch_webpage; (c) page genuinely under construction.",
+      "blocking": false,
+      "resolution": "sicf_decision.md §Binding-window posture and sicf_options_scoring_matrix.json binding_window_note record that the relay-049 'JTNB withdraw-and-resubmit window narrowing' framing reflects an operator-conceptual SICF-roadmap freshness window, not a journal-imposed deadline. The 30-day estimate (binding_window_days_remaining = 30) is a conservative judgment call. jtnb_policy_snapshot.md sha256 7B41F5D318FC3B2A7F1B0AEB494D7117A0FA7E5C2F29462191097A051D15F513 anchors the web-fetch state."
+    },
+    {
+      "id": "D5",
+      "title": "Bridge directory path collision with prior 049 halt-session bundle",
+      "inherited_from": "new this session",
+      "details": "Relay 049 §BRIDGE specifies 'sessions\\{TODAY_DATE}\\P11-SICF-DECISION-W20\\'. TODAY_DATE = 2026-05-06. That path is already populated by the prior 049 halt-session bundle (halt_log.json, handoff.md, etc.). Two write strategies: (A) overwrite the existing bundle with new decision artefacts (loses halt audit trail); (B) create a re-fire-suffixed directory alongside the halt bundle (preserves audit trail; deviates from prompt's literal bridge path).",
+      "blocking": false,
+      "resolution": "Strategy (B) chosen. Re-fire bundle written to sessions/2026-05-06/P11-SICF-DECISION-W20-REFIRE/, paralleling the precedent set by sessions/2026-05-06/M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE/ (alongside M6-AMENDMENT-1-CMB-GLOSSARY/ halt bundle) and sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/ (alongside CC-VQUAD-PIII-NORMALIZATION-MAP/ halt bundle). JUDGMENT CALL J1 in handoff.md."
+    },
+    {
+      "id": "D6",
+      "title": "Relay 049 binding-window framing pre-supposed AWAITED state; under hard reject the framework is partly retrospective",
+      "inherited_from": "new this session",
+      "details": "Relay 049 §TASK header asserts 'P1 — W20 timing-sensitive (JTNB withdraw-and-resubmit window narrowing)' and §STEP 3 directs scoring each option for in-window-feasibility. Under the operator-pasted RECEIVED_NEGATIVE state, Options 1 (No-op), 2 (Voluntary corrigendum), and 4 (Hold for leverage) are dominated by the verdict landing rather than by binding-window expiry; only Option 3 (Restructure + resubmit) carries a non-trivial binding-window analysis (cost: 21 days; window: 30 days operator-conceptual). The binding-window filter as written is therefore not the discriminating constraint for this decision; the verdict-state filter is. The four-options scoring framework is partly retrospective (a SUCCESSOR question 'given the paper is rejected, what comes next?' rather than a forward-looking SICF four-options selection).",
+      "blocking": false,
+      "resolution": "sicf_decision.md Rationale §Para 1-3 makes this explicit. Decision is FORCED_BY_ELIMINATION rather than competitive scoring. The 30-day binding-window estimate retains forward-looking value as an operator-conceptual SICF-roadmap freshness window for the restructure dispatch."
+    }
+  ],
+  "discrepancy_count": 6
+}
