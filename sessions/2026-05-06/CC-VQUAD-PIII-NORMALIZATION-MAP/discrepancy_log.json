@@ -1,0 +1,54 @@
+{
+  "task_id": "CC-VQUAD-PIII-NORMALIZATION-MAP",
+  "fire_date_jst": "2026-05-06",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "category": "process-precondition",
+      "severity": "HALT",
+      "description": "058 fired despite 057 (CC-VQUAD-PIII literature pre-flight) being explicitly marked PENDING in 058's own 'Depends on' section. The wrapper text reads: '057 CC-VQUAD-PIII literature pre-flight at bridge `<commit-after-057-fire>` (PENDING; produces GO/NO-GO; HALT_058_PREFLIGHT_NO_GO if NO-GO)'. The placeholder `<commit-after-057-fire>` indicates the operator drafted 058 ASSUMING 057 would land first. No 057-class folder exists in sessions/2026-05-06/ or any earlier date.",
+      "remediation": "Operator should fire 057 first (CC-VQUAD-PIII literature pre-flight) and obtain 058_go_no_go.md §5 = GO before re-firing 058."
+    },
+    {
+      "id": "D2",
+      "category": "spec-version-anchor-stale",
+      "severity": "ANOMALY",
+      "description": "Picture v1.19 (commit 70d1a48 at 2026-05-06 12:23 JST) anchored a STALE SHA + size for the M6 prompt_spec.md. Picture v1.19 line 79 anchors prompt_spec.md at 43,669 B with SHA prefix `075534E87048F59D…BBDC1C` — this is the v1.0 deposit SHA from commit 5e2ad95 (2026-05-04 09:51 JST). However, the spec was amended to v1.1 at commit f8099b4 (2026-05-04 17:02 JST), growing to 52,197 B with SHA prefix `BE3F8FE9D0857E29…F6E3319`. Picture v1.19 was drafted ~44 hours after v1.1 landed but referenced v1.0's anchor.",
+      "remediation": "Surface to T1 Synth: picture v1.20 (or a v1.19.1 patch) should re-anchor the M6 spec at v1.1 SHA + size. Not blocking 058's halt deposit, but Q-class question for next picture cycle."
+    },
+    {
+      "id": "D3",
+      "category": "wrapper-transcription-shorthand",
+      "severity": "INFO",
+      "description": "058 wrapper P9 GATE enumerates 8 spec halts as: HALT_M6_LITERATURE_NOT_LANDED, AFFINE_WEYL_MISMATCH, BIRKHOFF_SERIES_DRIFT, PHASE_B_CONSTRUCTION_INCOMPLETE, NORMALIZATION_INCONSISTENCY, LITERATURE_DISAGREES_WITH_H4, STOKES_NUMERICAL_MISMATCH, BIBKEY_COLLISION. The actual spec body (BOTH v1.0 and v1.1) names all 8 halts WITH the `HALT_M6_` prefix uniformly: HALT_M6_LITERATURE_NOT_LANDED, HALT_M6_AFFINE_WEYL_MISMATCH, HALT_M6_BIRKHOFF_SERIES_DRIFT, HALT_M6_PHASE_B_CONSTRUCTION_INCOMPLETE, HALT_M6_NORMALIZATION_INCONSISTENCY, HALT_M6_LITERATURE_DISAGREES_WITH_H4, HALT_M6_STOKES_NUMERICAL_MISMATCH, HALT_M6_BIBKEY_COLLISION. The wrapper transcription dropped the `_M6_` prefix on 7 of 8 halts (kept only on HALT_M6_LITERATURE_NOT_LANDED). Treated here as wrapper-side shorthand convention rather than spec rename — the halts themselves have NOT been renamed.",
+      "remediation": "058R re-fire wrapper should restore the `HALT_M6_` prefix on all 8 spec halt names for verbatim consistency with the spec body. Not blocking."
+    },
+    {
+      "id": "D4",
+      "category": "wrapper-aeal-floor-arithmetic",
+      "severity": "INFO",
+      "description": "058 wrapper STEP 6 says 'AEAL minimum: 16 claims (per spec STEP F.1; C1-C10 baseline re-cite from 051 + C11-C12 new for Phase B.5 + ≥4 new from Phase A/B/D for floor; suggested target 18-20)' — that arithmetic is 10 + 2 + ≥4 = ≥16. The draft-time patch note (~13:15 JST) says '058 must generate ≥6 new Phase A/B/B.5/D claims atop the 10 baseline to clear the spec floor' — that arithmetic is 10 + ≥6 = ≥16. STEP 6 says 'C13+ = additional NEW claims as Phase A-F generate them' which is consistent with the patch note's '≥6 new'. Net: minimum is unambiguously ≥16. Surfaced as INFO because the wrapper has two slightly different decompositions (2+4 vs 6) of the new-claim allowance; not blocking.",
+      "remediation": "058R re-fire wrapper should pick one decomposition. Not blocking."
+    }
+  ],
+  "judgment_calls": [
+    {
+      "id": "J1",
+      "context": "Whether to halt at P7 vs autonomously fire 057 inline as a substrate-only pre-flight before continuing 058",
+      "decision": "HALT at P7 cleanly per the wrapper's explicit halt definition.",
+      "rationale": "(1) The wrapper's HALT_058_PREFLIGHT_NO_GO halt text says 'Halt and re-run 057 first' — explicit instruction. (2) 057 is a 'literature pre-flight' that per standing instructions §'Bibliographic identifier pre-verification' must verify cited DOIs/arXiv IDs resolve correctly to the cited papers BEFORE the relay fires (cf. WITTE-FORRESTER-2010-ACQUISITION lesson where ~20 min was spent chasing hallucinated DOIs). Inlining 057 into 058 would (a) skip the synthesizer-tier QA review of the pre-flight GO/NO-GO output and (b) violate the prompt's explicit dependency ordering. (3) The wrapper itself already structures 058 as the AFTER fire with 057 as PENDING; firing 058 without 057 is reasonably interpreted as an operator-side queueing race (058 was prepared assuming 057 would land first but 057 hadn't fired yet), and the cleanest response is to halt and surface."
+    },
+    {
+      "id": "J2",
+      "context": "Whether to also halt at HALT_058_SPEC_DRIFT given that picture v1.19's anchor is stale and the spec body grew 8.5 KB since v1.0",
+      "decision": "DO NOT trigger HALT_058_SPEC_DRIFT. Surface as D2 anomaly only.",
+      "rationale": "The wrapper's HALT_058_SPEC_DRIFT trigger is specifically 'a phase header or spec halt is missing/renamed'. Verified all 9 phase headers (0.0/0.5/A/B/B.5/C/D/E/F) are present verbatim in the v1.1 spec at lines 215/223/233/267/318/388/464/530/552. Verified all 8 halt names with `HALT_M6_` prefix are present verbatim in spec §4 HALT CONDITIONS. No phase header or halt name has been renamed/removed. The spec amendment v1.0 → v1.1 (commit f8099b4 on 2026-05-04) is an OFFICIAL synthesizer-QA-absorption amendment per its commit message; the wrapper's reference to 'the spec body inside that bridge folder is AUTHORITATIVE' implicitly accepts v1.1 as authoritative. Picture v1.19's stale anchor (D2) is a picture-side bookkeeping issue, not a spec-side drift."
+    },
+    {
+      "id": "J3",
+      "context": "How many AEAL claims to write for this halt-state deposit (spec floor is ≥16; halt-state class typically 4-7)",
+      "decision": "Write 7 halt-state AEAL claims (058H-A1 through 058H-A7) covering: (A1) bridge HEAD anchor, (A2) all 7 substrate file SHAs, (A3) 057 absence evidence, (A4) spec v1.0 vs v1.1 SHA + chronology, (A5) 9 phase headers verified intact in v1.1, (A6) 8 spec halts verified intact in v1.1 with `_M6_` prefix, (A7) HALT_058_PREFLIGHT_NO_GO triggered + remediation path.",
+      "rationale": "The spec floor of ≥16 applies when phases execute; halt-state AEAL classes universally use 4-7 claims (cf. 049 P11-SICF-DECISION-W20 which used 5 halt-state claims; 044 T2B-BZERO-OFFSET-LOG-SWEEP-B5-8-9-10 which used 9 halt-state claims; 052 M6-AMENDMENT-1 which used 8 halt-state claims). Writing 16 fabricated claims for a halt-state would dilute the AEAL system. The 7 claims here all anchor to direct SHA computations or git log entries — fully grounded under rule5."
+    }
+  ]
+}
