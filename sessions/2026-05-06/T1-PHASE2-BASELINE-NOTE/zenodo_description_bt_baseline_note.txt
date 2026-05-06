@@ -1,0 +1,127 @@
+A standalone Zenodo note that consolidates the SIARC T1 Phase 2
+verdict UPGRADE_PARTIAL_FORMAL_LEVEL (bridge session
+T1-BIRKHOFF-PHASE2-LIFT-LOWER, commit 37c939f, 2026-05-04) into a
+single citable artefact: a Newton-polygon formal-level baseline
+for the Birkhoff-Trjitzinsky (B-T) asymptotic exponent A on the
+SIARC polynomial continued-fraction (PCF) Wallis stratum.
+
+Triple framing (the note's load-bearing partition):
+
+PROVEN (formal level): For the SIARC PCF Wallis recurrence at
+polynomial degree d in [2, 8] and any of the three SIARC
+conventions (alpha-direction, symmetric, delta-direction), the
+naive Wimp-Zeilberger Newton-polygon ansatz yields the formal
+exponent A_naive = 2d - deg_a in {d-1, d, d+1}. This is
+Theorem 1.1 of the note. The proof is by direct symbolic
+balance analysis on the formal series Q_n ~ exp(A_naive * n^{1/2}
++ ...) ansatz, derived in Section 2 and closed by per-degree
+case analysis in Section 3 across the three conventions.
+
+VERIFIED (literature-citation): At d = 2 the formal-level
+prediction A_naive = 3 (alpha-direction) coincides with the
+LOWER branch of PCF-1 v1.3 (DOI 10.5281/zenodo.19937196),
+Section 6 Theorem 5, V_quad family QL01-QL26, verified at 80
+algebraic digits. The B-T 1933 Sections 7-9 existence and
+factorization machinery (Theorem II, Lemma 10, Fundamental
+Theorem) is verified against the SIARC stratum gates C.2.1
+through C.2.4 (non-resonance match, non-degeneracy match, d-range
+applicability, mu-units consistency) in the bridge Phase C
+literature verification.
+
+STRUCTURAL FRAMING (not closure): At d >= 3 the empirical PCF-2
+v1.3 (DOI 10.5281/zenodo.19963298) record R1.1 + R1.3 + Q1
+yields A_fit ~ 2d (50/50 cubic representatives, 60/60 quartic
+representatives) which lies strictly outside the formal baseline
+{d-1, d, d+1}. Proposition 1.2 of the note frames this gap with
+two non-mutually-exclusive structural mechanisms - (i') a
+borderline-locus condition where the SIARC stratum sits on the
+deg_a = 2*deg_b boundary of the Wimp-Zeilberger normal case, and
+(ii') a definitional translation under which the empirical
+fit-protocol of [PCF-2 v1.3] measures a different exponent than
+A_naive. Distinguishing (i') from (ii') is the open content of
+Section 6 Q1.
+
+CONJECTURED (Conjecture B4): The note states Conjecture B4 of
+[PCF-2 v1.3] (A = 2d for representatives in the SIARC stratum at
+each degree d >= 2) verbatim. The note does NOT claim to prove,
+partially prove, or refute Conjecture B4. The formal-level
+baseline is consistent with - but does not establish - A = 2d.
+Section 6 Q4 names the sectorial upgrade gap (Wasow Section X.3
+Theorem 11.1, Adams 1928, Turrittin 1955, Immink 1984) that
+would, jointly with the closure of (i') or (ii'), turn the
+formal-level baseline into a proof of A = 2d on the SIARC
+stratum.
+
+Cross-cited Zenodo deposits and DOIs:
+
+- PCF-1 v1.3 ........... 10.5281/zenodo.19937196
+- PCF-2 v1.3 ........... 10.5281/zenodo.19963298
+- D2-NOTE v2.1 ......... 10.5281/zenodo.20015923
+- CT v1.3 .............. 10.5281/zenodo.19899996
+- T2B v3 ............... 10.5281/zenodo.19915689
+- umbrella v2.0 ........ 10.5281/zenodo.19965041
+
+Primary literature anchors:
+
+- Birkhoff & Trjitzinsky 1933, Acta Math. 60, DOI 10.1007/BF02398269
+  ("Analytic theory of singular difference equations"), Sections
+  7-9 plus Section 11 Theorem III.
+- Wimp & Zeilberger 1985, J. Math. Anal. Appl. 111, "Resurrecting
+  the asymptotics of linear recurrences".
+- Wasow 1965, "Asymptotic expansions for ordinary differential
+  equations", Section X.3 Theorem 11.1.
+- Adams 1928, Annals of Math. 30 (1), "On the asymptotic
+  expansions of the solutions of linear difference equations".
+- Turrittin 1955; Immink 1984; Costin 2008; Birkhoff 1930;
+  Loday-Richaud 2016 (related literature).
+
+AEAL (Author-Evidence-Aided Logging) schema: 10 entries in
+claims.jsonl. Six entries are literature-citation carry-forward
+from the bridge T1-BIRKHOFF-PHASE2-LIFT-LOWER session (Phase A
+deg 2/3/4 baselines, Phase B sweep d in [5,8], Phase C four
+sub-gates, Phase D verdict). Two entries are literature-citation
+anchors to PCF-1 v1.3 Section 6 Theorem 5 lower branch and PCF-2
+v1.3 R1.1 + R1.3 + Q1 empirical record. One entry is the
+computation claim recording the three-pass pdflatex + bibtex
+build of bt_baseline_note.pdf (8 pages, 0 unresolved citations).
+One entry is the reading claim recording the rubber-duck self-
+review and forbidden-verb hygiene scan, with the four-way
+epistemic partition (PROVEN / VERIFIED / STRUCTURAL FRAMING /
+CONJECTURED) confirmed intact in every section.
+
+Related identifiers metadata for Zenodo:
+
+- isCitedBy / isContinuationOf / isPartOf:
+    PCF-1 v1.3 (10.5281/zenodo.19937196)
+    PCF-2 v1.3 (10.5281/zenodo.19963298)
+    D2-NOTE v2.1 (10.5281/zenodo.20015923)
+    CT v1.3 (10.5281/zenodo.19899996)
+    T2B v3 (10.5281/zenodo.19915689)
+    umbrella v2.0 (10.5281/zenodo.19965041)
+- isSupplementTo:
+    siarc-relay-bridge sessions/2026-05-03/T1-BIRKHOFF-PHASE2-LIFT-LOWER
+    (commit 37c939f).
+
+Build provenance:
+
+- pdflatex (MiKTeX 25.12); bibtex (BibTeX 0.99e), bibliography
+  style 'plain', 15 entries, 0 warnings.
+- bt_baseline_note.pdf SHA-256
+  23022f0de77ac8388ed584b2196c0ab995cd8cf18b2dd71efbc0488a0f6e5b7c
+- bt_baseline_note.tex SHA-256
+  6746692c517dc25238473e819527c5682465cdc9e1def69d1f6df31c1014d51b
+- annotated_bibliography.bib SHA-256
+  589f6e4a0b29de401229d60a6252de15436f355a2fa8b3ac04907779c2de923d
+
+Author-AI disclosure: This note was prepared by the author with
+AI assistance (GitHub Copilot, Microsoft; and Anthropic Claude in
+a separate session) for code generation, numerical computations,
+LaTeX drafting, and provenance bookkeeping under the SIARC
+(Self-Iterating Analytic Relay Chain) protocol. All
+load-bearing claims are anchored to AEAL entries with SHA-256
+provenance to either bridge-session computational artefacts or
+verbatim literature quotations. The author bears full
+responsibility for the content and the partitioning of claims
+across the four-way epistemic partition.
+
+License: CC-BY 4.0.

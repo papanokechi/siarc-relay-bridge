@@ -1,0 +1,854 @@
+% =====================================================================
+% A Newton-polygon formal-level baseline for the Birkhoff-Trjitzinsky
+% exponent on the SIARC polynomial continued-fraction Wallis stratum
+%
+% Standalone SIARC short note (Zenodo cite-target; new concept DOI).
+%
+% Provenance: this note consolidates the result of T1-BIRKHOFF-PHASE2-
+% LIFT-LOWER (verdict UPGRADE_PARTIAL_FORMAL_LEVEL; bridge commit
+% 37c939f, 2026-05-04). It introduces no new numerical pipeline:
+% every numerical fact is carried over from the Phase 2 bridge
+% session and re-anchored in this note's own claims.jsonl.
+%
+% Date: 2026-05-06
+% Filename convention: bt_baseline_note (presentation-grade)
+% =====================================================================
+
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\usepackage{orcidlink}
+
+\definecolor{darklink}{rgb}{0.0,0.2,0.5}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=darklink,
+  citecolor=darklink,
+  urlcolor=darklink,
+  pdftitle={A Newton-polygon formal-level baseline for the
+            Birkhoff-Trjitzinsky exponent on the SIARC polynomial
+            continued-fraction Wallis stratum (v1.0)},
+  pdfauthor={Papanokechi},
+  pdfkeywords={Newton polygon, Birkhoff-Trjitzinsky, polynomial
+               continued fractions, SIARC PCF stratum, asymptotic
+               exponent, Wimp-Zeilberger ansatz}
+}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Open problem}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\PCF}{\mathrm{PCF}}
+\newcommand{\dps}{\mathrm{dps}}
+\newcommand{\Anaive}{A_{\mathrm{naive}}}
+\newcommand{\Afit}{A_{\mathrm{fit}}}
+\newcommand{\dega}{\deg a}
+\newcommand{\degb}{\deg b}
+
+\def\version{1.0}
+
+\title[A Newton-polygon formal-level baseline]
+      {A Newton-polygon formal-level baseline for the
+       Birkhoff--Trjitzinsky exponent on the SIARC polynomial
+       continued-fraction Wallis stratum}
+
+\author{Papanokechi}
+\address{Independent researcher, Yokohama, Japan. \\
+ORCID: \href{https://orcid.org/0009-0000-6192-8273}{0009-0000-6192-8273}.}
+\thanks{ORCID:
+\href{https://orcid.org/0009-0000-6192-8273}{0009-0000-6192-8273}.
+The author received no external funding for this work. The symbolic
+derivations carried by this note were performed under the
+AEAL/SIARC multi-agent computational methodology; AI assistants
+(GitHub~Copilot powered by Anthropic Claude Opus~4.7, and
+Anthropic Claude directly) were used for code generation, numerical
+computations, and manuscript drafting. After using these tools, the
+author reviewed and edited the content as needed and takes full
+responsibility for the content of this article. The AI assistants
+are not authors. Session-level computation logs and prompts are
+archived on the SIARC bridge under
+\texttt{sessions/2026-05-03/T1-BIRKHOFF-PHASE2-LIFT-LOWER/}
+(commit \texttt{37c939f}) and
+\texttt{sessions/2026-05-06/T1-PHASE2-BASELINE-NOTE/} (this
+version), both available in line with the AEAL reproducibility
+requirement.}
+
+\date{2026-05-06 (v\version)}
+
+\begin{document}
+
+\begin{abstract}
+For the SIARC polynomial continued-fraction (PCF) Wallis recurrence
+$p_n = b_n\,p_{n-1} + a_n\,p_{n-2}$ with polynomial coefficients
+$b_n$ of degree $d \ge 2$ and $a_n$ of convention-dependent degree,
+we record the formal-level baseline obtained from the standard
+Wimp--Zeilberger normal-case ansatz
+$y(n) = \Gamma(n)^{\mu}\,\gamma^{n}\,n^{\rho}\,S(1/n)$:
+the formal asymptotic exponent
+$\Anaive = \mu_{\mathrm{dom}} - \mu_{\mathrm{sub}}$ takes a value
+in $\{d-1,\,d,\,d+1\}$ across the three coefficient conventions
+(\emph{$\alpha$}-direction, symmetric, \emph{$\delta$}-direction)
+uniformly for $d \in [2,8]$ (\Cref{thm:baseline}). The
+$d=2$, $\alpha$-direction prediction $\Anaive = 3$ is verified
+at $80$ algebraic digits against PCF-1 v1.3 \S6 Theorem 5 lower
+branch (QL01--QL26)
+\cite{papanokechi_pcf1_v13}\footnote{SIARC Zenodo deposit;
+internal review only, not peer-reviewed.}. The empirical record of
+PCF-2 v1.3 R1.1 + R1.3 + Q1
+(\cite{papanokechi_pcf2_v13}\footnote{SIARC Zenodo deposit; internal
+review only, not peer-reviewed.}: $50/50$ cubic representatives at
+$d=3$ and $60/60$ quartic representatives at $d=4$ exhibiting
+$\Afit \approx 2d$) lies strictly outside the formal baseline
+at $d \ge 3$; \Cref{prop:gap-framing} frames this gap by
+identifying two non-mutually-exclusive structural mechanisms
+consistent with it. The note remains purely consolidatory
+(no new numerical pipeline is run) and is the SIARC counterpart
+of PCF-1 v1.3 \S6 Theorem 5 \emph{lower branch}: a positive
+formal-level result in its own right, citable independently of
+any subsequent lift to $A = 2d$
+(Conjecture B4 of \cite{papanokechi_pcf2_v13}).
+\end{abstract}
+
+\maketitle
+
+\section{Setup and main results}
+\label{sec:setup}
+
+\subsection{The SIARC PCF Wallis recurrence}
+Throughout this note we work with a polynomial continued-fraction
+(PCF) Wallis recurrence in the SIARC convention
+\begin{equation}
+\label{eq:wallis}
+  p_n \;=\; b_n\,p_{n-1} \,+\, a_n\,p_{n-2},
+  \qquad n \ge 2,
+\end{equation}
+with the partial denominator polynomial
+$b_n = b(n) = c_b\,n^{d} + (\text{lower order in }n)$
+of degree $d \ge 2$ and leading coefficient $c_b \ne 0$, and the
+partial numerator polynomial $a_n = a(n)$ a polynomial of degree
+$\dega$ that depends on the SIARC \emph{coefficient convention}
+in use. We adopt the three conventions standard in the
+SIARC stack:
+
+\begin{itemize}[leftmargin=2.2em]
+\item \textbf{$\alpha$-direction.}
+  $\dega = d - 1$.
+  This is the convention of PCF-1 v1.3 \S6 (the Wallis-product
+  family with one fewer numerator degree than denominator)
+  and of the QL01--QL26 family
+  \cite{papanokechi_pcf1_v13}.
+\item \textbf{Symmetric.}
+  $\dega = d$.
+  This is the convention used for several intermediate
+  asymptotic-classification arguments in the Channel Theory
+  outline \cite{siarc_channel_theory_v13}.
+\item \textbf{$\delta$-direction.}
+  $\dega = d + 1$.
+  This is the convention of the V$_{\mathrm{quad}}$ class label
+  and is invoked in the gap-proposition framing of the
+  Birkhoff--Trjitzinsky lift \cite{siarc_t1_phase2}.
+\end{itemize}
+
+The leading coefficient of $a_n$ is denoted $c_a \ne 0$ in all
+three conventions.
+
+\subsection{The Wimp--Zeilberger normal-case ansatz}
+\label{sec:wz-ansatz-intro}
+The standard formal-asymptotic ansatz for the second-order linear
+difference recurrence \eqref{eq:wallis} at the irregular singular
+point $n = \infty$ is the Wimp--Zeilberger normal-case ansatz
+\cite[Ch.~6]{wimp1984computation}, in the form
+\begin{equation}
+\label{eq:wz-ansatz}
+  y(n) \;=\; \Gamma(n)^{\mu}\;\gamma^{n}\;n^{\rho}\;S(1/n),
+  \qquad
+  S(t) \;=\; 1 \,+\, s_1\,t \,+\, s_2\,t^{2} \,+\, \dots,
+\end{equation}
+a formal series with $\mu, \gamma, \rho \in \mathbb{C}$ and
+$S(t) \in \mathbb{C}[[t]]$. The objects $\mu$ and $\gamma$ are
+determined by the Newton-polygon balance of the leading
+coefficients of the recurrence; $\rho$ is the secondary
+indicial exponent; and $S(1/n)$ encodes the Birkhoff
+recursion for the lower-order corrections.
+
+In this note, the formal asymptotic exponent of the recurrence
+\eqref{eq:wallis} at the irregular singular point $n = \infty$
+is the Birkhoff--Trjitzinsky difference
+\begin{equation}
+\label{eq:Anaive-def}
+  \Anaive \;:=\; \mu_{\mathrm{dom}} \,-\, \mu_{\mathrm{sub}},
+\end{equation}
+where $\mu_{\mathrm{dom}}$ and $\mu_{\mathrm{sub}}$ are the
+$\mu$-values of, respectively, the dominant and subdominant
+formal solutions of \eqref{eq:wallis} produced by the
+ansatz \eqref{eq:wz-ansatz}. The subscript \emph{naive}
+records that \eqref{eq:Anaive-def} is the formal-level
+exponent obtained from the normal-case ansatz; the relation
+of $\Anaive$ to the empirical exponent $\Afit$ measured in
+high-precision tail-window fits of $\log|p_n / p_{n-1}|$ on
+the SIARC stratum at $d \ge 3$ is the substance of
+\Cref{sec:gap}.
+
+\subsection{Main results}
+\label{sec:main-results}
+
+The two main results of this note are the following.
+
+\begin{theorem}[Formal-level baseline]
+\label{thm:baseline}
+For the SIARC PCF Wallis recurrence \eqref{eq:wallis} with
+polynomial coefficient $b_n$ of degree $d \ge 2$ (leading
+coefficient $c_b \ne 0$) and polynomial coefficient $a_n$ of
+convention-dependent degree
+$\dega \in \{d-1,\,d,\,d+1\}$
+(leading coefficient $c_a \ne 0$), the Wimp--Zeilberger
+normal-case ansatz \eqref{eq:wz-ansatz} admits exactly two
+formal-balance solutions $y_{\mathrm{dom}}$ and
+$y_{\mathrm{sub}}$, with
+\begin{equation}
+\label{eq:mu-pair}
+  \mu_{\mathrm{dom}} \;=\; \degb \;=\; d,
+  \qquad
+  \mu_{\mathrm{sub}} \;=\; \dega \,-\, \degb \;=\; \dega - d,
+\end{equation}
+so that the formal asymptotic exponent
+\eqref{eq:Anaive-def} satisfies
+\begin{equation}
+\label{eq:Anaive-band}
+  \Anaive \;=\; 2\degb - \dega \;=\; 2d - \dega
+  \;\in\; \{\,d-1,\,d,\,d+1\,\}
+\end{equation}
+across the three SIARC conventions, uniformly for
+$d \in [2, 8]$.
+\end{theorem}
+
+\begin{proposition}[Gap-framing]
+\label{prop:gap-framing}
+The empirical record of PCF-2 v1.3 R1.1 + R1.3 + Q1
+\cite{papanokechi_pcf2_v13} -- $50/50$ cubic representatives
+at $d=3$ with $\Afit \approx 6 = 2d$, and $60/60$ quartic
+representatives at $d=4$ with mean $\Afit = 7.954 \approx 8 = 2d$
+and standard deviation $3.7 \times 10^{-3}$ -- lies strictly
+outside the formal baseline of \Cref{thm:baseline} at $d \ge 3$.
+Two non-mutually-exclusive structural mechanisms are consistent
+with this gap:
+\begin{enumerate}[label=\textup{(\roman*$'$)},leftmargin=2.4em]
+\item \emph{Borderline-locus mechanism.} The SIARC stratum is
+positioned at the \emph{borderline} locus $\dega = 2\degb$ of
+\cite[\S5]{wimp1984computation} (the Wimp--Zeilberger normal
+form is replaced by an anormal-case ansatz of fractional rank
+$q = 2$).
+\item \emph{Definitional mechanism.} The empirical $\Afit$ of
+\cite{papanokechi_pcf2_v13} measures a ratio different from
+$\mu_{\mathrm{dom}} - \mu_{\mathrm{sub}}$ (for example, a
+Stokes-constant exponent on $\log Q_n$ rather than on
+$n \log n$).
+\end{enumerate}
+Distinguishing \textup{(i$'$)} from \textup{(ii$'$)} is
+the open content of any follow-on phase
+(\Cref{sec:open}, Q\ref{q:mechanism}).
+\end{proposition}
+
+\Cref{thm:baseline} is proven in \Cref{sec:proof} by explicit
+case analysis on the three conventions across $d \in [2, 8]$;
+the computation reproduces the symbolic derivation of
+\cite[Phase~A]{siarc_t1_phase2} in self-contained form.
+\Cref{prop:gap-framing} is supported in \Cref{sec:gap} by
+direct comparison of the formal baseline with the
+\cite{papanokechi_pcf2_v13} empirical record and a re-statement
+of the borderline-locus condition of
+\cite[\S5]{wimp1984computation}.
+
+The exponent $A = 2d$ at $d \ge 3$ -- equivalently, the
+\emph{closure} of the gap of \Cref{prop:gap-framing} via
+mechanism \textup{(i$'$)} or \textup{(ii$'$)} -- is recorded
+in this note as Conjecture B4 of \cite{papanokechi_pcf2_v13},
+restated in \Cref{conj:b4} below. We do not claim to prove or
+partially prove Conjecture B4: the formal-level baseline
+\Cref{thm:baseline} narrows the structural framing of the gap
+to the two mechanisms above and is consistent with -- but does
+not establish -- $A = 2d$.
+
+\begin{conjecture}[B4 of \cite{papanokechi_pcf2_v13}]
+\label{conj:b4}
+For the SIARC PCF Wallis recurrence \eqref{eq:wallis} at
+$d \ge 3$, the empirical exponent $\Afit$ extracted from a
+high-precision tail-window fit of $\log|p_n / p_{n-1}|$ takes
+the value $A = 2d$ exactly, in the limit $n \to \infty$.
+\end{conjecture}
+
+\section{The Wimp--Zeilberger normal-case ansatz and its
+         balance analysis}
+\label{sec:wz-balance}
+
+This section reproduces, in self-contained form, the
+symbolic balance analysis of \cite[Phase~A]{siarc_t1_phase2}
+that yields the $\mu$-pair \eqref{eq:mu-pair} and so the
+band \eqref{eq:Anaive-band}.
+
+\subsection{Substitution and the leading-order edge equation}
+\label{sec:wz-edge}
+Substitute the ansatz \eqref{eq:wz-ansatz} into the Wallis
+recurrence \eqref{eq:wallis} and divide by $y(n) \ne 0$; using
+the Stirling-type identity
+$\Gamma(n-k)/\Gamma(n) \sim n^{-k}\,(1 + O(1/n))$ for fixed
+$k \ge 1$ and the formal expansion
+$(1 - 1/n)^{\rho} = 1 + O(1/n)$, the leading order in $n$ is
+\begin{equation}
+\label{eq:edge}
+  1 \;-\; \frac{c_b\,n^{\degb - \mu}}{\gamma}
+  \;-\; \frac{c_a\,n^{\dega - 2\mu}}{\gamma^{2}} \;=\; 0.
+\end{equation}
+Equation \eqref{eq:edge} is the leading-order edge equation
+of the Newton-polygon balance for \eqref{eq:wallis} on the
+ansatz \eqref{eq:wz-ansatz}; the three monomials $1$,
+$c_b\,n^{\degb - \mu}/\gamma$, $c_a\,n^{\dega - 2\mu}/\gamma^{2}$
+correspond to the three terms $p_n$, $b_n\,p_{n-1}$,
+$a_n\,p_{n-2}$ of \eqref{eq:wallis}.
+
+\subsection{Three balance possibilities}
+\label{sec:wz-three-balances}
+The leading-order edge equation \eqref{eq:edge} admits three
+possible \emph{Newton-polygon balances} -- pairings of two of
+the three monomials at the same order in $n$, with the third
+monomial subleading:
+
+\begin{itemize}[leftmargin=2.2em]
+\item[\textbf{(I)}] \emph{$1 \leftrightarrow c_b/\gamma$ balance.}
+   $\degb - \mu = 0$, equivalently $\mu = \degb = d$ and
+   $\gamma = c_b$. The third term
+   $c_a\,n^{\dega - 2\mu}/\gamma^{2}$ is subleading whenever
+   $\dega < 2\degb$.
+\item[\textbf{(II)}] \emph{$1 \leftrightarrow c_a/\gamma^{2}$ balance.}
+   $\dega - 2\mu = 0$, equivalently $\mu = \dega / 2$ and
+   $\gamma^{2} = c_a$. The third term
+   $c_b\,n^{\degb - \mu}/\gamma$ is subleading whenever
+   $\degb < \dega / 2$, i.e., $\dega > 2\degb$.
+\item[\textbf{(III)}] \emph{$c_b/\gamma \leftrightarrow c_a/\gamma^{2}$
+   balance.} $\degb - \mu = \dega - 2\mu$, equivalently
+   $\mu = \dega - \degb$ and $\gamma = -c_a / c_b$. The third
+   term $1$ is subleading whenever $\degb - \mu > 0$, i.e.,
+   $\mu < \degb$, i.e., $\dega < 2\degb$.
+\end{itemize}
+
+For the SIARC PCF stratum at $d \ge 2$ in any of the three
+conventions ($\dega \in \{d-1, d, d+1\}$), the inequality
+$\dega < 2\degb = 2d$ is satisfied (recalling $d \ge 2$, hence
+$\dega \le d+1 \le 2d - 1 < 2d$). Therefore balance \textbf{(I)}
+and balance \textbf{(III)} are simultaneously consistent, and
+balance \textbf{(II)} is excluded. We obtain exactly two formal
+solutions at the level of the leading-order edge equation
+\eqref{eq:edge}:
+\begin{equation}
+\label{eq:dom-sub}
+  \mu_{\mathrm{dom}} \;=\; d
+  \quad (\text{from (I)}),
+  \qquad
+  \mu_{\mathrm{sub}} \;=\; \dega - d
+  \quad (\text{from (III)}).
+\end{equation}
+The dominant solution $y_{\mathrm{dom}}$ corresponds to balance
+\textbf{(I)} and carries the \emph{larger} $\mu$, hence the
+\emph{larger} formal $\Gamma(n)^{\mu}$ growth rate; the
+subdominant solution $y_{\mathrm{sub}}$ corresponds to balance
+\textbf{(III)} and carries the \emph{smaller} $\mu$. The
+inequality $\mu_{\mathrm{dom}} > \mu_{\mathrm{sub}}$ holds
+strictly: $d - (\dega - d) = 2d - \dega \ge 1 > 0$ since
+$\dega \le d + 1 \le 2d - 1$.
+
+\subsection{The per-convention table}
+\label{sec:wz-table}
+Substituting the three SIARC conventions into \eqref{eq:dom-sub}
+and \eqref{eq:Anaive-def}--\eqref{eq:Anaive-band} yields the
+table:
+
+\begin{center}
+\begin{tabular}{c c c c c c}
+\toprule
+Convention & $\dega$ & $\mu_{\mathrm{dom}}$ & $\mu_{\mathrm{sub}}$
+  & $\Anaive = 2d - \dega$ & $\Anaive$ as $f(d)$\\
+\midrule
+$\alpha$-direction & $d-1$ & $d$ & $-1$ & $d + 1$ & $d+1$\\
+symmetric          & $d$   & $d$ & $0$  & $d$     & $d$\\
+$\delta$-direction & $d+1$ & $d$ & $1$  & $d - 1$ & $d-1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The three columns labelled $\Anaive$ exhibit the band
+$\Anaive \in \{d-1,\,d,\,d+1\}$ uniformly in $d$; the
+band's width is $2$ (from $d-1$ to $d+1$), independent of $d$.
+The largest entry in the band, $\Anaive = d+1$, is the
+\emph{$\alpha$-direction} value, and is the only entry that
+recovers an integer in the range of the empirical $\Afit$
+for $d = 2$ (see \Cref{sec:proof-d2}); for $d \ge 3$, all
+three entries lie strictly below the empirical $\Afit \approx 2d$
+of \cite{papanokechi_pcf2_v13}.
+
+\subsection{Phase~A AEAL anchor}
+\label{sec:wz-aeal}
+The symbolic derivation above is implemented in the Phase~A
+script \texttt{phase\_a\_symbolic\_derivation.py} of the
+T1-BIRKHOFF-PHASE2-LIFT-LOWER bridge session
+\cite{siarc_t1_phase2}, locked at SHA-$256$
+\texttt{2fc6e392\dots f16248} (full hash:
+\texttt{2fc6e39267768791912cc53aa59bc231c40483a1a93e92104b13f07809f16248}).
+The script's run-output table at $d \in \{2, 3, 4\}$ for the three
+conventions reproduces the table of \Cref{sec:wz-table} verbatim;
+the AEAL claim entries \texttt{PA\_DEG2\_ALPHA\_BASELINE},
+\texttt{PA\_DEG3\_ALPHA\_BASELINE}, \texttt{PA\_DEG4\_ALPHA\_BASELINE}
+of the bridge \texttt{claims.jsonl} carry the per-degree
+output hashes.
+
+\section{Proof of the formal-level baseline}
+\label{sec:proof}
+
+\Cref{thm:baseline} is proven by combining the symbolic balance
+analysis of \Cref{sec:wz-balance} (which establishes the
+$\mu$-pair \eqref{eq:dom-sub} and the band
+\eqref{eq:Anaive-band} for the leading-order edge equation
+\eqref{eq:edge}) with the per-degree case analysis below.
+
+\subsection{Per-degree confirmation: $d \in [2, 8]$}
+\label{sec:proof-d28}
+The Phase~A symbolic derivation
+\cite[Phase~A.1--A.4]{siarc_t1_phase2} executes the substitution
+of \Cref{sec:wz-edge} for $d \in \{2, 3, 4\}$ in the three
+SIARC conventions. The Phase~B extended sweep
+\texttt{phase\_b\_extended\_sweep.py} of
+\cite[Phase~B]{siarc_t1_phase2} (SHA-$256$
+\texttt{39e98db607a5331686cf4ba4890bc50abc1232e8b533b80eeb2d4636c8e10175})
+extends the same substitution to $d \in [3, 8]$; in every
+$(d, \text{convention})$ stratum sampled, the dominant balance
+is \textbf{(I)} and the subdominant balance is \textbf{(III)}
+of \Cref{sec:wz-three-balances}, and the band
+$\Anaive \in \{d-1, d, d+1\}$ is realised exactly. The Phase~B
+AEAL claim \texttt{PB\_SWEEP\_D5\_TO\_D8} of the bridge
+\texttt{claims.jsonl} carries the corresponding output hash.
+
+The Phase~B sweep also \emph{records} that the borderline
+condition $\dega = 2\degb$ of
+\cite[\S5]{wimp1984computation} is \emph{never} met by any of
+the three conventions for $d \in [3, 8]$ (since $\dega \le d+1 <
+2d$ strictly), so that the SIARC stratum sits in the
+\emph{normal} case of the Wimp--Zeilberger formalism throughout
+this range.
+
+This per-degree case analysis closes the proof of
+\Cref{thm:baseline}.
+
+\subsection{Verification at $d = 2$, $\alpha$-direction}
+\label{sec:proof-d2}
+Specialising \Cref{thm:baseline} to $d = 2$ in the
+$\alpha$-direction convention ($\dega = d - 1 = 1$) yields
+$\Anaive = d + 1 = 3$. This formal-level prediction is the
+exponent recovered, at $80$ algebraic digits, by the
+PCF-1 v1.3 \S6 Theorem 5 \emph{lower branch}:
+
+\begin{quote}
+\itshape
+At $d = 2$, the $\alpha$-direction Wallis stratum admits two
+exponent strata, $A \in \{3, 4\}$. The lower stratum $A = 3$ is
+realised by the QL01--QL26 family of $26$ representatives, with
+each representative's $A$-value verified at $\dps = 80$ across
+the high-precision tail-window fit (\cite[\S6, Theorem~5,
+lower branch]{papanokechi_pcf1_v13}).
+\end{quote}
+
+The Phase~A claim \texttt{PA\_DEG2\_ALPHA\_BASELINE} of
+\cite{siarc_t1_phase2} records that the symbolic derivation
+of \Cref{sec:wz-balance} at $d = 2$, $\alpha$-direction
+recovers $\Anaive = 3$ verbatim, matching the QL01--QL26 lower
+branch as verified at $\dps = 80$ in \cite{papanokechi_pcf1_v13}.
+
+The $d = 2$ \emph{upper} branch $A = 4 = 2d$, realised by the
+V$_{\mathrm{quad}}$ representative of
+\cite[\S6, Theorem~5, upper branch]{papanokechi_pcf1_v13},
+is \emph{not} recovered by the formal-level baseline of
+\Cref{thm:baseline}: the band $\Anaive \in \{1, 2, 3\}$ at
+$d = 2$ does not contain $4$. The V$_{\mathrm{quad}}$ upper
+branch is consistent with the borderline-locus mechanism
+\textup{(i$'$)} of \Cref{prop:gap-framing} -- the closure of
+which is the open content of \Cref{sec:open} Q\ref{q:mechanism}.
+
+\section{Structural framing of the gap to $A = 2d$ at $d \ge 3$}
+\label{sec:gap}
+
+\Cref{thm:baseline} establishes that the formal-level
+baseline $\Anaive$ obtained from the Wimp--Zeilberger normal-case
+ansatz lies in the band $\{d-1, d, d+1\}$ across the three SIARC
+conventions, uniformly for $d \in [2, 8]$. The empirical
+record of PCF-2 v1.3 R1.1 + R1.3 + Q1 \cite{papanokechi_pcf2_v13}
+exhibits an $\Afit \approx 2d$ at $d = 3$ and $d = 4$ -- a value
+that lies strictly outside this band for $d \ge 3$. This
+section frames the gap structurally; it does \emph{not} close
+the gap.
+
+\subsection{The PCF-2 v1.3 empirical record}
+\label{sec:gap-pcf2}
+The empirical record carried by \cite{papanokechi_pcf2_v13}
+R1.1 + R1.3 + Q1 is, verbatim:
+
+\begin{itemize}[leftmargin=2.2em]
+\item $50/50$ cubic representatives at $d=3$ with
+  $\Afit \approx 6 = 2d$ in the high-precision tail-window
+  fit (R1.1 of \cite{papanokechi_pcf2_v13}).
+\item $60/60$ quartic representatives at $d=4$ with mean
+  $\Afit = 7.954 \approx 8 = 2d$ and standard deviation
+  $\sigma = 3.7 \times 10^{-3}$ (R1.3 + Q1 of
+  \cite{papanokechi_pcf2_v13}).
+\end{itemize}
+
+The fit is performed at $\dps = 80$ in mpmath, on a tail
+window of length $O(10^3)$ to $O(10^4)$, with the $A$-value
+extracted by linear regression on
+$\log|p_n / p_{n-1}|$ against $n \log n$ (cf.\
+\cite[\S\S R1, Q1]{papanokechi_pcf2_v13} for the exact
+window-length and fit-protocol). The Phase~A baseline of
+\Cref{thm:baseline} predicts $\Anaive \in \{d-1, d, d+1\}$
+in the same conventions, hence $\Anaive < 2d$ for $d \ge 3$;
+the record is consistent with the empirical lift but is not
+explained at the formal level.
+
+\subsection{The Wimp--Zeilberger borderline-case condition}
+\label{sec:gap-wz-border}
+\cite[\S5]{wimp1984computation} distinguishes a \emph{normal}
+case ($\dega < 2\degb$) from a \emph{borderline} case
+($\dega = 2\degb$) of the second-order linear difference
+recurrence. In the normal case, the Wimp--Zeilberger ansatz
+\eqref{eq:wz-ansatz} of integer formal rank $p = 1$ produces
+exactly the two formal solutions $y_{\mathrm{dom}}$ and
+$y_{\mathrm{sub}}$ of \Cref{sec:wz-three-balances}. In the
+borderline case, the two formal solutions \emph{coalesce} at
+the leading symbol level (both have $\mu = \degb$), and the
+asymptotic split is governed instead by sub-leading
+sub-exponential corrections of the form $\exp(\pm B\sqrt{n})$;
+the appropriate ansatz is anormal of fractional rank $q = 2$
+(cf.\ \cite[\S\S5--6]{wimp1984computation}).
+
+The Phase~B sweep \cite[Phase~B]{siarc_t1_phase2} records that
+the SIARC stratum at $d \ge 2$ in any of the three SIARC
+conventions has $\dega \in \{d-1, d, d+1\}$, hence
+$\dega < 2\degb = 2d$ \emph{strictly} for $d \ge 2$. The SIARC
+stratum is therefore \emph{in} the normal case of
+\cite[\S5]{wimp1984computation}, and the formal-level
+baseline of \Cref{thm:baseline} is the formal exponent
+predicted by the normal-case ansatz.
+
+\subsection{Two structural mechanisms consistent with the gap}
+\label{sec:gap-mechanisms}
+
+The gap between $\Anaive \in \{d-1, d, d+1\}$ (formal baseline)
+and $\Afit \approx 2d$ (empirical record at $d = 3, 4$) at
+$d \ge 3$ is consistent with two non-mutually-exclusive
+structural mechanisms:
+
+\begin{itemize}[leftmargin=2.2em]
+\item[\textbf{(i$'$)}] \emph{Borderline-locus mechanism.}
+   The SIARC stratum may exhibit, at $d \ge 3$, a degeneracy
+   of the leading polynomial coefficient $c_b$ on a particular
+   sub-locus of the parameter space, in such a way that the
+   effective $\dega$ at that sub-locus equals $2\degb$. The
+   Wimp--Zeilberger normal-case ansatz then fails on the
+   sub-locus and is replaced by an anormal-case ansatz of
+   fractional rank $q = 2$ (carrying $\exp(\pm B\sqrt{n})$
+   sub-leading factors). The SIARC stratum's empirical
+   $\Afit \approx 2d$ would, on this mechanism, reflect the
+   $\mu$-pair of the anormal-case ansatz and not the
+   $\mu$-pair \eqref{eq:dom-sub} of the normal case.
+\item[\textbf{(ii$'$)}] \emph{Definitional mechanism.}
+   The empirical $\Afit$ extracted by the PCF-2 v1.3
+   high-precision tail-window fit may measure a ratio
+   different from $\mu_{\mathrm{dom}} - \mu_{\mathrm{sub}}$.
+   For example, $\Afit$ may be the Stokes-constant exponent
+   on $\log|p_n|$ -- a slightly different combination of the
+   formal data of \eqref{eq:wz-ansatz} -- rather than the
+   exponent on $n \log n$. On this mechanism, the formal
+   baseline of \Cref{thm:baseline} and the empirical
+   $\Afit \approx 2d$ would not be in direct tension; the
+   gap would instead reflect a translation between two
+   distinct asymptotic invariants.
+\end{itemize}
+
+These two mechanisms are not mutually exclusive: a sub-locus
+identification of the form (i$'$) may coexist with a
+definitional translation of the form (ii$'$). The argument
+supporting \Cref{prop:gap-framing} consists of the two
+observations above; the closure of the gap (i.e., the
+identification of which mechanism is realised) is the open
+content of \Cref{sec:open} Q\ref{q:mechanism}.
+
+\subsection{Forbidden-verb hygiene for this section}
+\label{sec:gap-hygiene}
+The structural framing of \Cref{sec:gap-mechanisms} does
+not assert that either mechanism (i$'$) or (ii$'$) is
+realised. The wording is \emph{consistent with}, \emph{frames
+the gap}, \emph{narrows the gap}, \emph{is consistent with};
+the wording \emph{shows / confirms / proves / demonstrates /
+establishes / verifies} is reserved for the formal-level
+\Cref{thm:baseline} and the literature-citation
+$d=2$ verification of \Cref{sec:proof-d2}, and is not
+extended to $A = 2d$ or to Conjecture B4
+(\Cref{conj:b4}). This hygiene is checked, sentence by
+sentence, in the \texttt{rubber\_duck\_critique.md} of
+this session.
+
+\section{Connection to Birkhoff--Trjitzinsky 1933}
+\label{sec:bt}
+
+The Birkhoff--Trjitzinsky 1933 paper
+\cite{birkhoff_trjitzinsky_1933} provides the
+\emph{existence and factorization} machinery for the formal
+solutions of a difference equation $L_n(y) = 0$ with
+coefficients of the kind specified in \cite[\S1]{birkhoff_trjitzinsky_1933}.
+This section records that the machinery applies to the SIARC
+stratum uniformly in $d$ at the formal level and the sectorial
+realization level. It does \emph{not} record that the machinery
+identifies $A = 2d$ for the SIARC stratum specifically; that
+identification is the open content of any follow-on phase
+(\Cref{sec:open}).
+
+\subsection{The B--T 1933 \S\S7--9 machinery}
+The Phase~C verification \cite[Phase~C]{siarc_t1_phase2}
+extracts verbatim from the SHA-verified OCR text dump of
+\cite{birkhoff_trjitzinsky_1933} (PDF SHA-$256$
+\texttt{dcd7e3c6\dots d68fe6}) the following three results:
+
+\begin{itemize}[leftmargin=2.2em]
+\item \textbf{\S7 Theorem II} (factorization preservation):
+  if $L_n = L_{n-r}\,L_r$ with $L_{n-r}, L_r$ completely proper
+  in a region, the product $L_n$ is completely proper in the
+  same region.
+\item \textbf{\S9 Fundamental Theorem} (existence):
+  every $L_n(y) = 0$ with coefficients of the kind specified
+  in \cite[\S1]{birkhoff_trjitzinsky_1933} and known in the
+  complete neighbourhood of infinity is completely proper in
+  each of the several quadrants associated with the equation.
+\item \textbf{\S11 Theorem III} (converse / sectorial
+  realization): given a linearly independent set of formal
+  series $e^{Q_j(x)}\,s_j(x)$ of the same general description
+  as might occur in connection with a difference equation of
+  order $n$, there exists a difference equation $L_n(y) = 0$
+  of \cite[\S1]{birkhoff_trjitzinsky_1933}-kind possessing the
+  series as fundamental solutions.
+\end{itemize}
+
+\subsection{Application to the SIARC stratum}
+The SIARC PCF Wallis recurrence \eqref{eq:wallis} satisfies
+the \cite[\S1]{birkhoff_trjitzinsky_1933}-kind hypothesis: its
+coefficients $a_n, b_n$ are polynomial in $n$ (and in
+particular asymptotically rational in $n$ at $n = \infty$),
+hence of the appropriate Gevrey-$1$ class. The order is
+$n = 2$ in the language of \cite{birkhoff_trjitzinsky_1933}
+(an order-$2$ linear difference operator); the polynomial
+degree $d$ of the coefficient $b_n$ enters only at the level
+of the leading symbol of the operator, not the
+\cite[\S1]{birkhoff_trjitzinsky_1933}-kind hypothesis itself.
+
+The Phase~C four sub-gates of \cite[Phase~C.2]{siarc_t1_phase2}
+(non-resonance match, non-degeneracy match, $d$-range
+applicability, $\mu$-units consistency per the upstream A-01
+verdict) all pass for the SIARC stratum at the
+\emph{normal-case} locus $\dega < 2\degb$ -- with a
+\emph{caveat} that the \S7 Theorem~II ``point of division''
+condition $\Re Q_{\mathrm{dom}}(x) > \Re Q_{\mathrm{sub}}(x)$
+\emph{degenerates} on the borderline locus $\dega = 2\degb$
+(both formal exponents $\mu_{\mathrm{dom}}, \mu_{\mathrm{sub}}$
+coalesce at $\degb$, and the strict inequality on the real
+parts of the exponential dominants is replaced by an equality
+at leading order). The borderline-locus degeneracy is the
+literature-side counterpart of the borderline-locus mechanism
+\textup{(i$'$)} of \Cref{prop:gap-framing}.
+
+\subsection{Scope of the application}
+The application records that the formal-level analysis of
+\Cref{thm:baseline} carries through the
+\cite{birkhoff_trjitzinsky_1933} \S\S7--9 existence and
+factorization machinery uniformly in $d \in [2, 8]$. It
+\emph{does not} record that \cite{birkhoff_trjitzinsky_1933}
+identifies $A = 2d$ for the SIARC stratum specifically; the
+\S9 Fundamental Theorem is universal in $d$ but pin-points
+the formal-level $\mu$-pair only via the
+\cite[\S1]{birkhoff_trjitzinsky_1933}-kind hypothesis,
+which gives the band $\Anaive \in \{d-1, d, d+1\}$ already
+recorded in \Cref{thm:baseline}, not the lift to
+$A = 2d$. The lift is open in this note and is the open
+content of \Cref{sec:open} Q\ref{q:mechanism},
+Q\ref{q:borderline-Q}, and Q\ref{q:sectorial}.
+
+\section{Open questions and follow-on phases}
+\label{sec:open}
+
+\begin{problem}[Mechanism identification]
+\label{q:mechanism}
+Which of the two mechanisms (i$'$) borderline-locus and
+(ii$'$) definitional of \Cref{prop:gap-framing} is realised
+on the SIARC PCF Wallis stratum at $d \ge 3$? The
+\cite{papanokechi_pcf2_v13} R1.1 + R1.3 + Q1 record is
+consistent with either; distinguishing them requires
+either (a) symbolic derivation of the $\sqrt{n}$ sub-leading
+correction predicted by mechanism (i$'$) and an empirical
+test on the high-precision tail of $\log|p_n / p_{n-1}|$, or
+(b) a careful re-statement of the \cite{papanokechi_pcf2_v13}
+fit-protocol to support or rule out the
+$\Afit = \mu_{\mathrm{dom}} - \mu_{\mathrm{sub}}$ identification
+under mechanism (ii$'$).
+\end{problem}
+
+\begin{problem}[Borderline-case algebraic ansatz]
+\label{q:borderline-Q}
+Under mechanism (i$'$), can the borderline-case algebraic
+ansatz
+$Q_j(x) = \pm B\,x^{1/2} + (\text{lower order})$
+of \cite[\S1]{birkhoff_trjitzinsky_1933} be made explicit at
+the SIARC stratum, with $B$ identified in closed form in terms
+of $c_a$ and $c_b$? The expected closed form is
+$B = \sqrt{c_a}$ at the formal level, by analogy with the
+$d = 2$ V$_{\mathrm{quad}}$ upper-branch transition of
+\cite[\S6]{papanokechi_pcf1_v13}; an explicit derivation is
+open in this note.
+\end{problem}
+
+\begin{problem}[Definitional mechanism]
+\label{q:Afit-def}
+Under mechanism (ii$'$), what is the precise mathematical
+definition of $\Afit$ extracted by the
+\cite{papanokechi_pcf2_v13} high-precision tail-window fit?
+The fit is performed on $\log|p_n / p_{n-1}|$ at $\dps = 80$;
+the linear-regression target is $n \log n$. Whether the
+extracted slope is $\mu_{\mathrm{dom}} - \mu_{\mathrm{sub}}$
+or instead a Stokes-constant exponent (or a combination of
+the two) requires a fit-protocol audit.
+\end{problem}
+
+\begin{problem}[Formal-to-analytic sectorial upgrade]
+\label{q:sectorial}
+The formal-level baseline of \Cref{thm:baseline} is purely
+formal: it produces the two formal solutions
+$y_{\mathrm{dom}}, y_{\mathrm{sub}}$ as elements of
+$\Gamma(n)^{\mu}\,\gamma^{n}\,n^{\rho}\,\mathbb{C}[[1/n]]$,
+without an analytic-side guarantee that the corresponding
+formal Borel transforms converge in a sector of opening
+$> \pi/(2d)$ (the canonical sectorial-asymptotic existence
+condition for irregular singularities of formal rank $p = 1$).
+The formal-to-analytic sectorial upgrade is the content of
+the Wasow~\S X.3 (Theorem~11.1) \cite{wasow1965asymptotic} /
+Adams~1928 \cite{adams1928analytic} /
+Turrittin~1955 \cite{turrittin1955convergent} /
+Immink~1984 \cite{immink1984asymptotics} framework, with the
+modern Borel-Laplace radius identification stated in
+\cite[ch.~5]{costin2008asymptotics} and the formal-side
+existence anchored in \cite[\S2]{birkhoff1930formal}
+(see \cite[Phase~D]{siarc_t1_phase2} for the literature
+substrate).
+At the time of preparation of this note, the
+Wasow~\S X.3 OCR-readable PDF is unavailable on disk
+(image-only) and \cite{adams1928analytic} has not been
+acquired (NIA per the upstream A-01 verdict of
+\cite{siarc_t1_phase2}).
+The sectorial upgrade is open and is the natural T1 Phase~3
+follow-on.
+\end{problem}
+
+\section*{AI Disclosure}
+
+During the preparation of this work the author used GitHub
+Copilot (Microsoft) and Anthropic Claude to assist with code
+generation, numerical computations, and manuscript drafting.
+After using these tools, the author reviewed and edited the
+content as needed and takes full responsibility for the
+content of this article. AI assistants are not authors. All
+theorem statements (\Cref{thm:baseline}), proposition
+statements (\Cref{prop:gap-framing}), and conjecture
+statements (\Cref{conj:b4}) remain the human author's
+responsibility, and every numerical or symbolic-derivation
+fact in this note traces to an AEAL entry in
+\texttt{claims.jsonl} with a SHA-$256$ output hash on the
+SIARC bridge under \texttt{sessions/2026-05-03/T1-BIRKHOFF-PHASE2-LIFT-LOWER/}
+(the Phase~2 substrate, commit \texttt{37c939f}) and
+\texttt{sessions/2026-05-06/T1-PHASE2-BASELINE-NOTE/} (this
+version). The Birkhoff--Trjitzinsky~1933~\S\S7--9 verbatim
+extracts of \Cref{sec:bt} are anchored by the SHA-verified PDF
+\texttt{dcd7e3c6\dots d68fe6} of
+\cite{birkhoff_trjitzinsky_1933} at the runbook-canonical
+literature directory
+(\texttt{tex/submitted/control center/literature/g3b\_2026-05-03/}).
+
+\medskip
+\noindent\emph{Related cross-cites for the Zenodo
+related-identifiers block.}
+The present note's Zenodo deposit lists the following six
+SIARC Zenodo records as related identifiers (cite-block):
+PCF-1 v1.3 \cite{papanokechi_pcf1_v13},
+PCF-2 v1.3 \cite{papanokechi_pcf2_v13},
+Channel Theory v1.3 \cite{siarc_channel_theory_v13},
+T2B v3 \cite{siarc_t2b_v3},
+SIARC umbrella v2.0 \cite{siarc_umbrella_v2}, and
+D2-NOTE v2.1 \cite{siarc_d2_note_v21}.
+
+\appendix
+
+\section{Bridge session provenance}
+\label{app:provenance}
+
+The following SIARC bridge sessions are the AEAL anchors for
+the per-theorem claims in this note. Each is committed to the
+public \texttt{siarc-relay-bridge} GitHub repository at
+\href{https://github.com/papanokechi/siarc-relay-bridge}{\nolinkurl{github.com/papanokechi/siarc-relay-bridge}}.
+
+\begin{itemize}[leftmargin=2.2em]
+\item \texttt{sessions/2026-05-03/T1-BIRKHOFF-PHASE2-LIFT-LOWER/}
+  (commit \texttt{37c939f}, 2026-05-04). Phase~2 of T1; verdict
+  \texttt{UPGRADE\_PARTIAL\_FORMAL\_LEVEL}. The substrate of this
+  note. Phase~A symbolic derivation
+  \texttt{phase\_a\_symbolic\_derivation.py} SHA-$256$
+  \texttt{2fc6e392\dots f16248}; Phase~B extended sweep
+  \texttt{phase\_b\_extended\_sweep.py} SHA-$256$
+  \texttt{39e98db6\dots 8c10175}; Phase~C literature
+  verification \texttt{phase\_c\_literature\_verification.md}
+  SHA-$256$ \texttt{c6cc2b1a\dots 808ae93}; Phase~D verdict
+  \texttt{phase\_d\_verdict.md} SHA-$256$
+  \texttt{7145a00d\dots 2c65c5}; Phase~2 \texttt{claims.jsonl}
+  carries 16 AEAL entries.
+\item \texttt{sessions/2026-05-03/T1-A01-NORMALIZATION-RESOLUTION/}.
+  Upstream A-01 normalization-resolution verdict, used in
+  \Cref{sec:bt} to confirm $\mu$-units consistency across
+  Wasow / Birkhoff / Birkhoff--Trjitzinsky / Adams normalisation
+  conventions; provides the SHA-verified
+  \cite{birkhoff_trjitzinsky_1933} OCR text dump
+  \texttt{\_bt1933.txt} that supplies the verbatim extracts
+  of the Phase~C verification.
+\item \texttt{sessions/2026-05-06/T1-PHASE2-BASELINE-NOTE/} (this
+  session). Drafting and Zenodo packaging of the present note.
+  Contains \texttt{bt\_baseline\_note.tex},
+  \texttt{bt\_baseline\_note.pdf},
+  \texttt{annotated\_bibliography.bib},
+  \texttt{zenodo\_description\_bt\_baseline\_note.txt},
+  \texttt{zenodo\_upload\_bt\_baseline\_note\_runbook.md},
+  \texttt{claims.jsonl} ($\ge 10$ AEAL entries),
+  \texttt{rubber\_duck\_critique.md}, \texttt{verdict.md},
+  \texttt{halt\_log.json}, \texttt{discrepancy\_log.json},
+  \texttt{unexpected\_finds.json}, and \texttt{handoff.md}.
+\end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{annotated_bibliography}
+
+\end{document}
