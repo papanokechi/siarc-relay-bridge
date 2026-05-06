@@ -1,0 +1,26 @@
+{
+  "halts_triggered": [
+    {
+      "halt_id": "HALT_062_POST_LC",
+      "spec_definition": "STEP 6 LC delta != +28 for CMB.txt",
+      "actual": {
+        "pre_LC": 1970,
+        "post_LC": 1999,
+        "delta": 29,
+        "expected_delta": 28
+      },
+      "root_cause": "Spec PASTE-2 LINE DELTA arithmetic was off-by-one. Spec stated '4 OLD lines -> 13 NEW lines' for the VENUE STATUS NEW_STR. The actual NEW_STR VENUE STATUS block (between the 'VENUE STATUS: REJECTED by JTNB...' opening and the 'with verdict known).' close) is 14 content lines, not 13. PASTE-1=+0, PASTE-2=+10 (spec said +9), PASTE-3=+1, PASTE-4=+18; cumulative = +29.",
+      "content_status": "Content placement is CORRECT. NEW_STR text was applied verbatim per spec; the extra +1 line is an inherent feature of the spec's NEW_STR text, not an editing error.",
+      "precedent": "Relay 059 (CMB-OQ-PASTE-056-EXECUTION) had identical pattern: HALT_059_POST_LINE_COUNT; spec arithmetic off-by-one; content correct; halt documented and session committed anyway.",
+      "decision": "PROCEED_TO_COMPLETION_WITH_HALT_DOCUMENTED — same disposition as 059. Operator review encouraged for spec-template arithmetic correction in future paste prompts."
+    }
+  ],
+  "halts_not_triggered": [
+    "HALT_062_CMB_DRIFT (P2 PASS)",
+    "HALT_062_SL_DRIFT (P3 PASS)",
+    "HALT_062_PRE_FLIGHT (STEP 0 PASS for SHA + LC + grep counts)",
+    "HALT_062_HEAD_MOVED (bridge HEAD dee3c01 stable)",
+    "HALT_062_DOUBLE_SPLICE (each NEW_STR appears exactly once post-paste)",
+    "HALT_062_GROUNDING_PARTIAL (no non-file-system claims; all AEAL claims cite measurable file-system facts or operator-paste verbatim)"
+  ]
+}
