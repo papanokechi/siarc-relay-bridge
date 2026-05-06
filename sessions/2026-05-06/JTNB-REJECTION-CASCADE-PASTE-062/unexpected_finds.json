@@ -1,0 +1,26 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "tool_behavior_quirk",
+      "finding": "VS Code chat-side replace_string_in_file + read_file appear to operate on the editor's in-memory buffer rather than always synchronizing with disk. First PASTE 5 attempt: replace_string_in_file claimed success, then read_file confirmed the new content; but Get-FileHash + Get-Content from a separate PowerShell terminal showed the file UNCHANGED on disk with the original SHA. This was first observed for submission_log.txt; CMB.txt edits via the same multi_replace_string_in_file call DID persist to disk normally (verified via SHA + size + LC change).",
+      "implication": "For paste-discipline relays where SHA invariants matter, terminal-level disk verification is necessary even after replace_string_in_file reports success. May warrant a copilot-instructions note: 'BRIDGE-PASTE-DISCIPLINE: always re-verify post-fire SHA via Get-FileHash from terminal, not just trust the edit-tool's confirmation.'"
+    },
+    {
+      "id": "U2",
+      "category": "spec_drafting_pattern",
+      "finding": "Spec PASTE 4 OLD_STR was a NARRATIVE (not literal text) describing where to splice. It said the LAST 2026-05-* entry's blank-line terminator marks the splice point, with a fallback if no 2026-05-* entry exists. Pre-fire CMB.txt VERDICTS RECEIVED section had ZERO 2026-05-* entries, so fallback applied (splice as the last entry before the section's closing '---'). Note: P13 Acta Arith 2026-05-04 rejection IS recorded in CMB.txt L25 portfolio row but NOT in VERDICTS RECEIVED section — i.e., the spec's parenthetical 'excluding the P13 Acta Arith one which IS 2026-05-04' was incorrect because that entry was never deposited in VERDICTS RECEIVED to begin with.",
+      "implication": "Future relays touching VERDICTS RECEIVED should backfill historic 2026-05-* entries (e.g., P13 Acta Arith desk reject 2026-05-04, F&A 2026-05-04 desk reject) into the section to maintain section-as-canonical-record semantics."
+    },
+    {
+      "id": "U3",
+      "category": "process_artefact",
+      "finding": "Two temporary PowerShell scripts authored at workspace root during execution: _062_post_fire_audit.ps1 (audit harness) and _062_paste5_direct.ps1 (direct-write workaround). These are NOT canonical session deliverables and exist only to enable terminal-level operations. They will remain in workspace until cleaned up; not committed to siarc-relay-bridge under sessions/2026-05-06/JTNB-REJECTION-CASCADE-PASTE-062/ to keep the deposit limited to canonical artefacts. (Mirrors prior bridge-housekeeping pattern in 052R cleanup terminal log.)"
+    },
+    {
+      "id": "U4",
+      "category": "anchor_mismatch_pre_existing",
+      "finding": "CMB.txt VERDICTS RECEIVED section ordering is already non-strictly-chronological pre-fire: 2026-04-28 P-Tunnell entry appears AFTER 2026-04-30 Desert (4,3)(5,3) Math.Comp entry; 2026-04-29 paper4_takeuchi entries appear after 2026-04-28 P-Tunnell entry. Spec acknowledged this: 'we splice the new entry AFTER all 2026-05-* entries'. The new 2026-05-06 JTNB entry was therefore placed at the END of the section (after the 2026-04-29 JAR entry), which is chronologically last and consistent with spec intent."
+    }
+  ]
+}

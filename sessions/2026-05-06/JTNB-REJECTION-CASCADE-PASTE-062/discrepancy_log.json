@@ -1,0 +1,52 @@
+{
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "blocking_for_HALT_062_POST_LC",
+      "category": "spec_drafting_arithmetic_error",
+      "spec_text": "PASTE BLOCK 2 LINE DELTA: '+9 (4 OLD lines -> 13 NEW lines)'",
+      "actual": "Spec NEW_STR VENUE STATUS block is 14 lines (1 'VENUE STATUS: REJECTED by JTNB 6 May 2026 (ID: JTNB-2400;' opener + 13 indented continuation lines ending with 'with verdict known).'). With surrounding context, OLD has 12 lines and NEW has 22 lines, delta = +10 not +9.",
+      "impact": "CMB.txt cumulative LC delta = +29 not +28; final LC = 1999 not 1998; HALT_062_POST_LC triggered.",
+      "resolution": "Documented; content placement verified correct; halt logged per relay 059 precedent.",
+      "remediation_suggestion": "Spec-template authors should verify LINE DELTA arithmetic against actual NEW_STR line count at draft time."
+    },
+    {
+      "id": "D2",
+      "severity": "non_blocking_judgment_call_J2",
+      "category": "spec_drafting_anchor_count_error",
+      "spec_text": "PASTE BLOCK 4 NEW_STR cites '049_w20_p11_sicf_decision.txt (5054 B / 101 lines / SHA 772016FA..)'",
+      "actual": "File at tex/submitted/control center/prompt/049_w20_p11_sicf_decision.txt has 133 lines (verified via Get-Content). SHA-256 prefix 772016FA88FFF9EB... matches spec abbreviation; size 5054 B matches; therefore file is bit-identical to spec's reference state — the '101 lines' figure is a counting error in the spec, not a stale-file artefact.",
+      "impact": "Pasting '101 lines' verbatim would have introduced a non-grounded file-system claim into CMB.txt. P1 (rule5 grounding) would be partially violated.",
+      "resolution": "J2: corrected '101 lines' -> '133 lines' in PASTE 4 NEW_STR before applying. SHA prefix and byte size preserved verbatim per spec.",
+      "remediation_suggestion": "Verify line-count anchors at draft time."
+    },
+    {
+      "id": "D3",
+      "severity": "non_blocking_invariant_count_off",
+      "category": "spec_drafting_token_invariant_miscount",
+      "spec_text": "STEP 6 invariant: 'REJECTED 2026-05-06 hit count = 3' AND STEP 4 invariant: 'REJECTED 2026-05-06 hit count = 3'",
+      "actual": "Post-fire grep yields 'REJECTED 2026-05-06' = 2 occurrences (PASTE 1 portfolio row + PASTE 3 CLOSED line). PASTE 2 NEW_STR uses 'REJECTED by JTNB 6 May 2026' wording (no 2026-05-06 token); PASTE 4 NEW_STR uses 'REJECTED by Journal de Theorie...' (no 2026-05-06 token). Spec invariant projected 3 hits but only 2 paste blocks contain the literal 'REJECTED 2026-05-06' substring.",
+      "impact": "STEP 6 token-count check would mark this invariant as failing if interpreted strictly. Treated as documentation-only since STEP 6 also lists separate per-paste invariants that are met.",
+      "resolution": "Documented; not a content error.",
+      "remediation_suggestion": "Spec-template invariants should reflect actual NEW_STR substring patterns."
+    },
+    {
+      "id": "D4",
+      "severity": "process_observation",
+      "category": "vscode_buffer_disk_divergence",
+      "observation": "First replace_string_in_file call against submission_log.txt (Item 22 patch) returned success but did not persist to disk. Subsequent read_file calls showed the modified 'Submitted on: 28th Apr 2026' content (matching VS Code's editor buffer, not disk). Disk content remained 'Submitted on: 26th Apr 2026' (the spec OLD_STR — which was correct after all). When I retried replace_string_in_file with the buffer-observed text ('28th'), it failed because disk had '26th'. PASTE 5 was finally applied via PowerShell File.WriteAllText (script: _062_paste5_direct.ps1) which bypassed the VS Code editor mediation. Pre-existing CMB.txt edits (PASTE 1-4) DID persist correctly via multi_replace_string_in_file (verified via post-fire SHA + size + LC change).",
+      "impact": "An initial false-positive 'edit succeeded' report led to a JUDGMENT_CALL_J1 (which I subsequently REVERTED) about a non-existent date typo in spec OLD_STR. Wasted ~1 retry cycle but no incorrect content landed.",
+      "resolution": "PASTE 5 applied directly via PowerShell. All disk anchors verified post-fire. J1 reverted; spec was correct.",
+      "remediation_suggestion": "When replace_string_in_file claims success but the operator-target file is open in a VS Code editor with stale buffer state, prefer direct file-system writes (PowerShell File.WriteAllText) for paste-discipline operations. Could be added to copilot-instructions as a BRIDGE-PASTE-DISCIPLINE note."
+    },
+    {
+      "id": "D5",
+      "severity": "pre_existing_session_observation",
+      "category": "cmb_vs_sl_record_inconsistency",
+      "observation": "submission_log.txt Item 22 records 'Submitted on: 26th Apr 2026' (verified on disk; this is the actual ground truth). CMB.txt records JTNB submission as '28 Apr 2026' in multiple locations: L24 portfolio row text 'Submitted to JTNB 28 Apr 2026' (in pre-fire VENUE STATUS), L82 'Submitted to JTNB 28 Apr 2026', and other historical references. The new VENUE STATUS PASTE 2 NEW_STR continues this '28 Apr 2026' wording for consistency with the existing CMB.txt corpus.",
+      "impact": "CMB-vs-SL date inconsistency for JTNB submission date predates this session. Both records cannot simultaneously be correct (actual JTNB submission date was either 26th or 28th, not both).",
+      "resolution": "Not corrected this session (out of scope for 062 mechanical paste discipline). Documented for operator awareness.",
+      "remediation_suggestion": "Operator should resolve which date is correct (consult JTNB acknowledgement email or submission timestamp) and update whichever record is wrong in a separate amend session."
+    }
+  ]
+}
