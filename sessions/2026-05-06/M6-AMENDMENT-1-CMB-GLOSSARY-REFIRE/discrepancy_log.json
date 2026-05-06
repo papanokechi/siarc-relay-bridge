@@ -1,0 +1,41 @@
+{
+  "task_id": "M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE",
+  "date": "2026-05-06",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "site": "STEP 7 C6 line-count delta expectation",
+      "spec_value": "+29",
+      "actual_value": "+26",
+      "magnitude": "3 lines short",
+      "severity": "advisory",
+      "halt_triggered": false,
+      "explanation": "Spec STEP 7 C6 said 'line count delta +29 expected: 23 glossary block + 4 inline annotations + 2 framing blank lines'. Actual delta is +26 (21-line glossary block + 1 trailing blank line + 4 annotations). Glossary verbatim text in spec STEP 3 contains exactly 21 lines, not 23 (synth-side counting error). Executor used 1 trailing blank line for separator-block-blank-line house style; existing pre-existing blank L37 served as the leading 'blank line' framing. No second leading blank inserted (would have been a stylistically redundant double-blank). All halt gates PASS regardless. C6 records actual delta and explains the +3 gap."
+    },
+    {
+      "id": "D2",
+      "site": "STEP 3 placement instruction ('first all-caps `===== ` separator line in CMB.txt header section')",
+      "spec_value": "first ===== separator near file top",
+      "actual_value": "first ===== in pre-1644 region is at L909 (well past header); first markdown `---` separator near top is at L8/L36/L67",
+      "severity": "judgment-call",
+      "halt_triggered": false,
+      "explanation": "CMB.txt header (L1..~L100) uses markdown `---` rules, not all-caps `=====` separators. The first `=====` separator in the file is at original L909 (inside the 'M9 S_2 DEPENDENCY AUDIT' content block) — far from the spec's 'concrete: after line ~10-30 in current baseline' anchor. Synth-spec author appears to have conflated CMB content-block house style ('====='*64) with header-area style ('---'). Executor resolved by spec-intent: insert glossary AFTER the second `---` markdown separator at original L36 (which IS 'after line ~10-30' and 'near the file top'). Existing blank L37 + glossary block + 1 trailing blank = clean separator-block-blank pattern. STEP 6 placement self-check PASS regardless of which separator was selected."
+    },
+    {
+      "id": "D3",
+      "site": "STEP 4 annotation indent vs surrounding-line indent",
+      "severity": "judgment-call",
+      "halt_triggered": false,
+      "explanation": "STEP 4 supplies VERBATIM annotation text per site; STEP 4 also notes 'leading whitespace in each annotation matches the surrounding block's indent style; preserve it'. The verbatim text uses indents that DIFFER from the actual surrounding line indents at 3 of 4 sites: L404 surrounding indent=4 (annotation indent=8 in spec), L993 surrounding=2 (annotation=4), L1517 surrounding=2 (annotation=4); only L941 matches (both 0). Pattern looks intentional: synth chose +4/+2 sub-item offset to render annotations as visually-distinct commentary lines rather than continuation of the M6 line. Executor used SPEC-PROVIDED VERBATIM text (per STEP 4 'use exact text' mandate), preserving the intentional sub-item offsets."
+    },
+    {
+      "id": "D4",
+      "site": "STEP 5 self-check via `git diff`",
+      "spec_value": "Run `git diff tex/submitted/CMB.txt`; confirm zero `-` lines",
+      "actual_value": "tex/submitted/CMB.txt is UNTRACKED in main pcf-research repo (`git status` returned `?? tex/submitted/CMB.txt`); `git diff` therefore returns empty",
+      "severity": "advisory",
+      "halt_triggered": false,
+      "explanation": "Standard `git diff`-based self-check was non-applicable. Executor substituted a stronger byte-level reverse-validation: removing the 22 inserted glossary lines + 4 annotation lines from post-edit bytes reconstructs a file whose SHA-256 = 04F2A040...689771A, BIT-FOR-BIT identical to pre-edit baseline. This is mathematically equivalent to (and stronger than) 'zero `-` lines in git diff'. C7 records this evidence."
+    }
+  ]
+}
