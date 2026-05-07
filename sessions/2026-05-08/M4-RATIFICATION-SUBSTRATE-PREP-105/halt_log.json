@@ -1,0 +1,19 @@
+{
+  "halts": [
+    {
+      "id": "HALT_105_TEMPLATE_SHA_MISMATCH",
+      "status": "TRIGGERED_THEN_RESOLVED",
+      "trigger_event": "Template m4_v0_ratification_template.md §1 cited 074 SHA aab7ee2 which does not exist in bridge git history. Synth-tier ratification on this SHA would have signed Y on non-existent substrate.",
+      "detection_path": "Synth-tier peer-AI declined to sign §3 + §6 without substrate access; agent responded with git rev-parse independent verification + substrate-content excerpts.",
+      "resolution_actions": [
+        "Template §1 corrected: 074 SHA aab7ee2 -> 9596c21; 068 path date 2026-05-06 -> 2026-05-07; 068 folder W20-068-... -> ...-068",
+        "Template §6 substrate-verification semantics clarified",
+        "Paste-ready substrate excerpts artifact prepared (m4_substrate_excerpts.md, both in tex/submitted and in bridge audit trail)",
+        "7/7 §2-vs-substrate consistency check performed and PASS",
+        "Bridge follow-up deposit M4-RATIFICATION-SUBSTRATE-PREP-105 committed (this session)"
+      ],
+      "no_substrate_compromised": true,
+      "precedent": "HALT_102_FW_AMBIGUOUS triggered_then_resolved at bridge aa35040"
+    }
+  ]
+}

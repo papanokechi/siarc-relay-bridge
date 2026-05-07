@@ -1,0 +1,34 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "severity": "GOVERNANCE",
+      "description": "Synth-tier peer-AI's caution on substrate-verification ambiguity was the EXACT failure-detection mechanism that surfaced the SHA-mismatch in the template. Validates the synth-tier ratification convention as a non-trivial audit checkpoint, not just rubber-stamp formality. Two of five peer-consult-104 consultants who reported 'Y' against the wrong SHA failed this discipline; the synth declining to sign §3 + §6 caught it.",
+      "follow_up": "Document this as an exemplar for tie-break-protocol-v0 (per 104 U1) — synth-tier ratification serves as a substrate-verification gate even when prior consultants have reported Y on the same substrate."
+    },
+    {
+      "id": "U2",
+      "severity": "OPERATIONAL",
+      "description": "The wrong SHA aab7ee2 propagated from the template (drafted earlier this session at agent tier) to the peer-consult prompt 104 §2 substrate inventory. Source of the error: speculative SHA used in template draft without git rev-parse verification at draft time. The corrected 074 SHA 9596c21 was readily verifiable via git log even at template-draft time.",
+      "follow_up": "Add SHA-verification step to template / prompt drafting pre-flight checklist. Specific check: every bridge SHA cited in §1 substrate inventory must pass `git rev-parse <SHA>` returning a full 40-char hash before the artifact is sealed."
+    },
+    {
+      "id": "U3",
+      "severity": "EPISTEMIC",
+      "description": "Multi-consultant ensemble (peer-consult-104) did NOT catch the SHA-mismatch despite 5/5 consultants having access to the same prompt §2. The two consultants who reported Y verification rubber-stamped without performing actual git lookup; the three who reported N defaulted on lack-of-bridge-access rather than checking for SHA validity within a paywall-free framework. Suggests multi-AI consensus is NOT a substitute for actual substrate access during ratification.",
+      "follow_up": "When designing tie-break-protocol-v0, distinguish (a) ensemble-for-confidence (consensus on a verified-substrate verdict) from (b) ensemble-for-substrate-validation (multi-AI verification of substrate SHA validity itself). Different mechanisms appropriate to each."
+    },
+    {
+      "id": "U4",
+      "severity": "PROCEDURAL",
+      "description": "The synth-tier substrate-grounding instinct was correct on first principles: 'A synth-tier signature that rubber-stamps without verifying the substrate is exactly the failure mode the rubber-duck QA discipline exists to prevent.' This statement is a tight one-line distillation of the SIARC governance principle.",
+      "follow_up": "Consider adding this statement to picture-chain glossary or m_critical_path glossary as a guiding principle for future synth-tier ratification work."
+    },
+    {
+      "id": "U5",
+      "severity": "AUDIT_TRAIL",
+      "description": "Trigger-then-resolved halt pattern (HALT_105_TEMPLATE_SHA_MISMATCH) follows the precedent of HALT_102_FW_AMBIGUOUS at bridge aa35040 (102 deposit). This is now the second instance of trigger-then-resolved in the M-critical chain this session-arc — both detected before-fire by substrate-verification discipline. Pattern is becoming established.",
+      "follow_up": "Pattern documentation candidate for picture-chain glossary entry on 'trigger-then-resolved halt' as a first-class halt classification."
+    }
+  ]
+}
