@@ -21,9 +21,7 @@
 -- D-1: relay-082-close-out-roadmap
 -- Substrate: THIS fire's bridge session at
 --   sessions/2026-05-07/T2-CLOSE-OUT-ROADMAP-082/
--- Commit-to-be: filled at git push time; placeholder SHA-PENDING-082-PUSH
---   below should be replaced with the actual short SHA from the
---   `git rev-parse --short HEAD` after Phase J B4 push lands.
+-- Commit-to-be: 383697b (resolved at Phase J B4 push)
 -- Deliverables addressing the SQL row's described task:
 --   7 production .md (current_sql_state / bucket_classification /
 --   proposed_sql_closures / bucket_a_drain_plan / bucket_b_runbook_slate /
@@ -35,7 +33,7 @@ SET status='done',
       '[YYYY-MM-DD HH:MM JST] Marked DONE via 082 close-out audit: ' ||
       'this todo classified as BUCKET-D OBSOLETE-CANDIDATE in 082 ' ||
       'bucket_classification.md Section D row 1; supersession anchor = ' ||
-      'bridge SHA-PENDING-082-PUSH at sessions/2026-05-07/' ||
+      'bridge 383697b at sessions/2026-05-07/' ||
       'T2-CLOSE-OUT-ROADMAP-082/ (12 deliverables produced; Phase B sum ' ||
       'invariant 70 PASS; zero halts triggered).'
 WHERE id='relay-082-close-out-roadmap';
@@ -91,7 +89,6 @@ WHERE id='w19-synthesizer-trust-failure-pattern-flag';
 -- Operator notes:
 --   * Operator may execute these UPDATEs at verdict-receipt time, or fold
 --     into a follow-on housekeeping pass after Phase J commit lands.
---   * For D-1, replace SHA-PENDING-082-PUSH with the actual short SHA from
---     `git rev-parse --short HEAD` after the bridge push.
+--   * D-1 commit anchor 383697b is resolved (no placeholder remaining).
 --   * Replace YYYY-MM-DD HH:MM JST with the operator's local execution time.
 --   * No bridge edit is required; SQL closures are tracker-side only.
