@@ -1,0 +1,48 @@
+{
+  "envelope": "T2-LEAN-RELAUNCH-VENUE-FIT-DOSSIER-079",
+  "fire_time_jst": "2026-05-07T~14:55",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "blocking": false,
+      "category": "F4-UNKNOWN-cluster",
+      "description": "All four venues return UNKNOWN on F4 (desk-reject risk profile) in venue_scope_fit_matrix.md. No publicly-available desk-reject statistics resolved at fire time for any of LMCS / JFR / MCS / TCS. Operator may need to weight the AFM Item 24 desk-reject signal against this gap when synth picks at W21+; the gap itself is structural across academic publishing rather than session-specific.",
+      "anchor": "venue_scope_fit_matrix.md F4 row + per-cell justification block"
+    },
+    {
+      "id": "D2",
+      "blocking": false,
+      "category": "JFR-activity-flag",
+      "description": "JFR's last published issue (Vol. 13 No. 1) is dated 2020-12-21 per https://jfr.unibo.it/issue/archive. The 5+ year publication gap raises a separate question of whether the journal is operationally active at fire time. The about-page peer-review-process language is unchanged but does not rule out an editorial-board pause or platform-only-active state. PICK_JFR forward-trigger in w21_lane1_lean_relaunch_decision_packet.md flags this with a recommended pre-fire EiC-contact-viability check.",
+      "anchor": "venue_profile_jfr.md FORMALIZATION TRACK RECORD section"
+    },
+    {
+      "id": "D3",
+      "blocking": false,
+      "category": "TCS-metric-parsing-ambiguity",
+      "description": "ScienceDirect homepage published TCS turnaround metrics at fire time as a four-row block whose label-to-value pairing was ambiguous in the fetched content (raw numbers 11 / 154 / 282 / 6 days; labels 'Submission to first decision', 'Submission to decision after review', 'Submission to acceptance', 'Acceptance to online publication'). The most natural reading is 11 days desk-decision tier + 154 days refereed-decision tier + 282 days submission-to-acceptance + 6 days acceptance-to-online-publication, but a definitive parsing requires page-screenshot inspection. venue_profile_tcs.md TURNAROUND section reports both readings and marks definitive parsing UNKNOWN.",
+      "anchor": "venue_profile_tcs.md TURNAROUND section"
+    },
+    {
+      "id": "D4",
+      "blocking": false,
+      "category": "MCS-Springer-auth-gate",
+      "description": "https://link.springer.com/journal/11786 + https://www.springer.com/journal/11786 + https://www.springer.com/journal/11786/aims-and-scope all bounced through idp.springer.com authorization redirects during this session, preventing direct retrieval of MCS aims-and-scope, EiC, editorial board, exact APC, and recent-paper listings. ISSN-portal + dblp cross-checks substituted as authoritative for ISSN + DOI prefix + volume cadence. EiC + APC + editorial-board fields in venue_profile_mcs.md are correspondingly marked UNKNOWN.",
+      "anchor": "venue_profile_mcs.md HEADER + EDITORIAL + POLICIES sections"
+    },
+    {
+      "id": "D5",
+      "blocking": false,
+      "category": "cross-venue-policy-2026-wording-gaps",
+      "description": "MCS + TCS parallel-submission policy + reuse-risk (prior-Zenodo-deposit acceptance) wording was not directly retrieved at fire time (auth-gate or off-target landing pages). cross_venue_compatibility.md D.1 + D.3 mark these as UNKNOWN exact 2026 wording while assuming Springer-wide / Elsevier-wide blanket policy applies. Any synth pick of MCS or TCS at W21+ should re-verify against the live policy page before 080 dispatch.",
+      "anchor": "cross_venue_compatibility.md D.1 + D.3"
+    },
+    {
+      "id": "D6",
+      "blocking": false,
+      "category": "cross-venue-compatibility-word-count-overshoot",
+      "description": "cross_venue_compatibility.md exceeds the 300-500 word target envelope at ~580 words (handoff J1). The overshoot stems from per-venue itemized D.1 sub-rows. Operator may trim D.1 to a one-paragraph collapsed form if the tighter envelope is required; the substantive content is unchanged across either form.",
+      "anchor": "cross_venue_compatibility.md word-count line"
+    }
+  ]
+}
