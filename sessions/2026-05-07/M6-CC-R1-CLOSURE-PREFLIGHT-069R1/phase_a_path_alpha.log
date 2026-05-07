@@ -1,0 +1,74 @@
+======================================================================
+071 M6-CC-R1-CLOSURE-PREFLIGHT-069R1 Path alpha -- sympy run
+======================================================================
+
+[STEP 1] Okamoto null-sum at V_quad parameter point
+  (alpha_inf, alpha_0, beta_inf, beta_0) = (1/6, 0, 0, -1/2)
+  null_sum = alpha_inf + alpha_0 + beta_inf + beta_0 = -1/3
+  -> -1/3 != 0; Okamoto null-sum VIOLATED (anomaly D2)
+
+[STEP 2] KNY linear-relation invariance (E2)
+  pre-shift KNY relation:  Eq(a0 + a1, 1)
+  post-shift KNY relation: Eq(D0 + D1 + a0 + a1, 1)
+  (post - pre) simplified: D0 + D1
+  (E2) closed-form: D1 = -D0
+  -> (E2) PASS: Delta_0 + Delta_1 = 0
+
+[STEP 3] V_quad scalar-OGF Liouville invariant re-derivation
+  p_V(z) = 10/(3*z)
+  q_V(z) = (z**2 + 5*z - 1)/(3*z**3)
+  I_V(z) = q_V - (1/4) p_V^2 - (1/2) p_V'
+         = (3*z**2 + 5*z - 3)/(9*z**3)
+  069 anchor:
+  I_V(z) = (3 z^2 + 5 z - 3) / (9 z^3) = (3*z**2 + 5*z - 3)/(9*z**3)
+  difference (sympy-simplified): 0
+  -> Liouville invariant MATCHES 069 substrate at SHA E98D74EBD30EB43C..
+
+[STEP 4] 058R Phase B pinned parameters at V_quad
+  c_0 = 2/sqrt(3); lambda = c_0^2/4 = 1/3
+  zeta_* = 4/sqrt(3); t_0 = -zeta_*/lambda = -4*sqrt(3)
+  -> 058R Phase B pin: lambda = 1/3, t_0 = -4*sqrt(3) (verified)
+
+[STEP 5] Path alpha (E1) null-sum restoration -- A.1.5 substrate gap
+  Required: closed-form expressions for f_alpha_inf, f_alpha_0,
+            f_beta_inf, f_beta_0 as functions of (a_0, a_1, a_2)
+            from 058R + 069 substrate.
+  Substrate search result:
+    058R phase_b_canonical_map.md L136-140:
+      'explicit conversion of CT v1.3 sec.3.5 4-tuple
+       (alpha_inf, alpha_0, beta_inf, beta_0) = (1/6, 0, 0, -1/2)
+       to KNY (a_0, a_1, a_2) -- this is residual R1 partially closed'
+    058R phase_b5_affine_weyl_crosswalk.md L88-89:
+      'alpha = 4(1+2 a_0 - 2 a_1), beta = -4(1+a_0-a_1),
+       gamma = 4, delta = -4'
+      [these are P_III equation coeffs (alpha,beta,gamma,delta);
+       NOT Okamoto's four-tuple (alpha_inf, alpha_0, beta_inf, beta_0)]
+    069 phase_d_numerical.md zero hits for f_alpha or chart-map
+  Abstract placeholders (not substrate-supplied):
+    f_alpha_inf(a_0, a_1, a_2) = f_alpha_inf(a0, a1, a2)
+    f_alpha_0(a_0, a_1, a_2)   = f_alpha_0(a0, a1, a2)
+    f_beta_inf(a_0, a_1, a_2)  = f_beta_inf(a0, a1, a2)
+    f_beta_0(a_0, a_1, a_2)    = f_beta_0(a0, a1, a2)
+  (E1) constraint: f_alpha_inf(a_0+D_0, a_1+D_1, a_2+D_2)
+                 + f_alpha_0(a_0+D_0, a_1+D_1, a_2+D_2)
+                 + f_beta_inf(a_0+D_0, a_1+D_1, a_2+D_2)
+                 + f_beta_0(a_0+D_0, a_1+D_1, a_2+D_2) = 0
+  STATUS: NotImplemented_substrate_gap
+  -> A.1.5.F1 TRIGGERED
+  -> Path alpha closed without producing closed-form (a_1', a_2')
+  -> verdict path: NO_GO_PATH_ALPHA via A.1.5.F1
+  -> envelope verdict: NO_GO_SUBSTRATE_INSUFFICIENT
+
+======================================================================
+Path alpha sympy run summary
+======================================================================
+  Okamoto null-sum at V_quad:      -1/3 != 0 (anomaly D2)
+  KNY linear-relation invariance:  D_0 + D_1 = 0 (E2 closed-form)
+  V_quad Liouville invariant:      MATCHES 069 substrate
+  058R Phase B pin:                lambda=1/3, t_0=-4*sqrt(3)
+  Explicit four-tuple map:         ABSENT from 058R + 069 substrate
+  A.1.5.F1 (substrate gap):        TRIGGERED
+  Phase A.3 (a_1, a_2) extraction: NOT REACHED
+  Path alpha verdict:              NO_GO_PATH_ALPHA via A.1.5.F1
+
+END phase_a_path_alpha.py

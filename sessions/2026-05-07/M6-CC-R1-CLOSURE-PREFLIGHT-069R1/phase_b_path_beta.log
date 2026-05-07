@@ -1,0 +1,70 @@
+======================================================================
+071 M6-CC-R1-CLOSURE-PREFLIGHT-069R1 Path beta -- sympy run
+======================================================================
+
+[STEP B.0] anti-circularity self-check
+  path-alpha modules in sys.modules: []
+  -> PASS (zero path-alpha imports)
+
+[STEP B.1] Okamoto 1987 sec.3 eq. (3.1) verbatim quote
+  quote: 'The tau-function tau = tau(v) related to H(v) is by definition: (3.1) H = (d/dt) log tau.'
+  word count: 17
+  -> PASS (HALT_071_OKAMOTO_QUOTE_LENGTH not triggered)
+
+[STEP B.1.cont] V_quad scalar-OGF Liouville invariant
+  (independent re-derivation per anti-circularity rule;
+   same canonical form as 069 substrate)
+  I_V(z) (re-derived) = (3*z**2 + 5*z - 3)/(9*z**3)
+  I_V(z) (069 anchor) = (3*z**2 + 5*z - 3)/(9*z**3)
+  difference          = 0
+  -> Liouville invariant MATCHES 069 substrate (SHA E98D74EBD30EB43C..)
+
+[STEP B.2] (F1) Okamoto definition -- abstract sympy form
+  Okamoto eq. (3.1) sympy form: Eq(H(t), Derivative(tau(t), t)/tau(t))
+  sigma(t) = t * d/dt log tau: Eq(sigma(t), t*Derivative(tau(t), t)/tau(t))
+  -> (F1) WELL_FORMED at abstract level (no chart-map needed)
+
+[STEP B.2.cont] (F2) null-sum restoration on reparam four-tuple
+  Required: closed-form (delta_inf, delta_0, delta_inf', delta_0')
+            such that the reparam four-tuple
+            (alpha_inf+delta_inf, alpha_0+delta_0,
+             beta_inf+delta_inf', beta_0+delta_0')
+            sums to 0 AND pushes forward to KNY chart consistently.
+  Substrate dependency check:
+    (F2) component-wise consistency requires the explicit
+    f_alpha_inf, f_alpha_0, f_beta_inf, f_beta_0 chart-map
+    (058R + 069 substrate; STEP A.1.5 LANDED-substrate slot).
+    058R phase_b_canonical_map.md L136-140 substrate search
+    result: chart-map ABSENT (residual R1 itself).
+  STATUS: NotImplemented_substrate_gap (cascade from A.1.5.F1)
+
+[STEP B.2.cont] (F3) Liouville-invariant pushforward consistency
+  Required: closed-form expression for I_KNY^(beta-reparam)(x;
+            a_0, a_1, a_2) and verification that
+            I_V(z(x)) == I_KNY^(beta-reparam)(x; ...)
+            under z = lambda(t + t_0) = (t - 4*sqrt(3))/3.
+  Substrate dependency check:
+    same chart-map dependency as (F2); same cascade-block.
+  STATUS: NotImplemented_substrate_gap (cascade from A.1.5.F1)
+
+[STEP B.3] (a_1'', a_2'') extraction -- NOT REACHED
+  Reason: (F2) and (F3) both NotImplemented_substrate_gap
+  Path beta verdict: NO_GO_PATH_BETA via CASCADE-BLOCK from
+                     path alpha A.1.5.F1 (NOT from
+                     HALT_071_PATH_BETA_INCONSISTENT or
+                     HALT_071_PATH_BETA_CIRCULARITY)
+
+======================================================================
+Path beta sympy run summary
+======================================================================
+  Anti-circularity self-check:    PASS (0 path-alpha imports)
+  Okamoto sec.3 eq. (3.1) quote:  17 words (<= 30 OK)
+  (F1) Okamoto def. abstract:     WELL_FORMED
+  (F2) null-sum on reparam:       NotImplemented_substrate_gap
+  (F3) Liouville pushforward:     NotImplemented_substrate_gap
+  V_quad Liouville (re-derived):  MATCHES 069 substrate
+  Phase B.3 (a_1'', a_2'') extr.: NOT REACHED
+  Path beta verdict:              NO_GO_PATH_BETA via
+                                  CASCADE-BLOCK from A.1.5.F1
+
+END phase_b_path_beta.py
