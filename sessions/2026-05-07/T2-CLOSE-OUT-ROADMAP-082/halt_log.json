@@ -1,0 +1,18 @@
+{
+  "session": "T2-CLOSE-OUT-ROADMAP-082",
+  "fire_date": "2026-05-07",
+  "bridge_head_at_fire": "ace3a42",
+  "halts_triggered": [],
+  "halts_evaluated": [
+    {"halt_id": "HALT_082_SUPERSEDED", "phase": "0.2", "outcome": "PASS", "evidence": "Get-ChildItem -Recurse -Directory -Depth 1 on bridge sessions returned zero matches for pattern 'CLOSE-OUT|CLOSEOUT|ROADMAP-082'"},
+    {"halt_id": "HALT_082_BUCKET_FABRICATION", "phase": "B.1", "outcome": "PASS", "evidence": "every bucket assignment cites either SQL row description or bridge SHA or plan.md L-range; substrate citation column present in all 6 sections"},
+    {"halt_id": "HALT_082_BUCKET_SUM_MISMATCH", "phase": "B.4", "outcome": "PASS", "evidence": "12+13+34+3+3+5 equals 67+3 equals 70; sum invariant matches snapshot status counts at L18-L24"},
+    {"halt_id": "HALT_082_SQL_FABRICATION", "phase": "C.2", "outcome": "PASS", "evidence": "3 BUCKET-D items each cite verifiable bridge commit (95ffa1e for D-2; cli_log/2026-05-05.md L928-L932 for D-3) or this-fire's bridge target (D-1)"},
+    {"halt_id": "HALT_082_SYNTH_OPTION_FABRICATION", "phase": "F.2", "outcome": "PASS", "evidence": "every menu option in synth_pre_digest_packet.md anchored to bridge handoff or SQL description verbatim; e.g. C.5.a 7-option menu cites bridge 72f9850 079 §F.E"},
+    {"halt_id": "HALT_082_FORBIDDEN_VERB", "phase": "I.1", "outcome": "PASS", "evidence": "Select-String 9-pattern scan returned 0 hits across 7 production artefacts after one-pass mitigation of 2 substrate-quoted hits (proposed_sql_closures.sql L62 + synth_pre_digest_packet.md L99)"},
+    {"halt_id": "HALT_082_QUOTE_LENGTH", "phase": "I.2", "outcome": "PASS", "evidence": "regex quote-scan max 25 words (bucket_b_runbook_slate.md); 50-word ceiling not approached"},
+    {"halt_id": "HALT_082_BUCKET_NON_EXCLUSIVE", "phase": "I.3", "outcome": "PASS", "evidence": "70 actionable ids cross-checked across Sections A/B/C/D/E/F; zero duplicate-membership entries; q-claude-30-31-send-d2-note-v21 placed in Section B with Section C cluster C.2 footnote"},
+    {"halt_id": "HALT_082_AEAL_FLOOR", "phase": "H.1", "outcome": "PASS", "evidence": "claims.jsonl contains 13 entries; floor 7 met (preferred 9 met)"},
+    {"halt_id": "HALT_082_GROUNDING_PARTIAL", "phase": "A.P1-P5", "outcome": "PASS", "evidence": "rule5 grounding complete via operator-supplied snapshot redirect; SQL access infeasibility surfaced as discrepancy D-N (non-blocking) per pointer-file §5; P2 bridge HEAD ace3a42 captured; P3 70-row substrate read from sql_todos_snapshot_2026-05-07_18-40-JST.md SHA16 60DD655EA1880BF0; P4 plan.md M1-M12 close-out section L1-L240 read; P5 cli_log/2026-W21_wsb.md A.1-A.12 absorbed"}
+  ]
+}
