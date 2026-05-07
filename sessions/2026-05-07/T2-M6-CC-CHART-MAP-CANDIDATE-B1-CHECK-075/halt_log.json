@@ -1,0 +1,71 @@
+{
+  "session": "T2-M6-CC-CHART-MAP-CANDIDATE-B1-CHECK-075",
+  "date": "2026-05-07",
+  "envelope_halts_enumerated": [
+    "HALT_075_SUBSTRATE_DRIFT",
+    "HALT_075_R1_CLOSURE_OVERREACH",
+    "HALT_075_NEW_THEOREM_INTRODUCED",
+    "HALT_075_M4_SCOPE_CREEP",
+    "HALT_075_069R1_OVERREACH",
+    "HALT_075_DRAFT_OVERREACH",
+    "HALT_075_DEPOSIT_ATTEMPTED",
+    "HALT_075_BIBLIOGRAPHIC_FABRICATION",
+    "HALT_075_QUOTE_LENGTH",
+    "HALT_075_AEAL_FLOOR",
+    "HALT_075_076_PRE-EMPTION",
+    "HALT_075_VERDICT_SKIP"
+  ],
+  "envelope_halts_triggered": [],
+  "halt_state_count": 0,
+  "self_check_results": {
+    "HALT_075_SUBSTRATE_DRIFT": {
+      "triggered": false,
+      "evidence": "substrate_anchor_shas.md section F drift-guard table; all 5 anchor SHAs PASS; 3 in-bridge files re-hashed at fire time match recorded prefixes; 2 source-PDF SHAs carried transitively via 073/072 substrate index"
+    },
+    "HALT_075_R1_CLOSURE_OVERREACH": {
+      "triggered": false,
+      "evidence": "forbidden_verb_scan.md section F.1; strict 7-verb scan returned 0 hits across 6 production .md deliverables; synthesizer_decision_packet.md body 0 hits"
+    },
+    "HALT_075_NEW_THEOREM_INTRODUCED": {
+      "triggered": false,
+      "evidence": "075 deliverables contain no chart-map construction; no new theorem statement; no new lemma; structural-form comparison only at substrate-inventory level"
+    },
+    "HALT_075_M4_SCOPE_CREEP": {
+      "triggered": false,
+      "evidence": "075 consumed 073 (M4-class) only at the (13 a) substrate cross-reference label per envelope section 0 + section A.2; no other 073 deliverable beyond the bt_1933_section_5_extract.md / bt_1933_section_5_claim_table.md / unexpected_finds.json U1 substrate was used; 068 / 072 not opened beyond 072 ladder-map T6 row label cross-reference"
+    },
+    "HALT_075_069R1_OVERREACH": {
+      "triggered": false,
+      "evidence": "075 verdict STRUCTURAL_MISMATCH does NOT reverse 069r1 NO_GO_SUBSTRATE_INSUFFICIENT; synthesizer_decision_packet.md sections E.2 and E.4 explicitly reassert that 075 verdict is at substrate-inventory scope only and does not assert R1 closure even hypothetically"
+    },
+    "HALT_075_DRAFT_OVERREACH": {
+      "triggered": false,
+      "evidence": "075 introduces no new theorem / no new lemma / no new bibliographic citation beyond 069r1 + 073 + Adams 1928 + BT 1933 + Wasow 1965 + 058R inheritance; Jimbo-Miwa 1981 II / Conte-Musette 2008 / Forrester-Witte 2002 are forward-pointed verbatim from envelope section 0, NOT introduced as new citations"
+    },
+    "HALT_075_DEPOSIT_ATTEMPTED": {
+      "triggered": false,
+      "evidence": "075 made no Zenodo deposit attempt; submission_log.txt unmodified (read-only); arXiv unmodified; only bridge-stage commit + push performed per Standing Final Step B1-B5"
+    },
+    "HALT_075_BIBLIOGRAPHIC_FABRICATION": {
+      "triggered": false,
+      "evidence": "075 cited only on-disk SHA-anchored substrate (069r1 / 058R / 073 / 072 deliverables); no DOI / arXiv ID / page anchor introduced beyond what 069r1 + 073 + 058R already carried; Jimbo-Miwa 1981 / Conte-Musette 2008 / Forrester-Witte 2002 names cited verbatim from envelope text, not as new acquisition targets"
+    },
+    "HALT_075_QUOTE_LENGTH": {
+      "triggered": false,
+      "evidence": "quote_length_scan.md section F.2 inventory; 11 verbatim quotes, max 47 words, mean 29.5 words, all <= 50-word ceiling"
+    },
+    "HALT_075_AEAL_FLOOR": {
+      "triggered": false,
+      "evidence": "claims.jsonl contains 10 AEAL claims; envelope section 7 floor is 6 (expected 8-12); 10 >= 6 PASS"
+    },
+    "HALT_075_076_PRE-EMPTION": {
+      "triggered": false,
+      "evidence": "synthesizer_decision_packet.md section E.5 forward-pointer to contingent 076 only; no 076 envelope drafted; no assertion of what 076 spec must be beyond the contingent recommendation forward-pointer"
+    },
+    "HALT_075_VERDICT_SKIP": {
+      "triggered": false,
+      "evidence": "synthesizer_decision_packet.md sections E.1 + E.7 emit STRUCTURAL_MISMATCH verdict label per envelope section 9 ladder"
+    }
+  },
+  "summary": "Zero envelope halts triggered. All 12 envelope halts checked and documented as not-triggered with cited evidence."
+}

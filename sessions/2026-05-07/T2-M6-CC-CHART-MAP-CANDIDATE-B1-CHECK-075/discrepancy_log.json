@@ -1,0 +1,39 @@
+{
+  "session": "T2-M6-CC-CHART-MAP-CANDIDATE-B1-CHECK-075",
+  "date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "non-blocking",
+      "category": "substrate-coverage",
+      "description": "Wasow 1965 LNM (slot 04) PDF is on-disk per 073 / 072 / 058R substrate ledgers but no verbatim section-level extract has been performed in any prior session (058R / 069 / 069r1 / 070 / 072 / 073). Envelope section A.4 asks 'whether Wasow 1965 LNM addresses the chart-map regions sectorial structure'. 075 cannot answer this from on-disk substrate without a Wasow section-level extract.",
+      "impact_on_verdict": "075 STRUCTURAL_MISMATCH verdict relies only on 069r1 gap-side + 073 fill-side substrate; Wasow extract would not change the (13 a)-vs-A.1.5 structural form comparison since (13 a) substrate is from BT 1933 not Wasow.",
+      "resolution": "075 records the substrate-availability fact in substrate_anchor_shas.md section E and does not open the Wasow PDF. Wasow section-level extract is forward-pointed as a candidate for the contingent INSUFFICIENT-branch 076 (not triggered by 075 verdict)."
+    },
+    {
+      "id": "D2",
+      "severity": "non-blocking",
+      "category": "cross-walk-substrate",
+      "description": "072 verbatim Adams 1928 extract covers section 1 + section 2 only (per 072 deliverable list); section 3 (Periodic functions matrix P(x) = H^{-1}(x) G(x), Adams p. 517) is NOT verbatim-extracted in 072. 073 unexpected_finds.json U1 cross-references Adams section 3 P(x) as 'the BT-side analogue surfaced by (13 a)' but only via 072 main-theorems summary T6 row, not via verbatim Adams section 3 text.",
+      "impact_on_verdict": "075 STRUCTURAL_MISMATCH verdict does not depend on Adams section 3 verbatim text; 075 consumes the Adams<->BT cross-walk only at 072 ladder-map T6 row label level per envelope section A.3 (carry-forward from 073 unexpected_finds.json U1). A targeted Adams section 3 re-readthrough is forward-pointed as candidate for contingent INSUFFICIENT-branch 076.",
+      "resolution": "075 substrate_anchor_shas.md section D records cross-walk role only; 075 did NOT open the Adams 1928 PDF directly."
+    },
+    {
+      "id": "D3",
+      "severity": "non-blocking",
+      "category": "scan-pattern-discipline",
+      "description": "Envelope section 5.E.3 strict 7-verb pattern {closes, discharges, proves, establishes, ratifies, demonstrates, shows} did not initially anticipate scan-pattern set-literal echoes in agent-authored body text. Initial draft of synthesizer_decision_packet.md contained 14 strict-pattern hits inside two explicit set-literal listings used to declare scan-pattern compliance.",
+      "impact_on_verdict": "Mitigated in fire-time pass 2 by rewriting set-literal listings to indirect references ('the seven over-claiming verbs enumerated in the section 5.E.3 forbidden-verb set'); explicit set-literal recorded only in forbidden_verb_scan.md (the scan-pattern descriptor file). Mitigated 14 hits -> 0 hits across production deliverables.",
+      "resolution": "Documented in forbidden_verb_scan.md section F.1 'Initial scan' and 'Re-scan' tables. Precedent: 069r1 forbidden_verb_scan.md mitigation pattern. No HALT triggered."
+    },
+    {
+      "id": "D4",
+      "severity": "non-blocking",
+      "category": "envelope-precision",
+      "description": "Envelope section 0 contingent-076 routing names 'Jimbo-Miwa 1981 II / Conte-Musette 2008 / Forrester-Witte 2002' for the path-delta literature acquisition branch. Per copilot-instructions.md standing rule 'Bibliographic identifier pre-verification (lit-hunt prompts)', any DOI / arXiv ID for these targets must be pre-resolved before the 076 fire. Envelope does NOT supply specific identifiers in 075 scope (only verbal title-level references) so 075 records this as a 076-time pre-fire requirement, not a 075-time substrate-fabrication risk.",
+      "impact_on_verdict": "075 STRUCTURAL_MISMATCH verdict does not depend on any Jimbo-Miwa / Conte-Musette / Forrester-Witte content; the names are only forward-pointed verbatim from envelope section 0 in synthesizer_decision_packet.md section E.5 with explicit non-introduction discipline.",
+      "resolution": "075 does NOT pre-verify these identifiers (out of scope; envelope did not request pre-verification). 076-drafter (synthesizer or operator) must pre-resolve identifiers per copilot-instructions before any 076 lit-hunt fire."
+    }
+  ],
+  "summary": "4 non-blocking discrepancies surfaced; 0 blocking discrepancies. Envelope halt set checked at zero triggers (see halt_log.json)."
+}
