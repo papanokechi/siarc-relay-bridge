@@ -1,0 +1,30 @@
+{
+  "envelope": "T2-LEAN-RELAUNCH-VENUE-FIT-DOSSIER-079",
+  "fire_time_jst": "2026-05-07T~14:55",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "JFR-publication-dormancy",
+      "description": "JFR's issue archive at https://jfr.unibo.it/issue/archive shows the latest issue is Vol. 13 No. 1 (2020), published 2020-12-21. The immediately prior issue is Vol. 12 No. 1 (2019). No issue has appeared between 2020-12-21 and 2026-05-07 (today). The journal therefore has a 5+ year publication gap. This was not anticipated at relay-prompt drafting time (the prompt described JFR as a 'formalization specialty' venue without a dormancy flag). Operator decision: whether PICK_JFR remains a substantive synth option, or whether 079r1 should de-list JFR and surface a 5th candidate.",
+      "operator_decision_request": "Is PICK_JFR a live option for W21 LANE-1 synth, or does the dormancy disqualify it?"
+    },
+    {
+      "id": "U2",
+      "category": "TCS-Section-B-routing-feasibility",
+      "description": "TCS's section-routing structure (historical: A = algorithms, B = logic and semantics, C = natural computing, D = formal languages and theory of computing) was not directly verified at fire time as still-active in 2026. The cover_letter_framing_tcs.md draft requests Section-B routing on the assumption that the historical section structure persists. If the 2026 section structure has been reorganized, the routing request may need adjustment at 080-finalize time.",
+      "operator_decision_request": "Verify TCS 2026 section structure before any PICK_TCS pre-fire."
+    },
+    {
+      "id": "U3",
+      "category": "5th-candidate-eligibility",
+      "description": "Two adjacent venues surfaced during research that may be eligible for inclusion if the 4-candidate set is widened: (a) Journal of Automated Reasoning (JAR, Springer) -- but JAR is excluded per Item 25 prior-history (Lean paper rejected for length); (b) Formal Aspects of Computing (FAC, Springer) -- but Item 25 prior-history marks FAC as 'defunct'. No new eligible candidate surfaced during this session. PICK_OTHER trigger in decision packet remains available if synth wants to widen the set; no specific PICK_OTHER nominee is named at this T2 stage.",
+      "operator_decision_request": "If PICK_OTHER lands at W21 LANE-1, dispatch 079r1 with explicit nominee."
+    },
+    {
+      "id": "U4",
+      "category": "diamond-OA-symmetry-on-verifiable-axes",
+      "description": "JFR + LMCS both score 4 STRONG / 0 MODERATE / 0 WEAK / 3 UNKNOWN on row totals in venue_scope_fit_matrix.md. The two diamond-OA candidates are symmetric on the verifiable-fact axes despite differing markedly on (a) activity-flag overhang (JFR has it; LMCS does not) and (b) editorial-board structure (JFR carries the formalization-of-mathematics-veteran lineup; LMCS carries the broader logic-in-CS / type-theory lineup). The matrix's UNKNOWN cells (F4 + F5 + F7 across both rows) absorb the differentiation that operator-side weighting of the activity flag would surface. This may be more strongly informative for the synth pick than the matrix structure suggests.",
+      "operator_decision_request": "Synth should treat the JFR / LMCS row symmetry as flag-sensitive rather than as a tie."
+    }
+  ]
+}
