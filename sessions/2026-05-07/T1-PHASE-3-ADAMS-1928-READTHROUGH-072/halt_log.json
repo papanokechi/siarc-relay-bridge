@@ -1,0 +1,63 @@
+{
+  "session": "T1-PHASE-3-ADAMS-1928-READTHROUGH-072",
+  "date": "2026-05-07",
+  "halts_triggered": [],
+  "halts_evaluated_and_not_triggered": [
+    {
+      "halt": "HALT_072_ADAMS_PDF_DRIFT",
+      "phase": "A.1",
+      "evaluation": "Adams PDF SHA-256 d7ac4017... matches expected; size 1266209 B matches; page count 36 matches; metadata.title matches. NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_SHA_LEDGER_DRIFT",
+      "phase": "A.2",
+      "evaluation": "SHA256SUMS.txt at g3b folder line 219 contains the Adams 1928 entry verbatim with hash d7ac4017... and pathname Adams-IrregularCasesLinear-1928.pdf. NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_BT_1933_SUBSTRATE_DRIFT",
+      "phase": "A.3",
+      "evaluation": "BT 1933 PDF SHA-256 dcd7e3c6b2a12ae1... matches expected at slot 03. NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_WASOW_SUBSTRATE_DRIFT",
+      "phase": "A.3",
+      "evaluation": "Wasow 1965 PDF SHA-256 f59d6835db58d2de... matches expected at slot 04. NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_OCR_DEGRADATION",
+      "phase": "A.4",
+      "evaluation": "pypdf text extraction produced text on 36 of 36 PDF pages with 0 empty pages. Threshold for halt is > 5 empty pages. NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_FORBIDDEN_VERB",
+      "phase": "E.1",
+      "evaluation": "Final scan: 0 non-exempt hits across 9 deliverable .md files. All token hits are either inside Markdown blockquotes / straight-double-quote spans / backtick code spans (exemption (a)), inside the two wholly-verbatim Adams 1928 extraction files (exemption (b) for adams_1928_section_1_extract.md and adams_1928_section_2_extract.md), or inside the scan-report file itself (exemption (c) for forbidden_verb_scan.md). NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_QUOTE_LENGTH_VIOLATION",
+      "phase": "E.2",
+      "evaluation": "Final scan: 0 quote-spans exceeding 30 words (counted with hyphen-segments-as-separate-words tokenisation per P7). 5 over-length spans flagged in first-pass scan were trimmed during Phase E remediation: bibliography Batchelder reference, main-theorems T9 regions-of-validity caveat (×2 occurrences across files), main-theorems closing extension-clause, claim-table CLAIM-B12. NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_LADDER_OVERREACH",
+      "phase": "E.3 / D.2 §4",
+      "evaluation": "Final scan: 0 non-exempt hits for tokens 'closes' / 'closes the gap' / 'proves the gap' / 'establishes the upgrade' / 'narrows the gap' / 'demonstrates closure' / 'shows closure'. Two earlier-flagged 'closes' instances on adams_1928_main_theorems_summary.md L40 and adams_1928_section_index.md L25 were rewritten to 'ends' during Phase E remediation. NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_CITE_COVERAGE_GAP",
+      "phase": "E.4",
+      "evaluation": "10 of 10 random claim spot-checks PASS for SHA-anchor + page-anchor coverage. NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_NEW_DRAFT_ATTEMPTED",
+      "phase": "E.5",
+      "evaluation": "Phase D.2 §4 GAP CHARACTERISATION: 10 sentences (≤ 25); 100% anchoring rate. Phase D.2 §5 RESIDUAL ITEMS: 9 sentences (≤ 25); 100% anchoring rate. NOT TRIGGERED."
+    },
+    {
+      "halt": "HALT_072_OVER_CLAIM",
+      "phase": "verdict",
+      "evaluation": "4-item checklist: (1) Phase D.2 §4 GAP CHARACTERISATION contains zero gap-closure assertions per E.3 scan = PASS. (2) All Adams quotes ≤ 30 words per E.2 scan = PASS. (3) Every claim has SHA + page anchor per E.4 spot-check = PASS. (4) handoff.md frames output as SUBSTRATE EXTRACTION (not gap closure) and 'Recommended next step' points at W21 LANE-1 Phase 3 synthesizer arbitration as consumer = PASS. All 4 items PASS → verdict CLEAN_EXTRACT. NOT TRIGGERED."
+    }
+  ],
+  "verdict_label": "CLEAN_EXTRACT"
+}
