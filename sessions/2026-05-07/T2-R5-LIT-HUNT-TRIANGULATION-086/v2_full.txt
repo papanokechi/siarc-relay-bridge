@@ -1,0 +1,6809 @@
+=== PAGE 1 ===
+Monodromy dependence and connection formulae
+for isomonodromic tau functions
+A. R. Its a,b,1, O. Lisovyyc,2, A. Prokhorova,b,3
+a Department of Mathematical Sciences, Indiana University-Purdue University, 402 N. Blackford St., Indi-
+anapolis, IN 46202-3267, USA
+b St. Petersburg State University, Universitetskaya emb., 7/9, St. Petersburg, Russia
+c Laboratoire de Mathématiques et Physique Théorique CNRS/UMR 7350, Université de Tours, Parc de Grand-
+mont, 37200 Tours, France
+Abstract
+We discuss an extension of the Jimbo-Miwa-Ueno differential 1-form to a form closed on the full space of
+extended monodromy data of systems of linear ordinary differential equations with rational coefﬁcients. This
+extension is based on the results of M. Bertola generalizing a previous construction by B. Malgrange. We show
+how this 1-form can be used to solve a long-standing problem of evaluation of the connection formulae for the
+isomonodromic tau functions which would include an explicit computation of the relevant constant factors.
+We explain how this scheme works for Fuchsian systems and, in particular, calculate the connection constant
+for generic Painlevé VI tau function. The result proves the conjectural formula for this constant proposed in
+[ILT13]. We also apply the method to non-Fuchsian systems and evaluate constant factors in the asymptotics
+of Painlevé II tau function.
+1 Introduction and statement of results
+1.1 Linear systems
+Consider a system of linear ordinary differential equations with rational coefﬁcients,
+d Φ
+d z = A (z) Φ, (1.1)
+where A (z) is an N × N , N > 1 matrix-valued rational function. We are concerned with its isomonodromic
+deformations. More precisely, the object of our study is the global asymptotic analysis of the associated Jimbo-
+Miwa-Ueno tau function. Let us remind, following [JMU], the general set-up associated with this notion.
+Denote the poles of matrix function A (z) on P ≡ P1 (C) by a1,. .. ,an, ∞ and write the leading terms of the
+Laurent expansions of A (z) at these points in the form
+A (z) =
+
+
+
+Aν
+(z − aν)rν+1 +O
+(
+(z − aν)−rν
+)
+as z → aν,
+−zr∞−1 A∞ +O
+(
+zr∞−2)
+as z → ∞,
+where r1, .. .,rn,r∞ ∈ Z≥0. We are going to make the standard assumption that all Aν with ν = 1, .. .,n, ∞ are di-
+agonalizable and have pairwise distinct eigenvalues. We further require these eigenvalues to be non-resonant,
+i.e. distinct modulo Z whenever rν = 0. Fix the diagonalizations
+Aν = GνΘν,−rνG −1
+ν , Θν,−rν = diag
+{
+θν,1,. .. ,θν,N
+}
+.
+At each singular point, the system (1.1) admits a formal solution
+Φ(ν)
+form (z) = G(ν) (z)eΘν(z), ν = 1, .. .,n, ∞, (1.2)
+1aits@iupui.edu
+2lisovyi@lmpt.univ-tours.fr
+3aprokhor@iupui.edu
+1
+arXiv:1604.03082v4  [math-ph]  29 Oct 2018
+=== PAGE 2 ===
+where G(ν) (z) is a formal series,
+G(ν) (z) = Gν ˆΦ(ν) (z), ˆΦ(ν) (z) =
+{
+1 + ∑∞
+k=1 gν,k (z − aν)k , ν = 1, .. .,n,
+1 + ∑∞
+k=1 g∞,k z−k, ν = ∞,
+and Θν(z) are diagonal matrix-valued functions,
+Θν(z) =
+−1∑
+k=−rν
+Θν,k
+k (z − aν)k + Θν,0 ln(z − aν), Θ∞ (z) = −
+r∞∑
+k=1
+Θ∞,−k
+k zk − Θ∞,0 ln z.
+For every ν ∈ {1,. .. ,n, ∞}, the matrix coefﬁcients gν,k and Θν,k can be uniquely and explicitly computed in
+terms of the coefﬁcients of the matrix-valued rational functionG −1
+ν A (z)Gν, see [JMU]. If the point is Fuchsian
+(rν = 0), then the series (1.2) converges and represents a genuine solution of (1.1). Ifrν > 0, i.e. aν is an irregular
+point, the series (1.2) usually diverges. In this case there are 2 rν + 1 genuine canonical solutions of (1.1); each
+canonical solution has (1.2) as its asymptotic series in the corresponding Stokes sector. These fundamental
+concepts will be reviewed in the main text (Sections 2 and 4).
+The non-formal global properties of solutions of the equation (1.1) are described by itsmonodromy data M
+which include: i) formal monodromy exponents Θν,0, ii) appropriate connection matrices between canonical
+solutions at different singular points, and iii) relevant Stokes matrices at irregular singular points. All these ob-
+jects will be also described in more detail in the main body of the paper. Let us denote the space of monodromy
+data of the system (1.1) by M .
+Assume that irregular singular points (i.e. the points with rν > 0) are ∞ and the ﬁrst m ≤ n among the
+singular points a1,. .. ,an. Introduce the set T of isomonodromic times
+a1, .. .,an,
+(
+Θν,k
+)
+l l , k = −rν, .. .,−1, ν = 1, .. .,m, ∞, l = 1, .. .,N . (1.3)
+Let us also denote by A the variety of all rational matrix-valued functions A (z) with a ﬁxed number of poles of
+ﬁxed orders. The so-called Riemann-Hilbert correspondence states that, up to submanifolds where the inverse
+monodromy problem for (1.1) is not solvable, the spaceA can be identiﬁed with the product˜T × M , where ˜T
+denotes the universal covering of T . We shall loosely write,
+A ≃ ˜T × M .
+1.2 Tau function
+The Jimbo-Miwa-Ueno 1-form is deﬁned as the following differential form onA :
+ωJMU = −
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(ˆΦ(ν) (z)−1 ∂z ˆΦ(ν) (z) dT Θν (z)
+)
+, (1.4)
+where we put a∞ ≡ ∞. The notation dT Θν (z) stands for
+dT Θν (z) =
+L∑
+k=1
+∂Θν (z)
+∂tk
+d tk, L = n + N
+( m∑
+ν=1
+rν + r∞
+)
+,
+where t1, .. .,tL are parameters from (1.3). While the series ˆΦ(ν)(z) is a formal object, the right side of (1.4) is
+well-deﬁned. Indeed, the residue of the product of the formal series appearing in each term of the sum is
+deﬁned as the coefﬁcient of the term(z − aν)−1, and as such it involves only ﬁnitely many coefﬁcients.
+Let us ﬁx a pointM ∈ M and consider the isomonodromic family in the space A ,
+A (z) ≡ A
+(
+z;⃗t; M
+)
+, ⃗t = (t1, .. .,tL),
+that is, the family of systems (1.1) that are characterized the same setM of monodromy data. The signiﬁcance of
+the form ωJMU is that, being restricted to the isomonodromic family A
+(
+z;⃗t; M
+)
+, it becomes closed with respect
+to times T , i.e.
+dT
+(
+ωJMU
+⏐⏐
+A(z;⃗t;M)
+)
+= 0. (1.5)
+2
+=== PAGE 3 ===
+It should be also noticed that in the non-resonant case (the situation we are exclusively interested in here)
+T gives a complete set of independent isomonodromic deformation parameters so that the equation A (z) ≡
+A
+(
+z;⃗t; M
+)
+describes all possible monodromy preserving deformations of (1.1). This is a nontrivial fact, and it
+has been proved in [JMU].
+The closedness of the 1-form ωJMU with respect to T in turn implies that locally there is a function τ ≡
+τ
+(⃗t; M
+)
+on T × M such that
+dT ln τ = ωJMU. (1.6)
+A remarkable property of this tau function τ
+(⃗t; M
+)
+, which was established in [Mal] and [Miw], is that it admits
+analytic continuation as an entire function to the whole universal covering ˜T of the parameter space T . Fur-
+thermore, zeros of τ
+(⃗t; M
+)
+correspond to the points in T where the inverse monodromy problem for (1.1) is
+not solvable for a given setM of monodromy data (or, equivalently, where a certain holomorphic vector bundle
+over P determined by M becomes nontrivial). Hence the tau function plays a central role in the monodromy
+theory of systems of linear differential equations.
+The tau function has several other striking properties. Among them we shall single out the hamiltonian as-
+pect. A key fact of the monodromy theory of linear systems is that the isomonodromic family A
+(
+z;⃗t; M
+)
+can be
+described in terms of solutions of an integrable (in the sense of Frobenius)monodromy preserving deformation
+equation,
+dT A = ∂zU + [U , A]. (1.7)
+Here U is a matrix-valued differential form, U ≡ ∑L
+k=1Uk(z)d tk, whose coefﬁcientsUk (z) are rational matrix-
+valued functions of z uniquely determined by the coefﬁcients of the system (1.1). The spaceA can be equipped
+with a canonical symplectic structure so that the isomonodromy equation (1.7) induces L commuting Hamil-
+tonian ﬂows on A . It turns out that in many cases the logarithm of the tau function serves as the generating
+function of their Hamiltonians Hk:
+∂ln τ
+(⃗t; M
+)
+∂tk
+= Hk
+⏐⏐
+A(z;⃗t;M). (1.8)
+Isomonodromy equation (1.7) is of great interest on its own. Indeed, it includes as special cases practi-
+cally all known integrable differential equations. The ﬁrst nontrivial cases of (1.7), where the set of isomon-
+odromic times effectively reduces to a single variable t, cover all six classical Painlevé equations. Solutions of
+the latter are dubbed as nonlinear special functions , and they indeed play this role in many areas of modern
+nonlinear science. Besides the canonical applications of Painlevé transcendents such as integrable systems
+[WMTB, JMMS, AS], two-dimensional quantum gravity [BK, DS, GrM] and random matrix theory [TW1, TW2],
+we would like to mention a few very recent examples concerned with black hole scattering [NC], Rabi model
+[CCR] and Fermi gas spectral determinants arising in supersymmetric Yang-Mills theory [BGT].
+1.3 Connection problem
+The principal analytic issue concerning the tau function, in particular from the point of view of applications,
+is its behavior near the critical hyperplanes, where either aµ = aν for some µ ̸= ν, or θν,α = θν,β for some ν
+and some α ̸= β. This is the question we are addressing in this paper. We are going to study two nontrivial
+examples corresponding to the sixth and the second Painlevé equations. The critical hyperplanes reduce to
+three branching points t = 0, 1,∞ in the case of Painlevé VI, and to one essential singularityt = ∞ in the case of
+Painlevé II. Our goal is to express the parameters of the asymptotic behavior of the corresponding tau functions
+at these critical points explicitly in terms of monodromy data of the associated linear systems (1.1).
+A convenient tool of the global asymptotic analysis of Painlevé transcendents as well as solutions of an
+arbitrary monodromy preserving deformation equation (1.7) is provided by the Riemann-Hilbert method. It
+is based on the Riemann-Hilbert representation of solutions, i.e. on the representation of the coefﬁcients of
+matrix A (z) in terms of the inverse monodromy map,
+RH −1 : M → A . (1.9)
+Analytically, this map is realized as a matrix Riemann-Hilbert problem. It has been proven to be extremely
+efﬁcient in the asymptotic analysis of Painlevé equations; the reader is referred to the monograph [FIKN] for
+detailed exposition and history of the subject. The Riemann-Hilbert technique, however, addresses directly the
+3
+=== PAGE 4 ===
+coefﬁcients of the matrix A (z), i.e. in the 2 × 2 case, it deals with conventional Painlevé functions and not the
+associated tau functions. In order to obtain a complete asymptotic information about the latter, one has to
+evaluate, according to (1.8), integrals of certain combinations of Painlevé transcendents and their derivatives.
+This would mean the evaluation of the tau function asymptotics including constant factors. More precisely,
+since the tau function is itself deﬁned up to a multiplicative constant, we are actually talking about the evalu-
+ation, in terms of monodromy data, of the ratios of constant factors corresponding to different critical points
+(Painlevé VI) or to different critical directions (Painlevé II).
+For a long time, the “constant problem” has been successfully handled only for rather special solutions
+of Painlevé equations whose tau functions admit additional representations in terms of certain Fredholm or
+Toeplitz or Hankel determinants. The aim of the present paper is to develop a technique which would be
+applicable to general two-parameter families of Painlevé tau functions and which would not rely on determi-
+nant formulae. The key idea of our approach is to ﬁnd an extension of the Jimbo-Miwa-Ueno differential form
+ωJMU to a closed 1-form on the whole space A ≃ ˜T × M . This means the construction of a differential 1-form
+ˆω ≡ ˆω(A) ≡ ˆω
+(⃗t; M
+)
+such that
+d ˆω ≡ dT ˆω + dM ˆω = 0,
+and such that the compatibility condition
+ˆω
+(
+∂tk
+)
+= ωJMU
+(
+∂tk
+)
+is satisﬁed for all isomonodromic times t1, .. .,tL ∈ T . Having such a 1-form expressed in terms of the funda-
+mental matrix solution of (1.1), we will be able to deﬁne the tau function by the formula
+ln τ =
+∫
+ˆω. (1.10)
+Equation (1.10) allows one to use the asymptotic behavior ofΦ(z) to evaluate the asymptotics of the associated
+tau function up to a numerical (i.e. independent of monodromy data) constant. The latter can be calculated
+by applying the ﬁnal formulae to special solutions with known constant factors in the relative asymptotics.
+The program outlined above has been ﬁrst realized in [IP] for Painlevé III equation of the most degenerate
+type D8, where it allowed to give a proof of the connection formula for PIII (D8) tau function earlier conjectured
+in [ILT14]. In the present paper, we use it to solve the “constant problem” for the sixth and second Painlevé
+equations. The key ingredient of our approach is yet another 1-form which we shall denote ω:
+ω =
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+G(ν) (z)
+−1
+A (z) dG (ν) (z)
+)
+, d = dT + dM . (1.11)
+This expression is inspired by the works of Malgrange [Mal] and Bertola [Ber]. It extends the Jimbo-Miwa-Ueno
+form ωJMU and can be deﬁned for an arbitrary system (1.7). However, ω is not closed. Instead, its exterior dif-
+ferential turns out to be a 2-form onM only and it furthermore turns out to be independent of isomonodromic
+times T . This fact in conjunction with computable asymptotics of Φ(z) determines what should be added to
+the form ω to make it closed, i.e. to transform it into the form ˆω.
+Though we do not pursue the analysis of the form ˆω for the general system (1.1) in this paper, we strongly
+believe that ˆω can be identiﬁed with the extension suggested by Bertola in [Ber] and [Ber1]. This, in view of
+general results of [Mal, Miw, Pal, AB], would mean that the extended tau function deﬁned by (1.10) is entire on
+the extended phase space ˜T × M and it vanishes when the extended inverse monodromy problem,˜T × M → A
+is not solvable. We give more details on the Malgrange-Bertola extension of the Jimbo-Miwa-Ueno form and
+its relation to ˆω in Section 4, see Remark 4.4.
+1.4 Summary of results
+Let us now present the main technical results of this work — a complete solution of the connection problems
+for the Painlevé VI and Painlevé II tau functions. These are representative examples associated to two basic
+classes of linear systems (1.1): a purely Fuchsian system (PVI) and a system with irregular singularities (PII).
+The extension of the method developed in [IP] for PIII ( D8) to equations studied here has required, especially
+in the Painlevé VI case, the development of new conceptual and technical features of the scheme itself. We
+shall start with the PVI tau function.
+4
+=== PAGE 5 ===
+The Painlevé VI equation describes the ﬁrst nontrivial case of the Fuchsian isomonodromic deformations,
+corresponding to the 2 × 2 linear system with four regular singularities, i.e. to n = 3. Using afﬁne transfor-
+mations, one can always ﬁx two of three ﬁnite singular points to be at 0 and 1. Denote the only remaining
+isomonodromic time a3 by t. That is, we are dealing with the system
+d Φ
+d z = A (z) Φ, A (z) = A0
+z + At
+z − t + A1
+z − 1 , (1.12)
+where A0,t,1 are traceless 2 × 2 matrices. Denote by ± θν the eigenvalues of Aν, including those of
+A∞ = −A0 − At − A1. The latter matrix may be assumed diagonal so that A∞ = diag{θ∞, −θ∞}. The non-
+resonance assumption takes the form
+2θν ̸= Z, ν = 0, t,1, ∞. (1.13)
+In this setting,
+A = {(A0, At , A1, t)}, T = {t ∈ C : t ̸= 0, 1}.
+We shall also assume that t ∈ (0, 1). The general isomonodromy equation (1.7) in the case of the system (1.12)
+reduces to a system of matrix ODEs,
+d A0
+d t = [At , A0]
+t , d A1
+d t = [At , A1]
+t − 1 , (1.14)
+while the general Jimbo-Miwa-Ueno deﬁnition (1.4) produces the following formula for the tau function:
+d ln τ = ωJMU =
+(TrAt A0
+t + TrAt A1
+t − 1
+)
+d t.
+The system (1.14) in turn yields the sixth Painlevé equation for the functionu(t), deﬁned as the unique zero
+of A12(z) (note that this matrix entry is a linear function of z due to the diagonal form of A∞),
+ut t =
+( 1
+u + 1
+u − 1 + 1
+u − t
+) u 2
+t
+2 −
+(1
+t + 1
+t − 1 + 1
+u − t
+)
+ut + u (u − 1)(u − t)
+t 2 (t − 1)2
+(
+α + βt
+u2 + γ(t − 1)
+(u − 1)2 + δt (t − 1)
+(u − t)2
+)
+. (1.15a)
+The parameters α, β, γ, and δ are determined by the eigenvalues θν (ν = 0, t, 1,∞) according to the formulae
+α = (2θ∞ − 1)2
+2 , β = −2θ2
+0, γ = 2θ2
+1, δ = 1 − 4θ2
+t
+2 .
+An alternative form of the sixth Painlevé equation (1.15a) can be written in terms of the tau function, or rather
+its logarithmic derivative. Putting ζ(t) = t(t − 1) d
+d t ln τ, one has
+(
+t(t − 1)ζt t
+)2
+= −2 det
+
+
+2θ2
+0 t ζt − ζ ζ t + θ2
+0 + θ2
+t + θ2
+1 − θ2
+∞
+t ζt − ζ 2θ2
+t (t − 1)ζt − ζ
+ζt + θ2
+0 + θ2
+t + θ2
+1 − θ2
+∞ (t − 1)ζt − ζ 2θ2
+1
+
+. (1.15b)
+The space M of monodromy data can be identiﬁed with the collection of 7-tuples
+MPVI =
+{
+M =
+(
+p01, p0t , pt1; θ0, θt , θ1, θ∞
+)
+∈ C7}
+,
+where θ0, θt , θ1, θ∞ are the above Painlevé VI parameters, and p01, p0t , pt1 belong to the Jimbo-Fricke cubic
+hypersurface
+p0t pt1p01 −
+(
+p0pt + p1p∞
+)
+p0t −
+(
+pt p1 + p0p∞
+)
+pt1 −
+(
+p0p1 + pt p∞
+)
+p01+
++p2
+0t + p2
+t1 + p2
+01 + p2
+0 + p2
+t + p2
+1 + p2
+∞ + p0pt p1p∞ = 4,
+(1.16)
+encoding the Painlevé VI initial conditions. In this equation, pν = 2 cos2πθν with ν = 0, t,1, ∞. It is convenient
+to introduce a similar trigonometric parametrization of pµν,
+pµν = 2 cos2πσµν, 0 ≤ ℜσµν ≤ 1
+2 , µν = 0t, t1, 01.
+5
+=== PAGE 6 ===
+The quantities {pµν}, {pν} represent traces of monodromy matrices of the fundamental solution Φ(z) of (1.12)
+along certain loops on C\{0, t, 1}; see Subsection 3.5 for more details.
+In this paper, we study the two-parameter family of generic Painevé VI transcendents. It is characterized, in
+addition to the non-resonance condition (1.13), by the following restrictions on the monodromy data {σµν, θν}:
+σ0t , σt1 ̸= 0, 0 ≤ ℜσ0t , ℜσt1 < 1
+2 ,
+θ0 + θt ± σ0t , θ0 − θt ± σ0t , θ∞ + θ1 ± σ0t , θ∞ − θ1 ± σ0t ∉ Z,
+θ1 + θt ± σt1, θ1 − θt ± σt1, θ∞ + θ0 ± σt1, θ∞ − θ0 ± σt1 ∉ Z.
+(1.17)
+These conditions imply the following asymptotic behavior of the Painlevé VI tau function τ(t) as t → 0, 1:
+τ(t) = C0 · t σ2−θ2
+0 −θ2
+t
+[
+1 −
+∑
+ϵ=± 1
+(
+(θt − ϵσ)2 − θ2
+0
+) (
+(θ1 − ϵσ)2 − θ2
+∞
+)
+4σ2 (1 + 2ϵσ)2 κϵt 1+2ϵσ+
++
+(
+σ2 − θ2
+∞ + θ2
+1
+) (
+σ2 − θ2
+0 + θ2
+t
+)
+2σ2 t + o (t)
+]
+, t → 0,
+(1.18a)
+and
+τ(t) = C1 · (1 − t)σ2−θ2
+1 −θ2
+t
+[
+1 −
+∑
+ϵ=± 1
+((
+θt − ϵσ
+)2 − θ2
+1
+) ((
+θ0 − ϵσ
+)2 − θ2
+∞
+)
+4σ2 (
+1 + 2ϵσ
+)2 κ ϵ (1 − t)1+2ϵσ +
++
+(
+σ2 − θ2
+∞ + θ2
+0
+) (
+σ2 − θ2
+1 + θ2
+t
+)
+2σ2 (1 − t) + o (1 − t)
+]
+, t → 1.
+(1.18b)
+The respective “Cauchy data” at t = 0 and t = 1, i.e. the pairs ( σ, κ) and ( σ, κ), can be explicitly related to the
+monodromy data M = (p01, p0t , pt1; θ0, θt , θ1, θ∞). Indeed, σ = σ0t , σ = σt1, whereas the expressions for κ and
+κ are more involved and are given by the equations (3.69), (3.70), (3.76) and (3.77) of Section 3.
+The asymptotic formulae (1.18), together with their explicit parametrization via the monodromy data, are
+due to M. Jimbo [Jim]. These formulae also come out within our general Riemann-Hilbert analysis of the 4-
+point Fuchsian tau function in Section 3, see Propositions 3.20 and 3.24. Our main new result concerns the
+rigorous derivation of the ratio Υ(M) := C1
+C0
+, which has been an open problem since the 80s. It is given by the
+following theorem.
+Theorem A. Under the assumptions (1.13) and (1.17) on the monodromy data, the ratio Υ(M) of the constant
+factors in the asymptotic formulae (1.18) is given by
+C1
+C0
+(M) =
+∏
+ϵ,ϵ′=±
+G
+(
+1 + ϵσ + ϵ′θt − ϵϵ′θ1
+)
+G
+(
+1 + ϵσ + ϵ′θ0 − ϵϵ′θ∞
+)
+G (1 + ϵσ + ϵ′θt + ϵϵ′θ0)G (1 + ϵσ + ϵ′θ1 + ϵϵ′θ∞)
+∏
+ϵ=±
+G(1 + 2ϵσ)
+G(1 + 2ϵσ)
+4∏
+k=1
+ˆG(ς + νk)
+ˆG(ς + λk)
+, (1.19)
+where G (z) denotes the Barnes G-function, ˆG (z) = G (1 + z)
+G (1 − z) , the parameters ν1...4 and λ1...4 are deﬁned by
+ν1 = σ + θ0 + θt , λ1 = θ0 + θt + θ1 + θ∞,
+ν2 = σ + θ1 + θ∞, λ2 = σ + σ + θ0 + θ1,
+ν3 = σ + θ0 + θ∞, λ3 = σ + σ + θt + θ∞,
+ν4 = σ + θt + θ1, λ4 = 0,
+(1.20)
+and the quantity ς is determined by
+e2πi ς =
+2 cos2π
+(
+σ − σ
+)
+− 2 cos2π(θ0 + θ1) − 2 cos2π(θ∞ + θt ) + p01
+∑4
+k=1
+(
+e2πi(νΣ−νk) − e2πi(νΣ−λk)) , (1.21)
+with 2νΣ = ∑4
+k=1 νk = ∑4
+k=1 λk.
+6
+=== PAGE 7 ===
+The choice of solution of (1.21) for ς is not important, as the expression on the right of (1.19) is invariant under
+integer shifts ς 7→ ς + 1. The formula (1.19) has been previously conjectured in [ILT13] using a relation between
+Painlevé VI tau function and conformal blocks of the Virasoro algebra.
+We now move to the tau function of the Painlevé II equation. Here, one has to deal with non-Fuchsian
+isomonodromic deformation of the 2 × 2 linear system with a single irregular singular point of Poincare rank 3
+located at inﬁnity,
+d Φ
+d z = A (z) Φ, A (z) = A−3z2 + A−2z + A−1. (1.22)
+We shall also impose a symmetry condition, A (z) = −σ2 A (−z) σ2, with σ2 =
+(0 −i
+i 0
+)
+. With the help of simple
+gauge and afﬁne transformations, the system (1.22) can then be reduced to the following normal form:
+d Φ
+d z =
+(−4i z2 − i t − 2i u2 4i zu − v
+−4i zu − v 4i z2 + i t + 2i u2
+)
+Φ. (1.23)
+Here u, v and t are complex parameters playing the role of coordinates on the space A . In this case,
+A = {(u, v, t)}, T = {t ∈ C}.
+The space of monodromy data M can be identiﬁed with the collection of the triples
+MPII =
+{
+s = (s1, s2, s3) ∈ C3 : s1 − s2 + s3 + s1s2s3 = 0
+}
+,
+where s1, s2, s3 parameterize six Stokes matrices of the fundamental solutionΦ(z) of (1.22); the details are given
+in Subsection 4.2. Monodromy preserving deformations of the system (1.22) are described by the equations
+[FN1] v = 2ut and
+ut t = 2u3 + t u. (1.24)
+The latter equation is a particular case of the Painlevé II equation. The corresponding tau function is deter-
+mined by the relation
+d ln τ = ωJMU = (u2
+t − u4 − t u2)d t ≡ Hd t,
+where H = v 2
+4 − t u2 −u4 is the Hamiltonian of (1.24), considered as a dynamical system on theu, v phase plane
+with respect to the symplectic form Ω = d v ∧ du .
+We are concerned with the two-parameter family of generic solutions of the second Painlevé equa-
+tion (1.24). It is speciﬁed by the following conditions on the monodromy datas ∈ MPII:
+s1s3 ̸= 1, arg (1 − s1s3) ∈ (−π, π), (1.25a)
+s2 ∉ R, arg (i σs2) ∈
+(
+− π
+2 , π
+2
+)
+, σ := sgn ℜ(i s2) = ± 1. (1.25b)
+The condition (1.25a) ensures that the solutionu(t) is smooth as t → −∞ while condition (1.25b) guarantees its
+smoothness as t → +∞. The respective asymptotics and their explicit monodromy parametrization are due to
+A. Kapaev [Kap] (see also [IN], [DZ2], and [FIKN]). They are presented in detail in Subsection 4.3, see equations
+(4.44)–(4.47). This asymptotics in turn implies the asymptotics for the tau function,
+τ(t) ≃
+
+
+
+C−e− 4i µ
+3 (−t)
+3
+2
+(−t)− 3µ2
+2
+[
+1 + o (1)
+]
+, as t → −∞,
+C+e
+t3
+12 + 2i
+p
+2
+3 νt
+3
+2
+t − 3ν2
+4 − 1
+8
+[
+1 + o (1)
+]
+, as t → +∞,
+(1.26)
+where
+µ = − ln(1 − s1s3)
+2πi , ν = ln(i σs2)
+πi , σ = sgn ℜ(i s2). (1.27)
+Our goal is to ﬁnd the ratioΥ(s) := C+
+C−
+in terms of monodromy data s ∈ MPII. Here is the answer.
+7
+=== PAGE 8 ===
+Theorem B. Under the genericity assumptions (1.25) on the monodromy data, the connection coefﬁcient Υ(s)
+for the Painlevé II tau function is given by
+C+
+C−
+(s) = 2
+1
+24 eζ′(−1)+ i π
+24 23µ2− 7ν2
+4 (2π)−µ− ν
+2 e
+πi
+4 (η2+2µ2+2ην−8µη) G (1 − ν) ˆG
+(
+η
+)
+G2 (
+1 − µ
+) ˆG2 (η−ν
+2
+) , (1.28)
+where µ, ν, σ and η are related to Stokes parameters s1, s2, s3 by (1.27) and e i πη = −i σs−1
+3 , and ˆG (z) = G (1 + z)
+G (1 − z)
+is the same combination of Barnes G-functions as in Theorem A.
+Here again, the choice of solution forη has no importance since the expression on the right of (1.28) is invariant
+under shifts η 7→ η + 2.
+1.5 Outline of the paper
+Let us now describe the organization of the paper. The next two sections are devoted to the general Fuchsian
+case of the system (1.1). The main result of Section 2 is Proposition 2.3. In this proposition we perform the ﬁrst
+step of the program: that is, we construct a 1-form ω which extends the Fuchsian Jimbo-Miwa-Ueno form to
+the space ˜T × M and whose exterior differential, Ω := d ω, does not depend on the isomonodromic times (in
+the Fuchsian case they are just the positions of singular points a1, .. .,an). The form ˆω is then deﬁned formally
+as ˆω := ω − ω0, where ω0 is a 1-form on M such that its differential is again Ω. According to the scheme out-
+lined above, the formω0 should be determined by analyzing the asymptotics of the formsω and Ω. The relevant
+analysis is carried out in Section 3 for the case of 4-point Fuchsian systems. It is based on the Riemann-Hilbert
+method. In Subsection 3.1, the Riemann-Hilbert problem which represents the inverse monodromy map (1.9)
+for the 4-point system is formulated. In Subsections 3.2 and 3.3, its asymptotic solution is constructed in terms
+of solutions of certain 3-point Fuchsian systems. The result is used in Subsection 3.4 to derive the asymptotics
+of the forms ω and Ω and hence determine the forms ω0 (see Lemma 3.7) and ˆω (Proposition 3.9). Solution
+of the constant problem for the tau function of 4-point Fuchsian systems thereby reduces to 3-point inverse
+monodromy problems. Explicit solution of the latter for general Fuchsian system of rank N > 2 is not known
+and therefore Proposition 3.9 is the best we could do for the generic 4-point tau function. For N = 2, however,
+the 3-point systems may be solved in terms of contour integrals, i.e. in terms of hypergeometric functions. This
+yields explicit solutions of the corresponding 3-point inverse monodromy problems in terms of gamma func-
+tions and an explicit solution of the constant problem for the 4-point isomonodromic tau function in terms
+of Barnes G-functions. Computational details are presented in Subsections 3.5–3.9. As it has already been ex-
+plained above, in the 4-point N = 2 Fuchsian case, the general monodromy preserving deformation equation
+(1.7) reduces to a single scalar nonlinear 2nd order ODE — the sixth Painlevé equation (1.15a). Hence Subsec-
+tions 3.5–3.9 provide us with the proof of the ﬁrst of our main results (Theorem A). An important difference
+as compared to Painlevé III ( D8) considered in [IP] is that the form ω in the Painlevé VI case can not be com-
+pletely localized, i.e. it can not be expressed exclusively via the solution u(t) of Painlevé VI. This means that
+one can not just use already known asymptotics and connection formulae for the Painlevé function as in [IP].
+One needs to use the complete information on the asymptotic behavior of the solution of the corresponding
+Riemann-Hilbert problem.
+The fourth section of the paper is concerned with the non-Fuchsian case. We begin with a detailed descrip-
+tion of monodromy data for non-Fuchsian systems, that is, general systems (1.1) which allow for the presence
+of irregular singular points. We then introduce the form ω in this general case, and check that its exterior dif-
+ferential is a 2-form on M independent of isomonodromic times T (Theorem 4.2). We do not pursue the
+general case further. Instead, in Subsection 4.2, we move to a nontrivial example of a 2 × 2 non-Fuchsian sys-
+tem whose isomonodromic deformations are described by the second Painlevé equation. The evaluation of the
+asymptotics of the form ω, its further transformation to a closed form ˆω and the evaluation of the connection
+constant for the corresponding Painlevé II tau function up to the numerical factor are done in Subsections 4.3
+and 4.4. This time the constant in question is the ratio of constant factors corresponding to the asymptotic be-
+haviors of the tau function τ(t) along the rays t → +∞ and t → −∞. Unlike in the Painlevé III case considered
+in [IP], the evaluation of the remaining numerical factor is not trivial, and it is given in Subsection 4.5. The ﬁnal
+formula for the PII constant is presented in Theorem B above.
+8
+=== PAGE 9 ===
+1.6 Remarks
+There is a very interesting additional observation related to the form ω in the Painlevé II case. Equation (4.42)
+indicates that the 1-form ω, up to addition of an explicit total differential, is an extension to the space ˜T × M
+of the classical action differential. The same fact has already been noticed in [IP] in the case of Painlevé III (D8)
+equation. We conjecture that this relation of the extended tau function (1.10) to the classical action is a general
+fact of the monodromy theory of linear systems. This conjecture is closely related to another observation that
+can be made about ω. As follows from Remark 3.19 and the calculations in Subsection 4.2, the 2-form Ω =
+d ω is nothing but (up to a numerical coefﬁcient and restriction to symplectic leaves) the symplectic form on
+monodromy manifolds of Painlevé VI and II, respectively. The same fact has also been observed in the case of
+Painlevé III (D8) equation in [IP] and we again conjecture it to be general. We intend to study this issue in more
+detail in a future work.
+We would like to close this introduction with some historical remarks. Since its birth in 1980, the con-
+cept of tau function has been playing an increasingly important role in the theory of integrable systems and
+its numerous applications. Correlation functions of various exactly solvable quantum mechanical and statis-
+tical models are tau functions associated to special examples of the linear system (1.1). Partition functions of
+matrix models and 2D quantum gravity, the generating functions in the intersection theory of moduli spaces
+of algebraic curves are again special examples of tau functions. Yet more examples arise in the study of Hur-
+witz spaces and quantum cohomology. The evaluation of constant terms in the asymptotics of these corre-
+lation, distribution and generating functions has always been a great analytic challenge. The ﬁrst rigorous
+solution of a constant problem for Painlevé equations (a special Painlevé III transcendent appearing in the
+Ising model) has been obtained in the work of Tracy [Tra]. Other constant problems have been studied in the
+works [BT, BB, Kra, Ehr, DIKZ, DIK, DKV, L09] and [BBD, BBDI].
+The tau functions that appear in the papers quoted above correspond to very special families of Painlevé
+functions. The ﬁrst results concerning the general two-parameter families of solutions of Painlevé equations
+have been obtained only recently in [ILT13, ILT14]. These works are based on conformal block representations
+of isomonodromic tau functions — see [GIL12, GIL13, ILTe] and also [BS, Gav, GM, Nag] for subsequent de-
+velopments. Although very powerful, the conformal block approach still has to be put on rigorous ground. In
+this paper, we show that with the help of Riemann-Hilbert techniques the conjectural formula of [ILT13] for
+the constant factor in the asymptotics of the Painlevé VI tau function can be proven. In a sequel, we plan to
+understand within the Riemann-Hilbert formalism the other key results provided by conformal ﬁeld theory;
+ﬁrst of all the novel series representations for isomonodromic tau functions.
+2 Fuchsian systems
+Let us start by ﬁxing the notations. They are slightly different from the ones used in the Introduction. Indeed,in
+this section we are dealing exclusively with the Fuchsian systems, and the notations can be naturally simpli-
+ﬁed,e.g., no need for double subscripts forΘν,0. We are going to consider monodromy preserving deformations
+of rank N Fuchsian systems with n + 1 regular singular points a1,. .. ,an, an+1 = ∞ on P:
+∂z Φ =
+n∑
+ν=1
+Aν
+z − aν
+Φ, A1, .. ., An ∈ slN (C). (2.1)
+DeﬁneA∞ := −∑n
+ν=1 Aν and for ν = 1, .. .,n, ∞ denote by θν,k the eigenvalues of Aν.
+Assumption 2.1. All eigenvalues satisfy a non-resonance condition θν,k − θν,l ∉ Z for k ̸= l . It implies in partic-
+ular that all A ν are diagonalizable.
+Fix the diagonalizations of Aν by introducing the matrices Gν , Θν such that
+Aν = GνΘνG −1
+ν , Θν = diag
+{
+θν,1,. .. θν,N
+}
+. (2.2)
+The choice of Gν is not unique, as there remains an ambiguity of right multiplication by a diagonal matrix.
+9
+=== PAGE 10 ===
+Local behavior of the fundamental matrix solution near the singular points may be written as
+Φ(z) = Gν
+[
+1 +
+∞∑
+m=1
+gν,m (z − aν)m
+]
+(z − aν)Θν Cν, |z − aν| < r,
+Φ(z) = G∞
+[
+1 +
+∞∑
+m=1
+g∞,m z−m
+]
+z−Θ∞C∞, |z| > R.
+(2.3)
+Connection matrices Cν are determined by the Fuchsian system, the initial conditions and the choice of di-
+agonalisations. They also depend on the choice of branch cuts making the solution single-valued, and on the
+determination of fractional powers (z − aν)Θν. The series (2.3) have non-zero radii of convergence, and their
+coefﬁcientsgν,m can be calculated recursively from (2.1). In particular, gν,1 may be found from
+gν,1 +
+[
+gν,1, Θν
+]
+=
+∑
+µ̸=ν
+G −1
+ν AµGν
+aν − aµ
+.
+The idea of isomonodromic deformation is to vary aν and Aν (with ν = 1, .. .,n) simultaneously keeping
+constant the local monodromy exponents Θν and the connection matrices Cν. The matrix G∞ will also be
+ﬁxed. The singularity at ∞ then plays the role of a normalization point of the fundamental matrix solution
+Φ(z). The product ∂aν Φ · Φ−1 is a meromorphic matrix function on P with poles only possible at a1,. .. ,an, ∞.
+Local analysis shows that
+∂aν Φ = − Aν
+z − aν
+Φ, ν = 1, .. .,n. (2.4)
+The compatibility of (2.1) and (2.4) yields the classical Schlesinger system of nonlinear matrix PDEs:
+∂aµ Aν =
+[Aµ, Aν]
+aµ − aν
+, µ ̸= ν,
+∂aν Aν = −
+n∑
+µ̸=ν
+[Aµ, Aν]
+aµ − aν
+, ν = 1, .. .,n.
+(2.5)
+A slightly more reﬁned problem is to describe the isomonodromic evolution of diagonalization matricesGν. It
+can be addressed using the same linear equations (2.1), (2.4). The result is
+∂aµGν ·G −1
+ν =
+Aµ
+aµ − aν
+, µ ̸= ν,
+∂aνGν ·G −1
+ν = −
+n∑
+µ̸=ν
+Aµ
+aµ − aν
+, ν = 1, .. .,n.
+(2.6)
+Deﬁnition 2.2. We denote by M = (C× )(N −1)(n+1) × (GL N (C))n+1 × GL N (C) the space of monodromy data pa-
+rameterizing local monodromy exponents Θν, connection matrices C ν and normalization matrix G ∞. We also
+introduce the space of isomonodromic timesT =
+{
+(a1,. .. ,an) ∈ Cn | aµ ̸= aν
+}
+and denote by ˜T its universal cover .
+For any point in M the inverse monodromy problem for system (2.1) is locally solvable. This means that
+for all (a1, ....,an) in an open set in T there exists a unique invertible matrix Φ(z) holomorphic on the univer-
+sal cover of P\{a1,. .. ,an+1} with singular behavior (2.3) at the branch points (see e.g. [Pal, AB]). This in turn
+uniquely determines the local solution {A1, .. ., An},
+A1 = A1(a1, ...,an; M), .. . , An = An(a1, ...,an; M),
+of the corresponding Schlesinger system. Solving this system thus amounts to constructing an inverse of the
+Riemann-Hilbert map
+RH : {G1,. .. ,Gn} 7→ {C1,. .. ,Cn}
+for given aν, Θν, G∞ and C∞. According to the Malgrange-Miwa theorem mentioned in the introduction, the lo-
+cal solution {A1, .. ., An}, as well as the solution of the inverse monodromy problem, in fact, admit meromorphic
+continuations to the whole ˜T , and the singularities are located at the zeros of the corresponding Jimbo-Miwa-
+Ueno tau function (see again [Mal, Miw, Pal, AB, Ber]). Also note that the solution of the Schlesinger system
+remains invariant under the right action Cν 7→ CνH with H ∈ GL N (C) and ν = 1, .. .,n, ∞. Gauge transforma-
+tions Gν 7→ HG ν (with ﬁxedC∞) preserve the connection matrices C1, ... ,Cn.
+10
+=== PAGE 11 ===
+Proposition 2.3. Let ω be a (possibly meromorphic in aν) 1-form on ˜T × M locally deﬁned by
+ω =
+n∑
+ν<µ
+TrAµ Aν d ln
+(
+aµ − aν
+)
++
+∑
+ν=1,...,n,∞
+Tr
+(
+ΘνG −1
+ν dM Gν
+)
+, (2.7)
+where dM denotes the differential with respect to monodromy data. Its exterior differential Ω := d ω is a closed
+2-form on M independent of a1,. .. ,an.
+Proof. Straightforward calculation using Schlesinger equations (2.5) shows that Ω
+(
+∂aµ, ∂aν
+)
+= 0. Let M be a
+local coordinate on M . It can be deduced from (2.6) that
+∂aµ
+(
+G −1
+ν ∂MGν
+)
+=
+G −1
+ν
+(
+∂M Aµ
+)
+Gν
+aµ − aν
+, µ ̸= ν,
+∂aν
+(
+G −1
+ν ∂MGν
+)
+= −
+∑
+µ̸=ν
+G −1
+ν
+(
+∂M Aµ
+)
+Gν
+aµ − aν
+, ν = 1, .. .,n,
+(2.8)
+which in turn implies that Ω
+(
+∂aµ, ∂M
+)
+= 0. Since Ω is a total differential, it follows thatdT Ω
+(
+∂M1, ∂M2
+)
+vanishes
+for any pair M1, M2 of monodromy parameters.
+The last assertion can also be checked directly. Indeed, we have
+Ω
+(
+∂M2, ∂M1
+)
+=
+∑
+ν
+Tr
+(
+Θν
+[
+G −1
+ν ∂M1Gν,G −1
+ν ∂M2Gν
+]
++ ∂M2 Θν G −1
+ν ∂M1Gν − ∂M1 Θν G −1
+ν ∂M2Gν
+)
+. (2.9)
+The relations (2.8) may be repackaged into a more compact expression
+dT
+(
+G −1
+ν ∂MGν
+)
+=
+∑
+µ̸=ν
+G −1
+ν
+(
+∂M Aµ
+)
+Gν d ln
+(
+aµ − aν
+)
+, (2.10)
+which can be used to differentiate Ω. For example:
+∑
+ν
+Tr
+(
+Θν
+[
+dT
+(
+G −1
+ν ∂M1Gν
+)
+,G −1
+ν ∂M2Gν
+])
+=
+=
+∑
+ν
+∑
+µ̸=ν
+Tr
+(
+Θν
+[
+G −1
+ν
+(
+∂M1 Aµ
+)
+Gν,G −1
+ν ∂M2Gν
+])
+d ln
+(
+aµ − aν
+)
+=
+=
+∑
+ν
+∑
+µ̸=ν
+Tr
+(
+Aν
+[
+∂M1 Aµ, ∂M2Gν ·G −1
+ν
+])
+d ln
+(
+aµ − aν
+)
+=
+=
+∑
+ν
+∑
+µ̸=ν
+Tr
+(
+∂M1 Aµ
+[
+∂M2Gν ·G −1
+ν , Aν
+])
+d ln
+(
+aµ − aν
+)
+=
+=
+∑
+ν
+∑
+µ̸=ν
+Tr
+(
+∂M1 Aµ · ∂M2 Aν − ∂M1 Aµ ·Gν∂M2 Θν G −1
+ν
+)
+d ln
+(
+aµ − aν
+)
+.
+Similarly,
+dT
+∑
+ν
+Tr
+(
+∂M2 Θν G −1
+ν ∂M1Gν
+)
+=
+∑
+ν
+∑
+µ̸=ν
+Tr
+(
+∂M2 Θν G −1
+ν
+(
+∂M1 Aµ
+)
+Gν
+)
+d ln
+(
+aµ − aν
+)
+Since the sum ∑
+ν
+∑
+µ̸=ν Tr
+(
+∂M1 Aµ · ∂M2 Aν
+)
+d ln
+(
+aµ − aν
+)
+of the last two expressions is symmetric with respect to
+the exchange M1 ↔ M2, we ﬁnally obtain the expected resultdT Ω
+(
+∂M2, ∂M1
+)
+= 0. □
+The ﬁrst term in (2.7) is the usual deﬁnition of the Jimbo-Miwa-Ueno tau function [JMU], while the second
+sum incorporates its dependence on monodromy.
+Deﬁnition 2.4. Let ω0 ∈ Λ1 (M ) be a 1-form such that d ω0 = Ω. The extended isomonodromic tau function
+τω0 : ˜T × M → C is deﬁned by
+d ln τω0 = ω − ω0 ≡ ˆω
+In the next sections, this construction is explicitly carried out in the case n = 3, N = 2 corresponding to
+Painlevé VI equation.
+11
+=== PAGE 12 ===
+Remark 2.5. Left multiplication of all Gν by a matrix H ∈ GL N (C) possibly depending on monodromy parame-
+ters leads to transformation Aν 7→ H AνH −1. It obviously preserves the ﬁrst term in (2.7). Since
+∑
+ν
+Tr
+(
+GνΘνG −1
+ν H −1dM H
+)
+= Tr
+(∑
+ν
+AνH −1dM H
+)
+= 0
+due to the relation ∑n
+ν=1 Aν + A∞ = 0, the second term also remains invariant. Hence the form ω is preserved
+by the gauge transformations.
+Remark 2.6. Right GL N (C)-action Cν 7→ CνH does not affect the solution of the Schlesinger system. Therefore
+d ln τH
+ω0 − d ln τω0 = ω0 − ωH
+0 ∈ d
+(
+Λ0 (M )
+)
+.
+The corresponding tau functions thus necessarily coincide up to a factor depending only on monodromy data
+(but not on the isomonodromic times!). In other words, the tau function depends in a nontrivial way only on
+the conjugacy class of monodromy.
+3 Four-point tau function
+3.1 Riemann-Hilbert problem
+It is always possible to explicitly integrate the isomonodromic ﬂows associated to global conformal transfor-
+mations. This allows to ﬁx 3 of the singular points at 0, 1, and∞. The simplest nontrivial case of isomonodromy
+equations therefore corresponds to n = 3 (4 regular singularities). The position of the 4th singular point is the
+only remaining time variable, to be denoted by t. The Fuchsian system (2.1) then acquires the form
+∂z Φ = A (z) Φ, A (z) = A0
+z + At
+z − t + A1
+z − 1 , (3.1)
+and the Schlesinger system consists of two matrix ODEs
+d A0
+d t = [At , A0]
+t , d A1
+d t = [At , A1]
+t − 1 ,
+where A0,t,1 satisfy the constraint A0 + At + A1 = −A∞. The 1-form ω from Proposition 2.3 becomes
+ω = P d t +
+∑
+ν=0,t,1,∞
+Tr
+(
+ΘνG −1
+ν dM Gν
+)
+, (3.2)
+where the time part of ω is deﬁned by
+P = TrAt A0
+t + TrAt A1
+t − 1 = 1
+2 resz=t TrA2 (z).
+One of our tasks is to compute the exterior differential Ω = d ω. It was already shown to be independent of
+t, therefore it sufﬁces to determine the asymptotics ofω when two singular points of the Fuchsian system (3.1)
+collide. We will therefore attempt to analyze the behavior of the fundamental matrix solution Φ(z) as t → 0,
+extract from it the asymptotics of G0,t,1 (t) and use the latter to calculate Ω.
+The most convenient framework for realization of this plan is provided by the Riemann-Hilbert method.
+Instead of working with a Fuchsian system, Φ(z) may be related to the unique solution Ψ(z) of the following
+Riemann-Hilbert problem (RHP):
+♣ Given an oriented contour ΓΨ ⊂ C and a prescribed jump matrix JΨ : ΓΨ → GL N (C), ﬁnd a holomor-
+phic matrix Ψ : C\ΓΨ → GL N (C) such that its boundary values on ΓΨ satisfy Ψ+ (z) = Ψ− (z) JΨ (z) and
+Ψ(∞) = G∞.
+12
+=== PAGE 13 ===
+0 t 1
+/c1038
+0 /c103t /c1031/c103
+l0t lt1 l 81
+S
+Figure 1: Contour ΓΨ of the Riemann-Hilbert problem for Ψ(z)
+The contour ΓΨ consists of 4 circles and 3 segments 4 represented by solid lines. The jump matrix JΨ (z) is
+deﬁned as
+JΨ (z)
+⏐⏐
+ℓ0t
+= M −1
+0 , JΨ (z)
+⏐⏐
+ℓt1
+= (Mt M0)−1 ,
+JΨ (z)
+⏐⏐
+ℓ1∞
+= (M1Mt M0)−1 = M∞, JΨ (z)
+⏐⏐
+γ∞
+= C −1
+∞ (−z)Θ∞ ,
+JΨ (z)
+⏐⏐
+γ0
+= C −1
+0 (−z)−Θ0 , JΨ (z)
+⏐⏐
+γt
+= C −1
+t (t − z)−Θt , JΨ (z)
+⏐⏐
+γ1
+= C −1
+1 (1 − z)−Θ1 ,
+(3.3)
+where Mν are counterclockwise monodromies of Φ(z) around ν with basepoint chosen on the negative real
+axis. Fractional powers will always be understood in terms of their principal branches. Expressions for the
+connection matrices Ct , C1 differ on the upper and lower halves of γt , γ1. We have
+M0 = C −1
+0 e2πi Θ0C0 = C −1
+t,+Ct,−, Mt M0 = C −1
+t,+e2πi Θt Ct,− = C −1
+1,+C1,−,
+M −1
+∞ = C −1
+1,+e2πi Θ1C1,− = C −1
+∞ e−2πi Θ∞C∞.
+where the indices ± correspond to ℑz≷ 0. Below the indices of this type are omitted whenever it may not lead
+to confusion. The solution Φ(z) of the Fuchsian system (3.1) is given by Ψ(z) outside the circles γν and by
+Ψ(z) J −1
+Ψ (z) in their interior. We adopt the convention that the interior of the circle of largest radius (here γ∞)
+is a disk around ∞.
+Assumption 3.1. The monodromy matrix M t0 := Mt M0, which is incidentally the monodromy along the circle
+S indicated in Fig. 1, is assumed to be diagonalizable. Fix a matrix C S ∈ GL N (C) such that
+Mt0 = C −1
+S e2πi SCS, S = diag{σ1, .. .,σN } ∈ slN (C). (3.4)
+The logarithms σk of the eigenvalues of M t0 are assumed to satisfy the conditions
+⏐⏐ℜ
+(
+σj − σk
+)⏐⏐ < 1 for j ,k =
+1, .. .,N . It is furthermore assumed that all σk are distinct.
+Remark 3.2. The condition
+⏐⏐ℜ
+(
+σj − σk
+)⏐⏐ < 1 involves almost no loss in generality. Indeed, for any choice of
+logarithms satisfying Tr S = 0 let σmax and σmin denote the eigenvalues of S with maximal and minimal real
+part. If ℜ(σmax − σmin) > 1, then replace σmax 7→ σmax − 1, σmin 7→ σmin + 1 and iterate the procedure. After a
+ﬁnite number of steps we will reach the situation where
+⏐⏐ℜ
+(
+σj − σk
+)⏐⏐ ≤ 1 for all j,k = 1, .. .,N . The values with
+ℜ
+(
+σj − σk
+)
+= ± 1 are excluded to avoid some technicalities in what follows.
+The RHP could also be formulated directly in terms of Φ(z). In this case the circles γν are not needed, the
+contour ΓΦ may be identiﬁed with the real line and the jump matrix is piecewise constant:
+JΦ (z)
+⏐⏐
+(0,t)= M −1
+0 , JΦ (z)
+⏐⏐
+(t,1)= (Mt0)−1 , JΦ (z)
+⏐⏐
+(1,∞)= M∞. (3.5)
+4To avoid unnecessary complications it is assumed that t ∈ (0, 1) and the segments belong to the real line.
+13
+=== PAGE 14 ===
+However, extra conditions (2.3) should be imposed on the behavior ofΦ(z) in the vicinity of 0, t, 1,∞ to ensure
+the uniqueness of solution.
+The idea of the Riemann-Hilbert nonlinear steepest descend method of Deift-Zhou [DZ1] is to transform
+the original RHP into a sequence of simpler RHPs that can be solved exactly or asymptotically. We start by
+constructing the matrices that mimic the monodromy properties of Ψ(z) inside and outside an auxiliary circle
+S = {z ∈ C : |z| = δ} of ﬁxed ﬁnite radiusδ ∈ (t, 1) represented by dashed line in Fig. 1. The respective complex
+domains will be denoted by Si and Se.
+3.2 Parametrices
+Inside Se, the matrix Ψ(z) will be approximated by the solution Ψe (z) of the Riemann-Hilbert problem with
+contour Γe
+Ψ shown in Fig. 2a. The corresponding jump matrix J e
+Ψ (z) is deﬁned by
+J e
+Ψ (z)
+⏐⏐
+γ1
+= C −1
+1 (1 − z)−Θ1 , J e
+Ψ (z)
+⏐⏐
+γ∞
+= C −1
+∞ (−z)Θ∞ , J e
+Ψ (z)
+⏐⏐
+S = C −1
+S (−z)−S ,
+J e
+Ψ (z)
+⏐⏐
+ℓσ1
+= (Mt0)−1 , J e
+Ψ (z)
+⏐⏐
+ℓ1∞
+= M∞.
+(3.6)
+Together with the normalization Ψe (0) = 1, the jumps ﬁx Ψe (z) uniquely. Outside the circles S, γ1, γ∞ (i.e.
+to the right of the oriented circles S, γ1, γ∞) this matrix can be expressed as Ψe (z) = Φe (z)CS in terms of the
+solution Φe (z) of a Fuchsian system with 3 regular singular points:
+∂z Φe = Ae (z) Φe, Ae (z) =
+Ae
+0
+z +
+Ae
+1
+z − 1 , (3.7)
+normalized as Φe(z) ≃ (−z)S as z → 0. In particular, Ae
+0 = S and the spectra of Ae
+1, Ae
+∞ := − Ae
+0 − Ae
+1 coincide
+with those of A1 and A∞ of the 4-point Fuchsian system (3.1). Local behavior of Φe (z) near the singular points
+0, 1,∞ is given by
+Φe (z) =
+
+
+
+Ge
+0 (z)( −z)S as z → 0,
+Ge
+1 (z)(1 − z)Θ1 C e
+1 as z → 1,
+Ge
+∞ (z)( −z)−Θ∞ C e
+∞ as z → ∞,
+(3.8a)
+where
+Ge
+0 (z) = 1 +
+∞∑
+m=1
+g e
+0,m zm, Ge
+1 (z) = Ge
+1
+(
+1 +
+∞∑
+m=1
+g e
+1,m (z − 1)m
+)
+, Ge
+∞ (z) = Ge
+∞
+(
+1 +
+∞∑
+m=1
+g e
+∞,m z−m
+)
+, (3.8b)
+connection matrices of Φe (z) are related to those of Φ(z) by
+C e
+1 = C1C −1
+S , C e
+∞ = C∞C −1
+S , (3.8c)
+and Ge
+1, Ge
+∞ are diagonalizing transformations for Ae
+1, Ae
+∞:
+Ae
+1 = Ge
+1Θ1Ge
+1
+−1, Ae
+∞ = Ge
+∞Θ∞Ge
+∞
+−1. (3.8d)
+It also should be noticed that in the interior of the circles S, γ1, γ∞ (i.e. to the left of the oriented circles S, γ1,
+γ∞) we have Ψe(z) = Φe(z)CS J e
+Ψ(z).
+Let us next introduce in a similar way an approximation ˜Ψi (z) which reproduces the monodromy proper-
+ties of Ψ(z) inside Si . The appropriate contour Γi
+Ψ is represented in Fig. 2b and the jump matrix J i
+Ψ (z) is
+J i
+Ψ (z)
+⏐⏐
+γ0
+= C −1
+0 (−z)−Θ0 , J i
+Ψ (z)
+⏐⏐
+γt
+= C −1
+t (t − z)−Θt , J i
+Ψ (z)
+⏐⏐
+S = (−z)S CS,
+J i
+Ψ (z)
+⏐⏐
+ℓ0t
+= M −1
+0 , J i
+Ψ (z)
+⏐⏐
+ℓt σ
+= M −1
+t0 .
+(3.9)
+Outside the circles γ0, γt , −S (i.e. to the right of the oriented circles γ0, γt and to the left of the oriented circle
+S), the interior parametrix can be written as ˜Ψi (z) = Φi (z
+t
+)
+CS, where Φi (z) is a solution of the Fuchsian system
+∂z Φi = Ai (z) Φi , Ai (z) =
+Ai
+0
+z +
+Ai
+1
+z − 1 , (3.10)
+14
+=== PAGE 15 ===
+0 1
+/c1038
+/c1031
+l/c1151 l 81
+S
+0 t
+0 /c103t/c103
+l0t
+S
+l /c115t
+a) b)
+Figure 2: Contours a) Γe
+Ψ and b) Γi
+Ψ for exterior and interior parametrix
+with appropriate monodromy. The matrices Ai
+0, Ai
+1 satisfy the constraint Ai
+∞ := −Ai
+0 − Ai
+1 = −S and their spec-
+tra coincide with those of A0, At in (3.1). It is convenient to ﬁx the normalization of ˜Ψi (z) by normalizing this
+solution as Φi (z) ≃ (−z)S as z → ∞, which amounts to setting ˜Ψi (∞) = t −S. Let us also record for further
+reference the local expansions
+Φi (z) =
+
+
+
+Gi
+0 (z)( −z)Θ0 C i
+0 as z → 0,
+Gi
+1 (z)(1 − z)Θt C i
+1 as z → 1,
+Gi
+∞ (z)( −z)S as z → ∞,
+(3.11a)
+where
+Gi
+0 (z) = Gi
+0
+(
+1 +
+∞∑
+m=1
+g i
+0,m zm
+)
+, Gi
+1 (z) = Gi
+1
+(
+1 +
+∞∑
+m=1
+g i
+1,m (z − 1)m
+)
+, Gi
+∞ (z) = 1 +
+∞∑
+m=1
+g i
+∞,m z−m. (3.11b)
+Similarly to the above, connection matrices of Φi (z) are expressed in terms of connection matrices of the orig-
+inal Fuchsian system (3.1) as
+C i
+0 = C0C −1
+S , C i
+1 = CtC −1
+S , (3.11c)
+whereas Gi
+0, Gi
+1 diagonalize Ai
+0, Ai
+1:
+Ai
+0 = Gi
+0Θ0Gi
+0
+−1
+, Ai
+1 = Gi
+1ΘtGi
+1
+−1
+. (3.11d)
+It also should be noticed that in the interior of the circles γ0, γt , we have Ψi (z) = Φi (z
+t
+)
+CS J i
+Ψ(z), while in
+the interior of the circle −S (i.e., to the right of the oriented circle S) we have Ψi (z) = Φi (z
+t
+)
+CS J i
+Ψ(z)−1 =
+Φi (z
+t
+)
+(−z)−S.
+In the next subsections it will be shown that the asymptotics of the 4-point isomonodromic tau function at
+the critical points can be derived given the inverse of the Riemann-Hilbert map for auxiliary 3-point solutions
+Φi ,e (z). More precisely, it turns out that all one needs is an expression for the matrix coefﬁcients g e
+0,1, g i
+∞,1 in
+terms of monodromy data: see, for instance, Proposition 3.9.
+3.3 Global approximation
+Our goal now is to show that the solution Ψ(z) of the 4-point Fuchsian Riemann-Hilbert problem can be ap-
+proximated by the solutionsΨe(z) and ˜Ψi (z) of 3-point Riemann-Hilbert problems. To this end, let us consider
+15
+=== PAGE 16 ===
+the matrix ΨS (z) deﬁned by
+ΨS (z) =
+{
+Ψ(z) Ψe (z)−1, z ∈ Se,
+Ψ(z) ˜Ψi (z)
+−1
+, z ∈ Si .
+(3.12)
+It is holomorphic and invertible on P\S; in particular, it has no jumps on ΓΨ. The normalization and the non-
+constant jump of ΨS (z) on S are given by
+JS (z) ≡ ΨS
+−(z)−1ΨS
++ = Ψe
+− (z) ˜Ψi
++ (z)
+−1
+, ΨS (∞) = G∞Ψe (∞)−1.
+The asymptotic evaluation of the 4-point function Ψ(z) is equivalent to asymptotic solution of the Riemann-
+Hilbert problem for the function ΨS(z) which is generated by the jump matrix JS (z).
+If it were possible to analytically continue JS (z) from S to its interior Si , the Riemann-Hilbert problem for
+ΨS (z) would be trivially solved by
+ΨS (z) =
+{
+G∞Ψe (∞)−1, z ∈ Se,
+G∞Ψe (∞)−1 JS (z), z ∈ Si .
+The crucial point for our analysis is that this effectively becomes true as t → 0. To see this, we ﬁrst notice that
+on S we have
+˜Ψi
++ (z) = Φi
+(z
+t
+)
+CS = Gi
+∞
+(z
+t
+) (
+− z
+t
+)S
+CS =
+[
+1 +
+∞∑
+m=1
+g i
+∞,m
+( t
+z
+)m] (
+− z
+t
+)S
+CS,
+Ψe
+− (z) = Φe(z)CS = Ge
+0 (z)( −z)S CS =
+[
+1 +
+∞∑
+m=1
+g e
+0,m zm
+]
+(−z)S CS,
+which in turn implies that
+JS (z) ≡ Ψe
+− (z) ˜Ψi
++ (z)
+−1
+= Ge
+0 (z)( −z)S CS
+[
+Gi
+∞
+(z
+t
+) (
+− z
+t
+)S
+CS
+]−1
+= Ge
+0 (z) t SGi
+∞
+(z
+t
+)−1
+. (3.13)
+Here Ge
+0 (z) and Gi
+∞(z) are the matrices that appear in the characterizations (3.8a), (3.11a) of the asymptotic
+behavior of Φe (z) as z → 0 and, respectively, Φi (z) as z → ∞. It is also worth emphasizing that both series
+converge. As t → 0, we have from (3.13) that
+JS(z) =
+{
+Ge
+0 (z)
+[
+1 +
+∞∑
+m=1
+t m t Sg i
+∞,m t −Sz−m
+]−1
+Ge
+0 (z)−1
+}
+Ge
+0 (z) t S. (3.14)
+Observe that
+t m t Sg i
+∞,m t −S = O
+(
+t m−s
+)
+,
+where
+s := max
+j,k
+⏐⏐ℜ
+(
+σj − σk
+)⏐⏐ < 1,
+and the inequality is due to Assumption 3.1. Therefore, from (3.14) it follows that indeed,
+JS =
+(
+1 +O(t 1−s)
+)
+J 0
+S, J 0
+S = Ge
+0 (z) t S, (3.15)
+where the jump matrix J 0
+S is analytic inside Si . The formula
+ΨS
+0 (z) =
+{
+G∞Ψe (∞)−1, z ∈ Se,
+G∞Ψe (∞)−1 J 0
+S (z), z ∈ Si ,
+(3.16)
+deﬁnes the explicit solution of the Riemann-Hilbert problem generated by the jump matrix J 0
+S. The estimate
+(3.15) then transforms into the estimate
+ΨS(z) =
+(
+1 +O
+( t 1−s
+1 + |z|
+))
+ΨS
+0(z), t → 0, z ∈ C,
+16
+=== PAGE 17 ===
+by the standard arguments involving the singular integral operator associated with the Riemann-Hilbert prob-
+lem posed for the ratio ΨS(z)ΨS
+0(z)−1 (see e.g. [DZ1] or [FIKN, Chapter 8, Theorem 8.1]). This in turn provides
+us, in view of (3.12), with the approximation of the 4-point function Ψ(z) by the 3-point functions Ψe(z) and
+˜Ψi (z). However, the error term is of order O(t 1−s). We want to do better; in fact, we need to approximate Ψ(z)
+up to the error o(t). The necessary improvement of (3.16) is provided by the following lemma.
+Lemma 3.3. Put
+J S
+− (z) = 1 + E (t)
+z ,
+J S
++ (z) =
+[
+1 − q(z, t)
+]
+Ge
+0 (z) t S.
+(3.17)
+where
+E (t) = ε(t)
+[
+1 − g e
+0,1ε(t)
+]−1 , (3.18a)
+ε(t) = t 1+Sg i
+∞,1t −S, (3.18b)
+q(z, t) = G1 (z, t) + E (t)G2 (z, t), (3.18c)
+G1 (z, t) =
+Ge
+0 (z) ε(t)Ge
+0 (z)−1 − ε(t)
+z , (3.18d)
+G2 (z, t) = G1 (z, t) − G1 (0, t)
+z , (3.18e)
+and deﬁne
+ΨS
+0 (z) =
+{
+G∞Ψe (∞)−1 J S
+−(z), z ∈ Se,
+G∞Ψe (∞)−1 J S
++ (z), z ∈ Si .
+(3.19)
+Then, under the conditions on the spectrum of S speciﬁed in Assumption 3.1, the following uniform estimate
+takes place
+ΨS(z) =
+(
+1 +O
+( t 2−s
+1 + |z|
+))
+ΨS
+0(z) =
+(
+1 + o(t)
+)
+ΨS
+0(z), t → 0, z ∈ C, (3.20)
+Proof. First we notice that, under conventions of Assumption 3.1,
+ε(t) = O
+(
+t 1−maxj,k
+⏐⏐ℜ
+(
+σj −σk
+)⏐⏐)
+≡ O
+(
+t 1−s)
+= o (1)
+is a small matrix parameter. Secondly, we observe that the functions J S
+−(z) and J S
++(z) are analytic in Se and Si ,
+respectively. Hence, equation (3.19) indeed determines a holomorphic and invertible (for sufﬁciently small t)
+on P\S matrix function whose jump on S and normalization at inﬁnity are given by
+J 0
+S (z) ≡ ΨS
+0− (z)
+−1
+ΨS
+0+ = J S
+− (z)
+−1
+J S
++ (z), ΨS
+0 (∞) = G∞Ψe (∞)−1.
+The lemma will be proven if we can show that the new J 0
+S(z) improves the estimate (3.15), i.e.
+JS (z) J 0
+S (z)
+−1
+= 1 +O
+(
+t 2−s)
+≡ 1 + o (t), z ∈ S. (3.21)
+Indeed, suppose we already have (3.21). Deﬁne
+R (z) = ΨS (z) ΨS
+0 (z)
+−1
+.
+The matrix ratio R (z) satisﬁes the Riemann-Hilbert problem posed onS with the jump matrix
+JR (z) = ΨS
+0− (z) JS (z) J 0
+S (z)
+−1
+ΨS
+0− (z)
+−1
+, (3.22)
+and it is normalized at ∞ as R (∞) = 1. All the matrix functions which we are dealing with are uniformly
+bounded on S together with their inverses. Therefore, the estimate (3.21) would imply that
+JR (z) = 1 +O
+(
+t 2−s)
+≡ 1 + o (t), (3.23)
+17
+=== PAGE 18 ===
+as t → 0 and uniformly for all z ∈ S. Referring again to the general theory of the Riemann-Hilbert problems
+([DZ1] or [FIKN, Chapter 8, Theorem 8.1]) we could transform the jump matrix estimate (3.23) into the solution
+estimate,
+R (z) = 1 +O
+( t 2−s
+1 + |z|
+)
+= 1 + o (t), t → 0, z ∈ C, (3.24)
+which is equivalent to the statement (3.20) of the lemma.
+Let us prove (3.21). We begin with recalling once again that all involved matrices are bounded on the circleS
+together with their inverses, and that all the series converge uniformly on S. Moreover, let us make a crucial
+observation that ε2 (t) = t 2 · t S
+(
+g i
+∞,1
+)2
+t −S = O
+(
+t 2−s)
+= o (t). It implies that all terms containing ε2 (t) can be
+moved to the error term, o (t). At the same time one has to keep e.g. expressions of the form ε(t) A ε(t) with
+non-diagonal A, since their order can only be estimated as O
+(
+t 2−2s)
+. In particular, we have
+E 2 (t) = o (t),
+[
+1 + E (t)
+z
+]−1
+= 1 − E (t)
+z + o (t), Ge
+0 (z) t SGi
+∞
+(z
+t
+)
+t −SGe
+0 (z)−1 = 1 +
+Ge
+0(z)ε(t)Ge
+0(z)−1
+z + o (t),
+(3.25)
+q(z, t) =
+Ge
+0 (z) ε(t)Ge
+0 (z)−1 − ε(t)
+z + E (t)
+z
+{
+Ge
+0 (z) ε(t)Ge
+0 (z)−1 − ε(t)
+z −
+[
+g e
+0,1, ε(t)
+]
+}
+=
+=
+[
+1 + E (t)
+z
+] Ge
+0 (z) ε(t)Ge
+0 (z)−1 − ε(t)
+z − E (t)
+z g e
+0,1ε(t) + o (t). (3.26)
+In these formulae, and everywhere below, the error termo (t) may be understood asO
+(
+t 2−s)
+. Our last preparing
+observation is that (3.21) is equivalent to the estimate,
+J 0
+S (z) JS (z)−1 = 1 +O
+(
+t 2−s)
+≡ 1 + o (t), z ∈ S, (3.27)
+and it is this latter estimate which we are going to prove.
+Taking into account (3.25) and (3.26), we have that
+J 0
+S (z) JS (z)−1 =
+[
+1 + E (t)
+z
+]−1 [
+1 − q(z, t)
+]
+Ge
+0 (z) t SGi
+∞
+(z
+t
+)
+t −SGe
+0 (z)−1 =
+=
+[
+1 − E (t)
+z
+] [
+1 − q(z, t)
+](
+1 +
+Ge
+0 (z) ε(t)Ge
+0 (z)−1
+z
+)
++ o (t). (3.28)
+Using (3.25) and (3.26) one more time, we conclude that
+[
+1 − E (t)
+z
+] [
+1 − q(z, t)
+]
+= 1 − E (t)
+z −
+Ge
+0 (z) ε(t)Ge
+0 (z)−1 − ε(t)
+z + E (t)
+z g e
+0,1ε(t) + o (t) =
+= 1 − E (t)
+z
+(
+1 − g e
+0,1ε(t)
+)
+−
+Ge
+0 (z) ε(t)Ge
+0 (z)−1 − ε(t)
+z + o (t) =
+= 1 − ε(t)
+z −
+Ge
+0 (z) ε(t)Ge
+0 (z)−1 − ε(t)
+z + o (t) = 1 −
+Ge
+0 (z) ε(t)Ge
+0 (z)−1
+z + o (t). (3.29)
+Plugging (3.29) into (3.28) and taking into account that
+(
+Ge
+0(z)ε(t)Ge
+0(z)−1
+z
+)2
+=
+Ge
+0 (z) ε2 (t)Ge
+0 (z)−1
+z2 = o (t),
+we arrive at the estimate (3.27) and hence complete the proof of the lemma. □
+18
+=== PAGE 19 ===
+Remark 3.4. Let us explain the appearance of rather non-obvious formulae (3.17)–(3.18) for the improved ap-
+proximate solution of the ΨS - RH problem. To this end, consider (3.17) as an ansatz for J S
+± (z) where E (t)
+and q(z, t) are to be determined. These quantities constitute small corrections including all terms up to o (t).
+Comparing J S
+−(z)−1 J S
++(z) with the exact jump matrix (3.13), we see that it sufﬁces to solve the equation
+E (t)
+z + q(z, t) − E (t)q(z, t)
+z =
+Ge
+0 (z) ε(t)Ge
+0 (z)−1
+z + o (t). (3.30)
+We are going to expand E (t) and q(z, t) with respect to the small matrix parameter ε(t). Let us assign to any
+product of matrices a degree equal to the number of ε(t)-factors it contains, and (formally) decompose E (t)
+and q(z, t) accordingly as
+E (t) =
+∞∑
+k=1
+Ek (t), q(z, t) =
+∞∑
+k=1
+qk (z, t). (3.31)
+Substituting the decompositions (3.31) into (3.30) yields recurrence relations
+Ek (t) =
+k−1∑
+m=1
+Em (t)qk−m (0, t),
+qk (z, t) =
+k−1∑
+m=1
+Em (t) qk−m (z, t) − qk−m (0, t)
+z ,
+(3.32)
+valid for k > 1 and subject to the initial conditions
+E1 (t) = ε(t), q1 (z, t) = G1 (z, t),
+with G1 (z, t) deﬁned by (3.18d). This in principle allows to determine all terms in the sums (3.30) up to o (t)-
+corrections. Moreover, similarly to the derivation of (3.25) and (3.26) in the proof of Lemma 3.3, all terms
+containing ε2 (t) can be dropped out from the sums (3.32). Let us write down explicitly a few more terms in the
+expansion of E (t) and q(z, t):
+E2 (t) = E1 (t)q1 (0, t) = ε(t)G1 (0, t) = ε(t)
+[
+g e
+0,1, ε(t)
+]
+= ε(t) g e
+0,1ε(t) + o (t),
+q2 (z, t) = E1 (t) q1 (z, t) − q1 (0, t)
+z = ε(t)G2 (z, t),
+E3 (t) = E1 (t)q2 (0, t) + E2 (t)q1 (0, t) = E2 (t)q1 (0, t) + o (t) = ε(t) g e
+0,1ε(t) g e
+0,1ε(t) + o (t),
+q3 (z, t) = E1 (t) q2 (z, t) − q2 (0, t)
+z + E2 (t) q1 (z, t) − q1 (0, t)
+z = ε(t) g e
+0,1ε(t)G2 (z, t) + o (t),
+. .. . .. . ..
+The general pattern now becomes manifest. It remains to employ an inductive argument to show that fork > 1
+the only term in the sums (3.32) which is not of order o (t) corresponds to m = k − 1. Indeed, in all other terms
+qk−m (z, t) contain ε(t) as the leftmost factor and simultaneously Em (t) has ε(t) on the right. The formulae
+(3.18a) and (3.18c) for E (t) and q(z, t) can be now easily guessed. The technique described above allows one to
+go far beyond the leading order approximation given by formulae (3.17)–(3.18) and systematically construct a
+perturbative solution for ΨS(z) for small t.
+A direct corollary of Lemma 3.3 is the following asymptotic representation of the solution Ψ(z) of the 4-
+point Fuchsian Riemann-Hilbert problem in terms of the solutions Ψe(z) and ˜Ψi (z) of the 3-point problems.
+Corollary 3.5. A uniform approximation for Ψ(z) as t → 0 is given by
+Ψ(z) =
+
+
+
+G∞Ψe (∞)−1
+(
+1 + E (t)
+z +O
+( t 2−s
+1 + |z|
+))
+Ψe (z), z ∈ Se,
+G∞Ψe (∞)−1
+(
+1 − q(z, t) +O
+(
+t 2−s))
+Ge
+0 (z) t S ˜Ψi (z), z ∈ Si .
+(3.33)
+Equivalently, the solution of the Fuchsian system (3.1) can be approximated by
+Φ(z) =
+
+
+
+G∞Ge
+∞
+−1
+(
+1 + E (t)
+z +O
+( t 2−s
+1 + |z|
+))
+Φe (z)CS, z ∈ Se,
+G∞Ge
+∞
+−1
+(
+1 − q(z, t) +O
+(
+t 2−s))
+Φe (z)
+(
+− z
+t
+)−S Φi (z
+t
+)
+CS, z ∈ Si .
+(3.34)
+19
+=== PAGE 20 ===
+Proof. The Ψ - approximation (3.33) follows at once from (3.20), (3.19) and (3.12) and from the obvious fact
+that
+(
+1 + o(t)
+)
+B = B
+(
+1 + o(t)
+)
+for any invertible and constant (or bounded in t) matrix B. In order to pass from
+(3.33) to (3.34), one only needs to invoke the relations between the functionsΨ(z), Ψe(z), ˜Ψi (z) and Φ(z), Φe(z),
+Φi (z), respectively. For instance, if z is inside γ∞ or γ1, i.e. in the neighborhood of z = ∞ or z = 1, we have
+Ψe(z) = Φe (z)CS J e
+Ψ (z) = Ge
+∞,1 (z),
+and, in particular,
+Ψe(∞) = Ge
+∞. (3.35)
+Simultaneously, one has Ψ(z) = Φ(z)JΨ(z). Since J e
+Ψ(z)
+⏐⏐
+γ∞,γ1
+= JΨ(z)
+⏐⏐
+γ∞,γ1
+, it follows that for all z inside γ∞
+or γ1 we obtain
+Ψe (z) J −1
+Ψ (z) = Φe (z)CS.
+Together with (3.35), this yields the ﬁrst line in (3.34). Ifz is outside of γ∞ and γ1 but still belongs to Se, we have
+Ψe(z) = Φe(z)CS and Ψ(z) = Φ(z), which gives again the ﬁrst line in (3.34). Thus the ﬁrst line in (3.34) is proved
+for all z ∈ Se. The second line in (3.34) is proved analogously. □
+We are now going to use this approximation to derive thet → 0 asymptotics of the 1-formω deﬁned by (3.2).
+As a byproduct, we will derive the famous Jimbo asymptotic formula for Painlevé VI [Jim]. Our main concern is
+however to describe the dependence of the Painlevé VI tau function on monodromy data.
+3.4 Asymptotics of ω and Ω
+The short-distance behavior of the form ω is described by the following two lemmata.
+Lemma 3.6. The asymptotics of the time part of ω as t → 0 is given by
+P =
+Tr
+(
+S2 − Θ2
+0 − Θ2
+t
+)
+2t + ∂t ln det
+(
+1 − g e
+0,1t 1+Sg i
+∞,1t −S
+)
++ o (1). (3.36)
+Proof. The estimates (3.34) imply that
+P = 1
+2 resz=t Tr
+(
+∂z Φ · Φ−1)2
+= 1
+2 resz=t Tr
+(1
+t Ai
+(z
+t
+))2
++ resz=t Tr
+(1
+t Ai
+(z
+t
+)
+G −1∂z G
+)
+, (3.37)
+with
+G :=
+(
+1 − q(z, t) + o (t)
+)
+Ge
+0 (z) t S.
+The ﬁrst term in (3.37) is readily computed in terms of critical exponents:
+P −1 := 1
+2 resz=t Tr
+(1
+t Ai
+(z
+t
+))2
+=
+TrAi
+0 Ai
+1
+t =
+Tr
+((
+Ai
+0 + Ai
+1
+)2
+−
+(
+Ai
+0
+)2
+−
+(
+Ai
+1
+)2)
+2t =
+Tr
+(
+S2 − Θ2
+0 − Θ2
+t
+)
+2t .
+The second term can be transformed as
+P 0 := resz=t Tr
+(1
+t Ai
+(z
+t
+)
+G −1∂z G
+)
+= Tr
+(
+Ai
+1G −1∂z G
+⏐⏐
+z=t
+)
+=
+= Tr
+(
+Ai
+1t −S
+(
+g e
+0,1 − 1
+1 − q(0, t) ∂zq(z, t)
+⏐⏐
+z=0
+)
+t S
+)
++ o (1).
+Recall that according to Assumption 3.1 we have |ℜ
+(
+σj − σk
+)
+| < 1. Taking into account the expression (3.18c)
+for q(z, t) and ε2 (t) = o (t), it can be deduced that
+t −S 1
+1 − q(0, t) ∂zq(z, t)
+⏐⏐
+z=0t S = t −S 1
+1 − G1 (0, t)
+(
+∂zG1 (0, t) + E (t) ∂zG2 (0, t)
+)
+t S + o (t) =
+= t −S 1
+1 − g e
+0,1ε(t) ∂zG1 (0, t) t S + o (t) = −t −S 1
+1 − g e
+0,1ε(t) g e
+0,1ε(t) g e
+0,1t S + o (t),
+20
+=== PAGE 21 ===
+and, consequently,
+P 0 = Tr
+(
+Ai
+1t −S 1
+1 − g e
+0,1ε(t) g e
+0,1t S
+)
++ o (1).
+The quantities g e
+0,1 and g i
+∞,1 (the latter matrix appears in the deﬁnition ofε(t)) can be related to the coefﬁ-
+cients of the linear systems for Φe and Φi , namely:
+g e
+0,1+
+[
+g e
+0,1,S
+]
++ Ae
+1 = 0,
+g i
+∞,1−
+[
+g i
+∞,1,S
+]
++ Ai
+1 = 0.
+(3.38)
+This allows to rewrite P 0 as
+P 0 = ∂t Tr ln
+(
+1 − g e
+0,1ε(t)
+)
++ o (1) = ∂t ln det
+(
+1 − g e
+0,1t 1+Sg i
+∞,1t −S
+)
++ o (1),
+which ﬁnishes the proof. □
+Lemma 3.7. The asymptotics of the monodromy part of ω as t → 0 is given by
+∑
+ν=0,t,1,∞
+Tr
+(
+ΘνG −1
+ν dM Gν
+)
+= ln t
+2 dM Tr
+(
+S2 − Θ2
+0 − Θ2
+t
+)
++ ω0 + o (1), (3.39)
+where ω0 ∈ Λ1 (M ) is a 1-form on M deﬁned as
+ω0 = Tr
+(
+Θ0Gi
+0
+−1
+dM Gi
+0 + ΘtGi
+1
+−1
+dM Gi
+1 + Θ1Ge
+1
+−1dM Ge
+1 + Θ∞Ge
+∞
+−1dM Ge
+∞
+)
+. (3.40)
+Proof. From the approximation (3.34) it also follows that
+G0 = G∞Ge
+∞
+−1
+(
+1 − q(0, t) + o (t)
+)
+t SGi
+0t −Θ0,
+Gt = G∞Ge
+∞
+−1
+(
+1 − q(0, t) + g e
+0,1t + o (t)
+)
+t SGi
+1t −Θt ,
+G1 = G∞Ge
+∞
+−1
+(
+1 + E (t) + o (t)
+)
+Ge
+1.
+(3.41)
+The statement follows by straightforward computation combining the above estimates with the relations
+Ai
+0 + Ai
+1 = S and S + Ae
+1 = −Ae
+∞. □
+Compatibility of Lemmata 3.6 and 3.7 is manifest. The estimate (3.39) may seem too rough to give the O (1)
+short-distance behavior of Ω = d ω by directly computing the differential: naively for that one would need the
+asymptotics of the left side up to o (t). However, we already know from Proposition 2.3 that Ω(∂t , ∂M ) = 0 for
+any local coordinateM on M and that Ω does not depend ont. Therefore this 2-form is completely determined
+by the O (1) asymptotics of the monodromy part of ω.
+Corollary 3.8. The 2-form Ω coincides with d ω0, where ω0 ∈ Λ1 (M ) is deﬁned by (3.40).
+The results of this subsection can now be summarized as follows.
+Proposition 3.9. Given ω deﬁned by (3.2) andω0 by (3.40), the difference ˆω := ω−ω0 is a closed1-form on ˜T × M .
+Its short-distance (t → 0) asymptotics is given by
+ˆω = d ln
+(
+t
+1
+2 Tr
+(
+S2−Θ2
+0−Θ2
+t
+)
+det
+(
+1 − g e
+0,1t 1+Sg i
+∞,1t −S
+))
++ o (1). (3.42)
+Deﬁnition 3.10. The four-point tau function τω0 : ˜T × M → C is deﬁned by
+d ln τω0 = ω − ω0. (3.43)
+This relation deﬁnes τω0 up to a multiplicative constant independent of monodromy data, including the local
+monodromy exponents Θ0,t,1,∞.
+21
+=== PAGE 22 ===
+We have thus expressed 4-point tau function asymptotics in terms of parameters of two auxiliary 3-point
+Fuchsian systems with appropriate monodromy. Given the solutions Φi (z), Φe (z) of the inverse monodromy
+problem for these systems, Proposition 3.9 provides an explicit asymptotic expression for d ln τω0. Finding
+3-point solutions remains an open problem in general. However, in a number of cases the 3-point inverse
+monodromy problem can be solved in terms of generalized hypergeometric functions. Below we discuss the
+simplest situation of this type which corresponds to generic monodromy in rank N = 2 and leads to Gauss
+hypergeometric system.
+3.5 Painlevé VI monodromy data
+The space of essential monodromy data of the 4-point Fuchsian system (3.1) is the space of conjugacy classes
+of triples (M0, Mt , M1) ∈ SL N (C)3. Here the matrices M0,t,1 and M∞ := (M1Mt M0)−1 represent monodromy
+of Φ(z) around the singular points. The spectra of Mν coincide with those of e2πi Θν (ν = 0, t,1, ∞) and are
+considered as ﬁxed. Deﬁne
+M Θ
+4 =
+{
+(M0, Mt , M1) ∈ SL N (C)3 : Mν ∼ e2πi Θν for ν = 0, t,1, ∞
+}/
+SL N (C).
+To compute the dimension of M Θ
+4 and introduce on it a convenient set of local coordinates, it is useful to
+start with a simper case of 3 points. Having diagonalized one of the two generators of monodromy group, the
+second is deﬁned up to diagonal conjugation and has ﬁxed spectrum, which gives(N − 1)2 parameters. Fixing
+the spectrum of monodromy around the third singular point subtracts N − 1 parameters so that
+dim M Θ
+3 = (N − 1)( N − 2).
+Note in particular that in rank 2 the conjugacy class of monodromy is completely determined by the local
+monodromy exponents — the corresponding Fuchsian system is rigid. In higher rank N > 2, monodromy data
+have an even number of nontrivial internal moduli.
+In the case of 4 or more poles a convenient parameterization is suggested by decompositions of the punc-
+tured sphere into pairs of pants, such as the one represented in Fig. 3. It is instructive to compare this picture
+with Figs. 1 and 2.
+/c1030
+/c103t/c1031
+/c1038
+S
+Figure 3: Pants decomposition of the 4-punctured Riemann sphere
+The spectrum of the productMt M0 (monodromy along S) contains N −1 monodromy parameters, encoded
+in the matrix S. Let us ﬁx in each of the conjugacy classes[(M0, Mt )], [(M1, M∞)] the representatives
+˜Mν = CS MνC −1
+S , ν = 0, t, 1,∞
+with diagonal ˜Mt ˜M0 =
+( ˜M∞ ˜M1
+)−1 = e2πi S. This involves ﬁxing(N − 1)( N − 2) parameters for each pair of pants
+and choosing a representative in each of the two ( N − 1)-dimensional orbits of diagonal conjugation. The
+possibility of simultaneous diagonal conjugation of
+( ˜M0, ˜Mt , ˜M1
+)
+reduces the latter 2(N −1) coordinates toN −1
+parameters of relative twist, to be collectively denoted as T. The resulting dimension is
+dim M Θ
+4 = (N − 1)  
+spectrum of S
++2 × (N − 1)( N − 2)  
+moduli of pants
++2 × (N − 1) − (N − 1)  
+twist parameters T
+= 2(N − 1)2 .
+Let us now make this parameterization completely explicit for rank N = 2, where M Θ
+4 is two-dimensional.
+The three-point moduli are absent and two local coordinates are provided by the eigenvalue ofS = diag{σ, −σ}
+22
+=== PAGE 23 ===
+and one twist parameter. Indeed, for ν = 0, t,1, ∞ denote the eigenvalues of Θν by ± θν. The knowledge of
+Tr ˜M0 = 2 cos2πθ0 and Tr M0Mt0−1 = Tr ˜M0e−2πi S = 2 cos2πθt determines the diagonal elements of ˜M0. The
+unit determinant ﬁxes the product of its off-diagonal elements.
+In addition to Assumption 3.1 (implying that |ℜσ| < 1
+2 and σ ̸= 0), it is convenient to impose further gener-
+icity assumptions on the monodromy:
+Assumption 3.11. Parameters θ0,t,1,∞ and σ satisfy
+θ0 + θt ± σ, θ0 − θt ± σ, θ∞ + θ1 ± σ, θ∞ − θ1 ± σ ∉ Z. (3.44)
+We can then write
+˜M0 = 1
+i sin2 πσ
+( e2πi σ cos2 πθ0 − cos2 πθt si [cos2 π(θt − σ) − cos2 πθ0]
+si −1 [cos2 πθ0 − cos2 π(θt + σ)] cos2 πθt − e−2πi σ cos2 πθ0
+)
+. (3.45a)
+Next, from ˜Mt = e2πi SM −1
+0 it follows that
+˜Mt = 1
+i sin2 πσ
+( e2πi σ cos2 πθt − cos2 πθ0 si e2πi σ [cos2 πθ0 − cos2 π(θt − σ)]
+si −1e−2πi σ [cos2 π(θt + σ) − cos2 πθ0] cos2 πθ0 − e−2πi σ cos2 πθt
+)
+. (3.45b)
+In these two expressions, si is a coordinate on the one-dimensional orbit of diagonal conjugation of
+( ˜M0, ˜Mt
+)
+with ﬁxed product ˜Mt ˜M0 = e2πi S. In a similar fashion, we can write a parameterization of ˜M1, ˜M∞: it sufﬁces
+to replace in the above formulas θ0 7→ θ1, θt 7→ θ∞, σ 7→ −σ so that
+˜M1 = 1
+i sin2 πσ
+( cos2 πθ∞ − e−2πi σ cos2 πθ1 see2πi σ [cos2 π(θ1 + σ) − cos2 πθ∞]
+se −1e−2πi σ [cos2 πθ∞ − cos2 π(θ1 − σ)] e2πi σ cos2 πθ1 − cos2 πθ∞
+)
+, (3.45c)
+˜M∞ = 1
+i sin2 πσ
+( cos2 πθ1 − e−2πi σ cos2 πθ∞ se [cos2 πθ∞ − cos2 π(θ1 + σ)]
+se −1 [cos2 π(θ1 − σ) − cos2 πθ∞] e2πi σ cos2 πθ∞ − cos2 πθ1
+)
+. (3.45d)
+The possibility of simultaneous conjugation of ˜M0,t,1,∞ by any diagonal matrix implies that the role of the twist
+parameter is played by the ratio
+si /se ≡ ei η. (3.46)
+The variables
+(
+σ, η
+)
+provide a pair of convenient local coordinates on M Θ
+4 which can be thought of as com-
+plexiﬁed Fenchel-Nielsen coordinates on the Teichmüller space for spheres with 4 punctures. They are closely
+related to monodromy parameterization in [Jim] and can be written in terms of trace functions. For instance,
+introduce the Fricke coordinates
+pν = 2 cos2πθν = TrMν, ν = 0, t,1, ∞,
+pµν = 2 cos2πσµν = TrMµMν, µν = 0t, t1, 01. (3.47)
+We can identify σ0t = σ. Straightforward calculation also shows that [Jim]
+(
+4 − p2
+0t
+)
+pt1 =2
+(
+p0p∞ + pt p1
+)
+− p0t
+(
+p0p1 + pt p∞
+)
+(3.48a)
+−
+∑
+ϵ=± 1
+(
+p∞ − 2 cos 2π(θ1 − ϵσ)
+)(
+p0 − 2 cos2π(θt − ϵσ)
+)
+ei ϵη,
+(
+4 − p2
+0t
+)
+p01 =2
+(
+p0p1 + pt p∞
+)
+− p0t
+(
+p0p∞ + pt p1
+)
+(3.48b)
++
+∑
+ϵ=± 1
+(
+p∞ − 2 cos 2π(θ1 − ϵσ)
+)(
+p0 − 2 cos2π(θt − ϵσ)
+)
+ei ϵη−2πi ϵσ .
+The functions (3.47) satisfy a quartic relation (1.16) and generate the algebra of invariant polynomial functions
+on M4. There exists a canonical quadratic Poisson bracket {·, ·} of geometric origin onM4 [Gol]. Trace functions
+p0, pt , p1, p∞ are its Casimirs and the nontrivial brackets are given by
+{
+p0t , pt1
+}
+= 2p01 + p0t pt1 − p0p1 − pt p∞,{
+pt1, p01
+}
+= 2p0t + pt1p01 − p0pt − p1p∞,{
+p01, p0t
+}
+= 2pt1 + p0t p01 − pt p1 − p0p∞.
+(3.49)
+23
+=== PAGE 24 ===
+Lemma 3.12. The pair of local coordinates
+(
+σ, η
+)
+satisﬁes
+{
+η, σ
+}
+= 1
+2π , i.e.
+(
+σ, η
+)
+are canonical Darboux coordi-
+nates on the symplectic leaf M Θ
+4 with respect to the Poisson bracket (3.49).
+Proof. Direct calculation. For instance, from (3.48) it follows that
+ei η =
+2i sin2 πσ
+(
+e2πi σpt1 + p01
+)
++ f (θ, σ)
+g (θ, σ) , (3.50a)
+where the quantities f (θ, σ), g (θ, σ) are independent of η:
+f (θ, σ) =
+(
+p0p∞ + pt p1
+)
+−
+(
+p0p1 + pt p∞
+)
+e2πi σ, (3.50b)
+g (θ, σ) =
+(
+p∞ − 2 cos 2π(θ1 − σ)
+)(
+p0 − 2 cos2π(θt − σ)
+)
+. (3.50c)
+But then (3.49) implies that
+{
+p0t ,ei η
+}
+= 2i sin2 πσ
+g (θ, σ)
+{
+p0t ,e2πi σpt1 + p01
+}
+= 2i sin2 πσei η.
+which is equivalent to the statement of the lemma. □
+3.6 Inverse monodromy problem in rank 2
+We are now going to ﬁnd an explicit form of the parametricesΦe (z), Φi (z) in the case N = 2. Recall that Φe (z)
+is the solution of the Fuchsian system (3.7) with the following properties:
+• its monodromy is described by (3.8); in particular, the connection matrices at 1, ∞ are given by
+C e
+1 = C1C −1
+S , C e
+∞ = C∞C −1
+S .
+• the normalization is ﬁxed by Φe (z) ≃ (−z)S as z → 0;
+• in (3.7), Ae
+0 = S = diag{σ, −σ}; the eigenvalues of Ae
+1, Ae
+∞ = −Ae
+0 − Ae
+1 are ± θ1 and ± θ∞, respectively.
+The known spectrum of Ae
+1,∞ ∈ sl2 (C) determines these matrices almost completely. Indeed, computing
+the trace
+TrAe
+0 Ae
+1 = 1
+2 Tr
+((
+Ae
+∞
+)2 −
+(
+Ae
+0
+)2 −
+(
+Ae
+1
+)2)
+= θ2
+∞ − θ2
+1 − σ2,
+one can ﬁnd the diagonal elements of Ae
+1. The known determinant det Ae
+1 = −θ2
+1 then gives the product of the
+off-diagonal elements. As a result of this calculation, one ﬁnds
+Ae
+1 = 1
+2σ
+(
+θ2
+∞ − θ2
+1 − σ2 re
+(
+(θ1 + σ)2 − θ2
+∞
+)
+r −1
+e
+(
+θ2
+∞ − (θ1 − σ)2)
+σ2 + θ2
+1 − θ2
+∞
+)
+, (3.51)
+where re ∈ C× is the only remaining unknown parameter related to the freedom of simultaneous conjugation
+of Ae
+0,1,∞ by a non-degenerate diagonal matrix. Let us write the general form of diagonalizing transformations
+for Ae
+1 = Ge
+1Θ1Ge
+1
+−1 and Ae
+∞ = Ge
+∞Θ∞Ge
+∞
+−1 as
+Ge
+1 =
+( re (θ1 + σ)2 − θ2
+∞
+1 r −1
+e
+(
+(θ1 − σ)2 − θ2
+∞
+)
+) ( ce
+1a
+−1 0
+0 ce
+1b
+−1
+)
+, (3.52a)
+Ge
+∞ =
+( re (θ1 − θ∞ + σ) θ1 + θ∞ + σ
+θ1 − θ∞ − σ r −1
+e (θ1 + θ∞ − σ)
+) ( ce
+∞a
+−1 0
+0 ce
+∞b
+−1
+)
+. (3.52b)
+Our main remaining task is to relatere in (3.51)–(3.52) to monodromy parameterse in (3.45c), (3.45d). This can
+be done using the explicit solution for Φe (z).
+24
+=== PAGE 25 ===
+Lemma 3.13. Let Φe (z) denote the solution of (3.7) normalized asΦe(z) ≃ (−z)S as z → 0, with Ae
+0 = diag{σ, −σ}
+and A e
+1 parameterized as in (3.51). Then
+Φe
+11 (z) = (−z)σ (1 − z)θ1
+2F1
+(
+θ1 + θ∞ + σ, θ1 − θ∞ + σ;2 σ; z
+)
+, (3.53a)
+Φe
+12 (z) = re
+θ2
+∞ − (θ1 + σ)2
+2σ(2σ − 1) (−z)1−σ (1 − z)θ1
+2F1
+(
+1 + θ1 + θ∞ − σ,1 + θ1 − θ∞ − σ; 2− 2σ; z
+)
+, (3.53b)
+Φe
+21 (z) = r −1
+e
+θ2
+∞ − (θ1 − σ)2
+2σ(2σ + 1) (−z)1+σ (1 − z)θ1
+2F1
+(
+1 + θ1 + θ∞ + σ,1 + θ1 − θ∞ + σ; 2+ 2σ; z
+)
+, (3.53c)
+Φe
+22 (z) = (−z)−σ (1 − z)θ1
+2F1
+(
+θ1 + θ∞ − σ, θ1 − θ∞ − σ; −2σ; z
+)
+, (3.53d)
+where 2F1
+(
+α, β; γ; z
+)
+denotes the Gauss hypergeometric function.
+Corollary 3.14. The relation between se and re is as follows:
+se = Γ(1 − 2σ) Γ(1 + θ∞ + θ1 + σ) Γ(1 − θ∞ + θ1 + σ)
+Γ(1 + 2σ) Γ(1 + θ∞ + θ1 − σ) Γ(1 − θ∞ + θ1 − σ) re. (3.54)
+Proof. As z → −∞, it becomes convenient to replace (3.53) by an equivalent representation
+Φe (z) = Ge
+∞ ˆΦe (z)C e
+∞, (3.55)
+where Ge
+∞ is deﬁned by (3.52b) and
+ˆΦe
+11 (z) = (−z)−θ∞
+(
+1 − z−1)θ1
+2F1
+(
+θ1 + θ∞ + σ, θ1 + θ∞ − σ; 2θ∞; z−1
+)
+, (3.56a)
+ˆΦe
+12 (z) = ce
+∞a
+rece
+∞b
+(θ1 + θ∞)2 − σ2
+2θ∞ (2θ∞ − 1) (−z)θ∞−1 (
+1 − z−1)θ1
+2F1
+(
+1 + θ1 − θ∞ + σ,1 + θ1 − θ∞ − σ;2 − 2θ∞; z−1
+)
+, (3.56b)
+ˆΦe
+21 (z) =
+rece
+∞b
+ce
+∞a
+(θ1 − θ∞)2 − σ2
+2θ∞ (2θ∞ + 1) (−z)−θ∞−1 (
+1 − z−1)θ1
+2F1
+(
+1 + θ1 + θ∞ + σ,1 + θ1 + θ∞ − σ; 2+ 2θ∞; z−1
+)
+, (3.56c)
+ˆΦe
+22 (z) = (−z)θ∞
+(
+1 − z−1)θ1
+2F1
+(
+θ1 − θ∞ + σ, θ1 − θ∞ − σ; −2θ∞; z−1
+)
+. (3.56d)
+The connection matrix C e
+∞ can be derived from the standard connection formulas for hypergeometric func-
+tions. Explicitly, its expression reads
+C e
+∞ =
+( ce
+∞a 0
+0 ce
+∞b
+)
+
+
+r −1
+e Γ(−2θ∞) Γ(2σ)
+Γ(−θ1 − θ∞ + σ) Γ(1 + θ1 − θ∞ + σ)
+Γ(−2θ∞) Γ(−2σ)
+Γ(−θ1 − θ∞ − σ) Γ(1 + θ1 − θ∞ − σ)
+Γ(2θ∞) Γ(2σ)
+Γ(−θ1 + θ∞ + σ) Γ(1 + θ1 + θ∞ + σ)
+re Γ(2θ∞) Γ(−2σ)
+Γ(−θ1 + θ∞ − σ) Γ(1 + θ1 + θ∞ − σ)
+
+. (3.57)
+Now it sufﬁces to compute the monodromy matrix ˜M∞ = C e
+∞
+−1e2πi Θ∞C e
+∞. Comparing the result with (3.45d),
+we deduce the identiﬁcation (3.54). □
+Remark 3.15. One can similarly derive an expression for the connection matrix C e
+1 associated to the choice
+(3.52a) of diagonalizing matrix Ge
+1. In contrast to C e
+0 and C e
+∞, this matrix is given by different expressions for
+ℑz≷ 0, which are related by C e
+1,+ = C e
+1,−e−2πi S. In fact we have
+C e
+1,± =
+( ce
+1a 0
+0 ce
+1b
+)
+
+
+r −1
+e Γ(2σ) Γ(−2θ1)
+Γ(−θ1 − θ∞ + σ) Γ(−θ1 + θ∞ + σ)
+Γ(−2σ) Γ(−2θ1)
+Γ(−θ1 − θ∞ − σ) Γ(−θ1 + θ∞ − σ)
+Γ(2σ) Γ(2θ1)
+Γ(1 + θ1 − θ∞ + σ) Γ(1 + θ1 + θ∞ + σ)
+re Γ(−2σ) Γ(2θ1)
+Γ(1 + θ1 − θ∞ − σ) Γ(1 + θ1 + θ∞ − σ)
+
+e∓i πS.
+(3.58)
+An explicit expression for the interior parametrix, as well as the relation between monodromy and coefﬁ-
+cient matrices of the auxiliary Fuchsian system (3.10), can be obtained in a completely analogous way. The
+25
+=== PAGE 26 ===
+known spectra sp Ai
+0 = {± θ0}, sp Ai
+1 = {± θt } and the diagonal form of Ai
+0 + Ai
+1 = S = diag{σ, −σ} allow to param-
+eterize Ai
+0, Ai
+1 by setting
+Ai
+1 = 1
+2σ
+(
+σ2 + θ2
+t − θ2
+0 ri
+(
+θ2
+0 − (σ − θt )2)
+r −1
+i
+(
+(σ + θt )2 − θ2
+0
+)
+θ2
+0 − θ2
+t − σ2
+)
+, (3.59)
+with ri ∈ C× . The diagonalizing transformations for Ai
+0 = Gi
+0Θ0Gi
+0
+−1
+and Ai
+1 = Gi
+1ΘtGi
+1
+−1
+can be chosen as
+Gi
+0 =
+( ri (θt − θ0 − σ) θt + θ0 − σ
+θt − θ0 + σ r −1
+i (θt + θ0 + σ)
+) (
+ci
+0a
+−1
+0
+0 ci
+0b
+−1
+)
+, (3.60a)
+Gi
+1 =
+( ri (θt − σ)2 − θ2
+0
+1 r −1
+i
+(
+(θt + σ)2 − θ2
+0
+)
+) (
+ci
+1a
+−1
+0
+0 ci
+1b
+−1
+)
+. (3.60b)
+Lemma 3.16. Let Φi (z) be the solution of the Fuchsian system (3.10), normalized as Φi (z) ≃ (−z)S as z → −∞,
+with A i
+0, A i
+1 deﬁned by (3.59) and Ai
+1 = S − Ai
+0. Then
+Φi
+11 (z) = (−z)σ (
+1 − z−1)θt
+2F1
+(
+θt + θ0 − σ, θt − θ0 − σ; −2σ; z−1
+)
+, (3.61a)
+Φi
+12 (z) = ri
+θ2
+0 − (θt − σ)2
+2σ(2σ + 1) (−z)−σ−1 (
+1 − z−1)θt
+2F1
+(
+1 + θt + θ0 + σ,1 + θt − θ0 + σ; 2+ 2σ; z−1
+)
+, (3.61b)
+Φi
+21 (z) = r −1
+i
+θ2
+0 − (θt + σ)2
+2σ(2σ − 1) (−z)σ−1 (
+1 − z−1)θt
+2F1
+(
+1 + θt + θ0 − σ, 1+ θt − θ0 − σ;2 − 2σ; z−1
+)
+, (3.61c)
+Φi
+22 (z) = (−z)−σ (
+1 − z−1)θt
+2F1
+(
+θt + θ0 + σ, θt − θ0 + σ;2 σ; z−1
+)
+. (3.61d)
+An equivalent form of the solution (3.61) suitable for study of its local behavior as z → 0 is given by
+Φi (z) = Gi
+0 ˆΦi (z)C i
+0, (3.62)
+where Gi
+0 is deﬁned by (3.60a) and ˆΦi (z) by
+ˆΦi
+11 (z) = (−z)θ0 (1 − z)θt
+2F1
+(
+θt + θ0 + σ, θt + θ0 − σ,2 θ0, z
+)
+, (3.63a)
+ˆΦi
+12 (z) = r −1
+i
+ci
+0a
+ci
+0b
+(θt + θ0)2 − σ2
+2θ0 (2θ0 − 1) (−z)1−θ0 (1 − z)θt
+2F1
+(
+1 + θt − θ0 + σ,1 + θt − θ0 − σ,2 − 2θ0, z
+)
+, (3.63b)
+ˆΦi
+21 (z) = ri
+ci
+0b
+ci
+0a
+(θt − θ0)2 − σ2
+2θ0 (2θ0 + 1) (−z)θ0+1 (1 − z)θt
+2F1
+(
+1 + θt + θ0 + σ,1 + θt + θ0 − σ, 2+ 2θ0, z
+)
+, (3.63c)
+ˆΦi
+22 (z) = (−z)−θ0 (1 − z)θt
+2F1
+(
+θt − θ0 + σ, θt − θ0 − σ, −2θ0, z
+)
+. (3.63d)
+The connection matrix C i
+0 = C0C −1
+S is given by
+C i
+0 =
+( ci
+0a 0
+0 ci
+0b
+)
+
+
+r −1
+i Γ(−2θ0) Γ(−2σ)
+Γ(−θ0 − θt − σ) Γ(1 − θ0 + θt − σ)
+Γ(−2θ0) Γ(2σ)
+Γ(−θ0 − θt + σ) Γ(1 − θ0 + θt + σ)
+Γ(2θ0) Γ(−2σ)
+Γ(θ0 − θt − σ) Γ(1 + θ0 + θt − σ)
+ri Γ(2θ0) Γ(2σ)
+Γ(θ0 − θt + σ) Γ(1 + θ0 + θt + σ)
+
+. (3.64)
+Connection matrices C i
+1,± are related by C i
+1,+ = C i
+1,−e−2πi S and can be written as
+C i
+1,± = e± i πΘt
+( ci
+1a 0
+0 ci
+1b
+)
+
+
+r −1
+i Γ(−2θt ) Γ(−2σ)
+Γ(−θ0 − θt − σ) Γ(θ0 − θt − σ)
+Γ(−2θt ) Γ(2σ)
+Γ(−θ0 − θt + σ) Γ(θ0 − θt + σ)
+Γ(2θt ) Γ(−2σ)
+Γ(1 − θ0 + θt − σ) Γ(1 + θ0 + θt − σ)
+ri Γ(2θt ) Γ(2σ)
+Γ(1 − θ0 + θt + σ) Γ(1 + θ0 + θt + σ)
+
+e∓i πS.
+(3.65)
+Comparing the monodromy matrix ˜M0 = C i
+0
+−1
+e2πi Θ0C i
+0 with the parameterization (3.45a), we obtain the
+following result:
+26
+=== PAGE 27 ===
+Corollary 3.17. The quantities si and ri are related by
+si = Γ(1 + 2σ) Γ(1 + θ0 + θt − σ) Γ(1 − θ0 + θt − σ)
+Γ(1 − 2σ) Γ(1 + θ0 + θt + σ) Γ(1 − θ0 + θt + σ) ri . (3.66)
+Corollary 3.18. Results obtained above enable us to compute explicitly the 1-formω0 deﬁned by (3.40) for N= 2.
+By straightforward calculation, it follows from the parameterizations (3.52), (3.60) that
+ω0 = θ∞dM ln
+rece
+∞b
+ce
+∞a
++ θ1dM ln
+rece
+1b
+ce
+1a
++ θt dM ln
+ri ci
+1b
+ci
+1a
++ θ0 dM ln
+ri ci
+0b
+ci
+0a
++ σdM ln ri
+re
+− 2dM (θ1 + θt ). (3.67)
+Remark 3.19. If we consider parameters θ0,t,1,∞ as ﬁxed, then the differentialΩ = d ω0 is determined by single
+term σdM ln ri
+re
+in (3.67). In this case it follows from (3.54), (3.66) and (3.46) thatΩ = i dσ∧d η, i.e. the 2-form Ω
+coincides with symplectic form on M Θ
+4 induced by Goldman bracket (3.49). However, for the computation of
+the connection constant for Painlevé VI tau function in Subsection 3.9 we need to keep track of the dependence
+of ω0 on the spectra of local monodromies.
+3.7 Jimbo asymptotic formula
+We are now in a position to express the short-distance asymptotics of the Painlevé VI tau function (3.43) in
+terms of monodromy data of the associated Fuchsian system. Indeed, the asymptotics of the 4-point tau func-
+tion in arbitrary rank is described by Proposition 3.9 and involves matrices g e
+0,1, g i
+∞,1 appearing in the local
+expansions of 3-point parametrices Φe (z), Φi (z) around 0 and ∞. Relations (3.38) express these matrices in
+terms of matrix coefﬁcientsAe
+1, Ai
+1 of the corresponding 3-point Fuchsian systems. In the case N = 2, the latter
+quantities are parameterized by two variables re,ri ∈ C× as indicated in (3.51) and (3.59). The parameters re,ri
+are related to monodromy of the initial 4-point Fuchsian system by (3.54) and (3.66), see also (3.46) and (3.48).
+Altogether, this leads to the following claim.
+Proposition 3.20. For N = 2, let
+(
+σ, η
+)
+be two local coordinates on the space M Θ
+4 of monodromy data deﬁned in
+Subsection 3.5. Let τω0 (t) denote the Painlevé VI tau function normalized as in (3.43). Its t → 0 asymptotics is
+given by (cf (1.18a))
+τω0(t) = Cω0 · t σ2−θ2
+0 −θ2
+t
+[
+1 −
+∑
+ϵ=± 1
+(
+(θt − ϵσ)2 − θ2
+0
+) (
+(θ1 − ϵσ)2 − θ2
+∞
+)
+4σ2 (1 + 2ϵσ)2 κϵt 1+2ϵσ+
++
+(
+σ2 − θ2
+∞ + θ2
+1
+) (
+σ2 − θ2
+0 + θ2
+t
+)
+2σ2 t + o (t)
+]
+, t → 0,
+(3.68)
+where the coefﬁcientκ is deﬁned by
+κ = Γ2 (1 − 2σ) Γ(1 + θ0 + θt + σ) Γ(1 − θ0 + θt + σ) Γ(1 + θ∞ + θ1 + σ) Γ(1 − θ∞ + θ1 + σ)
+Γ2 (1 + 2σ) Γ(1 + θ0 + θt − σ) Γ(1 − θ0 + θt − σ) Γ(1 + θ∞ + θ1 − σ) Γ(1 − θ∞ + θ1 − σ) ei η, (3.69)
+ei η =
+2i sin2 πσ
+(
+p01 + pt1e2πi σ)
++
+(
+p0p∞ + pt p1
+)
+−
+(
+p0p1 + pt p∞
+)
+e2πi σ
+(
+p∞ − 2 cos 2π(θ1 − σ)
+) (
+p0 − 2 cos2π(θt − σ)
+) , (3.70)
+and the constant prefactor Cω0 does not depend on monodromy data.
+Proof. For N = 2, one can replace (3.42) by the estimate
+τω0 (t) = Cω0 · t σ2−θ2
+0 −θ2
+t
+[
+1 − Tr
+(
+g e
+0,1t 1+Sg i
+∞,1t −S
+)
++ o (t)
+]
+. (3.71)
+(In higher rank, one needs to take into account more terms in the determinant expansion). From (3.38), (3.51)
+and (3.59) it follows that
+g e
+0,1 =
+
+
+σ2 + θ2
+1 − θ2
+∞
+2σ re
+(θ1 + σ)2 − θ2
+∞
+2σ(2σ − 1)
+r −1
+e
+(θ1 − σ)2 − θ2
+∞
+2σ(2σ + 1)
+θ2
+∞ − θ2
+1 − σ2
+2σ
+
+,
+27
+=== PAGE 28 ===
+g i
+∞,1 =
+
+
+θ2
+0 − θ2
+t − σ2
+2σ ri
+(θt − σ)2 − θ2
+0
+2σ(2σ + 1)
+r −1
+i
+(θt + σ)2 − θ2
+0
+2σ(2σ − 1)
+θ2
+t − θ2
+0 + σ2
+2σ
+
+.
+Upon substitution into (3.71), the diagonal parts of g e
+0,1, g i
+∞,1 give the linear contribution in (3.68). The off-
+diagonal elements determine the coefﬁcients of t 1± 2σ, with identiﬁcation κ = ri /re. Finally, the latter coefﬁ-
+cient is related to invariant monodromy data by (3.54), (3.66) and (3.46). □
+Remark 3.21. Proposition 3.20 is a slightly upgraded version of Jimbo asymptotic formula for Painlevé VI (The-
+orem 1.1 in [Jim]). The improvement concerns the error estimate: e.g. the terms such ast 2± 4σ, t 3± 6σ, ... , a priori
+present in the short-distance asymptotics of lnτω0, disappear from the expansion of the tau function itself. This
+fact was already noticed and played an important role in [GIL12]. Similar nontrivial cancellations have been
+experimentally observed to happen in higher rank [Gav]. This was one of our motivations for establishing the
+results of Subsection 3.4, in particular, Proposition 3.9.
+3.8 Crossing to t → 1
+To be able to deal with the connection problem for Painlevé VI tau function, we now have to investigate the
+asymptotics of the form (3.2) as t → 1. It can be obtained by a suitable exchange of parameters, which is not
+trivial even for the “time part” of the tau function: in the latter case the initial suggestion of [Jim, Theorem 1.2]
+should be modiﬁed as explained in [L09, Remark 7.1]. The tau function extended to the space of monodromy
+data needs even more care as here at intermediate steps one has to manipulate with quantities that are not
+preserved by conjugation.
+The basic idea is to replace the RHP for Ψ(z) by a RHP for a new matrix function Ψ(z). The corresponding
+contour is represented in Fig. 4 and Ψ(z) is deﬁned by
+Ψ(z) =
+{
+Ψ(1 − z) M∞, z outside ¯γν, ℑz > 0,
+Ψ(1 − z) otherwise.
+This function is designed to have the structure of jump matrix JΨ = Ψ−
+−1
+Ψ+ analogous to (3.3):
+JΨ (z)
+⏐⏐⏐
+ℓ0,1−t
+= M −1
+1 , JΨ (z)
+⏐⏐⏐
+ℓ1−t,1
+= (M1Mt )−1 , JΨ (z)
+⏐⏐⏐
+ℓ1∞
+= M∞,
+JΨ (z)
+⏐⏐⏐
+γ0
+= C 0
+−1
+(−z)−Θ1 , JΨ (z)
+⏐⏐⏐
+γ1−t
+= C 1−t
+−1
+(1 − t − z)−Θt ,
+JΨ (z)
+⏐⏐⏐
+γ1
+= C 1
+−1
+(1 − z)−Θ0 , JΨ (z)
+⏐⏐⏐
+γ∞
+= C ∞
+−1
+(−z)Θ∞ .
+(3.72)
+Note that — in spite of certain similarity — the ﬁrst line of (3.72) is not obtained from (3.3) by exchange
+M0 ↔ M1 because of reversed order of factors in the corresponding jumps. New connection matrices are ex-
+pressed in terms of Cν’ s in the following way:
+C 0 = ei πΘ1C1,−M∞ = e−i πΘ1C1,+, C 1−t,+ = ei πΘt Ct,−M∞, C 1−t,− = e−i πΘt Ct,+,
+C 1,+ = ei πΘ0C0M∞, C 1,− = e−i πΘ0C0, C ∞ = e−i πΘ∞C∞M∞ = ei πΘ∞C∞.
+The function Ψ(1 − z) in the exterior of circles γν coincides with the analytic continuation of the solution Φ(z)
+of the initial Fuchsian system from the upper half-plane ℑz > 0 to the cut Riemann sphere P\[−∞, 1].
+Approximate solution for Ψ(z) is constructed in the same way as for Ψ(z). The main building blocks are
+solutions Φ
+i
+(z) and Φ
+e
+(z) of two hypergeometric systems which model the jumps inside and outside the aux-
+iliary circle S. To simplify the exposition we consider only sufﬁciently generic situation described by an analog
+of Assumptions 3.1 and 3.11:
+Assumption 3.22. The matrix M1t := M1Mt is assumed to be diagonalizable. It will be parameterized as
+M1t = C
+−1
+S e2πi S C S, S = diag
+{
+σ, −σ
+}
+.
+28
+=== PAGE 29 ===
+0 1-t 1
+/c1038
+0 /c1031-t /c1031/c103
+l0,1-t l1-t,1 l 81
+S
+Figure 4: Contour ΓΨ of the Riemann-Hilbert problem for Ψ(z)
+It is furthermore assumed that
+⏐⏐ℜσ
+⏐⏐ < 1
+2 , σ ̸= 0, and that
+θ1 + θt ± σ, θ1 − θt ± σ, θ∞ + θ0 ± σ, θ∞ − θ0 ± σ ∉ Z.
+Referring to the notations of Subsection 3.5, σ can be identiﬁed with σt1. The latter quantity is related to
+previously used coordinates σ, η by formula (3.48a).
+Exterior and interior parametrices are solutions of the Fuchsian systems
+∂z Φ
+e
+=
+(
+A
+e
+0
+z + A
+e
+1
+z − 1
+)
+Φ
+e
+, ∂z Φ
+i
+=
+(
+A
+i
+0
+z + A
+i
+1
+z − 1
+)
+Φ
+i
+,
+normalized by the asymptotic conditions Φ
+e
+(z) ≃ (−z)S as z → 0, Φ
+i
+(z) ≃ (−z)S as z → −∞. Furthermore, one
+has A
+e
+0 = A
+i
+0 + Ai
+1 = S. The spectra of A
+i
+0, A
+i
+1, A
+e
+1 and A
+e
+0 + A
+e
+1 are given by± θ1, ± θt , ± θ0 and ± θ∞ respectively. All
+results of previous subsections have their t → 1 counterparts, most of which are obtained by the replacements
+(the notation should be sufﬁciently self-explanatory)
+Φe (z) 7→ Φ
+e
+(z), Φi (z) 7→ Φ
+i
+(z),
+Ge
+ν (z) 7→ G
+e
+ν (z), Gi
+ν (z) 7→ G
+i
+ν (z), ν = 0, 1,∞,
+Ge
+1,∞ 7→ G
+e
+1,∞, C e
+1,∞ 7→ C
+e
+1,∞, Gi
+0,1 7→ G
+i
+0,1, C i
+0,1 7→ C
+i
+0,1,
+(θ0, θt , θ1, θ∞, σ,re,ri ) 7→
+(
+θ1, θt , θ0, θ∞, σ,r e,r i
+)
+,
+(
+ce
+∞,q ,ce
+1,q ,ci
+0,q ,ci
+1,q
+)
+7→
+(
+ce
+∞,q ,ce
+1,q ,ci
+0,q ,ci
+1,q
+)
+, q = a,b,
+(3.73)
+In particular, one can prove the following statement:
+Lemma 3.23. The form Ω can be alternatively written as dω0, where ω0 ∈ Λ1 (M ) is given by
+ω0 = Tr
+(
+Θ1G
+i
+0
+−1
+dM G
+i
+0 + ΘtG
+i
+1
+−1
+dM G
+i
+1 + Θ0G
+e
+1
+−1
+dM G
+e
+1 + Θ∞G
+e
+∞
+−1
+dM G
+e
+∞
+)
+= (3.74a)
+= θ∞dM ln
+r ece
+∞b
+ce
+∞a
++ θ1 dM ln
+r i ci
+0b
+ci
+0a
++ θt dM ln
+r i ci
+1b
+ci
+1a
++ θ0dM ln
+r ece
+1b
+ce
+1a
++ σdM ln r i
+r e
+− 2dM (θ0 + θt ). (3.74b)
+The ﬁrst equation remains valid in arbitrary rank and the second is its specialization to N= 2.
+The form ω0 can be used to deﬁne a second tau function τω0 (t) via d ln τω0 = ω − ω0. This tau function is
+of course proportional to τω0 (t) but its asymptotics is normalized at t = 1 instead of t = 0. Let us formulate an
+analog of Proposition 3.20 for τω0 (t):
+29
+=== PAGE 30 ===
+Proposition 3.24. Normalized Painlevé VI tau functionτω0 (t) has the following asymptotics as t→ 1 (cf (1.18b)):
+τω0(t) = Cω0 · (1 − t)σ2−θ2
+1 −θ2
+t
+[
+1 −
+∑
+ϵ=± 1
+((
+θt − ϵσ
+)2 − θ2
+1
+) ((
+θ0 − ϵσ
+)2 − θ2
+∞
+)
+4σ2 (
+1 + 2ϵσ
+)2 κ ϵ (1 − t)1+2ϵσ +
++
+(
+σ2 − θ2
+∞ + θ2
+0
+) (
+σ2 − θ2
+1 + θ2
+t
+)
+2σ2 (1 − t) + o (1 − t)
+]
+, t → 1.
+(3.75)
+Here the coefﬁcientκ is deﬁned by
+κ =
+Γ2 (
+1 − 2σ
+)
+Γ
+(
+1 + θ1 + θt + σ
+)
+Γ
+(
+1 − θ1 + θt + σ
+)
+Γ
+(
+1 + θ∞ + θ0 + σ
+)
+Γ
+(
+1 − θ∞ + θ0 + σ
+)
+Γ2 (
+1 + 2σ
+)
+Γ
+(
+1 + θ1 + θt − σ
+)
+Γ
+(
+1 − θ1 + θt − σ
+)
+Γ
+(
+1 + θ∞ + θ0 − σ
+)
+Γ
+(
+1 − θ∞ + θ0 − σ
+) ei η, (3.76)
+ei η =
+−2i sin2 πσ
+(
+p01 + p0t e−2πi σ
+)
++
+(
+p0pt + p1p∞
+)
+−
+(
+p0p1 + pt p∞
+)
+e−2πi σ
+(
+p∞ − 2 cos2π
+(
+θ0 − σ
+)) (
+p1 − 2 cos2π
+(
+θt − σ
+)) , (3.77)
+and the constant prefactor Cω0 does not depend on monodromy data.
+Proof. The only subtlety that has to be taken into account as compared to derivation of Proposition 3.20
+concerns the quantity ei η and is as follows. The coefﬁcientκ coincides with the ratio r i /r e, and ei η with si /se.
+The last ratio is expressed in terms of traces of products of monodromy matricesM 0,t,1,∞ associated with Ψ(z)
+by overlining parameters in (3.50). These new monodromy matrices can be expressed in terms ofM0,t,1,∞ using
+the ﬁrst line of (3.72). One has
+M 0 = M1, M t = M1Mt M −1
+1 , M 1 = M1Mt M0M −1
+t M −1
+1 , M ∞ = M∞.
+This implies simple transformation formulas for most of the trace functions:
+(
+p0, p t , p1, p ∞, p0t , p t1
+)
+=
+(
+p1, pt , p0, p∞, pt1, p0t
+)
+. (3.78a)
+The only exception is
+p01 = TrM 0M 1 = TrM1Mt M0M −1
+t = p0p1 + pt p∞ − p01 − p0t pt1. (3.78b)
+The last equality follows from the fact that any M ∈ SL 2 (C) satisﬁes skein relation M + M −1 = TrM · 1. Rela-
+tion (3.77) is then obtained from (3.50) by identiﬁcation (3.78). □
+3.9 Connection problem for Painlevé VI tau function. Proof of Theorem A
+The tau functions τω0 (t) and τω0 (t) can differ only by a constant (i.e. independent of t) factor of relative nor-
+malization
+Υ(M) :=
+Cω0
+Cω0
+τω0 (t)
+τω0 (t) , (3.79)
+which is our main quantity of interest in this section. It can also be written for generic non-normalized Pain-
+levé VI tau function τ(t) as
+Υ(M) = limt →1 (1 − t)θ2
+t +θ2
+1 −σ2
+τ(t)
+limt →0 t θ2
+0 +θ2
+t −σ2
+τ(t)
+≡ C1
+C0
+, (3.80)
+where C0 and C1 are the constants from the equations (1.18). The constant Υ(M) is completely determined
+by Painlevé VI equation and appropriate initial conditions — that is, it depends only on the conjugacy class of
+monodromy. The latter property is by no means manifest in the representation
+dM ln Υ = ω0 − ω0, (3.81)
+30
+=== PAGE 31 ===
+and becomes yet more implicit if we rewrite the right side using previous results:
+dM ln Υ = σdM ln r i
+r e
+− σdM ln ri
+re
++ 2dM (θ1 − θ0)
++ θ∞dM ln
+r ece
+∞bce
+∞a
+rece
+∞ace
+∞b
++ θ1dM ln
+r i ci
+0bce
+1a
+reci
+0ace
+1b
++ θt dM ln
+r i ci
+1bci
+1a
+ri ci
+1aci
+1b
++ +θ0 dM ln
+r ece
+1bci
+0a
+ri ce
+1aci
+0b
+.
+(3.82)
+It is even less obvious that the last expression is a closed 1-form! Our task is now to rewrite (3.82) in terms of
+more convenient local coordinates on M , such as θ0,t,1,∞, σ and η.
+The right side of (3.82) is expressed in terms of parameters
+θ0,t,1,∞, σ, σ,re,i ,r e,i ,ce
+∞q ,ce
+1q ,ce
+∞q ,ce
+1q ,ci
+0q ,ci
+1q ,ci
+0q ,ci
+1q ,
+which appear in the monodromy and connection matrices. Of course, not all of them are independent. Con-
+nection matrices of the original 4-point problem can be related to 3-point ones in two different ways:
+C e
+∞ = C∞C −1
+S , C e
+1,+ = C1,+C −1
+S , C i
+1,+ = Ct,+C −1
+S , C i
+0 = C0C −1
+S ,
+C 0 = e−i πΘ1C1,+, C 1−t,− = e−i πΘt Ct,+, C 1,− = e−i πΘ0C0, C ∞ = ei πΘ∞C∞,
+C
+e
+∞ = C ∞C
+−1
+S , C
+e
+1,− = C 1,−C
+−1
+S , C
+i
+1,− = C 1−t,−C
+−1
+S , C
+i
+0 = C 0C
+−1
+S .
+(3.83)
+Here the ﬁrst line reproduces (3.8c), (3.11c), the third lists analogous relations arising in the study of t → 1 tau
+function asymptotics and the middle one relates the two sets of connection matrices. It follows that
+C
+e
+∞ = ei πΘ∞C e
+∞CSS, C
+e
+1,− = e−i πΘ0C i
+0CSS, C
+i
+1,− = e−i πΘt C i
+1,+CSS, C
+i
+0 = e−i πΘ1C e
+1,+CSS. (3.84)
+where CSS = CSC
+−1
+S . Since by deﬁnition C S M1MtC
+−1
+S = e2πi S, the transformation CSS diagonalizes the prod-
+uct ˜M1 ˜Mt = CSS e2πi SCSS
+−1, where ˜Mt , ˜M1 are deﬁned in (3.45b), (3.45c). This in turn ﬁxes CSS up to right
+multiplication by diagonal matrix. In fact one can write
+CSS = S−1
+e CSS DSS,
+where DSS = diag{da,db}, Se = diag{1, se} and
+CSS ≡
+( c11 c12
+c21 c22
+)
+=
+( α α
+e2πi σ − β e−2πi σ − β
+)
+,
+4αsin2 2πσ =
+(
+p∞ − 2 cos2π(θ1 + σ)
+)(
+p0e2πi σ − pt
+)
+−
+(
+p0 − 2 cos2π(θt − σ)
+)(
+p∞e2πi σ − p1
+)
+ei η,
+4βsin2 2πσ =
+(
+pt e2πi σ − p0
+) (
+p1e−2πi σ − p∞
+)
+−
+(
+p0 − 2 cos2π(θt + σ)
+) (
+p∞ − 2 cos2π(θ1 + σ)
+)
+e−i η.
+(3.85)
+The fact that CSS depends only on the conjugacy class of monodromy will be important below. On the other
+hand, explicit form of da,b does not play any role in subsequent computation.
+Recall that the ratios ri /re and r i /r e from the ﬁrst line of (3.82) coincide withκ and κ deﬁned by (3.69) and
+(3.76). They are thus preserved by conjugation. We are now going to check that the ratios from the second
+line share this important property. In order to derive invariant expressions suitable for subsequent computa-
+tion of Υ, it is crucial to rewrite 3-point connection matrices in a different form. As we will see in a moment,
+their nontrivial dependence on monodromy parameters is trigonometric. The key is the following elementary
+observation.
+Let us denote by M the set of 2 × 2 matrices with non-zero elements. Let ρ : M → C× be deﬁned by
+ρ (M) := M11M22
+M12M21
+.
+Two matrices M, M ′ ∈ M will be called ρ-equivalent if ρ (M) = ρ
+(
+M ′)
+.
+31
+=== PAGE 32 ===
+Lemma 3.25. Two matrices M , M ′ ∈ M are ρ-equivalent iff there exists a pair of diagonal matrices D L,R such
+that M ′ = DLMD R .
+This basic fact can be used to compute four ratios from the second line of (3.82). Below we explain the details
+of the procedure for one of these, namely,
+r ece
+∞bce
+∞a
+rece
+∞ace
+∞b
+.
+The ρ-invariant of the connection matrix C e
+∞ given by (3.57) is equal to
+ρ
+(
+C e
+∞
+)
+= sin π(θ∞ + θ1 − σ)sin π(θ∞ − θ1 − σ)
+sin π(θ∞ + θ1 + σ)sin π(θ∞ − θ1 + σ) .
+It is therefore not surprising that we can parameterize C e
+∞ as
+C e
+∞ = De
+∞,LCe
+∞De
+∞,R Re,
+with
+Ce
+∞ =
+( sin π(θ∞ + θ1 − σ) sin π(θ∞ − θ1 + σ)
+sin π(θ∞ + θ1 + σ) sin π(θ∞ − θ1 − σ)
+)
+, Re = diag{1,re},
+De
+∞,L = diag
+{ ce
+∞aΓ(−2θ∞) Γ(θ∞ − θ1 + σ)
+re Γ(1 − θ∞ + θ1 + σ) ,
+ce
+∞bΓ(2θ∞) Γ(−θ∞ − θ1 − σ)
+Γ(1 + θ∞ + θ1 − σ)
+}
+,
+De
+∞,R = diag
+{
+− Γ(2σ) Γ(1 + θ∞ + θ1 − σ)
+πΓ(θ∞ − θ1 + σ) , Γ(−2σ) Γ(1 − θ∞ + θ1 + σ)
+πΓ(−θ∞ − θ1 − σ)
+}
+.
+(3.86)
+Analogous expressions for C
+e
+∞ is obtained by the exchange θ0 ↔ θ1, σ → σ, re → r e, ce
+∞q → ce
+∞q . We can now
+rewrite the ﬁrst of relations (3.84) in the form
+(
+Ce
+∞De
+∞,R Re S−1
+e CSS
+)−1 ( x 0
+0 y
+)
+C
+e
+∞ = diagonal
+matrix ,
+where diag
+{
+x, y
+}
+= De
+∞,L
+−1e−i πΘ∞D
+e
+∞,L. We are interested in the ratio
+y
+x = e2πi θ∞ Γ(−θ1 + θ∞ + σ) Γ(1 + θ1 + θ∞ − σ) Γ
+(
+−θ0 − θ∞ − σ
+)
+Γ
+(
+1 + θ0 − θ∞ + σ
+)
+Γ(−θ1 − θ∞ − σ) Γ(1 + θ1 − θ∞ + σ) Γ
+(
+−θ0 + θ∞ + σ
+)
+Γ
+(
+1 + θ0 + θ∞ − σ
+) r ece
+∞bce
+∞a
+rece
+∞ace
+∞b
+, (3.87)
+which is readily computed as
+y
+x = −
+(
+Ce
+∞De
+∞,R Re S−1
+e CSS
+)−1
+11
+(
+C
+e
+∞
+)
+12
+(
+Ce∞De
+∞,R Re S−1e CSS
+)−1
+12
+(
+C
+e
+∞
+)
+22
+=
+(
+Ce
+∞De
+∞,R Re S−1
+e CSS
+)
+22
+(
+C
+e
+∞
+)
+12(
+Ce∞De
+∞,R Re S−1e CSS
+)
+12
+(
+C
+e
+∞
+)
+22
+. (3.88)
+All quantities in the last expression are manifestly invariant:Ce
+∞, C
+e
+∞, De
+∞,R are given by (3.86),CSS by (3.85), and
+Re S−1
+e by (3.54). Moreover, up to irrelevant scalar multiple the matrix C e
+∞De
+∞,R Re S−1
+e is given by trigonometric
+expression
+C e
+∞De
+∞,R Re S−1
+e ∼
+( cos2 πθ∞ − cos2 π(θ1 − σ) cos2 πθ1 − cos2 π(θ∞ + σ)
+cos2 π(θ∞ + σ) − cos2 πθ1 cos2 π(θ1 + σ) − cos2 πθ∞
+)
+. (3.89)
+After some algebra involving Euler reﬂection formula Γ(z) Γ(1 − z) = π
+sin πz , relations (3.87)–(3.89) yield the
+following result:
+Lemma 3.26. One has
+r ece
+∞bce
+∞a
+rece
+∞ace
+∞b
+=
+Γ(1 + θ1 − θ∞ − σ) Γ(1 + θ1 − θ∞ + σ) Γ
+(
+1 + θ0 + θ∞ − σ
+)
+Γ
+(
+−θ0 + θ∞ − σ
+)
+Γ(1 + θ1 + θ∞ + σ) Γ(1 + θ1 + θ∞ − σ) Γ
+(
+1 + θ0 − θ∞ − σ
+)
+Γ
+(
+−θ0 − θ∞ − σ
+)×
+× e−2πi θ∞ c12 sin π(θ1 − θ∞ − σ) − c22 sin π(θ1 − θ∞ + σ)
+c12 sin π(θ1 + θ∞ − σ) − c22 sin π(θ1 + θ∞ + σ) ,
+(3.90a)
+where matrix elements c12, c22 are given by (3.85).
+32
+=== PAGE 33 ===
+Explicit invariant expressions for the other three ratios from the second line of (3.82) can be derived in a
+completely analogous fashion. The result is
+r i ci
+0bce
+1a
+reci
+0ace
+1b
+=
+Γ(−θ1 + θ∞ + σ) Γ(−θ1 − θ∞ − σ) Γ
+(
+1 + θ1 + θt + σ
+)
+Γ
+(
+θ1 − θt + σ
+)
+Γ(1 + θ1 + θ∞ − σ) Γ(1 + θ1 − θ∞ + σ) Γ
+(
+1 − θ1 + θt + σ
+)
+Γ
+(
+−θ1 − θt + σ
+)× (3.90b)
+×
+e2πi θ1
+(
+cos2 πθ1 − cos2 π(θ∞ + σ)
+) (
+c12e−πi σ − c22eπi σ)
+c12e−πi σ(
+cos2 π(θ1 − σ) − cos2 πθ∞
+)
+− c22eπi σ(
+cos2 π(θ1 + σ) − cos2 πθ∞
+),
+r i ci
+1bci
+1a
+ri ci
+1aci
+1b
+=
+Γ(θ0 − θt − σ) Γ(−θ0 − θt + σ) Γ
+(
+1 + θ1 + θt + σ
+)
+Γ
+(
+1 − θ1 + θt + σ
+)
+Γ(1 + θ0 + θt + σ) Γ(1 − θ0 + θt − σ) Γ
+(
+θ1 − θt + σ
+)
+Γ
+(
+−θ1 − θt + σ
+)× (3.90c)
+×
+e−2πi θt
+(
+cos2 πθt − cos2 π(θ0 − σ)
+) (
+c12e−πi σ − c22eπi σ+i η)
+c12e−πi σ(
+cos2 π(θt + σ) − cos2 πθ0
+)
+− c22eπi σ+i η(
+cos2 π(θt − σ) − cos2 πθ0
+),
+r ece
+1bci
+0a
+ri ce
+1aci
+0b
+=
+Γ(1 − θ0 + θt + σ) Γ(1 − θ0 + θt − σ) Γ
+(
+1 + θ0 + θ∞ − σ
+)
+Γ
+(
+1 + θ0 − θ∞ − σ
+)
+Γ(1 + θ0 + θt + σ) Γ(1 + θ0 + θt − σ) Γ
+(
+−θ0 + θ∞ − σ
+)
+Γ
+(
+−θ0 − θ∞ − σ
+) × (3.90d)
+×
+(
+−e2πi θ0
+) c12 sin π(θ0 − θt − σ) − c22ei η sin π(θ0 − θt + σ)
+c12 sin π(θ0 + θt + σ) − c22ei η sin π(θ0 + θt − σ) .
+We now have at our disposal all ingredients of the 1-form (3.82) expressed in terms of local coordinates on the
+space M of monodromy data.
+It is still very far from obvious that the right side of (3.82) is indeed a closed 1-form. To check that this is
+the case and to ﬁnd the antiderivativeΥ(M), we will proceed in several steps. First let us eliminate the gamma
+function factors appearing in (3.90) and in the ratios κ = ri /re, κ = r i /r e given by (3.69), (3.76) by introducing
+the notation
+Υ(M) = ˆΥ(M)
+∏
+ϵ,ϵ′=±
+G
+(
+1 + ϵσ + ϵ′θt − ϵϵ′θ1
+)
+G
+(
+1 + ϵσ + ϵ′θ0 − ϵϵ′θ∞
+)
+G (1 + ϵσ + ϵ′θt + ϵϵ′θ0)G (1 + ϵσ + ϵ′θ1 + ϵϵ′θ∞)
+∏
+ϵ=±
+G(1 + 2ϵσ)
+G(1 + 2ϵσ) , (3.91)
+where G (z) denotes Barnes G-function.
+Lemma 3.27. We have
+dM ln ˆΥ = σdM ln
+(sin π
+(
+θ0 − θ∞ − σ
+)
+sin π
+(
+θ1 − θt + σ
+)
+sin π
+(
+θ0 + θ∞ + σ
+)
+sin π
+(
+θ1 + θt + σ
+)ei η
+)
+− σdM ln
+(sin π(θ0 + θt − σ)sin π(θ1 + θ∞ − σ)
+sin π(θ0 − θt − σ)sin π(θ1 − θ∞ + σ) ei η
+)
++ θ∞dM ln
+(sin π(θ1 + θ∞ − σ)sin π
+(
+θ0 − θ∞ − σ
+)
+sin π(θ1 − θ∞ + σ)sin π
+(
+θ0 − θ∞ + σ
+) c12 sin π(θ1 − θ∞ − σ) − c22 sin π(θ1 − θ∞ + σ)
+c12 sin π(θ1 + θ∞ − σ) − c22 sin π(θ1 + θ∞ + σ) e−2πi θ∞
+)
++ θ1dM ln
+(
+sin π
+(
+θ1 + θt − σ
+)
+sin π
+(
+θ1 + θt + σ
+) e2πi θ1
+(
+cos2 πθ1 − cos2 π(θ∞ − σ)
+) (
+c12e−πi σ − c22eπi σ)
+c12e−πi σ(
+cos2 π(θ1 − σ) − cos2 πθ∞
+)
+− c22eπi σ(
+cos2 π(θ1 + σ) − cos2 πθ∞
+)
+)
++ θt dM ln
+(
+sin π
+(
+θ1 + θt − σ
+)
+sin π
+(
+θ1 + θt + σ
+)
+(
+cos2 πθt − cos2 π(θ0 − σ)
+) (
+c12e−πi σ − c22eπi σ+i η)
+e−2πi θt
+c12e−πi σ(
+cos2 π(θt + σ) − cos2 πθ0
+)
+− c22eπi σ+i η(
+cos2 π(θt − σ) − cos2 πθ0
+)
+)
++ θ0dM ln
+(sin π(θ0 + θt − σ)sin π
+(
+θ0 − θ∞ + σ
+)
+sin π(θ0 − θt − σ)sin π
+(
+θ0 − θ∞ − σ
+) c12 sin π(θ0 − θt − σ) − c22ei η sin π(θ0 − θt + σ)
+c12 sin π(θ0 + θt + σ) − c22ei η sin π(θ0 + θt − σ) e2πi θ0
+)
+. (3.92)
+Proof. The crucial point here is that the logarithmic derivative of the Barnes G-function can be expressed in
+terms of the digamma function. It is convenient to write the corresponding formula as
+d lnG (1 + z) = ln2 π − 1
+2 d z − d
+(z2
+2
+)
++ zd ln Γ(1 + z). (3.93)
+The contributions of the ﬁrst two terms on the right sum up to zero in the logarithmic derivative of the Barnes
+function factor from (3.91). The contributions of the third term in combination with gamma factors in (3.90)
+simplify to trigonometric expressions multiplied by rational combinations of θ0,t,1,∞, σ, σ. The latter rational
+part rather nontrivially simpliﬁes and cancels out the term 2dM (θ1 − θ0) in (3.82). □
+Let us brieﬂy recall the notations used in (3.92):
+33
+=== PAGE 34 ===
+• Trace functions pt1 and p01 are expressed in terms of σ and η by (3.48a) and (3.48b); we can take for σ
+any of the two solutions of p1t = 2 cos2πσ satisfying |ℜσ| < 1
+2 .
+• The quantity ei η is expressed in terms of σ, η, σ and p01 by (3.77).
+• The coefﬁcients c12, c22 are expressed in terms of σ, η and σ by (3.85).
+The dependence of dM ln ˆΥ on monodromy parameters is therefore trigonometric. In particular, one can verify
+that the right side of (3.92) is indeed closed by direct (albeit very lengthy) calculation.
+Somewhat cumbersome form of the derivatives and complicated relations between parameters may leave
+an impression that integrating dM ln ˆΥ explicitly is a hopeless task. However, a conjectural answer for Υ(M)
+has been already produced in [ILT13]. Hence all we have to do is to compute its logarithmic derivatives and
+check that they coincide with those given by (3.92).
+We start by preparing a convenient notation. Let us introduce an antisymmetrized combination of Barnes
+functions (it is related to classical dilogarithm but has much nicer analytic properties)
+ˆG (z) = G (1 + z)
+G (1 − z) . (3.94)
+Two main properties of ˆG (z) that will be important for us are its differentiation formula and recursion relation.
+They can be written as
+d ln ˆG (z) = ln2 πd z − z d lnsin πz, (3.95)
+ˆG (z + 1)
+ˆG (z)
+= − π
+sin πz . (3.96)
+Recall the deﬁnition of parameters ν1...4, λ1...4, νΣ, ς from Theorem A of the Introduction. The equation (1.21)
+deﬁnesς only up to integer shifts. As we shall see in a moment, this ambiguity turns out to be harmless. Note
+that ξ = e2πi ς gives one of the two nontrivial roots of the equation
+4∏
+k=1
+(
+1 − ξe2πi νk
+)
+=
+4∏
+k=1
+(
+1 − ξe2πi λk
+)
+. (3.97)
+Lemma 3.28. We have
+ˆΥ(M) =
+4∏
+k=1
+ˆG(ς + νk)
+ˆG(ς + λk)
+. (3.98)
+Proof. Let us ﬁrst check that the right side of (3.98) is well-deﬁned. Indeed, in view of the recurrence relation
+(3.96), the shift ς 7→ ς + 1 is equivalent to multiplying the corresponding expression by
+4∏
+k=1
+sin π(ς + λk)
+sin π(ς + νk) = 1, (3.99)
+where the equality is nothing but a rewrite of the equation (3.97).
+Computing the differential with the help of (3.95), we get
+dM ln
+4∏
+k=1
+ˆG(ς + νk)
+ˆG(ς + λk)
+=
+4∑
+k=1
+(
+(ς + λk)dM lnsin π(ς + λk) − (ς + νk)dM lnsin π(ς + νk)
+)
+=
+=
+4∑
+k=1
+(
+λkdM lnsin π(ς + λk) − νkdM lnsin π(ς + νk)
+)
+,
+where the last equality easily follows from (3.99). Taking into account the deﬁnition (1.20) of parametersνk, λk,
+the last expression can be rewritten as
+dM ln
+4∏
+k=1
+ˆG(ς + νk)
+ˆG(ς + λk)
+= σdM ln sin π(ς + λ2)sin π(ς + λ3)
+sin π(ς + ν3)sin π(ς + ν4) − σdM ln sin π(ς + ν1)sin π(ς + ν2)
+sin π(ς + λ2)sin π(ς + λ3) +
+34
+=== PAGE 35 ===
++ θ∞ dM ln sin π(ς + λ1)sin π(ς + λ3)
+sin π(ς + ν2)sin π(ς + ν3) + θ1dM ln sin π(ς + λ1)sin π(ς + λ2)
+sin π(ς + ν2)sin π(ς + ν4) +
++ θt dM ln sin π(ς + λ1)sin π(ς + λ3)
+sin π(ς + ν1)sin π(ς + ν4) + θ0dM ln sin π(ς + λ1)sin π(ς + λ2)
+sin π(ς + ν1)sin π(ς + ν3) .
+To show that this coincides with 1-form in the right side of equation (3.92), it sufﬁces to check six trigonometric
+identities, namely:
+sin π(ς + λ2)sin π(ς + λ3)
+sin π(ς + ν3)sin π(ς + ν4) =
+sin π
+(
+θ∞ − θ0 + σ
+)
+sin π
+(
+θ1 − θt + σ
+)
+sin π
+(
+θ∞ + θ0 + σ
+)
+sin π
+(
+θ1 + θt + σ
+)ei η,
+sin π(ς + ν1)sin π(ς + ν2)
+sin π(ς + λ2)sin π(ς + λ3) = sin π(θ0 + θt − σ)sin π(θ∞ + θ1 − σ)
+sin π(θ0 − θt − σ)sin π(θ∞ − θ1 − σ) ei η,
+sin π(ς + λ1)sin π(ς + λ3)
+sin π(ς + ν2)sin π(ς + ν3) =
+sin π(θ∞ + θ1 − σ)sin π
+(
+θ0 − θ∞ − σ
+)
+sin π(θ∞ − θ1 − σ)sin π
+(
+θ0 − θ∞ + σ
+)×
+× c12 sin π(θ1 − θ∞ − σ) − c22 sin π(θ1 − θ∞ + σ)
+c12 sin π(θ1 + θ∞ − σ) − c22 sin π(θ1 + θ∞ + σ) e−2πi θ∞,
+sin π(ς + λ1)sin π(ς + λ2)
+sin π(ς + ν2)sin π(ς + ν4) =
+sin π
+(
+θ1 + θt − σ
+)
+sin π
+(
+θ1 + θt + σ
+)×
+×
+(
+cos2 π(θ∞ − σ) − cos2 πθ1
+) (
+c12e−πi σ − c22eπi σ)
+e2πi θ1
+c12e−πi σ(
+cos2 π(θ1 − σ) − cos2 πθ∞
+)
+− c22eπi σ(
+cos2 π(θ1 + σ) − cos2 πθ∞
+),
+sin π(ς + λ1)sin π(ς + λ3)
+sin π(ς + ν1)sin π(ς + ν4) =
+sin π
+(
+θ1 + θt − σ
+)
+sin π
+(
+θ1 + θt + σ
+)×
+×
+(
+cos2 π(θ0 − σ) − cos2 πθt
+) (
+c12e−πi σ − c22eπi σ+i η)
+e−2πi θt
+c12e−πi σ(
+cos2 π(θt + σ) − cos2 πθ0
+)
+− c22eπi σ+i η(
+cos2 π(θt − σ) − cos2 πθ0
+),
+sin π(ς + λ1)sin π(ς + λ2)
+sin π(ς + ν1)sin π(ς + ν3) =
+sin π(θ0 + θt − σ)sin π
+(
+θ0 − θ∞ + σ
+)
+sin π(θ0 − θt − σ)sin π
+(
+θ0 − θ∞ − σ
+)×
+× c12 sin π(θt − θ0 + σ) − c22ei η sin π(θt − θ0 − σ)
+c12 sin π(θt + θ0 + σ) − c22ei η sin π(θt + θ0 − σ) e2πi θ0.
+This can be done by direct algebraic manipulation using (3.48), (3.50), (3.77), (3.85) and (1.21).
+The right side of (3.98) thus coincides with ˆΥ(M) up to a constant independent on monodromy data. To
+show that this constant is equal to 1, it sufﬁces to compute it for any Painlevé VI solution with monodromy
+satisfying previous assumptions, see e.g. [KK, LT] for explicit elliptic and algebraic examples. A number of such
+checks has already been reported in [ILT13, ILST]. □
+The formulae (3.91) and (3.98) constitute the statement of Theorem A which summarizes our solution of
+the constant problem for the Painlevé VI tau function.
+4 Systems with irregular singularities
+4.1 Extended Jimbo-Miwa-Ueno differential
+In this subsection we sketch the modiﬁcations that should be brought to the Fuchsian setup in the general
+case of systems with n + 1 irregular singularities at a1,. .. ,an, a∞ = ∞ on P. In this case, the system (1.1) can be
+rewritten as
+d Φ
+d z = A (z) Φ, A (z) =
+n∑
+ν=1
+rν+1∑
+k=1
+Aν,−k+1
+(z − aν)k −
+r∞−1∑
+k=0
+zk A∞,−k−1. (4.1)
+It may be assumed without any loss in generality that Tr A (z) = 0, i.e. that Aν,−k+1, A∞,−k−1 ∈ slN (C). As it
+has already been indicated in the Introduction, we shall also assume that all highest order matrix coefﬁcients
+Aν ≡ Aν,−rν are diagonalizable
+Aν,−rν = GνΘν,−rνG −1
+ν ; Θν,−rν = diag
+{
+θν,1,. .. θν,N
+}
+,
+35
+=== PAGE 36 ===
+and that their eigenvalues are distinct and non-resonant:
+{
+θν,α ̸= θν,β if rν ≥ 1, α ̸= β,
+θν,α ̸= θν,β mod Z if rν = 0, α ̸= β.
+If the Poincare index rν of the pole aν is greater or equal to 1, then the pole is called an irregular singular point
+of the system (4.1). In the neighborhood of such a point the asymptotic behavior of solution Φ(z) exhibits the
+Stokes Phenomenon which is described as follows.
+Let aν be an irregular singular point of index rν. For j = 1, .. ., 2rν + 1, let
+Ωj,ν =
+{
+z : 0 < |z − aν| < ϵ, θ(1)
+j < arg(z − aν) < θ(2)
+j , θ(2)
+j − θ(1)
+j = π
+rν
++ δ
+}
+, (4.2)
+be the Stokes sectors around aν (see, e.g., [FIKN, Chapter 1] or [Was] for more details). According to the general
+theory of linear systems, in each sector Ωj,ν there exists a unique canonical solution Φ(ν)
+j (z) of (4.1) which
+satisﬁes the asymptotic condition
+Φ(ν)
+j (z) ≃ Φ(ν)
+form (z) as z → aν, z ∈ Ωj,ν, j = 1, .. ., 2rν + 1, (4.3)
+where Φ(ν)
+form (z) is the formal solution at the point aν which has already been mentioned in the Introduction.
+For reader’ s convenience, we reproduce here the relevant formulae:
+Φ(ν)
+form (z) = G(ν) (z)eΘν(z), G(ν) (z) = Gν ˆΦ(ν) (z), (4.4)
+where
+ˆΦ(ν) (z) =
+{
+1 + ∑∞
+k=1 gν,k (z − aν)k , ν = 1, .. .,n,
+1 + ∑∞
+k=1 g∞,k z−k, ν = ∞,
+and Θν(z) are diagonal matrix-valued functions,
+Θν(z) =
+
+
+
+∑−1
+k=−rν
+Θν,k
+k (z − aν)k + Θν,0 ln(z − aν), ν = 1, .. .,n
+−
+∑r∞
+k=1
+Θ∞,−k
+k zk − Θ∞,0 ln z, ν = ∞.
+Among the identities that determine Θν (z), ˆΦ(ν) (z) and G(ν) (z) in terms of A (z) and Gν there is a particularly
+important family of relations that will be repeatedly used in what follows. Namely, the structure of the formal
+solution (4.4) implies that
+A (z) −G(ν) (z) Θ′
+ν (z)G(ν) (z)
+−1
+=
+{
+O (1), ν = 1, .. .,n,
+O
+(
+z−2)
+, ν = ∞.
+(4.5)
+Here and below the prime denotes the derivative with respect to z. The matrix A (z) can thus be reconstructed
+by taking the sum of principal parts of Laurent series G(ν) (z) Θ′
+ν (z)G(ν) (z)
+−1 at z = aν (plus a constant part for
+the point at ∞).
+Stokes and connection matrices relate the canonical solutions Φ(ν)
+j (z) in different Stokes sectors and at
+different singular points:
+Φ(ν)
+j +1 = Φ(ν)
+j S(ν)
+j , j = 1, .. ., 2rν, Φ(ν)
+1 = Φ(∞)
+1 Cν, ν = 1, .. .,n.
+Let us assume as before that the irregular singular points are ∞ and the ﬁrstm ≤ n points among the singular
+points a1,. .. ,an. Denote by Sν the collection of Stokes matrices at an irregular point aν, i.e.
+Sν =
+{
+S(ν)
+1 , .. .,S(ν)
+2rν
+}
+. (4.6)
+36
+=== PAGE 37 ===
+The space M of monodromy data of the system (4.1) consists of formal monodromy exponents Θν,0, con-
+nection matrices Cν and Stokes matrices S(ν)
+j . The latter constitute the main difference as compared to the
+Fuchsian case. More explicitly,
+M =
+{
+M ≡
+(
+Θν,0, ν = 1, .. .,n, ∞; Cν, ν = 1, .. .,n; Sν, ν = 1, .. .,m, ∞
+)}
+. (4.7)
+Following the notations used in the Introduction, we denote byT the set of times
+a1,. .. ,an, ( Θν,k)l l, k = −rν,. .. ,−1, ν = 1, .. .,m, ∞, l = 1, .. .,N . (4.8)
+Observe that in contrast to the Fuchsian case this set contains much more parameters than just the positions
+of singular points. Let us retain the notation
+⃗t = (t1,. .. ,tL), L = n + N
+( m∑
+ν=1
+rν + r∞
+)
+,
+for the points ⃗t ∈ T and consider monodromy preserving deformations of the system (4.1) with respect to
+these times. We denote by A(z) ≡ A
+(
+z;⃗t; M
+)
+the isomonodromic family of the systems (4.1) having the same
+set M ∈ M of monodromy data. The isomonodromy implies that the corresponding solution Φ(z) ≡ Φ
+(
+z,⃗t
+)
+satisﬁes an overdetermined system {
+∂z Φ = A
+(
+z,⃗t
+)
+Φ
+(
+z,⃗t
+)
+,
+dT Φ = U
+(
+z,⃗t
+)
+Φ
+(
+z,⃗t
+) (4.9)
+The coefﬁcients of the matrix-valued differential form U ≡ ∑L
+k=1Uk
+(
+z,⃗t
+)
+d tk are rational in z. Their explicit
+form may be algorithmically deduced from the expression for A (z). The compatibility of the system (4.9) im-
+plies the monodromy preserving deformation equation (1.7):
+dT A = ∂zU + [U , A]. (4.10)
+The construction of an irregular analog of the 1-form ω deﬁned in the Fuchsian case by the equation (2.7)
+is carried out in several steps. Let us ﬁrst recall once again the standard deﬁnition of the Jimbo-Miwa-Ueno
+differential [JMU, equation (5.1)],
+ωJMU = −
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(ˆΦ(ν) (z)−1 ∂z ˆΦ(ν) (z) dT Θν (z)
+)
+. (4.11)
+This 1-form is closed on solutions of the isomonodromy equation (4.10):
+dT ωJMU = 0.
+Our goal is to ﬁnd an extension of it which would be closed on the whole space A ≃ ˜T × M and which would
+coincide with (4.11) when restricted to T . To this end, it is convenient to rewrite ωJMU in a slightly different
+way, cf [JMU, Remark 5.2].
+Lemma 4.1. The 1-form ωJMU can be alternatively written as
+ωJMU =
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+A (z) dT G(ν) (z) G(ν) (z)
+−1)
+. (4.12)
+Proof. Formal series G(ν) (z) appears in the asymptotic behavior of an actual solution Φ(z) in some Stokes
+sector as indicated in (4.4). The isomonodromy property then implies thatdT G(ν) (z) G(ν) (z)
+−1 can be replaced
+by the combination
+dT G(ν) G(ν)−1
+= dT Φ Φ−1 − ΦdT Θν Φ−1 = U −G(ν)dT Θν G(ν)−1
+. (4.13)
+37
+=== PAGE 38 ===
+in the whole punctured neighborhood of aν. The last equality follows from the second equation of the Lax
+representation (4.9) and the diagonal form of Θν (z). Since a1,. .. ,an, ∞ are the only possible poles of the ratio-
+nal matrix function A (z)U (z), we necessarily have
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+A (z)U (z)
+)
+= 0. Using this sum rule, the
+equation (4.13) and the relation
+A = Φ′Φ−1 = G(ν)′
+G(ν)−1
++G(ν)Θ′
+νG(ν)−1
+, (4.14)
+the right side of (4.12) can be rewritten as
+−
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+AG(ν)dT Θν G(ν)−1)
+= ωJMU −
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+Θ′
+νdT Θν
+)
+.
+All residues in the second sum obviously vanish ( Θ′
+ν and dT Θν are Laurent polynomials with only principal
+part), which proves the statement of the lemma. □
+The expression (4.12) is much better adapted for extension to ˜T × M than the original formula (4.11).
+Indeed, we have the following result:
+Theorem 4.2. Let ω ∈ Λ1
+(
+˜T × M
+)
+be a 1-form deﬁned by
+ω =
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+A (z) dG (ν) (z) G(ν) (z)
+−1)
+, (4.15)
+where d = dT + dM . Its exterior differential Ω := d ω is a closed 2-form on M independent of isomonodromic
+times⃗t ∈ T listed in (4.8).
+Proof. Notice that the residues in (4.15) are completely determined by the singular parts of the correspond-
+ing Laurent expansions of A (z). Using their identiﬁcation (4.5), we may replace A (z) by G(ν)Θ′
+νG(ν)−1 in the
+computation of each residue. This yields another representation of the form ω:
+ω =
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+Θ′
+ν (z)G(ν) (z)
+−1
+dG (ν) (z)
+)
+. (4.16)
+Let us now pick an arbitrary isomonodromic time tk and a parameter s which can be either a local coordi-
+nate on the space M of monodromy data or another time variable. We are going to show that Ω
+(
+∂tk , ∂s
+)
+= 0.
+First, from (4.16) it follows that
+Ω
+(
+∂tk , ∂s
+)
+= ∂tk ω(∂s) − ∂s ω
+(
+∂tk
+)
+=
+=
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+∂tk Θ′
+ν G(ν)−1
+∂sG(ν) − ∂s Θ′
+ν G(ν)−1
+∂tk G(ν) + Θ′
+ν
+[
+G(ν)−1
+∂sG(ν),G(ν)−1
+∂tk G(ν)
+])
+.
+Thanks to cyclic properties of the trace, we can make in the last line the following replacements:
+∂s Θ′
+ν G(ν)−1
+∂tk G(ν) 7→ ∂tk G(ν)∂s Θ′
+ν G(ν)−1
+,
+Θ′
+ν
+[
+G(ν)−1
+∂sG(ν),G(ν)−1
+∂tk G(ν)
+]
+7→ ∂tk G(ν)
+[
+Θ′
+ν,G(ν)−1
+∂sG(ν)
+]
+G(ν)−1
+,
+so that the expression under trace becomes
+∂tk Θ′
+ν G(ν)−1
+∂sG(ν) − ∂tk G(ν) G(ν)−1
+∂s
+(
+G(ν)Θ′
+νG(ν)−1)
+.
+Using once again the coincidence of singular parts of A (z) and G(ν)Θ′
+νG(ν)−1, let us rewrite the expression for
+the curvature coefﬁcientΩ
+(
+∂tk , ∂s
+)
+as
+Ω
+(
+∂tk , ∂s
+)
+=
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+∂tk Θ′
+ν G(ν)−1
+∂sG(ν) − ∂tk G(ν) G(ν)−1
+∂s A
+)
+. (4.17)
+38
+=== PAGE 39 ===
+The next step is to use isomonodromy and the equation ∂tk Φ = Utk Φ in a way similar to the proof of
+Lemma 4.1. Since (cf equation (4.13))
+∂tk G(ν) G(ν)−1
+= Utk −G(ν)∂tk Θν G(ν)−1
+,
+and the sum of residues of rational function Utk (z) ∂s A (z) at z = a1,. .. ,an, ∞ is clearly equal to zero, the ex-
+pression (4.17) can be reduced to
+Ω
+(
+∂tk , ∂s
+)
+=
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+∂tk Θ′
+ν G(ν)−1
+∂sG(ν) +G(ν)∂tk Θν G(ν)−1
+∂s A
+)
+. (4.18)
+Substitute the matrix A in the second term of this identity by its expression (4.14). This transforms the expres-
+sion under trace in (4.18) into a sum of six terms:
+∂tk Θ′
+ν G(ν)−1
+∂sG(ν) +G(ν)∂tk Θν G(ν)−1
+∂sG(ν)′
+G(ν)−1
+−G(ν)∂tk Θν G(ν)−1
+G(ν)′
+G(ν)−1
+∂sG(ν)G(ν)−1
++
++G(ν)∂tk Θν G(ν)−1
+∂sG(ν)Θ′
+ν G(ν)−1
++G(ν)∂tk Θν ∂s Θ′
+ν G(ν)−1
+−G(ν)∂tk Θν Θ′
+ν G(ν)−1
+∂sG(ν) G(ν)−1
+.
+(4.19)
+The fourth and sixth term cancel each other thanks to cyclic property of the trace and the diagonal form of Θν
+implying that
+[
+∂tk Θν, Θ′
+ν
+]
+= 0.
+The last step consists essentially in integration by parts. Namely, we are going to use that
+resz=aν f ′g = −resz=aν f g ′ (4.20)
+for arbitrary pair of formal Laurent series f (z), g (z) around z = aν. Applying this formula to, say, the ﬁrst term
+in (4.19) yields two terms which cancel out with the second and third. The only contribution to the curvature
+thus comes from the ﬁfth term:
+Ω
+(
+∂tk , ∂s
+)
+=
+∑
+ν=1,...,n,∞
+resz=aν Tr
+(
+∂tk Θν ∂s Θ′
+ν
+)
+.
+It however vanishes by the same argument as in the proof of Lemma 4.1. We have thus shown thatΩ is a 2-form
+on M only. Since in addition Ω is a total differential, it cannot depend on isomonodromic times, as otherwise
+d Ω would be non-zero. □
+Remark 4.3. The Fuchsian 1-form ω deﬁned by (2.7) is a specialization of the general formula (4.15). This
+becomes completely manifest in the representation (4.16), since in the Fuchsian caseΘ′
+ν (z) reduces to a simple
+pole contribution Θν,0/(z − aν).
+Remark 4.4. A related extension of the Jimbo-Miwa-Ueno form has been proposed by M. Bertola in the work
+[Ber] generalizing previous results of B. Malgrange [Mal]. It has been deﬁned for solution Ψ(z) of a general
+Riemann-Hilbert problem with contour Γ and jump matrix J (z) as a contour integral
+ωMB (∂) = 1
+4πi
+∫
+Γ
+Tr
+(
+Ψ−1
+− Ψ′
+−∂J J −1 + Ψ−1
++ Ψ′
++ J −1∂J
+)
+d z. (4.21)
+The fact that in the isomonodromic setting this Malgrange-Bertola form could localize (i.e. the integral can
+be evaluated in terms of Ψ and its derivatives with respect to times and monodromy parameters) and become
+our form ω was ﬁrst realized in the paper [IP] by two of the authors in the context of Painlevé III ( D8). Shortly
+after M. Bertola pointed out how the localization should be carried out in general, see [IP, Remark 3]. The
+result coincides with ω introduced above up to addition of a monodromy- and contour-dependent term. An
+intriguing feature of the contour integral set-up is that it may allow for the computation of the differential
+d ωMB in terms of monodromy data [Ber1] bypassing asymptotic analysis. It has thus a strong potential of
+simplifying the study of connection problems for isomonodromic tau functions, which we hope to explore in
+a future work. Also, we plan to relate the constructions of this section to the general Hamiltonian formalism
+of isomonodromic deformations developed by I. Krichever in [Kri]. It can be expected that the technique of
+[Kri] could provide another “asymptotics free” derivation of the monodromy representation of the form Ω,
+alternative to the contour integral method of [Ber1].
+39
+=== PAGE 40 ===
+4.2 Painlevé II case
+The ﬁrst nontrivial case of a non-Fuchsian system is a 2 × 2 linear system with one irregular singular point of
+Poincaré rank 3. We shall place the singular point at inﬁnity, so that the matrix A(z) in (4.1) becomes a 2nd
+order polynomial in z,
+∂z Φ = A (z) Φ, A (z) = A−3z2 + A−2z + A−1. (4.22)
+With the help of trivial afﬁne and gauge transformations the system can be reduced to the following normal
+form:
+∂z Φ =
+(−4i z2 − i t − 2i uw 4i zu − 2x
+−4i zw − 2y 4i z2 + i t + 2i uw
+)
+Φ. (4.23)
+Here t,u, w, x, y are complex parameters playing the role of coordinates on the space A of systems (4.22).
+The formal solution of this system at z = ∞ is given by
+Φ(∞)
+form(z) ≡ Φform(z) =
+(
+1 +
+∞∑
+m=1
+gm z−m
+)
+e−
+(
+4i
+3 z3+i t z+κln z
+)
+σ3, (4.24)
+where σ3 = diag{1, −1} and κ = w x − u y. The non-formal behavior of solutions of (4.23) is described by seven
+canonical solutions uniquely speciﬁed by the following asymptotic conditions, cf (4.3),
+Φj (z) ≃ Φform(z) as z → ∞, z ∈ Ωj , j = 1, .. ., 7, (4.25)
+where the Stokes sectors are given by
+Ωj =
+{
+z : π(j − 2)
+3 < arg z < πj
+3
+}
+.
+The canonical solutions satisfy the formal monodromy condition
+Φ7 (z) = Φ1 (z)e−2πi κσ3. (4.26)
+There are six Stokes matrices S1,. .. ,S6 deﬁned by the equations
+S j = Φ−1
+j (z) Φj +1 (z), j = 1, .. ., 6.
+These matrices have the familiar triangular structure (see [FIKN, chapter 2, section 1.6])
+S2l +1 =
+( 1 0
+s2l +1 1
+)
+, S2l =
+( 1 s2l
+0 1
+)
+,
+and satisfy cyclic relation
+S1S2S3S4S5S6 = e−2πi κσ3, (4.27)
+which follows from (4.26). A single matrix equation (4.27) implies three scalar equations
+1 + s1s2 = (1 + s4s5)e2πi κ, 1 + s2s3 = (1 + s5s6)e−2πi κ,
+s1 + s3 + s1s2s3 = −s5e2πi κ.
+(4.28)
+The space M of the monodromy data of system (4.23) is parametrized by seven parameters κ, s1, .. .,s6 subject
+to three constraints (4.28). Hence
+dim M = 4 = dim A − 1. (4.29)
+The exponential factor in the right side of the formula (4.24) shows that the parametert is the only remain-
+ing time variable (cf with 4-point Fuchsian case considered in the previous sections). The fact that isomon-
+odromic families in the case under consideration are one-parameter also follows from (4.29). The second linear
+differential equation in the Lax pair (4.9) is given by
+∂t Φ = U (z) Φ ≡
+( −i z i u
+−i w i z
+)
+Φ. (4.30)
+40
+=== PAGE 41 ===
+and the corresponding isomonodromy equation (4.10) yields the following system of nonlinear ODEs satisﬁed
+by the scalar functions u = u (t), w = w (t), x = x (t) and y = y (t),
+x = ut , y = wt , wu t − uw t = const ≡ κ,
+xt = t u+ 2u2w, yt = t w + 2w 2u.
+(4.31)
+In what follows we will only consider the reduction
+u ≡ w, κ = 0, (4.32)
+under which the system (4.31) reduces to a special case of the second Painlevé equation 5,
+ut t = 2u3 + t u, (4.33)
+and the linear equations (4.23) and (4.30) form the Flaschka-Newell Lax pair for this equation [FN1].
+At the level of Stokes parameters, the reduction (4.32) is equivalent to imposing the following constraints
+(see again [FIKN]),
+s4 = −s1, s5 = −s2, s6 = −s3.
+The space of monodromy data then becomes two-dimensional, and is given by an afﬁne cubic in C3 (see also
+Subsection 1.4 of the Introduction):
+MPII =
+{
+s ≡ (s1, s2, s3) ∈ C3 : s1 − s2 + s3 + s1s2s3 = 0
+}
+. (4.34)
+Solutions u(t) ≡ u (t; s)of the second Painlevé equation (4.33) are parametrized by the points s ∈ MPII via the
+inverse monodromy map, MPII → A . The latter is realized as follows.
+For j = 1, .. ., 6, letΓj denote the rays
+Γj =
+{
+z ∈ C : argz = π(2j − 1)
+6
+}
+.
+oriented towards inﬁnity, and letΩ(0)
+j be the sectors between the rays Γj −1 and Γj . Note that Ω(0)
+j ⊂ Ωj . Deﬁne
+a piecewise analytic function Ψ(z) by the relations
+Ψ(z) = Φj (z) for z ∈ Ω(0)
+j .
+The function Ψ(z) satisﬁes the following Riemann-Hilbert problem posed on the contourΓ = ⋃6
+j =1 Γj :
+• Ψ(z) is analytic for z ∈ C \ Γ;
+• Ψ+ (z) = Ψ− (z) J (z) for z ∈ Γ, where J
+(
+z ∈ Γj
+)
+= S j ;
+• Ψ(z) =
+(
+1 +O
+(1
+z
+))
+e−
+(
+4i
+3 z3+i t z+κln z
+)
+σ3 as z → ∞.
+The contour of the Riemann-Hilbert problem and the associated piecewise constant jump matrices are de-
+picted in Figure 5. Recall that Stokes parameters s1,2,3 are subject to the condition s1 − s2 + s3 + s1s2s3 = 0. We
+shall refer to this Riemann-Hilbert problem as the PII-RH problem.
+The PII-RH problem is meromorphically solvable. This means (see [BIK] and [FIKN], appendix A) that for
+every given s ∈ MPII there exists a discrete set Ks = {tk}∞
+k=1 of points in the complex t-plane such that for
+all t ∉ Ks the solution Ψ(z) ≡ Ψ(z; t) exists and is meromorphic in t with Ks being the set of its poles. The
+corresponding solution u (t; s) of the second Painlevé equation is given by the formula,
+u = 2
+(
+g1
+)
+12 , (4.35)
+5In the general case, the system (4.31) reduces to the Painlevé XXXIV equation for the product uw and to a pair of Painlevé II equations
+for functions ut /u and wt /w, with parameters 1
+2 − κ and 1
+2 + κ, respectively; see, e.g. [FIKN, Chapter 4, Section 2.5]
+41
+=== PAGE 42 ===
+( 1 0
+s1 1
+)
+( 1 s2
+0 1
+)
+( 1 0
+s3 1
+)
+( 1 −s1
+0 1
+)
+( 1 0
+−s2 1
+)
+( 1 −s3
+0 1
+)
+Figure 5: Contour and jump matrices of the PII-RH problem
+where g1 is the ﬁrst matrix coefﬁcient in the asymptotic expansion
+Ψ(z) ≃
+[
+1 +
+∞∑
+k=1
+gk z−m
+]
+e−
+(
+4i
+3 z3+i t z+κln z
+)
+σ3, z → ∞. (4.36)
+Let us now proceed to the calculation of the forms ωJMU and ω corresponding to the linear system (4.23)
+under reduction (4.32). Since there is only one singular point, we can globally deﬁne G (z) = Ψ(z)e
+(
+4i z3
+3 +i zt
+)
+σ3
+and the sum in (4.15) contains only one term,
+ω = resz=∞ Tr
+(
+A (z)dG (z)G (z)−1)
+. (4.37)
+We shall also restrict our consideration to the part of MPII where Stokes parameters s1 and s2 can be taken as
+coordinates. This means that
+dG = ∂G
+∂t d t + ∂G
+∂s1
+d s1 + ∂G
+∂s2
+d s2.
+Observe that
+resz=∞ Tr
+(
+A−3z2dG G −1)
+= − Tr
+(
+A−3
+(
+d g3 − d g2 · g1 − d g1 · g2 + d g1 · g 2
+1
+))
+,
+resz=∞ Tr
+(
+A−2zdG G −1)
+= − Tr
+(
+A−2
+(
+d g2 − d g1 · g1
+))
+,
+resz=∞ Tr
+(
+A−1dG G −1)
+= − Tr
+(
+A−1d g1
+)
+.
+Substitution of series (4.36) into the equation (4.23) yields the following formulae for the coefﬁcientsg1, g2, g3:
+g1 = u
+2 σ1 − i H
+2 σ3 ≡ α1σ1 + α3σ3,
+g2 = u2 − H 2
+8 1 − 2uH + v
+8 σ2 ≡ β11 + β2σ2,
+g3 = − uH 2 + u3 + v H + 2ut
+16 σ1 +
+i
+(
+H 3 + 2t H − 3u2H − uv
+)
+48 σ3 ≡ γ1σ1 + γ3σ3,
+where
+H = v 2
+4 − t u2 − u4, v = 2ut , (4.38)
+and
+σ1 =
+( 0 1
+1 0
+)
+, σ2 =
+( 0 −i
+i 0
+)
+, σ3 =
+( 1 0
+0 −1
+)
+.
+These equations lead to the following formula for the form ω,
+ω = 8β2d α1 − 8i β1d α3 − 8i α3d β1 − 8α1d β2 + 8i dγ3+
+8i
+(
+α2
+1 + α2
+3
+)
+d α3 + 8i uα3d α1 − 8i uα1d α3 + 8ud β2 +
+(
+2i t + 4i u2)
+d α3 + 4ut d α1.
+42
+=== PAGE 43 ===
+It can be rewritten in a completely localized form, i.e. directly in terms of u ≡ u (t; s) and its derivatives in the
+form of a linear combination of the differentials d t, d s1, d s2. The result is
+ω =
+(
+u2
+t − u4 − t u2)
+d t + 2
+3
+(
+2ut us1 − 4u3t us1 − uu t s1 + 2t ut ut s1 − 2ut 2us1
+)
+d s1
++ 2
+3
+(
+2ut us2 − 4u3t us2 − uu t s2 + 2t ut ut s2 − 2ut 2us2
+)
+d s2.
+(4.39)
+Simultaneously, we see that
+ωJMU =
+(
+u2
+t − u4 − t u2)
+d t ≡ Hd t, (4.40)
+and hence the PII tau function is given by
+∂ln τ(t; s)
+∂t = u2
+t − u4 − t u2 ≡ H. (4.41)
+Remark 4.5. Equation (4.33) admits a Hamiltonian reformulation. In fact, the quantity H from (4.38) is exactly
+the corresponding non-autonomous Hamiltonian, with the canonical coordinate and momentum given by u
+and v = 2ut . It is straightforward to verify that the Hamiltonian satisﬁes the following relation:
+4H − 2t Ht − 2vu t + uv t = 0.
+Using this equation, we can rewrite ω as a natural extension of the classical action (i.e. up to addition of a total
+differential),
+ω = vdu − Hd t + d
+(2H t − uv
+3
+)
+. (4.42)
+Let us deﬁne
+F := ln τ
+⏐⏐⏐
+t =t2
+t =t1
+− 2
+3
+(
+H t − uu t
+)⏐⏐⏐
+t =t2
+t =t1
+,
+where the objects on the right and left side are evaluated on solutions of (4.33). The formula (4.42) then implies
+that
+∂s j F = 2ut ∂s j u
+⏐⏐⏐
+t =t2
+t =t1
+, j = 1, 2. (4.43)
+This relation can, in principle, provide us with an alternative approach to evaluation of the asymptotics of the
+tau function. We shall discuss this issue in more detail in a sequel to this paper. It also should be mentioned
+that, in the special case of the Ablowitz-Segur one-parameter family of solutions of (4.33), the relation (4.43)
+has been already observed in [BoI, Proposition 6].
+4.3 Tau function asymptotics
+We will analyze the open set in the space of solutions of the second Painlevé equation (4.33) characterized by
+the genericity assumptions (1.25) on monodromy data. The asymptotics of u (t) as t → ±∞ is given by the
+formulae from [Kap] (see also [IN], [DZ2], and [FIKN]),
+u (t) = a+
+0,0e
+2i
+3 (−t)
+3
+2
+(−t)
+3µ
+2 − 1
+4 + a−
+0,0e− 2i
+3 (−t)
+3
+2
+(−t)− 3µ
+2 − 1
+4 +O
+(
+t 3|ℜµ|−1
+)
+, t → −∞, (4.44)
+µ = − ln(1 − s1s3)
+2πi , a+
+0,0a−
+0,0 = i µ
+2 ,
+a+
+0,0 =
+pπ23µe− i πµ
+2 − i π
+4
+s1Γ(µ) , a−
+0,0 =
+pπ2−3µe− i πµ
+2 + i π
+4
+s3Γ(−µ) ,
+(4.45)
+and
+σu (t) = i
+√
+t
+2 + b+
+1,1e
+2i
+p
+2
+3 t
+3
+2
+t − 3ν
+2 − 1
+4 + b−
+1,1e− 2i
+p
+2
+3 t
+3
+2
+t
+3ν
+2 − 1
+4 +O
+(
+t 3|ℜν|−1
+)
+, t → +∞, (4.46)
+ν = ln(i σs2)
+πi , b+
+1,1b−
+1,1 = i ν
+4
+p
+2
+,
+b+
+1,1 =
+pπ2− 7ν
+2 − 3
+4 e
+i πν
+2 − i π
+4
+(1 + s2s3)Γ(−ν) , b−
+1,1 = −
+pπ2
+7ν
+2 − 3
+4 e
+i πν
+2 + i π
+4
+(1 + s1s2)Γ(ν) .
+(4.47)
+43
+=== PAGE 44 ===
+From the previous section we already know that the 2-form d ω must be time-independent. This fact can
+be also established by a direct differentiation of the equation (4.39). Indeed, after straightforward though a bit
+tedious computation which involves using Painlevé II equation (4.33), we obtain
+d ω =
+(
+vs1us2 − vs2us1
+)
+d s1 ∧ d s2. (4.48)
+From the equation (4.33) it also follows that
+d
+d t
+(
+vs1us2 − vs2us1
+)
+= 0,
+which implies the time independence of d ω. Also, we can observe that
+d ω = lim
+t →−∞
+d ω = 4i d a−
+0,0 ∧ d a+
+0,0 = lim
+t →+∞
+d ω = 4i
+p
+2db +
+1,1 ∧ db −
+1,1. (4.49)
+These relations indicate that the form ω0 for the second Painlevé equation can be identiﬁed with the form
+−4i a+
+0,0d a−
+0,0, so that the 1-form
+ˆω := ω − ω0 = ω + 4i a+
+0,0d a−
+0,0 (4.50)
+is closed (with ω given by (4.39)). We can therefore extend the deﬁnition of the tau function as
+τ(t; s) := exp
+∫
+ˆω. (4.51)
+In order to proceed with evaluation of the asymptotics of the tau function (4.51), we will need more terms
+in the asymptotics of u (t). Denote
+p = e
+2i
+3 (−t)
+3
+2
+(−t)
+3µ
+2 , ζ = (−t)− 1
+4 .
+We have the following formal asymptotic expansion at t = −∞ :
+u (t) =
+∑
+l ≥k≥0, ϵ=±
+aϵ
+k,l p ϵ(2k+1)ζ6l +1.
+A few ﬁrst terms are
+u(t) =
+(
+a+
+0,0p + a−
+0,0p −1)
+ζ +
+(
+a+
+0,1p + a−
+0,1p −1 + a+
+1,1p3 + a−
+1,1p −3)
+ζ7 + .. .,
+where
+a±
+0,1 =
+i a±
+0,0
+(
+∓102µ2 + 36µ ∓ 5
+)
+48 , a±
+1,1 = −
+(
+a±
+0,0
+)3
+4 .
+Similarly, denoting
+q = e
+2i
+p
+2
+3 t
+3
+2
+t − 3ν
+2 , ξ = t − 1
+4 ,
+we have a formal asymptotic expansion at t = +∞ :
+u (t) =
+∑
+l ≥k≥0, ϵ=±
+bϵ
+2k+1,6l +1q ϵ(2k+1)ξ6l +1 +
+∑
+l ≥k≥0, ϵ=±
+bϵ
+2k,6l −2q2ϵk ξ6l −2.
+Let us record its several ﬁrst terms:
+σu(t) = i ξ−2
+p
+2
++
+(
+b+
+1,1q + b−
+1,1q −1)
+ξ +
+(
+b0,4 + b+
+2,4q2 + b−
+2,4q −2)
+ξ4 +
+(
+b+
+1,7q + b−
+1,7q −1 + b+
+3,7q3 + b−
+3,7q −3)
+ξ7+
++
+(
+b0,10 + b+
+2,10q2 + b−
+2,10q −2 + b+
+4,10q4 + b−
+4,10q −4)
+ξ10 + .. .,
+where
+b0,4 = − 3ν
+4 , b±
+2,4 = − i
+p
+2
+2
+(
+b±
+1,1
+)2
+,
+b±
+1,7 = b±
+1,1
+i
+p
+2
+6
+(
+∓ 51
+8 ν2 − 3
+2 ν ∓ 17
+16
+)
+, b±
+3,7 = −
+(
+b±
+1,1
+)3
+2 ,
+b0,10 = i
+p
+2
+2
+(51
+32 ν2 + 1
+8
+)
+, b±
+2,10 =
+(
+∓ 17
+8 ν2 − 11
+8 ν ∓ 41
+48
+) (
+b±
+1,1
+)2
+, b±
+4,10 = i
+p
+2
+4
+(
+b±
+1,1
+)4
+.
+44
+=== PAGE 45 ===
+Justiﬁcation of this asymptotics can be done using the Riemann-Hilbert approach, cf [DZ3]. Plugging it into
+(4.39), we get for sufﬁciently small|ℜµ| and |ℜν| the following behaviors:
+ω =d
+(
+− 4i µ
+3 (−t)
+3
+2 − 3µ2
+2 ln(−t) − µ2
+)
++ 2i
+(
+a−
+0,0d a+
+0,0 − a+
+0,0d a−
+0,0
+)
++ o (1), t → −∞, (4.52a)
+ω =d
+(
+t 3
+12 + 2i
+p
+2
+3 νt
+3
+2 − 6ν2 + 1
+8 ln t − ν2
+2
+)
++ 2i
+p
+2
+(
+b+
+1,1db −
+1,1 − b−
+1,1db +
+1,1
+)
++ o (1), t → +∞. (4.52b)
+This in turn yields the asymptotics of τ(t) deﬁned by (4.51),
+ln τ(t) = − 4i µ
+3 (−t)
+3
+2 − 3µ2
+2 ln(−t) − µ2 − µ + c1 + o (1), t → −∞, (4.53a)
+ln τ(t) = t 3
+12 + 2i
+p
+2 ν
+3 t
+3
+2 − 6ν2 + 1
+8 ln t + 4i
+∫ (
+a+
+0,0d a−
+0,0 +
+p
+2b+
+1,1db −
+1,1
+)
++
++ ν − ν2
+2 + c2 + o (1), t → +∞, (4.53b)
+up to numerical constants c1, c2 independent of s1 and s2.
+Remark 4.6. As follows from (4.48) and also from (4.42), the form Ω = d ω coincides with the symplectic form
+for the second Painlevé equation (4.33). From (4.49) one can obtain an expression of this form in terms of either
+the asymptotic data at t = −∞ or at t = +∞. For instance, in the former case we have
+Ω = 4i d a−
+0,0 ∧ d a+
+0,0. (4.54)
+The last equation can in turn be transformed into an expression of the symplectic form Ω in terms of mon-
+odromy data s ∈ MPII. Indeed, from (4.45) we see that the amplitudes a±
+0,0 can be written in the form
+a+
+0,0 =
+f+
+(
+µ
+)
+s1
+, a−
+0,0 =
+f−
+(
+µ
+)
+s3
+. (4.55)
+where f±
+(
+µ
+)
+are functions of a single argument which can of course be written explicitly using (4.45). From
+these explicit formulae we will only need one relation
+f+
+(
+µ
+)
+f−
+(
+µ
+)
+s1s3
+= i µ
+2 . (4.56)
+Let us also notice that (see again (4.45)),
+s1s3 = 1 − e−2πi µ. (4.57)
+Now, differentiating (4.55), we get
+d a+
+0,0 =
+(
+− f+
+s2
+1
++ f ′
++
+s1
+∂µ
+∂s1
+)
+d s1 + f ′
++
+s1
+∂µ
+∂s3
+d s3,
+d a−
+0,0 =
+(
+− f−
+s2
+3
++ f ′
+−
+s3
+∂µ
+∂s3
+)
+d s3 + f ′
+−
+s3
+∂µ
+∂s1
+d s1.
+Substituting these two equations into (4.54) and using (4.56), we arrive at the equation
+Ω = 4i
+(
+− i µ
+2s1s3
++ f− f ′
++
+s1s3
+· 1
+s3
+∂µ
+∂s1
++ f ′
+− f+
+s1s3
+· 1
+s1
+∂µ
+∂s3
+)
+d s1 ∧ d s3. (4.58)
+Noticing that
+1
+s3
+∂µ
+∂s1
+= 1
+s1
+∂µ
+∂s3
+= 1
+2πi (1 − s1s3) ,
+45
+=== PAGE 46 ===
+the equation (4.58) is transformed into
+Ω = 4i
+(
+− i µ
+2s1s3
++
+(
+f− f+
+)′
+2πi s1s3 (1 − s1s3)
+)
+d s1 ∧ d s3. (4.59)
+Finally, differentiating (4.56) with respect to µ, taking into account that (s1s3)′ = 2πi (1 − s1s3) in view of (4.57),
+we conclude that
+− i µ
+2s1s3
++
+(
+f− f+
+)′
+2πi s1s3 (1 − s1s3) = 1
+4π(1 − s1s3) ,
+which means that we end up with the following expression of the symplectic form Ω in terms of monodromy
+parameters:
+d ω = Ω = i
+π
+d s1 ∧ d s3
+1 − s1s3
+. (4.60)
+This expression coincides with the one obtained for the curvature d ωMB in [Ber1] where Painlevé II was also
+used to exemplify the general Malgrange-Bertola form (4.21). It should be mentioned that the ﬁrst derivation of
+this formula was done by H. Flaschka and A. Newell in [FN2]. Also note that in our asymptotics-based deriva-
+tion of (4.60) we mimic the methodology used in [BFT] for the evaluation of the KdV symplectic form in terms
+of the relevant scattering data — the PDE analog of the monodromy data.
+4.4 Connection coefﬁcient. Towards the proof of Theorem B
+The asymptotic equations (4.53a) and (4.53b) can be rewritten in the form (1.26):
+τ(t) ≃
+
+
+
+C−e− 4i µ
+3 (−t)
+3
+2
+(−t)− 3µ2
+2
+[
+1 + o (1)
+]
+, as t → −∞,
+C+e
+t3
+12 + 2i
+p
+2
+3 νt
+3
+2
+t − 3ν2
+4 − 1
+8
+[
+1 + o (1)
+]
+, as t → +∞.
+(4.61)
+The connection problem we want to solve for the Painlevé II tau function concerns the evaluation of the ratio
+Υ(s) := C+
+C−
+in terms of monodromy data s ∈ MPII.
+From (4.53a), (4.53b) we have
+ln Υ(s) = − ν2
+2 + ν
+2 + µ2 + µ + 4i
+∫ (
+a+
+0,0d a−
+0,0 +
+p
+2b+
+1,1db −
+1,1
+)
+. (4.62)
+Hence, our task is to evaluate the integral in the right hand side of (4.62). To this end, it is convenient to intro-
+duce new monodromy parameters ρ and ˜η by the equations
+(1 + s1s2)−1 = ei πρ, s−1
+3 = ei π˜η. (4.63)
+This transforms the integral in question into
+4i
+∫
+a+
+0,0d a−
+0,0 +
+p
+2b+
+1,1db −
+1,1 = −2
+∫
+µ
+(
+ln a−
+0,0
+)′
+µ d µ −
+∫
+ν
+(
+lnb−
+1,1
+)′
+ν d ν − i π
+∫ (
+νd ρ + 2µd ˜η
+)
+. (4.64)
+The ﬁrst two integrals on the right can be rewritten as
+∫
+µ
+(
+ln a−
+0,0
+)′
+µ d µ = − 6 ln2 + i π
+4 µ2 −
+∫
+µd ln Γ
+(
+−µ
+)
+, (4.65a)
+∫
+ν
+(
+lnb−
+1,1
+)′
+ν d ν = 7 ln2 + i π
+4 ν2 −
+∫
+νd ln Γ(ν). (4.65b)
+In order to simplify the third integral, we ﬁrst notice that due to cyclic relation s1 − s2 + s3 + s1s2s3 = 0 satisﬁed
+by the Stokes parameters we may write
+µ = − 1
+2πi ln
+( 1 − e−2πi η
+1 − ei π(ν−η)
+)
+, ρ = − 1
+πi ln
+( 1 − e2πi ν
+1 − ei π(ν−η)
+)
+, (4.66)
+46
+=== PAGE 47 ===
+where η = ˜η − σ
+2 . These formulae allow one to express the third integral in (4.64) in terms of dilogarithms. We
+have (cf. similar calculations in [ILT14])
+∫
+2µd ˜η + νd ρ − νρ =
+∫
+2µd η − ρd ν = 1
+2π2
+[
+Li2
+(
+e−2i πη
+)
++ Li2
+(
+e2πi ν
+)
+− 2 Li2
+(
+ei π(ν−η))]
+, (4.67)
+where Li2 (z) denotes the dilogarithm function
+Li2 (z) = −
+∫ z
+0
+ln(1 − x)
+x d x.
+The formulae (4.65a), (4.65b), and (4.67) enable us to complete the evaluation of Υ(s) in terms of Barnes
+G-functions. Indeed, it sufﬁces to use the classical formula (3.93) for the integrals (4.65a), (4.65b), and another
+classical formula
+Li2
+(
+e2πi z
+)
+= −2πi ln G (1 + z)
+G (1 − z) − 2πi z ln sin πz
+π − π2z (1 − z) + π2
+6 ,
+to rewrite the integral (4.67). Skipping some straightforward though tedious calculations, we arrive at the fol-
+lowing representation:
+Υ(s) = Υ0 · 23µ2− 7ν2
+4 (2π)−µ− ν
+2 e
+πi
+4 (η2+2µ2+2ην−8µη) G (1 − ν) ˆG
+(
+η
+)
+G2 (
+1 − µ
+) ˆG2 (η−ν
+2
+) , (4.68)
+The remaining task is to determine the numerical (i.e. independent of monodromy data) constant Υ0.
+Remark 4.7. In order to bring the ﬁnal answer to the compact form (4.68), one has to use the relations
+e
+i π
+2 (4µ−η−ν) =
+sin π(η−ν)
+2
+sin πη , e
+i π
+2 (2ρ+η+ν) =
+sin π(ν−η)
+2
+sin πν . (4.69)
+which can be veriﬁed with the help of (4.66). This allows to get rid of all sine functions in the ﬁnal formula.
+Remark 4.8. Strictly speaking, we have derived (4.68) under assumption that |ℜµ| and |ℜν| are sufﬁciently
+small. However, in the ﬁnal result we can lift this restriction by noticing that both sides of (4.68) are analytic
+functions of monodromy/Riemann-Hilbert data. (For the ratio Υ(s) this is a corollary of the general Birkhoff-
+Grothendieck-Malgrange theory).
+4.5 Numerical constant. End of the proof of Theorem B
+It would sufﬁce to calculate the numerical constant Υ0 for a particular solution corresponding to admissible
+monodromy. In contrast to Painlevé VI equation, which has families of explicit algebraic and elliptic solutions,
+the Painlevé II equation (4.33) has only trivial rational solution u = 0. Being associated to non-generic Stokes
+data, it is not suitable for our purposes.
+Another possibility is to consider the transcendental Hastings-McLeod solutionuHM (t). It has the following
+asymptotics (non-generic as well) on the real axis:
+uHM (t) ≃
+
+
+
+√ −t
+2 +O
+(
+(−t)− 1
+4 e− 2
+3
+p
+2(−t)
+3
+2
+)
+, t → −∞,
+t − 1
+4 e− 2
+3 t
+3
+2
+2pπ +O
+(
+t − 7
+4 e− 2
+3 t
+3
+2
+)
+, t → +∞.
+(4.70)
+Denote by HHM (t) the corresponding Hamiltonian. Plugging the asymptotics of uHM (t) into the deﬁnition
+(4.38), one ﬁnds that
+HHM (t) =
+
+
+
+t 2
+4 − 1
+8t +O
+(
+(−t)− 1
+4 e− 2
+3
+p
+2(−t)
+3
+2
+)
+, t → −∞,
+O
+(
+t −1e− 4
+3 t
+3
+2
+)
+, t → +∞.
+47
+=== PAGE 48 ===
+The rapid decay of HHM as t → +∞ allows to normalize the tau function associated to the Hastings-McLeod
+solution by setting
+τHM (t) := exp
+{
+−
+∫ +∞
+t
+HHM(s)d s
+}
+. (4.71)
+Its asymptotics is then given by
+τHM (t) ≃
+{
+ΥHM (−t)− 1
+8 e
+t3
+12 , t → −∞,
+1, t → +∞.
+(4.72)
+The coefﬁcient ΥHM represents the ﬁnite part of the integral in (4.71) as t → −∞. It turns out to be a close
+relative of the quantity Υ0 that we are after. The former constant has been evaluated in [DIK] and the result
+reads
+ΥHM = 2
+1
+24 eζ′(−1), (4.73)
+where ζ(s) denotes the Riemann zeta function. Alternatively, ΥHM can be expressed in terms of the Glaisher-
+Kinkelin constant A = e
+1
+12 −ζ′(−1) or in terms of the special value G
+(1
+2
+)
+= 2
+1
+24 π− 1
+4 e
+3
+2 ζ′(−1) of the Barnes function
+introduced above.
+The Hastings-McLeod solution is associated, via the Riemann-Hilbert correspondence, to the following
+point s ∈ MPII in the space of Stokes data:
+s1 = −i , s2 = 0, s3 = i .
+Although these parameters do not satisfy genericity conditions (1.25), the apparent difﬁculty can be overcome
+using the Z3-symmetry of the PII-RH problem. More precisely, the solutions of (4.33) verify the periodicity
+relation
+u (t; s1, s2, s3) = e
+2πi
+3 u
+(
+t e
+2πi
+3 ; s3, −s1, −s2
+)
+,
+in which we explicitly indicate the dependence of solutions on monodromy. Introducing a “rotated” Hastings-
+McLeod solution
+˜uHM (t) := e
+2πi
+3 uHM
+(
+t e
+2πi
+3 ; −i , 0,i
+)
+,
+one may check that ˜uHM (t) satisﬁes Painlevé II equation (4.33) and corresponds to the Stokes data
+s1 = 0, s2 = −i , s3 = −i .
+These new parameters do satisfy the conditions (1.25). In the above notations, we haveσ = 1 and µ = η = ν = 0,
+which implies that a−
+0,0 = b−
+1,1 = 0. One may also rewrite a+
+0,0, b+
+1,1 in (4.45), (4.47) as
+a+
+0,0 =
+23µ−1e− 3πi
+4 e
+i πµ
+2 Γ
+(
+1 − µ
+)
+s3
+pπ , b+
+1,1 = 2− 7ν
+2 − 7
+4 e− 3πi
+4 e− i πν
+2 Γ(1 + ν)(1 + s1s2)pπ ,
+so that for ˜uHM (t) = u (t;0, −i , −i ) we get
+a+
+0,0 = e
+3πi
+4
+2pπ , b+
+1,1 = 2− 7
+4 e− 3πi
+4
+pπ .
+The asymptotics of uHM (t) may be continued inside the sectors − π
+3 ≤ arg t ≤ 0, 2π
+3 ≤ arg t ≤ π, see [FIKN]. We
+record for later use more terms in the relevant asymptotics of HHM (t) as |t | → ∞:
+HHM(t) ≃
+
+
+
+t 2
+4 − 1
+8t − 2− 7
+4 e− 2
+3
+p
+2(e−i πt)
+3
+2
+pπ
+(
+e−i πt
+) 1
+4
++ e− 4
+3
+p
+2
+(
+e−i πt
+) 3
+2
+16πt +O
+(
+|t |− 7
+4
+)
+, arg t ∈
+[2π
+3 , π
+]
+,
+e− 4
+3 t
+3
+2
+8πt +O
+(
+|t |− 5
+2
+)
+, |t | → ∞, arg t ∈
+[
+− π
+3 ,0
+]
+.
+(4.74)
+48
+=== PAGE 49 ===
+Let ˜HHM (t) denote the Hamiltonian corresponding to the rotated solution ˜uHM(t). The tau function asso-
+ciated to this solution may be deﬁned as
+˜τHM(t) = exp
+{∫ t
+−∞
+˜HHM (s)d s
+}
+. (4.75)
+Its asymptotics contains the so far unknown coefﬁcientΥ0:
+˜τHM (t) ≃
+{
+1, t → −∞,
+Υ0t − 1
+8 e
+t3
+12 , t → +∞.
+The main idea of our computation of Υ0 is to relate the integrals (4.71) and (4.75). To this end let us substitute
+e
+2πi
+3 s = y into (4.75) and take into account that ˜HHM (t) = e
+2πi
+3 HHM
+(
+t e
+2πi
+3
+)
+. This yields
+˜τHM (t) = exp
+
+
+
+∫ t e
+2πi
+3
+−∞e
+2πi
+3
+HHM(y)d y
+
+
+,
+where the integral is taken along the line e
+2πi
+3 R.
+From (4.72) it follows that
+ln ΥHM = lim
+t →+∞
+(
+ln τHM (−t) + t 3
+12 + ln t
+8
+)
+= lim
+t →+∞
+(
+−
+∫ +∞
+−t
+HHM (s)d s+ t 3
+12 + ln t
+8
+)
+.
+Since the above integral converges, we may write for a > 0
+ln ΥHM = lim
+t →+∞
+(
+−
+∫ t
+−a
+HHM(s)d s−
+∫ −a
+−t
+HHM(s)d s+ t 3
+12 + ln t
+8
+)
+=
+= lim
+t →+∞
+(
+−
+∫ t
+−a
+HHM (s)d s−
+∫ −a
+−t
+[
+HHM (s) − s2
+4 + 1
+8s
+]
+d s+ a3
+12 + ln a
+8
+)
+.
+Here the branch cut for the logarithm is chosen to be the negative imaginary axis so that − π
+2 ≤ arg z < 3π
+2 . For
+ln Υ0, one similarly obtains
+ln Υ0 = lim
+t →+∞
+(
+ln ˜τHM (t) − t 3
+12 + ln t
+8
+)
+= lim
+t →+∞
+
+
+∫ t e
+2πi
+3
+−∞e
+2πi
+3
+HHM (s)d s− t 3
+12 + ln t
+8
+
+ =
+= lim
+t →+∞
+
+
+∫ ae
+2πi
+3
+−t e
+2πi
+3
+HHM (s)d s+
+∫ t e
+2πi
+3
+ae
+2πi
+3
+HHM (s)d s− t 3
+12 + ln t
+8
+
+ =
+= lim
+t →+∞
+
+
+∫ ae
+2πi
+3
+−t e
+2πi
+3
+HHM (s)d s+
+∫ t e
+2πi
+3
+ae
+2πi
+3
+[
+HHM (s) − s2
+4 + 1
+8s
+]
+d s− a3
+12 + ln a
+8
+
+.
+We would like to deform the contours in the two integrals so as to connect ln Υ0 with ln ΥHM. The relevant
+deformations are represented in Fig. 6 below.
+The crucial observation is that the integrals along the contours shown in Fig. 6 are equal to zero. The
+reason for their vanishing is the absense of poles in the Hastings-Mcleod solution inside the sectors arg t ∈[
+− π
+3 , 0
+]
+∪
+[2π
+3 , π
+]
+, see [HXZ]. It follows that
+ln Υ0 = lim
+t →+∞
+
+
+
+∫ −a
+t
+HHM (s)d s+
+∫ ae
+2πi
+3
+−a
+HHM (s)d s+
+∫ t
+t e− πi
+3
+HHM (s)d s+
+∫ −t
+−a
+[
+HHM (s) − s2
+4 + 1
+8s
+]
+d s
++
+∫ −a
+ae
+2πi
+3
+[
+HHM(s) − s2
+4 + 1
+8s
+]
+d s+
+∫ t e
+2πi
+3
+−t
+[
+HHM(s) − s2
+4 + 1
+8s
+]
+d s− a3
+12 + ln a
+8
+
+
+.
+49
+=== PAGE 50 ===
+0
+−a
+ae
+2πi
+3
+t
+t e− i π
+3
+0−a
+ae
+2πi
+3
+−t
+t e
+2πi
+3
+Figure 6: Contour deformation for the ﬁrst (left) and second (right) integral
+Using the asymptotics (4.74) and appropriate version of the Jordan’ s lemma, one may show that the limits of
+the integrals over two arcs of the big circle are equal to zero. Therefore we get
+ln Υ0 = lim
+t →+∞
+{∫ −a
+t
+HHM (s)d s+
+∫ −t
+−a
+[
+HHM (s) − s2
+4 + 1
+8s
+]
+d s+ a3
+12 + ln a
+8 + i π
+24
+}
+= ln ΥHM + i π
+24 .
+In combination with (4.73), this gives us the unknown constant in the connection coefﬁcient (4.68):
+Υ0 = 2
+1
+24 eζ′(−1)+ i π
+24 . (4.76)
+This evaluation reproduces the experimentally observed numerical valueΥ0 ≈ 0.865+0.114i and, together with
+(4.68), completes the proof of Theorem B.
+4.6 Quasi-periodicity of the connection constant
+As in the case of previously studied Painlevé equations, the asymptotic expressions (4.61) of the Painlevé II
+tau function τ(t) can be upgraded to full Fourier-type series. Similarly to the Painlevé III ( D8) equation con-
+sidered in [ILT14], by examining higher terms of the asymptotic expansions one may obtain two conjectural
+representations for the tau function τ(t).
+The ﬁrst representation is given by
+τ(t) = χ−
+∑
+n∈Z
+ei nρ− B (ν− + n, t), (4.77a)
+where the two parameters
+(
+ν−, ρ−
+)
+are related to Stokes data by
+ν− = −µ = ln(1 − s1s3)
+2πi , ei ρ− = − e2πi(µ−η)
+2π =
+s2
+3
+2π(1 − s1s3) , (4.77b)
+and the function B (α, t) admits the following asymptotic expansion as t → −∞:
+B (α, t) = 6−α2
+e
+i πα2
+2 G2 (1 + α)r −α2
+ei αr
+[
+1 +
+∞∑
+k=1
+Bk (α)
+r k
+]
+, r = 4
+3 (−t)
+3
+2 . (4.77c)
+Its ﬁrst few coefﬁcients are given by
+B1 (α) = −
+i α
+(
+34α2 + 1
+)
+18 , B2 (α) = −
+α2 (
+1156α4 + 2318α2 + 271
+)
+648 , .. .
+The second conjectural representation is
+τ(t) = χ+t − 1
+8 e
+t3
+12
+∑
+n∈Z
+ei nρ+ D (ν+ + n, t), (4.78a)
+50
+=== PAGE 51 ===
+with
+(
+ν+, ρ+
+)
+expressed in terms of monodromy as
+ν+ = ν =
+ln
+(
+−s2
+2
+)
+2πi , ei ρ+ = e−i πρ
+p
+2π
+= 1 + s1s2
+p
+2π
+. (4.78b)
+The asymptotic expansion of the Fourier coefﬁcientsD (α, t) as t → +∞ has the form
+D (α, t) = 12− α2
+2 e− i πα2
+4 G (1 + α)r − α2
+2 ei αr
+[
+1 +
+∞∑
+k=1
+Dk (α)
+r k
+]
+, r = 2
+p
+2
+3 t
+3
+2 , (4.78c)
+and its ﬁrst coefﬁcients are given by
+D1 (α) = −
+i α
+(
+34α2 + 31
+)
+72 , D2 (α) = − 289
+2592 α6 − 413
+648 α4 − 11509
+10368 α2 − 1
+24 , .. .
+The coefﬁcientχ(s) := χ+/χ−, s ∈ MPII of relative normalization of the Fourier series (4.77a) and (4.78a) is
+related to the connection coefﬁcientΥ(s) considered above by
+Υ(s) = χ(s) · 23ν2
+−−7ν2
++/4e−
+i π(ν2++2ν2−)
+4
+G (1 + ν+)
+G2 (1 + ν−) .
+In combination with Theorem B, this relation implies that
+χ(s) = Υ0 · (2π)ν−− ν+
+2 e
+i π
+(
+(η+ν+)2
+4 +ν2
+−+2ν−η
+)
+ˆG
+(
+η
+)
+ˆG (ν+) ˆG2 (η−ν+
+2
+), (4.79)
+with the same numerical constantΥ0 given by (4.76). On the other hand, analogously to Painlevé VI [ILT13] and
+Painlevé III [ILT14] equations, the Fourier series (4.77a) and (4.78a) would imply the following quasi-periodic
+properties of the constant χ as a function of monodromy data (ν−, ν+):
+{
+χ
+(
+ν− + 1, ν+; η
+)
+= e−i ρ− χ
+(
+ν−, ν+; η
+)
+,
+χ
+(
+ν−, ν+ + 1; η + 1
+)
+= ei ρ+ χ
+(
+ν−, ν+; η
+)
+.
+(4.80)
+Equations (4.77)–(4.78) are conjectures. However, the explicit formula (4.79) is rigorous. It can be checked
+directly that it indeed satisﬁes the quasi-periodic relations (4.80). This can be considered as a conﬁrmation
+of conjectures (4.77)–(4.78). In a future work, we hope to produce their complete proof by generalizing the
+recent approach of [GL] and constructing proper Fredholm determinant representations for the Painlevé II tau
+function on the canonical rays.
+Acknowledgements. We would like to thank M. Bertola, P . Gavrylenko and N. Iorgov for illuminating discussions and corre-
+spondence. Special thanks to J. Roussillon for numerical checks of the statement of Theorem B. A. Its was supported by the
+National Science Foundation grants DMS-1361856, DMS-1700261 and Russian Science Foundation grant No.17-11-01126,
+A. Prokhorov was supported by the National Science Foundation grants DMS-1637087, DMS-1361856, DMS-1700261 and
+Russian Science Foundation grant No.17-11-01126, O. Lisovyy was supported by the CNRS/Projet International de Coopéra-
+tion Scientiﬁque (PICS) project “Isomonodromic deformations and conformal ﬁeld theory” .
+51
+=== PAGE 52 ===
+References
+[AS] M. J. Ablowitz, H. Segur, Asymptotic solutions of the Korteweg-de Vries equation , Stud. Appl. Math. 57,
+No. 1, (1977), 13–44.
+[AB] D. V . Anosov, A. A. Bolibruch, The Riemann-Hilbert problem: A publication from the Steklov Institute of
+Mathematics, Aspects of Mathematics E22, Braunschweig; Wiesbaden: Vieweg, (1994).
+[BBD] J. Baik, R. Buckingham, J. DiFranco, Asymptotics of Tracy-Widom distributions and the total integral of a
+Painlevé II function, Comm. Math. Phys. 280, (2008), 463–497; arXiv:0704.3636 [math.FA].
+[BBDI] J. Baik, R. Buckingham, J. DiFranco, A. Its, Total integrals of global solutions to Painlevé II , Nonlinear-
+ity 22, (2009), 1021–1061; arXiv:0810.2586 [math.CA].
+[BT] E. L. Basor, C. A. Tracy, Some problems associated with the asymptotics ofτ-functions, Surikagaku (Math-
+ematical Sciences) 30, no. 3, (1992), 71–76.
+[BS] M. Bershtein, A. Shchechkin, Bilinear equations on Painlevé tau functions from CFT , Comm. Math.
+Phys. 339, (2015), 1021–1061; arXiv:1406.3008v5 [math-ph].
+[Ber] M. Bertola, The dependence on the monodromy data of the isomonodromic tau function , Comm. Math.
+Phys. 294, (2010), 539–579; arXiv: 0902.4716 [nlin.SI].
+[Ber1] M. Bertola, Corrigendum: The dependence on the monodromy data of the isomonodromic tau function ,
+arXiv:1601.04790 [math-ph].
+[BIK] A. A. Bolibruch, A. R. Its, A. A. Kapaev, On the Riemann-Hilbert-Birkhoff inverse monodromy problem
+and the Painleve equations, Algebra and Analysis 16 , No. 1, (2004), 121–162.
+[BGT] G. Bonelli, A. Grassi, A. Tanzini, Seiberg-Witten theory as a Fermi gas, Lett. Math. Phys.107, (2017), 1–30;
+arXiv:1603.01174 [hep-th].
+[BoI] T . Bothner, A. Its, Asymptotics of a cubic sine kernel determinant , St. Petersburg Math. J. 26:4, (2015),
+515–565; arXiv:1303.1871v1.
+[BK] E. Brézin, V . A. Kazakov, Exactly solvable ﬁeld theories of closed strings, Phys. Letts.B236, (1990), 144–150.
+[BB] A. M. Budylin, V . S. Buslaev, Quasiclassical asymptotics of the resolvent of an integral convolution opera-
+tor with a sine kernel on a ﬁnite interval, (Russian) Algebra i Analiz 7, no. 6, (1995), 79–103; translation
+in St. Petersburg Math. J. 7, no. 6 (1996), 925–942.
+[BFT] V . S. Buslaev, L. D. Faddeev, L. A. Takhtajan, Scattering theory for Korteweg-de-Vries (KdV) equation and
+its Hamiltonian interpretation, Physica 18D. (1986), 255–266.
+[CCR] B. Carneiro da Cunha, M. Carvalho de Almeida, A. Rabelo de Queiroz, On the existence of monodromies
+for the Rabi model, J. Phys. A: Math. Theor. 49, (2016), 194002; arXiv:1508.01342 [math-ph].
+[DIK] P . Deift, A. Its, I. Krasovsky, Asymptotics of the Airy-kernel determinant , Comm. Math. Phys. 278, no. 3,
+(2008), 643–678; arXiv:math/0609451 [math.FA].
+[DIKZ] P . Deift, A. Its, I. Krasovsky, X. Zhou, The Widom-Dyson constant for the gap probability in random
+matrix theory, J. Comput. Appl. Math. 202, no. 1, (2007), 26–47; arXiv:math/0601535 [math.FA].
+[DKV] P . Deift, I. Krasovsky, J. Vasilevska,Asymptotics for a determinant with a conﬂuent hypergeometric kernel,
+Int. Math. Res. Not., (2010), rnq150; arXiv:1005.4226 [math-ph].
+[DZ1] P . Deift, X. Zhou, A steepest descent method for oscillatory Riemann-Hilbert problems. Asymptotics for the
+MKdV equation, Ann. of Math. 137, (1993), 296–368.
+[DZ2] P .A. Deift, X. Zhou, Asymptotics for the Painlevé II equation, Comm. Pure Appl. Math. 48, no. 3, (1995),
+277–337.
+52
+=== PAGE 53 ===
+[DZ3] P .A. Deift, X. Zhou, Long-time asymptotics for integrable systems. Higher order theory , Comm. Math.
+Phys., 165, (1995), 175–191.
+[DS] M. Douglas, S. Shenker, Strings in less than one dimension, Nucl. Phys. B335, (1990), 635–654.
+[Ehr] T . Ehrhardt, Dyson’s constant in the asymptotics of the Fredholm determinant of the sine kernel, Comm.
+Math. Phys. 262, (2006), 317–341; arXiv:math/0401205 [math.FA].
+[FIKN] A. S. Fokas, A. R. Its, A. A. Kapaev, V . Yu. Novokshenov, Painlevé transcendents: the Riemann-Hilbert
+approach, Mathematical Surveys and Monographs 128, AMS, Providence, RI, (2006).
+[FN1] H. Flaschka, A. C. Newell, Monodromy- and spectrum-preserving deformations I, Comm. Math. Phys.76,
+(1980) 65–116.
+[FN2] H.Flaschka, A. C. Newell, The inverse monodromy transform is a canonical transformation, Math.Studies
+61, North Holland, (1982), 65–91.
+[GIL12] O. Gamayun, N. Iorgov, O. Lisovyy, Conformal ﬁeld theory of Painlevé VI , JHEP 10, (2012), 038;
+arXiv:1207.0787 [hep-th].
+[GIL13] O. Gamayun, N. Iorgov, O. Lisovyy, How instanton combinatorics solves Painlevé VI, V and III’s ,
+J. Phys. A46, (2013), 335203; arXiv:1302.1832 [hep-th].
+[Gav] P . Gavrylenko, Isomonodromic τ-functions and W N conformal blocks , JHEP 09, (2015), 167;
+arXiv:1505.00259v1 [hep-th].
+[GL] P . Gavrylenko, O. Lisovyy, Fredholm determinant and Nekrasov sum representations of isomonodromic
+tau functions, 363, (2018), 1–58; arXiv:1608.00958 [math-ph].
+[GM] P . Gavrylenko, A. Marshakov, Exact conformal blocks for the W-algebras, twist ﬁelds and isomonodromic
+deformations, JHEP 02, (2016), 181; arXiv:1507.08794 [hep-th].
+[Gol] W . M. Goldman, Invariant functions on Lie groups and Hamiltonian ﬂows of surface group representa-
+tions, Invent. Math. 85, (1986), 263–302.
+[GrM] D. Gross, A. Migdal, A nonperturbative treatment of two-dimensional quantum gravity , Nucl. Phys.
+B340, (1990), 333–365.
+[HXZ] M. Huang, S. Xu, L. Zhang, Location of poles for the Hastings-McLeod solution to the second Painlevé
+Equation, Constr. Approx. 43, (2016), 463; arXiv:1410.3338v2 [math.CA].
+[ILST] N. Iorgov, O. Lisovyy, A. Shchechkin, Yu. Tykhyy, Painlevé functions and conformal blocks , Constr. Ap-
+prox. 39, (2014), 255–272.
+[ILT13] N. Iorgov, O. Lisovyy, Yu. Tykhyy, Painlevé VI connection problem and monodromy of c = 1 conformal
+blocks, JHEP 12, (2013), 029; arXiv:1308.4092v1 [hep-th].
+[ILTe] N. Iorgov, O. Lisovyy, J. Teschner,Isomonodromic tau-functions from Liouville conformal blocks, Comm.
+Math. Phys. 336, (2015), 671–694; arXiv:1401.6104 [hep-th].
+[ILT14] A. Its, O. Lisovyy, Yu. Tykhyy, Connection problem for the sine-Gordon/Painlevé III tau function and
+irregular conformal blocks, Int. Math. Res. Not.2015, no. 18, (2015), 8903–8924; arXiv: 1403.1235 [math-
+ph].
+[IN] A. R. Its, V . Yu. Novokshenov, The Isomonodromy Deformation Method in the Theory of Painlevé Equa-
+tions, Lect. Notes in Math. 1191, Springer-Verlag, (1986).
+[IP] A. Its, A. Prokhorov, Connection problem for the tau-function of the sine-Gordon reduction of Painlevé-
+III equation via the Riemann-Hilbert approach , Int. Math. Res. Not. 2016, No. 22, (2016), 6856–6883;
+arXiv:1506.07485v2 [math-ph].
+53
+=== PAGE 54 ===
+[Jim] M. Jimbo, Monodromy problem and the boundary condition for some Painlevé equations, Publ. Res. Inst.
+Math. Sci. 18, (1982), 1137–1161.
+[JMMS] M. Jimbo, T . Miwa, Y. Môri, M. Sato, Density matrix of an impenetrable Bose gas and the ﬁfth Painlevé
+transcendent, Physica 1D, (1980), 80–158.
+[JMU] M. Jimbo, T . Miwa, K. Ueno,Monodromy preserving deformation of linear ordinary differential equations
+with rational coefﬁcients. I, Physica D2, (1981), 306–352.
+[Kap] A. A. Kapaev, Global asymptotics of the second Painlevé transcendent, Phys. Lett. A167, (1992), 356–362.
+[KK] A. V . Kitaev, D. A. Korotkin, On solutions of the Schlesinger equations in terms of Θ-functions, Int. Math.
+Res. Notices 17, (1998), 877–905; arXiv:math-ph/9810007.
+[Kra] I. Krasovsky, Gap probability in the spectrum of random matrices and asymptotics of polynomials or-
+thogonal on an arc of the unit circle , Int. Math. Res. Not. 2004, (2004), 1249–1272; arXiv:math/0401258
+[math.FA]
+[Kri] I. Krichever, Isomonodromy equations on algebraic curves, cannonical transformations and Whitham
+equations, Moscow Math. J. 2, (2002), 717 – 752; arXiv:hep-th/0112096.
+[L09] O. Lisovyy, Dyson’s constant for the hypergeometric kernel , in “New trends in quantum integrable sys-
+tems” (eds. B. Feigin, M. Jimbo, M. Okado), World Scientiﬁc, (2011), 243–267; arXiv:0910.1914 [math-
+ph].
+[LT] O. Lisovyy, Yu. Tykhyy, Algebraic solutions of the sixth Painlevé equation, J. Geom. Phys. 85, (2014), 124–
+163; arXiv:0809.4873 [math.CA].
+[Mal] B. Malgrange, Sur les déformations isomonodromiques, I. Singularités régulières , in “Mathematics and
+Physics” , (Paris, 1979/1982); Prog. Math.37, Birkhäuser, Boston, MA, (1983), 401–426.
+[Miw] T . Miwa, Painlevé property of monodromy preserving deformation equations and the analyticity of τ-
+functions, Publ. Res. Inst. Math. Sci. 17, (1981), 703–712.
+[Nag] H. Nagoya, Irregular conformal blocks, with an application to the ﬁfth and fourth Painlevé equations, J.
+Math. Phys. 56, (2015), 123505; arXiv:1505.02398v3 [math-ph].
+[NC] F . Novaes, B. Carneiro da Cunha, Isomonodromy, Painlevé transcendents and scattering off of black holes,
+JHEP 2014:132, (2014); arXiv:1404.5188v1 [hep-th].
+[Pal] J. Palmer, Zeros of the Jimbo, Miwa, Ueno tau function, J. Math. Phys., 40, (1999), 6638–6681; arXiv:solv-
+int/9810004.
+[Tra] C. A. Tracy, Asymptotics of the τ-function arising in the two-dimensional Ising model , Comm. Math.
+Phys. 142, (1991), 297–311.
+[TW1] C. A. Tracy, H. Widom, Level-spacing distributions and the Airy kernel , Comm. Math. Phys. 159, (1994),
+151–174; arXiv:hep-th/9211141.
+[TW2] C. A. Tracy, H. Widom, Fredholm determinants, differential equations and matrix models, Comm. Math.
+Phys. 163, (1994), 33–72 ; arXiv:hep-th/9306042.
+[Was] W . Wasow, Asymptotic expansions for ordinary differential equations, Dover, New York, (2002).
+[WMTB] T . T . Wu, B. M. McCoy, C. A. Tracy, E. Barouch,Spin-spin correlation functions for the two-dimensional
+Ising model: exact theory in the scaling region, Phys. Rev.B13, (1976), 316–374.
+54

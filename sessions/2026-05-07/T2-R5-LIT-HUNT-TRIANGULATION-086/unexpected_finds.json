@@ -1,0 +1,34 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "summary": "V1 Section 4 does NOT explicitly invoke the $D_6$ affine Weyl group structure as an operative ingredient of its chart-map. V1's title cites Painlev\u00e9-III(D_6) (Sakai-classification convention) but the actual chart-map derivation in \u00a74 parametrises monodromy through cubic surface (1.13) coordinates (x_1, x_2, x_3) and references [43] for cubic-surface derivation. This means V1 alone cannot answer Reviewer D's pre-W21-synth Symmetry Consistency Check ('does V_quad Lax pair admit the D_6 Weyl group structure expected by P_III(D_6)?'); the question remains open at W21 LANE-1.",
+      "context": "Phase D.D3"
+    },
+    {
+      "id": "U2",
+      "summary": "V2 (arXiv:1604.03082) does NOT directly treat P_III(D_6); V2's worked examples are P_VI (Section 3, Theorem A, Barnes G-functions) and P_II (Section 4, Theorem B). V2 cites Its-Prokhorov [IP] for the prior P_III(D_8) work. The applicability assessment of V2's general non-Fuchsian apparatus (\u00a74.1 + Theorem 4.2) to P_III(D_6) is STRUCTURAL (V2's hypotheses match V1's Lax-pair (4.1) hypotheses); explicit calculation of the P_III(D_6) connection constant remains an open task. This is more nuanced than the pre-verification report V2 description ('connection-formula machinery directly applicable to P_III(D_6)') suggested.",
+      "context": "Phase C.C5"
+    },
+    {
+      "id": "U3",
+      "summary": "V1 introduces a NEW B-candidate (B4) at the monodromy-data category level rather than fitting existing B1 (function-space across-strip Fourier). B4 routes AROUND the open KNY \u2194 Okamoto Hamiltonian-chart B1 algebraic-translation gap by carrying the chart-map onto cubic-surface monodromy-manifold coordinates directly via Riemann\u2013Hilbert. The B1 gap remains open at substrate-inventory scope but is DECOUPLED from M6.CC critical-path readiness under B4 routing. This is an instance of Reviewer A's 'BS-Q3' reframing in the sense that the chart-map question is answered in a different ambient category.",
+      "context": "Phase D.D4 + D.D5"
+    },
+    {
+      "id": "U4",
+      "summary": "058 main fire readiness verdict READY_PROVISIONAL means R5 (Okamoto 1987) is downgradable from M6.CC critical-path BLOCKER to final-pass AUDIT-ANCHOR. Specifically, 7 of 8 058 spec halts cover at LOW R5 dependency under Phi_prov B4-routing; the remaining HALT_M6_LITERATURE_DISAGREES_WITH_H4 carries MEDIUM dependency (W21 LANE-1 arbitration). This was the central claim the 086 envelope was tasking the agent to assess, and the assessment outcome favours the relay-pre-supposed direction (R5 decouple-able) rather than R5_FULLY_BLOCKING.",
+      "context": "Phase F.F3"
+    },
+    {
+      "id": "U5",
+      "summary": "V1 \u00a74.5 'rational solutions of P_III(D_6)' worked example (verbatim quoted from v1_full.txt L3300+) gives explicit Stokes / connection-matrix data for the constant solution u(x) \u2261 1 with parameters Theta_0 = Theta_inf - 1 = m. This worked example is structurally analogous to the V_quad worked example: a specific parameter point at which Stokes data is computed in closed form (involving Gamma functions). Suggests an analogous closed-form match for V_quad parameter point may be tractable via the same Gamma-function machinery V1 \u00a74.5 deploys. Forward-pointer to Phase D.2 numerical task.",
+      "context": "Phase B + Phase E forward-pointer"
+    },
+    {
+      "id": "U6",
+      "summary": "V1 \u00a76 + Gromak B\u00e4cklund (1.2) carries the Schlesinger transformation explicit formulae for the rational-solution family u_0 -> u_n. V1's structural treatment of Schlesinger transformations is in JM convention; Okamoto 1987 has these in Hamiltonian-form convention. The two are RELATED via the JM \u2194 Sakai-Okamoto cross-walk (058R B.5), but the explicit dictionary at the Schlesinger-formula level was not extracted at 086 scope. Forward-pointer to R5 audit-anchor item (5) in 058 readiness.",
+      "context": "Phase E + R5 audit residual"
+    }
+  ]
+}
