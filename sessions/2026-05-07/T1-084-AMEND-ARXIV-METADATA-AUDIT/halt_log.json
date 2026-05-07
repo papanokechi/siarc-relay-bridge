@@ -1,0 +1,25 @@
+{
+  "halt_log": [],
+  "halts_checked_and_passed": [
+    {
+      "halt_id": "HALT_084_AMEND_ARXIV_FETCH_FAIL",
+      "trigger_condition": "network / 404 on listed arXiv ID for an own-record",
+      "result": "PASS",
+      "reason": "0 own-record arXiv IDs in 084 substrate; nothing to fetch on own-record side; null-state PASS"
+    },
+    {
+      "halt_id": "HALT_084_AMEND_ID_HALLUCINATED",
+      "trigger_condition": "listed arXiv ID resolves to wrong paper (post-031 rule trigger)",
+      "result": "PASS",
+      "reason": "0 own-record arXiv IDs in 084 substrate to verify; rule remains armed for future-landed IDs; null-state PASS"
+    },
+    {
+      "halt_id": "HALT_084_AMEND_DRIFT_BLOCKING",
+      "trigger_condition": "metadata drift detected on >2 records; requires synth review",
+      "result": "PASS",
+      "reason": "drift count = 0 (5 records all PENDING_FIRST_SUBMISSION); threshold = 2; null-state PASS"
+    }
+  ],
+  "halts_triggered_count": 0,
+  "halts_passed_count": 3
+}

@@ -1,0 +1,25 @@
+{
+  "unexpected_finds": [
+    {
+      "find_id": "U1",
+      "category": "external-state-confirmation",
+      "description": "Live arXiv author search 'papanokechi' returned literal 'Sorry, your query for author: papanokechi produced no results.' AND arxiv.org/a/papanokechi_s_1.html + arxiv.org/a/papanokechi_1.html both returned HTTP 404. Together with the 084 zero-arXiv-id substrate snapshot, this gives 3 independent confirmations of PENDING_FIRST_SUBMISSION status (each could in principle disagree with the substrate; all three agreed). Surfaced as a positive cross-validation note: the arXiv side is unambiguously empty for own-records."
+    },
+    {
+      "find_id": "U2",
+      "category": "framework-design-implication",
+      "description": "Reviewer D BS-arXiv concern (peer_ai_reviews_received_2026-05-07.md SHA16 DF92466E123E16BF) frames metadata-persistence as a content-vs-metadata distinction. The mechanical examination here surfaced a stronger property: SHA-anchored references in the bridge are content-keyed (Zenodo DOI + MD5 + SHA-256 + size + page count) and are STRUCTURALLY INVARIANT under arXiv-side metadata change. arXiv metadata drift can only break human-readable PROSE attributions, never the SHA anchor itself. This narrows the audit-fire scope at re-fire time to forward-pointer collation (a bridge_attribution_supplement.md), NOT a back-edit pass. Surfaced as a finer-than-Reviewer-D framing of the BS-arXiv concern."
+    },
+    {
+      "find_id": "U3",
+      "category": "operational-trigger",
+      "description": "Zenodo records carry a 'revision' integer (currently 3 on R2 + R3). This is incremented every time the metadata block is edited (independent of file replacement, which produces a new version DOI). The revision integer is the cheapest single-field sentinel for re-running this audit; a successor 084-AMEND-AUDIT prompt could be triggered automatically when any record's revision increments. Surfaced as a candidate operational watcher; not implemented this fire."
+    },
+    {
+      "find_id": "U4",
+      "category": "downstream-impact",
+      "description": "If at first arXiv-ID-landing, an arXiv moderator requests a title or abstract change before approving the record (a known scenario per Reviewer D BS-arXiv), the operator faces a fork: (a) accept the change and amend the Zenodo deposit to match (preserves arXiv-Zenodo metadata symmetry; requires a new Zenodo version DOI), OR (b) accept the change only on arXiv (creates intentional arXiv-vs-Zenodo title/abstract drift; documentable in next 084-AMEND fire as a NON_DRIFT_BY_DESIGN row in the drift table). Recommendation: at first arXiv-moderator request, the operator pastes the moderator email body into a new bridge session prompt that explicitly enumerates options (a)/(b) before either action lands. Surfaced as a contingent-decision lemma not in the 084-AMEND envelope."
+    }
+  ],
+  "unexpected_finds_count": 4
+}
