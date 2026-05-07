@@ -1,0 +1,27 @@
+{
+  "session": "T2-ENDORSER-FRAMING-DOSSIER-ASSEMBLY-078",
+  "compiled": "2026-05-07",
+  "unexpected_finds": [
+    {
+      "id": "U-078-1",
+      "finding": "T2B v3.0 template fan-out at ARXIV-ENDORSEMENT-TEMPLATES-EXPAND covers 6 endorsers (Beukers, Costin, Garoufalidis, Mazzocco, Sauzin, Zudilin) rather than the 5 cited per spec.",
+      "context": "On-disk inventory of `2026-05-04/ARXIV-ENDORSEMENT-TEMPLATES-EXPAND/sessions/.../t2b_v3_*.md` shows 6 distinct endorser-targeted templates; spec section 1.A.2 enumerates only 5. Discrepancy is documentary; 5 of the 6 templates are actively cited in 078 dossier (G5 Beukers + 4 EXISTING for the other 4 endorsers), Zudilin t2b template is HISTORICAL-ANCHOR.",
+      "severity": "informational",
+      "action": "Logged in coverage matrix section C.4 cross-reference."
+    },
+    {
+      "id": "U-078-2",
+      "finding": "Mazzocco institutional move to UPC Barcelona is post-2024; 2026-05-04 dossier records Birmingham affiliation that would be 1+ year stale at fire time.",
+      "context": "Memory `endorsement workflow` records the verified email at marta.mazzocco@upc.edu, indicating prior session(s) already pre-flighted the institutional move. 078 G1 template uses the verified UPC email and the post-move UPC affiliation; agent did not transcribe the 2026-05-04 stale Birmingham figure.",
+      "severity": "informational",
+      "action": "Mazzocco profile section B.3 surfaces the institutional move; G1 template uses post-move address."
+    },
+    {
+      "id": "U-078-3",
+      "finding": "PCF-1 v1.3 Garoufalidis pivot is in flight at 078 fire time per memory todo `garoufalidis-endorsement-pivot pending`; G2 PCF-2 x Garoufalidis template is therefore optional / contingency-only rather than primary deliverable.",
+      "context": "Spec section 4.D.3 second item flagged G2 as 'subject-fit cross-check; share template w/ PCF-1 footnote'. The contingency basis is the page-count-drift carry from `ARXIV_MIRROR_HALTED_PAGE_COUNT_DRIFT_2` per `ENDORSER-HANDLE-ACQUISITION/handoff.md` Anomalies section 3. If PCF-1 mirror succeeds via the in-flight pivot, G2 is unused; if PCF-1 mirror is blocked, G2 becomes the primary math.NT submission template.",
+      "severity": "informational",
+      "action": "G2 template carries explicit OPTIONAL framing in its operator-action META block."
+    }
+  ]
+}
