@@ -1,0 +1,28 @@
+{
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "MAJOR",
+      "description": "Template m4_v0_ratification_template.md §1 cited 074 with non-existent SHA aab7ee2. Verified via git rev-parse aab7ee2 returning fatal: ambiguous argument.",
+      "resolution": "RESOLVED — corrected to 9596c21 via independent git lookup."
+    },
+    {
+      "id": "D2",
+      "severity": "MAJOR",
+      "description": "Template §1 cited 068 path as sessions/2026-05-06/W20-068-... Both date (05-06) and folder name (W20-068-...) were wrong. Actual: sessions/2026-05-07/T1-PHASE-3-COSTIN-BORDERLINE-M4-CLOSURE-068/.",
+      "resolution": "RESOLVED — corrected via filesystem inspection."
+    },
+    {
+      "id": "D3",
+      "severity": "MINOR",
+      "description": "Template §6 'Substrate SHAs verified [Y/N]' was ambiguous. Could mean SHA-existence-only or also substrate-content-supports-§2. Synth-tier peer-AI explicitly flagged this ambiguity (Option A vs Option B) before signing.",
+      "resolution": "RESOLVED — §6 wording clarified to require BOTH (a) SHAs exist AND (b) substrate content materially supports §2 closure statement."
+    },
+    {
+      "id": "D4",
+      "severity": "INFO",
+      "description": "Wrong 074 SHA propagated from template to peer-consult prompt 104 §2 substrate inventory. Two of five 104 consultants (Copilot-Consult-01 + Grok-xAI) reported Y SHA-verification against the non-existent SHA — rubber-stamping rather than independent verification.",
+      "resolution": "RECORDED — flagged as U5 follow-up unexpected find on peer-consult-104-m4-fast-track-absorbed deposit; supports tie-break-protocol-v0 design (per 104 U1 + U4)."
+    }
+  ]
+}
