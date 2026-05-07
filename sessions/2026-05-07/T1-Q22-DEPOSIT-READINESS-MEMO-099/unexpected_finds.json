@@ -1,0 +1,16 @@
+{
+  "task_id": "T1-Q22-DEPOSIT-READINESS-MEMO-099",
+  "date": "2026-05-07",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "label": "Relay-099 D1 '~10^21000 precision improvement' figure is mathematically inconsistent with substrate-derived path-(b) truncation floor",
+      "detail": "The relay-099 prompt body wording suggests path-(b)'s precision gain over path-(a) is ~10^21000 orders of magnitude. Substrate-derived theoretical truncation floor at K_FIT=9, N=2400 (per the 014 prompt body L137-139 estimate extrapolated) is ~ 2400^-10 ~= 1.7e-34, giving an ~11-order improvement over path-(a)'s 3e-23. The 10^21000 figure may represent (a) a typo or substrate drift in the prompt-drafter's notes, (b) a different reference frame (e.g., a probabilistic Bayes-factor reading rather than a precision-floor reading), or (c) a very different stretch beyond the 014b-as-currently-scoped path. The figure is recorded verbatim as substrate but is not anchored to any computational derivation in the memo. Verdict is unaffected: the threshold-sufficiency analysis depends only on the path-(a) |delta| envelope and the maxcoeff/tol floor of the PSLQ search, both of which are well-anchored."
+    },
+    {
+      "id": "U2",
+      "label": "Reviewer D '10^-44300 (Path-b)' figure is not derivable from substrate truncation-floor estimate",
+      "detail": "Reviewer D (peer_ai_reviews_received_2026-05-07.md SHA16 DF92466E123E16BF, Q1 reasoning) writes 'increasing precision to 10^-44300 (Path-b) rarely changes the structural verdict'. The substrate-derived theoretical truncation floor at K_FIT=9, N=2400 is ~ 1.7e-34, not ~ 10^-44300. Reviewer D does not provide a derivation. The figure is treated as substrate-quoted reviewer claim and does not anchor any verdict-bearing claim in the memo. Note: the relay-099 D1 wording (U1 above) and the Reviewer D figure (U2) are inconsistent with each other (10^21000 vs 10^-44300), suggesting both are imported framings rather than substrate-derived. The memo cites neither as a load-bearing precision number."
+    }
+  ]
+}
