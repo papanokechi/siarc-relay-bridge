@@ -1,0 +1,39 @@
+{
+  "session": "M4-V0-CLOSURE-CASCADE-106",
+  "date": "2026-05-08",
+  "halts_triggered": 0,
+  "envelope_halt_count": 5,
+  "halt_evaluations": [
+    {
+      "id": "HALT_106_FORBIDDEN_VERB_SUBSTRATE_PROSE",
+      "trigger_condition": "Substrate prose contains forbidden verbs (shows / confirms / proves) outside checklist-meta-references / verb-list-as-data / quoted substrate",
+      "evaluation": "PASS — Phase D scan over 106 deliverables showed no substrate-prose hits. The forbidden verbs that appear are (a) 'confirms' inside §C-Phase descriptions of 068 substrate (quoted substrate exempt), (b) 'confirmed' in handoff.md A1 referring to git rev-parse output (computation report exempt), (c) 'PASS' / 'FAIL' booleans in halt_log entries (telemetry exempt)",
+      "outcome": "NOT_TRIGGERED"
+    },
+    {
+      "id": "HALT_106_SHA_VERIFICATION_FAILURE",
+      "trigger_condition": "Any bridge SHA cited in 106 deliverables fails git rev-parse",
+      "evaluation": "PASS — All 4 bridge SHAs cited in 106 (e7bfe49 / 9596c21 / d1e19e9 / c9b9715) verified via git rev-parse returning full 40-char hashes. The wrong SHA aab7ee2 cited in sha_origin_trace.md is intentional (audit evidence) and explicitly framed as failed git rev-parse output, not a working citation",
+      "outcome": "NOT_TRIGGERED"
+    },
+    {
+      "id": "HALT_106_SYNTH_SIGNATURE_INCONSISTENT",
+      "trigger_condition": "Synth signature in template inconsistent with paste-ready synth message (decision row, confidence, substrate Y/N)",
+      "evaluation": "PASS — Template §3 marks ACCEPT_W_REVISIONS row checked; §4 carries verbatim revised wording from synth message; §6 captures verbatim Y for both SHAs + Y for rubber-duck QA; cross-checked against synth_signature_capture.md verbatim quotation",
+      "outcome": "NOT_TRIGGERED"
+    },
+    {
+      "id": "HALT_106_CASCADE_INCOMPLETE",
+      "trigger_condition": "§7 cascade table action items not all addressed in cascade_record.md or new SQL todos",
+      "evaluation": "PASS — All 5 §7 cascade items addressed: C1+C2 (SQL flips done), C3 (058R unblock), C4 (M7/M8a/M8b new todos), C5 (picture-v120+ tag annotation), C6 (umbrella v2.1 amendment); cascade_record.md §SQL state changes summary table enumerates all changes",
+      "outcome": "NOT_TRIGGERED"
+    },
+    {
+      "id": "HALT_106_CONTAMINATION_PROPAGATION",
+      "trigger_condition": "Wrong SHA aab7ee2 still present in any sealed control-center artifact other than audit-evidence-preserved post-fire 104 prompt",
+      "evaluation": "PASS — Post-cleanup grep over tex/submitted/control center/ shows aab7ee2 occurrences in: m4_substrate_excerpts.md (correction artifact, intentional), sha_origin_trace.md indirect (via 106 deposit, intentional audit evidence), 104_peer_consult_m4_fast_track_EXECUTED.txt (post-fire, preserved as audit evidence per 105-J5 + 106-J4). All operative artifacts (template + LANE-1 packet + M-critical doc) corrected to 9596c21",
+      "outcome": "NOT_TRIGGERED"
+    }
+  ],
+  "summary": "0 of 5 envelope halts triggered. NO_HALTS deposit. Synth-tier ratification + cascade execution + SHA origin trace + bridge deposit completed cleanly."
+}

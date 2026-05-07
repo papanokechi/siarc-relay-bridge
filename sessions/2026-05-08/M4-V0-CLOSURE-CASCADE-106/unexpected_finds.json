@@ -1,0 +1,46 @@
+{
+  "session": "M4-V0-CLOSURE-CASCADE-106",
+  "date": "2026-05-08",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "title": "Synth-tier ratification refusal as substrate-validation audit checkpoint (validated, second instance)",
+      "severity": "GOVERNANCE_INSIGHT",
+      "description": "Synth's instinct to refuse rubber-stamp (Option A path: paste excerpts) was the EXACT mechanism that surfaced both (a) the §6 wording ambiguity and (b) the SHA-mismatch contamination cascade. This is the second instance this arc (105 first instance, on the same M4 ratification chain) where synth-tier substrate-grounded ratification refusal has yielded high-value findings vs trust-relay via dossier completeness. Pattern is now strongly attested.",
+      "implication": "Synth-tier ratification refusal pattern is a non-trivial audit affordance, not just governance formality. Should be encoded as a synth-tier governance affordance (Option A always available, with agent prepared to provide substrate excerpts on request) for any future ratification template. Repo memory substrate verification (stored 2026-05-08) addresses the SHA-validity dimension.",
+      "next_action": "None additional this session; pattern documented + repo memory in place. Pattern will continue to manifest at future ratification cycles."
+    },
+    {
+      "id": "U2",
+      "title": "ACCEPT_W_REVISIONS yields strictly more careful closure statement than ACCEPT-as-written",
+      "severity": "GOVERNANCE_INSIGHT",
+      "description": "Synth's revised §4 wording is strictly more careful than the original §2 proposed wording: it carries forward MEDIUM-HIGH confidence + Wasow §X.3 non-dependency that the original silently inherited. Pattern: synth-tier ratification at ACCEPT_W_REVISIONS strictly dominates ACCEPT-as-written when the original wording omits substrate-stated qualifications. Synth recognized this and proactively offered the revision rather than rubber-stamping.",
+      "implication": "Future ratification templates should include §2 drafting guidance: explicitly carry forward all substrate-stated qualifications (confidence levels, forward-pointed non-dependencies, residual gaps) into the proposed wording. Reduces probability of silent inheritance.",
+      "next_action": "Forward-point to 107 or future template-amendment session: add §2 drafting checklist item to ratification template SOP."
+    },
+    {
+      "id": "U3",
+      "title": "Wrong SHA origin: clean TYPO classification + zero forensic ambiguity",
+      "severity": "INFO",
+      "description": "git log --all over bridge has zero commits with aab prefix — clean rule-out of phantom-from-prior-session hypothesis. Earliest filesystem occurrence is lane1_batch_packet_w21.md (2026-05-07 21:28:05 JST), 7 hours after actual 074 deposit at 9596c21. Standard copy-paste propagation through 3 derivative artifacts. No alternative explanation needed; classification is unambiguous.",
+      "implication": "Mitigation via repo memory substrate verification (pre-flight git rev-parse on every cited bridge SHA) is the right corrective action, sized to the failure mode. No additional governance lever needed.",
+      "next_action": "Repo memory in place; pre-flight discipline applies to next 069r2 envelope draft + all future relay prompts and ratification templates."
+    },
+    {
+      "id": "U4",
+      "title": "Multi-AI ensemble (n=5 peer consultants) failed to catch SHA mismatch; only synth working off ratification template caught it",
+      "severity": "GOVERNANCE_INSIGHT",
+      "description": "5 peer-consult-104 consultants had access to the same wrong SHA in prompt §2 substrate inventory; 2 reported Y rubber-stamped, 3 reported N defaulted (no bridge access). None caught the SHA mismatch. Only the synth working off the m4_v0_ratification_template.md (with the offer to provide substrate excerpts on request) caught it. Insight: ensemble-for-confidence on a verified-substrate verdict is NOT the same affordance as ensemble-for-substrate-validation. Distinguish the two governance affordances.",
+      "implication": "Multi-AI ensemble is appropriate for verdict consensus on a verified substrate, but is NOT a substitute for substrate access during ratification. Future tie-break protocols (per SQL todo siarc-tie-break-protocol-v0-draft pending) must distinguish these affordances explicitly.",
+      "next_action": "Tie-break protocol v0 draft (low priority pending todo) should encode this distinction. Not blocking M4 V0 closure or downstream cascade."
+    },
+    {
+      "id": "U5",
+      "title": "Picture-chain v1.20 deposited without M4_V0_CLOSED tag (M4 was not yet ratified at v1.20 deposit time); v1.21 first opportunity for annotated tag",
+      "severity": "OPERATIONAL",
+      "description": "Picture v1.20 was deposited 2026-05-06 per SQL todo w20-picture-v120-058-058r-consolidated done — at that time M4 was not yet ratified, so v1.20 carries no M4_V0_CLOSED tag. The first opportunity for the annotated tag M4_V0_CLOSED (MEDIUM-HIGH; HIGH-pending) is picture v1.21 (next picture deposit). NEW SQL todo picture-v120plus-m4-closed-tag-annotation tracks this.",
+      "implication": "When picture v1.21 is drafted, agent must include the annotated tag explicitly. Drafter should consult m4_v0_closure_statement_canonical.md for the canonical wording + confidence qualifier.",
+      "next_action": "Forward-point to picture v1.21 envelope draft session."
+    }
+  ]
+}
