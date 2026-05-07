@@ -1,0 +1,32 @@
+{
+  "task_id": "T2-M4-RATIFICATION-DOSSIER-ASSEMBLY-074",
+  "date": "2026-05-07",
+  "scope_note": "Items surfaced during 074 cross-reference assembly that were NOT already in 068/072/073 individual handoffs. Unexpected because they emerge only when the three substrate-deposit deposits are placed side-by-side in a single ratification dossier.",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "title": "5-source primary substrate inventory aligns 1:1 with §1.B.1 spec without scope expansion",
+      "description": "Relay 074 prompt §2.B.1 enumerates 5 primary substrate sources to inventory; 074 found exactly 5 fitting sources (068 verdict + 072 CLEAN_EXTRACT + 073 CLEAN_EXTRACT + D2-NOTE v2.1 §4.5 + Adams §§1-2). Originally a relay prompt's 'inventory N items' could often expand or contract during execution; here the 1:1 alignment was perfect. Cumulative substrate cascade per 068 U4 ('cumulative substrate readback cascade') is now visible at the dossier level: each prior session built on the next without redundant or missing pieces.",
+      "synthesizer_implication": "The cumulative-cascade closure mechanism (068 U4) is structurally observable in the 5-source inventory. Synthesizer may wish to consider whether picture v1.20 / RACI v2026-05-15 should formally recognise this assembly pattern."
+    },
+    {
+      "id": "U2",
+      "title": "073 D2-NOTE audit substantiates D2-NOTE v2.1 §4.5 as integration substrate",
+      "description": "The 073 D2-NOTE audit (3/3 EXACT page-anchor matches at p.30 Lemma 8 / p.41 Theorem I / p.48 Lemma 9) was treated by 073 as a SUBSTRATE-INVENTORY-ONLY exercise per its own framing. Side-by-side with 068's verdict and 072's Adams readthrough, the v2.1 §4.5 BT-citation block is now visible as the bridge between the analytic-side substrate (068 phase_b Costin + phase_c BT 1933 §1) and the operative formal-asymptotic substrate (072 Adams §§1-2 + 073 BT §§4-6). This bridge function was not explicitly tagged at any individual session.",
+      "synthesizer_implication": "Q-D3-1 (D2-NOTE v2.1 §4.5 Borel-summability framing) is now a more visible question because the v2.1 §4.5 block is structurally load-bearing for the 5-source inventory. Synthesizer may wish to weigh Q-D3-1 as higher-priority than originally surfaced at 073."
+    },
+    {
+      "id": "U3",
+      "title": "MEDIUM-HIGH confidence gating reduces to a single residual question Q-D4-1",
+      "description": "Relay 074 m4_residual_questions.md §D.4 surfaces 4 spec-invariant questions Q-D4-1 through Q-D4-4. Of these, Q-D4-2 (PCF-1 v1.4 amendment), Q-D4-3 (picture v1.20), and Q-D4-4 (M9 gating reduction effective-time) are all forward-pointed downstream-of-ratification scope items. Q-D4-1 (MEDIUM-HIGH -> HIGH path) is the only residual question that bears on the ratification decision itself. Originally the ratification looked like it might depend on multiple invariants; in fact the ratification arc reduces to a single MEDIUM-HIGH-vs-HIGH question.",
+      "synthesizer_implication": "If the synthesizer accepts MEDIUM-HIGH ratification at W21 LANE-1 without requiring Wasow OCR acquisition, the M9 gating reduction can take effect immediately (subject to Q-D4-4 wording) and the v1.4/v1.20 cycles can run in parallel rather than gating ratification."
+    },
+    {
+      "id": "U4",
+      "title": "18-question total decomposes 5+4+5+4 with 1 cross-reference-only entry",
+      "description": "The 074 residual-question count of 18 decomposes as 5 (068) + 4 (072) + 5 (073, of which 1 is M6.CC cross-reference-only) + 4 (M4 spec). The 1 cross-reference-only entry is Q-D3-5 [CHART-MAP-CANDIDATE-B1]. Originally the question count could have ballooned to 25-30 if every D and U entry across 068/072/073 had been forwarded; in fact the substrate-cascade structure pruned the carry-forward to 18 substantive questions plus 1 cross-reference label.",
+      "synthesizer_implication": "The 18-question count is small enough for a single W21 LANE-1 ratification session to cover. If the count had been >25 the dossier might have needed splitting into multiple ratification cycles."
+    }
+  ],
+  "unexpected_count": 4
+}

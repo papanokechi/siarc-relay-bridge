@@ -1,0 +1,49 @@
+{
+  "task_id": "T2-M4-RATIFICATION-DOSSIER-ASSEMBLY-074",
+  "date": "2026-05-07",
+  "scope_note": "Substrate-vs-spec deltas surfaced during 074 dossier assembly. Each entry is non-blocking; the 074 verdict is DOSSIER_COMPLETE. Surfaced for synthesizer awareness at W21 LANE-1.",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "non-blocking",
+      "title": "Prompt §1.B.1 quote ceiling 100 words vs §6/§7 ceiling 50 words",
+      "description": "Relay 074 prompt §1.B.1 specifies 'verbatim quote <= 100 words from handoff §Verdict' for the 068 inventory entry; relay 074 prompt §7 envelope HALT_074_QUOTE_LENGTH triggers if any quote exceeds 50 words. The two specifications conflict at the 50-100 word band.",
+      "resolution_in_074": "074 enforces the tighter 50-word ceiling throughout (§7 envelope binds; §1 §6 are sub-spec). All 36 block-quotes <=48 words; max 48 words. The 068 §Verdict verbatim quote at §B.1.1 / §C.1 / §E.2 measures 41 words (under the tighter ceiling). No content trimmed beyond what was already <=50 words at first draft.",
+      "synthesizer_action": "Confirm whether the 50-word tighter reading is the intended ceiling for future dossier-class relays, or whether §1.B.1's 100-word allowance is intended as an exemption for the 068 verdict entry only."
+    },
+    {
+      "id": "D2",
+      "severity": "non-blocking",
+      "title": "Picture v1.20 not yet deposited at fire-time HEAD",
+      "description": "Relay 074 prompt §1.A.1 lists 'M4 spec / picture v1.17 row(s) addressing M4' but the canonical spec at fire-time is picture v1.19 (deposited at sessions/2026-05-06/PICTURE-V19-CONSOLIDATED-DEPOSIT/picture_v1.19.md). Picture v1.20 LATE-FIRE-PREFLIGHT (070, commit f65fe6c) returned GO_PRIMARY_ONLY substrate-inventory PREFLIGHT without depositing v1.20 itself.",
+      "resolution_in_074": "074 anchors to picture v1.19 as [SUBSTRATE-S9] (SHA 8BD9043370872F07.., 383291 B). If v1.20 lands ahead of W21 LANE-1 ratification, the synthesizer may re-pin S9 to v1.20; the SHA-anchored 074 inventory remains valid at fire-time HEAD 3410e5d regardless. Surfaced as Q-D4-3 in m4_residual_questions.md.",
+      "synthesizer_action": "Decide whether W21 LANE-1 M4 ratification lands in picture v1.20 deposit (gating v1.20 fire), in a v1.20 amendment after v1.20 lands at v1.19-equivalent scope, or in a post-v1.20 amendment cycle."
+    },
+    {
+      "id": "D3",
+      "severity": "non-blocking",
+      "title": "072 D4 RESOLVED-via-073-Phase-F status verbatim wording check",
+      "description": "Per 073 handoff §What was accomplished item (e), '072 D4 RESOLVED for §§4-6 content'. The 072 D4 carry-forward in 074 m4_residual_questions.md §D.2 omits 072 D4 because of this resolution. However, 072's original D4 was scoped to the BT 1933 cross-walk for 6 of 9 Adams references; the 073 resolution covers §§4-6 content, which 073 itself notes is the §§4-6 carry-over scope (T1+T2+T9 reach into §§7-9 in the 073 ladder map per 073 handoff §What would have been asked bullet 2).",
+      "resolution_in_074": "074 cites 073's RESOLVED status verbatim and forwards the §§7-9 deferral as Q-D3-4. The 072 D4 entry is omitted from m4_residual_questions.md §D.2 enumeration because 073 resolved its in-scope (§§4-6) portion.",
+      "synthesizer_action": "Confirm whether the §§4-6 RESOLVED scope is sufficient for M4 ratification, or whether §§7-9 readthrough must also land before ratification (per Q-D3-4)."
+    },
+    {
+      "id": "D4",
+      "severity": "non-blocking",
+      "title": "Prompt §3 example sub-claim count (5) vs 074 actual count (5) match; Phase E example structure (no decision-table) carried forward as text only",
+      "description": "Relay 074 prompt §3.C.2 lists 5 example sub-claims C.2.1 through C.2.5; 074 m4_claim_chain.md §C.2 enumerates exactly the 5 sub-claims CLAIM-M1 through CLAIM-M5 matching the 5 example sub-claim labels. Prompt §3.C.3 lists 'examples' for residual links without prescribing a count; 074 surfaces 3 residual links LINK-C1 through LINK-C3.",
+      "resolution_in_074": "Match. The 5-sub-claim + 3-residual-link decomposition matches §3 example structure. No drift.",
+      "synthesizer_action": "None required. Surfaced for completeness."
+    },
+    {
+      "id": "D5",
+      "severity": "non-blocking",
+      "title": "Adams 1928 PDF SHA not re-computed off-bridge in 074",
+      "description": "074 cites the Adams 1928 PDF SHA verbatim from 072 handoff §Key numerical findings bullet 1 ('d7ac4017a9737fef00e10257f26b9a6a6f6cc23437d2654440359f2e24836e18') rather than re-computing it from the workspace. The Adams PDF is on disk somewhere in the workspace (the 072 working folder) but the canonical anchor lives at the 072 handoff.",
+      "resolution_in_074": "074 trusts the 072 handoff's anchor per upstream-substrate-inventory inheritance discipline. No SHA drift suspected. The BT 1933 PDF SHA was independently re-computed from the workspace literature folder and matches both 068 and 073 anchors.",
+      "synthesizer_action": "If the synthesizer wishes a fresh independent Adams PDF SHA, request a 074R re-fire or fold it into a follow-up 075-class relay."
+    }
+  ],
+  "discrepancy_count": 5,
+  "blocking_count": 0
+}
