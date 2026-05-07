@@ -1,0 +1,56 @@
+{
+  "session": "T2-ENDORSER-FRAMING-DOSSIER-ASSEMBLY-078",
+  "compiled": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D-078-1",
+      "summary": "Spec section 3.C.2 expected coverage tally mismatch.",
+      "spec_text": "EXISTING-TEMPLATE-ON-DISK: ~14 cells; GAP-CANDIDATE: ~6-8 cells; SKIP-FIT-WEAK: ~8-10 cells (per spec section 3.C.2)",
+      "observed": "Across 5 active endorser rows (Zudilin row HISTORICAL-ANCHOR), tally is 7 unique EXISTING pairs (14 file count counting duplicate CT files across 034 + 037 folders) + 5 GAP-CANDIDATE + 18 SKIP-FIT-WEAK + 0 SKIP-DECLINED-INHERIT.",
+      "rationalisation": "The 'EXISTING ~14' spec figure conflates file count with unique pair count; on-disk has 14 template files but only 7 unique (endorser, paper) pairs. The 'SKIP-FIT-WEAK ~8-10' spec figure undercounts because it appears to assume only Tier-1 endorsers contribute SKIP cells; the 5x6 matrix produces 18 weak-fit cells once Tier-2 endorsers (Costin / Sauzin / Beukers) are included as full rows. Non-blocking; agent treated 077 portfolio + 5x6 matrix as authoritative substrate. See coverage matrix section C.5.",
+      "severity": "low",
+      "halt_consideration": "no",
+      "halt_reasoning": "Spec section 8 HALT_078_PORTFOLIO_DRIFT requires 'observed total active records !\u003d 5 (from 077 portfolio inventory)'; observed total active records = 5 (PCF-1, PCF-2, T2B, D2-NOTE, CT v1.3 + umbrella v2.0 = 6 items but 5 active arxiv-target records per 077). HALT not triggered."
+    },
+    {
+      "id": "D-078-2",
+      "summary": "DOI drift between spec section 1.A.1 cited DOIs and on-disk 077 portfolio inventory.",
+      "spec_text": "Spec section 1.A.1 cites concept DOIs for 6 SIARC papers.",
+      "observed": "5 of 6 cited DOIs differ from 077 portfolio inventory _portfolio_inventory.json values (PCF-1, PCF-2, T2B, D2-NOTE, CT v1.3); only umbrella v2.0 DOI matches.",
+      "rationalisation": "Per prompt-itself preauthorisation, agent verified DOIs from on-disk substrate (_portfolio_inventory.json + Zenodo deposit metadata in TeX sources) rather than spec-cited values. All 5 gap-templates cite the on-disk-verified concept DOIs.",
+      "severity": "low",
+      "halt_consideration": "no",
+      "halt_reasoning": "Prompt-itself preauthorises on-disk substrate over spec-text DOIs; not a HALT condition."
+    },
+    {
+      "id": "D-078-3",
+      "summary": "PCF-2 pivot to Mazzocco for Painlev\u00e9-D6 framing has no precedent in 077 portfolio.",
+      "spec_text": "Spec section 2.B.3 reframing-distance row: 'Mazzocco | PCF-2 v1.3 | MEDIUM' is canonical at fire time.",
+      "observed": "077 portfolio shows Mazzocco currently has 1 EXISTING template against CT v1.3 only (anchored at 037); no prior PCF-2 framing exists for Mazzocco or any other endorser.",
+      "rationalisation": "Reframing-distance MEDIUM rather than LIGHT correctly captures the Painlev\u00e9-D6 Trans-stratum framing distance. Agent drafted G1 (PCF-2 x Mazzocco) following the spec-canonical reframing tag; cited Chekhov-Mazzocco-Rubtsov 2017 + Mazzocco-Vidunas 2013 from the existing CT-template citation chain to maintain pedigree-relevance verbatim discipline.",
+      "severity": "low",
+      "halt_consideration": "no",
+      "halt_reasoning": "Spec preauthorises this reframing; not a discrepancy that blocks substrate emission."
+    },
+    {
+      "id": "D-078-4",
+      "summary": "Spec internal inconsistency on endorser-axis count: 5 vs 6.",
+      "spec_text": "Spec section 0 / section 3.C.1 'five endorser candidates'; spec section 9 explicit deliverable 'endorser_profile_*.md (\u00d76)' enumerates 6 files; section 9 also writes 'endorser_paper_coverage_matrix.md' as 5x6 (5 endorsers x 6 papers).",
+      "observed": "Agent emitted 6 endorser_profile files (Zudilin + Mazzocco + Garoufalidis + Costin + Sauzin + Beukers) AND a 6x6 coverage matrix with Zudilin row marked HISTORICAL-ANCHOR. Active-row tally = 5; total emitted profiles = 6.",
+      "rationalisation": "Zudilin profile is included as HISTORICAL-ANCHOR (declined PCF-1 2026-05-04 ~18:38 JST) to preserve the audit trail of declined endorsers; remaining 5 (Mazzocco / Garoufalidis / Costin / Sauzin / Beukers) are the 5 active candidates per spec section 0 / 3.C.1. The 6x6 matrix surfaces this status difference per cell.",
+      "severity": "low",
+      "halt_consideration": "no",
+      "halt_reasoning": "Surfacing as discrepancy preferable to forced choice between spec sections; non-blocking."
+    },
+    {
+      "id": "D-078-5",
+      "summary": "Spec 'EXISTING ~14' vs unique-pair-count 7 (counting fan-out across 034+037 folders).",
+      "spec_text": "Spec section 3.C.2 EXISTING-TEMPLATE-ON-DISK ~14.",
+      "observed": "On-disk template file count = 14 (matches spec figure); unique (endorser, paper) pairs = 7 (Mazzocco x CT v1.3, Garoufalidis x CT v1.3, Sauzin x CT v1.3, Costin x CT v1.3, Mazzocco x umbrella v2.0, Garoufalidis x umbrella v2.0, Garoufalidis x PCF-1 record-#2 in flight) once duplicate CT files at 034 and 037 are deduplicated. CT-template duplicates account for 4 of the 14 file count; T2B-template fan-out across 6 endorsers contributes another 6.",
+      "rationalisation": "Coverage matrix uses unique (endorser, paper) pairs as the cell unit per spec section 3.C.1 'cell axis'; file count of 14 tracks underlying disk-storage redundancy (034 + 037 folder fan-out). Both numbers are correct under their respective unit conventions.",
+      "severity": "low",
+      "halt_consideration": "no",
+      "halt_reasoning": "Documentary clarification; not a substrate-drift halt."
+    }
+  ]
+}
