@@ -1,0 +1,28 @@
+{
+  "session": "071 M6-CC-R1-CLOSURE-PREFLIGHT-069R1",
+  "date": "2026-05-07",
+  "unexpected_finds_count": 3,
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "tag": "OKAMOTO_1987_PARAMETER_NAMING_DRIFT",
+      "description": "Okamoto 1987 §3 (slot 07) does not denote the Hamiltonian-system parameters as (alpha_inf, alpha_0, beta_inf, beta_0); the original Okamoto 1987 paper uses (eta_inf, eta_0, theta_inf, theta_0) parameters (Lax-pair monodromy data). The (alpha_inf, alpha_0, beta_inf, beta_0) convention is a project-side rename adopted in CT v1.3 §3.5 rewrite. The chart-map sought at 071 STEP A.1.5 is therefore fully a project-internal artefact; literature does not directly furnish it.",
+      "severity": "INFORMATIONAL (clarifies why slot 07 PDF substrate-search returned 0 hits for 'alpha_inf' etc.)",
+      "implication_for_w21": "W21 LANE-1 T1-Synth analytic-guidance request should specify the (eta, theta) -> (alpha, beta) symbol-translation explicitly when describing the chart-map task to a downstream synthesizer"
+    },
+    {
+      "id": "U2",
+      "tag": "058R_PHASE_B_ZETA_STAR_VALUE_4_OVER_SQRT3_NOT_4",
+      "description": "058R Phase B canonical-map t_0 = -4*sqrt(3) is derived from zeta_star = 4/sqrt(3), NOT zeta_star = 4 (an earlier ambiguity in the 071 STEP A.1 substrate-pull was caught by sympy assertion in phase_a_path_alpha.py STEP 4: assertion 't_0 == -zeta_star/lambda' fails for zeta_star = 4 with lambda = 1/3 yielding t_0 = -12, but PASSes for zeta_star = 4/sqrt(3) yielding t_0 = -4*sqrt(3)). 058R Phase B canonical_map.md is internally consistent; the catch was 071-side substrate-pull ambiguity",
+      "severity": "INFORMATIONAL (substrate-pull discipline note; does not affect 058R LANDED material)",
+      "implication_for_w21": "future substrate-pull steps should print the implied derivation chain (zeta_star -> lambda -> t_0) rather than just the endpoint value"
+    },
+    {
+      "id": "U3",
+      "tag": "PIII_ODE_COEFFICIENT_ALPHA_BETA_GAMMA_DELTA_VS_OKAMOTO_FOUR_TUPLE_NAMESPACE_COLLISION",
+      "description": "058R phase_b5_affine_weyl_crosswalk.md L88-89 lists alpha, beta, gamma, delta as the P_III standard-form ODE coefficients (the textbook P_III equation w'' = w'^2/w - w'/t + (alpha*w^2 + beta)/t + gamma*w^3 + delta/w). These four symbols collide in name with the Okamoto four-tuple (alpha_inf, alpha_0, beta_inf, beta_0). The crosswalk file does NOT itself confuse them, but a casual substrate-search pattern grep -i 'alpha' returns the P_III ODE coefficients, NOT the four-tuple, and a careless reader could mis-identify the residual-R1 chart-map as already given. Documenting here so 069r2 / W21 LANE-1 drafting prompts disambiguate at the language level (e.g. 'P_III ODE coefficients (alpha, beta, gamma, delta)' vs 'Okamoto four-tuple (alpha_inf, alpha_0, beta_inf, beta_0)')",
+      "severity": "INFORMATIONAL (notation clarity; protects future relay prompts from substrate-misidentification)",
+      "implication_for_w21": "W21 LANE-1 T1-Synth ratify-069 / R1-closure-fire envelope should require namespace-prefix in prompt body, not bare Greek letters"
+    }
+  ]
+}
