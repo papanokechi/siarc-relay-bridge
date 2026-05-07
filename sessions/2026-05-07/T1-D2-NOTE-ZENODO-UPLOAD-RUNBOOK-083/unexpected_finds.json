@@ -1,0 +1,45 @@
+{
+  "task_id": "T1-D2-NOTE-ZENODO-UPLOAD-RUNBOOK-083",
+  "unexpected_finds": [
+    {
+      "id": "U-1",
+      "severity": "structural_blocker_for_publish",
+      "title": "D2-NOTE v2.0 + v2.1 ALREADY DEPOSITED at Zenodo concept 19996689; v1.0 deposit retroactively superseded",
+      "description": "Phase 0 + Phase A.P3 cross-check found that picture-chain memory + close-out matrix + SQL snapshot jointly record TWO D2-NOTE deposits already landed: v2.0 at version DOI 10.5281/zenodo.19996690 (concept 19996689) on 2026-05-03 ~16:00 JST; v2.1 at version DOI 10.5281/zenodo.20015923 (same concept 19996689) on 2026-05-04 ~07:00 JST. The v1.0 4-page draft (this relay's payload target per the SQL todo zenodo-upload-d2-note) is a strict-subset pre-cursor of v2.0/v2.1 by content per close_out_matrix L132 cross-reference. Depositing v1.0 NOW (2026-05-07) would create either an orphan-concept retroactive deposit of an obsolete draft (Option B), or bring no new value (Option A is dominant for economy). Operator must decide before any Zenodo web-form action.",
+      "agent_action_taken": "Surfaced as supersession gate section 0 in runbook with three explicit options (A=DROP, B=DEPOSIT_AS_NEW_CONCEPT, C=DEFER); did NOT pre-select; agent recommends Option A for economy but operator decides.",
+      "downstream_implication": "If Option A is selected, the relay-083 deliverables remain useful as substrate (the SQL update text + 'superseded_by' note). If Option B, sections 1-9 of runbook execute. If Option C, archived only."
+    },
+    {
+      "id": "U-2",
+      "severity": "audit_finding",
+      "title": "tex/submitted/submission_log.txt has zero D2-NOTE entries despite 2 prior deposits + Hand off chain memory",
+      "description": "Phase A.P3 found the submission_log Zenodo sub-section ends at Item 10 (T2B v3.0, 2026-04-30). Six known May-2026 Zenodo deposits are entirely missing from submission_log: D2-NOTE v2.0 + v2.1 (this relay), CT v1.3, PCF-1 v1.3, PCF-2 v1.3, SIARC umbrella v2.0. The picture-chain memory documents these deposits (e.g., picture_revised_20260503.md L2162 D2-A claim 64 readback), but the submission_log -- the canonical record-keeping artefact for journal + Zenodo events -- has not been updated.",
+      "agent_action_taken": "Surfaced as discrepancy D-2 in discrepancy_log.json. Recommended a separate submission-log backfill todo. NOT auto-fixed in this session (out of scope; multi-Item splice would require its own runbook).",
+      "downstream_implication": "Item 11 splice in runbook section 5 cannot be cleanly executed until the May-2026 deposits are backfilled (the next-Item-number sequence breaks otherwise; v1.0 orphan-concept entry would land BEFORE its predecessors v2.0/v2.1 in submission_log if 11 is used). Suggests routing v1.0 deposit (Option B) splice as Item 17 or later, after a backfill of Items 11-16 for May-2026 deposits."
+    },
+    {
+      "id": "U-3",
+      "severity": "advisory",
+      "title": "D2-NOTE v2.1 arXiv classification advisory math.CA / math.NT NOT YET ratified by Claude",
+      "description": "Phase D.1 reads from sql_todos_snapshot L138 that SQL todo q-claude-30-31-send-d2-note-v21 is pending; Q-Claude-31 has agent-side advisory math.CA primary / math.NT cross-list, but Claude has not ratified. This is unrelated to the v1.0 deposit decision but relevant for Item D.3 (arXiv mirror); the arXiv mirror flow for v2.1 is gated on Q-Claude-31 ratification.",
+      "agent_action_taken": "Recorded in post_deposit_followon.md Item D.1 + D.3 with explicit pending status.",
+      "downstream_implication": "v1.0 deposit Option B would mint a Zenodo DOI but NOT advance the arXiv classification question (which is about v2.1 content). The two flows are decoupled."
+    },
+    {
+      "id": "U-4",
+      "severity": "advisory",
+      "title": "Relay 083 itself appears to have been drafted with stale memory of v2.0 deposit status",
+      "description": "Relay 083 prompt body Phase A.P3 says 'expected concept DOI 19996689 / version 19996690 per picture chain memory but may need confirmation'. This phrasing implies the prompt-drafter expected v2.0 to NOT yet be deposited at relay-fire time. In fact, v2.0 was deposited 2026-05-03 (~3-4 days before relay 083 fired 2026-05-07), and v2.1 at 20015923 was deposited 2026-05-04. The 'may need confirmation' hedge is the ONLY substrate-trace of this gap; Phase 0.2 supersession gate did not catch it because the SQL todo it refers to is the v1.0 row, not the v2.0/v2.1 rows.",
+      "agent_action_taken": "Captured as anomaly D-1 + U-1 + U-4. Did not back-edit relay 083 prompt; operator-side artefact.",
+      "downstream_implication": "Relay-083's literal completion is consistent with its written Phase 0.2 gate (status='done' literal halt did not fire). The structural supersession is now surfaced for operator decision."
+    },
+    {
+      "id": "U-5",
+      "severity": "minor",
+      "title": "D2-NOTE-DRAFT 2026-05-02 runbook author affiliation reads 'Yokohama, Japan' verbatim, matching the standing-instructions Owner line",
+      "description": "Standing instructions copilot-instructions.md L11 reads 'Owner: papanokechi (independent mathematical researcher, Yokohama)'. The 2026-05-02 D2-NOTE-DRAFT runbook section 2 lists the creator affiliation 'Independent researcher, Yokohama, Japan'. The PDF d2_note.tex L60 has only \\author{Mauricio Echizen Kubo} with no affiliation field. ORCID 0009-0000-6192-8273 from submission_log.txt L284 trailer line.",
+      "agent_action_taken": "Used 'Independent researcher, Yokohama, Japan' as the affiliation in metadata.json, mirroring the 2026-05-02 runbook verbatim.",
+      "downstream_implication": "None; this is the established cohort-wide affiliation form."
+    }
+  ]
+}

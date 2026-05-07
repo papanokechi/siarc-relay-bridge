@@ -1,0 +1,167 @@
+{
+  "_substrate_anchors": {
+    "_note": "Every field below is substrate-cited per Phase B.2 discipline. Anchors point at the upstream artefact each value mirrors. NOT part of the Zenodo paste payload; strip the leading-underscore keys before paste.",
+    "title_source": "d2_note.pdf metadata pdftitle (d2_note.tex L24-L25, L57-L59); zenodo_description_d2_note.txt L3 of D2-NOTE-DRAFT session 2026-05-02",
+    "creator_source": "d2_note.tex L60 (\\author{Mauricio Echizen Kubo}); ORCID 0009-0000-6192-8273 from tex/submitted/submission_log.txt L284 (file-tail signature line)",
+    "description_source": "siarc-relay-bridge/sessions/2026-05-02/D2-NOTE-DRAFT/zenodo_description_d2_note.txt verbatim Description block (sha256 4e4ce75f6ed9fc1a60ffff7325083275c6332bc27bd2dad75879fd525b18d374)",
+    "keywords_source": "d2_note.tex pdfkeywords L31-L32 (5 verbatim); + 'SIARC' / 'PCF' / 'xi_0' carried forward from prior 2026-05-02 runbook section 2 (project-shorthand, also present in d2_note.tex body)",
+    "license_source": "tex/submitted/submission_log.txt Zenodo subsection items 1-10 (none deviates from CC-BY-4.0); D2-NOTE-DRAFT/zenodo_upload_d2_note_runbook.md section 2 ('CC BY 4.0; same as the rest of the SIARC v1.3 cohort')",
+    "communities_source": "tex/submitted/submission_log.txt items 1-10 carry no explicit communities tag; D2-NOTE-DRAFT/zenodo_upload_d2_note_runbook.md section 2 leaves communities to operator decision; mirroring as empty array",
+    "publication_type_source": "D2-NOTE-DRAFT/zenodo_upload_d2_note_runbook.md section 2 ('Resource type: Publication -> Preprint'); same value used by all 10 sister Zenodo entries in submission_log.txt",
+    "version_source": "d2_note.tex L54 (\\def\\version{1.0}); zenodo_description_d2_note.txt L3 ('v1.0, 2026-05-02')",
+    "publication_date_source": "zenodo_description_d2_note.txt L3 ('v1.0, 2026-05-02') -- the artefact freeze date, not today; deposit form will record today's date as the upload-event date in addition",
+    "related_identifiers_source": "D2-NOTE-DRAFT/zenodo_upload_d2_note_runbook.md section 3 (10 entries); zenodo_description_d2_note.txt 'Related Identifiers' block (8 References + 2 Is documented by)"
+  },
+
+  "upload_type": "publication",
+  "publication_type": "preprint",
+
+  "title": "Newton-polygon universality of the Borel-singularity radius for polynomial continued fractions",
+
+  "creators": [
+    {
+      "name": "Echizen Kubo, Mauricio",
+      "affiliation": "Independent researcher, Yokohama, Japan",
+      "orcid": "0009-0000-6192-8273"
+    }
+  ],
+
+  "description_source_file": "siarc-relay-bridge/sessions/2026-05-02/D2-NOTE-DRAFT/zenodo_description_d2_note.txt",
+  "description_paste_instruction": "Paste the entire 'Description' block of zenodo_description_d2_note.txt (the lines between the '<!-- ===== Description ===== -->' marker and the '<!-- ===== Related Identifiers (DataCite, operator-applied at upload) ===== -->' marker). Zenodo's HTML editor accepts the markdown-flavoured plaintext; do not retype, paste verbatim. Inline math expressions of the form xi_0(b) = d / beta_d^(1/d) are kept as ASCII to avoid HTML-stripping of TeX.",
+  "description_sha256": "4e4ce75f6ed9fc1a60ffff7325083275c6332bc27bd2dad75879fd525b18d374",
+
+  "keywords": [
+    "Newton polygon",
+    "Borel summability",
+    "polynomial continued fractions",
+    "irregular singular point",
+    "universality",
+    "SIARC",
+    "PCF",
+    "xi_0"
+  ],
+
+  "license": "CC-BY-4.0",
+  "communities": [],
+
+  "version": "1.0",
+  "language": "eng",
+  "publication_date": "2026-05-02",
+
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.19941678",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-preprint",
+      "_label": "Channel Theory concept (cite-all)"
+    },
+    {
+      "identifier": "10.5281/zenodo.19972394",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-preprint",
+      "_label": "Channel Theory v1.3 (canonical d=2 source)"
+    },
+    {
+      "identifier": "10.5281/zenodo.19931635",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-preprint",
+      "_label": "PCF-1 concept (cite-all)"
+    },
+    {
+      "identifier": "10.5281/zenodo.19937196",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-preprint",
+      "_label": "PCF-1 v1.3 (d=2 baseline)"
+    },
+    {
+      "identifier": "10.5281/zenodo.19936297",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-preprint",
+      "_label": "PCF-2 concept (cite-all)"
+    },
+    {
+      "identifier": "10.5281/zenodo.19963298",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-preprint",
+      "_label": "PCF-2 v1.3"
+    },
+    {
+      "identifier": "10.5281/zenodo.19885549",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-preprint",
+      "_label": "SIARC umbrella concept (cite-all)"
+    },
+    {
+      "identifier": "10.5281/zenodo.19965041",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-preprint",
+      "_label": "SIARC umbrella v2.0"
+    },
+    {
+      "identifier": "https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/D2-NOTE-DRAFT/",
+      "relation": "isDocumentedBy",
+      "scheme": "url",
+      "resource_type": "other",
+      "_label": "D2-NOTE-DRAFT bridge session (build artefacts + AEAL ledger)"
+    },
+    {
+      "identifier": "https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-01/PCF2-SESSION-Q1/",
+      "relation": "isDocumentedBy",
+      "scheme": "url",
+      "resource_type": "other",
+      "_label": "PCF2-SESSION-Q1 bridge session (d=4 verification source)"
+    }
+  ],
+
+  "files_to_upload": [
+    {
+      "path": "siarc-relay-bridge/sessions/2026-05-02/D2-NOTE-DRAFT/d2_note.pdf",
+      "size_bytes": 343419,
+      "sha256": "f2be89c18591479cbd86365730e40ca2ae6994d76cff0d8ab3ece84322bd94b8",
+      "purpose": "Main artefact (4 pages); upload first so Zenodo uses it as default PDF preview"
+    },
+    {
+      "path": "siarc-relay-bridge/sessions/2026-05-02/D2-NOTE-DRAFT/d2_note.tex",
+      "size_bytes": 16189,
+      "sha256": "14044cd41760977504ef68725ebc9d2481d36dce22272227c24f9f9464dabc70",
+      "purpose": "LaTeX source for reproducibility"
+    },
+    {
+      "path": "siarc-relay-bridge/sessions/2026-05-02/D2-NOTE-DRAFT/annotated_bibliography.bib",
+      "size_bytes": 30011,
+      "sha256": "d1b16d781881737599f3e5d44ebf9bc4b35e38006159885e871bec57c93937f5",
+      "purpose": "Bibliography source"
+    },
+    {
+      "path": "siarc-relay-bridge/sessions/2026-05-02/D2-NOTE-DRAFT/claims.jsonl",
+      "size_bytes": 5205,
+      "sha256": "026e821afa5c5f3748e43d8b56b83b92f8a11ba2aa29a4493248a9d0405e8e81",
+      "purpose": "AEAL claim ledger (8 entries D2-A1..D2-A8)"
+    }
+  ],
+
+  "files_to_exclude": [
+    "*.aux", "*.bbl", "*.blg", "*.log", "*.out", "*.toc",
+    "pass3.log", "d2_note.log.tmp"
+  ],
+
+  "_supersession_warning": {
+    "trigger": "Picture-chain memory + close_out_matrix_2026-05-07.md + sql_todos_snapshot_2026-05-07_18-40-JST.md jointly record TWO already-deposited D2-NOTE versions (v2.0 and v2.1) at concept DOI 10.5281/zenodo.19996689 / version DOI 10.5281/zenodo.19996690 (v2.0, deposited 2026-05-03 ~16:00 JST) / version DOI 10.5281/zenodo.20015923 (v2.1, deposited 2026-05-04 ~07:00 JST).",
+    "implication": "D2-NOTE v1.0 (this metadata payload's target) is the 4-page 343419-B 2026-05-02 pre-cursor to v2.0/v2.1, which are 6-page expansions. Depositing v1.0 NOW (2026-05-07) creates a structural anomaly: either (a) a NEW concept DOI distinct from 19996689 (orphan-concept retroactive deposit of an obsolete draft), or (b) a New-Version of 19996689 inserted BEFORE its current v2.0/v2.1 versions (Zenodo does not support backdated insertion into a version chain).",
+    "operator_decision_required_before_publish": true,
+    "candidate_dispositions": [
+      "DROP: rule v1.0 deposit superseded; flip SQL todo zenodo-upload-d2-note to 'done -- superseded by v2.0/v2.1 deposits at 19996689'.",
+      "DEPOSIT_AS_NEW_CONCEPT: deposit v1.0 as a fresh concept DOI distinct from 19996689; cite as 'historical 4-page consolidatory draft' in description; flag in submission_log Item NN that v2.0/v2.1 supersede.",
+      "DEFER: hold pending W21 LANE-1 ratification; archive this runbook as substrate-only."
+    ],
+    "agent_recommendation": "Surface to operator; agent does NOT pre-select. Most economical disposition is DROP given v2.0 6-page expansion already covers the 4-page v1.0 content domain by inclusion (per close_out_matrix line 132 cross-reference)."
+  }
+}

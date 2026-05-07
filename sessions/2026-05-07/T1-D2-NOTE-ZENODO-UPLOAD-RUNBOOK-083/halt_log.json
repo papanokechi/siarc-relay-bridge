@@ -1,0 +1,55 @@
+{
+  "task_id": "T1-D2-NOTE-ZENODO-UPLOAD-RUNBOOK-083",
+  "halts_triggered": [],
+  "halts_checked_and_passed": [
+    {
+      "halt_name": "HALT_083_SUPERSEDED",
+      "trigger_condition": "Phase 0.2 SQL todo zenodo-upload-d2-note status = 'done'",
+      "actual_value": "pending",
+      "verdict": "did_not_trigger",
+      "note": "Literal halt condition not met -- SQL todo is pending. STRUCTURAL supersession of v1.0 by v2.0/v2.1 deposits is recorded as anomaly D-1 + unexpected find U-1 instead, with operator-decision routing in runbook section 0 (Options A/B/C)."
+    },
+    {
+      "halt_name": "HALT_083_NO_SUBSTRATE",
+      "trigger_condition": "Phase A.P2 D2-NOTE v1.0 PDF or .tex source not found",
+      "actual_value": "FOUND -- d2_note.pdf 343419 B + d2_note.tex 16189 B at siarc-relay-bridge/sessions/2026-05-02/D2-NOTE-DRAFT/",
+      "verdict": "did_not_trigger"
+    },
+    {
+      "halt_name": "HALT_083_METADATA_FABRICATION",
+      "trigger_condition": "Phase B.2 any field cannot be substrate-cited",
+      "actual_value": "PASS -- every metadata.json key carries a _substrate_anchors entry; no invented values",
+      "verdict": "did_not_trigger"
+    },
+    {
+      "halt_name": "HALT_083_RUNBOOK_FABRICATION",
+      "trigger_condition": "Phase C.2 invented URL or step",
+      "actual_value": "PASS -- all URLs are zenodo.org/uploads/new + zenodo.org/records/* + doi.org/10.5281/zenodo.{id} forms; all paths cite real bridge or workspace files",
+      "verdict": "did_not_trigger"
+    },
+    {
+      "halt_name": "HALT_083_FORBIDDEN_VERB",
+      "trigger_condition": "Phase F.1 forbidden-verb scan hit on production .md artefacts",
+      "actual_value": "PASS -- 0 hits across {shows, confirms, proves, establishes, demonstrates, ratifies, certifies, discharges} on zenodo_d2_note_runbook.md and post_deposit_followon.md (META-class blockquotes exempt)",
+      "verdict": "did_not_trigger"
+    },
+    {
+      "halt_name": "HALT_083_QUOTE_LENGTH",
+      "trigger_condition": "Phase F.2 quote length scan hit",
+      "actual_value": "PASS -- only one >50-word verbatim block in production .md (the historical-preface META block in runbook section 3 step 5, 81 words, META-class operator-action exempt per envelope)",
+      "verdict": "did_not_trigger"
+    },
+    {
+      "halt_name": "HALT_083_AEAL_FLOOR",
+      "trigger_condition": "< 5 claims",
+      "actual_value": "7 claims (083-C1..C7) recorded in claims.jsonl",
+      "verdict": "did_not_trigger"
+    },
+    {
+      "halt_name": "HALT_083_GROUNDING_PARTIAL",
+      "trigger_condition": "rule5 grounding incomplete",
+      "actual_value": "PASS -- rule5 grounding declared complete in Phase A.P1 (substrate is the existing 2026-05-02 D2-NOTE-DRAFT cohort + sister-deposit format from submission_log.txt items 1-10)",
+      "verdict": "did_not_trigger"
+    }
+  ]
+}
