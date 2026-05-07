@@ -1,0 +1,41 @@
+{
+  "session": "T2-ICA-VQUAD-PHI-PCF-097",
+  "date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "scope": "relay header substrate-anchor mismatch",
+      "severity": "non_blocking",
+      "description": "097 relay prompt header named picture v1.19 SHA-256 prefix as 4D852C97DBAC750; agent re-hash of bridge tex/submitted/picture_v1.19.md returned prefix 8BD9043370872F07. The 4D852C97DBAC750 prefix corresponds to picture v1.18 per prior session anchors. Agent proceeded using actual on-disk file (8BD9043370872F07) per Phase A.P1 substrate readback discipline.",
+      "owner": "synthesizer (097 relay drafting)",
+      "next_step": "Update 097-class relay prompt template to fetch picture-version SHA at draft time (not from operator memory). Alternatively, verify against bridge tex/submitted/picture_v1.19.md SHA-256 before fire."
+    },
+    {
+      "id": "D2",
+      "scope": "PCF-1 v1.3 source file path drift",
+      "severity": "non_blocking",
+      "description": "Two distinct files for PCF-1 v1.3 source exist in workspace: bridge canonical at sessions/2026-05-01/PCF1-V13-UPDATE/p12_pcf1_main.tex (SHA-256 prefix E83BB377F297DBF0; 46349 B; 925 lines) versus tex/submitted/p12_journal_main.tex (SHA-256 prefix 82173A09521D6676; 72311 B). Agent used bridge canonical for ICA per 085 prompt naming the bridge anchor as canonical and tex/submitted variant as known-drift. Carry-forward only; no impact on Phase D verdicts.",
+      "owner": "operator (085 source-drift-reconcile prompt named owner)",
+      "next_step": "085 prompt fire (operator dispatch). Anchors PCF-1 v1.3 to a single canonical file path going forward."
+    },
+    {
+      "id": "D3",
+      "scope": "058R-D2 4-tuple Okamoto null-sum violation",
+      "severity": "non_blocking_carry_forward",
+      "description": "CT v1.3 §3.5 Painlevé-III(D_6) 4-tuple (α_∞, α_0, β_∞, β_0) = (1/6, 0, 0, -1/2) sums to -1/3 ≠ 0, violating Okamoto's null-sum convention for the canonical D_6 parameter chart. sympy-verified at 058R Phase D and re-verified at 069 Phase D. Open M6.CC R1 with reconciliation paths α (additional shift in (a_0, a_1, a_2) chart) + β (τ-function reparametrisation per Okamoto 1987 §3) drafted at 069r1 envelope.",
+      "owner": "synthesizer dispatch — 069r1 R1-closure preflight",
+      "next_step": "Operator dispatch 069r1 R1-closure preflight relay (estimated 1-2 h synthesizer cadence). Closes 4-tuple null-sum violation simultaneously with |det J(Φ_symp)| pinning."
+    },
+    {
+      "id": "D4",
+      "scope": "066 LANE-2 R1 row reframing forward-pointer",
+      "severity": "non_blocking",
+      "description": "066 LANE-2 Item 3 verdict LEAVE_V1_0_CANONICAL: PCF-1 v1.3 source held canonical at v1.3; v1.4 amendment forward-pointed (NOT FIRED). 066 re-attributes V_quad's A=4 row entry from a borderline-mechanism (i') framing to deg_a = 0 row member at d = 2 under the extended four-row Phase A enumeration of 064 supplement §2.3. Source unchanged at PCF-1 v1.3. Forward-pointer note retained in 097 PCF identity cross-walk §1.7 + §4.5.",
+      "owner": "synthesizer (LANE-2 W21 OQ disposition)",
+      "next_step": "LANE-2 W21 OQ disposition decides whether to fire v1.4 amendment or carry forward to PCF-2 / M9 V0 announcement notational footnote."
+    }
+  ],
+  "discrepancies_total": 4,
+  "blocking": 0,
+  "non_blocking": 4
+}
