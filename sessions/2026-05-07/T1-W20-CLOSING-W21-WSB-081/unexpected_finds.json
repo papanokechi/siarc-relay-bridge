@@ -1,0 +1,48 @@
+{
+  "session": "T1-W20-CLOSING-W21-WSB-081",
+  "date": "2026-05-07",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "title": "W20-Wed cascade compressed into ~3.5 hours of parallel-CLI run",
+      "observation": "The 5 W21 LANE-1 dossier deliverables (074 / 075 / 077 / 078 / 079) committed in a single ~3.5h window between 13:11 JST (073 floor) and 16:33 JST (079 close) on Thu 2026-05-07, plus 7 supporting substrate sessions (064-073) all on the same day. This is a significantly compressed dispatch pattern vs. the W19 close which spread similar-volume work across multiple days.",
+      "implication": "Pre-LANE-1 readiness is achievable in single-day parallel runs when prompt envelopes are authored ahead and dispatched together. Future W-cycles may consider planned single-day cascades as a deliberate dispatch mode."
+    },
+    {
+      "id": "U2",
+      "title": "Convention A vs Convention B usage split is structurally clean",
+      "observation": "All cli_log/* canonical artefacts (W19.md / W19_wsb.md / W19_master_prompt.md / W20_wsb.md) use Convention A (ISO-aligned). All prompt-envelope frames and W20-Wed cascade commit messages use Convention B (+1-shifted). The split corresponds to artefact-class: cli_log/* file headers vs. prompt envelopes + cascade commit messages.",
+      "implication": "If the operator chooses to canonicalize, Convention A appears to be the cli_log/* native convention while Convention B is the prompt-envelope native convention. The wsb_iso_convention.md memo allows both to coexist; canonicalization is a future-RACI-revision question."
+    },
+    {
+      "id": "U3",
+      "title": "W19 closing handoff references 044/044R/044B/047 etc. as Wed activities but predicts Thu/Fri/Sat/Sun activities under day-of-week label drift",
+      "observation": "cli_log/2026-W19.md was drafted Wed 2026-05-06 looking forward across the rest of W19. The drafter labeled forward-looking days with day-of-week tokens that drift -1 day from ISO calendar: 'Thu 2026-05-08' (ISO Fri), 'Fri 2026-05-09' (ISO Sat), 'Sat 2026-05-10' (ISO Sun), 'Sun 2026-05-11' (ISO Mon-of-next-week). The dates themselves are correct as ISO calendar dates; only the day-of-week tokens drifted.",
+      "implication": "Drafting-time miscount. Documented in wsb_iso_convention.md §'Day-of-week label drift'. No correction proposed (canonical artefact preserved bit-for-bit; the W19.md doc is the authoritative W19 closing handoff regardless of the day-of-week token drift)."
+    },
+    {
+      "id": "U4",
+      "title": "JTNB-2400 hard-reject was processed end-to-end within W19 close (single-cycle reject + decision-cycle)",
+      "observation": "JTNB-2400 verdict landed RECEIVED_NEGATIVE Wed 2026-05-06; 049 P11-SICF-DECISION-W20-REFIRE issued DECISION = Option 3 (Withdrawal + restructure + resubmit) on the same day, without any deferral to W20 LANE-1 cadence. 062 JTNB-REJECTION-CASCADE-PASTE pasted the rejection event into 4 CMB.txt sections + Item-22 verdict patch on the same day.",
+      "implication": "Rapid post-verdict execution did not require synth arbitration when the option space was DOMINATED (Option 3 sole live option per FORCED_BY_ELIMINATION). Future verdict cascades may follow the same single-cycle pattern when option space collapses."
+    },
+    {
+      "id": "U5",
+      "title": "075 STRUCTURAL_MISMATCH at 0/7 MATCH is a stronger signal than envelope §9 ladder minimum",
+      "observation": "Per 075 handoff §U1: 'all 7/7 structural primitives MISMATCH at substrate-inventory scope; envelope §9 ladder requires only ≥1 MISMATCH but actual count is 7'. This is a significantly cleaner verdict than the minimum verdict-rung condition.",
+      "implication": "076 path-δ literature acquisition reconnaissance gating becomes more pressing (per 075 U3 strengthening of OQ-W21-LITERATURE-ALTERNATIVE from 'authority question' to 'substrate recommendation'). The W21 LANE-1 OQ resolution is the operative bottleneck, not the verdict-rung threshold."
+    },
+    {
+      "id": "U6",
+      "title": "079 JFR DORMANCY FLAG raises an asymmetric venue-pick consideration",
+      "observation": "Per 079 handoff §U1: 'JFR's homepage lists Vol. 13 No. 1 (2020-12-21) as the latest issue; no later issue is listed as of the 2026-05-07 fetch. This is a 5+ year publication gap. The editorial board page is current and lists active editors.' JFR/LMCS row-symmetry on the 7-axis matrix means the dormancy flag is the only asymmetric signal between the two diamond-OA formal-methods venues.",
+      "implication": "Venue-pick at W21 LANE-1 has a tactical-vs-scope-fit tradeoff: JFR scope-fit is strong but publication activity is dormant; LMCS scope-fit is row-symmetric with JFR but publication activity is current. Synth must weigh this asymmetry per 079 §U1 + §D5."
+    },
+    {
+      "id": "U7",
+      "title": "Pre-LANE-1 substrate set covers 5 distinct decision axes simultaneously",
+      "observation": "The 5 W20-Wed cascade dossiers cover 5 distinct decision axes for W21 LANE-1: M4 ratification (074; 4-tag menu) + M6.CC chart-map verdict (075; STRUCTURAL_MISMATCH already issued, so synth need only authorize 076 path-δ branch) + portfolio bundling (077; 10-option menu) + endorser framing (078; 9-option menu) + Lean relaunch venue-fit (079; 7-option menu). Total option space 4 × ≥1 × 10 × 9 × 7 = ≥2520 distinct multi-axis combinations.",
+      "implication": "W21 LANE-1 absorption is high-dimensional. The 080 cross-dossier coupling matrix (substrate-class working-tree state at fire time of 081) is intended as a synth-aid to surface coupling constraints across the 5 axes, reducing the effective decision space. 080 landing pre-LANE-1 (A.7 carry) materially improves synth efficiency."
+    }
+  ]
+}
