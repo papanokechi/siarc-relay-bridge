@@ -1,0 +1,47 @@
+{
+  "halts_triggered": [],
+  "halts_checked_and_passed": [
+    {
+      "code": "HALT_098_SUPERSEDED",
+      "phase": "Phase 0",
+      "result": "PASS",
+      "evidence": "git pull origin main returned 'Already up to date' at HEAD dbe7a71; Get-ChildItem sessions/2026-05-*/ filtered by FRD|M10|LEAN4-EXPORT|FORMAL-EXPORT returned no matching directories; prior LEAN4 sessions (2026-04-24/LEAN4-AXIOM-CONVERSION + 2026-04-24/LEAN4-LWP-STATEMENT-FIX + 2026-04-24/LEAN4-SORRY-DISCHARGE + 2026-04-25/LEAN4-STATESPACE-DISCHARGE) are for the SIARCRelay11 / Tunnell control-theoretic project, not for PCF/M5; no FRD or m5_frds.lean exists anywhere in sessions tree per Get-ChildItem -Filter scans"
+    },
+    {
+      "code": "HALT_098_SUBSTRATE_INCOMPLETE",
+      "phase": "Phase A",
+      "result": "PASS",
+      "evidence": "all of A.P1 (picture_v1.19.md SHA-256 8BD9043370872F07...) + A.P2 (PCF-1 v1.3 = p12_journal_main.tex SHA-256 82173A09521D6676...) + A.P5 (bridge HEAD dbe7a71...) retrievable; A.P3 returned Lean 4.29.1 + Lake 5.0.0 (non-blocking; A.P4 not required since file is present)"
+    },
+    {
+      "code": "HALT_098_FRD_INVENTORY_INCOMPLETE",
+      "phase": "Phase B",
+      "result": "PASS",
+      "evidence": "FRD count = 9 (B1-B9); above floor of 5"
+    },
+    {
+      "code": "HALT_098_SCOPE_OVERFLOW",
+      "phase": "Phase B",
+      "result": "PASS",
+      "evidence": "FRD count = 9; below soft cap of 15"
+    },
+    {
+      "code": "HALT_098_SCAFFOLD_BLOAT",
+      "phase": "Phase C",
+      "result": "PASS",
+      "evidence": "m5_frds.lean line count = 308; below cap of 600; within target range 200-400"
+    },
+    {
+      "code": "HALT_098_FORBIDDEN_VERB_DETECTED",
+      "phase": "Phase G",
+      "result": "PASS",
+      "evidence": "8-verb regex {shows|proves|establishes|ratifies|demonstrates|discharges|confirms|certifies} returned 0 hits across all 5 production files (m5_frds.lean / frd_inventory.md / coverage_gap_analysis.md / mathlib4_anchor_opportunities.md / type_check_log.txt); one mitigation J3 applied in-session at type_check_log.txt L47 ('confirms' to 'indicates')"
+    },
+    {
+      "code": "HALT_098_QUOTE_LENGTH_VIOLATION",
+      "phase": "Phase G",
+      "result": "PASS",
+      "evidence": "longest verbatim quote from PCF-1 v1.3 / picture_v1.19 across all deliverables = 'V_quad -> P_III(D_6) algebraic identity' (6 words; m5_frds.lean B1 docstring); all other quoted fragments are shorter; no 50-word quote ceiling violation detected"
+    }
+  ]
+}

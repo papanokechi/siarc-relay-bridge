@@ -1,0 +1,74 @@
+Type-check log — m5_frds.lean (relay 098 Phase D)
+====================================================
+
+Date:        2026-05-07
+Lean:        Lean 4.29.1 (commit f72c35b3f637c8c6571d353742168ab66cc22c00)
+Lake:        Lake 5.0.0-src+f72c35b
+File:        m5_frds.lean (308 lines, 9 FRDs B1-B9)
+
+Phase D.P1 — bare lean attempt
+-------------------------------
+
+Command:  lean m5_frds.lean (in scratch tmp dir; no Lake project)
+
+Result:   PARSE_FAILURE_NO_MATHLIB
+
+Output:
+  m5_frds.lean:55:0: error: unknown module prefix 'Mathlib'
+  No directory 'Mathlib' or file 'Mathlib.olean' in the search path.
+  Exit code 1.
+
+Interpretation:
+  The file parses up to L55 (the import block at L55-L57). Failure is
+  Mathlib4 dependency not on path, not a syntax error in the FRD body.
+  Per spec D.P2, this is logged as discrepancy_log.json D-D1
+  (non-blocking) and the file is committed AS-IS.
+
+Phase D.P1.b — stripped-imports syntax probe (judgment call J5)
+----------------------------------------------------------------
+
+Command:  lean m5_frds_stub.lean (Mathlib imports replaced by comment)
+
+Result:   EXPECTED_SYNTAX_FAILURE_NO_RAT_REAL
+
+Output (excerpt):
+  m5_frds_stub.lean:78:10: error: Constructor field `a2` of
+    `SIARC.M5.VQuad.mk` contains universe level metavariables ...
+  m5_frds_stub.lean:92:37: error: Invalid field notation: Field
+    projection operates on types of the form `C ...` ...
+  (further cascading errors from undefined `ℚ` and `ℝ`)
+
+Interpretation:
+  Without Mathlib4, `ℚ` and `ℝ` are undefined (they live in
+  `Mathlib.Data.Rat.Defs` and `Mathlib.Data.Real.Basic`). The cascade
+  is the expected consequence of unresolved-types, NOT a syntax error
+  in the FRD body. The Lean parser successfully reaches L78 (the
+  `structure VQuad where ... a2 : ℚ` line) before triggering the
+  type-resolution cascade. This indicates the source-level grammar of
+  the FRD body is well-formed up to type resolution.
+
+Phase D.P3 — alternative: skip type-check entirely
+---------------------------------------------------
+
+Not invoked. `lean --version` returned 4.29.1 in Phase A.P3, so we
+attempted the type-check rather than skipping. The type-check did not
+succeed (Mathlib4 not on path) but produced the expected non-blocking
+discrepancy.
+
+Recommended next step
+---------------------
+
+A subsequent fire (M10-PROOF-DRAFT) should be staged inside a Lake
+project with Mathlib4 on path, e.g. siarc-lean4 (per
+sessions/2026-04-24/LEAN4-AXIOM-CONVERSION/handoff.md commits
+5cbaae8 / a8b2be1 / 84191c5) or a fresh `lake init` adjacent to
+this scaffold. Once Mathlib4 is on path, `lake env lean m5_frds.lean`
+will exercise the full FRD body and surface real-error rows
+(e.g. continued-fraction import path; algebraic-number anchors for
+zetaStar; B7 statement-stub strengthening).
+
+Halt status
+-----------
+
+No halt triggered. D-D1 non-blocking; FRD scaffold proceeds to
+Phase E audit.

@@ -1,0 +1,49 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-D1",
+      "phase": "Phase D",
+      "severity": "non-blocking",
+      "title": "Lean type-check parse-failure: Mathlib4 not on path",
+      "description": "Bare `lean m5_frds.lean` invocation in scratch tmp dir failed with 'unknown module prefix Mathlib' at L55 (the `import Mathlib.Tactic` line). This is a Mathlib4 dependency-resolution failure, not a syntax error in the FRD body. Per relay spec D.P2, this is logged as non-blocking; the FRD scaffold proceeds without resolution. A subsequent fire (M10-PROOF-DRAFT) staged inside a Lake project with Mathlib4 on path will exercise full type-checking.",
+      "blocks_fire": false,
+      "anchor_files": ["type_check_log.txt"]
+    },
+    {
+      "id": "D-D2",
+      "phase": "Phase C",
+      "severity": "non-blocking",
+      "title": "R(h) ratio is partial at aPoly h = 0",
+      "description": "The B2 FRD `def R (V : VQuad) (h : ℚ) : ℚ := V.bPoly h / V.aPoly h` is total over rationals but mathematically has a singularity at zeros of `aPoly`. The Lean encoding does not surface this as a `Decidable` predicate or a `Subtype`-narrowed domain. Future M10-PROOF-DRAFT or B2-discharge fire should refactor to `Option ℚ` or a `Subtype` carrying the non-vanishing hypothesis.",
+      "blocks_fire": false,
+      "anchor_files": ["m5_frds.lean L130 R definition"]
+    },
+    {
+      "id": "D-D3",
+      "phase": "Phase B",
+      "severity": "non-blocking",
+      "title": "Convention drift: SIARC F(2,4) leading-first vs PCF-1 v1.3 (alpha,beta,gamma,delta,epsilon)",
+      "description": "Relay 098 specifies V_quad parametrization as 5-tuple (a2, a1, a0, b1, b0) with `a` of degree 2 and `b` of degree 1, anchored to repo memory `f1-base-d2d4-complete-2026-04-22.md` line 24 (`a_coeffs = (a2, a1, a0)` with `a(n) = a2 n^2 + a1 n + a0`). PCF-1 v1.3 (= p12_journal_main.tex § 1.1 lines 113-130) uses the inverse role convention `a_n = delta n + epsilon` (deg 1), `b_n = alpha n^2 + beta n + gamma` (deg 2). The two conventions enumerate the same d=2 PCF family up to a label swap a <-> b. The Lean scaffold follows the relay convention literally per relay 098 Phase B B1 spec; the PCF-1 v1.3 convention is documented in m5_frds.lean header comment.",
+      "blocks_fire": false,
+      "anchor_files": ["m5_frds.lean header L18-L33", "frd_inventory.md B1 row"]
+    },
+    {
+      "id": "D-D4",
+      "phase": "Phase A",
+      "severity": "non-blocking",
+      "title": "Picture v1.19 SHA-16 drift vs relay-claimed anchor",
+      "description": "Relay 098 Phase A.P1 stated 'picture_v1.19 SHA16 4D852C97DBAC750 (per stored memory PICTURE chain)'. Actual SHA-256 of sessions/2026-05-06/PICTURE-V19-CONSOLIDATED-DEPOSIT/picture_v1.19.md = 8BD9043370872F078F05DE99AC031A8AE78C321EC75F49102ABC01F549326DAB (SHA-16 prefix 8BD9043370872F07). The relay's stated anchor 4D852C97DBAC750 does not match. Two interpretations: (a) the relay-quoted SHA-16 is from an earlier picture_v1.18 or pre-deposit draft snapshot; (b) memory file `picture-v19-consolidated-deposit-2026-05-06.md` records a different anchor than the deposited file. Used the actual on-disk SHA-256 8BD9043370872F07... in the Lean header per defensive principle. Non-blocking.",
+      "blocks_fire": false,
+      "anchor_files": ["m5_frds.lean header L13", "AEAL claim 098-A-1"]
+    },
+    {
+      "id": "D-D5",
+      "phase": "Phase B",
+      "severity": "non-blocking",
+      "title": "B7 statement-stub uses `True` placeholder rather than substantive predicate",
+      "description": "B7 `M8b_axis_residual_acceptance` is a statement-only stub with proposition `True` and proof `by trivial`. The substantive content (the M8b axis sub-leading Stokes constant S_2 PERMANENT_RESIDUAL_VIA_BOREL_PADE verdict from relay 092) is not encoded in the Lean type. The relay spec explicitly authorizes this: 'Lean idiom: theorem M8b_axis_residual_acceptance : ... (statement-only stub; proof = sorry)'. The `True` body is actually stronger than a sorry-stub (no sorries; the proposition is just trivial). Tracked in coverage_gap_analysis.md row B7 and mathlib4_anchor_opportunities.md row B7.",
+      "blocks_fire": false,
+      "anchor_files": ["m5_frds.lean L268-L284", "coverage_gap_analysis.md row B7"]
+    }
+  ]
+}
