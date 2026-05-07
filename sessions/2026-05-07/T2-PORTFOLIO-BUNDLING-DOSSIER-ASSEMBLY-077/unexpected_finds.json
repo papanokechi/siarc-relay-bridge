@@ -1,0 +1,47 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U-077-1",
+      "category": "substrate-state",
+      "finding": "D2-NOTE v2.1 has zero arXiv endorsement template on disk despite Zenodo deposit at 10.5281/zenodo.20015923. Session 037 (ARXIV-ENDORSEMENT-TEMPLATES-EXPAND, 2026-04-26) authored templates for earlier paper batch, but D2-NOTE v2.1 was deposited 2026-05-03 — post-037. Endorsement-fit dimension D.4 for B2 + B4 bundles tagged EXISTING+EXTEND specifically because of this template gap.",
+      "implication": "Synth may scope a follow-on session for D2-NOTE arXiv-endorsement-template authoring before LANE-1 venue commit, regardless of which bundle B2/B4 is adopted."
+    },
+    {
+      "id": "U-077-2",
+      "category": "doi-canonicalisation",
+      "finding": "Across CMB.txt, portfolio_inventory.md, candidate_dossier.md, submission_log.tex, and the 6 paper TeX bibliographies, three distinct DOI values appear for individual papers in different roles (concept-DOI vs version-DOI vs predecessor-version-DOI). T2B in particular has both 10.5281/zenodo.19783311 (concept) and 10.5281/zenodo.19915689 (v3.0) and 10.5281/zenodo.19801038 (older version) referenced in different files.",
+      "implication": "Suggests a portfolio-wide DOI canonicalisation pass would clean future portfolio-architecture decisions; not in 077 scope per spec §7."
+    },
+    {
+      "id": "U-077-3",
+      "category": "bundle-coverage-pattern",
+      "finding": "B1+B2 covers 5 of 6 records cleanly with P6 (umbrella v2.0) as residual standalone. P6 itself is a program-statement (PROGRAM-STATEMENT-STANDALONE in E.4) frame artefact whose stated function is to forward 9 problems + 2 conjectures across the SIARC stack. The B1+B2+P6-standalone three-stack thus achieves 6/6 record coverage in 3 submission artefacts where the umbrella role is structurally distinct from B1/B2's research-paper roles.",
+      "implication": "Synth-tier observation only; this is the kind of structural insight that motivated the operator's framing question. Not an agent recommendation."
+    },
+    {
+      "id": "U-077-4",
+      "category": "feasibility-asymmetry",
+      "finding": "B5 (status quo 'each paper to its own venue') is the only GREEN OVERALL_FEASIBILITY_TAG; all 4 bundling configurations (B1, B2, B3, B4) score YELLOW. The asymmetry comes entirely from D.7 GATED-ON-X (CT v1.4 G17-close, D2-NOTE template, PCF-2 cubic-extension closure) and D.2 abstract-rewrite-reweave costs. No bundle scores YELLOW solely on D.5 venue-fit.",
+      "implication": "Per spec §6.F.1 + HALT_077_BUNDLE_SELECTION_OVERREACH, surfaced only as inventory observation; synth decides whether GREEN status quo or YELLOW bundles align with portfolio architecture."
+    },
+    {
+      "id": "U-077-5",
+      "category": "page-count-arithmetic",
+      "finding": "Aggregate page count for B5 (status quo, each paper standalone) is ~80-84 pp across 6 separate submission artefacts. B4 (full SIARC monograph) aggregates to ~57-66 pp in 1 monograph. The page-count differential (~17-26 pp savings) is dominated by removed redundant abstracts, introductions, and bibliography sections that recur across the 6 standalone papers.",
+      "implication": "Synth-tier observation only; surfaces a quantitative axis (total reader-burden vs. total submission-burden) that the prompt did not explicitly request but is implied by the operator's 'larger picture' framing."
+    },
+    {
+      "id": "U-077-6",
+      "category": "paper-internal-citation-graph",
+      "finding": "The 6 papers form a partially-ordered citation graph: PCF-1 cites P2/P3/P4/P5/P6; PCF-2 cites PCF-1; T2B cites PCF-1; D2-NOTE cites CT v1.4; CT cites all four PCF/T2B/D2-NOTE; umbrella cites all five. PCF-1 and umbrella v2.0 are the two 'hub' nodes in the citation graph; CT v1.3/v1.4 is the asymptotic-channel hub.",
+      "implication": "Coverage ranking in cross_bundle_compatibility.md E.1 reflects this graph structure. Synth may weigh hub-node bundling (e.g., PCF-1 + companions) versus subgraph-bundling (e.g., asymptotic-channels B2)."
+    },
+    {
+      "id": "U-077-7",
+      "category": "cadence-alignment",
+      "finding": "W21 LANE-1 cadence target Mon 2026-05-12 AM JST per CMB.txt L1957-1985 + spec §0 GOAL anchor. 077 dossier delivered 2026-05-07; window of 5 days from delivery to LANE-1 decision. Cadence permits one 077-amendment (077R) cycle if synth scopes OBJECT path before ~2026-05-09.",
+      "implication": "Operator may schedule a synth-review checkpoint between 2026-05-08 and 2026-05-09 to allow 077R re-fire if needed before W21 LANE-1."
+    }
+  ],
+  "unexpected_count": 7
+}
