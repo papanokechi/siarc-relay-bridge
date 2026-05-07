@@ -1,0 +1,59 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-077-1",
+      "label": "DOI drift between prompt spec §1.A.1 and canonical 2026-05-04 portfolio inventory",
+      "severity": "MEDIUM",
+      "halt_evaluation": "DOWNGRADED to discrepancy (not HALT_077_SUBSTRATE_DRIFT) per spec §1.A.3 preauthorising on-disk substrate verification.",
+      "evidence": "5 of 6 prompt-spec DOIs differ from portfolio_inventory.md (SHA 25B4C96DC15A85A3): PCF-1, PCF-2, CT v1.3, D2-NOTE v2.1, umbrella v2.0. Only T2B (10.5281/zenodo.19915689) matches both anchors.",
+      "resolution": "All DOI references in 077 deliverables sourced from portfolio_inventory.md (canonical 2026-05-04). Synth review at W21 LANE-1 may surface whether prompt spec or portfolio_inventory should serve as future canonical anchor.",
+      "surfaced_in": "portfolio_substrate_anchor_shas.md §A.4"
+    },
+    {
+      "id": "D-077-2",
+      "label": "2026-05-07 portfolio-impact assessment is ORAL-OR-TRANSCRIPT-ONLY",
+      "severity": "LOW",
+      "halt_evaluation": "Spec §1.A.1 acknowledges 'in chat transcript or session-state plan.md' — not a halt because spec admits the artefact may be off-disk.",
+      "evidence": "Searched siarc-relay-bridge tree for files matching *portfolio*impact*, plan.md, *2026-05-07*assessment*; no on-disk hit. 2026-05-04 portfolio_inventory.md + candidate_dossier.md used as substrate fallback.",
+      "resolution": "Substrate gap surfaced; bundle profiles fall back to 2026-05-04 anchors. Standalone-strength tags in cross_bundle_compatibility.md E.4 derived from on-disk theorem-count + endorsement-fit, not the missing 2026-05-07 oral assessment.",
+      "surfaced_in": "portfolio_substrate_anchor_shas.md §A.5"
+    },
+    {
+      "id": "D-077-3",
+      "label": "Umbrella v2.0 abstract cites Channel Theory v1.2 (stale)",
+      "severity": "LOW",
+      "halt_evaluation": "Not a halt; substrate is verbatim umbrella v2.0 main.tex L63.",
+      "evidence": "Umbrella v2.0 was deposited before CT v1.3 (issued 2026-05-02 per portfolio_inventory.md). Citation chain in umbrella references v1.2 frame; B4 monograph reweave would address.",
+      "resolution": "Surfaced for synth awareness; 077 dossier does not edit umbrella v2.0 to update the cite (would constitute deposit attempt).",
+      "surfaced_in": "paper_profile_umbrella_v20.md §B.3 NOTE-077-P6-1"
+    },
+    {
+      "id": "D-077-4",
+      "label": "T2B Zenodo DOI inconsistency between CMB.txt and portfolio_inventory.md",
+      "severity": "LOW",
+      "halt_evaluation": "Not a halt; both anchors are on-disk and verifiable.",
+      "evidence": "CMB.txt L31 shows P-T2B at version DOI 10.5281/zenodo.19801038 (older v2.x). portfolio_inventory.md and submission_log.tex Item 10 both anchor 10.5281/zenodo.19915689 (v3.0, 2026-04-30). 077 substrate-anchor uses 19915689 (v3.0) per portfolio_inventory.md as canonical.",
+      "resolution": "Surfaced for synth-tier review. Suggests CMB.txt L31 should be updated post-W21 cycle independent of 077.",
+      "surfaced_in": "paper_profile_t2b_v30.md §B.3 NOTE-077-P5-1"
+    },
+    {
+      "id": "D-077-5",
+      "label": "Spec §5.E.4 standalone-strength expectation deviates from on-disk substrate",
+      "severity": "LOW",
+      "halt_evaluation": "Not a halt; spec §5.E.4 anticipated answer is illustrative, not substrate-anchored.",
+      "evidence": "Spec §5.E.4 anticipates 'PCF-2 v1.3 + D2-NOTE v2.1 both Tier-1 standalone-strong'. On-disk substrate places D2-NOTE v2.1 at HIGH (1 proven theorem + 18/18 verification + closed citation chain v2.1) and PCF-2 v1.3 at PROGRAM-STATEMENT-STANDALONE (no proven theorems internal).",
+      "resolution": "077 dossier reports substrate-anchored tags; synth decides at W21 LANE-1 whether spec-anchor or on-disk-substrate-anchor binds.",
+      "surfaced_in": "cross_bundle_compatibility.md §E.4 NOTE-077-E-1"
+    },
+    {
+      "id": "D-077-6",
+      "label": "074 + 075 predecessor sessions in PRE-COMMIT IN-FLIGHT state at 077 fire",
+      "severity": "INFORMATIONAL",
+      "halt_evaluation": "Not a halt; spec §1.A.3 preauthorises 077 fire on local-assembled predecessor state.",
+      "evidence": "074 (T2-PORTFOLIO-CANDIDATE-DOSSIER-ASSEMBLY-074) status LOCAL_ASSEMBLED PRE-COMMIT — assembled in 2026-05-04 session dir but not yet pushed at 077 fire. 075 status LOCAL_ASSEMBLY_NO_HANDOFF PRE-COMMIT.",
+      "resolution": "077 dossier independent per spec; 074 + 075 commit cadence does not block 077.",
+      "surfaced_in": "portfolio_substrate_anchor_shas.md §A.6"
+    }
+  ],
+  "discrepancy_count": 6
+}
