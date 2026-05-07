@@ -1,0 +1,198 @@
+{
+  "_template_metadata": {
+    "task_id": "T1-M9-V0-DEPOSIT-MECHANICS-PRE-STAGE-103",
+    "purpose": "Path-independent Zenodo deposit metadata template for M9 SIARC-MASTER-V0 announcement",
+    "fill_convention": "__SLOT_*__ fields are path-dependent and operator-fillable at deposit time; __VERIFIED_*__ comments mark anchor pre-verified at fire time",
+    "fire_date": "2026-05-07",
+    "fire_bridge_HEAD": "402c7de",
+    "anchor_096_handoff_sha16": "4F31AC3026FB6C34",
+    "anchor_096_phi_assignment_sha16": "14CA0AA1A1AEB176",
+    "anchor_096_audience_framing_sha16": "55D660762301C17E",
+    "_forbidden_verb_set_data_note": "The strict 8-verb forbidden-verb list (per 096 audience_framing_and_venue_list.md sect 2.1 + relay 103 envelope STEP F.1) is stored as data in the sibling `_forbidden_verb_set_listing` field below. The list is intentionally enumerated there (not in substrate-prose body fields) to preserve operator information without echoing the verbs in deposit-bound text.",
+    "_forbidden_verb_set_listing": ["shows", "proves", "establishes", "ratifies", "demonstrates", "discharges", "confirms", "certifies"]
+  },
+
+  "metadata": {
+    "title": "SIARC Master Conjecture V0: Announcement of E / P_k / B Stratification and the \u03a6 Assignment",
+
+    "description": "__SLOT_DESCRIPTION__",
+    "_description_fill_instruction": "Compose the abstract from two substrate sources, in order: (a) P-008 SYNTH M9 V0 announcement draft (when on disk; queued under W21 LANE-1 Mon 2026-05-12 cadence as the synth-side `w19-synth-p008-m9-v0-announcement-draft` queue item); (b) 096 phi_assignment_statement.md sect 5 V0 announcement skeleton (canonical substrate; bridge sessions/2026-05-07/T2-M9-V0-SUBSTRATE-PRE-STAGE-096/ SHA-256 prefix 14CA0AA1A1AEB176). Per 096 audience_framing_and_venue_list.md sect 2.1 forbidden-verb translation table (Reviewer A BS-2; bridge same session SHA-256 prefix 55D660762301C17E), the abstract must avoid the strict forbidden-verb set in any substrate-prose context (the 8-verb list is enumerated in 096 audience_framing_and_venue_list.md and in `_template_metadata._forbidden_verb_set` of this file; do NOT echo the set as a literal in the description body). Permitted alternatives include: states, introduces, sets out, presents, describes, supplies, outlines, records. Length target: 250-400 words for math-ph default audience (per 096 sect 3 row 1). Two-tier framing per peer-AI synthesis Q4 4-of-4 AMEND consensus: V0 states the assignment-level Phi (objects -> objects, with morphism behaviour described informally), with categorical-coherence verification deferred to M13.",
+
+    "keywords": [
+      "SIARC",
+      "Master Conjecture",
+      "stratification",
+      "assignment",
+      "Painlev\u00e9",
+      "polynomial continued fractions",
+      "Borel resummation",
+      "Stokes phenomena",
+      "modular discriminant",
+      "isomonodromic deformation"
+    ],
+
+    "communities": [
+      {
+        "identifier": "__SLOT_COMMUNITY_SIARC_PROGRAM_IF_EXISTS__",
+        "_note": "Per zenodo_upload_ct_v13_runbook.md \u00a75: 'leave whatever v1.2 had (likely none, or `siarc-program` if you have a community)'. Operator inspects existing umbrella v2.0 record (10.5281/zenodo.19965041) at deposit time and copies whatever community array is present there; if empty, leave empty. Empty array is acceptable to Zenodo."
+      }
+    ],
+
+    "license": "cc-by-4.0",
+    "_license_note": "VERIFIED canonical across SIARC umbrella v2.0 + PCF-1 v1.3 + PCF-2 v1.3 + CT v1.3 + T2B v3.0 + D2-NOTE v2.1 (per zenodo_upload_ct_v13_runbook.md L26 + RESUME_AFTER_REBOOT_20260502.txt L37-43).",
+
+    "upload_type": "publication",
+    "publication_type": "preprint",
+    "_publication_type_note": "VERIFIED per zenodo_upload_ct_v13_runbook.md L67: 'Resource type \u2014 leave as Publication / Preprint'. The Zenodo enum value is `preprint`.",
+
+    "publication_date": "__SLOT_DEPOSIT_DATE__",
+    "_publication_date_note": "Operator fills at deposit time. Target W21 end: 2026-05-15 Fri. Format: YYYY-MM-DD.",
+
+    "version": "1.0",
+    "_version_note": "Initial deposit. First version on a fresh concept. If a v0.x preprint is staged earlier (e.g. for synth review), increment accordingly.",
+
+    "language": "eng",
+
+    "creators": [
+      {
+        "name": "papanokechi",
+        "_name_note": "Operator pen name on prior Zenodo deposits. If full name registration is desired at this deposit, switch to `Last, First` format consistent with ORCID profile.",
+        "orcid": "0009-0000-6192-8273",
+        "affiliation": "Independent researcher",
+        "_affiliation_note": "VERIFIED canonical across submitted manuscripts (lean4/manuscript.tex L66 + pcf2_program_statement.tex L40 + bt_baseline_note.tex L74)."
+      }
+    ],
+
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.19885549",
+        "relation": "isPartOf",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED SIARC umbrella concept DOI (cite-all). Source: RESUME_AFTER_REBOOT_20260502.txt L37 + zenodo_upload_ct_v13_runbook.md L113-114. M9 V0 announcement is a part-of the SIARC umbrella program."
+      },
+      {
+        "identifier": "10.5281/zenodo.19965041",
+        "relation": "isPartOf",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED SIARC umbrella v2.0 version DOI. Source: RESUME_AFTER_REBOOT_20260502.txt L37 + memo.txt L34. Pinned-version companion to the concept relation above."
+      },
+      {
+        "identifier": "10.5281/zenodo.19931635",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED PCF-1 concept DOI. Source: zenodo_upload_ct_v13_runbook.md L116."
+      },
+      {
+        "identifier": "10.5281/zenodo.19937196",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED PCF-1 v1.3 version DOI. Source: zenodo_upload_ct_v13_runbook.md L117 + RESUME_AFTER_REBOOT_20260502.txt L39."
+      },
+      {
+        "identifier": "10.5281/zenodo.19936297",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED PCF-2 concept DOI. Source: zenodo_upload_ct_v13_runbook.md L114 + RESUME_AFTER_REBOOT_20260502.txt L40."
+      },
+      {
+        "identifier": "10.5281/zenodo.19963298",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED PCF-2 v1.3 version DOI. Source: zenodo_upload_ct_v13_runbook.md L115 + RESUME_AFTER_REBOOT_20260502.txt L40 + memo.txt L34."
+      },
+      {
+        "identifier": "10.5281/zenodo.19941678",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED Channel Theory concept DOI. Source: zenodo_upload_ct_v13_runbook.md L15 + RESUME_AFTER_REBOOT_20260502.txt L41."
+      },
+      {
+        "identifier": "10.5281/zenodo.19972394",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED Channel Theory v1.3 version DOI. Source: zenodo_postpublish_edits_ct_v13.md L5 + RESUME_AFTER_REBOOT_20260502.txt L41."
+      },
+      {
+        "identifier": "10.5281/zenodo.19783311",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED T2B concept DOI. Source: submission_log.txt L273 + zenodo_upload_ct_v13_runbook.md L113 (References). Pinned at v3.0 in submission_log Item 10 of Recorded Submissions section."
+      },
+      {
+        "identifier": "10.5281/zenodo.19915689",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED T2B v3.0 version DOI. Source: submission_log.txt L272."
+      },
+      {
+        "identifier": "10.5281/zenodo.19996689",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED D2-NOTE concept DOI. Source: RESUME_AFTER_REBOOT_20260502.txt L42."
+      },
+      {
+        "identifier": "10.5281/zenodo.20015923",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-preprint",
+        "_note": "VERIFIED D2-NOTE v2.1 version DOI. Source: RESUME_AFTER_REBOOT_20260502.txt L42. M2 v1.4 baseline note."
+      },
+      {
+        "identifier": "__SLOT_M4_RATIFY_BRIDGE_URL__",
+        "relation": "isDocumentedBy",
+        "scheme": "url",
+        "resource_type": "other",
+        "_note": "M4 ratification (068 ACCEPT verdict) gate. At W21 LANE-1 Mon 2026-05-12 deposit time, fill with the bridge URL of the form `https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/<DATE>/<068-RATIFY-TASK-ID>/`. If 068 lands as ACCEPT_WITH_REVISIONS or REVISE, route to operator (deposit gate not satisfied)."
+      },
+      {
+        "identifier": "__SLOT_M6_CC_RATIFY_BRIDGE_URL__",
+        "relation": "isDocumentedBy",
+        "scheme": "url",
+        "resource_type": "other",
+        "_note": "M6.CC R1-closure (058 main-fire-V3 GO verdict) gate. At W21 mid-week deposit time, fill with the bridge URL of the form `https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/<DATE>/<058-V3-TASK-ID>/`. If 058 V3 lands NO_GO or PARTIAL, route to operator (deposit gate not satisfied)."
+      },
+      {
+        "identifier": "https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-07/T2-M9-V0-SUBSTRATE-PRE-STAGE-096/",
+        "relation": "isDocumentedBy",
+        "scheme": "url",
+        "resource_type": "other",
+        "_note": "VERIFIED 096 TIER-A substrate pre-stage bridge URL. Phi assignment statement + numerical consistency check + related-work survey + audience framing + venue list. Bridge HEAD at fire time 213d23b. The substrate underlying this V0 announcement."
+      },
+      {
+        "identifier": "__SLOT_086_BRIDGE_URL_IF_R1_CITED__",
+        "relation": "isDocumentedBy",
+        "scheme": "url",
+        "resource_type": "other",
+        "_note": "086 R5 lit-hunt triangulation bridge URL. Optional: include only if the V0 description cites V1 chart-map cross-walk via 086 NEW_CANDIDATE_B4. Source: 096 unexpected_finds U6. Format: `https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/<DATE>/T2-R5-LIT-HUNT-TRIANGULATION-086/`."
+      }
+    ],
+
+    "contributors": [],
+    "_contributors_note": "Empty by default. If LANE-1 synth or peer-AI reviewers are to be acknowledged at the deposit-metadata level (not just in acknowledgements text), populate per Zenodo schema.",
+
+    "references": [],
+    "_references_note": "Bibliographic references (free text) optional. Zenodo's `references` field is rarely used when `related_identifiers` carries the cross-deposit chain; populate only if reviewer feedback at LANE-1 indicates extra free-text citations are needed (e.g. Mazzocco 2014 / Lisovyy-Roussillon 2017 / Garoufalidis-Kashaev 2018 from 096 related_work_survey RELATED-or-DEFERRED tier).",
+
+    "notes": "__SLOT_OPTIONAL_NOTES__\n\nFILL INSTRUCTION: Empty unless a specific Zenodo-side note is required. If used, common patterns are: deposit-time gating context (`Deposited following M4 ratification + M6.CC R1-closure both landed in W21`), or a forward-pointer to the umbrella v2.1 supersession (`SIARC umbrella v2.1 supersession will absorb this V0 announcement; pending operator action`)."
+  },
+
+  "_post_deposit_actions": [
+    "1. Capture minted concept DOI + version DOI.",
+    "2. Splice submission_log Item N+1 (use submission_log_item_m9v0_template.txt).",
+    "3. Append RESUME update block (use resume_update_m9v0_template.txt).",
+    "4. Append CMB.txt SYNTH-TRACK note (use cmb_notes_m9v0_template.md).",
+    "5. SQL todo `siarc-master-v0` -> done.",
+    "6. SQL todo `siarc-umbrella-v2-1-dispatch` -> ready (umbrella v2.1 follow-on)."
+  ]
+}

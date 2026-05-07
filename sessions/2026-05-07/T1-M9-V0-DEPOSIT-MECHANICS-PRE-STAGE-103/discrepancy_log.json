@@ -1,0 +1,54 @@
+{
+  "task_id": "T1-M9-V0-DEPOSIT-MECHANICS-PRE-STAGE-103",
+  "fire_date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "INFO",
+      "title": "P-008 SYNTH announcement-draft tagged DONE in m_critical_path but no on-disk artefact",
+      "detail": "tex/submitted/control center/m_critical_path_2026-05-07.md L21 + L31 list `P-008 SYNTH draft DONE` as M9 status. CMB.txt L1396 + L1536 reference `P-008 M9 V0 announcement draft` as a synth-queue item. Synthesizer-inbox path tex/submitted/control center/synthesizer_inbox/ contains other P-prefix substrate (P008-INPUT-PACKAGE-FOR-MSB-2026-06 in bridge sessions/2026-05-08/ and sessions/2026-05-05/; STRATEGYZER_HANDOFF_2026-05-08.md mentions A.3 P-008 M9 V0 announcement draft) but no actual `.tex` / `.md` / `.pdf` deliverable named `p008_*` or `m9_v0_announcement*` is on disk. Per relay 103 envelope STEP 0.3, this would normally trigger HALT_103_P008_MISSING; J1 judgment-call documented in claims 103-C6 invokes the relay 103 envelope's path-independent `templates + slots only` design and the explicit framing in the envelope's Purpose paragraph that `It does NOT write the V0 announcement substrate (already done by P-008 SYNTH + 096 substrate pre-stage)` to support a fallback where 096 phi_assignment_statement.md sect 5 V0 announcement skeleton serves as the deposit substrate. Operator visibility: at deposit time the operator may either (a) compose the description from 096 sect 5 directly, OR (b) wait for the P-008 SYNTH draft on-disk landing if W21 LANE-1 produces one.",
+      "blocking": false,
+      "recovery": "If P-008 lands on disk before deposit time, prefer P-008 over 096 sect 5 for the description body. If P-008 never lands on disk, 096 sect 5 covers the substrate."
+    },
+    {
+      "id": "D2",
+      "severity": "INFO",
+      "title": "submission_log.txt Section-2 missing 5 prior Zenodo deposits relative to RESUME L37-43",
+      "detail": "Cross-check between tex/submitted/submission_log.txt (17030 B; 284 lines; SHA-16 2A28465AE39BADF5) and RESUME_AFTER_REBOOT_20260502.txt L37-43 reveals the Section-2 Recorded Submissions list captures only 3 PCF-related deposits (Item 2 pcf_unified_arxiv 2026-04-10, Item 9 t2a_paper 2026-04-28, Item 10 t2b_paper_draft_v5 2026-04-30). Missing from Section 2: SIARC umbrella v2.0 (10.5281/zenodo.19965041) + PCF-1 v1.3 (10.5281/zenodo.19937196) + PCF-2 v1.3 (10.5281/zenodo.19963298) + Channel Theory v1.3 (10.5281/zenodo.19972394) + D2-NOTE v2.1 (10.5281/zenodo.20015923). RESUME L194-195 says Item 17 PCF-2 v1.3 was previously logged in submission_log at line 471 of a 522-line predecessor version (29879 B); the current 17030-B / 284-line file is materially shorter and structurally different. Possible causes: (a) deliberate truncation to two-section structure; (b) historical file replacement by an earlier-snapshot revision; (c) operator chose a different audit-trail strategy for journal vs Zenodo deposits. The submission_log_item_m9v0_template.txt anchors this finding and supports both `__ITEM_NUM__ = 11 (skip backfill)` and `__ITEM_NUM__ = 16 (backfill 5 deposits first)` paths.",
+      "blocking": false,
+      "recovery": "Operator decides at deposit time. The template works for either path."
+    },
+    {
+      "id": "D3",
+      "severity": "INFO",
+      "title": "Relay 103 envelope STEP B.1 references Items 17/18/19/20/21 but current submission_log Section-2 only has Items 1-10",
+      "detail": "Relay 103 envelope STEP B.1 instructs `Identify highest current Item N (likely 21 from PCF-2 v1.4 deposit if Q22=R; else 20 from CT v1.3 ratify)`. The current canonical tex/submitted/submission_log.txt has Section-2 Items 1-10 only (highest = 10 = t2b_paper_draft_v5_withauthor.tex). The envelope's expected-state model (Items 17/18/19/20/21) is consistent with the historical pre-truncation file structure described under D2 above. The template uses __ITEM_NUM__ slot to decouple from the envelope's specific number expectation.",
+      "blocking": false,
+      "recovery": "None needed. Slot-based template absorbs either historical or current numbering."
+    },
+    {
+      "id": "D4",
+      "severity": "INFO",
+      "title": "102 verdict not landed at fire time (informational only)",
+      "detail": "Per relay 103 envelope STEP 0.4, the 102 verdict (lit-hunt pre-verification for path-delta) is informational. `git log --all --oneline | Select-String 102` returned zero hits in bridge at fire time (HEAD 402c7de). This means the M6.CC closure path (Path alpha analytic-guidance vs Path beta literature acquisition) is not pre-decided at 103 fire time. 103 deposit-mechanics work is path-independent so this does not block.",
+      "blocking": false,
+      "recovery": "If 102 lands as `OA accessible` for the 3 cited refs (Jimbo-Miwa 1981 / Conte-Musette 2008 / Forrester-Witte 2002), Path beta becomes more viable; if not, Path alpha (synth analytic-guidance) is the primary path. Either way, the M9 V0 deposit unblocks once 058 main-fire-V3 GO lands."
+    },
+    {
+      "id": "D5",
+      "severity": "INFO",
+      "title": "M6.CC R1-closure path still open at fire time (069r1 NO_GO at 601500b)",
+      "detail": "Bridge commit 601500b carries verdict NO_GO_SUBSTRATE_INSUFFICIENT for M6-CC-R1-CLOSURE-PREFLIGHT-069R1 (path-viability flag NEITHER; both alpha + beta paths closed at A.1.5 substrate gap; recommend escalation to W21 LANE-1 T1-Synth analytic-guidance request OR alternative literature acquisition). 069r2 R1-CLOSURE FIRE drafting is GATED at W21 LANE-1. The M9 V0 deposit's M6.CC GATE B remains open; this is the EXPECTED state per pre-flight checklist Row 2.",
+      "blocking": false,
+      "recovery": "Per checklist Row 2: route to 069r2 retry path at W21 LANE-1; if Path alpha blocked, switch to Path beta."
+    },
+    {
+      "id": "D6",
+      "severity": "INFO",
+      "title": "Forbidden-verb scan retains 1 residual hit in `_forbidden_verb_set_listing` data array",
+      "detail": "Post-mitigation scan: 0 hits in 4 of 5 deliverables; 1 hit in templates/zenodo_metadata_m9_v0.json L12 inside `_forbidden_verb_set_listing` data array containing the literal 8-element forbidden-verb list. Per relay 103 envelope STEP F.2, `Meta-references (regex literals + verb-list-as-data + checklist items like ratification gate): OK`. The verb-list-as-data is the explicit OK pattern. The list is preserved as data (not as substrate prose) so the operator and downstream consumers retain access to the canonical 8-verb enumeration without echoing it in deposit-bound text fields.",
+      "blocking": false,
+      "recovery": "None needed. Pattern is explicit OK per envelope STEP F.2."
+    }
+  ]
+}

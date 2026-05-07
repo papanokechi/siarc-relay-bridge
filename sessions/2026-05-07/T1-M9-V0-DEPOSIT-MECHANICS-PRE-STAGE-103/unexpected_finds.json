@@ -1,0 +1,48 @@
+{
+  "task_id": "T1-M9-V0-DEPOSIT-MECHANICS-PRE-STAGE-103",
+  "fire_date": "2026-05-07",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "title": "submission_log.txt has shrunk by ~12 KB and ~300 lines since RESUME 2026-05-02 reference",
+      "detail": "RESUME_AFTER_REBOOT_20260502.txt L194-195 references submission_log.txt at 522-583 lines / ~29879 bytes circa 2026-05-02. The current canonical file at fire time 2026-05-07 13:00 mtime is 17030 B / 284 lines -- a reduction of ~12849 B / ~299 lines (assuming the post-Item-18-patch state was 583 lines / 29879 B per RESUME). Either the file was deliberately truncated to a leaner two-section structure with abbreviated entries, or a historical revision replaced it. The 5 missing Zenodo deposit entries (umbrella v2.0 + PCF-1 v1.3 + PCF-2 v1.3 + CT v1.3 + D2-NOTE v2.1; per D2 in discrepancy_log.json) corroborate this. **Implication for V0 deposit**: the operator should consider an audit-pass to backfill these 5 missing entries before adding M9 V0 as Item 11+, OR explicitly accept the audit gap and add M9 V0 as Item 11. The 103 templates support either choice via __ITEM_NUM__ slot.",
+      "review_priority": "MEDIUM"
+    },
+    {
+      "id": "U2",
+      "title": "P-008 SYNTH announcement-draft DONE flag without on-disk artefact -- a SYNTH-tier work-flow vs deliverable-asset distinction",
+      "detail": "The `P-008 SYNTH draft DONE` tag in m_critical_path_2026-05-07.md is a SYNTH-side workflow-acknowledgement, not necessarily an on-disk deliverable. This pattern (Synth dispatches a draft via the synth-queue but the agent-side workspace doesn't yet receive a corresponding file) may recur for other M-class deliverables. **Implication for future relay envelopes**: the `If not findable: HALT_<task>_<artefact>_MISSING` pattern in agent-tier envelope STEP-0 may need a sibling clause `OR if equivalent substrate exists in a substrate-pre-stage bridge artefact, surface as discrepancy and proceed`. The relay 103 envelope already implicitly supports this via its `templates + slots only` framing, but making it explicit would help future deposit-mechanics fires.",
+      "review_priority": "LOW"
+    },
+    {
+      "id": "U3",
+      "title": "096 sect 5 V0 announcement skeleton may already cover what P-008 SYNTH would produce",
+      "detail": "096 phi_assignment_statement.md sect 5 carries a `V0 announcement skeleton` (per 096 handoff.md `## What was accomplished` paragraph 1: `assignment-level Phi statement skeleton with source category ... + V0 announcement skeleton (sect 5) + substrate-gap inventory GAP-V0-1..5`). If this skeleton already covers the P-008 SYNTH draft's intended structural content, then the P-008 SYNTH-tier work is functionally complete via 096 (with attribution to 096 substrate rather than P-008 lane). **Implication**: the W21 LANE-1 Mon agenda may be lighter than expected on the P-008 axis -- synth may need only to ratify 096 rather than author a fresh draft. This compresses the M9 V0 deposit timeline.",
+      "review_priority": "MEDIUM"
+    },
+    {
+      "id": "U4",
+      "title": "Default communities array `[]` may be the correct Zenodo default -- no SIARC-program community appears configured",
+      "detail": "Per zenodo_upload_ct_v13_runbook.md L137-138: `Communities: leave whatever v1.2 had (likely none, or `siarc-program` if you have a community)`. The `siarc-program` community ID is referenced as conditional. No bridge artefact at fire time records an actual SIARC community on Zenodo. **Implication for V0 deposit**: the operator should inspect the umbrella v2.0 Zenodo record (10.5281/zenodo.19965041) at deposit time and copy whatever `communities` array is present there. If empty, leave empty. The metadata template's `__SLOT_COMMUNITY_SIARC_PROGRAM_IF_EXISTS__` slot supports this.",
+      "review_priority": "LOW"
+    },
+    {
+      "id": "U5",
+      "title": "086 NEW_CANDIDATE_B4 mid-W20 landing may shorten 058 main-fire-V3 timeline",
+      "detail": "Bridge commit 213d23b (T2-R5-LIT-HUNT-TRIANGULATION 086) landed mid-2026-05-07 with verdict COMPLETE_PROVISIONAL_MAP / NEW_CANDIDATE_B4 cross-walk to 075 STRUCTURAL_MISMATCH B1 candidate, acquiring V1 + V2 PDFs and extracting V1 chart-map across 6 levels of parametrisation. Per 096 unexpected_finds U6: `Implication for 096 substrate: the M6.CC R1 carry-forward timeline may compress (R1 closure within W21 LANE-1 batch ratification rather than after a separate post-batch acquisition cycle), shortening the PRE_FIRE_INPUT-to-numerical-pinned transition`. **Implication for V0 deposit**: if 058 main-fire-V3 lands GO via the 086 chart-map cross-walk shortcut, the M6.CC GATE B closes earlier than the W21 mid-week forecast. Pre-flight checklist Row 2 may flip GO sooner than expected.",
+      "review_priority": "MEDIUM"
+    },
+    {
+      "id": "U6",
+      "title": "Path alpha vs path beta decision is not yet made, and 103 deposit-mechanics work is path-independent",
+      "detail": "Path alpha = synth analytic-guidance for chart-map; Path beta = literature acquisition (Jimbo-Miwa 1981 II / Conte-Musette 2008 / Forrester-Witte 2002). Either path closes M6.CC R1; both yield 058 V3 GO; both unblock the M9 V0 deposit. **Implication**: 103 templates require zero rework regardless of which path is chosen at W21 LANE-1 Mon. The deposit pipeline is path-decoupled.",
+      "review_priority": "LOW"
+    },
+    {
+      "id": "U7",
+      "title": "siarc-umbrella-v2-1-dispatch SQL todo unblocks immediately after V0 deposit",
+      "detail": "Per close_out_matrix_2026-05-07.md L133: `siarc-umbrella-v2-1-dispatch -- Bump umbrella v2.0 -> v2.1 to cite D2-NOTE v2.1 + bt_baseline_note v1.0; concept DOI 19965041`. Once M9 V0 lands on Zenodo, the umbrella v2.1 needs to absorb the new V0 reference too (umbrella as parent-of-V0 via isPartOf). **Implication**: the V0 deposit triggers a follow-on umbrella-v2.1 deposit. Operator should bundle these as a 2-step deposit cadence at W21 end.",
+      "review_priority": "LOW"
+    }
+  ]
+}

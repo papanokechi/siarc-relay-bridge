@@ -1,0 +1,183 @@
+================================================================
+submission_log Item N+1 splice template -- M9 SIARC-MASTER-V0
+================================================================
+
+Task ID: T1-M9-V0-DEPOSIT-MECHANICS-PRE-STAGE-103
+Fire date: 2026-05-07
+Bridge HEAD at fire time: 402c7de
+Canonical target file SHA-16 (at fire time):
+  tex/submitted/submission_log.txt = 2A28465AE39BADF5
+  Length: 17030 bytes; line count: 284
+
+----------------------------------------------------------------
+SECTION-LEVEL CONTEXT (file-as-of fire time)
+----------------------------------------------------------------
+
+The canonical submission_log.txt has TWO sections:
+
+  Section 1 -- Submitted Manuscripts (Journals)
+              Items 1-25 (currently lines 7..189)
+
+  Section 2 -- Recorded Submissions (https://zenodo.org/)
+              Items 1-10 (currently lines 205..277)
+              Header line: "Recorded Submissions (https://zenodo.org/)"
+              at line 203, with separator "--------------------" at L204.
+              Last current entry: Item 10 t2b_paper_draft_v5_withauthor.tex
+              with last "Verdict: N/A" at line 277.
+              "Note:" block at line 280 (followed by 2 lines of body
+              and the trailing ORCID URL at line 284).
+
+The M9 V0 deposit is a Zenodo publication. The splice point is in
+SECTION 2 (Recorded Submissions / Zenodo). Insert the new entry
+BEFORE the "Note:" block at L280 and AFTER the last "Verdict: N/A"
+of the highest-numbered current Item N.
+
+Highest current Section-2 Item N (at fire time): N = 10.
+Next item to add: N+1 = 11.
+
+----------------------------------------------------------------
+SUBSTRATE AUDIT FINDING (non-blocking; surfaced for operator)
+----------------------------------------------------------------
+
+Cross-check: RESUME_AFTER_REBOOT_20260502.txt L37-43 lists 7 published
+Zenodo deposits (umbrella v2.0, PCF-1 v1.3, PCF-2 v1.3, CT v1.3, T2B
+v3.0, D2-NOTE v2.1, plus umbrella v1 superseded). Section 2 of the
+canonical submission_log.txt currently captures ONLY 3 PCF-related
+items (Item 2 pcf_unified_arxiv 2026-04-10, Item 9 t2a_paper 2026-04-28,
+Item 10 t2b_paper_draft_v5 2026-04-30). MISSING from Section 2 (as of
+fire time 2026-05-07 13:00 file mtime):
+
+  - SIARC umbrella v2.0 (10.5281/zenodo.19965041; deposited 2026-05-02)
+  - PCF-1 v1.3 (10.5281/zenodo.19937196; deposited 2026-05-02)
+  - PCF-2 v1.3 (10.5281/zenodo.19963298; deposited 2026-05-02)
+  - Channel Theory v1.3 (10.5281/zenodo.19972394; deposited 2026-05-02)
+  - D2-NOTE v2.1 (10.5281/zenodo.20015923; deposited 2026-05-04)
+
+Operator decision at deposit time:
+  (i)  Backfill the 5 missing entries first as Items 11..15, then
+       add M9 V0 announcement as Item 16; or
+  (ii) Skip backfill and add M9 V0 as Item 11 (logging gap persists).
+
+The template below assumes path (i) is the intended cadence (matches
+the cleaner audit trail), but uses __ITEM_NUM__ slot so it works for
+either path.
+
+----------------------------------------------------------------
+SPLICE-POINT ANCHOR LINES (verbatim, fire-time)
+----------------------------------------------------------------
+
+Line 271-277 (last entry in Section 2 at fire time; insertion follows):
+
+10. Filename: t2b_paper_draft_v5_withauthor.tex
+    Title: Two arithmetic classes of degree-(2,1) Trans-stratum continued fractions: a Birkhoff-Trjitzinsky / Gauss-continued-fraction dichotomy
+    Submitted on: 30th Apr 2026
+    Status: Published on Zenodo (preprint, no journal review)
+    Submission ID: DOI 10.5281/zenodo.19915689
+    Concept DOI: 10.5281/zenodo.19783311
+    Version: 3.0
+    Notes: MM-01..MM-04 + UF-01 patches applied; coherent with UMB v3.0
+    Verdict: N/A
+
+(blank line)
+(blank line)
+Line 280: "Note:"
+
+INSERT THE NEW ITEM BLOCK BETWEEN line 277 (last "Verdict: N/A" of
+Item 10) AND line 280 ("Note:"), preserving the blank line spacing
+convention (one blank line between consecutive items).
+
+----------------------------------------------------------------
+TEMPLATE BLOCK (paste-ready; substitute __SLOT__ values)
+----------------------------------------------------------------
+
+__ITEM_NUM__. Filename: m9_v0_announcement.pdf
+    Title: SIARC Master Conjecture V0: Announcement of E / P_k / B Stratification and the __FUNCTOR_OR_ASSIGNMENT__ __NAME_FORM__
+    Submitted on: __DEPOSIT_DATE__
+    Status: Published on Zenodo (preprint; awaits SIARC umbrella v2.1 inclusion)
+    Submission ID: DOI 10.5281/zenodo.__NEW_VERSION_DOI__
+    Concept DOI: 10.5281/zenodo.__NEW_CONCEPT_DOI__
+    Version: 1.0
+    Notes: M9 V0 announcement. Two-tier framing per peer-AI synthesis Q4 4-of-4 AMEND consensus: V0 states the assignment-level Phi, with categorical-coherence verification deferred to M13. Deposit gates at fire time: M4 ratification (068 ACCEPT verdict, bridge __M4_RATIFY_BRIDGE_SHA__) + M6.CC R1-closure (058 main-fire-V3 GO verdict, bridge __M6_CC_RATIFY_BRIDGE_SHA__). Builds on 096 TIER-A substrate (bridge sessions/2026-05-07/T2-M9-V0-SUBSTRATE-PRE-STAGE-096/, 4F31AC3026FB6C34). Cross-cites: SIARC umbrella v2.0 (19965041) + PCF-1 v1.3 (19937196) + PCF-2 v1.3 (19963298) + CT v1.3 (19972394) + T2B v3.0 (19915689) + D2-NOTE v2.1 (20015923). Audience target: __AUDIENCE__ per 096 audience_framing.
+    Verdict: N/A
+
+----------------------------------------------------------------
+SLOT-FILL NOTES
+----------------------------------------------------------------
+
+__ITEM_NUM__       Operator decision per substrate-audit finding above.
+                   If backfilling missing 5 deposits first: 16.
+                   If skipping backfill: 11.
+
+__FUNCTOR_OR_ASSIGNMENT__ + __NAME_FORM__
+                   Per peer-AI synthesis Q4 (Reviewer A BS-2): if the
+                   announcement avoids the word "functor" entirely,
+                   use "Phi Assignment". If V0 prose uses "Phi
+                   correspondence", use "Phi Correspondence". The
+                   exact title-form must match the Zenodo metadata
+                   `title` field (use the same string in both).
+
+__DEPOSIT_DATE__   Format: `<DD>th <Mon> <YYYY>` to match existing
+                   submission_log entries (e.g. `15th May 2026`).
+                   Target W21 end: 2026-05-15 Fri.
+
+__NEW_VERSION_DOI__ + __NEW_CONCEPT_DOI__
+                   Zenodo mints both at "Publish" time. Capture from
+                   the published-record page; concept DOI sits one
+                   integer below version DOI per Zenodo allocation
+                   convention (RESUME_AFTER_REBOOT_20260502.txt L137-139
+                   gotcha note).
+
+__M4_RATIFY_BRIDGE_SHA__ + __M6_CC_RATIFY_BRIDGE_SHA__
+                   Short SHA-7 of the bridge commits where 068 ACCEPT
+                   verdict + 058 main-fire-V3 GO verdict landed.
+                   Operator obtains via `git log --oneline | head -20`
+                   in the bridge repo at deposit time.
+
+__AUDIENCE__       Per 096 audience_framing_and_venue_list.md \u00a73:
+                   default `math-ph + math.CA secondary + math.NT
+                   tertiary`. If operator preference (P7) overrides
+                   to (e.g.) Bull. AMS notice-style, use `general-
+                   mathematical Bull. AMS readership`.
+
+----------------------------------------------------------------
+HALT-GATE PRE-VERIFICATION (per relay 103 envelope STEP B.3)
+----------------------------------------------------------------
+
+HALT_103_SUBMISSION_LOG_LINE_LOCATION_MISMATCH check:
+
+  At fire time 2026-05-07 (file mtime 13:00:54):
+    "Note:" line confirmed at L280 by grep_search match.
+    Last "Verdict: N/A" of Section-2 Item 10 confirmed at L277.
+    Splice-point window L278-L279 (two blank lines).
+
+  This is a STATIC pre-verification snapshot. Operator should re-run
+  the line-location check at deposit time, since other sessions may
+  have edited submission_log.txt between fire and deposit. Re-run
+  command:
+
+    Select-String -Path "tex\\submitted\\submission_log.txt" `
+        -Pattern "^Note:$|^\\d+\\. Filename: t2b_paper" `
+        | Select-Object LineNumber, Line
+
+  Expected output (or close variant): t2b_paper line at L268-ish,
+  Note: line at L280-ish. If Note: line jumps by >5 from L280,
+  treat as drift; manually re-locate splice window.
+
+----------------------------------------------------------------
+IDEMPOTENCY GUARDS
+----------------------------------------------------------------
+
+Before splice, grep submission_log.txt for `m9_v0_announcement.pdf`
+or `M9 V0 announcement` at the prose level. If a hit exists, the
+template has already been pasted; do not re-paste.
+
+After splice, post-state checks:
+  - File line count grew by exactly the count of new lines in the
+    pasted block (count blank lines).
+  - The new __ITEM_NUM__ appears exactly once.
+  - The "Note:" line is still present and now at L280 + delta.
+  - The trailing ORCID URL is still present at the end.
+
+================================================================
+END OF TEMPLATE
+================================================================
