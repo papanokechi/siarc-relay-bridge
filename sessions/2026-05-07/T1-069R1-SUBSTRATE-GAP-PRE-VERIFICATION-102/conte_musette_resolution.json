@@ -1,57 +1,89 @@
 {
-  "ref_label_069r1": "Conte-Musette 2008 review",
-  "canonical_label": "Conte, R. & Musette, M. (2008) The Painlev\u00e9 Handbook (1st edition). Springer Netherlands, Dordrecht.",
-  "resolution_status": "RESOLVED",
-  "resolution_method": "Crossref API direct DOI lookup of 10.1007/978-1-4020-8491-1 + 10.1007/978-3-030-53340-3 to verify edition disambiguation",
-  "resolution_date_utc": "2026-05-07",
-  "primary_record_1st_edition_2008": {
-    "doi": "10.1007/978-1-4020-8491-1",
-    "title": "The Painlev\u00e9 Handbook",
-    "authors": ["Robert Conte", "Micheline Musette"],
-    "publisher": "Springer Netherlands",
-    "publisher_location": "Dordrecht",
-    "year": 2008,
-    "isbn_print": "9781402084904",
-    "isbn_electronic": "9781402084911",
-    "is_referenced_by_count_crossref": 5,
-    "doi_url": "https://doi.org/10.1007/978-1-4020-8491-1",
-    "verification_evidence": "Crossref returned matching title 'The Painlev\u00e9 Handbook', authors {Conte, Musette}, Springer Netherlands 2008, with electronic ISBN 9781402084911 corresponding to the 1st edition print release"
-  },
-  "alternative_record_2nd_edition_2020": {
-    "doi": "10.1007/978-3-030-53340-3",
-    "title": "The Painlev\u00e9 Handbook",
-    "authors": ["Robert Conte", "Micheline Musette"],
-    "publisher": "Springer International Publishing",
-    "publisher_location": "Cham",
-    "series": "Mathematical Physics Studies",
-    "year": 2020,
-    "isbn_print": "9783030533397",
-    "isbn_electronic": "9783030533403",
-    "is_referenced_by_count_crossref": 30,
-    "doi_url": "https://doi.org/10.1007/978-3-030-53340-3",
-    "edition_note": "2nd edition; expanded ~1.5x relative to 1st (1st edition has ~250 pp; 2nd has ~410 pp). Newer chapters cover discrete Painlev\u00e9 + multi-component reductions; chart-map material in ch. 5/7 of 1st ed retained and updated.",
-    "cross_reference_to_086_envelope": "T2-R5-LIT-HUNT-TRIANGULATION-086 used the 2nd edition as V5 (DOI 10.1007/978-3-030-53340-3); 069r1 cite 'Conte-Musette 2008' refers to the 1st edition specifically by year."
-  },
-  "discrepancies_with_069r1_cite": [
-    {
-      "discrepancy_id": "D3_069R1_EDITION_AMBIGUITY",
-      "069r1_cite": "Conte-Musette 2008 review",
-      "actual_finding": "069r1's '2008' year-stamp uniquely identifies the 1st edition (DOI 10.1007/978-1-4020-8491-1, Springer Netherlands). However, the 2nd edition (2020, DOI 10.1007/978-3-030-53340-3, Springer International) contains expanded coverage and is the version referenced in T2-R5-LIT-HUNT-TRIANGULATION-086.",
-      "severity": "minor / version-disambiguation",
-      "recommendation": "If 069r1 substrate path requires the 2nd edition's expanded material on discrete Painlev\u00e9 or multi-component reductions, synth should switch to 2nd ed. Otherwise the 1st ed (069r1's literal cite) is sufficient."
-    }
+  "task_id": "T1-069R1-SUBSTRATE-GAP-PRE-VERIFICATION-102",
+  "ref_id": "CM2008",
+  "as_cited_in_069r1": "Conte-Musette 2008 review",
+  "as_cited_verbatim_069r1_handoff_lines": [
+    "L52: 'alternative literature acquisitions (Jimbo-Miwa 1981 papers I-V, Conte-Musette 2008 review, Forrester-Witte 2002)'",
+    "L65: 'add Jimbo-Miwa 1981 Part II + Conte-Musette 2008 review + Forrester-Witte 2002 to slot inventory'"
   ],
-  "accessibility_tier": 3,
-  "accessibility_tier_definition": "Tier 3 = paywalled with no open-access preprint; institutional ILL or purchase required",
-  "accessibility_evidence": {
-    "1st_edition_2008": "Springer Netherlands subscription/purchase required via link.springer.com/book/10.1007/978-1-4020-8491-1; purchase price typically USD 80-130 for hardback or chapter-pay-per-view USD 30/chapter; institutional access via SpringerLink common at Japanese universities; print copy may be borrowable via Yokohama-area library ILL.",
-    "2nd_edition_2020": "Springer International subscription/purchase required via link.springer.com/book/10.1007/978-3-030-53340-3; purchase price typically USD 100-150; institutional access wider (more recent).",
-    "open_access_alternative": "None. Conte's personal website (https://crconte.pagesperso-orange.fr/) hosts a few related preprint chapters but not the full Handbook. Some chapter-level early drafts may be on HAL but require manual verification."
+  "resolution_status": "RESOLVED_CLEAN_1ST_EDITION_WITH_2ND_EDITION_DISAMBIGUATION",
+  "resolution_basis": "Crossref book DOI metadata (10.1007/978-1-4020-8491-1) + corroboration from CONTE-MUSETTE-CH7-FINAL-ACQUISITION-PROBE (bridge commit fce68d9, 2026-05-04); 102 spot-confirmed via doi.org redirect to idp.springer.com authorize endpoint at fire time",
+  "first_edition_canonical_record": {
+    "authors": ["R. Conte", "M. Musette"],
+    "title": "The Painleve Handbook",
+    "edition": "1st",
+    "year": 2008,
+    "publisher": "Springer Netherlands (Dordrecht)",
+    "series": "implicit (CRM Series in Mathematical Physics co-imprint)",
+    "isbn_print": "978-1-4020-8490-4",
+    "isbn_electronic": "978-1-4020-8491-1",
+    "doi_book": "10.1007/978-1-4020-8491-1",
+    "publisher_url": "https://link.springer.com/book/10.1007/978-1-4020-8491-1",
+    "page_count_approx": 256,
+    "first_author_surname_check": "Conte (PASS)",
+    "author_count": 2
   },
-  "estimated_acquisition_cost_usd": "80-150 for full book purchase; $0 via institutional ILL; ~30/chapter for SpringerLink chapter pay-per-view",
-  "primary_substrate_gap_target": {
-    "preferred_chapters_for_069r1_F1_chart_map": ["Ch. 5 (Painlev\u00e9 property test for ODEs)", "Ch. 7 (Multi-scale and perturbation reductions)"],
-    "rationale": "Conte-Musette 1st ed serves as analytic-guidance fallback (Path \u03b1) for 069r1. Ch. 5 provides the Painlev\u00e9-Kowalevski test framework needed to verify chart-map well-definedness; Ch. 7 covers the perturbative reductions that may close the (a_0,a_1,a_2)\u2192(\u03b1_inf,\u03b1_0,\u03b2_inf,\u03b2_0) namespace mapping. Ch. 5 is the higher-priority chapter for the F1 substrate gap.",
-    "sufficiency_for_chart_map": "Conte-Musette 1st ed alone is INSUFFICIENT to close the specific P_III \u03c4-function bridge needed at A.1.5.F1 (Conte-Musette covers Painlev\u00e9 property + general reductions but not the random-matrix \u03c4-function characterization). Pairing with Forrester-Witte 2002 (10.1002/cpa.3021) closes the gap. Pairing with Jimbo-Miwa Part II (10.1016/0167-2789(81)90021-X) provides the original isomonodromic-deformation derivation."
+  "second_edition_record": {
+    "title": "The Painleve Handbook",
+    "edition": "2nd",
+    "year": 2020,
+    "publisher": "Springer International (Cham)",
+    "series": "Mathematical Physics Studies",
+    "doi_book": "10.1007/978-3-030-53340-3",
+    "isbn_electronic": "978-3-030-53340-3",
+    "ch7_title_2nd_ed": "Discrete nonlinear equations (verified at fce68d9 CM-CH7-FINAL-ACQUISITION-PROBE)",
+    "note": "2nd edition supersedes 1st in current practice + has expanded discrete-Painleve content. Operator-side ILL acquisition could target either edition; 2nd ed is stronger primary anchor for newer material.",
+    "used_in_other_envelopes": "T2-R5-LIT-HUNT-TRIANGULATION-086 V5 used the 2nd ed (per discrepancy_log D3 cross-reference)"
+  },
+  "069r1_substrate_gap_target_chapter": {
+    "most_likely_chapter": "AMBIGUOUS_NOT_PINNED_BY_069R1",
+    "candidate_chapters": {
+      "ch5_painleve_property": "Standard chapter on Painleve property; could plausibly host parameter-system definition",
+      "ch6_multiscale_or_methods": "Multi-scale / asymptotic methods; less likely to host 4-tuple chart-map",
+      "ch7_discrete_painleve_or_algorithmic_test": "1st ed exact title unverified by direct readback at fce68d9; 2nd ed ch7 = 'Discrete nonlinear equations' (less likely host for surface-type chart-map)"
+    },
+    "justification": "069r1 handoff names CM2008 only as 'Conte-Musette 2008 review' without chapter pin. CM book is a Painleve-handbook genre review; the 4-tuple chart-map question is surface-type / Sakai D_6 / KNY 2017 territory which is not the Painleve-property + algorithmic-test focus of CM ch7.",
+    "prior_finding_severity": "ADVERSE_LIKELY_NOT_HOST",
+    "implication_for_069r2": "CM2008 review is unlikely primary host for the explicit (a_0,a_1,a_2) -> (alpha_inf, alpha_0, beta_inf, beta_0) chart-map. May contain background on PIII parameter conventions but the surface-type / Sakai / KNY identification is post-CM2008 territory (Sakai 2001 + KNY 2017 are the canonical candidates for this question per JIMBO-MIWA-1981-II-ACQUISITION sub-finding)."
+  },
+  "halt_gate_doi_drift": "PASS",
+  "halt_gate_authorship": "PASS (R. Conte + M. Musette; no third author at 1st ed)",
+  "accessibility_tier": 3,
+  "accessibility_detail": {
+    "tier_definition": "3 = paywall + ILL-only (1-2 week acquisition)",
+    "open_access": {
+      "arxiv": "NOT_AVAILABLE (book chapter; arXiv search returned 0 results in fce68d9)",
+      "internet_archive": "NOT_FOUND (404 + 0 metadata results in fce68d9)",
+      "author_website": "NOT_FOUND (Conte ENS Paris-Saclay; Musette VUB Brussels; PDFs not posted at probe time)",
+      "google_books": "PARTIAL_PREVIEW_ONLY (paywalled SpringerLink URLs surface)",
+      "researchgate": "NOT_VERIFIED",
+      "worldcat": "OCLC 233937481; HTTP 403 to anonymous fetch (fce68d9)"
+    },
+    "publisher": {
+      "url": "https://link.springer.com/book/10.1007/978-1-4020-8491-1",
+      "paywall": true,
+      "auth_redirect": "idp.springer.com authorize (Rule 1 stop pattern)",
+      "estimated_cost_usd": "~129 hardcover; chapter purchase ~30-40 each"
+    },
+    "library": {
+      "primary_target_jp": "Univ. of Tokyo library; Tokyo Inst. of Tech.; RIKEN libraries",
+      "secondary_target_jp": "Yokohama City Univ. ILL via NDL Tokyo",
+      "ill_timeline_estimate_days": "7-14"
+    },
+    "open_access_companion_papers": {
+      "note": "CM-CH7-PROBE surfaced arXiv:2503.00834 (Conte-Musette-Ng-Wu 2025) and arXiv:1806.03177 (Conte-Musette 2018) as OA Painleve-test review companions but neither is the book chapter itself."
+    }
+  },
+  "acquisition_recommendation": "Already operator-side ILL-recommended per CM-CH7-FINAL-ACQUISITION-PROBE. 102 does NOT change recommendation. If 069r2 path-delta authorized, target both 1st ed ch5/ch6/ch7 AND 2nd ed (2020) ch7 'Discrete nonlinear equations' for complete coverage.",
+  "substrate_gap_chapter_section_mapping": {
+    "069r1_substrate_gap_description": "explicit (a_0, a_1, a_2) -> (alpha_inf, alpha_0, beta_inf, beta_0) chart-map for CT v1.3 sec 3.5 4-tuple = (1/6, 0, 0, -1/2)",
+    "expected_cm_filler_section": "UNDETERMINED (069r1 does not pin chapter; book scope partly off-target relative to surface-type chart-map question)",
+    "prior_finding_substance": "CM book focuses on Painleve property + algorithmic Painleve test + tau-function methodology; the surface-type / Sakai D_6 / 4-tuple parametrisation is the territory of Sakai 2001 + KNY 2017 which post-date and supersede CM2008 1st edition for this question.",
+    "implication_for_069r2": "Probability that CM2008 directly fills the chart-map gap = LOW. Probability that CM2008 contains background context (PIII parameter conventions, monodromy data) = MODERATE. Recommend acquisition only if Sakai 2001 + KNY 2017 paths are also exhausted."
+  },
+  "supersession_note": "Prior LANDED fire CONTE-MUSETTE-CH7-FINAL-ACQUISITION-PROBE (fce68d9) already executed bibliographic confirmation + 7-OA-route accessibility probe. 102 does NOT re-execute; 102 emits this resolution as pre-verification record citing prior fire + adds 2nd-edition disambiguation. Disposition: NO_HALT, scope reduced to citation + spot-confirm + edition disambiguation.",
+  "spot_confirm_2026_05_07": {
+    "doi_redirect_observed": "link.springer.com/book/10.1007/978-1-4020-8491-1 -> idp.springer.com/authorize?response_type=cookie&client_id=springerlink (HTTP 302; SpringerLink record live but auth-walled at 102 fire time)",
+    "fetch_timestamp_utc": "2026-05-07T~13:00 (102 Phase A fire window)"
   }
 }
