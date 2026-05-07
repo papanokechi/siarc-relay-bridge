@@ -1,0 +1,48 @@
+{
+  "session_id": "T2-LANE1-CROSS-DOSSIER-COUPLING-ANALYSIS-080",
+  "discrepancies": [
+    {
+      "id": "D-080-1",
+      "tag": "NON-BLOCKING",
+      "summary": "075 synthesizer_decision_packet.md does not enumerate a literal multi-option PICK menu (cf. 077's 10 options or 079's 7 options); only emits a single verdict (STRUCTURAL_MISMATCH) plus contingent-076 forward-pointer plus 4 carry-forward + 2 NEW open questions.",
+      "resolution": "Phase B emitted dossier_decision_vector_075.md with explicit META-policy disclosure of structural-label decomposition (4 leaves) and forwarded to amendment note N-080-6 for synth review.",
+      "blocks_phase": "none",
+      "anchored_by_amendment_note": "N-080-6"
+    },
+    {
+      "id": "D-080-2",
+      "tag": "NON-BLOCKING",
+      "summary": "Relay-080 envelope section 7 references 'arXiv mirror submission', 'Zenodo umbrella v2.1 deposit', and 'Item-26 splice' as post-LANE-1 envelopes (currently UNNUMBERED placeholders), but no corresponding event is named in any of the 5 dossier handoffs or 076 GATED preflight envelope (the substrate set restricted by spec section 2.D).",
+      "resolution": "Phase D temporal_ordering_dag.md surfaced these as <gap-1>, <gap-2>, <gap-3> derivation-gap edges and forwarded to amendment notes N-080-2, N-080-3, N-080-4.",
+      "blocks_phase": "none",
+      "anchored_by_amendment_notes": ["N-080-2", "N-080-3", "N-080-4"]
+    },
+    {
+      "id": "D-080-3",
+      "tag": "NON-BLOCKING",
+      "summary": "077 packet does not name a discrete X-event for any PICK_Bn deposit; only 'Synthesizer review of 077 dossier at W21 LANE-1 to pick from the 10-option decision menu' (handoff Recommended next step).",
+      "resolution": "Phase D surfaced as <gap-4> derivation-gap edge and forwarded to amendment note N-080-5.",
+      "blocks_phase": "none",
+      "anchored_by_amendment_note": "N-080-5"
+    },
+    {
+      "id": "D-080-4",
+      "tag": "NON-BLOCKING",
+      "summary": "074 -> 078 coupling chain admits both OUTPUT-COUPLED and TEMPORAL-COUPLED readings (multi-step indirect chain via PCF-1 v1.4 amendment -> mirror status -> G2 OPTIONAL fire). Strength of coupling cannot be definitively resolved from substrate at fire time.",
+      "resolution": "Phase C cross_dossier_coupling_matrix.md tagged as AMBIGUOUS [COUPLING-C3] with documentation in matrix section C.4 of the secondary TEMPORAL reading; forwarded to amendment note N-080-1.",
+      "blocks_phase": "none",
+      "anchored_by_amendment_note": "N-080-1"
+    },
+    {
+      "id": "D-080-5",
+      "tag": "NON-BLOCKING",
+      "summary": "075 raises 2 NEW open questions (OQ-075-PRIMITIVE-CANONICAL canonicalization scope; OQ-075-076-DRAFTING-LANE timing) for synth review. Per HALT_080_NEW_QUESTION_INTRODUCED these were not introduced by the agent at 080 but pre-existing in 075 substrate; they trace back to 075 handoff Anomalies section 'Open questions for Claude'.",
+      "resolution": "Phase F amendment notes N-080-7 and N-080-8 documented these as 075-substrate-traced questions, not 080-agent-introduced ones.",
+      "blocks_phase": "none",
+      "anchored_by_amendment_notes": ["N-080-7", "N-080-8"]
+    }
+  ],
+  "discrepancies_count": 5,
+  "blocking_count": 0,
+  "non_blocking_count": 5
+}

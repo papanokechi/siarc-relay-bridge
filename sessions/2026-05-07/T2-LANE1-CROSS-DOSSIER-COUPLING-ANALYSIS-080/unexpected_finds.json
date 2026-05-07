@@ -1,0 +1,26 @@
+{
+  "session_id": "T2-LANE1-CROSS-DOSSIER-COUPLING-ANALYSIS-080",
+  "unexpected_finds": [
+    {
+      "id": "U-080-1",
+      "summary": "076 GATED preflight envelope (sessions/2026-05-07/T3-PATH-DELTA-LIT-RECON-076/) was NOT included as a 6th LANE-1 dossier in the matrix dimensionality but exists as a fire-gated artifact authored by 075. Per envelope section 2.A the substrate set is '5 dossier handoffs + 076 GATED preflight envelope + W21 LANE-1 quintet+1 plan in sessions/2026-05-07/*/handoff.md' which means 076 is a substrate input for derivations but NOT itself a 6th matrix dimension.",
+      "agent_response": "Phase A substrate_anchor_shas.md inventoried 076 envelope at section A.6 with full SHA + lines + status (GATED). Phase C 5x5 matrix matrix_id field documents the dimensionality is 5x5 (074/075/077/078/079) with 076 used as a derivation input only, not a matrix axis. Phase D X5 (076 path-delta literature recon) is gated on D2 (075 absorb) per the GATES line of the 076 envelope."
+    },
+    {
+      "id": "U-080-2",
+      "summary": "078 dossier verdict tag is DOSSIER_PARTIAL (not DOSSIER_COMPLETE) due to Tier-2 OOB HANDLE_404 outstanding for 3 of 5 GAP-CANDIDATEs (Sauzin, Costin, Beukers). LANE-1 absorption is permitted under PARTIAL status (per 078 handoff verdict line: 'Absorbable at W21 LANE-1 contingent on synth's choice from 9-option menu including WAIT_FOR_TIER2_CONFIRM').",
+      "agent_response": "Phase A section A.8 status table records DOSSIER_PARTIAL. Phase B dossier_decision_vector_078.md surfaced WAIT_FOR_TIER2_CONFIRM as one of the 9 enumerated options. Phase E LANE-1.4 sub-tree includes WAIT_FOR_TIER2_CONFIRM as a leaf with 'no immediate dispatch / W22 LANE-1 absorption' annotation."
+    },
+    {
+      "id": "U-080-3",
+      "summary": "Phase E decision-tree leaf-product cardinality is 4*4*10*9*7=10080 (raw, before DECISION-COUPLED narrowing). Effective cardinality after [COUPLING-C4] DECISION-COUPLED narrowing of LANE-1.4 by LANE-1.3 is significantly reduced (precise count not asserted per HALT_080_DECISION_OVERREACH).",
+      "agent_response": "Phase E section E.4 leaf count summary records both raw 10080 cardinality and meta-policy disclosure that effective cardinality is synth-scope. No agent-side ranking of leaves performed."
+    },
+    {
+      "id": "U-080-4",
+      "summary": "075's 4 LANE-1.2 leaves are agent-constructed structural labels (not verbatim from 075 packet). This is the only sub-tree in Phase E where leaf labels are not 1:1 verbatim from substrate.",
+      "agent_response": "Phase E section E.1 META-policy disclosure explicitly flags this. Phase F amendment note N-080-6 forwards to synth for canonicalization review."
+    }
+  ],
+  "unexpected_finds_count": 4
+}
