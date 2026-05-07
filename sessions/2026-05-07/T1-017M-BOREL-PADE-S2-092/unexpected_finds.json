@@ -1,0 +1,29 @@
+{
+  "task_id": "T1-017M-BOREL-PADE-S2-092",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "label": "Pade [N/M] at small (N,M) = {6..18} produces 49/49 OK cells across all four reps -- no RANK_LOSS",
+      "description": "T37M's Pade ladder at M_in in {200..800} returned 9/12 RANK_LOSS per rep (Hankel system numerically singular at coefficient decay rate |b_n|~10^-65 at n=800). The present 092 sweep at N+M <= 36 produced 196/196 OK approximants across the four reps, demonstrating that the small-(N,M) regime is well-conditioned even at dps=300. This validates the 092 spec's design choice of small-N,M relative to T37M's high-order regime as the correct way to operate within Pade-stability tolerance.",
+      "significance": "Methodological -- confirms small-(N,M) sweep is a viable feasibility-test regime even when high-order extraction fails."
+    },
+    {
+      "id": "U2",
+      "label": "Pole nearest u=2 reaches as close as 0.005 (QL15 [16,14]) but residue does not stabilise at neighbors",
+      "description": "Specific (N,M) cells produce Padé poles VERY near u=2: QL15 at (16,14) yields pole at distance 0.00537 from u=2, and (10,18) yields pole at distance 0.0450; QL15 at (12,18) yields pole at distance 0.0200. These are consistent with a Padé approximant beginning to resolve the sub-leading singularity. However the residues at these poles vary by 1-2 orders across adjacent cells, so the candidate S_2 values do not stabilise. Suggests that with K_LEAD subtraction (a la T37M) at small Padé order, a meaningful S_2 might emerge -- but the 092 spec deliberately tested raw-series methodology to bound the negative result.",
+      "significance": "Forward-pointer for any future M8b fire: small-Pade subtracted variant remains uncharted (T37M did subtracted-high-order, 092 did raw-low-order, the small-Pade subtracted quadrant is the open opportunity)."
+    },
+    {
+      "id": "U3",
+      "label": "QL05 displays markedly wider |S_2 candidate| spread than other reps (76.85x vs 2.14-10.08x)",
+      "description": "QL05's |S_2 candidate| ranges from 0.012 to 933 across the 49 cells (>4 orders of magnitude). The other reps stay within 1-2 orders. QL05 is the only rep with side='pos' and zeta_star=4.0 exactly (other three: side='neg', zeta_star=2.309 or 2.828). This suggests Padé-fragility correlates with rep family (positive vs negative side, integer-vs-irrational zeta_star). Worth flagging if T2C precision-escalation monitor revisits QL05.",
+      "significance": "Anomalous-rep flag; may inform future rep-selection for Borel-Pade resurgence work."
+    },
+    {
+      "id": "U4",
+      "label": "Pade approximants of real-coefficient series have structurally Im=0 candidates; T35-convention sign-imaginary is a contour artifact, not a Padé output",
+      "description": "All 49 candidate-S_2 values across all 4 reps have Im=0 to mp.dps=300 precision. This is by-construction (real Birkhoff-series coefficients -> real Borel-coefficient series -> real Padé coefficients -> real residues). The factor of i in T35's Stokes convention S_1 = 2*pi*i*C arises from the Borel-Laplace contour discontinuity around the cut, not from the Padé approximant itself. For magnitude comparison this is fine; for genuine extraction one would need to integrate the Padé over a Stokes contour. Documented for methodological clarity.",
+      "significance": "Methodological clarification -- not a defect, but worth annotating for any future Borel-Pade work."
+    }
+  ]
+}

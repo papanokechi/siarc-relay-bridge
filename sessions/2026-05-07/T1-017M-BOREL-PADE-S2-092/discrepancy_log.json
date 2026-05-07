@@ -1,0 +1,40 @@
+{
+  "task_id": "T1-017M-BOREL-PADE-S2-092",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "non-blocking",
+      "label": "017L vs 017m vs 017e prompt-numbering ambiguity in 092 spec",
+      "description": "Relay 092 references the '017L LSQ-residual recurrence substrate' and '017L baseline residual' (Phase A.P3, P5), but the prompt-archive shows the LSQ-baseline cascade as 017c -> 017e (-> 017m direct Borel-Pade). The 'L' suffix is not present in tex/submitted/control center/prompt/. The cli_log/2026-W19.md G6b residual classification cited in the prompt (rel half-range ~10^217) matches T37E's findings precisely. Resolution: treated 'the 017L LSQ baseline' as referring to T37E (extended-recurrence LSQ at dps=400/N=5000 with rel half-range ~10^217 for Stage-2 D extraction). Substrate location verified at sessions/2026-05-02/T37E-EXTENDED-RECURRENCE/ with SHA anchors for all four rep CSVs.",
+      "impact": "None on numerical conclusions. Documented for prompt-archive cross-reference."
+    },
+    {
+      "id": "D2",
+      "severity": "non-blocking",
+      "label": "Methodological choice: raw vs leading-sector-subtracted Borel transform",
+      "description": "Relay 092 spec phase B1 says 'formal Borel transform of the 017L asymptotic series (or its trans-series sector containing S_2)'. Two plausible methodologies: (a) raw a_n / n! Borel transform with both u=1 (S_1) and u=2 (S_2) singularities present; Pade resolves both jointly. (b) leading-sector-subtracted residual, isolating sub-leading singularity at u=2. T37M took approach (b) at high Pade order and got RANK_LOSS. The present 092 fire takes approach (a) at small Pade order. Both regimes yield non-extractable S_2 -- methodology robust to choice.",
+      "impact": "None on verdict. Explicitly noted as an unspecified-by-prompt judgment call J2 in handoff."
+    },
+    {
+      "id": "D3",
+      "severity": "non-blocking",
+      "label": "Stokes-constant convention factor of i suppressed in Pade extraction",
+      "description": "T35 reports Stokes constants as pure imaginary (S_1 = 2*pi*i*C with C real). Padé approximants of real-coefficient series have real coefficients and produce real residues; the Stokes-jump factor of i emerges from the Borel-Laplace contour discontinuity, not from the Padé construction itself. Our reported 'S_2 candidate' values are MAGNITUDES (real) rather than the formally-imaginary T35-convention values. For magnitude comparison this is sufficient; for sign-coherence diagnostics we report Im(S_2 candidate) which is structurally zero across all 49*4 cells (consistent with real Pade arithmetic).",
+      "impact": "None on verdict (the verdict is PERMANENT_RESIDUAL based on lack of magnitude convergence). Documented for completeness."
+    },
+    {
+      "id": "D4",
+      "severity": "non-blocking",
+      "label": "M8b axis singular-vs-plural rep choice",
+      "description": "Relay 092 phrases the task as 'extract S_2 in the trans-series expansion governing the M8b axis' (singular). 017m's natural deliverable is per-rep (V_quad/QL15/QL05/QL09 = 4 reps used to discriminate the M8b axis hypothesis). Resolution: ran the sweep on all four reps and aggregated to a single M8b axis verdict (logical OR over rep verdicts: any rep EXTRACTED -> axis closed; all rep PERMANENT_RESIDUAL -> axis closure-by-residual-acceptance). No rep extracted; aggregate verdict = M8b_S2_PERMANENT_RESIDUAL_VIA_BOREL_PADE.",
+      "impact": "None. Per-rep verdicts also reported."
+    },
+    {
+      "id": "D5",
+      "severity": "non-blocking",
+      "label": "QL05 anomalously high relative half-range (76.85)",
+      "description": "Among the four reps, QL05's |S_2 candidate| spans the widest range (76.85x relative half-range, vs 2.14-10.08x for the other three). QL05 is also the only rep with zeta_star = 4.0 exactly (vs 2.30940... for V_quad/QL15 and 2.82842... for QL09). The wider QL05 spread may reflect that its Stokes-line geometry differs structurally (specifically: QL05 is the only rep with side='pos' in T35; A_pred=4 vs A_pred=3 for the others). Surface as anomaly for T1 Synth W21 cadence review.",
+      "impact": "None on M8b verdict (all four reps independently fail the convergence threshold). May warrant separate investigation if a future fire targets QL05 specifically."
+    }
+  ]
+}
