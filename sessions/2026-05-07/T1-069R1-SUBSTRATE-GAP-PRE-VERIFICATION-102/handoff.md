@@ -98,7 +98,7 @@ Three unexpected finds recorded in `unexpected_finds.json`:
 
 - **U3_FW_2002_OA_VIA_ARXIV** — Forrester-Witte 2002 has open-access arXiv preprint
   (math-ph/0201051), reducing the literature-acquisition burden for 069r2 from
-  3 papers to potentially 1 (JM Part II) or 0 (if Path γ proves sufficient). This
+  3 papers to potentially 1 (JM Part II) or 0 (if Path γ is sufficient). This
   is the highest-impact finding of the pre-verification; it shifts the 069r2
   acquisition envelope from a multi-paper ILL chain to a single-paper-or-none
   scenario.

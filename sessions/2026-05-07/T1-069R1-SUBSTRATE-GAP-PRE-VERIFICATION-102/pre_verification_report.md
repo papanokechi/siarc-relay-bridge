@@ -1,226 +1,330 @@
-# Pre-Verification Report — T1-069R1-SUBSTRATE-GAP-PRE-VERIFICATION-102
+# Pre-Verification Report — 069r1 Substrate-Gap Bibliographic Identifiers
 
-**Task:** Canonical bibliographic-identifier resolution + accessibility-tier classification
-for the three references cited in the 069r1 NO_GO_SUBSTRATE_INSUFFICIENT verdict.
-
-**Anchor verdict:** 069r1 (commit `601500b`,
-sessions/2026-05-07/M6-CC-R1-CLOSURE-PREFLIGHT-069R1/), verdict
-`NO_GO_SUBSTRATE_INSUFFICIENT`, both paths (α = KNY chart-shift Δ; β =
-Okamoto 1987 §3 τ-function reparametrisation) closed at A.1.5 substrate gap.
-Substrate-gap content per 058R `phase_b_canonical_map.md` L136-140: the explicit
-`(a_0, a_1, a_2) → (α_inf, α_0, β_inf, β_0)` chart-map IS the open R1 itself.
-
+**Task:** T1-069R1-SUBSTRATE-GAP-PRE-VERIFICATION-102
 **Date:** 2026-05-07
-**Bridge HEAD at fire:** `402c7de`
-**069r1 anchor commit:** `601500b` (reachable, confirmed via `git log --all --oneline 601500b`)
-
-**Scope:** Canonical-ID resolution + accessibility-tier classification ONLY.
-NO PDF acquisition. NO substrate-gap closure. NO 069r2 R1-CLOSURE FIRE drafting.
-
----
-
-## 1. Resolution summary
-
-| 069r1 cite                       | Canonical DOI                              | arXiv         | Tier | Resolution |
-|----------------------------------|--------------------------------------------|---------------|------|------------|
-| Jimbo-Miwa 1981 papers I-V       | 10.1016/0167-2789(81)90013-0 (Part I, JMU) | n/a (pre-arXiv) | 3   | RESOLVED (with discrepancy: only Parts I-III exist; Part I has 3rd author Ueno) |
-|                                  | 10.1016/0167-2789(81)90021-X (Part II)     | n/a           | 3    | RESOLVED |
-|                                  | 10.1016/0167-2789(81)90003-8 (Part III)    | n/a           | 3    | RESOLVED |
-| Conte-Musette 2008 review        | 10.1007/978-1-4020-8491-1 (1st ed)         | n/a           | 3    | RESOLVED |
-| Forrester-Witte 2002             | 10.1002/cpa.3021 (CPA 55(6))               | math-ph/0201051 | 1  | RESOLVED |
-
-**Verdict candidate:** **V2 — ALL_3_RESOLVED_MIXED_ACCESSIBILITY**
-
-All three 069r1-cited references resolve to canonical DOIs; one is open-access
-(Forrester-Witte 2002 via arXiv:math-ph/0201051), two are paywalled (Jimbo-Miwa
-Physica D series + Conte-Musette 1st ed).
+**Agent:** GitHub Copilot (VS Code)
+**Cadence:** T1-light agent (pre-LANE-1; W21 substrate)
+**Bridge HEAD at fire time:** `402c7de`
+**Anchor (069r1):** bridge commit `601500b` — verdict `NO_GO_SUBSTRATE_INSUFFICIENT`
 
 ---
 
-## 2. Per-reference canonical records
+## 1. Purpose
 
-### 2.1 Jimbo-Miwa-Ueno (1981) — Physica D series
+Pre-verify the three bibliographic identifiers cited by 069r1 handoff
+as candidate literature-acquisition targets for 069r2 path-delta, so
+W21 LANE-1 Mon 2026-05-12 synth-tier session has clean substrate to
+choose between (a) analytic-guidance and (b) targeted literature
+acquisition.
 
-The 069r1 cite "Jimbo-Miwa 1981 papers I-V" refers to a three-part Physica D
-series (NOT five parts). Full canonical metadata recorded in
-[jimbo_miwa_resolution.json](jimbo_miwa_resolution.json). Summary:
-
-- **Part I** (DOI [10.1016/0167-2789(81)90013-0](https://doi.org/10.1016/0167-2789(81)90013-0))
-  — Jimbo, Miwa, Ueno, Physica D 2(2):306-352, April 1981. **Three authors, including Ueno.**
-- **Part II** (DOI [10.1016/0167-2789(81)90021-X](https://doi.org/10.1016/0167-2789(81)90021-X))
-  — Jimbo, Miwa, Physica D 2(3):407-448, June 1981. **Most directly relevant for P_III τ-function.**
-- **Part III** (DOI [10.1016/0167-2789(81)90003-8](https://doi.org/10.1016/0167-2789(81)90003-8))
-  — Jimbo, Miwa, Physica D 4(1):26-46, October 1981.
-
-Discrepancies with 069r1 cite (recorded in [discrepancy_log.json](discrepancy_log.json)):
-- **D1_069R1_PART_COUNT** — 069r1 says "I-V" but only Parts I, II, III exist in Physica D under
-  this title. Likely conflation with the four 1980 Proc. Japan Acad. precursor notes
-  (10.3792/pjaa.56.{143,149,269,301}).
-- **D2_069R1_AUTHOR_SHORTHAND** — Part I has three authors {Jimbo, Miwa, Ueno}; "Jimbo-Miwa"
-  is field-shorthand omitting Ueno.
-
-Auxiliary open-access precursors (Project Euclid, 1980, all Tier 1):
-`10.3792/pjaa.56.143` (I), `10.3792/pjaa.56.149` (II), `10.3792/pjaa.56.269` (III),
-`10.3792/pjaa.56.301` (IV, Miwa solo).
-
-### 2.2 Conte-Musette (2008) — The Painlevé Handbook (1st ed)
-
-DOI [10.1007/978-1-4020-8491-1](https://doi.org/10.1007/978-1-4020-8491-1) — Conte & Musette,
-Springer Netherlands, Dordrecht, 2008. ISBN 9781402084904 (print) /
-9781402084911 (electronic). Full record in
-[conte_musette_resolution.json](conte_musette_resolution.json).
-
-A 2nd edition (2020, DOI [10.1007/978-3-030-53340-3](https://doi.org/10.1007/978-3-030-53340-3),
-Springer International Cham, Mathematical Physics Studies series) exists with
-expanded coverage; this is the version referenced by sibling envelope T2-R5-LIT-HUNT-TRIANGULATION-086.
-069r1's "2008" year-stamp uniquely identifies the 1st edition.
-
-Discrepancy:
-- **D3_069R1_EDITION_AMBIGUITY** — 069r1 cite is unambiguous to 1st ed by year, but synth at
-  LANE-1 should consider whether 2nd ed's expanded discrete-Painlevé and multi-component-reduction
-  material is relevant before final acquisition.
-
-### 2.3 Forrester-Witte (2002) — CPA 55(6)
-
-DOI [10.1002/cpa.3021](https://doi.org/10.1002/cpa.3021) — Forrester & Witte,
-"Application of the τ-function theory of Painlevé equations to random matrices:
-P_V, P_III, the LUE, JUE, and CUE", *Comm. Pure Appl. Math.* 55(6):679-727,
-March 2002 (online) / June 2002 (print). arXiv preprint
-[math-ph/0201051](https://arxiv.org/abs/math-ph/0201051) (submitted 2002-01-24).
-Full record in [forrester_witte_resolution.json](forrester_witte_resolution.json).
-
-Disambiguation: the 069r1 "Forrester-Witte 2002" cite resolves uniquely to this paper;
-flanking candidates (CMP 2001 PIV/PII/GUE; Nagoya 2004 PVI; ANZIAM 2002 short note;
-Nonlinearity 2003 discrete Painlevé) are year-mismatched OR topically off (none treat
-P_III with substantive τ-function development).
-
-Discrepancy:
-- **D4_069R1_FW_AMBIGUITY** — multiple Forrester-Witte papers in the τ-function/Painlevé
-  series; 069r1 year-stamp uniquely picks CPA 2002 (P_V/P_III/LUE/JUE/CUE).
+Per stored memory `Bibliographic identifier pre-verification`
+(post-031 WITTE-FORRESTER-2010 verdict), all DOI / arXiv identifiers
+cited as acquisition targets must be pre-resolved *before* the relay
+prompt fires. This report IS that pre-resolution.
 
 ---
 
-## 3. Accessibility tier matrix
+## 2. Verbatim 069r1 substrate-gap context
 
-Tier definitions:
-- **Tier 1** = open-access (free, no acquisition action required)
-- **Tier 2** = preprint-archive accessible (e.g., arXiv) but final-record paywalled
-- **Tier 3** = paywall (requires institutional ILL or pay-per-view purchase)
-- **Tier 4** = closed/withdrawn/inaccessible
+Source: `siarc-relay-bridge/sessions/2026-05-07/M6-CC-R1-CLOSURE-PREFLIGHT-069R1/handoff.md`.
 
-| Reference                              | Tier | Free PDF source             | Cost (USD)  |
-|----------------------------------------|------|-----------------------------|-------------|
-| Jimbo-Miwa-Ueno I (10.1016/...90013-0) | 3    | none                        | ~35-50 ppv  |
-| Jimbo-Miwa II   (10.1016/...90021-X)   | 3    | none                        | ~35-50 ppv  |
-| Jimbo-Miwa III  (10.1016/...90003-8)   | 3    | none                        | ~35-50 ppv  |
-| Conte-Musette 2008 1st ed              | 3    | none                        | 80-150 book |
-| Forrester-Witte 2002 (CPA)             | 1    | arxiv.org/abs/math-ph/0201051 | 0         |
+* **L52 (Anomalies):** "if T1-Synth analytic-guidance fails, are alternative
+  literature acquisitions (Jimbo-Miwa 1981 papers I-V, Conte-Musette 2008
+  review, Forrester-Witte 2002) within the relay-prompt drafter's authority
+  to add to the slot inventory, or does that require a separate operator
+  decision?"
+* **L65 (Recommended next step):** "add Jimbo-Miwa 1981 Part II +
+  Conte-Musette 2008 review + Forrester-Witte 2002 to slot inventory and
+  re-fire 069r1 on widened substrate."
+* **D-A.1.5 substrate gap (handoff Anomalies):** "the explicit
+  $(a_0, a_1, a_2) \to (\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$
+  chart-map IS the open R1 itself per 058R `phase_b_canonical_map.md`
+  L136-140 verbatim."
 
-Open-access auxiliary substrate (Tier 1):
-- Proc. Japan Acad. 1980 short-form precursors (10.3792/pjaa.56.{143,149,269,301})
-  via Project Euclid.
-- arXiv:math-ph/0201051 (Forrester-Witte 2002 preprint, content-equivalent to
-  Wiley CPA published version per Crossref abstract match).
+Verdict ladder rung from 069r1 Phase D:
 
----
-
-## 4. Substrate-gap mapping per reference
-
-Recapitulating the gap from 058R `phase_b_canonical_map.md` L136-140:
-the explicit chart-map `(a_0, a_1, a_2) → (α_inf, α_0, β_inf, β_0)` for the
-P_III ODE coefficient namespace is the open R1 itself.
-
-| Reference | Section(s) most relevant | Coverage |
-|-----------|--------------------------|----------|
-| Jimbo-Miwa-Ueno I  | §4 isomonodromic-deformation parameter space | partial — sets the framework but does not specialize to P_III |
-| Jimbo-Miwa II      | §3-4 P_III tau-function + monodromy data     | **direct match for substrate gap** |
-| Jimbo-Miwa III     | §2 degenerations P_VI → P_V → P_III          | tangential |
-| Conte-Musette 2008 ch. 5 | Painlevé property test for ODEs       | partial — verifies chart-map well-definedness only |
-| Conte-Musette 2008 ch. 7 | multi-scale + perturbation reductions | partial — complementary, not on canonical chart |
-| Forrester-Witte 2002 §2-3 | Okamoto P_V/P_III τ-function development with explicit chart variables | **direct match for substrate gap** |
-| Forrester-Witte 2002 §4   | hard-edge LUE → P_III τ characterization | direct match if LANE-1 prefers random-matrix-side derivation |
-
-### 4.1 Path-coverage assessment
-
-**Path α (analytic-guidance from existing substrate + Conte-Musette 1st ed):**
-INSUFFICIENT for the specific P_III τ-function chart-map. Conte-Musette covers
-Painlevé property + general reductions but lacks the random-matrix/τ-function
-characterization needed at A.1.5.F1.
-
-**Path β (literature-acquisition: Jimbo-Miwa Part II + Forrester-Witte 2002):**
-SUFFICIENT. These two papers together provide both the original
-isomonodromic-deformation derivation (JM II) and the τ-function/random-matrix
-characterization (FW 2002) of the P_III chart variables. Forrester-Witte 2002 is
-already Tier 1 OPEN; only Jimbo-Miwa Part II requires acquisition.
-
-**Path γ (single-paper minimal-acquisition: Forrester-Witte 2002 only):**
-LIKELY SUFFICIENT when paired with Okamoto 1987 (Funkcial. Ekvac. 30:305 for
-P_III) which is already in 069r1 substrate. FW 2002 §2-3 establishes the
-explicit (α, β, γ, δ)_{P_III} ↔ (a, b, c, d)_{Hamiltonian} ↔ (τ-function arguments)
-chart correspondence directly. This is the lowest-cost path.
+> "069r2 R1-CLOSURE FIRE drafting BLOCKED. Path-viability flag = NEITHER
+>  (both paths closed with halts: path α via A.1.5.F1 substrate gap; path
+>  β via cascade-block from A.1.5.F1)."
 
 ---
 
-## 5. Verdict ladder
+## 3. Per-Reference Resolution Table
 
-Using the envelope's verdict taxonomy:
+| Ref ID    | Cited string             | Resolved DOI                                | Author check       | Tier | Status         |
+|-----------|--------------------------|---------------------------------------------|--------------------|------|----------------|
+| **JM81**  | Jimbo-Miwa 1981 Part II  | `10.1016/0167-2789(81)90021-X` (Part II); Part I + III also enumerated | Jimbo (PASS); Ueno added to Part I | 3 (paywall + ILL) | RESOLVED       |
+| **CM2008**| Conte-Musette 2008 review| `10.1007/978-1-4020-8491-1` (book; 1st ed.) | Conte (PASS)       | 3 (paywall + ILL) | RESOLVED       |
+| **FW2002**| Forrester-Witte 2002     | `10.1002/cpa.3021` (Crossref-disambiguated) + arXiv `math-ph/0201051` | Forrester (PASS) | 1 (OA arXiv) | RESOLVED       |
 
-- **V1 — ALL_3_OPEN_ACCESS** — falsified. JM 1981 + Conte-Musette 1st ed are paywalled.
-- **V2 — ALL_3_RESOLVED_MIXED_ACCESSIBILITY** — **ACTIVE**. All 3 cites resolve to canonical
-  DOIs; FW 2002 is Tier 1 (arXiv); JM 1981 + Conte-Musette 2008 are Tier 3.
-- **V3 — PARTIAL_RESOLUTION** — falsified. All 3 resolved.
-- **V4 — NONE_RESOLVED_OR_HALLUCINATED** — falsified. All 3 resolved.
+**Verdict ladder rung selected: V2 ALL_3_RESOLVED_MIXED_ACCESSIBILITY.**
 
-**Selected verdict: V2 — ALL_3_RESOLVED_MIXED_ACCESSIBILITY**
+All 3 refs canonical-ID resolved. Accessibility mixed: 1 ref Tier 1 OA
+(FW2002 via arXiv); 2 refs Tier 3 paywall + ILL (JM81 + CM2008). LANE-1
+synth weighs analytic-guidance vs targeted acquisition with full data
+in hand.
 
-### Halt-condition checks
-
-- **H_ENV1** (cite-not-resolved) — NOT triggered (all 3 resolved).
-- **H_ENV2** (cite-hallucinated) — NOT triggered (all 3 canonical via Crossref).
-- **H_ENV3** (DOI-drift-major) — NOT triggered. Minor drift recorded as discrepancies D1/D2/D3/D4
-  (part-count loose, author-shorthand, edition-disambiguation, year-disambiguation); no critical drift.
-- **H_ENV4** (accessibility-Tier-4-only) — NOT triggered (FW 2002 is Tier 1).
-- **H_ENV5** (FW-ambiguous) — NOT triggered. FW 2002 disambiguates uniquely to
-  10.1002/cpa.3021 by year + topic (P_III). The four flanking FW papers are clearly
-  year- or topic-mismatched.
-
-No halt conditions triggered. `halt_log.json` written with empty `{}`.
+`HALT_102_FW_AMBIGUOUS` was triggered at initial author-listing
+inspection (069r1 cite has no DOI / arXiv / journal / volume / page) and
+then resolved via Crossref bibliographic disambiguation (logged in
+`halt_log.json` as TRIGGERED_THEN_RESOLVED; not persisted as live halt).
 
 ---
 
-## 6. Recommendation for W21 LANE-1 synth (Mon 2026-05-12)
+## 4. JM81 — Jimbo-Miwa 1981 (full series enumerated)
 
-**Path γ (lowest-cost, recommended):**
-Treat Forrester-Witte 2002 (arXiv:math-ph/0201051, free PDF) plus already-acquired
-Okamoto 1987 (Funkcial. Ekvac. 30:305) as the substrate-closure pair for A.1.5.F1.
-This requires NO acquisition action and uses existing 069r1 substrate plus one
-free arXiv PDF. Estimated synth time: 60-90 min for the chart-map closure.
+**Canonical records (Crossref-confirmed at 102 Phase A):**
 
-**Path β fallback (if γ found insufficient at synth):**
-Add targeted ILL or pay-per-view acquisition of Jimbo-Miwa Part II
-(DOI 10.1016/0167-2789(81)90021-X, ~$35-50 ppv or $0 ILL). Acquisition
-window: 1-3 days. This provides independent isomonodromic-deformation
-verification of the chart-map.
+* **Part I:** DOI `10.1016/0167-2789(81)90013-0`, Physica D **2** (1981)
+  306–352, **3 authors** {Michio Jimbo, Tetsuji Miwa, Kimio Ueno},
+  forward citations 439.
+* **Part II:** DOI `10.1016/0167-2789(81)90021-X`, Physica D **2** (1981)
+  407–448, 2 authors {M. Jimbo, T. Miwa}, RIMS preprint RIMS-327,
+  forward citations ~525. *Most thematically relevant to 069r1 substrate
+  gap (P_III τ-function machinery).*
+* **Part III:** DOI `10.1016/0167-2789(81)90003-8`, Physica D **4** (1981)
+  26–46, 2 authors {Michio Jimbo, Tetsuji Miwa}, forward citations 126.
 
-**Path α (analytic-guidance only, NOT recommended):**
-Conte-Musette 2008 1st ed alone is INSUFFICIENT and should not be used as the
-primary closure substrate. It may be useful as supplementary background for the
-Painlevé-property verification step (ch. 5) but does not close the F1 gap.
+**069r1 cite drift:** "papers I-V" — only Parts I, II, III exist under
+this title (recorded as discrepancy D1). The "I-V" text most likely
+conflates with the 1980 Proc. Japan Acad. precursor notes (4 papers)
+plus possibly the 1980 Sato-Miwa-Jimbo "Aspects of Holonomic Quantum
+Fields" Springer Lecture Notes chapter. See `jimbo_miwa_resolution.json`
+for full precursor enumeration (Tier 1 OPEN at jstage).
+
+**Author shorthand:** Part I has Ueno as third author (Crossref
+sequence "additional"); 069r1 "Jimbo-Miwa 1981" is field-customary
+shorthand. Recorded as discrepancy D2 (recorded in
+`discrepancy_log.json`).
+
+**Spot-confirm at 102 fire (2026-05-07):** doi.org redirect to
+`linkinghub.elsevier.com/retrieve/pii/016727898190021X` (HTTP 302).
+DOI is live and routes to the Elsevier ScienceDirect record.
+
+**Accessibility:** Tier 3 (paywall + ILL). All 7 OA routes probed in
+`358b2a7` (JM81-II-ACQUISITION 2026-05-04) returned NIA. Recommended
+ILL target: RIMS Kyoto Univ. (Miwa home institution).
+
+**Substrate-gap mapping (carry-forward sub-finding from `358b2a7`):**
+`BLMP_TRANSITIVE_INDICATES_CT_4TUPLE_NOT_FROM_JM81_II_CORE`. BLMP
+2024 §4.1 transitive readback indicates JM81 II core convention is
+2-parameter $(\Theta_0, \Theta_\infty)$ with cardinality 2; CT v1.3
+§3.5 4-tuple has cardinality 4. The 4-tuple is NOT structurally
+derivable from JM81 II core convention (provisional pending RIMS Kyoto
+ILL primary-source verification).
+
+**Implication for 069r2 path-delta (JM81 leg):** acquisition cost
+moderate (ILL); expected substrate yield LOW unless an extension /
+sub-case in JM81 II Lax-pair section introduces additional 4-parameter
+labeling not surfaced by BLMP transitive reading.
 
 ---
 
-## 7. Files in this deposit
+## 5. CM2008 — Conte-Musette 2008 Painlevé Handbook
 
-- `pre_verification_report.md` (this file)
-- `jimbo_miwa_resolution.json`
-- `conte_musette_resolution.json`
-- `forrester_witte_resolution.json`
-- `claims.jsonl` (≥6 AEAL entries)
-- `discrepancy_log.json`
-- `halt_log.json` (empty `{}`)
-- `unexpected_finds.json`
-- `handoff.md`
+**Canonical record (Crossref + carry-forward from `fce68d9`):**
 
-## 8. AEAL claim count
+* R. Conte, M. Musette, *The Painlevé Handbook*, **Springer Netherlands**
+  Dordrecht, 2008 (1st edition).
+* DOI: `10.1007/978-1-4020-8491-1` (book DOI)
+* ISBN print: 978-1-4020-8490-4; electronic: 978-1-4020-8491-1
+* 2nd edition: **Springer International** Cham, 2020; DOI
+  `10.1007/978-3-030-53340-3`; ch. 7 = "Discrete nonlinear equations"
+  (verified at `fce68d9`). The 2nd ed. is what `T2-R5-LIT-HUNT-TRIANGULATION-086`
+  V5 used.
+* Author count: 2 (1st ed.)
 
-7 entries written to `claims.jsonl` (≥ 6 base floor).
+**Edition disambiguation (D3 in `discrepancy_log.json`):** 069r1's
+"2008" year-stamp uniquely identifies the 1st edition. Synth at LANE-1
+should choose between 1st (literal cite) and 2nd (expanded discrete
+Painlevé content) based on whether expanded content is needed.
+
+**Spot-confirm at 102 fire (2026-05-07):** SpringerLink book URL
+redirects to `idp.springer.com/authorize?response_type=cookie&client_id=springerlink`
+(HTTP 302). Record is live at SpringerLink but auth-walled.
+
+**Accessibility:** Tier 3 (paywall + ILL). All 7 OA routes probed
+in `fce68d9` returned NIA. Recommended ILL targets: Univ. of Tokyo
+library; Tokyo Inst. of Tech.; RIKEN; Yokohama City Univ. ILL via
+NDL Tokyo.
+
+**Substrate-gap mapping:** 069r1 does NOT pin a chapter for CM2008.
+The book is a Painlevé-handbook genre review focused on the Painlevé
+property + algorithmic Painlevé test + τ-function methodology. The
+4-tuple chart-map question lives in surface-type / Sakai D_6 / KNY
+2017 territory which post-dates and is somewhat orthogonal to CM2008's
+focus. Probability that CM2008 directly fills the chart-map gap = LOW;
+probability that it furnishes background context = MODERATE.
+
+**Implication for 069r2 path-delta (CM2008 leg):** acquisition cost
+moderate (ILL); expected substrate yield LOW for the chart-map itself,
+MODERATE for surrounding context. Acquisition recommended only if
+Sakai 2001 + KNY 2017 paths are also exhausted.
+
+---
+
+## 6. FW2002 — Forrester-Witte 2002 (RESOLVED via Crossref)
+
+**069r1 cite verbatim:** "Forrester-Witte 2002" — no journal, volume,
+page, DOI, or arXiv ID.
+
+**Crossref-disambiguated canonical record (102 Phase A):**
+
+* P. J. Forrester, N. S. Witte, *Application of the τ-function theory of
+  Painlevé equations to random matrices: $P_V$, $P_{III}$, the LUE, JUE,
+  and CUE*, **Comm. Pure Appl. Math.** **55**(6), 679–727 (2002).
+* DOI: `10.1002/cpa.3021`
+* Published-online: 2002-03-27; Published-print: 2002-06.
+* Forward citations (Crossref): 86.
+* arXiv preprint: `math-ph/0201051` (submitted 2002-01-24); content
+  equivalent.
+
+**Crossref query basis (from existing `discrepancy_log.json` D4):** title
+verbatim match including "P_V, P_III, the LUE, JUE, and CUE";
+2-author Forrester+Witte; 2002 print year; substantive τ-function
+development (not the 2002 ANZIAM short note with Cosgrove); $P_{III}$
+treatment matches 069r1 058R substrate-gap content.
+
+**Halt disposition:** `HALT_102_FW_AMBIGUOUS` was *triggered* at
+initial author-listing-only inspection (envelope STEP A.3.3 strict
+reading: 069r1 cite is too vague at face value). It was *resolved* via
+Crossref bibliographic search (one tool call) before any phase-chain
+abort. Recorded as judgment call J3 in `halt_log.json` with
+trigger-and-resolve narrative; not persisted as a live halt blocking
+V-rung selection.
+
+**Excluded candidates (full table in `forrester_witte_resolution.json`):**
+
+* `math-ph/0103025` (FW PIV/PII/GUE; pure 2001 vintage)
+* `math-ph/0204008` (FW PVI/JUE/CyUE/cJUE; Nagoya Math. J. 2004)
+* `math-ph/0203049` (FW Gap probabilities O+Sp; Nonlinearity 2002 short)
+* `math-ph/0207005` (Forrester+Frankel+Garoni+Witte 4-author; mismatched
+  cite shorthand)
+* `math-ph/0304020` (FW Discrete Painlevé eqs. and RM averages;
+  Nonlinearity 2003)
+
+**Accessibility:** Tier 1 (OA arXiv). Acquisition cost = zero. The
+arXiv preprint `math-ph/0201051` is content-equivalent to the Wiley
+CPA published version per Crossref abstract verbatim match.
+
+**Substrate-gap mapping:** §3 of CPA paper develops $P_{III}$ via
+Okamoto Hamiltonian + τ-function theory; cross-references Okamoto 1987
+*Funkcial. Ekvac.* 30:305 (already in 069r1 substrate per 058R
+`phase_b_canonical_map`). The $P_{III}$ parameter setup IS within
+scope. *However:* `4338cee` `WITTE-FORRESTER-2010-ACQUISITION`
+absence_audit.md established that the FW oeuvre uniformly does NOT
+invoke the $W(B_2) \leftrightarrow W((2A_1)^{(1)})$ cross-walk;
+CT v1.3 §3.5 4-tuple may intrinsically require surface-type / Sakai
+D_6 territory (which is post-CPA-2002 and FW-orthogonal).
+
+**Implication for 069r2:** Path γ (FW2002 arXiv + Okamoto 1987 already
+acquired) is a low-cost / moderate-yield first attempt at chart-map
+closure. Recommended for synth at LANE-1 *before* invoking acquisition
+envelopes.
+
+---
+
+## 7. Recommended Path for W21 LANE-1 Synth
+
+### 7.1 Path γ — FW2002 arXiv + Okamoto 1987 (low-cost first attempt)
+
+* **Cost:** synth-time only (~60-90 min); zero acquisition cost.
+* **Inputs:** `math-ph/0201051` PDF (arXiv OA) + already-acquired
+  Okamoto 1987 *Funkcial. Ekvac.* 30:305.
+* **Goal:** derive the explicit $(a_0, a_1, a_2) \to (\alpha_\infty,
+  \alpha_0, \beta_\infty, \beta_0)$ map for $P_{III}$ per 058R
+  `phase_b_canonical_map` L136-140.
+* **Risk:** absence-of-cross-walk pattern from `4338cee` makes this
+  yield-uncertain.
+
+### 7.2 Path β — Path γ + targeted JM81 Part II ILL fallback
+
+* **Cost:** Path γ + 1 paper ILL request (1-2 weeks).
+* **Inputs:** Path γ outputs + JM81 Part II PDF post-ILL.
+* **Risk:** BLMP transitive indicates JM81 II core convention is
+  cardinality-2 not cardinality-4; sub-case extension may or may not
+  exist.
+
+### 7.3 Path δ — full 3-ref acquisition (high-cost defensive)
+
+* **Cost:** Path β + CM2008 ILL (1-2 weeks).
+* **Inputs:** all three refs.
+* **Risk:** CM2008 chapter not pinned; thematic mismatch likely.
+
+### 7.4 Path ε — Pivot to Sakai 2001 + KNY 2017
+
+* **Out of scope for 069r1's named 3 refs**, but per `358b2a7` JM81
+  sub-finding strategic-implication §2 + `e742f78` OKAMOTO-1987-CONSTRAINT-PIN:
+  Sakai 2001 D_6 + KNY 2017 §8.5.17 are the canonical 4-tuple-territory
+  references. Synth at LANE-1 may elevate.
+
+---
+
+## 8. Halt Inventory
+
+| Halt token                                | Triggered? | Notes                                                                                                          |
+|-------------------------------------------|------------|----------------------------------------------------------------------------------------------------------------|
+| HALT_102_SUPERSEDED_BY_PRIOR_FIRE         | NO         | Prior fires exist (`358b2a7` + `fce68d9` + `4338cee`) at acquisition-probe scope, not pre-verification scope. |
+| HALT_102_069R1_VERDICT_DRIFT              | NO         | 069r1 verdict `NO_GO_SUBSTRATE_INSUFFICIENT` intact at bridge HEAD `402c7de`.                                  |
+| HALT_102_JIMBO_MIWA_DOI_DRIFT             | NO         | 3 DOIs Crossref-resolved exactly to JM/JMU 1981 Physica D series.                                              |
+| HALT_102_CONTE_MUSETTE_DOI_DRIFT          | NO         | DOI `10.1007/978-1-4020-8491-1` resolves correctly to SpringerLink book record.                                |
+| HALT_102_FW_AMBIGUOUS                     | TRIG_RES   | Triggered at initial author-listing inspection; resolved via Crossref bibliographic disambiguation (J3).       |
+| HALT_102_FW_NEW_CANDIDATE                 | NO         | Crossref hit was within enumerated candidate set.                                                              |
+| HALT_102_FW_NOT_FOUND                     | NO         | Crossref unique match found.                                                                                   |
+| HALT_102_SUBSTRATE_MAP_VAGUE              | PARTIAL    | 069r1 does NOT pin chapter/section for CM2008 (and JM81 part is thematically inferred). Surfaced as J2 not full halt. |
+| HALT_102_FORBIDDEN_VERB_IN_PROSE          | NO         | Phase D scan PASS (see §9).                                                                                    |
+| HALT_102_PRE_VERIFICATION_INTERNET_FAILURE| NO         | doi.org + arxiv.org + api.crossref.org reachable at 102 Phase A fire window.                                   |
+
+---
+
+## 9. Phase D — Forbidden-Verb Self-Check
+
+**Pattern (regex):** `\b(shows|proves|establishes|ratifies|demonstrates|discharges|confirms|certifies)\b`
+
+**Files scanned:**
+
+* `pre_verification_report.md` (this file)
+* `jimbo_miwa_resolution.json`
+* `conte_musette_resolution.json`
+* `forrester_witte_resolution.json`
+* `claims.jsonl`
+* `handoff.md`
+
+**Hits (post-mitigation):** 0 prose hits. Verb-list-as-data (above
+regex citation; §8 halt-name HALT_102_FORBIDDEN_VERB_IN_PROSE row;
+§9 section header) treated as meta-references per envelope STEP D.2.
+
+**Note on the existing handoff:** the pre-existing handoff.md (9653 B,
+authored by an earlier 102 session) was scanned together with this
+report; no prose hits. The Crossref API response embedded in §6
+quotes "it is shown that" — that string lives inside a fetched-data
+context (not authored prose) and is included by reference only;
+treated as quoted-data per envelope STEP D.2 meta-reference exception.
+
+---
+
+## 10. Files Committed (Phase E)
+
+In `sessions/2026-05-07/T1-069R1-SUBSTRATE-GAP-PRE-VERIFICATION-102/`:
+
+1. `pre_verification_report.md` (this file)
+2. `jimbo_miwa_resolution.json`
+3. `conte_musette_resolution.json`
+4. `forrester_witte_resolution.json`
+5. `claims.jsonl` (≥6 AEAL entries)
+6. `handoff.md`
+7. `halt_log.json` (empty `{}` per V2 verdict; HALT trigger-and-resolve narrated in J3)
+8. `discrepancy_log.json` (4 minor discrepancies D1-D4)
+9. `unexpected_finds.json` (3 unexpected finds U1-U3)
+
+---
+
+## 11. AEAL Floor Compliance
+
+Required: ≥6 claims (3 ID resolutions + 3 accessibility-tier).
+Recorded: 7 claims in `claims.jsonl` (literature_metadata_resolution × 5,
+literature_accessibility_assessment × 1, verdict_synthesis × 1).
+
+---
+
+End of pre-verification report.
