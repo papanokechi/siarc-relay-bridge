@@ -1,0 +1,40 @@
+{
+  "task_id": "T1-D2-NOTE-ZENODO-UPLOAD-RUNBOOK-083",
+  "discrepancies": [
+    {
+      "id": "D-1",
+      "severity": "blocking_until_operator_decision",
+      "title": "Relay 083 prompt body internally drifts between v1.0 and v2.0 nomenclature",
+      "description": "Relay-083 TASK section, Phase B.1, and section heading describe 'D2-NOTE v2.0 standalone-note upload to Zenodo'. Phase A.P5 references 'Any v2.1 amendment relative to v2.0 (if exists)'. Phase D.1 references 'Q-Claude-30 + Q-Claude-31 send (operator-action; cite SQL todo q-claude-30-31-send-d2-note-v21)'. The single SQL todo the relay declares it closes is 'zenodo-upload-d2-note', which per sql_todos_snapshot_2026-05-07_18-40-JST.md L118 describes a 4-page v1.0 upload (sha256 f2be89c1...22bd94b8, 8 AEAL claims D2-A1..D2-A8, runbook at sessions/2026-05-02/D2-NOTE-DRAFT/zenodo_upload_d2_note_runbook.md). Both nomenclatures cannot be simultaneously correct: v2.0 is already deposited at concept 19996689 / version 19996690 since 2026-05-03; v2.1 is already deposited at version 20015923 since 2026-05-04. The relay's literal Phase 0.2 supersession gate (status='done' on 'zenodo-upload-d2-note') does not catch the drift.",
+      "resolution_path": "Treat the SQL todo's v1.0 nomenclature as authoritative (it is the sole disambiguating row); produce v1.0 deliverables; add prominent SUPERSESSION-WARNING section 0 in runbook + _supersession_warning block in metadata.json; route operator to Options A/B/C explicitly."
+    },
+    {
+      "id": "D-2",
+      "severity": "non_blocking",
+      "title": "tex/submitted/submission_log.txt has no D2-NOTE entries despite 2 prior Zenodo deposits",
+      "description": "Phase A.P3 Select-String search for 'D2-NOTE|d2_note|19996|20015' on tex/submitted/submission_log.txt returned 0 matches. The Zenodo sub-section ends at Item 10 (T2B v3.0 dated 2026-04-30). Items beyond 2026-05-01 are missing entirely: D2-NOTE v2.0 (2026-05-03 at concept 19996689 / version 19996690), D2-NOTE v2.1 (2026-05-04 at version 20015923), CT v1.3 (concept 19941678 / version 19972394), PCF-1 v1.3 (concept 19931635 / version 19937196), PCF-2 v1.3 (concept 19936297 / version 19963298), SIARC umbrella v2.0 (concept 19885549 / version 19965041) -- NONE recorded in submission_log.txt. Picture-chain memory + close_out_matrix + sql_todos_snapshot all have these deposits; submission_log alone is stale.",
+      "resolution_path": "Outside scope of relay 083 -- but the submission_log itself needs a multi-Item splice for the May 1-7 Zenodo deposits before any further Item NN routing makes sense. Surface as separate todo (suggested name: 'submission-log-may-2026-zenodo-backfill')."
+    },
+    {
+      "id": "D-3",
+      "severity": "non_blocking_audit",
+      "title": "submission_log.txt size discrepancy with relay 062 commit message claim",
+      "description": "Relay 062 (sessions/2026-05-06/JTNB-REJECTION-CASCADE-PASTE-062/) commit message claimed pre-SHA 14072FD5..0AB359 -> post-SHA D04B10E3..0530 with file sizing 60027 B -> 60442 B and line count UNCHANGED at 1071. Current state of tex/submitted/submission_log.txt at 2026-05-07 is 17030 B / 284 lines / SHA 2A28465AE39BADF5AB245C3114C84E3E1469BF2FA1CDD967AC017FF4C617E45A. Either (a) the file has been substantially shrunk between 2026-05-06 and 2026-05-07 (no commit history checked here -- not in scope), (b) the relay-062 commit message hashed a different file path than what now lives at tex/submitted/submission_log.txt, or (c) some intermediate edit reverted/replaced the file. The Item 22 JTNB rejection content from relay-062 IS present at L155-L158 of the current 284-line file, so the 062 content edit landed; the size mystery is independent.",
+      "resolution_path": "Outside scope of relay 083. Recommend git-blame / git log audit on tex/submitted/submission_log.txt as a follow-up investigation."
+    },
+    {
+      "id": "D-4",
+      "severity": "non_blocking",
+      "title": "Author name format inconsistency between PDF metadata and prior runbook",
+      "description": "d2_note.tex L60 \\author{} renders the PDF metadata pdfauthor as 'Mauricio Echizen Kubo' (given-name first). The 2026-05-02 zenodo_upload_d2_note_runbook.md section 2 listed authors as 'Echizen Kubo, Mauricio' (family-name first, comma-prefixed). Both are valid Zenodo creator forms ('Family, Given' is the Zenodo convention for the 'name' field). The metadata.json in this session uses the 'Family, Given' form to match the prior runbook + Zenodo convention.",
+      "resolution_path": "Use 'Echizen Kubo, Mauricio' verbatim in the Zenodo creator field per Zenodo convention; PDF metadata pdfauthor is a separate field that does not need to match."
+    },
+    {
+      "id": "D-5",
+      "severity": "non_blocking",
+      "title": "zenodo_description_d2_note.txt cites D2-NOTE-DRAFT bridge URL as Is documented by but the bridge link form has trailing slash inconsistency",
+      "description": "zenodo_description_d2_note.txt 'Related Identifiers' block lists 'https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-02/D2-NOTE-DRAFT/' (with trailing slash). Existing isDocumentedBy entries in similar Zenodo records (per the sister-deposit format) sometimes use the slash and sometimes do not. Both resolve identically. Metadata.json uses the trailing-slash form to match zenodo_description_d2_note.txt verbatim.",
+      "resolution_path": "No action; both URL forms resolve."
+    }
+  ]
+}
