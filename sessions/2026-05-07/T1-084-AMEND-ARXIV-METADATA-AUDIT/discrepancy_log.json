@@ -1,0 +1,35 @@
+{
+  "discrepancies": [
+    {
+      "discrepancy_id": "D1",
+      "severity": "non-blocking",
+      "category": "spec-prompt-internal-inconsistency",
+      "description": "Relay 084-AMEND prompt body uses two distinct task-id-shaped strings: 'TASK_ID:' line declares 'T1-084-AMEND-ARXIV-METADATA-PERSISTENCE'; § DELIVERABLES line declares the bridge folder as 'T1-084-AMEND-ARXIV-METADATA-AUDIT/'; § H Commit-message line uses 'T1-084-AMEND-ARXIV-METADATA-AUDIT --'. The DELIVERABLES path + commit-message form is canonical (used twice; folder must exist on disk); the TASK_ID line uses the verb 'PERSISTENCE' (used once). Disposition: agent uses 'T1-084-AMEND-ARXIV-METADATA-AUDIT' as session folder name (consistent with both DELIVERABLES path and commit message); flags TASK_ID-line drift here as non-blocking spec-text variation."
+    },
+    {
+      "discrepancy_id": "D2",
+      "severity": "non-blocking",
+      "category": "spec-conditional-emission-deliverable",
+      "description": "Relay 084-AMEND § DELIVERABLES line for endorsement_template_drift.md is 'if R2/R4 drift detected'. Audit found 0 drift on R2 + R3 (R4 had no template emitted in 084). Strict reading would elide the file. Per judgment call J1 in handoff, the agent emitted a one-page NO_DRIFT substrate-positive deliverable as the AEAL-anchor for claim 084-AMEND-D-6 and as a baseline diff target for future re-fires. This deviates from a strict literal-spec emission count by +1 deliverable file; surfaced here as non-blocking."
+    },
+    {
+      "discrepancy_id": "D3",
+      "severity": "non-blocking",
+      "category": "spec-vs-substrate-mismatch",
+      "description": "Relay 084-AMEND § PHASE D.P1 wording 'For each record with an arXiv ID' implies the substrate already lists arXiv IDs for all 5 records. Substrate (084 zenodo_metadata_5_records.json) has 0 arXiv IDs; the 084 RUNBOOK files describe arXiv submission as a pending operator-side action. Resolution: the audit is forward-looking; Phase D operates on a null-state arXiv side at this fire and the framework activates on first arXiv-ID landing. Spec wording matched against actual substrate yields a vacuous Phase D.P1 (5/5 PENDING). Surfaced for synth awareness."
+    },
+    {
+      "discrepancy_id": "D4",
+      "severity": "non-blocking",
+      "category": "external-relay-cross-ref-stale",
+      "description": "T2-PORTFOLIO-BUNDLING-DOSSIER-ASSEMBLY-077 D-077-4 documented a T2B Zenodo DOI inconsistency between CMB.txt L31 (anchors older v2.x DOI 10.5281/zenodo.19801038) and submission_log.txt + portfolio_inventory.md (anchor v3.0 DOI 10.5281/zenodo.19915689). 084-AMEND audit uses 19915689 as canonical R5 anchor (per 084 + 077 substrate). The CMB.txt L31 stale-DOI condition is unresolved as of bridge HEAD dbe7a71 and is independent of arXiv metadata-persistence; surfaced here for completeness because R5 attribution-supplement (D.P5.4) inherits this DOI inconsistency."
+    },
+    {
+      "discrepancy_id": "D5",
+      "severity": "non-blocking",
+      "category": "spec-aeal-floor-vs-suggested",
+      "description": "Relay 084-AMEND § AEAL CLAIMS FLOOR states 'Minimum: 3 + (1 per drift detected); Suggested: 5'. With 0 drift detected, strict-minimum floor = 3. Agent recorded 6 claims (5 spec-required-prefix 084-AMEND-D-1..D-3 expanded with 084-AMEND-D-4..D-6 covering post-031 status, Zenodo invariance spot-check, and template drift check). Above suggested floor by +1; above minimum floor by +3. No halt; surfaced as positive-direction deviation from spec floor."
+    }
+  ],
+  "discrepancy_count": 5
+}
