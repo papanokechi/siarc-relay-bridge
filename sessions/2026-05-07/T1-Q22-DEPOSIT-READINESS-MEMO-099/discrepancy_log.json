@@ -1,0 +1,30 @@
+{
+  "task_id": "T1-Q22-DEPOSIT-READINESS-MEMO-099",
+  "date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "non-blocking",
+      "label": "Relay-099 prompt body BBP arXiv ID resolves to Broadhurst 1998",
+      "detail": "Relay-099 PHASE C suggested-anchor C1 names 'Bailey-Borwein-Plouffe (BBP) Pi formula deposits (Math. Comp. 1997; arXiv math.CA/9803067)'. Pre-verification at fire time per post-031 rule: arXiv math/9803067 resolves to Broadhurst 1998 'Polylogarithmic ladders, hypergeometric series and the ten millionth digits of zeta(3) and zeta(5)' (Classical Analysis and ODEs; OUT--4102--71), NOT to the BBP 1997 paper. Actual BBP 1997 paper is in Math. Comp. 66(218):903-913, DOI 10.1090/S0025-5718-97-00856-9, with NO arXiv mirror. Both papers are legitimate genre-precedents and are cited correctly in precedent_table.md (BBP by DOI; Broadhurst by arXiv math.CA/9803067). The conflation in the relay-099 prompt body is recorded as a non-blocking discrepancy and does not affect the verdict."
+    },
+    {
+      "id": "D2",
+      "severity": "non-blocking",
+      "label": "Borwein-Bailey 1st ed. year drift (relay says 2003; actual 2004)",
+      "detail": "Relay-099 PHASE 0 pre-verification anchors say 'Borwein-Bailey \"Mathematics by Experiment: Plausible Reasoning in the 21st Century\" (2003 1st ed., 2008 2nd ed., AK Peters / CRC Press)'. Wikipedia citation and ISBN registry record 1st ed. = 2004 (A.K. Peters, ISBN 978-1-56881-211-3); 2nd ed. = 2008 (CRC Press). Precedent table cites 2004 / 2008 per the verified record. Minor non-blocking discrepancy."
+    },
+    {
+      "id": "D3",
+      "severity": "non-blocking",
+      "label": "Path-(a) K_FIT realization is K_FIT=7 (11-param), not the 014-prompt target K_FIT=9 (13-param)",
+      "detail": "Relay-099 PHASE A asks for 'path-(a) at K_FIT/N currently-realized' without specifying K_FIT. Substrate readback: prompt 014 was titled 'RETRY-13PARAM' (target K_FIT=9, 13 parameters), but the actually-fired refit was K_FIT=7 (11 parameters per family) per load_log.txt L2 'K_FIT=7 (=> 11 parameters per family)' and pcf2_v1.4_amendment.md L12 'square-exact 11-parameter ansatz refit'. The path-(a) currently-realized envelope of 3.08904186542e-23 is the 11-param result. Path-(b) stretch K_FIT=9 N=2400 is the originally-targeted 13-param ansatz at expanded N. Memo cites both consistently; relay-099 wording does not collide with substrate."
+    },
+    {
+      "id": "D4",
+      "severity": "non-blocking",
+      "label": "Relay-099 D1 '~10^21000 precision improvement' wording does not align with substrate-derived path-(b) truncation floor",
+      "detail": "Relay-099 PHASE D D1 contains the wording 'The remaining ~10^21000 precision improvement to |delta_path_b| does not change the structural verdict'. Substrate-derived theoretical truncation floor at K_FIT=9, N=2400 is ~ 2400^-10 ~= 1.7e-34, which is an ~11-order improvement over path-(a)'s 3e-23, NOT a 10^21000-order improvement. Reviewer D's separately-supplied figure '10^-44300 (Path-b)' is also not derivable from this floor estimate. Both substrate-quoted figures are recorded verbatim in unexpected_finds.json U1-U2 and do not affect the threshold-sufficiency verdict, which depends on the path-(a) |delta| envelope alone."
+    }
+  ]
+}
