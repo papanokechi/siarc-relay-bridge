@@ -1,0 +1,38 @@
+{
+  "session": "T1-PHASE-3-ADAMS-1928-READTHROUGH-072",
+  "date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "title": "No separate bibliography section in Adams 1928 vs prompt clause (e) anticipating reference list at p540-541",
+      "severity": "minor",
+      "category": "format-anticipation-vs-actual",
+      "description": "Relay prompt 072 Phase C clause (e) instructs 'extract the bibliography from the reference list which appears at printed p540 or p541'. Actual artefact contains no separate reference-list section: the closing pages of Adams 1928 are §8 Examples (p538-541) followed by an extension clause at p541 and end of paper. All bibliographic information lives in footnotes scattered across pp507-541, with the bulk in a footnote-block on pp507-508 that names Birkhoff Barnes Horn Batchelder Perron Galbrun Norlund. Resolution: reconstructed adams_1928_bibliography.md from footnote substrate; 9 entries identified; D1 anomaly noted at top of bibliography file; pre-fire prompt assumption flagged for prompt-drafter feedback.",
+      "actionable": "future lit-hunt prompts targeting pre-1950 papers should not assume a separate reference-list section; check the table of contents (or first few footnotes) before specifying a fixed page range"
+    },
+    {
+      "id": "D2",
+      "title": "Class 1 / Class 2 framing partial mismatch with Adams's actual usage",
+      "severity": "minor",
+      "category": "terminology-shorthand-inversion",
+      "description": "Relay prompt 072 Phase B clause (b) instructs the readthrough to track 'Class 1 (cf. Adams §1) and Class 2 (cf. Adams §2)' partitioning. Adams 1928 actually uses both classes in §1: Class 1 covers the case where the characteristic equation has multiple roots (printed p509-p510); Class 2 covers the case where the characteristic equation does not have such multiple roots and a Newton-polygon construction is needed (printed p510-p513). §2 then proves the existence theorem for Class 2 in two sub-cases Class 2a (integer slope) and Class 2b (fractional slope). Resolution: adams_1928_section_index.md and adams_1928_section_1_2_claim_table.md document the actual partition (Class 1 + Class 2 both in §1; §2 proves Class 2 existence sub-divided 2a + 2b); not a halt because the readthrough still produced a complete substrate.",
+      "actionable": "Phase 3 synthesizer arbitration should consume the actual-Adams partition from the section index, not the prompt-shorthand; any downstream framing of 'Class 1 = §1 / Class 2 = §2' should be reframed as 'Class 1 + Class 2 partition introduced §1 / Class 2 existence theorem in §2'"
+    },
+    {
+      "id": "D3",
+      "title": "Only 2 explicitly labelled theorems vs prompt clause (c) asking for every theorem-or-proposition-labelled result",
+      "severity": "minor",
+      "category": "label-density-vs-result-density",
+      "description": "Relay prompt 072 Phase C clause (c) instructs 'enumerate every theorem-or-proposition-labelled result'. Adams 1928 contains exactly 2 explicitly labelled theorems: Theorem A at PDF p24 / printed p529 (§6) and Theorem B at PDF p32 / printed p537 (§6). The remaining seven headlining results (§§1-5,7-8 + closing extension clause at p541) are stated narratively without 'Theorem X' / 'Proposition X' / 'Lemma X' labels. Resolution: adams_1928_main_theorems_summary.md indexes 9 entries T1-T9 with T1 and T2 mapped to Theorem A and Theorem B respectively; T3-T9 use a project-internal index with explicit narrative-only-not-labelled flag.",
+      "actionable": "downstream Phase 3 synthesizer should consume the T1-T9 index as the canonical list of headlining-results; do not assume label-density tracks result-density for early-20th-century analysis literature"
+    },
+    {
+      "id": "D4",
+      "title": "BT 1933 footnote-bibliography cross-walk DEFER for 6 of 9 Adams references",
+      "severity": "minor",
+      "category": "secondary-source-cross-walk-deferred",
+      "description": "Relay prompt 072 Phase C clause (e) and Phase D clause (a) jointly imply a BT 1933 cross-walk for every Adams 1928 reference. BT 1933 cites Adams 1928 verbatim at BT p5 fn 2; that one cross-walk is documented in adams_1928_bibliography.md and adams_to_bt1933_ladder_map.md. The other 6 of 9 Adams references (Birkhoff 1911 + Barnes 1905 + Horn 1910 + Batchelder 1912/1913 + Perron 1917 + Galbrun 1921 + Galbrun 1913 + Norlund 1924) would each require a similar text-search of BT 1933's bibliography section to establish whether BT cites them and at which BT page; this readthrough scope deferred that cross-walk as out-of-scope per session-time budget. Resolution: defer-flag noted in adams_1928_bibliography.md; recommended-follow-up is a 073-class BT-1933 §§7-9 readthrough relay which would naturally surface the BT bibliography section in passing.",
+      "actionable": "queue a 073 BT 1933 §§7-9 readthrough relay which can absorb the remaining 6 cross-walks at no marginal session cost"
+    }
+  ]
+}

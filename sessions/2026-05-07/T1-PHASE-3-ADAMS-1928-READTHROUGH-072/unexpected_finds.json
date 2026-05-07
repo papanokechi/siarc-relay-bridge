@@ -1,0 +1,41 @@
+{
+  "session": "T1-PHASE-3-ADAMS-1928-READTHROUGH-072",
+  "date": "2026-05-07",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "title": "Adams §2 sub-classifies Class 2 into Class 2a (integer slope) and Class 2b (fractional slope) sub-cases",
+      "category": "internal-structure-finer-than-anticipated",
+      "description": "Relay prompt 072 anticipated a Class 1 / Class 2 binary partition. Adams §2 (printed p513-p517) actually presents the existence theorem in two sub-parts. Class 2a (when the Newton-polygon segment has integer slope and the segment-characteristic-polynomial roots are simple) admits a clean existence proof. Class 2b (when the slope is fractional) requires a substitution x = y^(1/q) reducing to integer-slope and an additional simple-root condition for clean existence. This sub-classification is the exact substrate that BT 1933 §5 then generalizes by removing the simple-root restriction.",
+      "relevance_to_W21_LANE1": "Phase 3 synthesizer arbitration of the sectorial-upgrade gap will need this 2a/2b distinction because BT 1933's improvement over Adams is precisely on the Class-2b multiple-root sub-case; the upgrade gap conversation cannot be reduced to a Class-1-vs-Class-2 framing"
+    },
+    {
+      "id": "U2",
+      "title": "§1 contains a tertiary equation hierarchy: characteristic equation → segment-characteristic equation → reduced-segment-characteristic equation",
+      "category": "internal-equation-hierarchy",
+      "description": "The §1 readthrough surfaced a three-tier characteristic-equation cascade rather than a single characteristic equation. Tier 1 = Adams's primary characteristic equation tied to the asymptotic-form ansatz s(x)^x P(x) (printed p509). Tier 2 = the segment-characteristic equations associated with each Newton-polygon segment under Class 2 (printed p510-p511). Tier 3 = the reduced characteristic equation that emerges after the substitution x = y^(1/q) for fractional-slope segments (printed p514-p515). Each tier has its own multiple-root-vs-simple-root dichotomy, and Adams's existence theorems track separately at each tier.",
+      "relevance_to_W21_LANE1": "Phase 3 synthesizer should not collapse this three-tier hierarchy into a single dichotomy; the sectorial-validity caveat at p541 (see U3) is articulated at tier 3 specifically"
+    },
+    {
+      "id": "U3",
+      "title": "Closing-paragraph caveat at p541 articulates the residual sectorial-validity issue verbatim",
+      "category": "Adams-self-flagged-residual-issue",
+      "description": "The very last paragraph of Adams 1928 (printed p541) contains a single sentence that explicitly flags a residual issue: 'the regions of validity of the asymptotic forms of some or all of the determinant limits for λ greater than this value of i are further restricted'. This is Adams's own admission that the asymptotic-form regions of validity are a residual open question — exactly the gap that BT 1933 §5 and Wasow 1965 Ch. 11 each engage with. The verbatim quote is preserved in adams_1928_main_theorems_summary.md (T9 entry) within the 30-word P7 cap and is the primary substrate for the sectorial-upgrade gap arbitration.",
+      "relevance_to_W21_LANE1": "this is the canonical Adams-side substrate for the upgrade gap: any Phase 3 framing of 'what was open at the close of Adams 1928' must quote this sentence rather than paraphrase it"
+    },
+    {
+      "id": "U4",
+      "title": "Adams cites Birkhoff loc. cit. throughout but Carmichael never",
+      "category": "citation-asymmetry",
+      "description": "Adams 1928 cites Birkhoff 1911 nine times via 'loc. cit.' shorthand (after the first full citation in fn 1 of p507), making Birkhoff 1911 the single most-cited prior work. By contrast, R. D. Carmichael's parallel-period work on linear difference equations (Carmichael 1911-1913 series in American Journal of Mathematics) is never cited by Adams. This asymmetry is unexpected because BT 1933 cites both Birkhoff and Carmichael. The likely explanation is that Adams's framing is squarely descended from the Birkhoff-Harvard analytic-classification school, while Carmichael's framing was operator-algebraic and developed independently at Indiana.",
+      "relevance_to_W21_LANE1": "if Phase 3 synthesizer arbitration draws a Birkhoff-Carmichael-Adams-BT lineage diagram, the diagram must record that Carmichael→Adams is a non-edge (no citation), even though BT 1933 cites both"
+    },
+    {
+      "id": "U5",
+      "title": "BT 1933 p5 fn 2 self-statement provides verbatim ladder-map anchor",
+      "category": "secondary-source-self-statement",
+      "description": "BT 1933 at printed p5 fn 2 contains a single-sentence self-statement of how BT extends Adams: it cites 'C. R. Adams Trans. Amer. Math. Soc. vol. 30 (1928) pp. 507-541' and indicates that the present paper extends the existence theorem of Adams to the case of arbitrary multiplicity. This is the canonical secondary-source anchor for the EXTENDED ladder-label assigned to T2 (Theorem B / Adams §6) in adams_to_bt1933_ladder_map.md. Two verbatim quotes from BT p5 (each ≤ 30 words per P7) are preserved in the ladder-map deliverable.",
+      "relevance_to_W21_LANE1": "Phase 3 synthesizer arbitration of which Adams results were ABSORBED vs EXTENDED vs SUPERSEDED vs PARALLEL by BT 1933 has a single-sentence anchor at BT p5 fn 2; downstream consumers should cite that sentence verbatim rather than paraphrase BT's self-statement"
+    }
+  ]
+}
