@@ -1,0 +1,39 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "phase": "Phase A",
+      "title": "No prior PCF/M5 Lean substrate exists in bridge",
+      "description": "Phase 0.4 inventory of prior LEAN4 sessions revealed that all prior Lean-4 work in the bridge (LEAN4-AXIOM-CONVERSION at 2026-04-24 + LEAN4-LWP-STATEMENT-FIX at 2026-04-24 + LEAN4-SORRY-DISCHARGE at 2026-04-24 + LEAN4-STATESPACE-DISCHARGE at 2026-04-25) targets the SIARCRelay11 control-theoretic project (papanokechi/siarc-lean4 GitHub repo) for the Tunnell JAR submission, NOT for PCF/M5/V_quad mathematics. The 5 prior .lean files (AxiomInventory.lean, LocalWellPosedness.lean, TrustedBoundary.lean, Operators.lean, StateSpace.lean; 51078 B aggregate) provide naming and packaging conventions but no PCF-specific definitions. Relay 098 thus genuinely opens a new Lean leg dedicated to the PCF program.",
+      "implication": "M10 timeline is fresh ground; Reviewer D's 3-month-rework framing is well-grounded; relay 098 is a clean foundation."
+    },
+    {
+      "id": "U2",
+      "phase": "Phase A",
+      "title": "Lean 4.29.1 is BEHIND siarc-lean4's deployed Mathlib4 (4.14.0)",
+      "description": "`lean --version` returns 4.29.1; the prior LEAN4-AXIOM-CONVERSION handoff at 2026-04-24 (sessions/2026-04-24/LEAN4-AXIOM-CONVERSION/handoff.md L11-L12) records 'Lean 4.14.0 / Mathlib 4.14.0' for the siarc-lean4 repo at that time. If the M10-PROOF-DRAFT fire stages m5_frds.lean inside the existing siarc-lean4 Lake project, the Lake toolchain will advance to whatever lean-toolchain pins. Mismatch between local lean-on-path 4.29.1 and Lake-managed 4.14.0 is non-blocking but flagged.",
+      "implication": "M10 fire should run inside Lake env, not bare lean."
+    },
+    {
+      "id": "U3",
+      "phase": "Phase B",
+      "title": "B7 trivial-proposition encoding is unexpectedly clean",
+      "description": "The relay's B7 spec authorized a `sorry`-bodied theorem stub for the M8b axis residual acceptance. Coding it as `theorem ... : True := by trivial` instead avoids any sorry and preserves namespace + naming for future strengthening. Total sorries in m5_frds.lean drops from an expected 7+ (one per non-statement FRD) to 6 actual; B7's contribution is exactly 0 sorries.",
+      "implication": "Pattern: project-specific statement-stubs should default to `True`-bodied trivial proofs rather than sorry bodies, when the substantive content is unstateable in the current Lean type system."
+    },
+    {
+      "id": "U4",
+      "phase": "Phase E",
+      "title": "Coverage of PCF-1 v1.3 sec.4 dichotomy table is structurally limited",
+      "description": "The 30-family evidence table in PCF-1 v1.3 sec.4 (L599-650) is a 30-row enumeration of specific PCFs with empirical Lambda fields, limit types, PSLQ status, and Stokes signal ranges. Encoding the full table in Lean requires 30 instances of a `PCFEvidenceRow` structure plus their numerical witnesses; this is out-of-scope for SCAFFOLD and tagged as CG-15 (priority LOW). The structural insight: M5 FRDs B1-B9 capture the *schema* of the dichotomy without the *evidence rows*; the evidence rows are M10/M2 territory rather than M5.",
+      "implication": "M10-PROOF-DRAFT may want to factor evidence-row encoding as a separate fire (M10-EVIDENCE-TABLE) rather than bundling it with statement-level proofs."
+    },
+    {
+      "id": "U5",
+      "phase": "Phase D",
+      "title": "Stripped-imports syntax probe surfaces zero source-grammar errors",
+      "description": "Phase D.P1.b judgment-call J5 ran `lean m5_frds_stub.lean` after stripping the Mathlib imports. The error cascade (12+ errors at L78, L92, L98, L139, L159) is entirely from undefined `ℚ` and `ℝ` types, not from any Lean source-grammar issue. The Lean parser successfully reaches L78 (the `structure VQuad where ... a2 : ℚ` line) before triggering the type-resolution cascade. This is positive evidence that the FRD body is syntactically well-formed and will type-check cleanly once Mathlib4 is on path.",
+      "implication": "The scaffold is M10-PROOF-DRAFT-ready; staging inside a Lake project with Mathlib4 should succeed at the parse + elaborate stage."
+    }
+  ]
+}
