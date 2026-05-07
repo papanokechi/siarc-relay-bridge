@@ -1,0 +1,101 @@
+{
+  "ref_label_069r1": "Forrester-Witte 2002",
+  "canonical_label": "Forrester, P.J. & Witte, N.S. (2002) Application of the \u03c4-function theory of Painlev\u00e9 equations to random matrices: P_V, P_III, the LUE, JUE, and CUE. Comm. Pure Appl. Math. 55(6):679-727.",
+  "resolution_status": "RESOLVED",
+  "resolution_method": "Crossref API bibliographic search by author + title; arXiv abstract page verification",
+  "resolution_date_utc": "2026-05-07",
+  "primary_record": {
+    "doi": "10.1002/cpa.3021",
+    "title": "Application of the \u03c4-function theory of Painlev\u00e9 equations to random matrices: P_V, P_III, the LUE, JUE, and CUE",
+    "authors": ["P. J. Forrester", "N. S. Witte"],
+    "journal": "Communications on Pure and Applied Mathematics",
+    "publisher": "Wiley",
+    "volume": "55",
+    "issue": "6",
+    "pages": "679-727",
+    "received": "2001-06-01",
+    "published_online": "2002-03-27",
+    "published_print": "2002-06",
+    "issn_print": "0010-3640",
+    "issn_electronic": "1097-0312",
+    "is_referenced_by_count_crossref": 86,
+    "doi_url": "https://doi.org/10.1002/cpa.3021",
+    "primary_url": "https://onlinelibrary.wiley.com/doi/10.1002/cpa.3021",
+    "verification_evidence": "Crossref returned exact title match 'Application of the \u03c4-function theory of Painlev\u00e9 equations to random matrices: P_V, P_III, the LUE, JUE, and CUE'; authors {Forrester, Witte}; CPA vol 55(6):679-727; print-year 2002 (online 2002-03-27); only Forrester-Witte paper with print-year 2002 explicitly treating P_III tau-function; matches arXiv:math-ph/0201051 abstract verbatim"
+  },
+  "arxiv_preprint": {
+    "arxiv_id": "math-ph/0201051",
+    "arxiv_url": "https://arxiv.org/abs/math-ph/0201051",
+    "submitted": "2002-01-24",
+    "submitter": "Nicholas S. Witte",
+    "preprint_doi": "10.48550/arXiv.math-ph/0201051",
+    "license": "arXiv assumed-1991-2003 license",
+    "open_access_pdf": "https://arxiv.org/pdf/math-ph/0201051",
+    "verification_evidence": "arXiv abstract page returned matching title verbatim, authors P.J. Forrester + N.S. Witte, abstract identical to Crossref CPA record abstract"
+  },
+  "disambiguation_from_other_forrester_witte_painleve_random_matrix_papers": [
+    {
+      "paper": "FW 2001 (P_IV/P_II/GUE)",
+      "doi": "10.1007/s002200100422",
+      "arxiv": "math-ph/0103025",
+      "journal": "Communications in Mathematical Physics",
+      "volume": "219",
+      "pages": "357-398",
+      "published_print": "2001-05-01",
+      "is_match": false,
+      "rejection_reason": "Print-year 2001, not 2002. Treats P_IV/P_II/GUE; does not include P_III which is the equation flagged at 058R phase_b_canonical_map L136-140."
+    },
+    {
+      "paper": "FW 2004 (P_VI/JUE/CyUE/cJUE)",
+      "doi": "10.1017/s0027763000008801",
+      "arxiv": "math-ph/0204008",
+      "journal": "Nagoya Mathematical Journal",
+      "volume": "174",
+      "pages": "29-114",
+      "published_print": "2004",
+      "is_match": false,
+      "rejection_reason": "Print-year 2004; treats P_VI not P_III. Submitted to arXiv 2002-04 but published only in 2004. 069r1 'Forrester-Witte 2002' year-stamp matches arXiv submission of math-ph/0201051 (CPA 2002), not this paper."
+    },
+    {
+      "paper": "FW 2003 (Discrete Painlev\u00e9 + random matrix averages)",
+      "arxiv": "math-ph/0304020",
+      "journal": "Nonlinearity",
+      "year": 2003,
+      "is_match": false,
+      "rejection_reason": "Year 2003; topic is discrete Painlev\u00e9, not the continuous P_III tau-function relevant to 069r1 chart-map."
+    },
+    {
+      "paper": "FW 2002 (ANZIAM short note)",
+      "doi": "10.1017/s1446181100007896",
+      "journal": "ANZIAM Journal",
+      "volume": "44",
+      "pages": "41-50",
+      "published_print": "2002-07",
+      "third_author": "Cosgrove",
+      "is_match": false,
+      "rejection_reason": "Three-author paper (Witte, Forrester, Cosgrove); short summary note (10 pp), not the full \u03c4-function development. Published 2002-07. While year-matched, it lacks the substantive content (full P_III/LUE characterization) needed by 069r1."
+    }
+  ],
+  "discrepancies_with_069r1_cite": [
+    {
+      "discrepancy_id": "D4_069R1_FW_AMBIGUITY",
+      "069r1_cite": "Forrester-Witte 2002",
+      "actual_finding": "The 069r1 year-stamp '2002' is satisfied by exactly one substantively-relevant Forrester-Witte paper: 10.1002/cpa.3021 (CPA 55(6), 2002) treating P_V/P_III/LUE/JUE/CUE. arXiv preprint math-ph/0201051 dated 2002-01-24. The companion P_IV/P_II/GUE paper (10.1007/s002200100422, CMP 2001) and P_VI paper (10.1017/s0027763000008801, Nagoya 2004) are flanking but year-mismatched.",
+      "severity": "minor / cite-resolved-uniquely",
+      "recommendation": "Synth at LANE-1 should canonicalize 069r1 'Forrester-Witte 2002' \u2192 DOI 10.1002/cpa.3021 (arXiv:math-ph/0201051). The full Forrester-Witte tau-function series spans 4 papers (CMP 2001 \u2192 CPA 2002 \u2192 Nagoya 2004 \u2192 SAPM 2017); for chart-map closure at A.1.5.F1 only the CPA 2002 paper is strictly required."
+    }
+  ],
+  "accessibility_tier": 1,
+  "accessibility_tier_definition": "Tier 1 = open-access via arXiv preprint (free PDF, no acquisition action required)",
+  "accessibility_evidence": "arXiv:math-ph/0201051 PDF freely accessible at https://arxiv.org/pdf/math-ph/0201051 under arXiv assumed-1991-2003 license. Wiley CPA published version (10.1002/cpa.3021) is paywalled (Tier 3) but content is verified equivalent to arXiv preprint per Crossref abstract match. Full 49 KB AMSLatex source also available via https://arxiv.org/src/math-ph/0201051.",
+  "estimated_acquisition_cost_usd": "0 (arXiv preprint is open-access; published Wiley version costs ~35-50 pay-per-view but content equivalent)",
+  "primary_substrate_gap_target": {
+    "relevant_sections_for_069r1_F1_chart_map": [
+      "\u00a72-3 Okamoto P_V/P_III \u03c4-function development (canonical chart variables explicit)",
+      "\u00a74 hard-edge LUE scaled limit \u2192 P_III tau-function characterization",
+      "\u00a76 difference equation (Schlesinger transformation) for the \u03c4-function"
+    ],
+    "rationale": "Forrester-Witte 2002 explicitly establishes the (\u03b1, \u03b2, \u03b3, \u03b4)_{P_III} \u2194 (a, b, c, d)_{Hamiltonian} \u2194 (\u03c4-function arguments) chart correspondence that 069r1 058R phase_b_canonical_map L136-140 flags as the substrate gap. The paper IS the canonical reference for this specific bridge.",
+    "sufficiency_for_chart_map": "Forrester-Witte 2002 alone, when combined with Okamoto 1987 (Funkcial. Ekvac. 30:305 for P_III, already in 069r1 substrate), should close the A.1.5.F1 substrate gap on the random-matrix-side. The complementary Jimbo-Miwa-Ueno isomonodromic-deformation viewpoint (Part II) is independent confirmation but not strictly required if FW 2002 + Okamoto 1987 are accepted as substrate."
+  }
+}

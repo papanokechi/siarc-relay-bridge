@@ -1,0 +1,57 @@
+{
+  "ref_label_069r1": "Conte-Musette 2008 review",
+  "canonical_label": "Conte, R. & Musette, M. (2008) The Painlev\u00e9 Handbook (1st edition). Springer Netherlands, Dordrecht.",
+  "resolution_status": "RESOLVED",
+  "resolution_method": "Crossref API direct DOI lookup of 10.1007/978-1-4020-8491-1 + 10.1007/978-3-030-53340-3 to verify edition disambiguation",
+  "resolution_date_utc": "2026-05-07",
+  "primary_record_1st_edition_2008": {
+    "doi": "10.1007/978-1-4020-8491-1",
+    "title": "The Painlev\u00e9 Handbook",
+    "authors": ["Robert Conte", "Micheline Musette"],
+    "publisher": "Springer Netherlands",
+    "publisher_location": "Dordrecht",
+    "year": 2008,
+    "isbn_print": "9781402084904",
+    "isbn_electronic": "9781402084911",
+    "is_referenced_by_count_crossref": 5,
+    "doi_url": "https://doi.org/10.1007/978-1-4020-8491-1",
+    "verification_evidence": "Crossref returned matching title 'The Painlev\u00e9 Handbook', authors {Conte, Musette}, Springer Netherlands 2008, with electronic ISBN 9781402084911 corresponding to the 1st edition print release"
+  },
+  "alternative_record_2nd_edition_2020": {
+    "doi": "10.1007/978-3-030-53340-3",
+    "title": "The Painlev\u00e9 Handbook",
+    "authors": ["Robert Conte", "Micheline Musette"],
+    "publisher": "Springer International Publishing",
+    "publisher_location": "Cham",
+    "series": "Mathematical Physics Studies",
+    "year": 2020,
+    "isbn_print": "9783030533397",
+    "isbn_electronic": "9783030533403",
+    "is_referenced_by_count_crossref": 30,
+    "doi_url": "https://doi.org/10.1007/978-3-030-53340-3",
+    "edition_note": "2nd edition; expanded ~1.5x relative to 1st (1st edition has ~250 pp; 2nd has ~410 pp). Newer chapters cover discrete Painlev\u00e9 + multi-component reductions; chart-map material in ch. 5/7 of 1st ed retained and updated.",
+    "cross_reference_to_086_envelope": "T2-R5-LIT-HUNT-TRIANGULATION-086 used the 2nd edition as V5 (DOI 10.1007/978-3-030-53340-3); 069r1 cite 'Conte-Musette 2008' refers to the 1st edition specifically by year."
+  },
+  "discrepancies_with_069r1_cite": [
+    {
+      "discrepancy_id": "D3_069R1_EDITION_AMBIGUITY",
+      "069r1_cite": "Conte-Musette 2008 review",
+      "actual_finding": "069r1's '2008' year-stamp uniquely identifies the 1st edition (DOI 10.1007/978-1-4020-8491-1, Springer Netherlands). However, the 2nd edition (2020, DOI 10.1007/978-3-030-53340-3, Springer International) contains expanded coverage and is the version referenced in T2-R5-LIT-HUNT-TRIANGULATION-086.",
+      "severity": "minor / version-disambiguation",
+      "recommendation": "If 069r1 substrate path requires the 2nd edition's expanded material on discrete Painlev\u00e9 or multi-component reductions, synth should switch to 2nd ed. Otherwise the 1st ed (069r1's literal cite) is sufficient."
+    }
+  ],
+  "accessibility_tier": 3,
+  "accessibility_tier_definition": "Tier 3 = paywalled with no open-access preprint; institutional ILL or purchase required",
+  "accessibility_evidence": {
+    "1st_edition_2008": "Springer Netherlands subscription/purchase required via link.springer.com/book/10.1007/978-1-4020-8491-1; purchase price typically USD 80-130 for hardback or chapter-pay-per-view USD 30/chapter; institutional access via SpringerLink common at Japanese universities; print copy may be borrowable via Yokohama-area library ILL.",
+    "2nd_edition_2020": "Springer International subscription/purchase required via link.springer.com/book/10.1007/978-3-030-53340-3; purchase price typically USD 100-150; institutional access wider (more recent).",
+    "open_access_alternative": "None. Conte's personal website (https://crconte.pagesperso-orange.fr/) hosts a few related preprint chapters but not the full Handbook. Some chapter-level early drafts may be on HAL but require manual verification."
+  },
+  "estimated_acquisition_cost_usd": "80-150 for full book purchase; $0 via institutional ILL; ~30/chapter for SpringerLink chapter pay-per-view",
+  "primary_substrate_gap_target": {
+    "preferred_chapters_for_069r1_F1_chart_map": ["Ch. 5 (Painlev\u00e9 property test for ODEs)", "Ch. 7 (Multi-scale and perturbation reductions)"],
+    "rationale": "Conte-Musette 1st ed serves as analytic-guidance fallback (Path \u03b1) for 069r1. Ch. 5 provides the Painlev\u00e9-Kowalevski test framework needed to verify chart-map well-definedness; Ch. 7 covers the perturbative reductions that may close the (a_0,a_1,a_2)\u2192(\u03b1_inf,\u03b1_0,\u03b2_inf,\u03b2_0) namespace mapping. Ch. 5 is the higher-priority chapter for the F1 substrate gap.",
+    "sufficiency_for_chart_map": "Conte-Musette 1st ed alone is INSUFFICIENT to close the specific P_III \u03c4-function bridge needed at A.1.5.F1 (Conte-Musette covers Painlev\u00e9 property + general reductions but not the random-matrix \u03c4-function characterization). Pairing with Forrester-Witte 2002 (10.1002/cpa.3021) closes the gap. Pairing with Jimbo-Miwa Part II (10.1016/0167-2789(81)90021-X) provides the original isomonodromic-deformation derivation."
+  }
+}

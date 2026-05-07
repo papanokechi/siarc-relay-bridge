@@ -1,0 +1,28 @@
+{
+  "task_id": "T1-069R1-SUBSTRATE-GAP-PRE-VERIFICATION-102",
+  "session_date_utc": "2026-05-07",
+  "unexpected_finds_count": 3,
+  "unexpected_finds": [
+    {
+      "id": "U1_JM_PART_I_THREE_AUTHORS",
+      "anchor_069r1_expectation": "069r1 cited 'Jimbo-Miwa 1981' implying two authors throughout the series",
+      "actual_finding": "Part I (DOI 10.1016/0167-2789(81)90013-0, Physica D 2(2):306-352) has THREE authors: Michio Jimbo, Tetsuji Miwa, AND Kimio Ueno. Parts II and III have only Jimbo and Miwa.",
+      "novelty": "Mild. The 'Jimbo-Miwa-Ueno' three-author Part I is well-known to specialists in isomonodromic deformation theory but is often abbreviated 'Jimbo-Miwa 1981' in informal cites including 069r1.",
+      "research_implication": "When acquiring Part I via ILL or ScienceDirect, verify the three-author byline; if the substrate-gap closure leans on the framework chapter (\u00a72-\u00a73 of Part I) rather than the P_III specialization (Part II), Ueno's solo work (Proc. Japan Acad. 56A:97 = 10.3792/pjaa.56.97; 56A:103 = 10.3792/pjaa.56.103; 56A:210 = 10.3792/pjaa.56.210) may be additionally relevant as he developed the irregular-singular-point case independently in his 1979 master's thesis."
+    },
+    {
+      "id": "U2_JM_SERIES_ONLY_THREE_PARTS",
+      "anchor_069r1_expectation": "069r1 cited 'papers I-V' implying a five-paper series",
+      "actual_finding": "The Physica D series contains only Parts I, II, III. The likely source of the 'I-V' is conflation with the four 1980 Proc. Japan Acad. precursor notes (Deformation I-IV at 10.3792/pjaa.56.{143,149,269,301}) plus possibly the 'Aspects of Holonomic Quantum Fields' 1980 chapter (10.1007/3-540-09996-4_51).",
+      "novelty": "Moderate. The 069r1 cite drift is loose enough that synth at LANE-1 should NOT assume a fifth paper exists. If 069r1 substrate analysis depends on a 'Part IV' or 'Part V' content, that content does not exist under this title; the relevant material is in the 1980 Proc. Japan Acad. precursors (all Tier 1 OPEN).",
+      "research_implication": "Cross-reference 069r1 phase-d-verdict.md to confirm the cite was not dependent on hypothetical Parts IV-V. If yes, raise as halt-condition for synth. If no (most likely), the cite is recoverable as 'Physica D Parts I-III + Proc. Japan Acad. precursors I-IV'."
+    },
+    {
+      "id": "U3_FW_2002_OA_VIA_ARXIV",
+      "anchor_069r1_expectation": "069r1 anomaly OQ-W21-LITERATURE-ALTERNATIVE listed 'Forrester-Witte 2002' as a paywalled-acquisition target requiring institutional access",
+      "actual_finding": "Forrester-Witte 2002 (10.1002/cpa.3021, CPA) has an open-access arXiv preprint at math-ph/0201051 (submitted 2002-01-24, license: arXiv assumed-1991-2003). Content is verified equivalent to the Wiley CPA published version per Crossref abstract verbatim match. This is a Tier 1 OPEN reference; no acquisition action is needed.",
+      "novelty": "Significant. Reduces the literature-acquisition burden for 069r2 from 3 papers to potentially 1 (Jimbo-Miwa Part II) or 0 (if Path \u03b3 below proves sufficient).",
+      "research_implication": "Path \u03b3 (Forrester-Witte 2002 from arXiv + already-acquired Okamoto 1987 Funkcial. Ekvac. 30:305) becomes the lowest-cost substrate-closure pair for A.1.5.F1. Synth at LANE-1 should attempt Path \u03b3 first before invoking acquisition envelopes."
+    }
+  ]
+}

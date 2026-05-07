@@ -1,0 +1,43 @@
+{
+  "task_id": "T1-069R1-SUBSTRATE-GAP-PRE-VERIFICATION-102",
+  "session_date_utc": "2026-05-07",
+  "discrepancy_count": 4,
+  "discrepancies": [
+    {
+      "id": "D1_069R1_PART_COUNT",
+      "category": "cite-loose",
+      "severity": "minor",
+      "anchor_text_069r1": "Jimbo-Miwa 1981 papers I-V",
+      "actual_finding": "Only THREE papers exist in the Jimbo-Miwa(-Ueno) 1981 Physica D series under the title 'Monodromy preserving deformation of linear ordinary differential equations with rational coefficients': Parts I, II, III. There are no Parts IV-V published in Physica D under this title.",
+      "evidence": "Crossref bibliographic search query.author=Jimbo+Miwa & query.bibliographic=monodromy+preserving+deformation returned 3 Physica D papers (1981); no IV-V exist in this series. The companion Proc. Japan Acad. (1980) precursor notes have I-IV (with IV being Miwa solo).",
+      "downstream_action": "Synth at LANE-1 should canonicalize 069r1 substrate references to the 3 Physica D papers (1981 I-III). The Proc. Japan Acad. 1980 short-form notes (10.3792/pjaa.56.{143,149,269,301}) are precursors and largely subsumed by the Physica D series."
+    },
+    {
+      "id": "D2_069R1_AUTHOR_SHORTHAND",
+      "category": "cite-shorthand",
+      "severity": "minor",
+      "anchor_text_069r1": "Jimbo-Miwa 1981",
+      "actual_finding": "Part I of the 1981 Physica D series has THREE authors: Michio Jimbo, Tetsuji Miwa, AND Kimio Ueno. Parts II and III have two authors {Jimbo, Miwa} only.",
+      "evidence": "Crossref record for DOI 10.1016/0167-2789(81)90013-0 returns three authors with sequence 'first', 'additional', 'additional' for Jimbo, Miwa, Ueno respectively.",
+      "downstream_action": "Use 'Jimbo-Miwa-Ueno 1981 I' for Part I and 'Jimbo-Miwa 1981 II/III' for Parts II/III in formal citations. The 069r1 'Jimbo-Miwa 1981' shorthand is field-customary but technically incomplete for Part I."
+    },
+    {
+      "id": "D3_069R1_EDITION_AMBIGUITY",
+      "category": "cite-version",
+      "severity": "minor",
+      "anchor_text_069r1": "Conte-Musette 2008 review",
+      "actual_finding": "069r1's '2008' year-stamp uniquely identifies the 1st edition of 'The Painlev\u00e9 Handbook' (DOI 10.1007/978-1-4020-8491-1, Springer Netherlands). However, a 2nd edition exists (2020, DOI 10.1007/978-3-030-53340-3, Springer International) with expanded content. T2-R5-LIT-HUNT-TRIANGULATION-086 V5 used the 2nd ed.",
+      "evidence": "Crossref records for both DOIs confirm distinct editions; ISBN sets (9781402084904/9781402084911 vs 9783030533397/9783030533403) are non-overlapping.",
+      "downstream_action": "If 069r1 chart-map closure requires expanded discrete-Painlev\u00e9 or multi-component-reduction material, switch to 2nd ed. Otherwise the 1st ed (069r1 literal cite) suffices."
+    },
+    {
+      "id": "D4_069R1_FW_AMBIGUITY",
+      "category": "cite-resolved-uniquely",
+      "severity": "minor",
+      "anchor_text_069r1": "Forrester-Witte 2002",
+      "actual_finding": "The 069r1 cite resolves uniquely to DOI 10.1002/cpa.3021 (Comm. Pure Appl. Math. 55(6):679-727, 2002, treating P_V/P_III/LUE/JUE/CUE; arXiv:math-ph/0201051). Three flanking Forrester-Witte tau-function papers exist (CMP 2001 P_IV/P_II/GUE; Nagoya 2004 P_VI; ANZIAM 2002 short note; Nonlinearity 2003 discrete Painlev\u00e9) but are year- or topic-mismatched.",
+      "evidence": "Crossref bibliographic search query.author=Forrester+Witte & query.title=tau-function+Painleve+random+matrices+LUE+JUE+CUE returned 10.1002/cpa.3021 with score 58.9 as top hit; arXiv:math-ph/0201051 abstract verbatim-matches the Crossref CPA abstract.",
+      "downstream_action": "Synth at LANE-1 should canonicalize 069r1 'Forrester-Witte 2002' \u2192 10.1002/cpa.3021. For the F1 chart-map only this CPA paper is strictly required; the CMP 2001 / Nagoya 2004 companions cover P_II/P_IV/P_VI which are tangential to the P_III gap."
+    }
+  ]
+}

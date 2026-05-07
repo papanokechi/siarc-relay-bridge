@@ -1,0 +1,96 @@
+{
+  "ref_label_069r1": "Jimbo-Miwa 1981 papers I-V",
+  "canonical_label": "Jimbo, Miwa & Ueno (1981) Monodromy preserving deformation of linear ordinary differential equations with rational coefficients (Physica D series, parts I-III)",
+  "resolution_status": "RESOLVED",
+  "resolution_method": "Crossref API direct DOI lookup + bibliographic search query.author=Jimbo+Miwa & query.bibliographic=monodromy+preserving+deformation",
+  "resolution_date_utc": "2026-05-07",
+  "physica_d_series": [
+    {
+      "part": "I",
+      "doi": "10.1016/0167-2789(81)90013-0",
+      "title": "Monodromy preserving deformation of linear ordinary differential equations with rational coefficients",
+      "authors": ["Michio Jimbo", "Tetsuji Miwa", "Kimio Ueno"],
+      "journal": "Physica D: Nonlinear Phenomena",
+      "volume": "2",
+      "issue": "2",
+      "pages": "306-352",
+      "published_print": "1981-04",
+      "publisher": "Elsevier BV",
+      "issn_print": "0167-2789",
+      "is_referenced_by_count_crossref": 439,
+      "primary_url": "https://linkinghub.elsevier.com/retrieve/pii/0167278981900130",
+      "doi_url": "https://doi.org/10.1016/0167-2789(81)90013-0",
+      "verification_evidence": "Crossref returned matching title, authors {Jimbo, Miwa, Ueno}, Physica D 2(2):306-352, April 1981",
+      "anomaly_flag": "AUTHOR_COUNT_DRIFT: Part I has THREE authors {Jimbo, Miwa, Ueno}; the 069r1 cite shorthand 'Jimbo-Miwa 1981' is field-customary but technically omits Ueno. Treat as known field-shorthand; not a halt-condition."
+    },
+    {
+      "part": "II",
+      "doi": "10.1016/0167-2789(81)90021-X",
+      "title": "Monodromy perserving deformation of linear ordinary differential equations with rational coefficients. II",
+      "title_typo_note": "'perserving' (sic) is the typo in the published Crossref record",
+      "authors": ["Michio Jimbo", "Tetsuji Miwa"],
+      "journal": "Physica D: Nonlinear Phenomena",
+      "volume": "2",
+      "issue": "3",
+      "pages": "407-448",
+      "published_print": "1981-06",
+      "publisher": "Elsevier BV",
+      "issn_print": "0167-2789",
+      "is_referenced_by_count_crossref": 525,
+      "primary_url": "https://linkinghub.elsevier.com/retrieve/pii/016727898190021X",
+      "doi_url": "https://doi.org/10.1016/0167-2789(81)90021-X",
+      "verification_evidence": "Crossref-indexed; cited as forward reference in JM Part III (10.1016/0167-2789(81)90003-8) and in Forrester-Witte (10.1002/cpa.3021); confirms canonical Part II DOI",
+      "anomaly_flag": null
+    },
+    {
+      "part": "III",
+      "doi": "10.1016/0167-2789(81)90003-8",
+      "title": "Monodromy preserving deformation of linear ordinary differential equations with rational coefficients. III",
+      "authors": ["Michio Jimbo", "Tetsuji Miwa"],
+      "journal": "Physica D: Nonlinear Phenomena",
+      "volume": "4",
+      "issue": "1",
+      "pages": "26-46",
+      "published_print": "1981-10",
+      "publisher": "Elsevier BV",
+      "issn_print": "0167-2789",
+      "is_referenced_by_count_crossref": 126,
+      "primary_url": "https://linkinghub.elsevier.com/retrieve/pii/0167278981900038",
+      "doi_url": "https://doi.org/10.1016/0167-2789(81)90003-8",
+      "verification_evidence": "Crossref returned matching title, authors {Jimbo, Miwa}, Physica D 4(1):26-46, October 1981",
+      "anomaly_flag": null
+    }
+  ],
+  "discrepancies_with_069r1_cite": [
+    {
+      "discrepancy_id": "D1_069R1_PART_COUNT",
+      "069r1_cite": "Jimbo-Miwa 1981 papers I-V",
+      "actual_finding": "Only THREE Physica D papers exist in the Jimbo-Miwa(-Ueno) 1981 series: Parts I, II, III. There are no Parts IV-V published in Physica D under this title.",
+      "possible_source_of_drift": "Likely conflation with the FOUR Proc. Japan Acad. 'Deformation of linear ordinary differential equations' notes (10.3792/pjaa.56.143/149/269/301 = parts I-IV, all 1980, where Part IV is Miwa solo) plus possibly 'Aspects of Holonomic Quantum Fields' (10.1007/3-540-09996-4_51, Sato-Miwa-Jimbo 1980). 069r1 cite 'I-V' is loose/non-canonical.",
+      "severity": "minor / cite-loose",
+      "recommendation": "Synth at LANE-1 should canonicalize 069r1 substrate references to the 3 Physica D papers (1981 I-III); the Proc. Japan Acad. 1980 notes are short-form precursors and largely subsumed by the Physica D series."
+    },
+    {
+      "discrepancy_id": "D2_069R1_AUTHOR_SHORTHAND",
+      "069r1_cite": "Jimbo-Miwa 1981",
+      "actual_finding": "Part I has three authors {Jimbo, Miwa, Ueno}. Parts II and III have two authors {Jimbo, Miwa}.",
+      "severity": "minor / field-shorthand",
+      "recommendation": "Use 'Jimbo-Miwa-Ueno 1981 I' for Part I and 'Jimbo-Miwa 1981 II/III' for Parts II/III in formal citations going forward."
+    }
+  ],
+  "auxiliary_short_form_notes_proc_japan_acad": [
+    {"part": "I", "doi": "10.3792/pjaa.56.143", "year": 1980, "open_access": true, "via": "Project Euclid"},
+    {"part": "II", "doi": "10.3792/pjaa.56.149", "year": 1980, "open_access": true, "via": "Project Euclid"},
+    {"part": "III", "doi": "10.3792/pjaa.56.269", "year": 1980, "open_access": true, "via": "Project Euclid"},
+    {"part": "IV (Miwa solo)", "doi": "10.3792/pjaa.56.301", "year": 1980, "open_access": true, "via": "Project Euclid"}
+  ],
+  "accessibility_tier": 3,
+  "accessibility_tier_definition": "Tier 3 = paywalled with no open-access preprint; institutional ILL or pay-per-view required",
+  "accessibility_evidence": "All three Physica D papers are gated behind Elsevier paywall (linkinghub.elsevier.com / sciencedirect.com). 1981 publication predates arXiv (1991); no preprint repository hosts them. RIMS preprints 315, 316, 319 (Kyoto Univ., 1980) are referenced as precursors but are not commonly available digitally. Project Euclid Proc. Japan Acad. notes are TIER 1 OPEN but cover only the short-form precursors (1980), not the full 1981 Physica D papers.",
+  "estimated_acquisition_cost_usd_per_paper": "~35-50 (ScienceDirect pay-per-view); $0 via institutional ILL if Yokohama-area library has Elsevier subscription",
+  "primary_substrate_gap_target": {
+    "preferred_part_for_069r1_F1_chart_map": "II",
+    "doi": "10.1016/0167-2789(81)90021-X",
+    "rationale": "Part II contains the explicit Painlev\u00e9 II-VI tau-function constructions including P_III, which is the equation flagged at 058R phase_b_canonical_map L136-140 as the substrate gap. Parts I (general framework) and III (P_VI degenerations) are supporting but not strictly required if Part II + Forrester-Witte 2002 (10.1002/cpa.3021) are paired."
+  }
+}
