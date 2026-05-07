@@ -1,0 +1,34 @@
+{
+  "session": "M4-V0-CLOSURE-CASCADE-106",
+  "date": "2026-05-08",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "MINOR",
+      "subject": "Picture-chain v1.20 already deposited without M4_V0_CLOSED tag annotation",
+      "description": "Per synth Observation 1, picture-chain v1.20+ M4_V0_CLOSED tag must read M4_V0_CLOSED (MEDIUM-HIGH; HIGH-pending) to prevent silent inheritance of unqualified closure state. Picture v1.20 has already been deposited (per SQL todo w20-picture-v120-058-058r-consolidated done) and does NOT carry an M4_V0_CLOSED tag at all (M4 was not yet ratified at v1.20 deposit time). Resolution: picture v1.21 must include the annotated tag. Tracked via NEW SQL todo picture-v120plus-m4-closed-tag-annotation.",
+      "status": "RESOLVED_BY_FORWARD_POINTING_TO_V121"
+    },
+    {
+      "id": "D2",
+      "severity": "INFO",
+      "subject": "Two of five peer-consult-104 consultants reported Y SHA-verification against the non-existent SHA aab7ee2",
+      "description": "Per 105 unexpected_finds.json U5 + sha_origin_trace.md: 2 of 5 consultants (Copilot-Consult-01 + Grok-xAI) reported Y on SHA aab7ee2 in their substrate-verified line; 3 of 5 defaulted N (no bridge access). The Y reports were rubber-stamps (the consultants did not have bridge access either; they reported Y based on the prompt's substrate inventory presentation). This is documented in 105 as the contamination-cascade detection event. Resolution: noted in 106 audit trail; mitigation via repo memory substrate verification is in place.",
+      "status": "RESOLVED_BY_105_DETECTION_PLUS_REPO_MEMORY_MITIGATION"
+    },
+    {
+      "id": "D3",
+      "severity": "INFO",
+      "subject": "M7 / M8a / M8b SQL todos were not pre-staged in blocked state",
+      "description": "Per peer-consult-104 V_FT4_RECOMMENDED Q5: M4 fast-track delivers M7/M8a/M8b unblocking. Expected: pre-staged blocked todos for M7, M8a, M8b that flip to pending on M4 closure. Actual: no pre-existing blocked todos for M7/M8a/M8b enumerated in SQL query at cascade execution time. Cause: SQL todos for M7/M8a/M8b unblocking were not seeded ahead of M4 closure event. Resolution: 3 NEW pending todos created (m7-unblocked-post-m4-v0-closure, m8a-unblocked-post-m4-v0-closure, m8b-unblocked-post-m4-v0-closure). Treats the cascade as the seeding event rather than the flip event. Functionally equivalent.",
+      "status": "RESOLVED_BY_NEW_TODO_CREATION"
+    },
+    {
+      "id": "D4",
+      "severity": "INFO",
+      "subject": "058R Phase D.2 numerical Jacobian unblock was already implicit in SQL state",
+      "description": "SQL todo w20-058R-phase-d2-numerical-jacobian-completion was status=blocked at cascade execution time. The blocker condition (M4 closure) is now satisfied. Direct status flip blocked → pending applied. No forward-pointing or governance issue.",
+      "status": "RESOLVED_BY_DIRECT_STATUS_FLIP"
+    }
+  ]
+}
