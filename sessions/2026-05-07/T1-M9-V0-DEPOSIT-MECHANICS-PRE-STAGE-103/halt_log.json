@@ -1,0 +1,14 @@
+{
+  "task_id": "T1-M9-V0-DEPOSIT-MECHANICS-PRE-STAGE-103",
+  "fire_date": "2026-05-07",
+  "halts_triggered": [],
+  "halt_inventory_checked": [
+    {"id": "HALT_103_SUPERSEDED_BY_PRIOR_FIRE", "result": "PASS", "evidence": "file_search across `M9-V0-DEPOSIT`, `V0-MECHANICS`, `DEPOSIT-PRE-STAGE`, `103-DEPOSIT` patterns returned 0 prior fires"},
+    {"id": "HALT_103_P008_MISSING", "result": "PASS_VIA_J1_FALLBACK", "evidence": "P-008 SYNTH draft tagged DONE in m_critical_path_2026-05-07.md L21+L31 but no on-disk artefact found; J1 judgment-call invokes the relay 103 envelope's path-independent `templates + slots only` design with __SLOT_DESCRIPTION__ absorbing 096 sect 5 V0 announcement skeleton substrate (handoff SHA-256 prefix 4F31AC3026FB6C34) as the deposit-time fallback; surfaced as discrepancy D1 not as halt"},
+    {"id": "HALT_103_METADATA_MISSING_FIELD", "result": "PASS", "evidence": "All required Zenodo metadata fields templated; path-dependent fields marked __SLOT_*__"},
+    {"id": "HALT_103_SUBMISSION_LOG_LINE_LOCATION_MISMATCH", "result": "PASS", "evidence": "Note: line confirmed at L280 via grep_search; last `Verdict: N/A` of Section-2 Item 10 confirmed at L277; insertion window L278-L279 (two blank lines)"},
+    {"id": "HALT_103_RESUME_FILE_MISSING", "result": "PASS", "evidence": "tex/submitted/control center/RESUME_AFTER_REBOOT_20260502.txt verified at fire time (SHA-16 C3ED55B8EE0BBBFF; 22886 B; 344 lines)"},
+    {"id": "HALT_103_CMB_NOTES_BLOCK_NOT_FOUND", "result": "PASS", "evidence": "End-of-file SYNTH-TRACK note convention located at L1638-1656 + L1700-1757 of CMB.txt at fire time; 64-char `=` banner pattern verified across at least 4 prior notes; end-of-file insertion convention valid"},
+    {"id": "HALT_103_FORBIDDEN_VERB_IN_TEMPLATE_PROSE", "result": "PASS", "evidence": "Post-mitigation scan returned 0 substrate-prose hits across all 5 production deliverables; 1 residual hit in `_forbidden_verb_set_listing` data array of zenodo_metadata_m9_v0.json L12 classified as META-AS-DATA per relay 103 envelope STEP F.2 explicit OK pattern"}
+  ]
+}

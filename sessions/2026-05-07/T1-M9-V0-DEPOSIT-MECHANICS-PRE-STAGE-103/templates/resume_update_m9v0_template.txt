@@ -1,0 +1,200 @@
+================================================================
+RESUME_AFTER_REBOOT update template -- M9 SIARC-MASTER-V0
+================================================================
+
+Task ID: T1-M9-V0-DEPOSIT-MECHANICS-PRE-STAGE-103
+Fire date: 2026-05-07
+Bridge HEAD at fire time: 402c7de
+
+----------------------------------------------------------------
+TARGET FILE
+----------------------------------------------------------------
+
+Most-recent RESUME file located at fire time:
+
+  Path: tex/submitted/control center/RESUME_AFTER_REBOOT_20260502.txt
+  SHA-16 (fire time): C3ED55B8EE0BBBFF
+  Length: 22886 bytes; line count: 344
+  Last write: 2026-05-04
+
+If a fresher RESUME_AFTER_REBOOT_<YYYYMMDD>.txt has landed by deposit
+time, prefer the freshest by filename date (per 103 envelope STEP C.1
+mtime/filename-date rule). If the freshest is still RESUME_*_20260502
+at deposit time, append the new section to that file.
+
+----------------------------------------------------------------
+INSERTION POINT
+----------------------------------------------------------------
+
+The 20260502 RESUME has 7 numbered sections (\u00a71..\u00a77) terminating
+at the "Optional / lower priority" list near L344. Append the new
+section after \u00a77 ("STANDING NEXT MOVES (after umbrella v2 lands)")
+as a new \u00a78. If the operator prefers to keep \u00a77 as the standing-
+next-moves list, append the new block as a sibling \u00a78 with explicit
+title indicating M9 closure.
+
+Convention (from existing RESUME): each section uses a 64-char
+"================================================================"
+banner above and below the section number + title.
+
+----------------------------------------------------------------
+TEMPLATE BLOCK (paste-ready; substitute __SLOT__ values)
+----------------------------------------------------------------
+
+================================================================
+8. M9 SIARC-MASTER-V0 ANNOUNCEMENT -- DEPOSITED __DEPOSIT_DATE__
+================================================================
+
+Status: DEPOSITED on Zenodo as preprint; awaits SIARC umbrella v2.1
+        inclusion (umbrella-v2-1-dispatch SQL todo \u2192 ready).
+
+Verdict label : V0_ANNOUNCEMENT_DEPOSITED
+Bridge commits: __DEPOSIT_BRIDGE_SHA__  (this M9 V0 deposit-records
+                                         commit -- submission_log Item
+                                         splice + RESUME update +
+                                         CMB note + handoff)
+
+Zenodo concept: 10.5281/zenodo.__NEW_CONCEPT_DOI__
+Zenodo v1.0  : 10.5281/zenodo.__NEW_VERSION_DOI__
+Build         : __PAGE_COUNT__pp PDF, 0 errors, 0 missing cites
+PDF sha256    : __PDF_SHA256__
+Source sha256 : __SOURCE_SHA256__   (if .tex source bundled)
+AEAL claims   : __AEAL_COUNT__ (V0-A1..V0-A__N__)
+
+Two-tier framing per peer-AI synthesis Q4 4-of-4 AMEND consensus:
+  V0 states the assignment-level Phi (objects \u2192 objects, with
+  morphism behaviour described informally). Categorical-coherence
+  verification deferred to M13. Optional alternative: replace
+  "functor" with "correspondence" or "map of moduli" per Reviewer A
+  BS-2 to defer the categorical-claim register entirely.
+
+Substrate (TIER-A) anchor:
+  bridge sessions/2026-05-07/T2-M9-V0-SUBSTRATE-PRE-STAGE-096/
+  - phi_assignment_statement.md       SHA-16 14CA0AA1A1AEB176
+  - numerical_consistency_check.md    SHA-16 4EEE6B50973D4BB7
+  - related_work_survey.md            SHA-16 2744E3751E6114F3
+  - audience_framing_and_venue_list.md SHA-16 55D660762301C17E
+
+Mechanics (103) anchor:
+  bridge sessions/2026-05-07/T1-M9-V0-DEPOSIT-MECHANICS-PRE-STAGE-103/
+  - templates/zenodo_metadata_m9_v0.json
+  - templates/submission_log_item_m9v0_template.txt
+  - templates/resume_update_m9v0_template.txt    (this template)
+  - templates/cmb_notes_m9v0_template.md
+  - deposit_preflight_checklist.md
+  - claims.jsonl
+
+Gate-closure status at deposit time:
+  GATE A -- M4 ratification
+    068 ACCEPT verdict landed at __M4_RATIFY_BRIDGE_SHA__
+    Bridge URL: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/__M4_RATIFY_DATE__/__M4_RATIFY_TASK_ID__/
+
+  GATE B -- M6.CC R1-closure
+    058 main-fire-V3 GO verdict landed at __M6_CC_RATIFY_BRIDGE_SHA__
+    Bridge URL: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/__M6_CC_RATIFY_DATE__/__M6_CC_RATIFY_TASK_ID__/
+
+Cross-deposit references (all VERIFIED at deposit time per Zenodo
+related_identifiers field):
+  isPartOf  : 10.5281/zenodo.19885549   (SIARC umbrella concept)
+  isPartOf  : 10.5281/zenodo.19965041   (SIARC umbrella v2.0)
+  cites     : 10.5281/zenodo.19931635   (PCF-1 concept)
+  cites     : 10.5281/zenodo.19937196   (PCF-1 v1.3)
+  cites     : 10.5281/zenodo.19936297   (PCF-2 concept)
+  cites     : 10.5281/zenodo.19963298   (PCF-2 v1.3)
+  cites     : 10.5281/zenodo.19941678   (Channel Theory concept)
+  cites     : 10.5281/zenodo.19972394   (Channel Theory v1.3)
+  cites     : 10.5281/zenodo.19783311   (T2B concept)
+  cites     : 10.5281/zenodo.19915689   (T2B v3.0)
+  cites     : 10.5281/zenodo.19996689   (D2-NOTE concept)
+  cites     : 10.5281/zenodo.20015923   (D2-NOTE v2.1)
+
+Important DOI gotcha (carry-forward from \u00a73 of this RESUME, L137-141):
+  Zenodo concept DOIs are mints in their own right (not aliases of v1).
+  Capture both concept and version DOIs immediately at "Publish" time.
+
+Operator actions for V0 deposit: ALL DONE.
+
+Submission log: Item __ITEM_NUM__ patched. See bridge commit
+  __SUBMISSION_LOG_PATCH_BRIDGE_SHA__.
+
+CMB.txt: SYNTH-TRACK note appended __DEPOSIT_DATE__. See bridge
+  commit __CMB_NOTE_BRIDGE_SHA__.
+
+SQL todos (post-deposit):
+  siarc-master-v0                          \u2192 done
+  siarc-umbrella-v2-1-dispatch             \u2192 ready (next op)
+  m13-categorical-coherence-followup       \u2192 pending (M13 leg)
+
+----------------------------------------------------------------
+SLOT-FILL NOTES
+----------------------------------------------------------------
+
+__DEPOSIT_DATE__         e.g. `2026-05-15` (W21 end target Fri)
+
+__DEPOSIT_BRIDGE_SHA__   Short SHA-7 of the bridge commit that lands
+                         the consolidated M9 V0 deposit-records
+                         (submission_log + RESUME + CMB updates).
+                         Capture via `git rev-parse --short HEAD`
+                         after push.
+
+__NEW_CONCEPT_DOI__ + __NEW_VERSION_DOI__
+                         8-digit Zenodo numeric IDs, captured at
+                         "Publish" time. Concept DOI is one integer
+                         BELOW version DOI per Zenodo allocation
+                         (RESUME L137-141 gotcha).
+
+__PAGE_COUNT__           Page count of the deposited PDF.
+
+__PDF_SHA256__           Full 64-char SHA-256 of the deposited PDF.
+                         Capture via:
+                           (Get-FileHash -Algorithm SHA256 `
+                              -LiteralPath "<path>\\m9_v0_announcement.pdf"
+                            ).Hash.ToLower()
+
+__SOURCE_SHA256__        Full 64-char SHA-256 of the .tex source bundle
+                         (if uploaded alongside PDF). Empty if PDF-only
+                         deposit.
+
+__AEAL_COUNT__           Total claims in claims.jsonl for the V0
+                         deposit session. Floor: >= 7 per envelope
+                         convention.
+
+__M4_RATIFY_BRIDGE_SHA__ + __M4_RATIFY_DATE__ + __M4_RATIFY_TASK_ID__
+                         Captured from `git log --oneline` in the
+                         bridge after 068 ACCEPT verdict lands.
+                         Date format YYYY-MM-DD. Task ID likely
+                         `T1-068-RATIFICATION-W21-LANE1` or similar.
+
+__M6_CC_RATIFY_BRIDGE_SHA__ + __M6_CC_RATIFY_DATE__ + __M6_CC_RATIFY_TASK_ID__
+                         Captured from `git log --oneline` after 058
+                         main-fire-V3 GO verdict lands. Task ID likely
+                         `T2-058-MAIN-FIRE-V3` or similar.
+
+__ITEM_NUM__             Per submission_log_item_m9v0_template.txt
+                         operator decision: 11 (skip backfill) or 16
+                         (backfill missing 5 deposits first).
+
+__SUBMISSION_LOG_PATCH_BRIDGE_SHA__ + __CMB_NOTE_BRIDGE_SHA__
+                         If submission_log + CMB updates land in the
+                         same bridge commit as the deposit-records
+                         commit (typical), both equal __DEPOSIT_BRIDGE_SHA__.
+                         If split across commits, populate distinctly.
+
+----------------------------------------------------------------
+HALT-GATE (per relay 103 envelope STEP C.3)
+----------------------------------------------------------------
+
+HALT_103_RESUME_FILE_MISSING check at fire time:
+
+  Path: tex/submitted/control center/RESUME_AFTER_REBOOT_20260502.txt
+  Test-Path result: TRUE
+  -> NOT TRIGGERED.
+
+If at deposit time the operator finds NO RESUME_*.txt under standard
+path, this template is still usable: create a fresh
+`RESUME_AFTER_REBOOT_<YYYYMMDD>.txt` with the M9 V0 section as \u00a71
+(no carry-forward sections needed; M9 V0 is a fresh deposit moment).
+
+================================================================
+END OF TEMPLATE
+================================================================
