@@ -1,0 +1,35 @@
+{
+  "session": "T2-M6-CC-CHART-MAP-CANDIDATE-B1-CHECK-075",
+  "date": "2026-05-07",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "primitive-uniformity",
+      "description": "All 7 structural primitives compared in Phase D matrix landed at MISMATCH (7 / 7); the count is uniformly maximal at the substrate-inventory scope. Envelope section 9 STRUCTURAL_MISMATCH ladder rung requires only >=1 MISMATCH but the actual count is 7. This uniformity is a stronger signal than the minimal verdict-rung condition.",
+      "framing": "SUBSTRATE-INVENTORY observation; explicitly NOT an assertion that BT 1933 framework is irrelevant to R1; explicitly NOT a chart-map-discharge claim. The uniformity observation strengthens OQ-W21-LITERATURE-ALTERNATIVE escalation per envelope section 5.E.2 STRUCTURAL_MISMATCH branch but does not pre-empt 076 spec.",
+      "synthesizer_review_handle": "U1 [PRIMITIVE-UNIFORMITY] All 7/7 structural primitives MISMATCH at 075 scope -- candidate for synthesizer surfacing in W21 LANE-1 path-delta literature-acquisition rationale."
+    },
+    {
+      "id": "U2",
+      "category": "envelope-spec-clarification-needed",
+      "description": "Envelope section 0 SUFFICIENT-condition wording 'STRUCTURAL_MATCH : (13 a) provides exactly the syntactic form needed (with explicit caveat: structural match is necessary but not sufficient for chart-map closure)' uses 'syntactic form' as the operative concept. 075 Phase B + Phase C reified 'syntactic form' as the 7-primitive enumeration {domain, codomain, functional form, cardinality, sectorial structure, constraint structure, mathematical type}. This operationalization is one of several possible decompositions and a future synthesizer review may want to revisit which primitive set is canonical for the (13 a)<->A.1.5 comparison.",
+      "framing": "PROCESS observation; not a substrate finding. Recommend W21 LANE-1 review of the 7-primitive decomposition adopted by 075 for synthesizer-level concurrence.",
+      "synthesizer_review_handle": "U2 [PRIMITIVE-DECOMPOSITION-CANONICAL] 7-primitive set used by 075 Phase B / Phase C (B1-B7 / C1-C7) -- candidate for canonicalization or alternative decomposition at W21 LANE-1."
+    },
+    {
+      "id": "U3",
+      "category": "carry-forward-strengthening",
+      "description": "069r1 handoff section 52 OQ-W21-LITERATURE-ALTERNATIVE was 'open' (synthesizer/operator scope: are alternative literature acquisitions within the relay-prompt drafter's authority?). 075 STRUCTURAL_MISMATCH verdict per envelope section 5.E.2 strengthens this OQ to 'path-delta literature acquisition is required'. The strengthening is a verdict-determined transition, not a new OQ.",
+      "framing": "STATE-TRANSITION observation. OQ status moved from 'open question of authority' to 'recommendation by 075 verdict'. The authority question itself remains open at W21 LANE-1.",
+      "synthesizer_review_handle": "U3 [OQ-W21-LITERATURE-ALTERNATIVE STRENGTHENED] 075 verdict converts the OQ from authority-question status to substrate-recommendation status; the authority question (whether alternative literature acquisitions are within relay-prompt-drafter authority) remains open."
+    },
+    {
+      "id": "U4",
+      "category": "primitive-cardinality-corollary",
+      "description": "[GAP-PRIMITIVE-B4] cardinality is 4 separate scalar maps (one per Okamoto coordinate); [FILL-PRIMITIVE-C4] cardinality is n^2 entry-functions per region pair. At n = 2 (the SIARC-stratum PCF specialisation discussed in 073 bt_1933_section_5_claim_table.md Phase C.4 caveat), the FILL cardinality becomes n^2 = 4 scalar entry-functions per region pair, which superficially matches GAP cardinality 4. This superficial cardinality coincidence is NOT a structural match because the entries remain functions of x (not parameter scalars) per FILL-PRIMITIVE-C2.",
+      "framing": "OBSERVATION; the n=2 superficial cardinality coincidence does not affect the 075 STRUCTURAL_MISMATCH verdict (D4 is MISMATCH because the type discrepancy of FILL-PRIMITIVE-C2 dominates) but is a potential point of confusion in W21 LANE-1 path-delta literature-acquisition rationale prose.",
+      "synthesizer_review_handle": "U4 [N=2-CARDINALITY-COINCIDENCE] At n=2 PCF specialisation, FILL cardinality 4 superficially matches GAP cardinality 4; observation potentially relevant to synthesizer prose drafting at W21 LANE-1."
+    }
+  ],
+  "summary": "4 unexpected finds surfaced at substrate-inventory scope; none impact verdict; all are forward-pointed for W21 LANE-1 / synthesizer review."
+}
