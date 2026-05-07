@@ -1,0 +1,31 @@
+{
+  "task_id": "T1-017M-BOREL-PADE-S2-092",
+  "halts_triggered": [],
+  "halts_checked_pass": [
+    {
+      "name": "HALT_092_SUPERSEDED",
+      "result": "PASS",
+      "details": "Phase 0 search returned T36-S2-EXTRACTION (2026-05-02; halt T36_S2_RICHARDSON_DIVERGED) and T37-S2-EXTRACTION-POLYNOMIAL-AWARE (2026-05-02; T37_PARTIAL_a_1_PARTITIONS, D INFEASIBLE). Subsequent T37E + T37M chain identified: T37M-DIRECT-BOREL-D-EXTRACTION (2026-05-03; HALTED HALT_T37M_PADE_DIVERGENT). T37M is the closest prior Borel-Pade attempt; its outcome (RANK_LOSS at high orders M=200..800) is INFEASIBLE in the spec sense and the present 092 sweep operates in a fundamentally different small-(N,M) regime {6..18}. No supersession; no halt."
+    },
+    {
+      "name": "HALT_092_NO_017L_SUBSTRATE",
+      "result": "PASS",
+      "details": "T37E cached recurrence series at dps=400/N=5000 located and SHA-anchored for all four reps (V_quad/QL15/QL05/QL09). T35 constants (zeta_star, C_lsq, S1_imag) loaded at dps=250 and used to construct the Borel transform in u=t/zeta_star coords. Substrate file existence + readability verified by borel_pade_s2_runner.py main()."
+    },
+    {
+      "name": "HALT_092_BOREL_PATHOLOGICAL",
+      "result": "PASS",
+      "details": "Borel transform b_n(u) := a_n * zeta_star^n / Gamma(n+1) constructed cleanly for all four reps; |b_n| decays geometrically as expected for analytic Borel transform with finite radius of convergence at u=1 (leading Stokes singularity). No NaN, no inf, no negative-dps residuals."
+    },
+    {
+      "name": "HALT_092_DPS_INSUFFICIENT",
+      "result": "PASS",
+      "details": "dps=300 ran to completion in 87.7 seconds for the full 4-rep x 49-cell sweep on laptop CPU. No memory pressure, no runtime issue, no precision exhaustion."
+    },
+    {
+      "name": "HALT_092_UNEXPECTED_POSITIVE",
+      "result": "PASS",
+      "details": "Phase D3 trigger checked. No rep achieved EXTRACTED classification (zero of 84 adjacent-cell pairs reached the dps/4 = 75 digit threshold; best agreements were 3-4 digits). No S_2 value with sign opposite to all priors emerged. Verdict for all four reps is PERMANENT_RESIDUAL_G6b, consistent with prior 017c/017e/017m findings."
+    }
+  ]
+}
