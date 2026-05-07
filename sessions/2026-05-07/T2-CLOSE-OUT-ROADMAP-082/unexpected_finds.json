@@ -1,0 +1,35 @@
+{
+  "session": "T2-CLOSE-OUT-ROADMAP-082",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "class": "process-pattern",
+      "title": "Parallel-CLI substrate sharing via workspace file is now an established Phase A.P3 fallback pattern",
+      "detail": "When the firing CLI session lacks SQL/MCP-todo-DB access, a parallel prompt-drafting CLI session that DOES have access can pre-export a frozen snapshot to a workspace path and a pointer file. This is the second instance of this pattern (first was apparently the early use of in-cli_log SQL-state snippets). Recommendation: codify in standing instructions or in a memory file as an explicit fallback for envelopes whose Phase A.P3 needs SQL access."
+    },
+    {
+      "id": "U2",
+      "class": "bucket-distribution",
+      "title": "BUCKET-C synth-gated dominates with 34 of 70 actionable rows (48.6 percent)",
+      "detail": "Half of all actionable rows require synth Mon AM JST arbitration. This is consistent with the W21-LANE-1-absorption-week strategy (cli_log/2026-W21_wsb.md §'Strategy one-liner') but quantitatively reveals the close-out bottleneck. Half the close-out queue cannot drain pre-LANE-1 regardless of agent capacity. The synth_pre_digest_packet.md is therefore the highest-leverage deliverable from this fire."
+    },
+    {
+      "id": "U3",
+      "class": "bucket-distribution",
+      "title": "BUCKET-A + BUCKET-B drainable count is 25 of 70 (35.7 percent)",
+      "detail": "12 BUCKET-A + 13 BUCKET-B = 25 items can drain without synth gating. With 5 already-drafted envelopes (082 + 083 + 084 + 085 + 087/090/091 sketches) plus 087-091 post-LANE-1 envelopes, the agent + operator combined throughput pre-LANE-1 should drain ~10-15 items in W20 Fri-Sun + W21-Tue/Wed. This sets the realistic close-out cadence."
+    },
+    {
+      "id": "U4",
+      "class": "obsolete-candidate-discovery",
+      "title": "synthesizer-recommendation-m6-pivot-beta is silently obsolete post-036",
+      "detail": "The SQL row for synthesizer-recommendation-m6-pivot-beta self-notes (in description) that 036 SIARC-OKAMOTO-1987-SEC3-SCAN landed at bridge commit 95ffa1e with verdict CONFIRM_M6_PHASE_B5_INDEX2_FINAL on 2026-05-04. The branch-(beta) recommendation was executed; v1.19 picture amendment 'now unblocked'. Yet the row is still status=pending in the SQL snapshot at 2026-05-07. This indicates the SQL hygiene pass to mark it done was missed at 036 landing time. The proposed_sql_closures.sql now produces the closure UPDATE for operator post-082 execution. Pattern-flag: post-verdict SQL hygiene may be drifting; consider an audit pass for similar silently-obsolete rows beyond this fire's D-bucket."
+    },
+    {
+      "id": "U5",
+      "class": "envelope-queue-coverage",
+      "title": "086 envelope (R5 lit-hunt) sketched in plan.md but not yet drafted",
+      "detail": "plan.md L196-L198 sketch envelope 086 'T2 R5 lit-hunt + biblio pre-verification (Okamoto 1987 §§2-3 + Conte-Musette 2008 ch.7)' targeting M6.CC track. This envelope is the operator-side acquisition scaffold required to unblock cc-vquad-piii-main-relay (BLOCKED). 086 is not yet drafted at tex/submitted/control center/prompt/. Pre-LANE-1 drafting opportunity (BUCKET-A-class authoring task) but with bibliographic-pre-verification scope (post-031 verdict rule applies). Surfaced for next-prompt-drafter consideration; not in scope for 082."
+    }
+  ]
+}

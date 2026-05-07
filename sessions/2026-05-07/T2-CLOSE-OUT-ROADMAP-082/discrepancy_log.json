@@ -1,0 +1,41 @@
+{
+  "session": "T2-CLOSE-OUT-ROADMAP-082",
+  "discrepancies": [
+    {
+      "id": "D-N",
+      "class": "non-blocking",
+      "title": "SQL access unavailable in firing CLI session; Phase A.P3 bootstrapped from snapshot",
+      "detail": "The firing CLI session has no SQL/sqlite/MCP-todo-DB tool exposed (verified via tool_search 'SQL todos database query' returning only manage_todo_list which is the agent's own session tracking, not the operator's external SQL store). Phase A.P3 substrate redirected to tex/submitted/control center/sql_todos_snapshot_2026-05-07_18-40-JST.md (76089 B / SHA16 60DD655EA1880BF0) exported by parallel prompt-drafting CLI session at bridge HEAD ace3a42. Pointer at tex/submitted/control center/082_sql_seed_pointer.txt (1983 B / SHA16 FE9998CE4AA34E59). Per pointer-file §5 instruction, this is non-halt-class. Per copilot-instructions parallel-CLI fire collision pattern memory, parallel-CLI substrate sharing via workspace files is the established resolution mechanism. The two sessions have non-conflicting roles (drafter writes substrate, firer consumes; drafter does NOT execute SQL closures), so the sibling-folder halt-state pattern from HALT_061 / HALT_064 does NOT apply."
+    },
+    {
+      "id": "D-1",
+      "class": "non-blocking",
+      "title": "Section C cluster C.2 contains 9 distinct items not 10 (q-claude-30-31 placed in Section B)",
+      "detail": "Cluster C.2 footnote notes q-claude-30-31-send-d2-note-v21 was reclassified to BUCKET-B (operator dispatches Q-CLAUDE to Claude.ai via paste; mechanical operator action with no synth arbitration on agent side). Cluster C.2 then contains q20 + q21 + q22 + q23 + q24 + q32 + q33 + q34 + h1-label-arbitration = 9 distinct items, not 10 as the cluster header suggests. Sum invariant unaffected (h1-label-arbitration covers the 10th slot). Substrate-citation hygiene preserved."
+    },
+    {
+      "id": "D-2",
+      "class": "non-blocking",
+      "title": "Cluster C.6 long-tail spans 12 items mixing W21-Mon and SOP-cycle timing",
+      "detail": "Cluster C.6 contains 12 items with mixed LANE-1 timing: 9 align with W21-Mon AM JST cadence (C.6.a-g + C.6.i + C.6.j + C.6.l + C.6.m); 2 are SOP-cycle items deferred to next standing-instructions append cycle (C.6.h sop-wording-availability-not-fire-authorization-candidate + C.6.k w20-synth-058-halt-name-prefix-convention). Synth absorption may treat C.6 as two sub-clusters at W21-Mon. Documented in synth_pre_digest_packet.md §'Synth absorption summary' notes."
+    },
+    {
+      "id": "D-3",
+      "class": "non-blocking",
+      "title": "p11-mathcomp-fire-time-gate-checklist BUCKET-B assignment vs near-D candidacy",
+      "detail": "p11-mathcomp-fire-time-gate-checklist description self-notes 'UNBLOCKED 2026-05-06 ~19:43 JST: JTNB-2400 verdict landed' but also 'DEFERRED 2026-05-06 ~20:38 JST per OPT_C: operator selected defer until further breakthroughs'. The 049 P11-SICF re-fire DECISION = Option 3 (Withdrawal+restructure; resubmit) per sessions/2026-05-06/P11-SICF-DECISION-W20-REFIRE/handoff.md; Math.Comp resubmit no longer in active pipeline. Conservative B classification preserved (gate-checklist still has structural value if operator re-activates Math.Comp track later); D classification considered and rejected per operator-decision flexibility."
+    },
+    {
+      "id": "D-4",
+      "class": "non-blocking",
+      "title": "BUCKET-A item w22-cli-synth-2026-05-monthly-handoff is calendar-gated not pre-LANE-1-drainable",
+      "detail": "A-12 (w22-cli-synth-2026-05-monthly-handoff) is agent-autonomous in execution but the fire window is end-of-month Sun 2026-05-31 (per plan.md L210 094 envelope). Including it in BUCKET-A is correct per definition (closeable by agent without operator/synth input) but the close_out_timeline.md schedules it in W22+ section accordingly."
+    },
+    {
+      "id": "D-5",
+      "class": "non-blocking",
+      "title": "synthesizer-recommendation-m6-pivot-beta D-2 substrate uses commit message not handoff.md anchor",
+      "detail": "BUCKET-D row D-2 cites bridge commit 95ffa1e for the SIARC-OKAMOTO-1987-SEC3-SCAN verdict. The detailed verdict text was extracted from `git log` commit message (verified via terminal git log --oneline showing 'verdict CONFIRM_M6_PHASE_B5_INDEX2_FINAL'). A bridge handoff.md at sessions/2026-05-04/SIARC-OKAMOTO-1987-SEC3-SCAN/handoff.md should also exist; this session did not directly read that handoff but the commit message anchor is sufficient per envelope STEP C.1 acceptance ('exact bridge session match showing closure')."
+    }
+  ]
+}
