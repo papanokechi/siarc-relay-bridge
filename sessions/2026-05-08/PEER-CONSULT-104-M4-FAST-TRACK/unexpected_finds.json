@@ -1,0 +1,28 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "severity": "GOVERNANCE",
+      "description": "FT-2 tie-break protocol gap independently flagged by 2 of 5 consultants (Claude web + Claude xhigh CLI). Both noted that adopting FT-2 in the future under contested-substrate conditions would require resolving meta-governance gap before the consult could close — risks inverting earliest-close objectives. Recommend drafting SIARC tie-break protocol as low-priority bridge item before forced under time pressure.",
+      "follow_up": "Draft tie-break-protocol-v0 envelope as standalone deliverable; do NOT bundle with M4/M6.CC LANE-1 batch (separate concern)."
+    },
+    {
+      "id": "U2",
+      "severity": "EPISTEMIC",
+      "description": "Claude xhigh CLI introduced novel framing 'earliest event-clock counts logical events, not wall-clock minutes within an event' — a useful event-time formalization that aligns with operator's recent event-based-language directive. Worth retaining as principle in future close-out reasoning.",
+      "follow_up": "Reference in next plan.md snapshot; consider promoting to m_critical_path glossary."
+    },
+    {
+      "id": "U3",
+      "severity": "OPERATIONAL",
+      "description": "Disambiguating fact for Q5 (LANE-1 batch dispatch-readiness) was directly observable in m_critical_path_2026-05-07.md §3 substrate inventory but not surfaced explicitly in the prompt 104 framing. Future peer-consult prompts should pre-flight surface 'available substrate vs pending substrate' inventory in the prompt body so consultants do not need to infer or default to wrong topology.",
+      "follow_up": "Update peer-consult prompt template (if codified) to include explicit substrate-readiness matrix in §1 or §2."
+    },
+    {
+      "id": "U4",
+      "severity": "PROCEDURAL",
+      "description": "Multi-consultant ensemble (5 different peer-AIs) on a single relay prompt produced HIGH consensus on rejections (FT-0, FT-2) and unanimity on Q6 (M9 compression) at low marginal cost. Suggests selective use of multi-consultant ensemble for HIGH-STAKES governance decisions even though Q3-tally rejected FT-2 for M4 specifically. Distinction: ensemble for verdict-confidence vs ensemble for substrate-tie-break.",
+      "follow_up": "Consider documenting ensemble-vs-tie-break distinction in tie-break-protocol-v0 (U1)."
+    }
+  ]
+}
