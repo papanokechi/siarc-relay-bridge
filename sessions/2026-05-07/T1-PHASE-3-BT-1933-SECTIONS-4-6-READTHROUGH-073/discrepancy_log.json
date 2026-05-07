@@ -1,0 +1,22 @@
+{
+  "session": "T1-PHASE-3-BT-1933-SECTIONS-4-6-READTHROUGH-073",
+  "date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "category": "tooling-glyph-drift",
+      "description": "pypdf 6.10.2 silently substitutes the section-symbol '\u00a7' with the lowercase letter 'w' in the BT 1933 PDF text extraction. Section-headers such as '\u00a7 4. A lemma on summation' render as 'w 4. A lemma on summation' in the raw pypdf output.",
+      "resolution": "Section-symbol restored silently by hand-correction in the verbatim extract files (D2, D4, D6); restoration is uniform and lossless because the surrounding context is unambiguous (each occurrence is a section-header token followed by an integer + period + section-title).",
+      "scope": "section-headers only; the substitution does not affect any in-body word.",
+      "impact": "low; the verbatim extracts faithfully reflect the BT 1933 text post-restoration."
+    },
+    {
+      "id": "D2",
+      "category": "tooling-font-drift",
+      "description": "In the §6 body title, pypdf renders 'Factorization' as 'Faetorization' (single-character font-drift on the 'c' glyph). The §6 section-header at PDF p. 48 is correctly extracted as 'A LEMMA ON FACTORIZATION'; the body-text repeat at PDF p. 50 line 2 reads 'Faetorization'.",
+      "resolution": "Documented as a discrepancy; not silently corrected in the §6 extract because the verbatim policy means we transcribe what pypdf delivered. The reader is alerted in `bt_1933_section_index_4_6.md` and in the `bt_1933_section_6_extract.md` introductory note.",
+      "scope": "single occurrence in §6 body-text only.",
+      "impact": "negligible; the section-header is correct."
+    }
+  ]
+}
