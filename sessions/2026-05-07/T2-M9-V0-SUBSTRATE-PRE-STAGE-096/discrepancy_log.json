@@ -1,0 +1,74 @@
+{
+  "task_id": "T2-M9-V0-SUBSTRATE-PRE-STAGE-096",
+  "fire_date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "severity": "INFO",
+      "phase": "A.P6",
+      "title": "V5 Springer DOI redirect to authentication wall",
+      "description": "fetch_webpage on https://link.springer.com/book/10.1007/978-3-030-53340-3 redirected to https://idp.springer.com/authorize?... at fire time. Not a content drift; same-day pre-verification at citation_pre_verification_2026-05-07.md SHA-16 1584C61EF68B984A is the verification anchor. Per post-031 rule: identifier resolution succeeded (DOI redirects to expected Springer endpoint); content access gate is a separate access-control issue, not a hallucination indicator.",
+      "blocking": false,
+      "carried_forward_from": null
+    },
+    {
+      "id": "D2",
+      "severity": "INFO",
+      "phase": "A.P3",
+      "title": "Picture v1.19 carries M10/M11/M12 operator-introduced post-v1.19 tags not in V0 scope",
+      "description": "Relay 096 envelope explicitly states 'M10/M11/M12 are operator-introduced post-v1.19 tags; do NOT include in V0 scope.' V0 substrate honors this — only M9 (line 1019) is referenced. M10/M11/M12 not extracted or referenced in any production deliverable.",
+      "blocking": false,
+      "carried_forward_from": null
+    },
+    {
+      "id": "D3",
+      "severity": "INFO",
+      "phase": "F.1",
+      "title": "Translation-table illustration cells force external-voice register without forbidden-verb usage",
+      "description": "The forbidden-verb translation table in audience_framing_and_venue_list.md section 2 illustrates external-venue voice. First-draft cells used two of the §5.E.3 third-person-singular forms as natural external-register example verbs; both triggered strict §5.E.3 pattern hits. In-session mitigation rewrote cells to use citation-bracket form ('By [D2-NOTE v2.1, Theorem 4.1]') which carries the same external register without strict-pattern verb tokens. The trade-off: the mitigated cells are slightly less idiomatic-as-external-prose but pass the internal AEAL scan. Forward-pointed for V0-fire envelope-author awareness: the V0 announcement itself will need to use external-register verbs in non-quoted prose, and the external scan will be at the V0-fire's own envelope (not at 096 substrate-fire scope).",
+      "blocking": false,
+      "carried_forward_from": null
+    },
+    {
+      "id": "D4",
+      "severity": "INFO",
+      "phase": "A.P7",
+      "title": "Operator preferences not pasted at fire start; defaults applied",
+      "description": "Relay 096 envelope §A.P7 specified operator-paste at fire start for three preferences (venue audience, V0 length target, terminology). Operator did not paste preferences; agent applied envelope defaults: math-ph audience emphasis, medium length ~15pp, 'correspondence' terminology. All three defaults are wording-agnostic in the substrate; operator override at V0-fire dispatch supersedes (recorded in audience_framing_and_venue_list.md section 1 + section 3.2).",
+      "blocking": false,
+      "carried_forward_from": null
+    },
+    {
+      "id": "D5",
+      "severity": "INFO",
+      "phase": "C",
+      "title": "058 main-fire numerical output not directly invokable; 069 PARTIAL substituted as primary numerical anchor",
+      "description": "Relay 096 envelope §C.2 said 'cross-check against 058 main-fire numerical output if it has fired post-LANE-1; if not yet fired, flag as pre-fire input'. The 058 main-fire chain (CC-VQUAD-PIII-NORMALIZATION-MAP) at sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP/ HALTED at P7 GATE; the 058R re-fire at sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/ landed UPGRADE_V1_0_PARTIAL pre-Phase D; the 069 follow-up at sessions/2026-05-07/CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL/ landed UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST and is the canonical post-058R numerical anchor. Substrate uses 069 SHA-16 3534D6C8CBB0F4BD as primary numerical anchor.",
+      "blocking": false,
+      "carried_forward_from": "069 verdict UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST"
+    },
+    {
+      "id": "D6",
+      "severity": "INFO",
+      "phase": "D",
+      "title": "Mazzocco specific paper IDs not pre-verified; Lisovyy-Roussillon 2017 arXiv ID unknown",
+      "description": "Two related-work-survey rows entered with identifier-deferred status. Mazzocco: cited by author-name only in V0 substrate; specific paper IDs deferred to W21 LANE-1 jurisdiction (post-031 rule prohibits entering unverified arXiv IDs). Lisovyy-Roussillon 2017 (Painleve I connection problem; J. Phys. A 50:255202): cited by author-year-journal only; arXiv ID was not successfully discovered at 2026-05-07 (web-search returned two hallucinated IDs per citation_pre_verification_2026-05-07.md H2 + H3). Both forward-pointed for re-acquisition before any V0-fire that would cite them by ID.",
+      "blocking": false,
+      "carried_forward_from": "citation_pre_verification_2026-05-07.md Outstanding row"
+    },
+    {
+      "id": "D7",
+      "severity": "INFO",
+      "phase": "B5",
+      "title": "086 (T2-R5-LIT-HUNT-TRIANGULATION) landed mid-session at bridge HEAD 213d23b",
+      "description": "Phase A.P2 captured bridge HEAD = 14e6b09 at fire time. The B2 git pull at session end revealed bridge HEAD has advanced to 213d23b with 086 (T2-R5-LIT-HUNT-TRIANGULATION) verdict COMPLETE_PROVISIONAL_MAP / NEW_CANDIDATE_B4 at sessions/2026-05-07/T2-R5-LIT-HUNT-TRIANGULATION-086/handoff.md SHA-16 711106C51332E24B (17309 B). 086 acquired V1 + V2 PDFs at SHAs 96C49CDD51B6C2A3 (V1 77pp) + B63A1E2EC2E6E7A6 (V2 54pp), extracted V1 chart-map across 6 levels of parametrisation, assessed V2 Malgrange-Bertola extension applicability to V1 P_III(D_6) Lax pair, and cross-walked V1 chart-map against 075 STRUCTURAL_MISMATCH B1 candidate at 7 GAP-PRIMITIVE axes (0 MATCH / 2 PARTIAL-MATCH / 5 MISMATCH yielding NEW_CANDIDATE_B4). 096 substrate forward-pointers to 086 in related_work_survey.md and audience_framing_and_venue_list.md remain semantically correct (086 is the lit-hunt fire that 096 references); no substrate restructuring required. The 086 deliverables are now actionable substrate for the W21 LANE-1 ratification batch and may unblock M6.CC R1 carry-forward earlier than anticipated. Surfaced as forward-information for synthesizer.",
+      "blocking": false,
+      "carried_forward_from": "086 verdict COMPLETE_PROVISIONAL_MAP / NEW_CANDIDATE_B4"
+    }
+  ],
+  "summary": {
+    "discrepancies_total": 7,
+    "blocking": 0,
+    "info": 7
+  }
+}
