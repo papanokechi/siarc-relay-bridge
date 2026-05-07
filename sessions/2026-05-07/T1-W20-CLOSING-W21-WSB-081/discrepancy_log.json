@@ -1,0 +1,54 @@
+{
+  "session": "T1-W20-CLOSING-W21-WSB-081",
+  "date": "2026-05-07",
+  "discrepancies": [
+    {
+      "id": "D1",
+      "title": "Prompt-081 expected session-titles for 074/075 differ from actual bridge HEAD landings",
+      "severity": "non-blocking",
+      "expected": "T2-LITHUNT-WITTE-FORRESTER-2010-074 + T1-PCF1-V13-VQUAD-UPPER-BRANCH-EFFECTIVENESS-AUDIT-075 (per prompt-081 Phase A P2 default expectations table)",
+      "observed": "T2-M4-RATIFICATION-DOSSIER-ASSEMBLY-074 (commit 9596c21 Thu 2026-05-07 14:25 JST) + T2-M6-CC-CHART-MAP-CANDIDATE-B1-CHECK-075 (commit 5137155 Thu 2026-05-07 14:28 JST)",
+      "resolution": "ID slots 074 and 075 are present in bridge HEAD 72f9850; HALT_081_W20_INCOMPLETE check is on ID-presence not title-match; logged as substrate-drift discrepancy. The actual session content (M4 ratification + M6.CC chart-map check) is what cli_log/2026-W20.md cascade narrative cites by handoff content; prompt-drafter's expected titles appear to predate the actual W20-Wed cascade content selection."
+    },
+    {
+      "id": "D2",
+      "title": "Prompt-081 Phase F internal contradiction on calendar-shift formula",
+      "severity": "non-blocking",
+      "expected": "Phase F.1 stable formula: project W_n = ISO W_(n-1)",
+      "observed": "Prompt §Phase F.1 first asserts ISO definitions (W19 = 2026-05-04 to 05-10), then mid-paragraph self-corrects ('wait this is wrong'), then derives 'W_n project = (ISO week n-1) + Mon offset 7 days' -- the formula resolves to W_n project = ISO W_n (since +7 days within Mon-Sun frame is identity). Phase F.1 final formula does not match the prompt's own Phase D §1 'W20 closing handoff (2026-05-04 → 2026-05-10)' usage which requires W20 = ISO W19 (i.e. shift by +1 week-number).",
+      "resolution": "The wsb_iso_convention.md memo describes both Convention A (ISO-aligned, used in W19_wsb.md / W20_wsb.md / W19.md canonical artefacts) and Convention B (+1-shifted, used in prompt-081 frame and W20-Wed cascade commit messages) without endorsing either. The Phase F prompt-text contradiction is surfaced here for a future RACI-revision discussion if operator wishes to canonicalize one convention."
+    },
+    {
+      "id": "D3",
+      "title": "cli_log/2026-W20.md word count slightly exceeds prompt target",
+      "severity": "non-blocking",
+      "expected": "~1500-2500 words per prompt-081 Phase D §1 spec",
+      "observed": "2837 words (Get-Content -Raw split on whitespace count); approximately 13% over upper target",
+      "resolution": "The closing handoff includes 12 carry-forward items (A.1-A.12 vs. W19.md's 7 items C.1-C.7) plus a 7-row pre-LANE-1 substrate inventory table and a 14-row items-closed-this-week list; the higher per-section item-count drives the word count. Closing-handoff substrate density grew with the W20-Wed cascade landing 5 dossiers in single day. Trim deferred to next-cycle revision per discretionary-target convention."
+    },
+    {
+      "id": "D4",
+      "title": "Operator-dispatched 3 days early vs scheduled W20-Sun fire window",
+      "severity": "non-blocking",
+      "expected": "W20-Sun 2026-05-10 AM-PM JST primary fire window (per prompt-081 envelope §header)",
+      "observed": "Fire dispatched on Thu 2026-05-07 (project-W20-Thu per prompt convention; ISO W19-Thu) within fire-window-flexible band 'W20-Thu PM through W20-Sun' permitted by prompt envelope",
+      "resolution": "Fire-window-flexible band explicitly authorizes Thu PM dispatch. Same precedent as 048 W19-CLOSING-W20-WSB which fired 2026-05-06 (W19-Wed) 5 days early vs scheduled W19-Sun 2026-05-11 per cli_log/2026-W19.md L201-203."
+    },
+    {
+      "id": "D5",
+      "title": "080 cross-dossier coupling matrix in working-tree state at fire time of 081",
+      "severity": "non-blocking",
+      "expected": "080 LANDED OR not-fired-by-Sun (either permitted per prompt P8)",
+      "observed": "git status returns '?? sessions/2026-05-07/T2-LANE1-CROSS-DOSSIER-COUPLING-ANALYSIS-080/' (untracked working-tree state); 7 substrate-class artefacts present (5 .md decision-vector files + substrate_anchor_shas.md + 2 phase-A scratch files) but no handoff.md / no claims.jsonl / not committed",
+      "resolution": "Per prompt-081 P8: 'either is permitted -- 080 is parallel-safe pre-LANE-1'. 080 is a third state ('started but not landed') beyond LANDED / not-fired-by-Sun; documented as A.7 carry-forward in cli_log/2026-W20.md with landing window Fri 2026-05-08 through Sun 2026-05-10 (or rollover to W21 Mon-Tue if not closed by W20-Sun)."
+    },
+    {
+      "id": "D6",
+      "title": "076 GATED forward-pointer referenced in prompt P2 but not present as bridge directory",
+      "severity": "non-blocking",
+      "expected": "T2-LITHUNT-PATH-DELTA-076 GATED (BLOCK_LIT_HUNT_REQUIRED) substrate readable for W21 WSB carry-forward (per prompt-081 §Depends on)",
+      "observed": "No 076 directory in sessions/2026-05-07/. The 076 GATED state is realized as a forward-pointer in 075 handoff §E synthesizer_decision_packet emission, §D4, §U3, and §OQ-075-076-DRAFTING-LANE rather than as a placeholder bridge directory.",
+      "resolution": "GATED state correctly absent from bridge (lit-hunt-class prompts must pre-resolve identifiers per copilot-instructions.md 'Bibliographic identifier pre-verification' rule before any fire; 076 has not been fired). Forward-pointer substrate is fully readable in 075 handoff. cli_log/2026-W20.md documents the 076 state in the L7 row of pre-LANE-1 substrate inventory ('NOT-FIRED forward-pointed by 075')."
+    }
+  ]
+}
