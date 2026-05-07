@@ -1,0 +1,46 @@
+{
+  "discrepancies": [
+    {
+      "id": "D1",
+      "summary": "Envelope-substrate naming gap: 086 envelope \u00a7D.D2 instructs comparison 'for each of B1, B2, B3 (existing SIARC candidates from M6.CC dossier)' but only B1 has been instantiated as a named substrate item at fire time (075 STRUCTURAL_MISMATCH verdict). B2 and B3 are not present as instantiated substrate in any LANDED bridge session at HEAD 14e6b09. 086 cross-walk operative candidate set therefore is {B1 only}; 086 introduces B4 (V1-derived monodromy-data chart-map) as new candidate.",
+      "severity": "non-blocking",
+      "operative_action": "Use {B1, B4} as 086 cross-walk set; document B2/B3 absence; surface for W21 LANE-1 if synthesizer wants to clarify whether B2/B3 references in 086 envelope were forward-looking or referenced an unwritten dossier."
+    },
+    {
+      "id": "D2",
+      "summary": "058R B.5 affine-weyl crosswalk SHA placeholder resolution: provisional_normalization_map.md initial draft cited '5DDC9F49A88B4C9D' as a placeholder; resolved at fire time to actual SHA-256 of 058R `phase_b5_affine_weyl_crosswalk.md` = B9D4FFD2F279A33CB2D2CD0E49B68A79D6A793D72DC106D9D8CC95FD2164A40A (SHA16 B9D4FFD2F279A33C). Same pattern applied to 075 chart_map_required_form.md (resolved to 9A2ED794476DDC7C0F4C7E936A5AA5B2A586FF1E0A7DE49F5E4B5969C3A92886).",
+      "severity": "non-blocking",
+      "operative_action": "Resolved in-session via Get-FileHash; final deliverable carries actual SHAs."
+    },
+    {
+      "id": "D3",
+      "summary": "V5 Conte-Musette Springer DOI page returns institutional-auth redirect at fire time (consistent with pre-verification report status). TOC scan for chapter-7 specific content was not performed at 086 scope; cite V5 as 'general reference' only per relay default 'TOC scan only'. Pre-verification of chapter-7 content remains the operator institutional-access task forward-pointed in 086 envelope \u00a7P5.",
+      "severity": "non-blocking",
+      "operative_action": "Cite V5 by author + book DOI in handoff Recommended next step; chapter-7 specific content remains UNVERIFIED."
+    },
+    {
+      "id": "D4",
+      "summary": "Pypdf extraction artefact: at line ~3434 of v1_full.txt, the cubic-surface (4.38) formula renders the symbol 'e_\u221e^{2}' as 'e^2_\u221e' inline due to PDF text-extraction sub-/super-script rendering. The literal cubic-surface formula transcription in v1_chart_map_extraction.md \u00a7B.1 Level 6 reorders these to standard form; this is a typographical normalization, not a content discrepancy.",
+      "severity": "non-blocking",
+      "operative_action": "Recorded as transcription convention; no impact on Phase D verdict."
+    },
+    {
+      "id": "D5",
+      "summary": "057 (CC-VQUAD-PIII literature pre-flight) status remains PENDING per 058R Phase 0.5 dependency. 086 partially fills 057's anticipated literature-manifest substrate (V1 + V2 added via 086 deliverables) but does NOT formally LAND 057 (different envelope, different scope). 058 main pre-fire readiness verdict carries this as inherited blocker (cross-walked in 058_pre_fire_readiness.md \u00a7F.2 HALT_M6_LITERATURE_NOT_LANDED).",
+      "severity": "non-blocking-inherited",
+      "operative_action": "Operator dispatch 057 next or W21 LANE-1 arbitrate whether 086 + 058R substrate suffices to bypass 057 formally."
+    },
+    {
+      "id": "D6",
+      "summary": "086 envelope \u00a7D.D2 naming convention for new B-candidates: envelope says 'Does V1 expose a B4 / B5 / Bk\u2032 candidate previously not considered?' The 086 verdict uses 'B4' as the next-available index. If B2 / B3 are pre-instantiated in some unwritten dossier, 086 B4 may collide with future B-numbering. Surfaced for W21 LANE-1 to canonicalise B-numbering convention.",
+      "severity": "non-blocking",
+      "operative_action": "Tag the 086-introduced candidate as 'B4 (086-introduced; subject to W21 LANE-1 canonicalization)' wherever cited downstream."
+    },
+    {
+      "id": "D7",
+      "summary": "Forbidden-verb hygiene mitigation: 5 instances of 'closed' (mathematical adjective compound 'closed-form X') + 1 instance of 'is not closed' (1-form mathematical concept) + 1 borderline 'V1 / B4 does NOT close the open KNY \u2194 Okamoto gap' (rephrased to 'does NOT fill' for cleanliness) remain in 086 production .md after 075 J5 precedent classification. None are envelope \u00a7E.3 7-verb pattern hits; all PASS strict scan. Aggregate count recorded for transparency.",
+      "severity": "hygiene-only",
+      "operative_action": "Documented in claims.jsonl 086-G-1; 075 J5 precedent applied; no further mitigation required."
+    }
+  ]
+}
