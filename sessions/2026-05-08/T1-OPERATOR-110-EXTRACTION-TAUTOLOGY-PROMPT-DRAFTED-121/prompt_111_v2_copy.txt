@@ -1,0 +1,477 @@
+================================================================================
+TASK_ID:       T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-AND-DEMOTION
+PROMPT_ID:     111 (v2; v1 32 736 B / SHA16 ``EB90AE764B3935A7`` superseded by
+               post-rubber-duck-QA empirical findings: see handoff.md §J3 for
+               supersession trace).
+TIER:          T2-light agent-tier; static-audit-and-verdict-synthesis;
+               ~45-60 min agent-runtime budget.
+DISPATCH:      VS Code Copilot agent OR fresh-CLI Copilot Researcher.
+DRAFTED:       2026-05-08 ~22:30 JST (post-QA absorption).
+PRECONDITION:  Bridge HEAD at or beyond ``d783c3e`` (110-EXEC landing) AND
+               at or beyond ``22909fe`` (109-EXEC landing). Both ancestors
+               must be reachable via ``git log --oneline``.
+GOAL:          Audit the 110-EXEC ``jm_ueno_inversion_via_fw`` function and
+               the V_quad infrastructure ``jimbo_final.py`` S_num provenance
+               under static-read-only access. Produce a verdict that either
+               DEMOTES the 110-EXEC GO_ROUTE_D_PARTIAL_VIA_FW verdict to
+               TAUTOLOGY_CONFIRMED (if Phase A + Phase B audits yield
+               identity-on-cited-constants + hardcoded-literal classifications
+               respectively) OR RETAINS it (if either audit yields an
+               independent-numerical-content classification). Output a
+               cascade-stub forward-prompt outline addressing the genuine
+               Stokes-data side regardless of which verdict bin lands.
+================================================================================
+
+# T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-AND-DEMOTION
+
+You are a T2-light agent. Your job is to perform a STATIC code audit of two
+files and synthesise a verdict on whether the 110-EXEC numerical extraction
+of ``(eta_inf, eta_0, theta_inf, theta_0)`` at ``(1/6, 0, 0, -1/2)`` carries
+independent numerical content or is a structural relabelling.
+
+This is a SINGLE-FIRE T2-light prompt. You do NOT run the Lax-pair solver. You
+do NOT acquire JM 1981 Part II. You do NOT modify any source file. You do NOT
+re-litigate the 109-EXEC ``NO_GO_OFF_DEGENERATION`` verdict. You produce ONE
+new bridge session at ``sessions/<TODAY_DATE>/T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-NNN/``.
+
+The pre-fire empirical signal already points strongly toward
+TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED: ``lax_pair_solver.py:358-400`` accepts
+``stokes_data`` and ``monodromy_data`` parameters but at L385-L388 directly
+assigns ``eta_inf_extracted = ETA_INF_CITED`` etc. for all four coordinates,
+ignoring its inputs entirely; the docstring at L382-L384 records this
+explicitly: "the structural inversion is the IDENTITY on the relabel; the
+genuine numerical content lives in the agreement of independent Stokes data
+... with cited values". And ``jimbo_final.py:26`` carries ``S_num = mpf(
+"0.43770528073458")`` as a hardcoded string literal with companion field
+``S_precision_digits: 8`` in the script's emitted JSON. Your task is to
+classify both findings against the truth-table in §VERDICT BINS, place the
+result on the verdict ladder, and outline the next prompt that addresses the
+genuine Stokes-data side.
+
+================================================================================
+PHASE 0 -- STANDING SUPERSESSION GATE (read first; ~5 min)
+================================================================================
+
+STEP 0.1: Verify bridge HEAD ancestry. Both 109-EXEC ``22909fe`` and 110-EXEC
+  ``d783c3e`` must be reachable. Trigger HALT-111-RE-0 [HARD] otherwise.
+
+  $ cd siarc-relay-bridge
+  $ git fetch origin main
+  $ git merge-base --is-ancestor 22909fe HEAD; echo "109-EXEC ancestor exit=$?"
+  $ git merge-base --is-ancestor d783c3e HEAD; echo "110-EXEC ancestor exit=$?"
+  Expected: both exit 0.
+
+STEP 0.2: Verify NO prior LANDED session covers this exact scope. Run:
+
+  $ Get-ChildItem siarc-relay-bridge\sessions -Directory -Recurse |
+      Where-Object { $_.Name -match "EXTRACTION-TAUTOLOGY" -or
+                     $_.Name -match "STATIC-AUDIT-AND-DEMOTION" -or
+                     $_.Name -match "NORMALISATION-CONVENTION-REVERSE" }
+
+  If a prior LANDED fire matches: scope this fire to the residual only and
+  document supersession in handoff.md §"Phase 0 supersession trace". If a
+  prior fire HALTED (incomplete), record both bridge SHAs in claims.jsonl
+  entry C0 and SUPERSEDE.
+
+STEP 0.3: Parallel-CLI fire detection. Check for any sibling
+  ``EXTRACTION-TAUTOLOGY*`` or ``STATIC-AUDIT-AND-DEMOTION*`` working-tree
+  folder created within the last 60 minutes that is NOT yet bridge-committed.
+  If found, choose the next-sequential session ID (NNN+1) and document the
+  namespace alias coexistence per memory ``parallel-CLI fire collision
+  pattern``. DO NOT delete any sibling work.
+
+# FV-LIST: STEP 0.4 forbidden-verb regex declaration follows; the verb list
+# inside the regex pattern is verb-list-as-data and is 098-J3 EXEMPT. The
+# Phase F.1 EXEMPT categories (regex pattern declarations; verb-list-as-data
+# inside # FV-LIST: comment-marker blocks; quoted FV-mitigation evidence
+# strings; truth-table cell labels using verbs as classification tokens;
+# SHA / filesystem-inspection telemetry strings; verbatim-quoted source-file
+# docstrings cited as audit substrate) ALSO apply to STEP 0.4.
+
+STEP 0.4: Prompt-side verb pre-scan. Run:
+
+  $regex = '\b(shows|confirms|proves|demonstrates|establishes|verifies|verified|validates|validated|corroborates|corroborated|certifies|certified|settles|settled|discharges|ratifies)\b'
+  Select-String -Path "<this-prompt-file>" -Pattern $regex -CaseSensitive:$false |
+      ForEach-Object { "L$($_.LineNumber): $($_.Line.Trim())" }
+
+  Confirm 0 non-EXEMPT hits. Approximately 8 a-priori hits exist in this
+  prompt body (regex-pattern declarations at L78-79 and at the Phase F.1
+  scanner-spec; verb-list-as-data inside # FV-LIST: blocks; truth-table cell
+  labels in §VERDICT BINS; quoted-source-docstring substrate at the top of
+  this prompt); ALL 8 are EXEMPT by the categories listed above. If a NEW
+  non-EXEMPT hit appears, HALT-111-RE-PRE [HARD].
+
+STEP 0.5: TODAY_DATE substitution. Define ``TODAY_DATE`` as the actual current
+  date in YYYY-MM-DD format at fire time. All bridge-folder paths in this
+  prompt that contain the literal ``<TODAY_DATE>`` substring must be
+  resolved to this value before STEP B1 of STANDING FINAL STEP.
+
+================================================================================
+PHASE A -- STATIC AUDIT OF ``jm_ueno_inversion_via_fw`` (read-only; ~10 min)
+================================================================================
+
+INPUT FILE (read-only):
+  ``siarc-relay-bridge/sessions/2026-05-08/T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-EXTRACTION-119/lax_pair_solver.py``
+
+STEP A.1: Read the file in full. Locate the function ``jm_ueno_inversion_via_fw``
+  (search ``def jm_ueno_inversion_via_fw``). Record its line range
+  ``[A_def_start, A_def_end]`` in ``phase_a_static_audit.md``.
+
+STEP A.2: Inspect the parameter signature. Record the parameter list
+  verbatim. Note in particular whether ``stokes_data`` and ``monodromy_data``
+  appear as formal parameters.
+
+STEP A.3: Inspect the function body. For each formal parameter, search the
+  function body for any USE of the parameter name on the right-hand-side of
+  any assignment, in any conditional, in any loop variable, in any
+  dictionary-key access, in any function call argument, or in any return
+  expression. Tabulate per-parameter-USE-COUNT in ``phase_a_static_audit.md``
+  §"Parameter use audit". Use rg or Select-String:
+
+  $ rg -n '\b(stokes_data|monodromy_data)\b' lax_pair_solver.py |
+      Select-String -Pattern "def jm_ueno_inversion_via_fw" -Context 0,200
+
+STEP A.4: Inspect the module-level-constant substrate. Locate
+  ``ETA_INF_CITED``, ``ETA_0_CITED``, ``THETA_INF_CITED``, ``THETA_0_CITED``
+  (search ``_CITED``). Record their values + line numbers.
+
+STEP A.5: Inspect the four extraction lines. Locate lines of the form
+  ``eta_inf_extracted = ...`` etc. (one per coordinate, expected ~L385-L388).
+  Record the right-hand-side verbatim. Classify each extraction RHS into
+  one of three categories:
+    (i)  IDENTITY_ON_CITED         (RHS is exactly the corresponding _CITED
+                                    module-constant; no use of stokes_data
+                                    or monodromy_data in the RHS chain)
+    (ii) DERIVED_FROM_PARAMETERS    (RHS uses stokes_data and/or
+                                    monodromy_data parameter values via a
+                                    non-trivial expression)
+    (iii)MIXED_DERIVATION          (RHS uses _CITED constants AND parameter
+                                    values; classify as the dominant
+                                    contribution; document the split)
+
+STEP A.6: Inspect the function docstring (if present) for any explicit
+  acknowledgment of the extraction's structural status. If found, transcribe
+  verbatim into ``phase_a_static_audit.md`` §"Author-acknowledged classification".
+
+STEP A.7: Verdict for Phase A. One of:
+    A_VERDICT_FUNCTION_IS_IDENTITY_ON_CITED
+    A_VERDICT_FUNCTION_DERIVES_FROM_PARAMETERS
+    A_VERDICT_FUNCTION_MIXED_DERIVATION
+
+  Record in ``phase_a_static_audit.md`` §"Phase A verdict" with line-range
+  citation.
+
+HALT-111-RE-A [HARD]: If ``lax_pair_solver.py`` has been modified since
+  ``d783c3e`` (i.e., last-mod-time later than 110-EXEC bridge commit time),
+  declare halt and surface as discrepancy. Substrate-side modification
+  invalidates the static-audit input.
+
+================================================================================
+PHASE B -- STATIC AUDIT OF ``jimbo_final.py`` S_num PROVENANCE (~10 min)
+================================================================================
+
+INPUT FILE (read-only):
+  ``pcf-research/vquad/scripts/jimbo_final.py``
+
+STEP B.1: Read the file in full. Locate the assignment of the symbol
+  ``S_num`` (search ``S_num =`` or ``S_num: =``). Record the line number
+  and verbatim RHS in ``phase_b_jimbo_final_provenance.md``.
+
+STEP B.2: Classify the RHS into one of:
+    (i)  HARDCODED_STRING_LITERAL  (RHS is ``mpf("...")`` or ``mp.mpf("...")``
+                                    or ``"0.4377..."`` literal; no upstream
+                                    computation produces the digits)
+    (ii) COMPUTED_FROM_PIPELINE    (RHS is the result of a documented
+                                    upstream computation in the same file
+                                    or a module imported into the file)
+    (iii)IMPORTED_FROM_OTHER_FILE  (RHS is a name imported via ``from X
+                                    import S_num`` or equivalent)
+
+STEP B.3: Inspect the file for any companion metadata about the precision
+  level of S_num. Search for ``S_precision_digits`` and any string
+  containing ``digit`` near the S_num assignment. Record verbatim.
+
+STEP B.4: Inspect the file for any companion metadata attributing the source
+  of the digits. Search for the substring ``Dingle`` (case-insensitive),
+  ``late-term``, ``late_term``, ``hyperasymptotic``, ``Borel`` (case-
+  insensitive), ``resurgent`` near the S_num assignment. Record any matches
+  verbatim.
+
+STEP B.5: Inspect the file's overall purpose. Look for the ``__main__``
+  block (search ``if __name__``). Read the top-level operations performed
+  when the file is run. Classify the file as one of:
+    (i)  DIAGNOSTIC_SCRIPT          (file performs PSLQ-style attribution
+                                    attempts, basis-search, residual
+                                    reporting; does NOT compute S_num
+                                    itself; treats S_num as INPUT)
+    (ii) PRODUCER_PIPELINE          (file computes S_num as OUTPUT via an
+                                    upstream pipeline; e.g., Borel
+                                    summation, Newton-Raphson on connection
+                                    coefficients, etc.)
+    (iii)MIXED                      (file does both; classify as the
+                                    dominant contribution)
+
+STEP B.6: Verdict for Phase B. One of:
+    B_VERDICT_S_HARDCODED_STRING_LITERAL_DIAGNOSTIC_SCRIPT
+    B_VERDICT_S_COMPUTED_FROM_PIPELINE_PRODUCER
+    B_VERDICT_S_IMPORTED_FROM_OTHER_FILE
+
+  Record in ``phase_b_jimbo_final_provenance.md`` §"Phase B verdict" with
+  line-range + companion-metadata citation.
+
+HALT-111-RE-B [HARD]: If ``pcf-research/vquad/scripts/jimbo_final.py`` is
+  not on disk OR has been modified since the 110-EXEC bridge commit time
+  (last-mod-time check), declare halt. Substrate-side modification or
+  absence invalidates the static-audit input.
+
+================================================================================
+PHASE C -- SENTINEL MUTATION TEST (OPTIONAL; timeboxed ~15 min)
+================================================================================
+
+This phase is OPTIONAL. Skip this phase entirely if Phase A returns
+``A_VERDICT_FUNCTION_IS_IDENTITY_ON_CITED`` (the static evidence is
+already sufficient). Run this phase only if Phase A returns
+``A_VERDICT_FUNCTION_MIXED_DERIVATION`` to disambiguate the dominant
+contribution numerically.
+
+STEP C.1: Make a working copy of ``lax_pair_solver.py`` to a scratch
+  location ``%TEMP%/lax_pair_solver_sentinel.py``. DO NOT edit the
+  original.
+
+STEP C.2: In the working copy, replace ``ETA_INF_CITED = mpf("1")/mpf("6")``
+  with a sentinel value ``ETA_INF_CITED = mpf("7")/mpf("13")`` (any value
+  unrelated to the cited tuple). Leave other constants unchanged.
+
+STEP C.3: Run the working copy under the same dps and the same input
+  arguments as 110-EXEC (the exact invocation is documented in 110-EXEC
+  ``handoff.md`` §"Phase D Reproduction"). Record the value emitted as
+  ``eta_inf_extracted``.
+
+STEP C.4: If ``eta_inf_extracted == 7/13`` to within 200 digits, the
+  output tracks the sentinel constant -> classify as TAUTOLOGY_CONFIRMED.
+  If ``eta_inf_extracted`` returns to 1/6 (or any value materially
+  different from 7/13), classify as TAUTOLOGY_REFUTED (some non-trivial
+  computation is occurring).
+
+STEP C.5: Phase C verdict. One of:
+    C_VERDICT_OUTPUT_TRACKS_SENTINEL_TAUTOLOGY_CONFIRMED
+    C_VERDICT_OUTPUT_INDEPENDENT_OF_SENTINEL_TAUTOLOGY_REFUTED
+    C_VERDICT_RUN_FAILED_INCONCLUSIVE
+    C_PHASE_SKIPPED_PER_PHASE_A_VERDICT
+
+  Record in ``phase_c_sentinel_mutation.md`` if executed; record
+  ``C_PHASE_SKIPPED`` token in handoff.md §"Phase C disposition" otherwise.
+
+================================================================================
+PHASE D -- VERDICT SYNTHESIS AND DEMOTION DECISION (~10 min)
+================================================================================
+
+STEP D.1: Construct the verdict from the Phase A + Phase B + (optional)
+  Phase C outputs per the truth table in §VERDICT BINS below.
+
+STEP D.2: Compose ``phase_d_verdict_synthesis.md`` with the following
+  required sections:
+
+  §1 Inputs:        verbatim Phase A + Phase B + (optional) Phase C verdicts
+  §2 Truth-table mapping: which row of the truth-table the inputs match
+  §3 Verdict ladder placement: which verdict bin lands
+  §4 069r3 FINAL synthesis implication: how 110-EXEC GO_ROUTE_D_PARTIAL_VIA_FW
+                    is treated in any future 069r3 FINAL synthesis turn
+                    given this audit's outcome
+  §5 Independent-Stokes-data residual: regardless of verdict bin, the
+                    GENUINE numerical content (per the ``lax_pair_solver.py``
+                    docstring at L382-L384) lives in independent Stokes-data
+                    agreement, NOT in the inversion function output. Document
+                    that this audit does NOT address that residual.
+
+STEP D.3: Append a row to handoff.md §"Verdict ladder" recording bin +
+  one-paragraph reasoning + AEAL-claim cross-references.
+
+================================================================================
+PHASE E -- CASCADE-STUB FORWARD-PROMPT OUTLINE (~10 min)
+================================================================================
+
+STEP E.1: Compose ``phase_e_cascade_stub_outline.md`` with a forward-prompt
+  outline addressing the genuine Stokes-data side. The prompt is a
+  hypothetical ``111-FOLLOWUP`` envelope to be drafted later (NOT in this
+  fire) by an operator-tier agent. The outline must include:
+
+  E.1.a SCOPE:      audit the upstream provenance of the 8-digit
+                    ``S = 0.43770528073458`` value. Where do these digits
+                    actually come from? Is there a separate producer
+                    pipeline elsewhere in pcf-research? A literature
+                    citation (Dingle 1973 / Forrester-Witte 2002 §X)?
+                    A hand-computation? Trace the digit-string back to its
+                    earliest filesystem appearance via:
+                      $ git log --all -S "0.43770528073458" --oneline
+  E.1.b PRECONDITION: 111 v2 must have landed first.
+  E.1.c TIER:       T2 lit-trace + git-archaeology; ~1 hr.
+  E.1.d EXPECTED OUTCOMES: 4 bins:
+                    (i)  PROVENANCE_TRACED_TO_PRODUCER_PIPELINE_IN_REPO
+                    (ii) PROVENANCE_TRACED_TO_LITERATURE_CITATION
+                    (iii) PROVENANCE_TRACED_TO_HAND_COMPUTATION
+                    (iv) PROVENANCE_OPAQUE_DOCUMENTATION_GAP
+  E.1.e DELIVERABLES: ``stokes_anchor_provenance_trace.md`` + 4 AEAL claims
+                    + handoff.md.
+
+STEP E.2: This phase produces an OUTLINE only. Do NOT draft the actual
+  111-FOLLOWUP prompt body in this fire. The outline is a 1-2 page
+  bullet-form structural sketch sufficient for a future operator-tier
+  drafting cycle.
+
+================================================================================
+PHASE F -- SELF-CHECKS (~5 min)
+================================================================================
+
+STEP F.1: Forbidden-verb scan on all prose deliverables. EXEMPT categories:
+  (a) regex-pattern declarations in scanner-spec code blocks;
+  (b) verb-list-as-data inside ``# FV-LIST:``-prefixed comment blocks;
+  (c) quoted FV-mitigation evidence strings (e.g., ``"verified" was changed
+      to "located"``);
+  (d) truth-table cell labels using verbs as classification tokens (e.g.,
+      ``A_VERDICT_FUNCTION_IS_IDENTITY_ON_CITED``);
+  (e) SHA / filesystem-inspection / line-number telemetry strings;
+  (f) verbatim-quoted source-file docstrings cited as audit substrate.
+
+  $regex = '\b(shows|confirms|proves|demonstrates|establishes|verifies|verified|validates|validated|corroborates|corroborated|certifies|certified|settles|settled|discharges|ratifies)\b'
+  Get-ChildItem "<bridge-session-dir>" -File -Filter "*.md" |
+      ForEach-Object { Select-String -Path $_.FullName -Pattern $regex -CaseSensitive:$false }
+
+  Target: 0 non-EXEMPT hits across all .md prose deliverables. If a
+  non-EXEMPT hit is found, mitigate inline (rewrite to substitute
+  non-forbidden verb such as ``audited``, ``records``, ``locates``,
+  ``classifies``, ``returns``, ``indicates``, ``finds``, ``reports``,
+  ``surfaces``, ``catalogues``) and re-scan.
+
+  HALT-111-RE-FV [HARD]: if a non-EXEMPT hit cannot be mitigated within
+  3 attempts.
+
+STEP F.2: AEAL claim-count check. claims.jsonl must contain >= 6 entries
+  (spec floor; 8 suggested). Each claim must reference at least one
+  Phase A / B / C / D / E artefact by file path.
+
+STEP F.3: Cascade-stub presence check. handoff.md must contain a non-empty
+  §"Recommended next step (cascade-stub)" section linking to
+  ``phase_e_cascade_stub_outline.md``.
+
+STEP F.4: Bridge HEAD ancestry re-check. Re-run the STEP 0.1 commands
+  before bridge push. If HEAD has drifted such that 109-EXEC or 110-EXEC
+  is no longer reachable, abort push and surface as halt.
+
+================================================================================
+VERDICT BINS (truth table)
+================================================================================
+
+The final verdict is determined by the joint Phase A + Phase B verdicts.
+Phase C (if executed) provides numerical confirmation only.
+
+  +--------------------+------------------+----------------------------------+
+  | Phase A            | Phase B          | Final verdict                    |
+  +====================+==================+==================================+
+  | IDENTITY_ON_CITED  | HARDCODED_LITERAL| TAUTOLOGY_CONFIRMED_VERDICT_     |
+  |                    | + DIAGNOSTIC     | DEMOTED                          |
+  | IDENTITY_ON_CITED  | COMPUTED_FROM_   | TAUTOLOGY_CONFIRMED_BUT_S_HAS_   |
+  |                    | PIPELINE         | INDEPENDENT_PROVENANCE           |
+  | IDENTITY_ON_CITED  | IMPORTED_FROM_   | TAUTOLOGY_CONFIRMED_S_PROVENANCE |
+  |                    | OTHER_FILE       | _OPAQUE                          |
+  | DERIVES_FROM_      | (any)            | TAUTOLOGY_REFUTED_VERDICT_       |
+  | PARAMETERS         |                  | RETAINED                         |
+  | MIXED_DERIVATION   | (any)            | AUDIT_INCONCLUSIVE_PHASE_C_      |
+  |                    |                  | SHOULD_HAVE_RUN                  |
+  +--------------------+------------------+----------------------------------+
+
+The TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED outcome means: in any future 069r3
+FINAL synthesis turn, the 110-EXEC ``GO_ROUTE_D_PARTIAL_VIA_FW`` verdict is
+treated as carrying ZERO probative weight in cross-validating Route B's
+``NO_GO_OFF_DEGENERATION``. The genuine numerical content (per the docstring
+acknowledgment) lives in the independent-Stokes-data agreement side, which
+this audit does NOT address; that side is the scope of the cascade-stub
+forward-prompt outlined in Phase E.
+
+The TAUTOLOGY_REFUTED_VERDICT_RETAINED outcome means: the 110-EXEC inversion
+genuinely uses input parameters in a non-trivial way; the per-coordinate
+EXACT readback is informative; the verdict is upheld; 069r3 FINAL synthesis
+treats it as genuine cross-validation evidence. Empirical pre-fire signal
+suggests this outcome is unlikely given the line 385-388 RHS evidence, but
+the verdict bin is preserved for completeness.
+
+================================================================================
+HALTS (5 total)
+================================================================================
+
+HALT-111-RE-0 [HARD; STEP 0.1]: bridge HEAD ancestry breach. Abort.
+HALT-111-RE-PRE [HARD; STEP 0.4]: prompt-side FV scan finds non-EXEMPT hit.
+HALT-111-RE-A [HARD; STEP A.7]: ``lax_pair_solver.py`` modified since 110-EXEC.
+HALT-111-RE-B [HARD; STEP B.6]: ``jimbo_final.py`` absent or modified.
+HALT-111-RE-FV [HARD; STEP F.1]: post-fire FV scan non-EXEMPT hit unmitigable.
+
+================================================================================
+ACCEPTANCE CRITERIA (5 total)
+================================================================================
+
+A1: Phase A produces a verdict bin (``IDENTITY_ON_CITED`` /
+    ``DERIVES_FROM_PARAMETERS`` / ``MIXED_DERIVATION``) with line-range
+    citation in ``phase_a_static_audit.md``.
+
+A2: Phase B produces a verdict bin (``HARDCODED_STRING_LITERAL_DIAGNOSTIC``
+    / ``COMPUTED_FROM_PIPELINE_PRODUCER`` / ``IMPORTED_FROM_OTHER_FILE``)
+    with line-range + companion-metadata citation in
+    ``phase_b_jimbo_final_provenance.md``.
+
+A3: Phase D produces a final verdict bin per the truth-table mapping. The
+    verdict may be either DEMOTED (TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED or
+    its variants) OR RETAINED (TAUTOLOGY_REFUTED_VERDICT_RETAINED) -- both
+    outcomes satisfy A3 provided the mapping is faithful to Phase A + B
+    inputs.
+
+A4: Phase E produces an actionable cascade-stub forward-prompt outline
+    addressing the GENUINE Stokes-data side (not the inversion-function
+    side audited in Phase A) at ``phase_e_cascade_stub_outline.md``.
+    handoff.md §"Recommended next step (cascade-stub)" links to it.
+
+A5: Phase F.1 forbidden-verb scan returns 0 non-EXEMPT hits across all
+    prose deliverables. Phase F.2 AEAL count >= 6.
+
+================================================================================
+DELIVERABLES (~9 files)
+================================================================================
+
+1. ``phase_a_static_audit.md``                 -- Phase A audit report
+2. ``phase_b_jimbo_final_provenance.md``       -- Phase B audit report
+3. ``phase_c_sentinel_mutation.md``            -- (OPTIONAL; only if Phase C
+                                                 executes; otherwise omit
+                                                 file and record skip token
+                                                 in handoff.md)
+4. ``phase_d_verdict_synthesis.md``            -- Phase D verdict
+5. ``phase_e_cascade_stub_outline.md``         -- Phase E forward-prompt
+6. ``handoff.md``                              -- standard SIARC handoff
+                                                 with §Verdict ladder +
+                                                 §Recommended next step
+                                                 (cascade-stub) sections
+7. ``claims.jsonl``                            -- AEAL claims (>= 6)
+8. ``halt_log.json``                           -- halt registry (empty {}
+                                                 if no halts triggered)
+9. ``discrepancy_log.json``                    -- discrepancies log
+10. ``unexpected_finds.json``                  -- UFs log
+
+================================================================================
+STANDING FINAL STEP (B1-B5 per copilot-instructions)
+================================================================================
+
+B1: Collect deliverables (incl. halt_log / discrepancy_log / unexpected_finds
+    even if empty {} ).
+B2: Stage in bridge repo at ``sessions/<TODAY_DATE>/T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-NNN/``
+    where NNN is the next sequential session ID at fire time.
+B3: Write handoff.md per template (CRITICAL: handoff.md is written ONLY
+    AFTER all phases land and all deliverable files are final; never
+    write handoff before the last phase output).
+B4: ``git add`` path-scoped + ``git commit`` + ``git push origin main``.
+    Commit message format:
+      "T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-NNN -- {one-line
+      verdict-bin token} -- N AEAL claims; H halts; final verdict {bin}"
+B5: Output BRIDGE: and CLAUDE_FETCH: URLs (substitute actual TODAY_DATE
+    and NNN).
+
+================================================================================
+END OF PROMPT 111 v2.
+================================================================================

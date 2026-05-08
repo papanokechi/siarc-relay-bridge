@@ -1,0 +1,44 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-121-1",
+      "severity": "MEDIUM-HIGH",
+      "category": "primary_evidence_static_audit",
+      "description": "lax_pair_solver.py L382-384 docstring at session 119 110-EXEC deposit explicitly acknowledges tautology in author's own words: 'The structural inversion is the IDENTITY on the relabel; the genuine numerical content lives in the agreement of independent Stokes data ... with cited values'. This is strong primary evidence that the 110-EXEC GO_PARTIAL verdict's per-coord EXACT match is structural rather than informative. The author was aware of the tautology at write time and signposted it via docstring.",
+      "actionable": true,
+      "downstream_pointer": "Phase A static audit will re-confirm this acknowledgment as part of evidence collection; recorded as static_evidence_index.md entry"
+    },
+    {
+      "id": "UF-121-2",
+      "severity": "MEDIUM",
+      "category": "diagnostic_vs_producer_classification",
+      "description": "jimbo_final.py is structurally a DIAGNOSTIC script (PSLQ-attempt + per-precision report), NOT a PRODUCER pipeline as v1 prompt 111 implicitly assumed. L26 hardcodes S_num as a string-literal mpf at 8 digits per Dingle late-terms; L194-261 attempts PSLQ; L333-335 reports match=False. The script measures discrepancy between its hardcoded S_num and what PSLQ recovers, not the value of S_num itself. v1's premise of reverse-engineering Dingle convention from S_num was therefore architecturally misplaced.",
+      "actionable": true,
+      "downstream_pointer": "v2 Phase B static audit re-classifies the script correctly as DIAGNOSTIC; output verdict S_HARDCODED_LITERAL is the dominant expected sub-verdict"
+    },
+    {
+      "id": "UF-121-3",
+      "severity": "LOW",
+      "category": "envelope_runtime_dominant_branch",
+      "description": "Phase C (sentinel mutation test) is OPTIONAL per Judgment Call J3, invoked ONLY if Phase A returns MIXED. If Phase A returns IDENTITY_ON_CITED (the empirically-confirmed expected outcome from Claim 121-C3), the static evidence alone is sufficient and Phase C is skipped. This reduces dominant-branch agent runtime from ~60-75 min to ~45-60 min. Operator dispatch should anticipate the shorter runtime.",
+      "actionable": true,
+      "downstream_pointer": "Operator may dispatch with ~45-60 min wall-clock budget rather than ~60-75 min"
+    },
+    {
+      "id": "UF-121-4",
+      "severity": "MEDIUM",
+      "category": "111_followup_envelope_scope",
+      "description": "If 111-EXEC returns RETAINED_AS_GENUINE_ASYMMETRY or any INCONCLUSIVE_* bin, a 111-FOLLOWUP envelope addressing the genuine Stokes-data side becomes necessary. Estimated 4-8 hr T2 numerical drafting effort: extract Stokes data from V_quad numerical trajectories at dps>=50, then compare against cited values WITHOUT routing through jm_ueno_inversion_via_fw (which is now known to be identity-on-cited). Premature drafting before 111-EXEC lands risks scope-creep.",
+      "actionable": true,
+      "downstream_pointer": "Defer 111-FOLLOWUP envelope drafting until 111-EXEC verdict lands; queue as conditional pending todo"
+    },
+    {
+      "id": "UF-121-5",
+      "severity": "LOW",
+      "category": "sop_amendment_candidate",
+      "description": "Three rubber-duck pre-fire QA vindication cases within ~7 days (068 Q.SUP=YES gate / 069r2 namespace-collision / 111 v1 to v2 full rewrite) satisfies threshold for proposing standing SOP amendment: rubber-duck pre-fire QA on non-trivial T1/T2 dispatches should be MANDATORY (not optional) for any prompt that invokes 3+ prior bridge artifacts OR introduces a new architectural pattern. Candidate amendment to standing relay-prompt-drafting SOP per RACI v2026-05-05 weekly cadence.",
+      "actionable": true,
+      "downstream_pointer": "Surface to T1 Synth W21 LANE-1 cadence as standing SOP amendment candidate; document third vindication case in this UF as the threshold-trigger evidence"
+    }
+  ]
+}
