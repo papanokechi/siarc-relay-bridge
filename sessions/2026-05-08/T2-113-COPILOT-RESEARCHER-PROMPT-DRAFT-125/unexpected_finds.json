@@ -1,0 +1,32 @@
+{
+  "UF-125-1": {
+    "type": "scope-discipline-watch",
+    "severity": "INFO",
+    "description": "Prompt 113 §8 (N1-N6) carries an unusually heavy 'must-not-do' block compared to peer Copilot-researcher prompts (e.g. 105). Rationale: the Q4 re-fire is the load-bearing branchpoint for M9 V0 critical path, and any derivation slip in the substrate packet (e.g. researcher pre-classifying V_quad image as fixed-point or generic-orbit before synth re-fires) could bias the verdict. Watch-list at fire time: scan the deposited packet for derivation-language ('therefore', 'we obtain', 'computing this gives', 'it follows that') BEFORE dispatch to synth; if any present in non-quote prose, halt and rewrite.",
+    "anchor": "prompt 113 §8 (N1-N3) at lines ~360-380 of prompt body"
+  },
+  "UF-125-2": {
+    "type": "substrate-burden-correction",
+    "severity": "INFO",
+    "description": "Prompt 112 §10 phrasing implied substrate burden of '30-90 min including potential ILL acquisition' for Route F substrate paste. This estimate was based on a worst-case scenario where Sakai 2001 was paywalled and KNY 2017 unavailable. Actual on-disk substrate audit (this session): Sakai 1999 Kyoto preprint (= Sakai 2001 pre-typeset) at SHA EC1BBDA3 + KNY 2017 .txt extraction at SHA AAA2B095 + prior W((2A_1)^(1)) generator extraction at SHA 2CC9395B all present from prior 2026-05-04 acquisition + derivation arc. Corrected estimate: 30-60 min consolidate-and-paste only.",
+    "anchor": "prompt 112 §10 line 1086 vs prompt 113 §1 KEY OPERATING FACT"
+  },
+  "UF-125-3": {
+    "type": "parameter-count-anomaly-watch",
+    "severity": "INFO",
+    "description": "KNY 2017 §8.5.17 Hamiltonian uses parameters (a_1, a_2) [3 free incl. a_0] for P_III(D_6); Sakai 2001 uses (a_0, a_1, b_0, b_1) [4 with one constraint a_0+a_1=b_0+b_1=1, hence 2 free independent parameters per A_1 block, = 4 free total minus 2 constraints = 2; or alternatively counted as 4 with explicit null-sum]. CT v1.3 §3.5 uses (eta_inf, eta_0, theta_inf, theta_0) [4 with monodromy null-sum constraint per Okamoto, hence 3 free]. The parameter-count alignment between KNY's a-coords and Sakai's (a,b)-coords requires either (i) one of KNY's parameters is the discrete shift orbit index (cf. eq 8.240), or (ii) one of Sakai's parameters is fixed by the surface choice. Researcher should document under UF-126-PARAM-COUNT if encountered at fire time.",
+    "anchor": "Acceptance criterion A8 in prompt 113"
+  },
+  "UF-125-4": {
+    "type": "convention-drift-watch",
+    "severity": "INFO",
+    "description": "Sakai 2001 published version (Comm. Math. Phys. 220) and the Kyoto preprint 99-10 (1999) on disk may differ in equation numbering, Add-table numbering, or table 6 row order. The Kyoto preprint is a pre-typeset pre-print and may have undergone editorial revision before publication. If researcher needs equation-number cross-walk (e.g. preprint eq 16-18 = published eq X-Y), document under UF-126-PREPRINT-PUBLISHED-DRIFT.",
+    "anchor": "prompt 113 §3 S3"
+  },
+  "UF-125-5": {
+    "type": "synth-bias-prevention",
+    "severity": "INFO",
+    "description": "Prompt 113 §3 S6 explicitly directs researcher to NOT include 069r3 FINAL handoff Q4 hedge text in the substrate packet. Rationale: synth's prior hedge ('MEDIUM-HIGH confidence Q4_HEDGE_ROUTE_F') could anchor the re-fire verdict toward the hedge rather than toward a decisive GO/NO_GO. The substrate paste should be SUBSTRATE-ONLY, not substrate + prior-verdict-context. Acceptance criterion A4 enforces this for the V_quad framing line in D5.",
+    "anchor": "prompt 113 §2 D5 + §3 S6 + §8 N4"
+  }
+}
