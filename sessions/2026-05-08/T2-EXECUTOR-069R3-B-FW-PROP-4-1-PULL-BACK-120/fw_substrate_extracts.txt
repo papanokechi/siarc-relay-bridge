@@ -1,0 +1,200 @@
+================================================================
+FW MATH-PH/0201051 SUBSTRATE EXTRACT
+For: 109 069r3-B Route B mechanism (a) symbolic pull-back
+Source: tex/submitted/control center/literature/g3b_2026-05-03/
+        supplementary/forrester_witte_2002_math-ph-0201051.txt
+File size: 102317 bytes (re-confirmed at fire time 2026-05-08)
+PDF size: 495425 bytes (matches prompt 109 G2 expectation)
+================================================================
+
+CITATION
+P. J. Forrester and N. S. Witte (2002). "Application of the
+tau-function theory of Painleve equations to random matrices:
+PV, PIII, the LUE, JUE and CUE". Comm. Pure Appl. Math. 55(6),
+679-727. arXiv:math-ph/0201051.
+
+Reference numbers in cited references list:
+  [21] = Jimbo-Miwa (PIII proof of Prop 2.1)
+  [30] = Okamoto 1980 / 1986 (PV Hamiltonian; cited at FW 2.1)
+  [31] = Okamoto 1987 (PIII Hamiltonian; cited at FW 4.1)
+
+================================================================
+SECTION 2.1 -- THE JIMBO-MIWA-OKAMOTO SIGMA-FORM OF PV
+(verbatim, .txt L1740-1855)
+================================================================
+
+L1740: 2.1 The Jimbo-Miwa-Okamoto sigma-form of PV
+L1741: As formulated in [30], the Okamoto tau-function theory of the fifth
+L1742: Painleve equation PV is based on the Hamiltonian system {Q, P, t, K}
+L1743: (2.1)
+L1748:   tK = Q(Q-1)^2 P^2 - [(v_2 - v_1)(Q-1)^2 - 2(v_1 + v_2) Q(Q-1) + tQ] P
+L1749:        + (v_3 - v_1)(v_4 - v_1)(Q - 1)
+L1750:
+L1751: where the parameters v_1, ..., v_4 are constrained by
+L1752: (2.2)
+L1754:    v_1 + v_2 + v_3 + v_4 = 0.
+
+NOTE (109-A1): equation (2.2) is the FW PV NULL-SUM CONSTRAINT.
+The four parameters v_1, ..., v_4 are constrained to a 3-dimensional
+linear subspace of R^4 (or C^4) by this single linear equation.
+
+L1798: (2.5)
+L1801:   alpha = (1/2)(v_3 - v_4)^2,
+L1804:   beta  = -(1/2)(v_2 - v_1)^2,
+L1808:   gamma = 2 v_1 + 2 v_2 - 1,
+L1812:   delta = -1/2.
+
+NOTE (109-A2): the PV ODE coefficients (alpha, beta, gamma, delta)
+of (2.5) involve all four (v_1, v_2, v_3, v_4); but at the
+delta = -1/2 normalisation only differences of the v_i (and the
+sum v_1 + v_2 in gamma) appear in the ODE. This is consistent with
+(2.2) reducing four to three free parameters.
+
+================================================================
+SECTION 2 -- AUXILIARY HAMILTONIAN h FOR PV (Prop 2.1)
+(verbatim, .txt L1832-1858)
+================================================================
+
+L1835: Proposition 2.1 [21, 30] With K specified by (2.1), define the
+L1836: auxiliary Hamiltonian h by
+L1837: (2.7)
+L1839:   h = tK + (v_3 - v_1)(v_4 - v_1) - v_1 t - 2 v_1^2.
+L1840:
+L1841: The auxiliary Hamiltonian h satisfies the differential equation
+L1842: (2.8)
+L1846:   (t h'')^2 - [h - t h' + 2(h')^2]^2
+L1850:    + 4 (h' + v_1)(h' + v_2)(h' + v_3)(h' + v_4) = 0.
+
+NOTE (109-A3): the FW (2.7) auxiliary Hamiltonian for PV has
+additive shift (v_3 - v_1)(v_4 - v_1) (a c-number quadratic in
+the v_i)  +  (-v_1 t) (a t-linear shift)  +  (-2 v_1^2) (a c-number
+quadratic shift). This is the PV-side analogue of the PIII (4.3)
+auxiliary Hamiltonian in mechanism (a).
+
+================================================================
+SECTION 4 -- HARD-EDGE SCALING LIMIT PV -> PIII
+(verbatim, .txt L3903-3920)
+================================================================
+
+L3903: 4 tau-function theory of PIII and hard edge scaling
+L3904:
+L3905: In the Laguerre ensemble the eigenvalues are restricted to be
+L3906: positive. For N large, the spacing between the eigenvalues in the
+L3907: neighbourhood of the origin is of order 1/N. By scaling the
+L3908: coordinates as in (1.54) the eigenvalue spacing is then of order
+L3909: 1 and well defined distributions result. In this limit the PV
+L3910: system degenerates to the PIII system so it is appropriate to
+L3911: revise the tau-function theory of the latter.
+
+NOTE (109-A4): the FW PV->PIII "degeneration" is described in
+*coordinate-space terms* (eigenvalue spacing scaling). The
+*parameter-space limit prescription* taking (v_1, v_2, v_3, v_4)
+to the PIII pair (v_1, v_2) is NOT given verbatim in FW S4.1.
+
+This is the analytically-substantive gap that prompt 109 Phase B
+must address: under what parameter-space prescription do
+(v_3, v_4) absorb in the PV->PIII limit?
+
+NOTE (109-A4b): FW S4.1 just *postulates* the PIII Hamiltonian
+form (4.1) directly with two surviving parameters (v_1, v_2),
+citing Okamoto [31] = Okamoto 1987. Per UF-110-3 from
+T2-TIER-B-PASTE-PACKET-PRESTAGE-110 (anchored by ODE coefficient
+match), the literature-anchored identification is
+
+  (v_1, v_2)_FW_PIII = (theta_0, theta_inf)_Okamoto
+
+under Okamoto's WLOG convention eta_inf = eta_0 = 1.
+
+================================================================
+SECTION 4.1 -- OKAMOTO TAU-FUNCTION THEORY OF PIII
+(verbatim, .txt L3911-3962)
+================================================================
+
+L3911: 4.1 Okamoto tau-function theory of PIII
+L3912: Following [31], the Hamiltonian theory of PIII (actually the PIII'
+L3913: system rather than the PIII) can be formulated in terms of the
+L3914: Hamiltonian
+L3915: (4.1)
+L3917:   tH = q^2 p^2 - (q^2 + v_1 q - t) p + (1/2)(v_1 + v_2) q.
+
+NOTE (109-A5): FW (4.1) tH expanded:
+  tH = q^2 p^2 - q^2 p - v_1 q p + t p + (1/2)(v_1 + v_2) q
+
+L3937: ... y(s) satisfies the PIII differential equation
+L3938:   alpha = -4 v_2,    beta = 4(v_1 + 1),
+L3942:   gamma = 4,         delta = -4.
+
+NOTE (109-A6): with q(t) = s y(s), t = s^2.
+
+L3946: Note that with H specified by (4.1), the first of the Hamilton
+L3947: equations (2.3) gives
+L3948: (4.2)
+L3950:   t q' = 2 q^2 p - (q^2 + v_1 q - t).
+
+================================================================
+PROPOSITION 4.1 -- FW (4.3) AUXILIARY HAMILTONIAN h
+(verbatim, .txt L3956-4045)
+================================================================
+
+L3956: Proposition 4.1 [31] With H specified by (4.1), define the
+L3957: auxiliary Hamiltonian
+L3958: (4.3)
+L3960:   h = tH + (1/4) v_1^2 - (1/2) t.
+
+NOTE (109-A7 = THIS IS THE CENTRAL EQUATION FOR MECHANISM (a)):
+the FW (4.3) auxiliary Hamiltonian shift consists of:
+  - quadratic c-number shift: (1/4) v_1^2  (depends on v_1 only)
+  - t-linear shift:           -(1/2) t     (independent of v_1, v_2)
+  - no v_2-dependent shift
+  - no constant-in-t shift involving v_2
+
+L3966: The auxiliary Hamiltonian h satisfies the differential equation
+L3967: (4.4)
+L3970:   (t h'')^2 + v_1 v_2 h' - (4 (h')^2 - 1)(h - t h')
+L3971:    - (1/4)(v_1^2 + v_2^2) = 0.
+
+NOTE (109-A8): proof outline at L3973-4010 uses Hamilton equations
+(2.3), substitutes v_1 v_2 / 2 cross-term in the proof; the proof
+itself only requires the surviving (v_1, v_2) pair.
+
+L4011: Of interest in the random matrix application is the variant of
+L4012: (4.4) satisfied by
+L4013: (4.6)
+L4015:   sigma_III(t) := -(tH)|_{t -> t/4}  -  (t/4)(v_1 - v_2)  +  v_1 / 4.
+
+NOTE (109-A9): FW (4.6) sigma_III differs from (4.3) h by an
+additional  -(t/4)(v_1 - v_2) + v_1/4  shift (and a t -> t/4
+rescaling in tH). Mechanism (a) per prompt 105 + 069r2 named
+specifically the (4.3) auxiliary Hamiltonian, not the (4.6)
+sigma_III variant; we test (4.3) here. The (4.6) variant is a
+separate substrate slot for any future cascade refinement.
+
+================================================================
+SECTION 4.2 -- BACKLUND TRANSFORMATIONS / B_2 ROOT LATTICE
+(verbatim, .txt L4058-4078)
+================================================================
+
+L4058: 4.2 Backlund transformations and Toda lattice equation
+L4059: For the Hamiltonian (4.1), Okamoto [31] has identified two Backlund
+L4060: transformations with the property (2.16):
+L4061: (4.9)
+L4063:   T_1 . v = (v_1 + 1, v_2 + 1),
+L4064:   T_2 . v = (v_1 + 1, v_2 - 1).
+L4065:
+L4066: The operators T_1 and T_2 can be constructed out of more fundamental
+L4067: operators s_0, s_1, s_2 associated with the underlying B_2 root
+L4068: lattice ...
+
+NOTE (109-A10): the PIII auxiliary Hamiltonian theory is built on
+the *B_2* affine Weyl group, not the D_6 affine Weyl group. The
+KNY 2017 / Sakai surface classification places PIII under the
+*affine D_6^(1)* surface type via the Sakai correspondence; the
+B_2 root lattice and the D_6^(1) surface classification are
+different parametrisations of the same PIII Backlund symmetry.
+This is consistent with the project's PIII(D_6) labelling on the
+sec:vquad side (cf. p12_journal_main.tex L975) but NOT identical
+to FW S4.2's B_2 description.
+
+================================================================
+END FW SUBSTRATE EXTRACT
+================================================================

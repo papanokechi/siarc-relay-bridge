@@ -1,0 +1,33 @@
+{
+  "session_id": "T2-EXECUTOR-069R3-B-FW-PROP-4-1-PULL-BACK-120",
+  "fire_date": "2026-05-08",
+  "unexpected_finds_count": 5,
+  "unexpected_finds": [
+    {
+      "id": "UF-109-1",
+      "label": "FW (4.1) HARDCODES OKAMOTO WLOG IN COEFFICIENT STRUCTURE",
+      "description": "Direct coefficient-by-coefficient comparison of FW (4.1) tH = q^2 p^2 - (q^2 + v_1 q - t) p + (1/2)(v_1 + v_2) q against Okamoto t H_III' = q^2 p^2 - eta_inf q^2 p - theta_0 q p + eta_0 t p + (1/2) eta_inf (theta_0 + theta_inf) q forces eta_inf = 1 (q^2 p coefficient match) AND eta_0 = 1 (t p coefficient match). The Okamoto WLOG normalisation eta_inf = eta_0 = 1 is therefore not optional in FW: it is hardcoded in the FW (4.1) coefficient structure. This is an ADDITIONAL structural obstruction beyond the FW (2.2) null-sum violation surfaced in Phase B.2; not surfaced in 110-prestage UF-110-1/UF-110-2/UF-110-3 findings, and not anticipated in prompt 109 Phase B framing. Implication: any project tuple with eta_inf != 1 or eta_0 != 1 cannot be modelled by FW (4.1) directly without an additional gauge rescale. The V_quad image (eta_inf, eta_0) = (1/6, 0) fails on BOTH coordinates simultaneously."
+    },
+    {
+      "id": "UF-109-2",
+      "label": "V_QUAD IMAGE COINCIDES WITH SINGULAR GAUGE POINT OF FW (4.1)",
+      "description": "At V_quad image, eta_0 = 0 means the t p coefficient of Okamoto t H_III' vanishes identically. This is the SINGULAR GAUGE POINT of the (q, p) Hamiltonian system: at eta_0 = 0, the canonical (q, p)-gauge transformation absorbing eta_0 into the coordinate structure becomes singular. This is a Sakai surface-type degeneration of the Hamiltonian system, not just a parameter-boundary issue. Implication: mechanism (c) [Sakai surface-type artefact gated to Route F machinery] becomes the natural cascade target post-109; the -1/3 null-sum offset may be a Sakai-surface remnant rather than a Hamiltonian-shift artefact. Recommendation for 069r3 FINAL: prioritise Route F machinery audit at session ~123-125 over mechanism (b) additive-shift fall-back."
+    },
+    {
+      "id": "UF-109-3",
+      "label": "CROSS-VALIDATION TO 110 IS MATHEMATICALLY VACUOUS UNDER NO_GO",
+      "description": "Under verdict_bin = NO_GO_OFF_DEGENERATION, Phase D per-coordinate predictions equal the project tuple (1/6, 0, 0, -1/2) by construction (symbol substitution under (3.5.1a)-(3.5.1d) trivial relabel; mechanism (a) introduces no shift to the parameters themselves, only to the Hamiltonian function value via the c-number c(t; v_1, v_2) = (1/4)v_1^2 - (1/2)t). 110's numerical Route D extraction at V_quad image likewise extracts the project tuple by construction. The UF-113-3 sharpened criterion (>= 3-decimal-digit per-coordinate agreement between 109 symbolic and 110 numerical) reduces to a consistency check: 109 = 110 = project tuple, trivially. The cross-validation is mathematically vacuous under NO_GO. Implication: UF-113-3 retains usefulness as a detector for 110 internal extraction errors (if 110's numerics drift from project tuple, that diagnoses 110's pipeline rather than mechanism (a)), but cannot serve as a positive test for mechanism (a). Recommendation: 069r3 FINAL synthesis should recast UF-113-3 as a 110-internal-consistency criterion under the NO_GO branch."
+    },
+    {
+      "id": "UF-109-4",
+      "label": "FW S4.2 USES B_2 ROOT LATTICE; PROJECT USES PIII(D_6) LABELLING",
+      "description": "FW (4.9)-(4.10) at .txt L4061-4075 places the PIII Backlund-symmetry on the B_2 root lattice with operators s_0, s_1, s_2. Project p12 sec:vquad (per 115 audit QB.1) labels PIII as PIII(D_6) under Sakai surface-type classification (cf. KNY 2017 S8.5.17 from 110-prestage Excerpt 2). B_2 and D_6^(1) refer to the same Hamiltonian system under different parametrisations (B_2 = root lattice of Backlund symmetry; D_6^(1) = Sakai surface type). Cross-walk to A-115-1 anomaly (labeling-convention divergence: classical-ODE labels at p12 sec:vquad + Intro + LIT dict vs Hamiltonian labels at 058R B.3 + CT v1.3 S3.5 + 105 S3.5.1). Non-blocking for 109 deposit but worth surfacing for 069r3 FINAL coordination: any future cross-cite of FW S4.2 in CT v1.3 should include a B_2 <-> D_6^(1) cross-walk footnote."
+    },
+    {
+      "id": "UF-109-5",
+      "label": "ORDERING-AMBIGUITY RESOLUTION RECOMMENDATION",
+      "description": "The literature-anchored ordering for the PIII surviving pair is (v_1, v_2)_FW = (theta_0, theta_inf)_Okamoto under WLOG eta_inf = eta_0 = 1 (UF-110-3). The absorbing PV pair (v_3, v_4) does NOT have a clean parameter-space limit prescription in either FW S4.1 or in the Okamoto 1987 substrate available on disk; FW describes PV->PIII as a coordinate-space hard-edge scaling limit, not a parameter-space limit. Phase A.3 candidate orderings 1 and 2 from prompt 109 are operationally moot for Phase B.2 + Phase B.4 since the FW (2.2) null-sum is permutation-invariant; under any (3.5.1a)-(d)-respecting ordering, the residual is -1/3. Recommendation for 069r3 FINAL: defer any (v_3, v_4) absorption-prescription detail to mechanism (b) or (c) cascade; the Phase B obstruction (i)+(ii)+(iii) suffices to rule out mechanism (a) without resolving the (v_3, v_4) ambiguity."
+    }
+  ],
+  "summary": "5 unexpected finds surfaced; 2 of 5 (UF-109-1, UF-109-2) materially strengthen the NO_GO_OFF_DEGENERATION verdict; UF-109-3 sharpens the UF-113-3 cross-validation criterion under the NO_GO branch; UF-109-4 + UF-109-5 are cross-walk / coordination notes for 069r3 FINAL synthesis."
+}
