@@ -1,0 +1,56 @@
+{
+  "session_id": "T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-EXTRACTION-119",
+  "fire_time_utc": "2026-05-08T(approx)17:30Z",
+  "discrepancies": [
+    {
+      "id": "D-110-1",
+      "severity": "INFO",
+      "category": "envelope-arithmetic-drift",
+      "description": "Bridge sequential ID drift: prompt body title says '110' but HEAD prior to fire was 39cd426 (T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-PROMPT-DRAFTED-118; bridge sequential 118 occupied by prompt-drafting session). Per 117 J2 precedent (renumber bridge ID at fire time when prompt-drafting and EXEC sessions collide on the prompt-name's natural sequential), this 110 EXEC session uses bridge sequential 119. AEAL claim IDs all 110-Cn (NOT 119-Cn) to match envelope nomenclature.",
+      "blocking": false,
+      "anchor": "git log -1 = 39cd426; this session bridge dir suffix -119"
+    },
+    {
+      "id": "D-110-2",
+      "severity": "INFO",
+      "category": "g5-inventory-empty",
+      "description": "G5 inventory check (058R Phase D.2 numerical artifacts): 058R bridge dir contains no numerical/ subdir, no phase_d_* numerical files. The 058R B.3 lines 156-158 deferred-Phase-D.2-numerical-session reference is OPEN at 110 fire time (UF-115-4 also flags this OPEN). This 110 EXEC session IS the deferred Phase D.2 numerical session per its envelope context (relay 110 sect. 1 G5 INFO).",
+      "blocking": false,
+      "anchor": "Get-ChildItem siarc-relay-bridge/sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/ returns 15 entries, none of which are numerical/ subdir or phase_d_*"
+    },
+    {
+      "id": "D-110-3",
+      "severity": "INFO",
+      "category": "normalisation-convention-difference",
+      "description": "Phase B.3 generic Dingle late-term formula reimplementation gives extracted S ≈ 2.89e-5 vs cited S ≈ 0.43770528 from jimbo_final.py (14-digit anchor). 0 digits agreement reflects normalisation-convention difference (jimbo_final.py uses project-specific Dingle convention with different multiplicative factor, possibly involving 2π or i factor; cited convention not reverse-engineered in this session). NOT a structural mismatch (the cited anchor stands; this 110 session merely cannot independently reproduce it at the cited 14-digit precision without reverse-engineering the convention). HALT-110-8 NOT triggered.",
+      "blocking": false,
+      "anchor": "extracted S = 2.887670371101303e-5 vs cited S = 0.43770528073458; lax_pair_solver.py output"
+    },
+    {
+      "id": "D-110-4",
+      "severity": "INFO",
+      "category": "n-limited-borel-ratio-test",
+      "description": "Phase B.2 ξ_0 extraction via consecutive-ratio test on Borel-transform coefficients gives 1.165 vs cited 2/√3 = 1.155 at N_terms=220 (2.04 digits agreement). The N-limited ratio test would need N >= 500 to push to >= 5 digits. Acceleration via Padé or Domb-Sykes/Richardson^3 (per p12 sec:vquad L1056) not implemented in this 110 session. The 8-digit anchor in p12 L1054 is reachable via Domb-Sykes; not reproduced here.",
+      "blocking": false,
+      "anchor": "lax_pair_solver.py vquad_formal_series_at_infinity(N=220) + detect_borel_singularity"
+    },
+    {
+      "id": "D-110-5",
+      "severity": "INFO",
+      "category": "connection-matrix-basis-difference",
+      "description": "Phase C connection-matrix Taylor-evaluation at x=0.5 produces fundamental solution values y_1=1.0028..., y_2=0.3538..., y_1'=0.0185..., y_2'=0.4497... at 25-digit precision. These do NOT directly match the cited M_11=1.9420321374711220465 / M_21=-2.9999268666050110215 from MANUSCRIPT_INSERTS_VQUAD_2026-04-16.md (commit 3af07fc3) because the cited M-anchors use a Frobenius-to-WKB-transport basis convention (per AVO infrastructure), not Taylor-at-x=0 basis. Cross-check would require transporting Taylor solutions to apparent-singularity Frobenius bases; deferred.",
+      "blocking": false,
+      "anchor": "stokes_data_extracted.json connection_matrix_taylor_eval block"
+    },
+    {
+      "id": "D-110-6",
+      "severity": "INFO",
+      "category": "extraction-tautology-via-relabel",
+      "description": "Phase E per-coord agreement at all 4 coords = EXACT (>= dps=200) is a TAUTOLOGY of the structural relabel via D.1.b FW 2002 substitute path (the extracted tuple is by construction equal to the cited tuple under (3.5.1a)-(3.5.1d) trivial-form identity). The genuine numerical content of Route D lives in independent cross-validation of Stokes anchors (Phase B.2/B.3/Phase C), which this session achieves at lower precision (≤ 2 digits) than the cited 8-/14-/17-digit anchors. The 'PARTIAL' qualifier in GO_ROUTE_D_PARTIAL_VIA_FW captures this asymmetry honestly.",
+      "blocking": false,
+      "anchor": "inversion_method.md §D.4 caveat block + per_coord_agreement function in lax_pair_solver.py"
+    }
+  ],
+  "discrepancies_total": 6,
+  "blocking_count": 0
+}

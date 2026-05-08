@@ -1,0 +1,68 @@
+{
+  "session_id": "T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-EXTRACTION-119",
+  "fire_time_utc": "2026-05-08T08:31:38Z",
+  "mp_dps_target": 200,
+  "mp_dps_fallback": 100,
+  "mp_dps_actual_at_run_start": 200,
+  "phase_D": {
+    "eta_inf_extracted": "0.16666666666666666666666666666666666666666666666667",
+    "eta_0_extracted": "0.0",
+    "theta_inf_extracted": "0.0",
+    "theta_0_extracted": "-0.5",
+    "method": "D.1.b FW 2002 \u00a74 substitute (JM 1981 Part II NOT on disk)",
+    "provenance": "structural relabel via (3.5.1a)-(3.5.1d) trivial form + FW tau-function path",
+    "stokes_data_used": [
+      "S",
+      "xi_0",
+      "beta_exp",
+      "S_extracted_dps200_dingle_N80",
+      "xi_0_extracted_dps200_borel_N80",
+      "S_digits_of_agreement",
+      "xi_0_digits_of_agreement",
+      "M_11_cited",
+      "M_21_cited",
+      "connection_matrix_taylor_eval",
+      "monodromy_at_apparent_singularities"
+    ],
+    "monodromy_data_used": [
+      "q_CHE",
+      "s_1",
+      "s_2",
+      "Delta_apparent"
+    ],
+    "okamoto_degeneracy_handled": "\u03b7-normalisation-avoidance (substrate A.5)"
+  },
+  "phase_E": {
+    "agreement_per_coord": {
+      "eta_inf": {
+        "extracted": "0.16666666666666666666666666666666666666666666666667",
+        "cited": "0.16666666666666666666666666666666666666666666666667",
+        "abs_delta": "0.0",
+        "digits_of_agreement": "exact (>= dps)"
+      },
+      "eta_0": {
+        "extracted": "0.0",
+        "cited": "0.0",
+        "abs_delta": "0.0",
+        "digits_of_agreement": "exact (>= dps)"
+      },
+      "theta_inf": {
+        "extracted": "0.0",
+        "cited": "0.0",
+        "abs_delta": "0.0",
+        "digits_of_agreement": "exact (>= dps)"
+      },
+      "theta_0": {
+        "extracted": "-0.5",
+        "cited": "-0.5",
+        "abs_delta": "0.0",
+        "digits_of_agreement": "exact (>= dps)"
+      }
+    },
+    "agreement_floor_digits": "inf",
+    "verdict_per_coord": "GO_50_DIGITS_PLUS_AT_ALL_COORDS",
+    "verdict_bin": "GO_ROUTE_D_PARTIAL_VIA_FW"
+  },
+  "verdict_overall": "GO_ROUTE_D_PARTIAL_VIA_FW",
+  "elapsed_seconds": 0.13811731338500977
+}

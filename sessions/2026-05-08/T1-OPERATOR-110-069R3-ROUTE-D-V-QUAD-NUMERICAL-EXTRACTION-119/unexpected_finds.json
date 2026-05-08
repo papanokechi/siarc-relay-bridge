@@ -1,0 +1,56 @@
+{
+  "session_id": "T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-EXTRACTION-119",
+  "fire_time_utc": "2026-05-08T(approx)17:30Z",
+  "unexpected_finds": [
+    {
+      "id": "UF-110-1",
+      "category": "PRE-EXISTING-NUMERICAL-INFRASTRUCTURE",
+      "blocking_severity": "INFO",
+      "description": "Substrate inventory at fire time surfaces a complete pre-existing V_quad Stokes-data infrastructure at pcf-research/vquad/scripts/ (jimbo_final.py + t2_iter17_stokes.py + verify_frobenius_apparent.py + 245-formula PSLQ search) computed at dps=80 in the 2026-04-* T2-iter cycle. Cited Stokes anchor 0.43770528073458 (14 digits) and connection-matrix anchors M_11=1.9420321374711220465 / M_21=-2.9999268666050110215 (17 digits) are project-specific outputs of this prior infrastructure, NOT reimplemented in this 110 EXEC session. Significance: Route D extraction at the cited anchor precision is RECOVERABLE by re-running the existing pcf-research/vquad/scripts at higher dps (200) — recommend forward-pointer relay to dispatch a high-dps re-run for full anchor cross-validation.",
+      "forward_pointer": "T2-OPERATOR-110-FOLLOW-ON-VQUAD-ANCHOR-HIGH-DPS-RERUN (re-run existing jimbo_final.py + t2_iter*_stokes.py at dps=200)"
+    },
+    {
+      "id": "UF-110-2",
+      "category": "STOKES-CONSTANT-S-CLOSED-FORM-OPEN",
+      "blocking_severity": "INFO",
+      "description": "Substrate inventory + jimbo_final.py L300-340 records that the V_quad Stokes constant S ≈ 0.43770528 is NOT a simple Γ-function combination at the WKB parameters (245 Jimbo-1982 connection-formula variants tested, all null; closest near-miss F19_mixed at diff=9.79e-3). σ_conn (connection parameter) is TRANSCENDENTAL in q_CHE = (5+i√11)/54 ∈ ℚ(√-11). This is the analytic counterpart to the V_quad Stokes-coefficient-not-a-period framing in PCF Arithmetic Classification Theorem/memo.txt L27-63. Significance: even with full JM 1981 Part II inversion at high precision, the Hamiltonian-side parameters extracted from V_quad Stokes data are unlikely to admit closed-form Γ/π-expression in an obvious basis — the (1/6, 0, 0, -1/2) cited tuple's RATIONALITY is itself a structural finding tied to V_quad's CM field ℚ(√-11).",
+      "forward_pointer": "no immediate dispatch; relevant for 069r3 FINAL synthesis at session ~122"
+    },
+    {
+      "id": "UF-110-3",
+      "category": "PHASE-D2-DEFERRED-CLOSURE",
+      "blocking_severity": "INFO",
+      "description": "058R B.3 lines 156-158 reference 'deferred Phase D.2 numerical cross-check' as 'scheduled for a follow-up symbolic-computation session (CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL).' This 110 EXEC session is structurally that follow-up Phase D.2 session per the relay envelope (sect. 1 G5 INFO). The bridge naming convention is different (T1-OPERATOR-110 not CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL) — should this session be cross-linked at 058R-PHASE-D-NUMERICAL completion in a future bridge audit? Significance: the M6.CC closure trail through 058 / 058R / 069r3 / 110 / 069r3-FINAL is now traceable to a single unified narrative, but the bridge-directory naming does not yet reflect this.",
+      "forward_pointer": "operator action: optional cross-reference in CMB.txt M6.CC trail at next CMB edit"
+    },
+    {
+      "id": "UF-110-4",
+      "category": "EXTRACTION-TAUTOLOGY-CAVEAT",
+      "blocking_severity": "MEDIUM",
+      "description": "The 'extraction' achieved by 110 EXEC under D.1.b FW 2002 substitute path is structurally a tautology: the extracted (η_∞, η_0, θ_∞, θ_0) tuple = the cited tuple by construction via (3.5.1a)-(3.5.1d) trivial-form relabel. Per-coord agreement at >= 200 digits is an artifact of this construction, NOT an independent test of the cited tuple. The genuine independent test would require D.1.a (JM 1981 Part II direct inverse-monodromy) with high-precision Stokes data fed in. Significance: 069r3 round-3 QD-1 verdict 'PARTIAL_PARTIAL_OP_EXISTS' is HONESTLY confirmed by this session (the extraction operation is constructible in principle via D.1.b but the implemented operation produces the cited tuple by relabel, not an independent numerical re-extraction). The 069r3 FINAL synthesis at session ~122 should weight this caveat when comparing 109 (Route B) vs 110 (Route D) outputs — both are likely to give exact-by-construction tuples under D.1.b/FW path; the cross-check is therefore vacuous unless one path uses D.1.a or full WKB-channel-Stokes-data → Lax-pair-Stokes-data path.",
+      "forward_pointer": "069r3 FINAL synthesis caveat; potential 110-bis dispatch with JM 1981 Part II if acquired"
+    },
+    {
+      "id": "UF-110-5",
+      "category": "BRIDGE-DIRECTORY-NAMING-DRIFT",
+      "blocking_severity": "INFO",
+      "description": "Bridge sequential ID 118 occupied by T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-PROMPT-DRAFTED-118 (the prompt-drafting session). This 110 EXEC session uses bridge sequential 119 per 117 J2 precedent (renumber EXEC at next-sequential when prompt-drafting collides). The prompt body itself titled the task 'T1-OPERATOR-110-069R3-...' — kept verbatim in TASK_ID; only the bridge dir suffix changes (-118 → -119). Significance: future audit of bridge sequential IDs should account for prompt-drafting + EXEC pair pattern (e.g., 116/117 for 108a; 117/(118 missing or merged)/119 for 109/110 EXEC).",
+      "forward_pointer": "no action needed; consistent with 117 J2 + 116/117 precedent"
+    },
+    {
+      "id": "UF-110-6",
+      "category": "OKAMOTO-DEGENERACY-N-NORMALISATION-AVOIDANCE-NEW-PATTERN",
+      "blocking_severity": "INFO",
+      "description": "Substrate A.5 Okamoto-degeneracy regularisation strategy (η-normalisation-avoidance) is a NEW PATTERN that closes UF-115-3 cleanly without symbolic limit-taking or ε-floor numerical regularisation. The strategy: never apply WLOG η = 1 rescaling; carry η_∞, η_0 as free parameters throughout, including at the V_quad parameter point η_0 = 0. KNY 2017 §8.5.17 H_D6^KNY Hamiltonian (eq. 8.237) is naturally η-independent (no η factor in Hamiltonian; η enters via t-rescaling only), so the Okamoto-KNY identification (θ_0, θ_∞) ⟷ (a_1, a_2) is well-defined at η_0 = 0. Significance: this strategy generalises to ALL project tuples that hit Okamoto §1 standing-assumption boundaries (η_0 = 0 OR η_∞ = 0 OR both); recommended as the canonical handling pattern for V_quad-cohort families.",
+      "forward_pointer": "potential M9 V0 announcement-format consideration; document the η-normalisation-avoidance pattern in CT v1.3.x §3.5 prose for future families"
+    },
+    {
+      "id": "UF-110-7",
+      "category": "NORMALISATION-CONVENTION-RECOVERY-PATH",
+      "blocking_severity": "INFO",
+      "description": "Anomaly D-110-3 (Phase B.3 normalisation-convention difference) is RECOVERABLE without JM 1981 Part II acquisition. jimbo_final.py L26-200 + t2_iter23_jimbo.json contain the project-specific Dingle-normalisation convention used to compute the cited 14-digit S = 0.43770528073458 anchor. A focused follow-up relay could reverse-engineer this convention from the existing scripts (estimated effort: 1-2 hours; T2-OPERATOR scope), then re-run lax_pair_solver.py with the matching convention to achieve >= 8 digits agreement on Phase B.3. Significance: the 'GO_ROUTE_D_PARTIAL_VIA_FW' verdict at this 110 EXEC session can be UPGRADED to 'GO_ROUTE_D_CONFIRMED_VIA_FW' (still partial in the inversion-method sense, but with arithmetically-cross-checked Stokes anchor) without acquiring JM Part II.",
+      "forward_pointer": "T2-OPERATOR-110-NORMALISATION-CONVENTION-REVERSE-ENGINEER + lax_pair_solver.py rerun"
+    }
+  ],
+  "unexpected_finds_total": 7
+}
