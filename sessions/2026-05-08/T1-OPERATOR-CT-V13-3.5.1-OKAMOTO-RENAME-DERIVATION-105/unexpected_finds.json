@@ -1,0 +1,61 @@
+{
+  "session": "T1-OPERATOR-CT-V13-3.5.1-OKAMOTO-RENAME-DERIVATION-105",
+  "date": "2026-05-08",
+  "unexpected_finds_count": 6,
+  "unexpected_finds": [
+    {
+      "id": "UF-105-NEW-BIBKEY",
+      "category": "bib-entry-recommendations",
+      "severity": "OPERATOR-ACTION-REQUESTED",
+      "summary": "Three new bib entries recommended for splice into pcf-research/channel/cc_pipeline_v13_2026-05-02/annotated_bibliography.bib at next CT v1.3.x maintenance cycle. Section 3.5.1 cites these three sources via inline-prose attribution; upgrade to \\cite{...} after splice.",
+      "details": "The three recommended bib entries (full @article / @book form):\n\n@article{okamoto1987painleveIII,\n  author    = {Okamoto, Kazuo},\n  title     = {Studies on the {P}ainlev\\'e equations {IV}: third {P}ainlev\\'e equation $P_{III}$},\n  journal   = {Funkcialaj Ekvacioj},\n  volume    = {30},\n  year      = {1987},\n  pages     = {305--332},\n  annote    = {A. Canonical Hamiltonian theory of $P_{III}$. Cited in section 3.5.1 for $H_{III}$ display (loc. cit. section 1.1) and for the $P_{III}$ ODE coefficient form $(\\alpha,\\beta,\\gamma,\\delta) = (-4\\eta_\\infty\\theta_\\infty, 4\\eta_0(\\theta_0+1), 4\\eta_\\infty^2, -4\\eta_0^2)$ (loc. cit. eq. (0.1)) used in the symbol-collision footnote.}\n}\n\n@article{kajiwaranoumiyamada2017,\n  author    = {Kajiwara, Kenji and Noumi, Masatoshi and Yamada, Yasuhiko},\n  title     = {Geometric aspects of {P}ainlev\\'e equations},\n  journal   = {J. Phys. A: Math. Theor.},\n  volume    = {50},\n  number    = {7},\n  year      = {2017},\n  pages     = {073001},\n  doi       = {10.1088/1751-8121/50/7/073001},\n  annote    = {A. Comprehensive Sakai-classification reference for $P_{III}(D_6^{(1)})$. Cited in section 3.5.1 for $H_{D_6}^{KNY}$ display (loc. cit. section 8.5.17, eq. (8.237)).}\n}\n\n@article{forresterwitte2002,\n  author    = {Forrester, P. J. and Witte, N. S.},\n  title     = {Application of the $\\tau$-function theory of {P}ainlev\\'e equations to random matrices: $P_V$, $P_{III}$, the {LUE}, {JUE}, and {CUE}},\n  journal   = {Comm. Pure Appl. Math.},\n  volume    = {55},\n  number    = {6},\n  year      = {2002},\n  pages     = {679--727},\n  doi       = {10.1002/cpa.3021},\n  eprint    = {math-ph/0201051},\n  archivePrefix = {arXiv},\n  annote    = {A. Forrester-Witte tau-function theory. Cited in section 3.5.1 for the $P_V$ Hamiltonian (loc. cit. section 2.1, eq. (2.1)), the null-sum constraint $v_1+v_2+v_3+v_4=0$ (loc. cit. eq. (2.2)), the $P_V \\to P_{III}$ degeneration (loc. cit. section 4.1, eq. (4.1)), and the auxiliary Hamiltonian $h = tH + \\tfrac{1}{4}v_1^2 - \\tfrac{1}{2}t$ (loc. cit. Proposition 4.1, eq. (4.3)) used as candidate mechanism (a) for the $-1/3$ offset.}\n}",
+      "blocking": false,
+      "ledger_action": "Operator splices entries into annotated_bibliography.bib next maintenance cycle; agent re-fires section 3.5.1 inline-prose to \\cite{...} upgrade in a follow-up relay (estimated 15-min author edit + recompile)."
+    },
+    {
+      "id": "UF-105-NEED-IWASAKI-1991",
+      "category": "literature-not-on-disk",
+      "severity": "OPERATOR-ACTION-RECOMMENDED",
+      "summary": "Iwasaki-Kimura-Shimomura-Yoshida 1991 'From Gauss to Painleve' (Vieweg, Aspects of Mathematics E16) was NOT located on disk during section 3.5.1 fire. The bib key iwasaki1991from exists; the canonical-source PDF / scan does not. Section 3.5.1 cites this work for the V_quad parameter point (1/6, 0, 0, -1/2) without verifying the upstream symbol convention used in chapter 6 (per the bib annote, the Stokes-constants chapter).",
+      "details": "Operator should locate Iwasaki et al. 1991 chapter 6 (Stokes constants for Painleve transcendents) and confirm: (i) the V_quad parameter convention used by Iwasaki at the (1/6, 0, 0, -1/2) passage (whether already (alpha_inf, alpha_0, beta_inf, beta_0), or a different upstream convention that the project then renamed); (ii) whether Iwasaki's convention satisfies a null-sum constraint and what that constraint is (vs FW section 2.1 eq. (2.2) or Okamoto's monodromy-derived form). If Iwasaki's convention DIFFERS from the project's trivial-relabel of Okamoto's (eta, theta), section 3.5.1 may need a follow-up amendment to record the upstream symbol-source explicitly. The trivial-relabel form (3.5.1a-d) is robust to either case (Okamoto's (eta, theta) is the most general unnormalised Hamiltonian-parameter form), so any upstream convention that Iwasaki uses will route through the project's 4-tuple in a well-defined way.",
+      "blocking": false,
+      "ledger_action": "Operator follow-up: acquire Iwasaki 1991 chapter 6 PDF; cross-check parameter convention; if discrepancy, dispatch 105-AMEND-IWASAKI relay."
+    },
+    {
+      "id": "UF-105-MECHANISM-A-DERIVATION-FORWARD-POINTER",
+      "category": "candidate-derivation-track",
+      "severity": "RESEARCH-DIRECTION",
+      "summary": "Mechanism (a) Hamiltonian-expansion residual is anchored by FW 2002 Proposition 4.1 / eq. (4.3): h = tH + (1/4)v_1^2 - (1/2)t. The explicit pull-back of the -1/2 t shift along the V_quad reduction map (058R Phase B.3, Phi_resc + Phi_shift + Phi_symp) to the V_quad parameter point has not been derived in this section. A symbolic-computation fire that performs this pull-back -- composing Phi_resc (lambda = 1/3), Phi_shift (t_0 = -4*sqrt(3)), and Phi_symp (KNY 2017 eq. 8.239 Lax-pair-derived) on the FW (4.3) -1/2 t shift -- could test whether this mechanism reproduces -1/3 quantitatively.",
+      "details": "Predicted character of such a fire: SymPy computation in (q, p, t) chart; trace the constant-in-(q,p), t-linear shift -1/2 t through Phi_resc (which rescales t -> t/lambda = 3t under z -> t/3), Phi_shift (t -> t + t_0 = t - 4*sqrt(3); shift may pick up a t-independent constant), and Phi_symp (gauge transform on Stokes data; preserves leading-order H structure but may modify constant terms). Expected output: a numerical constant which, after appropriate Hamiltonian-spectral matching to the V_quad's (1/6, 0, 0, -1/2) tuple, IS or IS NOT the -1/3 anomaly. If yes, mechanism (a) is selected. If no, mechanism (b) or (c) becomes operative. Estimated fire effort: 1-2 hr SymPy + symbolic-Lax-pair work; could be dispatched as 105-MECHANISM-A-DERIVATION.",
+      "blocking": false,
+      "ledger_action": "Forward-pointer dispatch substrate. Not part of this 105 deliverable."
+    },
+    {
+      "id": "UF-105-110-SUBSTRATE-ABSORPTION-IN-SESSION",
+      "category": "in-session-substrate-absorption",
+      "severity": "PROCESS-NOTE",
+      "summary": "110 deposit (HEAD 40b87e3, T2-TIER-B-PASTE-PACKET-PRESTAGE-110) landed mid-stream and surfaced three FW 2002 substrate findings (UF-110-1 / UF-110-2 / UF-110-3) that significantly strengthen the section 3.5.1 literature anchors. All three were absorbed into the final section 3.5.1 text in-session.",
+      "details": "Specific absorption: (i) UF-110-1 (FW section 2.1 eq. (2.2) v_1+v_2+v_3+v_4=0) is now cited verbatim in the 3.5.1 background paragraph as the PRIMARY LITERATURE ANCHOR for the null-sum constraint (which 058R Phase B.3 carried internally without primary cite). (ii) UF-110-2 (FW Proposition 4.1 / eq. (4.3) auxiliary Hamiltonian h = tH + (1/4)v_1^2 - (1/2)t) is now cited verbatim in the mechanism (a) Hamiltonian-expansion residual paragraph as the candidate-anchor for the -1/3 offset origin. (iii) UF-110-3 (FW (v_1, v_2)_PIII == Okamoto (theta_0, theta_inf)_PIII via direct ODE-coefficient matching of the eq. (0.1) form) is now cited inline in the background paragraph identifying the FW <-> Okamoto P_III parameter correspondence. Without 110, mechanism (a) would have been recorded as 'pull-back of phi : q -> tq, p -> t^{-1}p, t -> t^2' (Okamoto's H_III <-> H_III' transformation) which is structurally a candidate but lacks a quantitative -1/2 t signature. The 110 anchor is materially stronger.",
+      "blocking": false,
+      "ledger_action": "None required. 110 substrate is now embedded in 105 final output; cross-link is preserved via bridge history."
+    },
+    {
+      "id": "UF-105-PROMPT-VS-110-WORKING-HYPOTHESIS-DIVERGENCE",
+      "category": "hypothesis-not-adopted",
+      "severity": "PROCESS-NOTE",
+      "summary": "110 deposit logged a 'working hypothesis' that the project (alpha_inf, alpha_0, beta_inf, beta_0) is FW (v_1, v_2, v_3, v_4) shifted by -1/12 per parameter (4 * -1/12 = -1/3 sum-shift). Section 3.5.1 records the -1/12 symmetric choice as the simplest fall-back form of mechanism (b) BUT does NOT adopt it as the v1.3 canonical rename. The v1.3 canonical rename is the TRIVIAL form (3.5.1a)-(3.5.1d).",
+      "details": "Reason for not adopting 110 working hypothesis: (i) the -1/12 symmetric shift has 'no literature anchor' (recorded verbatim in the 3.5.1 mechanism (b) text); (ii) the trivial form is the conservative project commitment that does not pre-judge between (a) / (b) / (c) for the -1/3 attribution; (iii) per prompt 105 D1 the agent must declare 'whether the rename is TRIVIAL or NONTRIVIAL', and adopting -1/12 would commit to NONTRIVIAL without primary-literature anchor. The TRIVIAL declaration leaves all three mechanisms open for follow-up dispatch.",
+      "blocking": false,
+      "ledger_action": "If 110 working hypothesis upgrades to a literature-anchored derivation in a subsequent fire, 105-AMEND-MECHANISM-B can swap the v1.3 rename to the NONTRIVIAL form."
+    },
+    {
+      "id": "UF-105-NUMERICAL-ATTRIBUTION-OPPORTUNITY",
+      "category": "research-direction",
+      "severity": "RESEARCH-DIRECTION",
+      "summary": "The -1/3 offset has the curious feature that 4 * -1/12 = -1/3 = -2/6 = -1/3 (in lowest form). The number -1/12 is famous from the Ramanujan-Hardy zeta(-1) = -1/12 evaluation. Whether this is a coincidence or an actual structural connection (the V_quad reduction is anchored by Borel-Laplace / tau-function machinery, both of which have natural connections to Riemann zeta-regularised divergent sums) is an open question.",
+      "details": "Speculative research direction: if the -1/12 numerical signature can be linked to a zeta-regularisation of divergent sums entering the V_quad's CC-channel formal-series characteristic data, then mechanism (b) -- the additive-shift fall-back with c = -1/12 per parameter -- might be promoted from 'project-internal calibration only' to a mathematically motivated fall-back. This is well outside the scope of section 3.5.1 but is recorded here for the open-problems track.",
+      "blocking": false,
+      "ledger_action": "If a Ramanujan-style zeta-link is found, dispatch 105-MECHANISM-B-ZETA-12 relay."
+    }
+  ]
+}

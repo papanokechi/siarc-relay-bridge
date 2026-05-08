@@ -1,0 +1,216 @@
+% =====================================================================
+% CT v1.3 §3.5.1 — Okamoto-rename of the V_quad parameter point
+% (η, θ) → (α, β)
+%
+% STATUS: AUTHORED 2026-05-08 by SIARC agent (Copilot Researcher tier)
+%         per relay 105 envelope. Closes 069r2 QB.3 = Y_RENAME_REQUIRED.
+%
+% INSERT POSITION: pcf-research/channel/cc_pipeline_v13_2026-05-02/
+%   channel_theory_outline.tex
+%   immediately after line 891 (end of §3.5 prose), before the
+%   "% =====" divider on line 893 and the §3.6 \subsection on line 894.
+%
+% CITATIONS USED: only existing bibkeys
+%   {iwasaki1991from, ohyama2006studies, noumiyamada1998painleve,
+%    jimbomiwa1981monodromy, siarc_cc_pipeline_g}.
+% NEW BIBKEYS RECOMMENDED (not introduced in this insert; documented
+% as UF-105-NEW-BIBKEY in unexpected_finds.json for operator splice):
+%   {okamoto1987painleveIII, kajiwaranoumiyamada2017,
+%    forresterwitte2002}.
+% Inline-prose attribution is used for these three primary sources to
+% preserve pdflatex compile cleanliness with no undefined references.
+% =====================================================================
+
+\subsubsection*{Okamoto-rename of the $\Vquad$ parameter point}
+\label{sssec:okamoto-rename}
+
+The $\Vquad \rightsquigarrow P_{III}(D_6)$ reduction of
+\Cref{ex:cc} and \Cref{sec:position}(b) is anchored at the
+parameter point $(1/6,\,0,\,0,\,-1/2)$ in $\mathbb{Q}^4$, with
+the symbol convention $(\alpha_\infty, \alpha_0, \beta_\infty,
+\beta_0)$. The convention itself has, until v1.3, been used
+without an explicit introduction. We supply that introduction
+here, and record the offset of $-1/3$ that the $\Vquad$ image
+carries against the canonical Okamoto null-sum constraint.
+
+\medskip
+\noindent\textbf{Background: three coexisting Painlev\'e
+parameter conventions.}\hspace{0.5em}
+The standard Hamiltonian theory of $P_{III}$ (Okamoto,
+{\em Funkcial.\ Ekvac.}\ {\bf 30} (1987), 305--332, \S 1.1)
+writes the Hamiltonian
+\[
+  H_{III} \;=\; \tfrac{1}{t}\bigl[2 q^{2} p^{2} -
+       \{2 \eta_\infty\, t q^{2} + (2 \theta_0 + 1) q
+       - 2 \eta_0\, t\}p
+       + \eta_\infty(\theta_0 + \theta_\infty)\, t q\bigr]
+\]
+in the four parameters $(\eta_\infty, \eta_0, \theta_\infty,
+\theta_0)$, with the WLOG normalisation
+$\eta_\infty = \eta_0 = 1$ adopted by Okamoto immediately
+after this display (loc.\ cit., eq.\ (0.5)). The
+Sakai-classification treatment of the
+$((2 A_1)^{(1)} / D_6^{(1)})$ surface (Kajiwara, Noumi, Yamada,
+{\em J.\ Phys.\ A: Math.\ Theor.}\ {\bf 50} (2017), 073001,
+\S 8.5.17, eq.\ (8.237); see also \cite{noumiyamada1998painleve,
+ohyama2006studies, jimbomiwa1981monodromy}) writes a different
+Hamiltonian
+\[
+  H_{D_6}^{\mathrm{KNY}} \;=\; \tfrac{1}{t}\bigl\{p(p-1) q^{2}
+       + (a_1 + a_2) q p + t p - a_2 q\bigr\}
+\]
+in three root parameters $(a_0, a_1, a_2)$ with affine
+constraint $a_0 + a_1 = 1$. The $\tau$-function theory of
+Forrester and Witte ({\em Comm.\ Pure Appl.\ Math.}\
+{\bf 55} (2002), 679--727, arXiv:math-ph/0201051) writes the
+$P_V$ Hamiltonian (loc.\ cit., \S 2.1, eq.\ (2.1)) in {\em four}
+parameters $(v_1, v_2, v_3, v_4)$ subject to the null-sum
+constraint
+\[
+  v_1 + v_2 + v_3 + v_4 \;=\; 0
+  \qquad\text{(loc.\ cit., \S 2.1, eq.\ (2.2))}.
+\]
+Under the $P_V \rightsquigarrow P_{III}$ degeneration of FW
+loc.\ cit.\ \S 4.1, the $P_{III}$ Hamiltonian is recovered with
+two parameters $(v_1, v_2)$ that match Okamoto's
+$(\theta_0, \theta_\infty)$ at the WLOG slice
+$\eta_0 = \eta_\infty = 1$ by direct comparison of the FW
+loc.\ cit.\ eq.\ (4.1) ODE coefficients $\alpha = -4 v_2,\,
+\beta = 4(v_1 + 1),\, \gamma = 4,\, \delta = -4$ with the
+Okamoto loc.\ cit.\ eq.\ (0.1) form
+$\alpha = -4 \eta_\infty \theta_\infty,\,
+\beta = 4 \eta_0 (\theta_0 + 1),\, \gamma = 4 \eta_\infty^{2},\,
+\delta = -4 \eta_0^{2}$ at $\eta_0 = \eta_\infty = 1$. None of
+the three sources --- Okamoto, KNY, FW --- directly furnishes
+the project's 4-tuple
+$(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$ with all
+four entries free and named, although FW's $P_V$ 4-tuple
+$(v_1, v_2, v_3, v_4)$ provides the null-sum constraint
+displayed above.
+
+\medskip
+\noindent\textbf{Definition (project rename, trivial form).}%
+\hspace{0.5em}
+For v1.3 the 4-tuple
+$(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$ is declared
+in terms of the Okamoto Hamiltonian parameters
+$(\eta_\infty, \eta_0, \theta_\infty, \theta_0)$ by the
+trivial relabel
+\begin{align}
+  \alpha_\infty   &\;:=\; \eta_\infty,
+                                           \tag{3.5.1a}\\
+  \alpha_0        &\;:=\; \eta_0,
+                                           \tag{3.5.1b}\\
+  \beta_\infty    &\;:=\; \theta_\infty,
+                                           \tag{3.5.1c}\\
+  \beta_0         &\;:=\; \theta_0.
+                                           \tag{3.5.1d}
+\end{align}
+Equations (3.5.1a)--(3.5.1d) carry no additive shift; the
+v1.3 rename is a pure symbol substitution. The Okamoto WLOG
+normalisation $\eta_\infty = \eta_0 = 1$ is {\em not} imposed
+on the project's 4-tuple, since the $\Vquad$ image
+$(1/6, 0, 0, -1/2)$ has $\alpha_\infty = 1/6 \ne 1$ and
+$\alpha_0 = 0 \ne 1$: the project records all four of
+Okamoto's unnormalised Hamiltonian parameters at the
+$\Vquad$ point.
+
+\medskip
+\noindent\textbf{The $-1/3$ null-sum offset at the $\Vquad$
+parameter point.}\hspace{0.5em}
+Under (3.5.1a)--(3.5.1d) the $\Vquad$ image yields the partial
+sum
+\[
+  \alpha_\infty + \alpha_0 + \beta_\infty + \beta_0
+  \;=\; \tfrac{1}{6} + 0 + 0 + (-\tfrac{1}{2})
+  \;=\; -\tfrac{1}{3},
+\]
+which differs by $-1/3$ from the FW null-sum constraint
+$v_1 + v_2 + v_3 + v_4 = 0$ recalled above (FW \S 2.1
+eq.\ (2.2)) when applied to the project 4-tuple. The 058R
+canonical-map record \cite{siarc_cc_pipeline_g}\footnote{The
+follow-up bridge session
+{\rm CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE} of
+2026-05-06 (bridge SHA \texttt{2eb9b28}, \S B.3) records the
+$-1/3$ partial sum as anomaly~D2, carried forward unchanged
+from the 2026-05-02 partial session.} anchors the $-1/3$ value
+at the $\Vquad$ parameter point. Three candidate mechanisms
+account for the offset:
+\begin{enumerate}[label=(\alph*)]
+\item {\em Hamiltonian-expansion residual.}\hspace{0.5em}
+The auxiliary Hamiltonian $h$ of FW loc.\ cit.\ Proposition 4.1
+reads $h = t H + \tfrac{1}{4} v_1^{2} - \tfrac{1}{2} t$
+(loc.\ cit.\ eq.\ (4.3)), so $h$ and the primary $t H$ differ
+by a constant-in-$(q, p)$, $t$-linear shift $-\tfrac{1}{2} t$
+together with a $v_1$-quadratic constant. Pull-back of this
+shift along the $\Vquad$ reduction map of
+\cite{siarc_cc_pipeline_g} \S B.3 to the $\Vquad$ parameter
+point is a candidate origin for the $-1/3$ offset; the
+explicit pull-back has not been derived in the present text.
+Mechanism (a) is recorded as a hypothesis with the FW
+eq.\ (4.3) anchor.
+\item {\em Additive-shift component of the rename.}\hspace{0.5em}
+If (3.5.1a)--(3.5.1d) are replaced by the non-trivial form
+$\alpha_\infty := \eta_\infty + c_{\alpha,\infty}$,
+$\alpha_0 := \eta_0 + c_{\alpha,0}$,
+$\beta_\infty := \theta_\infty + c_{\beta,\infty}$,
+$\beta_0 := \theta_0 + c_{\beta,0}$ with shift sum
+$c_{\alpha,\infty} + c_{\alpha,0} + c_{\beta,\infty}
++ c_{\beta,0} = -1/3$, then the $\Vquad$ image lies on the FW
+null-sum locus by construction. The symmetric choice $c_{} =
+-1/12$ in each of the four coordinates is the simplest
+fall-back; this form has no literature anchor and would record
+the rename as a project-internal calibration only.
+\item {\em Sakai surface-type artefact.}\hspace{0.5em}
+The 4-tuple may project root-system data from the Sakai
+$D_6^{(1)}$ surface (\cite{ohyama2006studies,
+noumiyamada1998painleve}, and the KNY 2017 \S 8.5.17 surface
+dictionary cited above) where the affine simple roots satisfy
+a non-zero summation constant. Mechanism (c) is gated to a
+separate Sakai-surface analysis and is not pursued here; its
+derivation routes through the $D_6^{(1)}$ surface machinery
+(rational surface, extended affine Weyl, blow-up structure)
+outside the scope of \S 3.5.
+\end{enumerate}
+The selection between (a), (b), and (c) is recorded as a
+follow-up to v1.3 and does not affect the \Cref{ex:cc} /
+\Cref{thm:vquad-cc} / \Cref{sec:position}(b) material above:
+the project's $\Vquad$ image $(1/6, 0, 0, -1/2)$ in
+$(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$ is fixed
+data anchored by \cite{iwasaki1991from, ohyama2006studies},
+and the rename (3.5.1a)--(3.5.1d) supplies the symbol
+correspondence to the Hamiltonian parameters used in the cited
+literature.
+
+\begin{remark}[Symbol-collision note for $(\alpha, \beta)$ in
+\S 3.5]
+\label{rem:alpha-beta-tuples}
+Three distinct $(\alpha, \beta)$-tuples occur in the present
+section and the literature cited above:
+\begin{itemize}
+\item The {\em WKB exponents} $(A, \alpha, \beta, \gamma)$ of
+\Cref{prop:wkb}, which label the leading trans-series
+structure of $\log|\dn|$ at $n \to \infty$ for degree-$2$
+$\PCF$ families.
+\item The {\em classical $P_{III}$ ODE coefficients}
+$(\alpha, \beta, \gamma, \delta)$ of Okamoto loc.\ cit.\
+eq.\ (0.1), with explicit form
+$\alpha = -4 \eta_\infty \theta_\infty,\,
+\beta = 4 \eta_0 (\theta_0 + 1),\,
+\gamma = 4 \eta_\infty^{2},\,
+\delta = -4 \eta_0^{2}$. This 4-tuple labels the polynomial
+coefficients of the second-order $P_{III}$ ODE in the
+dependent variable $w$.
+\item The {\em project-internal Okamoto-rename 4-tuple}
+$(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$ of
+(3.5.1a)--(3.5.1d) above, which labels the four Okamoto
+Hamiltonian parameters carried over to the project's
+$\Vquad$ reduction notation.
+\end{itemize}
+The three tuples occupy disjoint roles. Cross-citation between
+them in the present text is always made via the explicit
+subscripts $({}_\infty, {}_0)$ for the Okamoto-rename, the WKB
+symbol $A$ for the trans-series leading exponent, and the
+polynomial-context label $(\gamma, \delta)$ for the
+classical-ODE 4-tuple.
+\end{remark}
