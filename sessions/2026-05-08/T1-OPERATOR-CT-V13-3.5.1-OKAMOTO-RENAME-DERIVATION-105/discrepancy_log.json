@@ -1,0 +1,55 @@
+{
+  "session": "T1-OPERATOR-CT-V13-3.5.1-OKAMOTO-RENAME-DERIVATION-105",
+  "date": "2026-05-08",
+  "discrepancies_count": 6,
+  "discrepancies": [
+    {
+      "id": "D-105-1",
+      "category": "prompt-vs-bib-mistitle",
+      "severity": "INFORMATIONAL",
+      "summary": "Prompt 105 section 3 (S5) titles Ohyama 2006 as 'Studies on the Hamiltonians of Painleve equations'. The annotated_bibliography.bib entry ohyama2006studies actually attributes the paper as 'Studies on the Painleve equations V: third Painleve equations of type D_7^(1) and D_8^(1)' by Ohyama, Kawamuko, Sakai, Okamoto in J. Math. Sci. Univ. Tokyo 13 (2006) 145-204. The bib entry is correct (joint paper covering D_7^(1) + D_8^(1) classification, NOT D_6^(1) which is the V_quad reduction's surface type); the prompt's title is a project-level shorthand drift. The section 3.5.1 cites ohyama2006studies for mechanism (c) Sakai-surface anchor, which is bibliographically correct since the paper is the joint Ohyama-Kawamuko-Sakai-Okamoto Sakai-classification text.",
+      "blocking": false,
+      "downstream_action": "Operator may wish to standardise the cite-shorthand 'Ohyama 2006' across project artefacts to either the full title or a less-ambiguous reference (e.g. 'Ohyama-Kawamuko-Sakai-Okamoto 2006')."
+    },
+    {
+      "id": "D-105-2",
+      "category": "substrate-not-on-disk",
+      "severity": "INFORMATIONAL",
+      "summary": "Iwasaki-Kimura-Shimomura-Yoshida 1991 'From Gauss to Painleve' (cited as the canonical anchor for the V_quad parameter point (1/6, 0, 0, -1/2) at CT v1.3 .tex lines 131 + 353 + 1250) was NOT located on disk during the section 3.5.1 fire. The bib key iwasaki1991from exists in annotated_bibliography.bib (line 122) but no PDF / .txt extract is co-located in tex/submitted/control center/literature/. Section 3.5.1 cites iwasaki1991from at the end of the -1/3 attribution paragraph ('the project's V_quad image (1/6, 0, 0, -1/2) ... is fixed data anchored by \\cite{iwasaki1991from, ohyama2006studies}') without verifying the parameter convention used in chapter 6 (which annote claims is the Stokes-constants chapter). Logged as UF-105-NEED-IWASAKI-1991 in unexpected_finds.json.",
+      "blocking": false,
+      "downstream_action": "Operator should locate Iwasaki et al. 1991 chapter 6 (Stokes constants for Painleve transcendents) PDF / scan to verify whether the (1/6, 0, 0, -1/2) parameter convention IS already (alpha_inf, alpha_0, beta_inf, beta_0) in the Iwasaki text, or whether it uses Iwasaki's own symbol convention that the project then renamed. If the latter, section 3.5.1 may need a follow-up amendment to clarify the upstream symbol-source."
+    },
+    {
+      "id": "D-105-3",
+      "category": "bib-key-not-introduced",
+      "severity": "INFORMATIONAL",
+      "summary": "Three primary literature sources are cited via inline-prose attribution rather than \\cite{...} in section 3.5.1: Okamoto 1987 (Funkcial. Ekvac. 30:305-332), KNY 2017 (J. Phys. A: Math. Theor. 50:073001), and Forrester-Witte 2002 (Comm. Pure Appl. Math. 55:679-727 / arXiv math-ph/0201051). The annotated_bibliography.bib does not have entries for these three; per prompt 105 section 3 instruction 'Do NOT introduce new bib keys without authority', the agent did not introduce them. Inline-prose attribution preserves pdflatex compile cleanliness (no undefined references). Three full bib entries are documented in unexpected_finds.json as UF-105-NEW-BIBKEY for operator splice on a follow-up cycle.",
+      "blocking": false,
+      "downstream_action": "Operator splices the 3 recommended bib entries into annotated_bibliography.bib at next CT v1.3.x maintenance cycle, then upgrades inline-prose anchors to \\cite{...} form."
+    },
+    {
+      "id": "D-105-4",
+      "category": "058R-vs-cc-pipeline-g-bibkey-mismatch",
+      "severity": "INFORMATIONAL",
+      "summary": "Section 3.5.1 cites the 058R Phase B.3 canonical-map record via \\cite{siarc_cc_pipeline_g} with a clarifying footnote (footnote text: 'The follow-up bridge session CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE of 2026-05-06 (bridge SHA 2eb9b28, B.3) records the -1/3 partial sum as anomaly D2 ...'). The bib key siarc_cc_pipeline_g is for the 2026-05-01 CC-PIPELINE-G session; 058R is a downstream follow-up not yet captured by a bib key. The footnote disambiguates this. Cleanest fix would be a new siarc_cc_pipeline_g_058r bib key.",
+      "blocking": false,
+      "downstream_action": "Operator may wish to introduce siarc_cc_pipeline_g_058r as a new bib key in the same maintenance cycle as D-105-3 (or accept the footnote-only clarification as adequate)."
+    },
+    {
+      "id": "D-105-5",
+      "category": "bridge-HEAD-advanced-since-draft",
+      "severity": "INFORMATIONAL",
+      "summary": "Prompt 105 was drafted at bridge HEAD f840740 (108 LANDED). At fire time on 2026-05-08, the bridge advanced to 40b87e3 with 109 (T2-105-COPILOT-RESEARCHER-PROMPT-DRAFT-109 at 311cd9a) and 110 (T2-TIER-B-PASTE-PACKET-PRESTAGE-110 at 40b87e3) landing. 110 in particular surfaced UF-110-1 (FW section 2.1 eq. (2.2) as primary literature source for null-sum constraint), UF-110-2 (FW section 4.1 Proposition 4.1 / eq. (4.3) auxiliary Hamiltonian as candidate mechanism (a) anchor), and UF-110-3 (FW (v_1, v_2)_PIII == Okamoto (theta_0, theta_inf)_PIII). All three findings were ABSORBED into the section 3.5.1 prose at fire time and STRENGTHEN the literature anchors for D2 (background paragraph) + D3 mechanism (a) attribution.",
+      "blocking": false,
+      "downstream_action": "None required. 110 absorption was performed in-session and is reflected in the final section 3.5.1 text."
+    },
+    {
+      "id": "D-105-6",
+      "category": "skeletal-companion-vs-final-output",
+      "severity": "INFORMATIONAL",
+      "summary": "Session 109 deposited a skeletal candidate companion .tex (sessions/2026-05-08/T2-105-COPILOT-RESEARCHER-PROMPT-DRAFT-109/105_skeletal_section_3_5_1_companion.tex.draft, 8.6 KB). The 109 skeletal contained [TBD] markers and offered CANDIDATE I (trivial relabel) and CANDIDATE II (Iwasaki/Ohyama / FW additive-shift convention) options for the equations. The 105 final output (THIS DEPOSIT, section_3_5_1_okamoto_rename.tex 10.1 KB) selected CANDIDATE I (trivial relabel) as the v1.3 form, with the additive-shift form recorded as mechanism (b) -- a non-trivial fall-back -- in the -1/3 offset enumeration. The skeletal companion is preserved in the 109 deposit as audit-trail evidence; it is not superseded by 105 -- it served as the upstream draft scaffold.",
+      "blocking": false,
+      "downstream_action": "None required. 109 skeletal preserved in 109 deposit; 105 final landed in 105 deposit; both reachable via bridge history."
+    }
+  ]
+}
