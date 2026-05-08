@@ -1,0 +1,42 @@
+{
+  "session": "T1-SYNTH-069R3-FINAL-VERDICT-ABSORPTION-124",
+  "verdict_source": "Claude.ai web T1-Synth (Claude Opus 4.7)",
+  "unexpected_finds": [
+    {
+      "id": "UF-124-1",
+      "title": "Off-generic-stratum unifying diagnosis: Routes A and B share identical structural failure mode",
+      "description": "Synth UNIFIED what initially appeared as two unrelated route failures (Route A's WLOG-slice obstruction; Route B's pull-back degeneration) into a single structural diagnosis: V_quad's image (1/6, 0, 0, -1/2) sits on a DEGENERATE LOCUS of P_III(D_6) parameter space. Both Route A's coefficient-matching and Route B's pull-back are *generic-stratum* machinery — defined on the open dense complement of the degenerate locus, not on the degenerate locus itself. This unification was implicit in 069r2 Round 2 (η_∞=1 WLOG slice obstruction) and Round 3 (η_0=0 / γ_ODE=0 labeling violation) but was made explicit only by EXCERPT 2's 'off-generic-stratum' language in 109-EXEC at bridge 22909fe.",
+      "significance": "HIGH: this is the structurally most informative finding of the entire 069r3 cascade. It does THREE things: (1) makes Route A's NO_GO robust against the un-normalized-KNY residual possibility; (2) predicts Route F as the natural framework rather than mere elimination winner (Sakai surface-type machinery is constructed precisely for off-generic loci); (3) sharpens the Q7 acceptance criterion from pointwise -1/3 matching to systemic off-generic-stratum framing.",
+      "follow_up_priority": "M6.CC documentation should anchor V_quad's status as 'off-generic-stratum' as a primary structural property, independent of which closure route is pursued. Recommend incorporating into next CT v1.x §3.5.1 amendment alongside the Q7 refined acceptance criterion."
+    },
+    {
+      "id": "UF-124-2",
+      "title": "Mechanism narrowing: 105-EXEC three-mechanism deferral has narrowed to mechanism (c) as unique surviving candidate",
+      "description": "Cumulative cascade narrowing across 105 → 109 → 113 → 124: (a) JM 1981 Part I monodromy / FW Prop 4.1 pull-back CLOSED via 109-EXEC at 22909fe; (b) symmetric -1/12 per-coord PRE-REJECTED via 069r2 Round 3 / 113 absorption (V_quad image asymmetry); (c) Sakai D_6^(1) surface-type / affine Weyl machinery UNIQUE SURVIVOR by elimination + structurally well-anchored hypothesis. Three-mechanism deferral is now effectively a single-route decision contingent on substrate paste.",
+      "significance": "HIGH: this narrowing reduces UNDECIDABLE-round risk for the cascade — a binary GO/NO_GO on Route F substrate paste replaces the previous three-way deferral. Supports the PRIORITY_2 dispatch decision contingent on PRIORITY_1 substrate paste outcome.",
+      "follow_up_priority": "Document mechanism narrowing in prompt 112's parallel §10 substrate-paste request; the request is no longer 'pick mechanism' but 'verify mechanism (c) is constructively well-defined'. This sharpens the substrate-paste request's framing."
+    },
+    {
+      "id": "UF-124-3",
+      "title": "Q7_REFINE_AC: refined acceptance criterion is structurally falsifiable beyond pointwise matching",
+      "description": "Synth refined Q7 acceptance criterion from 'explain the -1/3 offset' to 'closure must (i) trace where -1/3 originates in its mechanism AND (ii) characterize the off-generic-stratum context — i.e., explain how V_quad degenerate-locus position systemically produces both -1/3 and the failure of generic-stratum machinery'. Closure attempts producing -1/3 only as contingent constant flagged as PARTIAL.",
+      "significance": "MEDIUM-HIGH: refinement makes the criterion structurally falsifiable beyond pointwise matching. A Route F closure that produces -1/3 only at V_quad's specific point but not as a general off-generic-stratum feature would be properly classified as PARTIAL rather than COMPLETE. This raises the closure bar but also prevents a pseudo-closure that would be falsified by any subsequent off-generic-stratum data point.",
+      "follow_up_priority": "Inject refined Q7 criterion into prompt 113_t2_069r3_route_f_*.txt envelope (when drafted under PRIORITY_2 conditional on Q4 → GO) as a §3.5.1-cite-bound acceptance criterion. Apply equally to any Route C envelope under PRIORITY_3."
+    },
+    {
+      "id": "UF-124-4",
+      "title": "Route F substrate-paste request operator-feasibility validated by synth (~30-90 min)",
+      "description": "Synth caveat 3 of Q8: Sakai 2001 ('Rational surfaces associated with affine root systems and geometry of the Painlevé equations', Comm. Math. Phys. 220) is widely available open-access. KNY 2017 §8.5 surrounding sections beyond the §8.5.17 Hamiltonian display already pasted in 069r2 Round 2 are in the same monograph the project has on disk. Estimated 30-90 min operator effort is realistic.",
+      "significance": "MEDIUM: validates that PRIORITY_1 §10 Route F substrate paste is operationally low-cost and immediately actionable. Short-latency action on the critical path means M9 V0 deposit unblock is realistically achievable within a single substrate-paste cycle.",
+      "follow_up_priority": "Operator action: open Sakai 2001 (Comm. Math. Phys. 220) and KNY 2017 §8.5 (already on disk); paste mathematical-content priority items (i)+(ii)+(iv) per §10 protocol. Drop into fresh dispatch as conversation opener with §10 protocol header from prompt 112."
+    },
+    {
+      "id": "UF-124-5",
+      "title": "§3.5.1 Remark [rem:alpha-beta-tuples] needs 4th coordinate-system extension if Route F activates",
+      "description": "Synth caveat 6 of Q8: §3.5.1 Remark currently records three-tuple disambiguation (WKB exponents, classical-ODE coefficients, Hamiltonian parameters). If Route F is activated, a fourth coordinate system (affine Weyl / surface-type root variables) needs to be recorded alongside the existing three. This is a minor governance edit; can be queued for next CT-Vxxx amendment regardless of Route F outcome.",
+      "significance": "LOW-MEDIUM: this is anticipatory governance work. The §3.5.1 Remark extension is small but required for namespace integrity if Route F activates. Queueing for next CT amendment prevents a §3.5.1 ambiguity from emerging at executor-fire time.",
+      "follow_up_priority": "Queue SQL todo for §3.5.1 Remark coordinate-system extension. Estimated effort: ~30 min editing. Trigger: conditional on Route F activation OR routine governance batch (whichever comes first)."
+    }
+  ],
+  "find_count": 5
+}

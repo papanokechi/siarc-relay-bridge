@@ -1,0 +1,603 @@
+# 069r3 FINAL synthesis verdict — verbatim operator paste
+# Source: Claude.ai T1-Synth web tier (Claude Opus 4.7), 2026-05-08 ~19:30 JST
+# Substrate: prompt 112 (SHA DEA81C919D8731117077CB6CBD2AAC5561A7CFC95901F86842BAD5507D093839; bridge 45d7baf session 123)
+# Pasted to operator chat: 2026-05-08 ~19:35 JST
+
+================================================================
+PASTED VERDICT BODY (verbatim, no modification)
+================================================================
+
+## Pre-flight acknowledgements (069r3 final synthesis)
+
+**HALT-S1 through HALT-S6:** Acknowledged. No direct bridge access; reasoning grounded in §1.5 EXCERPTS 1–7 plus carry-forward context from prior 069r2 rounds. EXCERPT 7 (memory `M6.CC affine Weyl framework`) is operator-provided substrate, not independently verified.
+
+**Namespace discipline:** Maintained. Route F is now a synth-weighable candidate (promoted from HALT-S5 surfacing-risk to active A–F frame); 069r1 Greek letters remain reserved.
+
+**Anti-tautology checklist (Q3):** Acknowledged. I will NOT use the target tuple (1/6, 0, 0, −1/2) as a derivation input in any Q3 sketch.
+
+**HALT-S3 trigger check:** Q2 asks me to ratify a tautology demotion; EXCERPT 4 contains substantive verbatim text from the 7368310 audit (specific line numbers L358–404, L380–386, L385–388; explicit identification of `_CITED` constants and the `match=false closed_form=null` JSON output). This is enough substrate to ratify *for cascade-control purposes*, but I will note where additional context (full `phase_a_static_audit.md`) would strengthen the verdict.
+
+---
+
+## Reasoning
+
+### Q1 — Route B closure ratification
+
+EXCERPT 2 is structurally specific: V_quad's image (1/6, 0, 0, −1/2) sits **off** the JM 1981 Part I generic stratum that FW Prop 4.1's pull-back targets. The pull-back is well-defined on the generic stratum but degenerates at V_quad's parameter point.
+
+This is consistent with a finding I should have weighted more heavily in Round 2: in QD-5 (113 absorption) I observed that the V_quad tuple has zeros in two coordinates (α_0 = 0, β_∞ = 0), and one of those zeros forces η_0 = 0 under the §3.5.1 Hamiltonian-parameter convention, violating Okamoto's η_Δ ≠ 0 standing assumption (which itself follows from γ δ ≠ 0). "Off the generic stratum" is exactly the structural diagnosis for this configuration: the V_quad point lives on a *degenerate locus* of P_III(D_6) parameter space, where the generic Lax-pair / monodromy machinery (the substrate for FW Prop 4.1's pull-back) breaks down.
+
+This sharpens, rather than merely ratifies, the 109-EXEC verdict. Route B's NO_GO is not a contingent failure of one pull-back attempt — it is a *structural* failure: the FW Prop 4.1 pull-back framework is built for the generic stratum, and V_quad sits outside that stratum. No variant of the same pull-back can reach an off-generic point.
+
+A separate, *non-pull-back* FW mechanism (e.g., a different Hamiltonian shift, Conte-Musette extension) might in principle attack V_quad — but EXCERPT 2 does not exhibit one, and 109-EXEC's NO_GO does not preclude a hypothetical non-pull-back variant. So strictly speaking, 109-EXEC closes the *FW Prop 4.1 pull-back* framework, not the *entire FW mechanism*. This is a small caveat, not a dispute.
+
+I do not have the full 22909fe handoff text, only EXCERPT 2's verdict-summary. For *cascade-control purposes* (deciding whether to fire another FW Prop 4.1 pull-back attempt), the closure is operationally sufficient. For *foundational closure of all FW-anchored Route B variants*, an independent reading of the 22909fe handoff would be appropriate — but the priority is low because no specific FW variant beyond Prop 4.1 has been named in any prior round.
+
+**Q1 verdict: Q1_PROVISIONAL_RATIFY_B_CLOSED.**
+
+The closure stands for cascade-control purposes (treat Route B as closed for forward dispatch decisions). I distinguish this from full independent FW source verification: the 109-EXEC fire targets the FW Prop 4.1 pull-back specifically; a hypothetical non-pull-back FW variant (e.g., Conte-Musette extension, or a different Hamiltonian shift in FW §4 not yet examined) could in principle exist, but no such variant has been named and it would constitute a *new sub-mechanism* requiring its own dispatch rather than a re-evaluation of the closed Prop 4.1 path.
+
+### Q2 — Route D demotion ratification
+
+EXCERPT 4 is specific and falsifiable. Three independent indicators:
+
+1. **Code-level identity-on-cited (Phase A):** `jm_ueno_inversion_via_fw` at L385–388 has 4-of-4 RHS being direct assignments to module-level `_CITED` constants. The function's `stokes_data` and `monodromy_data` parameters are referenced only via `.keys()` metadata enumeration, not value-side. This is a mechanical, code-readable finding — the function literally returns the cited constants regardless of input.
+2. **Self-documentation (Phase A):** the function's own docstring at L380–386 records "the structural inversion is the IDENTITY on the relabel." The author explicitly identified this property; it is not a discovered bug.
+3. **Diagnostic-vs-producer flag (Phase B):** `jimbo_final.py` has `S_num` as a hardcoded `mpf` string-literal with no upstream computation; the result JSON emits `match=false closed_form=null`. This is a script that *announces it is not finding closed forms*, not a script that *produces verified inversions*.
+
+The combination of (1) code-level identity, (2) docstring confirmation, and (3) explicit diagnostic-not-producer status makes the tautology finding robust. The 110-EXEC "EXACT per-coord match" is not signal — it is the trivial observation that an identity function applied to cited constants returns those same constants.
+
+**On Q2_PARTIAL_RETENTION:** is there any portion of 110-EXEC that survives the static audit? Possible candidates worth considering:
+
+- **Numerical-stability telemetry** (dps 50 vs 100 stability claims): if 110 measured stability of the *V_quad-side* numerical solver (xi_0 agreement, formal-series Padé convergence) at varying precision, that telemetry survives the audit because it does not pass through `jm_ueno_inversion_via_fw`. But this telemetry is V_quad-side data already established at 200-digit precision in Round 3 EXCERPT D2; it does not constitute *new* probative evidence for chart-map closure.
+- **Lax-pair solver implementation** (KNY §8.5.17 numerical integration): if 110 built a working Lax-pair numerical solver, that artefact could be reused by a future genuinely-non-tautological extraction operation. But its existence is infrastructure, not chart-map evidence.
+
+EXCERPT 4 does not specifically address whether such infrastructure components are preserved in 110's deliverables. So a small partial-retention possibility exists at the *infrastructure* level (reusable code), but at the *probative-evidence* level — the question Q2 is actually asking — the demotion is total.
+
+**Q2 verdict: Q2_RATIFY_D_DEMOTED.**
+
+The 111 static audit's IDENTITY_ON_CITED finding is decisive at the probative-evidence level. The 110 fire's per-coord match contributes 0 to the R1 closure cascade. Reusable infrastructure (numerical solvers, V_quad-side data confirmation) may survive at the infrastructure level — operator may want to record this distinction for future Route D re-attempts, but it does not change the cascade-level demotion to zero.
+
+Strict probative-weight cascade: Route D-as-fired is properly removed from the chart-map evidence stack.
+
+### Q3 — Route A status update
+
+Route E precondition is discharged at TRIVIAL via 105-EXEC (EXCERPT 5). The remaining substrate gap is the Hamiltonian display paste (KNY 2017 §8.5.17 H_D6^KNY + Okamoto 1987 §1 H_III).
+
+In Round 2 of 069r2, I attempted a coefficient-matching analysis using the Hamiltonian displays *that were inlined at that time* (KNY (8.237), Okamoto H_III'). My round-2 conclusion was NO_GO_ROUTE_A: KNY (8.237) is a normalized representative of H_D6^(1) at WLOG slice η = 1, and coefficient-matching against it cannot recover the unnormalized (η_∞, η_0) directions that V_quad's image lives in. Specifically, the V_quad point has α_∞ = 1/6 ≠ 1, so V_quad sits outside the η = 1 slice that KNY (8.237) presents.
+
+That round-2 NO_GO_ROUTE_A still stands logically: the obstruction is at the *form* of KNY (8.237) as a normalized presentation, not at the coefficients within it. Re-pasting the same normalized Hamiltonian would not change the analysis.
+
+**However** — and this is the key update — Round 3 (113 absorption, QD-5) and the subsequent 115-EXEC §3.5.1 R1 small-amendment surfaced that V_quad's tuple structurally violates *both* candidate labelings (γ_ODE = 0 violates γδ ≠ 0 under classical-ODE; η_0 = 0 violates η_Δ ≠ 0 under Hamiltonian-parameter). This was framed as a labeling ambiguity, but in light of EXCERPT 2 (Route B off-generic-stratum), it has a sharper interpretation: V_quad's image sits on a *degenerate locus* of P_III(D_6) parameter space, and the generic Hamiltonian-coefficient-matching framework — which is what Route A executes — works on the generic stratum, not on degenerate loci.
+
+This is the same structural diagnosis that closed Route B. Route A and Route B both rely on generic-stratum machinery (Hamiltonian coefficient-matching for A; FW Prop 4.1 pull-back for B). The V_quad point sits off the generic stratum. Therefore Route A faces the *same structural obstruction* as Route B, just expressed differently.
+
+To verify this against the anti-tautology checklist (i)–(iv):
+
+- (i) Source coefficients: KNY (8.237) [normalized H_D6^KNY] + Okamoto H_III' [WLOG η=1 slice]. Both are *generic-stratum* presentations.
+- (ii) SIARC-side variables: (a_0, a_1, a_2) under affine constraint a_0 + a_1 = 1.
+- (iii) Where f_α∞, f_α0, f_β∞, f_β0 emerge: in principle from coefficient-matching at the generic stratum. Round-2 analysis showed only the (θ_0, θ_∞) ↔ (a_1, a_2) sector matches; the (η_∞, η_0) sector is absorbed into normalization. So even on the generic stratum, only 2-of-4 functional forms emerge from KNY (8.237) ↔ Okamoto H_III' at WLOG slice.
+- (iv) Where −1/3 offset enters: Route A as currently scoped does NOT capture the −1/3 offset, because the offset lives in the unnormalized (η_∞, η_0) directions which are absorbed at WLOG slice. This was the core round-2 finding.
+
+So Route A as currently scoped (KNY (8.237) + Okamoto H_III' + WLOG η=1 normalization + trivial §3.5.1 relabel) cannot close R1. The substrate that *might* revive Route A would be an *un-normalized* H_D6^KNY presentation — i.e., a version of KNY's Hamiltonian where η_∞ and η_0 are explicit free parameters rather than absorbed into canonical-form scaling. KNY 2017 §8.5 may contain such a presentation in surrounding sections (this was the round-2 caveat: "agent may want to perform a KNY §8.5 surrounding-sections scan ~30 min before treating NO_GO_ROUTE_A as final").
+
+But the EXCERPT 2 + 113 QD-5 + 115-EXEC cascade has *strengthened* the round-2 NO_GO assessment: the off-generic-stratum diagnosis explains *why* Route A faces the same obstruction Route B did, *regardless* of whether KNY contains an un-normalized variant. Even if such a variant exists, the V_quad point's degenerate-locus position would force the same kind of "pull-back targets the generic stratum, V_quad is off-stratum" failure.
+
+**Q3 verdict: Q3_NO_GO_ROUTE_A.**
+
+The same structural obstruction that closed Route B (V_quad sits off the generic stratum that generic-Hamiltonian / generic-Lax-pair machinery targets) also applies to Route A. Both routes use generic-stratum machinery; the V_quad point is structurally outside that machinery's domain of definition. Round-2 NO_GO stands and is now reinforced by EXCERPT 2's structural diagnosis and 113 QD-5's labeling-violation finding.
+
+A residual possibility: if an *un-normalized* KNY Hamiltonian display exists in §8.5 surrounding sections AND if the off-generic-stratum diagnosis is specific to the FW Prop 4.1 pull-back rather than to all generic-machinery (which would require ruling out by inspection), Route A could in principle revive. I do not believe this combination is likely given the cascade evidence, but I flag it as a low-priority verification for thoroughness.
+
+This is the synth's update to its prior round-2 NO_GO_ROUTE_A: I am now more confident in the verdict (HIGH where I was previously HIGH-with-caveat), and the operator can treat Route A as closed for forward-cascade purposes.
+
+### Q4 — Route F surfacing assessment
+
+The cascade has produced *converging* evidence for Route F, but I must distinguish the three evidence types per H2 absorption:
+
+**(i) Elimination pressure (Routes B closed + D demoted):** strong. Both closed routes failed for *generic-stratum* reasons. Route F is the only remaining named candidate that operates outside the generic stratum (Sakai surface-type machinery handles degenerate loci as part of its *core construction* — the surface-type classification is precisely the framework for understanding what happens at degenerate parameter values).
+
+**(ii) Hypothesis compatibility (105-EXEC mechanism (c)):** medium. Mechanism (c) explicitly names Sakai D_6^(1) surface-type as a candidate origin for the −1/3 null-sum offset. This is a hypothesis, not a derivation — but it is a *structurally well-anchored* hypothesis: surface-type classifications include affine-root-system data (root summation constants, Cartan matrix invariants) that naturally produce non-zero summation constants at off-generic loci. The −1/3 value would need to be derived from D_6^(1) simple-root data; the hypothesis is that such a derivation is constructible.
+
+**(iii) Positive Sakai/KNY constructive substrate:** absent. EXCERPT 7 (operator-summary of `M6.CC affine Weyl framework` memory) provides the *framework context* (W((2A_1)^(1)) ⊂ W_a(B_2); D_6^(1) ↔ W((2A_1)^(1)) ↔ W_a(B_2) in Sakai's classification), but no inlined excerpt from Sakai 2001 / Sakai 2007 / KNY 2017 §8.5 supplies the constructive D_6^(1) machinery for the chart-map. Without (iii), a Q4_GO verdict would be premature.
+
+The combination (i) + (ii) is strong enough to make Route F the leading candidate, but not strong enough to dispatch a 069r3-F executor envelope solo. The cascade direction has clarified, but the *substantive* substrate that 069r3-F would execute against has not yet been pasted.
+
+A second consideration: the cascade evidence for Route F is *predictive* — it says "the obstruction in B and D is consistent with V_quad living on a degenerate locus that requires surface-type machinery to handle." But surface-type machinery is more than *just* explaining the −1/3 offset; it is a *different chart-map construction framework*. Routes A/B target the chart-map via Hamiltonian / Lax-pair / pull-back machinery; Route F would target the chart-map via affine Weyl translation + simple-reflection actions on parameter space, possibly producing a fundamentally different functional form for f_α∞, f_α0, f_β∞, f_β0 (e.g., piecewise-linear in (a_0, a_1, a_2) rather than rational, or expressed in root-coordinate transforms rather than direct closed forms). This is *not* a minor refinement of Routes A/B; it is a structurally different closure.
+
+That makes the substrate paste for Route F genuinely critical. Without (iii), I cannot evaluate whether Sakai's surface-type framework actually *produces* a chart-map of the form §2 requires (closed-form polynomial/rational f_*), or whether it produces some *generalized* chart-map that would itself require a §2 spec amendment.
+
+**Q4 verdict: Q4_HEDGE_ROUTE_F.**
+
+Elimination pressure (i) + hypothesis compatibility (ii) make Route F the leading candidate. Positive substrate (iii) is pending operator paste per §10 Route F protocol. Recommend parallel-draft strategy: 069r3-F envelope drafted in skeletal form *and* operator pastes Sakai 2001 / KNY 2017 §8.5 substrate (priority: (i) surface-type classification passage for D_6^(1) ↔ P_III(D_6); (ii) affine Weyl action on parameter space; (iv) explicit formulas for parameter shifts / null-sum constraints from affine Weyl action) → re-fire Q4 only with substrate in hand → if Q4 upgrades to GO_ROUTE_F, dispatch 069r3-F executor.
+
+This is a "lean toward Route F but verify before fire" position. The cascade evidence has done the elimination work; the substrate paste does the constructibility work.
+
+### Q5 — Path-delta (literature acquisition) recommendation
+
+Q5 applies only if Q3 = NO_GO and Q4 = NO_GO. Currently Q3 = NO_GO_ROUTE_A but Q4 = HEDGE_ROUTE_F. So Q5 is *almost* N-A — strictly N-A under the cascade table — but worth pre-considering as a fallback if Route F's substrate paste resolves to NO_GO_ROUTE_F.
+
+Conjectural pre-rank if Route F substrate paste yields NO_GO_ROUTE_F:
+
+The off-generic-stratum diagnosis is the unifying feature. JM 1981 Part II is the canonical source for *raw Stokes-data parametrisation* — i.e., Lax-pair monodromy data expressed before the generic-stratum normalizations are applied. JM 1981 Part II might therefore offer a route that handles V_quad's degenerate position via raw monodromy data without requiring a Sakai surface-type framework.
+
+Sakai 2001 itself (rather than Sakai surface-type machinery via KNY) is also a candidate: the original surface-type classification paper may contain the explicit D_6^(1) machinery that EXCERPT 7's memory summarizes.
+
+Conte-Musette 2008 is less well-positioned: the 102 disposition characterized it as a textbook treatment, less likely to handle off-generic loci than the original research literature.
+
+**Q5 pre-rank (conjectural, under hypothetical Route F NO_GO):** Q5_GO_PATH_DELTA_C3 (hybrid: JM 1981 Part II + Okamoto 1987 + Sakai 2001) as primary; Q5_GO_PATH_DELTA_C1 (JM 1981 alone) as secondary; Q5_GO_PATH_DELTA_C2 (CM 2008) as tertiary; Q5_GO_GOVERNANCE_C4 (defer to v1.1 with PARTIAL_NUMERICAL caveat) as last resort.
+
+But Q4 is currently HEDGE not NO_GO, so:
+
+**Q5 verdict: Q5_N_A.**
+
+If Route F substrate paste resolves to NO_GO_ROUTE_F, re-fire Q5 with the conjectural ranking above as starting point.
+
+### Q6 — Forward-cascade priority recommendation
+
+Synthesizing Q1 (B closed), Q2 (D demoted), Q3 (A NO_GO), Q4 (F HEDGE), Q5 (N-A):
+
+Under §6 cascade table TIER 2 (parallel hedge with Q3 = NO_GO branch): "do NOT draft Route A (Q3 explicitly says A cannot close R1). Either draft Route F SOLO (if Q4 reasoning supports) OR request synth clarification on whether HEDGE was conditional on Q3 ≠ NO_GO."
+
+My HEDGE was *not* conditional on Q3 ≠ NO_GO. The Q4_HEDGE rationale is independent: hedge between Route F (cascade evidence supports, substrate paste needed) and *governance fallback / Path-delta* (if Route F substrate paste fails). So the "parallel" in HEDGE is between Route F and the next-tier fallback, not between Route F and Route A.
+
+Recommended dispatch ordering:
+
+**PRIORITY_1: Operator paste of Sakai 2001 / KNY 2017 §8.5 substrate per §10 Route F protocol (before any executor envelope drafts).** This is the genuine sequential gate — without (iii), Route F cannot fire and the cascade has no actionable next step. Estimated operator effort: 30–90 minutes acquisition + paste, depending on Sakai 2001 access. Specifically request priority items (i) D_6^(1) ↔ P_III(D_6) classification + (ii) affine Weyl action on parameter space + (iv) parameter-shift / null-sum-constraint formulas from affine Weyl action.
+
+**PRIORITY_2 (after substrate paste): Re-fire Q4 with substrate.** If Q4 upgrades to GO_ROUTE_F: draft `113_t2_069r3_route_f_sakai_d6_surface_type_machinery.txt` and dispatch as next executor envelope. Estimated executor effort: 8–20 hr (Sakai-machinery chart-map fill is genuinely novel framework work; significantly more involved than Route B's pull-back attempt).
+
+**PRIORITY_3 (fallback if Q4 re-fire yields NO_GO_ROUTE_F): re-fire Q5 with the conjectural ranking above.** Most likely outcome under Route F NO_GO is Q5_GO_PATH_DELTA_C3 (hybrid: JM 1981 Part II + Sakai 2001 + Okamoto 1987 lit acquisition). Latency ~7–30 days.
+
+**GOVERNANCE_PARALLEL: Y.** Queue umbrella v2.x M9-V0-with-PARTIAL_NUMERICAL caveat amendment as a *parallel safety valve*, not as a primary recommendation. Rationale: M9 V0 has been hard-gated on M6.CC R1 closure for multiple cycles (097 PARTIAL_INSUFFICIENT_DATA, 069r1 NO_GO, 069r2 UNDECIDABLE, this 112 final synthesis). The cascade has now narrowed to Route F as primary; if Route F substrate paste fails or 069r3-F execution yields NO_GO, the project should have a pre-scoped governance fallback ready rather than entering a third UNDECIDABLE round. The governance amendment can be drafted in parallel with substrate paste; it would be deployed only if Route F path fails.
+
+A note on cascade-table TIER alignment: Q4 = HEDGE_ROUTE_F + Q3 = NO_GO_ROUTE_A is an edge case the cascade table flags for "request synth clarification." My clarification: the HEDGE is between Route F (substrate-paste-pending) and downstream fallback (Path-delta / governance). Drafting Route A's envelope in parallel with Route F's would be wasteful given Route A's NO_GO; the parallel structure should be Route F (analytic) + governance amendment (safety valve), not Route F + Route A.
+
+### Q7 — −1/3 offset acceptance criterion
+
+The −1/3 offset has remained the single most informative substrate clue across all rounds. Each route has been evaluated against it:
+
+- Route A (Round 2): cannot capture −1/3 because offset lives in unnormalized (η_∞, η_0) directions absorbed at WLOG slice. *Now sharpened*: Route A's failure to capture −1/3 is a manifestation of the off-generic-stratum diagnosis.
+- Route B (109-EXEC): NO_GO_OFF_DEGENERATION — the pull-back degenerates at V_quad's parameter point, which is also where the −1/3 offset would need to be evaluated.
+- Route D-as-fired (110/111-EXEC): demoted to zero probative weight; the supposed "match" of (1/6, 0, 0, −1/2) was tautological identity-on-cited.
+- Route F: mechanism (c) of 105-EXEC explicitly names −1/3 as derivable from Sakai surface-type / D_6^(1) affine root-system data.
+
+The criterion has done its work: it discriminated between routes by tracking *which routes can structurally explain −1/3 vs which routes structurally cannot*. The cascade arrived at Route F partly *because* Route F is the only remaining named candidate that has a structural mechanism for −1/3 attribution (mechanism (c)).
+
+For Route F's executor work, the criterion remains binding: any 069r3-F closure must explicitly trace where −1/3 originates in the affine Weyl / surface-type machinery. Per M4 absorption, the criterion also extends to Route C if Path-delta is later activated — JM 1981 Part II's raw Stokes-data parametrisation should produce −1/3 from monodromy data corresponding to V_quad's image.
+
+A small refinement worth proposing: now that the cascade has produced the *off-generic-stratum* unifying diagnosis, the acceptance criterion can be sharpened from "explain the −1/3 offset" to "explain how V_quad's degenerate-locus position produces the −1/3 offset *as a systemic feature* of off-generic-stratum behavior, not as a contingent constant." This makes the criterion structurally falsifiable: a Route F closure that produces −1/3 only at V_quad's specific point but not as a general off-generic-stratum feature would be *partial* rather than *complete*.
+
+**Q7 verdict: Q7_REFINE_AC.**
+
+Refined criterion: any 069r3-* closure attempt for Routes A, F, or C must (i) explicitly trace where −1/3 originates in its mechanism, AND (ii) characterize the off-generic-stratum context — i.e., explain how V_quad's degenerate position relative to the generic stratum systemically produces both the −1/3 offset and the failure of generic-stratum machinery (Routes A and B). Closure attempts that produce −1/3 as a contingent constant without addressing the off-generic-stratum framing would be flagged as PARTIAL.
+
+This refinement folds the cascade's structural unification (off-generic-stratum diagnosis) into the acceptance criterion, making the criterion both a more demanding test for Route F and a basis for evaluating any future Route C work.
+
+### Q8 — Confidence
+
+- **Q1 confidence: HIGH** for cascade-control sufficiency (Q1_PROVISIONAL_RATIFY); MEDIUM for full FW-source verification (would benefit from independent reading of 22909fe handoff text, but priority is low given no specific FW variant beyond Prop 4.1 has been named).
+- **Q2 confidence: HIGH.** EXCERPT 4's three-indicator structure (code-level identity, docstring confirmation, diagnostic-not-producer flag) is robust. The probative-weight demotion is total at the cascade level; small infrastructure-level retention is possible but does not affect the verdict.
+- **Q3 confidence: HIGH.** Round-2 NO_GO is reinforced by EXCERPT 2's off-generic-stratum diagnosis and 113 QD-5's labeling-violation finding. The structural unification is robust.
+- **Q4 confidence: MEDIUM-HIGH.** Cascade evidence is strong for Route F as leading candidate; HEDGE rather than GO because positive constructive substrate is genuinely pending. The HEDGE is well-grounded.
+- **Q5 confidence: N-A** (deferred to potential re-fire under Route F NO_GO).
+- **Q6 priority confidence: MEDIUM-HIGH.** The Priority 1 (substrate paste) → Priority 2 (Route F dispatch on GO) → Priority 3 (Path-delta on NO_GO) ordering is well-motivated. GOVERNANCE_PARALLEL recommendation is a judgment call about whether to pre-stage a fallback before Route F resolves; the case for it is "the project has been gated on R1 closure for multiple cycles; pre-staging avoids another UNDECIDABLE round."
+- **Q7 confidence: MEDIUM-HIGH.** The refined criterion is a substantive update grounded in the cascade's structural unification; it is more demanding than the original criterion but is also more structurally falsifiable.
+
+---
+
+## §5 Verdict Packet
+
+```
+RELAY_069R3_FINAL_SYNTHESIS_VERDICT
+====================================
+Synth ID:            Claude.ai web (Claude Opus 4.7), 069r3 final synthesis
+Verdict timestamp:   2026-05-08 ~19:30 JST
+
+Substrate SHA status:
+  Agent pre-flight rev-parse accepted from envelope §1: Y
+  Synth independently verified bridge content:          N — no direct
+                                                          bridge access
+  Substrate excerpts actually used by synth:            §1.5 EXCERPTS
+                                                          1, 2, 3, 4,
+                                                          5, 6, 7
+                                                          (all seven);
+                                                          carry-forward
+                                                          context from
+                                                          069r2 Round-1
+                                                          (108) + Round-3
+                                                          (113) verdicts
+                                                          + 115-EXEC
+                                                          §3.5.1 R1
+                                                          amendment
+                                                          summary
+                                                          referenced
+                                                          implicitly
+
+Synth halt conditions acknowledged (HALT-S1 through HALT-S6): Y
+Namespace discipline acknowledged (Route A-F Latin labels;
+  069r1 Greek alpha/beta/gamma/delta reserved; Route F promoted
+  from HALT-S5 surfacing-risk into active A-F frame):       Y
+
+Q1 — Route B closure ratification
+  Verdict:    Q1_PROVISIONAL_RATIFY_B_CLOSED
+  Reasoning:
+    EXCERPT 2 specifies V_quad's image (1/6, 0, 0, −1/2) sits OFF
+    the JM 1981 Part I generic stratum that FW Prop 4.1's pull-back
+    targets. This is consistent with — and sharpens — Round 3 QD-5's
+    finding that V_quad's tuple violates Okamoto's η_Δ ≠ 0 standing
+    assumption (which follows from γδ ≠ 0). The two findings together
+    identify V_quad's parameter point as living on a DEGENERATE
+    LOCUS of P_III(D_6) parameter space, where generic Lax-pair /
+    monodromy machinery breaks down by structural design.
+
+    The closure stands for cascade-control purposes: no variant of
+    the FW Prop 4.1 pull-back can reach an off-generic-stratum point.
+    A hypothetical non-pull-back FW variant (Conte-Musette extension,
+    different Hamiltonian shift in FW §4 not yet examined) could in
+    principle exist as a NEW sub-mechanism, but it would require its
+    own dispatch — not a re-evaluation of the closed Prop 4.1 path.
+
+    The "PROVISIONAL" qualifier records that synth has access only
+    to EXCERPT 2's verdict-summary, not the full 22909fe handoff.
+    For cascade-control this is sufficient; for foundational closure
+    of all FW-anchored Route B variants, an independent reading of
+    22909fe would strengthen the verdict but is low-priority because
+    no specific FW variant beyond Prop 4.1 has been named.
+
+Q2 — Route D demotion ratification
+  Verdict:    Q2_RATIFY_D_DEMOTED
+  Reasoning:
+    EXCERPT 4 supplies three independent indicators that converge:
+    (1) code-level identity-on-cited (4-of-4 RHS at L385–388 are
+    direct assignments to module-level _CITED constants; stokes_data
+    and monodromy_data parameters referenced only via .keys()
+    metadata enumeration, not value-side); (2) docstring
+    self-documentation at L380–386 explicitly recording "the
+    structural inversion is the IDENTITY on the relabel"; (3)
+    diagnostic-vs-producer status — jimbo_final.py emits
+    match=false closed_form=null with hardcoded mpf string-literal
+    S_num. The combination is robust at the cascade level: the
+    110-EXEC "EXACT per-coord match" is the trivial output of an
+    identity function applied to cited constants, not a genuine
+    inversion of Lax-pair monodromy data.
+
+    Note on partial retention: small infrastructure-level survival
+    is possible (e.g., reusable Lax-pair numerical solver code,
+    V_quad-side numerical-stability telemetry) — these components
+    do not pass through jm_ueno_inversion_via_fw and would not
+    inherit the tautology. But at the PROBATIVE-EVIDENCE level
+    that Q2 asks about, the demotion is total. Route D-as-fired
+    contributes 0 to the R1 closure cascade.
+
+    Operator may want to record the infrastructure-vs-evidence
+    distinction in the 069r3-D follow-up SQL todo so that future
+    Route D re-attempts (with a true inversion implementation,
+    not identity-on-cited) can reuse the surviving infrastructure
+    components.
+
+Q3 — Route A status update
+  Verdict:    Q3_NO_GO_ROUTE_A
+  Sketch:     N-A (Q3 is NO_GO; no executor sketch produced)
+  Reasoning:
+    Round 2 of 069r2 already returned NO_GO_ROUTE_A based on
+    coefficient-matching analysis using KNY (8.237) and Okamoto
+    H_III'. The obstruction was that KNY (8.237) is a normalized
+    representative of H_D6^(1) at WLOG slice η = 1, and
+    coefficient-matching against it cannot recover the unnormalized
+    (η_∞, η_0) directions that V_quad's image lives in (V_quad has
+    α_∞ = 1/6 ≠ 1).
+
+    Round 3 QD-5 + 115-EXEC §3.5.1 R1 amendment + EXCERPT 2's
+    off-generic-stratum diagnosis now SHARPEN this into a unified
+    structural finding: V_quad's image sits on a DEGENERATE LOCUS
+    of P_III(D_6) parameter space. Routes A and B both rely on
+    GENERIC-STRATUM machinery (Hamiltonian coefficient-matching for
+    A; FW Prop 4.1 pull-back for B). Both face the same structural
+    obstruction: the V_quad point is structurally outside the
+    domain of definition of generic-stratum chart-map machinery.
+
+    Anti-tautology checklist verification:
+      (i) Source coefficients are KNY (8.237) [normalized] +
+          Okamoto H_III' [WLOG η=1 slice]. Both generic-stratum.
+      (ii) SIARC-side variables are (a_0, a_1, a_2) under
+           a_0 + a_1 = 1.
+      (iii) Round-2 analysis shows only 2-of-4 functional forms
+            ((θ_0, θ_∞) ↔ (a_1, a_2)) emerge from coefficient
+            matching at WLOG slice; (η_∞, η_0) sector is absorbed
+            into normalization.
+      (iv) The −1/3 offset is NOT captured by Route A as currently
+           scoped, because the offset lives in the unnormalized
+           (η_∞, η_0) directions absorbed at WLOG slice. This was
+           the core round-2 finding.
+
+    Residual possibility: an UN-NORMALIZED KNY Hamiltonian display
+    in §8.5 surrounding sections might in principle revive Route
+    A. However, even if such a variant exists, the off-generic-
+    stratum diagnosis (which closed Route B) would force the same
+    structural failure for Route A — generic-machinery-of-any-form
+    targeting V_quad's degenerate-locus point. I treat Route A as
+    closed for forward-cascade purposes; low-priority verification
+    by KNY §8.5 surrounding-sections scan remains as a thoroughness
+    check but is unlikely to revive Route A.
+
+Q4 — Route F surfacing assessment
+  Verdict:    Q4_HEDGE_ROUTE_F
+  Reasoning:
+    Three evidence types per H2 absorption:
+
+    (i) ELIMINATION PRESSURE [strong]: Routes B and D have both
+        failed for off-generic-stratum / generic-machinery reasons.
+        Route F is the only remaining named candidate that operates
+        outside the generic stratum — Sakai surface-type machinery
+        handles degenerate loci as part of its CORE construction
+        (the surface-type classification is precisely the framework
+        for understanding what happens at degenerate parameter
+        values).
+
+    (ii) HYPOTHESIS COMPATIBILITY [medium]: 105-EXEC mechanism (c)
+         explicitly names Sakai D_6^(1) surface-type as a candidate
+         origin for the −1/3 null-sum offset. Surface-type
+         classifications include affine-root-system data (root
+         summation constants, Cartan invariants) that naturally
+         produce non-zero summation constants at off-generic loci.
+         The hypothesis is structurally well-anchored but not yet
+         derived.
+
+    (iii) POSITIVE Sakai/KNY constructive substrate [absent]:
+          EXCERPT 7 supplies framework context (W((2A_1)^(1)) ⊂
+          W_a(B_2); D_6^(1) ↔ W((2A_1)^(1)) in Sakai's
+          classification) but no inlined excerpt from Sakai
+          2001 / Sakai 2007 / KNY 2017 §8.5 supplies the
+          constructive D_6^(1) machinery for the chart-map.
+
+    The combination (i)+(ii) makes Route F the leading candidate,
+    but a Q4_GO verdict requires (iii) — and substrate paste for
+    Route F is genuinely critical because Sakai surface-type
+    machinery is not a refinement of Routes A/B but a STRUCTURALLY
+    DIFFERENT chart-map construction framework. It may produce
+    chart-maps in different functional form (affine Weyl
+    translation + simple-reflection actions on parameter space,
+    possibly piecewise-linear or root-coordinate transforms rather
+    than direct closed-form rational expressions). Without
+    inlined Sakai/KNY content, I cannot evaluate whether Route F
+    constructively yields a chart-map of the form §2 requires
+    (closed-form polynomial/rational f_*).
+
+    HEDGE position: cascade evidence has done the elimination work
+    (Route F is the leading candidate); substrate paste does the
+    constructibility work (does Route F actually CONSTRUCT a
+    chart-map?). Recommend §10 Route F protocol substrate paste
+    before drafting 069r3-F executor envelope.
+
+Q5 — Path-delta (literature acquisition) recommendation
+  Verdict:    Q5_N_A
+  Reasoning:
+    Q5 applies only if Q3 = NO_GO AND Q4 = NO_GO. Currently Q3 =
+    NO_GO_ROUTE_A but Q4 = HEDGE_ROUTE_F. Q5 is N-A under the
+    current verdict combination.
+
+    Conjectural pre-rank for re-fire under hypothetical Route F
+    NO_GO outcome: Q5_GO_PATH_DELTA_C3 (hybrid: JM 1981 Part II
+    + Okamoto 1987 + Sakai 2001) as primary, since JM 1981 Part
+    II handles raw Stokes-data parametrisation pre-generic-stratum
+    normalization and Sakai 2001 is the original surface-type
+    classification source. Q5_GO_PATH_DELTA_C1 (JM 1981 alone)
+    secondary; Q5_GO_PATH_DELTA_C2 (CM 2008) tertiary;
+    Q5_GO_GOVERNANCE_C4 last resort. Deferred until any Route F
+    NO_GO re-fire.
+
+Q6 — Forward-cascade priority recommendation
+  PRIORITY_1: §10 Route F substrate paste (operator-side; Sakai
+                2001 / KNY 2017 §8.5 priority items (i) D_6^(1)
+                ↔ P_III(D_6) classification + (ii) affine Weyl
+                action on parameter space + (iv) parameter-shift
+                / null-sum-constraint formulas from affine Weyl
+                action). Estimated 30–90 min operator effort.
+                THIS IS THE GENUINE SEQUENTIAL GATE.
+  PRIORITY_2: After substrate paste, re-fire Q4. If Q4 upgrades
+                to GO_ROUTE_F: draft
+                `113_t2_069r3_route_f_sakai_d6_surface_type_machinery.txt`
+                executor envelope. Estimated executor effort:
+                8–20 hr (Sakai-machinery chart-map fill is
+                genuinely novel framework work).
+  PRIORITY_3: Fallback if Q4 re-fire yields NO_GO_ROUTE_F:
+                re-fire Q5 with the conjectural ranking above.
+                Most likely outcome under Route F NO_GO:
+                Q5_GO_PATH_DELTA_C3 hybrid lit acquisition.
+                Latency ~7–30 days (Tier 3 paywalled).
+  GOVERNANCE_PARALLEL: Y
+    Rationale: M9 V0 has been hard-gated on M6.CC R1 closure for
+    multiple cycles (097 PARTIAL_INSUFFICIENT_DATA, 069r1 NO_GO,
+    069r2 UNDECIDABLE, this 112 final synthesis). The cascade
+    has now narrowed to Route F as primary; if Route F substrate
+    paste fails or 069r3-F execution yields NO_GO, the project
+    should have a pre-scoped governance fallback (umbrella v2.x
+    M9-V0-with-PARTIAL_NUMERICAL caveat amendment) ready rather
+    than entering a third UNDECIDABLE round. The amendment is a
+    safety valve, not a primary recommendation; it deploys only
+    if the Route F path fails.
+
+  Reasoning:
+    The §6 cascade table flags Q4 = HEDGE × Q3 = NO_GO as an edge
+    case requiring synth clarification. Clarification: the HEDGE
+    is between Route F (substrate-paste-pending) and downstream
+    fallback (Path-delta / governance), NOT between Route F and
+    Route A. Drafting Route A's envelope in parallel with Route F
+    would be wasteful given Route A's NO_GO. The parallel structure
+    should be Route F (analytic) + governance amendment (safety
+    valve), not Route F + Route A.
+
+    Priority 1 (substrate paste) before Priority 2 (Route F
+    dispatch) is mandatory: without (iii)-type evidence, Route F's
+    constructibility cannot be evaluated, and dispatching an 8–20 hr
+    executor envelope on substrate-paste-pending status would risk
+    a fourth UNDECIDABLE round. The substrate paste closes that
+    risk for ~30–90 min operator effort.
+
+    Priority 3 only triggers if both substrate paste AND Route F
+    execution fail. Latency estimate of 7–30 days for Path-delta
+    is governance-significant; pre-staging the v2.1 amendment in
+    GOVERNANCE_PARALLEL prevents the project from being blocked
+    on R1 closure during that latency window.
+
+Q7 — −1/3 offset acceptance criterion
+  Verdict:    Q7_REFINE_AC
+  Refined criterion:
+    Any 069r3-* closure attempt for Routes A, F, or C must:
+      (i)  explicitly trace where the −1/3 offset originates in
+           its mechanism;
+      (ii) characterize the OFF-GENERIC-STRATUM context — i.e.,
+           explain how V_quad's degenerate position relative to
+           the generic stratum SYSTEMICALLY produces both the
+           −1/3 offset and the failure of generic-stratum
+           machinery (Routes A and B).
+    Closure attempts that produce −1/3 as a contingent constant
+    without addressing the off-generic-stratum framing are flagged
+    as PARTIAL.
+
+  Reasoning:
+    The original acceptance criterion ("explain the −1/3 offset")
+    has done its work across the cascade — it discriminated routes
+    by tracking which routes can structurally explain −1/3. The
+    cascade arrived at Route F partly because Route F is the only
+    remaining named candidate with a structural mechanism for −1/3
+    attribution (mechanism (c) of 105-EXEC).
+
+    The refinement folds the cascade's structural unification
+    (off-generic-stratum diagnosis from Q1 + Q3) into the criterion.
+    This makes the criterion both more demanding (structurally
+    falsifiable beyond contingent-constant matching) and more
+    valuable (a Route F closure that produces −1/3 only at V_quad's
+    specific point but not as a general off-generic-stratum feature
+    would be properly classified as PARTIAL rather than COMPLETE).
+
+    Per M4 absorption, the criterion extends to Route C if Path-
+    delta is later activated — JM 1981 Part II's raw Stokes-data
+    parametrisation should produce −1/3 from monodromy data
+    corresponding to V_quad's image, and the off-generic-stratum
+    framing applies equally there.
+
+Q8 — Confidence
+  Q1 confidence:           HIGH for cascade-control sufficiency;
+                             MEDIUM for full FW-source verification
+  Q2 confidence:           HIGH (three-indicator convergence at
+                             cascade level; small infrastructure-
+                             level retention possible but does not
+                             affect verdict)
+  Q3 confidence:           HIGH (round-2 NO_GO reinforced by EXCERPT
+                             2 + 113 QD-5 structural unification)
+  Q4 confidence:           MEDIUM-HIGH (HEDGE is well-grounded;
+                             elimination + hypothesis evidence is
+                             strong; positive substrate genuinely
+                             pending)
+  Q5 confidence:           N-A (deferred)
+  Q6 priority confidence:  MEDIUM-HIGH (substrate-paste-first
+                             ordering well-motivated;
+                             GOVERNANCE_PARALLEL recommendation is
+                             a judgment call about pre-staging fallback)
+  Q7 confidence:           MEDIUM-HIGH (refined criterion is
+                             substantive update grounded in cascade's
+                             structural unification)
+
+  Caveats:
+    1. The off-generic-stratum diagnosis is the structurally most
+       informative finding of the cascade. It unifies Routes A
+       and B's failures under a single mechanism and predicts
+       Route F as the natural framework — surface-type machinery
+       is constructed precisely for off-generic loci. This
+       diagnosis was implicit in 069r2 Round-2 (the η_∞ = 1
+       WLOG slice obstruction for Route A) and 069r2 Round-3
+       (the η_0 = 0 / γ_ODE = 0 labeling violation for QD-5),
+       but was made explicit by EXCERPT 2's "off-generic-stratum"
+       language in 109-EXEC. Future M6.CC documentation may
+       benefit from anchoring V_quad's status as
+       "off-generic-stratum" as a primary structural property,
+       independent of which closure route is pursued.
+
+    2. Route F's HEDGE verdict is the right balance. Cascade
+       evidence is strong enough that GO_ROUTE_F would be tempting,
+       but pasted substrate is genuinely missing and surface-type
+       machinery is structurally different enough from generic-
+       Hamiltonian machinery that "extrapolating from elimination
+       pressure" would violate HALT-S4 (do not propose new
+       chart-map derivations without substrate). The §10 Route F
+       protocol's emphasis on items (i)+(ii)+(iv) is well-targeted:
+       (i) confirms Sakai surface-type applies to P_III(D_6); (ii)
+       gives the parameter-space action that would carry V_quad's
+       point; (iv) supplies the explicit constraint formulas for
+       evaluating −1/3 attribution.
+
+    3. The substrate paste request is operator-feasible.
+       Sakai 2001 ("Rational surfaces associated with affine
+       root systems and geometry of the Painlevé equations",
+       Comm. Math. Phys. 220) is widely available open-access.
+       KNY 2017 §8.5 surrounding sections beyond the §8.5.17
+       Hamiltonian display already pasted in 069r2 Round 2 are
+       in the same monograph the project has on disk. Estimated
+       30–90 min operator effort is realistic.
+
+    4. The GOVERNANCE_PARALLEL recommendation is judgment, not
+       analytic necessity. The case for it: project has been
+       gated on R1 closure across 097 → 069r1 → 069r2 → 069r3;
+       pre-staging an amendment costs little and provides a
+       deployable fallback. The case against: pre-staging
+       fallbacks during an active investigation can signal
+       lack of conviction in the primary path, and may be
+       premature given Route F has not yet been substrate-tested.
+       I lean toward Y based on cycle-count / project-blocked
+       considerations, but the operator's judgment may differ.
+
+    5. Round-3 of 069r2 (QD/113 absorption) included the finding
+       that mechanism (b) (symmetric −1/12 per coordinate) is
+       pre-rejected by V_quad image asymmetry. That finding
+       remains valid and reduces 105-EXEC's three-mechanism
+       deferral effectively to a two-mechanism deferral
+       ((a) vs (c)). Mechanism (a) is now closed via 109-EXEC
+       NO_GO. So §3.5.1's three-mechanism deferral has narrowed
+       to mechanism (c) as the unique surviving candidate, which
+       is exactly Route F. This narrowing is a cumulative cascade
+       finding and supports the PRIORITY_2 dispatch decision
+       contingent on substrate paste.
+
+    6. 069r1 Greek-letter labels remain reserved (HALT-S6 from
+       069r2, Latin Route A-F namespace for 069r3 sub-mechanisms).
+       §3.5.1 Remark [rem:alpha-beta-tuples] three-tuple
+       disambiguation (WKB exponents, classical-ODE coefficients,
+       Hamiltonian parameters) remains in force. Route F if
+       activated will introduce a fourth coordinate system
+       (affine Weyl / surface-type root variables); §3.5.1
+       Remark may need extension at next governance pass to
+       record this addition, regardless of Route F outcome.
+
+Rubber-duck QA acknowledged: Y (the 112 envelope itself received
+                             pre-fire QA per §8: 1 BLOCKING + 5
+                             HIGH + 6 MEDIUM + 2 NICE_TO_HAVE
+                             absorbed inline before bridge-deposit;
+                             triple-vindication threshold reached
+                             per memory `rubber-duck QA discipline`)
+====================================
+```
+
+---
+
+**Net recommendation to operator:**
+
+The cascade has converged. Routes A and B are closed under a unified off-generic-stratum diagnosis: V_quad's image (1/6, 0, 0, −1/2) sits on a degenerate locus of P_III(D_6) parameter space, where generic-stratum chart-map machinery (Hamiltonian coefficient-matching, FW Prop 4.1 pull-back) is structurally inapplicable. Route D-as-fired is demoted to zero probative weight per the 111 tautology audit. Mechanism (b) of 105-EXEC was pre-rejected by V_quad image asymmetry in 069r2 Round 3. Mechanism (a) is closed by 109-EXEC's Route B NO_GO. Mechanism (c) — Sakai D_6^(1) surface-type — is now the unique remaining candidate.
+
+**The forward path is Route F, gated on operator paste of Sakai 2001 / KNY 2017 §8.5 substrate** per §10 Route F protocol priority items (i) + (ii) + (iv). Cascade evidence is strong (elimination pressure + mechanism-compatibility hypothesis) but surface-type machinery is structurally different from generic-Hamiltonian machinery and substrate is genuinely missing — HEDGE is the right verdict, GO would be premature.
+
+Estimated next-step latencies: ~30–90 min operator-side substrate paste → re-fire Q4 (~15 min synth) → if GO_ROUTE_F, ~8–20 hr executor for 069r3-F dispatch. If Route F substrate paste reveals NO_GO, fallback path is Q5_GO_PATH_DELTA_C3 (JM 1981 Part II + Sakai 2001 + Okamoto 1987 hybrid lit acquisition, ~7–30 day latency). GOVERNANCE_PARALLEL (umbrella v2.x M9-V0-with-PARTIAL_NUMERICAL caveat amendment) recommended as safety valve to prevent a third UNDECIDABLE cycle if both Route F substrate paste and Path-delta resolve unfavorably.
+
+Refined acceptance criterion: any 069r3-* closure must (i) trace where −1/3 originates in its mechanism *and* (ii) characterize the off-generic-stratum context. The cascade's structural unification (V_quad's degenerate-locus position causing both the −1/3 offset and the failure of generic-stratum machinery) is the most informative finding to carry forward into Route F's executor scope and into any future M6.CC documentation.
+
+================================================================
+END OF VERDICT BODY
+================================================================
+
+# Operator-deposit metadata
+# Pasted to operator chat: 2026-05-08 ~19:35 JST
+# Bridge-deposit timestamp: 2026-05-08 ~19:40 JST (this absorption session 124)
+# Predecessor bridge HEAD: 45d7baf (T1-OPERATOR-069R3-FINAL-SYNTHESIS-PROMPT-DRAFTED-123, prompt 112 envelope landing)
+# Synth model: Claude Opus 4.7 via Claude.ai web (T1-Synth tier)
+# Total verdict body: 583 lines / 47.3 KB pasted
