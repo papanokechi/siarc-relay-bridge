@@ -1,0 +1,36 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-121-1",
+      "severity": "INFO",
+      "category": "rewrite_rationale",
+      "description": "v1 prompt 111 (SHA16 EB90AE764B3935A7, 32736 B / 537 lines, filename 111_t2_normalisation_reverse_engineer_tautology_disambiguation.txt) DELETED mid-session after rubber-duck pre-fire QA returned 11 findings (3 BLOCKING + 4 HIGH + 4 MEDIUM) and grep verification empirically falsified v1's premise. v2 (SHA16 A6BF56435CB02E21, 27086 B / 477 lines, filename 111_t2_extraction_tautology_static_audit_and_demotion.txt) replaces v1 with a fundamentally different architecture: static-audit + verdict-demotion via 5-row truth table, vs v1's reverse-engineering Dingle normalisation convention from jimbo_final.py.",
+      "blocking": false,
+      "resolution": "v1 fully superseded by v2; no v1 SHA-anchored citation appears in bridge from this point forward; rewrite documented in handoff Judgment Calls J1 + Anomalies S1+S5"
+    },
+    {
+      "id": "D-121-2",
+      "severity": "INFO",
+      "category": "qa_pattern_recurrence",
+      "description": "Rubber-duck pre-fire QA discipline triple-vindicated within ~7 days: (i) 068 Phase A.0 Q.SUP=YES gate vindication 2026-05-06 (memory rubber-duck QA discipline); (ii) 069r2 envelope namespace-collision catch 2026-05-08 (memory prompt drafting discipline); (iii) 111 v1 to v2 full rewrite this session 2026-05-08 ~22:30 JST. Pattern is operationally robust as a pre-fire gate for non-trivial T1/T2 dispatches and is candidate for amendment to standing relay-prompt-drafting SOP.",
+      "blocking": false,
+      "resolution": "Pattern established. Three vindication cases within 7 days satisfies threshold for storage as standing SOP amendment candidate per memory rubber-duck QA discipline."
+    },
+    {
+      "id": "D-121-3",
+      "severity": "INFO",
+      "category": "envelope_author_prior_anchoring",
+      "description": "Envelope author probability estimate ~85-90% prior on TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED outcome at 111 fire time. Estimate is empirically grounded in Claims 121-C3 + 121-C4 grep-verified static evidence, NOT speculative. However, the 6 verdict bins remain genuinely available at fire time and the agent is free to disagree with the prior based on its own reading of the source code.",
+      "blocking": false,
+      "resolution": "Prior anchoring documented in handoff Judgment Calls J3 + Anomalies S1; prompt body itself does not embed probability estimates per 069 v2 rubber-duck QA finding RECOMMENDED #5 (probability estimates removed)."
+    },
+    {
+      "id": "D-121-4",
+      "severity": "INFO",
+      "category": "cascade_implication_documented",
+      "description": "Cascade implication: if 111-EXEC returns TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED (dominant expected outcome), 110-EXEC GO_ROUTE_D_PARTIAL_VIA_FW at bridge d783c3e carries ZERO probative weight in any future 069r3 FINAL synthesis. Apparent NO_GO-vs-GO_PARTIAL tension between 109-EXEC (NO_GO_OFF_DEGENERATION) and 110-EXEC (GO_ROUTE_D_PARTIAL_VIA_FW) resolves cleanly via demotion. M6.CC R1 closure path then proceeds via Route F mechanism (c) Sakai D_6^(1) OR Path-delta JM 1981 Part II literature acquisition.",
+      "blocking": false,
+      "resolution": "Cascade documented in handoff Anomalies S2 + Recommended next step; SQL todo updates pending post-deposit per next_steps."
+    }
+  ]
+}
