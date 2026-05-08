@@ -1,0 +1,327 @@
+================================================================
+SIARC Relay Prompt 105 — Copilot Researcher
+Task ID: T1-OPERATOR-CT-V13-3.5.1-OKAMOTO-RENAME-DERIVATION-105
+Tier: T2 (executor + literature) authoring on operator behalf
+Triggered by: 069r2 verdict QB.3 = Y_RENAME_REQUIRED (decisive,
+              non-deferred); blocking precondition for ALL of
+              Routes A/B/C/D toward M6.CC R1 closure.
+Bridge HEAD at draft time: f840740 (108 LANDED)
+Estimated researcher effort: 2-3 hr
+Output: revised CT v1.3 §3.5 .tex insert (new sub-subsection
+        §3.5.1) + bridge deposit + handoff per SIARC template.
+================================================================
+
+# 1. Context
+
+The SIARC pipeline has reached a known blocker on M6.CC R1
+(channel-theoretic recovery of V_quad's P_III(D_6) reduction).
+Three months of work pinned the issue to a single missing
+substrate: an explicit RENAME DERIVATION mapping Okamoto's
+canonical Hamiltonian parameters (η_∞, η_0, θ_∞, θ_0) onto the
+project-internal 4-tuple (α_∞, α_0, β_∞, β_0) used at the
+V_quad parameter point.
+
+The 4-tuple (1/6, 0, 0, -1/2) is asserted in CT v1.3 lines 128
+and 353 as "the V_quad parameter point" with cites to Iwasaki-
+Kimura-Shimomura-Yoshida 1991 ("From Gauss to Painlevé") and
+Ohyama 2006 ("Studies on the Hamiltonians of Painlevé equations").
+
+Two facts surfaced through the 058R / 069r1 / 069r2 chain:
+
+(F1) The (α_∞, α_0, β_∞, β_0) symbol convention is NOT explicitly
+     introduced anywhere in CT v1.3 source. §3.5 of CT v1.3 is
+     "The locked WKB exponent identity" (different (A, α, β, γ)
+     symbols used for WKB exponents — a symbol-collision risk).
+     The Okamoto-rename is forward-pointed by 069r1 U1 but no
+     such derivation exists on disk.
+
+(F2) Under TRIVIAL relabel (α_∞ ≡ η_∞, α_0 ≡ η_0, β_∞ ≡ θ_∞,
+     β_0 ≡ θ_0), the V_quad image (1/6, 0, 0, -1/2) yields
+     null-sum 1/6 + 0 + 0 + (-1/2) = -1/3, violating Okamoto's
+     monodromy constraint α_∞ + α_0 + β_∞ + β_0 = 0 by exactly
+     -1/3. This is either:
+
+         (a) Hamiltonian expansion residual (KNY H_D6^KNY vs
+             Okamoto H_III differ by a t-linear correction that
+             pulls back to a -1/3 shift on V_quad's parameter
+             point);
+         (b) Additive-shift component of the rename (constants
+             c_1+c_2+c_3+c_4 = -1/3 in the four equations); or
+         (c) Sakai surface-type artefact (requires Route F /
+             surface-machinery analysis per 108 UF-108-2).
+
+# 2. Your task
+
+Produce a self-contained §3.5.1 sub-subsection of CT v1.3
+("Channel Theory v1.3"), titled approximately "Okamoto–rename
+of the V_quad parameter point (η, θ) → (α, β)", with the
+following deliverables:
+
+(D1) FOUR DISPLAYED EQUATIONS defining (α_∞, α_0, β_∞, β_0)
+     in terms of (η_∞, η_0, θ_∞, θ_0). State whether the rename
+     is TRIVIAL (pure relabel: α_∞ ≡ η_∞, etc.) or NONTRIVIAL
+     (additive-shift-included).
+
+(D2) JUSTIFICATION (1-2 paragraphs) tracing the rename's origin:
+     does Iwasaki 1991 ("From Gauss to Painlevé") or Ohyama 2006
+     ("Studies on the Hamiltonians of Painlevé equations") use
+     the (α, β) form directly, or only the (η, θ) form? If they
+     use a different convention again, document that.
+
+(D3) -1/3 NULL-SUM OFFSET ACCOUNTING — explicit attribution to
+     mechanism (a), (b), (c), or a fourth mechanism if you find
+     one. Cite primary literature where possible.
+
+(D4) SYMBOL-COLLISION DISAMBIGUATION FOOTNOTE — three (α, β)-
+     tuples coexist in CT v1.3:
+       • Existing §3.5 WKB exponents (A, α, β, γ) at line 853-854
+       • Classical P_III ODE coefficients (α, β, γ, δ) of
+         Okamoto 1987 eq. (0.1)
+       • Project-internal Okamoto-rename (α_∞, α_0, β_∞, β_0)
+         introduced by your derivation
+     The footnote must explicitly disambiguate all three.
+
+(D5) ARCHITECTURAL DECISION: insert as new sub-subsection §3.5.1
+     immediately AFTER existing §3.5 content (line ~891) and
+     BEFORE §3.6 / next subsection. Do NOT modify §3.5 main body
+     (WKB identity is independently valuable, has live cite
+     references, and downstream paragraphs depend on it).
+
+(D6) BRIDGE DEPOSIT per SIARC standing instructions (B1-B5):
+     deposit revised .tex insert + compiled PDF at
+       siarc-relay-bridge/sessions/{TODAY_DATE}/
+       T1-OPERATOR-CT-V13-3.5.1-OKAMOTO-RENAME-DERIVATION-NNN/
+     with handoff.md, claims.jsonl (≥4 entries), halt_log.json,
+     discrepancy_log.json, unexpected_finds.json.
+
+# 3. Substrate available on disk
+
+All literature is pre-acquired. Do NOT spend time on out-of-band
+acquisition. Cite paths exactly.
+
+(S1) Okamoto 1987, "Studies on the Painlevé equations IV: third
+     Painlevé equation P_III", Funkcialaj Ekvacioj 30, 305-332.
+     → tex/submitted/control center/literature/g3b_2026-05-03/
+       07_okamoto_1987_painleve_III_FE30.pdf (text-extract .txt
+       co-located).
+     → §1.1 H_III display at .txt line 190:
+       H_III = (1/t)[2 q² p² − {2 η_∞ t q² + (2 θ_0 + 1) q
+                                − 2 η_0 t} p
+                            + η_∞ (θ_0 + θ_∞) t q]
+     → eq. (0.1) at .txt lines 201-203:
+       α = -4 η_∞ θ_∞,  β = 4 η_0 (θ_0 + 1),
+       γ = 4 η_∞²,      δ = -4 η_0².
+     → WLOG η_∞ = η_0 = 1 fixing at .txt line 205.
+
+(S2) Kajiwara-Noumi-Yamada 2017, "Geometric aspects of Painlevé
+     equations", J. Phys. A: Math. Theor. 50 (2017) 073001.
+     → tex/submitted/control center/literature/g3b_2026-05-03/
+       14_kajiwara_noumi_yamada_2017_geometric_aspects.pdf
+     → §8.5.17 (.txt lines 7869-7922): d-P((2A_1)^(1)/D_6^(1))
+       continuous flow Hamiltonian (eq. 8.237):
+       H_D6^KNY = (1/t){p(p-1) q² + (a_1 + a_2) q p + t p − a_2 q}
+     → eq. (8.238) eight-points configuration (Sakai D_6 surface
+       base points)
+     → eq. (8.239) differential Lax pair components L_1, L_2, B
+     → Note: KNY uses (a_1, a_2) — only TWO root parameters
+       (with affine-root-sum constraint a_0 + a_1 + a_2 = 1 by
+       the (2A_1)^(1) chain's affinization).
+
+(S3) Forrester-Witte 2002, "Application of τ-function theory of
+     Painlevé equations to random matrices: PV, PIII, the LUE,
+     JUE, and CUE", Comm. Pure Appl. Math. 55(6), 679-727.
+     arXiv: math-ph/0201051 (PRE-VERIFIED 2026-05-08; resolves
+     correctly per repo memory `Bibliographic identifier
+     pre-verification`).
+     → URL: https://arxiv.org/abs/math-ph/0201051
+     → Operator must download PDF on dispatch and place at
+       tex/submitted/control center/literature/g3b_2026-05-03/
+       supplementary/forrester_witte_2002_math-ph-0201051.pdf
+       BEFORE researcher fire.
+     → Researcher: read abstract, TOC, §3 P_III parameter
+       definitions. Look for whether FW use (α, β) form
+       directly. If yes, cite as primary substrate for D2.
+
+(S4) Iwasaki-Kimura-Shimomura-Yoshida 1991, "From Gauss to
+     Painlevé" (Vieweg, Aspects of Mathematics E16). Cited in
+     CT v1.3 .tex lines 131 + 353 + 1250 — the canonical source
+     for the V_quad parameter point (1/6, 0, 0, -1/2).
+     → Operator must locate physical or PDF copy and confirm
+       which parameter convention is used at the (1/6, 0, 0, -1/2)
+       passage. If a copy is not on disk, researcher should flag
+       in unexpected_finds.json as UF-105-NEED-IWASAKI-1991 and
+       use FW + Okamoto + KNY substrate alone. Do not block.
+
+(S5) Ohyama 2006, "Studies on the Hamiltonians of Painlevé
+     equations" (likely Funkcialaj Ekvacioj or J. Math. Sci.
+     Univ. Tokyo). Cited in CT v1.3 .tex lines 353 + 1251.
+     → Operator must locate copy. Same fallback as (S4) if
+     unavailable.
+
+(S6) 058R phase_b_canonical_map.md (bridge SHA 2eb9b28).
+     siarc-relay-bridge/sessions/2026-05-06/
+     CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/
+     phase_b_canonical_map.md
+     → §B.1 Okamoto H_III canonical citation (lines 22-46)
+     → §B.3 Φ_symp construction; explicitly states the V_quad
+       4-tuple (1/6, 0, 0, -1/2) "does NOT satisfy Okamoto's
+       α_∞+α_0+β_∞+β_0=0 constraint (sums to -1/3)". This is
+       the ANCHOR CITE for the -1/3 anomaly.
+     → §B.5 Okamoto-Sakai convention cross-walk
+
+(S7) 069r1 unexpected_finds.json U1 (bridge SHA 601500b).
+     siarc-relay-bridge/sessions/2026-05-07/
+     M6-CC-R1-CLOSURE-PREFLIGHT-069R1/unexpected_finds.json
+     → U1: "(α_∞, α_0, β_∞, β_0) is a project-side rename
+       adopted in CT v1.3 §3.5 rewrite" — note: forward-pointed
+       (the rewrite has not happened; that's exactly THIS task).
+
+(S8) 075 chart_map_required_form.md (bridge SHA 5137155).
+     siarc-relay-bridge/sessions/2026-05-07/
+     T2-M6-CC-CHART-MAP-CANDIDATE-B1-CHECK-075/
+     chart_map_required_form.md
+     → The chart-map specification (a_0, a_1, a_2) ↔ (α, β)
+       direction; STRUCTURAL_MISMATCH 7/7 finding.
+
+(S9) Bibliography file: pcf-research/channel/cc_pipeline_v13
+     _2026-05-02/channel_theory_outline.tex (the file you will
+     edit). Bib refs are at:
+       siarc_pcf1_v13, siarc_pcf2_v13, siarc_umbrella_v2,
+       siarc_borel_kscan, siarc_cc_pipeline_f, siarc_cc_pipeline_g
+     and external:
+       iwasaki1991from, ohyama2006studies, slavyanov2000special,
+       mazzocco2001picard, mazzocco2002painleve,
+       guzzetticlass2012, lodayrichaud2016divergent,
+       boalch2001stokes
+     Do NOT introduce new bib keys without authority. If you
+     need a new key (e.g. okamoto1987painleveIII,
+     kajiwaranoumiyamada2017, forresterwitte2002), document the
+     full bib entry in unexpected_finds.json as
+     UF-105-NEW-BIBKEY and let the operator splice into the .bib
+     file at deposit time.
+
+# 4. Hard preflight gates (STOP if any fails)
+
+(G1) Ground-truth check: open
+     pcf-research/channel/cc_pipeline_v13_2026-05-02/
+     channel_theory_outline.tex
+     and confirm line 845 reads:
+        \subsection{The locked WKB exponent identity}
+     If not, the source has drifted; HALT and surface as
+     HALT_105_SOURCE_DRIFT.
+
+(G2) Bibliographic identifier pre-verification: confirm
+     https://arxiv.org/abs/math-ph/0201051 resolves to
+     "Application of τ-function theory of Painlevé equations
+     to random matrices: PV, PIII, the LUE, JUE and CUE" by
+     P. J. Forrester and N. S. Witte. If it resolves to a
+     different paper, HALT and surface as
+     HALT_105_FW_IDENTIFIER_HALLUCINATED. (Verified 2026-05-08
+     at draft time; re-verify at fire time per repo standing
+     rule.)
+
+(G3) Substrate completeness: confirm slots 07 and 14 .pdf and
+     .txt files are readable. If not, HALT.
+
+# 5. Forbidden-verb scan (Phase D AEAL hygiene)
+
+Apply the standard 16-verb forbidden-verb scan to your draft:
+    \b(shows|confirms|proves|demonstrates|establishes|verifies|
+       verified|validates|validated|corroborates|corroborated|
+       certifies|certified|settles|settled|discharges|ratifies)\b
+
+Exempt categories per 098-J3:
+    - Verb-list-as-data (backticked)
+    - Regex pattern declarations
+    - SHA / filesystem-inspection telemetry
+    - Template fields
+    - Finding-summary references
+
+If your draft trips a non-exempt hit, REWRITE before deposit.
+Use weakening alternatives:
+    "shows" → "documents" / "reports"
+    "establishes" → "states" / "presents"
+    "proves" → "derives" (only if you have actually derived;
+                          otherwise "asserts")
+
+# 6. Acceptance criteria (operator review checklist)
+
+The §3.5.1 deliverable is operator-acceptance-ready when:
+
+(A1) §3.5.1 inserts cleanly after line 891 of the .tex source
+     (verify: pdflatex compiles without error; no undefined
+     references; no symbol-collision compilation warnings).
+
+(A2) Four displayed equations defining (α_∞, α_0, β_∞, β_0) in
+     terms of (η_∞, η_0, θ_∞, θ_0) are present and TeX-renderable.
+
+(A3) -1/3 null-sum offset is explicitly attributed to one of
+     mechanisms (a) Hamiltonian expansion residual, (b) additive-
+     shift, (c) Sakai surface artefact — or a fourth documented
+     mechanism. Attribution must cite primary literature (S1-S5)
+     and / or 058R phase_b_canonical_map.md (S6).
+
+(A4) Symbol-collision footnote present and disambiguates all
+     three (α, β)-tuples per (D4).
+
+(A5) AEAL claims.jsonl has ≥4 entries:
+     - one per displayed equation (D1)
+     - one for -1/3 attribution (D3)
+     - one for symbol-collision footnote presence (D4)
+     - one for pdflatex clean compile (D5/G1)
+
+(A6) Forbidden-verb scan PASSES on §3.5.1 prose (zero non-exempt
+     hits).
+
+(A7) Bridge handoff.md filled per template (no placeholders);
+     anomalies section non-empty (this task is rich in possible
+     anomalies — symbol convention drifts between sources, V_quad
+     null-sum vs Okamoto's, possible Iwasaki/Ohyama unavailability).
+
+# 7. After completion
+
+(C1) Output BRIDGE / CLAUDE_FETCH URLs per standing instruction B5.
+
+(C2) Update SQL todo `069r2-route-e-governance-parallel-track`
+     → done.
+
+(C3) The §3.5.1 text becomes the fourth excerpt in the
+     consolidated 4-excerpt substrate-paste round 1 (TIER-B per
+     `siarc-relay-bridge/sessions/2026-05-08/
+     T1-SYNTH-069R2-VERDICT-ABSORPTION-108/cascade_plan.md`).
+     Operator will assemble that paste packet from the bridge
+     deposit.
+
+(C4) If your derivation reveals that the rename is fundamentally
+     non-trivial AND requires Sakai surface-type machinery (Route
+     F vocabulary watch-list per 108 UF-108-2: Sakai D_6 surface,
+     surface-type machinery, Mukai pair, rational surface, blow-up,
+     exceptional curve, W(D_6) extended affine Weyl), surface this
+     as HALT_105_ROUTE_F_PRECONDITION and stop. Do not proceed
+     into Sakai geometry without operator authorization.
+
+# 8. AEAL claim format reminder
+
+Each claim entry in claims.jsonl must follow the standing schema:
+{
+  "claim": "<concise statement>",
+  "evidence_type": "computation" | "literature" | "structural",
+  "dps": <int or null>,
+  "reproducible": true,
+  "script": "<filename or N/A>",
+  "output_hash": "<sha256 of evidence document or N/A>"
+}
+
+# 9. Standing final step (B1-B5 of operator instructions)
+
+Execute B1 (collect deliverables) → B2 (stage in bridge repo)
+→ B3 (write handoff.md AFTER all final outputs are done) → B4
+(commit and push) → B5 (output BRIDGE + CLAUDE_FETCH URLs).
+
+Commit message format:
+"T1-OPERATOR-CT-V13-3.5.1-OKAMOTO-RENAME-DERIVATION-NNN — author
+§3.5.1 Okamoto rename closing 069r2 QB.3 Y_RENAME_REQUIRED"
+
+================================================================
+END OF PROMPT 105
+================================================================

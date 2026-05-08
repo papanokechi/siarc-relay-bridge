@@ -1,0 +1,29 @@
+{
+  "UF-109-1": {
+    "id": "UF-109-1",
+    "category": "substrate-citation-imprecision",
+    "severity": "documentation",
+    "summary": "069r1 unexpected_finds.json U1 forward-points to 'CT v1.3 §3.5 rewrite' as the source of the (α_∞, α_0, β_∞, β_0) convention, but no such rewrite exists on disk.",
+    "details": "Investigation 2026-05-08 ~11:00 JST by agent: §3.5 of pcf-research/channel/cc_pipeline_v13_2026-05-02/channel_theory_outline.tex (line 845) is 'The locked WKB exponent identity' — a different content topic. The (α_∞, α_0, β_∞, β_0) convention is referenced ONLY in 058R phase_b_canonical_map.md (B.3) and 069r1 U1, both bridge-internal. Resolution: TIER-A authoring (this session's prompt 105) explicitly creates the missing substrate as new §3.5.1 sub-subsection. The U1 'forward-pointed' citation transforms into a real artifact post-105-fire.",
+    "blocking": false,
+    "ledger_action": "documented in prompt 105 §1 Context (F1) and §3 Substrate (S7) so researcher does not waste cycles searching for the rewrite that does not exist."
+  },
+  "UF-109-2": {
+    "id": "UF-109-2",
+    "category": "convention-source-uncertainty",
+    "severity": "research-question",
+    "summary": "Whether the project's (α_∞, α_0, β_∞, β_0) is from Iwasaki 1991 / Ohyama 2006 / Forrester-Witte 2002 / project-internal is genuinely unresolved.",
+    "details": "CT v1.3 .tex line 128 + 353 cite iwasaki1991from and ohyama2006studies as primary refs for the (1/6, 0, 0, -1/2) parameter point — these are likely the convention source, but neither volume is on disk in current literature/g3b_2026-05-03/ at the time of 105 draft. Researcher must locate physical or PDF copies and verify. If unavailable, researcher should fall back to FW math-ph/0201051 + Okamoto 1987 + KNY 2017 substrate alone and document Iwasaki/Ohyama gap as UF-105-NEED-IWASAKI-1991 / UF-105-NEED-OHYAMA-2006 in the eventual 105-fire deposit.",
+    "blocking": false,
+    "ledger_action": "documented in prompt 105 §3 Substrate (S4) and (S5) with explicit fallback path; prompt instructs researcher to NOT block on Iwasaki/Ohyama unavailability."
+  },
+  "UF-109-3": {
+    "id": "UF-109-3",
+    "category": "constraint-provenance-uncertainty",
+    "severity": "research-question",
+    "summary": "The Okamoto null-sum constraint α_∞ + α_0 + β_∞ + β_0 = 0 is asserted in 058R §B.3 but not given a primary-literature citation there.",
+    "details": "058R phase_b_canonical_map.md §B.3 anomaly D2 states the V_quad image (1/6, 0, 0, -1/2) 'does NOT satisfy Okamoto's α_∞+α_0+β_∞+β_0=0 constraint (sums to -1/3)'. The constraint itself is bridge-internal — Okamoto 1987 §1 does NOT contain such a constraint in the (η_∞, η_0, θ_∞, θ_0) parametrization, and the relation between (α, β) and (η, θ) has not been derived. The constraint may be:  (i) from the four-points sum on the Sakai D_6 surface (W(D_6) affine root sum); (ii) from a τ-function regularity condition (FW substrate); (iii) a project assumption that needs verification. Researcher must source-cite or weaken to 'project assumption pending verification' in the §3.5.1 draft.",
+    "blocking": false,
+    "ledger_action": "documented in skeletal §3.5.1 .tex draft via [TBD] marker on the null-sum constraint sentence with instruction to verify or weaken."
+  }
+}
