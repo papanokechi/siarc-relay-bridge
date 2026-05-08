@@ -1,0 +1,17 @@
+{
+  "session_id": "T1-SYNTH-069R2-QD-ROUND3-VERDICT-ABSORPTION-113",
+  "discrepancies": [
+    {
+      "id": "D-113-1",
+      "title": "STRUCTURAL OBSTRUCTION: BOTH labelings of (1/6, 0, 0, -1/2) violate Okamoto P_III(D_6) standing assumptions",
+      "severity": "BLOCKING for 069r3-B + 069r3-D dispatch",
+      "summary": "Round-3 QD-5 surfaces that vquad_p3d6_recovery.py LIT dict labels the V_quad image tuple (1/6, 0, 0, -1/2) as classical-ODE coefficients (alpha, beta, gamma, delta) of Okamoto eq. (0.1), which forces gamma_ODE = 0 violating Okamoto Section 1 standing assumption gamma*delta != 0 for P_III(D_6); concurrently, CT v1.3 Section 3.5.1 (105 deposit at SHA 0427c0a) labels the SAME tuple as Hamiltonian-parameter rename (alpha_inf, alpha_0, beta_inf, beta_0) = (eta_inf, eta_0, theta_inf, theta_0), which forces eta_0 = 0 violating Okamoto eta_Delta != 0 standing assumption (which follows from gamma*delta != 0). Both labelings face structural obstruction.",
+      "two_reconciliations": [
+        {"id": "R1", "description": "Section 3.5.1 trivial relabel (3.5.1a)-(3.5.1d) authored without checking V_quad numerical values; specific symbol assignment structurally inadmissible at V_quad point.", "resolution": "Amend Section 3.5.1 with corrected symbol assignment; small operator-side patch.", "QE_impact": "QE remains ROUTE_E_TRIVIAL after amendment."},
+        {"id": "R2", "description": "058R reduction map (Section B.3) produces projected / transformed quantities (e.g., ratios after de-normalization, projections to surface-type root system) NOT raw (eta_inf, eta_0, theta_inf, theta_0) Hamiltonian parameters; Section 3.5.1 'trivial relabel' is relabel-after-projection i.e. NON-TRIVIAL in Hamiltonian sense.", "resolution": "Upgrade QE from ROUTE_E_TRIVIAL to ROUTE_E_NONTRIVIAL_REQUIRED + amend Section 3.5.1 to record projection.", "QE_impact": "QE upgrades; larger amendment scope."}
+      ],
+      "resolution_path": "Operator-side audit reading (a) 058R Section B.3 (phase_b_canonical_map.md) reduction map output convention + (b) p12_journal_main.tex sec:vquad subsec Stokes data convention. Estimated 30-60 min. Genuine sequential gate before 069r3-B + 069r3-D dispatch.",
+      "downstream_blocking": "Both 069r3-B (FW Prop 4.1 pull-back) AND 069r3-D (V_quad numerical extraction) require labeling-convention resolution before envelope can be drafted; both routes' meaning depends on which (eta, theta) corresponds to which (alpha_inf, alpha_0, beta_inf, beta_0)."
+    }
+  ]
+}

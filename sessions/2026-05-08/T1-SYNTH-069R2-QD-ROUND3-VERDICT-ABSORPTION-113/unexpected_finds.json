@@ -1,0 +1,47 @@
+{
+  "session_id": "T1-SYNTH-069R2-QD-ROUND3-VERDICT-ABSORPTION-113",
+  "unexpected_finds": [
+    {
+      "id": "UF-113-1",
+      "title": "QD-5 STRUCTURAL OBSTRUCTION (HEADLINE) — vquad_p3d6_recovery.py LIT dict CLASSICAL_ODE label is incompatible with Okamoto P_III(D_6) gamma*delta != 0 standing assumption",
+      "severity": "HIGH",
+      "discovered_in": "Round-3 QD-5 reasoning (verdict_round3_qd_full.txt L17-L62)",
+      "details": "Synth performed the elementary algebraic check that round-1 and round-2 substrate-pastes did not surface (because round-1 + round-2 EXCERPTS did not include V_quad image's actual numerical values at per-coordinate level): under Okamoto eq. (0.1), gamma_ODE = 4 eta_inf^2; setting gamma_ODE = 0 (third entry of LIT dict tuple) forces eta_inf = 0 which violates Okamoto Section 1 gamma*delta != 0. Escape via degenerate P_III(D_7)/(D_8) is closed because round-1 Excerpt 4 anchors V_quad to P_III(D_6) explicitly. CLASSICAL_ODE labeling is structurally inadmissible.",
+      "operator_action": "Audit p12_journal_main.tex sec:vquad subsec Stokes data convention + audit 058R Section B.3 phase_b_canonical_map.md output convention to determine which of two reconciliations holds (R1 = Section 3.5.1 amendment; R2 = QE upgrade to ROUTE_E_NONTRIVIAL_REQUIRED).",
+      "blocks": ["069r3-B-route-b-executor-envelope-draft", "069r3-d-route-d-executor-envelope-draft"]
+    },
+    {
+      "id": "UF-113-2",
+      "title": "MECHANISM (b) PRE-REJECTION free finding — symmetric -1/12-per-coordinate inconsistent with V_quad image asymmetry",
+      "severity": "MEDIUM (governance-side)",
+      "discovered_in": "Round-3 QD-2 caveat 3",
+      "details": "V_quad image (1/6, 0, 0, -1/2) is structurally asymmetric (entries 1/6, 0, 0, -1/2 are not equal). Mechanism (b) of CT v1.3 Section 3.5.1 (additive-shift fall-back c = -1/12 per coordinate) predicts symmetric distribution (-1/12, -1/12, -1/12, -1/12). These are not equal at any coordinate; therefore mechanism (b) is inconsistent with V_quad data WITHOUT requiring 069r3-B or 069r3-D execution. The Section 3.5.1 three-mechanism deferral effectively collapses to two-mechanism deferral ((a) FW pull-back vs (c) Sakai D_6^(1) artefact).",
+      "operator_action": "OPTIONAL Section 3.5.1 footnote update at next governance pass to record mechanism (b) pre-rejection by V_quad image asymmetry. NON-BLOCKING for 069r3 dispatch.",
+      "free_finding": true
+    },
+    {
+      "id": "UF-113-3",
+      "title": "CROSS-VALIDATION CRITERION SHARPENING — replace partial-sum-on-(-1/3) with per-coordinate-on-(1/6, 0, 0, -1/2)",
+      "severity": "MEDIUM",
+      "discovered_in": "Round-3 QD-3 cross-validation logic refinement",
+      "details": "Operator prompt 106 Section 8 cascade dependency table specified '>= 3-digit agreement on -1/3' as Route D mechanism-(a) confirmation criterion. Round-3 finding: this is TRIVIAL because mechanisms (a)/(b)/(c) can ALL be tuned to produce -1/3 as partial sum. Genuine discriminator is per-coordinate distribution: '>= 3-digit agreement at each of four entries (1/6, 0, 0, -1/2)'. Mechanism (a) confirmed iff 069r3-B's FW pull-back analytic per-coordinate offset distribution matches 069r3-D's V_quad numerical extraction at each entry.",
+      "operator_action": "Bake refined cross-validation criterion into 069r3-B + 069r3-D executor envelope drafts when those envelopes are authored. Pre-existing SQL todo `069r3-acceptance-criterion-minus-third-offset` should be re-scoped to per-coordinate criterion."
+    },
+    {
+      "id": "UF-113-4",
+      "title": "QD-5 reconciliation R2 may CASCADE-UPGRADE QE from ROUTE_E_TRIVIAL to ROUTE_E_NONTRIVIAL_REQUIRED",
+      "severity": "MEDIUM",
+      "discovered_in": "Round-3 QD-5 note on QE impact",
+      "details": "Round-2 QE = ROUTE_E_TRIVIAL was conditional on Section 3.5.1 (105 deposit) trivial relabel being a faithful symbol substitution (alpha_X := eta_X / theta_X). Round-3 QD-5 reconciliation R2 hypothesizes the 058R reduction map produces projected/transformed quantities, in which case the Section 3.5.1 'trivial relabel' is actually a relabel-after-projection (NON-TRIVIAL in Hamiltonian (q,p,t) sense). If operator audit returns R2, QE upgrades to ROUTE_E_NONTRIVIAL_REQUIRED + Section 3.5.1 needs amendment to record the projection.",
+      "operator_action": "Resolve QD-5 audit first; if R2 holds, dispatch a CT v1.3 Section 3.5.1 amendment task BEFORE 069r3-B and 069r3-D envelope drafting; if R1 holds, dispatch a smaller Section 3.5.1 corrected-symbol-assignment patch."
+    },
+    {
+      "id": "UF-113-5",
+      "title": "Potential Route C supplement requirement: JM 1981 Part II Stokes-data inversion formulas (subordinate finding from QD-1)",
+      "severity": "LOW (forward-pointer)",
+      "discovered_in": "Round-3 QD-1 verdict + QD-6 task scope sub-task 3",
+      "details": "069r3-D executor's task to BUILD the (alpha, beta) extraction operation from V_quad numerical data may require Stokes-data inversion formulas from JM 1981 Part II (the canonical source for monodromy-data -> Hamiltonian-parameters map). If 069r3-D execution surfaces NEEDS_LIT for JM 1981 Part II, this becomes a Route C SUPPLEMENT requirement (narrower than full Route C JM 1981 Parts I/II/III + CM 2008 acquisition). Round-2 QC was N/A (premature); a JM 1981 Part II - only acquisition is structurally less expensive.",
+      "operator_action": "Watch 069r3-D output for NEEDS_LIT subordinate finding. If triggered, dispatch a narrower Route C-supplement literature-acquisition task (JM 1981 Part II only)."
+    }
+  ]
+}
