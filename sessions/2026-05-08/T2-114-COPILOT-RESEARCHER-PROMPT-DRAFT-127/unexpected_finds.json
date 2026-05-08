@@ -1,0 +1,27 @@
+{
+  "UF-127-1": {
+    "type": "scope-discipline-watch",
+    "severity": "INFO",
+    "description": "Prompt 114 §7 C5 explicitly forbids editing CT v1.3 §3.5/§3.5.1, 058R B.3, or phase_b_canonical_map.md (those already use Hamiltonian labeling correctly). Watch-list: scan post-edit diff at Phase F for unintended CT v1.3 / 058R modifications; halt HALT_114_SCOPE_CREEP_CT_V13_EDIT if detected."
+  },
+  "UF-127-2": {
+    "type": "edit-strategy-default-justification",
+    "severity": "INFO",
+    "description": "Prompt 114 sets D1+D2 default to strategy (b) bracketed expansion (NOT (a) full relabel). Rationale: p12 is a peer-reviewed journal submission; full notation rewrite is more invasive than a single bracketed annotation + cross-walk footnote. The (b) default preserves the existing classical-ODE symbol use while disambiguating via footnote. Operator can override at fire-time review."
+  },
+  "UF-127-3": {
+    "type": "edit-strategy-default-divergence",
+    "severity": "INFO",
+    "description": "Prompt 114 sets D4 default to strategy (a) full Hamiltonian relabel (NOT (b) annotated classical-ODE), diverging from D1+D2 default. Rationale: LIT dict is machine-readable lookup; explicit subscripted names eliminate downstream parser ambiguity. Operator can override at fire-time review."
+  },
+  "UF-127-4": {
+    "type": "subsec-name-uncertainty",
+    "severity": "INFO",
+    "description": "Prompt 114 D5 default falls through to strategy (b) 'top-level prose' rather than (a) 'subsec Painlevé III(D_6) parameters' because the subsection name is not verified at draft time. Researcher should grep p12 sec:vquad for subsection titles at fire time and switch to (a) if a matching subsection exists."
+  },
+  "UF-127-5": {
+    "type": "uf-115-3-deferred-out-of-scope",
+    "severity": "INFO",
+    "description": "Prompt 114 explicitly defers UF-115-3 (V_quad as P_III(D_6) -> P_III(D_7) degeneration limit) to a future structural prompt. UF-115-3 is a STRUCTURAL question (Sakai-classification refinement); A-115-1+2 are DOCUMENTATION questions (notation harmonization). Conflating them in a single prompt would mix scope discipline. UF-115-3 will be addressed post-Q4 verdict (since Q4 outcome on Route F machinery may inform the Sakai-classification scope)."
+  }
+}
