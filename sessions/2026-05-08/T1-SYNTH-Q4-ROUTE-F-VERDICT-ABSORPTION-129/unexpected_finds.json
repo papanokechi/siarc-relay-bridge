@@ -1,0 +1,49 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-129-1",
+      "severity": "INFO_STRUCTURAL",
+      "title": "Sakai EOM constraint a_0+a_1=b_0+b_1=1 surfaced by synth as hard prerequisite (not just normalisation)",
+      "description": "Synth reasoning chain item 8 surfaced concern beyond UF-126 watch-list: section D3.1 of session 126 packet states ds/dt = 4(a_1+a_0) = 4(b_1+b_0), implying the Sakai EOM as written REQUIRES a_0+a_1=b_0+b_1=1; under additive-form decomposition with non-trivial split (e.g. a_0+a_1=1+epsilon, b_0+b_1=1+epsilon-prime with epsilon+epsilon-prime=-1/3), the Sakai EOM coefficient (a_1+b_1) in df/dt shifts off canonical value. Implication: V_quad's image may not even live on the canonical Sakai chart without prior rescaling. Reinforces UF-126-DELTA-DECOMP-FORM as decisive.",
+      "status": "CARRY_FORWARD_TO_115R",
+      "blocking": false,
+      "discovered_at": "session 129"
+    },
+    {
+      "id": "UF-129-2",
+      "severity": "INFO_LITERATURE",
+      "title": "Ohyama-Kawamuko-Sakai-Okamoto 2006 named by synth as secondary acquisition target; not on existing literature_dossier",
+      "description": "Synth named 'Ohyama-Kawamuko-Sakai-Okamoto 2006: Studies on the Painleve equations V; third Painleve equations of types D_7^(1) and D_8^(1)' as containing the explicit Okamoto-Sakai cross-walk for D_6^(1) baseline. Per session 126 D6 references and existing literature_dossier (g3b_2026-05-03), this paper is NOT on disk. Acquisition prompt 115R should add to dossier. Pre-fire bib pre-verification per Bibliographic identifier pre-verification rule (custom_instruction): resolve canonical DOI for this paper before 115R fires; candidate journal is Funkcial. Ekvac. or Hokkaido Math. J. (operator/researcher to determine).",
+      "status": "OPEN_PENDING_115R",
+      "blocking": false,
+      "discovered_at": "session 129"
+    },
+    {
+      "id": "UF-129-3",
+      "severity": "INFO_INTERNAL_CROSS_CHECK",
+      "title": "CT v1.3 section 3.5 explicit (alpha, beta) definition status uncertain per synth; in-house lookup can resolve",
+      "description": "Synth secondary need item 2: 'whether CT v1.3 section 3.5 4-tuple (alpha_inf, alpha_0, beta_inf, beta_0) is defined directly against Okamoto (eta_inf, eta_0, theta_inf, theta_0) (in which case Delta=-1/3 violation is on Okamoto side and UF-126-DELTA-DECOMP-FORM resolves additively) or against Sakai-side parametrisation (in which case violation is two-component and decomposition form is genuinely free). The 058R section B.3 quote at packet section D5.2 implies the former but does not nail it down.' Resolution: in-house grep of CT_v1.3.pdf source / ct_v1.3.tex section 3.5 for explicit definitional formula. No external acquisition required for this leg of the prerequisite.",
+      "status": "OPEN_PENDING_IN_HOUSE_LOOKUP",
+      "blocking": false,
+      "discovered_at": "session 129"
+    },
+    {
+      "id": "UF-129-4",
+      "severity": "INFO_STATUS_UPGRADE",
+      "title": "UF-126-PARAM-COUNT and UF-126-DELTA-DECOMP-FORM upgraded by synth from LOW_INFO_WATCH_LIST to BLOCKING_PREREQUISITE",
+      "description": "Per synth reasoning chain items 5 and 6, both UF-126-PARAM-COUNT (controls which reflections touch which CT-coordinate) and UF-126-DELTA-DECOMP-FORM (controls which point of parameter space V_quad maps to) are decisive for the fixed-point classification. Status upgrade applies retroactively to session 126 unexpected_finds.json entries; carry-forward into 115R prompt scope as named blocking-prerequisites that the acquisition prompt must specifically resolve.",
+      "status": "STATUS_UPGRADE_RETROACTIVE",
+      "blocking": false,
+      "discovered_at": "session 129"
+    },
+    {
+      "id": "UF-129-5",
+      "severity": "INFO_PROCESS",
+      "title": "Q4 dispatch loop closed cleanly in approximately 4 min round-trip via clipboard-load workflow",
+      "description": "Operator-CLI clipboard-load workflow (powershell Invoke-WebRequest -> Set-Clipboard with synth-context wrapper + verbatim packet) reduced Q4 dispatch friction from ~10-15 min manual paste to approximately 4 min total round-trip. Pattern reusable for future Round 2 substrate dispatches and any fresh-thread synth dispatches where packet substrate is already deposited at bridge. Architecturally analogous to session 126 PACKET_FETCH dispatch pattern but with auto-loaded clipboard instead of operator-side curl.",
+      "status": "PROCESS_PATTERN_TO_RETAIN",
+      "blocking": false,
+      "discovered_at": "session 129"
+    }
+  ]
+}
