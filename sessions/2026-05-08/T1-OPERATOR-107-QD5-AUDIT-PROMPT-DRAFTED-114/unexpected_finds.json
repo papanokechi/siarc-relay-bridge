@@ -1,0 +1,29 @@
+{
+  "session_id": "T1-OPERATOR-107-QD5-AUDIT-PROMPT-DRAFTED-114",
+  "unexpected_finds": [
+    {
+      "id": "UF-114-1",
+      "title": "Path-name divergence between round-3 verdict abbreviation and on-disk reality",
+      "severity": "LOW (pre-flight correction applied)",
+      "discovered_in": "Prompt 107 drafting Section 1 P1.2 verification step",
+      "details": "Round-3 synth (Claude Opus 4.7 / 069r2 thread) referenced the audit substrate as 'p12_journal_main.tex sec:vquad subsec Stokes data' without absolute path. Filesystem glob search 2026-05-08 ~13:18 JST located p12_journal_main.tex at tex/submitted/ (live working copy, 1518 lines) and at siarc-relay-bridge/sessions/2026-05-01/P12-JOURNAL-DRAFT/ (older deposited version, smaller). The location pcf-research/p12_journal does not exist on disk. Round-3 synth had no direct file-system access ('Synth independently verified bridge content: N -- no direct bridge access' per round-3 verdict packet); the abbreviated path-reference reflected synth's reasonable approximation rather than ground truth.",
+      "operator_action": "Future synth-prompt drafting should include explicit on-disk paths in substrate citations to avoid executor-side HALT-S1 substrate-absent halts. Captured in prompt 107 Section 1 P1.2 with explicit absolute path and pre-check timestamp."
+    },
+    {
+      "id": "UF-114-2",
+      "title": "Q-B5 INTERNAL_DOCUMENT_INCONSISTENCY pre-emptive coverage in prompt 107",
+      "severity": "LOW (forward-coverage)",
+      "discovered_in": "Prompt 107 drafting Section 3 Phase B + Section 6 HALT-107-5 + Section 9 cascade table",
+      "details": "Round-3 verdict named two reconciliations R1 (Section 3.5.1 small amendment) and R2 (large amendment + QE re-bin) but did not enumerate a third anomaly category: vquad_p3d6_recovery.py LIT dict labels (1/6, 0, 0, -1/2) as classical-ODE coefficients (alpha, beta, gamma, delta), but if p12_journal_main.tex sec:vquad subsec Stokes data labels the SAME tuple as Hamiltonian parameters, the LIT dict source-string would be misattributing the labeling. Pre-emptive coverage added to prompt 107 as Q-B5 question + HALT-107-5 soft-halt + Section 9 cascade-table 5th branch (parallel reconciliation prompt independent of R1/R2 audit verdict). This avoids audit re-fire if Q-B5 lights up.",
+      "operator_action": "If executor returns Q-B5 = INTERNAL_DOCUMENT_INCONSISTENCY, dispatch a parallel reconciliation prompt (operator update vquad_p3d6_recovery.py LIT dict source-string to match sec:vquad reality) in addition to whichever 108x amendment the R1/R2/blend bin selects."
+    },
+    {
+      "id": "UF-114-3",
+      "title": "Open question for cascade design: 108 amendment patch drafted ADVANCE vs AFTER 107 verdict landing",
+      "severity": "LOW (drafting-strategy)",
+      "discovered_in": "Prompt 107 drafting open-questions analysis",
+      "details": "Two candidate cascade designs: (i) draft prompt 108a (R1) + 108b (R2) + 108c (BLEND) IN ADVANCE so operator picks whichever applies post-107 verdict landing (no waiting); (ii) draft prompt 108x AFTER 107 lands so the patch can leverage 107's specific cited line numbers and amendment-scope recommendations (precise, no waste). Recommendation: AFTER, because (a) precise amendment scope depends on 107's specific findings; (b) drafting all three 108 variants is wasteful when only one will fire; (c) 107's estimated 1-2 hr executor time is short relative to the 108 draft-then-fire cycle.",
+      "operator_action": "Schedule prompt 108 drafting AFTER 107 verdict lands. SQL todo `qd5-section-3-5-1-amendment-patch` should be inserted post-107-landing rather than pre-emptively."
+    }
+  ]
+}
