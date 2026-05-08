@@ -1,0 +1,44 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-117-1",
+      "severity": "INFO",
+      "category": "spec_arithmetic_drift",
+      "summary": "Prompt's 'DRAFT-TIME VERIFY: NEW_STR adds 17 lines net' undercounted; actual NEW_STR is 26 logical lines and OLD_STR is 3 logical lines, so the actual net delta is +23 lines (1789 -> 1812 logical lines on the live working file). The substantive amendment text matches the prompt's NEW_STR specification verbatim apart from the J1 in-session \\verb fix.",
+      "blocking": false,
+      "action": "logged_only_no_substrate_edit"
+    },
+    {
+      "id": "D-117-2",
+      "severity": "INFO",
+      "category": "spec_line_count_drift",
+      "summary": "Prompt's stated G1 pre-edit logical line count of 1646 does not match the actual pre-edit logical line count of 1789 (CRLF-split). VS Code's grep_search anchors '$\\Vquad$ point.' at line 984 in both readings. The SHA-256 anchor 64FA0577... matches exactly, so the file is bit-identical to draft time; the line count anchor in the prompt body was off by 143 lines (likely a draft-time tool artefact in the prompt-drafting agent's count, not a substrate edit).",
+      "blocking": false,
+      "action": "logged_only"
+    },
+    {
+      "id": "D-117-3",
+      "severity": "INFO",
+      "category": "spec_grep_count_drift",
+      "summary": "Phase A.4 sanity grep produced (3.5.1a) count = 6 (post-edit) where prompt expected 7, and T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD-115 count = 1 where prompt expected 2. Both off-by-one undercounts in the prompt: (i) the prompt's 'pre-edit count = 6' assumed 5 line-numbers carrying 6 references but actual pre-edit had 5 references (+1 from new footnote = 6 post-edit, the +1 delta IS as spec'd); (ii) the prompt's 'count = 2' for T2-OPERATOR-... claimed two occurrences (subhead-adjacent prose + footnote text) but the prompt's own NEW_STR contains only ONE such occurrence (in the footnote text), so count of 1 matches the literal NEW_STR.",
+      "blocking": false,
+      "action": "logged_only"
+    },
+    {
+      "id": "D-117-4",
+      "severity": "INFO",
+      "category": "session_id_collision",
+      "summary": "Prompt's recommended AEAL claim IDs (116-C1 through 116-C5) assumed this execution session would land at bridge ID 116. Bridge ID 116 is already taken by the prompt-drafting artefact session T1-OPERATOR-108A-V131-R1A-AMENDMENT-PROMPT-DRAFTED-116 (the prompt-drafter occupied 116 for its own deposit). Next sequential ID at fire time is 117. AEAL claim IDs renumbered to 117-C1..117-C7 accordingly.",
+      "blocking": false,
+      "action": "renumbered_to_117"
+    },
+    {
+      "id": "D-117-5",
+      "severity": "INFO",
+      "category": "verb_macro_fragility",
+      "summary": "Spec's NEW_STR placed \\verb|audit_verdict.md| inside a \\footnote{...} argument. \\verb is fragile and triggers a Missing-$ error inside footnote arguments because the footnote argument is being expanded (LaTeX behavior; not a TeX bug). pdflatex pass 1 first-attempt exited 1 with 'Missing $ inserted' at L1007 (closing brace of the footnote). In-session judgment call J1 replaced the footnote's \\verb|audit_verdict.md| with \\texttt{audit\\_verdict.md} (one underscore escaped). The first \\verb|phase_b_canonical_map.md| in regular paragraph mode at L996 is preserved unchanged (it is not in a fragile argument). 4-pass compile then passed cleanly.",
+      "blocking": false,
+      "action": "in_session_J1_fix_applied"
+    }
+  ]
+}

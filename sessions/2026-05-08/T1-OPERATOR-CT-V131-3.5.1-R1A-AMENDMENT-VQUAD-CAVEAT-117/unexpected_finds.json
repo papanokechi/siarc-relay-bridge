@@ -1,0 +1,24 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-117-1",
+      "category": "process",
+      "summary": "Per the prompt's section 7 acceptance criterion A5, this session addresses ONLY the 069r2 QD-5 audit verdict R1a small-amendment item. The follow-on items A-115-1 (labeling-convention divergence reconciliation between p12 sec:vquad classical-ODE and 058R / CT v1.3 Hamiltonian conventions), A-115-2, and UF-115-3 remain queued for separate prompts and are NOT touched by this fire. The handoff records this scope boundary."
+    },
+    {
+      "id": "UF-117-2",
+      "category": "tex_fragility",
+      "summary": "\\verb fragility inside \\footnote{...} arguments was not anticipated by the prompt's NEW_STR specification. Future spec-drafting for caveat-block prose containing path-or-filename literals inside footnotes should default to \\texttt{...} with backslash-underscore escaping, OR explicitly note the need for \\protect\\verb / cprotect package. This is a small-but-recurring class of T1-OPERATOR LaTeX-edit prompts (105 deposit also used \\verb|...|.md but in main-prose, not footnote-mode contexts)."
+    },
+    {
+      "id": "UF-117-3",
+      "category": "prompt_arithmetic_pattern",
+      "summary": "Three independent off-by-one or off-by-N undercounts in the prompt's draft-time arithmetic (D-117-1 +17 vs +23 line delta; D-117-2 1646 vs 1789 line count; D-117-3 sanity grep counts 7/2 vs actual 6/1). All non-blocking; the substrate SHA + OLD_STR uniqueness anchor saved the edit. Pattern noted for future prompt-drafting hygiene: the SHA + grep-uniqueness anchor is more reliable than line-count or occurrence-count anchors."
+    },
+    {
+      "id": "UF-117-4",
+      "category": "cascade_unblocking",
+      "summary": "With R1a small-amendment landed, prompt 109 (069r3-B Route B Hamiltonian-expansion FW pull-back analytic executor) and prompt 110 (069r3-D Route D V_quad numerical-trajectory extraction) are unblocked per prompt section 10. Both use the (eta_inf, eta_0, theta_inf, theta_0) Hamiltonian entry format consistent with this caveat block's footnote text. The standing-assumption boundary (eta_0 = 0) caveat now provides the textual hook that 109 + 110 mechanism-(a) / mechanism-(b) / mechanism-(c) discussions can reference back to."
+    }
+  ]
+}
