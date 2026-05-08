@@ -1,0 +1,19 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-117-1",
+      "tag": "PV-VS-PIII-PARAMETER-COUNT-MISMATCH-DRIVES-PHASE-B-DESIGN",
+      "summary": "FW eq (2.2) null-sum v_1+v_2+v_3+v_4=0 applies to §2.1 PV (4 parameters); FW §4.1 PIII is the degeneration of PV with only 2 surviving parameters (v_1, v_2). The project tuple (alpha_inf, alpha_0, beta_inf, beta_0) = (1/6, 0, 0, -1/2) is a 4-parameter object, so it maps to the PV side of FW. Mechanism (a) test (109 Phase C) requires first determining the PV->PIII degeneration submanifold (Phase B) and testing whether V_quad image sits on it. Phase B is the analytically-substantive part of 109; without it, the symbolic pull-back of FW eq (4.3) cannot be performed at the correct parameter point. This anomaly was first surfaced by 110 prestage handoff §Anomalies (A2) and absorbed into 109's structural design at draft time."
+    },
+    {
+      "id": "UF-117-2",
+      "tag": "FW-OKAMOTO-ORDERING-CITATION-AMBIGUITY-GRACEFUL-FALLBACK",
+      "summary": "The mapping (alpha_inf, alpha_0, beta_inf, beta_0) <-> FW (v_1, v_2, v_3, v_4) is convention-dependent; no clean source-citation in CT v1.3 §3.5.1 cited literature (KNY 2017 / Okamoto 1987 / Iwasaki 1991 / Ohyama 2006) pins one specific ordering. Prompt 109 Phase A.3 instructs the executor to source-cite if possible; if not, BOTH candidate orderings are computed in Phase B/C/D and both per-coordinate predictions are emitted. This is a graceful-degradation pattern matching 105 J2 (inline-prose attribution for missing bib keys). The dual-ordering output is surfaced as discrepancy_log.json INFO entry; 069r3 FINAL synthesis (session ~122) judges between orderings via 110's numerical Route D output."
+    },
+    {
+      "id": "UF-117-3",
+      "tag": "MECHANISM-A-VERDICT-BINS-INCLUDE-RULED-OUT-OUTCOME",
+      "summary": "Prompt 109 has 4 verdict bins: GO_ROUTE_B_CONFIRMED (mechanism (a) anchored; symbolic pull-back yields -1/3), GO_ROUTE_B_PARTIAL (different residual e.g. -1/12 per coord per prestage working hypothesis), NO_GO_OFF_DEGENERATION (V_quad image off PV->PIII submanifold; mechanism (a) ruled out), UNDECIDABLE (substrate gap or simplification timeout). If verdict is NO_GO_OFF_DEGENERATION or UNDECIDABLE, 110's numerical Route D extraction becomes the canonical Hamiltonian-parameter source for V_quad image and 069r3 FINAL synthesis judges mechanism (a) ruled out (cascade falls back to mechanism (b) additive-shift or (c) Sakai surface-type with Route F machinery). The verdict bin is recorded in per_coord_hamiltonian_prediction.json explicitly."
+    }
+  ]
+}
