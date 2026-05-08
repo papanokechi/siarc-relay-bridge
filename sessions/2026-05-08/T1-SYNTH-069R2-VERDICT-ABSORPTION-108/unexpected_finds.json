@@ -1,0 +1,20 @@
+{
+  "UF-108-1": {
+    "label": "Route D hidden-circularity",
+    "category": "structural-route-design-flaw",
+    "severity": "MEDIUM",
+    "description": "Route D (numerical chart-map fitting) as scoped in 069r2 envelope §3 has hidden-circularity: numerical fitting (a_0, a_1, a_2) -> (alpha, beta) requires a working forward readout from P_III(D_6) numerical solutions to (alpha, beta) parameter values, which IS the chart-map Routes A/B/C are constructing symbolically. As scoped, Route D recovers a single point (V_quad's image) not a function.",
+    "implication": "Route D demotes from SOLO_PRIMARY_PARALLEL to VERIFICATION_PARALLEL_SECONDARY in any 069r3 cascade.",
+    "action": "069r2-followup envelope §3 should reframe Route D scope; round-2 substrate-paste must include independent (alpha, beta) extraction operation spec.",
+    "surfaced_by": "Claude Opus 4.7 / Claude.ai web QD reasoning"
+  },
+  "UF-108-2": {
+    "label": "Route F surfacing pre-staged risk",
+    "category": "framework-completeness",
+    "severity": "MEDIUM-HIGH (conditional)",
+    "description": "If FW math-ph/0201051 excerpts (when pasted in round-1 substrate-paste) reveal Sakai D_6 surface-type machinery as the actual chart-map mechanism (rather than sigma-form / Hamiltonian P_III), the entire A-E route framework is incomplete. Synth pre-committed to flagging ROUTE_FRAME_INCOMPLETE per HALT-S5 rather than silently folding into A-E.",
+    "implication": "069r1's 102-disposition LOW-yield risk under surface-type machinery is not eliminated by 069r2 framework.",
+    "action": "Agent vocabulary watch-list during FW excerpt absorption: Sakai D_6 surface, surface-type machinery, Mukai pair, rational surface, blow-up, exceptional curve, W(D_6) extended affine Weyl. If any triggers fire, halt absorption and surface as Route F surfacing.",
+    "surfaced_by": "Claude Opus 4.7 / Claude.ai web QF caveat 4"
+  }
+}
