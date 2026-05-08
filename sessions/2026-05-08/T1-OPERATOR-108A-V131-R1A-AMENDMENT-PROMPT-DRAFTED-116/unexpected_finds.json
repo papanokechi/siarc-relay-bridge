@@ -1,0 +1,19 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-116-1",
+      "tag": "INLINE-PROSE-ATTRIBUTION-PATTERN-FOR-MISSING-OKAMOTO-1987-BIBKEY",
+      "summary": "108a NEW_STR uses inline-prose attribution '(Okamoto 1987)' instead of \\cite{Okamoto1987} because the Okamoto1987 bibkey is missing from the active .bib file per 105 deposit UF-105-NEW-BIBKEY. This avoids triggering an undefined-reference at pdflatex pass 2 (preserves HALT-108a-2 PASS at fire time). Pattern-match to 105 deposit J2 judgment-call (inline-prose attribution preferred over halt for missing bibkeys). Recommendation: a future bibkey-splice prompt (UF-105-NEW-BIBKEY follow-up) should retroactively add \\cite{Okamoto1987} to 108a after the bibkey is spliced; until then, inline prose stands."
+    },
+    {
+      "id": "UF-116-2",
+      "tag": "PROMPT-108A-SCOPE-EXCLUSIONS-FOR-DOWNSTREAM-CASCADE-VISIBILITY",
+      "summary": "Prompt 108a explicitly addresses ONLY the R1a small amendment item from 115 audit_verdict.md. It does NOT touch: (i) A-115-1 labeling-convention divergence reconciliation (queued for separate fire at next CMB-edit cycle); (ii) A-115-2 LIT dict source-string subsec misattribution (trivial one-line fire queued separately); (iii) UF-115-3 Okamoto-degeneracy-at-V_quad-image structural-diagnosis prompt (deferred to future structural fire); (iv) UF-115-4 058R residual R1 numerical-arithmetic closure (deferred to Phase D.2 numerical session per phase_b_canonical_map.md L156-158); (v) UF-113-2 mechanism (b) pre-rejection footnote (queued as prompt 111). The narrow scoping is intentional and matches the audit verdict's R1a 3-6-line specification. Operator should NOT expand 108a's scope at fire time without a separate audit; cascade gating depends on small-patch pdflatex compile cleanliness."
+    },
+    {
+      "id": "UF-116-3",
+      "tag": "CASCADE-SHORTCUT-OPTIONAL-SYNTH-ROUND-4-ABSORPTION-SKIPPABLE",
+      "summary": "Per §10(i) of prompt 108a, the synth round-4 absorption (Claude.ai web-side handoff after 116-EXEC lands) is OPTIONAL given R1 verdict is clean and 108a is a small surgical patch. Operator may skip the round-4 absorption step and proceed directly to 109 + 110 envelope drafting. This shortens the cascade by approximately 20-30 minutes of agent time. If skipped, 108a-EXEC landing handoff at the bridge serves as the de-facto round-4 record. Decision left to operator at 108a-EXEC landing time."
+    }
+  ]
+}
