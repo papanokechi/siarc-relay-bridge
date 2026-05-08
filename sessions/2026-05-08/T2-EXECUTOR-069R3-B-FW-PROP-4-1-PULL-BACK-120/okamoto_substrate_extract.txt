@@ -1,0 +1,159 @@
+================================================================
+OKAMOTO 1987 SUBSTRATE EXTRACT (S1 H_III' Hamiltonian)
+For: 109 069r3-B Route B mechanism (a) symbolic pull-back
+Source: tier_b_round1_paste_packet_PRESTAGED.txt (110 prestage)
+        Excerpt 3, lines 136-230 of slot 07 .txt extraction
+        Originally: Okamoto 1987, "Studies on the Painleve
+        equations IV: third Painleve equation P_III",
+        Funkcial. Ekvac. 30 (1987) 305-332
+================================================================
+
+NOTE: the Okamoto 1987 PIII paper PDF is NOT on disk in
+tex/submitted/control center/literature/g3b_2026-05-03/
+supplementary/ at fire time (only the Painleve VI Part I PDF
+is present). All Okamoto S1 substrate below is anchored to
+the 110-prestage paste-packet which was authored from a slot 07
+extraction. Per discrepancy_log entry D-109-2 the full Okamoto
+1987 PDF acquisition is queued; no halt fires.
+
+================================================================
+OKAMOTO 1987 S1 INTRODUCTION (verbatim from 110 prestage)
+================================================================
+
+The present article concerns the third Painleve equation:
+
+P_III:  d^2 q / dt^2  =  (1/q)(dq/dt)^2  -  (1/t)(dq/dt)
+                       +  (1/t)(alpha q^2 + beta)
+                       +  gamma q^3  +  delta / q,
+
+for which we make the assumption gamma delta != 0, throughout
+this paper.
+
+This equation is well-known and investigated by many authors
+(for example, [3], [5], [6], [7]), while we consider in the
+following mainly the equation:
+
+P_III':  d^2 q / dt^2  =  (1/q)(dq/dt)^2  -  (1/t)(dq/dt)
+                        +  q^2/(4 t^2)(gamma q + alpha)
+                        +  beta/(4 t)  +  delta/(4 q),
+
+instead. These two equations are equivalent each other. In fact,
+by replacing in P_III, t^2 by t and q by t q, we obtain P_III'.
+
+================================================================
+OKAMOTO 1987 H_III HAMILTONIAN (verbatim)
+================================================================
+
+The Hamiltonian associated with P_III is:
+
+H_III  =  (1/t)  [  2 q^2 p^2
+                   -  { 2 eta_inf t q^2  +  (2 theta_0 + 1) q
+                        -  2 eta_0 t  }  p
+                   +  eta_inf (theta_0 + theta_inf) t q  ],
+
+where the constants eta_Delta, theta_Delta (Delta in {0, inf})
+are connected to alpha, beta, gamma, delta of the equation as
+follows:
+
+(0.1)
+   alpha  =  -4 eta_inf theta_inf,
+   beta   =   4 eta_0 (theta_0 + 1),
+   gamma  =   4 eta_inf^2,
+   delta  =  -4 eta_0^2.
+
+By the assumption [gamma delta != 0], we have eta_Delta != 0;
+moreover we set eta_Delta = 1 without loss of generality.
+
+NOTE (109-O1 = STANDING ASSUMPTION ANCHOR): Okamoto's S1
+standing assumption eta_Delta != 0 holds throughout the paper.
+The WLOG normalisation eta_inf = eta_0 = 1 is imposed for
+canonical-form work; outside the WLOG, the H_III Hamiltonian
+retains the eta_Delta dependence above.
+
+================================================================
+OKAMOTO 1987 H_III' HAMILTONIAN (verbatim)
+================================================================
+
+On the other hand, the Hamiltonian associated with P_III' is:
+
+H_III'  =  (1/t)  [  q^2 p^2
+                    -  { eta_inf q^2  +  theta_0 q
+                         -  eta_0 t  }  p
+                    +  (1/2) eta_inf (theta_0 + theta_inf) q  ].
+
+These two Hamiltonians are connected mutually through the
+canonical transformation phi:
+
+(0.2)
+   q  ->  t q,    p  ->  t^{-1} p,    t  ->  t^2,
+   H_III'  ->  (1/(2 t))(H_III + (1/t) q p).
+
+NOTE (109-O2 = THE FW (4.1) IS FW PIII' WITH OKAMOTO WLOG):
+expanding Okamoto's t H_III' (multiplying the (1/t) prefactor
+through):
+
+  t H_III'  =  q^2 p^2  -  eta_inf q^2 p  -  theta_0 q p
+                       +  eta_0 t p  +  (1/2) eta_inf (theta_0 + theta_inf) q
+
+Compare with FW (4.1):
+
+  tH  =  q^2 p^2  -  q^2 p  -  v_1 q p  +  t p  +  (1/2)(v_1 + v_2) q
+
+Match coefficient-by-coefficient:
+  coeff of q^2 p:   -eta_inf vs. -1   =>  eta_inf = 1
+  coeff of q p:     -theta_0 vs. -v_1 =>  v_1 = theta_0
+  coeff of t p:      eta_0 vs. 1      =>  eta_0 = 1
+  coeff of q:        (1/2) eta_inf (theta_0 + theta_inf)
+                  vs. (1/2)(v_1 + v_2)
+                  =>  eta_inf (theta_0 + theta_inf) = v_1 + v_2
+                  =>  with eta_inf = 1:  theta_0 + theta_inf = v_1 + v_2
+                  =>  with v_1 = theta_0:  theta_inf = v_2
+
+Therefore the literature-anchored identification (UF-110-3) is:
+
+  v_1  =  theta_0     (under WLOG eta_inf = eta_0 = 1)
+  v_2  =  theta_inf   (under WLOG eta_inf = eta_0 = 1)
+
+ANY DEPARTURE FROM OKAMOTO'S WLOG (eta_inf != 1 OR eta_0 != 1)
+breaks the FW (4.1) match: FW (4.1) does NOT contain free
+eta_inf or eta_0 parameters; eta_inf = 1 is hardcoded in the
+"-q^2 p" coefficient and eta_0 = 1 is hardcoded in the "+t p"
+coefficient.
+
+================================================================
+PROJECT V_quad IMAGE -- COMPATIBILITY WITH OKAMOTO WLOG
+================================================================
+
+CT v1.3 sec 3.5.1 (3.5.1a)-(3.5.1d) declares the trivial relabel:
+
+  alpha_inf  :=  eta_inf
+  alpha_0    :=  eta_0
+  beta_inf   :=  theta_inf
+  beta_0     :=  theta_0
+
+The V_quad image (alpha_inf, alpha_0, beta_inf, beta_0) =
+(1/6, 0, 0, -1/2) maps under (3.5.1a)-(d) to the Okamoto
+4-tuple:
+
+  (eta_inf, eta_0, theta_inf, theta_0)  =  (1/6, 0, 0, -1/2)
+
+This 4-tuple has:
+  - eta_inf = 1/6  !=  1  (Okamoto WLOG NOT satisfied at infinity)
+  - eta_0   = 0    !=  1  (Okamoto WLOG NOT satisfied at zero;
+                            additionally violates Okamoto's S1
+                            standing assumption eta_Delta != 0)
+
+Therefore V_quad image SIMULTANEOUSLY fails:
+  (i)  Okamoto's S1 standing assumption eta_Delta != 0
+       (eta_0 = 0 is on the assumption boundary)
+  (ii) Okamoto's WLOG normalisation eta_inf = eta_0 = 1
+       (which the FW (4.1) PIII' form hardcodes)
+
+The 117 R1a amendment (CT v1.3 sec 3.5.1 standing-assumption
+boundary block, L987-L1010) records (i) explicitly. Item (ii)
+is the additional structural obstruction surfaced here by
+explicit FW-vs-Okamoto coefficient matching.
+
+================================================================
+END OKAMOTO SUBSTRATE EXTRACT
+================================================================

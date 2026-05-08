@@ -1,0 +1,28 @@
+================================================================
+PHASE D -- PER-COORDINATE HAMILTONIAN PREDICTION
+================================================================
+
+Per-coordinate predictions at V_quad image (off-submanifold;
+project tuple by construction):
+
+  eta_inf_pred    = 1/6  =  0.16666666666666666666666666666666666666666666666667
+  eta_0_pred      = 0  =  0.0
+  theta_inf_pred  = 0  =  0.0
+  theta_0_pred    = -1/2  =  -0.5
+
+FW (2.2) null-sum residual at V_quad image:
+  eta_inf + eta_0 + theta_inf + theta_0 = -1/3
+                                         = -0.33333333333333333333333333333333333333333333333333
+
+Canonical PIII pair (UF-110-3 anchored):
+  v_1 = theta_0   = -1/2
+  v_2 = theta_inf = 0
+
+FW (4.3) shift constants at this canonical PIII pair:
+  c_constant_part = (1/4) v_1^2 = 1/16
+  c_t_coefficient = -1/2
+
+--- D.3: per_coord_hamiltonian_prediction.json written
+         size = 4093 bytes
+
+PHASE D END.

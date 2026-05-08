@@ -1,0 +1,112 @@
+================================================================
+PHASE B -- PV->PIII DEGENERATION SUBMANIFOLD CHECK
+================================================================
+
+V_quad image (alpha_inf, alpha_0, beta_inf, beta_0)
+            = (eta_inf, eta_0, theta_inf, theta_0)
+            = (1/6, 0, 0, -1/2)
+
+--- B.1: PV->PIII parameter-space degeneration prescription
+
+FW S4 prose at .txt L3905-3911 describes PV->PIII as a
+hard-edge scaling COORDINATE-SPACE limit (eigenvalue spacing
+scaling). The PARAMETER-SPACE prescription mapping
+(v_1, v_2, v_3, v_4) -> (v_1, v_2) is NOT given verbatim in
+FW S4.1; FW just postulates the PIII Hamiltonian (4.1) with
+two surviving parameters, citing Okamoto [31] (Okamoto 1987).
+
+Implicit FW prescription (anchored by S2.1 vs S4.1 coefficient
+match in okamoto_substrate_extract.txt note 109-O2):
+  The FW PIII' form (4.1) hardcodes eta_inf = eta_0 = 1
+  in the q^2 p and t p coefficients respectively.
+  The PV (2.1) form contains the four v_i without WLOG.
+  Going PV->PIII means *integrating out* the v_3 and v_4
+  dependence by sending the difference (v_3 - v_4) to the
+  hard-edge limit: see FW (2.5) where alpha = (1/2)(v_3-v_4)^2
+  is the *only* place v_3, v_4 enter the PV ODE coefficients
+  beyond combinations that absorb into Okamoto's (theta_0,
+  theta_inf) on the PIII side.
+
+--- B.2: FW (2.2) null-sum  v_1 + v_2 + v_3 + v_4 = 0  residual
+         at V_quad image under three candidate orderings
+
+  ORDERING 1 (prompt A.3 candidate-1):
+    (v_1, v_2, v_3, v_4) = (1/6, 0, 0, -1/2)
+    sum = -1/3
+    on FW (2.2) submanifold (sum == 0)?  False
+
+  ORDERING 2 (prompt A.3 candidate-2):
+    (v_1, v_2, v_3, v_4) = (-1/2, 0, 0, 1/6)
+    sum = -1/3
+    on FW (2.2) submanifold (sum == 0)?  False
+
+  ORDERING 3 (UF-110-3 PIII surviving pair, lifted to PV):
+    (v_1, v_2, v_3, v_4) = (-1/2, 0, 0, 1/6)
+    sum = -1/3
+    on FW (2.2) submanifold (sum == 0)?  False
+
+--- B.2 SUMMARY:
+    All three orderings yield null-sum residual = -1/3
+    (sum is permutation-invariant; the four slots take values
+     {1/6, 0, 0, -1/2} in any order).
+
+    -1/3 != 0  =>  V_quad image VIOLATES FW (2.2) by
+    additive c-number -1/3 under any ordering preserving the
+    (3.5.1a)-(d) trivial relabel.
+
+--- B.3: Okamoto WLOG eta_inf = eta_0 = 1  compatibility check
+
+  V_quad image  eta_inf = 1/6
+                eta_0   = 0
+
+  WLOG eta_inf == 1  ?  False
+  WLOG eta_0   == 1  ?  False
+
+  Okamoto 1987 S1 standing assumption  eta_Delta != 0  ?
+    eta_inf != 0  ?  True
+    eta_0   != 0  ?  False
+
+  Conclusion (B.3):
+    V_quad image FAILS Okamoto WLOG (eta_inf, eta_0 not = 1)
+    AND additionally FAILS Okamoto S1 standing assumption
+    (eta_0 = 0 is on the assumption boundary).
+
+  Since FW (4.1) hardcodes eta_inf = eta_0 = 1 in the q^2 p
+  and t p coefficients (cf. okamoto_substrate_extract.txt
+  note 109-O2), the FW (4.1) PIII' Hamiltonian does NOT model
+  the V_quad image directly without an additional gauge
+  rescale; the eta_0 = 0 value is moreover the *singular gauge
+  point* where the t p coefficient vanishes, a degeneration
+  of the Hamiltonian system.
+
+--- B.4: VERDICT (Phase B.5 of prompt 109)
+
+Three independent obstructions place V_quad image OFF the FW
+PV->PIII degeneration submanifold:
+
+  (i)   FW (2.2) null-sum residual = -1/3 != 0
+        (V_quad image is OFF the PV null-sum submanifold,
+         and so OFF every sub-submanifold of it including the
+         PV->PIII degeneration submanifold).
+
+  (ii)  Okamoto S1 standing assumption eta_Delta != 0 fails
+        at eta_0 = 0  (V_quad image is on the assumption
+         boundary; canonical H_III Hamiltonian form is
+         singular here).
+
+  (iii) Okamoto WLOG eta_inf = eta_0 = 1 fails
+        (FW (4.1) hardcodes the WLOG and so cannot model
+         V_quad image without additional gauge work; the
+         additional gauge is non-trivial precisely because
+         the singular gauge point coincides with the V_quad
+         image).
+
+Verdict bin: NO_GO_OFF_DEGENERATION
+
+Per prompt 109 HALT-109-3-SOFT directive: this halt is SOFT;
+Phase C still proceeds with the off-submanifold values for
+record, and the verdict at Phase D is NO_GO_OFF_DEGENERATION.
+
+--- B.4: results written to phase_b_results.json
+
+PHASE B END.

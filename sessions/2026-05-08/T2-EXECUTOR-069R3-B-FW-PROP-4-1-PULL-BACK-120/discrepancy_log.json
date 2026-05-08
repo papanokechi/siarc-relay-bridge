@@ -1,0 +1,33 @@
+{
+  "session_id": "T2-EXECUTOR-069R3-B-FW-PROP-4-1-PULL-BACK-120",
+  "fire_date": "2026-05-08",
+  "discrepancy_count": 5,
+  "discrepancies": [
+    {
+      "id": "D-109-1",
+      "severity": "INFO",
+      "description": "Prompt 109 A.3 ORDERING 1 declares surviving PIII pair (v_1, v_2) = (eta_inf, theta_inf) [most natural per FW S4.1 surviving pair]. This is INCONSISTENT with UF-110-3 from sessions/2026-05-08/T2-TIER-B-PASTE-PACKET-PRESTAGE-110/handoff.md which anchors (v_1, v_2)_FW = (theta_0, theta_inf)_Okamoto by direct ODE-coefficient match (alpha_ODE = -4 v_2 vs -4 theta_inf, beta_ODE = 4(v_1+1) vs 4(theta_0+1)). Resolution: adopted UF-110-3-anchored ordering as Phase A.3 PRIMARY (= ORDERING 3 in this session); prompt's ORDERING 1 + ORDERING 2 evaluated as alternatives in Phase B.2 + Phase C.2. All three orderings yield FW (2.2) null-sum residual = -1/3 (sum is permutation-invariant), and shift-constant mismatch with -1/3 target under Phase C.4. Discrepancy is non-blocking but surfaces a literature-anchor question for any future round-2 re-fire."
+    },
+    {
+      "id": "D-109-2",
+      "severity": "INFO",
+      "description": "Okamoto 1987 PIII paper PDF NOT on disk in tex/submitted/control center/literature/g3b_2026-05-03/supplementary/ at fire time (only Painleve VI Part I PDF present at 1944075 B). Okamoto S1 substrate sourced from sessions/2026-05-08/T2-TIER-B-PASTE-PACKET-PRESTAGE-110/tier_b_round1_paste_packet_PRESTAGED.txt Excerpt 3 (which extracted slot 07 .txt at lines 136-230). Substrate sufficient for Phase A purposes (H_III + H_III' + (0.1) ODE coeff dictionary + standing assumption eta_Delta != 0 + WLOG normalisation eta_inf=eta_0=1 all captured). Recommendation: full Okamoto 1987 PIII PDF acquisition queued as future operator action; non-blocking for 109 deposit."
+    },
+    {
+      "id": "D-109-3",
+      "severity": "INFO",
+      "description": "Prompt 109 G2 expected FW (4.3) anchor at .txt line ~3963; actual location is L3960 (-3 line drift). Cause: pdftotext extraction artefact (the (1/4) and (1/2) coefficient fractions are split across multiple lines in the .txt; the equation tag (4.3) appears on L3964 and the bare equation 'h = tH + v12 - t' appears on L3960 with the (1/4) and (1/2) subscript-formatted as 'v12' and absent in the simple grep). Substrate content matches FW Prop 4.1 verbatim once the column-wrap is normalised. Discrepancy is non-blocking; the line-number drift in G2 is within prompt 109's own '~3963' approximate qualifier."
+    },
+    {
+      "id": "D-109-4",
+      "severity": "INFO",
+      "description": "Prompt 109 G4 expected post-108a-EXEC CT v1.3 line count = 1663 (108a delta +17). Actual at fire time: 1812 lines (per 117 commit message and direct (Get-Content -Raw).Split('`n').Length). 117 commit message itself records pre-edit 1789 LC + delta +23 = post-edit 1812 LC, with 117 D-117-1 listed as 'spec-arithmetic +17 vs +23' (the prompt 108a NEW_STR was 26 lines, not 20). Prompt 109's '1663' baseline appears to be a stale-draft artefact consistent with the same off-by-N undercount pattern surfaced in 117 + 099 + 062 sessions. Non-blocking; post-108a-EXEC R1a caveat block IS present at L987-L1010 as required."
+    },
+    {
+      "id": "D-109-5",
+      "severity": "INFO",
+      "description": "FW S4.2 (.txt L4058-4078) places the PIII auxiliary Hamiltonian theory on the *B_2* root lattice (FW (4.9): T_1 . v = (v_1+1, v_2+1); T_2 . v = (v_1+1, v_2-1); operators s_0, s_1, s_2 of B_2). Project p12 sec:vquad uses PIII(D_6) labelling (per 115 audit verdict QB.1). The B_2 vs D_6^(1) labelling is parametrisation-dependent: KNY 2017 S8.5.17 (110-prestage Excerpt 2) uses D_6^(1) under Sakai surface-type classification; FW S4.2 uses B_2 under Backlund-symmetry root-lattice description. Both refer to the same PIII Hamiltonian system. Cross-walk to A-115-1 anomaly (labeling-convention divergence between project documents and 058R/CT v1.3); non-blocking for this 109 deposit but flagged for cascade-coordination with 069r3 FINAL synthesis."
+    }
+  ],
+  "summary": "5 INFO-severity non-blocking discrepancies surfaced. None block Phase E completion or AEAL claim emission."
+}
