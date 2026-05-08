@@ -1,0 +1,39 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-123-1",
+      "severity": "INFO",
+      "subject": "envelope-author Round-1 expected verdict prior",
+      "description": "Envelope-author drafting 112 v1 had implicit expectation that Q4 (Route F mechanism c) would surface as the dominant cascade-recommended forward path post-111-EXEC tautology demotion. This implicit prior was flagged by rubber-duck QA finding M3 (Q3 collapse risk). Absorbed via Q3 split into three explicit verdict bins (GO_TO_PASTE / UNDECIDABLE / NO_GO_PASTE_NOT_NEEDED) so synth has scope-discipline to either invoke §10 paste re-fires or decline path-delta entirely on substrate-insufficient grounds.",
+      "blocking": false
+    },
+    {
+      "id": "D-123-2",
+      "severity": "INFO",
+      "subject": "Q4_HEDGE_ROUTE_F semantics ambiguity (BLOCKING B1 sub-finding)",
+      "description": "Original §6 cascade table left Q4_HEDGE_ROUTE_F outcome ambiguous when Q3 returned UNDECIDABLE -- did HEDGE mean both routes draft envelopes, or only Route F gated on paste? Resolved in B1 absorption via TIER 2 explicit row mapping (HEDGE x Q3=GO_TO_PASTE -> BOTH route-A + route-F dispatch with Q6 priority order; HEDGE x Q3=UNDECIDABLE -> BOTH routes gated on §10 paste re-fires; HEDGE x Q3=NO_GO -> Route F SOLO with synth clarification or escalate). No remaining ambiguity in §6 cascade table.",
+      "blocking": false
+    },
+    {
+      "id": "D-123-3",
+      "severity": "INFO",
+      "subject": "EXCERPT 7 inlining vs synth Phase 0 read-through cost",
+      "description": "H5 absorption added EXCERPT 7 inline content describing the W((2A_1)^(1)) affine Weyl framework + W_a(B_2) embedding + 058R Phase B.5 NY 2004 anchor (per operator-summary M6.CC affine Weyl framework memory). Trade-off: §1.5 EXCERPTS section grew from 6 to 7 paste-substrate excerpts (~+5KB envelope size), but synth no longer needs to chase the 058R Phase B.5 cross-walk independently to evaluate Q4 mechanism (c) substrate. HALT-S6 added to forbid synth from inferring beyond inlined EXCERPT 7 content.",
+      "blocking": false
+    },
+    {
+      "id": "D-123-4",
+      "severity": "INFO",
+      "subject": "envelope size growth from v1 -> v2",
+      "description": "v1 was 43 744 B / 830 lines (initial draft). v2 final = 58 574 B / 1 099 lines (+14 830 B; +269 lines; +33% growth). Growth driven primarily by: B1 §6 cascade-table FULL REWRITE (~+3KB), §8 absorption documentation rewrite for all 14 findings (~+4KB), H4 §10 Route F protocol strengthening (~+2KB), H5 EXCERPT 7 inlining (~+3KB), residual M-tier and N-tier absorptions (~+3KB). All growth is QA-finding-driven; no scope-creep beyond original 7-phase / 6-route / 7-question / 7-excerpt structure.",
+      "blocking": false
+    },
+    {
+      "id": "D-123-5",
+      "severity": "INFO",
+      "subject": "112 envelope vs prior 069r2 envelope template lineage",
+      "description": "112 inherits 7-phase synth structure from 069r2 envelope (sessions/2026-05-08/T1-SYNTH-069R2-VERDICT-ABSORPTION-108) and 071 069r3 partial-template lineage. Major architectural deltas relative to 069r2: (a) 6-route framework (A-F) replaces 069r2's 5-route framework via Route F promotion from HALT-S5 surfacing-risk to first-class route candidate; (b) 7 inlined excerpts vs 069r2's 5 excerpts; (c) cascade table TIER 0/1/2/3/4 precedence (B1 absorption) replaces 069r2's flat verdict-bin -> action mapping; (d) anti-tautology checklist (i)-(iv) added in Q3 mirroring 111-EXEC failure prevention; (e) 3-source evidence distinction in Q4 (elimination pressure / hypothesis compatibility / positive Sakai-KNY substrate). All deltas trace to QA-driven absorptions.",
+      "blocking": false
+    }
+  ]
+}

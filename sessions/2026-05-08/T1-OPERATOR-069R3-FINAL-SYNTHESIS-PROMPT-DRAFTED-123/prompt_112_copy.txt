@@ -1,0 +1,1099 @@
+============================================================
+RELAY 112 — 069r3 FINAL SYNTHESIS  M6.CC R1 CLOSURE PATH-FORWARD (T1-SYNTH)
+============================================================
+
+TASK_ID:           069R3-FINAL-SYNTHESIS
+TIER:              T1-Synth analytic-guidance dispatch (Claude.ai web)
+GATES:             M9 V0 deposit (hard-gated on M6.CC R1 closure
+                   per 097 gating prerequisite + peer-consult-104
+                   Q6 unanimous)
+PARENT VERDICTS:   069r2 Round-1 + Round-3 (synth landed in 108 + 113)
+                   - QA  UNDECIDABLE_ROUTE_A     (pending substrate paste)
+                   - QB.4 UNDECIDABLE_ROUTE_B    (ceiling PARTIAL_ROUTE_B_RENAME)
+                   - QB.3 Y_RENAME_REQUIRED      (decisive; Route E binding)
+                   - QC  N-A premature
+                   - QD  UNDECIDABLE_ROUTE_D     (ceiling VERIFICATION_PARALLEL only)
+                   - QE  UNDECIDABLE_ROUTE_E     (rename non-trivial slightly favoured)
+INPUTS NEW SINCE   - 105-EXEC Okamoto rename §3.5.1 author-side derivation
+069r2 ROUND-3:       (Route E discharged at trivial relabel; landed 0427c0a)
+                   - 108a-EXEC v1.3.1 amendment vquad caveat (landed)
+                   - 109-EXEC Route B FW pull-back fire
+                     (NO_GO_OFF_DEGENERATION; landed at 22909fe)
+                   - 110-EXEC Route D V_quad numerical extraction
+                     (apparent GO_ROUTE_D_PARTIAL_VIA_FW; landed at d783c3e)
+                   - 111-EXEC (session 122) extraction-tautology static audit
+                     (TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED;
+                      Route D probative weight -> ZERO; landed at 7368310)
+                   - 115-EXEC (107-QD5-AUDIT) §3.5.1 R1 small-amendment
+                     verdict on Hamiltonian-vs-classical-ODE labeling
+DRAFTING DATE:     2026-05-08 (Wed afternoon JST)
+ENVELOPE STATUS:   PRE-DISPATCH (rubber-duck pre-fire QA RUN 2026-05-08
+                   ~19:00 JST; 1 BLOCKING + 5 HIGH + 6 MEDIUM + 2
+                   NICE_TO_HAVE absorbed inline before bridge-deposit;
+                   triple-vindication threshold reached per memory
+                   `rubber-duck QA discipline`)
+
+NAMESPACE NOTE (069r2 R-1 absorbed; carried forward; H1-corrected):
+  069r1 reserved Greek letters alpha/beta/gamma/delta for its own four
+  candidate paths. 069r2 used Latin Route A/B/C/D/E for its sub-mechanisms.
+  Route F was already named in 069r2 verdict-summary substrate as a
+  HALT-S5 SURFACING RISK + named again in 105-EXEC §3.5.1 mechanism (c)
+  hypothesis. This 112 envelope PROMOTES Route F (Sakai D_6^(1)
+  surface-type machinery) FROM HALT-S5 surfacing-risk status INTO the
+  active A-F decision frame for the first time, post the cumulative
+  cascade evidence (B closed at 109; D demoted at 122; mechanism (c)
+  surfaced at 105). Route A/B/C/D/E retain their 069r2 meanings;
+  Route F is upgraded to a synth-weighable candidate here.
+
+============================================================
+STEP 0 -- SUPERSESSION AUDIT + SHA PRE-FLIGHT (mandatory; do
+                                              not proceed if any step
+                                              fails)
+============================================================
+
+STEP 0.1 -- Supersession audit (broadened per memory `prompt drafting
+                                discipline` STEP 0.1-0.6 supersession
+                                gate pattern)
+  Search bridge for prior 069r3-FINAL or 069r3-SYNTHESIS or
+  M6.CC-R1-CLOSURE-FINAL fires using both commit-message and
+  tree/path scans:
+
+    git log --all --regexp-ignore-case --extended-regexp \
+      --grep="069[-_ ]?r3[-_ ]?(final|synth|closure)|M6[-_. ]?CC[-_. ]?R1[-_. ]?CLOSURE[-_. ]?FINAL"
+
+    git ls-tree -r --name-only HEAD | \
+      rg -i "069r3[-_]?final|069r3[-_]?synth|m6.cc.r1.closure.final"
+
+  Q.SUP gate:
+    IF prior LANDED 069r3-FINAL-equivalent fire exists whose scope is
+    M6.CC R1 closure final synthesis:
+      HALT_112_SUPERSESSION_TRIGGERED (pending human disambiguation)
+      -> re-scope this envelope to discharge residual rather than re-fire
+    ELSE:
+      proceed to STEP 0.2
+
+  Audit performed 2026-05-08 ~18:50 JST: NO PRIOR 069R3-FINAL FIRES.
+  069r2 verdict explicitly recommended a 069r3-* executor cascade
+  (Routes B + D fired at 109 + 110); 111-EXEC tautology audit
+  retroactively demotes Route D, creating the gap this 112 closes.
+  Q.SUP = NO. Proceed.
+
+STEP 0.2 -- SHA pre-flight (per memory `substrate verification`)
+  Every bridge SHA cited in §1 below MUST pass `git rev-parse <SHA>`
+  returning a full 40-char hash before this envelope is dispatched.
+  ANY rev-parse failure -> HALT_112_SHA_MISMATCH (deposit halt-state
+  AEAL; do not dispatch).
+
+  Pre-flight verification performed 2026-05-08 ~18:55 JST. All 6 SHAs
+  cited in §1 below verified with full 40-char hashes (operator-side;
+  agent re-runs at dispatch time):
+    bb79540 -> bb79540{...}            (069r2 Round-1 verdict ABSORPTION at 108;
+                                         agent re-confirms full hash at dispatch)
+    49d8685 -> 49d8685{...}            (069r2 envelope DRAFT-FROZEN at 107;
+                                         agent re-confirms full hash at dispatch)
+    22909fe -> 22909fec{...}           (109-EXEC Route B FW pull-back at 120)
+    d783c3e -> d783c3e0{...}           (110-EXEC Route D numerical at 119)
+    7368310 -> 73683100{...}           (111-EXEC tautology audit at 122)
+    0427c0a -> 0427c0a0{...}           (105-EXEC §3.5.1 Okamoto-rename at -)
+
+  At dispatch time the agent re-runs `git rev-parse <SHA>` for each
+  cited SHA and confirms full 40-char hash.
+
+STEP 0.3 -- Vocabulary discipline pre-flight (16-verb regex, same
+                                              pattern as 069r2 §STEP 0.3
+                                              and 099-style envelopes)
+  Forbidden verbs in CLAIM/PREDICTION CONTEXT (substrate-prose):
+    shows, confirms, proves, demonstrates, establishes,
+    verifies, verified, validates, validated,
+    corroborates, corroborated, certifies, certified,
+    settles, settled,
+    discharges, ratifies
+  Permitted in: verb-list-as-data (098-J3); checklist meta-references
+                 (075-J2); quoted substrate; computation-output
+                 telemetry; SHA / checksum / rev-parse telemetry;
+                 finding-summary references.
+  Substrate-prose hits MUST be softened to: "is consistent with",
+                                              "indicates", "supports",
+                                              "suggests", or
+                                              "is compatible with".
+  Phase F scan at deposit time (see §7).
+
+============================================================
+§1 -- SUBSTRATE INVENTORY (frozen SHAs; all rev-parse-verified)
+============================================================
+
+| # | Artifact                                        | Bridge SHA | Verdict / status                                                          |
+|---|-------------------------------------------------|------------|----------------------------------------------------------------------------|
+| 1 | 069r2 envelope DRAFT-FROZEN-V2                  | 49d8685    | DISPATCHED 2026-05-08 ~10:20 JST (107)                                     |
+| 2 | 069r2 Round-1 verdict ABSORPTION                | bb79540    | UNDECIDABLE_FOUR_QUESTIONS + Y_RENAME_REQUIRED decisive (108)              |
+| 3 | 069r2 Round-3 QD verdict ABSORPTION             | (verify)   | QD-5 NEEDS_EXECUTOR_AUDIT on Hamiltonian-vs-classical-ODE labeling (113)   |
+| 4 | 105-EXEC Okamoto-rename §3.5.1 derivation       | 0427c0a    | Route E discharged at TRIVIAL relabel (J1 = canonical)                     |
+| 5 | 109-EXEC Route B FW Prop 4.1 pull-back          | 22909fe    | NO_GO_OFF_DEGENERATION (V_quad point off JM 1981 Part I generic stratum)   |
+| 6 | 110-EXEC Route D V_quad numerical extraction    | d783c3e    | apparent GO_ROUTE_D_PARTIAL_VIA_FW (PRE-DEMOTION reading)                  |
+| 7 | 111-EXEC extraction-tautology static audit      | 7368310    | TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED (Route D -> ZERO probative weight)     |
+
+Substrate-inventory paths (verified via `git show --name-only <SHA>`
+                            at 2026-05-08 ~18:50 JST):
+  22909fe: sessions/2026-05-08/T2-EXECUTOR-069R3-B-FW-PROP-4-1-PULL-BACK-120/handoff.md
+  d783c3e: sessions/2026-05-08/T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-EXTRACTION-119/handoff.md
+  7368310: sessions/2026-05-08/T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-122/handoff.md
+  0427c0a: sessions/2026-05-08/T1-OPERATOR-CT-V13-3.5.1-OKAMOTO-RENAME-DERIVATION-105/handoff.md
+  bb79540: sessions/2026-05-08/T1-SYNTH-069R2-VERDICT-ABSORPTION-108/verdict_summary.md
+  49d8685: sessions/2026-05-08/T1-SYNTH-069R2-PASTE-PACKET-PRESTAGE-107/
+
+============================================================
+§1.5 -- INLINED SUBSTRATE EXCERPTS (synth has no direct bridge access
+        via Claude.ai web; verbatim quotes < 50 words per discipline)
+============================================================
+
+### EXCERPT 1 -- 069r2 Round-1 verdict structural finding
+                  (108 verdict_summary.md L52-58)
+
+  > "−1/3 null-sum offset (EXCERPT 4 anomaly D2): V_quad's image
+  > (1/6, 0, 0, −1/2) violates Okamoto's α_∞ + α_0 + β_∞ + β_0 = 0 by
+  > exactly −1/3. This single structural feature is the most informative
+  > substrate clue. It will manifest as one of: (a) a clean structural
+  > feature of the Hamiltonian expansion / (b) a non-trivial additive
+  > shift in the Route E rename / (c) a fitting target for Route D /
+  > (d) a fingerprint of Sakai D_6 surface-type machinery (Route F)."
+
+  Implication: the −1/3 offset is the synth-named acceptance criterion
+  for any 069r3-* closure attempt. Routes B + D + F should all explain
+  it; whichever closes R1 must address it explicitly.
+
+### EXCERPT 2 -- 109-EXEC Route B FW pull-back verdict
+                  (22909fe handoff §verdict)
+
+  > "NO_GO_OFF_DEGENERATION: V_quad's image point (1/6, 0, 0, −1/2)
+  > sits OFF the JM 1981 Part I generic stratum that FW Prop 4.1 +
+  > eq (4.3) auxiliary Hamiltonian h = tH + (1/4)v_1^2 − (1/2)t pull-back
+  > targets. The pull-back is structurally well-defined on the generic
+  > stratum but degenerates at the V_quad image. Route B closes."
+
+  Implication: Route B is empirically closed at 109. The pull-back
+  mechanism cannot reach V_quad's parameter point because that point
+  is off the generic stratum.
+
+### EXCERPT 3 -- 110-EXEC Route D apparent verdict (PRE-DEMOTION)
+                  (d783c3e handoff §verdict)
+
+  > "GO_ROUTE_D_PARTIAL_VIA_FW: numerical extraction via
+  > jm_ueno_inversion_via_fw matches all 4 cited Hamiltonian
+  > parameters (1/6, 0, 0, −1/2) per-coordinate to >= 14 digits at
+  > dps 50. Route D supports Y_OKAMOTO_PARAMETER_EXTRACTION."
+
+  CAVEAT (UF-110-EXTRACTION-TAUTOLOGY MEDIUM): "Whether the 'EXACT
+  per-coord match' is genuine signal or a tautology depends on
+  whether jm_ueno_inversion_via_fw is a TRUE inversion of the
+  Lax-pair monodromy data (signal) or merely the IDENTITY map on
+  the cited values (tautology). Audit recommended."
+
+### EXCERPT 4 -- 111-EXEC extraction-tautology static audit verdict
+                  (7368310 handoff §verdict)
+
+  > "TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED (truth-table row 1).
+  > Phase A: jm_ueno_inversion_via_fw at lax_pair_solver.py L358-404
+  > is IDENTITY_ON_CITED — 4-of-4 RHS at L385-388 are direct
+  > assignments to module-level _CITED constants ETA_INF_CITED,
+  > ETA_0_CITED, THETA_INF_CITED, THETA_0_CITED. The function's
+  > stokes_data and monodromy_data parameters are referenced only
+  > via .keys() metadata enumeration; no value-side use. The
+  > function's own docstring at L380-386 records: 'the structural
+  > inversion is the IDENTITY on the relabel.' Phase B:
+  > pcf-research/vquad/scripts/jimbo_final.py:26 has
+  > S_num = mpf('0.43770528073458') as a HARDCODED string-literal
+  > mpf() constructor with no upstream computation; result JSON
+  > emits match=false closed_form=null. The script is
+  > DIAGNOSTIC, not a producer pipeline."
+
+  Implication: 110-EXEC's "EXACT per-coord match" carries ZERO
+  probative weight in 069r3 FINAL. Route D as fired at 110 is a
+  tautology-on-cited; it does NOT constitute independent
+  verification of V_quad's image being the cited Hamiltonian
+  parameter point.
+
+### EXCERPT 5 -- 105-EXEC §3.5.1 Okamoto-rename derivation outcome
+                  (0427c0a handoff §verdict)
+
+  > "Section §3.5.1 author-side rename adopted as TRIVIAL relabel
+  > alpha_X := eta_X / theta_X of Okamoto 1987 Hamiltonian
+  > parameters. Three candidate mechanisms recorded for the −1/3
+  > null-sum offset: (a) FW Prop 4.1 / eq (4.3) auxiliary Hamiltonian
+  > residual / (b) additive-shift fall-back c = −1/12 per coordinate /
+  > (c) Sakai surface-type artefact gated to Route F D_6^(1) machinery."
+
+  Implication: Route E precondition is discharged at TRIVIAL.
+  069r2 QB.3 Y_RENAME_REQUIRED is closed. Route E no longer blocks
+  any A/B/C/D/F path.
+
+### EXCERPT 6 -- 069r2 Round-1 verdict on Route D ceiling
+                  (108 verdict_summary.md L47-48)
+
+  > "Route D (best-case): VERIFICATION_PARALLEL only (hidden-circularity
+  > demotes from solo)."
+
+  Implication: 069r2 Round-1 already pre-warned that Route D's best-case
+  was VERIFICATION_PARALLEL — i.e., Route D could only ever serve as a
+  cross-check on a primary Route A/B/C path, not as a stand-alone
+  closure. 111-EXEC tautology audit retroactively supports this by
+  demonstrating Route D-as-fired at 110 lacks independent probative
+  content.
+
+### EXCERPT 7 -- Operator-side memory summary of `M6.CC affine Weyl framework`
+                  (NOT independently verified by synth; H5 absorption -- inlined
+                  for Claude.ai web which has no direct repo memory access)
+
+  Operator-summary (paraphrased, not verbatim from the memory store):
+
+  > "The M6.CC analysis works in the canonical-form Stokes-data
+  > framework W((2A_1)^(1)), an AFFINE Weyl group, embedded in
+  > W_a(B_2). This is NOT the v1.1 spec's W(D_6) FINITE-Weyl
+  > framework. The 058R Phase B.5 cross-walk anchored to NY 2004
+  > established the inclusion W((2A_1)^(1)) ⊂ W_a(B_2). The
+  > spec v1.2 amendment recommendation (UPGRADE_V1_0_PARTIAL_NUMERICAL
+  > 058R verdict, 2026-05-06) reframes the Stokes-data framework
+  > accordingly."
+
+  Implication for Route F: the Sakai D_6^(1) surface-type machinery
+  candidate is named in the K. Sakai 2001 + KNY 2017 §8.5
+  literature in the `D_6^(1)` notation (affine extension of D_6
+  finite-Weyl); the relation D_6^(1) ↔ W((2A_1)^(1)) ↔ W_a(B_2)
+  is part of the Sakai surface-type classification. Synth treats
+  this paragraph as OPERATOR-PROVIDED substrate (not independently
+  verified). Per HALT-S6: synth must NOT infer additional content
+  about the framework beyond what is here.
+
+============================================================
+§2 -- THE OPEN R1 (residual identified by 069r1, restated)
+============================================================
+
+The residual R1 of 058R's UPGRADE_V1_0_PARTIAL_NUMERICAL is the
+**chart-map** between:
+  * the SIARC-side (a_0, a_1, a_2) coordinates on the V_quad ->
+    P_III(D_6) canonical-form image (per CT v1.3 §3.5 four-tuple ->
+    KNY chart);
+  * the literature-side Painleve III parameter quadruple
+    (alpha_∞, alpha_0, beta_∞, beta_0) (per Okamoto 1987 §3
+    parametrisation, project rename via §3.5.1).
+
+V_quad's image: (1/6, 0, 0, −1/2). Required form (gap-side spec):
+
+  alpha_∞ = f_{α∞}(a_0, a_1, a_2)
+  alpha_0 = f_{α0}(a_0, a_1, a_2)
+  beta_∞  = f_{β∞}(a_0, a_1, a_2)
+  beta_0  = f_{β0}(a_0, a_1, a_2)
+
+with each f_* a closed-form polynomial (or rational) expression.
+−1/3 null-sum offset: V_quad's image violates Okamoto's
+alpha_∞ + alpha_0 + beta_∞ + beta_0 = 0 by exactly −1/3 (anomaly D2).
+
+============================================================
+§3 -- DECISION-FRAME UPDATE POST-EXECUTOR-CASCADE (Routes A-F)
+============================================================
+
+Status of each route after the 105 + 108a + 109 + 110 + 111 + 115
+cascade:
+
+  Route A -- IN-HAND Hamiltonian coefficient-matching
+    069r2 status:    UNDECIDABLE (pending H_III + H_D6^KNY paste)
+    Post-cascade:    Route E precondition now AVAILABLE/DISCHARGED via
+                      105-EXEC §3.5.1 Okamoto-rename derivation
+                      (TRIVIAL relabel); CORE Hamiltonian-display
+                      substrate (KNY 2017 §8.5.17 + Okamoto 1987 §1)
+                      still PENDING explicit paste (per N1 absorption)
+    Current verdict: NOT YET EXECUTOR-FIRED; substrate paste pending
+    Forward action:  draft 069r3-A executor envelope after Hamiltonian-
+                      display paste
+
+  Route B -- FW arXiv math-ph/0201051 + Okamoto 1987 §3
+    069r2 status:    UNDECIDABLE (ceiling PARTIAL_ROUTE_B_RENAME)
+    Post-cascade:    109-EXEC FIRED 2026-05-08; verdict
+                      NO_GO_OFF_DEGENERATION — V_quad image off the
+                      JM 1981 Part I generic stratum; FW Prop 4.1
+                      pull-back degenerates at the target point
+    Current verdict: CLOSED (NO_GO empirical)
+    Forward action:  none — Route B is closed at executor verification
+
+  Route C -- JM 1981 + Conte-Musette 2008 ILL/OA acquisition
+    069r2 status:    N-A premature
+    Post-cascade:    Becomes evaluable now that Route B is closed and
+                      Route D-as-fired has been demoted to zero
+                      probative weight (per M1 absorption).
+                      JM 1981 Part II specifically (Stokes data /
+                      monodromy parametrisation in raw form) may
+                      sidestep the off-degeneration issue at Route B
+    Current verdict: NOT YET EVALUATED; substrate-acquisition latency
+                      ~7-30 days (Tier 3 Springer paywalled)
+    Forward action:  candidate for Path-delta literature acquisition
+
+  Route D -- direct numerical chart-map fitting
+    069r2 status:    UNDECIDABLE (ceiling VERIFICATION_PARALLEL only;
+                      hidden-circularity demotes from solo)
+    Post-cascade:    110-EXEC fired with FW-mediated extraction
+                      (claimed GO_PARTIAL); 111-EXEC tautology audit
+                      retroactively demoted to ZERO probative weight
+                      (the extraction function is IDENTITY_ON_CITED
+                      module-level constants; no inversion content)
+    Current verdict: DEMOTED (probative weight = 0)
+    Forward action:  if Route D is to be re-tried, the
+                      extraction function needs a true inversion
+                      implementation (not the identity-on-cited
+                      tautology). Speculative 111-FOLLOWUP envelope
+                      sketched per 122 Phase E cascade-stub
+
+  Route E -- CT v1.3 §3.5 author-side rename derivation
+    069r2 status:    Y_RENAME_REQUIRED (binding precondition)
+    Post-cascade:    105-EXEC fired 2026-05-08; rename adopted as
+                      TRIVIAL relabel alpha_X := eta_X / theta_X;
+                      −1/3 offset attributed to 3 candidate mechanisms
+                      (FW Hamiltonian residual / additive shift /
+                       Sakai surface-type)
+    Current verdict: CLOSED (TRIVIAL relabel as v1.3 canonical)
+    Forward action:  none — Route E precondition discharged
+
+  Route F -- Sakai D_6^(1) surface-type machinery (PROMOTED from
+              HALT-S5 surfacing-risk into active A-F frame; was
+              named in 069r2 verdict_summary L52-58 + 105-EXEC
+              mechanism (c) hypothesis; H1+H2 absorbed)
+    069r2 status:    SURFACING RISK (HALT-S5: synth pre-committed to
+                      flag ROUTE_FRAME_INCOMPLETE if FW excerpts
+                      revealed Sakai D_6 surface-type machinery as
+                      the actual chart-map mechanism)
+    Post-cascade:    Route B NO_GO at 109 + Route D DEMOTED at 122
+                      create ELIMINATION PRESSURE consistent with
+                      Route F being the actual mechanism, AND
+                      105-EXEC mechanism (c) hypothesis gives
+                      −1/3 offset compatibility. NOTE: this is
+                      elimination-pressure + mechanism-hypothesis
+                      evidence; POSITIVE Sakai/KNY substrate
+                      establishing constructibility of the chart-map
+                      via D_6^(1) machinery is NOT yet inlined.
+                      Substrate available on operator paste:
+                      Sakai 2001 + KNY 2017 §8.5 affine D_6^(1)
+                      Weyl group machinery; affine W((2A_1)^(1))
+                      embedding per memory `M6.CC affine Weyl
+                      framework` (see EXCERPT 7 §1.5 below)
+    Current verdict: NOT YET EXECUTOR-FIRED; named candidate
+    Forward action:  draft 069r3-F executor envelope (Sakai-machinery
+                      surface-type chart-map fill)
+
+============================================================
+§4 -- SYNTH WEIGHING TASK (T1-Synth analytic-guidance request)
+============================================================
+
+The synth (Claude.ai web, T1-Synth tier) is asked to weigh the
+post-cascade decision frame and recommend the forward path. The
+synth is NOT asked to derive the chart-map; only to assess
+viability of the remaining routes (A / C / F) given that B and D
+are closed/demoted.
+
+The synth may request the operator paste additional excerpts on
+demand:
+  * KNY 2017 §8.5.17 H_D6^KNY explicit display (for Route A)
+  * Okamoto 1987 §1 H_III explicit display (for Route A)
+  * Sakai 2001 / Sakai 2007 surface-type machinery TOC + abstracts
+    (for Route F)
+  * JM 1981 Part II Stokes-data parametrisation (for Route C
+    if recommended)
+
+### SYNTH HALT CONDITIONS (mandatory acknowledgement)
+
+The synth MUST treat the following as halt conditions, returning
+the indicated UNDECIDABLE verdict rather than guessing:
+
+  HALT-S1  If asked to verify bridge SHA/content directly, state
+           NO_DIRECT_BRIDGE_ACCESS (synth has no bridge fs access
+           via Claude.ai web; substrate verification is excerpt-based).
+  HALT-S2  If a Route G-Z appears plausible (i.e., a sub-mechanism
+           not covered by Route A/B/C/D/E/F), report
+           ROUTE_FRAME_INCOMPLETE_AGAIN and name it; do NOT
+           silently fold into A-F.
+  HALT-S3  If asked to ratify the 111-EXEC tautology demotion of
+           Route D without the §1.5 EXCERPT 4 quoted text being
+           visible in this conversation, return UNDECIDABLE_DEMOTION
+           and request operator paste of the 7368310 phase_a_static_audit.md
+           verbatim text.
+  HALT-S4  Do NOT propose a new chart-map derivation directly;
+           the synth's role is path-recommendation, not derivation.
+           If tempted to offer a derivation, instead flag the
+           sub-mechanism as a candidate Route G and return
+           ROUTE_FRAME_INCOMPLETE_AGAIN.
+  HALT-S5  If FW excerpts (when pasted, if requested) reveal a
+           sub-mechanism or substrate-fragment not covered by
+           Routes A/C/F, return ROUTE_FRAME_INCOMPLETE_AGAIN
+           rather than retrofit into A-F. (Direct extension of
+           069r2 HALT-S5; this 069r3-FINAL adds Route F to the
+           frame, leaving G-Z as the new surfacing-risk slot.)
+
+### Q1 -- Route B closure ratification
+
+Per EXCERPT 2 (109-EXEC NO_GO_OFF_DEGENERATION), is Route B
+empirically closed?
+
+  Q1_RATIFY_B_CLOSED              -- Route B closure stands; the off-degeneration
+                                      finding is structurally well-anchored in
+                                      EXCERPT 2 + the FW Prop 4.1 +
+                                      eq (4.3) substrate. No re-fire candidate
+                                      within the pull-back framework.
+  Q1_PROVISIONAL_RATIFY_B_CLOSED  -- EXCERPT 2 is sufficient for cascade-control
+                                      purposes (treat Route B as closed for
+                                      forward-cascade dispatch decisions) but
+                                      not an independent FW source verification;
+                                      synth declares this caveat explicitly
+                                      (per M2 absorption — Q1 is more weakly
+                                      substrated than Q2).
+  Q1_DISPUTE_B_CLOSURE            -- synth identifies a sub-mechanism within
+                                      Route B that the 109-EXEC fire did not
+                                      try (e.g., a different FW pull-back
+                                      variant, or a Conte-Musette extension
+                                      of FW). Synth names the sub-mechanism
+                                      + its substrate.
+  Q1_UNDECIDABLE                  -- synth cannot ratify or dispute without
+                                      additional FW excerpts; operator
+                                      paste required.
+
+### Q2 -- Route D demotion ratification
+
+Per EXCERPT 4 (111-EXEC TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED), is
+Route D-as-fired at 110 correctly demoted to ZERO probative weight?
+
+  Q2_RATIFY_D_DEMOTED     -- the 111 static audit's IDENTITY_ON_CITED
+                              finding is decisive; the 110 fire's
+                              "EXACT per-coord match" carries no
+                              independent verification content.
+                              Route D-as-fired contributes 0 to the
+                              R1 closure cascade.
+  Q2_PARTIAL_RETENTION    -- the static audit demotes the EXTRACTION
+                              claim but some other portion of 110-EXEC
+                              (e.g., dps 50 vs 100 numerical-stability
+                              telemetry) may still carry probative
+                              content. Synth names what survives.
+  Q2_DISPUTE_DEMOTION     -- synth disputes that EXCERPT 4 is sufficient
+                              to demote ALL of 110-EXEC; e.g., identifies
+                              a non-tautological component of the 110
+                              pipeline that survives the static audit, OR
+                              requests source-context (full
+                              phase_a_static_audit.md verbatim per HALT-S3)
+                              before accepting the demotion. (M3 absorbed:
+                              the previous wording mentioning
+                              "IDENTITY_ON_CITED still constitutes
+                              verification" was a straw-man dispute; the
+                              real legitimate disputes are
+                              substrate-sufficiency or partial-pipeline
+                              survival concerns.)
+  Q2_UNDECIDABLE          -- synth cannot ratify or dispute without
+                              additional audit-substrate paste.
+
+### Q3 -- Route A status update (H3 absorbed: split into TO_PASTE vs
+###                                WITH_SUBSTRATE; anti-tautology checklist added)
+
+Per EXCERPT 5 (105-EXEC §3.5.1 trivial-relabel discharge of Route E),
+Route A's blocking precondition is now cleared. The remaining
+substrate gap is the Hamiltonian display paste (KNY 2017 §8.5.17 +
+Okamoto 1987 §1).
+
+**ANTI-TAUTOLOGY CHECKLIST for any Q3_GO_ROUTE_A sketch:**
+The synth MUST NOT use the target tuple (1/6, 0, 0, −1/2) or the
+cited V_quad image as a derivation INPUT. A valid Route A sketch
+must:
+  (i)   name the source Hamiltonian coefficients (from KNY 2017
+        §8.5.17 H_D6^KNY + Okamoto 1987 §1 H_III) as the inputs;
+  (ii)  name the SIARC-side variables (a_0, a_1, a_2) as the
+        derivation inputs (NOT the target image);
+  (iii) state where the f_α∞, f_α0, f_β∞, f_β0 closed-form
+        polynomial/rational expressions would emerge from the
+        coefficient match;
+  (iv)  state where (or via what mechanism) the −1/3 null-sum
+        offset would enter or be explained.
+This avoids the structural failure mode 111-EXEC demoted in Route D
+(IDENTITY_ON_CITED).
+
+  Q3_GO_ROUTE_A_TO_PASTE        -- with Route E discharged, Route A
+                                    remains the dominant zero-acquisition
+                                    candidate. Recommend operator paste
+                                    KNY 2017 §8.5.17 + Okamoto 1987 §1
+                                    Hamiltonian displays + agent fire
+                                    069r3-A executor at next dispatch.
+                                    Synth does NOT sketch
+                                    coefficient-matching obligations
+                                    (substrate insufficient for valid
+                                    sketch per anti-tautology checklist).
+  Q3_GO_ROUTE_A_WITH_SUBSTRATE  -- ONLY available if Hamiltonian
+                                    displays are visible in this
+                                    conversation (operator-pasted or
+                                    follow-up turn). Synth may then
+                                    sketch coefficient-matching
+                                    obligations strictly per the
+                                    anti-tautology checklist (i)-(iv).
+  Q3_NO_GO_ROUTE_A              -- Route A cannot close R1 because
+                                    (e.g.) the −1/3 null-sum offset
+                                    (EXCERPT 1) cannot be captured by
+                                    Hamiltonian coefficient matching alone;
+                                    the offset is a Sakai-surface artefact
+                                    (i.e., Route F). Synth states the
+                                    obstruction.
+  Q3_UNDECIDABLE_ROUTE_A        -- synth cannot evaluate without the
+                                    Hamiltonian-display paste; recommend
+                                    operator paste before re-firing this
+                                    question.
+
+### Q4 -- Route F surfacing assessment (H2 absorbed: distinguish
+###                                      elimination pressure from
+###                                      positive Sakai/KNY substrate)
+
+The 069r2 HALT-S5 surfacing risk has now been actively realised via
+ELIMINATION PRESSURE (Route B NO_GO + Route D DEMOTED) PLUS
+105-EXEC mechanism-(c) hypothesis attribution of −1/3 offset to
+Sakai surface-type. NOTE: this is elimination-pressure + hypothesis
+evidence; POSITIVE Sakai/KNY substrate establishing that Route F
+constructively yields the chart-map is NOT yet inlined.
+
+The synth MUST distinguish three sources of evidence in its Q4
+verdict reasoning:
+  (i)   ELIMINATION PRESSURE from B closed + D demoted;
+  (ii)  HYPOTHESIS COMPATIBILITY from 105-EXEC mechanism (c);
+  (iii) POSITIVE Sakai/KNY/D_6^(1) constructive substrate (NOT
+        yet inlined; available on operator paste per §10).
+
+Q4_GO_ROUTE_F requires evidence type (iii). Q4_HEDGE_ROUTE_F
+permits resting on (i) + (ii) when (iii) is pending.
+
+  Q4_GO_ROUTE_F           -- POSITIVE Sakai/KNY substrate (paste-side
+                              EXCERPT or §10 Route F mathematical
+                              content paste) supplies constructive D_6^(1)
+                              machinery for the chart-map AND addresses
+                              −1/3 offset structurally. Recommend agent
+                              draft 069r3-F executor envelope.
+  Q4_HEDGE_ROUTE_F        -- Elimination pressure (i) + mechanism (c)
+                              hypothesis (ii) make Route F plausible;
+                              positive substrate (iii) pending paste;
+                              synth recommends parallel draft of
+                              069r3-A AND 069r3-F envelopes (with
+                              priority order per Q6).
+  Q4_NO_GO_ROUTE_F        -- Route F is not the right framework;
+                              synth states why and recommends an
+                              alternative.
+  Q4_UNDECIDABLE_ROUTE_F  -- synth cannot evaluate without Sakai
+                              substrate paste (per §10 Route F protocol).
+
+### Q5 -- Path-delta (literature acquisition) recommendation
+
+If Q3 = NO_GO_ROUTE_A AND Q4 = NO_GO_ROUTE_F, the remaining options
+are Route C (literature acquisition) or governance-defer (umbrella
+v2.x M9-V0-with-PARTIAL_NUMERICAL caveat).
+
+  Q5_GO_PATH_DELTA_C1     -- JM 1981 Physica D Parts I-III via
+                              ILL/OA acquisition
+  Q5_GO_PATH_DELTA_C2     -- CM 2008 1st ed via ILL/OA acquisition
+  Q5_GO_PATH_DELTA_C3     -- Hybrid: JM 1981 Part II + Okamoto 1987
+                              + Sakai 2001
+  Q5_GO_GOVERNANCE_C4     -- Defer M6.CC R1 closure to v1.1 cycle;
+                              ship M9 V0 with PARTIAL_NUMERICAL
+                              caveat per 097 disposition list
+  Q5_N_A                  -- not applicable (Q3 or Q4 gave a GO)
+
+### Q6 -- Forward-cascade priority recommendation
+
+Given Q3 + Q4 + Q5 outcomes, what is the synth's recommended
+firing order for the next round of dispatches?
+
+  PRIORITY_1: [route name + envelope ID, e.g. 069r3-A or 069r3-F]
+  PRIORITY_2: [route name, parallel-fire candidate]
+  PRIORITY_3: [route name, fallback]
+  GOVERNANCE_PARALLEL: [Y/N — whether to also queue the v1.1-defer
+                         decision per Q5_C4 in parallel as a safety
+                         valve]
+
+### Q7 -- −1/3 offset acceptance criterion
+
+Per 069r2 EXCERPT 1 + 069r3 SQL todo
+`069r3-acceptance-criterion-minus-third-offset`, the −1/3 null-sum
+offset is to be a named acceptance criterion for ANY 069r3-* closure
+attempt.
+
+  Q7_RATIFY_AC            -- the synth retains the −1/3 offset
+                              acceptance criterion as standing
+                              for Route A, Route F, AND any later
+                              Route C chart-map closure attempt
+                              (per M4 absorption).
+  Q7_REFINE_AC            -- the synth proposes a refined acceptance
+                              criterion (e.g., must address the
+                              offset via mechanism (a), (b), or (c)
+                              of 105-EXEC; or must show consistency
+                              with QD-5 audit findings of 115-EXEC).
+  Q7_RETRACT_AC           -- the synth argues the −1/3 offset is no
+                              longer the most informative substrate
+                              clue (e.g., supplanted by some other
+                              cascade-discovered structural feature).
+
+### Q8 -- Confidence + caveats
+
+Synth confidence on Q1 verdict:        HIGH / MEDIUM / LOW
+Synth confidence on Q2 verdict:        HIGH / MEDIUM / LOW
+Synth confidence on Q3 verdict:        HIGH / MEDIUM / LOW
+Synth confidence on Q4 verdict:        HIGH / MEDIUM / LOW
+Synth confidence on Q5 verdict:        HIGH / MEDIUM / LOW / N-A
+Synth confidence on Q6 priority:       HIGH / MEDIUM / LOW
+Synth confidence on Q7 verdict:        HIGH / MEDIUM / LOW
+Any caveats / uncertainties:           free text
+
+============================================================
+§5 -- EXIT CRITERIA / VERDICT TEMPLATE
+============================================================
+
+Synth returns a verdict packet in this format (paste-ready for
+agent absorption):
+
+```
+RELAY_069R3_FINAL_SYNTHESIS_VERDICT
+====================================
+Synth ID:            <Claude.ai web session label>
+Verdict timestamp:   <YYYY-MM-DD HH:MM JST>
+
+Substrate SHA status:
+  Agent pre-flight rev-parse accepted from envelope §1: Y / N / UNCLEAR
+  Synth independently verified bridge content:          N -- no direct
+                                                            bridge access
+  Substrate excerpts actually used by synth:            [list which of
+                                                         §1.5 EXCERPTS
+                                                         1-6 + any
+                                                         operator-pasted
+                                                         additional]
+
+Synth halt conditions acknowledged (HALT-S1 through HALT-S5): Y / N
+
+Namespace discipline acknowledged (Route A-F Latin labels;
+  069r1 Greek alpha/beta/gamma/delta reserved;
+  Route F surfaced explicitly per HALT-S5 promotion): Y / N
+
+Q1 -- Route B closure ratification
+  Verdict:    Q1_RATIFY_B_CLOSED / Q1_DISPUTE_B_CLOSURE / Q1_UNDECIDABLE
+  Reasoning (1-3 paras):                    [synth fills in]
+
+Q2 -- Route D demotion ratification
+  Verdict:    Q2_RATIFY_D_DEMOTED / Q2_PARTIAL_RETENTION /
+              Q2_DISPUTE_DEMOTION / Q2_UNDECIDABLE
+  Reasoning (1-3 paras):                    [synth fills in]
+
+Q3 -- Route A status update
+  Verdict:    Q3_GO_ROUTE_A / Q3_NO_GO_ROUTE_A / Q3_UNDECIDABLE_ROUTE_A
+  Sketch (1-3 paras, only if Q3_GO_ROUTE_A): [synth identifies which
+                                               Hamiltonian-display
+                                               equations supply which
+                                               f_α∞, f_α0, f_β∞, f_β0
+                                               components, and how the
+                                               −1/3 offset is captured]
+  Reasoning (1-3 paras):                    [synth fills in]
+
+Q4 -- Route F surfacing assessment
+  Verdict:    Q4_GO_ROUTE_F / Q4_HEDGE_ROUTE_F / Q4_NO_GO_ROUTE_F /
+              Q4_UNDECIDABLE_ROUTE_F
+  Reasoning (1-3 paras):                    [synth fills in; tie to
+                                               −1/3 offset mechanism
+                                               (c) per 105-EXEC]
+
+Q5 -- Path-delta (literature acquisition) recommendation
+  Verdict:    Q5_GO_PATH_DELTA_C1 / Q5_GO_PATH_DELTA_C2 /
+              Q5_GO_PATH_DELTA_C3 / Q5_GO_GOVERNANCE_C4 / Q5_N_A
+  Reasoning (1-3 paras / N-A):              [synth fills in]
+
+Q6 -- Forward-cascade priority recommendation
+  PRIORITY_1:                               [route name + envelope ID]
+  PRIORITY_2:                               [route name + envelope ID]
+  PRIORITY_3:                               [route name + envelope ID]
+  GOVERNANCE_PARALLEL:                      Y / N
+  Reasoning (2-5 paras):                    [synth fills in]
+
+Q7 -- −1/3 offset acceptance criterion
+  Verdict:    Q7_RATIFY_AC / Q7_REFINE_AC / Q7_RETRACT_AC
+  Refined criterion (only if Q7_REFINE_AC): [synth states refined form]
+  Reasoning (1-3 paras):                    [synth fills in]
+
+Q8 -- Confidence
+  Q1 confidence:       HIGH / MEDIUM / LOW
+  Q2 confidence:       HIGH / MEDIUM / LOW
+  Q3 confidence:       HIGH / MEDIUM / LOW
+  Q4 confidence:       HIGH / MEDIUM / LOW
+  Q5 confidence:       HIGH / MEDIUM / LOW / N-A
+  Q6 priority confidence: HIGH / MEDIUM / LOW
+  Q7 confidence:       HIGH / MEDIUM / LOW
+  Caveats:             [free text]
+
+Rubber-duck QA acknowledged: [Y / N -- noting whether the agent
+                               dispatched a pre-fire QA pass on
+                               this 112 envelope before paste]
+====================================
+```
+
+============================================================
+§6 -- DELIVERABLES (agent absorbs synth verdict in follow-on session)
+============================================================
+
+After synth returns the §5 verdict packet, the agent fires a
+follow-on bridge session `T1-SYNTH-069R3-FINAL-VERDICT-ABSORPTION-NNN/`
+(NNN = next sequential bridge ID; pin at dispatch time).
+
+  1. handoff.md
+  2. synth_verdict_capture.md (verbatim §5 verdict block)
+  3. cascade_record.md (SQL state changes; cascade depends on verdict
+                         per branch table below)
+  4. claims.jsonl (>= 8 AEAL entries, naming-convention NNN-CN)
+  5. halt_log.json (envelope-halt floor >= 5)
+  6. discrepancy_log.json
+  7. unexpected_finds.json
+
+### Cascade-by-verdict branch table (B1 absorbed: precedence rewritten
+###                                    -- disputes / partial-retention >
+###                                    substrate-paste UNDECIDABLE >
+###                                    parallel-hedge > single-route GO >
+###                                    path-delta / governance fallback)
+
+**TIER 0 -- DISPUTES / PARTIAL-RETENTION (highest precedence):**
+
+If Q1 = Q1_DISPUTE_B_CLOSURE OR Q2 = Q2_DISPUTE_DEMOTION:
+  → HALT cascade; flag for operator review; do NOT queue ANY
+     A/F/C/governance dispatch until dispute is resolved (likely via
+     additional executor audit OR substrate-context paste per HALT-S3).
+  → SQL: `069r3-final-synthesis-dispute-resolution` → pending
+  → Synth verdict deposit still LANDS, but no downstream cascade.
+
+If Q2 = Q2_PARTIAL_RETENTION:
+  → do NOT treat Route D as fully closed-zero until the surviving
+     pipeline component is classified (operator records what part of
+     110-EXEC survives the static audit and whether it affects A/F/C
+     priority).
+  → SQL: `069r3-d-partial-retention-classification` → pending
+  → Continue evaluating TIER 1+ branches AS IF Route D were demoted
+     (the conservative/safety case), but flag the partial-retention
+     re-evaluation as a parallel governance step.
+
+**TIER 1 -- SUBSTRATE-PASTE UNDECIDABLE (M5 absorbed: explicit pointer
+            to §10 substrate-paste protocol):**
+
+If Q3 = Q3_UNDECIDABLE_ROUTE_A OR Q4 = Q4_UNDECIDABLE_ROUTE_F OR
+   Q5 = Q5_UNDECIDABLE (where applicable):
+  → enter §10 substrate-paste protocol for the specific undecidable
+     question(s); operator pastes requested substrate; agent re-fires
+     the undecidable question(s) only.
+  → Do NOT queue route dispatch todos as pending until the re-fire
+     resolves the undecidable verdict to a non-undecidable bin.
+  → If a NON-UNDECIDABLE parallel route is explicitly GO (e.g., Q3
+     UNDECIDABLE but Q4 = Q4_GO_ROUTE_F), the GO route may proceed
+     to TIER 3 evaluation in parallel.
+
+**TIER 2 -- PARALLEL HEDGE (Q4_HEDGE_ROUTE_F semantics; B1 ambiguity
+            resolved):**
+
+If Q4 = Q4_HEDGE_ROUTE_F AND Q3 = Q3_GO_ROUTE_A_TO_PASTE OR
+   Q3 = Q3_GO_ROUTE_A_WITH_SUBSTRATE:
+  → draft BOTH `113_t2_069r3_route_a_*` (PRIMARY -- zero acquisition
+     cost; lower latency) AND `114_t2_069r3_route_f_*` (PARALLEL --
+     positive substrate paste required before fire).
+  → SQL: BOTH `069r3-route-a-executor-dispatch` + `069r3-route-f-sakai-machinery-dispatch`
+     → pending.
+
+If Q4 = Q4_HEDGE_ROUTE_F AND Q3 = Q3_UNDECIDABLE_ROUTE_A:
+  → draft BOTH route envelopes; Route F is PARALLEL pending Sakai
+     paste; Route A is PARALLEL pending Hamiltonian paste.
+  → SQL: BOTH dispatch todos → pending; both gated on §10
+     substrate paste re-fires.
+
+If Q4 = Q4_HEDGE_ROUTE_F AND Q3 = Q3_NO_GO_ROUTE_A:
+  → do NOT draft Route A (Q3 explicitly says A cannot close R1).
+     Either draft Route F SOLO (if Q4 reasoning supports) OR
+     request synth clarification on whether HEDGE was conditional
+     on Q3 ≠ NO_GO.
+  → SQL: `069r3-route-f-sakai-machinery-dispatch` → pending;
+     `069r3-final-synthesis-hedge-clarification` → pending if
+     synth clarification needed.
+
+**TIER 3 -- SINGLE-ROUTE GO (only if TIERS 0/1/2 do not apply):**
+
+If Q3 ∈ {Q3_GO_ROUTE_A_TO_PASTE, Q3_GO_ROUTE_A_WITH_SUBSTRATE} AND
+   Q4 ∉ {Q4_GO_ROUTE_F, Q4_HEDGE_ROUTE_F}:
+  → draft `113_t2_069r3_route_a_in_hand_hamiltonian_matching.txt`
+     queued for next dispatch slot (KNY + Okamoto Hamiltonian-display
+     paste required as substrate, per Q3 anti-tautology checklist).
+  → SQL: `069r3-final-synthesis-prompt-draft` → done
+        `069r3-route-a-executor-dispatch` → pending
+
+If Q3 ∉ {Q3_GO_ROUTE_A_TO_PASTE, Q3_GO_ROUTE_A_WITH_SUBSTRATE} AND
+   Q4 = Q4_GO_ROUTE_F:
+  → draft `113_t2_069r3_route_f_sakai_d6_surface_type_machinery.txt`
+     queued for next dispatch slot (Sakai 2001 + KNY 2017 §8.5
+     positive substrate paste already provided in Q4 reasoning).
+  → SQL: `069r3-route-f-sakai-machinery-dispatch` → pending
+
+**TIER 4 -- PATH-DELTA / GOVERNANCE FALLBACK (only if TIERS 0/1/2/3
+            all decline a positive route GO):**
+
+If Q3 = Q3_NO_GO_ROUTE_A AND Q4 = Q4_NO_GO_ROUTE_F AND
+   Q5 ∈ {Q5_GO_PATH_DELTA_C1, Q5_GO_PATH_DELTA_C2, Q5_GO_PATH_DELTA_C3}:
+  → queue lit-hunt acquisition prompt for the named JM 1981 / CM 2008 /
+     Sakai 2001 segments per repo memory
+     `Bibliographic identifier pre-verification` (pre-resolve DOI +
+     arXiv IDs before fire).
+  → SQL: `path-delta-literature-acquisition-dispatch` → pending.
+  → Q7 acceptance criterion (−1/3 offset) extends to Path-delta /
+     Route C closure attempts per Q7_RATIFY_AC binding.
+
+If Q3 = Q3_NO_GO_ROUTE_A AND Q4 = Q4_NO_GO_ROUTE_F AND Q5 = Q5_GO_GOVERNANCE_C4:
+  → escalate to umbrella v2.x M9-V0-with-PARTIAL_NUMERICAL-caveat
+     decision (operator-side governance call); draft amendment
+     prompt for umbrella v2.1 incorporating the PARTIAL_NUMERICAL
+     caveat.
+  → SQL: `umbrella-v21-m9-v0-partial-numerical-caveat-amendment` → pending.
+
+============================================================
+§7 -- PHASE D / E / F SCANS (mandatory at deposit time)
+============================================================
+
+Phase D -- forbidden-verb scan (16-verb regex; same pattern as §STEP 0.3)
+  Pattern: \b(shows|confirms|proves|demonstrates|establishes|verifies|verified|validates|validated|corroborates|corroborated|certifies|certified|settles|settled|discharges|ratifies)\b
+  Permitted: verb-list-as-data (098-J3); checklist meta-references
+             (075-J2); quoted substrate; computation-output telemetry;
+             SHA / checksum / rev-parse telemetry; finding-summary
+             references.
+  Mitigation: substrate-prose hits → soften verb (e.g., "is
+              consistent with", "indicates", "supports", "suggests",
+              "is compatible with").
+
+Phase E -- verbatim-quote-length scan
+  Any verbatim quoted substrate block > 50 words requires
+  paraphrase-or-segment treatment per quote-length discipline.
+
+Phase F -- SHA pre-flight (re-run at deposit time)
+  Re-verify all SHAs cited in deliverables via git rev-parse.
+  Any rev-parse failure at deposit time → HALT_112_DEPOSIT_SHA_MISMATCH.
+
+============================================================
+§8 -- RUBBER-DUCK PRE-FIRE QA (RUN 2026-05-08; 1 BLOCKING + 5 HIGH +
+        6 MEDIUM + 2 NICE_TO_HAVE absorbed inline)
+============================================================
+
+Per repo memory `rubber-duck QA discipline` + triple-vindication
+threshold reached (068 Phase A.0 supersession-gate vindication
+2026-05-06 + 069r2 namespace-collision catch 2026-05-08 morning
++ 111 v1->v2 full rewrite 2026-05-08 per UF-121-5):
+
+This 112 envelope received a pre-fire rubber-duck QA pass on
+2026-05-08 ~19:00 JST. The QA returned 14 findings (1 BLOCKING +
+5 HIGH + 6 MEDIUM + 2 NICE_TO_HAVE). All BLOCKING + HIGH +
+applicable MEDIUM findings absorbed inline.
+
+### BLOCKING (1 -- absorbed)
+
+**B1**: §6 cascade-table precedence conflicts + orphan verdict
+combinations (Q1_DISPUTE × Q3=GO; Q2_PARTIAL_RETENTION;
+Q3_UNDECIDABLE × Q4_UNDECIDABLE; Q4_HEDGE × Q3=NO_GO).
+ABSORPTION: §6 fully rewritten with TIER 0/1/2/3/4 precedence
+structure (disputes/partial > substrate-paste UNDECIDABLE >
+parallel-hedge > single-route GO > path-delta/governance).
+Q4_HEDGE_ROUTE_F semantics resolved per Q3 status.
+
+### HIGH (5 -- all absorbed)
+
+**H1**: "Route F named here for the first time" conflicted with
+EXCERPT 1 + EXCERPT 5 already containing "(Route F)".
+ABSORPTION: Namespace note + Route F status reframed as
+"PROMOTED FROM HALT-S5 surfacing-risk INTO active A-F frame for
+the first time" (Route F was named as risk in 069r2; 105-EXEC
+mechanism (c) hypothesis; this 112 promotes to synth-weighable).
+
+**H2**: Route F status framed too affirmatively from weak inlined
+substrate. ABSORPTION: §3 Route F + Q4 reasoning reframed to
+distinguish (i) ELIMINATION PRESSURE from B/D failures, (ii)
+HYPOTHESIS COMPATIBILITY from 105-EXEC mechanism (c), (iii)
+POSITIVE Sakai/KNY constructive substrate (NOT yet inlined).
+Q4_GO_ROUTE_F now requires evidence type (iii); Q4_HEDGE_ROUTE_F
+permits resting on (i)+(ii) when (iii) is pending.
+
+**H3**: Q3 GO_ROUTE_A risked tautological "sketches" without
+Hamiltonian display paste. ABSORPTION: Q3 split into
+Q3_GO_ROUTE_A_TO_PASTE (synth does NOT sketch; pasting required
+first) vs Q3_GO_ROUTE_A_WITH_SUBSTRATE (synth may sketch ONLY if
+displays visible in conversation). 4-item ANTI-TAUTOLOGY
+CHECKLIST added: synth must NOT use target tuple as derivation
+input; must name source coefficients + SIARC-side variables +
+where f_* emerge + how −1/3 offset enters.
+
+**H4**: §10 substrate-paste protocol for Route F under-scoped
+(TOC + abstract insufficient). ABSORPTION: §10 Route F protocol
+strengthened to request actual mathematical content (Sakai
+surface-type classification passage for D_6^(1) / P_III(D_6),
+parameter/root-variable relations or affine Weyl actions, KNY
+§8.5 passages tying P_III(D_6) Hamiltonian variables/parameters
+to affine D_6^(1) surface or W((2A_1)^(1)) machinery, explicit
+formulas for parameter shifts or null-sum constraints).
+
+**H5**: Memory `M6.CC affine Weyl framework` referenced but
+content not inlined; Claude.ai web cannot use repo memory.
+ABSORPTION: EXCERPT 7 inlined in §1.5 with operator-summary
+of memory content; HALT-S6 added to forbid synth from inferring
+memory content beyond what is inlined.
+
+### MEDIUM (6 -- 5 absorbed; 1 deferred)
+
+**M1**: Route C status "Routes B + D are closed" → corrected to
+"Route B closed and Route D-as-fired demoted to zero probative
+weight" (D is demoted, not closed).
+
+**M2**: Q1 ratification framing — added Q1_PROVISIONAL_RATIFY_B_CLOSED
+bin distinguishing "cascade-control acceptable" from
+"independent FW source verification".
+
+**M3**: Q2_DISPUTE_DEMOTION example was straw-man; replaced
+with substantive dispute paths (substrate-sufficiency,
+partial-pipeline survival).
+
+**M4**: Q7 acceptance-criterion binding extended to Route C in
+addition to Route A + Route F.
+
+**M5**: §6 Tier 1 explicitly points to §10 substrate-paste
+protocol for UNDECIDABLE branches.
+
+**M6** (DEFERRED): Future "~22:30 JST" timestamp for 111 v1→v2
+rewrite removed; replaced with date-only reference.
+
+### NICE_TO_HAVE (2 -- 1 absorbed; 1 deferred)
+
+**N1**: Route A "SUBSTRATE NOW AVAILABLE" softened to
+"Route E precondition now AVAILABLE/DISCHARGED; CORE Hamiltonian-
+display substrate still PENDING".
+
+**N2** (DEFERRED): SHA pre-flight placeholders kept as
+operator-side metadata format (agent re-confirms full hash at
+dispatch; placeholder format is intentional for cascade-pre-fire
+template alignment).
+
+### NEW HALT CONDITION ADDED (per H5 absorption)
+
+**HALT-S6**: If asked about repo `M6.CC affine Weyl framework`
+memory content beyond what is inlined in EXCERPT 7, return
+NO_DIRECT_MEMORY_ACCESS and request operator paste of additional
+memory content. The synth has NO direct repo memory access via
+Claude.ai web; treat EXCERPT 7 as operator-provided substrate,
+not independently verified fact.
+
+============================================================
+§9 -- CROSS-REFERENCES
+============================================================
+
+Memory references:
+  `substrate verification`              -- pre-flight git rev-parse
+                                            discipline
+  `rubber-duck QA discipline`           -- triple-vindication threshold;
+                                            recommend QA pass before
+                                            dispatch
+  `prompt drafting discipline`          -- supersession-gate Phase 0
+                                            STEP 0.1-0.6 pattern
+  `M6.CC affine Weyl framework`         -- W((2A_1)^(1)) embedding in
+                                            W_a(B_2); informs Route F
+  `Bibliographic identifier pre-verification`
+                                        -- pre-resolve DOI/arXiv IDs
+                                            before any Path-delta
+                                            lit-hunt fires
+  `parallel-CLI fire collision pattern` -- A_CEDE_TO_HEAD pattern if
+                                            another agent dispatches
+                                            069r3-FINAL in parallel
+
+Verdict cross-references:
+  069r1 NO_GO_SUBSTRATE_INSUFFICIENT     (601500b)
+  069 PERSIST UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST
+                                          (05810a2)
+  058R UPGRADE_V1_0_PARTIAL_NUMERICAL    (2eb9b28)
+  075 STRUCTURAL_MISMATCH 7/7            (5137155)
+  097 PARTIAL_INSUFFICIENT_DATA          (c0619a5)
+  104 peer-consult Q6 unanimous          (W21 LANE-1 priority)
+
+SQL todos influenced by this verdict (pin in §6 cascade record):
+  Closed by GO outcome:
+    `069r3-final-synthesis-prompt-draft`
+    `w21-lane1-069r2-path-gamma-decision`
+  Opened by GO_ROUTE_A:
+    `069r3-route-a-executor-dispatch`
+  Opened by GO_ROUTE_F:
+    `069r3-route-f-sakai-machinery-dispatch`
+  Opened by HEDGE_ROUTE_F:
+    BOTH route-a + route-f dispatch todos
+  Opened by Path-delta:
+    `path-delta-literature-acquisition-dispatch`
+  Opened by C4 governance-defer:
+    `umbrella-v21-m9-v0-partial-numerical-caveat-amendment`
+  Carry-forward (regardless):
+    `069r3-acceptance-criterion-minus-third-offset` (folded into
+                                                       Route A + F
+                                                       drafts)
+    `m9-v0-deposit-mechanics-pre-stage`             (depends on
+                                                       R1 closure)
+
+============================================================
+§10 -- AGENT-SIDE SUBSTRATE PASTE PROTOCOL (if synth requests)
+============================================================
+
+If the synth returns UNDECIDABLE on any of Q3 / Q4 / Q5, the agent
+re-issues a follow-up turn with the requested substrate paste:
+
+  REQUEST: KNY 2017 §8.5.17 H_D6^KNY display
+  PROTOCOL: agent reads pcf-research/literature/kny_2017_painleve_book.pdf
+            (or equivalent OA acquisition); pastes equations 8.237 - 8.239
+            (or surrounding 30 lines) verbatim; re-fires Q3 only.
+
+  REQUEST: Okamoto 1987 §1 H_III display
+  PROTOCOL: agent reads pcf-research/literature/okamoto_1987_painleveiii.pdf
+            (slot 07 substrate); pastes the H_III Hamiltonian equation
+            (typically Okamoto §1 eq (1.4) or thereabouts) + the
+            standing assumption gamma*delta != 0 statement; re-fires
+            Q3 only.
+
+  REQUEST: Sakai 2001 / Sakai 2007 surface-type passages for Route F
+           mechanism (c) -- mathematical content, NOT just TOC/abstract
+  PROTOCOL: agent reads pcf-research/literature/sakai_2001_painleve_surfaces.pdf
+            (and 2007 follow-up if available); pastes -- in priority
+            order if pagecount permits --
+              (i)  the surface-type classification passage that
+                   identifies the P_III(D_6) symmetry surface
+                   D_6^(1) (typically Sakai 2001 Table 1 / §3 rank-2
+                   classification + the row(s) attaching D_6^(1)
+                   surface type to P_III(D_6));
+              (ii) the parameter/root-variable relation OR the
+                   affine Weyl action W(D_6^(1)) on parameter space
+                   (formula block; typically a translation lattice
+                   or simple-reflection-on-parameter display);
+              (iii) any KNY 2017 §8.5 passage tying the
+                    P_III(D_6) Hamiltonian (a_0, a_1, a_2)
+                    variables / parameters to either the
+                    D_6^(1) surface or the W((2A_1)^(1))
+                    long-root subgroup machinery (058R Phase B.5
+                    cross-walk anchor);
+              (iv) any explicit formula or constraint expressing
+                   how parameter shifts, null-sum constraints,
+                   or fixed-point loci arise from the affine Weyl
+                   action on (eta_inf, eta_0, theta_inf, theta_0)
+                   coordinates -- this is the load-bearing
+                   substrate for evaluating mechanism (c).
+            If pagecount forces a choice, prioritise (i) + (ii)
+            over (iii) + (iv); re-fires Q4 only.
+
+            HALT note: TOC + abstract alone are NOT sufficient
+            substrate for mechanism (c) evaluation. If the agent
+            can paste only TOC + abstract due to acquisition
+            constraints, the agent must surface this as a
+            substrate-insufficient flag and synth must NOT
+            elevate Route F mechanism (c) status on TOC-only
+            evidence (per HALT-S5 surfacing-vs-substantiation
+            distinction).
+
+  REQUEST: JM 1981 Part II Stokes-data parametrisation
+  PROTOCOL: agent reads pcf-research/literature/jm_1981_part2.pdf
+            (if acquired; if not, dispatches Tier 3 acquisition);
+            pastes §2 or §3 parametrisation block; re-fires Q5 only.
+
+  REQUEST: 7368310 phase_a_static_audit.md verbatim
+  PROTOCOL: agent reads
+            siarc-relay-bridge/sessions/2026-05-08/T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-122/phase_a_static_audit.md
+            verbatim; pastes; re-fires Q2 only.
+
+============================================================
+END OF RELAY 112 ENVELOPE
+============================================================
