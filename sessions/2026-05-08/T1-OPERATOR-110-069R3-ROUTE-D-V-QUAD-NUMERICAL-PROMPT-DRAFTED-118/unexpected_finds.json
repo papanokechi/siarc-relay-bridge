@@ -1,0 +1,43 @@
+{
+  "envelope_id": "T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-PROMPT-DRAFTED-118",
+  "fire_date": "2026-05-08",
+  "session_dir": "sessions/2026-05-08/T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-PROMPT-DRAFTED-118/",
+  "unexpected_finds": [
+    {
+      "id": "UF-118-1",
+      "title": "Parallel-CLI 108a-EXEC landing under namespace alias during 109/110 drafting",
+      "severity": "INFO",
+      "category": "process-observation",
+      "description": "Bridge HEAD advanced ee041bf -> 37827f8 during prompt 110 drafting. Inspection indicates 37827f8 is the parallel-CLI 108a-EXEC deposit at session T1-OPERATOR-CT-V131-3.5.1-R1A-AMENDMENT-VQUAD-CAVEAT-117. The directory name 117 (numerically aliased with my 109 deposit's directory name -117 suffix) caused namespace-alias coexistence; different folder names = no filesystem collision per repo memory parallel-CLI fire collision pattern. My session 118 deposit name uses unique -118 suffix tied to prompt 110 draft scope. The 108a-EXEC landing at 37827f8 SATISFIES the G1 hard precondition for prompts 109 + 110 envelope dispatch; both envelopes are now dispatch-ready.",
+      "implication": "108a-EXEC has landed; 109 + 110 envelope dispatch is now structurally unblocked at G1 (HALT-110-1 / HALT-109-1). Operator can proceed with 109/110 fires.",
+      "action_required": "RESOLVED_BY_HEAD_ADVANCE — no follow-up needed; cascade staging complete.",
+      "anchor_sha": "37827f8"
+    },
+    {
+      "id": "UF-118-2",
+      "title": "KNY 2017 §8.5.17 substrate availability uncertain at fire time",
+      "severity": "INFO",
+      "category": "substrate-availability",
+      "description": "Prompt 110 specifies KNY 2017 §8.5.17 Lax pair (eqs. 8.237-8.239) as primary substrate at G3 hard halt, with three sub-cases for fallback: G3.a fully on disk -> proceed with KNY-canonical; G3.b partially on disk -> Phase B.1 reads available portion + cross-references 058R B.3 carry-forward; G3.c absent on disk -> SOFT-HALT HALT-110-3 NEEDS_LIT_KNY_8_5_17 with deposit of partial-substrate verdict GO_ROUTE_D_PARTIAL_NO_KNY. The actual on-disk status of KNY 2017 §8.5.17 was not pre-checked at envelope draft time. Agent must self-determine at fire time per Phase A.1 substrate readback.",
+      "implication": "If G3.c branch fires, 110 produces a soft-halt verdict requiring lit-hunt followup before re-attempting. Probability of G3.c branch is unknown; prior substrate carry-forward via 058R B.3 is the risk-mitigant.",
+      "action_required": "OPERATOR-DEFERRED — agent self-resolves at Phase A.1; envelope handles all 3 sub-cases.",
+      "anchor_paths": [
+        "literature/g3b_2026-05-03/ (candidate location)",
+        "siarc-relay-bridge/sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md (058R B.3 carry-forward path)"
+      ]
+    },
+    {
+      "id": "UF-118-3",
+      "title": "UF-115-3 Okamoto degeneracy (eta_0=0 at V_quad image) explicitly guarded in prompt 110 envelope",
+      "severity": "INFO",
+      "category": "envelope-design",
+      "description": "Prompt 110 Phase A.5 Okamoto degeneracy substrate-document is built directly into the envelope to address the audit-surfaced UF-115-3 finding (V_quad image entry eta_0 = 0 violates Okamoto §1 standing assumption gamma·delta != 0 for P_III(D_6); cf. 115 audit_verdict.md UF-115-3). Phase A.5 instructs agent to write substrate/okamoto_degeneracy_handling.md documenting how the JM-Ueno isomonodromic inversion procedure handles the eta_0=0 boundary in three sub-cases: (i) limiting-procedure analysis from a regularized neighborhood, (ii) coordinate-system shift to alpha-parameters per 105 §3.5.1, (iii) explicit declaration of failure if neither (i) nor (ii) suffices. This is documentation-only at Phase A.5; the actual numerical resolution emerges at Phase D inversion.",
+      "implication": "If Okamoto degeneracy is structurally unhandle-able (sub-case iii), Route D produces NO_GO_PER_COORD_MISMATCH at the eta_0 entry. This is a known failure mode pre-anticipated by the envelope; not blocking for envelope dispatch.",
+      "action_required": "ENVELOPE-INTERNAL — handled at Phase A.5 + Phase D inversion; no operator action required.",
+      "anchor_paths": [
+        "siarc-relay-bridge/sessions/2026-05-08/T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD-115/audit_verdict.md (UF-115-3 origin)",
+        "tex/submitted/control center/prompt/110_069r3_route_d_v_quad_numerical_extraction.txt (Phase A.5 spec)"
+      ]
+    }
+  ]
+}

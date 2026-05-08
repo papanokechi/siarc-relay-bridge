@@ -1,0 +1,490 @@
+============================================================
+TASK: T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-EXTRACTION
+TIER: T2 numerical (Lax-pair solver + Stokes-data extraction +
+      JM-Ueno isomonodromic inversion → Hamiltonian parameters)
+DRAFTED: 2026-05-08 ~16:30 JST
+SUBSTRATE-ANCHOR: 069r3 round-3 QD verdict R1
+                  (bridge sessions/2026-05-08/T1-SYNTH-069R2-QD-ROUND3-VERDICT-ABSORPTION-113/
+                   verdict_round3_qd_full.txt at HEAD ee041bf)
+                  + 115 audit verdict R1 at MEDIUM-HIGH confidence
+                  (sessions/2026-05-08/T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD-115/audit_verdict.md)
+                  + 105 §3.5.1 Okamoto rename canonical at HEAD 0427c0a
+                  + 108a-EXEC R1a small amendment (V_quad caveat at L984-986)
+GATE: HARD on 108a-EXEC LANDING (G1 below); parallel-fire-safe with 109-EXEC
+
+============================================================
+SECTION 1 — PRE-FLIGHT GATES G1–G7 (HARD HALTS)
+============================================================
+
+G1 [HARD]: 108a-EXEC must have LANDED at bridge before 110 fires.
+   Verify via:
+     git -C "<bridge>" log --oneline | grep "T1-OPERATOR-CT-V131-3.5.1-R1A-AMENDMENT-VQUAD-CAVEAT"
+   Expected: a session matching pattern T1-OPERATOR-CT-V131-3.5.1-R1A-AMENDMENT-VQUAD-CAVEAT-NNN
+   landed (with N >= 117 due to namespace alias seen at -117).
+   If not present: HALT-110-1 (HARD); operator dispatches 108a first.
+
+G2 [HARD]: live channel_theory_outline.tex SHA-256 = post-108a-EXEC value.
+   Read post-108a-EXEC handoff §"Files committed"; pull NEW_SHA from
+   the recompiled .tex line. Compare via Get-FileHash on the live
+   working file at:
+     pcf-research/channel/cc_pipeline_v13_2026-05-02/channel_theory_outline.tex
+   If mismatch: HALT-110-2 (HARD).
+
+G3 [HARD]: KNY 2017 §8.5.17 substrate readable.
+   Per round-3 verdict QD-2 paragraph "KNY §8.5.17 supplies the
+   Lax pair (eqs. (8.239) for L_1, L_2, B)", agent must locate
+   one of the following on disk in priority order (read-only):
+     (a) tex/submitted/control center/literature/g3b_2026-05-03/supplementary/kny_2017_*
+     (b) any prior bridge session referencing kny_2017 §8.5.17 with verbatim
+         quotes of eqs. (8.237)-(8.239)
+   If neither found: HALT-110-3 SOFT (substrate fallback path: agent extracts
+   Lax-pair structure from 058R B.3 carry-forward + 105 §3.5.1 carry-forward
+   to the extent possible; downgrades verdict to GO_ROUTE_D_PARTIAL_NO_KNY).
+
+G4 [HARD]: 058R B.3 substrate readable.
+   Read sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md
+   §B.3 (lines 99-158). If file missing: HALT-110-4 (HARD).
+
+G5 [HARD]: 058R Phase D.2 numerical artifacts (if any) inventoried.
+   058R B.3 lines 156-158 reference a "deferred Phase D.2 numerical session".
+   Per UF-115-4 this remains OPEN. Agent inventories any partial
+   numerical artifacts present in 058R deposit:
+     - sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/numerical/* (if exists)
+     - sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_d_*
+   No requirement to be present; absence is INFO not BLOCKING.
+
+G6 [HARD]: V_quad numerical baseline readable.
+   Read p12_journal_main.tex sec:vquad lines 975-1090 to extract:
+     - V_quad ODE system or Hamiltonian form
+     - Image tuple (1/6, 0, 0, -1/2)
+     - Any prior numerical Stokes-data values at this point
+     - 200-dps xi_0 anchor (per round-3 verdict EXCERPT D2 reference)
+   If file missing or sec:vquad block not locatable: HALT-110-5 (HARD).
+
+G7 [HARD]: mpmath dps floor >= 100 digits.
+   Agent checks that mpmath is available in environment (import mpmath) and
+   sets mp.dps = 200 default for all numerical work; downgrades to
+   mp.dps = 100 only if Lax-pair stiffness forces precision floor.
+   If mpmath not available: HALT-110-6 (HARD).
+
+============================================================
+SECTION 2 — STANDING CONTEXT
+============================================================
+
+The 069r3 round-3 QD verdict (R1; MEDIUM-HIGH confidence) frames
+Route D as a numerical verification path running in parallel with
+Route B (analytic FW Prop 4.1 pull-back; prompt 109). Per QD-1
+verdict PARTIAL_PARTIAL_OP_EXISTS:
+
+  > the *raw data* exists (Stokes constants, formal series, Borel
+  > data at 200 digits) and an extraction operation is *constructible
+  > in principle* (most natural: Stokes data → JM-Ueno isomonodromy
+  > → Hamiltonian parameters), but the *implemented operation* in
+  > current V_quad infrastructure produces only the *cited* tuple
+  > (1/6, 0, 0, −1/2) from p12_journal_main.tex, not a numerically-
+  > extracted-from-V_quad tuple.
+
+110's executor task is to BUILD this extraction operation and
+produce an INDEPENDENT numerical (η_∞, η_0, θ_∞, θ_0) tuple at the
+V_quad parameter point. Per UF-113-3 sharpened cross-validation
+criterion, the acceptance threshold is per-coordinate ≥ 3-digit
+agreement at each of the four entries.
+
+UF-115-3 Okamoto-degeneracy flag (V_quad image violates eta_Delta != 0
+under Hamiltonian reading; eta_0 = 0) implies the numerical extraction
+must handle the boundary-point regularly. The mechanism (a)/(b)/(c)
+discrimination at the −1/3 null-sum offset is the open question that
+109+110 jointly close: per QD-2 caveat, mechanism (b) is pre-rejected
+by V_quad image asymmetry; the genuine discrimination is (a) FW pull-back
+vs (c) Sakai D_6^(1) artefact.
+
+109 (Route B; symbolic FW pull-back) and 110 (Route D; numerical
+JM-Ueno extraction) cross-validate at session ~122 (069r3 FINAL synthesis).
+
+============================================================
+SECTION 3 — PHASE A: SUBSTRATE LOAD
+============================================================
+
+A.1 [load 058R B.3 carry-forward]: extract verbatim:
+    - canonical-form normalisation map output convention
+    - V_quad image (1/6, 0, 0, -1/2) Hamiltonian-side labeling
+    - residual R1 partially-closed numerical conversion
+      (058R B.3 line 138-141 references KNY (a_0, a_1, a_2) chart)
+    Save as substrate/058r_b3_carry_forward.md.
+
+A.2 [load KNY §8.5.17 Lax-pair]: extract verbatim or reconstruct:
+    - eqs. (8.237) for L_1
+    - eqs. (8.238) for L_2
+    - eqs. (8.239) for B
+    - parameter normalisation conventions
+    If KNY substrate absent (G3 SOFT halt path): construct Lax-pair
+    skeleton from 058R B.3 + 105 §3.5.1 + Okamoto's classical Lax-pair
+    formulation, with explicit "RECONSTRUCTION" provenance tag.
+    Save as substrate/kny_8_5_17_lax_pair.md.
+
+A.3 [load V_quad numerical baseline]: extract:
+    - V_quad parameter tuple per current convention (post-108a-EXEC):
+      (1/6, 0, 0, -1/2) interpreted as Hamiltonian (η_∞, η_0, θ_∞, θ_0)
+      per 105 §3.5.1; cross-walk to classical-ODE only if mechanism
+      requires (e.g., for Lax-pair integration in original chart).
+    - 200-dps xi_0 anchor value (round-3 verdict EXCERPT D2 reference)
+    - any 8-digit Stokes constant S_1 already on record
+    - Borel-data at 200 dps if present in p12 substrate
+    Save as substrate/vquad_numerical_baseline.md.
+
+A.4 [load 105 §3.5.1 + 108a-EXEC R1a caveat]: read post-108a-EXEC
+    channel_theory_outline.tex lines 968-985 (4 displayed eqs (3.5.1a)-
+    (3.5.1d) + R1a caveat block). Note any wording shifts vs the pre-
+    108a-EXEC version.
+    Save as substrate/cct_v131_3_5_1_post_r1a.md.
+
+A.5 [Okamoto-degeneracy guard]: per UF-115-3, verify the numerical
+    extraction handles eta_0 = 0 boundary regularly. Document
+    regularisation strategy explicitly (e.g., mp.mpf("1e-200")
+    floor; or symbolic limit-taking in the inversion step).
+    Save as substrate/okamoto_degeneracy_handling.md.
+
+============================================================
+SECTION 4 — PHASE B: LAX-PAIR NUMERICAL SOLVER
+============================================================
+
+B.1 [build solver]: Implement KNY §8.5.17 Lax-pair numerical
+    integration in mpmath at mp.dps = 200 default:
+
+    - Construct L_1(z; t; q, p), L_2(z; t; q, p), B(z; t; q, p)
+      per A.2 substrate.
+    - Set parameters at V_quad image (η_∞, η_0, θ_∞, θ_0) =
+      (1/6, 0, 0, -1/2) per 105 §3.5.1 trivial relabel.
+    - Choose integration contour: standard Stokes-sector
+      contour from t = t_0 (anchor per V_quad reduction;
+      058R EXCERPT D5 references t = 0 anchor) to t = ∞.
+    - Integrate L_1 and L_2 in z along contour at mp.dps = 200.
+
+B.2 [convergence check]: at each integration step, monitor:
+    - residual norm of |L_1(z + Δz) - exp(B Δz) · L_1(z) · exp(-B Δz)|
+      (Lax compatibility)
+    - mp.dps effective precision (catch silent precision loss)
+    If residual exceeds 10^(-100) at any step: HALT-110-7 (HARD)
+    NUMERICAL_DIVERGENCE.
+
+B.3 [Stokes anchor cross-check]: extract numerically the Stokes
+    constant S_1 from the integrated solution. Cross-check against
+    the 8-digit S_1 anchor from p12 substrate (A.3). Agreement to
+    >= 8 digits is required; if disagreement at >= 5 digits, halt
+    HALT-110-8 (HARD) STOKES_ANCHOR_MISMATCH.
+
+B.4 [save trajectory]: serialize integration trajectory at key
+    z-values (Stokes-sector vertices) as numerical_trajectory_data.json
+    or .npz. Include mp.dps metadata at each step.
+
+============================================================
+SECTION 5 — PHASE C: STOKES-DATA EXTRACTION
+============================================================
+
+C.1 [extract Stokes multipliers]: from B.4 trajectory, compute
+    Stokes multiplier matrices S_1, S_2, ... S_n along the
+    standard Stokes-sector decomposition (per V_quad's anti-Stokes
+    rays at t = 0 anchor).
+
+C.2 [extract monodromy data]: compute the monodromy representation
+    (M_0, M_1, M_∞) at the three singular points of V_quad
+    (regular singular at z = 0, z = 1; irregular singular at z = ∞
+    per P_III(D_6) standard).
+
+C.3 [precision audit]: each Stokes multiplier and monodromy matrix
+    entry tagged with effective digits-of-agreement (against
+    Lax compatibility residual). Floor target: >= 50 digits per
+    entry; downgrade to >= 30 digits if integration stiffness
+    forces precision degradation.
+
+C.4 [save extracted Stokes data]: stokes_data_extracted.json with:
+    - S_i matrices (mpmath strings at full precision)
+    - M_i matrices
+    - effective-digits metadata per entry
+
+============================================================
+SECTION 6 — PHASE D: JM-UENO ISOMONODROMIC INVERSION
+============================================================
+
+D.1 [inversion-method selection]: Per round-3 verdict QD-1, the
+    inversion Stokes-data → Hamiltonian-parameters typically
+    requires JM 1981 Part II machinery (the original Jimbo-Miwa
+    paper deriving inverse-monodromy formulas for P_III).
+
+    Three sub-cases:
+
+    D.1.a [JM 1981 Part II ON DISK]: locate via
+            literature/g3b_2026-05-03/supplementary/jimbo_miwa_1981_part_ii*
+            or any prior bridge session with verbatim §3 inversion
+            formulas. Construct inversion map per JM Part II §3.
+            Save as substrate/jm_part_ii_inversion.md.
+
+    D.1.b [JM 1981 Part II NOT ON DISK; FW 2002 substitute]:
+            Forrester-Witte 2002 extends JM-Ueno to P_III(D_6) with
+            tau-function approach. Reconstruct inversion map from
+            FW 2002 §4 (FW substrate already on disk per 109 G3:
+            literature/g3b_2026-05-03/supplementary/forrester_witte_2002_math-ph-0201051.pdf
+            + .txt). Save as substrate/fw_inversion_substitute.md.
+            DEGRADE verdict to GO_ROUTE_D_PARTIAL_VIA_FW.
+
+    D.1.c [neither]: SOFT halt HALT-110-9 NEEDS_LIT_JM_1981_PART_II;
+            verdict = NEEDS_LIT_JM_1981_PART_II; preserve B.4
+            trajectory + C.4 Stokes data for re-fire upon JM Part II
+            acquisition.
+
+D.2 [apply inversion]: substitute C.4 Stokes/monodromy data into
+    the inversion map per D.1 path, computing:
+        (η_∞, η_0, θ_∞, θ_0)_extracted_at_V_quad
+
+    at mp.dps = 200 (or degraded floor).
+
+D.3 [Okamoto-degeneracy regularisation]: per A.5, handle the
+    eta_0 = 0 boundary explicitly. Document any symbolic limit-
+    taking or numerical regularisation applied.
+
+D.4 [save Hamiltonian extraction]:
+    hamiltonian_params_extracted.json with:
+    - (η_∞, η_0, θ_∞, θ_0) at full precision
+    - effective-digits per coordinate
+    - inversion-method provenance (D.1.a, D.1.b, or D.1.c)
+
+============================================================
+SECTION 7 — PHASE E: PER-COORDINATE PREDICTION + V_QUAD COMPARISON
+============================================================
+
+E.1 [load expected V_quad image]: per 058R B.3 + 105 §3.5.1 trivial
+    relabel, the EXPECTED Hamiltonian-side image of V_quad is:
+        (η_∞, η_0, θ_∞, θ_0) = (1/6, 0, 0, -1/2)
+
+    This is the cited tuple, not an extracted-from-V_quad-numerics
+    tuple. The 110 task is to produce an EXTRACTED tuple
+    independently and compare per-coordinate.
+
+E.2 [per-coord agreement check]: for each of the four entries,
+    compute:
+        agreement_i = -log10(|extracted_i - expected_i|)
+    At full mp.dps=200 precision, agreement_i should be either:
+    (a) >= 50 digits if cited tuple is exact and extraction is clean
+    (b) >= 3 digits and tied to a specific known offset c_i if
+        cited tuple is approximate or mechanism (a)/(c) introduces
+        systematic offset
+    (c) < 3 digits indicates extraction error or labeling-convention
+        divergence (UF-115-1 surfacing in numerical form)
+
+E.3 [verdict bin selection]: based on E.2 results:
+    - GO_ROUTE_D_CONFIRMED: agreement_i >= 50 digits at all 4 coords
+      (no offset; mechanism (a)/(b)/(c) all consistent at numerical
+      level; matches cited tuple exactly within precision)
+    - GO_ROUTE_D_PARTIAL: agreement_i in [3, 50) at all 4 coords
+      with documented systematic offset; per-coord cross-validation
+      criterion satisfied for 109 cross-check
+    - NO_GO_PER_COORD_MISMATCH: agreement_i < 3 at any coord
+      (109 cross-validation will fail; structural inconsistency
+      between Route B symbolic and Route D numerical paths;
+      surfaces as candidate UF for 069r3 FINAL synthesis)
+    - NEEDS_LIT_JM_1981_PART_II: per D.1.c
+    - UNDECIDABLE: precision degraded below 3 digits
+      due to integration stiffness or extraction obstruction
+
+E.4 [comparison with 109 expected]: cross-validation deferred
+    until 109 has landed AND 110 has landed AND 069r3 FINAL
+    synthesis fires. 110 prepares the data (E.4 deferred entry
+    in handoff) but does NOT execute 109-vs-110 cross-check.
+
+============================================================
+SECTION 8 — PHASE F: FV/AEAL GATES + DELIVERABLES
+============================================================
+
+F.1 [FV scan]: scan all prose deliverables (handoff, substrate
+    .md files, .json human-readable comments) for forbidden verbs:
+        \b(shows|confirms|proves|demonstrates|establishes|verifies|
+        verified|validates|validated|corroborates|corroborated|
+        certifies|certified|settles|settled|discharges|ratifies)\b
+    HALT-110-10 (HARD) if any prose hits remain post-mitigation.
+    EXEMPT contexts (per 098-J3 + 075-J2):
+    - verb-list-as-data (regex pattern declarations)
+    - SHA / filesystem-inspection telemetry
+    - finding-summary references in claim strings
+    - verbatim quotations of prior artifacts (cited at SHA)
+
+F.2 [AEAL claims]: minimum floor 4 entries in claims.jsonl:
+    - 110-C1 G1-G7 pre-flight gate results
+    - 110-C2 Lax-pair integration result + Stokes-anchor cross-check
+    - 110-C3 Stokes-data extraction with effective-digits metadata
+    - 110-C4 Hamiltonian extraction with per-coord agreement
+    Suggested 6-8 entries with additional 110-C5 inversion-method
+    provenance + 110-C6 verdict bin selection + 110-C7 V_quad image
+    discrepancy if present + 110-C8 cross-validation prep deferred.
+
+F.3 [discrepancy log]: any non-blocking divergences from envelope
+    spec recorded in discrepancy_log.json. UF-115-1 labeling-
+    convention surfaced numerically would be a candidate D entry.
+
+F.4 [unexpected finds]: catalogue any structural findings not
+    pre-anticipated by envelope. Particularly:
+    - if extraction agreement_i pattern is unusual (e.g., all 4
+      coords match cited to >= 10 digits, suggesting cited tuple
+      is the actual canonical-form output not a labeling-convention
+      artefact)
+    - any Sakai D_6^(1) vocabulary surfacing during inversion (UF
+      candidate for mechanism (c))
+    - any Stokes-data entries with unexpected closed-form values
+      (Gamma function products; rational functions of pi/log(2);
+      etc.) — flag for 069r3 FINAL synthesis discrimination
+
+============================================================
+SECTION 9 — DELIVERABLES D1–D10
+============================================================
+
+D1 lax_pair_solver.py — full mpmath implementation, runnable;
+   includes (a) Lax-pair construction, (b) integration loop,
+   (c) Stokes-data extraction, (d) inversion-method dispatch,
+   (e) per-coord agreement computation
+D2 numerical_trajectory_data.json (or .npz) — B.4 output
+D3 stokes_data_extracted.json — C.4 output
+D4 hamiltonian_params_extracted.json — D.4 output with provenance tag
+D5 inversion_method.md — D.1 path documentation (a/b/c)
+D6 substrate/058r_b3_carry_forward.md
+D7 substrate/kny_8_5_17_lax_pair.md
+D8 substrate/vquad_numerical_baseline.md
+D9 substrate/cct_v131_3_5_1_post_r1a.md
+D10 substrate/okamoto_degeneracy_handling.md
++ handoff.md (full structure: G1-G7 results / A-F phase results /
+  verdict bin selection / cross-validation prep deferred entry)
++ claims.jsonl (≥ 4 floor)
++ halt_log.json
++ discrepancy_log.json
++ unexpected_finds.json
+
+============================================================
+SECTION 10 — ACCEPTANCE CRITERIA A1–A6
+============================================================
+
+A1 G1-G7 pre-flight gates results documented in handoff §"What was accomplished".
+A2 Lax-pair integration completed at mp.dps >= 100 (or HALT explanation).
+A3 Stokes-data extracted with effective-digits metadata per entry.
+A4 Hamiltonian-parameter extraction completed with inversion-method provenance.
+A5 Per-coord agreement computed for all 4 coordinates against cited tuple.
+A6 Verdict bin selected from {GO_ROUTE_D_CONFIRMED / GO_ROUTE_D_PARTIAL /
+   NO_GO_PER_COORD_MISMATCH / NEEDS_LIT_JM_1981_PART_II / UNDECIDABLE /
+   GO_ROUTE_D_PARTIAL_NO_KNY / GO_ROUTE_D_PARTIAL_VIA_FW}.
+
+Optional A7: V_quad image discrepancy (if any) against UF-115-1 catalogued
+in unexpected_finds.json.
+
+============================================================
+SECTION 11 — HALT REGISTRY
+============================================================
+
+HALT-110-1 [HARD] G1: 108a-EXEC not landed; cannot proceed.
+HALT-110-2 [HARD] G2: live .tex SHA mismatch post-108a-EXEC.
+HALT-110-3 [SOFT] G3: KNY §8.5.17 substrate absent → fallback path with
+                       GO_ROUTE_D_PARTIAL_NO_KNY downgrade.
+HALT-110-4 [HARD] G4: 058R B.3 substrate missing.
+HALT-110-5 [HARD] G6: V_quad p12 sec:vquad block not locatable.
+HALT-110-6 [HARD] G7: mpmath unavailable.
+HALT-110-7 [HARD] B.2: numerical divergence in Lax-pair integration.
+HALT-110-8 [HARD] B.3: Stokes anchor mismatch (S_1 disagreement >= 5 digits).
+HALT-110-9 [SOFT] D.1.c: NEEDS_LIT_JM_1981_PART_II; preserve trajectory.
+HALT-110-10 [HARD] F.1: FV scan hits remaining post-mitigation.
+
+============================================================
+SECTION 12 — JUDGMENT-CALL POLICY (mirrors 105 J1-J5 + 109 J1-J3)
+============================================================
+
+J1 [encouraged]: dual-path extraction (D.1.a JM Part II if available;
+   D.1.b FW 2002 substitute as cross-check) — same pattern as 105 J2
+   inline-prose attribution graceful degradation.
+
+J2 [encouraged]: Okamoto-degeneracy regularisation choice (mp.mpf
+   floor vs symbolic limit) documented with rationale.
+
+J3 [encouraged]: precision floor degradation (mp.dps 200 → 100 → 50)
+   acceptable if integration stiffness forces it; agent records the
+   degradation rationale; verdict bin reflects effective precision
+   not target precision.
+
+J4 [encouraged]: any UF discoveries (unexpected closed-form Stokes
+   data values; Sakai D_6^(1) machinery surfacing; etc.) flagged
+   as UF and forward-pointed to 069r3 FINAL synthesis.
+
+J5 [encouraged]: parallel-CLI fire collision detection: if 109-EXEC
+   is concurrently in flight, 110-EXEC proceeds independently
+   (parallel-fire-safe by design); both deposits land at sibling
+   bridge sessions; 069r3 FINAL synthesis cross-checks at session
+   ~122.
+
+============================================================
+SECTION 13 — CASCADE STAGING POST-110-EXEC LANDING
+============================================================
+
+  EVENT(108a-EXEC LANDS at session ~118) ← G1 prerequisite
+       ↓
+  EVENT(109-EXEC fires; ~4-8 hr T2 analytical) [PARALLEL]
+       ↓                        ↓
+  EVENT(109-EXEC LANDS at session ~119)
+                                ↓
+  EVENT(110-EXEC fires; ~8-16 hr T2 numerical) [PARALLEL]
+       ↓
+  EVENT(110-EXEC LANDS at session ~120)
+       ↓
+  EVENT(111 + 112 governance follow-ups fire) [PARALLEL]
+       ↓
+  EVENT(069r3 FINAL synthesis at session ~122):
+    cross-check 109 symbolic vs 110 numerical
+    at per-coord ≥ 3-digit precision
+    per UF-113-3 sharpened criterion
+       ↓
+    branch:
+    {GO_ROUTE_B + GO_ROUTE_D + per-coord match >= 3 digits}
+       → mechanism (a) FW pull-back CONFIRMED (mech (b) pre-rejected;
+         mech (c) Sakai D_6^(1) discriminated against)
+       → M6.CC R1 closure UPGRADE_FULL
+       → M9 V0 deposit unblocks (post W21 LANE-1 ratification)
+    {GO_ROUTE_B + NO_GO_ROUTE_D}
+       → 069r3 FINAL UPGRADE_PARTIAL_SYMBOLIC; numerical residual open
+       → R1 stays in BUDGET_BOUNDED state
+    {NO_GO_ROUTE_B + GO_ROUTE_D}
+       → 069r3 FINAL UPGRADE_PARTIAL_NUMERICAL; symbolic mechanism
+         unverified; mech (c) Sakai surfaces as candidate
+    {NO_GO_ROUTE_B + NO_GO_ROUTE_D}
+       → R1 stays open; PCF-2 v1.4 cycle deferred
+    {NEEDS_LIT_*}
+       → JM 1981 Part II acquisition queue; 069r3 FINAL deferred until
+         JM Part II + FW 2002 substrate fully reconciled
+
+============================================================
+SECTION 14 — DISPATCH NOTES FOR OPERATOR
+============================================================
+
+  D.1 Dispatch venue: T2 mode (Copilot CLI session); approx 8-16 hr
+      runtime depending on Lax-pair stiffness, Stokes-data extraction
+      precision floor, and JM-Ueno inversion path (D.1.a fastest;
+      D.1.b moderate; D.1.c HALT).
+
+  D.2 Parallel-fire safety: 110 deposits at session ~120 (or sibling
+      number to 109-EXEC). Different bridge dir name; no filesystem
+      collision risk. Per repo memory `parallel-CLI fire collision
+      pattern`: bit-identical deliverables would be positive forensic
+      signal but not expected here (different scope from 109).
+
+  D.3 Bibliographic pre-verification: per repo memory `Bibliographic
+      identifier pre-verification`, if agent encounters JM 1981 Part II
+      or FW 2002 references not in hand, agent does NOT cite identifiers
+      it has not personally resolved. NEEDS_LIT path is preferred over
+      hallucinated citations.
+
+  D.4 Output format: prefer .json for numerical data (mpmath strings
+      at full precision); prefer .md for prose substrate; prefer .py
+      for runnable solver code. All numerical entries tagged with
+      effective-digits metadata.
+
+  D.5 Cross-validation prep: 110 produces hamiltonian_params_extracted.json
+      with per-coord precision metadata. 069r3 FINAL synthesis at session
+      ~122 reads this file alongside 109's symbolic prediction file and
+      computes per-coord agreement. 110 does NOT execute cross-check; 110
+      prepares the data only.
+
+============================================================
+END OF PROMPT 110
+============================================================
