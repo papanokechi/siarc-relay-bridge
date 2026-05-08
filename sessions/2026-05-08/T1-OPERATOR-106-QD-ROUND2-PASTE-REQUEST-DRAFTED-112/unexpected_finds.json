@@ -1,0 +1,32 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-106-1",
+      "severity": "MEDIUM",
+      "category": "labeling-convention-anomaly",
+      "summary": "V_quad parameter labeling QD-5 anomaly. The vquad_p3d6_recovery.py LIT dict at lines 47-50 records P_III_D6_params = (1/6, 0, 0, -1/2) under the classical-ODE convention (alpha, beta, gamma, delta) of Okamoto eq. (0.1). However, §3.5.1 deposit (105 bridge SHA 0427c0a) records the same tuple under the Hamiltonian-parameter convention (alpha_inf, alpha_0, beta_inf, beta_0). Under Okamoto eq. (0.1), gamma = 4 eta_inf^2 = 0 forces eta_inf = 0, which violates Okamoto §1 assumption gamma delta != 0. The tuple therefore cannot satisfy the classical-ODE convention as labelled. Either (A) vquad_p3d6_recovery.py mislabels the tuple, or (B) vquad_p3d6_recovery.py uses a non-standard P_III parametrisation outside Okamoto §1's normal form. Surfaced to Claude.ai web as QD-5 of prompt 106.",
+      "downstream_action": "Synth weighing in QD-5 round-2 verdict. If the verdict resolves to (A) HAMILTONIAN_PARAMETER, vquad_p3d6_recovery.py LIT dict labeling needs amendment (operator-side maintenance task). If (B) CLASSICAL_ODE, §3.5.1 [rem:alpha-beta-tuples] needs amendment. Either way the resolution informs whether 069r3-D's numerical extraction operates in Okamoto-Hamiltonian parameter space or classical-ODE parameter space."
+    },
+    {
+      "id": "UF-106-2",
+      "severity": "LOW",
+      "category": "alpha-beta-tuple-namespace-expansion",
+      "summary": "§3.5.1 [105] deposit's [rem:alpha-beta-tuples] Remark disambiguates 3 coexisting (alpha, beta)-tuple namings: WKB-exponents (A, alpha, beta, gamma), classical-ODE (alpha, beta, gamma, delta) of Okamoto eq. (0.1), and project-rename (alpha_inf, alpha_0, beta_inf, beta_0) of (3.5.1a)-(3.5.1d). The V_quad image tuple at the chart-map output is a fourth coexisting object that the [rem:alpha-beta-tuples] Remark does not yet explicitly address.",
+      "downstream_action": "Optional: a one-line amendment to the [rem:alpha-beta-tuples] Remark in the next §3.5.1 revision to explicitly mention the V_quad-image case. Not required for QD verdict resolution."
+    },
+    {
+      "id": "UF-106-3",
+      "severity": "MEDIUM",
+      "category": "downstream-envelope-not-yet-drafted",
+      "summary": "069r3-B Route B executor envelope is not yet drafted. Per §6 Step D-5 / §8 cascade table of prompt 106, 069r3-B should be drafted AFTER QD verdict lands (parallel or sequential ordering depending on QD-3 verdict). If operator dispatches 069r3-B before QD verdict lands, HALT-D5 of prompt 106 fires.",
+      "downstream_action": "Wait for prompt 106 dispatch + QD-6 verdict. Then draft 069r3-B executor envelope (and possibly 069r3-D in parallel if GO_ROUTE_D)."
+    },
+    {
+      "id": "UF-106-4",
+      "severity": "LOW",
+      "category": "prompt-architecture-decision",
+      "summary": "Prompt 106 inlines the §3 paste packet (EXCERPT-D blocks D1-D5) within the prompt body rather than producing a separate companion paste-packet file (the analog of 110 PRESTAGED.txt for tier-B). Operator may wrap the §3 + §4 + §5 blocks between ===PASTE-START=== / ===PASTE-END=== markers inline, OR an agent follow-up task can extract them into a separate qd_round2_paste_packet_PRESTAGED.txt file (~10 min agent-time).",
+      "downstream_action": "Operator decision: inline-paste vs separate companion file. Default (this draft): inline. Follow-up agent task fires only if operator explicitly requests."
+    }
+  ]
+}

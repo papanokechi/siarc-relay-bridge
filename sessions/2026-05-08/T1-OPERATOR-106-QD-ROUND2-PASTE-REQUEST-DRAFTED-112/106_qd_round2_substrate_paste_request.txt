@@ -1,0 +1,478 @@
+================================================================
+PROMPT 106 — 069r2 ROUND-2 SUBSTRATE-PASTE REQUEST (QD verdict resolution)
+================================================================
+
+ENVELOPE CLASS:    T1-OPERATOR (operator-side substrate-paste dispatch)
+SCOPE:             069r2 round-2 substrate-paste, scoped to QD only
+LANE:              Route D (numerical chart-map fitting) feasibility
+TARGET:            Claude.ai web (Claude Opus 4.7), existing 069r2 thread
+GATING:            DISPATCH BEFORE 069r3-B per 111 verdict packet QF
+                   Caveat 3 (parallel-dispatch advantage)
+DEPS UPSTREAM:     111 absorbed (bridge HEAD bb79540, 2026-05-08);
+                   105 §3.5.1 landed (bridge SHA 0427c0a)
+DEPS DOWNSTREAM:   069r3-D Route D executor envelope (gated on QD verdict)
+                   069r3-B Route B executor envelope (parallel-track-
+                   recommended after QD lands)
+
+================================================================
+§1 — Why QD round-2 paste is being drafted
+================================================================
+
+Per 069r2 round-1 paste verdict (bridge 111, synth response timestamp
+2026-05-08 ~12:30 JST):
+
+  - QB.4 upgraded UNDECIDABLE -> GO_ROUTE_B_CONDITIONAL.
+  - QD remained DEFERRED per round-1 re-fire instructions
+    ("QD will be addressed in a separate round-2 substrate-paste turn").
+  - Synth Caveat 3 (Net recommendation 4): "Schedule Route D round-2
+    substrate-paste BEFORE 069r3-B fires. Route D's value has shifted
+    from 'fragile solo path' to 'high-value parallel verification of
+    mechanism (a)'."
+
+The strategic rationale: 069r3-B's executor task is the FW Prop 4.1
+pull-back of h - tH = (1/4)v_1^2 - (1/2)t to the V_quad parameter
+point. If 069r3-D dispatches in parallel and reaches a numerical
+verdict on the -1/3 offset by independent (numerical) means, the two
+routes cross-validate and lower the cascade-risk to Route C / Route F.
+
+Sequential dispatch (069r3-B alone) carries a ~30-50% Sakai (c)
+surfacing risk per 111 UF-111-3 framing, which would force HALT-S5
+Route F escalation. Parallel dispatch lowers this risk.
+
+Therefore QD round-2 substrate-paste fires NOW (before 069r3-B), so
+that whichever Route D verdict lands (GO / PARTIAL / NO_GO) can inform
+069r3-B drafting and dispatch ordering.
+
+================================================================
+§2 — Substrate inventory (on-disk + acquisition status)
+================================================================
+
+| Substrate | Location | Status |
+|-----------|----------|--------|
+| V_quad numerical-solution structure | `pcf-research/channel/cc_pipeline_g_2026-05-01/vquad_recovery.py` (full Newton polygon + Birkhoff implementation) | ON-DISK |
+| V_quad numerical results | `pcf-research/channel/cc_pipeline_g_2026-05-01/results_vquad.json` (200-digit precision; xi_0, rho, formal series a_1...a_10, Borel radii sample) | ON-DISK |
+| V_quad recurrence definition | a_n = 1, b_n = 3 n^2 + n + 1 (PCF coefficients) | ON-DISK |
+| V_quad PIII(D_6) parameter labeling | `pcf-research/channel/cc_pipeline_2026-05-01/vquad_p3d6_recovery.py` line 47-50: `"P_III_D6_params": "(alpha,beta,gamma,delta) = (1/6, 0, 0, -1/2)"` (CLASSICAL-ODE convention!) | ON-DISK / LABELING-AMBIGUOUS |
+| 058R V_quad reduction map | siarc-relay-bridge sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md (bridge SHA 2eb9b28) §B.3 | ON-BRIDGE |
+| Source-attribution of (1/6, 0, 0, -1/2) | "p12_journal_main.tex sec:vquad subsec Stokes data, citing Papanokechi2026Vquad" (per vquad_p3d6_recovery.py LIT dict) | ON-DISK (REFERENCED) |
+| CT v1.3 §3.5.1 §3.5.1 §3.5.1 deposit | bridge sessions/2026-05-08/T1-OPERATOR-CT-V13-3.5.1-OKAMOTO-RENAME-DERIVATION-105/section_3_5_1_okamoto_rename.tex (bridge SHA 0427c0a) | ON-BRIDGE |
+| 058R B.3 anomaly D2 (-1/3 partial sum) | siarc-relay-bridge sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md §B.3 | ON-BRIDGE |
+| Stokes constants (literature endpoints) | `vquad_p3d6_recovery.py` LIT dict: xi_0 = 2/sqrt(3); beta_exp = -1/(3 sqrt(3)); S_1 ≈ 0.43770528 8-digit; accessory_q = (5 + i sqrt(11))/54 in Q(sqrt(-11)) | ON-DISK |
+
+================================================================
+§3 — Paste packet structure for Claude.ai web round-2 turn
+================================================================
+
+Suggested opening line:
+
+  Round-2 substrate-paste for 069r2 follow-up (QD verdict only).
+  Per your round-1 net recommendation 4 and §5 caveat 3, here is
+  the V_quad numerical-solution substrate scoped for QD resolution.
+  All other 069r2 envelope context still applies (Route A/B/C/D/E
+  namespace, HALT-S1 through HALT-S6, Round-1 + Round-2 rubber-duck
+  QA acknowledged). Round-1 verdict packet at bridge SHA bb79540
+  (verdict_packet.txt) is the upstream context.
+
+Then four substrate blocks in this order:
+
+----------------------------------------------------------------
+EXCERPT-D1 -- V_quad PCF family + recurrence + Newton polygon
+----------------------------------------------------------------
+
+V_quad PCF family is the degree-2 PCF defined by:
+
+  recurrence:   p_{n+1} = a_n p_n + b_n p_{n-1}
+  with:         a_n = 1
+                b_n = 3 n^2 + n + 1
+
+(Recurrence stored in pcf-research/channel/cc_pipeline_g_2026-05-01/
+results_vquad.json with the canonical leading-first PCF convention
+[a_2, a_1, a_0] for a-coeffs and [b_1, b_0] for b-coeffs.)
+
+Newton polygon at z = 0 of the linear ODE for the generating function
+f(z) = sum_n Q_n z^n:
+
+  slope:                    1/2
+  edge:                     (0, 0) -- (1, 2)
+  multiplicity:             2
+  characteristic polynomial: 1 - (3/4) c^2
+  Gevrey class in z:        2
+  Gevrey class in u = sqrt(z): 1
+
+So the V_quad generating function f(z) has Gevrey-1 formal series in
+the regularising coordinate u = sqrt(z), characteristic exponent
+c = +/- 2/sqrt(3), recovering the literature constant
+xi_0 = 2/sqrt(3) (numerical agreement to 200 digits).
+
+----------------------------------------------------------------
+EXCERPT-D2 -- V_quad numerical results (200-digit precision sample)
+----------------------------------------------------------------
+
+results_vquad.json verbatim sample (from bridge SHA-equivalent
+file, recomputable at any time via vquad_recovery.py):
+
+  xi_0_literature  = 1.154700538379251529018297561003914911295203502540...
+  xi_0_extracted   = 1.154700538379251529018297561003914911295203502540...
+  digits agreement = 200.0
+  rho              = -1.833333333333333333... (= -11/6)
+
+Formal series leading coefficients a_1 ... a_10:
+
+  a_1 =     0.6374909222302117816455184...
+  a_2 =     0.4792390046296296296296296...
+  a_3 =     0.7093200805668464922454917...
+  a_4 =     1.1264939807461013410208048...
+  a_5 =     2.1501085000731040473178356...
+  a_6 =     4.9518215865676585493127768...
+  a_7 =    13.4090845687793742969626474...
+  a_8 =    41.8678194993637222514918502...
+  a_9 =   148.3176356378642081805200583...
+  a_10 =  588.2400698034714733287906267...
+
+Borel transform radius (numerically stable across +/- regularisation
+sign at high k; sample radii from k=193..200 cluster at):
+
+  rho_Borel ~ 2.348440245504967213...
+
+----------------------------------------------------------------
+EXCERPT-D3 -- (alpha, beta, gamma, delta) at V_quad reduction
+----------------------------------------------------------------
+
+CRITICAL LABELING-CONVENTION NOTE (synth must disambiguate):
+
+The V_quad reduction script at
+pcf-research/channel/cc_pipeline_2026-05-01/vquad_p3d6_recovery.py
+LIT dict (lines 47-50) records:
+
+  "P_III_D6_params": "(alpha, beta, gamma, delta) = (1/6, 0, 0, -1/2)",
+  "source": "p12_journal_main.tex sec:vquad subsec Stokes data,
+             citing Papanokechi2026Vquad."
+
+This is the CLASSICAL-ODE 4-tuple convention (alpha, beta, gamma,
+delta of Okamoto eq. (0.1)) per the §3.5.1 Remark
+[rem:alpha-beta-tuples].
+
+HOWEVER, CT v1.3 §3.5.1 (105 deposit, bridge SHA 0427c0a) declares
+the *same* 4-tuple (1/6, 0, 0, -1/2) at the V_quad parameter point
+under the HAMILTONIAN-PARAMETER convention (alpha_inf, alpha_0,
+beta_inf, beta_0) per the trivial relabel (3.5.1a)-(3.5.1d).
+
+These two conventions are DIFFERENT objects. Under Okamoto eq. (0.1):
+
+  alpha_ODE   = -4 eta_inf theta_inf
+  beta_ODE    = 4 eta_0 (theta_0 + 1)
+  gamma_ODE   = 4 eta_inf^2
+  delta_ODE   = -4 eta_0^2
+
+If (alpha, beta, gamma, delta) = (1/6, 0, 0, -1/2):
+  gamma = 4 eta_inf^2 = 0  =>  eta_inf = 0
+  But Okamoto §1 explicitly requires eta_Delta != 0 (assumption
+  gamma delta != 0 throughout the paper).
+
+Therefore one of the following is true:
+  (A) The vquad_p3d6_recovery.py LIT dict mislabels the tuple; the
+      tuple is actually (alpha_inf, alpha_0, beta_inf, beta_0) per
+      §3.5.1, NOT (alpha_ODE, beta_ODE, gamma_ODE, delta_ODE).
+  (B) The vquad_p3d6_recovery.py uses a non-standard P_III
+      parametrisation outside Okamoto §1's normal form.
+  (C) Some other resolution.
+
+Synth: please weigh (A) vs (B) vs other in QD-5 below.
+
+----------------------------------------------------------------
+EXCERPT-D4 -- Stokes / monodromy literature endpoints
+----------------------------------------------------------------
+
+Per vquad_p3d6_recovery.py LIT dict:
+
+  Stokes constant (1st):  S_1 ~ 0.43770528... (8-digit)
+  beta_exp:               -1 / (3 sqrt(3)) ~ -0.19245008972987525
+  accessory parameter:    q_acc = (5 + i sqrt(11)) / 54
+                          in Q(sqrt(-11))
+
+These are the V_quad-side numerical endpoints that any (alpha, beta)
+extraction operation must reproduce when the chart-map is applied
+to a V_quad trajectory.
+
+These are NOT Okamoto Hamiltonian parameters; they are V_quad-side
+Stokes / monodromy data extracted from the PCF generating function's
+Borel transform analysis (i.e., the PCF-side data that the chart-map
+must consistently match against P_III(D_6) Hamiltonian-side data).
+
+----------------------------------------------------------------
+EXCERPT-D5 -- 058R B.3 reduction map summary
+----------------------------------------------------------------
+
+(Per bridge SHA 2eb9b28, sessions/2026-05-06/
+CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md
+§B.3, anomaly D2.)
+
+The V_quad -> P_III(D_6) reduction map of 058R takes the V_quad PCF
+recurrence + Newton-polygon Birkhoff data and produces a parameter
+tuple anchored at (1/6, 0, 0, -1/2) under the project's 4-tuple
+convention (post-§3.5.1: (alpha_inf, alpha_0, beta_inf, beta_0)).
+
+Anomaly D2 (058R §B.3): the partial sum of this 4-tuple is
+
+  alpha_inf + alpha_0 + beta_inf + beta_0 = 1/6 + 0 + 0 + (-1/2) = -1/3
+
+which differs from the FW null-sum constraint v_1+v_2+v_3+v_4=0
+(round-1 EXCERPT 1 / FW §2.1 eq (2.2)) by exactly -1/3.
+
+The §3.5.1 deposit (105) records three candidate mechanisms for
+this -1/3 offset:
+  (a) FW Prop 4.1 auxiliary-Hamiltonian shift
+      h = tH + (1/4) v_1^2 - (1/2) t       [primary literature anchor]
+  (b) -1/12 per-coordinate fall-back additive shift
+      [no literature anchor, project-internal calibration only]
+  (c) Sakai D_6^(1) surface-type artefact
+      [Route F surfacing per HALT-S5]
+
+069r3-B's analytic executor task is to perform the FW Prop 4.1
+pull-back to the V_quad parameter point and verify mechanism (a)
+produces -1/3.
+
+069r3-D's PROPOSED numerical executor task (subject to QD verdict)
+is to perform an INDEPENDENT numerical fit at V_quad's image and
+either (i) reproduce the -1/3 offset (cross-validation of (a)), or
+(ii) produce a different offset value (which would discriminate
+between mechanisms or surface a structural issue).
+
+================================================================
+§4 — QD-specific synth questions
+================================================================
+
+QD-1 -- INDEPENDENT (alpha, beta) EXTRACTION OPERATION
+  Does the V_quad numerical infrastructure support a well-defined
+  operator that takes V_quad recurrence data + Newton-Birkhoff
+  formal solution + Borel transform + Stokes constants, and outputs
+  the (alpha_inf, alpha_0, beta_inf, beta_0) 4-tuple INDEPENDENTLY
+  of any chart-map application?
+
+  Answer bin: Y_INDEPENDENT_EXTRACTION_OP_EXISTS / N_NO_INDEPENDENT_OP /
+  PARTIAL_PARTIAL_OP_EXISTS / NEEDS_EXECUTOR_AUDIT
+
+  If Y or PARTIAL: identify the operation explicitly (e.g.,
+  monodromy data extraction, asymptotic-coefficient matching,
+  Stokes-constant inversion).
+
+QD-2 -- NUMERICAL-FIT FEASIBILITY FOR -1/3 OFFSET RESOLUTION
+  Can a numerical fit of P_III(D_6) trajectories at parameter point
+  (1/6, 0, 0, -1/2) be performed at sufficient precision (e.g.,
+  ~50-100 digits) to discriminate between mechanism (a) [-1/3 offset
+  from FW Prop 4.1 pull-back], mechanism (b) [-1/12 symmetric shift],
+  and mechanism (c) [Sakai D_6 root-system constant]?
+
+  Answer bin: Y_FEASIBLE / N_INFEASIBLE / PARTIAL_FEASIBLE_WITH_CAVEATS /
+  NEEDS_EXECUTOR_AUDIT
+
+QD-3 -- PARALLEL VS SEQUENTIAL DISPATCH WITH 069r3-B
+  Given QD-1 and QD-2 outcomes, can 069r3-D dispatch IN PARALLEL with
+  069r3-B (analytic FW Prop 4.1 pull-back), or does QD have hidden
+  prerequisites that gate sequential ordering (069r3-B FIRST, then
+  069r3-D as verification)?
+
+  Answer bin: PARALLEL_OK / SEQUENTIAL_REQUIRED_B_FIRST /
+  SEQUENTIAL_REQUIRED_D_FIRST / UNDECIDABLE_ORDERING
+
+  If PARALLEL_OK: confirm cross-validation logic (mechanism (a) value
+  predicted by 069r3-B should match mechanism (a) value extracted by
+  069r3-D).
+
+QD-4 -- ROUTE F SURFACING RISK IN V_quad NUMERICAL STRUCTURE
+  Does any aspect of the V_quad numerical-solution structure
+  (Excerpts D1-D5 above) surface Sakai D_6^(1) machinery (rational
+  surface, blow-up, exceptional curve, W(D_6) extended affine Weyl,
+  Mukai pair, "surface-type" framework)?
+
+  Answer bin: NO_ROUTE_F_SURFACING / ROUTE_F_SURFACING_DETECTED /
+  WATCHED_PARTIAL_INDICATOR / UNDECIDABLE
+
+  This is HALT-S5 standing watch per envelope. If detected, agent
+  should flag ROUTE_FRAME_INCOMPLETE rather than fold into A-E.
+
+QD-5 -- LABELING-CONVENTION DISAMBIGUATION
+  Per EXCERPT D3 above: the V_quad reduction script at
+  vquad_p3d6_recovery.py LIT dict labels (1/6, 0, 0, -1/2) as
+  classical-ODE (alpha, beta, gamma, delta) of Okamoto eq. (0.1),
+  but CT v1.3 §3.5.1 (105 deposit) labels the same tuple as
+  Hamiltonian-parameter (alpha_inf, alpha_0, beta_inf, beta_0).
+
+  Which is operationally what V_quad numerically produces?
+
+  Answer bin:
+    HAMILTONIAN_PARAMETER -- §3.5.1 labeling correct;
+                              vquad_p3d6_recovery.py mislabels
+    CLASSICAL_ODE         -- vquad_p3d6_recovery.py labeling correct;
+                              §3.5.1 mislabels (would force §3.5.1
+                              amendment)
+    BOTH                  -- the tuple coincidentally satisfies both
+                              conventions (would require eta_Delta
+                              = 0 violating Okamoto assumption, so
+                              this answer needs explicit non-standard
+                              parametrisation justification)
+    NEITHER               -- the tuple is in a third parametrisation
+                              not yet identified
+    NEEDS_EXECUTOR_AUDIT  -- decidable only by executing the chart-map
+                              both ways
+
+QD-6 -- VERDICT
+  Combined Route D feasibility:
+    GO_ROUTE_D                -- 069r3-D dispatchable now with
+                                 named executor task
+    PARTIAL_ROUTE_D_VERIFICATION -- 069r3-D dispatchable AS PARALLEL
+                                    VERIFICATION ONLY (not solo
+                                    closure path)
+    NO_GO_ROUTE_D             -- 069r3-D not dispatchable from
+                                 current substrate
+    UNDECIDABLE_ROUTE_D       -- needs round-3 substrate-paste
+
+================================================================
+§5 — Re-fire instructions (paste at end of operator's web turn)
+================================================================
+
+Re-fire scope: QD-1 + QD-2 + QD-3 + QD-4 + QD-5 + QD-6 (combined
+Route D feasibility verdict).
+
+Do NOT re-evaluate QA, QB.1, QB.2, QB.3, QB.4, QC, QE -- those
+verdicts are landed at bridge SHA bb79540.
+
+Watch-list per round-1 §5 caveat 4 and HALT-S5: if any V_quad
+numerical structure or (alpha, beta) extraction operation surfaces
+Sakai D_6^(1) surface-type machinery as the chart-map mechanism
+(rather than Hamiltonian / Stokes / monodromy machinery), please
+flag ROUTE_FRAME_INCOMPLETE per HALT-S5 in QD-4. Vocabulary
+triggers: "Sakai D_6 surface", "surface-type machinery", "Mukai
+pair", "rational surface", "blow-up", "exceptional curve",
+"W(D_6) extended affine Weyl group", "blow-down structure".
+
+Acceptance criterion to bake into 069r3-D dispatch IF QD verdict
+lands GO_ROUTE_D or PARTIAL_ROUTE_D_VERIFICATION: explicit
+numerical reproduction of the -1/3 offset at V_quad's image
+(1/6, 0, 0, -1/2), with numerical agreement to >=3 digits from
+the value predicted by 069r3-B's mechanism (a) pull-back. This
+provides the Route B / Route D cross-validation per round-1 §QF
+Caveat 3.
+
+================================================================
+§6 — Operator dispatch workflow
+================================================================
+
+Step D-1 -- Confirm 111 is the bridge HEAD reference for round-1
+            verdict.
+            git --no-pager log --oneline -5 in siarc-relay-bridge;
+            confirm bb79540 is HEAD.
+
+Step D-2 -- Stage paste packet by COPYING THIS FILE'S CONTENTS
+            BETWEEN THE PASTE-BLOCK MARKERS:
+
+              ===PASTE-START===
+              [the §3 EXCERPT-D1 + D2 + D3 + D4 + D5 blocks +
+               §4 QD-1 through QD-6 questions +
+               §5 re-fire instructions]
+              ===PASTE-END===
+
+            The paste block is self-contained; the operator does
+            not need to acquire any additional substrate.
+
+Step D-3 -- Open the EXISTING 069r2 Claude.ai web conversation
+            (do NOT start a fresh thread; the round-1 context
+            must be in synth's memory). New turn, paste, send.
+
+Step D-4 -- Wait ~5-10 min for synth response (round-2 verdict
+            on QD-1..QD-6).
+
+Step D-5 -- Save synth response to
+            C:\Users\shkub\.copilot\session-state\<id>\files\
+            paste-NNN.txt; trigger agent absorption to bridge as
+            session 112 (likely
+            T1-SYNTH-069R2-ROUND2-PASTE-VERDICT-ABSORPTION-112).
+
+Step D-6 -- Cascade per QD-6 verdict:
+            - GO_ROUTE_D / PARTIAL_ROUTE_D_VERIFICATION ->
+              draft 069r3-D Route D executor envelope
+            - NO_GO_ROUTE_D ->
+              draft 069r3-B Route B executor envelope
+              (sequential dispatch only)
+            - UNDECIDABLE_ROUTE_D ->
+              draft round-3 substrate-paste request (107)
+
+================================================================
+§7 — Halt conditions (pre-fire)
+================================================================
+
+HALT-D1: Bridge HEAD bb79540 (111 deposit) NOT verifiable.
+         Pause; resolve before paste.
+
+HALT-D2: vquad_recovery.py / results_vquad.json on disk but
+         compute output is materially different from EXCERPT D2
+         values (xi_0, rho, formal a_1..a_10). Pause; recompute
+         results_vquad.json before paste; ensure paste reflects
+         current numerical state.
+
+HALT-D3: vquad_p3d6_recovery.py LIT dict source string
+         "p12_journal_main.tex sec:vquad subsec Stokes data" no
+         longer accurately points to the canonical attribution.
+         Pause; resolve provenance before paste (else QD-5 cannot
+         be answered).
+
+HALT-D4: Sakai D_6^(1) surface-type machinery surfacing in V_quad
+         numerical structure during paste-prep. Pause; flag
+         ROUTE_F_SURFACING_DETECTED to operator before paste so
+         that QD-4 can be pre-loaded with that finding.
+
+HALT-D5: 069r3-B already dispatched and landed during paste-prep.
+         Pause; rescope 069r3-D as post-hoc verification rather
+         than parallel dispatch; revise §6 Step D-6 cascade.
+
+HALT-D6: Forbidden-verb scan on this paste packet's prose returns
+         non-zero hits in non-EXEMPT categories (see 098-J3 exempt
+         list: verb-list-as-data, regex pattern declarations,
+         SHA/filesystem-inspection telemetry, finding-summary
+         references). Pause; rewrite hits to neutral verbs.
+
+================================================================
+§8 — Cascade dependencies (downstream of QD verdict)
+================================================================
+
+| QD verdict | 069r3-B status | 069r3-D status | Next step |
+|------------|----------------|----------------|-----------|
+| GO_ROUTE_D | parallel-OK | dispatch immediately | draft both executor envelopes; dispatch in parallel |
+| PARTIAL_ROUTE_D_VERIFICATION | dispatch FIRST | dispatch AS verification post-069r3-B | sequential B-then-D |
+| NO_GO_ROUTE_D | dispatch SOLO | not dispatchable | sequential B-only |
+| UNDECIDABLE_ROUTE_D | held until D resolves | held | round-3 substrate-paste (107) |
+
+Cross-validation logic (only meaningful for GO / PARTIAL):
+  069r3-B predicts -1/3 offset value via FW Prop 4.1 pull-back
+                                                    (analytic).
+  069r3-D extracts -1/3 offset value via V_quad -> P_III(D_6)
+                            numerical-trajectory fit (numerical).
+  ===> If both agree to >= 3 digits: mechanism (a) confirmed.
+       If disagree: mechanism (b) or (c) surfacing -- escalate.
+
+================================================================
+§9 — DELIVERABLES (this prompt)
+================================================================
+
+D1: This prompt file at
+    tex/submitted/control center/prompt/106_qd_round2_substrate_
+    paste_request.txt
+    [LANDS WHEN OPERATOR ACCEPTS THIS DRAFT]
+
+D2: (Optional companion) pre-staged paste packet at
+    C:\Users\shkub\.copilot\session-state\<id>\files\
+    qd_round2_paste_packet_PRESTAGED.txt with the EXCERPT-D1
+    through D5 + QD-1 through QD-6 + re-fire instructions
+    extracted as a single ===PASTE-START=== / ===PASTE-END===
+    block ready for one-shot copy-paste.
+    [DRAFT-DECIDED: AGENT TO PRODUCE AS FOLLOW-UP TASK]
+
+D3: Bridge deposit at sessions/2026-05-08/T1-OPERATOR-106-QD-
+    ROUND2-SUBSTRATE-PASTE-REQUEST-DRAFT-NNN/ with handoff +
+    AEAL claims + halt/discrepancy/UF logs (per SIARC standing
+    template B1-B5).
+    [DRAFT-DECIDED: AGENT TO PRODUCE AS PART OF DRAFTING SESSION]
+
+================================================================
+END OF PROMPT 106 -- 069r2 ROUND-2 SUBSTRATE-PASTE REQUEST
+================================================================
