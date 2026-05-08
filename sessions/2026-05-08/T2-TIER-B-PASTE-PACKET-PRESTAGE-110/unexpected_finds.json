@@ -1,0 +1,29 @@
+{
+  "UF-110-1": {
+    "id": "UF-110-1",
+    "category": "literature-resolution",
+    "severity": "major-substrate-resolution",
+    "summary": "FW §2.1 eq. (2.2) at .txt line 1754 PROVIDES PRIMARY-LITERATURE SOURCE for the null-sum constraint v_1 + v_2 + v_3 + v_4 = 0 that 058R §B.3 carried internally without citation.",
+    "details": "During paste-prep extraction of FW math-ph/0201051 §2.1 (P_V Hamiltonian section), the constraint v_1+v_2+v_3+v_4=0 was located at line 1754 of the pdftotext output, attributed in FW to '[30]' (which is the JMO σ-form reference, likely Jimbo-Miwa-Ueno or Okamoto's σ-form papers). Combined with FW §4.1 eq. (4.1) two-parameter degeneration to (v_1, v_2) for P_III, this resolves the provenance question of UF-109-3 conclusively — the constraint is NOT a project assumption, it is FW §2.1 eq. (2.2) applied at the V_quad parameter point under PV→PIII degeneration.",
+    "blocking": false,
+    "ledger_action": "Resolves UF-109-3. Strengthens prompt 105 substrate (Okamoto-rename derivation can now cite FW §2.1 eq. (2.2) directly). Working hypothesis logged: project (α_∞, α_0, β_∞, β_0) ≡ FW (v_1, v_2, v_3, v_4) shifted by -1/12 per parameter — pending researcher verification."
+  },
+  "UF-110-2": {
+    "id": "UF-110-2",
+    "category": "candidate-mechanism-identification",
+    "severity": "research-direction",
+    "summary": "FW §4.1 Proposition 4.1 eq. (4.3) auxiliary Hamiltonian h = tH + ¼v_1² − ½t includes an EXPLICIT additive shift -½t, identifying candidate mechanism (a) 'Hamiltonian expansion residual' for the project -1/3 null-sum offset at V_quad.",
+    "details": "Investigation 2026-05-08 ~11:50 JST during TIER-B paste-prep. The auxiliary Hamiltonian h vs primary Hamiltonian tH differ by quadratic term in v_1 + linear term in t. When pulled back to V_quad's parameter point under the chart-map composition, the -½ t additive shift (after symplectic rescaling) could plausibly produce the -1/3 offset. This is one of the three mechanisms enumerated in prompt 105 §1 (F2)(a). The competing mechanism (b) 'additive shift in rename' would have c=-1/12 per parameter (4c=-1/3) sum-shift on the project tuple. Mechanism (c) Sakai surface artefact remains untested.",
+    "blocking": false,
+    "ledger_action": "Documented in pre-staged paste packet (★★ marker on EXCERPT 1 §4.1 quote). Researcher to assess in §3.5.1 derivation per prompt 105 D3."
+  },
+  "UF-110-3": {
+    "id": "UF-110-3",
+    "category": "convention-source-clarification",
+    "severity": "research-direction",
+    "summary": "FW (v_1, v_2)_PIII ≡ Okamoto (θ_0, θ_∞)_PIII identified explicitly via ODE coefficient matching.",
+    "details": "FW §4.1 ODE coefficients α=-4v_2, β=4(v_1+1), γ=4, δ=-4 (lines 3937-3944). Okamoto 1987 §1 eq. (0.1) ODE coefficients α=-4η_∞θ_∞, β=4η_0(θ_0+1), γ=4η_∞², δ=-4η_0² (lines 201-203). After Okamoto's WLOG η_∞=η_0=1: α=-4θ_∞, β=4(θ_0+1), γ=4, δ=-4. Therefore v_2 = θ_∞ and v_1 = θ_0. This is a clean two-parameter relabel between FW and Okamoto for P_III at the WLOG-fixed (η=1) slice.",
+    "blocking": false,
+    "ledger_action": "Documented in pre-staged paste packet (★ marker on EXCERPT 1 §4.1). Strengthens prompt 105 §3 substrate citation S1+S3."
+  }
+}

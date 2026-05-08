@@ -1,0 +1,404 @@
+# TIER-B Substrate Paste Packet — round 1 (post-069r2 verdict)
+#
+# STATUS: PRE-STAGED 2026-05-08 ~11:50 JST by SIARC agent-tier.
+#         Excerpts 1, 2, 3 FULLY EXTRACTED from on-disk substrate.
+#         Excerpt 4 PLACEHOLDER pending prompt 105 fire (CT v1.3
+#         §3.5.1 Okamoto-rename derivation by Copilot Researcher).
+#
+# Path B4a per `siarc-relay-bridge/sessions/2026-05-08/
+# T1-SYNTH-069R2-VERDICT-ABSORPTION-108/cascade_plan.md`.
+#
+# OPERATOR TASK: After 105 lands, splice §3.5.1 .tex content into
+# Excerpt 4 placeholder, then paste the entire packet (between the
+# two `===PASTE-START/END===` markers) as a single Claude.ai web
+# turn for synth re-fire on QA + QB.1 + QB.4 + QE.
+
+================================================================
+NEW FINDING (logged here pre-fire, also reflected in 110 deposit
+as UF-110-1):
+
+FW math-ph/0201051 §2 eq. (2.2) at .txt line 1754 STATES THE
+NULL-SUM CONSTRAINT EXPLICITLY:
+
+    v_1 + v_2 + v_3 + v_4 = 0
+
+This is the PRIMARY-LITERATURE source for the constraint that
+058R §B.3 carried internally without citation. UF-109-3 (null-sum
+constraint provenance) is RESOLVED by this finding.
+
+FW §4.1 eq. (4.1) at .txt line 3917 gives the P_III Hamiltonian:
+
+    tH = q² p² − (q² + v_1 q − t) p + ½ (v_1 + v_2) q
+
+with classical P_III ODE coefficients (lines 3938-3944):
+
+    α = -4 v_2,    β = 4(v_1 + 1),    γ = 4,    δ = -4
+
+Comparing with Okamoto 1987 §1 (slot 07 line 201-203 after WLOG
+η_∞ = η_0 = 1):
+
+    α_ODE = -4 θ_∞,    β_ODE = 4(θ_0 + 1),
+    γ_ODE = 4,         δ_ODE = -4.
+
+Therefore (v_1, v_2)_FW ↔ (θ_0, θ_∞)_Okamoto exactly.
+
+The project's 4-tuple (α_∞, α_0, β_∞, β_0) = (1/6, 0, 0, -1/2)
+corresponds to the FW PV §2 four-parameter (v_1, v_2, v_3, v_4)
+under some relabel + possible additive shift (-1/3 = sum of
+project tuple ≠ 0 = FW null-sum forces non-zero shift constant
+c with 4c = -1/3, i.e. c = -1/12 per parameter).
+
+This finding STRENGTHENS the prompt 105 substrate base and may
+let the researcher COLLAPSE TIER-A into a 30-60 min derivation
+rather than 2-3 hr literature hunt.
+================================================================
+
+===PASTE-START===
+Round-1 substrate-paste for 069r2 follow-up. Per your §5 caveat 1,
+here are the four named excerpts. Please re-fire QA, QB.1, QB.4,
+QE (and QB.2 derivatively). All other 069r2 envelope context
+still applies (Route A/B/C/D/E namespace, HALT-S1 through
+HALT-S6, Round-1 + Round-2 rubber-duck QA acknowledged).
+
+NEW SUBSTRATE FINDING (logged 2026-05-08 ~11:50 JST during
+paste-prep, surfaces here for synth awareness): FW §2 eq. (2.2)
+states the null-sum constraint v_1 + v_2 + v_3 + v_4 = 0
+EXPLICITLY as primary literature. This RESOLVES the provenance
+question that 058R §B.3 carried internally. Please incorporate
+in QE assessment.
+
+================================================================
+EXCERPT 1 — Forrester-Witte 2002, "Application of the τ-function
+theory of Painlevé equations to random matrices: PV, PIII, the
+LUE, JUE and CUE". arXiv:math-ph/0201051. CPA 55(6) 679-727.
+================================================================
+
+--- FW abstract (verbatim, lines 9-37 of arXiv-extracted text) ---
+
+With h·i denoting an average with respect to the eigenvalue PDF
+for the Laguerre unitary ensemble, the object of our study is
+ẼN(I; a, µ) := h ∏_{l=1}^N χ^{(l)}_{(0,∞)\I} (λ − λ_l)^µ i for
+I = (0, s) and I = (s, ∞), where χ^{(l)}_I = 1 for λ_l ∈ I and
+χ^{(l)}_I = 0 otherwise. Using Okamoto's development of the
+theory of the Painlevé V equation, it is shown that ẼN(I; a, µ)
+is a τ-function associated with the Hamiltonian therein, and so
+can be characterised as the solution of a certain second order
+second degree differential equation, or in terms of the solution
+of certain difference equations. The cases µ = 0 and µ = 2 are
+of particular interest as they correspond to the cumulative
+distribution and density function respectively for the smallest
+and largest eigenvalue. In the case I = (s, ∞), ẼN(I; a, µ) is
+simply related to an average in the Jacobi unitary ensemble, and
+this in turn is simply related to certain averages over the
+orthogonal group, the unitary symplectic group and the circular
+unitary ensemble. The latter integrals are of interest for their
+combinatorial content. Also considered are the hard edge and
+soft edge scaled limits of ẼN(I; a, µ). In particular, in the
+hard edge scaled limit it is shown that the limiting quantity
+E^hard((0, s); a, µ) can be evaluated as a τ-function associated
+with the Hamiltonian in Okamoto's theory of the Painlevé III
+equation.
+
+--- FW Table of Contents (lines 39-130) ---
+
+1 Introduction and summary
+2 Overview of the Okamoto τ-function theory of PV
+  2.1 The Jimbo-Miwa-Okamoto σ-form of PV
+  2.2 Bäcklund transformations and Toda lattice equation
+  2.3 Classical solutions
+3 Application to the finite LUE
+  3.1 Identification with τ-function
+  3.2 Hard edge scaling — soft edge scaling
+4 τ-function theory of PIII and hard edge scaling
+  4.1 Okamoto τ-function theory of PIII
+  4.2 Bäcklund transformations and Toda lattice equation
+  4.3 Classical solutions
+  4.4 Identification with τ-function
+5 Concluding remarks
+
+--- FW §2.1 P_V Hamiltonian + null-sum constraint (lines
+1740-1755) ---
+
+2.1 The Jimbo-Miwa-Okamoto σ-form of PV
+As formulated in [30], the Okamoto τ-function theory of the
+fifth Painlevé equation PV is based on the Hamiltonian system
+{Q, P, t, K}
+
+(2.1)
+   tK = [Q(Q-1)² P² − {(v_2 - v_1)(Q-1)² − 2(v_1 + v_2)Q(Q-1)
+                       + tQ} P
+        + (v_3 - v_1)(v_4 - v_1)(Q - 1)]
+
+where the parameters v_1, ..., v_4 are constrained by
+
+(2.2)            v_1 + v_2 + v_3 + v_4 = 0.            ★★★
+
+[★★★ = THIS IS THE NULL-SUM CONSTRAINT SOURCE for 058R §B.3]
+
+--- FW §2.1 P_V ODE coefficients (lines 1798-1812) ---
+
+(2.5)
+    α = ½ (v_3 - v_4)²,
+    β = -½ (v_2 - v_1)²,
+    γ = 2 v_1 + 2 v_2 - 1,
+    δ = -½.
+
+This is the general P_V equation with δ = -½ (recall that the
+general P_V equation with δ ≠ 0 can be reduced to the case with
+δ = -½ by the mapping t → √(-2δ) t).
+
+--- FW §4 + §4.1 P_III intro + Hamiltonian (lines 3903-3920) ---
+
+4 τ-function theory of PIII and hard edge scaling
+
+In the Laguerre ensemble the eigenvalues are restricted to be
+positive. For N large, the spacing between the eigenvalues in
+the neighbourhood of the origin is of order 1/N. By scaling the
+coordinates as in (1.54) the eigenvalue spacing is then of order
+1 and well defined distributions result. In this limit the PV
+system degenerates to the PIII system so it is appropriate to
+revise the τ-function theory of the latter.
+
+4.1 Okamoto τ-function theory of PIII
+Following [31], the Hamiltonian theory of PIII (actually the
+PIII' system rather than the PIII) can be formulated in terms
+of the Hamiltonian
+
+(4.1)
+       tH = q² p² − (q² + v_1 q − t) p + ½ (v_1 + v_2) q.
+
+[Note: only TWO parameters (v_1, v_2) for P_III, vs FOUR
+(v_1, v_2, v_3, v_4) for P_V. The two-parameter (v_1, v_2) is
+the "hard-edge scaling limit" surviving from the four-parameter
+P_V; v_3 and v_4 absorb in the degeneration.]
+
+--- FW §4.1 P_III ODE coefficients (lines 3937-3944) ---
+
+Thus by substituting (4.1) in the Hamilton equations (2.3) and
+eliminating p we find that y(s) satisfies the PIII differential
+equation
+    d²y/ds² = (1/y)(dy/ds)² − (1/s)(dy/ds) + (1/s)(α y² + β)
+              + γ y³ + δ/y
+with q(t) = s y(s), t = s², and
+
+    α = -4 v_2,    β = 4(v_1 + 1),    γ = 4,    δ = -4.   ★
+
+[★ = matches Okamoto 1987 §1 eq. (0.1) under (v_1, v_2)_FW =
+     (θ_0, θ_∞)_Okamoto with WLOG η_∞ = η_0 = 1.]
+
+--- FW §4.1 auxiliary Hamiltonian h (lines 3956-3962) ---
+
+Proposition 4.1 [31] With H specified by (4.1), define the
+auxiliary Hamiltonian
+
+(4.3)        h = tH + ¼ v_1² − ½ t.                     ★★
+
+[★★ = explicit additive shift -½ t and quadratic shift +¼ v_1²
+      in the auxiliary Hamiltonian. Possible candidate for the
+      -1/3 mechanism (a) per prompt 105 §1 / 058R B.3.]
+
+The auxiliary Hamiltonian h satisfies the differential equation
+
+(4.4)
+    (t h'')² + v_1 v_2 h' − (4 (h')² − 1)(h − t h') − ¼ (v_1² + v_2²) = 0.
+
+[end EXCERPT 1]
+
+================================================================
+EXCERPT 2 — Kajiwara-Noumi-Yamada 2017, "Geometric aspects of
+Painlevé equations", J. Phys. A: Math. Theor. 50 (2017) 073001.
+§8.5.17 d-P((2A_1)^(1)/D_6^(1)) — full sub-subsection.
+================================================================
+
+--- KNY §8.5.17 (slot 14 .txt lines 7869-7922) ---
+
+8.5.17  d-P((2A_1)^(1)/D_6^(1))
+
+The corresponding continuous flow is P_III^{D_6^(1)} with the
+Hamiltonian:
+
+(8.237)
+        H = (1/t) { p(p − 1) q² + (a_1 + a_2) q p + t p − a_2 q }.
+
+The eight points configuration in (f, g) coordinates is given as:
+
+(8.238)
+   (f_i, g_i) = ( (1, -a_2), (1/3, -a_1), (0, 0),
+                  (1/3, -t/3 + 1 - a_2 - a_1) ).
+
+(i) Differential Lax form:
+
+   L_1 = { -a_2/x + p q/(x(x−q)) − tH/x² }
+         + { (1+a_1+a_2)/x − 1/(x−q) + t/x² − 1 } ∂_x + ∂_x²,
+
+(8.239)
+   L_2 = T_α − (1/(x−q)) (p − ∂_x),
+
+   B = ∂_t − (q/(t(x−q))) (x ∂_x − q p).
+
+The curve L_1 y = 0 is the unique curve of degree (3, 2) in
+(f, g) passing through the points (8.238) and (8.226).
+Compatibility of L_1 y = L_2 y = 0 gives the discrete flow for
+T_α (= (π_1 π_2)² s_2 s_1):
+
+(8.240)
+   ā_1 = a_1 + 1,   ā_2 = a_2 + 1,
+   q̄ + q = − a_2/p − a_1/(p−1),
+   p̄ + p = 1 − t/q̄² − (a_1 + a_2 + 1)/q̄.
+
+Compatibility of L_1 y = By = 0 gives the P_III^{D_6^(1)} flow
+with Hamiltonian (8.237).
+
+(ii) Difference Lax form:
+
+   L_1 = ((z + a_2 − 1)/(z − g − 1)) f (T_z^{-1} − f) + f²
+         + f (1 − a_1 − a_2 − g − z) − t + (tz/(g − z))(f T_z − 1),
+
+(8.241)
+   L_2 = T_β T_z + (1/(z − g))(1 − f T_z),
+
+   B = ((z + a_2)/(z − g))(f T_z − 1) + t ∂_t T_z + z T_z.
+
+The curve L_1 y = 0 is the unique curve of degree (2, 3) in
+(f, g) passing through the points (8.238) and (8.229).
+Compatibility of L_1 y = L_2 y = 0 gives the discrete flow for
+T_β (= s_2 π_1 π_2 π_1):
+
+(8.242)
+   ā_2 = a_2 − 1,
+   ḡ + g = 1 + f − a_1 − a_2 − t/f,
+   f̄ f = − tg/(g + a_2 − 1).
+
+Compatibility of L_1, B gives the continuous P_II^{D_6^(1)} flow
+with the Hamiltonian (8.237).
+
+[end EXCERPT 2]
+
+================================================================
+EXCERPT 3 — Okamoto 1987, "Studies on the Painlevé equations IV:
+third Painlevé equation P_III", Funkcial. Ekvac. 30 (1987)
+305-332. §1.1 Introduction.
+================================================================
+
+--- Okamoto 1987 §1 (slot 07 .txt lines 136-230) ---
+
+Introduction.
+The present article concerns the third Painlevé equation:
+
+P_III:  d²q/dt² = (1/q)(dq/dt)² − (1/t)(dq/dt)
+                + (1/t)(α q² + β) + γ q³ + δ/q,
+
+for which we make the assumption γ δ ≠ 0, throughout this paper.
+This equation is well-known and investigated by many authors
+(for example, [3], [5], [6], [7]), while we consider in the
+following mainly the equation:
+
+P_III':  d²q/dt² = (1/q)(dq/dt)² − (1/t)(dq/dt)
+                 + q²/(4 t²) (γ q + α) + β/(4 t) + δ/(4 q),
+
+instead. These two equations are equivalent each other. In fact,
+by replacing in P_III, t² by t and q by t q, we obtain P_III'.
+Therefore a result on P_III' can be translated immediately to
+that of P_III. We do not repeat results one by one. We sum up in
+1.1 known facts about the equation P_III' or P_III. As for the
+origin of the equation P_III', refer to [8], [10].
+
+The Hamiltonian associated with P_III is:
+
+H_III = (1/t) [ 2 q² p² − {2 η_∞ t q² + (2 θ_0 + 1) q
+                          − 2 η_0 t} p
+              + η_∞ (θ_0 + θ_∞) t q ],
+
+where the constants η_Δ, θ_Δ (Δ = 0, ∞) are connected to α, β,
+γ, δ of the equation as follows:
+
+(0.1)        α = -4 η_∞ θ_∞,
+             β = 4 η_0 (θ_0 + 1),
+             γ = 4 η_∞²,
+             δ = -4 η_0².
+
+By the assumption, we have η_Δ ≠ 0; moreover we set η_Δ = 1
+without loss of generality. On the other hand, the Hamiltonian
+associated with P_III' is:
+
+H_III' = (1/t) [ q² p² − {η_∞ q² + θ_0 q − η_0 t} p
+               + ½ η_∞ (θ_0 + θ_∞) q ].
+
+These two Hamiltonians are connected mutually through the
+canonical transformation φ:
+
+(0.2)   q → t q,    p → t^{-1} p,    t → t²,
+        H_III' → (1/(2t))(H_III + (1/t) q p).
+
+[end EXCERPT 3]
+
+================================================================
+EXCERPT 4 — CT v1.3 §3.5.1 (η, θ) → (α, β) Okamoto-rename
+derivation. SOURCE: tex/submitted/control center/(or pcf-research/
+channel/cc_pipeline_v13_2026-05-02/)channel_theory_outline.tex
+post-105 fire.
+================================================================
+
+[OPERATOR ACTION REQUIRED — splice content here AFTER prompt 105
+("105_copilot_researcher_route_e_okamoto_rename.txt") fires and
+the bridge deposit lands at sessions/2026-05-08/T1-OPERATOR-CT-V13
+-3.5.1-OKAMOTO-RENAME-DERIVATION-NNN/. Paste the full §3.5.1
+sub-subsection .tex source as authored by the Copilot Researcher.
+
+If for any reason 105 has not fired by the time this packet must
+dispatch, fall back to Path B4b: paste current §3.5 (the WKB
+identity, lines 845-891 of channel_theory_outline.tex) plus the
+operator note:
+
+  "§3.5 currently contains the WKB exponent identity; the
+   (η,θ)→(α,β) rename derivation does NOT yet exist in CT v1.3
+   source. TIER-A authoring (prompt 105) is parallel-track; the
+   §3.5.1 deliverable will land separately. Synth's Route E
+   verdict here will inform how the rename gets drafted.
+
+   Working assumption from FW §2 eq. (2.2) at line 1754: the
+   project's (α_∞, α_0, β_∞, β_0) is the FW (v_1, v_2, v_3, v_4)
+   convention modulo a -1/12 additive shift per parameter.
+   Validated value at V_quad: project (1/6, 0, 0, -1/2),
+   under proposed shift maps to FW v = (1/4, 1/12, 1/12, -5/12),
+   sum = 0. Researcher to verify or correct."]
+
+[end EXCERPT 4 — placeholder]
+
+================================================================
+RE-FIRE INSTRUCTIONS (paste at end of operator's Claude.ai web
+turn, immediately after EXCERPT 4)
+================================================================
+
+Re-fire scope: QA + QB.1 + QB.4 + QE (and QB.2 derivatively).
+Do NOT re-evaluate QB.3 (already Y_RENAME_REQUIRED, robust). QC
+remains N-A unless QA + QB.4 both land NO_GO. QD will be
+addressed in a separate round-2 substrate-paste turn (V_quad
+numerical-solution structure + (α, β) extraction operation
+spec).
+
+Watch-list per your §5 caveat 4: if FW excerpts reveal Sakai
+D_6 surface-type machinery as the chart-map mechanism (vs
+σ-form / Hamiltonian P_III), please flag ROUTE_FRAME_INCOMPLETE
+per HALT-S5 rather than fold into A-E. Vocabulary triggers:
+"Sakai D_6 surface", "surface-type machinery", "Mukai pair",
+"rational surface" / "blow-up" / "exceptional curve", W(D_6)
+extended affine Weyl group.
+
+Acceptance criterion to bake into whichever route lands GO:
+explicitly trace where the −1/3 null-sum offset originates.
+This is per your §5 caveat 3.
+
+NEW ACCEPTANCE-CRITERION REFINEMENT (per UF-110-1 finding):
+the FW §2 eq. (2.2) null-sum constraint v_1+v_2+v_3+v_4 = 0
+is now PRIMARY LITERATURE. The -1/3 violation at V_quad's
+(1/6, 0, 0, -1/2) implies the project tuple lives on the
+4 c = -1/3 (c = -1/12) shifted FW affine subspace, OR the
+project tuple is extracted in a different parametrization
+than FW (v_1, v_2, v_3, v_4). Please disambiguate in QE.
+
+===PASTE-END===
+
+================================================================
+END OF TIER-B PASTE PACKET (round 1, Path B4a)
+================================================================
