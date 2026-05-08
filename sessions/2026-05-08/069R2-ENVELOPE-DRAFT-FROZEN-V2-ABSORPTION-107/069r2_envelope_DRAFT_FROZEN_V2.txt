@@ -1,0 +1,1030 @@
+============================================================
+RELAY 069r2 — M6.CC R1 CLOSURE ROUTE-A/B/C/D/E DECISION (T1-SYNTH)
+============================================================
+
+TASK_ID:           069R2-PATH-DECISION
+TIER:              T1-Synth analytic-guidance dispatch (Claude.ai web)
+GATES:             M9 V0 deposit (hard-gated on M6.CC R1 closure per 097
+                   gating prerequisite + peer-consult-104 Q6 unanimous)
+PARENT VERDICT:    069r1 NO_GO_SUBSTRATE_INSUFFICIENT (069r1 Path α
+                   + Path β both closed at A.1.5 substrate gap;
+                   069r1 recommended either Path γ = THIS T1-Synth
+                   analytic-guidance request OR Path δ = literature
+                   acquisition. 069r2 is the executing-instance of
+                   069r1's Path γ recommendation; within it, the synth
+                   weighs sub-mechanisms Route A through Route E.)
+DRAFTING DATE:     2026-05-08
+ENVELOPE STATUS:   PRE-DISPATCH (rubber-duck pre-fire QA absorbed —
+                   2 BLOCKING + 7 SHOULD_FIX from gpt-5.5 pass; 1
+                   BLOCKING + 3 high-impact from parallel-QA pass —
+                   namespace collision and §1 path-inventory fixes
+                   applied)
+
+NAMESPACE NOTE (parallel-QA finding R-1 absorbed):
+  069r1 reserved Greek letters α/β/γ/δ for its own four candidate
+  paths. To avoid collision, 069r2 uses Latin-alphabet Route A/B/C/D/E
+  for the sub-mechanisms it weighs:
+    Route A — IN-HAND Hamiltonian coefficient-matching (zero-acquisition)
+    Route B — FW arXiv math-ph/0201051 + Okamoto 1987 §3 (Tier 1 lit)
+    Route C — JM 1981 + Conte-Musette 2008 ILL/OA acquisition (Tier 3 lit)
+    Route D — direct numerical chart-map fitting from V_quad → P_III
+    Route E — CT v1.3 §3.5 author-side (η,θ)→(α,β) rename derivation
+              (operator-side; ORTHOGONAL to A-D — not synth-weighable)
+  Routes B + C together = 069r1's Path δ (literature acquisition).
+  Route A is what 058R `phase_b_canonical_map.md` L122-130 calls
+  "derivable by expanding both Hamiltonians" — not previously labelled.
+  Routes D and E surfaced by parallel-QA finding R-3b.
+
+============================================================
+STEP 0 — SUPERSESSION AUDIT + SHA PRE-FLIGHT (mandatory; do
+                                              not proceed if any step
+                                              fails)
+============================================================
+
+STEP 0.1 — Supersession audit (broadened per rubber-duck QA finding #3)
+  Search bridge for prior 069r2 / 069r2-equivalent fires using BOTH
+  commit-message and tree/path scans (catches fuzzy variants like
+  069-r2 / 069_R2 / 069v2 / 069 v2 / 069-revision-2 even when commit
+  message does not mention 069r2):
+
+    git log --all --regexp-ignore-case --extended-regexp \
+      --grep="069[-_ ]?(r|rev|revision)?[-_ ]?2|069[-_ ]?v2"
+
+    git log --all --name-only --regexp-ignore-case --extended-regexp \
+      --grep="069[-_ ]?(r|rev|revision)?[-_ ]?2|069[-_ ]?v2"
+
+    git ls-tree -r --name-only HEAD | \
+      rg -i "069[-_ ]?(r|rev|revision|v)?[-_ ]?2"
+
+  Q.SUP gate:
+    IF prior LANDED 069r2-equivalent fire exists whose scope is
+    Path γ/β/δ chart-map closure or 069r2-equivalent analytic guidance:
+      HALT_069R2_SUPERSESSION_TRIGGERED (pending human disambiguation)
+      → re-scope this envelope to discharge residual rather than re-fire
+    ELSE:
+      proceed to STEP 0.2
+
+  Audit performed 2026-05-08 ~08:55 JST (initial pattern) and
+  2026-05-08 ~09:15 JST (broadened pattern post-rubber-duck QA):
+  NO PRIOR 069R2-EQUIVALENT FIRES. 069r1 verdict explicitly gated 069r2
+  to W21 LANE-1; this is the appropriate firing window. Q.SUP = NO.
+  Proceed.
+
+STEP 0.2 — SHA pre-flight (per repo memory `substrate verification`,
+                            stored 2026-05-08 after 105 contamination
+                            cascade)
+  Every bridge SHA cited in §1 below MUST pass `git rev-parse <SHA>`
+  returning a full 40-char hash before this envelope is dispatched.
+  ANY rev-parse failure → HALT_069R2_SHA_MISMATCH (deposit halt-state
+  AEAL; do not dispatch).
+
+  Pre-flight verification performed 2026-05-08 ~08:55 JST and
+  re-verified at parallel-QA absorption ~09:50 JST. All 9 SHAs
+  cited in §1 below verified ✓ with full 40-char hashes
+  (per parallel-QA M-4):
+    e7bfe49 → e7bfe4969d7e68f510fb588b309d2e0314261db0  (068)
+    9596c21 → 9596c21af645b1b70ad5ce98cccbd8171ac11d6a  (074)
+    05810a2 → 05810a201b9fc8761d748d0ba4230e6340128e97  (069 PERSIST)
+    601500b → 601500baf6deb469f3a82c1b8a5742779fbaf6f9  (069r1 NO_GO)
+    5de7d2b → 5de7d2bd99ec9ad01d4dae8ad3df3ef1ab414f60  (102 V2 initial)
+    aa35040 → aa350404f77a5c07b74e4f8116492ab30d17be7f  (102 follow-on)
+    5137155 → 5137155d83b748bf9c0696fbf50bd91d83b8dacd  (075 STRUCTURAL_MISMATCH)
+    c0619a5 → c0619a5b9478cbb0b7ab015eb4308378ccd5d58e  (097 PARTIAL_INSUFFICIENT_DATA)
+    2eb9b28 → 2eb9b28105ca9ebef7bf3288db9a28f090cfafcf  (058R UPGRADE_V1_0_PARTIAL_NUMERICAL)
+
+STEP 0.3 — Vocabulary discipline pre-flight (expanded per rubber-duck
+                                              QA finding #9 + parallel-QA
+                                              M-3: 16-verb pattern aligns
+                                              with 099-style envelopes)
+  Forbidden verbs in CLAIM/PREDICTION CONTEXT (substrate-prose):
+    shows, confirms, proves, demonstrates, establishes,
+    verifies, verified, validates, validated,
+    corroborates, corroborated, certifies, certified,
+    settles, settled,
+    discharges, ratifies
+  Permitted in: verb-list-as-data (098-J3); checklist meta-references
+                 (075-J2); quoted substrate; computation-output
+                 telemetry; SHA / checksum / rev-parse telemetry.
+  Substrate-prose hits MUST be softened to: "is consistent with",
+                                              "indicates", "supports",
+                                              "suggests", or
+                                              "is compatible with".
+  Phase F scan at deposit time (see §7).
+
+============================================================
+§1 — SUBSTRATE INVENTORY (frozen SHAs; all rev-parse-verified)
+============================================================
+
+| # | Artifact                                       | Bridge SHA | Verdict / status                                                |
+|---|------------------------------------------------|------------|------------------------------------------------------------------|
+| 1 | 068 M4 closure fire                            | e7bfe49    | UPGRADE_FULL_VIA_DEG_A_ZERO_ROW (MEDIUM-HIGH)                    |
+| 2 | 074 M4 ratification dossier                    | 9596c21    | DOSSIER_COMPLETE                                                  |
+| 3 | 069 M6.CC Phase D.2 numerical follow-up        | 05810a2    | UPGRADE_V1_0_PARTIAL_NUMERICAL_PERSIST                            |
+| 4 | 069r1 M6.CC R1 closure preflight               | 601500b    | NO_GO_SUBSTRATE_INSUFFICIENT (Path α + Path β both closed at A.1.5) |
+| 5 | 102 (initial) FW pre-verify                    | 5de7d2b    | V2 ALL_3_RESOLVED_MIXED_ACCESSIBILITY                             |
+| 6 | 102 (follow-on)                                | aa35040    | pre-verify 069r1 substrate-gap refs                               |
+| 7 | 075 M6.CC chart-map B1-check                   | 5137155    | STRUCTURAL_MISMATCH 7/7 (BT 1933 §5(13a) NOT a B1 fill)           |
+| 8 | 097 M9 V0 announceability check                | c0619a5    | PARTIAL_INSUFFICIENT_DATA (named gating prerequisite = 069r1)     |
+| 9 | 058R CC-VQUAD-PIII normalisation map           | 2eb9b28    | UPGRADE_V1_0_PARTIAL_NUMERICAL (M6.CC structural closure unchanged) |
+
+Substrate-inventory paths (verified via `git show --stat <SHA>`
+                            at 2026-05-08 ~09:25 JST per parallel
+                            rubber-duck QA — 6/9 path strings
+                            previously wrong; now corrected):
+  e7bfe49: sessions/2026-05-07/T1-PHASE-3-COSTIN-BORDERLINE-M4-CLOSURE-068/handoff.md
+  9596c21: sessions/2026-05-07/T2-M4-RATIFICATION-DOSSIER-ASSEMBLY-074/handoff.md
+  05810a2: sessions/2026-05-07/CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL/handoff.md
+  601500b: sessions/2026-05-07/M6-CC-R1-CLOSURE-PREFLIGHT-069R1/handoff.md
+  5de7d2b: sessions/2026-05-07/T1-069R1-SUBSTRATE-GAP-PRE-VERIFICATION-102/handoff.md
+  aa35040: sessions/2026-05-07/T1-069R1-SUBSTRATE-GAP-PRE-VERIFICATION-102/handoff.md (follow-on commit; same folder)
+  5137155: sessions/2026-05-07/T2-M6-CC-CHART-MAP-CANDIDATE-B1-CHECK-075/handoff.md
+  c0619a5: sessions/2026-05-07/T2-ICA-VQUAD-PHI-PCF-097/handoff.md
+  2eb9b28: sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/handoff.md
+
+ALL PATHS VERIFIED via `git show --stat=200 <SHA>` (canonical commit
+inspection); supersedes earlier Get-ChildItem-based check.
+
+============================================================
+§1.5 — INLINED SUBSTRATE EXCERPTS (for synth use; minimum required
+         per rubber-duck QA finding #2 + #8 — synth has no direct
+         bridge access via Claude.ai web)
+============================================================
+
+The following excerpts are reproduced verbatim from the bridge SHAs
+in §1 to ground the synth's reasoning. Each is < 50 words per
+verbatim-quote-length discipline.
+
+### EXCERPT 1 — Namespace drift (069r1 unexpected_finds U1, 601500b)
+
+  > "Okamoto 1987 §3 (slot 07) does not denote the Hamiltonian-system
+  > parameters as (alpha_inf, alpha_0, beta_inf, beta_0); the original
+  > Okamoto 1987 paper uses (eta_inf, eta_0, theta_inf, theta_0)
+  > parameters (Lax-pair monodromy data). The (alpha_inf, alpha_0,
+  > beta_inf, beta_0) convention is a project-side rename adopted in
+  > CT v1.3 §3.5 rewrite."
+
+  Implication: the chart-map sought is a project-internal artefact;
+  literature does not directly furnish it under the project's
+  (α∞, α0, β∞, β0) symbol set. Symbol-translation
+  (η,θ)_Okamoto ↔ (α,β)_project is itself part of the closure work.
+
+### EXCERPT 2 — P_III ODE coefficient namespace collision (069r1 U3)
+
+  > "058R phase_b5_affine_weyl_crosswalk.md L88-89 lists alpha, beta,
+  > gamma, delta as the P_III standard-form ODE coefficients
+  > (the textbook P_III equation
+  >    w'' = w'^2/w − w'/t + (αw² + β)/t + γw³ + δ/w).
+  > These four symbols collide in name with the Okamoto four-tuple
+  > (alpha_inf, alpha_0, beta_inf, beta_0)."
+
+  Implication: when reasoning about FW or Okamoto substrate, the
+  synth MUST disambiguate "P_III ODE coefficients (α, β, γ, δ)" from
+  "Okamoto four-tuple (α∞, α0, β∞, β0)" at the language level.
+
+### EXCERPT 3 — In-hand Hamiltonian derivability (058R 2eb9b28
+                  phase_b_canonical_map.md L122-130)
+
+  > "(θ_0, θ_∞)_Okamoto ⟷ (a_1, a_2)_KNY  (mod convention shift),
+  > with the explicit formula derivable by expanding both Hamiltonians
+  > in the same canonical (q, p, t) chart. The mapping is bijective on
+  > the relevant chart (V_quad's chart at t=0 ↔ P_III(D_6)'s chart at
+  > t=0 in KNY conventions); the Jacobian is non-degenerate."
+
+  Implication: 058R asserts the chart-map is *derivable* from in-hand
+  Hamiltonian substrate (Okamoto 1987 H_III + KNY 2017 §8.5.17
+  H_D6^KNY), distinct from being *present* anywhere. This is the
+  foundation of Path δ (see §3).
+
+### EXCERPT 4 — Required form (gap-side spec, 075 5137155
+                  chart_map_required_form.md §B.1)
+
+  > "α_∞ = f_{α∞}(a_0, a_1, a_2),
+  >  α_0 = f_{α0}(a_0, a_1, a_2),
+  >  β_∞ = f_{β∞}(a_0, a_1, a_2),
+  >  β_0 = f_{β0}(a_0, a_1, a_2),
+  >  with each f_* a closed-form polynomial (or rational) expression
+  >  in (a_0, a_1, a_2)."
+
+  Plus the constraint anomaly D2 (058R phase_b_canonical_map L136-140):
+  the V_quad 4-tuple (1/6, 0, 0, −1/2) does NOT satisfy Okamoto's
+  α∞+α0+β∞+β0=0 null-sum (sums to −1/3); chart-map preimage in KNY
+  must accommodate this offset.
+
+### EXCERPT 5 — FW 2002 substrate disposition (102 5de7d2b
+                  forrester_witte_resolution.json)
+
+  Canonical record: Forrester-Witte, "Application of the τ-function
+  theory of Painlevé equations to random matrices: P_V, P_III, the
+  LUE, JUE, and CUE", CPA 55(6):679-727 (2002), DOI 10.1002/cpa.3021,
+  arXiv math-ph/0201051 (OA). 102 disposition:
+
+  > "Probability that FW2002 + Okamoto 1987 jointly furnish substrate
+  > for the chart-map = MODERATE-TO-HIGH if the chart-map can be
+  > derived from sigma-form / Hamiltonian P_III; LOW if the chart-map
+  > intrinsically requires surface-type / Sakai D_6 machinery."
+
+  Caveat from the WITTE-FORRESTER-2010-ACQUISITION absence audit:
+  the FW oeuvre uniformly does NOT invoke W(B_2) ↔ W((2A_1)^(1))
+  cross-walk. CPA paper §3 develops P_III via Okamoto's Hamiltonian
+  + τ-function theory, cross-referencing Okamoto 1987 P_III paper.
+
+============================================================
+§2 — THE OPEN R1 (residual identified by 069r1)
+============================================================
+
+Per 069r1 verdict (601500b, A.1.5):
+
+  > Both paths closed at A.1.5 substrate gap (the explicit
+  > (a_0, a_1, a_2) → (α_∞, α_0, β_∞, β_0) chart-map IS the open R1
+  > itself per 058R phase_b_canonical_map L136-140).
+
+In words: the residual R1 of 058R's UPGRADE_V1_0_PARTIAL_NUMERICAL is
+the **chart-map** between:
+  • the SIARC-side (a_0, a_1, a_2) coordinates on the V_quad → P_III(D_6)
+    canonical-form image (per CT v1.3 §3.5 four-tuple → KNY chart);
+  • the literature-side Painlevé III parameter quadruple
+    (α_∞, α_0, β_∞, β_0) (per Okamoto 1987 §3 parametrisation).
+
+069r1 attempted to close R1 via two independent symbolic paths:
+  Path α (KNY chart-shift Δ): closed at substrate gap at A.1.5 — KNY
+    1992/1996 papers do not surface the explicit (a_0, a_1, a_2) →
+    quadruple chart-map; they document the (a_0, a_1, a_2) chart but
+    not its image in the (α, β) quadruple.
+  Path β (Okamoto §3 τ-function reparametrisation): closed at the
+    same A.1.5 gap — Okamoto 1987 §3 documents the τ-function
+    reparametrisation in (α, β) coordinates but not its preimage in
+    KNY (a_0, a_1, a_2).
+
+075 found that BT 1933 §5 (13a) periodic-functions across-strip
+expansion (a candidate "B1 fill" surfaced from 073) is NOT a chart-map
+fill — STRUCTURAL_MISMATCH 7/7 between gap-side specification and
+fill-side construction.
+
+============================================================
+§3 — DECISION FRAME (Route A vs Route B vs Route C; with Route D/E
+                      as orthogonal alternatives)
+============================================================
+
+The synth weighs five sub-mechanisms, all under 069r1's recommended
+Path γ (T1-Synth analytic-guidance) umbrella. Routes A-D are
+synth-weighable; Route E is operator-side orthogonal.
+
+Per 102 V2 verdict (5de7d2b) `ALL_3_RESOLVED_MIXED_ACCESSIBILITY`
+combined with EXCERPT 3 above (058R's in-hand Hamiltonian
+derivability claim):
+
+  Route A — IN-HAND Hamiltonian coefficient-matching
+            (zero-acquisition route; was "Path δ" pre-rename)
+    Substrate: 058R phase_b_canonical_map L122-130 (EXCERPT 3) states
+                the Okamoto ↔ KNY parameter matching is DERIVABLE by
+                expanding both Hamiltonians in the same canonical
+                (q, p, t) chart. KNY 2017 §8.5.17 cited in 058R;
+                Okamoto 1987 H_III is in slot 07 substrate.
+    Mechanism: executor (069r3-A) does the derivation directly:
+                (a) write Okamoto 1987 H_III(q,p,t; θ_0, θ_∞) in
+                    canonical (q,p,t) chart;
+                (b) write KNY 2017 §8.5.17 H_D6^KNY(q,p,t; a_0,a_1,a_2)
+                    in same chart;
+                (c) match coefficient-by-coefficient to derive
+                    (θ_0, θ_∞) ↔ (a_1, a_2);
+                (d) compose with Route E precondition (CT v1.3 §3.5
+                    author-side rename (η,θ)→(α,β); see EXCERPT 1) to
+                    obtain four f_α∞, f_α0, f_β∞, f_β0 closed-form
+                    expressions per EXCERPT 4 spec;
+                (e) confirm the −1/3 null-sum offset (EXCERPT 4
+                    anomaly D2) is captured.
+    Status:    NOT YET RULED OUT by 069r1 (which only ruled out
+                069r1 Path α = KNY chart-shift Δ on (a_0,a_1,a_2),
+                and 069r1 Path β = Okamoto §3 alone). Route A is
+                distinct: it uses 058R's claimed-derivable
+                Hamiltonian-matching route.
+    Risk:      depends on 058R's "derivable" claim being concretely
+                executable. If Hamiltonian expansion produces
+                non-matching structure (e.g., extra terms requiring
+                surface-type machinery), Route A → UNDECIDABLE and
+                Routes B/C must be revisited.
+    Route E dependency: Route A still requires Route E (author-side
+                rename) at step (d). Route E is operator-side orthogonal
+                — does not need synth weighing — but is a precondition
+                for any chart-map composition reaching the project's
+                (α∞, α0, β∞, β0) namespace.
+
+  Route B — FW arXiv math-ph/0201051 + Okamoto 1987 §3
+            (Tier 1 literature route; was "Path γ" pre-rename)
+    Substrate: Forrester-Witte 2002 CPA paper available OPEN via
+                arXiv math-ph/0201051 (102 disposition: Tier 1; OA;
+                acquisition cost ≈ zero).
+    Mechanism: executor (069r3-B) reads FW arXiv §3 (P_III
+                Hamiltonian/τ-function development) for the explicit
+                chart-map (or chart-map identity bridging KNY
+                (a_0, a_1, a_2) to (α_∞, α_0, β_∞, β_0)); composes
+                with Okamoto 1987 §3 + Route E rename to close R1.
+    Status:    SUBSTRATE ACCESSIBLE; structural fit unverified.
+                102 disposition: MODERATE-TO-HIGH yield IF chart-map
+                derives from σ-form / Hamiltonian P_III; LOW if it
+                requires Sakai D_6 surface machinery (FW oeuvre
+                uniformly does NOT invoke W(B_2) ↔ W((2A_1)^(1))
+                cross-walk per WITTE-FORRESTER-2010-ACQUISITION
+                absence audit).
+    Route E dependency: same as Route A — even if FW supplies the
+                (η,θ)-side chart-map, Route E rename is needed to
+                reach the project's (α,β) namespace.
+
+  Route C — JM 1981 + Conte-Musette 2008 ILL/OA acquisition
+            (Tier 3 literature route; was "Path β" pre-rename)
+    Substrate: Jimbo-Miwa-Ueno 1981 Physica D Parts I-III (Tier 3,
+                Springer paywalled; PTP-archive may have Part II);
+                Conte-Musette 2008 1st ed (Tier 3, Springer paywalled).
+    Mechanism: ILL or browser-driver-mediated open-access acquisition;
+                then executor (069r3-C) reads for chart-map fill +
+                Route E rename composition.
+    Status:    SUBSTRATE BLOCKED; mechanism known but acquisition
+                latency unknown (~7-30 days).
+
+  Route D — Direct numerical chart-map fitting (parallel-QA finding R-3b)
+    Substrate: V_quad numerical solutions (already at 107 dps from H4);
+                P_III(D_6) numerical solutions (constructible via
+                KNY 2017 §8.5.17 Lax pair numerical solver).
+    Mechanism: executor (069r3-D) numerically fits chart-map by
+                matching V_quad → P_III(D_6) numerical-solution
+                trajectories at multiple parameter points; back-solves
+                for the four f_α∞..f_β0 functional forms via PSLQ
+                or symbolic regression on numerical data.
+    Status:    SUBSTRATE ACCESSIBLE (no literature acquisition needed);
+                numerical-fitting fragility is the main risk.
+                Latency ~2-4 hr for first numerical fit; symbolic
+                back-solve ~4-8 hr additional.
+
+  Route E — CT v1.3 §3.5 author-side rename derivation (ORTHOGONAL)
+    Substrate: CT v1.3 §3.5 (the project-side document where the
+                (α∞, α0, β∞, β0) symbol set was introduced as
+                project rename of Okamoto's (η, θ)).
+    Mechanism: operator (NOT synth, NOT executor) writes the explicit
+                (η_∞, η_0, θ_∞, θ_0) → (α_∞, α_0, β_∞, β_0)
+                derivation as a CT v1.3 §3.5 sub-section appendix
+                or footnote.
+    Status:    NOT a synth-weighing path — operator-side governance
+                action; orthogonal to Routes A-D. ALL of Routes A,
+                B, C and D require Route E to compose to the project's
+                (α, β) namespace. Route E is a STANDING PRECONDITION
+                regardless of which Route A-D is chosen.
+    Carry-forward: 069r1 OQ-W21-CHART-MAP (handoff §"Open questions
+                for Claude" L51) — "does W21 LANE-1 expect the operator
+                to supply the (η,θ)→(α,β) rename derivation as part of
+                the closure-fire envelope, or as a substrate-cite from
+                a CT v1.3 §3.5 sub-section that may not yet exist?"
+
+  069r1 Path α (KNY chart-shift Δ) and 069r1 Path β (Okamoto §3 alone):
+    Already RULED OUT by 069r1 NO_GO_SUBSTRATE_INSUFFICIENT.
+
+NOTE on chart-map direction: §2 cites the gap as
+  (a_0, a_1, a_2) → (α_∞, α_0, β_∞, β_0)
+  but 058R `phase_b_canonical_map.md` L132-140 states the residual R1
+  in the reverse direction:
+  (α_∞, α_0, β_∞, β_0) → (a_0, a_1, a_2).
+  Per 058R B.4 the map is bijective on the relevant chart (Jacobian
+  non-degenerate), so direction is conventional — both directions
+  define the same chart-map. The synth may use either direction.
+
+============================================================
+§4 — SYNTH WEIGHING TASK (T1-Synth analytic-guidance request)
+============================================================
+
+The synth (Claude.ai web, T1-Synth tier) is asked to weigh path
+viability *before* the agent commits a 4-6 hr executor relay
+(prospective 069r3) on substrate that may or may not contain (or
+yield by derivation) the chart-map fill.
+
+The synth is NOT asked to derive the chart-map; only to assess
+feasibility from the inlined excerpts in §1.5 + the synth's own
+mathematical reasoning. The synth may request the operator paste
+additional excerpts (FW abstract / TOC / §3 parameter definitions /
+KNY 2017 §8.5.17 Hamiltonian display / Okamoto 1987 §1 Hamiltonian
+display) on demand.
+
+### SYNTH HALT CONDITIONS (mandatory acknowledgement)
+
+The synth MUST treat the following as halt conditions, returning the
+indicated UNDECIDABLE verdict rather than guessing:
+
+  HALT-S1  If FW abstract/TOC/relevant §3 parameter excerpts are
+           NOT present in this conversation, return
+           `UNDECIDABLE_FW_EXCERPTS_REQUIRED` for QB; do NOT infer
+           FW contents from title or known FW oeuvre alone.
+  HALT-S2  If the Okamoto (η,θ) ↔ project (α,β) namespace translation
+           (see EXCERPT 1 + EXCERPT 2) is unclear, return
+           `UNDECIDABLE_NAMESPACE_DRIFT` for QE and request operator
+           clarification (Route E precondition not characterized).
+  HALT-S3  If asked to verify bridge SHA/content directly, state
+           `NO_DIRECT_BRIDGE_ACCESS` (synth has no bridge fs access
+            via Claude.ai web; substrate verification is excerpt-based).
+  HALT-S4  If QB requires full-PDF derivation rather than excerpt
+           triage, return `NEEDS_EXECUTOR_AUDIT` for QB; do NOT
+           upgrade to GO.
+  HALT-S5  If a Route F-Z appears plausible (i.e., a sub-mechanism not
+           covered by Route A/B/C/D/E), report `ROUTE_FRAME_INCOMPLETE`
+           and name it; do NOT silently fold into A-E.
+  HALT-S6  Do NOT reuse the Greek-letter labels α/β/γ/δ from 069r1
+           when describing 069r2 verdicts (069r1 reserved those
+           letters for its own four candidate paths). If a 069r1-path
+           reference is needed, prefix it as `069r1-Path-α`,
+           `069r1-Path-β`, `069r1-Path-γ`, `069r1-Path-δ`.
+
+### QA — Route A (in-hand Hamiltonian coefficient-matching) feasibility
+
+This question is asked FIRST, before QB-QC, because Route A is
+zero-acquisition-cost: if Route A is GO, it dominates B/C/D; if
+Route A is NO_GO/UNDECIDABLE, the synth proceeds to QB.
+
+Based on EXCERPT 3 (058R's "derivable by expanding both Hamiltonians"
+claim) + EXCERPT 4 (gap-side required form) + EXCERPT 1+2 (namespace
+disambiguation):
+
+  GO_ROUTE_A          — 058R's Hamiltonian-derivability claim is
+                         concretely executable: the synth gives a
+                         sketch of how an executor would carry out
+                         steps (a)-(e) of §3 Route A, identifying
+                         which Hamiltonian-display equations supply
+                         which f_α∞, f_α0, f_β∞, f_β0 components.
+                         Recommend agent fire 069r3-A at next dispatch.
+                         (Note: still requires Route E rename
+                         precondition; see QE.)
+  NO_GO_ROUTE_A       — Hamiltonian coefficient-matching cannot close
+                         R1 because (e.g.) the H_III / H_D6^KNY
+                         expansions do not contain enough degrees of
+                         freedom to specify all four f_*; or the
+                         step (d) rename composition injects unresolved
+                         substrate ambiguity. Synth states the
+                         obstruction.
+  UNDECIDABLE_ROUTE_A — synth cannot evaluate Route A feasibility from
+                         EXCERPT 3 + EXCERPT 4 alone; requests operator
+                         paste H_III + H_D6^KNY explicit displays.
+
+### QB — Route B (FW arXiv + Okamoto 1987) feasibility
+
+#### QB.1 — FW arXiv content TRIAGE (excerpt-based, NOT derivation)
+
+Using ONLY the inlined FW substrate excerpts (operator pastes FW
+abstract / TOC / §3 parameter definitions / explicit (a, α, β, θ, η)
+references on demand if not already present), classify whether FW
+is likely to contain the chart-map substrate or trivial conversion
+to it:
+
+  LIKELY_CONTAINS         — FW excerpts contain or directly imply
+                             the (a_0, a_1, a_2) → (α_∞, α_0, β_∞, β_0)
+                             chart-map (or trivial conversion).
+  LIKELY_ABSENT           — FW excerpts plainly do not address this
+                             chart-map; surface-type / Sakai D_6
+                             machinery would be required.
+  NEEDS_EXECUTOR_AUDIT    — FW excerpts plausible-relevant but
+                             chart-map presence cannot be classified
+                             from triage alone; full executor read
+                             required.
+  UNDECIDABLE             — FW excerpts not sufficient for triage;
+                             operator must paste additional excerpts.
+
+Sub-questions (only answer if classification ≠ UNDECIDABLE):
+  (a) Does FW reference KNY (a_0, a_1, a_2) coordinates explicitly?
+  (b) Does FW present P_III parameters in (α_∞, α_0, β_∞, β_0)
+      quadruple form, or in a different parametrisation (e.g.,
+      Jimbo-Miwa (θ_∞, θ_0, η_∞, η_0))?
+  (c) If FW uses a different parametrisation, is the conversion
+      from FW's parametrisation to (α_∞, α_0, β_∞, β_0) trivial
+      (identity / linear / well-documented in FW or Okamoto 1987),
+      or itself a substrate-gap-creating step?
+
+DO NOT derive the chart-map; DO NOT infer article contents not
+present in the pasted excerpts (per HALT-S1).
+
+#### QB.2 — Okamoto §3 sufficiency (only if QB.1 ≠ LIKELY_ABSENT)
+
+Given QB.1 outcome, can Okamoto 1987 §3 close the residual half of
+the chart-map (i.e., the (α, β) → P_III ODE side that 069r1-Path-β
+attempt closed at A.1.5)?
+
+Specifically: is Okamoto 1987 §3's τ-function reparametrisation
+sufficient to provide the second half of the composition without
+any further substrate beyond FW + Okamoto?
+
+#### QB.3 — Okamoto parametrisation rename probe (parallel-QA finding R-2)
+
+Okamoto 1987 §3 uses parametrisation (η_∞, η_0, θ_∞, θ_0). The
+project's (α_∞, α_0, β_∞, β_0) is the CT v1.3 §3.5 author-side
+rename of these (per EXCERPT 1). Does Route B require the rename
+derivation as a separate step, or does Okamoto §3 surface the
+project's (α, β) form directly?
+
+  Y_RENAME_REQUIRED       — Okamoto §3 uses (η, θ); a separate
+                             (η, θ) → (α, β) rename derivation is
+                             needed (Route E precondition is binding
+                             for Route B).
+  N_OKAMOTO_USES_AB       — Okamoto §3 (or its standard reading)
+                             surfaces (α, β) directly; Route E
+                             precondition is trivial / already-present.
+  UNCLEAR                 — synth cannot determine from excerpts.
+
+#### QB.4 — Route B feasibility classification
+
+Based on QB.1 + QB.2 + QB.3 best-effort assessment:
+
+  GO_ROUTE_B                   — FW arXiv contains chart-map (or
+                                  trivial conversion) AND Okamoto §3
+                                  closes second half AND rename is
+                                  trivial (QB.3 = N_OKAMOTO_USES_AB).
+                                  Recommend agent fire 069r3-B.
+  GO_ROUTE_B_CONDITIONAL       — Route B feasible BUT executor fire
+                                  gated on named preconditions
+                                  (operator-side OCR / specific arXiv
+                                  excerpt acquisition / Route E rename
+                                  derivation completion). Synth names
+                                  preconditions explicitly.
+  PARTIAL_ROUTE_B_LIT          — FW chart-map fragment present but
+                                  requires JM 1981 OR CM 2008
+                                  supplement (split parallel-QA R-3
+                                  PARTIAL_LIT bin). Recommend hybrid
+                                  Route B + Route C with named
+                                  supplemental target.
+  PARTIAL_ROUTE_B_RENAME       — FW + Okamoto literature-complete
+                                  for the chart-map BUT QB.3 =
+                                  Y_RENAME_REQUIRED → Route E rename
+                                  derivation is the residual blocker
+                                  (split parallel-QA R-3 PARTIAL_RENAME
+                                  bin). Recommend operator-side
+                                  Route E completion before 069r3-B.
+  NO_GO_ROUTE_B                — FW arXiv does NOT contain chart-map
+                                  fill; Route B rejected.
+  UNDECIDABLE_ROUTE_B          — FW arXiv content cannot be assessed
+                                  without additional excerpts; operator
+                                  pastes more material and synth
+                                  re-evaluates.
+
+### QC — Route C (JM 1981 / CM 2008 ILL acquisition) scope refinement
+
+Asked only if Route A and Route B are both rejected (or PARTIAL).
+Which alternative literature path does the synth recommend?
+
+  C1 — JM 1981 Physica D Parts I-III via ILL/OA acquisition
+  C2 — CM 2008 1st ed via ILL/OA acquisition
+  C3 — Hybrid: JM 1981 + Okamoto 1987 (name specific JM section)
+  C4 — Defer M6.CC R1 closure to v1.1 cycle; ship M9 V0 with
+       PARTIAL_NUMERICAL caveat per 097 disposition list
+  C5 — Skip Routes A-C entirely; recommend Route D (numerical fitting)
+       as primary path
+  C6 — Other (synth specifies)
+
+### QD — Route D (direct numerical chart-map fitting) feasibility
+
+Based on EXCERPT 4 (gap-side functional form) + general numerical-
+analysis judgment:
+
+  GO_ROUTE_D            — Numerical fitting from V_quad → P_III(D_6)
+                           solutions is feasible at dps ≥ 100 with
+                           PSLQ / symbolic regression on the f_α∞..
+                           f_β0 functional forms. Recommend agent fire
+                           069r3-D as a parallel candidate (low risk;
+                           ~2-4 hr first fit; ~4-8 hr symbolic
+                           back-solve).
+  NO_GO_ROUTE_D         — Numerical fitting is fragile (e.g., the
+                           four f_* are not algebraic-rational in the
+                           inputs, or the V_quad → P_III(D_6) trajectory
+                           matching is degenerate at relevant
+                           parameter points).
+  UNDECIDABLE_ROUTE_D   — synth cannot evaluate without additional
+                           V_quad numerical-solution excerpts.
+
+### QE — Route E (CT v1.3 §3.5 author-side rename) precondition status
+
+Route E is operator-side ORTHOGONAL — not synth-weighable as a
+candidate, but a STANDING PRECONDITION for any of A/B/C/D to compose
+to the project's (α_∞, α_0, β_∞, β_0) namespace.
+
+  ROUTE_E_TRIVIAL              — synth assesses (η,θ) → (α,β) rename
+                                  is identity / direct relabelling per
+                                  CT v1.3 §3.5 substrate; QB.3 should
+                                  resolve N_OKAMOTO_USES_AB; no operator
+                                  action needed.
+  ROUTE_E_NONTRIVIAL_REQUIRED  — rename is a non-trivial linear or
+                                  algebraic transformation (e.g., an
+                                  invertible 4×4 matrix); operator-side
+                                  CT v1.3 §3.5 sub-section explicitly
+                                  authoring the derivation is required
+                                  before any of Routes A/B/C/D can be
+                                  fired.
+  UNDECIDABLE_ROUTE_E          — synth cannot determine from EXCERPT 1
+                                  + EXCERPT 2 alone; operator must
+                                  paste CT v1.3 §3.5 surrounding text.
+
+### QF — Confidence + caveats
+
+Synth confidence on QA verdict:        HIGH / MEDIUM / LOW
+Synth confidence on QB.4 verdict:      HIGH / MEDIUM / LOW
+Synth confidence on QC (if applicable): HIGH / MEDIUM / LOW
+Synth confidence on QD verdict:        HIGH / MEDIUM / LOW
+Synth confidence on QE verdict:        HIGH / MEDIUM / LOW
+Any caveats / uncertainties:           free text
+
+============================================================
+§5 — EXIT CRITERIA / VERDICT TEMPLATE
+============================================================
+
+Synth returns a verdict packet in this format (paste-ready for
+agent absorption):
+
+```
+RELAY_069R2_VERDICT
+====================
+Synth ID:            <Claude.ai web session label>
+Verdict timestamp:   <YYYY-MM-DD HH:MM JST>
+
+Substrate SHA status (per rubber-duck QA finding #1 — synth has no
+                       direct bridge fs access via Claude.ai web):
+  Agent pre-flight rev-parse accepted from envelope §1: Y / N / UNCLEAR
+  Synth independently verified bridge content:          N — no direct
+                                                            bridge access
+  Substrate excerpts actually used by synth:            [list which of
+                                                         §1.5 EXCERPTS
+                                                         1-5 + any
+                                                         operator-pasted
+                                                         FW/KNY/Okamoto
+                                                         excerpts]
+
+Synth halt conditions acknowledged (HALT-S1 through HALT-S6): Y / N
+
+Namespace discipline acknowledged (069r1 Greek letters α/β/γ/δ
+  reserved; this envelope uses Route A/B/C/D/E to avoid collision): Y / N
+
+QA — Route A (in-hand Hamiltonian coefficient-matching) feasibility
+  Verdict:    GO_ROUTE_A / NO_GO_ROUTE_A / UNDECIDABLE_ROUTE_A
+  Sketch (1-3 paras):                       [synth fills in if GO_ROUTE_A;
+                                              identify which Hamiltonian-display
+                                              equations supply which f_α∞,
+                                              f_α0, f_β∞, f_β0 components]
+  Reasoning (1-3 paras):                    [synth fills in]
+
+QB.1 — FW arXiv TRIAGE (excerpt-based)
+  Triage classification:                    LIKELY_CONTAINS /
+                                              LIKELY_ABSENT /
+                                              NEEDS_EXECUTOR_AUDIT /
+                                              UNDECIDABLE_FW_EXCERPTS_REQUIRED
+  (a) KNY (a_0,a_1,a_2) referenced in FW:   Y / N / UNCLEAR / N-A
+  (b) FW (α,β) parametrisation form:        [synth specifies / N-A]
+  (c) Conversion to (α_∞,α_0,β_∞,β_0) form: TRIVIAL /
+                                              NON-TRIVIAL_BUT_CITED /
+                                              GAP-CREATING /
+                                              N-A
+  Reasoning (1-3 paras):                    [synth fills in]
+
+QB.2 — Okamoto §3 sufficiency
+  Sufficient given QB.1 outcome:            Y / N / PARTIAL / N-A
+  Reasoning (1-3 paras):                    [synth fills in]
+
+QB.3 — (η,θ) → (α,β) rename probe (parallel-QA finding R-2)
+  Verdict:    Y_RENAME_REQUIRED /
+              N_OKAMOTO_USES_AB /
+              UNCLEAR
+  Reasoning (1-3 paras):                    [synth fills in; e.g. cite
+                                              CT v1.3 §3.5 substrate vs
+                                              Okamoto 1987 §3 native
+                                              parametrisation]
+
+QB.4 — Route B feasibility classification
+  Verdict:    GO_ROUTE_B /
+              GO_ROUTE_B_CONDITIONAL [name preconditions] /
+              PARTIAL_ROUTE_B_LIT [name JM/CM segment] /
+              PARTIAL_ROUTE_B_RENAME [Route E rename derivation needed] /
+              NO_GO_ROUTE_B /
+              UNDECIDABLE_ROUTE_B
+  Preconditions (only if GO_ROUTE_B_CONDITIONAL):
+                                            [synth names exact FW
+                                              excerpt/equation/page or
+                                              Route E rename status
+                                              required before 069r3-B
+                                              fires]
+  Reasoning (2-5 paras):                    [synth fills in]
+  Recommended next agent action:            [synth specifies]
+
+QC (only if QA ≠ GO_ROUTE_A AND QB.4 ∈ {NO_GO_ROUTE_B / UNDECIDABLE_ROUTE_B
+   / PARTIAL_ROUTE_B_LIT}) — Route C scope refinement
+  Verdict:    C1 / C2 / C3 / C4 / C5 / C6 (specify) / N-A
+  Reasoning (1-3 paras):                    [synth fills in / N-A]
+
+QD — Route D (numerical chart-map fitting) feasibility
+  Verdict:    GO_ROUTE_D / NO_GO_ROUTE_D / UNDECIDABLE_ROUTE_D
+  Reasoning (1-3 paras):                    [synth fills in]
+  Recommended dispatch:                     PARALLEL_TO_ROUTE_A_OR_B /
+                                              FALLBACK_AFTER_A_B_C /
+                                              SOLO_PRIMARY / N-A
+
+QE — Route E (CT v1.3 §3.5 author-side rename) precondition status
+  Verdict:    ROUTE_E_TRIVIAL /
+              ROUTE_E_NONTRIVIAL_REQUIRED /
+              UNDECIDABLE_ROUTE_E
+  Reasoning (1-3 paras):                    [synth fills in; tie to
+                                              QB.3 outcome where
+                                              applicable]
+
+QF — Confidence
+  QA confidence:       HIGH / MEDIUM / LOW
+  QB.4 confidence:     HIGH / MEDIUM / LOW
+  QC confidence:       HIGH / MEDIUM / LOW / N-A
+  QD confidence:       HIGH / MEDIUM / LOW
+  QE confidence:       HIGH / MEDIUM / LOW
+  Caveats:             [free text]
+
+Rubber-duck QA acknowledged (this envelope received pre-fire QA
+                              per repo memory `rubber-duck QA discipline`;
+                              first-round 9 findings + parallel-round
+                              6 findings absorbed): Y
+====================
+```
+
+============================================================
+§6 — DELIVERABLES (agent absorbs synth verdict in follow-on session)
+============================================================
+
+After synth returns the §5 verdict packet, the agent fires a
+follow-on bridge session `069R2-PATH-DECISION-ABSORPTION-NNN/`
+(NNN = next sequential bridge ID; pin at dispatch time).
+
+  1. handoff.md
+  2. synth_verdict_capture.md (verbatim §5 verdict block)
+  3. cascade_record.md (SQL state changes; cascade depends on verdict
+                         per branch table below)
+  4. claims.jsonl (≥ 8 AEAL entries, naming-convention NNN-CN)
+  5. halt_log.json (envelope-halt floor ≥ 5)
+  6. discrepancy_log.json
+  7. unexpected_finds.json
+
+### Cascade-by-verdict branch table (precedence: A → B → C; D parallel; E precondition)
+
+If QE = ROUTE_E_NONTRIVIAL_REQUIRED (precondition gate; STANDING):
+  → BEFORE any of Routes A/B/C/D fire, operator-side Route E
+     (CT v1.3 §3.5 author-rename derivation) must be authored
+     and bridge-deposited. Queue
+     `route-e-cv13-section-3-5-rename-derivation` SQL todo
+     blocking on operator action; do NOT fire 069r3-A/B/C/D
+     until cleared.
+  → Continue to evaluate QA/QB.4/QC/QD branches below to plan
+     post-Route-E firing order.
+
+If QA = GO_ROUTE_A (zero-acquisition route — DOMINANT):
+  → draft `069r3_route_a_executor_envelope.txt` queued for next
+     dispatch slot
+  → no acquisition prompt needed
+  → SQL: `w21-lane1-069r2-path-gamma-decision` → done
+        `w21-lane1-069r3-route-a-executor` → pending
+
+If QA ≠ GO_ROUTE_A AND QB.4 = GO_ROUTE_B:
+  → draft `069r3_route_b_executor_envelope.txt` queued for next
+     dispatch slot
+
+If QA ≠ GO_ROUTE_A AND QB.4 = GO_ROUTE_B_CONDITIONAL (per
+  rubber-duck QA finding #6 + parallel-QA R-3 condition split):
+  → do NOT queue 069r3-B directly.
+  → first queue a substrate-verification micro-step
+     `069r2.5_<precondition>` naming the exact FW excerpt/equation/
+     page (or Route E rename status) required per QB.4 verdict.
+  → only after named-precondition substrate-check passes may
+     069r3-B be drafted.
+
+If QA ≠ GO_ROUTE_A AND QB.4 = PARTIAL_ROUTE_B_LIT:
+  → queue lit-hunt acquisition prompt for the named JM 1981 / CM 2008
+     segments per repo memory `Bibliographic identifier pre-verification`
+     (Route C supplement to Route B fragment).
+
+If QA ≠ GO_ROUTE_A AND QB.4 = PARTIAL_ROUTE_B_RENAME:
+  → escalate to operator: Route E rename derivation is the residual
+     blocker; queue `route-e-cv13-section-3-5-rename-derivation` and
+     hold 069r3-B until Route E lands.
+
+If QA ≠ GO_ROUTE_A AND QB.4 = NO_GO_ROUTE_B AND QC ∈ {C1,C2,C3}:
+  → queue lit-hunt acquisition prompt for the named JM/CM segments
+     per repo memory `Bibliographic identifier pre-verification`.
+
+If QA ≠ GO_ROUTE_A AND QB.4 = UNDECIDABLE_ROUTE_B:
+  → agent prepares additional FW arXiv excerpts (operator pastes
+     section structure / abstract / TOC from arXiv math-ph/0201051)
+     and re-issues 069r2-followup synth turn with the additional
+     substrate.
+
+If QA = UNDECIDABLE_ROUTE_A:
+  → agent pulls KNY 2017 §8.5.17 + Okamoto 1987 §1 H_III displays
+     verbatim into a 069r2-A-followup envelope; re-fires synth turn
+     with full Hamiltonian substrate.
+
+If QD = GO_ROUTE_D (parallel candidate):
+  → queue `069r3_route_d_numerical_fitting.txt` as a parallel-fire
+     candidate to whichever of A/B is selected; NOT mutually
+     exclusive with A or B.
+
+If QA = NO_GO_ROUTE_A AND QB.4 = NO_GO_ROUTE_B AND QC = C4:
+  → escalate to umbrella v2.x M9-V0-with-PARTIAL_NUMERICAL-caveat
+     decision (operator-side governance call).
+
+============================================================
+§7 — PHASE D / E SCANS (mandatory at deposit time)
+============================================================
+
+Phase D — forbidden-verb scan (expanded pattern per rubber-duck
+                                 QA finding #9 + parallel-QA M-3;
+                                 16-verb regex; same pattern as
+                                 STEP 0.3)
+  Pattern: \b(shows|confirms|proves|demonstrates|establishes|verifies|verified|validates|validated|corroborates|corroborated|certifies|certified|settles|settled|discharges|ratifies)\b
+  Permitted: verb-list-as-data (098-J3); checklist meta-references
+             (075-J2); quoted substrate; computation-output telemetry;
+             SHA / checksum / rev-parse telemetry.
+  Mitigation: substrate-prose hits → soften verb (e.g., "is
+              consistent with", "indicates", "supports", "suggests",
+              "is compatible with").
+
+Phase E — verbatim-quote-length scan
+  Any verbatim quoted substrate block > 50 words requires
+  paraphrase-or-segment treatment per quote-length discipline.
+
+Phase F — SHA pre-flight (re-run at deposit time)
+  Re-verify all SHAs cited in deliverables via git rev-parse.
+  Any rev-parse failure at deposit time → HALT_069R2_DEPOSIT_SHA_MISMATCH.
+
+============================================================
+§8 — RUBBER-DUCK PRE-FIRE QA (TWO ROUNDS; ALL FINDINGS ABSORBED)
+============================================================
+
+Per repo memory `rubber-duck QA discipline` + W20 068 case study
+precedent (where rubber-duck QA inserted Phase A.0 supersession
+gate caught Q.SUP=YES branch and avoided 4-6 hr wrong-mechanism
+chase):
+
+This envelope received TWO independent rounds of pre-fire QA on
+2026-05-08, with all findings absorbed.
+
+### Round 1 — gpt-5.5 background agent (2026-05-08 ~09:05 JST, 123s)
+
+Returned 9 findings (2 BLOCKING + 7 SHOULD_FIX + 1 NICE_TO_HAVE
++ 1 NO_FINDING-after-fixes). All BLOCKING and SHOULD_FIX findings
+absorbed:
+
+  Finding #1 (BLOCKING): synth has no direct bridge access via
+    Claude.ai web; SHA verification field reframed in §5 to
+    excerpt-based with explicit "no direct bridge access" line.
+  Finding #2 (BLOCKING): QB.1 not answerable without inlined FW
+    substrate; §1.5 EXCERPT 5 inlines the FW disposition + §10
+    instructs operator to paste FW abstract/TOC/§3 excerpts on
+    synth request.
+  Finding #3 (SHOULD_FIX): supersession audit broadened to catch
+    fuzzy variants (069-r2, 069v2, etc.) via tree+message scan
+    in STEP 0.1.
+  Finding #4 (SHOULD_FIX): in-hand Hamiltonian coefficient-
+    matching route added (Route A) — this was the single
+    biggest improvement of the first QA round.
+  Finding #5 (SHOULD_FIX): QB.1 reframed as triage from inlined
+    excerpts; LIKELY_CONTAINS / LIKELY_ABSENT / NEEDS_EXECUTOR_AUDIT
+    / UNDECIDABLE classification.
+  Finding #6 (SHOULD_FIX): GO_ROUTE_B_CONDITIONAL state added
+    + corresponding §6 cascade (do not queue 069r3-B until
+    named-precondition substrate-check passes).
+  Finding #7 (SHOULD_FIX): SYNTH HALT CONDITIONS HALT-S1..HALT-S5
+    added with explicit UNDECIDABLE return verdicts.
+  Finding #8 (SHOULD_FIX): §1.5 inlines 5 substrate excerpts
+    (069r1 U1+U3 namespace drift, 058R Hamiltonian derivability,
+    075 gap-side required form, 102 FW disposition).
+  Finding #9 (SHOULD_FIX): forbidden-verb pattern expanded to
+    14 verbs.
+  Finding #10 (NICE_TO_HAVE): label-clarification note for
+    second-round literature route.
+
+### Round 2 — operator parallel-QA (2026-05-08 ~09:35 JST)
+
+Operator performed an independent manual QA pass and surfaced
+6 findings, including 1 BLOCKING that the first QA round missed:
+
+  R-1 (BLOCKING — namespace collision with 069r1): 069r1 already
+    used the labels Path α / Path β / Path γ / Path δ for its own
+    four candidate paths. Round-1 absorption silently re-used
+    these letters with new meanings, creating a synth-confusion
+    risk. ABSORPTION: renamed all routes in this envelope to
+    Route A / Route B / Route C / Route D / Route E. 069r1's
+    Greek-letter labels are preserved verbatim; HALT-S6 forbids
+    silent reuse. New verdict tokens: GO_ROUTE_A / GO_ROUTE_B /
+    NO_GO_ROUTE_A / etc.
+
+  R-2 (SHOULD_FIX — (η,θ) → (α,β) rename probe missing): Q2
+    did not surface that Okamoto 1987 §3 uses (η,θ) and the
+    project (α,β) is a CT v1.3 §3.5 rename. ABSORPTION: added
+    QB.3 with three-state outcome Y_RENAME_REQUIRED /
+    N_OKAMOTO_USES_AB / UNCLEAR.
+
+  R-3 (SHOULD_FIX — Q3 PARTIAL split): single PARTIAL bin for
+    Route B did not distinguish FW-fragment-needs-JM/CM-supplement
+    from FW-Okamoto-complete-but-rename-still-needed. ABSORPTION:
+    QB.4 split into PARTIAL_ROUTE_B_LIT and PARTIAL_ROUTE_B_RENAME
+    with corresponding §6 cascade branches.
+
+  R-3b (SHOULD_FIX — Path ε omissions): direct numerical fitting
+    + author-side rename were not in the decision frame.
+    ABSORPTION: Route D (numerical fitting; QD) added as parallel
+    candidate; Route E (author-rename precondition; QE) added as
+    standing precondition; both surfaced in §3 + §4 + §5 + §6.
+
+  R-2 (§1 path-inventory wrong on 6 of 9 entries): all 9 SHA paths
+    in §1 verified via canonical `git show --stat=200` and
+    rewritten. Entry 3 in particular was wrong: was
+    `2026-05-06/M6_CC_PHASE_D_NUMERICAL_FOLLOWUP-069/`, actual is
+    `2026-05-07/CC-VQUAD-PIII-NORMALIZATION-MAP-PHASE-D-NUMERICAL/`.
+
+  M-3 (forbidden-verb pattern alignment): added discharges/
+    ratifies to bring scan to 16-verb pattern matching 099-style
+    template alignment.
+
+QA artefact: rubber-duck-prefire-qa background agent log
+(agent_id 069r2-prefire-qa; not bridge-deposited but absorbed
+into this revision). Operator parallel-QA findings absorbed
+inline 2026-05-08 ~09:50 JST in working-tree edits to this file
+(no separate artefact deposited — full absorption record is this
+§8).
+
+============================================================
+§9 — CROSS-REFERENCES
+============================================================
+
+Memory references:
+  `substrate verification`              — pre-flight git rev-parse
+  `prompt drafting discipline`          — Phase 0 supersession gate
+  `rubber-duck QA discipline`           — pre-fire QA on T2/T1 prompts
+  `Bibliographic identifier pre-verification` — DOI/arXiv pre-resolve
+                                                  (applies if Route B/C
+                                                  acquires additional
+                                                  refs from FW or JM/CM)
+  `M6.CC affine Weyl framework`         — W((2A_1)^(1)) ⊂ W_a(B_2)
+                                          (relevant if FW uses W(D_6)
+                                          framework — convention
+                                          drift to flag)
+
+Bridge artifacts (verified SHAs in §1):
+  e7bfe49 / 9596c21 (M4 substrate; not directly cited in 069r2 but
+                     present for completeness — M4 V0 closure ratified
+                     2026-05-08, M-cascade context)
+  05810a2 (069 PERSIST verdict — parent of 069r1; records R1
+            carry-forward)
+  601500b (069r1 NO_GO — parent of this 069r2; substrate gap
+            specification at A.1.5 + 069r1's reserved Path α/β/γ/δ
+            namespace)
+  5de7d2b / aa35040 (102 — substrate accessibility V2 verdict)
+  5137155 (075 — STRUCTURAL_MISMATCH on B1 fill candidate)
+  c0619a5 (097 — M9 announceability gating prerequisite = 069r1
+            R1-closure preflight)
+  2eb9b28 (058R — UPGRADE_V1_0_PARTIAL with M6.CC R1 carry-forward;
+            phase_b_canonical_map.md L122-130 supplies Route A
+            substrate citation)
+
+Control-center artifacts:
+  tex/submitted/control center/m4_v0_ratification_template.md
+    — EXECUTED 2026-05-08; M4 V0 CLOSED (MEDIUM-HIGH; HIGH-pending);
+      not gating 069r2 directly but provides the synth-tier
+      ratification protocol (3-arc 104→105→106 pattern).
+  tex/submitted/control center/lane1_batch_packet_w21.md
+    — corrected 2026-05-08; R1 row reflects M4 closed.
+  tex/submitted/control center/m_critical_path_2026-05-07.md
+    — corrected 2026-05-08; SHA inventory current.
+
+============================================================
+§10 — DISPATCH NOTES (operator-facing)
+============================================================
+
+When dispatching this envelope to synth (Claude.ai web):
+
+  1. Rubber-duck pre-fire QA is COMPLETE for both rounds (see §8).
+     Round-1 (gpt-5.5 background) + Round-2 (operator parallel-QA)
+     findings all absorbed. No additional QA gate required;
+     envelope is dispatch-ready as DRAFT-FROZEN-V2.
+  2. Send the body of this prompt as the synth conversation opener.
+     Ensure §1.5 EXCERPTS 1-5 are included (inlined in this envelope).
+  3. If synth requests additional substrate, paste from these sources:
+     • FW arXiv math-ph/0201051: abstract page (~ 250 words),
+       TOC / section headings, §3 P_III parameter definitions,
+       any displayed equations matching pattern (a_0|a_1|a_2|θ|η|α|β).
+     • KNY 2017 §8.5.17 H_D6^KNY explicit Hamiltonian display
+       (eqs. 8.237-8.239 — for Route A deeper analysis).
+     • Okamoto 1987 §1 H_III explicit Hamiltonian display
+       (for Route A deeper analysis).
+     • CT v1.3 §3.5 (η,θ) → (α,β) rename context (for QE / QB.3).
+     Do NOT paste full PDFs — use ≤ 50-word verbatim excerpts.
+  4. Wait for §5 verdict packet from synth.
+  5. Forward §5 packet to agent (VS Code Copilot) for absorption
+     into a follow-on bridge session per §6 cascade-by-verdict
+     branch table.
+
+Expected synth turn-around: ~30-60 min single-pass for QA + QB.4
++ QE + QF (QB.3 + QC + QD conditional). May extend to ~60-90 min if
+operator-pastes are needed for HALT-S1 (FW excerpts) or HALT-S2
+(namespace clarification beyond EXCERPT 1+2).
+
+============================================================
+ENVELOPE STATUS: DRAFT-FROZEN-V2 at 2026-05-08 ~09:50 JST.
+                 Round-1 rubber-duck QA (9 findings) + Round-2
+                 operator parallel-QA (6 findings incl. R-1
+                 BLOCKING namespace collision) all absorbed.
+                 Route A/B/C/D/E namespace replaces Path γ/β/δ
+                 to avoid 069r1 collision. Dispatch-ready
+                 pending final operator T0 decision.
+============================================================
+
