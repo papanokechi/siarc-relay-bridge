@@ -1,0 +1,529 @@
+==========================================================================
+PROMPT 107 -- T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD
+==========================================================================
+Task ID:           107
+Lane:              T2-OPERATOR-QD5-AUDIT
+Status:            DRAFT (not yet fired)
+Drafted:           2026-05-08 ~13:18 JST
+Cascade context:   069r2 round-3 verdict QD-5 = NEEDS_EXECUTOR_AUDIT
+                   landed at bridge HEAD dd1e0b7 (113); this prompt
+                   addresses the QD-5 audit gate that blocks 069r3-B
+                   + 069r3-D envelope drafting.
+Estimated effort:  ~1-2 hr T2 agent (Copilot Researcher / VS Code agent)
+Sequencing:        HARD GATE -- prompts 108 (Section 3.5.1 amendment),
+                   109 (069r3-B envelope), 110 (069r3-D envelope) ALL
+                   wait on this prompt's verdict.
+==========================================================================
+
+==========================================================================
+SECTION 1 -- Pre-flight + substrate inventory + path verification
+==========================================================================
+
+PRECONDITION CHECK (gates) -- if any of P1.1 / P1.2 / P1.3 fails, halt
+under HALT-107-1 BEFORE any audit work.
+
+P1.1 -- 058R Phase B canonical map artefact exists at:
+  siarc-relay-bridge/sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md
+  Pre-checked 2026-05-08 ~13:18 JST: file exists; Section B.3 starts at
+  line 72 ("## B.3 -- Construction of M = Phi_symp o Phi_shift o Phi_resc")
+  and ends at line 158 (line 159 starts "## B.4 -- Bijection on relevant
+  chart + Jacobian non-degeneracy"). Section B.3 spans approximately
+  lines 72-158.
+
+P1.2 -- p12_journal_main.tex artefact exists at:
+  tex/submitted/p12_journal_main.tex
+  Pre-checked 2026-05-08 ~13:18 JST: file exists; sec:vquad starts at
+  line 958 ("\section{The $V_{\mathrm{quad}}$ Painlev\'e Prototype}")
+  with label \label{sec:vquad} at line 959, and ends at line 1090
+  (line 1091 starts "\section{Computational Methodology}").
+  Within sec:vquad: subsec "Painleve III(D_6) parameters" at line 975;
+  subsec "Channel distinction" at line 986; subsec "Stokes data" at
+  line 1046; subsec "Why Delta=-11 is the controlling field" at
+  line 1068. The "Stokes data" subsec spans approximately lines
+  1046-1067.
+
+  NOTE: round-3 synth referenced this file as
+  "p12_journal_main.tex sec:vquad subsec Stokes data, citing
+  Papanokechi2026Vquad" -- the citation key Papanokechi2026Vquad
+  is at line 275 of p12_journal_main.tex; the same key is the
+  source-string in vquad_p3d6_recovery.py LIT dict.
+
+P1.3 -- vquad_p3d6_recovery.py exists in pcf-research at:
+  pcf-research/channel/cc_pipeline_g_2026-05-01/vquad_p3d6_recovery.py
+  Pre-checked to contain a LIT dict labelling (1/6, 0, 0, -1/2) as
+  classical-ODE coefficients (alpha, beta, gamma, delta). If the file
+  has moved, locate it via:
+    Get-ChildItem -Recurse -Path pcf-research -Filter "vquad_p3d6_recovery.py"
+
+If P1.1 or P1.2 or P1.3 fails: halt under HALT-107-1 (substrate-
+absent); deposit halt_log.json {"halt_id":"HALT-107-1","reason":
+"<which_file>","resolution":"locate file via glob/find before
+re-fire"}; STOP.
+
+==========================================================================
+SECTION 2 -- Standing context (do not re-evaluate)
+==========================================================================
+
+HALT-S1 through HALT-S6 from 069r2 envelope re-acknowledged. This
+prompt operates strictly in the QD-5 audit scope; do NOT extend to
+QD-1, QD-2, QD-3, QD-4, QD-6, or any QA/QB/QC/QE re-evaluation.
+
+Round-3 verdict landed at bridge HEAD dd1e0b7 (113):
+  QD-1 = PARTIAL_PARTIAL_OP_EXISTS
+  QD-2 = PARTIAL_FEASIBLE_WITH_CAVEATS (mech (b) PRE-REJECTED)
+  QD-3 = PARALLEL_OK with QD-5 gate
+  QD-4 = NO_ROUTE_F_SURFACING
+  QD-5 = NEEDS_EXECUTOR_AUDIT  <-- this prompt's scope
+  QD-6 = PARTIAL_ROUTE_D_VERIFICATION
+
+THE STRUCTURAL FINDING TO RESOLVE:
+
+V_quad image tuple (1/6, 0, 0, -1/2) faces structural obstructions
+under BOTH candidate labelings:
+
+  A. CLASSICAL_ODE labeling (vquad_p3d6_recovery.py LIT dict):
+     gamma_ODE = 0 (third entry) violates Okamoto Section 1
+     standing assumption gamma * delta != 0 for P_III(D_6).
+
+  B. HAMILTONIAN_PARAMETER labeling (CT v1.3 Section 3.5.1, 105
+     deposit at SHA 0427c0a):
+     eta_0 = 0 (second entry under (3.5.1b) alpha_0 := eta_0)
+     violates Okamoto eta_Delta != 0 (which follows from
+     gamma * delta != 0).
+
+TWO RECONCILIATIONS POSSIBLE (synth could not distinguish from
+EXCERPTS D1-D5 alone):
+
+  R1 = Section 3.5.1 trivial relabel symbol assignment is
+       structurally inadmissible at V_quad point. The 058R
+       reduction map produces RAW (eta_inf, eta_0, theta_inf,
+       theta_0) Hamiltonian parameters, but the specific
+       (3.5.1a)-(3.5.1d) symbol assignment in the 105 deposit
+       is wrong. Resolution: small Section 3.5.1 amendment
+       (corrected symbol assignment).
+       QE remains ROUTE_E_TRIVIAL.
+
+  R2 = 058R reduction map produces PROJECTED / TRANSFORMED
+       quantities (e.g., ratios after de-normalization,
+       projections to surface-type root system, etc.) NOT raw
+       Hamiltonian parameters. Section 3.5.1 'trivial relabel'
+       is actually a relabel-after-projection (NON-TRIVIAL in
+       Hamiltonian (q, p, t) sense). Resolution: large
+       Section 3.5.1 amendment (record the projection).
+       QE upgrades from ROUTE_E_TRIVIAL to
+       ROUTE_E_NONTRIVIAL_REQUIRED.
+
+==========================================================================
+SECTION 3 -- Audit task (Phases A, B, C)
+==========================================================================
+
+PHASE A -- Read 058R Phase B canonical map Section B.3 (058R B.3)
+
+  A.1 Open
+      siarc-relay-bridge/sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md
+      Read lines 72-158 in full (Section B.3 + closing).
+
+  A.2 Identify the OUTPUT-DOMAIN of the reduction map M:
+      M = Phi_symp o Phi_shift o Phi_resc
+      Question: when M is applied to V_quad's PCF-Birkhoff data
+      (recurrence + Newton polygon at z = 0), what 4-tuple does it
+      produce? Specifically:
+      
+      (Q-A1) Are the 4 output entries the RAW (eta_inf, eta_0,
+             theta_inf, theta_0) Hamiltonian parameters of
+             Okamoto 1987 eq. (1.1) / (1.2)?
+             
+             [If YES, this directly supports R1; if NO, supports
+             R2.]
+             
+      (Q-A2) OR are the 4 output entries some PROJECTION /
+             TRANSFORMATION of the raw Hamiltonian parameters?
+             Examples:
+               - ratios eta_inf/eta_0, theta_inf/eta_0, etc.
+               - projections to D_6 simple roots
+               - shifted parameters after a coordinate translation
+               - rescaled parameters after a homothety
+             [If YES to any of these, supports R2.]
+      
+      (Q-A3) OR is the OUTPUT-DOMAIN of M ambiguous / not
+             explicitly specified in Section B.3?
+             [If YES, this supports an UNDECIDABLE verdict bin.]
+
+  A.3 Cite SPECIFIC LINE NUMBERS from phase_b_canonical_map.md
+      that establish the answer to Q-A1 / Q-A2 / Q-A3. For each
+      cited line, quote the exact text (forbidden-verb scan
+      applies to your citing prose, not to the verbatim
+      quotation -- quotations get the 098-J3 verbatim-quote
+      EXEMPT rule).
+
+PHASE B -- Read p12_journal_main.tex sec:vquad subsec "Stokes data"
+
+  B.1 Open
+      tex/submitted/p12_journal_main.tex
+      Read lines 958-1090 in full (sec:vquad in entirety).
+      Pay special attention to subsec "Stokes data" at
+      lines 1046-1067 -- this is the round-3 synth's named
+      audit target.
+
+  B.2 Identify the LABELING CONVENTION used at sec:vquad:
+      
+      (Q-B1) Does p12_journal_main.tex sec:vquad explicitly
+             label the V_quad parameter tuple
+             (1/6, 0, 0, -1/2) as classical-ODE coefficients
+             (alpha, beta, gamma, delta) of Okamoto eq. (0.1) /
+             (1.1)?
+             
+             [If YES, this contradicts the CLASSICAL_ODE
+             reading -- since gamma_ODE = 0 violates
+             gamma * delta != 0 -- which would make the LIT
+             dict's classical-ODE label structurally inadmissible
+             AND the project document's own labeling
+             structurally inadmissible. Surface as anomaly.]
+      
+      (Q-B2) OR does sec:vquad label the tuple as Hamiltonian
+             parameters (eta_inf, eta_0, theta_inf, theta_0) /
+             (alpha_inf, alpha_0, beta_inf, beta_0)?
+             [If YES, supports R1 (trivial relabel + corrected
+             symbol assignment).]
+      
+      (Q-B3) OR does sec:vquad label the tuple as some
+             PROJECTION / TRANSFORMATION (e.g., dimensionless
+             ratios, simple-root projections, etc.)?
+             [If YES, supports R2.]
+
+      (Q-B4) OR is the labeling convention in sec:vquad
+             ambiguous / not explicitly stated?
+             [If YES, supports UNDECIDABLE verdict bin.]
+
+  B.3 Cross-check vquad_p3d6_recovery.py LIT dict against
+      sec:vquad. The LIT dict contains a source-string
+      "p12_journal_main.tex sec:vquad subsec Stokes data,
+      citing Papanokechi2026Vquad" claiming the tuple
+      (1/6, 0, 0, -1/2) is classical-ODE (alpha, beta, gamma,
+      delta). Does sec:vquad subsec Stokes data actually
+      support this claim, or is the LIT dict misattributing
+      the labeling?
+      
+      (Q-B5) Is the LIT dict labeling = the sec:vquad labeling?
+             [If YES, both sources agree on a single labeling.
+             If NO, surface as INTERNAL DOCUMENT INCONSISTENCY
+             ANOMALY.]
+
+  B.4 Cite SPECIFIC LINE NUMBERS from p12_journal_main.tex
+      that establish the answer to each of Q-B1..Q-B5. Same
+      verbatim-quote rule as Phase A.
+
+PHASE C -- Synthesise verdict
+
+  Combine Phase A findings with Phase B findings to produce
+  one of:
+
+  R1 = Section 3.5.1 small amendment (raw Hamiltonian
+       parameters; symbol assignment in (3.5.1a)-(3.5.1d)
+       needs correction)
+  R2 = Section 3.5.1 large amendment + QE upgrade
+       (projected/transformed quantities)
+  R1+R2_BLEND = some entries are raw and others are
+                projected (rare but possible)
+  UNDECIDABLE = 058R B.3 + p12 sec:vquad insufficient to
+                discriminate; recommend Round-4 substrate
+                paste OR direct author-side query
+
+  For each verdict bin output, include:
+    - Cited line numbers from both substrate files
+    - Reasoning narrative (forbidden-verb-clean prose)
+    - Recommended Section 3.5.1 amendment scope (specific
+      LaTeX edits if R1, prose framework + new equations if R2)
+    - QE re-bin recommendation (TRIVIAL retained, or
+      NONTRIVIAL_REQUIRED)
+    - List of any anomalies surfaced during audit
+      (especially Q-B5 internal-document-inconsistency)
+
+==========================================================================
+SECTION 4 -- Verdict-output template (mandatory format)
+==========================================================================
+
+Write a deliverable file named "audit_verdict.md" with the
+following structure:
+
+```
+# QD-5 Audit Verdict
+**Audit performed:** 2026-05-08 ~<HH:MM> JST
+**Agent:** GitHub Copilot Researcher (VS Code) | Claude.ai web | other
+**Substrates audited:**
+  - 058R Section B.3: phase_b_canonical_map.md lines 72-158
+  - p12_journal sec:vquad: p12_journal_main.tex lines 958-1090
+  - LIT dict cross-check: vquad_p3d6_recovery.py
+
+## Phase A findings (058R B.3)
+
+### Q-A1: raw Hamiltonian parameters?
+[Answer + cited line numbers + verbatim quotes]
+
+### Q-A2: projected/transformed quantities?
+[Answer + cited line numbers + verbatim quotes]
+
+### Q-A3: output-domain ambiguous?
+[Answer + cited line numbers]
+
+## Phase B findings (p12 sec:vquad)
+
+### Q-B1: classical-ODE labeling?
+[Answer + cited line numbers + verbatim quotes]
+
+### Q-B2: Hamiltonian-parameter labeling?
+[Answer + cited line numbers + verbatim quotes]
+
+### Q-B3: projected/transformed labeling?
+[Answer + cited line numbers + verbatim quotes]
+
+### Q-B4: labeling-convention ambiguous?
+[Answer + cited line numbers]
+
+### Q-B5: LIT dict source-string accurate vs sec:vquad?
+[Answer + cited line numbers + anomaly note if mismatch]
+
+## Verdict
+
+**Bin:** R1 | R2 | R1+R2_BLEND | UNDECIDABLE
+**Confidence:** HIGH | MEDIUM-HIGH | MEDIUM | LOW
+
+**Reasoning narrative:**
+[Forbidden-verb-clean prose explaining how Phase A + Phase B
+findings combine to produce the verdict bin.]
+
+## Recommended Section 3.5.1 amendment scope
+
+**If R1:** 
+  - Specific LaTeX edits to (3.5.1a)-(3.5.1d):
+    [enumerate the corrected symbol assignment]
+  - QE: remains ROUTE_E_TRIVIAL.
+
+**If R2:**
+  - Prose framework for projection narrative:
+    [outline the projection P: (eta_inf, eta_0, theta_inf,
+     theta_0) -> (alpha_inf, alpha_0, beta_inf, beta_0) at
+     V_quad point]
+  - New equations to add: (3.5.1e), (3.5.1f), ...
+  - QE: upgrade to ROUTE_E_NONTRIVIAL_REQUIRED.
+
+**If R1+R2_BLEND:** [enumerate which entries are raw vs
+projected]
+
+**If UNDECIDABLE:** Recommended Round-4 substrate paste OR
+author-side query for clarification.
+
+## Anomalies surfaced
+
+[List any anomalies found during audit. If Q-B5 yielded
+INTERNAL_DOCUMENT_INCONSISTENCY, surface as primary anomaly.]
+
+## Forward-pointers for downstream prompts
+
+  - Prompt 108 scope: <small | large | not-needed-yet>
+  - Prompt 109 (069r3-B FW pull-back) parameter entry
+    format: <(eta, theta) | (alpha, beta) | projected>
+  - Prompt 110 (069r3-D V_quad numerical) extraction
+    target format: <same as 109>
+
+## AEAL claim count
+
+<N> entries in claims.jsonl this audit.
+```
+
+==========================================================================
+SECTION 5 -- Acceptance criteria (A1-A6)
+==========================================================================
+
+A1 -- audit_verdict.md exists in session deliverable list and
+      follows the Section 4 template structure exactly.
+      Sub-checks: all Phase A questions Q-A1..Q-A3 answered;
+      all Phase B questions Q-B1..Q-B5 answered; verdict bin
+      explicit; recommended amendment scope explicit.
+
+A2 -- Every claim of the form "058R B.3 says X" or "sec:vquad
+      says Y" cites at least one specific line number from
+      the relevant substrate file. Verbatim quotations are
+      enclosed in markdown blockquote syntax > or in fenced
+      code blocks.
+
+A3 -- Forbidden-verb scan PASS at 0 hits on audit_verdict.md
+      prose AND on handoff.md prose. Verbatim quotations
+      from substrate files are 098-J3 EXEMPT (verb-list-as-
+      data via blockquote / code-fence enclosure).
+
+A4 -- Verdict bin is one of {R1, R2, R1+R2_BLEND,
+      UNDECIDABLE}. Confidence label is one of {HIGH,
+      MEDIUM-HIGH, MEDIUM, LOW}.
+
+A5 -- AEAL claims.jsonl has at least 4 entries (spec floor;
+      one per Phase-A question, one per Phase-B question, one
+      for the verdict synthesis, plus optional anomaly
+      claims).
+
+A6 -- handoff.md anomalies section is non-empty (write
+      "None detected." literally if no anomalies surfaced).
+
+==========================================================================
+SECTION 6 -- Halts (HALT-107-1 through HALT-107-5)
+==========================================================================
+
+HALT-107-1 -- substrate-absent
+  Trigger: any of P1.1 / P1.2 / P1.3 fails at preflight.
+  Action: write halt_log.json with {"halt_id":"HALT-107-1",
+  "reason":"<which_file_missing>",
+  "resolution":"locate file via glob/find before re-fire"};
+  STOP without writing audit_verdict.md.
+
+HALT-107-2 -- verbatim-quote-without-line-cite
+  Trigger: audit_verdict.md contains a quoted passage from a
+  substrate file but does NOT cite the specific line number.
+  Action: re-edit audit_verdict.md to add line numbers; do
+  NOT proceed to bridge deposit.
+
+HALT-107-3 -- forbidden-verb-on-prose
+  Trigger: forbidden-verb scan returns >0 hits on
+  audit_verdict.md prose OR handoff.md prose (excluding
+  blockquote / code-fence enclosed verbatim quotations).
+  Forbidden verbs: shows, confirms, proves, demonstrates,
+  establishes, verifies, verified, validates, validated,
+  corroborates, corroborated, certifies, certified, settles,
+  settled, discharges, ratifies.
+  Action: in-session mitigation via noun-phrase rewriting;
+  re-scan; re-edit until 0 hits before bridge deposit.
+
+HALT-107-4 -- verdict-bin-not-in-allowed-set
+  Trigger: Section 4 verdict bin is not one of {R1, R2,
+  R1+R2_BLEND, UNDECIDABLE}.
+  Action: re-evaluate Phase A + Phase B findings; choose
+  the closest bin; if no bin fits, default to UNDECIDABLE
+  with explicit "no allowed bin matches" anomaly note.
+
+HALT-107-5 -- internal-document-inconsistency-blocking
+  Trigger: Q-B5 returns "LIT dict labels classical-ODE BUT
+  sec:vquad labels Hamiltonian-parameter" (i.e., the project
+  document and the recovery script contradict each other).
+  Action: this is NOT a hard halt -- continue to Phase C
+  with the verdict bin set to whichever the substrate
+  documents anchor (sec:vquad takes precedence over the
+  recovery script's LIT dict). Surface the inconsistency
+  as a primary anomaly in handoff.md and recommend a
+  follow-up prompt to RECONCILE the two project artefacts.
+
+==========================================================================
+SECTION 7 -- Forbidden-verb rules (Phase D hygiene)
+==========================================================================
+
+Forbidden verbs on prose deliverables: shows, confirms,
+proves, demonstrates, establishes, verifies, verified,
+validates, validated, corroborates, corroborated, certifies,
+certified, settles, settled, discharges, ratifies.
+
+Mitigation pattern: replace the verb with a noun-phrase
+construction or a neutral verb that does not carry
+epistemic-certification weight. Examples:
+  "X confirms Y" -> "X gives Y" / "X yields Y" / "X
+                    indicates Y" / "X holds Y"
+  "X verifies Y" -> "X computes Y at <dps> digits" /
+                    "X reaches Y" / "X locates Y"
+  "X discharges Z" -> "X addresses Z" / "X resolves Z"
+  "X establishes Y" -> "X determines Y" / "X gives Y"
+
+098-J3 EXEMPT categories (residual hits in these are
+NOT halts):
+  - verb-list-as-data inside JSON quoted strings (e.g.,
+    halt regex declarations like
+    "trigger":"forbidden-verb scan returns >0 hits")
+  - verbatim quotations from substrate files enclosed in
+    blockquote (>) syntax or fenced code blocks (```)
+  - SHA / filesystem-inspection telemetry
+  - finding-summary references (e.g., "the 113 verdict
+    finding")
+
+==========================================================================
+SECTION 8 -- Deliverable list (bridge session)
+==========================================================================
+
+Bridge session: sessions/2026-05-09/<or-2026-05-08>/T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD-NNN/
+where NNN = next sequential bridge ID after 113 (currently
+114, but pin NNN at fire time).
+
+Required deliverables:
+  1. audit_verdict.md             -- the Section 4 verdict
+  2. handoff.md                   -- standard SIARC handoff
+                                     template with What-was-
+                                     accomplished / Key-
+                                     numerical-findings /
+                                     Judgment-calls /
+                                     Anomalies / What-would-
+                                     have-been-asked /
+                                     Recommended-next-step /
+                                     Files-committed / AEAL-
+                                     claim-count sections
+  3. claims.jsonl                 -- AEAL claims (>=4
+                                     entries; spec floor)
+  4. halt_log.json                -- {} if no halts; else
+                                     {"halt_id":"<HALT-107-N>",
+                                     "reason":"...",
+                                     "resolution":"..."}
+  5. discrepancy_log.json         -- any audit-surfaced
+                                     discrepancies (D-NNN-*)
+  6. unexpected_finds.json        -- any audit-surfaced
+                                     unexpected findings
+                                     (UF-NNN-*)
+  7. (OPTIONAL) prompt_107_copy.txt -- copy of this prompt
+                                       for audit trail
+  8. (OPTIONAL) section_b3_quoted_excerpts.md -- if Phase A
+                                       generated a substantial
+                                       block of verbatim
+                                       quotations, package
+                                       them in a separate file
+                                       so audit_verdict.md
+                                       stays compact
+
+==========================================================================
+SECTION 9 -- Cascade implications (post-107 routing)
+==========================================================================
+
+Verdict bin -> downstream prompt to fire:
+
+  R1                  -> Prompt 108a (small Section 3.5.1
+                         amendment patch). Once 108a lands,
+                         Prompts 109 (069r3-B) + 110 (069r3-D)
+                         can fire in parallel. QE remains
+                         ROUTE_E_TRIVIAL.
+
+  R2                  -> Prompt 108b (large Section 3.5.1
+                         amendment + projection-recording
+                         framework + QE re-bin update). Once
+                         108b lands, Prompts 109 + 110 fire
+                         in parallel under the new
+                         ROUTE_E_NONTRIVIAL_REQUIRED reading.
+
+  R1+R2_BLEND         -> Prompt 108c (per-entry-tailored
+                         Section 3.5.1 amendment). 109 + 110
+                         fire post 108c.
+
+  UNDECIDABLE         -> Prompt 107r (Round-4 substrate-paste
+                         to existing 069r2 Claude.ai web
+                         thread; or author-side query email).
+                         109 + 110 remain blocked.
+
+  INTERNAL_DOCUMENT_   -> reconciliation prompt (RECONCILE-
+  INCONSISTENCY         vquad_p3d6_recovery.py LIT dict vs
+  (anomaly Q-B5)        p12_journal_main.tex sec:vquad):
+                        update LIT dict source-string to
+                        match sec:vquad reality; this is
+                        independent of R1/R2 audit verdict.
+
+Cross-validation criterion sharpening (UF-113-3) applies to
+all downstream prompts: per-coordinate >= 3-digit agreement
+at each entry of (1/6, 0, 0, -1/2), NOT partial-sum on -1/3.
+
+Mechanism (b) PRE-REJECTION (UF-113-2) applies to Section
+3.5.1 footnote update at next governance pass; does not
+gate this prompt or its downstream cascade.
+
+==========================================================================
+END OF PROMPT 107
+==========================================================================
