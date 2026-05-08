@@ -1,0 +1,24 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-115-1",
+      "tag": "PRIMARY-LABELING-CONVENTION-DIVERGENCE",
+      "summary": "Three project artefacts (p12 Intro lines 232-233 + p12 sec:vquad lines 982-984 + LIT dict vquad_p3d6_recovery.py line 48) label V_quad's (1/6, 0, 0, -1/2) as classical-ODE (alpha, beta, gamma, delta). Three project artefacts (058R B.3 line 138-141 + CT v1.3 §3.5 + CT v1.3 §3.5.1 105 deposit) label the same numerical tuple as Hamiltonian (alpha_inf, alpha_0, beta_inf, beta_0). The split is not random: p12 + LIT dict are the older publication-side artefacts; 058R + CT v1.3 are the newer reduction-/canonical-form artefacts. The 105 §3.5.1 trivial relabel was intended to bridge the two conventions but the ARRIVING labeling at p12 was not synchronised in the same session. Recommended: dedicated reconciliation prompt at next CMB-edit cycle."
+    },
+    {
+      "id": "UF-115-2",
+      "tag": "LIT-DICT-SOURCE-STRING-MISATTRIBUTION",
+      "summary": "LIT dict source-string in vquad_p3d6_recovery.py line 49-50 cites p12 sec:vquad subsec Stokes data as the labeling source. Cross-check at p12_journal_main.tex finds subsec Stokes data carries only Stokes constant and Borel numerics; the (1/6, 0, 0, -1/2) labeling lives at subsec Painleve III(D_6) parameters lines 975-985. Probable origin: the source-string was hand-typed pointing at the citation key Papanokechi2026Vquad which appears at p12 line 275 inside a sentence referencing Stokes data, conflated with the parameter-tuple location. One-line edit recommended."
+    },
+    {
+      "id": "UF-115-3",
+      "tag": "OKAMOTO-DEGENERACY-AT-VQUAD-IMAGE",
+      "summary": "Under EITHER labeling reading, the V_quad tuple (1/6, 0, 0, -1/2) violates an Okamoto §1 standing assumption: classical-ODE reading violates gamma * delta != 0 (gamma = 0); Hamiltonian reading violates eta_Delta != 0 (eta_0 = 0). Either way V_quad sits at the boundary of P_III(D_6) admissibility. This is structurally interesting (not just a labeling artefact) and may indicate that V_quad lives at a P_III(D_6) -> P_III(D_7) degeneration limit at the Sakai-classification level. Forward-pointer for a future structural prompt to diagnose."
+    },
+    {
+      "id": "UF-115-4",
+      "tag": "058R-RESIDUAL-R1-NOT-FULLY-CLOSED",
+      "summary": "058R B.3 line 138-141 logs the explicit numerical conversion (1/6, 0, 0, -1/2) -> KNY (a_0, a_1, a_2) as 'residual R1 partially closed'. Audit task QD-5 reads structurally (raw Hamiltonian output domain, supports R1) but the numerical arithmetic remains open in 058R. Closing R1 fully would tighten audit confidence from MEDIUM-HIGH to HIGH. The deferred Phase D.2 numerical session named at 058R B.3 lines 156-158 is the indicated path. Also relevant for downstream Prompts 109 + 110."
+    }
+  ]
+}

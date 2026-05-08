@@ -1,0 +1,34 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-115-1",
+      "severity": "INFO",
+      "scope": "058R B.3 vs p12 sec:vquad labeling convention",
+      "summary": "058R B.3 lines 138-141 labels the (1/6, 0, 0, -1/2) four-tuple as Hamiltonian (alpha_inf, alpha_0, beta_inf, beta_0); p12_journal_main.tex sec:vquad lines 982-984 + Intro lines 232-233 + vquad_p3d6_recovery.py LIT dict line 48 label the same numerical tuple as classical-ODE (alpha, beta, gamma, delta). Three substrates each side. Audit verdict R1 anchored on 058R B.3 framing (per QD-5 audit task scope). Cross-document divergence handled as primary anomaly A-115-1 with reconciliation-prompt recommendation."
+    },
+    {
+      "id": "D-115-2",
+      "severity": "INFO",
+      "scope": "vquad_p3d6_recovery.py LIT dict source-string subsec misattribution",
+      "summary": "LIT dict line 49-50 source-string cites p12_journal_main.tex sec:vquad subsec Stokes data as the location of the (1/6, 0, 0, -1/2) labeling. Audit cross-check at p12_journal_main.tex shows the labeling actually appears at subsec Painleve III(D_6) parameters lines 975-985, not at subsec Stokes data lines 1046-1067 (which carries Stokes constant and Borel branch-point numerics only). Anomaly A-115-2; recommended one-line LIT dict edit."
+    },
+    {
+      "id": "D-115-3",
+      "severity": "INFO",
+      "scope": "058R B.3 residual R1 partial closure",
+      "summary": "058R B.3 lines 138-141 logs explicit numerical conversion of (1/6, 0, 0, -1/2) Hamiltonian to KNY (a_0, a_1, a_2) as residual R1 partially closed; the structural domain is unambiguously raw Hamiltonian per Okamoto/KNY conventions, but the explicit numerical mapping arithmetic is open. Audit confidence reduced from HIGH to MEDIUM-HIGH on this caveat. Forward-pointer to deferred Phase D.2 numerical session named at 058R B.3 lines 156-158."
+    },
+    {
+      "id": "D-115-4",
+      "severity": "INFO",
+      "scope": "Okamoto §1 admissibility at V_quad image",
+      "summary": "Under Hamiltonian reading: eta_0 = 0 at V_quad image violates Okamoto §1 standing assumption eta_Delta != 0. Under classical-ODE reading: gamma = 0 violates gamma * delta != 0 for P_III(D_6) and would place the fibre at P_III(D_7) sector. Either way, V_quad image lies at an Okamoto-degeneration locus. 058R B.3 already carries this as discrepancy D2 carry-forward (lines 138-145). Audit handles via R1a small caveat sentence in Section 3.5.1 amendment scope."
+    },
+    {
+      "id": "D-115-5",
+      "severity": "INFO",
+      "scope": "QD-5 audit confidence not HIGH",
+      "summary": "Verdict bin R1 anchored on 058R B.3 explicit framing. Confidence reduced from HIGH to MEDIUM-HIGH on three caveats: (a) 058R residual R1 partial closure (D-115-3); (b) Okamoto admissibility at V_quad image (D-115-4); (c) cross-document labeling divergence p12 vs 058R/CT v1.3 (D-115-1 / A-115-1). None of (a)/(b)/(c) supports R2 over R1 — they are admissibility / arithmetic / notation issues, not output-domain-projection issues."
+    }
+  ]
+}
