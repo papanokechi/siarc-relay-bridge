@@ -1,0 +1,427 @@
+================================================================
+SIARC Relay Prompt 114 — Copilot Researcher (A-115 reconciliation)
+Task ID:  T2-OPERATOR-A-115-RECONCILIATION-LABELING-CONVENTION-126
+          (sequential 126; if 113 has by then deposited at 126
+          itself, agent shifts this to 127.  Verify next-
+          sequential at fire time per Phase 0 STEP 0.6.)
+Tier:     T2 (executor) running on operator behalf
+Trigger:  107 QD-5 audit verdict (bridge session 115;
+          audit_verdict.md L237-307) flagged labeling-convention
+          divergence A-115-1 (PRIMARY) + A-115-2 (SECONDARY)
+          across 6 project artefacts; recommended dedicated
+          reconciliation prompt at next CMB-edit cycle.
+          Independent of 069r3 cascade (parallel-safe with
+          prompt 113 fire).
+Bridge HEAD at draft time: 1eed8ef
+                           (T2-113-COPILOT-RESEARCHER-PROMPT-
+                            DRAFT-125 LANDED)
+Estimated researcher effort: 30-60 min
+Primary outputs:
+  - 6 small targeted edits to working source (NOT a Zenodo
+    re-deposit; NOT a submission action)
+  - unified diff in bridge session
+  - cross-walk footnote draft for p12 sec:vquad
+  - A-115-RECONCILED stamp file
+Bridge deposit: sessions/<TODAY>/T2-OPERATOR-A-115-
+                RECONCILIATION-LABELING-CONVENTION-126/
+================================================================
+
+# 1. Context
+
+Bridge session 115 (T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD-115)
+deposited audit_verdict.md L237-307 surfacing two anomalies:
+
+**A-115-1 (PRIMARY)** — labeling-convention divergence: the same
+numerical 4-tuple `(1/6, 0, 0, -1/2)` carries TWO labelings across
+SIX project artefacts:
+
+| Artefact | Path | Labeling |
+|---|---|---|
+| p12 Intro | `tex/submitted/p12_journal_main.tex` L232-233 | classical-ODE $(\alpha, \beta, \gamma, \delta)$ |
+| p12 sec:vquad | `tex/submitted/p12_journal_main.tex` L982-984 | classical-ODE $(\alpha, \beta, \gamma, \delta)$ |
+| LIT dict | `<project>/vquad_p3d6_recovery.py` L48 | classical-ODE `(alpha,beta,gamma,delta)` |
+| 058R B.3 | `siarc-relay-bridge/sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md` L138-141 | Hamiltonian $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$ |
+| CT v1.3 §3.5 | `pcf-research/channel/cc_pipeline_v13_2026-05-02/channel_theory_outline.tex` (cited by 058R B.3) | Hamiltonian $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$ |
+| CT v1.3 §3.5.1 (105 deposit) | `tex/submitted/section_3_5_1_okamoto_rename.tex` | Hamiltonian → Okamoto $(\eta_\infty, \eta_0, \theta_\infty, \theta_0)$ trivial relabel |
+
+Three artefacts read classical-ODE; three read Hamiltonian. Under
+classical-ODE reading, $\gamma = 0$ violates Okamoto §1 standing
+assumption $\gamma\delta \neq 0$ for P_III(D_6), placing V_quad's
+fibre at a P_III(D_7) sector — NOT P_III(D_6). Under Hamiltonian
+reading, the 4-tuple is a parameter point in the P_III(D_6) Okamoto
+canonical Hamiltonian space and consistent with all CT v1.3 §3.5
+machinery.
+
+**Audit conclusion** (audit_verdict.md L301-307): *the 4-tuple
+denotes Hamiltonian $(\alpha_\infty, \alpha_0, \beta_\infty,
+\beta_0)$, NOT classical-ODE.* Recommended follow-up: dedicated
+reconciliation prompt that updates the three classical-ODE
+artefacts (p12 Intro + p12 sec:vquad + LIT dict) to Hamiltonian
+notation OR adds a cross-walk footnote at sec:vquad
+disambiguating the unsubscripted-Greek shorthand.
+
+**A-115-2 (SECONDARY)** — LIT dict source-string subsec
+misattribution: `vquad_p3d6_recovery.py` L49-50 names the source
+subsec as "subsec Stokes data"; the 4-tuple actually appears in
+"subsec Painlevé III$(D_6)$ parameters" (or simply at sec:vquad
+top-level prose, not a Stokes-data subsection). Trivial one-line
+edit.
+
+**UF-115-3** — out of scope for THIS task. UF-115-3 surfaces the
+possibility that V_quad sits at the P_III(D_6) → P_III(D_7)
+degeneration boundary (Okamoto §1 standing-assumption violation
+as feature, not bug). UF-115-3 will be a separate STRUCTURAL
+prompt; this task is purely DOCUMENTATION RECONCILIATION.
+
+# 2. Your task
+
+Produce SIX small targeted edits (4 to p12_journal_main.tex,
+2 to vquad_p3d6_recovery.py) plus a one-paragraph cross-walk
+footnote in p12 sec:vquad, all consistent with the audit's
+"4-tuple denotes Hamiltonian" conclusion.
+
+(D1) **p12 Intro update** at `p12_journal_main.tex` L232-233.
+     - Verify line numbers at fire time (cf. memory
+       `line number pre-verification`).
+     - Locate the V_quad parameter-point sentence using
+       classical-ODE notation.
+     - Edit STRATEGY (operator-decided default, see §6 A1):
+       (a) RELABEL the symbols from $(\alpha, \beta, \gamma,
+           \delta)$ to $(\alpha_\infty, \alpha_0, \beta_\infty,
+           \beta_0)$ in place; OR
+       (b) keep classical-ODE symbols + add bracketed
+           Hamiltonian-name expansion: e.g.
+           "$(\alpha, \beta, \gamma, \delta) \equiv
+            (\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$
+            (Hamiltonian convention; cf. Okamoto 1987 §1.1)".
+     - DEFAULT: (b), the bracketed expansion. Operator may
+       request (a) at fire-time review.
+
+(D2) **p12 sec:vquad update** at `p12_journal_main.tex`
+     L982-984 + L985.
+     - Verify line numbers at fire time.
+     - Apply same edit strategy (D1.b default).
+     - Both occurrences (L982-984 verbatim "13 words" per audit
+       + L985 verbatim "11 words" per audit) get the same
+       treatment.
+
+(D3) **p12 sec:vquad cross-walk footnote** — NEW footnote,
+     inserted after the FIRST V_quad parameter-point statement
+     in sec:vquad (so within ~3 lines of L982-984).
+     Footnote body (write to taste, but should cover all three
+     bullets):
+        "We use unsubscripted Greek symbols
+         $(\alpha, \beta, \gamma, \delta)$ as a shorthand for the
+         Hamiltonian parameters $(\alpha_\infty, \alpha_0,
+         \beta_\infty, \beta_0)$ of the Okamoto canonical
+         Hamiltonian system for $P_{III}(D_6)$ (cf. Okamoto
+         1987 §1.1; Iwasaki et al. 1991 §VII.4; KNY 2017
+         §8.5.17). The $V_{\text{quad}}$ parameter point
+         $(1/6, 0, 0, -1/2)$ thus denotes
+         $(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0) =
+         (1/6, 0, 0, -1/2)$. NOTE that this is the Hamiltonian-
+         parameter labeling, not the classical-ODE coefficient
+         labeling — under classical-ODE labeling
+         $(\gamma, \delta) = (0, -1/2)$ would violate the
+         $\gamma \delta \neq 0$ standing assumption of
+         Okamoto 1987 §1 for the $D_6$ surface type and place
+         the fibre at a $D_7$ sector instead."
+     This footnote is the load-bearing reconciliation primitive.
+     It MUST be present in the deposited diff regardless of D1/D2
+     edit-strategy choice.
+
+(D4) **LIT dict label update** at `vquad_p3d6_recovery.py` L48.
+     - Find the LIT dict entry
+       `"P_III_D6_params": "(alpha,beta,gamma,delta) = (1/6, 0, 0, -1/2)"`
+     - Change to either:
+       (a) Hamiltonian relabel:
+           `"P_III_D6_params": "(alpha_inf,alpha_0,beta_inf,beta_0) = (1/6, 0, 0, -1/2)  # Hamiltonian convention"`
+           OR
+       (b) annotated classical-ODE:
+           `"P_III_D6_params": "(alpha,beta,gamma,delta) = (1/6, 0, 0, -1/2)  # unsubscripted shorthand for Hamiltonian (alpha_inf, alpha_0, beta_inf, beta_0); cf. p12 sec:vquad footnote"`
+     - DEFAULT: (a), the Hamiltonian relabel. LIT dict is a
+       machine-readable lookup, so explicit subscripted names
+       reduce downstream parser ambiguity. Operator may switch
+       to (b) at fire-time review.
+
+(D5) **LIT dict source-string subsec fix** at
+     `vquad_p3d6_recovery.py` L49-50 (A-115-2).
+     - Find current source-string:
+       `"source": ("p12_journal_main.tex sec:vquad subsec Stokes data, citing Papanokechi2026Vquad.")`
+     - Fix to one of:
+       (a) `"source": ("p12_journal_main.tex sec:vquad subsec Painlevé III(D_6) parameters, citing Papanokechi2026Vquad.")`
+           (if the subsec named "Painlevé III(D_6) parameters"
+            actually exists in p12 sec:vquad — verify at fire
+            time)
+       (b) `"source": ("p12_journal_main.tex sec:vquad (top-level prose), citing Papanokechi2026Vquad.")`
+           (if no such subsection exists — DEFAULT, safer)
+     - DEFAULT: (b), top-level prose. Verify at fire time by
+       grep'ing sec:vquad for "Painlevé III(D_6) parameters" or
+       similar subsection title.
+
+(D6) **Unified diff** committed to bridge session as
+     `a_115_reconciliation.diff` (single file, all 4 file
+     edits combined). Diff format: standard `diff -u`. Header
+     lines must include the SHA of each file BEFORE the edit
+     (so the diff can be re-applied to a known baseline).
+
+# 3. Source pointers (paths + line ranges; verify at fire time)
+
+(S1) `tex/submitted/p12_journal_main.tex`
+     Line ranges of interest:
+       - L232-233 (V_quad Intro)
+       - L958-1090 (sec:vquad whole section per audit L7)
+       - L982-984 (V_quad parameter-point sentence #1)
+       - L985 (V_quad parameter-point sentence #2)
+     Verify at fire time per `line number pre-verification`
+     memory: read L231-235 and L981-987 first; cross-check
+     content matches audit's classical-ODE quotes
+     (audit_verdict.md L94-103). If line numbers have drifted,
+     re-find by grep'ing for `(\alpha, \beta, \gamma, \delta)`
+     or `1/6, 0, 0, -1/2` in the file and use the newly-found
+     lines.
+
+(S2) `<project>/vquad_p3d6_recovery.py`
+     Verify the actual path with glob '**/vquad_p3d6_recovery.py'.
+     L48-50 contain the LIT dict entry per audit_verdict.md
+     L153-154. Verify content matches audit quotes.
+
+(S3) `siarc-relay-bridge/sessions/2026-05-08/T2-OPERATOR-QD5-
+     AUDIT-058R-B3-P12-VQUAD-115/audit_verdict.md`
+     L237-307 (Recommended amendment + A-115-1 + A-115-2)
+     [Read at fire time to verify scope hasn't drifted; cite
+      bridge SHA in claims.jsonl.]
+
+(S4) `siarc-relay-bridge/sessions/2026-05-06/CC-VQUAD-PIII-
+     NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md`
+     §B.3 L138-141 — Hamiltonian-labeled 4-tuple anchor
+     [The CANONICAL anchor for "the 4-tuple is Hamiltonian";
+      cite SHA F831F9BD58D1F306 (16-prefix).]
+
+(S5) `tex/submitted/section_3_5_1_okamoto_rename.tex` (105
+     deposit) — Hamiltonian → Okamoto (η, θ) trivial relabel
+     [Cite for D3 cross-walk footnote's "Okamoto-rename"
+      reference.]
+
+(S6) Bibliographic anchors for D3 cross-walk footnote:
+       - Okamoto 1987 (Annali Mat. Pura Appl.; existing bib
+         entry `okamoto1987studies` if present, else
+         `okamoto1987painleveIII` — verify which key exists
+         in the project .bib at fire time)
+       - Iwasaki-Kimura-Shimomura-Yoshida 1991 ("From Gauss
+         to Painlevé") — bib key `iwasaki1991from`
+       - Kajiwara-Noumi-Yamada 2017 — bib key
+         `kajiwaranoumiyamada2017` IF EXISTS, else document
+         under UF-126-NEW-BIBKEY (analog of prompt 105 §3 S9
+         pattern).
+
+# 4. Hard preflight gates (STOP if any fails)
+
+(G1) `p12_journal_main.tex` exists at the cited path AND
+     contains the substring `1/6, 0, 0, -1/2` somewhere in
+     [L900, L1100]. If not, HALT_114_P12_DRIFT and surface
+     in halt_log.json.
+
+(G2) `vquad_p3d6_recovery.py` exists somewhere in workspace
+     (find via glob) AND contains `P_III_D6_params`. If not,
+     HALT_114_VQUAD_RECOVERY_MISSING.
+
+(G3) Audit-verdict cross-check: confirm
+     `siarc-relay-bridge/sessions/2026-05-08/T2-OPERATOR-QD5-
+     AUDIT-058R-B3-P12-VQUAD-115/audit_verdict.md` exists and
+     line L301-307 contains "Recommended follow-up". If line
+     numbers have drifted, re-find by grep and cite the new
+     line numbers in claims.jsonl.
+
+(G4) p12 baseline pdflatex compile: BEFORE any edits, run
+     `pdflatex p12_journal_main` from the document directory
+     and capture the exit code + last 30 lines of stdout.
+     If baseline compile fails, HALT_114_P12_BASELINE_BROKEN
+     — the file already does not compile; do not pile new
+     edits onto a broken state. Halt and ask operator.
+
+(G5) Bridge HEAD ancestry: confirm bridge HEAD includes commit
+     1eed8ef (T2-113-COPILOT-RESEARCHER-PROMPT-DRAFT-125)
+     before depositing. If not, fetch + re-baseline.
+
+(G6) Bibliographic identifier pre-verification: NONE NEEDED at
+     fire time for THIS task — all 3 bib entries cited in D3
+     footnote (okamoto1987, iwasaki1991from, kajiwara2017)
+     are existing project .bib entries being re-cited, not
+     newly-introduced identifiers. If any of the three are
+     ABSENT from the project .bib, document under
+     UF-126-NEW-BIBKEY and let operator decide; do not halt.
+
+# 5. Forbidden-verb scan (Phase F AEAL hygiene)
+
+Apply the standard 16-verb forbidden-verb scan to your draft
+of all .md / .diff / .py / .tex deliverables:
+    \b(shows|confirms|proves|demonstrates|establishes|verifies|
+       verified|validates|validated|corroborates|corroborated|
+       certifies|certified|settles|settled|discharges|ratifies)\b
+
+Exempt categories (per 098-J3 + this prompt's specific exemptions):
+    (a) Verb-list-as-data (backticked lists, regex declarations)
+    (b) Forbidden-verb pattern declarations / scan command-lines
+    (c) SHA / filesystem-inspection telemetry
+    (d) Template fields / regex morpheme matches
+    (e) Finding-summary references
+    (f) Verbatim-quoted source-file content (e.g. quoted p12
+        prose, even if it contains banned verbs — the quote is
+        evidence, not a synthesis claim)
+    (g) THIS PROMPT'S §1 verbatim quoting of audit_verdict.md
+        prose (which references "violates" / standing
+        assumptions etc.)
+
+If non-exempt hits found, REWRITE before deposit. Use weakening
+alternatives:
+    "shows"        → "documents" / "reports"
+    "establishes"  → "states" / "presents"
+    "proves"       → "derives" / "asserts"
+    "confirms"     → "matches against" / "is consistent with"
+    "validates"    → "passes the check"
+
+# 6. Acceptance criteria
+
+(A1) Edit strategy decision documented in handoff.md "Judgment
+     calls made" section:
+       - D1+D2 strategy chosen: (a) relabel OR (b) bracketed
+         expansion. Default (b).
+       - D4 strategy chosen: (a) relabel OR (b) annotated
+         classical-ODE. Default (a).
+     IF the agent chooses non-default, justify in 1-2 sentences.
+
+(A2) `a_115_reconciliation.diff` present in bridge session.
+     File-edit count: exactly 4 (`p12_journal_main.tex` L232-233
+     + L982-985 ranges, `vquad_p3d6_recovery.py` L48 + L49-50
+     ranges) + 1 footnote insertion (D3) ≈ 5-6 hunks. NOT more
+     than ~30 line additions total — this is a SURGICAL edit.
+
+(A3) p12 post-edit pdflatex compile clean (no new errors,
+     no new undefined-reference warnings, no symbol-collision
+     compilation warnings beyond the baseline captured at G4).
+     Document in claims.jsonl as a `"pdflatex compile clean"`
+     entry. If new warnings appear, surface in
+     discrepancy_log.json as MEDIUM severity and ask operator
+     before declaring complete.
+
+(A4) Cross-walk footnote (D3) present in the diff.
+
+(A5) AEAL claims.jsonl has ≥ 6 entries:
+       - one per file edit (4 entries)
+       - one for footnote insertion (1 entry)
+       - one for pdflatex clean compile (1 entry)
+     Each entry cites file SHA AFTER edit + line number(s).
+
+(A6) Forbidden-verb scan PASSES (zero non-exempt hits across
+     all .md / .diff / .py / .tex deliverables).
+
+(A7) Bridge handoff.md filled per template (no placeholders);
+     "Anomalies and open questions" section non-empty.
+     Likely anomalies: subsec name uncertainty for D5; bib-key
+     name uncertainty for D3 (kajiwara2017); whether p12 has
+     drifted from the audit's L982-984 + L985 line cites.
+
+(A8) A-115-RECONCILED stamp file
+     `a_115_RECONCILED.md` present in bridge session, body:
+       - Date / agent / bridge-commit
+       - Summary: "A-115-1 + A-115-2 reconciled per
+         audit_verdict.md L301-307. UF-115-3 remains open
+         for future structural prompt."
+       - SHA before / after of all 2 modified files
+       - Pointer to a_115_reconciliation.diff
+     This stamp closes 3 SQL todos (a-115-1-reconciliation-
+     prompt-draft, a-115-1-reconciliation-prompt-followup,
+     a-115-2-lit-dict-source-string-fix) when bridge-deposited.
+
+# 7. After completion
+
+(C1) Output BRIDGE / CLAUDE_FETCH URLs per standing instruction
+     B5.
+
+(C2) Update SQL todos:
+       - `a-115-1-reconciliation-prompt-draft` → done
+       - `a-115-1-reconciliation-prompt-followup` → done
+       - `a-115-2-lit-dict-source-string-fix` → done
+       - `uf-115-3-okamoto-degeneracy-structural-prompt`:
+         leave pending (out of scope for this task; future
+         structural prompt)
+
+(C3) Append POSTSCRIPT entry to
+     `tex/submitted/control center/prompt/_INDEX.txt` per
+     standing convention. Use next sequential POSTSCRIPT-NN.
+
+(C4) **Do NOT** re-deposit Zenodo (PCF-2 v1.4) or re-submit p12
+     to any journal. The edits are working-source-only;
+     downstream Zenodo / submission decisions remain
+     operator-only and gated on `pcf2-v1-4-deposit-decision-
+     q22-gated` blocked todo. If the agent feels strongly that
+     a Zenodo re-deposit should follow this reconciliation,
+     surface as a recommendation in handoff.md "Recommended
+     next step" — do NOT take the action.
+
+(C5) **Do NOT** edit CT v1.3 §3.5 / §3.5.1 / 058R B.3 /
+     `phase_b_canonical_map.md`. Those artefacts ALREADY use the
+     Hamiltonian labeling correctly; they need no edit. The
+     only edits in scope are the THREE classical-ODE artefacts
+     (p12 Intro + p12 sec:vquad + LIT dict).
+
+# 8. Halt conditions specific to this task
+
+Beyond the standing halt conditions, halt specifically on:
+
+  HALT_114_P12_DRIFT             — G1 fails (p12 file or content
+                                   drifted from audit cites)
+  HALT_114_VQUAD_RECOVERY_MISSING — G2 fails
+  HALT_114_P12_BASELINE_BROKEN   — G4 fails (pdflatex breaks
+                                   BEFORE any edit)
+  HALT_114_PDFLATEX_REGRESSION   — A3 fails (post-edit compile
+                                   introduces new errors;
+                                   roll back edits and halt)
+  HALT_114_FORBIDDEN_VERB_NON_EXEMPT — A6 fails after 2 rewrite
+                                   attempts
+  HALT_114_SCOPE_CREEP_CT_V13_EDIT — agent inadvertently edits
+                                   any of CT v1.3 §3.5 / §3.5.1 /
+                                   058R B.3 / phase_b_canonical_
+                                   map.md (forbidden per C5);
+                                   halt and roll back
+
+If a halt fires, deposit halt_log.json + any partial work; do not
+delete partial work on halt.
+
+# 9. AEAL claim format reminder
+
+Each entry in claims.jsonl follows the standing schema:
+{
+  "claim": "<concise statement>",
+  "evidence_type": "computation" | "literature" | "structural",
+  "dps": <int or null>,
+  "reproducible": true,
+  "script": "<filename or N/A>",
+  "output_hash": "<sha256 of evidence document or N/A>"
+}
+
+Example entries expected:
+  {"claim":"p12_journal_main.tex L232-233 V_quad Intro updated to Hamiltonian-labeled 4-tuple per A-115-1 reconciliation",
+   "evidence_type":"structural","dps":null,"reproducible":true,
+   "script":"a_115_reconciliation.diff","output_hash":"<post-edit p12 SHA>"}
+
+# 10. Standing final step (B1-B5 of operator instructions)
+
+Execute B1 (collect deliverables: a_115_reconciliation.diff,
+a_115_RECONCILED.md, claims.jsonl, halt_log.json, discrepancy_
+log.json, unexpected_finds.json, handoff.md) → B2 (stage in
+bridge repo at sessions/<TODAY>/T2-OPERATOR-A-115-
+RECONCILIATION-LABELING-CONVENTION-126/) → B3 (write handoff.md
+AFTER all edits + pdflatex re-compile checks are complete) →
+B4 (commit and push; commit message:
+   "T2-OPERATOR-A-115-RECONCILIATION-LABELING-CONVENTION-126
+    -- reconcile A-115-1 + A-115-2 labeling-convention
+    divergence per 107 audit_verdict.md L301-307; 4 file
+    edits + cross-walk footnote; pdflatex clean; UF-115-3
+    deferred to future structural prompt") → B5 (output
+BRIDGE + CLAUDE_FETCH URLs).
+
+================================================================
+End of prompt 114.
+================================================================
