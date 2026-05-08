@@ -1,0 +1,22 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-128-NEW-BIBKEY",
+      "summary": "Bibliographic key kajiwaranoumiyamada2017 (Kajiwara-Noumi-Yamada 2017 review) is ABSENT from the embedded thebibliography in tex/submitted/p12_journal_main.tex (only Okamoto1987 and IwasakiKimuraShimomuraYoshida exist in the relevant Painleve cluster). The cross-walk footnote (D3) was drafted citing only the two existing keys; the prompt-prescribed third citation (KNY 2017 sect 8.5.17) was OMITTED to avoid an undefined-reference compile warning that would have failed acceptance criterion A3. Operator decision needed: either add a new \\bibitem{kajiwaranoumiyamada2017} entry to p12 thebibliography (Kajiwara-Noumi-Yamada 2017 'Geometric aspects of Painleve equations', J Phys A 50:073001, arXiv 1509.08186) and re-cite in the footnote, or accept the 2-citation footnote as final.",
+      "scope": "documentation",
+      "blocking": false
+    },
+    {
+      "id": "UF-128-SEQUENTIAL-SHIFT",
+      "summary": "Prompt 114 body specified sequential 126 with shift-to-127 fallback. At fire-time bridge state both 126 (T2-OPERATOR-069R3-PRIORITY-1-S10-ROUTE-F-SUBSTRATE-CONSOLIDATION-126) and 127 (T2-114-COPILOT-RESEARCHER-PROMPT-DRAFT-127) were already taken. Agent shifted to next-available 128 per Phase 0 STEP 0.6 verify-at-fire-time directive.",
+      "scope": "naming-convention",
+      "blocking": false
+    },
+    {
+      "id": "UF-128-V-QUAD-D7-DEGENERATION",
+      "summary": "Carry-forward from audit_verdict.md UF-115-3 / A-115-3: under either labeling reading, the V_quad image point (1/6, 0, 0, -1/2) sits at an Okamoto sect 1 standing-assumption boundary (gamma*delta = 0 classical-ODE OR eta_Delta = 0 Hamiltonian). The cross-walk footnote (D3) inserted by this task documents the classical-ODE half of that boundary. Whether V_quad genuinely lies on a P_III(D_6) -> P_III(D_7) degeneration locus (feature, not bug) is a structural question deferred to a future relay prompt per prompt 114 sect 1 explicit out-of-scope statement.",
+      "scope": "structural",
+      "blocking": false
+    }
+  ]
+}

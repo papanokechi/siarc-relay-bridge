@@ -1,0 +1,10 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-128-1",
+      "severity": "LOW",
+      "summary": "Diff-header SHA-256 values (191a7bcb..., a4e95949..., eb9a871b..., b4496e06...) reflect Python-reconstructed LF-normalised UTF-8 bytes used by difflib; on-disk SHA-256 values captured via Get-FileHash (DAC0282E..., 28B8DE47..., 82173A09..., 19E96D3F...) differ because Windows source files store CRLF line endings. Semantic diff content is identical; only the line-ending byte representation differs. AEAL claims.jsonl entries cite the on-disk SHA-256 (CRLF) values for downstream reproducibility against the workspace state.",
+      "resolved": true
+    }
+  ]
+}
