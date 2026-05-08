@@ -1,0 +1,194 @@
+% =====================================================================
+% CT v1.3 §3.5.1 — Okamoto-rename of the V_quad parameter point
+% (η, θ) → (α, β)
+%
+% STATUS: CANDIDATE SKELETAL DRAFT — operator/researcher editorial.
+% Generated 2026-05-08 by SIARC agent-tier as TIER-A starting point.
+% Companion to prompt 105_copilot_researcher_route_e_okamoto_rename.txt
+%
+% Insert after line 891 of pcf-research/channel/cc_pipeline_v13_2026-
+% 05-02/channel_theory_outline.tex (immediately after §3.5 closing
+% paragraph "...empirically resolved at $d=2,4$..." and before §3.6 /
+% next subsection).
+%
+% MARKED [TBD] = researcher must resolve in final draft.
+% =====================================================================
+
+\subsubsection{Okamoto-rename of the V$_{\mathrm{quad}}$ parameter
+point: $(\eta, \theta) \to (\alpha, \beta)$}
+\label{ssec:okamoto-rename}
+
+The $\Vquad \rightsquigarrow P_{III}(D_6)$ identification at
+parameter point $(1/6, 0, 0, -1/2)$
+(\Cref{ssec:cc}, lines~127--131; \cite{iwasaki1991from,
+ohyama2006studies}) is stated in a 4-tuple convention
+$(\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$ that does
+not appear in Okamoto's original Hamiltonian
+\cite[\S 1.1]{okamoto1987painleveIII}, where the canonical
+parameters are $(\eta_\infty, \eta_0, \theta_\infty, \theta_0)$.
+The present sub-subsection records the explicit rename used
+throughout this paper to bridge the two conventions.
+
+\paragraph{Okamoto's canonical parameters.}
+The Hamiltonian for $P_{III}$ in
+\cite[\S 1.1, p.~306, eq.~(0.0)]{okamoto1987painleveIII} reads
+\[
+H_{III} \;=\;
+\frac{1}{t}\Bigl[2 q^{2} p^{2} - \bigl\{2 \eta_\infty\, t q^{2}
++ (2 \theta_0 + 1) q - 2 \eta_0\, t\bigr\} p
++ \eta_\infty (\theta_0 + \theta_\infty) t q\Bigr],
+\]
+with the standing convention $\eta_0, \eta_\infty \neq 0$ and
+the WLOG normalisation $\eta_0 = \eta_\infty = 1$ adopted in
+\cite[\S 1.1, p.~306]{okamoto1987painleveIII}. Under this
+normalisation the four-parameter family $(\eta_\infty, \eta_0,
+\theta_\infty, \theta_0)$ collapses to the two free monodromy
+parameters $(\theta_\infty, \theta_0)$ at infinity and at the
+origin, with $\eta_\infty, \eta_0$ the two non-zero scales.
+
+\paragraph{Project rename to $(\alpha, \beta)$.}
+The project's 4-tuple $(\alpha_\infty, \alpha_0, \beta_\infty,
+\beta_0)$ is related to Okamoto's $(\eta_\infty, \eta_0,
+\theta_\infty, \theta_0)$ by\footnote{%
+The symbol $(\alpha, \beta)$ in this sub-subsection denotes
+the Okamoto-rename 4-tuple of monodromy parameters introduced
+here. It is independent of (i) the WKB exponents $(A, \alpha,
+\beta, \gamma)$ of \Cref{prop:wkb} (\Cref{ssec:wkb}), and (ii)
+the classical $P_{III}$ ODE coefficients $(\alpha, \beta,
+\gamma, \delta)$ of \cite[eq.~(0.1)]{okamoto1987painleveIII}.
+We use subscripts $\infty, 0$ throughout to disambiguate the
+present 4-tuple from those two.}
+% [TBD: insert four equations defining (alpha, beta) in terms
+%       of (eta, theta). Two candidate parametrisations:
+%
+%   CANDIDATE I — TRIVIAL relabel (no shift):
+%     alpha_inf  := eta_inf
+%     alpha_0    := eta_0
+%     beta_inf   := theta_inf
+%     beta_0     := theta_0
+%
+%   CANDIDATE II — Iwasaki/Ohyama / FW convention (potentially
+%                   includes a fixed additive shift; see -1/3
+%                   discussion below).
+%
+%   The researcher must determine which of (I) or (II) is the
+%   convention used by Iwasaki 1991 / Ohyama 2006, since CT
+%   v1.3 cites those works as the source of (1/6, 0, 0, -1/2).]
+\begin{align}
+  \alpha_\infty &\;=\; \eta_\infty
+                       \tag*{[TBD-eq.1]} \\
+  \alpha_0      &\;=\; \eta_0
+                       \tag*{[TBD-eq.2]} \\
+  \beta_\infty  &\;=\; \theta_\infty
+                       \tag*{[TBD-eq.3]} \\
+  \beta_0       &\;=\; \theta_0
+                       \tag*{[TBD-eq.4]}
+\end{align}
+% [Researcher: replace placeholder with actual rename — verify
+%  against Iwasaki 1991 §VII or Ohyama 2006 §1, whichever is
+%  the canonical source of the project's 4-tuple convention.
+%  If a non-zero additive shift is present in the source
+%  convention, replace eq. 1-4 with the shifted form and update
+%  the discussion below.]
+
+\paragraph{Status of the Okamoto null-sum constraint.}
+Under the WLOG fixing $\eta_\infty = \eta_0 = 1$, Okamoto's
+classical $P_{III}$ ODE coefficients are
+\cite[eq.~(0.1)]{okamoto1987painleveIII}:
+\[
+\alpha_{\mathrm{ODE}} = -4 \theta_\infty,
+\qquad
+\beta_{\mathrm{ODE}} = 4(\theta_0 + 1),
+\qquad
+\gamma_{\mathrm{ODE}} = 4,
+\qquad
+\delta_{\mathrm{ODE}} = -4.
+\]
+These are not the project 4-tuple. The project 4-tuple satisfies
+the Okamoto monodromy-data constraint
+$\alpha_\infty + \alpha_0 + \beta_\infty + \beta_0 = 0$
+% [TBD: verify whether this null-sum constraint is in fact
+%       Okamoto's, or whether it is a project assumption from
+%       058R \S B.3. The constraint is stated in 058R but no
+%       primary-literature cite was given there.]
+\emph{except} at the V$_\mathrm{quad}$ parameter point
+$(1/6, 0, 0, -1/2)$, where the null-sum equals $-1/3$.
+This $-1/3$ offset has been carried as an open anomaly since
+the 2026-05-02 V$_\mathrm{quad}$/$P_{III}(D_6)$
+normalisation-map session
+% [bridge-internal cite: 058R phase_b_canonical_map.md \S B.3
+%  anomaly D2; not part of the public v1.3 record. If this
+%  paragraph is to land in CT v1.3 \emph{public} text, replace
+%  with a primary-literature cite.]
+and is plausibly attributed to one of the following mechanisms.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Hamiltonian expansion residual.} The KNY 2017 \S 8.5.17
+  Hamiltonian \cite[eq.~8.237]{kajiwaranoumiyamada2017} differs
+  from Okamoto's $H_{III}$ by a $t$-linear correction; under
+  pull-back to the V$_\mathrm{quad}$ parameter point this
+  produces a $-1/3$ shift in the null-sum.
+\item \emph{Additive-shift component of the rename.} The four
+  rename equations include constant shifts
+  $c_\infty + c_0 + d_\infty + d_0 = -1/3$.
+\item \emph{Sakai surface-type artefact.} The $D_6$ surface
+  geometry of $P_{III}(D_6)$ \cite{sakai1999preprint,
+  kajiwaranoumiyamada2017} forces a fixed off-set in the
+  monodromy-parameter chart that is invisible in the
+  Hamiltonian formulation.
+\end{enumerate}
+At v1.3 the project adopts the $-1/3$ offset as a
+\emph{named acceptance criterion} for any future closure
+attempt of the M6.CC R1 chart-map: any candidate map
+$(a_n, b_n) \to (\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)$
+must reproduce $(1/6, 0, 0, -1/2)$ at the V$_\mathrm{quad}$
+parameter point. Distinguishing among (a)--(c) is forward-pointed
+to the M6.CC R2 closure milestone
+% [TBD: add forward-pointer to the operative open problem
+%       label, e.g. \textsf{op:cc-okamoto-rename-mechanism}].
+and is not blocking for v1.3.
+
+\paragraph{Compatibility with KNY 2017 \S 8.5.17.}
+The continuous Hamiltonian for $d$-$P((2A_1)^{(1)} / D_6^{(1)})$
+in \cite[eq.~8.237]{kajiwaranoumiyamada2017} reads
+\[
+H_{D_6}^{\mathrm{KNY}} \;=\;
+\frac{1}{t}\bigl\{p(p-1) q^{2} + (a_1 + a_2) q p
++ t p - a_2 q\bigr\},
+\]
+with two free root-system parameters $(a_1, a_2)$. The matching
+to Okamoto's $(\theta_0, \theta_\infty)$ at the algebraic
+Hamiltonian level is by direct expansion in the canonical
+$(q, p, t)$ chart, giving
+% [TBD: explicit a_1 = ..., a_2 = ... in terms of (theta_0,
+%       theta_inf). This is what 058R \S B.3 calls
+%       "Phi_symp's structural constructibility"; the full
+%       symbolic form has not been derived in the bridge
+%       record.]
+$(\theta_0, \theta_\infty)_{\mathrm{Okamoto}}
+\longleftrightarrow (a_1, a_2)_{\mathrm{KNY}}
+\;\bmod\;\text{convention shift}$.
+The Okamoto-rename above thus composes into a complete
+chart-map $(a_n, b_n)_{\Vquad}
+\to (\alpha_\infty, \alpha_0, \beta_\infty, \beta_0)_{\mathrm{proj}}
+\to (\eta_\infty, \eta_0, \theta_\infty, \theta_0)_{\mathrm{Okamoto}}
+\to (a_1, a_2)_{\mathrm{KNY}}$. The first arrow is the M6.CC R1
+chart-map of \cite{siarc_borel_kscan, siarc_cc_pipeline_g}; the
+second is the trivial / shifted relabel of [TBD-eq.~1--4]; the
+third is the Hamiltonian-expansion match of
+\cite[\S 8.5.17]{kajiwaranoumiyamada2017} into
+\cite[\S 1.1]{okamoto1987painleveIII}.
+
+% =====================================================================
+% END §3.5.1 SKELETAL DRAFT
+% Researcher tasks (per prompt 105):
+%   1. Resolve [TBD-eq.1-4] using Iwasaki 1991 / Ohyama 2006 /
+%      FW math-ph/0201051 substrate (S3-S5 of prompt 105).
+%   2. Pick mechanism (a)/(b)/(c) for the -1/3 attribution and
+%      cite primary literature.
+%   3. Verify Okamoto null-sum constraint (italic [TBD] near
+%      the constraint cite).
+%   4. Resolve forward-pointer to M6.CC R2 op-label.
+%   5. Run Phase D forbidden-verb scan; rewrite any non-exempt hits.
+%   6. pdflatex compile clean; produce bridge handoff per
+%      prompt 105 \S 9.
+% =====================================================================
