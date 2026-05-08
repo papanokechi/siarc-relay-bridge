@@ -1,0 +1,340 @@
+This is a T1-Synth analytic-guidance request. I'll work through it systematically per the §4 weighing task, returning the §5 verdict packet at the end.
+
+Let me first acknowledge the halt conditions, then weigh each route against the inlined excerpts.
+
+---
+
+## Pre-flight acknowledgements
+
+**HALT-S1 through HALT-S6:** Acknowledged. I have no direct bridge fs access; my reasoning is excerpt-based only (EXCERPTS 1–5 in §1.5). I will not infer FW contents beyond what is pasted, will not silently fold sub-mechanisms into A–E, and will preserve 069r1's Greek-letter labels as `069r1-Path-α/β/γ/δ` if referenced.
+
+**Namespace discipline:** Acknowledged. Route A/B/C/D/E are 069r2 sub-mechanisms; Greek letters belong to 069r1.
+
+---
+
+## Reasoning
+
+### QA — Route A (in-hand Hamiltonian coefficient-matching)
+
+EXCERPT 3 makes a strong but excerpt-only claim: 058R asserts the (θ_0, θ_∞)_Okamoto ↔ (a_1, a_2)_KNY map is "derivable by expanding both Hamiltonians in the same canonical (q, p, t) chart" with bijectivity and non-degenerate Jacobian. This is structurally plausible — Hamiltonian P_III(D_6) admits a known KNY presentation (KNY 2017 §8.5.17) and Okamoto 1987's H_III is the canonical reference Hamiltonian — and coefficient-matching in (q,p,t) is the standard route between two Hamiltonian presentations of the same Painlevé equation.
+
+However, three concerns prevent a clean GO verdict from excerpts alone:
+
+1. **The 058R claim is asserted, not exhibited.** EXCERPT 3 names only a 2-parameter correspondence (θ_0, θ_∞) ↔ (a_1, a_2). The gap-side spec (EXCERPT 4) requires *four* closed-form functions f_α∞, f_α0, f_β∞, f_β0 of (a_0, a_1, a_2). The arithmetic doesn't immediately balance: 058R cites a 2↔2 matching, the gap demands a 3→4 map. The third KNY parameter a_0 and the second Okamoto pair (η_0, η_∞ — see EXCERPT 1) need to enter somewhere. Plausibly via the affine root condition a_0 + a_1 + a_2 = 1 (KNY normalization) plus the Lax-pair monodromy data (η_0, η_∞), but this is not exhibited in EXCERPT 3.
+
+2. **The −1/3 null-sum offset (EXCERPT 4 anomaly D2)** is a real structural feature: V_quad's image (1/6, 0, 0, −1/2) violates Okamoto's α∞+α0+β∞+β0=0 by exactly −1/3. A coefficient-matching expansion must produce a chart-map preimage in KNY that *naturally* accommodates this offset. It's not obvious from EXCERPT 3 whether the Hamiltonian expansion captures this; if the expansion produces a strict null-sum image, Route A fails to reach V_quad's actual 4-tuple and the offset becomes a separate residual.
+
+3. **Route A still requires Route E** at step (d) — the (η,θ)→(α,β) rename. So Route A is not literally zero-acquisition: it is zero-*literature*-acquisition but inherits the Route E precondition.
+
+I cannot evaluate whether the H_III and H_D6^KNY explicit displays produce the required four degrees of freedom without seeing them. Per HALT-S1/S4 logic applied to the Route-A analogue, this is a `NEEDS_EXECUTOR_AUDIT`-style situation rather than a clean GO.
+
+**QA verdict: UNDECIDABLE_ROUTE_A** — request operator paste KNY 2017 §8.5.17 H_D6^KNY display (eqs. 8.237–8.239) and Okamoto 1987 §1 H_III display. Specifically: the synth needs to see whether the two Hamiltonians' (q,p,t) expansions contain a third independent parameter beyond (θ_0, θ_∞)/(a_1, a_2) that can carry the a_0 ↔ (η_0, η_∞) and the −1/3 offset.
+
+### QB.1 — FW arXiv triage
+
+The only FW substrate in this envelope is EXCERPT 5: a 102-disposition summary plus the canonical citation. The actual FW abstract / TOC / §3 parameter definitions are **not pasted**.
+
+EXCERPT 5 explicitly leaves the question open: "MODERATE-TO-HIGH if the chart-map can be derived from sigma-form / Hamiltonian P_III; LOW if the chart-map intrinsically requires surface-type / Sakai D_6 machinery." The WITTE-FORRESTER-2010-ACQUISITION absence audit is informative — FW oeuvre uniformly does not invoke W(B_2) ↔ W((2A_1)^(1)) cross-walk — but this is an *absence of evidence* about W(B_2) specifically, not evidence that FW supplies the chart-map.
+
+Per HALT-S1, I am required to return UNDECIDABLE rather than infer FW contents from title or known oeuvre.
+
+**QB.1 verdict: UNDECIDABLE_FW_EXCERPTS_REQUIRED.** I need the FW abstract, TOC / section headings, and §3 parameter definitions (specifically: equations defining how FW parameterizes P_III, and any reference to KNY (a_0, a_1, a_2) or to (η_∞, η_0, θ_∞, θ_0)).
+
+Sub-questions (a)/(b)/(c): N-A pending excerpts.
+
+### QB.2 — Okamoto §3 sufficiency
+
+N-A given QB.1 = UNDECIDABLE. Cannot evaluate "second half" sufficiency without knowing what FW supplies as the "first half."
+
+Independent of QB.1: 069r1-Path-β already established that Okamoto §3 alone is insufficient (closed at A.1.5 substrate gap). So Okamoto §3 is *necessary supplement*, not *sufficient closure*. Whether FW + Okamoto §3 jointly close depends on what FW delivers.
+
+### QB.3 — (η,θ) → (α,β) rename probe
+
+EXCERPT 1 is direct on this: the original Okamoto 1987 paper uses (η_∞, η_0, θ_∞, θ_0); the project's (α_∞, α_0, β_∞, β_0) is "a project-side rename adopted in CT v1.3 §3.5 rewrite." This is an unambiguous statement that the rename is project-internal, not native to Okamoto.
+
+Therefore Okamoto §3 does *not* surface (α, β) directly; it surfaces (η, θ). The composition to (α, β) requires Route E.
+
+**QB.3 verdict: Y_RENAME_REQUIRED.** Route E precondition is binding for Route B (and equally for Routes A, C, D — per QE below).
+
+### QB.4 — Route B feasibility classification
+
+Combining QB.1 = UNDECIDABLE with QB.3 = Y_RENAME_REQUIRED:
+
+Even if FW excerpts (when pasted) classify as LIKELY_CONTAINS, Route B cannot reach the project namespace without Route E. So the *minimum* verdict ceiling for Route B, given QB.3, is `PARTIAL_ROUTE_B_RENAME` — and that's only if FW does in fact contain the (η,θ)-side chart-map.
+
+Without FW excerpts, the ceiling itself is unverifiable.
+
+**QB.4 verdict: UNDECIDABLE_ROUTE_B** — FW arXiv content cannot be assessed without additional excerpts. Operator pastes FW abstract / TOC / §3 parameter definitions and synth re-evaluates.
+
+Note for the re-evaluation: even under best-case FW excerpts, QB.3 forces verdict ≤ PARTIAL_ROUTE_B_RENAME unless FW itself supplies the (α,β) namespace — which EXCERPT 1 says is a project-side rename, so this is unlikely.
+
+### QC — Route C scope refinement
+
+QC is asked only if Route A and Route B are both rejected. Currently both are UNDECIDABLE. Premature to give a C verdict; reasoning deferred.
+
+If forced to pre-rank under hypothetical NO_GO/NO_GO: **C5** would be premature (Route D is not yet GO either). Most defensible pre-rank is **C4** (defer R1 to v1.1; ship M9 V0 with PARTIAL_NUMERICAL caveat per 097) only as last resort, with **C3** (JM 1981 Part II + Okamoto 1987) as primary literature fallback since JM 1981 is the canonical source for the (η, θ) Lax-pair monodromy parametrisation that Okamoto 1987 references. But this is conjectural pending QA/QB.4 resolution.
+
+**QC verdict: N-A** (premature given QA/QB.4 both UNDECIDABLE).
+
+### QD — Route D (numerical chart-map fitting)
+
+This is a meaningful parallel candidate worth weighing on its own merits.
+
+Substrate is in-hand: V_quad numerical solutions at 107 dps (per H4 reference in envelope), and P_III(D_6) numerical solutions are constructible from KNY §8.5.17 Lax pair. The functional form to fit is constrained by EXCERPT 4: each f_* should be a closed-form polynomial or rational expression in (a_0, a_1, a_2). PSLQ at 107 dps is well within the regime where 3-variable rational forms of moderate degree are recoverable.
+
+Risks:
+- **Trajectory matching at single parameter points may be degenerate.** V_quad is a *specific* point in P_III parameter space, not a family; if Route D fits the chart-map only at V_quad's image (1/6, 0, 0, −1/2), it recovers a point, not a function. To recover the *functional form* of f_α∞, f_α0, f_β∞, f_β0, the executor needs to numerically solve P_III(D_6) at a *grid* of (a_0, a_1, a_2) values and match each to a corresponding (α_∞, α_0, β_∞, β_0) — which presupposes one already has a way to read out (α, β) from a P_III solution. This is the same question Route A/B is trying to answer.
+- The −1/3 null-sum offset must be reproducible by the fit, not absorbed into noise.
+- Route D *also* requires Route E to hand back results in project namespace.
+
+Route D is therefore *less independent* than it appears: numerical fitting of (a_0,a_1,a_2)→(α,β) requires a working forward map from KNY-coordinate P_III solutions to (α,β) parameter readout, which is essentially what Routes A/B/C are trying to construct symbolically. Route D could still serve as a *verification* of a symbolic Route-A/B result, or as a parameter-grid scan to triangulate the symbolic form. But as a solo primary path it is fragile.
+
+**QD verdict: UNDECIDABLE_ROUTE_D** — feasibility hinges on whether (α, β) can be read from a P_III(D_6) numerical solution without pre-existing chart-map machinery. If yes: GO_ROUTE_D as parallel-to-A/B verification. If no: NO_GO_ROUTE_D as solo path. The synth cannot resolve this from EXCERPT 4 alone; would need V_quad numerical-solution structure excerpt and a statement of how (α, β) are operationally extracted from a P_III solution.
+
+Recommended dispatch (conditional on resolution): **PARALLEL_TO_ROUTE_A_OR_B** as verification, **not** SOLO_PRIMARY.
+
+### QE — Route E precondition status
+
+EXCERPT 1 frames the rename as adopted "in CT v1.3 §3.5 rewrite" — language consistent with a deliberate authorial choice rather than a trivial relabeling. EXCERPT 2 reinforces: there are *two* (α, β) namespaces in play — the Okamoto four-tuple (α_∞, α_0, β_∞, β_0) and the *separate* P_III ODE coefficients (α, β, γ, δ) from 058R phase_b5 — which collide at the symbol level. CT v1.3 §3.5 must navigate both.
+
+That said, Okamoto's (η_∞, η_0) and (θ_∞, θ_0) are pairs of monodromy data parameters with well-known relations to the P_III ODE coefficients. The most common rename is *direct relabeling* of (η, θ) pairs to (α, β) pairs (i.e., α_∞ := η_∞, α_0 := η_0, β_∞ := θ_∞, β_0 := θ_0 or similar), which would be ROUTE_E_TRIVIAL. But CT v1.3 §3.5's choice of *which* parameter goes to which letter is the project-internal decision and cannot be inferred from EXCERPT 1+2 alone — particularly given the −1/3 null-sum offset which suggests the rename may include an additive shift, not just a relabel.
+
+**QE verdict: UNDECIDABLE_ROUTE_E** — operator must paste CT v1.3 §3.5 surrounding text, specifically the equation(s) defining (α_∞, α_0, β_∞, β_0) in terms of Okamoto's (η, θ). Without this, I cannot distinguish trivial relabeling from a non-trivial linear/affine transformation.
+
+Note: regardless of QE outcome, Route E is a STANDING PRECONDITION for any of A/B/C/D to compose to project namespace. If QE = ROUTE_E_NONTRIVIAL_REQUIRED, operator-side authoring is the binding gate; if QE = ROUTE_E_TRIVIAL, QB.3 reduces to a documentation step.
+
+### QF — Confidence
+
+All five primary verdicts are UNDECIDABLE. Confidence is in the *case for needing more substrate*, which is HIGH across the board. The downstream verdicts (once excerpts arrive) are not pre-judged.
+
+---
+
+## §5 Verdict Packet
+
+```
+RELAY_069R2_VERDICT
+====================
+Synth ID:            Claude.ai web (Claude Opus 4.7), 069r2 single-pass
+Verdict timestamp:   2026-05-08 ~10:30 JST
+
+Substrate SHA status:
+  Agent pre-flight rev-parse accepted from envelope §1: Y
+  Synth independently verified bridge content:          N — no direct
+                                                          bridge access
+                                                          via Claude.ai web
+  Substrate excerpts actually used by synth:            §1.5 EXCERPTS 1, 2,
+                                                          3, 4, 5 (all five);
+                                                          no operator-pasted
+                                                          FW/KNY/Okamoto/CT
+                                                          excerpts received
+                                                          in this turn
+
+Synth halt conditions acknowledged (HALT-S1 through HALT-S6): Y
+Namespace discipline acknowledged (069r1 Greek letters reserved;
+  this envelope uses Route A/B/C/D/E to avoid collision):     Y
+
+QA — Route A (in-hand Hamiltonian coefficient-matching) feasibility
+  Verdict:    UNDECIDABLE_ROUTE_A
+  Sketch:     N-A (verdict is UNDECIDABLE; sketch deferred until
+                Hamiltonian displays are pasted)
+  Reasoning:
+    EXCERPT 3 makes a 2-parameter correspondence claim
+    ((θ_0, θ_∞)_Okamoto ↔ (a_1, a_2)_KNY) but the gap-side spec
+    (EXCERPT 4) demands four closed-form functions of three KNY
+    parameters (a_0, a_1, a_2). The third KNY parameter a_0 and the
+    second Okamoto pair (η_0, η_∞ — see EXCERPT 1, where Okamoto's
+    native parametrisation is (η_∞, η_0, θ_∞, θ_0)) must enter the
+    chart-map; whether they appear in the H_III / H_D6^KNY (q,p,t)
+    expansions is not visible from EXCERPT 3 alone.
+
+    Additionally, the −1/3 null-sum offset (EXCERPT 4 anomaly D2:
+    V_quad's image (1/6, 0, 0, −1/2) violates Okamoto's
+    α∞+α0+β∞+β0=0) is a real structural feature that the
+    Hamiltonian-matching expansion must accommodate. If the expansion
+    produces a strict null-sum image, the offset becomes a separate
+    unresolved residual.
+
+    Route A is plausible but cannot be classified GO from EXCERPT 3
+    alone. Per HALT-S1/S4 analogues, request operator paste KNY 2017
+    §8.5.17 H_D6^KNY explicit Hamiltonian display (eqs. 8.237–8.239)
+    and Okamoto 1987 §1 H_III explicit Hamiltonian display so the
+    synth can verify (i) the (q,p,t) expansions contain a third
+    independent parameter to carry a_0, and (ii) the −1/3 offset has
+    a natural locus in the matching.
+
+QB.1 — FW arXiv TRIAGE (excerpt-based)
+  Triage classification:                    UNDECIDABLE_FW_EXCERPTS_REQUIRED
+  (a) KNY (a_0,a_1,a_2) referenced in FW:   N-A
+  (b) FW (α,β) parametrisation form:        N-A
+  (c) Conversion to (α_∞,α_0,β_∞,β_0) form: N-A
+  Reasoning:
+    The only FW substrate available is EXCERPT 5, which is itself a
+    102-disposition summary explicitly leaving the question open
+    ("MODERATE-TO-HIGH if the chart-map can be derived from σ-form /
+    Hamiltonian P_III; LOW if it intrinsically requires surface-type
+    / Sakai D_6 machinery"). The WITTE-FORRESTER-2010-ACQUISITION
+    absence audit is informative about W(B_2) ↔ W((2A_1)^(1))
+    specifically but does not tell us what FW *does* contain.
+
+    Per HALT-S1, I cannot infer FW contents from title or oeuvre
+    alone. Request operator paste FW arXiv math-ph/0201051 abstract,
+    TOC / section headings, and §3 P_III parameter definitions —
+    specifically any equations defining FW's P_III parametrisation
+    and any references to (a_0, a_1, a_2) or (η_∞, η_0, θ_∞, θ_0).
+
+QB.2 — Okamoto §3 sufficiency
+  Sufficient given QB.1 outcome:            N-A (QB.1 UNDECIDABLE)
+  Reasoning:
+    Independent observation from EXCERPT 1: 069r1-Path-β already
+    closed at A.1.5 substrate gap, indicating Okamoto §3 alone is
+    insufficient. Whether FW + Okamoto §3 jointly close depends on
+    what FW delivers — N-A pending QB.1 excerpts.
+
+QB.3 — (η,θ) → (α,β) rename probe
+  Verdict:    Y_RENAME_REQUIRED
+  Reasoning:
+    EXCERPT 1 is direct: Okamoto 1987 uses (η_∞, η_0, θ_∞, θ_0) and
+    the project's (α_∞, α_0, β_∞, β_0) is "a project-side rename
+    adopted in CT v1.3 §3.5 rewrite." Therefore Okamoto §3 does not
+    surface the project's (α, β) form; the rename is a separate step.
+    This makes Route E precondition binding for Route B (and equally
+    for Routes A, C, D).
+
+QB.4 — Route B feasibility classification
+  Verdict:    UNDECIDABLE_ROUTE_B
+  Preconditions: N-A (verdict pending FW excerpts)
+  Reasoning:
+    QB.1 = UNDECIDABLE_FW_EXCERPTS_REQUIRED is the proximal blocker.
+    Note for re-evaluation once excerpts arrive: QB.3 = Y_RENAME_REQUIRED
+    forces the *ceiling* of Route B's verdict to PARTIAL_ROUTE_B_RENAME
+    (FW + Okamoto literature-complete BUT Route E rename derivation
+    is residual blocker), unless FW itself supplies the (α, β) namespace
+    — which is unlikely given EXCERPT 1 frames (α, β) as a project-side
+    artefact. Best-case Route B is therefore PARTIAL_ROUTE_B_RENAME;
+    worst-case is NO_GO_ROUTE_B if FW's parametrisation is incompatible
+    with KNY (a_0, a_1, a_2).
+  Recommended next agent action: operator pastes FW arXiv abstract
+    + TOC + §3 parameter definitions; synth re-fires QB.1/QB.4
+    evaluation with the additional substrate.
+
+QC — Route C scope refinement
+  Verdict:    N-A
+  Reasoning:
+    Premature: QA and QB.4 are both UNDECIDABLE. Pre-ranking
+    conjecturally if forced into hypothetical NO_GO/NO_GO: C3
+    (JM 1981 Part II + Okamoto 1987) as primary literature fallback
+    — JM 1981 is the canonical source for the (η, θ) Lax-pair
+    monodromy parametrisation Okamoto 1987 references. C4 (defer
+    R1 to v1.1, ship M9 V0 with PARTIAL_NUMERICAL caveat per 097)
+    only as last resort. But these rankings are deferred until
+    QA/QB.4 resolve.
+
+QD — Route D (numerical chart-map fitting) feasibility
+  Verdict:    UNDECIDABLE_ROUTE_D
+  Reasoning:
+    Substrate accessibility is favourable: V_quad at 107 dps + KNY
+    §8.5.17 numerical Lax pair gives the raw inputs; PSLQ at 107 dps
+    can recover 3-variable rational forms of moderate degree. EXCERPT
+    4's "closed-form polynomial (or rational) expression" target is
+    PSLQ-amenable.
+
+    However, Route D has a hidden circularity: numerical fitting of
+    (a_0, a_1, a_2) → (α_∞, α_0, β_∞, β_0) requires a working forward
+    readout from a KNY-coordinate P_III(D_6) numerical solution to
+    (α, β) parameter values — which is essentially the chart-map
+    Routes A/B/C are trying to construct symbolically. Without an
+    independent (α, β) extraction operation, Route D recovers a single
+    point ((1/6, 0, 0, −1/2) at V_quad's parameter), not a function.
+
+    Need a V_quad numerical-solution structure excerpt + a statement
+    of how (α, β) are operationally extracted from a P_III solution
+    (independent of any chart-map) before this verdict can resolve.
+
+  Recommended dispatch: PARALLEL_TO_ROUTE_A_OR_B (as verification of
+    a symbolic chart-map result, or as parameter-grid triangulation
+    of the symbolic form). NOT SOLO_PRIMARY — Route D is fragile as
+    a standalone path.
+
+QE — Route E (CT v1.3 §3.5 author-side rename) precondition status
+  Verdict:    UNDECIDABLE_ROUTE_E
+  Reasoning:
+    EXCERPT 1 frames the rename as adopted "in CT v1.3 §3.5 rewrite" —
+    deliberate authorial choice rather than self-evidently trivial
+    relabelling. EXCERPT 2 highlights a separate symbol collision
+    between the Okamoto four-tuple (α_∞, α_0, β_∞, β_0) and the P_III
+    ODE coefficients (α, β, γ, δ) from 058R phase_b5, indicating
+    CT v1.3 §3.5 had non-trivial namespace work to do.
+
+    The most natural rename is direct pair-relabelling
+    (α_∞ := η_∞, α_0 := η_0, β_∞ := θ_∞, β_0 := θ_0 or a permutation),
+    which would be ROUTE_E_TRIVIAL. But the −1/3 null-sum offset
+    (EXCERPT 4 D2) suggests the rename may include an additive shift,
+    pushing toward ROUTE_E_NONTRIVIAL_REQUIRED. EXCERPTS 1 and 2 alone
+    do not distinguish these.
+
+    Operator paste needed: CT v1.3 §3.5 surrounding text, specifically
+    the equation(s) defining (α_∞, α_0, β_∞, β_0) in terms of Okamoto's
+    (η, θ).
+
+    Tie to QB.3: QB.3 = Y_RENAME_REQUIRED is robust independent of QE
+    outcome. QE governs *how much work* Route E requires, not *whether*
+    it is required.
+
+QF — Confidence
+  QA confidence:       HIGH (in the case for needing operator paste of
+                        H_III + H_D6^KNY displays)
+  QB.4 confidence:     HIGH (in the case for needing FW excerpts;
+                        also HIGH that PARTIAL_ROUTE_B_RENAME is the
+                        ceiling under best-case FW)
+  QC confidence:       N-A (deferred)
+  QD confidence:       MEDIUM (in the case for parallel-not-solo
+                        positioning; circularity concern is genuine
+                        but pasted V_quad solution structure could
+                        resolve)
+  QE confidence:       MEDIUM (in the case for needing CT v1.3 §3.5
+                        text; the rename being non-trivial is plausible
+                        but not certain from current excerpts)
+  Caveats:
+    1. Five operator-paste asks accumulated across QA/QB.1/QD/QE.
+       Suggest a single follow-up substrate-paste turn rather than
+       five separate ones. Minimum substrate to re-fire usefully:
+       (i) FW abstract + TOC + §3 parameter definitions;
+       (ii) KNY 2017 §8.5.17 H_D6^KNY explicit Hamiltonian display
+            (eqs. 8.237–8.239);
+       (iii) Okamoto 1987 §1 H_III explicit Hamiltonian display;
+       (iv) CT v1.3 §3.5 (η,θ) → (α,β) rename equation(s).
+       (V_quad numerical-solution structure for QD is lower priority;
+       can wait for second turn.)
+
+    2. Route E is binding regardless of which of A/B/C/D is selected.
+       Operator-side governance work on Route E can usefully proceed
+       in parallel with the substrate-paste round above — it is not
+       gated on QA/QB resolution.
+
+    3. The −1/3 null-sum offset (EXCERPT 4 anomaly D2) is the most
+       informative single technical clue in this envelope. It will
+       likely surface as either (a) a clean structural feature of the
+       Hamiltonian expansion in Route A, (b) a non-trivial term in
+       the Route E rename, or (c) a fitting target for Route D. Whichever
+       route closes R1 will need to address this offset explicitly —
+       suggest the executor envelope (069r3-*) include "trace the −1/3
+       offset" as a named acceptance criterion.
+
+    4. The structural-fit risk flagged by 102 (EXCERPT 5: "LOW yield if
+       chart-map intrinsically requires surface-type / Sakai D_6
+       machinery") is not addressed by any of Routes A/B/C/D as
+       currently scoped. If FW excerpts on arrival reveal Sakai D_6
+       surface-type machinery as the actual mechanism, this would be
+       a Route F surfacing per HALT-S5 and the synth will flag
+       ROUTE_FRAME_INCOMPLETE rather than fold into A–E.
+
+Rubber-duck QA acknowledged (this envelope received pre-fire QA —
+  Round-1 9 findings + Round-2 6 findings absorbed): Y
+====================
+```
+
+---
+
+**Net recommendation to operator:** The most efficient next step is a single substrate-paste turn supplying the four named excerpts (FW abstract+TOC+§3 / KNY §8.5.17 Hamiltonian / Okamoto §1 Hamiltonian / CT v1.3 §3.5 rename). With those four in hand, QA / QB.1 / QB.4 / QE can all resolve in a single follow-up synth pass; QD likely needs a second smaller paste (V_quad numerical structure) but is parallel-track and can wait.
+
+Route E governance work (operator-side authoring of the CT v1.3 §3.5 rename derivation as an explicit sub-section, if it doesn't already exist) is a useful no-regret action that can proceed in parallel — it is binding regardless of which of A/B/C/D closes R1.
