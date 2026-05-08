@@ -1,0 +1,45 @@
+{
+  "session_id": "T1-OPERATOR-110-069R3-ROUTE-D-V-QUAD-NUMERICAL-EXTRACTION-119",
+  "fire_time_utc": "2026-05-08T08:31:38Z",
+  "mp_dps_target": 200,
+  "mp_dps_fallback": 100,
+  "mp_dps_actual_at_run_start": 200,
+  "phase_C": {
+    "stokes_data": {
+      "S": "0.43770528073458",
+      "xi_0": "1.15470053837925152901829756100391491129520350254025375203720465296795534460586669138743079117149905045041742761027113535331329672999930165254110367472958243235206215460153705471198321340072311661551",
+      "beta_exp": "-0.192450089729875254836382926833985818549200583756708958672867442161325890767644448564571798528583175075069571268378522558885549454999883608756850612454930405392010359100256175785330535566787186102585",
+      "S_extracted_dps200_dingle_N80": "0.000028876703711013025976",
+      "xi_0_extracted_dps200_borel_N80": "1.1652929706364763805",
+      "S_digits_of_agreement": "2.8652628e-5",
+      "xi_0_digits_of_agreement": "2.0374737",
+      "M_11_cited": "1.9420321374711220465",
+      "M_21_cited": "-2.9999268666050110215",
+      "connection_matrix_taylor_eval": {
+        "x_eval": "0.5",
+        "y1_val": "(1.002801772265951989719171 + 0.0j)",
+        "y2_val": "(0.3538376588623089097371048 + 0.0j)",
+        "y1_der": "(0.01854283718241962131897402 + 0.0j)",
+        "y2_der": "(0.4497455140337806078536196 + 0.0j)"
+      },
+      "monodromy_at_apparent_singularities": {
+        "M_s1_unipotent": true,
+        "M_s2_unipotent": true,
+        "Frobenius_indices": "{0, 0} at both s_1, s_2 (recorded per pcf-research/vquad/results/frobenius_apparent_verification.json)",
+        "theta_0_at_apparent_sing": 0,
+        "theta_inf_at_apparent_sing": 0,
+        "note": "Apparent-singularity unipotent monodromies are NOT directly the Painlev\u00e9 III(D_6) (\u03b8_0, \u03b8_\u221e) parameters; the latter are local exponents at IRREGULAR singular points of the Lax-pair spectral problem, not at the WKB-channel ODE's apparent singularities."
+      }
+    },
+    "monodromy_data": {
+      "q_CHE": "(0.0925925925925925925925925925926 + 0.0614189775991740712799061617902j)",
+      "s_1": "(-0.166666666666666666666666666667 + 0.552770798392566641519155456112j)",
+      "s_2": "(-0.166666666666666666666666666667 - 0.552770798392566641519155456112j)",
+      "Delta_apparent": "(0.0 - 1.10554159678513328303831091222j)"
+    },
+    "effective_digits_S": "2.8652628e-5",
+    "effective_digits_xi_0": "2.0374737",
+    "effective_digits_M_11": "INFO_NOT_DIRECTLY_CROSS_VALIDATED (different basis convention)",
+    "effective_digits_M_21": "INFO_NOT_DIRECTLY_CROSS_VALIDATED (different basis convention)"
+  }
+}
