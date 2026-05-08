@@ -1,0 +1,48 @@
+{
+  "session_id": "T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-122",
+  "fire_time_utc": "2026-05-08T(approx)13:00Z",
+  "discrepancies": [
+    {
+      "id": "D-111-1",
+      "severity": "INFO",
+      "category": "bridge-sequential-id-collision",
+      "description": "Bridge sequential ID 121 already occupied by T1-OPERATOR-110-EXTRACTION-TAUTOLOGY-PROMPT-DRAFTED-121 (prompt-drafting session for this 122 EXEC fire). This 122 EXEC session uses next sequential 122 per 117 J2 + 119/120 precedent (renumber EXEC at next-sequential when prompt-drafting collides on the natural sequential). AEAL claim IDs all 111-Cn to match envelope nomenclature.",
+      "blocking": false,
+      "anchor": "Get-ChildItem siarc-relay-bridge/sessions/2026-05-08/ inventory + git log --oneline"
+    },
+    {
+      "id": "D-111-2",
+      "severity": "INFO",
+      "category": "internal-precision-inconsistency",
+      "description": "jimbo_final.py L26 declares S_num = mpf('0.43770528073458') with 14 character digits in the literal string; companion metadata at L329 in the result JSON declares 'S_precision_digits': 8. The 14-character literal vs 8-digit-precision claim are internally inconsistent without further documentation. Two readings: (a) author considers only first 8 digits cited-anchor-quality with last 6 untrusted; (b) S_precision_digits reflects an upstream measurement noise floor independent of the literal-string accuracy. Either reading reinforces the Phase E cascade-stub scope (the upstream provenance is opaque from inside this single file).",
+      "blocking": false,
+      "anchor": "jimbo_final.py L26 + L329"
+    },
+    {
+      "id": "D-111-3",
+      "severity": "INFO",
+      "category": "spec-vs-actual-task-id-token-drift",
+      "description": "Spec STEP B5 commit-message-format says 'T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-NNN'; actual session bridge-folder name uses identical token. The 110 prefix is inherited from the audit-target session ID (110-EXEC at sequential 119) NOT from the bridge sequential of THIS audit fire (which is 122). This dual-numeric pattern (110 in name + 122 in suffix) is consistent with 117 R1a precedent (T1-OPERATOR-CT-V131-3.5.1-R1A-AMENDMENT-VQUAD-CAVEAT-117 inherits 117 from same fire's sequential, but here the 110 inherits from the audited session). Document for future audit-of-audit fires: the in-name numeric token may be inherited from the audit target rather than from the fire's own sequential.",
+      "blocking": false,
+      "anchor": "T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-122 folder name"
+    },
+    {
+      "id": "D-111-4",
+      "severity": "INFO",
+      "category": "phase-c-disposition-asymmetry",
+      "description": "Phase C disposition is asymmetric per spec: SKIP if Phase A returns IDENTITY_ON_CITED (this case); MANDATORY if MIXED_DERIVATION; OPTIONAL otherwise. Skipping Phase C means no numerical confirmation of the static-evidence verdict. Mitigation: the static evidence (lax_pair_solver.py L385-L388 verbatim) is sufficiently unambiguous (4-of-4 IDENTITY_ON_CITED with author-acknowledged inline comment at L380-L386) that Phase C would be confirmatory only, not disambiguating. Spec author anticipated this by making SKIP the prescribed disposition.",
+      "blocking": false,
+      "anchor": "spec STEP A.7 + STEP C disposition rule"
+    },
+    {
+      "id": "D-111-5",
+      "severity": "INFO",
+      "category": "static-vs-runtime-evidence-asymmetry",
+      "description": "This audit is purely STATIC. No re-run of lax_pair_solver.py to numerically observe what the function returns under perturbed inputs. The Phase A verdict relies entirely on read-only inspection of source. A pathological case (e.g., a metaprogramming hook that intercepts the L385-L388 assignments at runtime via decorator magic or sys.setrecursionlimit-style import-time patches) is not formally excluded by the static analysis. Mitigation: the function is a plain-Python function with no decorators (L358 verbatim 'def jm_ueno_inversion_via_fw(stokes_data, monodromy_data):' carries no @ prefix); the imports at the top of the file are mpmath standard-library only; no metaprogramming risk identified in casual inspection. The verdict bin TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED is robust under standard-Python execution semantics.",
+      "blocking": false,
+      "anchor": "lax_pair_solver.py top-of-file imports + L358 def signature"
+    }
+  ],
+  "discrepancies_total": 5,
+  "blocking_count": 0
+}

@@ -1,0 +1,42 @@
+{
+  "session_id": "T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-122",
+  "fire_time_utc": "2026-05-08T(approx)13:00Z",
+  "unexpected_finds": [
+    {
+      "id": "UF-111-1",
+      "category": "AUTHOR-ACKNOWLEDGED-TAUTOLOGY-IN-SOURCE",
+      "blocking_severity": "INFO",
+      "description": "lax_pair_solver.py L380-L386 contains an inline comment block authored by the 110-EXEC agent that EXPLICITLY records the structural-relabel tautology BEFORE the four extraction lines: 'The structural inversion is the IDENTITY on the relabel; the genuine numerical content lives in the agreement of independent Stokes data (S, M_11, M_21, xi_0, beta_exp) with cited values.' This author acknowledgment is itself substrate for the TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED bin and reinforces the Phase A static finding. The 110-EXEC handoff also self-discloses this at J6 + UF-110-4 (MEDIUM severity flag for 069r3 FINAL synthesis weighting). The current 122 audit therefore does not surface a NEW finding so much as it converts a self-disclosed CAVEAT in the 110-EXEC bridge artefacts into a formal TAUTOLOGY_CONFIRMED_VERDICT_DEMOTED bin via static-code audit.",
+      "forward_pointer": "069r3 FINAL synthesis at session ~125-127 should cite 110-EXEC J6 + UF-110-4 + this 122 audit jointly when discounting the 110 GO verdict's probative weight"
+    },
+    {
+      "id": "UF-111-2",
+      "category": "JIMBO-FINAL-S-NUM-IS-ITSELF-DIAGNOSTIC-INPUT",
+      "blocking_severity": "INFO",
+      "description": "Phase B unexpectedly surfaced that jimbo_final.py is NOT a Stokes-anchor PRODUCER pipeline (as implicit in 110-UF-110-1's framing). It is a DIAGNOSTIC CONSUMER: it reads S_num as INPUT and tries (and fails) to find a closed-form attribution via PSLQ. The result JSON at L325-L334 emits 'match': false, 'closed_form': null, 'F2_status': OPEN. This means the cascade-stub forward-prompt outlined in Phase E must search for the producer at a DIFFERENT script (candidates: t2_iter17_stokes.py, verify_frobenius_apparent.py, or possibly pcf-research/vquad/results/t2_iter23_jimbo.json as a precomputed cache) rather than at jimbo_final.py.",
+      "forward_pointer": "111-FOLLOWUP envelope should grep pcf-research/ for 0.43770528073458 to find the EARLIEST filesystem appearance of the digit string; jimbo_final.py L26 is unlikely to be the earliest"
+    },
+    {
+      "id": "UF-111-3",
+      "category": "S-PRECISION-METADATA-VS-LITERAL-INCONSISTENCY",
+      "blocking_severity": "INFO",
+      "description": "jimbo_final.py L26 carries 14 character digits in the S_num literal but L329 declares 'S_precision_digits': 8. This 14-vs-8 inconsistency is internal to a single file. Two non-mutually-exclusive readings: (a) the author trusted only the first 8 digits at the time of writing and the trailing 6 are untrusted padding; (b) the 'S_precision_digits' field in the result-JSON schema is a separate quantity (e.g., the precision at which sigma was computed) and is not directly comparable to the S_num literal width. This metadata-vs-literal inconsistency was not visible from the 110-EXEC bridge artefacts and is a NEW finding of this 122 audit (110-EXEC referenced jimbo_final.py only as a black-box anchor producer at the cited 14 digits without inspecting the in-file precision metadata).",
+      "forward_pointer": "111-FOLLOWUP Phase D literature-anchor cross-check should determine whether the 14-digit literal or the 8-digit metadata is the load-bearing anchor"
+    },
+    {
+      "id": "UF-111-4",
+      "category": "S-NOT-CLOSED-FORM-RESULT-FOR-FREE",
+      "blocking_severity": "INFO",
+      "description": "Phase B audit unexpectedly recovered the substantive jimbo_final.py result for free as a side-effect: the script's docstring + L325-L334 JSON output explicitly record 'S depends transcendentally on accessory parameter q; Jimbo formula relates S to sigma but sigma=g(q) is not closed-form'. This matches and reinforces 110-EXEC UF-110-2 ('V_quad Stokes constant S is NOT a simple Gamma-function combination at WKB parameters') as a separately-anchored finding. Strengthens the V_quad-Stokes-coefficient-not-a-period framing in the PCF Arithmetic Classification Theorem context.",
+      "forward_pointer": "no immediate action; reinforces 110 UF-110-2 anchoring for 069r3 FINAL synthesis"
+    },
+    {
+      "id": "UF-111-5",
+      "category": "CASCADE-STUB-NATURALLY-NARROWED-BY-AUDIT",
+      "blocking_severity": "INFO",
+      "description": "The Phase E cascade-stub for 111-FOLLOWUP was originally framed in spec STEP E.1.a as 'Where do these digits actually come from?' The 122 Phase B audit narrows this question concretely by ELIMINATING jimbo_final.py as the producer (UF-111-2). The followup envelope therefore has a sharper SCOPE than would have been written without this 122 audit's intermediate finding: it can pre-emptively scope OUT jimbo_final.py and pre-emptively scope IN candidates t2_iter17_stokes.py + verify_frobenius_apparent.py + the t2_iter23_jimbo.json precomputed-cache hypothesis. This UF surfaces the audit-feedback-into-spec-narrowing pattern as a project-procedural insight: T2-light static audits sharpen later T2 envelope scopes by eliminating non-producer candidates.",
+      "forward_pointer": "operator-tier drafting cycle for 111-FOLLOWUP should consume this 122 Phase E outline + Phase B finding jointly"
+    }
+  ],
+  "unexpected_finds_total": 5
+}
