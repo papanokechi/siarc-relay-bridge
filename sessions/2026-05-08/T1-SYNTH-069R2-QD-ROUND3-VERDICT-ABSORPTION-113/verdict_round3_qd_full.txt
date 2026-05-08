@@ -1,0 +1,515 @@
+## Pre-flight acknowledgements (round 3 — QD scope)
+
+**HALT-S1 through HALT-S6:** Re-acknowledged. Round-1 + Round-2 verdict context (bridge SHA bb79540) carries forward; only QD-1 through QD-6 are in scope for this turn. QA, QB.1, QB.2, QB.3, QB.4, QC, QE remain landed at their round-2 values.
+
+**Namespace discipline:** Maintained. Route A/B/C/D/E for 069r2 sub-mechanisms; 069r1 Greek letters reserved.
+
+**HALT-S5 standing watch:** Active for QD-4. Vocabulary triggers will be checked against EXCERPTS D1–D5.
+
+**Critical disambiguation flagged in EXCERPT D3:** the labeling ambiguity between classical-ODE (α, β, γ, δ) and Hamiltonian-parameter (α_∞, α_0, β_∞, β_0) at the V_quad image (1/6, 0, 0, −1/2) is *not* a minor naming issue — it materially affects what Route D can extract. I'll address this first (QD-5) because the answer gates QD-1.
+
+---
+
+## Reasoning
+
+### QD-5 — Labeling-convention disambiguation (resolved first; gates QD-1)
+
+The arithmetic check in EXCERPT D3 is decisive. Under Okamoto eq. (0.1) at the WLOG slice η_0 = η_∞ = 1:
+
+- α_ODE = −4 η_∞ θ_∞ = −4 θ_∞
+- β_ODE = 4 η_0 (θ_0 + 1) = 4(θ_0 + 1)
+- γ_ODE = 4 η_∞² = 4
+- δ_ODE = −4 η_0² = −4
+
+If the V_quad tuple (1/6, 0, 0, −1/2) were the classical-ODE 4-tuple at WLOG slice, γ_ODE would be 4 (not 0) and δ_ODE would be −4 (not −1/2). At general η: γ_ODE = 4 η_∞² = 0 forces η_∞ = 0, which violates Okamoto §1's standing assumption γ δ ≠ 0 (Excerpt 3 of round-1 paste, first paragraph: "we make the assumption γ δ ≠ 0, throughout this paper").
+
+So the tuple is **not** classical-ODE in Okamoto's convention.
+
+It also is not classical-ODE in any reasonable non-Okamoto P_III parametrisation that respects γ δ ≠ 0 — that's a structural property of the ODE having both q³ and 1/q terms.
+
+Could it be classical-ODE in a *degenerate* P_III (e.g., P_III(D_7) or P_III(D_8) where γ = 0 or δ = 0 is allowed)? Excerpt 4 of round-1 paste explicitly anchors V_quad to **P_III(D_6)** (KNY §8.5.17 surface, Excerpt 2 of round-1 paste). P_III(D_6) is the *generic* P_III where γ δ ≠ 0 holds. So this escape route is closed.
+
+Conversely, under §3.5.1 Hamiltonian-parameter convention (α_∞, α_0, β_∞, β_0) := (η_∞, η_0, θ_∞, θ_0), the tuple (1/6, 0, 0, −1/2) reads:
+- η_∞ = 1/6
+- η_0 = 0
+- θ_∞ = 0
+- θ_0 = −1/2
+
+Now η_0 = 0 *also* violates Okamoto's η_Δ ≠ 0 assumption, but only because the project explicitly *does not impose* the WLOG normalization (Excerpt 4 of round-1 paste: "the project records all four of Okamoto's UNNORMALISED Hamiltonian parameters at the V_quad point"). The project lives outside Okamoto's WLOG slice — that is the entire reason §3.5.1 exists.
+
+Wait — let me re-examine. Okamoto §1 says "By the assumption [γδ ≠ 0], we have η_Δ ≠ 0; moreover we set η_Δ = 1 without loss of generality." The first clause (η_Δ ≠ 0) follows from γδ ≠ 0 via γ = 4η_∞², δ = −4η_0². The WLOG normalization to 1 is a *separate*, optional step. The project skipping the WLOG normalization is fine. But η_0 = 0 *is* a structural violation.
+
+This is a real wrinkle. Two reconciliations are possible:
+
+**Reconciliation 1:** The §3.5.1 trivial relabel (3.5.1a)–(3.5.1d) was authored without checking against the V_quad tuple's actual numerical values. The relabel α_0 := η_0 sends V_quad's α_0 = 0 to η_0 = 0, which is structurally inadmissible for P_III(D_6). This would be a *latent inconsistency in the §3.5.1 deposit* — not a bug in V_quad, but a bug in the relabel choice (specifically: the assignment of which (η, θ) goes to which (α, β) symbol).
+
+**Reconciliation 2:** The V_quad tuple lives in a re-parametrisation where the entries are *not* the raw (η_∞, η_0, θ_∞, θ_0) but transforms thereof — e.g., the entries are *ratios* like (η_∞/η_0, η_0/η_0, θ_∞/η_0, θ_0/η_0) (which is what removing the WLOG normalization without rescaling would produce), or are projections to the surface-type root system (where zero entries on simple roots are natural). This would mean the trivial relabel (3.5.1a)–(3.5.1d) is *not actually trivial* in the (q, p, t) Hamiltonian sense, but is a relabel-after-some-projection.
+
+I cannot distinguish (1) from (2) from EXCERPT D3 alone. EXCERPT D5 says the 058R reduction map "takes the V_quad PCF recurrence + Newton-polygon Birkhoff data and produces a parameter tuple anchored at (1/6, 0, 0, −1/2) under the project's 4-tuple convention" — but does not say *how* the reduction map's output is interpreted as the (η_∞, η_0, θ_∞, θ_0) Hamiltonian parameters versus some derived/projected quantities.
+
+This matters operationally. If reconciliation (1) holds, §3.5.1 needs amendment. If reconciliation (2) holds, the §3.5.1 trivial relabel is a *governance shorthand* and the actual relabel is non-trivial — which would *upgrade QE to ROUTE_E_NONTRIVIAL_REQUIRED* and force a §3.5.1 amendment as well.
+
+**QD-5 verdict: NEEDS_EXECUTOR_AUDIT.**
+
+The classical-ODE labeling in vquad_p3d6_recovery.py is structurally inadmissible (γ_ODE = 0 violates Okamoto's standing assumption for P_III(D_6)). The Hamiltonian-parameter labeling in §3.5.1 is also structurally tense (η_0 = 0 violates the η_Δ ≠ 0 assumption that follows from γδ ≠ 0). Both labelings face a structural obstruction.
+
+Resolution requires either:
+- **Audit of the 058R reduction map (§B.3):** what *exactly* does it produce? If it produces (q, p, t)-coordinate Hamiltonian parameters, then the Hamiltonian-parameter convention is correct but the trivial relabel needs amendment to avoid η_0 = 0. If it produces projected/transformed quantities, the §3.5.1 relabel is a non-trivial transformation in disguise.
+- **Audit of the original vquad_p3d6_recovery.py LIT dict source:** "p12_journal_main.tex sec:vquad subsec Stokes data, citing Papanokechi2026Vquad" — what convention does *that* document use, and is the LIT dict's classical-ODE label a transcription error or an authentic statement?
+
+This is precisely the kind of executor-audit task the verdict bin is designed for: the synth cannot resolve from EXCERPTS D1–D5 alone whether reconciliation (1) or (2) holds, but a 30–60 min reading of phase_b_canonical_map.md §B.3 + p12_journal_main.tex sec:vquad would resolve it.
+
+**This is an upstream finding that significantly affects the rest of QD.** Holding this in mind for QD-1 through QD-4.
+
+### QD-1 — Independent (α, β) extraction operation
+
+The V_quad numerical infrastructure (EXCERPTS D1, D2, D4) supplies:
+
+- **Recurrence data** (a_n = 1, b_n = 3n² + n + 1) — defines the PCF.
+- **Newton polygon at z = 0** (slope 1/2, edge (0,0)–(1,2), characteristic polynomial 1 − (3/4)c²) — gives Gevrey-1 series in u = √z and characteristic exponent c = ±2/√3.
+- **Borel transform** with rho_Borel ≈ 2.34844… and stable across ± regularisation sign at high k.
+- **Stokes constant S_1 ≈ 0.43770528** (8-digit), accessory parameter q_acc = (5 + i√11)/54 in Q(√−11), beta_exp = −1/(3√3).
+
+For each candidate "what (α, β) extraction means":
+
+**(a) Extraction via Stokes data → P_III(D_6) parameter readout:**
+This is the standard isomonodromic-deformation approach: the Stokes constants S_1 and the accessory parameter q_acc determine the P_III monodromy data, which under JM-Ueno isomonodromy theory determines the P_III parameter tuple. JM 1981 Parts I–III is the canonical source for this map (Stokes data → Hamiltonian parameters). The map exists in principle and is well-defined; whether it is *operational* in the V_quad infrastructure depends on whether vquad_p3d6_recovery.py has implemented it. EXCERPT D3 records the script *names* the parameter tuple but does not say it *computes* the tuple from Stokes data — the source string "p12_journal_main.tex sec:vquad subsec Stokes data, citing Papanokechi2026Vquad" suggests the tuple was *cited* from a separate document, not extracted by the script.
+
+**(b) Extraction via formal series matching (a_1...a_10):**
+The formal series coefficients a_1...a_10 (EXCERPT D2) carry asymptotic information that, in principle, encodes the P_III(D_6) parameter tuple via the local expansion of the Painlevé transcendent at t = 0 (or t = ∞, depending on the reduction). The map "formal series → Hamiltonian parameters" is the *inverse* of the standard Painlevé asymptotic expansion. This is an algebraic/Padé-like inversion that PSLQ can attack at 200-digit precision — feasible in principle, but the inversion is non-unique without additional constraints (Stokes data fixes the branch).
+
+**(c) Extraction via Borel transform analysis:**
+rho_Borel ≈ 2.34844 carries information about the location of the nearest Borel singularity, which under resurgence relates to the leading trans-series action — but the relation to (η_∞, η_0, θ_∞, θ_0) is indirect and routes through resurgence dictionaries that are not visible in EXCERPTS D1–D5.
+
+**Combined assessment:** the V_quad infrastructure has the *raw data* for an extraction operation, but EXCERPTS D1–D5 do not exhibit a *concretely implemented* extraction operation that produces (α_∞, α_0, β_∞, β_0) numerically from Stokes/series data without already knowing the chart-map. The tuple (1/6, 0, 0, −1/2) appears in vquad_p3d6_recovery.py as a LIT dict citation, not as a numerical extraction output.
+
+This is the same hidden-circularity concern from round-1 QD: numerical fitting of (a_0, a_1, a_2) → (α_∞, α_0, β_∞, β_0) requires a forward readout from the P_III(D_6) side, which the V_quad infrastructure does not appear to implement standalone.
+
+**QD-1 verdict: PARTIAL_PARTIAL_OP_EXISTS.**
+
+Specifically: the *raw data* exists (Stokes constants, formal series, Borel data at 200 digits) and an extraction operation is *constructible in principle* (most natural: Stokes data → JM-Ueno isomonodromy → Hamiltonian parameters), but the *implemented operation* in current V_quad infrastructure produces only the *cited* tuple (1/6, 0, 0, −1/2) from p12_journal_main.tex, not a numerically-extracted-from-V_quad tuple. The 069r3-D executor task would need to *build* this extraction operation — which is itself a substantial sub-task (estimated 8–16 hr, possibly requiring JM 1981 Part II for the Stokes-data inversion formulas).
+
+### QD-2 — Numerical-fit feasibility for −1/3 offset resolution
+
+Setting aside QD-5 ambiguity for a moment and assuming the extraction operation works: at 200-digit V_quad precision (EXCERPT D2: xi_0 agreement to 200 digits) and the Stokes constant S_1 known to 8 digits (EXCERPT D4), the *V_quad-side* precision is high enough.
+
+The question is whether the *P_III(D_6)-side* numerical solver can hit ≥ 50–100 digit precision at the V_quad parameter point. KNY §8.5.17 supplies the Lax pair (eqs. (8.239) for L_1, L_2, B); standard Lax-pair numerical integration at 100+ digits is straightforward in mpmath/Arb but requires careful handling of the singular structure at t = 0 (where V_quad's reduction is anchored per EXCERPT D5).
+
+**Discrimination between mechanisms (a), (b), (c):**
+
+The three offset values are:
+- (a) FW Prop 4.1 pull-back of h − tH = ¼v_1² − ½t to V_quad point: predicted to be −1/3 (per the round-1 §3.5.1 framing where (a) is named as a candidate origin for −1/3).
+- (b) Symmetric c = −1/12 per coordinate, summing to −1/3.
+- (c) Sakai D_6^(1) root-system constant: would need to be derived from D_6^(1) simple-root data; not directly named as a numerical value in any excerpt.
+
+Critically, (a) and (b) *both predict −1/3 as the partial sum*. They are *not numerically discriminable at the partial-sum level* — both produce −1/3.
+
+The discriminator is the *per-coordinate distribution* of the offset:
+- Mechanism (a) predicts an asymmetric distribution determined by FW eq. (4.3): the shift is ¼v_1² − ½t evaluated at V_quad's parameter point. This depends on which v_1 in FW's parametrisation maps to which project parameter, and on the value of t at the V_quad reduction. The shift is *not symmetric* across the four coordinates in general.
+- Mechanism (b) predicts a *symmetric* distribution: −1/12 in each coordinate. This is the simplest fall-back precisely because it is symmetric.
+- Mechanism (c) predicts whatever the Sakai D_6^(1) simple-root summation gives — not specified, but generically asymmetric.
+
+So the numerical fit needs to extract the *full 4-tuple offset distribution*, not just the partial sum. The V_quad image (1/6, 0, 0, −1/2) shows this distribution explicitly: 1/6 in α_∞, 0 in α_0, 0 in β_∞, −1/2 in β_0. The deviation from a hypothesized "null-locus" version (where the partial sum is 0) is the offset distribution, and that distribution can be compared against (a)'s analytic prediction (after 069r3-B executes the pull-back) and against (b)'s symmetric −1/12 prediction.
+
+**However** — and this is critical — the V_quad image (1/6, 0, 0, −1/2) is a *single point*, not a curve or family. A numerical fit at a single point cannot distinguish between mechanisms that all produce the same partial sum *unless* the distribution is itself asymmetric in a literature-anchored way. Since (1/6, 0, 0, −1/2) ≠ (−1/12, −1/12, −1/12, −1/12), mechanism (b) is *already inconsistent with the V_quad data* — the V_quad image is asymmetric, the −1/12 fall-back predicts symmetry, so (b) is in fact pre-rejected by V_quad's own image data. This is a useful observation: mechanism (b) is the simplest fall-back in §3.5.1, but the V_quad data already disfavors it.
+
+This narrows the discrimination task to (a) vs (c). Mechanism (a) needs explicit pull-back (069r3-B's task) to produce a numerical prediction; once that prediction is in hand, 069r3-D can numerically check whether mechanism (a)'s distribution matches V_quad's (1/6, 0, 0, −1/2) image. If not, mechanism (c) (Sakai D_6^(1)) is the residual, and HALT-S5 fires.
+
+**QD-2 verdict: PARTIAL_FEASIBLE_WITH_CAVEATS.**
+
+Caveats:
+1. Numerical-fit at 50–100 digits is technically feasible (V_quad data is at 200 digits; KNY Lax-pair integration is standard). But the P_III(D_6) numerical solver implementation is not visible in EXCERPTS D1–D5; building it is part of the 069r3-D executor task.
+2. The discrimination task is **not** between mechanisms (a)/(b)/(c) at the partial-sum level — all three can be tuned to give −1/3. The discrimination is at the *per-coordinate distribution* level, which requires comparing mechanism (a)'s analytic prediction (output of 069r3-B) against V_quad's actual image (1/6, 0, 0, −1/2).
+3. **Mechanism (b) is *already* inconsistent with the V_quad image** (asymmetric vs symmetric), so the actual discrimination is between (a) and (c). This sharpens the cross-validation logic of §8 in the operator's prompt.
+4. QD-5 ambiguity propagates: if the labeling convention is unsettled, the "match" criterion for cross-validation becomes ambiguous. This is non-trivial.
+
+### QD-3 — Parallel vs sequential dispatch with 069r3-B
+
+The cross-validation logic in §8 of the operator's prompt:
+- 069r3-B predicts −1/3 offset value via FW Prop 4.1 pull-back (analytic).
+- 069r3-D extracts −1/3 offset value via V_quad → P_III(D_6) numerical-trajectory fit (numerical).
+- If both agree to ≥ 3 digits: mechanism (a) confirmed.
+
+Per QD-2 caveat 2, the *partial sum* −1/3 is not the discriminator — all three candidate mechanisms can produce −1/3 as a partial sum if calibrated. The real cross-validation must be at the *per-coordinate distribution* level. This means 069r3-D needs the *full distribution prediction from 069r3-B* before it can make a >3-digit-agreement check.
+
+This is *not* a strict ordering requirement — 069r3-D can run in parallel doing the V_quad-side numerical-fit setup (extraction operation construction, Lax-pair solver implementation, V_quad trajectory integration), and *defer* the final cross-validation step until 069r3-B's analytic prediction lands. The bulk of 069r3-D's work (extraction operation, numerical integration) is *independent of* 069r3-B.
+
+A second concern: QD-1 = PARTIAL_PARTIAL_OP_EXISTS means 069r3-D's first sub-task is *building* the extraction operation. If this fails (e.g., requires JM 1981 Part II machinery not in hand), 069r3-D may produce a NEEDS_LIT verdict before the cross-validation step. That outcome is *useful information* (it discriminates Route D from Route C requirements) but does not invalidate parallel dispatch.
+
+A third concern: QD-5 = NEEDS_EXECUTOR_AUDIT is an *upstream blocker* for both 069r3-B and 069r3-D. The labeling convention question affects what 069r3-B *means* by "FW v_1 in the V_quad reduction" and what 069r3-D *means* by "(α, β) extraction at V_quad's image". If the §3.5.1 trivial relabel is in fact non-trivial (reconciliation 2 of QD-5), 069r3-B's pull-back must factor through the non-trivial relabel; if it's trivially wrong (reconciliation 1), §3.5.1 needs amendment first. **This is the genuine sequential gate.**
+
+**QD-3 verdict: PARALLEL_OK with QD-5 gate as upstream blocker.**
+
+Recommended dispatch ordering:
+1. **First (T1-Operator audit):** resolve QD-5 by reading 058R §B.3 (`phase_b_canonical_map.md`) and `p12_journal_main.tex sec:vquad subsec Stokes data` to determine what convention V_quad numerically lives in. Estimated ≤ 60 min operator-side audit. This is a *governance-side* gate, not an executor task.
+2. **After QD-5 resolves:** if §3.5.1 needs amendment, fire that first (small operator-side patch); else proceed.
+3. **Then parallel dispatch of 069r3-B and 069r3-D.** The two run independently; cross-validation happens at the end when both have outputs.
+
+Cross-validation logic refinement:
+- **Partial-sum cross-validation (3-digit agreement on −1/3):** this is *trivial* and confirms only that both routes hit a known constant. Insufficient as primary cross-validation criterion.
+- **Per-coordinate cross-validation (3-digit agreement on each of (1/6, 0, 0, −1/2)):** this is *strong* and is the appropriate primary criterion. Mechanism (a) is confirmed if 069r3-B's pull-back distributes the offset across coordinates in a pattern that 069r3-D's V_quad-side extraction reproduces.
+- **Note:** mechanism (b) is pre-rejected by V_quad data asymmetry (per QD-2 caveat 3); the actual discrimination is (a) vs (c).
+
+### QD-4 — Route F surfacing risk in V_quad numerical structure
+
+Vocabulary scan against EXCERPTS D1–D5 for HALT-S5 triggers ("Sakai D_6 surface", "surface-type machinery", "Mukai pair", "rational surface", "blow-up", "exceptional curve", "W(D_6) extended affine Weyl group", "blow-down structure"):
+
+- EXCERPT D1: pure PCF / Newton polygon / Gevrey machinery. No HALT-S5 triggers.
+- EXCERPT D2: pure numerical results (xi_0, rho, formal series, Borel radius). No HALT-S5 triggers.
+- EXCERPT D3: P_III(D_6) named, but in the standard Painlevé-equation context (KNY §8.5.17 reference); the "(D_6)" designator labels the surface but does not invoke surface-machinery operationally. No HALT-S5 trigger from D_6 designation alone.
+- EXCERPT D4: Stokes constants, beta_exp, accessory parameter — pure isomonodromic / Hamiltonian P_III machinery. No HALT-S5 triggers.
+- EXCERPT D5: 058R B.3 reduction map produces a Hamiltonian-parameter tuple; mentions Sakai D_6^(1) only via mechanism (c) cross-reference (which is the *known watch* from §3.5.1, not new surfacing).
+
+**QD-4 verdict: NO_ROUTE_F_SURFACING.**
+
+The V_quad numerical-solution structure presented in EXCERPTS D1–D5 routes through standard Painlevé / isomonodromic / Hamiltonian machinery — Newton polygon, Gevrey class, Borel transform, Stokes constants, Lax-pair integration. None of this surfaces Sakai surface-type machinery. The P_III(D_6) designation labels which Painlevé equation is involved (the generic-parameter case) without invoking the Sakai construction.
+
+The watched HALT-S5 channel remains mechanism (c) of Excerpt 4 (round-1 paste): if 069r3-B's mechanism (a) execution fails *and* the offset routes through Sakai D_6^(1) machinery, that is the Route F surfacing point. But the V_quad numerical structure itself is HALT-S5 clean.
+
+### QD-6 — Combined Route D feasibility verdict
+
+Synthesizing QD-1 (PARTIAL_PARTIAL_OP_EXISTS), QD-2 (PARTIAL_FEASIBLE_WITH_CAVEATS), QD-3 (PARALLEL_OK with QD-5 gate), QD-4 (NO_ROUTE_F_SURFACING), QD-5 (NEEDS_EXECUTOR_AUDIT):
+
+Route D is *not* a solo closure path. The hidden-circularity concern from round-1 holds: an independent (α, β) extraction operation must be *built* by 069r3-D as part of its task (QD-1 PARTIAL), and the cross-validation against mechanism (a) depends on per-coordinate matching against 069r3-B's analytic output (QD-2 caveat 2, QD-3 cross-validation refinement).
+
+Route D *is* a high-value verification path *conditional on QD-5 resolving cleanly*. If QD-5 reveals §3.5.1 needs amendment, 069r3-D dispatch is held until amendment lands; if QD-5 reveals the §3.5.1 relabel is non-trivial-in-disguise, both 069r3-B and 069r3-D need to factor through the non-trivial relabel and the parallel-dispatch advantage strengthens (cross-validation across the same relabel from two directions).
+
+**QD-6 verdict: PARTIAL_ROUTE_D_VERIFICATION.**
+
+069r3-D is dispatchable as parallel verification of mechanism (a), conditional on the upstream QD-5 audit resolving the labeling-convention ambiguity. The cross-validation criterion should be sharpened from "partial-sum match to ≥ 3 digits" to "per-coordinate match to ≥ 3 digits at all four entries of (1/6, 0, 0, −1/2)". Mechanism (b) is pre-rejected by the V_quad image asymmetry (useful pre-finding). Mechanism (c) discrimination remains the genuine open question post-cross-validation.
+
+069r3-D executor task scope:
+1. Read 058R §B.3 reduction map output convention (resolve QD-5).
+2. Build (α, β) extraction operation from V_quad numerical data — most natural route is Stokes data → JM-Ueno isomonodromy → Hamiltonian parameters. May require JM 1981 Part II inversion formulas; if so, 069r3-D output includes a NEEDS_LIT subordinate finding.
+3. Implement KNY §8.5.17 Lax-pair numerical solver at 50–100 digit precision; integrate at V_quad parameter point.
+4. Cross-validate per-coordinate against 069r3-B output (deferred until 069r3-B lands).
+5. Estimated effort: 8–16 hr (extraction operation construction is the dominant cost; numerical integration is standard).
+
+---
+
+## §5 Verdict Packet (round 3 — QD scope)
+
+```
+RELAY_069R2_VERDICT (round 3 — QD round-2 substrate-paste)
+====================
+Synth ID:            Claude.ai web (Claude Opus 4.7), 069r2 round-3
+Verdict timestamp:   2026-05-08 ~13:30 JST
+
+Substrate SHA status:
+  Round-1 + Round-2 verdict landed at bridge SHA bb79540: Y
+  Synth independently verified bridge content:           N — no direct
+                                                           bridge access
+  Round-3 substrate excerpts used:                       EXCERPT D1
+                                                           (V_quad PCF +
+                                                           Newton polygon),
+                                                           D2 (numerical
+                                                           results 200-dp),
+                                                           D3 (labeling
+                                                           ambiguity),
+                                                           D4 (Stokes /
+                                                           monodromy),
+                                                           D5 (058R B.3
+                                                           reduction map
+                                                           summary)
+  Round-1 + Round-2 excerpts also referenced:           Round-1 §1.5
+                                                           EXCERPT 1-5 +
+                                                           Round-2 paste
+                                                           EXCERPT 1
+                                                           (FW), 2 (KNY
+                                                           §8.5.17), 3
+                                                           (Okamoto §1),
+                                                           4 (CT v1.3
+                                                           §3.5.1)
+
+Synth halt conditions acknowledged (HALT-S1 through HALT-S6): Y
+Namespace discipline acknowledged (069r1 Greek letters reserved;
+  Route A/B/C/D/E namespace):                                 Y
+
+Round-2 verdicts (NOT re-evaluated, retained at bb79540):
+  QA = NO_GO_ROUTE_A (HIGH conf with KNY §8.5 scan caveat)
+  QB.1 = NEEDS_EXECUTOR_AUDIT
+  QB.2 = PARTIAL
+  QB.3 = Y_RENAME_REQUIRED (discharged by §3.5.1)
+  QB.4 = GO_ROUTE_B_CONDITIONAL
+  QC = N-A
+  QE = ROUTE_E_TRIVIAL (relabel side; offset-mechanism deferral
+       acceptable for §3.5.1, mechanism (a) selection is 069r3-B
+       executor work)
+
+QD-1 — Independent (α, β) extraction operation
+  Verdict:    PARTIAL_PARTIAL_OP_EXISTS
+  Operation identification (most natural):
+    Stokes data → JM-Ueno isomonodromy → Hamiltonian parameters
+    (V_quad Stokes constants S_1, accessory parameter q_acc, beta_exp
+    in EXCERPT D4 → P_III(D_6) Hamiltonian (η_∞, η_0, θ_∞, θ_0) via
+    JM 1981 inversion formulas). Alternative: formal series matching
+    (V_quad formal coefficients a_1...a_10 in EXCERPT D2 → Hamiltonian
+    parameters via inverse Painlevé asymptotic expansion + branch
+    selection via Stokes data).
+  Reasoning:
+    EXCERPTS D1–D5 supply the raw data (Stokes constants, formal
+    series, Borel data at 200 digits) but do not exhibit a
+    concretely-implemented extraction operation in current V_quad
+    infrastructure. The tuple (1/6, 0, 0, −1/2) appears in
+    vquad_p3d6_recovery.py LIT dict as a *citation* from
+    p12_journal_main.tex sec:vquad, not as a numerical extraction
+    output. The 069r3-D executor task includes building this
+    extraction operation as a sub-task.
+
+QD-2 — Numerical-fit feasibility for −1/3 offset resolution
+  Verdict:    PARTIAL_FEASIBLE_WITH_CAVEATS
+  Caveats:
+    1. Numerical-fit at 50–100 digits is feasible (V_quad data at
+       200 dp; KNY Lax-pair integration is standard). P_III(D_6)
+       numerical solver implementation is part of 069r3-D executor
+       task.
+    2. The partial-sum −1/3 is NOT the discriminator — mechanisms
+       (a)/(b)/(c) can all be tuned to produce −1/3 as a partial
+       sum. The discriminator is the *per-coordinate distribution*
+       across (α_∞, α_0, β_∞, β_0). This sharpens the cross-validation
+       criterion (see QD-3).
+    3. Mechanism (b) (symmetric −1/12 per coordinate) is PRE-REJECTED
+       by the V_quad image asymmetry: V_quad image is (1/6, 0, 0,
+       −1/2), strongly asymmetric, while mechanism (b) predicts
+       (−1/12, −1/12, −1/12, −1/12). Useful pre-finding: the actual
+       discrimination is (a) vs (c).
+    4. QD-5 labeling-convention ambiguity propagates: cross-
+       validation criterion is well-defined only after QD-5
+       resolves.
+
+QD-3 — Parallel vs sequential dispatch with 069r3-B
+  Verdict:    PARALLEL_OK (with QD-5 gate as upstream blocker)
+  Cross-validation logic refinement:
+    - Partial-sum match (≥ 3 digits on −1/3): TRIVIAL, confirms only
+      both routes hit a known constant. Insufficient as primary
+      criterion.
+    - Per-coordinate match (≥ 3 digits at each entry of
+      (1/6, 0, 0, −1/2)): STRONG, appropriate primary criterion.
+      Mechanism (a) confirmed iff 069r3-B's analytic per-coordinate
+      offset distribution matches 069r3-D's numerical extraction at
+      ≥ 3 digits across all four entries.
+    - Mechanism (b) pre-rejected by V_quad data; actual discrimination
+      is (a) vs (c). Mechanism (c) outcome: failure of (a)/(c) cross-
+      validation triggers HALT-S5 Route F surfacing.
+  Reasoning:
+    The bulk of 069r3-D's work (extraction operation construction,
+    Lax-pair solver implementation, V_quad trajectory integration)
+    is independent of 069r3-B's FW Prop 4.1 pull-back. Only the
+    final cross-validation step requires 069r3-B output, and that
+    can be deferred. The genuine sequential gate is QD-5: both
+    routes' meaning depends on the labeling convention, which must
+    resolve first.
+
+  Recommended dispatch ordering:
+    Step 1: T1-Operator audit of QD-5 (read 058R §B.3 +
+            p12_journal_main.tex sec:vquad). Estimated ≤ 60 min
+            operator-side. This is governance-side, not executor.
+    Step 2: If §3.5.1 needs amendment per QD-5 outcome, fire that
+            patch first.
+    Step 3: Parallel dispatch of 069r3-B and 069r3-D. Run
+            independently; cross-validate at the end.
+
+QD-4 — Route F surfacing risk in V_quad numerical structure
+  Verdict:    NO_ROUTE_F_SURFACING
+  Reasoning:
+    Vocabulary scan against EXCERPTS D1–D5 for HALT-S5 triggers
+    ("Sakai D_6 surface", "surface-type machinery", "Mukai pair",
+    "rational surface", "blow-up", "exceptional curve", "W(D_6)
+    extended affine Weyl group", "blow-down structure") returns
+    ZERO triggers in the V_quad numerical-solution substrate.
+
+    The V_quad infrastructure routes through standard Painlevé /
+    isomonodromic / Hamiltonian machinery: Newton polygon, Gevrey
+    class, Borel transform, Stokes constants, Lax-pair integration.
+    The P_III(D_6) designation labels which Painlevé equation is
+    involved (generic-parameter case) without invoking the Sakai
+    construction operationally.
+
+    The watched HALT-S5 channel remains mechanism (c) of round-1
+    Excerpt 4 (Sakai D_6^(1) artefact as candidate origin for −1/3
+    offset). That channel fires only if 069r3-B's mechanism (a)
+    execution fails AND the offset routes through Sakai machinery.
+    The V_quad numerical structure itself is HALT-S5 clean.
+
+QD-5 — Labeling-convention disambiguation
+  Verdict:    NEEDS_EXECUTOR_AUDIT
+  Structural finding:
+    BOTH labelings face structural obstructions:
+
+    - CLASSICAL_ODE labeling (vquad_p3d6_recovery.py LIT dict):
+      γ_ODE = 0 (third entry of tuple) violates Okamoto §1's
+      standing assumption γ δ ≠ 0 for P_III(D_6). The LIT dict
+      label cannot be correct under Okamoto's normal form;
+      escape via P_III(D_7)/(D_8) is closed because Excerpt 4
+      anchors V_quad to P_III(D_6) explicitly.
+
+    - HAMILTONIAN_PARAMETER labeling (CT v1.3 §3.5.1, 105
+      deposit): η_0 = 0 (second entry under (3.5.1b) α_0 := η_0)
+      violates Okamoto's η_Δ ≠ 0 (which itself follows from
+      γ δ ≠ 0). The project explicitly skips Okamoto's WLOG
+      η = 1 normalization but cannot skip the η_Δ ≠ 0 structural
+      constraint.
+
+  Two reconciliations possible:
+
+    (1) §3.5.1 trivial relabel (3.5.1a)–(3.5.1d) was authored
+        without checking against V_quad's actual numerical values.
+        The relabel's specific assignment (which (η, θ) goes to
+        which (α, β) symbol) is structurally inadmissible at the
+        V_quad point. Resolution: amend §3.5.1 with corrected
+        symbol assignment.
+
+    (2) The 058R reduction map (§B.3) produces *projected /
+        transformed* quantities — not raw (η_∞, η_0, θ_∞, θ_0)
+        Hamiltonian parameters. Examples: ratios after de-
+        normalization, projections to surface-type root system,
+        etc. Under this reading, the §3.5.1 "trivial relabel" is
+        a relabel-after-projection, i.e., NON-TRIVIAL in the
+        Hamiltonian sense. Resolution: upgrade QE to
+        ROUTE_E_NONTRIVIAL_REQUIRED and amend §3.5.1 to record
+        the projection.
+
+  Synth cannot distinguish (1) from (2) from EXCERPTS D1–D5 alone.
+  Resolution requires reading:
+    - 058R §B.3 (phase_b_canonical_map.md) — what does the
+      reduction map *actually* produce? Are the outputs raw
+      Hamiltonian parameters or projected/transformed quantities?
+    - p12_journal_main.tex sec:vquad subsec Stokes data — what
+      convention does the original project document use?
+
+  Estimated audit effort: 30–60 min operator-side reading. This
+  is the genuine sequential gate before 069r3-B and 069r3-D fire.
+
+  Note on QE impact: if QD-5 resolves to (2), QE upgrades from
+  ROUTE_E_TRIVIAL to ROUTE_E_NONTRIVIAL_REQUIRED, and §3.5.1
+  needs amendment to record the projection. Round-2's
+  ROUTE_E_TRIVIAL verdict was conditional on the §3.5.1 trivial
+  relabel being a faithful symbol substitution; QD-5 surfaces
+  that this conditional may not hold.
+
+QD-6 — Combined Route D feasibility verdict
+  Verdict:    PARTIAL_ROUTE_D_VERIFICATION
+  Recommended dispatch:
+    PARALLEL_TO_ROUTE_B (post QD-5 audit), as parallel verification
+    of mechanism (a). NOT SOLO_PRIMARY. NOT FALLBACK_AFTER (the
+    parallel-dispatch advantage is real and the bulk of 069r3-D's
+    work is independent of 069r3-B).
+
+  069r3-D executor task scope:
+    1. (Upstream gate) QD-5 resolution by operator audit.
+    2. Read 058R §B.3 reduction map output convention.
+    3. Build (α, β) extraction operation from V_quad numerical data.
+       Most natural route: Stokes data → JM-Ueno isomonodromy →
+       Hamiltonian parameters. May require JM 1981 Part II
+       inversion formulas; if so, 069r3-D output includes a
+       NEEDS_LIT subordinate finding (potential Route C
+       supplement).
+    4. Implement KNY §8.5.17 Lax-pair numerical solver at 50–100
+       digit precision; integrate P_III(D_6) trajectory at V_quad
+       parameter point.
+    5. Cross-validate per-coordinate against 069r3-B output
+       (deferred until 069r3-B lands).
+    6. Acceptance criterion (refined from operator's §5):
+       per-coordinate ≥ 3-digit agreement at each entry of
+       (1/6, 0, 0, −1/2), NOT just partial-sum agreement on −1/3.
+
+  Estimated effort: 8–16 hr (extraction operation construction
+  is dominant cost; numerical integration is standard).
+
+QF — Confidence
+  QD-1 confidence:    MEDIUM-HIGH — the existence of an extraction
+                       operation in principle is robust (Stokes data
+                       → JM-Ueno is canonical); the absence of a
+                       currently-implemented operation in V_quad
+                       infrastructure is also robust from EXCERPT D3
+                       reading.
+  QD-2 confidence:    HIGH for feasibility-of-numerical-fit;
+                       MEDIUM-HIGH for the discrimination-
+                       refinement (mechanism (b) pre-rejection is
+                       directly observable from V_quad image
+                       asymmetry; per-coordinate criterion is
+                       structurally sound).
+  QD-3 confidence:    HIGH for PARALLEL_OK with QD-5 gate; the
+                       cross-validation logic refinement is
+                       MEDIUM-HIGH (depends on QD-5 outcome).
+  QD-4 confidence:    HIGH — vocabulary scan is mechanical and
+                       returns clean.
+  QD-5 confidence:    HIGH for the structural-obstruction finding;
+                       NEEDS_EXECUTOR_AUDIT bin is the right
+                       conservative verdict given two reconciliation
+                       paths and no excerpts to distinguish them.
+  QD-6 confidence:    MEDIUM-HIGH — PARTIAL_ROUTE_D_VERIFICATION
+                       is well-grounded; the upstream QD-5 gate is
+                       the main uncertainty.
+
+  Caveats:
+    1. QD-5 is the most informative finding of round-3. The
+       structural obstruction is mechanical (γ_ODE = 0 violates
+       γδ ≠ 0; η_0 = 0 violates η_Δ ≠ 0) and was not visible in
+       round-1 or round-2 because EXCERPTS at those rounds did
+       not include the V_quad image's actual numerical values
+       at the per-coordinate level. Round-3 EXCERPT D3 surfaced
+       the issue.
+
+       The two reconciliations (1) §3.5.1 amendment vs (2) §3.5.1
+       relabel is non-trivial-in-disguise have different downstream
+       consequences for QE and for both executor envelopes.
+       Operator-side audit before 069r3-B / 069r3-D dispatch is
+       strongly recommended.
+
+    2. Mechanism (b) pre-rejection (V_quad asymmetry vs symmetric
+       −1/12) is a useful free finding. §3.5.1's three-mechanism
+       deferral is effectively a two-mechanism deferral ((a) vs
+       (c)) once V_quad image data is checked against (b)'s
+       symmetric prediction. Recommend §3.5.1 footnote update
+       at next governance pass.
+
+    3. Cross-validation criterion sharpening (per-coordinate vs
+       partial-sum) is a substantive refinement of the operator's
+       §8 cascade dependency table. The original "≥ 3-digit
+       agreement on −1/3 partial sum" criterion would confirm
+       trivially-coincident matching of a pre-known constant;
+       per-coordinate matching at each of (1/6, 0, 0, −1/2)
+       distinguishes genuine cross-validation from coincidence.
+
+    4. JM 1981 Part II Stokes-data inversion may surface as a
+       Route C supplement requirement during 069r3-D execution.
+       If so, this provides a natural literature-acquisition
+       trigger that 069r3-D output flags rather than 069r3-D
+       failing on lack of substrate. The Route C supplement
+       would target JM 1981 Part II specifically (Lax-pair
+       monodromy data inversion formulas), not the broader
+       JM 1981 Parts I/III.
+
+    5. 069r1 Greek-letter labels and the §3.5.1 Remark
+       [rem:alpha-beta-tuples] three-tuple disambiguation
+       (WKB exponents, classical-ODE coefficients, Hamiltonian
+       parameters) remain in force. QD-5 ambiguity is an
+       additional layer on top of that disambiguation —
+       specifically a project-side mismatch between
+       vquad_p3d6_recovery.py's choice and §3.5.1's choice
+       of WHICH of those three tuples (1/6, 0, 0, −1/2)
+       inhabits.
+
+Rubber-duck QA acknowledged (Round-1 9 findings + Round-2
+                              6 findings absorbed): Y
+====================
+```
+
+---
+
+**Net recommendation to operator (round 3):**
+
+1. **The QD-5 finding is structurally the most important output of this round.** Both labelings of (1/6, 0, 0, −1/2) face Okamoto-assumption-violating zeros: classical-ODE has γ_ODE = 0 violating γδ ≠ 0; Hamiltonian-parameter has η_0 = 0 violating η_Δ ≠ 0. This is a hard structural obstruction that needs operator-side audit (~30–60 min reading 058R §B.3 + p12_journal_main.tex sec:vquad) before 069r3-B and 069r3-D dispatch.
+
+2. **The QD-5 audit may force §3.5.1 amendment.** Two possible reconciliations: (1) the trivial relabel's specific symbol assignment is wrong (small amendment); (2) the 058R reduction map produces projected/transformed quantities, making the §3.5.1 relabel non-trivial-in-disguise (larger amendment, upgrades QE to ROUTE_E_NONTRIVIAL_REQUIRED).
+
+3. **Route D is GO conditional on QD-5 resolution + parallel-OK with 069r3-B.** PARTIAL_ROUTE_D_VERIFICATION verdict; 069r3-D estimated 8–16 hr; main sub-task is building the (α, β) extraction operation (Stokes data → JM-Ueno isomonodromy → Hamiltonian parameters). May surface a NEEDS_LIT for JM 1981 Part II as a subordinate finding (potential Route C supplement).
+
+4. **Cross-validation criterion sharpened.** The §8 cascade table's "≥ 3-digit agreement on −1/3 partial sum" should become "≥ 3-digit agreement at each per-coordinate entry of (1/6, 0, 0, −1/2)". The partial-sum match would be coincidentally satisfied by all three mechanisms; the per-coordinate match is the genuine discriminator.
+
+5. **Free finding: mechanism (b) is pre-rejected by V_quad image asymmetry.** §3.5.1's three-mechanism deferral is effectively a two-mechanism deferral ((a) vs (c)) once the V_quad image is checked against mechanism (b)'s symmetric −1/12 prediction. Recommend §3.5.1 footnote update at next governance pass — but this is non-blocking for 069r3 dispatch.
+
+6. **HALT-S5 watch remains clean for V_quad infrastructure** (QD-4 NO_ROUTE_F_SURFACING). The Sakai D_6^(1) channel (mechanism (c)) is the residual surfacing risk only after 069r3-B's mechanism (a) pull-back fails.
+
+Recommended next operator action: T1-Operator QD-5 audit (read 058R §B.3 + p12_journal_main.tex sec:vquad) → assess whether §3.5.1 amendment is needed → then parallel dispatch of 069r3-B and 069r3-D with the refined per-coordinate cross-validation criterion.
