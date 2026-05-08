@@ -1,0 +1,486 @@
+================================================================
+PROMPT 109 -- 069r3-B FW PROP 4.1 PULL-BACK ANALYTIC EXECUTOR
+                Route B mechanism (a) symbolic test
+================================================================
+
+TASK             addresses 069r2 round-3 mechanism (a) candidate
+                 (FW Prop 4.1 / eq (4.3) auxiliary Hamiltonian
+                 shift) for the -1/3 null-sum offset at the
+                 V_quad image point. Symbolic pull-back of FW
+                 (4.3) auxiliary Hamiltonian along the FW PV
+                 -> PIII degeneration to the V_quad parameter
+                 point (1/6, 0, 0, -1/2). Output: symbolic
+                 Hamiltonian parameter prediction at V_quad
+                 image, cross-checked to per-coordinate >= 3-digit
+                 precision against 110's numerical Route D
+                 extraction (UF-113-3 sharpened criterion).
+
+TIER             T2-EXECUTOR (analytic; symbolic + arbitrary
+                 precision); Copilot Researcher recommended
+
+DISPATCH         operator-side, fresh Copilot Researcher
+                 session OR fresh VS Code Copilot agent with
+                 SymPy + mpmath available
+
+EST AGENT TIME   ~4-8 hours (substrate read + degeneration
+                 setup + symbolic pull-back + cross-validation
+                 declaration + bridge deposit)
+
+BRIDGE GATING    GATES on 108a-EXEC landing (need 108a's R1a
+                 amendment in the bridge so canonical Hamiltonian
+                 parameter format (eta_inf, eta_0, theta_inf,
+                 theta_0) is the source-of-truth for Phase D
+                 cross-validation declarations). DRAFTING this
+                 envelope is unblocked NOW (this deposit).
+
+EXPECTED VERDICT One of:
+                 - GO_ROUTE_B_CONFIRMED: V_quad image lies on
+                   FW PV->PIII degeneration submanifold;
+                   symbolic pull-back of (4.3) yields the
+                   -1/3 null-sum offset structurally.
+                 - GO_ROUTE_B_PARTIAL: degeneration submanifold
+                   identified but symbolic pull-back gives a
+                   different residual (e.g., -1/12 per coordinate
+                   per the prestaged working hypothesis).
+                 - NO_GO_OFF_DEGENERATION: V_quad image does NOT
+                   sit on FW PV->PIII degeneration submanifold;
+                   mechanism (a) ruled out; cascade falls back
+                   to mechanism (b) additive shift or (c) Sakai
+                   surface-type artefact.
+                 - UNDECIDABLE: substrate gap or symbolic
+                   complexity prevents verdict.
+
+EXPECTED OUTPUT  symbolic_pullback_calc.py (SymPy-based pullback)
+                 + degeneration_submanifold_check.py
+                 + per_coord_hamiltonian_prediction.json
+                 + AEAL quartet + handoff.md
+
+----------------------------------------------------------------
+1. PRE-FLIGHT GATES (G1-G6; ALL MUST PASS BEFORE PHASE A)
+----------------------------------------------------------------
+
+G1. 108a-EXEC has landed in the bridge (typical session name
+    pattern: T1-OPERATOR-CT-V131-3.5.1-R1A-AMENDMENT-VQUAD-CAVEAT-NNN
+    where NNN is post-116). If not landed at fire time, halt
+    HALT-109-1 and surface the gating dependency.
+
+G2. FW math-ph/0201051 substrate readable on disk:
+    tex/submitted/control center/literature/g3b_2026-05-03/supplementary/forrester_witte_2002_math-ph-0201051.pdf
+    tex/submitted/control center/literature/g3b_2026-05-03/supplementary/forrester_witte_2002_math-ph-0201051.txt
+    Pre-checked at draft time: PDF 495 425 B; .txt 102 317 B.
+    FW eq (2.2) at .txt line 1754:
+      "v1 + v2 + v3 + v4 = 0"
+    FW eq (4.1) at .txt line ~3917:
+      "tH = q^2 p^2 - (q^2 + v_1 q - t)p + (1/2)(v_1+v_2)q"
+    FW eq (4.3) at .txt line ~3963:
+      "h = tH + (1/4) v_1^2 - (1/2) t"
+    If any of the .txt anchor lines have drifted at fire time,
+    refresh line numbers via grep and update; do not halt
+    unless contents differ.
+
+G3. 058R canonical-map substrate readable:
+    siarc-relay-bridge/sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md
+    Pre-check L138-141 still carries the residual R1
+    "(1/6, 0, 0, -1/2)" + "-1/3 null-sum" wording.
+
+G4. CT v1.3 §3.5.1 + 108a R1a caveat substrate readable:
+    pcf-research/channel/cc_pipeline_v13_2026-05-02/channel_theory_outline.tex
+    Post-108a-EXEC line count expected = 1663 (108a delta +17).
+    Pre-check (3.5.1a)-(3.5.1d) still at L968-L975 (108a inserts
+    AFTER L984; equation tags unchanged).
+
+G5. SymPy version >= 1.12 available; mpmath version >= 1.3
+    available. The symbolic pull-back uses sympy.Symbol +
+    sympy.Function + sympy.Rational + sympy.simplify. The
+    per-coordinate cross-validation declaration uses mpmath
+    with dps >= 50 for >= 3-digit cross-validation safety.
+
+G6. Python 3.10+. Test by running:
+      python -c "import sympy; import mpmath; print(sympy.__version__, mpmath.__version__)"
+    If either import fails, halt HALT-109-2.
+
+----------------------------------------------------------------
+2. STANDING CONTEXT (READ-ONLY; NOT FOR REPETITION TO USER)
+----------------------------------------------------------------
+
+069r2 round-3 verdict (113) raised QD-5 NEEDS_EXECUTOR_AUDIT
+structural-obstruction headline; QD-5 audit at 115 returned
+verdict R1 at MEDIUM-HIGH confidence: 058R canonical-form
+normalisation map's output domain is raw Okamoto/KNY
+Hamiltonian parameters (eta_inf, eta_0, theta_inf, theta_0).
+108a R1a small amendment (session 116-EXEC) inserts a
+caveat at CT v1.3 §3.5.1 noting the eta_0 = 0 Okamoto
+admissibility issue at V_quad image.
+
+The -1/3 null-sum offset at V_quad image (sum of (1/6, 0, 0, -1/2)
+= -1/3) has THREE candidate mechanisms (named in 105 §3.5.1
+prose at the V_quad parameter point block):
+  (a) Hamiltonian-expansion residual via FW Prop 4.1 / eq (4.3)
+      auxiliary Hamiltonian h = tH + (1/4)v_1^2 - (1/2)t
+  (b) additive-shift fall-back c = -1/12 per coordinate
+  (c) Sakai surface-type artefact gated to Route F machinery
+
+Prompt 109 tests mechanism (a) symbolically. Prompt 110 (parallel
+fire) tests via numerical V_quad trajectory extraction; the
+two prompts produce per-coordinate predictions that cross-check
+at >= 3-digit precision per UF-113-3 sharpened criterion.
+
+CRITICAL ANOMALY ACKNOWLEDGED FROM 110-PRESTAGE-PACKET HANDOFF:
+
+  Anomaly A2 of 110 handoff: FW eq (2.2) null-sum
+  v_1 + v_2 + v_3 + v_4 = 0 is for FW §2.1 PV (4 parameters).
+  FW §4.1 PIII is the degeneration of PV with only 2 surviving
+  parameters (v_1, v_2). The project tuple (1/6, 0, 0, -1/2)
+  is a 4-parameter object, so it must be located on the FW §2.1
+  PV side, with the PV->PIII degeneration limit imposing relations
+  on (v_3, v_4). This Phase B step is the analytically-substantive
+  part of prompt 109.
+
+  Anomaly A3 of 110 handoff: project (alpha_inf, alpha_0,
+  beta_inf, beta_0) <-> FW (v_1, v_2, v_3, v_4) ordering is
+  convention-dependent. Phase A.3 below pins one specific
+  ordering by source-citation; if the citation is unclear,
+  the executor proposes both candidate orderings and reports
+  predictions for each.
+
+----------------------------------------------------------------
+3. PHASE A -- SUBSTRATE LOAD (~30-45 minutes)
+----------------------------------------------------------------
+
+A.1. Read FW math-ph/0201051 .txt at lines 1700-1900 (capturing
+     §2.1 eq (2.1)-(2.4)) and lines 3900-4100 (capturing §4.1
+     eq (4.1)-(4.6)). Extract verbatim:
+     - FW eq (2.1): the PV Hamiltonian H_V form
+     - FW eq (2.2): null-sum v_1 + v_2 + v_3 + v_4 = 0
+     - FW eq (4.1): the PIII Hamiltonian tH form (after
+       degeneration)
+     - FW eq (4.3): auxiliary h = tH + (1/4)v_1^2 - (1/2)t
+     - FW eq (4.4): the differential equation for h
+     - any prose describing the PV->PIII degeneration limit
+
+A.2. Read Okamoto 1987 §1 (substrate at
+     tex/submitted/control center/literature/g3b_2026-05-03/supplementary/
+     if available; otherwise pre-check line ranges from CT v1.3
+     §3.5.1 references in channel_theory_outline.tex L960-985).
+     Extract:
+     - Definition of Okamoto Hamiltonian H_III(q, p, t; theta_0,
+       theta_inf) or equivalent
+     - Standing assumptions on parameters (eta_Delta != 0
+       boundary at V_quad image)
+     - Convention for parameter labeling (eta vs theta)
+
+A.3. Pin the project (alpha_inf, alpha_0, beta_inf, beta_0)
+     <-> FW (v_1, v_2, v_3, v_4) ordering. The 105 deposit
+     used the trivial relabel:
+       alpha_inf := eta_inf  (3.5.1a)
+       alpha_0   := eta_0    (3.5.1b)
+       beta_inf  := theta_inf (3.5.1c)
+       beta_0    := theta_0  (3.5.1d)
+     Then under a chosen FW <-> Okamoto correspondence
+     (cite the source; KNY 2017 §8.5.17 or Iwasaki 1991 if
+     present), pin v_1, v_2, v_3, v_4 to {eta_inf, eta_0,
+     theta_inf, theta_0} in some order.
+
+     CANDIDATE ORDERING 1 (most natural per FW §4.1 surviving
+     pair): v_1 = eta_inf, v_2 = theta_inf; v_3 = eta_0,
+     v_4 = theta_0 absorb in PV->PIII limit.
+
+     CANDIDATE ORDERING 2 (alternative): v_1 = theta_0,
+     v_2 = theta_inf; v_3 = eta_0, v_4 = eta_inf absorb in
+     PV->PIII limit.
+
+     If a clean source-citation exists in literature on disk
+     (Okamoto 1987 / KNY 2017 / Iwasaki 1991 / Ohyama 2006),
+     pin the ordering by citation. Otherwise compute both
+     candidate orderings in Phase C and report both predictions;
+     surface as discrepancy_log.json INFO entry.
+
+A.4. Substrate-load AEAL claim:
+     Write claim 1XX-C1 to claims.jsonl recording the FW
+     line ranges read, the Okamoto substrate location, and
+     the chosen ordering (or both candidates).
+
+----------------------------------------------------------------
+4. PHASE B -- PV->PIII DEGENERATION SUBMANIFOLD (~60-90 minutes)
+----------------------------------------------------------------
+
+B.1. The FW PV->PIII degeneration sends two of the four PV
+     parameters (v_3, v_4) to a specific limit such that the
+     surviving 2-parameter PIII has parameters (v_1, v_2).
+     Identify the precise limit by reading FW §4.1 prose
+     before eq (4.1) (typically described as a confluence
+     or coalescence of singular points on the t-line).
+
+B.2. Compute symbolically (SymPy): given FW eq (2.2) null-sum
+     v_1 + v_2 + v_3 + v_4 = 0, and a chosen degeneration-limit
+     prescription (e.g., v_3, v_4 -> infinity with
+     v_3 + v_4 -> -(v_1 + v_2) preserving null-sum), determine
+     the SUBMANIFOLD of PV parameter space where the PIII
+     limit is well-defined.
+
+B.3. Test whether the V_quad image (1/6, 0, 0, -1/2) sits on
+     this degeneration submanifold under each candidate ordering
+     from A.3. The test is symbolic: compute the limit
+     prescription's equations, substitute the V_quad numerics,
+     check residuals.
+
+B.4. Residual computation: at V_quad image under chosen ordering,
+     compute the symbolic value of FW null-sum
+     v_1 + v_2 + v_3 + v_4. Under candidate ordering 1
+     (v_1 = 1/6, v_2 = 0, v_3 = 0, v_4 = -1/2), the sum is
+     -1/3 (the project's null-sum offset is exactly the FW
+     null-sum residual). Under candidate ordering 2 the residual
+     may differ. Report both.
+
+B.5. If V_quad image is NOT on the degeneration submanifold,
+     verdict NO_GO_OFF_DEGENERATION; surface in halt_log.json
+     soft (HALT-109-3-SOFT) and proceed to Phase C with this
+     finding. If IS on the submanifold, proceed to Phase C.
+
+----------------------------------------------------------------
+5. PHASE C -- SYMBOLIC PULL-BACK OF FW (4.3) (~60-90 minutes)
+----------------------------------------------------------------
+
+C.1. Define the FW (4.3) auxiliary Hamiltonian symbolically:
+       from sympy import Symbol, Rational
+       v_1, v_2, t = Symbol('v_1'), Symbol('v_2'), Symbol('t')
+       q, p = Symbol('q'), Symbol('p')
+       tH = q**2 * p**2 - (q**2 + v_1*q - t)*p + Rational(1,2)*(v_1 + v_2)*q
+       H = tH / t
+       h = tH + Rational(1,4)*v_1**2 - Rational(1,2)*t
+
+C.2. Pull-back along the V_quad reduction map. The 058R Phi_symp
+     gauge-transform (phase_b_canonical_map.md L118-127) maps
+     FW (q, p) -> Okamoto (q, p) via the canonical (q, p)
+     gauge identity. Under this gauge, h is invariant up to a
+     gauge-additive c-number (see FW eq (4.3) construction; the
+     auxiliary h -> H gauge is the affine shift named there).
+
+C.3. At the V_quad image parameter point (under candidate
+     ordering 1: v_1 = 1/6, v_2 = 0; under ordering 2: as
+     pinned in A.3), substitute into h symbolically. Simplify.
+     Report the residual.
+
+C.4. The mechanism (a) hypothesis predicts the residual
+     equals -1/3 at the V_quad image. If symbolic simplification
+     yields -1/3, verdict GO_ROUTE_B_CONFIRMED. If it yields
+     a different value (e.g., -1/12 per coordinate as the
+     working hypothesis), verdict GO_ROUTE_B_PARTIAL.
+
+C.5. Pull-back AEAL claim:
+     Write claim 1XX-C3 to claims.jsonl recording the
+     symbolic pull-back result, the SymPy version used, and
+     the simplification chain.
+
+----------------------------------------------------------------
+6. PHASE D -- PER-COORDINATE HAMILTONIAN PREDICTION (~30-45 minutes)
+----------------------------------------------------------------
+
+D.1. From the Phase C symbolic pull-back, extract the FOUR
+     Hamiltonian parameter predictions at V_quad image:
+       eta_inf_pred, eta_0_pred, theta_inf_pred, theta_0_pred
+     in canonical Hamiltonian (eta_inf, eta_0, theta_inf,
+     theta_0) format per Okamoto §1.1.
+
+D.2. Convert each prediction to mpmath with dps >= 50:
+       from mpmath import mpf
+       mpmath.mp.dps = 50
+       eta_inf_pred_mp = mpf(...)
+       ... etc
+
+D.3. Write per_coord_hamiltonian_prediction.json with the four
+     predictions, the source ordering, and the symbolic
+     derivation chain. Format:
+       {
+         "v_quad_image_input": [1/6, 0, 0, -1/2],
+         "ordering_chosen": "candidate-1" | "candidate-2",
+         "hamiltonian_predictions_at_v_quad_image": {
+           "eta_inf": "<mpmath-string>",
+           "eta_0": "<mpmath-string>",
+           "theta_inf": "<mpmath-string>",
+           "theta_0": "<mpmath-string>"
+         },
+         "expected_per_coord_3_digit_match_with_110": true,
+         "verdict_bin": "GO_ROUTE_B_CONFIRMED" | "GO_ROUTE_B_PARTIAL" | "NO_GO_OFF_DEGENERATION" | "UNDECIDABLE"
+       }
+
+D.4. The per-coordinate >= 3-digit cross-validation criterion
+     (UF-113-3) declares: 110's numerical extraction at
+     V_quad image must agree with each of the four eta/theta
+     predictions to >= 3 decimal digits. Surface this in
+     handoff.md as the explicit acceptance threshold for
+     069r3 FINAL synthesis (session ~122).
+
+D.5. If verdict_bin = NO_GO_OFF_DEGENERATION, the four
+     hamiltonian_predictions are still emitted (with values
+     marked "off-submanifold"); 110's numerical extraction
+     at V_quad image becomes the canonical Hamiltonian
+     parameter source, and 069r3 FINAL synthesis judges
+     mechanism (a) as ruled out.
+
+----------------------------------------------------------------
+7. FORBIDDEN-VERB SCAN + AEAL FLOOR (PHASE E)
+----------------------------------------------------------------
+
+E.1. Forbidden-verb scan on handoff.md, all .py code comments,
+     and per_coord_hamiltonian_prediction.json prose fields.
+     Forbidden verbs:
+       shows, confirms, proves, demonstrates, establishes,
+       verifies, verified, validates, validated, corroborates,
+       corroborated, certifies, certified, settles, settled,
+       discharges, ratifies
+     098-J3 EXEMPT categories: verb-list-as-data declarations,
+     regex pattern declarations, SHA / filesystem-inspection
+     telemetry, finding-summary references inside quoted
+     FV-scan-result claim strings, verbatim quotations of
+     prior bridge prose. Target: 0 non-exempt hits.
+
+E.2. AEAL claims floor: minimum 6 entries.
+     Recommended 1XX-C1 .. 1XX-C6:
+       C1: substrate-load (FW + Okamoto + 058R + 108a-EXEC)
+       C2: Phase B degeneration submanifold determination
+       C3: Phase C symbolic pull-back result
+       C4: Phase D per-coordinate prediction values
+       C5: SymPy + mpmath versions used
+       C6: post-mitigation FV scan result
+
+----------------------------------------------------------------
+8. ACCEPTANCE CRITERIA (A1-A6; ALL MUST PASS BEFORE BRIDGE COMMIT)
+----------------------------------------------------------------
+
+A1. Phase A substrate load complete; FW + Okamoto verbatim
+    quotes captured; ordering pinned (or both candidates
+    reported).
+
+A2. Phase B degeneration submanifold determination complete;
+    V_quad image position relative to submanifold reported.
+
+A3. Phase C symbolic pull-back complete; residual value
+    reported with SymPy simplification chain.
+
+A4. Phase D per-coord Hamiltonian predictions emitted in
+    canonical (eta_inf, eta_0, theta_inf, theta_0) format
+    at >= 50 dps; verdict bin selected.
+
+A5. Forbidden-verb scan = 0 non-exempt hits; AEAL claims >= 6.
+
+A6. Handoff.md anomalies-section non-empty: at minimum
+    documents the candidate-ordering choice rationale, any
+    submanifold off-submanifold finding, and the cross-validation
+    declaration to 110's numerical Route D output.
+
+----------------------------------------------------------------
+9. HALT CONDITIONS (HALT-109-1 .. HALT-109-5)
+----------------------------------------------------------------
+
+HALT-109-1 (HARD): 108a-EXEC has not landed in bridge at fire
+    time; gating dependency unsatisfied. Surface in halt_log.json;
+    operator dispatches 108a first.
+
+HALT-109-2 (HARD): SymPy or mpmath import fails at G6.
+    Surface Python version + sys.path + import error trace.
+
+HALT-109-3 (SOFT): V_quad image is OFF the FW PV->PIII
+    degeneration submanifold (Phase B verdict NO_GO). Proceed
+    with Phase C / D using the off-submanifold values for
+    record; verdict bin = NO_GO_OFF_DEGENERATION; mechanism
+    (a) ruled out for this Route B path.
+
+HALT-109-4 (HARD): SymPy symbolic simplification timeout
+    (> 30 minutes wall clock at default settings) on Phase C.
+    Surface the unsimplified expression for offline manual
+    derivation; halt with HALT-109-4.
+
+HALT-109-5 (HARD): forbidden-verb scan finds non-exempt hits;
+    mitigate by verb substitution, re-scan, then proceed.
+
+----------------------------------------------------------------
+10. DELIVERABLE LIST (BRIDGE SESSION; APPROXIMATELY 8-10 FILES)
+----------------------------------------------------------------
+
+Bridge session: T2-EXECUTOR-069R3-B-FW-PROP-4-1-PULL-BACK-NNN
+(NNN = next sequential bridge ID at fire time)
+
+D1. symbolic_pullback_calc.py
+    (SymPy-based pull-back; reproducible)
+
+D2. degeneration_submanifold_check.py
+    (Phase B PV->PIII submanifold determination)
+
+D3. per_coord_hamiltonian_prediction.json
+    (Phase D per-coordinate Hamiltonian predictions at V_quad
+    image; canonical (eta_inf, eta_0, theta_inf, theta_0)
+    format at >= 50 dps mpmath strings)
+
+D4. fw_substrate_extracts.txt
+    (verbatim FW eq (2.1)-(2.4) + (4.1)-(4.6) + degeneration
+    prose; pinned line numbers)
+
+D5. okamoto_substrate_extract.txt
+    (Okamoto §1 H_III + standing assumption verbatim)
+
+D6. handoff.md
+    (standard SIARC handoff; sections per repo memory standing
+    final step)
+
+D7. claims.jsonl (>= 6 AEAL entries)
+
+D8. halt_log.json (empty {} if no halt; populated per §9)
+
+D9. discrepancy_log.json (any INFO entries; e.g., dual-ordering
+    A.3 fallback if no clean source-citation)
+
+D10. unexpected_finds.json (any UF entries; recommended:
+     UF-1XX-1 = ordering pin source-citation; UF-1XX-2 =
+     submanifold finding; UF-1XX-3 = mechanism (a) verdict
+     bin and its cross-validation declaration to 110)
+
+----------------------------------------------------------------
+11. CASCADE IMPLICATIONS (POST-LANDING)
+----------------------------------------------------------------
+
+After 109 lands at session N_109:
+
+(i)   Prompt 110 (069r3-D V_quad numerical Route D extraction)
+      lands at session N_110 (parallel; may land before or
+      after 109 depending on agent runtime and dispatch order).
+
+(ii)  069r3 FINAL synthesis at session ~122 cross-checks
+      109's per-coord symbolic predictions vs 110's per-coord
+      numerical extractions at >= 3-digit precision per
+      UF-113-3 sharpened criterion. Verdict bins:
+      - BOTH_AGREE_AT_3_DIGITS: M6.CC R1 closure CONFIRMED
+        with mechanism (a) anchored.
+      - DISAGREE_AT_3_DIGITS_BUT_BOTH_INTERNAL_CONSISTENT:
+        mechanism (a) ruled out; cascade falls back to (b)
+        additive-shift or (c) Sakai surface-type with
+        Route F machinery.
+      - 109_ONLY_INTERNAL_CONSISTENT: 110's numerical
+        extraction has internal issues; refire 110 with
+        higher dps or different Stokes-data extraction
+        strategy.
+      - 110_ONLY_INTERNAL_CONSISTENT: 109's symbolic
+        derivation has internal issues; refire 109 with
+        explicit literature-cited ordering.
+
+(iii) Prompts 111 (mechanism (b) pre-rejection footnote
+      governance) and 112 (cross-validation criterion
+      sharpening audit-trail) fire in parallel with 069r3
+      FINAL synthesis (low priority, no gating).
+
+(iv)  A-115-1 reconciliation prompt (labeling-convention
+      divergence) fires in parallel-track; independent of
+      069r3 / mechanism (a/b/c) verdict; updates p12 sec:vquad
+      + Intro + LIT dict to Hamiltonian convention OR adds
+      cross-walk footnote.
+
+(v)   M6.CC R1 closure (post-069r3-FINAL landing): unblocks
+      W21 LANE-1 T1-Synth governance scope re-opening, and
+      070-class picture-vN deposits (currently DEFER_TO_V121
+      pending M6.CC R1 closure).
+
+================================================================
+END PROMPT 109
+================================================================
+
+Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
