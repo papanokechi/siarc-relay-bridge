@@ -1,0 +1,13 @@
+{
+  "session_id": "T2-OPERATOR-110-EXTRACTION-TAUTOLOGY-STATIC-AUDIT-122",
+  "fire_time_utc": "2026-05-08T(approx)13:00Z",
+  "halts_checked": [
+    {"id": "HALT-111-RE-0",  "severity": "HARD", "phase": "STEP 0.1 ancestry", "status": "PASS_NOT_TRIGGERED", "anchor": "git merge-base --is-ancestor 22909fe HEAD = 0; --is-ancestor d783c3e HEAD = 0"},
+    {"id": "HALT-111-RE-PRE","severity": "HARD", "phase": "STEP 0.4 prompt-side FV", "status": "PASS_NOT_TRIGGERED", "note": "all a-priori hits in spec-declared EXEMPT categories (regex-pattern-as-data + verb-list-as-data inside FV-LIST blocks + quoted source docstrings + truth-table cell labels)"},
+    {"id": "HALT-111-RE-A",  "severity": "HARD", "phase": "STEP A.7 lax_pair_solver.py modtime", "status": "PASS_NOT_TRIGGERED", "anchor": "SHA-256 0C4DC64267D7EAE3 + LastWriteTime 2026-05-08 17:31:32 BEFORE 110-EXEC commit 2026-05-08 17:36:18"},
+    {"id": "HALT-111-RE-B",  "severity": "HARD", "phase": "STEP B.6 jimbo_final.py modtime", "status": "PASS_NOT_TRIGGERED", "anchor": "SHA-256 E743A49C244CD56E + LastWriteTime 2026-05-01 12:21:28 (predates 110-EXEC by 7 days)"},
+    {"id": "HALT-111-RE-FV", "severity": "HARD", "phase": "STEP F.1 post-fire FV", "status": "PASS_NOT_TRIGGERED", "note": "0 non-EXEMPT hits across 4 prose .md after 1 in-session mitigation (phase_e L117 'settled' -> 'locked'); 4 EXEMPT hits in phase_b L107-L110 inside verbatim-quoted jimbo_final.py docstring (EXEMPT category f)"}
+  ],
+  "halts_total_checked": 5,
+  "halts_triggered": 0
+}
