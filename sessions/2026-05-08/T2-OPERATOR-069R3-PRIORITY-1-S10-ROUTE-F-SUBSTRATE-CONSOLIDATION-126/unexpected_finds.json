@@ -1,0 +1,41 @@
+{
+  "session": "T2-OPERATOR-069R3-PRIORITY-1-S10-ROUTE-F-SUBSTRATE-CONSOLIDATION-126",
+  "date": "2026-05-08",
+  "unexpected_finds": [
+    {
+      "id": "UF-126-S4-SECTION-MISLABEL",
+      "severity": "INFO",
+      "blocking": false,
+      "description": "Prompt 113 §3 (S4) and §2 D5 cite '058R phase_b_canonical_map.md §B.5 (Okamoto-Sakai convention cross-walk)' as the source for the Okamoto-Sakai parameter cross-walk. On disk, §B.5 of phase_b_canonical_map.md is actually titled 'Formal-series structure preservation' and contains the leading-exponent matching argument; the actual Okamoto-Sakai cross-walk material '(theta_0, theta_inf)_Okamoto <-> (a_1, a_2)_KNY (mod convention shift)' is inside §B.3 (the 'Phi_symp construction' paragraph). The 058R file itself contains the same internal mislabel: an internal cross-reference inside §B.3 reads 'see Phase B.5 for the Okamoto-Sakai convention cross-walk' but the cross-walk content is in §B.3 itself. Resolved by quoting from §B.3 in packet section D5.2 and noting the mislabel.",
+      "resolution": "Cited §B.3 (where cross-walk content actually lives); quoted §B.3 verbatim in D5.2; added explicit note inside D5.2 documenting the mislabel."
+    },
+    {
+      "id": "UF-126-PARAM-COUNT",
+      "severity": "INFO",
+      "blocking": false,
+      "description": "Parameter-count mismatch between Sakai 2001 and KNY 2017. Sakai (2A_1)^{(1)} parametrisation uses 4 symbols (a_0, a_1, b_0, b_1) constrained by 2 null-sum equations a_0+a_1 = b_0+b_1 = 1, giving 4-2 = 2 free parameters. KNY 2017 §8.5.17 Hamiltonian uses 3 symbols (a_0, a_1, a_2) — one symbol more than Sakai's free count. The extra KNY symbol is absorbed by the discrete-shift orbit index (the level constraint a_0+a_1+a_2=1 is preserved only modulo a translation absorbed by T_alpha which acts as (a_1, a_2) -> (a_1+1, a_2+1) per eq. 8.240). Surfaced as a navigation aid in packet D4.6.",
+      "resolution": "Documented as a convention-reminder note in D4.6 of the packet (not a derivation); flagged for synth's attention in handoff Anomalies section."
+    },
+    {
+      "id": "UF-126-LINE-ANCHOR-OFFBYONE",
+      "severity": "INFO",
+      "blocking": false,
+      "description": "Prompt 113 §3 (S1) cites 'extract_sakai_2A1_generators.md §A.2.4 lines 79-89 — explicit r_0, r_1, r'_0, r'_1 reflection action' for the cross-reference in D5. On disk, §A.2.4 starts at line 53 and the 'Action on parameters' subsection block is at lines 85-95 of the extract file (not 79-89). The packet cross-reference uses the actual on-disk line range (85-95) in the section-D2/D3 attribution lines. Non-blocking; the prompt-113 line numbers were approximate.",
+      "resolution": "Used actual on-disk line range 85-95 in the packet attribution lines; did not re-paste in D5 (cross-ref only)."
+    },
+    {
+      "id": "UF-126-EQ-8238-WRAP",
+      "severity": "INFO",
+      "blocking": false,
+      "description": "KNY 2017 §8.5.17 eq. (8.238) eight base-points configuration is rendered in the .txt extract (S2 line 7881) with PDF-extraction wrap artefacts: the f_i denominators are split across the line and the final f_i entry has '/3' rendered on a separate fragment. The verbatim quote in packet D4.3 preserves the wrap (per prompt 113 N3 and §6 A3 verbatim discipline); a linear re-cast is offered as a parsing aid only, with explicit note that the verbatim S2 quote is authoritative.",
+      "resolution": "Documented in D4.3 as a parsing-clarity note inside the packet; verbatim quote preserved unchanged."
+    },
+    {
+      "id": "UF-126-DELTA-DECOMP-FORM",
+      "severity": "INFO",
+      "blocking": false,
+      "description": "Prompt 113 §2 D2 specifies the delta(D_6^{(1)}) decomposition target form as '2(E_1+E_2)+E_3+E_4+E_5+E_6'. The on-disk extract (S1 §A.2.1 lines 17-25) presents delta in divisor-class coordinates D_0, ..., D_6 instead, viz. 'delta = D_1 + 2 D_2 + 2 D_3 + 2 D_4 + D_5 + D_6 + D_0'. The two are equivalent (the D_i are linear combinations of the E_j) but the explicit conversion to the E_j form is not on disk. Packet D2.1 quotes the extract verbatim and notes the prompt 113 phrasing 'or equivalent as written in the extract'. Non-blocking; prompt 113 explicitly allows the extract-form.",
+      "resolution": "Quoted extract-form verbatim in D2.1; added a navigation note that the on-disk form is the divisor-class form, not the E_j form mentioned in prompt 113. No re-derivation."
+    }
+  ]
+}
