@@ -1,0 +1,410 @@
+================================================================
+PROMPT 108a -- CT v1.3 §3.5.1 R1a SMALL AMENDMENT (V_quad caveat)
+================================================================
+
+TASK             addresses 069r2 QD-5 audit verdict R1 sub-form
+                 R1a small amendment per bridge session 115
+                 (T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD-115)
+                 audit_verdict.md "Recommended Section 3.5.1
+                 amendment scope" specification
+
+TIER             T1-OPERATOR (executor)
+DISPATCH         operator-side, fresh VS Code agent or
+                 Copilot Researcher session
+EST AGENT TIME   ~30-60 minutes (small surgical patch +
+                 pdflatex 4-pass + bridge deposit)
+
+BRIDGE GATING    115 verdict R1 LANDED at HEAD 072eec5;
+                 amendment scope: small caveat (3-6 LaTeX lines
+                 + 1 footnote); QE retains ROUTE_E_TRIVIAL
+
+EXPECTED VERDICT R1a small caveat patch lands; CT v1.3
+                 PDF re-compiles cleanly; bridge session 116
+                 (or next sequential) records the patch
+
+EXPECTED OUTPUT  one .tex edit (live working copy at
+                 pcf-research/channel/cc_pipeline_v13_2026-05-02/channel_theory_outline.tex)
+                 + recompiled PDF + AEAL quartet + handoff.md
+
+----------------------------------------------------------------
+1. PRE-FLIGHT GATES (G1-G5; ALL MUST PASS BEFORE PHASE A)
+----------------------------------------------------------------
+
+G1. Live working file present and readable:
+    pcf-research/channel/cc_pipeline_v13_2026-05-02/channel_theory_outline.tex
+    Pre-checked at draft time: SHA-256 64FA0577C03C518A289C23D08DF53C7424E615B0756D339FEADC6ECEDE953AED;
+    line count 1646; last write time matches 105 deposit.
+    If hash differs, the file has been edited since draft time;
+    halt HALT-108a-1 and surface the divergence before proceeding.
+
+G2. Insertion-point line range still anchored:
+    L968-L975 = equations (3.5.1a)-(3.5.1d) align block;
+    L976 = \end{align};
+    L977-L984 = existing prose paragraph ending "$\Vquad$ point.";
+    L985 = blank line;
+    L986 = \medskip;
+    L987-L988 = \noindent\textbf{The $-1/3$ null-sum offset...} block.
+    Pre-check: read L984 and confirm it ends with "$\Vquad$ point.";
+    read L986 and confirm it is "\medskip".
+
+G3. 058R canonical-map substrate readable:
+    siarc-relay-bridge/sessions/2026-05-06/CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/phase_b_canonical_map.md
+    Pre-check L138-L141 still carries the "residual R1 partially
+    closed" + "-1/3 null-sum" wording (both referenced verbatim
+    in the new caveat prose).
+
+G4. 115 audit verdict substrate readable:
+    siarc-relay-bridge/sessions/2026-05-08/T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD-115/audit_verdict.md
+    Pre-check the file exists and is readable for the
+    forward-pointer footnote.
+
+G5. siarc_cc_pipeline_g bibkey present in the active .bib file:
+    Pre-check the citation key appears in pcf-research/.../channel.bib
+    or whichever .bib file channel_theory_outline.tex reads via
+    \bibliography{...}. The 105 deposit handoff notes
+    \cite{siarc_cc_pipeline_g} as the canonical citation for
+    058R; if the bibkey is missing, halt HALT-108a-2.
+
+----------------------------------------------------------------
+2. STANDING CONTEXT (READ-ONLY; DO NOT REPEAT TO USER)
+----------------------------------------------------------------
+
+069r2 round-3 verdict (bridge session 113, HEAD dd1e0b7) raised
+QD-5 NEEDS_EXECUTOR_AUDIT structural-obstruction headline:
+the 058R canonical-form normalisation map's output domain
+was not unambiguously typed at substrate level. Audit prompt
+107 (bridge session 114, HEAD c5b6956) was dispatched to
+read 058R B.3 + p12 sec:vquad and decide R1 / R2 / blend /
+undecidable.
+
+Audit verdict at bridge session 115 (HEAD 072eec5) reads
+R1 at MEDIUM-HIGH confidence: 058R B.3 frames the output
+domain as raw Okamoto/KNY Hamiltonian parameters
+$(\eta_\infty, \eta_0, \theta_\infty, \theta_0)$ at three
+distinct prose levels (L24-30 + L99-114 + L118-127 of
+phase_b_canonical_map.md). p12 sec:vquad uses unsubscripted
+classical-ODE notation $(\alpha, \beta, \gamma, \delta)$ at
+L982-984. The labeling-convention divergence is surfaced as
+anomaly A-115-1 and handled by a SEPARATE prompt (not this
+one). The audit verdict's amendment recommendation for §3.5.1
+is a small caveat addressing the $\eta_0 = 0$ Okamoto
+admissibility issue at the V_quad image point: 3-6 LaTeX
+lines + 1 footnote.
+
+QE re-bin: ROUTE_E_TRIVIAL retained (the trivial-relabel
+framing of 105 §3.5.1 stands; the audit substrate gives no
+support to a ROUTE_E_NONTRIVIAL_REQUIRED upgrade).
+
+This prompt 108a addresses ONLY the small-amendment R1a item. It does NOT touch p12 sec:vquad,
+LIT dict source-strings, or any other A-115-1/A-115-2/UF-115-3
+follow-up.
+
+----------------------------------------------------------------
+3. AMENDMENT PRESCRIPTION (concrete LaTeX text)
+----------------------------------------------------------------
+
+The caveat block consists of:
+
+(i) one bolded subheading line matching the existing §3.5.1
+    style (\noindent\textbf{...}\hspace{0.5em}),
+(ii) approximately 7 lines of prose (close to the audit
+     spec's "3-6 lines" allowance; the slight overrun is
+     justified by the bolded subheading matching existing
+     §3.5.1 typography), and
+(iii) one footnote pointing at the 115 audit verdict for
+      governance trail.
+
+Concrete text follows. NEW_STR is the entire replacement
+block; OLD_STR is the existing block at L984-L986.
+
+OLD_STR (3 lines, including the trailing blank line and
+\medskip; literal whitespace must match):
+
+----- BEGIN OLD_STR -----
+$\Vquad$ point.
+
+\medskip
+----- END OLD_STR -----
+
+NEW_STR (entire block: existing first line + new caveat
+paragraph + new \medskip retaining the original's spacing):
+
+----- BEGIN NEW_STR -----
+$\Vquad$ point.
+
+\medskip
+\noindent\textbf{Standing-assumption boundary at the $\Vquad$
+image.}\hspace{0.5em}
+The $\Vquad$ image entry $\alpha_0 = \eta_0 = 0$ places the
+fibre at the boundary of Okamoto's \S 1 standing assumption
+$\eta_\Delta \neq 0$ for the canonical $H_{III}$
+Hamiltonian form (Okamoto 1987). The 058R canonical-map
+record \cite{siarc_cc_pipeline_g} logs this point as
+residual R1 of the canonical-form normalisation map (file
+\verb|phase_b_canonical_map.md|, lines 138--141), with the
+$-1/3$ null-sum offset of the next paragraph as the
+structural witness; the three candidate mechanisms (a)--(c)
+discussed below address the offset under each
+reading.\footnote{The QD-5 audit verdict at bridge session
+\texttt{T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD-115} reads
+the canonical-form normalisation map's output as raw
+Okamoto/KNY parameters
+$(\eta_\infty, \eta_0, \theta_\infty, \theta_0)$, with
+(3.5.1a)--(3.5.1d) the small-amendment R1a item. See
+\verb|audit_verdict.md| at that bridge session for the
+verdict reasoning and the labeling-convention divergence
+anomaly A-115-1.}
+
+\medskip
+----- END NEW_STR -----
+
+Note on whitespace: the OLD_STR ends with a single \medskip
+on its own line. The NEW_STR ends with the same single
+\medskip after the new paragraph + footnote. This preserves
+the spacing between the new caveat block and the existing
+"$-1/3$ null-sum offset" block at L987-L988.
+
+DRAFT-TIME VERIFY: NEW_STR adds 17 lines net (3-line OLD_STR
+becomes 20-line NEW_STR; net delta = +17 lines). Post-edit
+file line count: 1646 + 17 = 1663.
+
+----------------------------------------------------------------
+4. EDIT INSTRUCTIONS (PHASE A)
+----------------------------------------------------------------
+
+A.1. Open pcf-research/channel/cc_pipeline_v13_2026-05-02/channel_theory_outline.tex
+     in read-write mode.
+
+A.2. Apply the OLD_STR -> NEW_STR replacement above. The
+     OLD_STR is unique in the file (the literal sequence
+     "$\Vquad$ point.\n\n\medskip\n" appears at L984-L986
+     and nowhere else; pre-check via grep before applying).
+
+A.3. Save the file. Confirm post-edit line count = 1663
+     (pre-edit 1646 + delta +17).
+
+A.4. Sanity grep:
+     - count of "(3.5.1a)" occurrences: should remain 1 declaration
+       (L969); existing ref count at L977 + L989 + L1021 + L1049
+       + L1074 + new footnote = +1 ref in footnote, so total goes
+       from 6 to 7
+     - count of "Standing-assumption boundary" occurrences = 1
+       (introduced)
+     - count of "T2-OPERATOR-QD5-AUDIT-058R-B3-P12-VQUAD-115"
+       occurrences = 2 (introduced; one in subhead-adjacent prose
+       at the \cite{siarc_cc_pipeline_g} pointer location, one in
+       the footnote text reference)
+
+----------------------------------------------------------------
+5. PDFLATEX 4-PASS COMPILE GATE (PHASE B)
+----------------------------------------------------------------
+
+B.1. cd pcf-research/channel/cc_pipeline_v13_2026-05-02/
+
+B.2. pdflatex -halt-on-error channel_theory_outline.tex
+     bibtex channel_theory_outline
+     pdflatex -halt-on-error channel_theory_outline.tex
+     pdflatex -halt-on-error channel_theory_outline.tex
+
+B.3. All four pdflatex invocations must exit 0.
+
+B.4. ZERO undefined references in the final .log file
+     (grep -c "undefined references" channel_theory_outline.log
+     must return 0; grep -c "Citation .* undefined"
+     channel_theory_outline.log must return 0).
+
+B.5. Final PDF must compile to >=605000 bytes (the 105
+     deposit produced 605957 B; the 108a small amendment
+     adds approximately 800-1500 bytes for the new
+     paragraph + footnote, expected final size around
+     606500-607500 B).
+
+B.6. If any pdflatex invocation exits non-zero or any
+     undefined references appear, halt HALT-108a-3 and
+     do not commit.
+
+----------------------------------------------------------------
+6. FORBIDDEN-VERB SCAN + AEAL GATES (PHASE C)
+----------------------------------------------------------------
+
+C.1. Forbidden-verb scan on the new caveat block prose
+     (NEW_STR lines only). Forbidden verbs:
+       shows, confirms, proves, demonstrates, establishes,
+       verifies, verified, validates, validated, corroborates,
+       corroborated, certifies, certified, settles, settled,
+       discharges, ratifies
+     Pre-checked at draft time: 0 hits in NEW_STR. The verbs
+     "places", "logs", "discussed", "address", "reads",
+     "interpreted", "see" are all permitted (none on the
+     forbidden list).
+
+C.2. Forbidden-verb scan on session 116 handoff.md prose
+     (excluding 098-J3 EXEMPT categories: verb-list-as-data
+     declarations, regex pattern declarations, SHA / filesystem-
+     inspection telemetry, finding-summary references inside
+     quoted FV-scan-result claim strings, verbatim quotations
+     of audit-verdict prose). Target: 0 non-exempt hits.
+
+C.3. AEAL claims (claims.jsonl): minimum 4 entries.
+     Recommended:
+     - 116-C1: live file SHA-256 pre-edit (gate G1)
+     - 116-C2: insertion-point line-range pre-check (gate G2)
+     - 116-C3: post-edit file SHA-256 + line count
+     - 116-C4: pdflatex 4-pass exit codes + final PDF byte count
+     - 116-C5: post-mitigation FV scan result on prose
+       deliverables (handoff.md + amendment text)
+
+----------------------------------------------------------------
+7. ACCEPTANCE CRITERIA (A1-A5; ALL MUST PASS BEFORE BRIDGE COMMIT)
+----------------------------------------------------------------
+
+A1. NEW_STR successfully replaced OLD_STR; post-edit file
+    SHA-256 differs from pre-edit; post-edit line count = 1663.
+
+A2. Forbidden-verb scan = 0 hits on amendment text + 0
+    non-exempt hits on handoff prose.
+
+A3. pdflatex 4-pass all exit 0; ZERO undefined references;
+    final PDF >= 605000 bytes.
+
+A4. AEAL claims floor met (4 entries minimum).
+
+A5. Handoff.md anomalies-section non-empty: at minimum the
+    handoff records that this prompt addresses ONLY R1a
+    (does NOT touch A-115-1 / A-115-2 / UF-115-3 follow-ups);
+    those remain queued for separate prompts.
+
+----------------------------------------------------------------
+8. HALT CONDITIONS (HALT-108a-1 .. HALT-108a-5; SOFT vs HARD)
+----------------------------------------------------------------
+
+HALT-108a-1 (HARD): live working file SHA-256 mismatch at
+    G1 pre-check; the file has been edited since draft time
+    and the insertion-point line ranges may have drifted.
+    Surface the new SHA, line count, and L984/L986 contents
+    in halt_log.json; do not proceed. Operator re-pins the
+    insertion point in a refire prompt 108a-RETRY.
+
+HALT-108a-2 (HARD): siarc_cc_pipeline_g bibkey absent from
+    active .bib file at G5 pre-check. The new caveat text
+    cites it; if absent, the pdflatex 4-pass would emit an
+    undefined-reference warning. Surface the .bib file path
+    + missing-key list in halt_log.json. Operator splices
+    the bibkey or substitutes inline-prose attribution per
+    105 deposit's J2 judgment-call pattern.
+
+HALT-108a-3 (HARD): pdflatex 4-pass non-zero exit OR any
+    undefined reference at B.5/B.6. Surface the offending
+    pdflatex invocation + last 30 lines of .log file in
+    halt_log.json; do not commit the .tex edit (revert
+    to pre-edit SHA).
+
+HALT-108a-4 (HARD): forbidden-verb scan finds non-exempt
+    hits on amendment text or handoff prose at C.1/C.2.
+    Surface the line numbers + verbs + sentence context
+    in halt_log.json; mitigate via verb substitution per
+    098-J3 pattern, re-scan, then proceed.
+
+HALT-108a-5 (SOFT): if the insertion-point pre-check at G2
+    finds the surrounding prose has minor whitespace
+    drift (e.g., L984 still ends with "$\Vquad$ point."
+    but L985 is no longer blank, or L986's \medskip is
+    indented differently), the executor may attempt to
+    apply the OLD_STR -> NEW_STR replacement with whitespace
+    tolerance (e.g., trim trailing whitespace, normalise
+    internal newlines). If the replacement still succeeds
+    cleanly and line count post-edit is within +/-2 of
+    1663, proceed with a discrepancy_log.json INFO entry
+    naming the whitespace tolerance applied. If the
+    whitespace drift is structural (paragraph reflowed,
+    \medskip moved), escalate to HALT-108a-5-HARD and
+    surface for refire.
+
+----------------------------------------------------------------
+9. DELIVERABLE LIST (BRIDGE SESSION 116; APPROXIMATELY 6-8 FILES)
+----------------------------------------------------------------
+
+Bridge session: T1-OPERATOR-CT-V131-3.5.1-R1A-AMENDMENT-VQUAD-CAVEAT-NNN
+(NNN = next sequential bridge ID; pre-flight at fire time:
+ls siarc-relay-bridge/sessions/2026-05-08/ to determine NNN)
+
+D1. channel_theory_outline_v131_with_r1a_caveat.tex
+    (post-edit working copy; full file with new caveat block
+    inserted; 1663 lines)
+
+D2. channel_theory_outline_v131_with_r1a_caveat.pdf
+    (4-pass-compiled PDF; expected 19 pages, ~607000 B)
+
+D3. amendment_diff.txt
+    (unified-diff output of OLD_STR -> NEW_STR replacement;
+    canonical record of the patch)
+
+D4. handoff.md
+    (standard SIARC handoff format; sections: What was
+    accomplished / Key numerical findings / Judgment calls
+    made / Anomalies and open questions / What would have
+    been asked / Recommended next step / Files committed /
+    AEAL claim count)
+
+D5. claims.jsonl
+    (4-5 AEAL entries per §6 C.3 above)
+
+D6. halt_log.json
+    (empty {} if no halt triggered; populated per §8 if any
+    halt condition fired)
+
+D7. discrepancy_log.json
+    (any minor INFO discrepancies, e.g., whitespace
+    tolerances applied per HALT-108a-5-SOFT, or empty {})
+
+D8. unexpected_finds.json
+    (any UF entries; recommended minimum: a UF noting that
+    the A-115-1 reconciliation prompt remains queued for a
+    separate fire)
+
+----------------------------------------------------------------
+10. CASCADE IMPLICATIONS (POST-LANDING)
+----------------------------------------------------------------
+
+After 108a lands at session 116:
+
+(i)   Synth round-4 absorption MAY fire on the Claude.ai
+      web side to record the R1a amendment closure. This is
+      OPTIONAL given R1 verdict is clean and 108a is small;
+      operator may skip absorption and proceed directly to
+      109 + 110 envelope drafting.
+
+(ii)  Prompt 109 (069r3-B Route B Hamiltonian-expansion FW
+      pull-back analytic executor) fires next. Parameter
+      entry format: Hamiltonian
+      $(\eta_\infty, \eta_0, \theta_\infty, \theta_0)$ per
+      Okamoto §1.1 / 105 §3.5.1 trivial relabel. Per-coordinate
+      >= 3-digit cross-validation criterion (UF-113-3) at
+      each of the four entries of (1/6, 0, 0, -1/2).
+
+(iii) Prompt 110 (069r3-D Route D V_quad numerical-trajectory
+      extraction) fires in parallel with 109. Same parameter
+      entry format. Same per-coordinate >= 3-digit criterion.
+
+(iv)  Prompt 111 (governance follow-up): mechanism (b)
+      pre-rejection footnote per UF-113-2.
+
+(v)   Prompt 112 (governance follow-up audit-trail deposit
+      for cross-validation criterion sharpening per UF-113-3).
+
+(vi)  Prompt A-115-1-RECONCILIATION (separate from this
+      cascade): dedicated reconciliation of the labeling-
+      convention divergence between p12 sec:vquad
+      classical-ODE and 058R/CT v1.3 Hamiltonian. May fire
+      at next CMB-edit cycle, parallel-track with 109 + 110.
+
+(vii) After 109 + 110 + 111 + 112 + A-115-1-RECONCILIATION
+      all land, 069r3 FINAL synthesis verdict fires at session
+      ~122 cross-validating B-symbolic vs D-numerical at
+      per-coordinate criterion. Closes M6.CC R1.
+
+================================================================
+END PROMPT 108a
+================================================================
+
+Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
