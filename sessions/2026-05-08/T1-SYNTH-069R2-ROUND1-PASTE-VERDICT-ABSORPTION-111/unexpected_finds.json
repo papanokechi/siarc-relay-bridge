@@ -1,0 +1,38 @@
+{
+  "UF-111-1": {
+    "title": "QA upgraded from UNDECIDABLE to NO_GO (sharper obstruction visible from KNY paste)",
+    "category": "VERDICT_SHIFT",
+    "severity": "INFORMATIONAL",
+    "description": "Round-1 QA was UNDECIDABLE_ROUTE_A pending KNY substrate. Round-2 paste of KNY §8.5.17 + Okamoto §1 surfaced the structural obstruction: KNY (8.237) is a normalized representative of H_D6^(1), and coefficient-matching against the Okamoto WLOG slice eta_0=eta_inf=1 produces only the (theta_0, theta_inf) ↔ (a_1, a_2) sector. The unnormalized (eta_inf, eta_0) directions — which the project's V_quad image (1/6, 0, 0, -1/2) lives in — cannot be recovered from KNY (8.237) alone.",
+    "operator_action": "RECOMMENDED",
+    "agent_action": "PERFORM ~30-min KNY §8.5 surrounding-sections scan (sections beyond §8.5.17) before treating NO_GO_ROUTE_A as final. If un-normalization map for H_D6^(1) found in surrounding KNY §8 prose, QA could revive to UNDECIDABLE and require re-fire.",
+    "next_step": "Optional pre-069r3-B sanity scan; not blocking 069r3-B dispatch since Route B does not depend on Route A status."
+  },
+  "UF-111-2": {
+    "title": "Route D value proposition strengthened by round-2 outcome",
+    "category": "STRATEGIC_REFRAMING",
+    "severity": "INFORMATIONAL",
+    "description": "Round-1 framed Route D as 'fragile solo path' (numerical fitting alone, no analytic backing). Round-2 outcome — Route B = GO_CONDITIONAL gated on FW Prop 4.1 mechanism (a) pull-back — turns Route D into 'high-value parallel verification of mechanism (a)'. A numerical fit of the chart-map at V_quad's image should reproduce the -1/3 offset if mechanism (a) is correct.",
+    "operator_action": "RECOMMENDED",
+    "agent_action": "Schedule QD round-2 substrate-paste BEFORE 069r3-B fires (synth Caveat 3). If QD lands GO_ROUTE_D, dispatch 069r3-B (analytic) and 069r3-D (numerical) in parallel; cross-validation lowers cascade risk to Route C / Route F.",
+    "next_step": "Draft 069r2-QD-round2-substrate-paste-request.md (mirror of 108 deposit's operator_substrate_paste_request.md, scoped to V_quad numerical-solution structure + (α, β) extraction operation spec)."
+  },
+  "UF-111-3": {
+    "title": "Mechanism (a) Hamiltonian-shift hypothesis structurally unique among the three -1/3 candidates",
+    "category": "RESEARCH_DIRECTION",
+    "severity": "MAJOR",
+    "description": "Synth analysis: mechanism (a) (FW Prop 4.1 auxiliary Hamiltonian h = tH + (1/4)v_1^2 - (1/2)t) is uniquely positioned among the three -1/3 candidates because it (i) closes Route B without additional acquisition, (ii) has primary-literature anchor (FW eq. (4.3)), (iii) keeps the chart-map within σ-form / Hamiltonian P_III machinery (no HALT-S5 Route F surfacing). Mechanism (b) (-1/12 fall-back) is project-internal calibration only. Mechanism (c) (Sakai D_6^(1)) is a Route F surfacing.",
+    "operator_action": "INFORMATIONAL",
+    "agent_action": "Draft 069r3_route_b_executor_envelope.txt with mechanism (a) pull-back as primary executor task and -1/3 offset trace as primary acceptance criterion. Encode mechanism (b) and (c) fallbacks as explicit branches in §5 verdict template.",
+    "next_step": "069r3-B executor envelope drafting (synth recommendation: 5-10 hr executor effort)."
+  },
+  "UF-111-4": {
+    "title": "Search's-Fatigue immunity: QA NO_GO + QB.4 GO_CONDITIONAL + QE TRIVIAL is a structurally honest split, not a closure-by-default",
+    "category": "EPISTEMIC_OBSERVATION",
+    "severity": "MINOR",
+    "description": "The three round-2 verdicts — QA=NO_GO, QB.4=GO_CONDITIONAL, QE=TRIVIAL with mechanism deferral — could superficially read as 'closure achieved' (Route B unblocked, governance discharged). The actual epistemic state is sharper: Route B is conditional on a non-trivial executor computation (5-10 hr FW Prop 4.1 pull-back) that has not been performed, and the -1/3 offset mechanism is open across three candidates with mechanism (a) only structurally favored, not verified. The synth's caveats explicitly mark this asymmetry: §3.5.1 records WHAT is open; 069r3-B closes it.",
+    "operator_action": "INFORMATIONAL",
+    "agent_action": "When drafting 069r3-B executor envelope, ensure spec language preserves the asymmetry: mechanism (a) is a hypothesis, not a foregone conclusion; pull-back computation could fail or route through (c).",
+    "next_step": "Reflected in 069r3-B envelope drafting language; no separate action."
+  }
+}

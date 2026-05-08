@@ -1,0 +1,178 @@
+RELAY_069R2_VERDICT (round 2 — post round-1 substrate-paste)
+====================
+Synth ID:            Claude.ai web (Claude Opus 4.7), 069r2 round-2
+Verdict timestamp:   2026-05-08 ~12:30 JST
+
+Substrate SHA status:
+  Agent pre-flight rev-parse accepted from envelope §1: Y
+  Synth independently verified bridge content:          N — no direct
+                                                          bridge access
+  Substrate excerpts actually used by synth:            §1.5 EXCERPTS 1-5
+                                                          (round 1) +
+                                                          round-2 paste
+                                                          EXCERPTS 1 (FW
+                                                          abstract / TOC /
+                                                          §2.1 / §4 / §4.1
+                                                          / Prop 4.1), 2
+                                                          (KNY §8.5.17),
+                                                          3 (Okamoto §1),
+                                                          4 (CT v1.3
+                                                          §3.5.1 landed
+                                                          at bridge HEAD
+                                                          0427c0a)
+
+Synth halt conditions acknowledged (HALT-S1 through HALT-S6): Y
+Namespace discipline acknowledged (069r1 Greek letters reserved;
+  this envelope uses Route A/B/C/D/E):                        Y
+
+QA — Route A (in-hand Hamiltonian coefficient-matching) feasibility
+  Verdict:    NO_GO_ROUTE_A (upgraded from round-1 UNDECIDABLE_ROUTE_A)
+  Sketch:     N-A (verdict is NO_GO; no executor sketch produced)
+  Caveat:     KNY 2017 §8 surrounding sections beyond §8.5.17 paste
+              may contain an un-normalization map for H_D6^(1).
+              Recommend agent perform KNY §8.5 surrounding-sections
+              scan (~30 min) before treating NO_GO_ROUTE_A as final.
+
+QB.1 — FW arXiv TRIAGE (excerpt-based)
+  Triage classification:                    NEEDS_EXECUTOR_AUDIT
+  (a) KNY (a_0,a_1,a_2) referenced in FW:   N
+  (b) FW (α,β) parametrisation form:        Two parameters (v_1, v_2)
+                                              corresponding to Okamoto
+                                              (θ_0, θ_∞) at WLOG η=1.
+                                              Four parameters
+                                              (v_1, v_2, v_3, v_4) for
+                                              FW's P_V (§2.1) with
+                                              null-sum constraint.
+  (c) Conversion to (α_∞,α_0,β_∞,β_0) form: PARTIAL. (β_∞, β_0) =
+                                              (θ_∞, θ_0) recovered via
+                                              §3.5.1 trivial relabel
+                                              (NON-TRIVIAL_BUT_CITED).
+                                              (α_∞, α_0) = (η_∞, η_0)
+                                              GAP-CREATING at FW's WLOG
+                                              slice; recovery routes
+                                              through FW Prop 4.1
+                                              mechanism (a) pull-back,
+                                              executor work.
+
+QB.2 — Okamoto §3 sufficiency
+  Sufficient given QB.1 outcome:            PARTIAL
+
+QB.3 — (η,θ) → (α,β) rename probe
+  Verdict:    Y_RENAME_REQUIRED (DISCHARGED by Excerpt 4 §3.5.1
+              landed at bridge HEAD 0427c0a; round-2 re-evaluation
+              not requested per re-fire instructions; retained as
+              robust)
+
+QB.4 — Route B feasibility classification
+  Verdict:    GO_ROUTE_B_CONDITIONAL (upgraded from round-1
+              UNDECIDABLE_ROUTE_B)
+  Preconditions for 069r3-B firing:
+    1. Executor task scope: FW Prop 4.1 pull-back to V_quad
+       parameter point (1/6, 0, 0, −1/2). Specifically, derive
+       the explicit form of the auxiliary Hamiltonian shift
+       h − tH = ¼v_1² − ½t (FW eq. (4.3)) when restricted to
+       the V_quad reduction map (058R §B.3), and verify that
+       the constant-shift contribution at the V_quad point sums
+       to −1/3 against the FW null-sum locus.
+    2. Acceptance criterion: explicit trace of where the −1/3
+       offset originates must appear in 069r3-B output, with
+       mechanism (a) selection substantiated by the pull-back
+       computation. If pull-back fails to produce −1/3,
+       fallback to mechanism (b) (project-internal calibration,
+       no literature anchor) or (c) (Sakai D_6^(1) surface-type,
+       Route F surfacing per HALT-S5) must be explicitly recorded.
+    3. No additional substrate acquisition required for 069r3-B
+       firing. Excerpts 1, 3, 4 plus existing 058R §B.3
+       reduction map suffice. (KNY §8.5.17 is NOT on Route B
+       critical path; it was the Route A substrate.)
+    4. Estimated executor effort: 5–10 hr (4–8 hr Prop 4.1
+       pull-back + 1–2 hr V_quad cross-check).
+
+  Recommended next agent action:
+    Draft 069r3_route_b_executor_envelope.txt with the
+    precondition list above. Operator-side governance work on
+    Route C / Route D fallbacks can stay deferred pending
+    069r3-B outcome.
+
+QC — Route C scope refinement
+  Verdict:    N-A (premature; QB.4 = GO_ROUTE_B_CONDITIONAL,
+              not rejected)
+  Conjectural pre-rank if 069r3-B mechanism (a) pull-back fails:
+    C5 (Route D parallel) primary; C3 (JM 1981 Part II + Okamoto
+    1987) secondary; C4 (defer R1 to v1.1 per 097) last resort.
+
+QD — Route D (numerical chart-map fitting) feasibility
+  Verdict:    DEFERRED (per re-fire instructions; round-2
+              substrate-paste for V_quad numerical-solution
+              structure + (α, β) extraction operation spec is
+              the next paste round)
+
+  STRENGTHENED FRAMING under round-2 outcome:
+    Route D's value proposition has shifted from "fragile solo
+    path" (round-1 framing) to "high-value parallel verification
+    of mechanism (a)" (round-2 framing). A numerical fit of the
+    chart-map at V_quad's image should reproduce the −1/3
+    offset if mechanism (a) is correct.
+
+  Recommended dispatch (conditional on QD resolution):
+    PARALLEL_TO_ROUTE_B as mechanism (a) verification.
+    Operator schedule QD round-2 substrate-paste BEFORE 069r3-B
+    fires, so 069r3-D can launch in parallel rather than
+    sequentially.
+
+QE — Route E precondition status
+  Verdict:    ROUTE_E_TRIVIAL (relabel side discharged by
+              Excerpt 4 §3.5.1 landed at bridge HEAD 0427c0a)
+              with offset-mechanism deferral acceptable for
+              §3.5.1-as-deposited.
+  Operator question — "is tiered selection of mechanism (a)
+    required before TIER-B re-fire?" — synth answer: only if
+    TIER-B re-fire is gated on R1 closure with mechanism
+    selected (which the 069r2 envelope frames as the case).
+    Under that gating, tiered selection of (a) IS the work,
+    and 069r3-B IS the executor that does it. §3.5.1 deposit +
+    069r3-B envelope together discharge QE in tiered fashion:
+    §3.5.1 records WHAT is open; 069r3-B closes it.
+
+  HALT-S5 watch:
+    Mechanism (c) explicitly names Sakai D_6^(1) surface-type
+    machinery. If 069r3-B's mechanism (a) execution fails and
+    the offset routes through (c), this is a Route F surfacing
+    per HALT-S5 — agent should flag ROUTE_FRAME_INCOMPLETE
+    rather than fold into A–E.
+
+QF — Confidence
+  QA confidence:       HIGH (with caveat: KNY §8.5 scan
+                        recommended before final NO_GO)
+  QB.4 confidence:     MEDIUM-HIGH
+  QB.2 confidence:     MEDIUM
+  QC confidence:       N-A (deferred)
+  QD confidence:       N-A (deferred to next round)
+  QE confidence:       HIGH (rename-side); MEDIUM (deferral
+                        framing depends on TIER-B gating
+                        semantics)
+
+Caveats:
+  1. Route A and Route B both face the (η_∞, η_0) directions
+     outside KNY's normalized presentation and FW's WLOG slice.
+     Route B reaches them via FW Prop 4.1 mechanism (a)
+     pull-back; Route A cannot via coefficient-matching.
+
+  2. Mechanism (a) selection IS the chart-map closure mechanism
+     for the (α_∞, α_0) sector. The 069r3-B executor envelope
+     should explicitly name the −1/3 offset trace as the
+     primary acceptance criterion.
+
+  3. Operator should prioritize QD round-2 substrate-paste
+     BEFORE 069r3-B fires. Parallel dispatch of 069r3-B
+     (analytic FW pull-back) and 069r3-D (numerical fitting)
+     provides cross-validation and lowers risk of cascade to
+     Route C / Route F escalation.
+
+  4. 069r1 Greek-letter labels remain reserved (HALT-S6).
+     Verdict does not reuse α/β/γ/δ outside their well-defined
+     mathematical roles.
+
+Rubber-duck QA acknowledged (Round-1 9 findings + Round-2
+                              6 findings absorbed): Y
+====================
