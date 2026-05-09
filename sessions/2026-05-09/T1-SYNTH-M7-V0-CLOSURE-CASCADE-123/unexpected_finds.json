@@ -1,0 +1,29 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-123-1",
+      "severity": "INFO",
+      "category": "dual_witness_cascade_pattern_first_observation",
+      "summary": "M7 V0 cascade is the FIRST M-axis cascade in the SIARC pipeline with TWO independent T1-Synth dispatches (R1 + R2) landing at the same arc-3 absorption. M4 V0 cascade (105 → 106) was single-synth ACCEPT_W_REVISIONS. This dual-witness pattern is structurally stronger than M4 V0 at the same arc and may be the new precedent for higher-confidence cascades. Both reviewers independently converged on RATIFY_WITH_AMENDMENT with substantively identical amendment text — strong corroboration that the substrate-prep dossier (121 template) is well-formed and the §4 recommended wording is the correct downstream-canonical text. Operator presumably ran the dispatch through two parallel UI sessions intentionally; if this becomes a standing pattern, the canonical 3-arc template may be amended to specify dual-dispatch as default for high-stakes M-axis closures.",
+      "blocking": false,
+      "candidate_memory": "dual_witness_cascade_pattern (subject: ratification cadence)",
+      "anchor": "cascade_record.md §1 + §3.4"
+    },
+    {
+      "id": "UF-123-2",
+      "severity": "INFO",
+      "category": "agent_terminal_limitation_pattern_evidence",
+      "summary": "M7 V0 cascade required operator-driven Claude.ai dispatch (per agent-terminal-limitations class memory just-stored 2026-05-09 in 122 fire). Operator dispatched twice (R1 + R2 parallel sessions) and pasted both verdicts back. Same-session absorption per Option A worked cleanly: 122 packet → operator dispatch → operator paste-back → 123 cascade fire all within a single Copilot CLI session. Supports the agent-terminal-limitation class memory's mitigation pattern (split into agent-side packet prep + operator-side dispatch + agent-side absorption).",
+      "blocking": false,
+      "anchor": "agent_terminal_limitations memory + cascade_record.md §1"
+    },
+    {
+      "id": "UF-123-3",
+      "severity": "INFO",
+      "category": "amendment_text_acceptance_path_observation",
+      "summary": "Both reviewers adopted the template §4 recommended wording near-verbatim (R1 full LaTeX math-mode; R2 compressed plain-text math-mode). Neither proposed independent amendment text. This indicates the substrate-prep dossier (121 template) anticipated the synth's likely amendment direction with high accuracy — a sign that the M-axis 3-arc ratification template structure (substrate-prep includes recommended §4 wording before solo-dispatch) is functioning as designed. Cf. M4 V0 cascade 105 → 106 where synth ACCEPT_W_REVISIONS amendment also closely mirrored the substrate-prep recommended wording.",
+      "blocking": false,
+      "anchor": "cascade_record.md §3.3"
+    }
+  ]
+}
