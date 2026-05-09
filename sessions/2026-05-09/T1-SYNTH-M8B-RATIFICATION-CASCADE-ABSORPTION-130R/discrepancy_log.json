@@ -1,0 +1,40 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-130R-1",
+      "severity": "INFO",
+      "category": "cross_reviewer_verdict_label_divergence",
+      "summary": "R1 (Grok / xAI) returned RATIFY @ HIGH; R2 (Claude.ai web) returned RATIFY_WITH_AMENDMENT @ HIGH. This is the FIRST inter-reviewer LABEL-tier divergence in M-axis ratification (prior cascades 123 + 127R diverged at BAND only: HIGH vs MEDIUM-HIGH). Substantively, R1 reads the substrate §1 closure-statement and §4 template wording as already incorporating the `(NUMERICAL-FORECLOSURE; d≥3-CAVEAT-CARRIED-FORWARD)` annotation pattern (so RATIFY suffices, since the template-as-substrate already contains the qualifier). R2 reads the same wording but applies the M4/M7/M8a confidence-qualifier carry-forward discipline more conservatively, requiring the qualifier to be explicitly embedded in the §1 closure-statement-as-amendment (so RATIFY_WITH_AMENDMENT). Both reviewers cite identical substrate elements (092 + P-009 + 038 + picture v1.19), agree on confidence band HIGH, agree on amendment text content, agree on zero manuscript-content edits required, and flag no substrate gaps.",
+      "resolution": "Most-conservative aggregation per dual-reviewer protocol (123 §3.2): when verdict labels diverge between {RATIFY, RATIFY_WITH_AMENDMENT}, the more conservative RATIFY_WITH_AMENDMENT path is adopted operative. This preserves the M4/M7/M8a confidence-qualifier carry-forward discipline (annotation pattern explicitly embedded in operative §1 closure statement, not silently inherited from template). Operative wording is R2 §5 amendment specification verbatim. R1 RATIFY HIGH is recorded as substantive corroborating verdict (R1 explicitly affirms the same closure content and qualifier pattern; the divergence is purely about whether the qualifier requires explicit embedding vs implicit template inheritance — a procedural-discipline question, not a mathematical question). Aggregation rule extended at n=4 across M4 + M7 + M8a + M8b cascades.",
+      "blocking": false,
+      "anchor": "cascade_record.md §6.1 + §6.2 + §7"
+    },
+    {
+      "id": "D-130R-2",
+      "severity": "INFO",
+      "category": "synth_provider_diversity_first_non_anthropic",
+      "summary": "R1 is the FIRST non-Anthropic synth response in M-axis ratification (Grok by xAI; signed `Synth: Grok (xAI) acting as T1-Synth peer reviewer per dispatch instructions`). R2 is Claude.ai web (consistent with prior M4/M7/M8a R2 dispatches). The 129 dispatch packet did not constrain synth-provider; operator routed R1 to Grok intentionally per UF-128-3 closure-type-novelty justification (NUMERICAL-FORECLOSURE-by-residual-acceptance is the first M-axis closure of negative-result type, motivating cross-provider witness for protocol robustness).",
+      "resolution": "Cross-provider dispatch is RECOMMENDED for future M-axis cascades with novel closure types. R1 (Grok) and R2 (Claude.ai web) substantively converged on closure content and confidence band HIGH; only labeling-discipline interpretation differed (D-130R-1). This is positive forensic evidence that the dossier is robust to LLM-architecture variation. Forward-pointing: future M-axis or P-axis cascades may dispatch R1 to {Grok, GPT-5.5, Gemini, Claude.ai} interchangeably; aggregation rule already handles label divergence per D-130R-1 resolution. Recorded as INFO; no protocol amendment beyond noting cross-provider robustness.",
+      "blocking": false,
+      "anchor": "cascade_record.md §1 (R1 source row) + §6.2 + UF-130R-1"
+    },
+    {
+      "id": "D-130R-3",
+      "severity": "INFO",
+      "category": "verdict_label_markdown_formatting_inconsistency",
+      "summary": "R1 (Grok) verdict-label line uses bold markdown (`**M8B_V0_VERDICT: RATIFY**`); R2 verdict-label line is plain text (`M8B_V0_VERDICT: RATIFY_WITH_AMENDMENT`). Both are parseable as the protocol-required label (regex tolerates either after bold-stripping). Same pattern observed at 127R D-127R-3 with Claude.ai R1 vs R2 split; pattern recurrence n=2 now (127R + 130R both show R1-bold / R2-plain).",
+      "resolution": "Parser tolerated both forms; verdict labels parseable from R1 and R2 at STEP 0.3. Pattern recurrence at n=2 suggests future dispatch packets could explicitly instruct synth to omit markdown formatting on the protocol-label line. Defer formal protocol amendment until n=3 confirmation (next M-axis cascade). For 130R, no re-prompt needed.",
+      "blocking": false,
+      "anchor": "cascade_record.md §6.2 table"
+    },
+    {
+      "id": "D-130R-4",
+      "severity": "INFO",
+      "category": "r2_template_polarity_flip_within_response",
+      "summary": "R2 says 'Verdict: RATIFY_WITH_AMENDMENT' in §4 verdict-label-and-reasoning block, but the §1/§2/§3 reasoning blocks are written as if the closure is sound at-face-value (i.e., as if R2 read the substrate as supporting RATIFY proper) and the amendment justification appears only in §4 ('to align with the M4 V0 and M7 V0 most-conservative-band cascade precedent'). R2 explicitly concedes 'the mathematical and structural basis for closure is airtight'. This is consistent with R1's RATIFY verdict — both reviewers find the substrate mathematically airtight; only R2 flags the procedural-discipline reason for amendment.",
+      "resolution": "R2's split is a feature, not a bug — R2 separates the mathematical-content evaluation (airtight, would justify RATIFY) from the procedural-discipline evaluation (M4/M7/M8a precedent argues for RATIFY_WITH_AMENDMENT to embed qualifier explicitly). R2's verdict-label adopts the procedural-discipline outcome. This convergence with R1's mathematical reading provides indirect HIGH-band corroboration of R1's RATIFY (without R1 having to make the procedural-discipline call). Recorded as INFO; documents the substantive convergence behind the surface label divergence.",
+      "blocking": false,
+      "anchor": "cascade_record.md §2 (R2 verbatim) + §6.1"
+    }
+  ]
+}
