@@ -1,0 +1,52 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-132-1",
+      "severity": "INFO",
+      "category": "first-observation",
+      "description": "FIRST cross-axis (non-single-axis) closure-path consultation in M-axis ratification series. Prior cascades 123 (M7), 127R (M8a), 130R (M8b) were all single-axis ratification fires. This consultation surfaces a strategic ordering question (umbrella version-bundling) that does not map onto any single axis but spans M4 + M7 + M8a + M8b + M6.CC + Route F. Pattern candidate: 'cross-axis consultation' as a fourth M-axis fire-class (after substrate-prep, solo-dispatch, cascade-absorption)."
+    },
+    {
+      "id": "UF-132-2",
+      "severity": "MED",
+      "category": "protocol-amendment-candidate",
+      "description": "Triple-witness amended aggregation rule applied (cascade_record.md §3.2): when ≥2 of 3 reviewers converge on a single LABEL AND the dissenting reviewer explicitly characterizes the majority LABEL as conservative on alternative grounds, adopt majority. Prompt 131 §5.1 + §5.2 + §5.4 were drafted for dual-witness; triple-witness exceeded design scope. Recommended protocol amendment: explicitly add §5.5 'triple-witness aggregation rule' to future cross-axis consultation packets. MED severity because future M-axis cross-axis fires (post-RULE-1-lift) will reuse this protocol; ambiguity now will compound."
+    },
+    {
+      "id": "UF-132-3",
+      "severity": "INFO",
+      "category": "first-observation",
+      "description": "FIRST triple-witness cross-provider verdict capture in SIARC pipeline. R1 Google (Gemini 3 Flash Free tier) + R2 Anthropic (Claude.ai web) + R3 xAI (Grok). Predecessor at M8b (130R) was dual-provider (Anthropic + xAI). Triple-provider verdict capture supports the dossier-robustness-to-LLM-architecture-variation hypothesis raised at UF-130R-1; n=2 cross-provider dispatch observations now recorded. Free-tier Gemini participation is a cost-positive precedent (zero marginal cost for additional witness capacity)."
+    },
+    {
+      "id": "UF-132-4",
+      "severity": "INFO",
+      "category": "convergence-pattern",
+      "description": "Cross-axis sub-question convergence (4/4 unanimous on §3.1-§3.4) is STRONGER than headline LABEL convergence (2/1 on path choice). This is structural validation that the path framing in §2 of prompt 131 was the genuinely contested axis, while the §3 sub-questions were already largely resolved by the substrate. Pattern candidate: 'sub-question pre-convergence' as a signal that the headline question is well-isolated; absence of pre-convergence on sub-questions would signal a poorly-isolated headline."
+    },
+    {
+      "id": "UF-132-5",
+      "severity": "INFO",
+      "category": "qualifier-pollution-concept",
+      "description": "R3 Grok (PATH_B) and R1 Gemini (PATH_B) both implicitly identified a NEW concept — 'qualifier-pollution' (C-C4 in prompt 131) — where mixing staging qualifiers (e.g., PROVISIONAL_PENDING_V22_AMENDMENT) with substantive qualifiers (e.g., SOFT-BRANCH; HARD-BRANCH-PENDING) in the same picture-chain row creates ambiguity for downstream amendment governance. This concept did not appear in prior cascades; it emerged from the cross-axis nature of the consultation. Pattern candidate: future picture-chain governance protocol should distinguish staging-class qualifiers from substantive-class qualifiers explicitly."
+    },
+    {
+      "id": "UF-132-6",
+      "severity": "INFO",
+      "category": "RULE-1-lift-proximity",
+      "description": "All three reviewers independently confirmed RULE 1 lift proximal (§3.4 unanimous). Combined with UF-130R-4 (M-axis V0 closure series COMPLETE), the lift trigger is now: post-slot-135 (umbrella v2.2 substrate-prep) + post-slot-136 (picture-chain v1.20+ substrate-prep) + post-slot-137 (PCF-2 v1.4 §6 substrate-prep) + post-M10 (Lean-4 sorry-discharge clearance). UF-130R-4 promotion to HIGH severity warranted: lift is now within ~1-2 fire cycles of operational reality."
+    },
+    {
+      "id": "UF-132-7",
+      "severity": "INFO",
+      "category": "version-skipping-precedent",
+      "description": "Operative decision (PATH_B) yields v2.0 → v2.2 Zenodo version sequence, skipping v2.1 publication. Umbrella v2.1 substrate at slot 116 (883dddf) becomes 'internal staging only'. This is the FIRST version-skip in the SIARC umbrella sequence. Precedent now established: not every staged version requires a Zenodo deposit. Pattern candidate: 'staging-only version' as an explicit governance class distinct from 'published version'."
+    },
+    {
+      "id": "UF-132-8",
+      "severity": "INFO",
+      "category": "free-tier-synth-precedent",
+      "description": "R1 Gemini 3 Flash (Free tier) participation establishes precedent for free-tier synth-tier dispatch in M-axis cross-axis consultations. Cost-positive: zero marginal cost per additional witness. Quality observation: R1's verdict matched R3 Grok (paid tier) on LABEL and on most §3 sub-question responses, suggesting free-tier capacity is sufficient for advisory-tier consultation. Note: R1 self-reported full SHA verification (Y) where R2 (Claude.ai web, free user) self-reported deferred-to-operator (N) — discrepancy is procedural-reading not capacity-driven."
+    }
+  ]
+}
