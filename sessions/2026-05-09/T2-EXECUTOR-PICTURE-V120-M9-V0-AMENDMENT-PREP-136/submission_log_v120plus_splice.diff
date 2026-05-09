@@ -1,0 +1,46 @@
+# OPERATOR-PENDING — picture-chain v1.20+ submission_log splice template
+# Status: TABLED under RULE 1
+# Activates after: slot 138+ RULE 1 lift orchestration + operator-side Zenodo
+#                  deposit of picture-chain v1.20+ (Phase C+D step 3)
+#
+# Per slot 136 §6 step 5 ordering (cascade-132 §3.1 Option α):
+#   1. v1.4 splice (PCF-2)        — slot 137 submission_log_v14_splice.diff
+#   2. v2.2 splice (Umbrella)     — slot 135 submission_log_item12_splice.diff
+#   3. v1.20+ splice (Picture)    — THIS file
+#
+# Operator fills this template at deposit time. The diff form below is
+# unified-diff with the target file path filled at deposit-time per the
+# operator's submission_log repo convention.
+#
+# Expected splice structure (filled at deposit time):
+#
+#   diff --git a/<submission_log_target>.txt b/<submission_log_target>.txt
+#   index <pre-deposit-hash>..<post-deposit-hash> 100644
+#   --- a/<submission_log_target>.txt
+#   +++ b/<submission_log_target>.txt
+#   @@ <line-context> @@
+#   +
+#   + ## Item NN — picture-chain v1.20+ Zenodo deposit (slot 136 substrate)
+#   +
+#   + Deposit DOI:        10.5281/zenodo.<picture v1.20+ version DOI>
+#   + Concept DOI:        10.5281/zenodo.<picture-chain concept DOI>
+#   + Predecessor:        10.5281/zenodo.<picture v1.19 version DOI> (bridge 70d1a48)
+#   + Substrate-prep:     bridge SHA <slot 136 commit hash>
+#   + Deposit timestamp:  <YYYY-MM-DD HH:MM JST>
+#   +
+#   + Cross-references:
+#   + - IsSupplementedBy 10.5281/zenodo.<PCF-2 v1.4 DOI>     (slot 137)
+#   + - IsSupplementedBy 10.5281/zenodo.<Umbrella v2.2 DOI>  (slot 135)
+#   + - IsContinuationOf 10.5281/zenodo.<picture v1.19 DOI>
+#   +
+#   + Notes:
+#   + - THIRD and FINAL deposit of cascade-132 PATH_B Option α deposit chain
+#   + - Picture-chain v1.20+ extends v1.20 in place per PATH_α (operator default)
+#   + - §28 unified amendment log written for the FIRST TIME (silently fixes
+#   +   the v1.20 staging defect of header-references-§28-but-§28-does-not-exist)
+#   + - UF-132-5 qualifier-class governance rule absorbed at §28.C
+#   + - Closes the M-axis V0 closure-series source-of-record across all three
+#   +   SIARC primary documents (umbrella v2.2 + PCF-2 v1.4 + picture v1.20+)
+#   +
+#
+# (Empty splice template — operator fills at deposit time.)

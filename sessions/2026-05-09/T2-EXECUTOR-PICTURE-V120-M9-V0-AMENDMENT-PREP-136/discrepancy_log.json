@@ -1,0 +1,36 @@
+{
+  "session": "T2-EXECUTOR-PICTURE-V120-M9-V0-AMENDMENT-PREP-136",
+  "date": "2026-05-09",
+  "discrepancies": [
+    {
+      "id": "D-136-1",
+      "severity": "INFO",
+      "summary": "Pre-edit baseline line-count drift vs prompt §G7 expected ≈3235 lines: actual 3671 lines (+436 outside ±20 tolerance). The picture v1.20 staged document had grown beyond the prompt's draft-time inspection estimate. Per UF-135-5 lesson (line-count is NOT a halt gate when A4+A5 PASS), recorded as INFO. Section anchors at the cited line numbers (§4 L863, §5 L1010, §6 L1048, §27 L1891, §26 L2006) MATCH the prompt exactly — the drift is post-§27 (the pre-existing v1.x amendment-log chain extends further than the prompt's draft estimated)."
+    },
+    {
+      "id": "D-136-2",
+      "severity": "INFO",
+      "summary": "PATH_α (default per prompt §0.4) selected without operator override; PATH_β (cut v1.21) not invoked. Picture-chain extends v1.20 in place. §28 written for the FIRST TIME as unified amendment log covering v1.17 → v1.20 (W20-Wed cascade absorption + M9 V0 closure-series absorption + UF-132-5 qualifier-class governance). Bridge folder name follows PATH_α pattern (T2-EXECUTOR-PICTURE-V120-M9-V0-AMENDMENT-PREP-136)."
+    },
+    {
+      "id": "D-136-3",
+      "severity": "INFO",
+      "summary": "FV (forbidden-verb) in-fire remediation in agent-NEW v1.20+ prose: 1 hit at §28.C closing sentence ('slot 136 establishes the canonical default') flagged 'establishes' on the forbidden-verb list; remediated to 'records the canonical default' for softer epistemic claim. Post-remediation FV scan CLEAN (0 hits in agent-NEW prose). Diff file b_amendment_v120plus.diff patched in-place to reflect the remediation. Pattern n=4 across recent slots (135 / 137 / 121 / 136 in-fire FV remediation cadence)."
+    },
+    {
+      "id": "D-136-4",
+      "severity": "INFO",
+      "summary": "§28 missing-section pre-existing defect — PRE-RESOLVED at draft time (the v1.20 staging defect of header-references-§28-but-§28-does-not-exist is fixed by this slot via §2.6 PATH_α §28 first-write covering v1.17 → v1.20 unified). The original picture v1.20 staging on 2026-05-07 14:55 JST referenced §28 at header lines 2 and 12 but never wrote the section body; slot 136 makes good on the v1.20 header promise. Forward-pointed lesson to UF-136-4: source-of-record staging artefacts may carry header-promised-but-body-missing sections; pre-fire G5 should grep `^## NN\\.` against all `§NN` references in the header to catch this defect class earlier."
+    },
+    {
+      "id": "D-136-5",
+      "severity": "INFO",
+      "summary": "Q-RELAY-076 / Q-RELAY-078 / Q-RELAY-079 textual anchor referenced in slot 136 §2.5 prompt-drafted insertion-point did not exist in §6 of the baseline picture v1.20 (no Q-RELAY-NNN markers anywhere in the §6 Suggested Next Steps block). Substituted insertion-point: end of §6 (just before the `---` separator at L1276 post-edit). Q-RELAY-135 / Q-RELAY-137 / Q-RELAY-136 / Q-RELAY-138+ block inserted as a new 'v1.20 amendment — M9 V0 closure-series queued-prompts update (2026-05-09)' paragraph. INFO judgment-call by agent — semantically equivalent to drafted intent."
+    },
+    {
+      "id": "D-136-6",
+      "severity": "MED",
+      "summary": "Diff file initially generated with mojibake (PowerShell stdout redirection used CP437/Windows-1252 encoding instead of UTF-8) — the unicode characters em-dash, ≥, α were corrupted in the first b_amendment_v120plus.diff write. Remediated by regenerating the diff via [System.IO.File]::WriteAllText with explicit [System.Text.Encoding]::UTF8 — verified via byte-pattern scan (UTF-8 em-dash E2 80 94 ×33 hits, UTF-8 ≥ E2 89 A5 ×4 hits, UTF-8 α CE B1 ×18 hits in final diff). Source picture md was unaffected (it retained UTF-8 throughout — em-dash ×533, ≥ ×30, α ×22). MED severity flagged because the encoding-mojibake-on-PowerShell-redirect pattern n=1 in this slot but is a forward-pointed risk class for future markdown / unicode-heavy slots."
+    }
+  ]
+}

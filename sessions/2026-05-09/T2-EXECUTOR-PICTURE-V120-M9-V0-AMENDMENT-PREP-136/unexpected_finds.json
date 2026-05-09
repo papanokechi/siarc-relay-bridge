@@ -1,0 +1,41 @@
+{
+  "session": "T2-EXECUTOR-PICTURE-V120-M9-V0-AMENDMENT-PREP-136",
+  "date": "2026-05-09",
+  "unexpected_finds": [
+    {
+      "id": "UF-136-1",
+      "severity": "INFO",
+      "summary": "FIRST picture-chain markdown-source amendment for an M-axis V0 closure-series absorption. Prior picture-chain amendments (v1.0 → v1.17 chain) covered structural strategic-picture content; v1.18 was synthesizer-drafted post-v1.17 amendment; v1.19 was consolidated deposit absorption. v1.20 staged W20-Wed cascade absorption. v1.20+ in-place extension at slot 136 is the first picture-chain amendment specifically for M-axis V0 closure-series propagation. n=1 candidate-memory."
+    },
+    {
+      "id": "UF-136-2",
+      "severity": "INFO",
+      "summary": "THIRD application of the cascade-132 PATH_B Option α deposit-ordering decision in source-of-record. Slot 135 was the first realization (umbrella v2.2; v2.0 → v2.2 version-skip; FIRST in SIARC umbrella series per UF-135-2). Slot 137 was the second (PCF-2 v1.4; ANTI-CONFLATION rule precedent UF-137-4). Slot 136 closes the chain (THIRD and FINAL). Pattern: cascade-132 PATH_B Option α now realized n=3 times across three SIARC primary documents (umbrella + PCF-2 + picture-chain). Cross-cascade-realization triple-witness."
+    },
+    {
+      "id": "UF-136-3",
+      "severity": "INFO",
+      "summary": "FIRST cross-document propagation of the umbrella's annotation-propagation rule into a markdown picture-chain document. Substantive qualifier strings (SOFT-BRANCH; HARD-BRANCH-PENDING) / (ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B) / (NUMERICAL-FORECLOSURE; d≥3-CAVEAT-CARRIED-FORWARD) propagated from umbrella v2.2 LaTeX (slot 135) → PCF-2 v1.4 LaTeX (slot 137) → picture v1.20+ markdown (this slot). Complete cross-document closure for the M-axis V0 closure series. Suggests the propagation-rule is format-agnostic (LaTeX → markdown round-trip via UTF-8)."
+    },
+    {
+      "id": "UF-136-4",
+      "severity": "INFO",
+      "summary": "§28 missing-section staging defect pre-existed in v1.20 stage but is silently fixed by this slot. The v1.20 header (line 2 and line 12) referenced §28 Amendment Log but the section was never written — most recent log was §27 (v1.16 → v1.17) at L1891 of the baseline. Slot 136 PATH_α makes good on the v1.20 header promise by writing §28 as a unified log spanning v1.17 → v1.20 (W20-Wed cascade absorption already prose-summarized in the header) plus M9 V0 closure-series absorption (this slot's payload). n=1 candidate-memory: source-of-record staging artefacts may carry header-promised-but-body-missing sections; pre-fire G5 should `grep ^## NN\\.` against all `§NN` references in the header to catch this defect class earlier. Forward-pointed lesson absorbed."
+    },
+    {
+      "id": "UF-136-5",
+      "severity": "INFO",
+      "summary": "UF-132-5 qualifier-class governance rule absorbed in source-of-record (substantive vs staging classification). Cascade-132 UF-132-5 surfaced 'qualifier-pollution governance' as an open-question (whether STAGING; SUBSTANTIVE-PENDING and similar qualifier classes need a documented rule). Slot 136 §28.C records the canonical default: substantive qualifiers MUST propagate verbatim through all SIARC source-of-record artefacts; staging qualifiers MAY be omitted from picture-chain headlines. Forward-pointed application to slot 138+ M11/M12 admin amendment orchestration. Closes UF-132-5 in source-of-record."
+    },
+    {
+      "id": "UF-136-6",
+      "severity": "MED",
+      "summary": "PowerShell stdout redirection encoding mojibake observed during diff generation (D-136-6). PowerShell's default output encoding for `> file` redirection on Windows uses CP437/Windows-1252, NOT UTF-8 — even when the source files are UTF-8 and even when `git diff` outputs UTF-8 to stdout. The first b_amendment_v120plus.diff write corrupted unicode em-dash, ≥, α to mojibake. Remediated via [System.IO.File]::WriteAllText with explicit [System.Text.Encoding]::UTF8. n=1 in this slot but is a forward-pointed risk class for future markdown / unicode-heavy slots. Forward-pointed lesson: when generating diffs of UTF-8 files in PowerShell, always use [System.IO.File]::WriteAllText explicit-encoding instead of `>` redirection."
+    },
+    {
+      "id": "UF-136-7",
+      "severity": "INFO",
+      "summary": "Q-RELAY-076 / 078 / 079 prompt-drafted anchor missing from baseline picture v1.20 §6 (D-136-5). The slot 136 §2.5 prompt drafted an insertion-point 'after the existing relay-076 / relay-078 / relay-079 entries' but no Q-RELAY-NNN markers exist in §6 Suggested Next Steps of the baseline. The baseline §6 uses a tabular row-format for queued prompts (e.g., '| 001 | submission-log Item 19 splice | ...' rows) and a bullet-list format for next-step actions, neither of which mentions relay-076/078/079 by that exact prefix. Substituted insertion-point: end of §6 just before the `---` separator. INFO judgment-call by agent — the prompt's drafted insertion-point reference was likely speculative based on a different picture-chain version or an anticipated state, not the actual v1.20 baseline. n=1 candidate-memory: prompt-drafted anchor verification is a class of pre-fire check that could be added to §0 STEP 0.4 if the pattern recurs."
+    }
+  ]
+}
