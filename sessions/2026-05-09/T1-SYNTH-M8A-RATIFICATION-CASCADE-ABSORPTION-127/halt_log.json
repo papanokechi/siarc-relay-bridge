@@ -1,0 +1,33 @@
+{
+  "halt_code": "HALT_127_NO_SYNTH_VERDICT",
+  "halt_class": "phase_0_pre_fire_gate_trip",
+  "triggered_at": "2026-05-09 ~15:35 JST",
+  "triggering_step": "127 Phase 0 STEP 0.2 (synth_verdict_raw.txt presence check); STEP 0.1 also fails (no 126 bridge folder)",
+  "operative_pre_fire_state": {
+    "bridge_head_at_fire": "f02ab5d (T2-EXECUTOR-M8B-RATIFICATION-SUBSTRATE-PREP-128)",
+    "bridge_head_at_127_draft": "27ff47c (T1-SYNTH-M2-Q22-MATH-ARBITRATION-124-HALT)",
+    "bridge_head_advance_since_draft": "4 commits (4f15411 M8a-125 + 7f93b9e M7-123 already present at draft + ad33058 Q4-129 + 10b5cf6 Q4-130 + 8a22b11 Q4v2-131 + 8ebd1eb Route-F-132 + 883dddf umbrella-133 + 4816ebc M6CC-134 + 111de50 A-115-128 + dd9c096 114-127 + e18537e 069r3-126 + 1eed8ef 113-125 + 4f15411 + f02ab5d note: integer slot numbers in bridge commits encode TASK_ID indices, not contiguous slate slots, so the bridge log mixes task-id-126/task-id-128 entries with the 2026-05-09 fourth-slate slot-126/slot-128 references; the Phase 0 gate is concerned with slot-126 = slate-fourth-stage-2 = T1-SYNTH-M8A-RATIFICATION-SOLO-DISPATCH-126 specifically)",
+    "expected_dependency_slot_126_status": "NOT FIRED",
+    "expected_dependency_slot_126_folder": "siarc-relay-bridge/sessions/2026-05-09/T1-SYNTH-M8A-RATIFICATION-SOLO-DISPATCH-126/",
+    "expected_dependency_slot_126_folder_present": false,
+    "synth_verdict_raw_txt_present": false,
+    "synth_verdict_raw_txt_nonempty": false,
+    "rule_1_alignment": "ALIGNED"
+  },
+  "evidence": {
+    "step_0_1_check": "Get-ChildItem on siarc-relay-bridge/sessions/2026-05-09/ at fire-time returned 10 entries; none is named T1-SYNTH-M8A-RATIFICATION-SOLO-DISPATCH-126 or any synonymous T1-SYNTH-M8A-*-DISPATCH-* pattern. Latest M8a-related fire is T2-EXECUTOR-M8A-RATIFICATION-SUBSTRATE-PREP-125 at commit 4f15411.",
+    "step_0_2_check": "synth_verdict_raw.txt cannot be present in a bridge folder that does not exist; STEP 0.2 trip is consequent on STEP 0.1 trip.",
+    "control_center_prompt_126_present": "tex/submitted/control center/prompt/126_t1_synth_m8a_ratification_solo_dispatch.txt exists (drafted 2026-05-09 ~14:55 JST per its header) but its agent-fire has not occurred. Drafted prompt without execution does not constitute a landed bridge fire.",
+    "supersession_audit_clean": "No prior LANDED M8a V0 ratification verdict exists. The 125 substrate-prep handoff explicitly states 'No ratification verdict emitted in this fire' (per prompt 125 substrate-prep-only scope)."
+  },
+  "halt_action": [
+    "Deposit prefire_gate_memo.md citing the 126-not-fired chain-of-evidence",
+    "No substantive 127 fire; no verdict_packet.md assembled (would require synth_verdict_raw.txt as input)",
+    "No manuscript-content cascade (Phase B not reached); no cross-axis reverberation check (Phase C not reached)",
+    "Mark relay-127-m8a-ratification-cascade-absorption SQL todo as DEFERRED until 126 lands",
+    "m8a-unblocked-post-m4-v0-closure SQL todo remains OPEN (cannot transition to done without verdict)",
+    "Operator action: fire 126 (T1-SYNTH-M8A-RATIFICATION-SOLO-DISPATCH); operator dispatches packet to Claude.ai; capture verdict into 126 bridge folder as synth_verdict_raw.txt; then re-fire 127"
+  ],
+  "verdict_label_emitted": "NO_VERDICT_EMITTED_DEPENDENCY_NOT_LANDED",
+  "operator_action_required": "Fire 126 next; ensure synth_verdict_raw.txt is captured into the 126 bridge folder before re-firing 127."
+}

@@ -1,0 +1,20 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-130-1",
+      "severity": "INFO",
+      "class": "slate_execution_ordering_vs_slate_drafting_ordering",
+      "summary": "Prompt 130 was drafted at 14:55 JST as the fourth slate of 2026-05-09 with explicit Depends-on: 129 (per prompt header). Prompts 128 / 129 / 130 form a single sequential 3-arc chain (substrate-prep -> solo-dispatch -> cascade-absorption); 130 cannot meaningfully execute until 129 has landed AND the operator has captured synth_verdict_raw.txt. At fire-time only 128 has landed; 129 has not been fired. The prompt 130 Phase 0 STEP 0.2 correctly self-gates (HALT_130_NO_SYNTH_VERDICT) and the agent halts cleanly. The discrepancy is between (a) drafting all of 128/129/130 ahead of time as a slate and (b) firing them in dependency order. This is structurally analogous to D-122-2 (the 122 ratification dispatch fire flagged that A1 'synth_verdict_raw.txt present' is structurally infeasible at agent-side preparation time and split A1-A4 into a deferred subset). 130 inherits the same constraint: A1-A4 are all gated on 129's deliverables.",
+      "blocking": false,
+      "resolution": "halt cleanly per the prompt's own STEP 0.2; recommend operator-fire 129 next; re-fire 130 after 129 has landed + dispatch round-trip is complete"
+    },
+    {
+      "id": "D-130-2",
+      "severity": "INFO",
+      "class": "draft_time_HEAD_vs_fire_time_HEAD_drift",
+      "summary": "Prompt 130 header records 'Bridge HEAD at draft: 27ff47c' (which is T1-SYNTH-M2-Q22-MATH-ARBITRATION-124-HALT-SUPERSEDED-BY-099, the predecessor commit before the M8B substrate-prep at slot 128 landed). Bridge HEAD at fire-time is f02ab5d (T2-EXECUTOR-M8B-RATIFICATION-SUBSTRATE-PREP-128). The drift is 1 commit corresponding to the 128 substrate-prep landing between draft and fire; this is correct and expected because 128 is a parallel-safe predecessor in the same slate. However the slate as a whole is NOT yet ready for 130 because the SEQUENTIAL chain 128 -> 129 -> 130 has only advanced through 128. Non-substantive; included for audit-trail completeness.",
+      "blocking": false,
+      "resolution": "documented in halt_log.json bridge_head_at_draft_time_per_prompt vs bridge_head_at_fire_time fields"
+    }
+  ]
+}

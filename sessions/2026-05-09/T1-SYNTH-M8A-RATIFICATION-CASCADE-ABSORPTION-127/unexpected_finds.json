@@ -1,0 +1,29 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-127-1",
+      "severity": "MEDIUM",
+      "summary": "Pre-fire gate trip class B observed: DEPENDENCY-NOT-LANDED (sibling to UF-124-1 class A: PRIOR-VERDICT-EXISTS). Slot 127 was drafted at 2026-05-09 ~14:55 JST in the same drafting pass that produced slot 126 (T1-SYNTH-M8A-RATIFICATION-SOLO-DISPATCH) and slot 125 (T2-EXECUTOR-M8A-RATIFICATION-SUBSTRATE-PREP). Only 125 has been fired so far; 126 is drafted but not yet executed. Slot 127's prompt body explicitly anchors its Phase 0 gates on the LANDED state of slot 126 ('synth_verdict_raw.txt captured in 126's bridge folder'). Operator fired this prompt before firing 126, presumably trusting the agent's Phase 0 STEP 0.2 to halt cleanly. The halt is clean as designed, but the slate-drafting workflow could surface a draft-time check on dependency-fire-order to avoid the fire-time halt.",
+      "candidate_memory_subject": "prompt drafting discipline / pre-fire gate taxonomy",
+      "candidate_memory_fact": "Phase 0 pre-fire gate trips fall into at least two classes: (A) PRIOR-VERDICT-EXISTS supersession (e.g. 124-halt; UF-124-1) and (B) DEPENDENCY-NOT-LANDED ordering (e.g. 127-halt; UF-127-1). Both halt cleanly when the prompt body includes the explicit Phase 0 trip clause (124 STEP 0.2 supersession audit; 127 STEP 0.2 synth_verdict_raw.txt presence check). Slate-drafting workflow could perform draft-time checks on (i) supersession-by-prior-fire and (ii) dependency-fire-order to reduce wasted operator effort. n=2 within-week sample (2026-05-09); pattern not yet stable enough for formalization."
+    },
+    {
+      "id": "UF-127-2",
+      "severity": "INFO",
+      "summary": "Mirror-comparison observation: 122 (M7 solo-dispatch) was followed by 123 (M7 cascade-absorption) on the same date 2026-05-09 with operator-side dispatch + verdict-paste interleaved between them. The 126/127 pair was drafted by the same template but the 126 fire has not yet occurred. Inference: operator workflow may have intended to interleave 126 + 127 in a single CLI session as with 122/123, but the fire-order was inverted (127 fired before 126). Recommended next step: agent fires 126 (substrate-prep packet assembly) -> operator dispatches packet to Claude.ai -> operator captures verbatim verdict into 126 bridge folder as synth_verdict_raw.txt -> agent re-fires 127 (cascade-absorption) under the same prompt 127 spec.",
+      "candidate_memory_subject": "n/a (observational; no memory candidate)"
+    },
+    {
+      "id": "UF-127-3",
+      "severity": "INFO",
+      "summary": "Bridge-HEAD advance audit: prompt 127 was drafted at bridge HEAD 27ff47c (T1-SYNTH-M2-Q22-MATH-ARBITRATION-124-HALT). At fire-time the bridge HEAD is f02ab5d (T2-EXECUTOR-M8B-RATIFICATION-SUBSTRATE-PREP-128). The intervening 8 commits include the M7 cascade landing (7f93b9e), the M8a substrate-prep landing (4f15411), the Q4 v2 verdict absorption (8a22b11), the Route F D7 fixed-point extraction (8ebd1eb), the umbrella v2.1 deposit (883dddf), the M6CC residual triage (4816ebc), the A-115 reconciliation (111de50), and the M8b substrate-prep landing (f02ab5d). None of these 8 commits is a slot-126 M8a-solo-dispatch fire; the dependency precondition for 127 remains unsatisfied notwithstanding the bridge-HEAD advance.",
+      "candidate_memory_subject": "n/a (observational; no memory candidate)"
+    },
+    {
+      "id": "UF-127-4",
+      "severity": "INFO",
+      "summary": "RULE 1 boundary observation: this halt is a math-tier pre-fire gate trip (Phase 0 STEP 0.2). No admin-tier action is implied by the halt. The recommended next step (fire 126) is also math-tier (synth-verdict capture for axis-closure). RULE 1 alignment is maintained without ambiguity; no Zenodo-side or other admin-tier transition is gated by 127's halt.",
+      "candidate_memory_subject": "n/a (observational; no memory candidate)"
+    }
+  ]
+}
