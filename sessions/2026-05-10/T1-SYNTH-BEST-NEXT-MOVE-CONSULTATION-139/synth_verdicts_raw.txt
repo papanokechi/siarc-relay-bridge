@@ -1,0 +1,112 @@
+# T1-SYNTH BEST-NEXT-MOVE CONSULTATION — VERBATIM SYNTH VERDICT
+# Slot:                139
+# Synth provider:      Claude Opus 4.7 (Anthropic, claude.ai web)
+# Witnesses:           single (R1 only; MEDIUM-HIGH band acceptable per packet §0)
+# Verdict received:    2026-05-10 ~08:15 JST
+# Operator-pasted to:  GitHub Copilot CLI (Claude Opus 4.7 xhigh) for absorption + bridge deposit
+# Verbatim?            YES (operator paste; agent has not edited any synth-authored prose below)
+# Source prompt:       prompt 139 = `tex/submitted/control center/prompt/139_t1_synth_best_next_move_consultation.txt`
+
+================================================================================
+=== R1 — Claude Opus 4.7 (claude.ai web) — VERBATIM ============================
+================================================================================
+
+I'll work through this peer-reviewer consultation carefully. The packet is well-structured: a T1-Synth open-scope strategic consultation asking for the optimal next agent-fireable move, with §1.5 surfacing genuinely new information (the lean/ reality survey) that wasn't available at cascade-132 draft time.
+
+Let me reason through this as the peer-researcher synth.
+
+---
+
+# T1-Synth Verdict — Slot 139 Best-Next-Move Consultation
+
+**Verdict label:** MOVE_F2 (HYBRID: MOVE_D5 → MOVE_E)
+**Confidence band:** MEDIUM-HIGH
+**Provider / model:** Claude Opus 4.7 (Anthropic, claude.ai web)
+**Date:** 2026-05-10 ~08:15 JST
+**Dual-witness?:** single (MEDIUM-HIGH acceptable per packet §0; dual-witness recommended but not required for this lower-stakes-than-131/132 fire)
+**Aggregation rule:** N/A (single-witness)
+
+## 1. Operative recommendation
+
+Fire **MOVE_D5** (cut `M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md` integrating §1.5 lean/ survey) as the immediate next agent move, then transition to **MOVE_E** (wait-for-operator) on the M10 status taxonomy decision. Rationale: §1.5 surfaced material new information about M10's mid-iteration state that the bootstrap closure-outlook did not have; the operator deserves to make the M10 status call with that information in hand, and MOVE_D5 is the cheapest, lowest-collision-risk way to get it there. All other moves either presume M10 readiness that §1.5 contradicts (MOVE_A), re-open a closed cascade prematurely (MOVE_B), or attack a residual that doesn't unblock the lift gate (MOVE_C, other MOVE_D variants).
+
+## 2. Reasoning by criterion
+
+| Criterion | MOVE_A | MOVE_B | MOVE_C | MOVE_D5 | MOVE_E | MOVE_F2 | Selected |
+|-----------|--------|--------|--------|---------|--------|---------|----------|
+| RULE 1 lift compression | direct but premature | direct, soft | none | indirect (improves decision) | none | indirect → eventual | MOVE_F2 ✓ |
+| Epistemic honesty (§1.5) | LOW (forces ritual on mid-flight work) | MEDIUM (delegates honestly but soft) | N/A | HIGH (surfaces reality) | HIGH (defers to operator) | HIGH | MOVE_F2 ✓ |
+| Cost-benefit | poor (3-5 hr, weak verdict forecast) | medium (1 fire, log-bloat risk) | good (small tactical close) | good (~30-45 min, high-info) | excellent (zero) | good (~30-45 min) | MOVE_F2 ✓ |
+| Operator-surprise minimization | within kickoff intent | within kickoff intent | tangential | mild expansion | matches "wait if dominated" clause | low surprise | MOVE_F2 ✓ |
+| Collision risk | HIGH (3 fires × n=3 pattern window) | MEDIUM (1 fire) | MEDIUM | LOW (single short fire) | ZERO | LOW | MOVE_F2 ✓ |
+| Reversibility | LOW (closure SHA hard to retract) | LOW (Amendment Logs append-only) | HIGH | HIGH (outlook doc is non-binding) | total | HIGH | MOVE_F2 ✓ |
+| Information-value of waiting | low | low | low | N/A (waiting after) | HIGH | HIGH | MOVE_F2 ✓ |
+| §1.4 decision-matrix coverage | M10 only | M10 only | Q22 only | M10 indirectly | none | M10 indirectly | partial — see §4 |
+
+**Headline:** MOVE_F2 dominates on epistemic honesty, cost-benefit, collision risk, and reversibility. It loses on direct RULE 1 lift compression, but that loss is illusory: MOVE_A's "compression" is bought by forcing a ritual on math that isn't ready, which weakens the resulting closure SHA (forecast verdict C-A3: `(SORRY-DISCHARGE-INCOMPLETE; LEAN-V0-PARTIAL)`) and risks the unbounded recursion in C-A4.
+
+## 3. Forward-pointed slot guidance
+
+- **Slot 139+ (next agent fire — MOVE_D5):** Cut `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md` integrating §1.5 of this consultation. Concrete deliverables: (a) lean/ survey table (6 .lean files + git status -s output verbatim); (b) implications block (i)-(v) from §1.5; (c) the "critical question" framing — is M10 even at V0-closure-ready stage, or substrate-prep stage; (d) updated §5 decision matrix with the M10 row split into three sub-options (SEPARATE-AXIS-NOW vs SEPARATE-AXIS-DEFERRED vs BUNDLED-DEFERRED-NOTE); (e) explicit operator-tier flag at top: "this document supersedes `..._PATH_B_COMPLETE.md` §5 for M10 decision purposes; all other §5 decisions unchanged." Expected duration: 30-45 min. No substrate-edit fires; documentation-only.
+
+- **Slot 140+:** WAIT-FOR-OPERATOR on M10 status decision. If operator returns SEPARATE-AXIS-DEFERRED or BUNDLED-DEFERRED-NOTE, RULE 1 lift becomes authorizable on documented commitment (cf. cascade-131 §1.4 last paragraph precedent for documented-commitment lifts). If operator returns SEPARATE-AXIS-NOW, slot 140 = MOVE_A substrate-prep (T2-Executor: commit lean/ work + sorry-count snapshot + closure-statement draft).
+
+- **RULE 1 lift trigger condition:** `[slot-135 ∧ slot-136 ∧ slot-137 ∧ m10-resolved]`. MOVE_F2 doesn't directly satisfy `m10-resolved` but improves the operator's information state for resolving it. Honest flag: lift gate remains 4/4-hard-SHAs-met-only.
+
+- **Operator-side gates (now visible):**
+  1. M10 status taxonomy decision (post-MOVE_D5 absorption).
+  2. Whether `cascade-131 §1.4 last paragraph` documented-commitment-lift precedent applies to M10 (operator's call).
+  3. PCF-2 concept-DOI paste-verify before any post-lift Zenodo deposit (`19936297`, NOT `19937196`).
+  4. Q22 final-disposition note (likely no-op; defer to post-lift cleanup).
+
+## 4. M10 status sub-recommendation (independent of selected MOVE)
+
+- **M10 status recommendation:** **DEFERRED-OUT-OF-M9-SCOPE** (variant of BUNDLED-DEFERRED-NOTE, not SEPARATE-AXIS).
+- **Confidence band:** MEDIUM-HIGH
+- **Reasoning:**
+
+The §1.5 reality survey is decisive on this. M10 ≈ Lean-4 sorry-discharge is not analogous to M4/M7/M8a/M8b. Those four axes were math-content axes where the underlying mathematics had reached a state ready for peer-review and a closure-statement could be authored with content the synth could verdict on. M10 is a *formalization* axis — the mathematics it formalizes (Thm 6.6 apparent singularity; Wallis family; CardEvenOfInvolution helper) is already covered under M2/M7/M8 closures. M10 closure means "Lean-4 build is green and sorries are discharged," which is a state-of-the-tooling claim, not a state-of-the-mathematics claim.
+
+Three observations push toward DEFERRED-OUT-OF-M9-SCOPE:
+
+(a) The 3-arc ratification template was designed for math-content closure. Using it on tooling-state ("build is green; 0 sorries") forces the synth to verdict on something the synth has limited access to verify (the synth doesn't run Lean; can only read sorry-count snapshots). C-A3's forecast — closure verdict `(SORRY-DISCHARGE-INCOMPLETE; LEAN-V0-PARTIAL)` — is honest but produces a closure SHA whose annotation contradicts the word "closure." This is epistemically worse than no closure SHA at all.
+
+(b) The bootstrap closure-outlook §5 listed M10 as an active operator decision, which implicitly assumed the synth would help frame the choice. The synth's framing: M9 V0 announcement substrate (umbrella v2.2, PCF-2 v1.4, picture v1.20+) does not require Lean-4 verification of its mathematical claims; the math is established by the cited papers. M10 is a *parallel verification track* whose value is referee-confidence-amplification, not foundational closure. As such, it should not gate M9 V0 announcement.
+
+(c) The cascade-131 §1.4 last paragraph (operative for M9 V0 path consultation, hence in the synth's authority chain) established the "documented-commitment-lift" precedent for cases where an axis is foundationally needed but not yet complete. M10 fits this precedent well: document the commitment to discharge sorries on a separate work-stream, lift RULE 1 on the M9 V0 announcement substrate, and let M10 close on its own timeline post-lift.
+
+The recommendation is therefore **DEFERRED-OUT-OF-M9-SCOPE with documented-commitment**: a one-paragraph operator-issued commitment ("M10 Lean-4 sorry-discharge is delegated to the post-RULE-1-lift work-stream; current state: build_errors_iter13 + uncommitted; commitment: complete-by-{date} or report-status-by-{date}") authorizes RULE 1 lift without requiring a premature closure cascade. This is structurally analogous to MOVE_B but lighter (one-paragraph operator commitment vs 3-document Amendment Log bundle), avoiding C-B1 (re-opening closed loop) and C-B2 (log-bloat) while keeping the epistemic honesty of MOVE_B.
+
+## 5. Path-not-taken record
+
+- **MOVE_A would dominate if** the operator commits the lean/ work and sorry-count drops to 0 within the next session window. In that state, M10 V0 is genuinely closure-ready and the 3-arc template applies cleanly.
+- **MOVE_B would dominate if** the operator strongly prefers the within-canon Amendment Log convention over an operator-issued commitment paragraph (i.e., values precedent uniformity over log-volume cost).
+- **MOVE_C would dominate if** the synth is wrong about MOVE_D5's information-value (i.e., operator already has the §1.5 information internalized and Q22 closeout is the binding residual). Cheap enough that it could be added to MOVE_F2 as MOVE_F1 variant if operator wants both.
+- **MOVE_D2/D3/D4 would dominate** only if operator explicitly flags governance debt as priority over RULE 1 lift; absent that signal, they are post-lift items.
+- **MOVE_E (pure wait) would dominate if** the synth concludes its own MOVE_D5 framing is itself a presumption beyond operator intent. Considered and rejected: kickoff packet §2 explicitly grants open-scope mandate, and §1.5 surfacing genuinely-new information is the kind of deliverable open-scope contemplates.
+
+## 6. Anomalies / open questions for next consultation
+
+- **A-139-1 (LOW):** Prompt 124 (`124_t1_synth_m2_q22_math_arbitration.txt`) status ambiguity per C-C2. Suggest operator clarify whether it was absorbed by slot 137 (in which case rename to `_EXECUTED.txt` or `_ABSORBED_BY_137.txt`) or still pending. Not blocking for MOVE_F2 but cleanup-eligible at any tactical fire.
+
+- **A-139-2 (LOW-MED):** The "documented-commitment-lift" precedent the synth invokes for §4 is grounded in cascade-131 §1.4 last paragraph. Synth did not re-verify that paragraph's exact wording during this consultation (out-of-scope for open-scope-strategic vs textual-arbitration). Operator should sanity-check before invoking the precedent.
+
+- **A-139-3 (MED):** The 9 `.fleet.yaml`-emitted agent cards (slot 138, repo `2b5b94e`) include a `synthesizer` role. This consultation could in principle be re-fired through that card with formal role-binding once the fleet machinery is exercised. Not done here (this dispatch path is stable; switching mid-cascade adds risk), but flagging for slot 140+.
+
+- **A-139-4 (LOW):** §1.5 lean/ survey was conducted by the agent-side author (Copilot CLI). Synth has not independently verified the survey (no direct repo access from claude.ai web). Single-source dependency on the §1.5 facts; this is the principal reason confidence is MEDIUM-HIGH not HIGH. Mitigated by: §10 pre-fire QA item 6 ("Quick `git status -s -- lean/` re-check") which the operator runs and can flag if delta.
+
+- **A-139-5 (LOW):** Verdict template §2 table required reasoning across 6 MOVEs × 8 criteria = 48 cells. Synth compressed many cells to short labels rather than full prose; if operator wants per-cell prose, request slot-139-FOLLOWUP textual-arbitration fire. Not recommended (low marginal information).
+
+- **Open question for next consultation:** if operator selects DEFERRED-OUT-OF-M9-SCOPE per §4, what is the format of the documented-commitment paragraph? Synth recommends a 3-line YAML block in `.fleet.yaml` `commitments:` section (new subsection) cross-linking to a one-page `m10_documented_commitment.md` substrate; operator's call.
+
+---
+
+**Synth note (out-of-template):** This consultation surfaced one structural observation worth flagging beyond the verdict — the M-axis taxonomy is conflating two different kinds of axes (math-content axes M4/M7/M8a/M8b vs tooling-state axes like M10) under a single closure ritual. This isn't a problem the synth should solve unilaterally, but if it recurs (e.g., M11/M12 turn out to also be tooling-state axes), the operator may want to commission a meta-consultation on whether the M-axis closure-statement template should fork into math-axis vs tooling-axis variants. Filed under §6 as a post-lift agenda item, not as a slot-139 deliverable.
+
+---
+
+*End of T1-Synth verdict, slot 139. Single-witness MEDIUM-HIGH. Recommends MOVE_F2 = MOVE_D5 (POST_LEAN_REALITY outlook) → MOVE_E (wait for operator on M10 status), with independent §4 sub-recommendation of DEFERRED-OUT-OF-M9-SCOPE for M10 status taxonomy.*
+
+================================================================================
+=== END R1 ====================================================================
+================================================================================
