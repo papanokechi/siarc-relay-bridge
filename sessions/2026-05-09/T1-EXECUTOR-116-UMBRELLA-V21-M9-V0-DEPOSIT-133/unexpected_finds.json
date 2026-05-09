@@ -1,0 +1,57 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-116-V20-NO-MILESTONE-TABLE",
+      "severity": "INFO",
+      "summary": "Prompt A2 states 'Milestone-status table in umbrella v2.1 reflects: M4 V0 CLOSED ... M6.CC R1 CLOSED ... Route F slot 115 LANDED'. Wording implies the table already exists in umbrella v2.0 and v2.1 only updates rows. Actual: umbrella v2.0 source has NO milestone-status table at all -- the SIARC milestone roadmap (M4/M6/M7/M8/M9) was not part of the v2.0 program-statement scope. v2.0's closest analogue is the 'Companion Papers and Status' longtable (sec:companions) which is per-paper not per-milestone.",
+      "context": "Discovered during Phase B insertion-point scan: grep_search for 'milestone|Milestone|M4|M6|M7|M8|M9' in umbrella main.tex returned 0 hits. The four-tier hierarchy section (sec:tiers) uses T0/T1/T2/T3 tier labels, not Mn milestone labels.",
+      "resolution": "v2.1 amendment created the milestone-status table from scratch under the new sec:closure-cascade (sec:closure-cascade-table). Three rows added (M4 V0, M6.CC R1, Route F slot 115); not a generic-Mn table -- only rows for the three closure events in scope of prompt 116."
+    },
+    {
+      "id": "UF-116-CONCEPT-DOI-DRIFT",
+      "severity": "INFO",
+      "summary": "Three-way disagreement on the umbrella concept DOI across the substrate (prompt sec 1.4: 19965040; tex source: 19885550; picture cross-walks: 19885549; portfolio audit: 19965040 with 'concept x' verdict). The picture cross-walks and the tex source differ by exactly 1 (49 vs 50). This is most likely an OCR / typo class error in the picture spreadsheet that propagated.",
+      "context": "Discovered during STEP 0.4 BIB pre-verify and Phase C Zenodo deposit-prep. Multiple historical bridge artefacts cite the wrong concept DOI; the v2.0 record on Zenodo is the ground truth and should be inspected in browser at Phase C.1.2.",
+      "resolution": "Logged as DISCREPANCY-116-CONCEPT-DOI; agent uses tex-source value 19885550 for the v2.1 source amendment (which only cites it once, in the inherited Companion Papers table UMB row); operator inspects the actual Zenodo record during Phase C and updates if needed. Recommended follow-up: a small audit task to reconcile the three substrates after Phase C lands the actual concept DOI."
+    },
+    {
+      "id": "UF-116-AGENT-CANNOT-FIRE-ZENODO",
+      "severity": "MEDIUM",
+      "summary": "Prompt 116 was authored as if the agent could fire Phase C end-to-end (sec 5 Phase C steps C.1-C.4 read like agent operations). The agent's persistent PowerShell terminal cannot drive a Zenodo `New version` deposit: no TTY for OAuth device-code, no Zenodo API token in process scope, no browser-control tool unless explicitly invoked via the open_browser_page family (which would still need cached Zenodo session credentials).",
+      "context": "Same class of limitation as `gh-auth-agent-terminal-limitation-2026-04-29` repo memory entry. The pattern is: any external service requiring an interactive web-auth flow is operator-side unless the relay prompt provides a token in-line per the gh memo's section 6 step 2 pattern.",
+      "resolution": "Routed Phase C and the Phase D cross-link metadata edits as operator-runbook deliverables (zenodo_v21_deposit_log.md sec 3 + cross_link_update_log.md). Agent completes Phase A + B + B.5 + the agent-side parts of D (submission_log splice with operator-pending DOI placeholder) + E. Status set to PARTIAL. Suggested standing-instruction add: a section in copilot-instructions.md noting that Zenodo deposits are operator-side unless a Zenodo API token is provided in the relay prompt body, parallel to the gh memo."
+    },
+    {
+      "id": "UF-116-SUBMISSION-LOG-MISSING-V20",
+      "severity": "INFO",
+      "summary": "Prompt sec 1.4 states 'Current published version: v2.0 (DOI 10.5281/zenodo.19965041, deposited 2026-05-02 per submission_log Item 18 series 2)'. Actual: tex/submitted/submission_log.txt series 2 has no entry for the umbrella v2.0 deposit at all (last item is Item 10 = T2B v3.0). The umbrella v2.0 deposit appears to have been published on Zenodo but not back-recorded in the local submission log.",
+      "context": "Discovered during Phase D splice prep: searched for the v2.0 row to follow its formatting pattern, found nothing. Series 2 currently runs Items 1-10 with no umbrella v2.0 row.",
+      "resolution": "Documented as DISCREPANCY-116-SUBLOG-NUMBERING. The v2.1 splice will be Item 11 series 2. Suggested follow-up task: backfill an Item-N entry for the umbrella v2.0 deposit (DOI 19965041, 2026-05-02) before Item 11, OR co-locate the v2.0 + v2.1 entries as a paired Item 11 v2.0 / Item 12 v2.1 splice. Operator chooses at Phase D time."
+    },
+    {
+      "id": "UF-116-NEW-BIBKEYS-CASE-CONVENTION",
+      "severity": "INFO",
+      "summary": "Prompt STEP 0.4 BIB pre-verify lists bibkeys lowercase (okamoto1987, iwasakikimura, ohyama2006, oks_o_2006, sakai2001, kny2017). Actual umbrella v2.0 bibitems are CamelCase or mixed (PCF1, PCF2, CT, T2B, jSN, Paper14, P08, Birkhoff1930, BirkhoffTrjitzinsky1933, ChowlaSelberg1967). Same class of finding as session 115's UF-115-NEW-BIBKEYS-RESOLVED-INLINE.",
+      "context": "Discovered during Phase B amendment drafting. Agent followed session 115's resolution: used the case convention dominant in the target file (CamelCase / mixed) and adopted CamelCase for the four new bibitems (Okamoto1987, Ohyama2006, Sakai2001, KNY2017). Note that p12_journal_main.tex uses lowercase 'ohyama2006' (mixed-case dominant in p12 too) -- the umbrella v2.1 chose CamelCase 'Ohyama2006' to match the rest of the umbrella's CamelCase convention; this is a minor cross-document case-convention drift but stays internally consistent within umbrella v2.1.",
+      "resolution": "Carried forward the umbrella's CamelCase convention for the four new bibitems. Cross-document consistency with p12 is sacrificed for intra-document consistency. Suggested follow-up: a consolidated bib-case-convention task across the SIARC stack (umbrella, p12, pcf2, CT, T2B, etc.) -- low priority; not gating any milestone."
+    },
+    {
+      "id": "UF-116-PROMPT-SAYS-CT-V13",
+      "severity": "INFO",
+      "summary": "Prompt sec 3 A7 says 'CT v1.3 Zenodo Related identifiers'. umbrella v2.0 sec:companions table records CT's latest version as v1.2 at DOI 19951331. There is no published CT v1.3 record on Zenodo at fire time per the visible substrate.",
+      "context": "Discovered during Phase D cross-link runbook drafting. The 'CT v1.3' reference appears in 116's A7 + sec 11(a) ('CT v1.4 narrative drafting (separate todo `ct-v14-narrative-draft` in_progress)') -- the latter implies CT v1.3 is an intermediate step that may not have deposited yet.",
+      "resolution": "cross_link_update_log.md uses 'CT v1.2 / DOI 19951331' (the actual latest published version). If CT v1.3 has been deposited but not surfaced in the substrate I checked, operator will see the discrepancy at Phase D and update the runbook table by hand. No HALT triggered."
+    },
+    {
+      "id": "UF-116-NO-INDEX-TXT-AT-BRIDGE-ROOT",
+      "severity": "INFO",
+      "summary": "Prompt sec 5 Phase E.6 says 'Append POSTSCRIPT-39 to bridge _INDEX.txt'. Actual: no _INDEX.txt exists at siarc-relay-bridge root, nor recursively anywhere in the bridge. Either the index file was never created, or it lives elsewhere (e.g. as a markdown index in a different filename), or the prompt drafter assumed an index that would have been created by an earlier session that did not actually create one.",
+      "context": "Discovered at Phase E.6 fire time: 'Test-Path _INDEX.txt' returned False at bridge root, 'Get-ChildItem -Recurse -Filter _INDEX.txt' returned no results. Same class of substrate-vs-prompt drift as the concept-DOI and submission-log issues earlier in the session.",
+      "resolution": "POSTSCRIPT-39 (or POSTSCRIPT-40) append step skipped this session. The handoff.md + bridge-folder structure is the canonical record; the operator can decide whether to seed a new _INDEX.txt (with all prior POSTSCRIPT entries reconstructed from session-folder names) or retire the convention. Documented here in case future sessions ask the same question."
+    }
+  ],
+  "high_count": 0,
+  "medium_count": 1,
+  "low_count": 0,
+  "info_count": 7
+}

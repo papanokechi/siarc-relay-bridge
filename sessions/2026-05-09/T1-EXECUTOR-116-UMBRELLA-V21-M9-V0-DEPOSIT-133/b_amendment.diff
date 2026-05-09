@@ -1,0 +1,255 @@
+diff --git a/main_v20_baseline.tex.bak b/main.tex
+index 93ff996..f507e26 100644
+--- a/main_v20_baseline.tex.bak
++++ b/main.tex
+@@ -37,9 +37,9 @@
+ 
+ \title{An Arithmetic Stratification of Polynomial Continued Fractions:\\
+        Program Statement of the SIARC Series\\
+-       \large (v2.0: Modular-Discriminant Framing)}
++       \large (v2.1: Closure Cascade Amendment)}
+ \author{papanokechi}
+-\date{May 2026}
++\date{May 2026 (v2.1)}
+ 
+ \begin{document}
+ \maketitle
+@@ -66,8 +66,20 @@ post-T2 entries (\textsf{op:j-zero-amplitude-h6},
+ \emph{No proofs and no new theorems are reproduced here}; every
+ nontrivial claim is stated as a conjecture or attached to a companion
+ paper by Zenodo DOI. The purpose of this document is to provide a
+-stable, citable scope-anchor (\emph{[SIARC v2.0]}) for the program
+-and to fix unified notation for the post-March 2026 stack.
++stable, citable scope-anchor (\emph{[SIARC v2.1]}, superseding
++\emph{[SIARC v2.0]}) for the program and to fix unified notation for
++the post-March 2026 stack. The v2.1 revision (May 2026) appends a
++Closure Cascade and Bridge Provenance section
++(\S\ref{sec:closure-cascade}) recording three milestone closures landed
++on the SIARC relay bridge since v2.0: the M4 V0 closure (deg-$a=0$ row
++mechanism, ratified 2026-05-08), the M6.CC R1 closure (V$_{\mathrm{quad}}$
++on the $D_6 \to D_7$ degeneration boundary, via the Q4 v2 cascade), and
++the Route F slot 115 numerical re-derivation (image
++$(\alpha,\beta,\gamma,\delta) = (0,0,1/9,0)$ at $\mathrm{dps}=300$ with
++$s_1$ fixed-point at $\alpha_1 = 0$). \emph{All mathematical content,
++conjectures, open problems, and the cross-degree triple of
++\S\ref{sec:triple} are unchanged from v2.0}; the v2.1 amendment is a
++status / provenance addendum, not a content revision.
+ \end{abstract}
+ 
+ \tableofcontents
+@@ -133,6 +145,25 @@ dichotomy at $d=2$. At $d \geq 3$ the triple is genuinely new
+ information; the four-tier hierarchy extends \emph{conjecturally},
+ with empirical support from PCF-2 v1.3.
+ 
++\paragraph{What changed between v2.0 and v2.1.}
++\label{par:v20-to-v21}
++v2.1 (May 2026) is a status / provenance addendum, not a content
++revision. No definition, conjecture, open problem, or theorem cited
++in v2.0 is altered. The v2.1 amendment appends a Closure Cascade and
++Bridge Provenance section (\S\ref{sec:closure-cascade}) bundling
++three milestone closures landed on the SIARC relay bridge
++(\href{https://github.com/papanokechi/siarc-relay-bridge}{github.com/papanokechi/siarc-relay-bridge})
++since v2.0: M4 V0 (deg-$a=0$ row mechanism, ratified 2026-05-08;
++bridge SHA \texttt{5f9db69}); M6.CC R1 (V$_{\mathrm{quad}}$ on the
++$D_6 \to D_7$ degeneration boundary via the Q4 v2 cascade; bridge SHAs
++\texttt{10b5cf6} + \texttt{8a22b11}); and the Route F slot 115
++numerical re-derivation of the V$_{\mathrm{quad}}$ image
++$(\alpha,\beta,\gamma,\delta) = (0,0,1/9,0)$ at $\mathrm{dps}=300$
++with the $s_1$ fixed-point at $\alpha_1 = 0$ under the surviving
++$\widetilde{W}_a(A_1)$ Cremona action (bridge SHA \texttt{8ebd1eb}).
++All three closures are inherited from companion papers and bridge
++artefacts; no numerical claim originates in this v2.1 document.
++
+ \section{The Four-Tier Hierarchy}
+ \label{sec:tiers}
+ 
+@@ -794,7 +825,7 @@ PCF-1 & Polynomial continued fractions at degree $(d,1)$: sharp WKB exponents an
+ PCF-2 & Polynomial continued fractions at degree three: a cubic-modular framing & Zenodo v1.3 (2026-05-02); program statement, 22pp & \href{https://doi.org/10.5281/zenodo.19963298}{10.5281/zenodo.19963298} (v1.3) / concept \href{https://doi.org/10.5281/zenodo.19936297}{19936297} \\
+ CT    & Channel Theory: V$_{\mathrm{quad}}$ resurgence and the CC-pipeline & Zenodo v1.2 (2026-05-01) & \href{https://doi.org/10.5281/zenodo.19951331}{10.5281/zenodo.19951331} (v1.2) / concept \href{https://doi.org/10.5281/zenodo.19941678}{19941678} \\
+ T2B   & Two arithmetic classes of degree-$(2,1)$ Trans-stratum continued fractions: a Birkhoff--Trjitzinsky / Gauss-continued-fraction dichotomy & Zenodo v3.0 (2026-04-30) & \href{https://doi.org/10.5281/zenodo.19915689}{10.5281/zenodo.19915689} (v3.0) / concept \href{https://doi.org/10.5281/zenodo.19783311}{19783311} \\
+-UMB   & \emph{This document} (umbrella program statement, v2.0) & Zenodo v2.0 (this version) & concept \href{https://doi.org/10.5281/zenodo.19885550}{10.5281/zenodo.19885550} (v1 superseded) \\
++UMB   & \emph{This document} (umbrella program statement, v2.1) & Zenodo v2.1 (this version) & concept \href{https://doi.org/10.5281/zenodo.19885550}{10.5281/zenodo.19885550} (v1, v2.0 superseded) \\
+ \midrule
+ \multicolumn{4}{@{}l}{\emph{Drafting / forthcoming}} \\
+ \midrule
+@@ -823,6 +854,152 @@ been stated as a conjecture, an open problem, or a remark with a pointer
+ to the responsible companion paper. Readers seeking proofs should
+ consult the cited companion paper directly.
+ 
++\section{Closure Cascade and Bridge Provenance (v2.1 amendment)}
++\label{sec:closure-cascade}
++
++This section is appended in v2.1 (May 2026). It records three
++milestone closures landed on the SIARC relay bridge
++(\href{https://github.com/papanokechi/siarc-relay-bridge}{github.com/papanokechi/siarc-relay-bridge})
++since v2.0, with the canonical bridge SHA, the closure mechanism, and
++a pointer to the companion paper or bridge session that owns the
++underlying derivation. \emph{No numerical claim in this section
++originates in this document}; every number is inherited from a
++companion paper or a previously deposited bridge session, traceable
++to a bridge \texttt{claims.jsonl} entry. The AEAL claim audit for
++v2.1 is recorded in
++\texttt{sessions/2026-05-09/T1-EXECUTOR-116-UMBRELLA-V21-M9-V0-DEPOSIT-133/claims.jsonl}
++on the bridge.
++
++\subsection{Milestone status table}
++\label{sec:closure-cascade-table}
++
++\begin{center}
++\renewcommand{\arraystretch}{1.20}
++\begin{longtable}{@{}p{0.18\linewidth} p{0.20\linewidth} p{0.30\linewidth} p{0.22\linewidth}@{}}
++\toprule
++Milestone & v2.0 status & v2.1 status (this amendment) & Bridge SHA(s) \\
++\midrule
++\endfirsthead
++\toprule
++Milestone & v2.0 status & v2.1 status (this amendment) & Bridge SHA(s) \\
++\midrule
++\endhead
++M4 V0 & PROVISIONAL (open mid-April 2026) & CLOSED via deg-$a=0$ row mechanism (MEDIUM-HIGH; HIGH-pending Wasow \S X.3 OCR + W21 LANE-1 ratification) & \texttt{5f9db69} \\
++M6.CC R1 & GATED on V$_{\mathrm{quad}}$ structural diagnosis & CLOSED via Q4 v2 cascade ($D_6 \to D_7$ degeneration boundary; HIGH conf.) & \texttt{10b5cf6} (packet 130), \texttt{8a22b11} (verdict 131) \\
++Route F slot 115 & PENDING numerical re-derivation & LANDED ($\mathrm{dps}=300$ re-derivation; $s_1$ fixed-point at $\alpha_1=0$) & \texttt{8ebd1eb} \\
++\bottomrule
++\end{longtable}
++\end{center}
++
++\subsection{Item~1 --- M4 V0 closure (deg-$a=0$ row mechanism)}
++\label{sec:closure-cascade-m4}
++
++The M4 stratum closure landed on the bridge as
++\texttt{M4-V0-CLOSURE-CASCADE-106} (bridge SHA \texttt{5f9db69},
++2026-05-08). The canonical synth-ratified closure statement (Claude
++Opus 4.7, T1-Synth, Claude.ai web; \verb|ACCEPT_W_REVISIONS|) reads
++in part:
++\emph{``M4 V0 CLOSED via the deg-$a=0$ row mechanism (068 verdict
++\textsf{UPGRADE\_FULL\_VIA\_DEG\_A\_ZERO\_ROW}). The deg-$a=0$ row
++supersedes the prior expected closure path
++(Costin--Borderline / Birkhoff--Trjitzinsky 1933 \S 1 anormal
++$q=2$ fractional-rank resurgence) and provides the structural
++M4-stratum closure at zero acquisition cost. The closure runs at the
++algebraic-combinatorial level via the four-row Phase A WZ-balance
++enumeration extension and the V6 closed-form general formula
++$A_{\mathrm{naive}} = 2d - d_a$, specialised to $d_a = 0$ to give
++$A_{\mathrm{naive}} = 2d$ uniformly at general $d \geq 2$.''}
++Confidence is recorded as \emph{MEDIUM-HIGH; HIGH-pending} on
++post-W21-LANE-1 ratification + post-Wasow \S X.3 OCR acquisition.
++Numerical residuals at the original 068 dispatch precision are
++\emph{$d=3$ cubic} $A_{\mathrm{fit}} = 5.978 \pm 0.026$ (dps$=800$,
++$50$ families) and \emph{$d=4$ quartic}
++$A_{\mathrm{fit}} = 7.954 \pm 0.0037$ (dps$=1200$, $60$ families),
++both within $1\sigma$ of the V6 prediction $A = 2d$ after the
++standard $1/\log N$ finite-window correction; these numbers are
++inherited from bridge session 068 and reproduced in
++\texttt{M4-V0-CLOSURE-CASCADE-106/m4\_v0\_closure\_statement\_canonical.md}.
++
++\subsection{Item~2 --- M6.CC R1 closure (V$_{\mathrm{quad}}$ on the $D_6 \to D_7$ degeneration boundary, via the Q4 v2 cascade)}
++\label{sec:closure-cascade-m6}
++
++The M6.CC R1 closure landed on the bridge across two sessions: the
++Q4 round-2 substrate-direct derivation packet
++\texttt{T1-OPERATOR-Q4-ROUND2-DIRECT-DERIVATION-PACKET-130}
++(bridge SHA \texttt{10b5cf6}), and the synth verdict-absorption
++session \texttt{T1-SYNTH-Q4-V2-VERDICT-ABSORPTION-131}
++(bridge SHA \texttt{8a22b11}; verdict
++\textsf{GO\_ROUTE\_F\_FIXED\_POINT\_DISTINGUISHED} HIGH conf.).
++The closure mechanism reframes the V$_{\mathrm{quad}}$ stratum as
++sitting on the $D_6 \to D_7$ degeneration boundary of Sakai's
++Painlev\'e III hierarchy: the V$_{\mathrm{quad}}$ image
++$(\eta_\infty, \eta_0, \theta_\infty, \theta_0) = (1/6, 0, 0, -1/2)$
++violates the standing assumption $\eta_0 \neq 0$ of the
++$P_{III}'(D_6)$ generic open stratum, and the surviving Cremona
++symmetry reduces to $\widetilde{W}_a(A_1)$ on the
++$P_{III}'(D_7)$ sector. Substrate anchors:
++Okamoto~\cite{Okamoto1987} \S 1 (Hamiltonian conventions);
++Ohyama, Kawamuko, Sakai, Okamoto~\cite{Ohyama2006} \S 3.1
++(the $D_6 \to D_7$ reduction map and the resulting $D_7$-type
++$P_{III}$ Hamiltonian);
++Kajiwara, Noumi, Yamada~\cite{KNY2017} \S 8.5 (the $E_8^{(1)}$
++discrete Painlev\'e Cremona-action ladder and the
++$\widetilde{W}_a(A_1)$ subgroup);
++Sakai~\cite{Sakai2001} (rational-surfaces / affine-root-systems
++classification underpinning the $D_n^{(1)}$ surface labelling).
++This closure converges with the off-generic-stratum diagnosis of
++the 069r3 final synthesis (bridge SHA \texttt{ae5b7f7},
++\texttt{T1-SYNTH-069R3-FINAL-VERDICT-ABSORPTION-124}): two
++independent T1-Synth threads land on the same structural feature
++(V$_{\mathrm{quad}}$ on the degenerate locus of $P_{III}(D_6)$) from
++different angles. The convergence is recorded as a positive forensic
++signal in \texttt{sessions/2026-05-09/T2-EXECUTOR-115-ROUTE-F-D7-FIXED-POINT-EXTRACTION-132/unexpected\_finds.json}.
++
++\subsection{Item~3 --- Route F slot 115 numerical re-derivation}
++\label{sec:closure-cascade-route-f}
++
++The Route F executor session
++\texttt{T2-EXECUTOR-115-ROUTE-F-D7-FIXED-POINT-EXTRACTION-132}
++(bridge SHA \texttt{8ebd1eb}, 2026-05-09) reproduces the synth
++Q4 v2.0 structural payload at agent-side numerical precision
++$\mathrm{dps} = 300$. Pushing the V$_{\mathrm{quad}}$ image
++$(\eta_\infty, \eta_0, \theta_\infty, \theta_0) = (1/6, 0, 0, -1/2)$
++through the Ohyama--Kawamuko--Sakai--Okamoto~\cite{Ohyama2006}
++\S 3.1 reduction map yields
++$(\alpha, \beta, \gamma, \delta) = (0, 0, 1/9, 0)$ with all
++residuals below $10^{-200}$ and the relation
++$\gamma\delta = 0$ (violating the generic $P_{III}'(D_6)$ standing
++assumption $\gamma\delta \neq 0$, the $D_7$-sector signature). On
++the $P_{III}'(D_7)$ sector the surviving Cremona action is
++$\widetilde{W}_a(A_1)$ with simple reflection
++$s_1: \alpha_1 \mapsto -\alpha_1$; the V$_{\mathrm{quad}}$ image
++sits at $\alpha_1 = 0$, the $s_1$ fixed point, recovered as a
++closed-form mpmath identity. The companion paper PCF-1
++\cite{PCF1} carries the manuscript pull-back: a new labelled
++remark \verb|rem:vquad-d7-s1| in \cite{PCF1} \S V$_{\mathrm{quad}}$
++documents the $D_6 \to D_7$ sector descent and the $s_1$ fixed-point
++identity, with a cross-cascade convergence note pointing to the
++069r3 off-generic-stratum diagnosis (bridge SHA \texttt{ae5b7f7}).
++The numerical re-derivation is reproducible from the script
++\texttt{vquad\_p3d6\_recovery.py::compute\_d6\_to\_d7\_reduction\_at\_v\_quad}
++and is logged as five AEAL claims in
++\texttt{sessions/2026-05-09/T2-EXECUTOR-115-ROUTE-F-D7-FIXED-POINT-EXTRACTION-132/claims.jsonl}.
++
++\subsection{What v2.1 does \emph{not} do}
++\label{sec:closure-cascade-out-of-scope}
++
++For clarity of scope: v2.1 does not modify \S\S\ref{sec:intro}--\ref{sec:companions}
++in any way beyond the title, date, abstract addendum, and the
++\textsf{par:v20-to-v21} paragraph; the cross-degree triple of
++\S\ref{sec:triple}, the Trans-Stratum Conjecture of
++\S\ref{sec:t2b}, and the Open Problems of \S\ref{sec:open} are
++unchanged. The Route F closure does \emph{not} resolve the v2.0
++open problems
++(\textsf{op:median-resurgence-extension}, \textsf{op:Pk-cells-structure},
++\textsf{op:chi-Phi-compatibility}); those remain open. The v2.1
++amendment is a milestone-status update for the SIARC bridge, not a
++content revision of the program statement.
++
+ \section{AI Disclosure}
+ \label{sec:ai}
+ 
+@@ -932,6 +1109,27 @@ S.~Chowla and A.~Selberg,
+ \emph{On Epstein's zeta-function},
+ Journal f\"ur die reine und angewandte Mathematik \textbf{227} (1967), 86--110.
+ 
++\bibitem{Okamoto1987}
++K.~Okamoto, \emph{Studies on the Painlev\'e equations IV: third
++Painlev\'e equation $P_{III}$}.
++Funkcial.\ Ekvac.\ \textbf{30} (1987), 305--332.
++
++\bibitem{Ohyama2006}
++Y.~Ohyama, H.~Kawamuko, H.~Sakai, K.~Okamoto,
++\emph{Studies on the Painlev\'e equations V, third Painlev\'e
++equations of types $D_{7}$ and $D_{8}$}.
++J.~Math.\ Sci.\ Univ.\ Tokyo \textbf{13} (2006), 145--204.
++
++\bibitem{Sakai2001}
++H.~Sakai, \emph{Rational surfaces associated with affine root
++systems and geometry of the Painlev\'e equations}.
++Comm.\ Math.\ Phys.\ \textbf{220} (2001), 165--229.
++
++\bibitem{KNY2017}
++K.~Kajiwara, M.~Noumi, Y.~Yamada,
++\emph{Geometric aspects of Painlev\'e equations}.
++J.\ Phys.\ A: Math.\ Theor.\ \textbf{50} (2017), 073001 (164 pp.).
++
+ \end{thebibliography}
+ 
+ \end{document}
