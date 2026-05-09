@@ -1,0 +1,16 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-122-1",
+      "severity": "INFO",
+      "summary": "Prompt 122 §4 says 'agent (or operator) absorbs it into bridge as session T1-SYNTH-M7-RATIFICATION-SOLO-DISPATCH-{TASK_NUM}'; ambiguous on whether the agent or operator owns the verdict-capture deliverables (synth_verdict_raw.txt, verdict_packet.md). Resolved by splitting into a 122 agent-side preparation arc (this fire) + 123 operator-fired absorption arc, mirroring 104 M4 fast-track convention.",
+      "resolution": "Split arc into preparation (122) + absorption (123) per 104 mirror; agent ownership of preparation; operator ownership of dispatch + verdict-capture; agent ownership of absorption (123)."
+    },
+    {
+      "id": "D-122-2",
+      "severity": "INFO",
+      "summary": "Prompt 122 §5 A1 requires synth_verdict_raw.txt present + non-empty; this is structurally infeasible at agent-side preparation time because the synth has not yet been dispatched. A1-A4 acceptance criteria are necessarily deferred to 123 cascade-absorption.",
+      "resolution": "Accept that 122 acceptance criteria split into A_prep_subset (this fire: A5 AEAL, A6 forbidden-verb scan, A7 bridge deposit, A8 SQL todo for 123) and A_dispatch_subset (123: A1 raw verdict, A2 parseable label, A3 reasoning sections, A4 amendment text if applicable). 123 will explicitly enumerate A1-A4 closure."
+    }
+  ]
+}
