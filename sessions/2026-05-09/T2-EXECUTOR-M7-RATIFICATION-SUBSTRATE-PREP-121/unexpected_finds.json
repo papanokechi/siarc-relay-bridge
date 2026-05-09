@@ -1,0 +1,30 @@
+{
+  "session": "T2-EXECUTOR-M7-RATIFICATION-SUBSTRATE-PREP-121",
+  "date": "2026-05-09",
+  "unexpected_finds": [
+    {
+      "id": "U1",
+      "category": "audit",
+      "severity": "info",
+      "title": "M7 V0 was ALREADY achieved in soft branch via Prompt 014 on 2026-05-02; substrate-prep is retroactive ratification template assembly",
+      "description": "Unlike M4 V0 (where the closure happened in 068/074 and the ratification cycle 104→105→106 followed shortly after), M7 V0 was substantively closed on 2026-05-02 via Prompt 014 (verdict PASS_A_EQ_6_ONLY) and recorded in picture v1.19 as 'M7 ✅ achieved in soft branch' on 2026-05-06. The 7-day gap between substantive closure and ratification reflects the absence of the canonical 3-arc template at the time of the original closure. This prompt 121 fire is RETROACTIVE substrate-prep — assembling the ratification dossier for a closure that already exists in the picture-chain record. Implication: the synth at slot 122 will not be ratifying a fresh closure; it will be ratifying a 7-day-old soft-branch closure into the canonical 3-arc template language. This is a structurally cleaner case than M4 V0 (where the synth's caution surfaced two real defects); the synth here may rubber-stamp without controversy IF the synth accepts the soft-branch / hard-branch confidence-qualifier discipline.",
+      "downstream_propagation": "Picture-chain v1.20+ M7_V0_CLOSED tag must read (SOFT-BRANCH; HARD-BRANCH-PENDING) per the M4 V0 cascade precedent. Recorded in §2.3 Residual #1 + §4 revised-wording template."
+    },
+    {
+      "id": "U2",
+      "category": "audit",
+      "severity": "info",
+      "title": "Milestone Residual Gap Survey M4-M7-M8B-M9 (2026-05-04) is reconnaissance, NOT a prior M7 ratification fire — supersession-gate clear",
+      "description": "The only bridge artifact with 'M7' in its filename outside the picture chain is sessions/2026-05-04/MILESTONE-RESIDUAL-GAP-SURVEY-M4-M7-M8B-M9/dossier_milestone_residual_gap_survey_m4_m7_m8b_m9.md, which is explicitly reconnaissance ('no closure attempt is made for any of M4, M7, M8b, M9. The dossier is reconnaissance only'). It contributes substrate to §2.2 of the M7 V0 ratification template (literature reconnaissance row B.P1-B.P9 + §E cross-cut M7 row), but does NOT count as a prior M7 ratification fire and therefore does NOT trigger HALT_121_PRIOR_M7_FIRE_EXISTS. Recorded in halt_log.json halt_evaluations[1] as PASS.",
+      "downstream_propagation": "None — supersession-gate cleared per envelope. Audit-trail-immutable."
+    },
+    {
+      "id": "U3",
+      "category": "governance",
+      "severity": "info",
+      "title": "RULE 1 retriage active 2026-05-09 ~11:18 JST: M7 axis ratification listed under §1 KEEP as math-foundational; PCF-2 v1.4 §6 amendment Zenodo deposit step TABLED",
+      "description": "The RULE 1 marker file at tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260509_RULE1.md (frozen 2026-05-09 ~11:18 JST, bridge HEAD at freeze 8ebd1eb) lists 'M7 axis ratification (3-arc template; mirror 104→105→106)' under §1 KEEP as math-foundational, status 'unblocked; not yet started'. Under RULE 1, all admin/distribution work (Zenodo deposits, arXiv endorsement chasing, mirror records, paper-form fills) is TABLED until M1-M12 math-foundational closure complete. This means: the M7 V0 ratification (this 3-arc cascade) is in scope; the PCF-2 v1.4 §6 amendment Zenodo deposit (Phase F output of Prompt 014) is TABLED until post-M-closure. Math content step (the §6 amendment text itself) is in scope; admin step (the Zenodo deposit action) is TABLED. Recorded in §1 + §7 of m7_v0_ratification_template.md.",
+      "downstream_propagation": "Picture chain v1.20+ M7 row should reflect 'V0 ratified at synth tier' AND 'PCF-2 v1.4 §6 amendment Zenodo deposit TABLED under RULE 1; resumes post-M-closure'."
+    }
+  ]
+}
