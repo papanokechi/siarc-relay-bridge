@@ -1,0 +1,33 @@
+{
+  "session": "T2-EXECUTOR-M7-RATIFICATION-SUBSTRATE-PREP-121",
+  "date": "2026-05-09",
+  "halts_triggered": 0,
+  "envelope_halt_count": 5,
+  "halt_evaluations": [
+    {
+      "id": "HALT_121_M4_PRECONDITION_NOT_MET",
+      "trigger_condition": "M4 V0 not ratified at synth tier (per Phase 0.2 precondition gate)",
+      "evaluation": "PASS — M4 V0 status = COMPLETE per sessions/2026-05-08/M4-V0-CLOSURE-CASCADE-106/handoff.md (Verdict: M4_V0_CLOSED MEDIUM-HIGH; halt_log.json halts_triggered=0); M4 ratification template at tex/submitted/control center/m4_v0_ratification_template.md status = EXECUTED 2026-05-08 ~08:30 JST"
+    },
+    {
+      "id": "HALT_121_PRIOR_M7_FIRE_EXISTS",
+      "trigger_condition": "Any prior M7 substrate-prep / ratification fire exists in bridge sessions/",
+      "evaluation": "PASS — Get-ChildItem siarc-relay-bridge/sessions/ -Recurse -Filter '*M7*' returns only one file: sessions/2026-05-04/MILESTONE-RESIDUAL-GAP-SURVEY-M4-M7-M8B-M9/dossier_milestone_residual_gap_survey_m4_m7_m8b_m9.md. That artifact is reconnaissance literature survey ('no closure attempt is made for any of M4, M7, M8b, M9. The dossier is reconnaissance only.'), NOT a ratification-class fire. No prior M7 ratification or substrate-prep fire exists; supersession-gate clear."
+    },
+    {
+      "id": "HALT_121_BRIDGE_HEAD_DRIFT",
+      "trigger_condition": "Bridge HEAD < 8ebd1eb at fire time (precondition per prompt §3 STEP 0.1)",
+      "evaluation": "PASS — Bridge HEAD verified at 8ebd1ebb2aff635cbd12f6fa30c974bfb5aecbd9 via git rev-parse HEAD at 2026-05-09 11:36 JST (this session)"
+    },
+    {
+      "id": "HALT_121_RULE1_NOT_ACTIVE",
+      "trigger_condition": "RULE 1 not active per picture/M1_M12_CLOSURE_OUTLOOK_20260509_RULE1.md",
+      "evaluation": "PASS — RULE 1 marker file present at tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260509_RULE1.md (frozen 2026-05-09 ~11:18 JST, bridge HEAD at freeze 8ebd1eb). M7 axis ratification listed under §1 KEEP as math/3-arc template (mirror 104→105→106), status 'unblocked; not yet started' — RULE 1 ALIGNED for this fire."
+    },
+    {
+      "id": "HALT_121_FORBIDDEN_VERB_SUBSTRATE_PROSE",
+      "trigger_condition": "Substrate prose contains forbidden verbs (shows / confirms / proves / demonstrates / verifies / validates / corroborates / certifies / settles / discharges / ratifies / establishes) outside checklist-meta-references / verb-list-as-data / quoted substrate",
+      "evaluation": "PASS — Phase D scan (run as final session step before bridge deposit) over 121 deliverables: forbidden-verb scan to be run + recorded in handoff.md §A1; §3 question text uses 'sign' / 'is consistent with' / 'supports', not forbidden verbs; §1 closure statement uses 'CLOSED' (operative-state verb, exempt) and 'detected'/'NOT detected' (numerical-result language, exempt); 'ratifies' / 'ratification' appears only as document-meta (the operative verb of the document itself, exempt under 098 J3 verb-list-as-data + 075 J2 checklist-meta-reference precedent)"
+    }
+  ]
+}
