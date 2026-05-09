@@ -1,0 +1,44 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-131-1",
+      "severity": "INFO",
+      "category": "forbidden-verb-usage",
+      "title": "Forbidden-verb 'confirms' in synth verdict §1 D3",
+      "description": "Synth verdict §1 D3 'Cross-walk Refinement' opens with: 'The derivation confirms the structural refinement.' The verb 'confirms' is on the project-wide forbidden-verb list per copilot-instructions.md (Birkhoff-Trjitzinsky lit-review halt rule: 'shows/confirms/proves wording slips into a prediction-or-conjecture context'). The standing rule's stated scope is prediction-or-conjecture contexts. Here the usage sits inside a derivation context with explicit substrate citations (OKS-O 2006 §2.3 + KNY §8.5.17). Therefore: NOT a hard-halt trigger per literal reading of the rule. Documented for word-choice surfacing.",
+      "blocking": false,
+      "remediation": "Optional one-line follow-up to synth requesting re-phrasing to 'The derivation effects the structural refinement' or similar non-forbidden verb. Operator's call. Not blocking the Route F executor envelope.",
+      "introduced_in_session": "T1-SYNTH-Q4-V2-VERDICT-ABSORPTION-131"
+    },
+    {
+      "id": "UF-131-2",
+      "severity": "INFO",
+      "category": "verdict-label-enhancement",
+      "title": "Synth verdict label exceeds packet 130 §11 5-bin ladder scope (enhancement)",
+      "description": "Synth returned 'GO_ROUTE_F_FIXED_POINT_DISTINGUISHED' rather than the literal Bin 1 label 'UPGRADE_FULL_VIA_D7_DEGENERATION_DIAGNOSIS'. The synth-side payload is materially richer: (a) D_6 -> D_7 degeneration boundary diagnosis (Bin 1 baseline), PLUS (b) V_quad sits at s_1 fixed point under reduced W_a-tilde(A_1), elevating from 'on the boundary' to 'at a structurally distinguished fixed point of the surviving Cremona generator'. This pre-empts a likely Q5 question about whether the boundary point is generic-on-boundary or structurally distinguished, answering it constructively. Cross-cascade impact: the s_1 fixed-point classification triangulates with 069r3 final synthesis Q7 'off-generic-stratum' diagnosis (per agent's session 113/124 notes); the two cascades converge on V_quad being at a structurally distinguished, not generic, point.",
+      "blocking": false,
+      "remediation": "Treat as Bin-1-equivalent for cascade routing. Future packet ladders may include explicit 'ENHANCED_MATCH' language to authorize this kind of structural payload extension without nonconformance flagging.",
+      "introduced_in_session": "T1-SYNTH-Q4-V2-VERDICT-ABSORPTION-131"
+    },
+    {
+      "id": "UF-131-3",
+      "severity": "INFO",
+      "category": "slot-numbering-projection-offset",
+      "title": "Synth-projected 'prompt 117' offset from actual next-free slot 115",
+      "description": "Synth verdict §2 closes with 'Ready for prompt 117 (Route F executor envelope).' Actual next-free numbered prompt slot in tex/submitted/control center/prompt/ is 115 (highest existing: 114_t2_a_115_reconciliation_labeling_convention.txt). Synth appears to have forward-projected slot numbering assuming 115 = 115R substrate envelope (superseded by packet 130) + 116 = packet 130 itself. In actuality, packet 130 is unnumbered (parallel-CLI direct paste, never received a prompt-slot file) and 115 was never used. Operator should number the Route F executor envelope as 115_*.txt (or skip to 117 as cosmetic alignment with synth's projection — operator's call).",
+      "blocking": false,
+      "remediation": "Cosmetic. Operator decides slot number when drafting. Recommended: number as 115 (next-free) and drop a one-line note in the prompt header acknowledging synth's '117' projection mapped to operator's 115.",
+      "introduced_in_session": "T1-SYNTH-Q4-V2-VERDICT-ABSORPTION-131"
+    },
+    {
+      "id": "UF-131-4",
+      "severity": "INFO",
+      "category": "cross-cascade-convergence",
+      "title": "Q4 cascade s_1 fixed-point diagnosis triangulates with 069r3 cascade off-generic-stratum diagnosis",
+      "description": "The Q4 v2.0 verdict's structural payload (V_quad at s_1 fixed point of surviving A_1^{(1)} factor, on D_6 -> D_7 boundary) is a constructive realization of what the 069r3 cascade had identified abstractly as the 'off-generic-stratum diagnosis' for V_quad (per agent's notes from session 113 QD-5 absorption + session 124 069r3 final-synthesis absorption). Two independent T1-Synth threads (069r2/069r3 cascade closed at 124, and Q4 v2.0 cascade closed here at 131) converge on the same structural feature from different sides: 069r3 from the abstract Sakai surface-type / Okamoto-assumption-violation angle (eta_0 != 0 violated, gamma * delta != 0 violated), Q4 v2 from the concrete OKS-O 2006 §3.1 D_6 -> D_7 reduction map angle. The cross-cascade convergence is strong evidence that the diagnosis is not an artefact of one cascade's framing.",
+      "blocking": false,
+      "remediation": "When drafting the Route F executor envelope, the convergence note belongs in the §Background section to make the diagnosis robust against later structural challenges.",
+      "introduced_in_session": "T1-SYNTH-Q4-V2-VERDICT-ABSORPTION-131"
+    }
+  ]
+}
