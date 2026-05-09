@@ -1,0 +1,29 @@
+# bootstrap_emit_log — agent-card emission
+# config = C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\.fleet.yaml
+# config sha256 = f3ad31fff5451643acd88d1b6b6108af66aa44e92a730eb6daa3328c8f6d74d3
+# script  = scripts/emit_agent_cards.py
+# script sha256 = 73209883caefd9e4011a0e129bb06cd75540995afe3459797de73a908cc522a5
+# target  = .github/agents/
+
+STATUS       BYTES SHA256                                                            NAME
+wrote         1267 1b3b42ec96b136344535c7f5d52cdd63c6789b2fff92a7a7e23683948f6b2c48 coder
+wrote         1279 c6ccb5d65866da7ecc8999f63f4a66f3a5156ec3b78216c39c4f54f7720fa686 documentation
+wrote          474 3e3f004bcaa44e55608b0358b46e8986a5f1751558532f01d739d47b1b9aeed9 performance
+wrote          610 91a802157ccb1065cfffb4ab0971a170eb2ebf4e563bf95592c854ca48ec3dec refactor
+wrote         1490 5120be2cc59b8e06c3787c39d9178bc4150ad651a445e69581dd7d54d4ecf385 reviewer
+wrote          517 00a1087b683239185ba2a60b14e1312d196e07b643249c21964ea5c30b1a283b security
+wrote         1300 5236fa0aac82b5d52dd158275270286098fbe45dfb69f20da2626d3b3d7e616b supervisor
+wrote         1474 332fcf0698938237445f7108ca93cdea8d3dc97daf0554eaad2314ff6a218dd6 synthesizer
+wrote         1145 e385c705a9a0239833d97593d4e71804c496d645e53accb3612d294c26e4abb7 tester
+
+# --check second run (idempotency verification)
+unchanged     1267 1b3b42ec96b136344535c7f5d52cdd63c6789b2fff92a7a7e23683948f6b2c48 coder
+unchanged     1279 c6ccb5d65866da7ecc8999f63f4a66f3a5156ec3b78216c39c4f54f7720fa686 documentation
+unchanged      474 3e3f004bcaa44e55608b0358b46e8986a5f1751558532f01d739d47b1b9aeed9 performance
+unchanged      610 91a802157ccb1065cfffb4ab0971a170eb2ebf4e563bf95592c854ca48ec3dec refactor
+unchanged     1490 5120be2cc59b8e06c3787c39d9178bc4150ad651a445e69581dd7d54d4ecf385 reviewer
+unchanged      517 00a1087b683239185ba2a60b14e1312d196e07b643249c21964ea5c30b1a283b security
+unchanged     1300 5236fa0aac82b5d52dd158275270286098fbe45dfb69f20da2626d3b3d7e616b supervisor
+unchanged     1474 332fcf0698938237445f7108ca93cdea8d3dc97daf0554eaad2314ff6a218dd6 synthesizer
+unchanged     1145 e385c705a9a0239833d97593d4e71804c496d645e53accb3612d294c26e4abb7 tester
+# --check exit code: 0

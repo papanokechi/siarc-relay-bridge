@@ -1,0 +1,36 @@
+{
+  "session": "T2-EXECUTOR-FLEET-BOOTSTRAP-AGENT-CARDS-138",
+  "date": "2026-05-09",
+  "unexpected_finds": [
+    {
+      "id": "UF-138-1",
+      "severity": "INFO",
+      "class": "FIRST fleet-bootstrap fire in SIARC (n=1)",
+      "description": "First .fleet.yaml ingestion + .github/agents/*.agent.md emission cycle. Establishes the bootstrap-fire pattern: (a) Phase 0 supersession-gate sweep + STEP_0_1 SHA verification + setup.pre_run_checks; (b) idempotent agent-card emission via reproducible Python script with --check mode; (c) bridge deposit per STANDING FINAL STEP. Candidate template for future fleet-config refresh fires."
+    },
+    {
+      "id": "UF-138-2",
+      "severity": "MED",
+      "class": "Parallel-CLI fire collision pattern n=3 PROMOTION",
+      "description": "Phase 0 STEP 0.2 detected an in-progress sibling fire (slot 137 PCF-2 v1.4 sec6 amendment) initiated 27 s before this session. This is the THIRD parallel-CLI collision incident in the SIARC pipeline (after HALT_061_DUPLICATE_LANE2 2026-05-06 and HALT_064_DUPLICATE_DETECTED 2026-05-06). Per memory promotion threshold (n=3), the parallel-CLI fire collision pattern is now SUFFICIENTLY ATTESTED for memory promotion if not already promoted. Notable variant: this is the FIRST collision detected at Phase 0 STEP 0.2 (previous incidents detected mid-fire); pre-fire detection validates the supersession-gate discipline. Also FIRST instance where the ceding session was on a DIFFERENT task (fleet-bootstrap, slot 138) than the held session (slot 137 amendment) — prior incidents had bit-identical work on the same task. Suggests a refinement: 'parallel-CLI orthogonal-task coexistence' is safe; only same-task collisions need A_CEDE_TO_HEAD."
+    },
+    {
+      "id": "UF-138-3",
+      "severity": "INFO",
+      "class": "frontmatter_keys vs agent schema mismatch",
+      "description": "Cross-references D-138-2: .fleet.yaml's setup.bootstrap.frontmatter_keys includes 'description' but no agent has a top-level 'description' field (each has 'role'). Emission script skips absent keys cleanly. Operator-side decision pending: align by adding 'description' to agents OR replace with 'role' in frontmatter_keys. Cards are functional either way; this is cosmetic / schema-consistency only."
+    },
+    {
+      "id": "UF-138-4",
+      "severity": "INFO",
+      "class": "Copilot CLI /fleet vs CLI-subcommand syntax confusion",
+      "description": "Operator typed 'copilot fleet --config .fleet.yaml' which is not a real Copilot CLI subcommand. Per Copilot CLI help text, /fleet is an interactive slash command ('Enable fleet mode for parallel subagent execution') with no --config flag. .fleet.yaml's EOF comment (lines 712-715) suggests this syntax. Likely sources of confusion: (a) the YAML schema name 'fleet/v1' invites a shell-CLI invocation analog; (b) /fleet IS a real slash command in Copilot CLI, so the shape is plausible. Cards are now in .github/agents/ and discoverable via /agent (per CLI help). Recommend EOF comment update or a thin wrapper script (scripts/run_fleet.py or similar) that translates the YAML plan into /fleet dispatch instructions."
+    },
+    {
+      "id": "UF-138-5",
+      "severity": "INFO",
+      "class": "Pre-existing main-repo working tree noise",
+      "description": "Main repo (papanokechi/wallis-pcf-lean4 branch vquad/handoff-2026-04-16) has many pre-existing modified and untracked files unrelated to fleet bootstrap (CLAIM_VERIFICATION.md, README.md, claims.jsonl, dichotomy_d34_*, lean/*, pcf_vquad_paper.{tex,pdf}, etc.). Per code-change discipline, this fire stages ONLY the new fleet-bootstrap files (.fleet.yaml + scripts/emit_agent_cards.py + .github/agents/) via path-specific git-add to avoid bundling unrelated pre-existing edits."
+    }
+  ]
+}

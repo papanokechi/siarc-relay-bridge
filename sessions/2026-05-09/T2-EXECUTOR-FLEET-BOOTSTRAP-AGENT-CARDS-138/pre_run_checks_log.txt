@@ -1,0 +1,15 @@
+# setup.pre_run_checks — 6 checks
+1. git remote get-url origin
+   PASS: https://github.com/papanokechi/wallis-pcf-lean4.git
+2. git -C siarc-relay-bridge rev-parse HEAD
+   PASS: 887981bf51860550a05ff949f0145c1687623689
+3. Test-Path tex/submitted/control\ center/prompt/
+   PASS: True
+4. Get-Command pdflatex -ErrorAction SilentlyContinue
+   PASS: C:\Users\shkub\AppData\Local\Programs\MiKTeX\miktex\bin\x64\pdflatex.exe
+5. Get-Command lake -ErrorAction SilentlyContinue
+   PASS: C:\Users\shkub\.elan\bin\lake.exe
+6. Get-Command python -ErrorAction SilentlyContinue
+   PASS: C:\Users\shkub\AppData\Local\Programs\Python\Python312\python.exe
+
+Result: 6/6 PASS.
