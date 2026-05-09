@@ -1,0 +1,43 @@
+# submission_log Item 12 (series 2) splice — operator-pending template
+#
+# Session: T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135
+# Status:  OPERATOR-PENDING (TABLED under RULE 1 §1; runs at Phase D after Phase C Zenodo deposit lands)
+#
+# Per slot 116 D-J4 resolution: umbrella v2.x splice goes to series 2 Item 12.
+#   - umbrella v2.0 was Item 11 series 2 (per slot 116 J4 renumbering)
+#   - v2.1 was internal staging, NOT deposited (per cascade-132 PATH_B)
+#   - v2.2 supersedes both as Item 12 series 2 (THIS deposit)
+#
+# Operator action: paste the +block below into tex/submitted/submission_log.txt
+# at the appropriate location (after Item 11 series 2; before Item 13 series 2 if it exists).
+#
+# Replace the placeholder <UMB_V22_DOI> with the actual Zenodo v2.2 version DOI assigned at Phase C deposit.
+
+--- a/tex/submitted/submission_log.txt
++++ b/tex/submitted/submission_log.txt
+@@ -<line N before Item 12 location>,0 +<line N>,18 @@
++
++================================================================================
++# Item 12 (series 2): umbrella v2.2 — SIARC program statement, Full M-axis V0 Closure Series
++================================================================================
++Date: <YYYY-MM-DD JST>      (operator fills at Phase C deposit time)
++Title: An Arithmetic Stratification of Polynomial Continued Fractions:
++       Program Statement of the SIARC Series (v2.2: Full M-axis V0 Closure Series)
++Author: papanokechi
++Concept DOI: 10.5281/zenodo.19885550
++Version DOI: 10.5281/zenodo.<UMB_V22_DOI>      (operator fills)
++Version sequence: v1 → v2.0 → v2.2 (v2.1 internal staging only at bridge T1-EXECUTOR-116-UMBRELLA-V21-M9-V0-DEPOSIT-133, 883dddf, 2026-05-09; not deposited; FIRST version-skip in SIARC umbrella series per cascade-132 UF-132-7 / UF-135-2)
++Bridge substrate-prep: T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135 (this session)
++Cascade decision: cascade-132 PATH_B @ MEDIUM-HIGH (bridge SHA fd669d3)
++Closure cascade: 6-item enumeration (M4 V0, M6.CC R1, Route F slot 115, M7 V0, M8a V0, M8b V0)
++Annotation propagation: (SOFT-BRANCH; HARD-BRANCH-PENDING) for M7;
++                        (ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B) for M8a;
++                        (NUMERICAL-FORECLOSURE; d≥3-CAVEAT-CARRIED-FORWARD) for M8b;
++                        verbatim in body prose per A8 acceptance.
++pdflatex: 2-pass clean; 17 pages; 0 errors; 0 undef-refs; W_post=98 (NOTE_135_WARNCOUNT_HIGH)
++Status: SUPERSEDES v2.0; v2.1 internal staging only (not deposited)
++================================================================================
++
+
+# End of operator-pending splice template.
+# Replace placeholders <line N>, <YYYY-MM-DD JST>, <UMB_V22_DOI> at deposit time.

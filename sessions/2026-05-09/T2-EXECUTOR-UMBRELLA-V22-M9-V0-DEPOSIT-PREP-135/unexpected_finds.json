@@ -1,0 +1,36 @@
+{
+  "session": "T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135",
+  "date": "2026-05-09",
+  "unexpected_finds": [
+    {
+      "id": "UF-135-1",
+      "severity": "INFO",
+      "class": "FIRST 6-item closure-cascade in umbrella series (n=1 candidate-memory)",
+      "description": "umbrella_v22.tex sec:closure-cascade now bundles 6 milestones (M4 V0, M6.CC R1, Route F slot 115, M7 V0, M8a V0, M8b V0) — extends v2.1's 3-item bundle by adding the M-axis V0 ratification cascade triple landed 2026-05-09. This is the FIRST 6-item closure-cascade enumeration in the umbrella series. Pattern candidate-memory: subsequent umbrella revisions may follow the canonical 3-arc M-axis ratification template (substrate-prep → solo-dispatch → cascade-absorption) per axis, with annotation propagation rule (parenthesised qualifier in \\emph{...} verbatim in body prose) as the emerging discipline."
+    },
+    {
+      "id": "UF-135-2",
+      "severity": "INFO",
+      "class": "FIRST version-skip (v2.0 → v2.2) precedent realized in source-of-record",
+      "description": "umbrella_v22.tex implements the v2.0 → v2.2 version-skip (v2.1 was internal staging only, not deposited) per cascade-132 (fd669d3) PATH_B operative decision. This is the FIRST version-skip in the SIARC umbrella sequence (cf. cascade-132 UF-132-7 'first version-skip precedent'). Source-of-record evidence: abstract clause 'v2.1 was an internal staging snapshot and was not deposited' + par:v20-to-v22 clause + UMB row '(v1, v2.0 superseded; v2.1 not deposited)'. Both 883dddf (v2.1 staging fire) + fd669d3 (cascade-132 PATH_B decision) appear verbatim in body."
+    },
+    {
+      "id": "UF-135-3",
+      "severity": "INFO",
+      "class": "M7/M8a/M8b qualifier strings in body prose vs picture-chain v1.20+ tag form (cross-document consistency)",
+      "description": "Picture-chain v1.20+ tag form for the 3 new closures uses parenthesised plain-text qualifiers without LaTeX math-mode escapes: 'M7_V0_CLOSED (SOFT-BRANCH; HARD-BRANCH-PENDING)', 'M8a_V0_CLOSED (ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B)', 'M8b_V0_CLOSED (NUMERICAL-FORECLOSURE; d≥3-CAVEAT-CARRIED-FORWARD)'. Umbrella v2.2 body prose renders M8b qualifier as 'd$\\geq$3-CAVEAT-CARRIED-FORWARD' (LaTeX math escape for ≥). Cross-document consistency check at cosmetic level only; semantic content is identical. No mitigation required at v2.2 scope; flagged for operator-side cosmetic v2.3 cleanup if a unified ≥-rendering convention is adopted."
+    },
+    {
+      "id": "UF-135-4",
+      "severity": "INFO",
+      "class": "Prompt 135 §2.8 numerical conflation (M4 V0 A_fit values inserted as M7 V0 'soft-branch discharge' substrate)",
+      "description": "Prompt 135 §2.8 LaTeX block for Item~4 (M7 V0) instructs verbatim insertion of cubic A_fit = 5.978 ± 0.026 / quartic A_fit = 7.954 ± 0.0037 numerical residuals. These are M4 V0 (deg-a=0 row mechanism, bridge session 068) numerical residuals from Item~1 (sec:closure-cascade-m4) of v2.1 — identical numbers appear in Item~1 prose. M7 V0's actual numerical content per m7_v0_closure_statement_adopted.md is max |delta_lin| = 3.09e-23 across 4 j=0 cubic families (Q_30..Q_33). The A_fit numbers are M4 substrate cross-fed; the PSLQ basis sentence (17-member dedup H6 Chowla-Selberg basis B19+ at maxcoeff=1e50 / tol=1e-40) IS correct M7 substrate. Followed prompt §2.8 LaTeX block verbatim per explicit instruction; flagged here for operator-side v2.3 review (cosmetic prose realignment, not in math-foundational critical path)."
+    },
+    {
+      "id": "UF-135-5",
+      "severity": "INFO",
+      "class": "A6 page-count floor heuristic vs A7+A8 structural-soundness check (precedent for v2.3+)",
+      "description": "Phase B.5 acceptance A6 (PDF page count ≥ 18) is a heuristic content-presence check intended to detect silent content omission (e.g., \\input{} silently failing or a subsection vanishing into an unclosed environment). In this fire, A6 marginal-failed (17 pages vs floor 18, off by 1) while A7 (9 SHAs verbatim in body) + A8 (3 annotation strings × 5 hits each) both PASSed. A7+A8 are direct content-presence checks and supersede A6 as the structural-soundness gate. Precedent recorded: in future fires where A6 marginally fails but A7+A8 PASS, the agent should record judgment-call non-halt (as done here at D-135-2) rather than trip HALT_135_PAGE_COUNT_LOW; halt only when A6 fails AND A7 or A8 also fail."
+    }
+  ]
+}

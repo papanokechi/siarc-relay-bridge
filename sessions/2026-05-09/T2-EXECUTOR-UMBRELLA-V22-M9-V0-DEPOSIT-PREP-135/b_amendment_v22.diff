@@ -1,0 +1,295 @@
+diff --git a/umbrella_v21.tex b/umbrella_v22.tex
+index f507e26..d170992 100644
+--- a/umbrella_v21.tex
++++ b/umbrella_v22.tex
+@@ -37,9 +37,9 @@
+ 
+ \title{An Arithmetic Stratification of Polynomial Continued Fractions:\\
+        Program Statement of the SIARC Series\\
+-       \large (v2.1: Closure Cascade Amendment)}
++       \large (v2.2: Full M-axis V0 Closure Series)}
+ \author{papanokechi}
+-\date{May 2026 (v2.1)}
++\date{May 2026 (v2.2)}
+ 
+ \begin{document}
+ \maketitle
+@@ -66,20 +66,28 @@ post-T2 entries (\textsf{op:j-zero-amplitude-h6},
+ \emph{No proofs and no new theorems are reproduced here}; every
+ nontrivial claim is stated as a conjecture or attached to a companion
+ paper by Zenodo DOI. The purpose of this document is to provide a
+-stable, citable scope-anchor (\emph{[SIARC v2.1]}, superseding
+-\emph{[SIARC v2.0]}) for the program and to fix unified notation for
+-the post-March 2026 stack. The v2.1 revision (May 2026) appends a
++stable, citable scope-anchor (\emph{[SIARC v2.2]}, superseding
++\emph{[SIARC v2.0]}; v2.1 was an internal staging snapshot and was
++not deposited) for the program and to fix unified notation for
++the post-March 2026 stack. The v2.2 revision (May 2026) appends a
+ Closure Cascade and Bridge Provenance section
+-(\S\ref{sec:closure-cascade}) recording three milestone closures landed
++(\S\ref{sec:closure-cascade}) recording six milestone closures landed
+ on the SIARC relay bridge since v2.0: the M4 V0 closure (deg-$a=0$ row
+ mechanism, ratified 2026-05-08), the M6.CC R1 closure (V$_{\mathrm{quad}}$
+-on the $D_6 \to D_7$ degeneration boundary, via the Q4 v2 cascade), and
++on the $D_6 \to D_7$ degeneration boundary, via the Q4 v2 cascade),
+ the Route F slot 115 numerical re-derivation (image
+ $(\alpha,\beta,\gamma,\delta) = (0,0,1/9,0)$ at $\mathrm{dps}=300$ with
+-$s_1$ fixed-point at $\alpha_1 = 0$). \emph{All mathematical content,
+-conjectures, open problems, and the cross-degree triple of
+-\S\ref{sec:triple} are unchanged from v2.0}; the v2.1 amendment is a
+-status / provenance addendum, not a content revision.
++$s_1$ fixed-point at $\alpha_1 = 0$), and the M-axis V0 ratification
++cascade triple landed 2026-05-09: M7 V0 (cubic / quartic borderline-anormal $A$ residual,
++\emph{(SOFT-BRANCH; HARD-BRANCH-PENDING)}), M8a V0 (catalogue-wide
++Painlev\'e-test stratum labeling via the Conte--Musette necessary
++criterion, \emph{(ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B)}),
++and M8b V0 (numerical foreclosure of the laptop-feasible $|S_2|$
++extraction at $d=2$, \emph{(NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWARD)}).
++\emph{All mathematical content, conjectures, open problems, and the
++cross-degree triple of \S\ref{sec:triple} are unchanged from v2.0};
++the v2.2 amendment is a status / provenance addendum, not a content
++revision.
+ \end{abstract}
+ 
+ \tableofcontents
+@@ -145,24 +153,39 @@ dichotomy at $d=2$. At $d \geq 3$ the triple is genuinely new
+ information; the four-tier hierarchy extends \emph{conjecturally},
+ with empirical support from PCF-2 v1.3.
+ 
+-\paragraph{What changed between v2.0 and v2.1.}
+-\label{par:v20-to-v21}
+-v2.1 (May 2026) is a status / provenance addendum, not a content
++\paragraph{What changed between v2.0 and v2.2.}
++\label{par:v20-to-v22}
++v2.2 (May 2026) is a status / provenance addendum, not a content
+ revision. No definition, conjecture, open problem, or theorem cited
+-in v2.0 is altered. The v2.1 amendment appends a Closure Cascade and
++in v2.0 is altered. The v2.2 amendment appends a Closure Cascade and
+ Bridge Provenance section (\S\ref{sec:closure-cascade}) bundling
+-three milestone closures landed on the SIARC relay bridge
++six milestone closures landed on the SIARC relay bridge
+ (\href{https://github.com/papanokechi/siarc-relay-bridge}{github.com/papanokechi/siarc-relay-bridge})
+-since v2.0: M4 V0 (deg-$a=0$ row mechanism, ratified 2026-05-08;
+-bridge SHA \texttt{5f9db69}); M6.CC R1 (V$_{\mathrm{quad}}$ on the
++since v2.0:
++M4 V0 (deg-$a=0$ row mechanism, ratified 2026-05-08;
++bridge SHA \texttt{5f9db69}; (MEDIUM-HIGH; HIGH-pending));
++M6.CC R1 (V$_{\mathrm{quad}}$ on the
+ $D_6 \to D_7$ degeneration boundary via the Q4 v2 cascade; bridge SHAs
+-\texttt{10b5cf6} + \texttt{8a22b11}); and the Route F slot 115
+-numerical re-derivation of the V$_{\mathrm{quad}}$ image
+-$(\alpha,\beta,\gamma,\delta) = (0,0,1/9,0)$ at $\mathrm{dps}=300$
++\texttt{10b5cf6} + \texttt{8a22b11});
++the Route F slot 115 numerical re-derivation of the V$_{\mathrm{quad}}$
++image $(\alpha,\beta,\gamma,\delta) = (0,0,1/9,0)$ at $\mathrm{dps}=300$
+ with the $s_1$ fixed-point at $\alpha_1 = 0$ under the surviving
+-$\widetilde{W}_a(A_1)$ Cremona action (bridge SHA \texttt{8ebd1eb}).
+-All three closures are inherited from companion papers and bridge
+-artefacts; no numerical claim originates in this v2.1 document.
++$\widetilde{W}_a(A_1)$ Cremona action (bridge SHA \texttt{8ebd1eb});
++M7 V0 (cubic / quartic borderline-anormal $A$ residual; bridge SHA
++\texttt{7f93b9e}; \emph{(SOFT-BRANCH; HARD-BRANCH-PENDING)});
++M8a V0 (catalogue-wide Painlev\'e-test stratum labeling via the
++Conte--Musette necessary criterion; bridge SHA \texttt{cb429e1};
++\emph{(ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B)});
++and M8b V0 (numerical foreclosure of the laptop-feasible $|S_2|$
++extraction at $d=2$; bridge SHA \texttt{74c5630};
++\emph{(NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWARD)}).
++All six closures are inherited from companion papers and bridge
++artefacts; no numerical claim originates in this v2.2 document.
++v2.1 was deposited as internal staging only at bridge session
++\texttt{T1-EXECUTOR-116-UMBRELLA-V21-M9-V0-DEPOSIT-133}
++(\texttt{883dddf}, 2026-05-09) and was superseded by v2.2 before any
++Zenodo publication, per the operative cascade-132 (\texttt{fd669d3})
++PATH\_B decision.
+ 
+ \section{The Four-Tier Hierarchy}
+ \label{sec:tiers}
+@@ -825,7 +848,7 @@ PCF-1 & Polynomial continued fractions at degree $(d,1)$: sharp WKB exponents an
+ PCF-2 & Polynomial continued fractions at degree three: a cubic-modular framing & Zenodo v1.3 (2026-05-02); program statement, 22pp & \href{https://doi.org/10.5281/zenodo.19963298}{10.5281/zenodo.19963298} (v1.3) / concept \href{https://doi.org/10.5281/zenodo.19936297}{19936297} \\
+ CT    & Channel Theory: V$_{\mathrm{quad}}$ resurgence and the CC-pipeline & Zenodo v1.2 (2026-05-01) & \href{https://doi.org/10.5281/zenodo.19951331}{10.5281/zenodo.19951331} (v1.2) / concept \href{https://doi.org/10.5281/zenodo.19941678}{19941678} \\
+ T2B   & Two arithmetic classes of degree-$(2,1)$ Trans-stratum continued fractions: a Birkhoff--Trjitzinsky / Gauss-continued-fraction dichotomy & Zenodo v3.0 (2026-04-30) & \href{https://doi.org/10.5281/zenodo.19915689}{10.5281/zenodo.19915689} (v3.0) / concept \href{https://doi.org/10.5281/zenodo.19783311}{19783311} \\
+-UMB   & \emph{This document} (umbrella program statement, v2.1) & Zenodo v2.1 (this version) & concept \href{https://doi.org/10.5281/zenodo.19885550}{10.5281/zenodo.19885550} (v1, v2.0 superseded) \\
++UMB   & \emph{This document} (umbrella program statement, v2.2) & Zenodo v2.2 (this version; v2.1 internal staging only) & concept \href{https://doi.org/10.5281/zenodo.19885550}{10.5281/zenodo.19885550} (v1, v2.0 superseded; v2.1 not deposited) \\
+ \midrule
+ \multicolumn{4}{@{}l}{\emph{Drafting / forthcoming}} \\
+ \midrule
+@@ -854,10 +877,10 @@ been stated as a conjecture, an open problem, or a remark with a pointer
+ to the responsible companion paper. Readers seeking proofs should
+ consult the cited companion paper directly.
+ 
+-\section{Closure Cascade and Bridge Provenance (v2.1 amendment)}
++\section{Closure Cascade and Bridge Provenance (v2.2 amendment)}
+ \label{sec:closure-cascade}
+ 
+-This section is appended in v2.1 (May 2026). It records three
++This section is appended in v2.2 (May 2026). It records six
+ milestone closures landed on the SIARC relay bridge
+ (\href{https://github.com/papanokechi/siarc-relay-bridge}{github.com/papanokechi/siarc-relay-bridge})
+ since v2.0, with the canonical bridge SHA, the closure mechanism, and
+@@ -866,8 +889,8 @@ underlying derivation. \emph{No numerical claim in this section
+ originates in this document}; every number is inherited from a
+ companion paper or a previously deposited bridge session, traceable
+ to a bridge \texttt{claims.jsonl} entry. The AEAL claim audit for
+-v2.1 is recorded in
+-\texttt{sessions/2026-05-09/T1-EXECUTOR-116-UMBRELLA-V21-M9-V0-DEPOSIT-133/claims.jsonl}
++v2.2 is recorded in
++\texttt{sessions/2026-05-09/T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135/claims.jsonl}
+ on the bridge.
+ 
+ \subsection{Milestone status table}
+@@ -877,16 +900,19 @@ on the bridge.
+ \renewcommand{\arraystretch}{1.20}
+ \begin{longtable}{@{}p{0.18\linewidth} p{0.20\linewidth} p{0.30\linewidth} p{0.22\linewidth}@{}}
+ \toprule
+-Milestone & v2.0 status & v2.1 status (this amendment) & Bridge SHA(s) \\
++Milestone & v2.0 status & v2.2 status (this amendment) & Bridge SHA(s) \\
+ \midrule
+ \endfirsthead
+ \toprule
+-Milestone & v2.0 status & v2.1 status (this amendment) & Bridge SHA(s) \\
++Milestone & v2.0 status & v2.2 status (this amendment) & Bridge SHA(s) \\
+ \midrule
+ \endhead
+ M4 V0 & PROVISIONAL (open mid-April 2026) & CLOSED via deg-$a=0$ row mechanism (MEDIUM-HIGH; HIGH-pending Wasow \S X.3 OCR + W21 LANE-1 ratification) & \texttt{5f9db69} \\
+ M6.CC R1 & GATED on V$_{\mathrm{quad}}$ structural diagnosis & CLOSED via Q4 v2 cascade ($D_6 \to D_7$ degeneration boundary; HIGH conf.) & \texttt{10b5cf6} (packet 130), \texttt{8a22b11} (verdict 131) \\
+ Route F slot 115 & PENDING numerical re-derivation & LANDED ($\mathrm{dps}=300$ re-derivation; $s_1$ fixed-point at $\alpha_1=0$) & \texttt{8ebd1eb} \\
++M7 V0 & PROVISIONAL (open W21 LANE-1 borderline-anormal $A$ residual) & CLOSED via dual-witness RATIFY\_WITH\_AMENDMENT (cubic / quartic $A_{\mathrm{fit}}$ residuals; MEDIUM-HIGH; \emph{(SOFT-BRANCH; HARD-BRANCH-PENDING)}) & \texttt{7f93b9e} \\
++M8a V0 & PROVISIONAL (catalogue-wide Painlev\'e stratum labeling pending) & CLOSED via dual-witness RATIFY\_WITH\_AMENDMENT (Conte--Musette necessary criterion 60/60 LABELED uniformly; MEDIUM-HIGH; \emph{(ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B)}) & \texttt{cb429e1} \\
++M8b V0 & PROVISIONAL (laptop-feasible $|S_2|$ extraction at $d=2$ pending) & CLOSED via cross-provider dual-witness RATIFY / RATIFY\_WITH\_AMENDMENT (4-lens numerical foreclosure; HIGH; \emph{(NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWARD)}) & \texttt{74c5630} \\
+ \bottomrule
+ \end{longtable}
+ \end{center}
+@@ -954,6 +980,12 @@ independent T1-Synth threads land on the same structural feature
+ (V$_{\mathrm{quad}}$ on the degenerate locus of $P_{III}(D_6)$) from
+ different angles. The convergence is recorded as a positive forensic
+ signal in \texttt{sessions/2026-05-09/T2-EXECUTOR-115-ROUTE-F-D7-FIXED-POINT-EXTRACTION-132/unexpected\_finds.json}.
++A subsequent META-research residual-triage pass
++(\texttt{T1-SYNTH-M6CC-RESIDUAL-TRIAGE-134}, bridge SHA
++\texttt{4816ebc}, 2026-05-09) reports 0 of 5 surveyed M6.CC residuals
++as KEEP under RULE 1; all 5 are absorbed by the slot~115 $D_7$
++fixed-point landing, the 058R Phase~B.5 caveat verdict, and the
++069r3 cross-cascade convergence note above.
+ 
+ \subsection{Item~3 --- Route F slot 115 numerical re-derivation}
+ \label{sec:closure-cascade-route-f}
+@@ -985,20 +1017,113 @@ The numerical re-derivation is reproducible from the script
+ and is logged as five AEAL claims in
+ \texttt{sessions/2026-05-09/T2-EXECUTOR-115-ROUTE-F-D7-FIXED-POINT-EXTRACTION-132/claims.jsonl}.
+ 
+-\subsection{What v2.1 does \emph{not} do}
++\subsection{Item~4 --- M7 V0 closure (cubic / quartic borderline-anormal $A$ residual; soft-branch ratification)}
++\label{sec:closure-cascade-m7}
++
++The M7 V0 closure landed on the bridge as
++\texttt{T1-SYNTH-M7-V0-CLOSURE-CASCADE-123} (bridge SHA \texttt{7f93b9e},
++2026-05-09) via dual-witness T1-Synth ratification cascade (R1 + R2
++both \verb|RATIFY_WITH_AMENDMENT|; aggregated MEDIUM-HIGH per
++most-conservative dual-reviewer protocol). The canonical adopted
++closure statement (text from
++\texttt{m7\_v0\_closure\_statement\_adopted.md}) propagates the
++\emph{(SOFT-BRANCH; HARD-BRANCH-PENDING)} annotation: the soft-branch
++discharge is mathematically supported by the original 014 / 068
++substrate (cubic borderline-anormal residuals
++$A_{\mathrm{fit}} = 5.978 \pm 0.026$ at dps$=800$ across 50 cubic
++families and quartic $A_{\mathrm{fit}} = 7.954 \pm 0.0037$ at
++dps$=1200$ across 60 quartic families, both within $1\sigma$ of the
++V6 prediction $A=2d$); the hard-branch stretch goal $|\delta| < 10^{-30}$
++is forward-pointed not-blocking and would require $K_{\mathrm{FIT}}=9$ /
++$N \leq 2400$ / dps$\geq 44{,}300$ along the Q22 path-(b) escalation
++ladder. PSLQ on the 17-member dedup H6 Chowla--Selberg basis B19+ at
++maxcoeff$=10^{50}$ / tol$=10^{-40}$ returns no $\Gamma(1/3)$ relation
++in any family. M7 V0 is recorded in the picture-chain v1.20+ tag as
++\textsf{M7\_V0\_CLOSED (SOFT-BRANCH; HARD-BRANCH-PENDING)}, with
++HARD-BRANCH discharge gated on Q22 path-(b) numerical escalation +
++W21 LANE-1 ratification.
++
++\subsection{Item~5 --- M8a V0 closure (catalogue-wide Painlev\'e-test stratum labeling)}
++\label{sec:closure-cascade-m8a}
++
++The M8a V0 closure landed on the bridge as
++\texttt{T1-SYNTH-M8A-RATIFICATION-CASCADE-ABSORPTION-127R} (bridge SHA
++\texttt{cb429e1}, 2026-05-09) via dual-witness T1-Synth ratification
++cascade (R1 + R2 both \verb|RATIFY_WITH_AMENDMENT|; aggregated
++MEDIUM-HIGH). The Conte--Musette necessary-criterion three-branch
++test on the linear OGF ODE (Prompt 007 verdict
++\textsf{T3\_LABELED\_60\_OF\_60}) labels all 60 catalogue families
++uniformly at the standard $P_I \ldots P_{VI}$ resolution: 10/10
++$d=2$ PCF-1 v1.3 families (V$_{\mathrm{quad}}$ + QL01/02/06/15/26
++with $\Delta_b<0$ + QL05/09/13/18 with $\Delta_b>0$ representatives)
++classify as $P_{III}(D_6)$, matching V$_{\mathrm{quad}}$'s published
++assignment via CT v1.3 Theorem~3.3.D; 50/50 $d=3$ PCF-2 v1.3
++families classify as \textsf{PAINLEVE\_UNCLASSIFIED} (Newton polygon
++slopes $4/3$ at $x=0$ and $2/3$ at $x=\infty$, fractional, outside
++the standard $P_I \ldots P_{VI}$ list). Branch-disagreement fraction
++$0/60 = 0.000$ is well below the 5\% H3-confirmation threshold;
++V$_{\mathrm{quad}}$ Phase-D sanity check passes. The closure runs at
++the algorithmic-test-scale resolution \emph{(ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B)}: H3
++(\textsf{D=2\_REDUCTION\_AMBIGUOUS}) is negatively closed, since the
++Conte--Musette test on the linear OGF ODE is invariant across
++$\mathrm{sign}(\Delta_b)$, and the PCF-1 v1.3 \S 3 dichotomy
++($A=4$ for $\Delta_b>0$, $A=3$ for $\Delta_b<0$) is invisible at
++this algorithmic resolution. The substantive dichotomy resolution is
++delegated to the M8b Stokes-multiplier axis (Item~6 below). M8a V0
++is recorded in the picture-chain v1.20+ tag as
++\textsf{M8a\_V0\_CLOSED (ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B)}.
++
++\subsection{Item~6 --- M8b V0 closure (numerical foreclosure of $|S_2|$ at $d=2$)}
++\label{sec:closure-cascade-m8b}
++
++The M8b V0 closure landed on the bridge as
++\texttt{T1-SYNTH-M8B-RATIFICATION-CASCADE-ABSORPTION-130R} (bridge
++SHA \texttt{74c5630}, 2026-05-09) via cross-provider dual-witness
++T1-Synth ratification cascade (R1 Grok/xAI \verb|RATIFY|; R2
++Claude.ai \verb|RATIFY_WITH_AMENDMENT|; aggregated
++\verb|RATIFY_WITH_AMENDMENT| @ HIGH per most-conservative-LABEL
++rule). M8b V0 closure type is
++\emph{numerical-foreclosure-by-residual-acceptance} at the $d=2$ PCF
++Stokes-multiplier $|S_2|$ scale \emph{(NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWARD)}.
++Four independent methodological
++lenses report $|S_2|$ below the resolution floor of laptop-feasible
++Borel--Pad\'e methodology: Lens~1 (017c) polynomial-aware LSQ at
++dps$=250$ / $N=2000$; Lens~2 (017e) extended LSQ at dps$=400$ /
++$N=5000$; Lens~3 (017m) subtracted-high-order Borel--Pad\'e
++\textsf{HALT\_T37M\_PADE\_DIVERGENT} at $M=200{\ldots}800$; Lens~4
++(092) raw-low-order Borel--Pad\'e \textsf{PERMANENT\_RESIDUAL\_G6b}
++across 4 reps at small $(N,M) \in \{6{\ldots}18\}$, dps$=300$,
++196/196 OK cells, 0/84 adjacent $(N,M)$ pairs reaching the
++dps/4$=75$ digit threshold. Mathematical content (alien amplitude
++$S_2$) is \emph{not} falsified; only the laptop-feasible numerical
++extraction is foreclosed. The $d \geq 3$ structural binding-window
++dispatch is forward-pointed not-blocking (P-009 caveat active
++variant v1 \textsf{NOT\_YET\_DISPATCHED}). One untested
++methodological quadrant remains as governance forward-pointer
++(small-$(N,M)$ subtracted Pad\'e). M8b V0 is recorded in the
++picture-chain v1.20+ tag as \textsf{M8b\_V0\_CLOSED (NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWARD)}.
++M8b is \emph{not} in the M9 V0 gating set (M9 gating $= \{$M4, M6$\}$);
++M8b is enrichment, not gate.
++
++\subsection{What v2.2 does \emph{not} do}
+ \label{sec:closure-cascade-out-of-scope}
+ 
+-For clarity of scope: v2.1 does not modify \S\S\ref{sec:intro}--\ref{sec:companions}
++For clarity of scope: v2.2 does not modify \S\S\ref{sec:intro}--\ref{sec:companions}
+ in any way beyond the title, date, abstract addendum, and the
+-\textsf{par:v20-to-v21} paragraph; the cross-degree triple of
++\textsf{par:v20-to-v22} paragraph; the cross-degree triple of
+ \S\ref{sec:triple}, the Trans-Stratum Conjecture of
+ \S\ref{sec:t2b}, and the Open Problems of \S\ref{sec:open} are
+ unchanged. The Route F closure does \emph{not} resolve the v2.0
+ open problems
+ (\textsf{op:median-resurgence-extension}, \textsf{op:Pk-cells-structure},
+-\textsf{op:chi-Phi-compatibility}); those remain open. The v2.1
+-amendment is a milestone-status update for the SIARC bridge, not a
+-content revision of the program statement.
++\textsf{op:chi-Phi-compatibility}); those remain open. The M7 / M8a /
++M8b V0 closures (Items~4--6) are stratum-status updates inherited
++from the bridge ratification cascades; no new theorem, definition,
++or open problem of v2.0 is altered. M8b's d$\geq$3-caveat is
++carried forward unchanged from the P-009 active variant v1
++(\textsf{NOT\_YET\_DISPATCHED}). The v2.2 amendment is a
++milestone-status update for the SIARC bridge, not a content
++revision of the program statement.
+ 
+ \section{AI Disclosure}
+ \label{sec:ai}
