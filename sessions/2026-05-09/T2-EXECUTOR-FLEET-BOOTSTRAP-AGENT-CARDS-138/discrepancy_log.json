@@ -1,0 +1,30 @@
+{
+  "session": "T2-EXECUTOR-FLEET-BOOTSTRAP-AGENT-CARDS-138",
+  "date": "2026-05-09",
+  "discrepancies": [
+    {
+      "id": "D-138-1",
+      "severity": "INFO",
+      "class": "FIRST fleet-bootstrap session in SIARC pipeline (n=1)",
+      "description": "This is the first .fleet.yaml ingestion + agent-card emission fire in the SIARC project. No prior fleet-bootstrap precedent to mirror; structure was derived from the YAML's setup.bootstrap.on_first_run directive ('emit .github/agents/{name}.agent.md with YAML frontmatter and the instructions: block as the markdown body. Idempotent.'). Reproducible Python script with --check mode written to scripts/emit_agent_cards.py."
+    },
+    {
+      "id": "D-138-2",
+      "severity": "INFO",
+      "class": "frontmatter_keys vs agent schema mismatch (description field absent)",
+      "description": "setup.bootstrap.frontmatter_keys lists [name, description, model, tools, triggers, allowed_files] but no agent in .fleet.yaml has a 'description' field — agents have 'role' instead. Emission script correctly skips absent keys; rendered cards omit 'description'. Operator may want to either (a) add 'description' to each agent in .fleet.yaml or (b) replace 'description' with 'role' in frontmatter_keys."
+    },
+    {
+      "id": "D-138-3",
+      "severity": "INFO",
+      "class": "Copilot CLI command-line syntax mismatch",
+      "description": ".fleet.yaml end-of-file comment suggests two invocation paths: 'copilot fleet --config .fleet.yaml' (NOT a real CLI subcommand — Copilot CLI's /fleet is an interactive slash command for parallel subagent execution and does not accept a YAML config) and '/fleet \"Close M9 → M12 per .fleet.yaml plan\"' (the interactive slash command, which would need the supervisor to manually read the YAML). Alternative invocation: launch CLI with the operator's standing instructions referencing this YAML, then ask supervisor to orient. Recommend updating the EOF comment to clarify."
+    },
+    {
+      "id": "D-138-4",
+      "severity": "INFO",
+      "class": "Concurrent slot-137 fire (parallel CLI session)",
+      "description": "At Phase 0 STEP 0.2 supersession-gate sweep, sibling session sessions/2026-05-09/T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137 was found mid-fire (created 20:44:27 JST, 27 s before this fleet-bootstrap fire). Files were progressing in real time (8 → 13 files over ~7 minutes). Resolution per parallel-CLI fire collision pattern memory: A_CEDE_TO_HEAD; this fleet-bootstrap session claims slot 138 and does not write into slot-137 folder. Coexistence is safe because the work is orthogonal (slot 137 = PCF-2 v1.4 sec6 amendment; slot 138 = fleet-bootstrap)."
+    }
+  ]
+}
