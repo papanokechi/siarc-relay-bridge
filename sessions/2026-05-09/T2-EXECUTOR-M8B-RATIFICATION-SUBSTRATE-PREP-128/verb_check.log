@@ -1,0 +1,73 @@
+=== Forbidden-verb scan: T2-EXECUTOR-M8B-RATIFICATION-SUBSTRATE-PREP-128 ===
+Date: 2026-05-09 ~15:10 JST
+Tool: PowerShell Select-String case-insensitive regex
+Pattern: \b(confirms|proves|demonstrates|verifies|validates|corroborates|certifies|settles|discharges|ratifies|establishes)\b
+File scanned: m8b_v0_ratification_template.md (691 lines, 46109 bytes,
+              SHA256 06FD8AC2B9A6ECDF89A17351FAD909830FFB3ED6FC650B7EAE37A153AC35882A)
+
+=== Hits found (8 total; all exempt) ===
+
+L211: §2.1 row 2 verdict cell
+      "...verb-check PASS, zero forbidden verbs from {shows, confirms,
+      proves, establishes}..."
+      EXEMPT: verb-list-as-data (literal forbidden-verb set checked at
+              relay 050 STEP 4 for the P-009 caveat). 098 J3 / 075 J2
+              precedent; re-anchored at 121 / 123.
+
+L600: §9 forbidden-verb compliance note
+      "verifies and verified only as substrate-verification meta-..."
+      EXEMPT: verb-list-as-data; meta-explanation of agent's own usage.
+
+L602: §9 forbidden-verb compliance note
+      "...check) and ratify / ratifies / ratification (the operative..."
+      EXEMPT: meta-text describing the document's operative verb chain.
+
+L612: §9 forbidden-verb compliance note
+      "reconciles — none of {confirms, proves, demonstrates,..."
+      EXEMPT: verb-list-as-data (the forbidden-verb set being declared).
+
+L613: §9 forbidden-verb compliance note (continued)
+      "verifies, validates, corroborates, certifies, settles, discharges,"
+      EXEMPT: verb-list-as-data continuation.
+
+L614: §9 forbidden-verb compliance note (continued)
+      "ratifies, establishes} appears in substantive (claim) context."
+      EXEMPT: verb-list-as-data continuation.
+
+L630: §9 quoted-substrate exemption acknowledgment
+      "quoted line at picture v1.19 line 179 that contains \"confirms\" in"
+      EXEMPT: meta-acknowledgment of a quoted-substrate exemption being
+              applied in §2.1 row 4 / §2.4. The original picture v1.19
+              line 179 wording was reframed at L213 to drop the quoted
+              forbidden verb in agent-authored prose; this L630 line is
+              the meta-explanation of that reframe.
+
+L639: §9 verb-list-as-data exemption acknowledgment
+      "verbs from {shows, confirms, proves, establishes}\") is a"
+      EXEMPT: verb-list-as-data; meta-quote of the L211 forbidden-verb
+              set checked at relay 050 STEP 4.
+
+=== Result ===
+8 hits / 8 exempt under 098 J3 / 075 J2 precedent (verb-list-as-data
++ meta-text + quoted-substrate exemption pattern), re-anchored at
+121 / 123 cascade precedents.
+
+FV scan PASS for substantive-claim agent-authored prose.
+
+No forbidden verbs in:
+  - §1 axis-scope and closure-statement prose
+  - §2.1 / §2.2 / §2.3 / §2.4 substrate-evidence claim cells
+        (except L211 verb-list-as-data; exempt)
+        (except §2.1 row 4 / §2.4 row 6 reframed-quote; original
+         line-179 forbidden-verb dropped from agent-authored prose)
+  - §3 decision-form question text Q1-Q5
+  - §4 revised-wording template (uses report / carries / remains /
+        is / addresses / reconciles)
+  - §5 NO_GO statement (placeholder; synth-filled at dispatch)
+  - §6 synth signature (uses ratify in operative-verb-of-document
+        context only; exempt)
+  - §7 cascade table (action verbs are mark / add / dispatch; not
+        forbidden)
+  - §8 cross-references list
+  - §10 dispatch readiness (uses pre-verified / pasted / answerable;
+        not forbidden)
