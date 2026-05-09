@@ -1,0 +1,28 @@
+{
+  "ufs": [
+    {
+      "id": "UF-125-1",
+      "severity": "INFO",
+      "summary": "Picture v1.19 uses bare label `M8` while RULE 1 outlook (2026-05-09) uses `M8a`. Reconciled in §1 via explicit `M8a (= picture-v1.19 M8)` mapping; no semantic divergence — the re-labeling distinguishes the algorithmic-Painlevé-test axis (M8a) from the Stokes-multiplier follow-up axis (M8b) that emerged post-007 in 010+016+017c+017e+017L+017m. Forward-pointed: picture v1.20+ deposit should adopt the `M8a` / `M8b` split labeling consistently to align with the RULE 1 outlook.",
+      "carry_forward": "picture-chain v1.20+ label discipline"
+    },
+    {
+      "id": "UF-125-2",
+      "severity": "INFO",
+      "summary": "M8a V0 closure carries no manuscript-content amendment requirement (mirror difference vs. M7 V0 which required PCF-2 §6 amendment from `AMBIGUOUS-AT-FINITE-N` to A=6). M8a's catalogue-wide labeling is an extension of the already-published V_quad-anchored P_III(D_6) class assignment in vquad_resurgence_R1/R2 §4 + CT v1.3 Theorem 3.3.D, and is consistent with the published §4 framing without textual change. Surfaced for synth at slot 126 to acknowledge in §7 cascade table (no §3 row 5 PCF-2 v1.4 §6 amendment deposit; n/a).",
+      "carry_forward": "M8a §7 cascade table reflects no manuscript-content amendment required"
+    },
+    {
+      "id": "UF-125-3",
+      "severity": "INFO",
+      "summary": "M9 gating reduced to {M4, M6} UNCONDITIONALLY at picture v1.15 amendment (D2-NOTE v2.1 UPGRADE_FULL 2026-05-03; M2 closure citation-complete via QS-2 verdict). M8a was never a direct M9 gate (per picture v1.15 amendment line ~3025/3195/3306 program-status rows 'M1, M3, M5, M6, M7, M8 are done or in soft closure'). M8a V0 ratification therefore does NOT unblock M9 (M9 was already not gated by M8a). Surfaced to prevent over-claiming downstream impact in §1 SCOPE.",
+      "carry_forward": "M8a V0 closure does not unblock M9; M9 already gated only by {M4 (closed), M6 (in progress)}"
+    },
+    {
+      "id": "UF-125-4",
+      "severity": "INFO",
+      "summary": "M7 V0 cascade (123) UF-123-1 noted dual-witness as FIRST observation and recommended n=3 cases before formalizing dual-witness as standing pattern. M8a V0 cascade-absorption at slot 127 will be the n=2 case; M8b V0 cascade-absorption at slot 130 will be the n=3 case. Forward-pointed for slot 127 prompt-drafter to consider whether to fire dual-witness or single-witness for M8a; substrate-prep at 125 leaves the choice operator-discretion (template §10 dispatch readiness lists T1-Synth solo as recommended class but does not preclude dual-dispatch).",
+      "carry_forward": "slot 127 dual-witness vs. single-witness choice; 130 to confirm n=3 standing pattern decision"
+    }
+  ]
+}
