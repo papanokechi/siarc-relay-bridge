@@ -1,0 +1,30 @@
+{
+  "session": "T1-SYNTH-M6CC-RESIDUAL-TRIAGE-134",
+  "date": "2026-05-09",
+  "entries": [
+    {
+      "id": "UF-120-1-UNANIMOUS-BIN-2",
+      "severity": "INFO",
+      "summary": "All 5 M6.CC SQL residuals classified into BIN_2_ABSORBED_BY_115 (no BIN_1 math-load-bearing, no BIN_3 admin-deferred). The unanimous-absorption verdict reflects the structural reach of the 115 D_7-fixed-point landing combined with the 058R Phase B.5 caveat verdict and the 069r3 + Q4 v2 cross-cascade convergence; sec:vquad's new remark rem:vquad-d7-s1 carries the manuscript-content payload that the original 058 main-relay-V3 + Phase D.2 numerical Jacobian + W21 LANE-1 ratification path was meant to deliver. Surfacing as INFO for downstream cross-check: if a future M9 V0 manuscript revision adds a generic-stratum claim about V_quad (e.g., a full canonical-form normalization map asserted on the open D_6 stratum), the absorption verdict would need to be re-evaluated.",
+      "next_action": "carry forward; revisit if a future sec:vquad / sec:m6cc-row revision asserts generic-stratum content"
+    },
+    {
+      "id": "UF-120-2-NY-2004-DEP-MOOTNESS",
+      "severity": "INFO",
+      "summary": "The m6-phase-b5-w-crosswalk-anchor todo's pre-115 substrate dep on Noumi-Yamada 2004 ('029 NY 2004') is moot under the post-115 framing because (a) 058R Phase B.5 already provided the structural caveat closure for the generic-stratum W cross-walk via Sakai 2001 + KNY 2017 + Okamoto 1987, and (b) 115 documents the W cross-walk that actually acts on V_quad's image (the surviving widetilde-W_a(A_1) Cremona action on the D_7 sector). NY 2004 acquisition is no longer on the M6.CC critical path. Operator-side spec amendment v1.2 (058R handoff D3) remains a separate housekeeping item.",
+      "next_action": "treat as informational; spec amendment v1.2 can fire any time without blocking RULE 1 lift"
+    },
+    {
+      "id": "UF-120-3-PARTIAL-NUMERICAL-LADDER-NOT-CLIMBED",
+      "severity": "INFO",
+      "summary": "058R landed UPGRADE_V1_0_PARTIAL_NUMERICAL (ladder rung 2 of 4); the original closure plan would have driven the verdict to UPGRADE_V1_0_FULL via a Phase D.2 numerical Jacobian cross-check |M^* C_V| = |S_zeta_*^can| at >= 5 digits on the generic D_6 stratum. The post-115 reclassification (V_quad sits on the D_6 -> D_7 boundary) makes the generic-stratum certificate non-applicable to V_quad. The PARTIAL_NUMERICAL ladder-rung verdict for the canonical-form construction itself is correctly preserved as the substrate provenance for sec:vquad's classification; promoting that verdict to FULL would be a non-V_quad research item (any other family on the generic D_6 stratum), not a V_quad manuscript task.",
+      "next_action": "preserve 058R UPGRADE_V1_0_PARTIAL_NUMERICAL verdict label; do NOT auto-upgrade to FULL post-115 without a separate generic-stratum target family"
+    },
+    {
+      "id": "UF-120-4-ADMIN-VS-MATH-LINE-CLEAN",
+      "severity": "INFO",
+      "summary": "Notable that 0 of the 5 residuals classified as BIN_3_ADMIN_DEFERRED. This indicates the original M6.CC SQL queue was substrate-anchored math work, not procedural housekeeping. The two non-RULE-1-critical follow-ups (058S spec amendment v1.2; Picture v1.20 consolidated deposit; 058R Phase D.2 numerical Jacobian for a generic-stratum target family) sit OUTSIDE the original 5 todos and are tracked separately in plan.md L4759. No structural admin/math conflation in the M6.CC SQL projection.",
+      "next_action": "informational; supports the integrity of the M6.CC SQL queue as math-anchored"
+    }
+  ]
+}
