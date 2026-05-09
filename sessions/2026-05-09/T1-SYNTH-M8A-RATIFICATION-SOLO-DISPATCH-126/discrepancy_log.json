@@ -1,0 +1,16 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-126-1",
+      "severity": "INFO",
+      "summary": "Prompt 126 §5 acceptance criteria split: A5-A8 (prep-arc subset) closeable at this fire; A1-A4 (dispatch-arc subset: synth_verdict_raw.txt present + parseable label + reasoning sections + amendment text if applicable) structurally infeasible at agent-side preparation time. Resolved by mirroring 122 split: 126 prep-arc closes A5-A8; 127 cascade-absorption re-fire closes A1-A4 post operator dispatch. This is the canonical 3-arc M-axis ratification template per 122/123 precedent (M7 cascade landed at 7f93b9e) and 105/106 precedent (M4 cascade landed at d4d1230 / 4d1c4d4 / similar).",
+      "resolution": "Accept split. Status this fire: PARTIAL. Status closes COMPLETE-PAIR upon 127 re-fire landing."
+    },
+    {
+      "id": "D-126-2",
+      "severity": "INFO",
+      "summary": "Slot 127 already has a halt-deposit at sessions/2026-05-09/T1-SYNTH-M8A-RATIFICATION-CASCADE-ABSORPTION-127/ from a premature fire (HALT_127_NO_SYNTH_VERDICT, bundled commit a8f0919 + addendum 3a86cc9). The 127 re-fire post-126-deposit + operator-dispatch will create a NEW session folder (e.g., T1-SYNTH-M8A-RATIFICATION-CASCADE-ABSORPTION-127R or similar) rather than reusing the halt-folder, to preserve the audit trail for the original Phase 0 STEP 0.2 gate-trip per UF-127-1 class-taxonomy candidate.",
+      "resolution": "Naming convention for re-fire deferred to slate-execution time (operator decision); both the 127 halt-folder AND the 127R cascade-absorption folder will coexist in 2026-05-09 sessions tree."
+    }
+  ]
+}

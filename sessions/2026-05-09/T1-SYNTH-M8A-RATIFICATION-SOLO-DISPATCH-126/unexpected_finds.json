@@ -1,0 +1,32 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-126-1",
+      "severity": "INFO",
+      "summary": "Slate-execution recovery pattern: the slate 125-130 was originally drafted as parallel-fireable; in execution, the operator's parallel CLI sessions fired substrate-prep (125 + 128) successfully but skipped solo-dispatch (126 + 129) and prematurely fired cascade-absorption (127 + 130), tripping Phase 0 STEP 0.2 dependency gates on both. This 126 fire (and its 129 sibling) is the recovery-arc that re-orders execution into the canonical sequence: substrate-prep (125 / 128 done) -> solo-dispatch (126 / 129 PARTIAL agent-side, this fire and 129) -> operator dispatch -> cascade-absorption (127 / 130 re-fire). UF-130-1 already flagged the same pattern from the parallel session that fired 130-halt; this UF cross-references it.",
+      "candidate_memory_subject": "slate execution discipline",
+      "candidate_memory_fact": "When a multi-arc slate's sibling-arcs are fired by parallel CLI sessions, the agent must verify upstream-arc landings BEFORE firing downstream-arc dependencies, even within the same drafted slate. Phase 0 STEP 0.2 dependency-not-landed (class B) gate-trip is the standard halt; recovery requires firing the missing upstream arc, not modifying or rewriting the halt-deposit. n=2 observation today (127-halt + 130-halt); promote to repo memory at n=3."
+    },
+    {
+      "id": "UF-126-2",
+      "severity": "INFO",
+      "summary": "Substrate template at 125 §4 'DISPATCH-READY' notes (per 121 mirror convention) speaks to the agent ('this template is the substrate, not the dispatch'). Per UF-122-3 / UF-123 precedent the substrate is included verbatim without redaction. Synth may flag §4 as confusing meta-instruction; if so the canonical 3-arc template (likely v1.1 amendment recommendation in some future slate) may want to redact or quote-fence §4 for synth-facing dispatches.",
+      "candidate_memory_subject": "ratification template hardening",
+      "candidate_memory_fact": "DISPATCH-READY meta-section in §4 of M-axis ratification templates is verbatim included in synth dispatch packets per audit-trail discipline; if cumulative synth verdicts (M4 / M7 today / M8a coming / M8b coming) flag this as confusion source, propose v1.1 redaction-fence amendment to the canonical template."
+    },
+    {
+      "id": "UF-126-3",
+      "severity": "INFO",
+      "summary": "M8a closure type (STRUCTURAL-LABELING via T3-CONTE-MUSETTE 60/60 P_III(D_6) labeling at d=2 stratum) is structurally distinct from both M4 (algebraic-combinatorial via 058R W cross-walk) and M7 (algebraic-combinatorial via PSLQ exhaustion + j=0 Chowla-Selberg). Three distinct closure types now observed in M-axis ratifications. M8b is expected to be a fourth type (NUMERICAL-FORECLOSURE via Borel-Pade S2 at 092 + d>=3 caveat carry-forward per P-009). Closure-type taxonomy worth tracking for future axis-design decisions.",
+      "candidate_memory_subject": "closure type taxonomy",
+      "candidate_memory_fact": "M-axis ratification closure types observed in 2026-05-08/09 SIARC pipeline: (1) ALGEBRAIC-COMBINATORIAL via affine-Weyl cross-walk (M4 V0 / 058R / 105-106); (2) ALGEBRAIC-COMBINATORIAL via PSLQ-exhaustion + j=0 Chowla-Selberg (M7 V0 / 121-122-123); (3) STRUCTURAL-LABELING via Painleve P_III(D_6) full-coverage at d=2 (M8a V0 / 125-126-127); (4) NUMERICAL-FORECLOSURE via Borel-Pade S2 + d>=3 caveat carry-forward (M8b V0 / 128-129-130, anticipated). Promote to memory once all four cascades land."
+    },
+    {
+      "id": "UF-126-4",
+      "severity": "INFO",
+      "summary": "Bundled-commit anomaly disclosed in the 127-halt commit_attribution_note.md (commit 3a86cc9) is now a documented n=1 distinct pattern from the parallel-CLI fire-collision pattern (existing memory). Distinction: parallel-CLI fire-collision = two sessions fire SAME slot independently and produce bit-identical deliverables; bundled-commit = one session has files in git index when another session runs `git commit` and sweeps both into a single commit. Same root cause (parallel CLI sessions sharing working tree) but different surface manifestation. This 126 fire avoided both by (a) running solo, (b) staging path-specifically with `git add sessions/.../126/` rather than `git add .`.",
+      "candidate_memory_subject": "parallel-CLI git hygiene",
+      "candidate_memory_fact": "When multiple agent CLI sessions share a bridge working tree, ALWAYS stage path-specifically with `git add sessions/<date>/<TASK_ID>/` rather than `git add .` or `git add sessions/`. The latter sweeps any pre-staged files from sibling sessions into the current commit, producing bundled commits that mis-attribute work (n=1 observed at a8f0919 bundling 127-halt with 130-halt; remediation in 3a86cc9 addendum)."
+    }
+  ]
+}
