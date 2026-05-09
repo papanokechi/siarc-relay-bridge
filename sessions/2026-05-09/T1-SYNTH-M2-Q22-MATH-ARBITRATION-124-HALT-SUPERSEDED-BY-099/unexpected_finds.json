@@ -1,0 +1,21 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-124-1",
+      "severity": "MEDIUM",
+      "summary": "Second observed within-week instance of Phase 0 supersession-audit being deferred to fire-time rather than draft-time. Pattern: prompt body contains a Phase 0 STEP 0.x supersession-audit instruction; instruction is correctly followed AT FIRE TIME by the agent; but the prompt-drafting workflow did not perform the same audit AT DRAFT TIME, leading to wasted prompt-drafting effort + a guaranteed halt at fire. Instances: (1) 069 v1 (2026-05-06) superseded by 058R, caught at rubber-duck QA before fire. (2) 124 (2026-05-09, this fire) superseded by 099, caught at fire-time STEP 0.2 rather than draft. Both halt cleanly, but operator effort would be saved by a draft-time supersession check in the slate-drafting workflow.",
+      "candidate_memory_subject": "prompt drafting discipline",
+      "candidate_memory_fact": "Slate-drafting workflow should perform supersession audit AT DRAFT TIME, not just include it as a Phase 0 step inside individual prompts. Recurrent pattern: prompt-drafter relies on agent's fire-time Phase 0 supersession audit, leading to wasted drafting effort + guaranteed halt. Two within-week instances: 069 v1 / 058R (2026-05-06), 124 / 099 (2026-05-09). Recommended: add explicit draft-time supersession check to slate workflow."
+    },
+    {
+      "id": "UF-124-2",
+      "severity": "INFO",
+      "summary": "099 verdict (HIGH-confidence path-(a) recommendation, 2026-05-07) was carrying for 2 days before slate 120-124 drafting (2026-05-09 ~11:25 JST). plan.md:3231 may still have listed Q22 as 'outstanding operator decision' because operator ratification was pending; if so, the 124 prompt was inadvertently treating 'unratified-by-operator' as 'unarbitrated', which is a category error. Synth-tier arbitration was complete; only operator ratification was pending."
+    },
+    {
+      "id": "UF-124-3",
+      "severity": "INFO",
+      "summary": "Under RULE 1, the bottleneck is no longer Q22 arbitration (resolved by 099). It is operator ratification of 099, which is a unilateral decision requiring no further fire. After ratification, the next M2-axis question becomes 'is path-(a) manuscript-content amendment integrated into the v1.3 manuscript at the right diff scope?'. That is a new question, NOT addressed by 099 or 124."
+    }
+  ]
+}

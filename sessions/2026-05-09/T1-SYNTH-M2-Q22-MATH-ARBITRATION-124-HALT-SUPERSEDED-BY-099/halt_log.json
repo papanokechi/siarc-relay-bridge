@@ -1,0 +1,13 @@
+{
+  "halt_code": "HALT_124_PRIOR_ARBITRATION_EXISTS",
+  "halt_class": "phase_0_supersession_gate_trip",
+  "triggered_at": "2026-05-09 ~14:50 JST",
+  "triggering_step": "124 Phase 0 STEP 0.2 (supersession audit)",
+  "operative_prior_fire": "siarc-relay-bridge/sessions/2026-05-07/T1-Q22-DEPOSIT-READINESS-MEMO-099/",
+  "prior_fire_status": "COMPLETE_PATH_A_RECOMMENDED",
+  "prior_fire_verdict": "path-(a) at HIGH confidence with Reviewer A/D both HIGH; |delta_path_a|=3.08904186542e-23 at K_FIT=7/dps=25000; path-(b) reclassified as POST-deposit stretch goal",
+  "halt_action": "deposit supersession_memo.md citing 099 chain-of-evidence; no substantive 124 fire; reframe q22-014 SQL todo as operator-ratification-only; mark relay-124 todo done-superseded-by-099",
+  "verdict_label_emitted": "SUPERSEDED_BY_099",
+  "rule_1_alignment": "PASS (no admin work performed; manuscript-content recommendation transferred from 099 substrate; Zenodo deposit step explicitly tabled per RULE 1)",
+  "operator_action_required": "ratify 099 path-(a) recommendation; apply SQL UPDATE block from supersession_memo.md §5"
+}
