@@ -1,0 +1,26 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-122-1",
+      "severity": "MEDIUM",
+      "summary": "Agent terminal cannot directly drive Claude.ai dispatch (parallel to gh-auth-agent-terminal-limitation 2026-05-08 + zenodo-deposit-agent-limitation-2026-05-09). This generalises to a class: 'external-service-fire-agent-terminal-limitation', applicable to any external service whose API requires interactive credentials, browser-based session, or human-only access channels. Class members observed so far: GitHub auth (gh CLI in some contexts), Zenodo deposit, Claude.ai conversation. Recommend a single repo memory consolidating the class.",
+      "candidate_memory_subject": "agent terminal limitations",
+      "candidate_memory_fact": "Agent terminal cannot directly drive external services that require interactive browser sessions or human-channel auth: Claude.ai conversations, Zenodo deposits, certain gh-auth flows. For these, the agent prepares dispatch packets / runbooks; operator handles the external-service interaction; cascade absorption captures the result in a follow-up bridge fire."
+    },
+    {
+      "id": "UF-122-2",
+      "severity": "INFO",
+      "summary": "122 prompt §4 phrasing 'agent (or operator) absorbs' is the only place in the slate 120-124 design where role assignment is ambiguous. Operator review may want to harden this to 'operator absorbs' for the canonical 3-arc template (121 substrate-prep T2-Executor / 122 dispatch T1-Synth-prep / 123 absorption T1-Synth-cascade) for future M-axis ratifications."
+    },
+    {
+      "id": "UF-122-3",
+      "severity": "INFO",
+      "summary": "Substrate template at 121 ends with §4 DISPATCH-READY notes that explicitly say 'this template is the substrate, not the dispatch'. The agent honoured this by concatenating the substrate verbatim into the dispatch packet without modifying §4. This means the synth will see a §4 'DISPATCH-READY' meta-section addressed to the agent; this is intentional but may produce confusion in the synth response."
+    },
+    {
+      "id": "UF-122-4",
+      "severity": "INFO",
+      "summary": "Forbidden-verb scan ran on agent-authored deliverables only (dispatch_packet.txt header + footer, dispatch_runbook.md, claims.jsonl, discrepancy_log.json, this file, halt_log.json, handoff.md). The substrate body of dispatch_packet.txt was scanned but inherits 121 substrate's verb-list-as-data exemptions (075 J2 + 098 J3) for any 'forbidden' verb appearing as a literal string in the question text."
+    }
+  ]
+}
