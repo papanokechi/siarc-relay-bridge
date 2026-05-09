@@ -1,0 +1,39 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-129-1",
+      "severity": "MEDIUM",
+      "summary": "M8b is FIRST closure-type 'NUMERICAL-FORECLOSURE-by-residual-acceptance' in M-axis ratification series. Substrate (128) carries explicit d>=3 caveat carry-forward per P-009 (1873538), and the dispatch packet header makes the d=2-only scope-fence explicit. Synth verdict risk: synth may flag the d>=3 carry-forward as objection-grounds (OBJECT) when scope-fence intends DEFER-on-d>=3-only. Dispatch packet §3 includes scope-fence text 'treat the d>=3 stratum as OUT OF SCOPE for this V0 ratification (the closure target is d=2 only)' to mitigate. Failure-mode entry in dispatch_runbook §3 covers re-prompt path if synth conflates d=2 closure with d>=3 closure. UF flag for 130 re-fire: track whether synth Q4 reasoning correctly internalizes the d=2-only scope fence.",
+      "candidate_memory_subject": "ratification scope-fence pattern",
+      "candidate_memory_fact": "When an M-axis V0 ratification carries a stratum-restriction caveat (e.g., M8b d=2 only with d>=3 carry-forward per P-009), the dispatch-packet header MUST include explicit scope-fence text identifying the in-scope vs out-of-scope strata, AND the failure-mode table MUST include a re-prompt path for the case where the synth conflates in-scope closure with out-of-scope evaluation. Otherwise risk: synth emits OBJECT citing un-evaluated stratum, requiring re-dispatch."
+    },
+    {
+      "id": "UF-129-2",
+      "severity": "INFO",
+      "summary": "Slate-execution recovery pattern: cross-references UF-126-1 (n=2 today) and UF-130-1 (parallel session). This 129 fire is the second recovery-arc in a same-session serialized-fire pattern (126 + 129). Both follow path-specific staging discipline (`git add sessions/<date>/<TASK_ID>/`) to avoid bundled-commit anomaly. UF-126-1 candidate-memory `slate execution discipline` (n=2 today) plus UF-126-4 candidate-memory `parallel-CLI git hygiene` (n=1) both apply to this fire.",
+      "candidate_memory_subject": "slate execution discipline",
+      "candidate_memory_fact": "Cross-reference: see UF-126-1 candidate-memory text. n=2 within-day evidence today (127-halt + 130-halt both Phase 0 STEP 0.2 dependency-not-landed); same-session serialized recovery (126 + 129 in this CLI session) is the standard recovery pattern."
+    },
+    {
+      "id": "UF-129-3",
+      "severity": "INFO",
+      "summary": "Dual-witness asymmetry: 126 runbook marks dual-witness OPTIONAL for M8a (STRUCTURAL-LABELING via T3-CONTE-MUSETTE 60/60); 129 runbook marks dual-witness RECOMMENDED for M8b (NUMERICAL-FORECLOSURE-by-residual-acceptance + d>=3 caveat). Asymmetry reflects closure-type risk-profile: M8a's positive-evidence Painleve labeling is structurally robust; M8b's residual-acceptance closure type is FIRST observation. If operator runs dual-witness on M8b, the dual-witness pattern observation count reaches n=3 (M7 + M8a-if-dual + M8b), enabling promotion of `dual_witness_cascade_pattern` candidate-memory.",
+      "candidate_memory_subject": "dual_witness_cascade_pattern",
+      "candidate_memory_fact": "Dual-witness recommendation tier (post-126/129 design): OPTIONAL for closure types with positive-evidence structural support (M8a STRUCTURAL-LABELING); RECOMMENDED for closure types that are FIRST observations or carry stratum-caveats (M8b NUMERICAL-FORECLOSURE + d>=3 carry-forward). Aggregation protocol (most-conservative band) is invariant across tiers."
+    },
+    {
+      "id": "UF-129-4",
+      "severity": "INFO",
+      "summary": "Closure-type taxonomy update (cross-ref UF-126-3): with M8a + M8b dispatches now both prepared, the 4-type taxonomy is in flight. M8b dispatch's substrate explicitly threads NUMERICAL-FORECLOSURE annotation pattern. Once 127R + 130R cascades land with verdicts, all 4 closure types will be ratified observations: (1) M4 ALG-COMB affine-Weyl; (2) M7 ALG-COMB PSLQ-exhaustion; (3) M8a STRUCTURAL-LABELING Painleve; (4) M8b NUMERICAL-FORECLOSURE Borel-Pade. Promotion of `closure type taxonomy` repo memory recommended at all-4-cascades-landed.",
+      "candidate_memory_subject": "closure type taxonomy",
+      "candidate_memory_fact": "Cross-ref UF-126-3 candidate-memory text. With 129 dispatch landed today, all 4 closure types now have dispatch-packets prepared; promotion of the taxonomy memory pending cascade ratifications (127R + 130R)."
+    },
+    {
+      "id": "UF-129-5",
+      "severity": "INFO",
+      "summary": "Per-session SHA history of M-axis solo-dispatch packets (substrate -> dispatch -> SHA shifts):  M7 121 substrate 72D855F7 + 122 packet B9424DE2 (550 lines, 31692 B); M8a 125 substrate B877DC4F + 126 packet 3873BE7B (676 lines, 42450 B); M8b 128 substrate 06FD8AC2 + 129 packet 9B5A0334 (795 lines, 51295 B). Packet size scales linearly with substrate richness; M8b is the largest dispatch packet to date. No SHA collisions; no truncation observations.",
+      "candidate_memory_subject": "ratification_packet_size_observations",
+      "candidate_memory_fact": "M-axis V0 ratification dispatch packets have grown over the 122/126/129 sequence: 31692 B / 42450 B / 51295 B respectively. Substrate body dominates; header/footer overhead is ~5-7 KB. No upper bound observed; Claude.ai paste-block tolerance untested at >50 KB but no operator failure reports yet."
+    }
+  ]
+}

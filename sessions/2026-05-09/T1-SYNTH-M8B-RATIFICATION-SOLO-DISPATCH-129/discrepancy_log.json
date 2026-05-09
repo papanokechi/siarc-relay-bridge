@@ -1,0 +1,22 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-129-1",
+      "severity": "INFO",
+      "summary": "Prompt 129 §5 acceptance-criteria split mirror of D-126-1: A5-A8 (prep-arc subset) closeable at this fire; A1-A4 (dispatch-arc subset) structurally infeasible at agent-side preparation time. Resolved by mirroring 122 / 126 split: 129 prep-arc closes A5-A8; 130 cascade-absorption re-fire closes A1-A4 post operator dispatch. Status this fire: PARTIAL.",
+      "resolution": "Accept split. Status closes COMPLETE-PAIR upon 130 re-fire landing."
+    },
+    {
+      "id": "D-129-2",
+      "severity": "INFO",
+      "summary": "Slot 130 already has a halt-deposit at sessions/2026-05-09/T1-SYNTH-M8B-RATIFICATION-CASCADE-ABSORPTION-130-HALT-NO-VERDICT/ from premature fire (HALT_130_NO_SYNTH_VERDICT, commit a8f0919). Re-fire post-129-dispatch will create NEW session folder (e.g., T1-SYNTH-M8B-RATIFICATION-CASCADE-ABSORPTION-130R) coexisting with halt-folder for audit trail.",
+      "resolution": "Naming convention deferred to slate-execution time."
+    },
+    {
+      "id": "D-129-3",
+      "severity": "INFO",
+      "summary": "Dual-witness designation: 126 runbook §2 Step 6 marks dual-witness as OPTIONAL; this 129 runbook §2 Step 6 marks dual-witness as RECOMMENDED for M8b specifically due to closure-type novelty (NUMERICAL-FORECLOSURE-by-residual-acceptance + d>=3 caveat carry-forward; UF-128-3 flag). Asymmetry intentional per closure-type risk-profile reasoning.",
+      "resolution": "Operator may choose single-witness for time-budget reasons; dual-witness recommendation is non-blocking. If single-witness, agent's UF-129 candidate-memory promotion for closure-type-taxonomy may be deferred."
+    }
+  ]
+}
