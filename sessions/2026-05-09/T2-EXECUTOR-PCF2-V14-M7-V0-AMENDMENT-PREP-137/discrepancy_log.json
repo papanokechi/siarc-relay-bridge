@@ -1,0 +1,47 @@
+{
+  "session": "T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137",
+  "date": "2026-05-09",
+  "discrepancies": [
+    {
+      "id": "D-137-1",
+      "severity": "INFO",
+      "phase": "A (G5 baseline check)",
+      "summary": "v1.3 baseline byte count exact match (75098 B) but line count drift relative to relay prompt §0.1 G5 spec (prompt cited '~1316 lines'; actual file is 1450 lines). The 75098 B byte count matches exactly, so the file is unambiguously the correct v1.3 baseline. The prompt-cited line count was apparently approximate; the byte count is the authoritative gate. G5 PASS.",
+      "evidence": "tex/submitted/pcf2_program_statement.tex; (Get-Content).Count = 1450; (Get-Item).Length = 75098",
+      "action": "INFO-only; gate satisfied via byte count; no remediation needed."
+    },
+    {
+      "id": "D-137-2",
+      "severity": "MED",
+      "phase": "A (G7 baseline pdflatex)",
+      "summary": "v1.3 baseline pdflatex compile in-place (from tex/submitted/) failed initially due to broken \\input{../../sessions/...} relative paths in the source — 4 directives in v1.3 (lines 504, 680, 695, 697) point at workspace_root/sessions/... but no such directory exists at workspace root by default. The actual session contents live at workspace_root/siarc-relay-bridge/sessions/. Resolution applied in-fire: created a directory junction at workspace_root/sessions → siarc-relay-bridge/sessions (reversible local action). Post-junction, baseline compiled cleanly (exit 0 / 0 errors / 22 pages / W_pre=39).",
+      "evidence": "pcf2_program_statement.log first error 'File `../../sessions/2026-05-01/PCF2-SESSION-C1/wkb_cubic_harvest_v2.tex' not found' before junction; post-junction compile clean.",
+      "action": "Forward-pointed to operator-side runbook: at deposit time, either (i) flatten the 4 \\input{} dependencies into the source bundle (mirror the v1.3 arxiv-pack flatten procedure), or (ii) recreate the workspace-root sessions junction. Recorded in b5_pdflatex_compile_log.md § 'Operator-side runbook prerequisites'. The deposit-time arxiv-pack flatten path is the authoritative one (already used for v1.3 arxiv mirror)."
+    },
+    {
+      "id": "D-137-3",
+      "severity": "INFO",
+      "phase": "B (edit-pass coordinate drift)",
+      "summary": "Relay prompt §2.4 cited op:j-zero-amplitude-h6 block at lines ~910-935 in v1.3 source. Actual file location confirmed at lines 910-935 — exact match. No coordinate drift.",
+      "evidence": "grep_search 'label{op:j-zero-amplitude-h6}' returned line 911 (label only line); block spans 910-935. Prompt-cited range matches.",
+      "action": "INFO-only; recorded for completeness."
+    },
+    {
+      "id": "D-137-4",
+      "severity": "INFO",
+      "phase": "B.5 + Phase E (FV scan, two-pass)",
+      "summary": "Two-pass FV scan per §5.2 discipline. (i) Phase B.5 scan on agent-NEW v1.4 manuscript source diff: 0 hits. (ii) Phase E scan on session deliverables (.md / .json / .diff / .jsonl): 10 raw hits across 5 deliverables, of which 4 are exempt and 6 required in-fire remediation. The 4 exempt hits: b5_pdflatex_compile_log.md L76 (verb-list-as-data exemption per 075 J2 / 098 J3 — the FV-list is being displayed as scan target), discrepancy_log.json L34 (regex-pattern-as-data exemption — the FV regex is quoted as scan evidence), zenodo_v14_deposit_log.md L39 + L41 (slot 116 J2 inherited project-specific-term exemption: 'paste-verifies' is the documented operator-action compound). The 6 remediated agent-prose hits: b5_pdflatex_compile_log.md L17 ('confirms A3 PASS' -> 'is consistent with A3 PASS'); unexpected_finds.json UF-137-1 ('Slot 137 establishes' -> 'Slot 137 introduces'); unexpected_finds.json UF-137-4 ('Slot 137 §0.5 + §3.3 establishes' -> '... introduces'); zenodo_v14_description_block.md L14 + L15 + L16 ('operator confirms via Zenodo sidebar' -> 'operator records via Zenodo sidebar', 3 lines); zenodo_v14_deposit_log.md L41 ('operator paste-verifies ... and confirms:' -> '... and records:', confirming-verb only — 'paste-verifies' retained as documented project-specific term per slot 116 J2). (iii) Third-pass FV scan post handoff.md write surfaced 2 additional agent-prose hits requiring remediation: handoff.md L20 ('confirms slot 137 is the smaller-scope amendment' -> 'makes slot 137 the smaller-scope amendment') and handoff.md L40 ('Slot 137 establishes (introduces)' -> 'Slot 137 introduces') — bringing total agent-prose remediations to 8 across 5 deliverables. Final post-third-pass scan: 6 hits, all exempt (verb-list-as-data + regex-as-data + paste-verifies inherited term + handoff.md L28 documenting these exemptions). Inherited v1.3 prose containing FV-list verbs (e.g., 'absorbs' in op:finer-cubic-split block) is grandfathered under the slot 116 J2 / 075 J2 / 098 J3 / 121 / 123 verb-list-as-data + inherited-prose exemption pattern.",
+      "evidence": "git diff --no-index pcf2_program_statement.tex pcf2_program_statement_v14.tex | Select-String '^\\+[^+]' | Select-String '\\b(proves|confirms|...)\\b' returned 0 hits at Phase B.5; Get-ChildItem -File | Select-String '\\b(proves|confirms|...)\\b' returned 6 exempt hits at Phase E post-third-pass remediation.",
+      "action": "INFO; FV scan PASS at Phase B.5 (agent-NEW manuscript source) and at Phase E (session deliverables including handoff.md, post 8-edit three-pass remediation)."
+    },
+    {
+      "id": "D-137-5",
+      "severity": "INFO",
+      "phase": "Phase E / operator-side (concept-DOI cross-check)",
+      "summary": "PCF-2 concept DOI was a forward-pointed concern at relay prompt §5.4 (3-way mismatch class). PRE-RESOLVED at relay-prompt draft time to 10.5281/zenodo.19936297 per substrate cross-check across 4 sources (zenodo_notes_v1.2.txt + claims.jsonl L5 + submission_log_patch_item15.txt L36 + channel_theory_outline.tex L1522). Slot 137 inherits this resolution as INFO. Operator paste-verify of the PCF-2 Zenodo sidebar at deposit time is RECOMMENDED but not a fire-blocker. If sidebar contradicts substrate at deposit time, escalate to MED and halt deposit.",
+      "evidence": "All 4 substrate sources consistently cite 19936297 as PCF-2 cite-all/concept DOI.",
+      "action": "INFO-only at slot 137; verbose detail recorded in zenodo_v14_description_block.md §1 + zenodo_v14_deposit_log.md §4."
+    }
+  ],
+  "summary": "5 INFO/MED discrepancies surfaced; 1 MED (D-137-2 \\input{} path resolution) was remediated in-fire via reversible junction + forward-pointed operator runbook note. 4 INFO entries for completeness. No HALT triggered."
+}

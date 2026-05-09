@@ -1,0 +1,49 @@
+{
+  "session": "T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137",
+  "date": "2026-05-09",
+  "unexpected_finds": [
+    {
+      "id": "UF-137-1",
+      "severity": "INFO",
+      "category": "first-occurrence",
+      "summary": "FIRST PCF-2 v1.4 substrate-prep fire in M-axis V0 closure series. n=1 candidate-memory entry for math-content-only (vs admin/distribution) cubic-paper amendment cycle. Slot 137 introduces a 'minor amendment' pattern (single Open-Problem status update; no new conjectures; no new bibitems) distinct from slot 135's umbrella v2.2 'major amendment' pattern (6-item closure-cascade table extension)."
+    },
+    {
+      "id": "UF-137-2",
+      "severity": "INFO",
+      "category": "cascade-decision-realization",
+      "summary": "SECOND application of cascade-132 PATH_B / Option α deposit-ordering decision in source-of-record (slot 135 umbrella v2.2 was first; this is second). Slot 136 picture-chain v1.20+ substrate-prep (when fired) will be third. Cascade-132 §3.1 unanimous Option α prescribes ordering: PCF-2 v1.4 deposits FIRST, umbrella v2.2 SECOND, picture-chain v1.20+ THIRD; all 3 substrate-prep fires are in source-of-record before RULE 1 lift, but Zenodo deposits are TABLED."
+    },
+    {
+      "id": "UF-137-3",
+      "severity": "INFO",
+      "category": "cross-document-propagation",
+      "summary": "FIRST PCF-paper application of the umbrella's annotation-propagation rule '(SOFT-BRANCH; HARD-BRANCH-PENDING)'. The qualifier text was first introduced at the M7 V0 cascade T1-SYNTH-M7-V0-CLOSURE-CASCADE-123 (bridge SHA 7f93b9e) and propagated to umbrella v2.2 at slot 135 (4 hits in v2.2 body). Slot 137 propagates it to PCF-2 v1.4 (4 hits in v1.4 body at L58 / L134 / L998 / L1001). Cross-document propagation pattern is now established n=2 (umbrella + PCF-2); picture-chain v1.20+ would extend this to n=3."
+    },
+    {
+      "id": "UF-137-4",
+      "severity": "INFO",
+      "category": "rule-precedent",
+      "summary": "ANTI-CONFLATION rule precedent realized in source-of-record. Slot 135 §2.8 conflated M4 V0 A_fit values (5.978 / 7.954) with M7 V0 substrate (UF-135-4). Slot 137 §0.5 + §3.3 introduces the explicit ANTI-CONFLATION rule (per-axis numerical-content table at §0 + diff-restricted post-edit grep at §3) as a forward-pointed slot-template extension. Slot 137 v1.4 body explicitly disclaims M4 V0 numerical content via the clause 'the M4 V0 numerical content (cubic / quartic A_fit residuals) is unrelated to the M7 V0 j=0 PSLQ closure and is not cited here'. n=1 candidate-memory: ANTI-CONFLATION rule should propagate to all future M-axis substrate-prep slot prompts."
+    },
+    {
+      "id": "UF-137-5",
+      "severity": "INFO",
+      "category": "infrastructure-gap",
+      "summary": "External \\input{} path-resolution gap surfaced at G7 baseline compile (D-137-2). v1.3 source uses 4 \\input{../../sessions/...} directives that expect workspace_root/sessions/ to exist. The actual layout has sessions/ under siarc-relay-bridge/. Resolution applied: directory junction at workspace root (reversible). Forward-pointed governance: future PCF-paper substrate-prep fires should either (a) flatten \\input{} dependencies into the source pre-deposit (mirror arxiv-pack flatten), or (b) ensure the workspace junction is in place. The umbrella v2.2 (slot 135) source is self-contained (zero \\input{}) and does not surface this gap; PCF-2 surfaces it because its source authors session-output material in-line."
+    },
+    {
+      "id": "UF-137-6",
+      "severity": "INFO",
+      "category": "doi-taxonomy-distinction",
+      "summary": "PCF-1 vs PCF-2 DOI taxonomy distinction surfaced at relay-prompt draft-time QA. The DOI 10.5281/zenodo.19937196 (cited in slot 116/135 deliverables) is PCF-1 v1.3 version DOI, NOT PCF-2's anything. PCF-1 concept DOI is 10.5281/zenodo.19931635; PCF-1 v1.3 version DOI is 10.5281/zenodo.19937196. PCF-2 concept DOI is 10.5281/zenodo.19936297; PCF-2 v1.3 version DOI is 10.5281/zenodo.19963298. Forward-pointed governance: any future cross-link splice that uses IsSupplementTo for PCF-1 should use the PCF-1 concept DOI 19931635 (Zenodo best practice — concept DOI tracks all versions automatically), not the v1.3 version DOI. Slot 135 zenodo_v22_description_block.md IsSupplementTo row may need a forward-pointed correction (deferred to operator-side cross-link sweep at Phase D). Documented in cross_link_update_log.md §3. n=1 candidate-memory: substrate-citation discipline must include version-DOI / concept-DOI distinction at the Zenodo cross-link tier."
+    },
+    {
+      "id": "UF-137-7",
+      "severity": "INFO",
+      "category": "edit-style-adaptation",
+      "summary": "Edit pass 6 (amendment log paragraph 'What changed between v1.3 and v1.4') was adapted from the relay prompt's literal '\\paragraph{...}' form to the paper's existing '\\noindent\\textit{...}\\;\\;' style (used in v1.3 for 'What is new in v1.3' / 'What was new in v1.2' series). Structural consistency with the existing series was preferred over prompt-literal markup. Documented in b5_pdflatex_compile_log.md edit-pass coverage. INFO-only judgment call within scope of §2.7's 'add a brief paragraph after the abstract' clause (which is the no-paragraph-style-exists branch of §2.7)."
+    }
+  ],
+  "summary": "7 INFO unexpected finds; 0 MED. UF-137-4 (ANTI-CONFLATION rule precedent) and UF-137-6 (DOI taxonomy distinction) are the most operationally significant — both forward-point to slot-template + cross-link-sweep updates. UF-137-5 (infrastructure-gap on \\input{} resolution) is governance-significant for future PCF-paper substrate-prep fires."
+}

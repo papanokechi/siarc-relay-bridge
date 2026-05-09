@@ -1,0 +1,182 @@
+diff --git a/pcf2_program_statement.tex b/pcf2_program_statement_v14.tex
+index b41a1f8..8ae0db0 100644
+--- a/pcf2_program_statement.tex
++++ b/pcf2_program_statement_v14.tex
+@@ -35,7 +35,7 @@
+ 
+ \title{PCF-2: A Program Statement for the Cubic Extension\\
+        of the $\Delta$-Discriminant Transcendence Predicate\\
+-       \large Version 1.3 (Cubic-Modular Framing)}
++       \large Version 1.4 (j=0 Chowla--Selberg PSLQ-Exhaustion Amendment)}
+ \author{Papanokechi%
+ \thanks{ORCID: \href{https://orcid.org/0009-0000-6192-8273}{0009-0000-6192-8273}.
+ Independent Researcher, Yokohama, Japan.
+@@ -49,8 +49,16 @@ $-\_S_3\_\mathrm{CM}$ bin and the WKB-exponent fit), and~C1 (non-CM cubic
+ WKB completion). All conjecture formulations, scope decisions, and
+ editorial choices were made by the human author, who takes full
+ responsibility for the content. The AI tools are not authors. See the
+-AEAL methodology of~\cite{P8AEAL}. Version~1.3 absorbs SIARC sessions~R1.1, R1.2, R1.3, and~T2 (the cubic-modular Eisenstein/Petersson probe).}}
+-\date{May~2, 2026 (v1.3)}
++AEAL methodology of~\cite{P8AEAL}. Version~1.3 absorbs SIARC sessions~R1.1, R1.2, R1.3, and~T2 (the cubic-modular Eisenstein/Petersson probe).
++Version~1.4 (May~2026) records the resolution of Open Problem~\ref{op:j-zero-amplitude-h6} (the $j=0$ amplitude / Chowla--Selberg closure)
++in the soft branch via the Prompt 014 \textsf{PASS\_A\_EQ\_6\_ONLY} verdict (T25D-RETRY-13PARAM,
++SIARC bridge SHA \texttt{e857172}); the M7 V0 dual-witness ratification cascade
++\texttt{T1-SYNTH-M7-V0-CLOSURE-CASCADE-123} (bridge SHA \texttt{7f93b9e}, 2026-05-09)
++adopts this resolution at the canonical confidence band MEDIUM-HIGH with annotation
++\emph{(SOFT-BRANCH; HARD-BRANCH-PENDING)}. \emph{All other content of v1.3 is unchanged
++in v1.4}; the v1.4 amendment is a status / provenance update for one Open Problem,
++not a content revision elsewhere.}}
++\date{May~2026 (v1.4)}
+ 
+ \begin{document}
+ \maketitle
+@@ -116,6 +124,22 @@ on the $50$-family catalogue). Both are restricted to $d=3$: the
+ deep-WKB null at $d=4$ (Session~R1.3) rules out a verbatim extension.
+ \end{abstract}
+ 
++\noindent\textit{What changed between v1.3 and v1.4.}\;\;The v1.4 amendment records exactly one Open-Problem-status update relative
++to v1.3: Open Problem~\ref{op:j-zero-amplitude-h6} ($j=0$ amplitude /
++Chowla--Selberg closure) is recorded as resolved in the soft branch via
++the Prompt 014 \textsf{PASS\_A\_EQ\_6\_ONLY} verdict (SIARC bridge SHA
++\texttt{e857172}, 2026-05-02), ratified at M7 V0 cascade
++\texttt{T1-SYNTH-M7-V0-CLOSURE-CASCADE-123} (bridge SHA \texttt{7f93b9e},
++2026-05-09; aggregated MEDIUM-HIGH; annotation
++\emph{(SOFT-BRANCH; HARD-BRANCH-PENDING)}). The hard-branch stretch
++goal $|\delta|<10^{-30}$ remains forward-pointed under Q22 path-(b).
++\emph{All other v1.3 content --- the trichotomy conjecture B$_3$,
++Conjecture~B4 (sharp WKB exponent identity at $d=3,4$), the cubic-modular
++Eisenstein/Petersson probe of \S\ref{sec:R1-finer-split}, the quartic
++harvest \S\ref{sec:Q1-quartic}, and all other Open Problems --- is
++unchanged in v1.4}.
++\smallskip
++
+ \noindent\textit{What is new in v1.3.}\;\;Section~\ref{sec:R1-finer-split}
+ is rewritten as a multi-step narrative (R1$\to$R1.1$\to$R1.2$\to$R1.3$\to$T2)
+ absorbing the cubic-modular Eisenstein/Petersson probe of
+@@ -710,6 +734,9 @@ finer-cubic-split open problem of v1.2 is therefore closed;
+ \texttt{op:j-zero-amplitude-h6} (the $\Gamma(1/3)$ Chowla--Selberg
+ closure deferred from T2 Phase~D, see
+ Remark~\ref{rem:j-zero-finite-N}) is opened.
++(Status update at v1.4: Open Problem~\ref{op:j-zero-amplitude-h6} is
++recorded as resolved in the soft branch; see the amended problem
++statement below for the v1.4 closure record.)
+ 
+ \section{Quartic harvest at $d=4$ (Session~Q1)}\label{sec:Q1-quartic}
+ 
+@@ -905,33 +932,93 @@ successor problems are \texttt{op:j-zero-amplitude-h6} (the
+ $\Gamma(1/3)$ Chowla--Selberg closure at the $j=0$ cell) and
+ \texttt{op:j-1728-wedge} (the wedge probe at the lemniscatic
+ $j=1728$ cell).
++(Status update at v1.4: Open Problem~\ref{op:j-zero-amplitude-h6} is
++recorded as resolved in the soft branch; see the amended problem
++statement below for the v1.4 closure record.)
+ \end{problem}
+ 
+ \begin{problem}[$j=0$ amplitude and Chowla--Selberg
+-closure]\label{op:j-zero-amplitude-h6}
+-Determine the closed form of the WKB amplitude $\alpha(b)$ at the
+-four equianharmonic $j(\mathrm{Jac}(C_b))=0$ cubic families
++closure --- \emph{resolved in v1.4 (soft branch)}]\label{op:j-zero-amplitude-h6}
++\emph{Status (v1.4): resolved in the soft branch; hard branch forward-pointed.}
++The closed form of the WKB amplitude $\alpha(b)$ at the four equianharmonic
++$j(\mathrm{Jac}(C_b))=0$ cubic families
+ ($(\alpha_3,\alpha_2,\alpha_1,\alpha_0) = (1,-3,3,a_0)$ with
+-$a_0\in\{-3,1,2,3\}$). The H6 prediction (proposed during the v1.3
+-absorption cycle) asserts $A_{\mathrm{true}}-6 = 0$ exactly at the
+-equianharmonic cell, with the leading transcendental amplitude
+-governed by the Chowla--Selberg
+-$\Gamma(1/3)$ formula~\cite{ChowlaSelberg1967,Yu99} at the
+-imaginary-quadratic discriminant $D=-3$. Session~T2 Phase~D
+-(\texttt{phase\_d\_pslq.py}, $\mathrm{dps}=4000$, $N_{\max}=480$)
+-triggered a literal $5\sigma$-scale halt on $A_{\mathrm{fit}}-6$
+-across the four families, but the ${\ge}50\!\times$ N-scaling
+-shrinkage from R1.1 ($N\!\le\!67$) to T2-D ($N\!\le\!480$)
+-identifies this as a finite-$N$ tail-window artefact of the
+-four-parameter WKB ansatz (Remark~\ref{rem:j-zero-finite-N}). PSLQ
+-closure was deferred because amplitude extraction by lstsq capped
+-at $\sim\!14$ digits is insufficient to detect a $\Gamma(1/3)$-basis
+-relation against the B19 augmented basis (Session~T2,
+-claim~T2-D6). The recommended protocol (relay tag~\textsc{T2.5d}) is
+-a redesigned five-parameter WKB ansatz $y_N = -A\,N\log N + \alpha\,N
+-- \beta\log N + \gamma + c_1/N$ at $\mathrm{dps}\ge 8000$,
+-$N_{\max}\ge 1200$, with $\alpha$ extracted directly to
+-${\ge}40$ digits before PSLQ.
++$a_0\in\{-3,1,2,3\}$) was the principal forward-pointed open problem at
++v1.3. Session~T2 Phase~D (\texttt{phase\_d\_pslq.py}, $\mathrm{dps}=4000$,
++$N_{\max}=480$) had triggered a literal $5\sigma$-scale halt on
++$A_{\mathrm{fit}}-6$ across the four families, identified at v1.3 as a
++finite-$N$ tail-window artefact of the four-parameter WKB ansatz
++(Remark~\ref{rem:j-zero-finite-N}). The v1.3 recommended protocol
++(relay tag~\textsc{T2.5d}) called for a redesigned five-parameter WKB ansatz
++$y_N = -A\,N\log N + \alpha\,N - \beta\log N + \gamma + c_1/N$ at
++$\mathrm{dps}\ge 8000$, $N_{\max}\ge 1200$, with $\alpha$ extracted directly
++to ${\ge}40$ digits before PSLQ.
++
++\paragraph{v1.4 closure (soft branch).}
++The T2.5d protocol was executed as Prompt~014 (T25D-RETRY-13PARAM, SIARC
++bridge SHA \texttt{e857172}, 2026-05-02) at the strengthened parameter
++window $\mathrm{dps}=25000$ / $N \le 1200$ and at an 11-parameter
++square-exact LIN refit at $K_{\mathrm{FIT}}=7$ (Judgment call \#1 of the
++Prompt 014 handoff).  The result is the verdict
++\textsf{PASS\_A\_EQ\_6\_ONLY}: across the four $j=0$ cubic families
++(Q\_30, Q\_31, Q\_32, Q\_33) the WKB leading exponent $A_{\mathrm{lin}}$
++satisfies
++\[
++   \max_{30 \le i \le 33}\, |A_{\mathrm{lin}}^{(i)} - 6|
++   \;\le\; 3.09\times 10^{-23},
++\]
++clearing the $10^{-15}$ minimum target with $8+$ orders of margin.
++PSLQ on the 17-member deduplicated H6 Chowla--Selberg basis B19+
++(maxcoeff $=10^{50}$, tolerance $=10^{-40}$) returned \emph{no}
++non-trivial $\Gamma(1/3)$ relation in any of the four families.
++We read this as: $A=6$ to PSLQ-detection precision, with no detected
++Chowla--Selberg amplitude correction in the H6 basis at the present
++precision.
++
++\paragraph{Q23 PSLQ basis hygiene.}
++The closure runs in the \emph{deduplicated} 17-member basis (NOT the
++literal 18-basis). The literal 18-basis contains the
++$\mathbb{Q}$-redundant pair
++$\{\sqrt{3},\,\Gamma(1/3)\Gamma(2/3)/(2\pi)\}$ via the
++$\Gamma$-reflection identity; running PSLQ on the literal basis
++returns the trivial relation
++$1\cdot\sqrt{3} - 3\cdot\mathrm{CS}_{\sqrt{3}} = 0$
++with target coefficient $=0$, i.e.\ no Chowla--Selberg signal. Q23
++PSLQ basis-hygiene rule (deduplicate before running PSLQ) is recorded
++in the Prompt 014 \texttt{unexpected\_finds.json}.
++
++\paragraph{Soft / hard branch split.}
++Closure is recorded in the \emph{soft branch} (algebraic-combinatorial
++amplitude refit on saved $\mathrm{cf\_value}$ series, no new high-dps
++$\mathtt{mpmath}$ generation needed). The hard-branch stretch goal
++$|\delta| < 10^{-30}$ is \emph{not} achieved at v1.4 and remains
++forward-pointed not-blocking; it would require $K_{\mathrm{FIT}}=9$
++on extended series at $N\le 2400$ / $\mathrm{dps}\ge 44{,}300$ along
++the Q22 path-(b) numerical-escalation ladder. The annotation
++\emph{(SOFT-BRANCH; HARD-BRANCH-PENDING)} is recorded with the closure
++to prevent silent inheritance of an unqualified closure state in
++downstream documents. Picture-chain v1.20+ tag form is
++\textsf{M7\_V0\_CLOSED (SOFT-BRANCH; HARD-BRANCH-PENDING)}.
++
++\paragraph{Cascade ratification.}
++The v1.4 amendment text was adopted as canonical at the M7 V0 dual-witness
++T1-Synth ratification cascade
++\texttt{T1-SYNTH-M7-V0-CLOSURE-CASCADE-123} (bridge SHA \texttt{7f93b9e},
++2026-05-09); both reviewers issued \verb|RATIFY_WITH_AMENDMENT|
++(R1: MEDIUM-HIGH; R2: HIGH; aggregated MEDIUM-HIGH per
++most-conservative dual-reviewer protocol). Mirror anchor: the M4 V0
++cascade-106 (bridge SHA \texttt{5f9db69}) annotation pattern
++\emph{(MEDIUM-HIGH; HIGH-PENDING)} is structurally analogous; the M4 V0
++\emph{numerical} content (cubic / quartic $A_{\mathrm{fit}}$ residuals)
++is unrelated to the M7 V0 $j=0$ PSLQ closure and is \emph{not} cited here.
++
++\paragraph{What remains open.}
++(i) The hard-branch stretch goal at $|\delta|<10^{-30}$
++(Q22 path-(b)). (ii) The complementary $j=1728$ wedge probe
++(Open Problem~\ref{op:j-1728-wedge}, low-priority) is unrelated to
++this closure. (iii) The PCF-1 v1.3 \S5 $d=2$ split
++$A\in\{2d-1,2d\}$ remains as the sole known anomaly to
++Conjecture~\ref{conj:B4} at general $d$ (Open Problem~\ref{op:d2-anomaly}).
+ \end{problem}
+ 
+ \begin{problem}[$j=1728$ wedge, low priority]\label{op:j-1728-wedge}
