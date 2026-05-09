@@ -1,0 +1,13 @@
+{
+  "task_id": "T2-EXECUTOR-115-ROUTE-F-D7-FIXED-POINT-EXTRACTION-132",
+  "entries": [
+    {
+      "id": "DISC-115-1-PDFLATEX-FRESH-W-FLOW",
+      "severity": "LOW",
+      "scope": "A4 pdflatex compile cleanliness",
+      "summary": "Prompt-spec expected post-edit pass-1 W = W_pre + 1 (label-shift) -> pass-2 W = W_pre. Observed: a stale CWD-side p12_journal_main.aux from session 128 caused MiKTeX's pdflatex to read it preferentially over build_115/p12_journal_main.aux, persisting the new \\bibitem{ohyama2006} as 'undefined cite' across multiple passes. Resolution: deleted the stale CWD-side .aux/.log/.out and rebuilt build_115/ from scratch. Steady state after fresh pass-1 + pass-2: W = 24 = W_pre exactly, 0 errors, 0 undefined references. PDF: 22 pages (baseline 21 + 1 from new remark page-break, acceptable per A4 D.4).",
+      "remediation": "Logged for posterity. Future executors should ensure CWD-side aux files are cleaned before -output-directory builds, OR run pdflatex without -output-directory (in-place build).",
+      "impact": "None on substantive result; A4 acceptance criterion satisfied at steady state."
+    }
+  ]
+}
