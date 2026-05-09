@@ -1,0 +1,14 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-139-1",
+      "severity": "LOW",
+      "title": "Verdict §4(c) cites cascade-131 §1.4 last paragraph as documented-commitment-lift precedent; precedent actually resides in cascade-132 §5",
+      "discovery_phase": "agent-side rubber-duck QA during slot 139 absorption (per packet §10 + per A-139-2 self-flagged risk)",
+      "description": "The verdict's §4 reasoning paragraph (c) cited 'the cascade-131 §1.4 last paragraph (operative for M9 V0 path consultation, hence in the synth's authority chain)' as the documented-commitment-lift precedent. Direct grep of both artefacts during absorption found:\n  - cascade-131 prompt (`131_t1_synth_m9_v0_closure_path_consultation_EXECUTED.txt`) contains 0 instances of 'documented commit' substring.\n  - cascade-132 decision substrate (`m9_v0_closure_path_decision.md`) §5 contains the precedent text verbatim: 'Operator-discretion permits lift before M10 with documented commitment.'\nThe precedent EXISTS and supports the §4 sub-recommendation. Only the attribution is incorrect. Likely cause: slot/SHA naming overlap — cascade-131 = the prompt slot, cascade-132 = the resulting bridge SHA `fd669d347967db2e854f8e9d3725f625bf9fbc2a`. Easy slip; the synth's A-139-2 LOW-MED self-flagged risk (synth did not re-verify the paragraph's exact wording) was prescient.",
+      "remediation": "agent-side citation correction in `m10_status_subrecommendation.md` §2(c) — explicit AGENT-SIDE NOTE block records the original citation, the actual precedent location, and the conclusion that substance is preserved. No re-fire required. Operator should reference the corrected citation (cascade-132 = `m9_v0_closure_path_decision.md` §5; bridge SHA `fd669d347967db2e854f8e9d3725f625bf9fbc2a`) when invoking the documented-commitment-lift precedent for M10.",
+      "downstream_impact_check": "the §4 sub-recommendation DEFERRED-OUT-OF-M9-SCOPE rests on the existence of the documented-commitment-lift precedent, which is verified to exist (just at the corrected location). Sub-recommendation stands.",
+      "memory_pattern_recurrence": "see UF-139-4 — slot/SHA naming overlap is a recurring slip-class; recommends candidate memory promotion"
+    }
+  ]
+}

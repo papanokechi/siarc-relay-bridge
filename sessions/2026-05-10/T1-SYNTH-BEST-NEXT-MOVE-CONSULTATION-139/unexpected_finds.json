@@ -1,0 +1,44 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-139-1",
+      "severity": "MED",
+      "title": "M-axis taxonomy may need to fork into math-content axes vs tooling-state axes",
+      "source": "verdict §6 out-of-template synth note (verbatim in `synth_verdicts_raw.txt`)",
+      "description": "The verdict surfaced a structural observation about the M-axis closure-statement template: it was designed for math-content axes (M4 / M7 / M8a / M8b) where the math itself reaches a state ready for peer-review. M10 is a tooling-state axis (Lean-4 build green + sorries discharged) — the math it formalizes is already covered under M2/M7/M8 closures. Forcing a 3-arc ratification template on tooling-state forces the synth to verdict on something it cannot verify (synth doesn't run Lean), producing a closure SHA whose annotation contradicts the word 'closure'. The synth recommends: if M11 / M12 turn out to be tooling-state too, commission a meta-consultation on whether the M-axis template should fork into math-axis vs tooling-axis variants.",
+      "scope": "potentially affects M10, M11, M12 + any future tooling-state axis added to the M-axis taxonomy. Does not affect the historical math-content closures (M4 / M7 / M8a / M8b) — those used the template appropriately.",
+      "candidate_memory_status": "PROMOTION_CANDIDATE_DEFERRED — defer promotion until M11 and/or M12 are characterized; if either turns out to be tooling-state, promote then. If both turn out to be math-content, M10 is the sole tooling-state outlier and a fork is unnecessary.",
+      "operator_action_recommended": "review the synth's §6 note when next characterizing M11 / M12 status; if either is tooling-state, escalate to meta-consultation on template fork."
+    },
+    {
+      "id": "UF-139-2",
+      "severity": "LOW",
+      "title": "Documented-commitment substrate format proposal: 3-line YAML in .fleet.yaml + m10_documented_commitment.md",
+      "source": "verdict §6 closing open-question (verbatim in `synth_verdicts_raw.txt`)",
+      "description": "The verdict's open-question for next consultation: if operator selects DEFERRED-OUT-OF-M9-SCOPE per §4, what is the format of the documented-commitment paragraph? Synth recommends a 3-line YAML block in `.fleet.yaml` `commitments:` subsection (new) cross-linking to a one-page `m10_documented_commitment.md` substrate. Operator's call.",
+      "scope": "operator-tier substrate-format decision; relevant if the documented-commitment lift path is exercised.",
+      "candidate_memory_status": "DOES_NOT_PROMOTE — substrate-format-once decision; not a recurring convention.",
+      "operator_action_recommended": "decide format pre-fire when documenting the M10 commitment; the agent should not pre-fill the commitment text but can pre-build the YAML scaffold and the empty `m10_documented_commitment.md` template."
+    },
+    {
+      "id": "UF-139-3",
+      "severity": "LOW",
+      "title": "Prompt 124 (`124_t1_synth_m2_q22_math_arbitration.txt`) has ambiguous status — drafted but never marked _EXECUTED.txt",
+      "source": "verdict A-139-1 LOW (synth-flagged) + agent-side prompt-folder inventory",
+      "description": "The prompt file `tex/submitted/control center/prompt/124_t1_synth_m2_q22_math_arbitration.txt` is present in the prompt folder without the `_EXECUTED.txt` suffix. Two possibilities: (a) it was drafted but never fired; (b) it was absorbed by slot 137 §6 PCF-2 v1.4 substantive amendment (substrate-prep absorption) but never formally retired with the suffix.",
+      "scope": "minor cleanup; not blocking any current decision.",
+      "candidate_memory_status": "DOES_NOT_PROMOTE — single-instance cleanup candidate.",
+      "operator_action_recommended": "at any tactical fire, decide whether to (a) fire prompt 124 (if Q22 still has open arbitration), (b) rename to `_EXECUTED.txt` (if absorbed by slot 137), or (c) rename to `_ABSORBED_BY_137.txt` for clarity. The verdict's view: likely (b) given slot 137 §6 substantive absorption; verify and rename."
+    },
+    {
+      "id": "UF-139-4",
+      "severity": "LOW",
+      "title": "Slot/SHA naming-overlap citation-slip pattern (cascade-131 prompt slot vs cascade-132 bridge SHA)",
+      "source": "agent-side discovery during D-139-1 absorption rubber-duck QA",
+      "description": "The synth's verdict §4(c) cited cascade-131 as the source of the documented-commitment-lift precedent, but the precedent actually resides in cascade-132. The naming overlap (cascade-131 = the prompt slot fired on 2026-05-09; cascade-132 = the resulting bridge SHA `fd669d347967db2e854f8e9d3725f625bf9fbc2a` deposit folder) creates an easy citation slip. This is structurally analogous to the existing `substrate verification` memory (post-031 verdict on bibliographic identifier hallucination + the post-105 SHA-mismatch finding) but applies specifically to slot/SHA naming overlap within SIARC's own bridge.",
+      "scope": "applies to all future verdict-absorption + prompt-drafting work that cites prior cascade slots vs prior cascade bridge SHAs; especially when the slot number and bridge folder name share a numeric overlap.",
+      "candidate_memory_status": "PROMOTE_TO_PEER_MEMORY — recommend new memory under subject `substrate verification` with fact: 'When citing prior cascade precedents, distinguish between PROMPT SLOT (the .txt fire artefact) and DECISION SUBSTRATE (the bridge folder + SHA). Pre-flight grep both before invoking precedent; cascade-N+1 (decision substrate) is where verdict text resides, not cascade-N (prompt slot).'",
+      "operator_action_recommended": "agent will store the candidate memory after this fire. Operator can downvote during memory-review if not desired."
+    }
+  ]
+}
