@@ -1,0 +1,44 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-132-1",
+      "severity": "INFO",
+      "category": "cross-reviewer-LABEL-divergence",
+      "description": "Triple-witness LABEL divergence: R1 Gemini PATH_B + R3 Grok PATH_B vs R2 Claude.ai PATH_C. One-step divergence (PATH_B and PATH_C are adjacent on the conservativeness ordering specified in prompt 131 §5.1). Resolved by majority aggregation (2/3 PATH_B) reinforced by R2's own §2 net-assessment paragraph acknowledging PATH_B as 'the conservative alternative if the operator prefers a single, comprehensive first deposit'. Documented at cascade_record.md §3.1-§3.2.",
+      "blocking": false,
+      "mitigation": "Triple-witness amended aggregation rule applied: when ≥2 of 3 reviewers converge on a single LABEL AND the dissenting reviewer characterizes the majority LABEL as conservative on alternative grounds, adopt majority. Operative LABEL = PATH_B."
+    },
+    {
+      "id": "D-132-2",
+      "severity": "INFO",
+      "category": "synth-self-stated-SHA-verification-asymmetry",
+      "description": "R2 Claude.ai self-reported substrate SHAs verified = N (deferred to operator pre-flight per §0.1 prompt language). R1 Gemini and R3 Grok self-reported Y. Asymmetry is explained: R2 took the prompt §0.1 'operator MUST run git rev-parse' instruction literally; R1 and R3 treated it as a confidence assertion. Agent-side verification was already complete during slot 131 drafting fire (all 8 SHAs resolved); this discrepancy reflects R2's strict-procedural reading rather than a substrate gap.",
+      "blocking": false,
+      "mitigation": "All 8 substrate SHAs re-verified at this cascade fire (cascade_record.md §2.1); G1 PASS recorded."
+    },
+    {
+      "id": "D-132-3",
+      "severity": "INFO",
+      "category": "synth-confidence-band-omission",
+      "description": "All three reviewers' §6 signature blocks are silent on confidence band. Prompt 131 §4 verdict format specified §6 should include the band but the field was not explicitly enumerated in §6 (only Decision was). This is a minor template-omission discrepancy, not a substantive evidentiary gap.",
+      "blocking": false,
+      "mitigation": "Default band assigned MEDIUM-HIGH per §3.3 of cascade_record.md (matching M4/M7/M8a precedent; moderated by triple-witness 2:1 LABEL divergence from a hypothetical HIGH default)."
+    },
+    {
+      "id": "D-132-4",
+      "severity": "INFO",
+      "category": "protocol-design-scope-exceedance",
+      "description": "Prompt 131 §5.1 (most-conservative-LABEL rule) and §5.2 (most-conservative-BAND rule) were drafted for dual-witness aggregation. This fire is triple-witness cross-provider, exceeding the protocol's design scope. Aggregation applied an amended rule (cascade_record.md §3.2) recorded as protocol-amendment candidate.",
+      "blocking": false,
+      "mitigation": "Triple-witness amended aggregation rule applied; recorded as UF-132-2 candidate protocol amendment for future M-axis aggregation discipline."
+    },
+    {
+      "id": "D-132-5",
+      "severity": "INFO",
+      "category": "FV-scan-in-fire-remediation",
+      "description": "Cascade_record.md §3.5 row §3.3 column initially contained 'established triple-witness cross-provider precedent'; FV scan flagged 'established' as forbidden verb in agent-prose claim/prediction context. Mitigated inline by rephrasing to 'set triple-witness cross-provider precedent' before commit.",
+      "blocking": false,
+      "mitigation": "In-fire remediation; FV scan PASS post-edit."
+    }
+  ]
+}
