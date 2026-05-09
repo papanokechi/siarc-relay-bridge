@@ -1,0 +1,30 @@
+{
+  "UF-128-1": {
+    "severity": "INFO",
+    "category": "substrate-richness-observation",
+    "description": "M8b axis substrate at fire-time of prompt 128 is unusually rich (4 prior fires: 092 operative + P-009 caveat + 038 dossier + picture v1.19 milestone block; plus predecessor lenses 010 / 016 / 017c / 017e / 017m as supporting non-ratification fires) compared to M7 axis substrate at fire-time of prompt 121 (2 prior fires: 006 + 014). The prompt 128 §1 supersession-audit-with-note explicitly anticipated this richness ('Substrate readiness: HIGH per RULE 1 outlook §1 substrate at 092 + P-009; substrate-prep absorbs'). The 4-lens negative-result substrate (017c LSQ + 017e extended LSQ + 017m subtracted-high-order Borel-Padé HALT + 092 raw-low-order Borel-Padé PERMANENT_RESIDUAL_G6b) is the operative closure-by-residual-acceptance mechanism per Phase D2 of relay 092 spec.",
+    "blocking": false,
+    "next_action": "none; documented for synth at slot 129"
+  },
+  "UF-128-2": {
+    "severity": "INFO",
+    "category": "concurrency-observation",
+    "description": "Sibling 125 (M8a substrate-prep, parallel-fired same slate) was NOT yet deposited in bridge sessions/2026-05-09/ at the time this 128 template was drafted (~15:05 JST). Per prompt 128 §1, this is parallel-safe ('After 125 lands (or in parallel)'). The 128 template references 125 as a sibling (§8 cross-references) without depending on 125 deliverables. If 125 lands before 129 dispatches, the synth at 129 may want to read 125 alongside 128 for cross-axis consistency; if 125 has not landed by 129 fire-time, 128 is independently complete and the dispatch proceeds.",
+    "blocking": false,
+    "next_action": "operator may pace 129 dispatch to allow 125 absorption if desired; otherwise no action"
+  },
+  "UF-128-3": {
+    "severity": "INFO",
+    "category": "closure-type-novelty",
+    "description": "M8b V0 closure type (numerical-foreclosure-by-residual-acceptance) is qualitatively different from the prior two ratification cycles (M4 V0 = structural deg_a=0 row mechanism; M7 V0 = soft-branch PSLQ exhaustion). The closure-confidence annotation pattern at picture-chain v1.20+ generalizes to (NUMERICAL-FORECLOSURE; d≥3-CAVEAT-CARRIED-FORWARD), mirroring (MEDIUM-HIGH; HIGH-PENDING) for M4 and (SOFT-BRANCH; HARD-BRANCH-PENDING) for M7. The pattern is: <closure-mechanism>; <forward-pointed-residual-or-amendment>. Worth noting for the M9 V0 closure annotation when that fires (likely a fourth qualitatively-different closure type).",
+    "blocking": false,
+    "next_action": "annotate at picture v1.20+ deposit; consider in M9 V0 substrate-prep template at future slot"
+  },
+  "UF-128-4": {
+    "severity": "INFO",
+    "category": "p009-caveat-reconciliation",
+    "description": "The P-009 caveat (active variant v1 NOT_YET_DISPATCHED for d≥3 binding-window dispatch) is forward-pointed and NOT modified by the M8b V0 closure, because the V0 closure addresses d=2 numerical foreclosure and the caveat addresses d≥3 structural dispatch — different scopes. Re-fire conditions for the caveat (per p009_m8b_caveat_all_variants.md §6) remain: dispatch fires → v2; positive → v3; negative → v4; P-008 schema-shifts → re-audit. The §4 revised-wording template explicitly reproduces the active v1 caveat verbatim (per quoted-substrate exemption) so the synth at slot 129 can confirm reconciliation without re-deriving.",
+    "blocking": false,
+    "next_action": "synth at 129 acknowledges reconciliation in §6 P-009 caveat reconciliation field"
+  }
+}
