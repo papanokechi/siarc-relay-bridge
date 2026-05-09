@@ -1,0 +1,57 @@
+# submission_log Item 11 (series 2) splice — operator-pending template
+#
+# Session: T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137
+# Status:  OPERATOR-PENDING (TABLED under RULE 1 §1; runs at Phase D after Phase C Zenodo deposit lands)
+#
+# Per cascade-132 §3.1 unanimous Option α: PCF-2 v1.4 deposits FIRST in the
+# M-axis V0 closure-series Zenodo session, BEFORE umbrella v2.2 (slot 135
+# substrate, item 12 series 2) and BEFORE picture-chain v1.20+ (slot 136
+# substrate, item 13 series 2 expected).
+#
+# Series 2 last-item number at slot 137 fire time: 10 (t2b_paper_draft_v5_withauthor.tex,
+# 30 Apr 2026, DOI 10.5281/zenodo.19915689). Next available item: 11.
+#
+# PCF-2 v1.4 splice = Item 11 series 2.
+# (Slot 135 splice template at sessions/2026-05-09/T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135/
+#  submission_log_item12_splice.diff already pre-numbered umbrella v2.2 as Item 12, which
+#  matches this Option α ordering.)
+#
+# Operator action: paste the +block below into tex/submitted/submission_log.txt
+# at the appropriate location (after Item 10 series 2 "t2b" entry; before the trailing
+# "Note:" / AI-disclosure block at file tail; before Item 12 series 2 "umbrella v2.2"
+# entry if it exists at splice time).
+#
+# Replace the placeholder <PCF2_V14_DOI> with the actual Zenodo v1.4 version DOI
+# assigned at Phase C deposit time.
+
+--- a/tex/submitted/submission_log.txt
++++ b/tex/submitted/submission_log.txt
+@@ -<line N just after Item 10 series 2 trailing blanks>,0 +<line N>,21 @@
++
++================================================================================
++# Item 11 (series 2): PCF-2 v1.4 — j=0 Chowla–Selberg PSLQ-Exhaustion Amendment
++================================================================================
++Date: <YYYY-MM-DD JST>      (operator fills at Phase C deposit time)
++Title: PCF-2: A Program Statement for the Cubic Extension of the Δ-Discriminant
++       Transcendence Predicate (Version 1.4 — j=0 Chowla–Selberg PSLQ-Exhaustion Amendment)
++Author: papanokechi
++Concept DOI: 10.5281/zenodo.19936297
++Version DOI: 10.5281/zenodo.<PCF2_V14_DOI>      (operator fills)
++Version sequence: v1.0 → v1.1 → v1.2 → v1.3 → v1.4 (no version-skip)
++Bridge substrate-prep: T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137 (this session)
++Cascade decision: cascade-132 §3.1 PATH_B / Option α @ MEDIUM-HIGH (bridge SHA fd669d3) — PCF-2 v1.4 deposits FIRST in the M-axis V0 closure-series Zenodo session
++Closure substrate: M7 V0 cascade T1-SYNTH-M7-V0-CLOSURE-CASCADE-123 (bridge SHA 7f93b9e), aggregated MEDIUM-HIGH
++Numerical substrate: T25D-RETRY-13PARAM Prompt 014 verdict PASS_A_EQ_6_ONLY (bridge SHA e857172); max |δ_lin| = 3.09e-23 across Q_30..Q_33
++Annotation propagation: (SOFT-BRANCH; HARD-BRANCH-PENDING) for M7 V0 closure;
++                        appears verbatim in body prose 4 times per A8 acceptance
++                        (abstract addendum, op:j-zero-amplitude-h6 body x2, amendment-log paragraph)
++pdflatex: 2-pass clean; 23 pages; 0 errors; 0 undef-refs; W_post=44 (Δ=+5 vs v1.3)
++Status: SUPERSEDES v1.3; single Open-Problem amendment + abstract addendum + amendment-log paragraph
++Notes: ANTI-CONFLATION rule §0.5 + §3.3 enforced (M4 V0 / M7 V0 numerical content kept distinct;
++       0 hits on agent-NEW added lines containing 5.978 / 7.954)
++Verdict: N/A
++================================================================================
++
+
+# End of operator-pending splice template.
+# Replace placeholders <line N>, <YYYY-MM-DD JST>, <PCF2_V14_DOI> at deposit time.
