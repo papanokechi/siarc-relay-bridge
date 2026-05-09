@@ -1,0 +1,31 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-127R-1",
+      "severity": "INFO",
+      "category": "cross_reviewer_confidence_band_divergence",
+      "summary": "R1 grants HIGH; R2 grants MEDIUM-HIGH. Both RATIFY_WITH_AMENDMENT. Divergence is non-substantive: R1 reads the substrate as fully self-contained and high-fidelity (HIGH); R2 reads the same substrate but applies the conditional-on-amendment-adoption framing more conservatively (MEDIUM-HIGH). Both reviewers cite identical substrate elements, agree on amendment text content, and flag no substrate gaps.",
+      "resolution": "Most-conservative aggregation applied: operative band is MEDIUM-HIGH. Mirrors M7 V0 cascade (123 §3.2) protocol exactly; same outcome by design (rule preserves cross-cascade comparability with M4 V0 single-synth MEDIUM-HIGH precedent). Aggregation rule now well-tested at n=3 (M4 + M7 + M8a all aggregating to MEDIUM-HIGH).",
+      "blocking": false,
+      "anchor": "cascade_record.md §6.1"
+    },
+    {
+      "id": "D-127R-2",
+      "severity": "INFO",
+      "category": "synth_response_format_asymmetry",
+      "summary": "R1 omits the §6 signature block entirely (replaces it with a single meta-comment line: 'All §6 signature items (SHA verification Y, rubber-duck QA Y, qualifier acknowledgment Y) are supported by the template'). R2 reproduces the full §6 signature block verbatim with all 3 attestation lines (Substrate SHAs verified Y / Rubber-duck QA acknowledged Y / qualifier acknowledged Y). The dispatch packet §6 instructed the synth to fill out the 3-line attestation block; R1's compressed meta-comment is sub-protocol but content-equivalent (R1 affirms all 3 attestations).",
+      "resolution": "R2 §6 adopted as canonical attestation source-of-record. R1 meta-comment recorded as supplementary HIGH-band corroboration. No re-prompt of R1 needed (content equivalence is clear). This is a cosmetic format divergence, not a substantive divergence; recurrence pattern below n=2 so no protocol amendment.",
+      "blocking": false,
+      "anchor": "cascade_record.md §2 (R1 § ending) + cascade_record.md §6.2"
+    },
+    {
+      "id": "D-127R-3",
+      "severity": "INFO",
+      "category": "verdict_label_markdown_formatting_inconsistency",
+      "summary": "R1 verdict-label line uses bold markdown ('**M8A_V0_VERDICT:** RATIFY_WITH_AMENDMENT'); R2 verdict-label line is plain text ('M8A_V0_VERDICT: RATIFY_WITH_AMENDMENT'). Both are parseable as the protocol-required label (regex would match either after bold-stripping). The dispatch-packet §3 instructed plain-text label format.",
+      "resolution": "Parser tolerated both forms; verdict label parseable from R1 and R2 at STEP 0.3. No re-prompt needed. Forward-pointing: dispatch packet header could explicitly instruct synth to omit markdown formatting on the protocol-label line; defer until n=2 recurrence.",
+      "blocking": false,
+      "anchor": "cascade_record.md §6.2 table"
+    }
+  ]
+}

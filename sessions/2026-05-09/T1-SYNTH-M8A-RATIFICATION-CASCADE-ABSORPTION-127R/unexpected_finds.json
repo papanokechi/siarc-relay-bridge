@@ -1,0 +1,47 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-127R-1",
+      "severity": "INFO",
+      "category": "dual_witness_cascade_pattern_n_equals_2_observation",
+      "summary": "M8a V0 cascade is the SECOND M-axis cascade with TWO independent T1-Synth dispatches (R1 + R2) landing at the same arc-3 absorption. M7 V0 cascade (123) was n=1 of pattern; this is n=2. Both M7 and M8a operator-dispatched twice intentionally; both returned RATIFY_WITH_AMENDMENT with substantively converged amendment text; both required most-conservative band aggregation (MEDIUM-HIGH operative). Pattern is consolidating across cascades.",
+      "blocking": false,
+      "candidate_memory_status": "n=2; defer formal memory promotion until n=3 (M8b cascade or future M-axis cascade) — same threshold as 123 UF-123-1 recommended. If M8b also fires dual-witness, that's n=3 and template-level amendment to specify dual-dispatch as default for high-stakes M-axis closures becomes warranted.",
+      "anchor": "cascade_record.md §1 + §6.1"
+    },
+    {
+      "id": "UF-127R-2",
+      "severity": "INFO",
+      "category": "operative_wording_adoption_polarity_flip_vs_m7",
+      "summary": "M7 cascade (123) adopted R1 as operative wording (R1 had full LaTeX template wording; R2 was compressed substantively-identical). M8a cascade flips the polarity: R2 has full canonical closure-statement text + complete §6 signature block; R1 is a key-elements-list reference to the substrate §4 wording. Adopted operative = R2 here. Mirror-difference is cosmetic at the protocol level (operator can dispatch either reviewer in the 'R1' or 'R2' slot; whichever produces the fuller text is adopted operative regardless of slot label). However, this confirms the fuller-text-wins rule is robust to slot-position swaps.",
+      "blocking": false,
+      "anchor": "cascade_record.md §6.2"
+    },
+    {
+      "id": "UF-127R-3",
+      "severity": "INFO",
+      "category": "zero_manuscript_content_amendment_first_in_m_axis_series",
+      "summary": "M8a V0 cascade is the FIRST M-axis cascade requiring ZERO manuscript-content amendment. M4 V0 (106) closed at MEDIUM-HIGH but the cascade required no manuscript edits because the V_quad anchor was already published. M7 V0 (123) required a PCF-2 §6 amendment (TABLED under RULE 1, but an actual manuscript-content-edit was specified). M8a V0 requires only a picture-chain v1.20+ tag-annotation update — no edits to vquad_resurgence_R1/R2 §4 or PCF-1 v1.3 §3 because the catalogue-wide labeling is a strict extension of the already-published V_quad P_III(D_6) anchor. This is novel at the M-axis level.",
+      "blocking": false,
+      "implication": "Picture-chain v1.20+ tag-annotation work is the only outstanding RULE 1 admin-window amendment for M8a V0. When RULE 1 lifts, picture-chain v1.20+ deposit will roll up M4 + M7 + M8a annotations together (M7 also requires Zenodo deposit of PCF-2 v1.4 §6 amendment).",
+      "anchor": "cascade_record.md §4"
+    },
+    {
+      "id": "UF-127R-4",
+      "severity": "MEDIUM",
+      "category": "rule_1_lift_proximity_post_m8a_closure",
+      "summary": "Post this 127R fire, the M1-M12 closure outlook KEEP-list shrinks to {M8b V0 (cascade 130 pending operator dispatch + agent absorption), M10 Lean-4 sorry-discharge (forward-pointed; no slate yet), 116 RE-SCOPED PARTIAL (forward-pointed)}. If M8b lands at RATIFY/RATIFY_WITH_AMENDMENT (likely outcome given 128 substrate-prep landed clean and 129 dispatch packet is well-formed), only M10 + 116 will remain. M10 is a Lean-4 mechanization task (potentially significant agent-time but no synth dispatch needed); 116 is a RE-SCOPED PARTIAL forward-pointing task. RULE 1 §6 lift condition is approaching feasibility: operator should plan for a M1_M12_CLOSURE_OUTLOOK_<DATE>_POST_MATH.md cut after 130R lands, or consider whether M10 + 116 satisfy 'math-foundational closure complete' for RULE 1 lift purposes.",
+      "blocking": false,
+      "candidate_action": "Operator post-130R: cut M1_M12_CLOSURE_OUTLOOK_2026-05-XX_POST_MATH.md; assess M10 + 116 inclusion in RULE 1 scope; lift RULE 1 conditional on assessment.",
+      "anchor": "cascade_record.md §5 (M9 row) + handoff.md Recommended next step"
+    },
+    {
+      "id": "UF-127R-5",
+      "severity": "INFO",
+      "category": "recovery_arc_audit_trail_pattern",
+      "summary": "127R is a RECOVERY-arc re-fire after 127 first-fire halted at Phase 0 STEP 0.2 (DEPENDENCY-NOT-LANDED gate class B per UF-127-1 taxonomy in the original 127 halt deposit). Both folders coexist: 127 halt deposit at sessions/2026-05-09/T1-SYNTH-M8A-RATIFICATION-CASCADE-ABSORPTION-127/ + this 127R recovery deposit at sessions/2026-05-09/T1-SYNTH-M8A-RATIFICATION-CASCADE-ABSORPTION-127R/. This is the canonical recovery pattern: original halt deposit retained as audit trail (no history rewrite), recovery deposit at suffixed folder name. Same pattern recommended for 130R (M8b cascade-absorption recovery re-fire).",
+      "blocking": false,
+      "anchor": "cascade_record.md frontmatter + sessions/2026-05-09/T1-SYNTH-M8A-RATIFICATION-CASCADE-ABSORPTION-127/halt_log.json"
+    }
+  ]
+}
