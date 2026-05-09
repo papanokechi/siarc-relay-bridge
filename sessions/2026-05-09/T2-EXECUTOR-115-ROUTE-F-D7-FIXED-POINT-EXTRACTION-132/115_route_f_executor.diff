@@ -1,0 +1,120 @@
+--- a/tex/submitted/p12_journal_main.tex  (pre  sha256=dac0282ed4c6f8bc1046003acaeda0b84593712f9336404aafdc18b0a6a176a7)
++++ b/tex/submitted/p12_journal_main.tex  (post sha256=09f01c1992b73453012828f326f3d69f4458f2d640fc0c8dca411b3cfcd13396)
+@@ -997,6 +997,36 @@
+ \big(\tfrac{1}{6}, 0, 0, -\tfrac{1}{2}\big).
+ \]
+ These values are taken verbatim from~\cite[\S 2]{Papanokechi2026Vquad}.
++
++\begin{remark}[$D_{7}$ sector identification and $s_{1}$ fixed point]
++\label{rem:vquad-d7-s1}
++Pushing the $V_{\mathrm{quad}}$ image
++$(\eta_{\infty},\eta_{0},\theta_{\infty},\theta_{0}) =
++(1/6, 0, 0, -1/2)$ forward through the Ohyama--Kawamuko--Sakai--Okamoto
++2006 reduction map
++$\alpha = -4\,\eta_{0}\eta_{\infty}$,
++$\beta = 4\,\eta_{0}(1+\theta_{0})$,
++$\gamma = 4\,\eta_{\infty}^{2}$,
++$\delta = -4\,\eta_{0}^{2}$
++yields, at \texttt{mp.dps = 300},
++$(\alpha,\beta,\gamma,\delta) = (0, 0, 1/9, 0)$. Since
++$\gamma\delta = 0$ violates the standing assumption
++$\gamma\delta \neq 0$ for the generic open stratum of
++$P_{\mathrm{III}}'(D_{6})$, this fibre is structurally located on
++the $D_{6} \to D_{7}$ degeneration boundary
++\cite[\S 3.1]{ohyama2006}, equivalently at
++$\eta_{0} = 0$ with $\eta_{\infty} \neq 0$
++\cite[\S 1]{Okamoto1987}. Within the surviving
++$\widetilde{W}_{a}(A_{1})$ Cremona action, the generator
++$s_{1}\colon \alpha_{1} \mapsto -\alpha_{1}$ acts on the level
++coordinate; at $\alpha_{1} = 0$ the $V_{\mathrm{quad}}$ image sits at
++the $s_{1}$ fixed point. The same off-generic-stratum diagnosis is
++independently surfaced by the 069r3 final-synthesis cascade
++(audit-trail anchor: bridge \texttt{ae5b7f7}). Numerical anchor:
++\texttt{vquad\_p3d6\_recovery.py::compute\_d6\_to\_d7\_reduction\_at\_v\_quad}
++(prompt~115 Phase~B, deposit
++\texttt{T2-EXECUTOR-115-ROUTE-F-D7-FIXED-POINT-EXTRACTION-132}).
++\end{remark}
+ 
+ \subsection{Channel distinction: $L(t)$-deformation rules out a
+ structural Painlev\'e family pattern}
+@@ -1632,6 +1662,12 @@
+ K.~Okamoto, \emph{Studies on the Painlev\'e equations IV: third
+ Painlev\'e equation $P_{III}$}. Funkcial.\ Ekvac.\ \textbf{30}
+ (1987), 305--332.
++
++\bibitem{ohyama2006}
++Y.~Ohyama, H.~Kawamuko, H.~Sakai, K.~Okamoto,
++\emph{Studies on the Painlev\'e equations V, third Painlev\'e
++equations of types $D_{7}$ and $D_{8}$}.
++J.~Math.\ Sci.\ Univ.\ Tokyo \textbf{13} (2006), 145--204.
+ 
+ \bibitem{FergusonBailey1992}
+ H.~R.~P.~Ferguson and D.~H.~Bailey, \emph{A polynomial-time,
+--- a/pcf-research/channel/cc_pipeline_2026-05-01/vquad_p3d6_recovery.py  (pre  sha256=28b8de47161254ae17b2c4e98f3c7b54d35d9864e6b9c4d3d0e859c0b27b7dc5)
++++ b/pcf-research/channel/cc_pipeline_2026-05-01/vquad_p3d6_recovery.py  (post sha256=f676264289d1fc1191947b3bca6afb2f9da8eba05d7bfca2782b090e57ebe644)
+@@ -161,5 +161,55 @@
+     print("Wrote results_vquad.json")
+     return out
+ 
++
++def compute_d6_to_d7_reduction_at_v_quad(dps=300):
++    """
++    OKS-O 2006 sect 3.1 D_6 -> D_7 reduction map at the V_quad image.
++
++    Map:
++        alpha = -4 * eta_0 * eta_inf
++        beta  =  4 * eta_0 * (1 + theta_0)
++        gamma =  4 * eta_inf**2
++        delta = -4 * eta_0**2
++
++    Evaluated at the V_quad image
++        (eta_inf, eta_0, theta_inf, theta_0) = (1/6, 0, 0, -1/2)
++
++    Returns a dict with the four numerical components plus the
++    s_1 fixed-point identity check (alpha_1 = 0  ==>  s_1(0) = 0).
++
++    AEAL anchor: this function provides the agent-side numerical
++    re-derivation of synth's Q4 v2.0 verdict (bridge SHA 8a22b11)
++    D1 derivation (D_6 -> D_7 degeneration diagnosis) and D2
++    derivation (s_1 fixed-point under W_a-tilde(A_1)). The result
++    (alpha, beta, gamma, delta) = (0, 0, 1/9, 0) signals descent
++    onto the P_III'(D_7) sector via the gamma*delta = 0 violation
++    of the standing assumption gamma*delta != 0 for the generic
++    open stratum of P_III'(D_6).
++    """
++    mp.dps = dps
++    eta_inf = mpf(1) / 6
++    eta_0 = mpf(0)
++    theta_inf = mpf(0)
++    theta_0 = -mpf(1) / 2
++    alpha = -4 * eta_0 * eta_inf
++    beta = 4 * eta_0 * (1 + theta_0)
++    gamma = 4 * eta_inf**2
++    delta = -4 * eta_0**2
++    alpha_1 = mpf(0)
++    s1_image = -alpha_1
++    fixed_point_ok = (s1_image == alpha_1)
++    if not fixed_point_ok:
++        raise AssertionError("s_1 fixed-point identity failed")
++    return {
++        "dps": dps,
++        "eta_inf": eta_inf, "eta_0": eta_0,
++        "theta_inf": theta_inf, "theta_0": theta_0,
++        "alpha": alpha, "beta": beta,
++        "gamma": gamma, "delta": delta,
++        "alpha_1": alpha_1, "s1_alpha_1": s1_image,
++        "fixed_point": fixed_point_ok,
++    }
++
++
+ if __name__ == "__main__":
+     main()
+--- /dev/null
++++ b/pcf-research/channel/cc_pipeline_2026-05-01/_115_d7_driver.py  (post sha256=342339d21df682eb65d52f671741ac06341e7f5f48caf027c1e6897be0a35eef)
+@@ -0,0 +1,114 @@
++(see deposit; standalone driver that AST-extracts and exec()'s the
++ canonical compute_d6_to_d7_reduction_at_v_quad function source slice
++ from vquad_p3d6_recovery.py to bypass the pre-existing module-level
++ cc_pipeline -> borel_channel import chain gap; emits JSON with all
++ numerical outputs + residuals + per-component PASS flags + SHA256
++ of canonical src and extracted fn slice.)

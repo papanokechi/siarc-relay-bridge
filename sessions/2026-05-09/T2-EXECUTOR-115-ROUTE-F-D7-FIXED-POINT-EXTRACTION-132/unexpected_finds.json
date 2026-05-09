@@ -1,0 +1,45 @@
+{
+  "task_id": "T2-EXECUTOR-115-ROUTE-F-D7-FIXED-POINT-EXTRACTION-132",
+  "entries": [
+    {
+      "id": "UF-131-4-CARRY-FORWARD",
+      "severity": "INFO",
+      "category": "cross-cascade convergence",
+      "summary": "Q4 v2 D_7 sector + s_1 fixed-point diagnosis triangulates with the 069r3 final-synthesis cascade off-generic-stratum diagnosis (bridge SHA ae5b7f7 = T1-SYNTH-069R3-FINAL-VERDICT-ABSORPTION-124). Two independent T1-Synth threads converge from different angles, surfacing the same structural feature; positive forensic signal. Carried forward verbatim from session 131 unexpected_finds.json. Pulled into the new p12 sec:vquad remark per A8.",
+      "anchor": {
+        "primary_bridge_sha": "8a22b11",
+        "convergence_bridge_sha": "ae5b7f7",
+        "manuscript_anchor": "tex/submitted/p12_journal_main.tex remark rem:vquad-d7-s1"
+      }
+    },
+    {
+      "id": "UF-115-NEW-BIBKEYS-RESOLVED-INLINE",
+      "severity": "INFO",
+      "category": "bibkey housekeeping",
+      "summary": "STEP 0.4 BIB pre-verify found ohyama2006, oks_o_2006, kajiwaranoumiyamada2017, sakai2001 ABSENT from the inline thebibliography of p12_journal_main.tex (Okamoto1987 + IwasakiKimuraShimomuraYoshida PRESENT; bibkey casing differs from prompt's lower-case spelling -- both bibkeys located at correct case). Per UF-128-NEW-BIBKEY pattern, the prompt allowed bib-stub addition to be deferred to a follow-up one-line patch. However, A4 acceptance criterion (no new undefined references at pass-2) constrains: deferring the stub would persist 'Citation ohyama2006 undefined' through pass-2 and violate A4. To satisfy A4, a minimal one-line bibitem stub for ohyama2006 (Y. Ohyama, H. Kawamuko, H. Sakai, K. Okamoto, 'Studies on the Painlev\\'e equations V, third Painlev\\'e equations of types $D_7$ and $D_8$', J. Math. Sci. Univ. Tokyo 13 (2006), 145-204) was added inline immediately after the Okamoto1987 bibitem.",
+      "anchor": {
+        "p12_bibitem_line": 1637,
+        "p12_remark_cite_line": 1018
+      },
+      "remediation": "RESOLVED INLINE in this session. No follow-up one-line patch needed for ohyama2006. The other 3 missing bibkeys (oks_o_2006, kajiwaranoumiyamada2017, sakai2001) were not cited by the new remark and remain absent; they may be needed by future structural prompts (e.g. UF-115-3 P_III(D_6)->P_III(D_7) degeneration limit prompt) and are deferred to that fire."
+    },
+    {
+      "id": "UF-115-BOREL-CHANNEL-DEP",
+      "severity": "INFO",
+      "category": "module-import hygiene",
+      "summary": "Pre-existing missing dep: pcf-research/channel/cc_pipeline_2026-05-01/cc_pipeline.py at L75 does 'from borel_channel import compute_convergents, extract_transseries' but borel_channel.py is NOT vendored under cc_pipeline_2026-05-01/ (it lives only in siarc-relay-bridge/sessions/2026-05-01/BOREL-CHANNEL-5X/borel_channel.py). Consequence: top-level 'import vquad_p3d6_recovery' fails with ModuleNotFoundError before reaching any of its own code. This pre-existed prompt 115 and is unrelated to session 128's labeling-convention reconciliation.",
+      "anchor": {
+        "broken_import_site": "pcf-research/channel/cc_pipeline_2026-05-01/cc_pipeline.py:75",
+        "missing_module_canonical_location": "siarc-relay-bridge/sessions/2026-05-01/BOREL-CHANNEL-5X/borel_channel.py"
+      },
+      "remediation": "BYPASSED for prompt 115 Phase B by introducing _115_d7_driver.py which AST-extracts and exec()s the new compute_d6_to_d7_reduction_at_v_quad function source slice from vquad_p3d6_recovery.py with only mp+mpf bound. The new function is itself self-contained (mpmath only). Future executors that wish to invoke vquad_p3d6_recovery's main() should first restore borel_channel.py into the cc_pipeline_2026-05-01/ directory (e.g. via git pull from the bridge BOREL-CHANNEL-5X session)."
+    },
+    {
+      "id": "UF-115-PRE-128-AUX-STALE-IN-CWD",
+      "severity": "INFO",
+      "category": "build hygiene",
+      "summary": "tex/submitted/p12_journal_main.aux dated 2026-05-08 20:42 was sitting in CWD next to the .tex source from a session 128 in-place build. MiKTeX pdflatex with -output-directory=build_115 preferentially read this stale CWD-side .aux for citation/label resolution, persisting the new ohyama2006 cite as undefined across pass-2 and pass-3. Resolved by deleting the stale CWD-side .aux/.log/.out and rebuilding build_115/ from scratch; pass-2 then immediately stabilised at W = 24 = W_pre exactly, 0 errors, 0 undefined refs. Logged also in discrepancy_log.json as DISC-115-1-PDFLATEX-FRESH-W-FLOW. Cross-link: relevant for future executors using -output-directory builds against tex/submitted/.",
+      "remediation": "Recommended convention: either (a) build in-place and add tex/submitted/*.aux to .gitignore, or (b) always start -output-directory builds with a fresh build_<task>/ AND a CWD-side aux/log/out cleanup."
+    }
+  ]
+}
