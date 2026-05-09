@@ -1,0 +1,37 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-130-1",
+      "severity": "INFO",
+      "class": "slate_execution_ordering_pattern_first_observation",
+      "summary": "FIRST observed within-week instance of 'cascade-absorption fire dispatched before solo-dispatch arc has completed' in the M-axis ratification 3-arc template. The 124-HALT-SUPERSEDED-BY-099 pattern was a different gate class (supersession by prior LANDED fire). 130-HALT-NO-VERDICT is a fresh gate class (prerequisite-missing for sequentially-dependent dispatch). Both halts are clean and prescribed by the prompt's own Phase 0 STEP 0.2. If a SECOND instance of this 'cascade-fired-before-dispatch' pattern occurs (e.g. if the M8a 127 cascade fires before 126 dispatch lands, or if a future M9/M10 cascade does the same), the slate-drafting workflow may want to add an explicit pre-fire ordering check ('verify the immediate prerequisite arc has landed before firing the cascade arc'). Not yet a memory candidate (n=1).",
+      "blocking": false,
+      "candidate_memory": false,
+      "watch_list": "monitor next 2 cascade-arc fires (M8a 127, M9/M10 forthcoming) for repeat pattern"
+    },
+    {
+      "id": "UF-130-2",
+      "severity": "INFO",
+      "class": "two_distinct_slot_130_threads_in_2026-05-09_log",
+      "summary": "Bridge git log shows TWO distinct fires labeled with slot 130: (a) T1-OPERATOR-Q4-ROUND2-DIRECT-DERIVATION-PACKET-130 at commit 10b5cf6 (Q4 / Route F slate; 069r3 lineage); (b) the user's prompt 130 (M-axis ratification slate; the current fire). These are independent slates that happen to share the slot index 130. The M-axis ratification slate is the user-active slate ('fourth slate of 2026-05-09'). Operator-side bookkeeping should treat slot indices as slate-local, not globally unique across slates; this is consistent with the prior 069r3 vs M-axis slot collisions (e.g. the Q4 slot 129 absorbed at ad33058 vs the M8b solo-dispatch slot 129 not yet fired). No action required; flagged for audit clarity.",
+      "blocking": false,
+      "candidate_memory": false
+    },
+    {
+      "id": "UF-130-3",
+      "severity": "INFO",
+      "class": "M8a_127_cascade_arc_status_check",
+      "summary": "Prompt 130 §9 ('Slate 125-130 closure note') anticipates that 'If 130 lands with RATIFY or RATIFY_WITH_AMENDMENT (and M8a/127 likewise), the M-axis math-only closure path under RULE 1 is materially advanced.' Cross-axis status as-of fire-time: M8a 125 (substrate-prep) LANDED at 4f15411; M8a 126 (solo-dispatch) NOT YET FIRED; M8a 127 (cascade-absorption) NOT YET FIRED. Both M8a 127 and M8b 130 cannot land until their 126 / 129 dispatch arcs complete. The §9 closure-note remains conditionally pending. Recommend operator schedule 126 + 129 dispatch arcs back-to-back (parallel-safe) so that 127 + 130 can be re-fired once both verdicts are captured.",
+      "blocking": false,
+      "candidate_memory": false
+    },
+    {
+      "id": "UF-130-4",
+      "severity": "INFO",
+      "class": "halt_is_RULE_1_friendly",
+      "summary": "Halts of this class (Phase 0 prerequisite-missing) are inherently RULE-1-friendly because no admin action is performed: no manuscript edit, no Zenodo deposit, no SQL state mutation, no DOI splice, no announcement. The only artefact is bridge bookkeeping (this folder + commit), which is math-only ledger work. The halt itself does not consume the relay-130 SQL todo (which remains in_progress until 130 lands substantively post-129). This pattern is structurally identical to 124-HALT (also a Phase 0 gate trip; also no admin action). Worth noting that the halt-deposit class is a robust no-cost pre-fire-gate failure mode under RULE 1.",
+      "blocking": false,
+      "candidate_memory": false
+    }
+  ]
+}

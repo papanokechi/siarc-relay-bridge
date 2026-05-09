@@ -1,0 +1,19 @@
+{
+  "halt_code": "HALT_130_NO_SYNTH_VERDICT",
+  "halt_class": "phase_0_prerequisite_missing_gate_trip",
+  "triggered_at": "2026-05-09 ~15:05 JST",
+  "triggering_step": "130 Phase 0 STEP 0.2 (synth_verdict_raw.txt presence + non-empty check in 129 folder)",
+  "missing_prerequisite_chain": [
+    "STEP 0.1 FAIL: prior fire T1-SYNTH-M8B-RATIFICATION-SOLO-DISPATCH-129 has NOT landed (no commit, no bridge folder, no dispatch_packet.txt)",
+    "STEP 0.2 FAIL: synth_verdict_raw.txt absent in non-existent 129 folder; no operator dispatch round-trip has occurred",
+    "STEP 0.3 N/A: cannot parse a verdict label that does not exist",
+    "STEP 0.4 PASS: RULE 1 alignment still active and not affected by halt"
+  ],
+  "bridge_head_at_fire_time": "f02ab5d (post-T2-EXECUTOR-M8B-RATIFICATION-SUBSTRATE-PREP-128 landed)",
+  "bridge_head_at_draft_time_per_prompt": "27ff47c (per prompt 130 header; predates 128 substrate-prep landing at f02ab5d)",
+  "operative_state": "M-axis ratification slate progress: 121 (M7 substrate) + 122 (M7 dispatch) + 123 (M7 cascade) ALL LANDED; 125 (M8a substrate) LANDED; 126/127 (M8a dispatch + cascade) NOT YET FIRED; 128 (M8b substrate) LANDED; 129 (M8b dispatch) NOT YET FIRED; 130 (M8b cascade) FIRED PREMATURELY before 129",
+  "halt_action": "deposit prerequisite_missing_memo.md citing absence of 129 fire; no substantive 130 fire; relay-130 NOT closed; m8b-unblocked-post-m4-v0-closure remains in_progress; recommend operator fire 129 next (agent-side substrate-prep plus operator-side Claude.ai dispatch round-trip)",
+  "verdict_label_emitted": "PREREQUISITE_MISSING_AWAITING_129",
+  "rule_1_alignment": "PASS (no admin work performed; no manuscript edits; no SQL state changes; no Zenodo deposit; halt is purely structural)",
+  "operator_action_required": "fire 129 (M8b solo-dispatch packet preparation, agent-fireable per 122 mirror; PARTIAL pending operator Claude.ai dispatch); after 129 lands and operator dispatches + captures synth_verdict_raw.txt, re-fire 130 cleanly"
+}
