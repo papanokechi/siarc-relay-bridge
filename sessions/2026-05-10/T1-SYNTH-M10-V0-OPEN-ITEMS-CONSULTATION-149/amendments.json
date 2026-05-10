@@ -1,0 +1,67 @@
+{
+  "consultation_slot": 149,
+  "verdict_label": "ENDORSE_WITH_AMENDMENTS",
+  "band": "MEDIUM-HIGH",
+  "amendments": [
+    {
+      "id": "C-149-1",
+      "target": "tex/submitted/control center/prompt/148_t2_executor_lean4_thm66_axiom_reshape.txt",
+      "section": "TASK 6 (R6 review template)",
+      "class": "additive",
+      "description": "Augment R6 review template with new sec-7 'Subtle weakening checks' running three explicit sub-checks: (check-3a) type-class inference probe via 'set_option trace.Meta.synthInstance true in #check apparent_singularity_thm_i'; (check-3b) grep -rn 'h_exact' lean/ --include='*.lean' (expected: matches only in Thm66 axiom decl); (check-3c) grep for negated/contradicted invocations of axiom name (expected: zero matches). Each reports PASS / FAIL / N/A. Any FAIL triggers HALT_148_THEOREM_WEAKENED with the specific failed sub-check.",
+      "applies_to_fire": "next_slot_148_re-fire_after_OPT_A_remediation"
+    },
+    {
+      "id": "C-149-2",
+      "target": "tex/submitted/control center/prompt/148_t2_executor_lean4_thm66_axiom_reshape.txt",
+      "section": "TASK 5 (build verification)",
+      "class": "additive",
+      "description": "Insert new TASK 5(0) before TASK 5(a): 'Dry-run preview -- paste full BEFORE and AFTER axiom blocks side-by-side in handoff.md; require operator confirmation in chat before proceeding to TASK 5(a) lake build.'",
+      "applies_to_fire": "next_slot_148_re-fire_after_OPT_A_remediation"
+    },
+    {
+      "id": "C-149-3",
+      "target": "tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_*.md (next outlook successor)",
+      "section": "sec 3 R2 (iteration ladder mitigation column)",
+      "class": "clarifying",
+      "description": "Replace mitigation column text per Q7 rule. New text: 'iter-18 heartbeat (re-run 141C triage class with iter-18 log); iter-24 alarm (T1-Synth re-consultation); iter-30 ceiling (halt + escalate). Counter scope: WallisFamily.lean / M10 V0 build-graph build-repair iterations only. Slot 148 (Thm66 axiom-reshape) and similar non-build-repair fires advance a separate fire-internal counter and do NOT contribute to R2. Currently iter-13 active.'",
+      "applies_to_artefact": "POST_DISCHARGE_PLAN_successor"
+    },
+    {
+      "id": "C-149-4",
+      "target": "tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_*.md (next outlook successor)",
+      "section": "sec 7 anomalies-absorbed",
+      "class": "additive",
+      "description": "Add new sub-section '141C schema amendments (deferred from slot 143R, routed via slot 149 Q5 (5b))' absorbing C-143-1, C-143-2, C-143-3 as outlook-as-governance entries. 141C bridge artefacts at SHA 2e36e0f remain immutable; downstream tools that ingest blockers.json/sorries.json should read POST_DISCHARGE_PLAN outlook alongside.",
+      "applies_to_artefact": "POST_DISCHARGE_PLAN_successor"
+    },
+    {
+      "id": "C-149-5",
+      "target": "tex/submitted/control center/prompt/148_t2_executor_lean4_thm66_axiom_reshape.txt",
+      "section": "sec 4 (or appropriate header location)",
+      "class": "clarifying",
+      "description": "Add one-line clarification: 'Slot 148 fire-internal iteration counter is independent of POST_DISCHARGE_PLAN R2; ladder ceiling for this fire is internal-30 with expected 1-2 iteration completion.'",
+      "applies_to_fire": "next_slot_148_re-fire_after_OPT_A_remediation"
+    },
+    {
+      "id": "C-149-6",
+      "target": "axiom_reshape_report.md (to be produced by slot 148 fire)",
+      "section": "follow-up flags section",
+      "class": "follow-up_flag",
+      "description": "Document the unused 'c : C -> C' parameter in axiom signature (L88-96) as a follow-up cleanup candidate (slot 150-class). Do NOT remove 'c' in slot 148 (scope discipline; Pattern alpha targets h_exact only).",
+      "applies_to_fire": "next_slot_148_re-fire_after_OPT_A_remediation"
+    },
+    {
+      "id": "C-149-7",
+      "target": "siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M10-V0-OPEN-ITEMS-CONSULTATION-149/discrepancy_log.json",
+      "section": "discrepancy resolution entry",
+      "class": "resolution",
+      "description": "D-143-1 RESOLVED with comment-only-mention interpretation per Q1 ratification. Document resolution in slot 149 bridge deposit. Cross-reference: slot 148 halt deposit at bridge SHA ba81582 partially resolved D-143-1 by independent project-only active-term grep (also found 2 active sorries at Thm66:118 + :120).",
+      "applies_to_artefact": "slot_149_bridge_discrepancy_log"
+    }
+  ],
+  "follow-ups_flagged": [
+    "slot 150-class: remove unused 'c' parameter from frobenius_double_root_at_apparent_singularity (separate fire from Pattern alpha)",
+    "slot 150-class (conditional): 141C_amendments.patch.json deposit if downstream tooling requires machine-readable C-143-1/2/3"
+  ]
+}

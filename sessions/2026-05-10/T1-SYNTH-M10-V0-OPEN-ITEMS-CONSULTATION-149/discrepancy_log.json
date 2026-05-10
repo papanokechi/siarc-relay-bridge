@@ -1,0 +1,57 @@
+[
+  {
+    "id": "D-149-1",
+    "severity": "INFO",
+    "title": "Unused 'c' parameter in axiom signature surfaces as Pattern alpha follow-up candidate",
+    "description": "APPENDIX A axiom block (L88-96) shows 'c : C -> C' parameter is not referenced by conclusion 'IndicialPoly a s = fun rho => rho^2'. Slot 143R Pattern alpha targets h_exact only; c's vestigial status is a separate concern. Recommend documenting in axiom_reshape_report.md but NOT acting in slot 148.",
+    "blocking": false,
+    "raised_in_question": "Q2",
+    "amendment_id": "C-149-6"
+  },
+  {
+    "id": "D-149-2",
+    "severity": "LOW",
+    "title": "h_exact hypothesis is semantically incoherent (not just vestigial)",
+    "description": "Per Q2 caveat-4: as written, h_exact reduces to 'a prime = a', generically false. Stronger than slot 143R's 'redundant under {ha_root, ha_simple}' framing; suggests axiom-author intended a different hypothesis (possibly ode_is_exact content) and the parameter was never completed. Should axiom_reshape_report.md note this as likely original-author error rather than just redundancy? Recommended: yes, for archival accuracy.",
+    "blocking": false,
+    "raised_in_question": "Q2",
+    "amendment_id": "C-149-6 (sub-flag)"
+  },
+  {
+    "id": "D-149-3",
+    "severity": "INFO",
+    "title": "APPENDIX B build log granularity insufficient for direct D-143-4 resolution",
+    "description": "Per Q4 reasoning: APPENDIX B is summary-level only ('linarith and rewrite failures in limit propagation / closed-form step' at L243/L285); cast-print inspection at point-of-failure is not possible from this log alone. Operator-side (4a) full verbose build is required. Not blocking slot 148 (which targets Thm66, not WallisFamily); B5 confidence is downstream of M10 V0 substrate-prep.",
+    "blocking": false,
+    "raised_in_question": "Q4",
+    "remediation": "operator runs 'lake env lean WallisFamily.lean' or 'lake build --verbose 2>&1 | tee build_full.log'"
+  },
+  {
+    "id": "D-149-4",
+    "severity": "LOW",
+    "title": "C-143-1/2/3 amendments live in outlook prose, not in machine-readable bridge artefacts",
+    "description": "Per Q5 (5b) recommendation: outlook-as-governance is the recommended path, but downstream tools that ingest blockers.json/sorries.json directly will see original 141C structure. Mitigation: tools should be authored to read POST_DISCHARGE_PLAN outlook alongside bridge JSONs. If/when machine-readability becomes blocking, fire a slot 150-class patch-artefact deposit.",
+    "blocking": false,
+    "raised_in_question": "Q5",
+    "amendment_id": "C-149-4"
+  },
+  {
+    "id": "D-149-5",
+    "severity": "LOW",
+    "title": "Verdict Q1 cited proof_targets.lean:L2 as third-sorry-comment location; actual co-located comment is Thm66:63",
+    "description": "Slot 149 verdict Q1 reasoning identified the third 'sorry' reference (relative to slot 144's count of 3) as a comment narrative at lean/proof_targets.lean:L2. Direct grep in claude-chat HEAD b05fca1 finds the actual comment-narrative in Thm66 itself at L63: '-- SORRY: Complex root verification.' (uppercase SORRY: as a flag in a comment, not a Lean keyword token). Slot 148 halt deposit at bridge SHA ba81582 also independently identified L63 in its halt narrative. Conclusion (active sorry term count = 2 in Thm66; D-143-1 RESOLVED) is unchanged. Minor factual reconciliation only.",
+    "blocking": false,
+    "raised_during": "absorption",
+    "evidence": "claude-chat b05fca1: lean/Thm66_ApparentSingularity.lean:63 = '-- SORRY: Complex root verification.'; bridge ba81582: T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148 halt deposit also identifies Thm66:63 + proof_targets.lean:2 as comment narratives"
+  },
+  {
+    "id": "D-143-1-RESOLVED",
+    "severity": "INFO",
+    "title": "D-143-1 sorry-count reconciliation -- RESOLVED",
+    "description": "Slot 143R D-143-1 (sorry-count delta vs slot 144) RESOLVED via slot 149 Q1 ratification (HIGH confidence). Active sorry term count in Thm66_ApparentSingularity.lean = 2 at L118, L120 (both '(by sorry)' h_exact discharges). Slot 144's '3 sorries' counted comment-narrative occurrences (Thm66:63 '-- SORRY: Complex root verification.' and/or proof_targets.lean:L2 narrative) as if they were active sorry terms. Canonical interpretation: comment-only mention. Slot 148 prompt TASK 5(c) recommended grep refinement: use literal-match alternative 'grep -rn \"by sorry\\|:= sorry\"' (more robust to indented comment placement than the column-zero filter).",
+    "blocking": false,
+    "raised_in_question": "Q1",
+    "amendment_id": "C-149-7",
+    "predecessor": "D-143-1 (in slot 143R discrepancy_log at bridge bc641a0)"
+  }
+]
