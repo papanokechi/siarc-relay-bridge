@@ -1,0 +1,85 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-157-1",
+      "severity": "RESOLVED-VIA-S157",
+      "summary": "D-154-1 picture-chain disposition CLOSED",
+      "detail": "S154 ACTION_LADDER fire surfaced D-154-1 (picture-chain v1.20+ disposition: standalone deposit vs subsume into umbrella vs decline). S157 verdict resolves: fold into Umbrella v2.3 Appendix C per Q4b spec. Operator decision no longer required; D-154-1 should be marked CLOSED in S154 tracking. Synth ABSORPTION_GUIDANCE point 5.",
+      "absorption": "Mark D-154-1 closed in handoff + cross-link to S157 verdict. SQL: pcf2-zenodo-paper-draft / picture-chain-disposition todos referencing D-154-1 should be updated.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "D-157-2",
+      "severity": "INFO",
+      "summary": "Cascade-132 sec 3.1 amendment-overlay required (lightweight)",
+      "detail": "Synth Q5f recommends a lightweight amendment-overlay fire updating cascade-132 sec 3.1 from Option α (3 deposits) to Option α' (2 deposits, picture-chain folded). Pattern is the v2.1 → v2.2 amendment: operative substrate fd669d3 stays canonical; amendment-overlay appended. Not a full cascade re-fire.",
+      "absorption": "Add T1-157-FOLLOWUP-F1 todo for the cascade-132 amendment-overlay fire. Fire is governance META work; fire-eligible under RULE 1 (consistent with slot 157 itself firing under RULE 1 as advisory).",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "D-157-3",
+      "severity": "INFO",
+      "summary": "Slot 155 prompt re-purpose required (lightweight prompt edit)",
+      "detail": "Slot 155 (Zenodo paper-draft consultation) presupposes Option α 3-deposit framing via TARGET_PAPER ∈ {PCF-2 v1.4, Umbrella v2.2, Picture-chain v1.20+}. Per S157 verdict Q5a, TARGET_PAPER list narrows to {PCF-2 v1.4, Umbrella v2.3} (option i — re-purpose). Lightweight prompt edit; no full re-draft.",
+      "absorption": "Add T1-157-FOLLOWUP-F4 todo for slot 155 prompt edit. Fire-eligible (no deposit). Slot 155 currently in 'pending' SQL status; will be edited then re-marked 'pending' (still operator-issue gated).",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "D-157-4",
+      "severity": "INFO",
+      "summary": "Slot 135 substrate-prep micro-bump v2.2 → v2.3 required",
+      "detail": "Per Q4b item 2-3, Umbrella v2.2 → Umbrella v2.3 micro-bump adds Appendix C composition. Slot 135 substrate-prep at bridge 887981b is preserved; v2.3 is a content-side extension. Composition gates on D-157-5 (canonical outlook source-of-record identification per Anomaly A1) and is sensitive to D-156-1 (V0+ vs V1 commitment for M8b) for Appendix C section (iii) wording.",
+      "absorption": "Add umbrella-v23-substrate-prep-micro-bump todo blocked on D-157-5 + D-156-1.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "D-157-5",
+      "severity": "MEDIUM",
+      "summary": "Canonical outlook source-of-record identification required (Anomaly A1)",
+      "detail": "8 picture/M1_M12_CLOSURE_OUTLOOK_*.md variants exist (POST_LEAN_REALITY, POST_OPEN_ITEMS, POST_SYNTH_REVIEW, PATH_B_COMPLETE, POST_DISCHARGE_PLAN, 20260509, 20260509_RULE1, 20260510). Editorial judgment required for which is canonical for Appendix C composition. Synth recommends pre-Appendix-C identification fire.",
+      "absorption": "Add T1-157-FOLLOWUP-F2 todo. Fire-eligible (investigative; not a deposit).",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "D-157-6",
+      "severity": "LOW",
+      "summary": "Picture v1.19 concept-DOI verification required (Anomaly A2)",
+      "detail": "Picture v1.19 milestone deposit at bridge 70d1a48 has concept-DOI status TBD. If a Zenodo concept-DOI exists for picture v1.19, Umbrella v2.3 Appendix C should IsSupplementTo it; if not, the v1.19 deposit should be marked IsContinuedBy nothing further (Appendix C subsumes). Operator verification required pre Umbrella v2.3 deposit.",
+      "absorption": "Add T1-157-FOLLOWUP-F3 todo. Fire-eligible (verification; not a deposit).",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "D-157-7",
+      "severity": "OPERATOR-TIER",
+      "summary": "Zenodo Community creation (C+E upgrade) timing — RULE 1 admin window judgment",
+      "detail": "Anomaly A3: SIARC Zenodo Community creation is Framing E component. Synth flags it as 'post-RULE-1-lift admin work'; debatable whether community-creation falls under RULE 1's admin tabling or counts as advisory infrastructure (no deposit). Operator decides: defer to post-lift OR fire under RULE 1 as discoverability infrastructure.",
+      "absorption": "Add operator-tier todo. Defer until M1-M12 closure complete; surface to operator at end of M-axis closure series.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "D-157-8",
+      "severity": "INFO",
+      "summary": "Slot 136 substrate-prep status reclassification: REPURPOSED-AS-APPENDIX-SOURCE",
+      "detail": "Slot 136 (picture v1.20+ substrate-prep at bridge b9aa881) is no longer a standalone deposit substrate; per Q4b item 4 it is repurposed as Umbrella v2.3 Appendix C source material. Bridge folder remains unchanged (no history rewrite); status overlay deposit recommended documenting the reclassification.",
+      "absorption": "Add T1-157-FOLLOWUP-F6 (slot-136-overlay-fire) todo OR fold into F1 cascade-132 amendment-overlay fire as a single combined deposit.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "D-157-9",
+      "severity": "INFO",
+      "summary": "RULE 1 fire-eligibility re-classification of synth's F1-F4 items",
+      "detail": "Synth ABSORPTION_GUIDANCE point 2 states 'Follow-up fires (priority order, all RULE-1-blocked from execution but draftable)'. Agent assessment: F1-F4 are governance META / investigative / verification / prompt-edit fires; NONE produce a Zenodo deposit. RULE 1 (operator-supplied 2026-05-09 ~11:17 JST) tables 'zenodo, endorsement' work — i.e., DEPOSIT-execution. Synth's classification appears conservatively over-cautious. F1-F4 are fire-eligible under RULE 1 by the same interpretation that justifies slot 157 itself firing as RULE 1 advisory. Documenting agent assessment for operator review.",
+      "absorption": "Mark F1-F4 as 'pending' in SQL with annotation 'agent assesses fire-eligible; synth conservatively classified as RULE-1-blocked'. Operator may re-classify.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    }
+  ]
+}
