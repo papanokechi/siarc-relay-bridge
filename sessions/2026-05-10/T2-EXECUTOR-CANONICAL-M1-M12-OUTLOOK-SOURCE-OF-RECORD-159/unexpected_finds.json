@@ -1,0 +1,29 @@
+[
+  {
+    "id": "UF-159-1",
+    "severity": "INFO",
+    "title": "Cut-time-vs-mtime asymmetry on outlook v6 and v7",
+    "observation": "Two outlook files in the chain show the in-document `Cut at:` header timestamp earlier than the OS LastWriteTime. v6 (POST_DISCHARGE_PLAN.md) declares `Cut at: 2026-05-10 ~12:30 JST` but LastWriteTime is 2026-05-10 12:26:nn JST (header ~4 min later than mtime; header is forward-looking estimate). v7 (POST_OPEN_ITEMS.md) declares `Cut at: 2026-05-10 ~13:10 JST` but LastWriteTime is 2026-05-10 13:13:nn JST (header ~3 min earlier than mtime; header rounded down). Within normal post-write tolerance; no halt.",
+    "impact": "None for this fire. Phase B tie-break rule (1) explicitly prefers `Cut at:` header over file mtime, so this asymmetry is governance-neutral. Flag preserved for any future audit that needs to reconcile cut-time-stamped governance against mtime-stamped filesystem evidence.",
+    "halt_triggered": false,
+    "remediation": "None required. Documented for transparency only."
+  },
+  {
+    "id": "UF-159-2",
+    "severity": "INFO",
+    "title": "ROADMAP companion-class artefact pre-attests canonical status before slot 159 formal declaration",
+    "observation": "M1_M12_CLOSURE_ROADMAP_PROMPT_SERIES_20260510.md (cut 2026-05-10 ~14:35 JST) self-declares `Predecessor outlook: M1_M12_CLOSURE_OUTLOOK_20260510_POST_OPEN_ITEMS.md (canonical state)` -- an external companion-class document attests v7 as canonical ~5.5 hours before slot 159 fires (~20:00 JST). The pre-attestation is corroborative, not contradictory; this fire's declaration is consistent with the pre-attestation.",
+    "impact": "POSITIVE. Strengthens confidence in the canonical = v7 declaration. Note for governance hygiene: in future, if a downstream artefact needs to bind a canonical-source choice before a formal canonicalization fire lands, that artefact may reference the canonical-state phrasing pattern adopted by ROADMAP rather than waiting for the formal declaration.",
+    "halt_triggered": false,
+    "remediation": "None required. Recorded for governance-pattern catalogue."
+  },
+  {
+    "id": "UF-159-3",
+    "severity": "INFO",
+    "title": "v0 baseline outlook lacks an explicit `Cut at:` or `Supersedes:` header",
+    "observation": "M1_M12_CLOSURE_OUTLOOK_20260509.md (v0) is the chain-root and carries only a `Status:` line in its first 6 header rows (no `Cut at:`, no `Supersedes:`, no `Predecessor:`). Its cut time is reconstructible only via v1's `Supersedes:` line which names the v0 baseline as `(10:56 JST baseline)`.",
+    "impact": "None for this fire (v0 is not canonical and is not recommended as primary or secondary source for any Appendix C sub-section). Flagged because if any downstream consumer needs an authoritative v0 cut time, it must reconstruct from v1's reference.",
+    "halt_triggered": false,
+    "remediation": "None required. Optional governance-hygiene improvement: future chain-root outlooks should carry an explicit `Cut at:` header. Not in scope for this fire."
+  }
+]
