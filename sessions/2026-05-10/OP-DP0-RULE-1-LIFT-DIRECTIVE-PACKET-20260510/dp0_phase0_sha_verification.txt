@@ -1,0 +1,39 @@
+OP-DP0 Phase 0 -- SHA verifications (predecessor evidence)
+================================================================
+Task ID:    OP-DP0-RULE-1-LIFT-DIRECTIVE-PACKET-20260510
+Date:       2026-05-10
+Repo:       siarc-relay-bridge
+Bridge HEAD: 7786a67 (OP-A2-FLEET-YAML-COMMITMENT-FLIP-20260510)
+Method:     for each SHA, run `git rev-parse --verify <SHA>^{commit}`
+================================================================
+
+| Milestone               | Short SHA | Resolved (full)                                  | Result |
+|-------------------------|-----------|--------------------------------------------------|--------|
+| M4 V0  (cross-ref only) | 5f9db69   | 5f9db69c754c410b79091cbd84e6d79b63d10b6e         | PASS   |
+| M7 V0  (cascade 123)    | 7f93b9e   | 7f93b9e4d624fdfca62f5d85393b4ead35cea751         | PASS   |
+| M8a V0 (cascade 127R)   | cb429e1   | cb429e1acba91ba47d1426950d924800a0b02a07         | PASS   |
+| M8b V0 (cascade 130R)   | 74c5630   | 74c563022d3a2df0a4bea0088f4793170a1e64d3         | PASS   |
+| M9 V0 substrate (a)     | 887981b   | 887981bf51860550a05ff949f0145c1687623689         | PASS   |
+| M9 V0 substrate (b)     | 45e236c   | 45e236c2d3f3ff690ede65762cfbfae482cd7560         | PASS   |
+| M9 V0 substrate (c)     | b9aa881   | b9aa881c53566926390d6f48c2b8a10243c67267         | PASS   |
+| M10 V0 cascade-absorp.  | (missing) | (no S147 cascade-absorption SHA exists in bridge)| FAIL   |
+
+Counts: 7 PASS / 1 FAIL out of 8 verifications across 6 milestones.
+
+Aggregated milestone-level Phase 0 result: FAIL
+  -- M4 / M7 / M8a / M8b / M9-substrate-triple all verified PASS;
+  -- M10 V0 cascade-absorption SHA is unobtainable because the predecessor
+     verdict-absorption fire (slot 147) has not landed.
+
+Trigger condition restatement:
+  "Triggered by: S147 LANDED (M10 V0 cascade-absorption complete) AND
+                 OP_A2 LANDED (.fleet.yaml COMMITTED status)"
+  OP_A2: LANDED   (bridge 7786a67 -- verified)
+  S147:  NOT LANDED (no folder; no commit; no verdict-absorption SHA)
+
+Halt mapping (cf. prompt sec 4):
+  This Phase 0 outcome triggers HALT_OP_DP0_M_AXIS_CLOSURE_INCOMPLETE.
+  Independently, Phase 2 also triggers HALT_OP_DP0_S147_NOT_RATIFY (same root
+  cause: M10 V0 ratification cascade-absorption fire has not been issued).
+
+End of dp0_phase0_sha_verification.txt

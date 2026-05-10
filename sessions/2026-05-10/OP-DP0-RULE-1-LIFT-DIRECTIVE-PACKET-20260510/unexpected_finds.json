@@ -1,0 +1,43 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-OP-DP0-1",
+      "tier": "MED",
+      "title": "Trigger-condition / operative-path mismatch (decision-tree branch ambiguity)",
+      "first_observation": true,
+      "summary": "OP-DP0 prompt preamble names 'S147 LANDED (M10 V0 cascade-absorption complete)' as a trigger. This implies Path A (literal M10 V0 cascade-absorption via 3-arc ratification template) is the operative path to RULE 1 lift. However, the actual project state since slot 139 has been executing Path B (documented-commitment lift, cascade-132 sec 5 precedent): slot 141B (scaffold), 143R (discharge plan endorsement), 149 (open-items consultation), 151 (commitment-paragraph SELECT_B), 152 (commitment-paragraph synth review RATIFY_WITH_AMENDMENT), OP-A1 (paragraph fill in claude-chat 84ac7ce / bridge fe5e48f), OP-A2 (.fleet.yaml commitment flip in claude-chat 24baa20 / bridge 7786a67 with explicit 'm10-resolved TRUE' commit-message annotation). Three independent prior synth verdicts (slot 139 sec 4, slot 143R, slot 149) explicitly recommend Path B over Path A on the grounds that the 3-arc ratification template is structurally incompatible with M10's tooling-state nature. Operator clarification is needed before OP-DP0 is re-fired.",
+      "evidence": [
+        "bridge 7786a67 commit message: 'm10-resolved TRUE; M9 V0 milestone gate 4/4'",
+        "bridge fd669d3 (cascade-132) sec 5 verbatim: 'Operator-discretion permits lift before M10 with documented commitment.'",
+        "bridge 72bb2c2 (slot 139 verdict): MOVE_F2 = MOVE_D5 -> MOVE_E; DEFERRED-OUT-OF-M9-SCOPE for M10",
+        "bridge 7a8948a (slot 152) commit message: 'absorb single-witness Claude verdict RATIFY_WITH_AMENDMENT (LOW-MEDIUM); OP_A2 unblock-eligible per synth ABSORPTION_GUIDANCE'",
+        ".fleet.yaml commitments[0].authorizing_verdict = 'bridge 72bb2c2 (slot 139 MOVE_F2 MEDIUM-HIGH)'"
+      ],
+      "implication": "Operator decides whether Path A or Path B is operative for the RULE 1 lift gate. Researcher cannot adjudicate (out of scope per prompt sec 5 boundary). Until adjudicated, the literal trigger condition of OP-DP0 cannot be cleared."
+    },
+    {
+      "id": "UF-OP-DP0-2",
+      "tier": "INFO",
+      "title": "First DP-class fire in SIARC pipeline (governance-evidence assembly)",
+      "first_observation": true,
+      "summary": "OP-DP0 is the first 'DP' (directive packet) class fire observed in the SIARC pipeline; precedent classes are T1-SYNTH (synth dispatch / absorption), T2-EXECUTOR (substrate-prep / mechanical), and OP (operator action). DP-class shares structure with OP-class (operator-issued at end-of-pipeline) but adds explicit predecessor-evidence-packet assembly + recommended-directive-draft + operator-presentation phases. New class taxonomy entry; no template precedent in repo memory.",
+      "implication": "Future DP-class fires should anchor on this template once OP-DP0 successfully closes (post operator clarification + re-fire). Not a halt-class; informational."
+    },
+    {
+      "id": "UF-OP-DP0-3",
+      "tier": "INFO",
+      "title": "Phase 0 SHA list groups M9 substrate as 1 milestone but enumerates 3 SHAs",
+      "first_observation": false,
+      "summary": "Prompt Phase 0 lists 6 milestone bullets but the M9 V0 substrate bullet expands to 3 SHAs (887981b + 45e236c + b9aa881). This causes an 8-row SHA verification table for 6 milestones. No ambiguity in interpretation; flagged for prompt-template clarity in future DP-class fires.",
+      "implication": "Style-only; no halt; no decision impact."
+    },
+    {
+      "id": "UF-OP-DP0-4",
+      "tier": "INFO",
+      "title": "Predecessor for OP_A2 named in prompt preamble, but prompt does not require its bridge SHA in evidence packet",
+      "first_observation": false,
+      "summary": "OP_A2 fires landed in bridge 7786a67 (verified as bridge HEAD). Phase 1 reads the FILE-LEVEL outcome (.fleet.yaml status field), not the COMMIT-LEVEL SHA. This is auditable but slightly asymmetric vs Phase 0 (which is purely SHA-level). Future DP-class prompts may want to also verify the OP-A2 bridge SHA explicitly.",
+      "implication": "Style-only; flagged for prompt-template hardening."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "halt_codes": [
+    {
+      "code": "HALT_OP_DP0_S147_NOT_RATIFY",
+      "tier": "primary",
+      "phase": "Phase 2",
+      "fire_time_jst": "2026-05-10",
+      "trigger": "Bridge folder sessions/2026-05-XX/T1-SYNTH-M10-V0-RATIFICATION-CASCADE-ABSORPTION-147/ does not exist anywhere in siarc-relay-bridge HEAD 7786a67. Three independent searches (date-keyed path / recursive whole-tree / whole-history commit-message grep) returned 0 matches. The prompt's halt directive 'If OBJECT/DEFER/HALT, halt HALT_OP_DP0_S147_NOT_RATIFY' is here applied to the strictly weaker case of NO_VERDICT_LANDED (no folder, no commit, no verdict).",
+      "action_taken": "Phases 4 (directive draft), 5 (operator presentation), and 6 (operator authorization) are SKIPPED. Researcher does not draft a recommended directive when the predecessor evidence packet is incomplete, per prompt sec 5 boundary 'Researcher MUST NOT assert M-axis closure beyond what bridge SHAs document.'"
+    },
+    {
+      "code": "HALT_OP_DP0_M_AXIS_CLOSURE_INCOMPLETE",
+      "tier": "secondary",
+      "phase": "Phase 0",
+      "fire_time_jst": "2026-05-10",
+      "trigger": "Phase 0 sub-task requires verification of an M10 V0 cascade-absorption SHA (read from latest bridge). No such SHA exists. 7 of 8 SHA verifications PASS (M4, M7, M8a, M8b, M9-substrate-triple); 1 FAILS (M10 V0). Same root cause as primary halt: the M10 V0 ratification cascade has not been dispatched / fired / absorbed.",
+      "action_taken": "Filed as secondary; same root cause as primary; same disposition (skip Phases 4-6)."
+    }
+  ],
+  "halt_codes_NOT_triggered": [
+    "HALT_OP_DP0_OP_A2_NOT_LANDED -- .fleet.yaml commitments[0].status = COMMITTED-2026-05-10 (PASS pattern); bridge HEAD 7786a67 corroborates",
+    "HALT_OP_DP0_RULE1_LEAKAGE -- m10_documented_commitment.md sec 3 scan: 0/14 leakage token classes hit",
+    "HALT_OP_DP0_NO_OPERATOR_AUTHORIZATION -- inapplicable; researcher halted prior to Phase 6 (operator authorization gate)"
+  ],
+  "remediation_notes": [
+    "Two distinct re-fire paths exist; operator must choose which is operative. See dp0_recommended_directive.md sec 3 (Path A = M10 V0 cascade-absorption literal-trigger; Path B = documented-commitment-lift, cascade-132 sec 5 precedent).",
+    "If operator confirms Path B is operative (consistent with slot 139 + cascade-132 + slot 152 RATIFY_WITH_AMENDMENT + OP-A2 fleet-yaml flip), then the OP-DP0 prompt's preamble trigger condition ('S147 LANDED (M10 V0 cascade-absorption complete)') is misformulated and should be rewritten before re-fire.",
+    "If operator confirms Path A (literal-trigger) is required, the M10 V0 substrate-prep / solo-dispatch / cascade-absorption fires must run first (slot 147 numbering depends on slot-counter at that time)."
+  ]
+}
