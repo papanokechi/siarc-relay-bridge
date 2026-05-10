@@ -1,0 +1,42 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-154-1",
+      "severity": "MED",
+      "title": "Picture-chain disposition divergence (2 separate / 2 subsume)",
+      "description": "Witnesses split 2-2 on whether picture-chain v1.20+ should be deposited as a standalone Zenodo artefact (W1 Gemini + W2 Grok) or subsumed into Umbrella v2.2 as an appendix (W3 Claude + W4 GPT-5.5). Most-conservative aggregation defaults to subsume (less archival clutter; can be separated later if independent justification emerges) but operator decision is required.",
+      "witnesses_separate": ["W1 Gemini-2026-05-10", "W2 grok-xai-2026-05-10"],
+      "witnesses_subsume": ["W3 claude-2026-05-10", "W4 OpenAI-GPT5.5-2026-05-10"],
+      "operator_decision_required": true,
+      "default_recommendation": "subsume into Umbrella v2.2 appendix unless independently justified",
+      "fire_context": "T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154"
+    },
+    {
+      "id": "D-154-2",
+      "severity": "MED",
+      "title": "OP-DP0 HALTED at Phase 2 (carry-forward; Path A vs Path B adjudication)",
+      "description": "OP-DP0 RULE 1 lift directive packet HALTED at Phase 2 (S147 verdict not found in bridge). UF-OP-DP0-1 (filed in OP-DP0-RULE-1-LIFT-DIRECTIVE-PACKET-20260510 at bridge c7c0562) flagged literal-trigger ambiguity: Path A (literal-S147 verdict required) vs Path B (documented-commitment-lift per cascade-132 §5; bridge 7786a67 annotates m10-resolved=TRUE). Three prior synth verdicts (139/143R/149) recommend Path B. S154 ladder is conditional on Path B confirmation.",
+      "operator_decision_required": true,
+      "filed_in": "OP-DP0-RULE-1-LIFT-DIRECTIVE-PACKET-20260510 (c7c0562) UF-OP-DP0-1",
+      "fire_context": "T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154 (carry-forward)"
+    },
+    {
+      "id": "D-154-3",
+      "severity": "LOW",
+      "title": "Reputational coupling risk if SIARC/cascade terminology leaks into conventional venues",
+      "description": "W4 GPT-5.5 explicitly identified elevated reputational coupling risk if SIARC/cascade governance terminology (M-axis, V0, RULE 1, cascade-132, etc.) leaks into Zenodo descriptions, arXiv abstracts, or venue cover letters. Convergent across all 4 witnesses in Q2c/Q3c. D-153-3 linguistic firewall template (Q5b) is the canonical mitigation.",
+      "operator_decision_required": false,
+      "mitigation": "templates/d_153_3_firewall_template.md applied to every post-lift artefact",
+      "fire_context": "T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154"
+    },
+    {
+      "id": "D-154-4",
+      "severity": "LOW",
+      "title": "Picture-chain artefact class semantically unstable",
+      "description": "W4 GPT-5.5 noted that picture-chain v1.20+ is semantically ambiguous between three roles: closure-administration record / mathematical synthesis narrative / archival supplement. This ambiguity is the underlying cause of D-154-1 divergence. Resolving it (operator decides explicit role) would also resolve D-154-1.",
+      "operator_decision_required": true,
+      "linked_discrepancy": "D-154-1",
+      "fire_context": "T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154"
+    }
+  ]
+}
