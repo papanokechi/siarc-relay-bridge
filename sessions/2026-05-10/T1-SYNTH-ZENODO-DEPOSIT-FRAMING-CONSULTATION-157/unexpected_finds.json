@@ -1,0 +1,85 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-157-A1",
+      "severity": "MEDIUM",
+      "summary": "Multiple version-stamped outlook variants require canonical source-of-record identification before Appendix C composition",
+      "detail": "Synth ANOMALIES item A1: 8 M1_M12_CLOSURE_OUTLOOK_*.md variants exist with overlapping but version-drifted content. Examples: POST_LEAN_REALITY, POST_OPEN_ITEMS, POST_SYNTH_REVIEW, PATH_B_COMPLETE, POST_DISCHARGE_PLAN, 20260509, 20260509_RULE1, 20260510. Editorial judgment required pre-Appendix-C composition; synth recommends a pre-Appendix-C identification fire (T1-157-FOLLOWUP-F2).",
+      "absorption": "Surface in handoff. Block Umbrella v2.3 substrate-prep micro-bump (D-157-4) on this fire's resolution. Operator may pre-decide canonical source if known.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "UF-157-A2",
+      "severity": "LOW",
+      "summary": "Picture v1.19 concept-DOI status TBD; affects Umbrella v2.3 IsSupplementTo cross-link",
+      "detail": "Synth ANOMALIES item A2: bridge 70d1a48 picture v1.19 milestone has concept-DOI 'TBD operator verifies'. If concept-DOI exists, Umbrella v2.3 Appendix C cross-links to it; if not, picture v1.19 has no further IsContinuedBy and Appendix C subsumes. Verification fire (T1-157-FOLLOWUP-F3) recommended pre Umbrella v2.3 deposit.",
+      "absorption": "Surface in handoff. Verification is cheap; bundle with F1 cascade-132 amendment-overlay or fire as standalone.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "UF-157-A3",
+      "severity": "LOW",
+      "summary": "Zenodo Community creation timing — RULE 1 admin window judgment debatable",
+      "detail": "Synth ANOMALIES item A3: SIARC Zenodo Community creation (Framing E / C+E upgrade component) is debatable under RULE 1. Community is admin/discoverability infrastructure, not a deposit; arguably fire-eligible as advisory infrastructure. Synth defers to operator. Documented as operator-tier decision D-157-7.",
+      "absorption": "Surface in handoff. Defer to post-RULE-1-lift unless operator elects to fire under admin-window interpretation.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "UF-157-1",
+      "severity": "MEDIUM",
+      "summary": "Candidate memory: framing-amendment fires use the v2.1→v2.2 amendment-overlay pattern",
+      "candidate_memory_status": "PROMOTION_DEFERRED_PENDING_N2",
+      "candidate_memory_text": "Strategic-framing-amendment fires (e.g., cascade-132 sec 3.1 Option α → Option α') follow the v2.1→v2.2 amendment-overlay pattern: operative substrate (cascade-N) STAYS CANONICAL; amendment-overlay deposit is APPENDED to bridge tree referencing the operative substrate; not a full cascade re-fire. Generalizes the Q5f pattern beyond cascade-132.",
+      "candidate_memory_citations": "siarc-relay-bridge sessions/2026-05-10/T1-SYNTH-ZENODO-DEPOSIT-FRAMING-CONSULTATION-157/verdict.md Q5f + Q4b. Cascade-132 fd669d3 is operative; this verdict produces the overlay. Pattern n=1; defer to n=2.",
+      "candidate_memory_subject": "amendment overlays",
+      "absorption": "Defer formal promotion. Track to next strategic-framing-amendment fire.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "UF-157-2",
+      "severity": "MEDIUM",
+      "summary": "Candidate memory: meta-substrate (outlook documents, runbooks) is appendix material; standalone deposits require citation utility",
+      "candidate_memory_status": "PROMOTION_RECOMMENDED",
+      "candidate_memory_text": "Meta-substrate artefacts (closure outlook documents, operator runbooks, governance memoranda) are appendix material to a program-level paper, NOT standalone Zenodo deposit material. Independent Zenodo deposits require standalone citation utility (clear answer to: 'what does an outsider cite from this artefact?'). When meta-substrate would be deposited standalone, prefer folding into a program-level home paper as an appendix or supplementary section.",
+      "candidate_memory_citations": "siarc-relay-bridge sessions/2026-05-10/T1-SYNTH-ZENODO-DEPOSIT-FRAMING-CONSULTATION-157/verdict.md Q1b + Q4b item 2 (Appendix C fold). Picture-chain v1.20+ §1.3.3 inventory: 8 outlook markdown documents + operator runbook + M10 commitment paragraph; all meta-substrate. Synth ABSORPTION_GUIDANCE point 3 UF-157-2.",
+      "candidate_memory_subject": "deposit framing",
+      "absorption": "Promote at end of session per PROMOTION_RECOMMENDED status. Will guide future deposit-framing decisions in PCF / SIARC program.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "UF-157-3",
+      "severity": "INFO",
+      "summary": "Candidate memory: RULE 1 fire-eligibility is a tradeoff-matrix axis when M11-gated framings compete with Zenodo-only",
+      "candidate_memory_status": "PROMOTION_DEFERRED_PENDING_N2",
+      "candidate_memory_text": "When framings include M11-gated options (arXiv-first, journal-primary), RULE 1 fire-eligibility becomes a tradeoff-matrix axis on par with discoverability/citation/cost. M11-gated framings are NOT FIRE-ELIGIBLE under RULE 1; they should not be selected as recommended path until M11 endorsement workflow lifts. Hold for post-lift menu.",
+      "candidate_memory_citations": "siarc-relay-bridge sessions/2026-05-10/T1-SYNTH-ZENODO-DEPOSIT-FRAMING-CONSULTATION-157/verdict.md §Q2 G/H2 caveat + §Q3 implicit axis row. Synth ABSORPTION_GUIDANCE point 3 UF-157-3.",
+      "candidate_memory_subject": "RULE 1 governance",
+      "absorption": "Defer formal promotion until next dissemination-framing decision. Track.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "UF-157-4",
+      "severity": "INFO",
+      "summary": "WITH_AMENDMENT modifier pattern observation reaches n=3",
+      "detail": "Slot 157 verdict label FRAMING_AMEND extends the WITH_AMENDMENT-modifier pattern observed at S154 (ACTION_LADDER_RECOMMENDATION_WITH_AMENDMENT) and slot 156 (CLOSEOUT_PATHWAY_RECOMMENDATION_WITH_AMENDMENT). n=3 observations of synth recommending substantive amendments to prompt definitions while affirming the underlying recommendation framework. Note that S157's label is FRAMING_AMEND (the modifier is the LABEL ITSELF, not just an ADJECTIVE on RECOMMENDATION); this is a label-tier amendment-modifier promotion.",
+      "absorption": "n=3 threshold per project memory promotion rules (cf. dual-witness M-axis cascade promoted at n=3). Recommend memory promotion at session end: 'AMEND modifier (as label OR adjective) is the regular operative pattern for strategic / pathway / framing consultations where prompt definitions are sharpenable; n=3 observations across S154 (ladder), 156 (pathway), 157 (framing).'",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    },
+    {
+      "id": "UF-157-5",
+      "severity": "INFO",
+      "summary": "C+E composability observation: framings can compose (Framing E composes with B or C base)",
+      "detail": "Synth Q3 Pareto analysis explicitly notes 'Framing E composes with C (call it C+E)' and that C+E weakly Pareto-dominates plain C if program-level Community discoverability is valued. This composability is novel — prior framings A/B/D/F were treated as exclusive alternatives. The composability of Zenodo Community on top of any deposit-count framing is a structural feature of Zenodo (Communities are orthogonal to per-deposit metadata) and may apply more broadly to future framing decisions.",
+      "absorption": "Document for future framing consultations. May warrant memory promotion at n=2 if observed in another framing context.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:55+09:00"
+    }
+  ]
+}
