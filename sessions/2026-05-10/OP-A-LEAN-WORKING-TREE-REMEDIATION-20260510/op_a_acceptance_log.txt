@@ -1,0 +1,72 @@
+OP-A-LEAN-WORKING-TREE-REMEDIATION-20260510 -- Phase 4 acceptance log
+=====================================================================
+Captured: 2026-05-10 by GitHub Copilot agent
+Repo: papanokechi/wallis-pcf-lean4 (claude-chat workspace; lean/ subtree)
+Branch: vquad/handoff-2026-04-16
+HEAD:   611edee5d337e54153fe991f7a1ae06feceb3f39
+
+---- Acceptance command (verbatim from OP_A prompt Phase 4) ----
+  git status --porcelain -- lean/WallisFamily.lean \
+                            lean/lakefile.lean \
+                            lean/lean-toolchain \
+                            lean/Thm66_ApparentSingularity.lean
+
+---- Output ----
+  (empty)
+
+---- Verdict ----
+  EMPTY -- ACCEPTANCE_PASS
+
+  All four slot-148-relevant paths are clean in the tracked
+  working tree. Slot 148 (S148R) re-fire precondition for
+  "PRECONDITION_DIRTY_TREE" is now satisfied.
+
+NO HALT_OP_A_ACCEPTANCE_FAIL raised.
+
+---- Side-channel context (for transparency, not part of
+     OP_A scope) ----
+
+Full lean/ untracked count after OP_A:  21 entries
+Full lean/ untracked listing (all `??`):
+  lean/.lake/
+  lean/CardEvenOfInvolution.lean
+  lean/GoldbachHelfgott/
+  lean/TmpCheck.lean
+  lean/WallisFamily/
+  lean/build_errors.log
+  lean/build_errors_iter13.log
+  lean/build_log.txt
+  lean/fix_pass_log.md
+  lean/full_build.log
+  lean/lake-manifest.json
+  lean/lean4_claims.jsonl
+  lean/lean_build_result.txt
+  lean/lemma_k_scoping.md
+  lean/numerical_pre_checks.py
+  lean/proof_status.json
+  lean/proof_targets.lean
+  lean/shift_build.log
+  lean/sorry_log.json
+  lean/thm66_lean4_summary.md
+  lean/triage.json
+
+These untracked files were present before OP_A fired and are
+out of OP_A scope (slot 148 halt log specifies only the four
+paths above as preconditions). They include the iter-13 halt
+deliverable (build_errors_iter13.log) which is preserved
+on-disk and remains available to iter-14.
+
+---- iter-13 stash recovery handle ----
+
+  stash@{0}: On vquad/handoff-2026-04-16:
+    M10 iter-13 mid-pass stash; OPT_A pre-slot-148
+
+  Recovery commands at iter-14 fire time:
+    git stash list                    # confirm @{0} still present
+    git stash show -p stash@{0}       # preview restoration
+    git stash pop stash@{0}           # restore the 3 modifications
+
+  Affected paths on pop:
+    lean/WallisFamily.lean
+    lean/lakefile.lean
+    lean/lean-toolchain

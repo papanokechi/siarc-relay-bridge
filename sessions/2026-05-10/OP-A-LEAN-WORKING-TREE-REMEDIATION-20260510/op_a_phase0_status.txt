@@ -1,0 +1,46 @@
+OP-A-LEAN-WORKING-TREE-REMEDIATION-20260510 -- Phase 0 verbatim capture
+========================================================================
+Repo: papanokechi/wallis-pcf-lean4 (claude-chat workspace; lean/ subtree)
+Branch: vquad/handoff-2026-04-16
+HEAD: 29183aee907711ec0b06f54c1dc2c02f9312bb19
+Captured: 2026-05-10 (UTC date) by GitHub Copilot agent
+Command: git status --porcelain -- lean/
+Working dir at capture: C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat
+
+----status_porcelain_lean (verbatim) ----
+ M lean/WallisFamily.lean
+ M lean/lakefile.lean
+ M lean/lean-toolchain
+?? lean/.lake/
+?? lean/CardEvenOfInvolution.lean
+?? lean/GoldbachHelfgott/
+?? lean/Thm66_ApparentSingularity.lean
+?? lean/TmpCheck.lean
+?? lean/WallisFamily/
+?? lean/build_errors.log
+?? lean/build_errors_iter13.log
+?? lean/build_log.txt
+?? lean/fix_pass_log.md
+?? lean/full_build.log
+?? lean/lake-manifest.json
+?? lean/lean4_claims.jsonl
+?? lean/lean_build_result.txt
+?? lean/lemma_k_scoping.md
+?? lean/numerical_pre_checks.py
+?? lean/proof_status.json
+?? lean/proof_targets.lean
+?? lean/shift_build.log
+?? lean/sorry_log.json
+?? lean/thm66_lean4_summary.md
+?? lean/triage.json
+---- end status ----
+
+Pattern check vs slot 148 halt log expectation:
+  EXPECTED:  3 ` M` lines on lean/WallisFamily.lean, lean/lakefile.lean,
+             lean/lean-toolchain  +  ?? lean/Thm66_ApparentSingularity.lean
+  OBSERVED:  3 ` M` lines on lean/WallisFamily.lean, lean/lakefile.lean,
+             lean/lean-toolchain  +  ?? lean/Thm66_ApparentSingularity.lean
+             (plus ~20 other untracked files unrelated to OP_A)
+  RESULT:    PASS  -- pre-flight matches; proceeding to Phase 1.
+
+NO HALT_OP_A_UNEXPECTED_TREE_STATE raised.
