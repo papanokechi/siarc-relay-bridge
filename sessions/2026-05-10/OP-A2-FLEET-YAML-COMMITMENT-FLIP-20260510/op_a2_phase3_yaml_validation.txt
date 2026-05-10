@@ -1,0 +1,32 @@
+YAML validation -- OP_A2 Phase 3
+================================
+
+Command:
+  python -c "import yaml; yaml.safe_load(open('.fleet.yaml','r',encoding='utf-8').read()); print('YAML OK')"
+
+Output:
+  YAML OK
+
+Exit: 0
+
+Pre-edit baseline: previously validated clean post-OP_A1 application.
+Post-edit (after status: COMMITMENT-PARAGRAPH-PENDING-OPERATOR -> status: COMMITTED-2026-05-10): YAML OK.
+
+Diff applied to .fleet.yaml (git diff verbatim):
+
+    diff --git a/.fleet.yaml b/.fleet.yaml
+    index 6b55005..5e0cb36 100644
+    --- a/.fleet.yaml
+    +++ b/.fleet.yaml
+    @@ -690,7 +690,7 @@ commitments:
+       - id: m10-lean4-sorry-discharge
+         axis: M10
+         scope: post-rule-1-lift work-stream
+    -    status: COMMITMENT-PARAGRAPH-PENDING-OPERATOR
+    +    status: COMMITTED-2026-05-10
+         substrate: "tex/submitted/control center/picture/m10_documented_commitment.md"
+         precedent: "bridge fd669d3 sec 5 (cascade-132 m9_v0_closure_path_decision.md)"
+         authorizing_verdict: "bridge 72bb2c2 (slot 139 MOVE_F2 MEDIUM-HIGH)"
+
+Stat: 1 file changed, 1 insertion(+), 1 deletion(-).
+Indentation preserved (4-space leader on `status:` line). Trailing newline preserved.

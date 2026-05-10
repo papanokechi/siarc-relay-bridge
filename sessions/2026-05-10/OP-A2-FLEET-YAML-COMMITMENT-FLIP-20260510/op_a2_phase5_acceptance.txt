@@ -1,0 +1,26 @@
+OP_A2 Phase 5 -- acceptance
+===========================
+
+Acceptance check 1: COMMITTED- count
+  Command: grep -c 'status: COMMITTED-' .fleet.yaml  (PowerShell equivalent: Select-String count)
+  Expected: at least 1
+  Actual: 1
+  Result: PASS
+
+Acceptance check 2: PENDING-OPERATOR count
+  Command: grep -c 'COMMITMENT-PARAGRAPH-PENDING-OPERATOR' .fleet.yaml  (PowerShell equivalent: Select-String count)
+  Expected: 0
+  Actual: 0
+  Result: PASS
+
+Both acceptance checks PASS. OP_A2 fire complete.
+
+Downstream effects:
+  - .fleet.yaml commitments[0].status = COMMITTED-2026-05-10
+  - .fleet.yaml tracking.milestones.m9-v0.gate satisfied 4/4:
+      slot-135-landed (umbrella v2.2 substrate-prep)            LANDED bridge 887981b
+      slot-136-landed (picture-chain v1.20+ M9 V0 amendment)    LANDED bridge b9aa881
+      slot-137-landed (PCF-2 v1.4 substrate-prep)                LANDED bridge 45e236c
+      m10-resolved (M10 commitment paragraph + .fleet.yaml flip) LANDED claude-chat 24baa20 + bridge 7a8948a
+  - RULE 1 lift directive OP_DP0 (operator-only) becomes pre-flight-eligible
+  - OP_DP0 unblocks the 3-step Zenodo deposit cascade
