@@ -1,0 +1,31 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-144-1",
+      "severity": "LOW",
+      "title": "Phase B labeling inconsistency",
+      "description": "Slot 144 prompt's roadmap sec 2.3 labels the RULE 1 lift authorization as 'Phase B' implying serial dependence on Phase A and parallel-blocking of Phase C. However sec 2.5 indicates Phase D is the math-axis terminal state, leaving Phase B as a state-flip artifact rather than a closure-axis step. This creates ambiguity about whether RULE 1 lift is on the M-axis closure critical path. Substrate citations: roadmap sec 2.3 / 2.5 / 2.7 critical-path summary (which omits Phase B).",
+      "remediation": "RESOLVED via slot 144 Change 1 absorption: re-labeled to Phase D-prime in POST_SYNTH_REVIEW outlook sec 2.3; explicitly documented as state-flip artifact off the M-axis critical path and on the admin-window-thaw critical path; A.3 lift directive deferred from Phase A to Phase D-prime preamble (D'.0).",
+      "blocking": false,
+      "absorption_status": "closed_via_change_1"
+    },
+    {
+      "id": "D-144-2",
+      "severity": "INFO",
+      "title": "Iteration-count estimate optimism",
+      "description": "Slot 144 prompt's roadmap sec 2.4 estimates Phase C at 6-10 fires (1-3 build-fix + 1-3 sorry-discharge + 1 commit + 3 closure cascade). Slot 140 outlook (6a063a7) documents iteration-13 already on file, suggesting historical iteration count materially exceeds the 1-3 build-fix estimate. Estimate is not necessarily wrong (per-iteration scope may differ from per-fire scope) but warrants explicit reconciliation.",
+      "remediation": "NOTED via slot 144 Change 4 absorption: iteration-20 ceiling added to risk R2 in POST_SYNTH_REVIEW outlook sec 3; per-iteration vs per-fire scope distinction noted in sec 2.2 Phase C table footer. Re-evaluation trigger at iteration-20.",
+      "blocking": false,
+      "absorption_status": "closed_via_change_4"
+    },
+    {
+      "id": "D-144-3",
+      "severity": "INFO",
+      "title": "Slot 141C confidence claim mismatch",
+      "description": "Slot 144 prompt's roadmap sec 2.8 final bullet claims HIGH confidence on slot 141C, but the proposed fire involves Lean-4 build-error pattern-matching from logs without `lake build` execution capability. Per sec 4.2 confidence-band rule and read-only access uncertainty, MEDIUM-HIGH is the appropriate ceiling.",
+      "remediation": "RESOLVED via slot 144 Change 2 absorption: confidence band downgraded to MEDIUM-HIGH in POST_SYNTH_REVIEW outlook sec 4. Slot 141C scope artefact when drafted as next agent fire will carry MEDIUM-HIGH band claim.",
+      "blocking": false,
+      "absorption_status": "closed_via_change_2"
+    }
+  ]
+}
