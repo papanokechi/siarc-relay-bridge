@@ -1,0 +1,11 @@
+[
+  {
+    "id": "UF-150-1",
+    "severity": "INFO",
+    "title": "Operator pre-applied target-edit in same commit as slot-150 prompt draft",
+    "description": "claude-chat HEAD commit 84ac7ce ('M1-M12 closure roadmap prompt-series + slot 150 (slot 145 Q6(c) gating amendment) drafted; slot 145 STEP 0.3 G1-G5 -> G1-G7 + literal-match grep') bundled the slot-150 prompt-draft AND the slot-145 STEP 0.3 amendment in the same commit. When the slot-150 fire reached TASK 2, the source-file edit was already in place; agent role degraded from 'apply edit' to 'verify edit + produce audit trail'. Bridge supersession-gate (STEP 0.2) still PASSED (zero matching bridge dirs); audit-trail deposit is novel. This is a NEW pattern in the SIARC pipeline -- 'operator-pre-applied amendment' -- distinct from prior precedents.",
+    "context": "Distinct from UF-127-1 PRIOR-VERDICT-EXISTS (gate class A: prior LANDED verdict in bridge) and UF-138-2 parallel-CLI fire collision (gate class B: concurrent fire by another agent). UF-150-1 is gate class C: same-commit operator pre-application. Tracked counts: n=1 first observation; promotion thresholds at n=2/n=3 per memory pattern.",
+    "downstream_implication": "If pattern recurs, draft-time supersession audit (sec 0 STEP 0.4 substrate-availability or a new STEP 0.7) should add 'check whether HEAD commit message references target edit'. Surface to T1-Synth in next ratification consultation if n>=2.",
+    "blocking": false
+  }
+]
