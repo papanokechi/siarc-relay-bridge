@@ -1,0 +1,46 @@
+{
+  "fire": "T2-EXECUTOR-M10-DOCUMENTED-COMMITMENT-SCAFFOLD-141B",
+  "date": "2026-05-10",
+  "unexpected_finds": [
+    {
+      "id": "UF-141B-1",
+      "severity": "LOW",
+      "title": "lean/ untracked-entry count higher than slot 140 §1.5 reality survey reported",
+      "description": "Slot 140 POST_LEAN_REALITY outlook §1.5 reality survey (bridge 6a063a7) enumerated 4 untracked top-level .lean files (Thm66, proof_targets, CardEven, TmpCheck) + 2 untracked subdirs (GoldbachHelfgott, WallisFamily) + several artefacts. Slot 141B re-snapshot at ~10:05 JST shows the same 4 + 2 entities, plus 15 untracked metadata/artefact files (build logs, JSON manifests, .py helpers) AND a `lean/.lake/` directory. Total untracked entries: 22 (vs slot 140's surveyed-but-not-fully-enumerated count). Diff is 0 between the .lean / subdir layer; the 15-artefact layer is operator-/build-tool-generated and orthogonal to M10 axis state. No state regression; just expanded fire-time reportage.",
+      "candidate_memory_status": "not promotable; expected operator/build-tool churn outside M10 closeout scope",
+      "blocking": false
+    },
+    {
+      "id": "UF-141B-2",
+      "severity": "LOW",
+      "title": "Build state RED (not AMBER) per build_errors_iter13.log self-classification",
+      "description": "Prompt 141 sec B-B sec 2 spec mentions 'AMBER per build_errors_iter13.log' as the suggested build-state label. The actual log self-classifies as BLOCKED (5 enumerated blockers in WallisFamily.lean; 'NOT READY for clean Lean build yet'). Substrate sec 2.3 records this as RED rather than AMBER for honesty; the cascade-132 sec 5 documented-commitment-lift precedent does not gate on build state, so the RED classification has no effect on RULE 1 lift eligibility.",
+      "candidate_memory_status": "not promotable; one-time observation specific to iter-13 state",
+      "blocking": false
+    },
+    {
+      "id": "UF-141B-3",
+      "severity": "LOW",
+      "title": "scaffold_deposit field omitted from .fleet.yaml commitments[0] (chicken-and-egg)",
+      "description": "The natural 8th field in the commitments[0] dict would be `scaffold_deposit: bridge <slot 141B SHA>` referencing this fire's own bridge commit. That SHA is not knowable until after the .fleet.yaml edit is committed (chicken-and-egg). Resolution: omitted from this fire's insertion; can be added retroactively by operator in the same standalone commit that fills sec 3 of m10_documented_commitment.md. Prompt 141 spec lists 7 fields exactly, so omission is in-spec.",
+      "candidate_memory_status": "PROMOTION_CANDIDATE_DEFERRED -- if multiple commitments accumulate post-RULE-1-lift, formalize the deferred-self-reference pattern",
+      "blocking": false
+    },
+    {
+      "id": "UF-141B-4",
+      "severity": "LOW",
+      "title": "Section comment ASCII vs file-wide unicode em-dash inconsistency (intentional)",
+      "description": ".fleet.yaml's pre-existing section comments use unicode em-dash (e.g. L687 'Tracking — milestone'). The slot 141B-inserted section comment at L687 uses ASCII '--' per STEP 0.5 ASCII-only discipline ('Branch B writes ASCII markdown + ASCII YAML; no unicode expected'). This is an intentional style mismatch within a single file. Future fleet-yaml-housekeeping fires may either align the new comment to file-wide style (replace `--` with em-dash) or align file-wide style to ASCII. Operator's call.",
+      "candidate_memory_status": "not promotable as M-axis lesson; could promote as a YAML-style lesson if pattern recurs",
+      "blocking": false
+    },
+    {
+      "id": "UF-141B-5",
+      "severity": "LOW",
+      "title": "Slot 140 SHA cited in substrate sec 4.3 + claims; slot 140 cited as predecessor in cross-reference network",
+      "description": "Prompt 141 STEP 0.3 made slot 140 cross-reference 'recommended-but-not-required'. This fire OPTED-IN: slot 140 SHA `6a063a7...` is cited in m10_documented_commitment.md sec 4.3 (audit-trail completeness). This makes slot 141B textually downstream of slot 140 even though the two were authorized for concurrent firing. No effect on RULE 1 lift gate; just an audit-trail fact.",
+      "candidate_memory_status": "not promotable; case-specific audit-trail decision",
+      "blocking": false
+    }
+  ]
+}

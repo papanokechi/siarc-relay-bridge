@@ -1,0 +1,30 @@
+{
+  "fire": "T2-EXECUTOR-M10-DOCUMENTED-COMMITMENT-SCAFFOLD-141B",
+  "date": "2026-05-10",
+  "discrepancies": [
+    {
+      "id": "D-141B-1",
+      "severity": "INFO",
+      "title": "Forbidden-verb pre-write occurrence in m10_documented_commitment.md sec 1",
+      "description": "Initial first-write of the substrate file contained one FV violation on L37: 'M9 V0 is established by the cited papers'. Caught by post-write FV scan; remediated in-fire to 'M9 V0 is anchored in the cited papers'. No downstream substrate references the original wording.",
+      "remediation": "edit tool 1-string replacement; re-scan PASS",
+      "blocking": false
+    },
+    {
+      "id": "D-141B-2",
+      "severity": "INFO",
+      "title": "STEP 0.5 ASCII-discipline pre-write violation: U+00A7 in cross-reference labels",
+      "description": "Initial first-write contained two unicode 'sec-symbol' (U+00A7) characters on L172 and L181 in cross-reference field labels referring to slot 139 sec 4 / slot 140 sec 5 / sec 6. Per STEP 0.5, Branch B writes ASCII-only. Caught by post-write non-ASCII byte scan (4 high-bytes detected); remediated in-fire to ASCII 'sec'.",
+      "remediation": "edit tool 2-string replacements; re-scan PASS (0 non-ASCII bytes)",
+      "blocking": false
+    },
+    {
+      "id": "D-141B-3",
+      "severity": "INFO",
+      "title": ".fleet.yaml line-count drift from prompt 141 reference",
+      "description": "Prompt 141 SECTION B-B references '.fleet.yaml' as 716 lines (consistent with slot 138 fleet-bootstrap commit message); actual file at fire time is 711 lines (5-line drift, likely from FLEET-YAML-HOUSEKEEPING commit 69606ac on 2026-05-10 which injected slot 137 + slot 136 landed metadata blocks but a subsequent re-format trimmed lines). Does not affect insertion logic; insertion point identified by content (after open_items[] terminator at L685, before tracking: section comment at L686-688).",
+      "remediation": "none; cosmetic drift",
+      "blocking": false
+    }
+  ]
+}
