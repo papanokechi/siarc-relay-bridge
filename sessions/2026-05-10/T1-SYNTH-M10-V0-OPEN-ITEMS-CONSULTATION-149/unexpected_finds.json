@@ -1,0 +1,34 @@
+[
+  {
+    "id": "UF-149-1",
+    "severity": "INFO",
+    "title": "Slot 148 fire was dispatched and HALTED in parallel before slot 149 absorption began",
+    "description": "Slot 149 verdict Q6 recommends (6a) CLI in-repo dispatch for slot 148. At absorption time (slot 149 verdict received 2026-05-10 ~12:59 JST), slot 148 was already in flight: bridge HEAD ba81582 (commit timestamp 2026-05-10 12:48:19 JST, ~10 min before slot 149 verdict received) records T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148 HALTED at STEP 0.4(c) PRECONDITION_DIRTY_TREE: 3 tracked-modified lean/ files (' M' WallisFamily.lean / lakefile.lean / lean-toolchain) plus untracked target Thm66_ApparentSingularity.lean. Halt deposit reports TASK 1 read-only diagnostic 4/4 PASS against prompt ground truth; remediation OPT_A: operator commit/stash lean/ then re-fire. This retrospectively validates slot 149 Q6 (6a) recommendation: slot 148 was dispatched to CLI agent; the halt is a clean precondition-failure, not a synth/CLI mismatch failure.",
+    "implications": [
+      "C-149-1, C-149-2, C-149-5, C-149-6 amendments apply to NEXT slot 148 re-fire (after operator OPT_A remediation), not to a future first fire",
+      "Slot 149 absorption must reference slot 148 halt at ba81582 in handoff.md and POST_DISCHARGE_PLAN successor",
+      "Operator action needed before slot 148 re-fire: commit or stash WallisFamily.lean / lakefile.lean / lean-toolchain modifications, plus stage Thm66_ApparentSingularity.lean tracking state"
+    ]
+  },
+  {
+    "id": "UF-149-2",
+    "severity": "INFO",
+    "title": "Comment-narrative at Thm66:63 surfaces as primary candidate for slot 144 third-sorry counter source",
+    "description": "Slot 148 halt deposit narrative (bridge ba81582) and direct grep at claude-chat b05fca1 both identify Thm66_ApparentSingularity.lean:63 as '-- SORRY: Complex root verification.' (a comment with an uppercase 'SORRY:' flag as text, NOT a Lean sorry-keyword token). This is the most-natural candidate for slot 144's third-sorry count source (vs. slot 149 Q1's cited proof_targets.lean:L2 narrative). Both interpretations support D-143-1 RESOLVED with comment-only-mention; conclusion unchanged. Recorded as forward-resolution context.",
+    "evidence": "claude-chat b05fca1 lean/Thm66_ApparentSingularity.lean:63 + bridge ba81582 T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148 halt deposit Thm66:63 mention",
+    "implications": [
+      "Slot 148 next re-fire's TASK 5(c) sorry-count grep should use literal-match alternative 'grep -rn \"by sorry\\|:= sorry\"' to avoid false-positive on the comment narrative",
+      "axiom_reshape_report.md (when produced by slot 148 re-fire) should note that Thm66:63 comment-narrative remains in the file post-edit (out of scope for Pattern alpha)"
+    ]
+  },
+  {
+    "id": "UF-149-3",
+    "severity": "INFO",
+    "title": "Slot 149 Q2 elevated to HIGH for structural claim despite single-witness band cap of MEDIUM-HIGH",
+    "description": "Per slot 149 sec 7 reasoning: Q2 sub-band is HIGH (specific question on Pattern alpha mathematical soundness with full APPENDIX A axiom signature visible); overall verdict band is the cap (MEDIUM-HIGH). Sub-band asymmetries are permissible per slot 144 sec 3.2 LABEL-rule (sub-bands document confidence on individual answers; verdict-level cap governs single-witness verdict acceptance). Documented for future precedent reference.",
+    "implications": [
+      "Slot 148 next re-fire can rely on Q2-HIGH for structural-claim grounding; Q3 augmentations (C-149-1) are the safety mechanism that operationalizes the band-cap discipline",
+      "If operator wants verdict-level HIGH in future cascades, dual-witness path is required (per slot 144 sec 3.2)"
+    ]
+  }
+]
