@@ -1,0 +1,100 @@
+{
+  "halt_id": "HALT_148R_PRECONDITION_NOT_MET",
+  "fired_at_step": "STEP 0R.4(a) -- lake build",
+  "task_id": "T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148R",
+  "fire_date": "2026-05-10",
+  "agent": "GitHub Copilot (VS Code)",
+  "branch": "vquad/handoff-2026-04-16",
+  "head_at_halt": "b41e1e8e29de892bccb1112d2bbc3e94ccebda77",
+  "head_short": "b41e1e8",
+  "ancestor_611edee_in_HEAD": true,
+  "ancestor_check_method": "git merge-base --is-ancestor 611edee HEAD -> exit 0",
+  "summary": "STEP 0R.4(a) lake build returned exit 1. Build red. No code edit made. iter-13 stash not popped (preserved at stash@{0}).",
+  "primary_failure": {
+    "missing_file": "lean/.lake/packages/mathlib/Mathlib/Analysis/Asymptotics/Asymptotics.lean",
+    "broken_importer": "lean/WallisFamily.lean L3",
+    "import_text": "import Mathlib.Analysis.Asymptotics.Asymptotics",
+    "mathlib_inputRev": "v4.30.0-rc1",
+    "mathlib_rev": "0c154d67103f74be3a0f2c509f72ccbf5be9f2a7",
+    "diagnosis": "Mathlib v4.30.0-rc1 has restructured the Asymptotics namespace. The pinned cache directory lean/.lake/packages/mathlib/Mathlib/Analysis/Asymptotics/ contains AsymptoticEquivalent.lean / Completion.lean / Defs.lean / ExpGrowth.lean / Lemmas.lean / LinearGrowth.lean / SpecificAsymptotics.lean / SuperpolynomialDecay.lean / Theta.lean / TVS.lean -- but no top-level Asymptotics.lean file. WallisFamily.lean L3 needs to be replaced by an updated import (likely Mathlib.Analysis.Asymptotics.Defs and/or .Theta) -- this is iter-13 territory."
+  },
+  "additional_failures": [
+    "Batteries.Data.List.Pairwise",
+    "Batteries.Data.List.Lemmas",
+    "Batteries.Data.Vector.Lemmas",
+    "Batteries.Data.String.Lemmas",
+    "Mathlib.Tactic.Linter.Multigoal",
+    "ProofWidgets.Component.OfRpcMethod",
+    "Mathlib.Analysis.Asymptotics.Asymptotics",
+    "WallisFamily"
+  ],
+  "lake_test_observation": "lake test exit 1; warning 'manifest out of date: git revision of dependency mathlib changed; use `lake update mathlib` to update it' AND error 'wallis-formal-verification: no test driver configured'. Recorded as NO_TEST_DRIVER (auxiliary observation; build red is the binding halt).",
+  "preconditions_observed": {
+    "STEP_0R_1_SHA_VERIFICATION": {
+      "status": "PASS",
+      "bridge_shas_verified": ["ba81582", "e8866fc", "bc641a0", "9838501", "74c5630", "cb429e1", "7f93b9e"],
+      "wallis_shas_verified": ["611edee", "29183ae", "e41af95"],
+      "ancestor_611edee_in_HEAD": true
+    },
+    "STEP_0R_2_SUPERSESSION": {
+      "status": "PASS",
+      "matches_found": ["sessions/2026-05-10/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148"],
+      "forbidden_matches": []
+    },
+    "STEP_0R_3_RULE_1": {
+      "status": "IN_FORCE",
+      "scope": "math-axis (M10 V0 Phase C C.3++)"
+    },
+    "STEP_0R_4a_lake_build": {
+      "status": "FAIL",
+      "exit_code": 1,
+      "halt_code": "HALT_148R_PRECONDITION_NOT_MET (build red)"
+    },
+    "STEP_0R_4b_lake_test": {
+      "status": "NOT_REACHED_BUT_OBSERVED",
+      "exit_code": 1,
+      "note": "lake test naturally fails when build red; auxiliary observation shows no test driver configured"
+    },
+    "STEP_0R_4c_4path_tree_gate": {
+      "status": "PASS",
+      "gate_paths": [
+        "lean/Thm66_ApparentSingularity.lean",
+        "lean/WallisFamily.lean",
+        "lean/lakefile.lean",
+        "lean/lean-toolchain"
+      ],
+      "porcelain_output": "(empty)",
+      "note": "predecessor halt 148 was 0.4(c); OP_A landing 611edee resolved that gate"
+    },
+    "STEP_0R_4d_toolchain": {
+      "status": "PASS",
+      "value": "leanprover/lean4:stable"
+    },
+    "STEP_0R_5_substrate_inventory": {
+      "status": "NOT_REACHED",
+      "note": "halted before substrate enumeration"
+    },
+    "STEP_0R_6_stash_recovery_awareness": {
+      "status": "VERIFIED",
+      "stash_list": [
+        "stash@{0}: On vquad/handoff-2026-04-16: M10 iter-13 mid-pass stash; OPT_A pre-slot-148",
+        "stash@{1}: On main: dual-path-session-backup"
+      ],
+      "stash_popped_during_fire": false
+    }
+  },
+  "code_edit_made": false,
+  "stash_popped": false,
+  "iter13_stash_leaked": false,
+  "remediation": "iter-13 work (stash@{0}) addresses precisely these Mathlib.Analysis.Asymptotics.Asymptotics import breakage; the import-fix is a build-graph repair belonging to POST_DISCHARGE_PLAN R2 lane (build-error fixing on WallisFamily.lean), not the Pattern-alpha axiom-reshape lane that slot 148R targets. Operator should: (1) first land an iter-14-class build-graph repair (apply iter-13 stash content selectively or pop+re-pass), getting `lake build` green WITHOUT touching Thm66_ApparentSingularity.lean; (2) then re-fire slot 148R as 148R2 over a clean+green substrate. Alternative path: substitute the broken import 'Mathlib.Analysis.Asymptotics.Asymptotics' on WallisFamily.lean L3 with the correct restructured target (likely 'Mathlib.Analysis.Asymptotics.Defs' or '.Theta') -- but that is OUT OF SCOPE for slot 148R per substrate-inventory WRITE-permitted set restricting edits to lean/Thm66_ApparentSingularity.lean only.",
+  "operator_action_required": "decide repair lane (iter-14 build-graph repair vs targeted import-substitute fire) and re-issue slot 148R2 wrapper after substrate green",
+  "anomalies": [
+    "OP_A's Phase 4 acceptance check tested 4-path TREE cleanliness only and never tested `lake build` greenness. The underlying Mathlib upstream-restructure breakage on WallisFamily.lean L3 was masked because iter-13 stash had been applying local fixes; stashing iter-13 (per OP_A design) re-exposed it. UF-148R-1: methodology gap in OP_A Phase 4 acceptance check (tree-only, not build-green).",
+    "lake test reports 'wallis-formal-verification: no test driver configured' independent of build red. This is NO_TEST_DRIVER and would be logged as discrepancy D-148R-N (INFO) had we reached STEP 0R.4(b) cleanly.",
+    "Branch HEAD advanced from 0d05c81 (slot 148R wrapper commit) to b41e1e8 (slot 152 fill markers post Phase 5) between prompt draft and fire start, due to operator-side slot 151/152 commitment-paragraph commits. None of these new commits touch lean/Thm66_ApparentSingularity.lean or lean/WallisFamily.lean -- ground truth for slot 148R substrate is unchanged. Recorded as informational, not a SHA-mismatch halt."
+  ],
+  "build_log_path": "build_log.txt",
+  "build_log_sha256": "DE3207B1EBA597E2E940AC1A9AC99EEF7C8C994620486271080FBE8C57EFF4BA",
+  "test_log_path": "test_log.txt",
+  "test_log_sha256": "7FCCE736ED1D29D9305EFAE5516F077471BB2F6C27A983C92D3B66C8CEFFD1E6"
+}
