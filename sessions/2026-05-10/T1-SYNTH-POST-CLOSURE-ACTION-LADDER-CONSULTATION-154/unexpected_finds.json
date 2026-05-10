@@ -1,0 +1,36 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-154-1",
+      "severity": "LOW",
+      "title": "Second n=4 quad-witness fire in bridge history; cascade 123 §3.2 aggregation rule extends cleanly to n=4 for second consecutive time",
+      "description": "S154 is the second n=4 quad-witness fire in bridge history (first was S153 at 4761392 on the same day, 2026-05-10). The aggregation rule from cascade 123 §3.2 (most-conservative LABEL + most-conservative BAND), extended to n=4 per cascade 130R §6.3, extended cleanly to n=4 for the second consecutive time without modification. This now constitutes n=2 evidence for the rule's stability at n=4, suggesting it can be promoted from cascade-130R-extension to a general n>=4 rule without further accommodation.",
+      "candidate_memory_status": "PROMOTION_RECOMMENDED to general n-witness aggregation rule (n>=2 covered by 123/127R/130R; n=4 now covered by S153+S154)",
+      "fire_context": "T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154"
+    },
+    {
+      "id": "UF-154-2",
+      "severity": "LOW",
+      "title": "Unanimous Q2b t2b M11 anchor concordance across 4 independent witnesses",
+      "description": "All 4 independent witnesses (Gemini / Grok / Claude / GPT-5.5) independently selected the t2b degree-(2,1) Trans-stratum paper (Zenodo 19915689 / concept 19783311) as the optimal M11 arXiv endorsement anchor. This is the strongest concordance signal in the S154 packet. Three witnesses surfaced t2a as the secondary candidate. The unanimity across 4 providers (Google/xAI/Anthropic/OpenAI) suggests t2b's math.NT alignment + numerical density profile is robust to provider-specific reasoning style.",
+      "implication": "operator can fire M11 endorsement on t2b with high confidence post-Zenodo-cascade-stabilization",
+      "fire_context": "T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154"
+    },
+    {
+      "id": "UF-154-3",
+      "severity": "LOW",
+      "title": "Unanimous Q3c AI Position desk-reject risk concordance across 4 independent witnesses",
+      "description": "All 4 independent witnesses (Gemini / Grok / Claude / GPT-5.5) independently identified the AI Peer Review Founding Position paper (Item 7) as the highest desk-reject risk in the M12 4-paper cadence, and unanimously placed it last in the recommended submission ordering. The AFM 8-minute desk-reject pattern (existing repo memory) is referenced explicitly by W2 Grok. Mitigations converge: aggressive jargon-stripping; meta-science venue selection (NOT pure math journals); abstract-first epistemological framing.",
+      "implication": "Item 7 must be deferred to last position in M12 cadence; venue selection requires non-math-journal target",
+      "fire_context": "T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154"
+    },
+    {
+      "id": "UF-154-4",
+      "severity": "LOW",
+      "title": "Convergent 5-amendment union across 4 witnesses with no contradictory amendment surface",
+      "description": "Despite witness LABEL divergence (3 RECOMMENDATION + 1 RECOMMENDATION_WITH_AMENDMENT), the 5 aggregated amendments (union of W1+W3+W4) form a consistent monotone-additive set with no contradictions. This suggests the action ladder has reached structural convergence: any further synth fires would likely re-derive the same amendment set without producing genuinely new structural recommendations. Diminishing-returns signal for further T1-Synth consultation on this scope.",
+      "implication": "no further T1-Synth fires recommended for post-closure action ladder; operator-decision tier is the next bottleneck",
+      "fire_context": "T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154"
+    }
+  ]
+}
