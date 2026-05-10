@@ -1,0 +1,12 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-165-1",
+      "severity": "INFO",
+      "status": "RESOLVED",
+      "title": "D-162-1 substrate-level → deposit-level closure verification",
+      "description": "Slot 162 originated D-162-1 (umbrella v1.0 version-DOI 19885550 mislabeled as concept). Slot 163+164 corrected substrate (5 line edits across schema v1 + PCF-2 v1.4 paste-source). This slot verifies the correction was correctly propagated through Zenodo deposit form: both Umbrella supplement rows in the live v1.4 record cite 10.5281/zenodo.19885549 (concept), NOT 19885550 (v1.0). Chain substrate → deposit form → published record verified intact. D-162-1 fully closed.",
+      "evidence": "https://zenodo.org/api/records/20114315 related_identifiers[3-4] both show identifier=10.5281/zenodo.19885549"
+    }
+  ]
+}

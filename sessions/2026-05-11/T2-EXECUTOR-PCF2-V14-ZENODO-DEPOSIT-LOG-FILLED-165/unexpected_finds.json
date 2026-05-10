@@ -1,0 +1,36 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-165-1",
+      "severity": "INFO",
+      "category": "metadata_discontinuity",
+      "title": "PCF-2 v1.4 main Resource type = Working paper (upgrade from v1.0..v1.3 = Preprint)",
+      "description": "Operator chose Working paper resource type at deposit time, creating a v1.3→v1.4 metadata discontinuity in the PCF-2 chain. This aligns with slot 137 paste-source recommendation (zenodo_v14_metadata_field_table.md) but departs from slot 116/133 precedent (which used Preprint for PCF-1 and umbrella v2.0). I flagged Preprint chain-consistency as my pre-deposit §2 recommendation; operator chose the slot-137-style upgrade. Defensible; forward-document only. Back-edit to Preprint NOT recommended (avoids DOI metadata flux on freshly-published record).",
+      "evidence": "https://zenodo.org/api/records/20114315 resource_type = {title: 'Working paper', type: 'publication', subtype: 'workingpaper'}"
+    },
+    {
+      "id": "UF-165-2",
+      "severity": "INFO",
+      "category": "siarc_zenodo_pattern",
+      "title": "Third instance of v1.0-vs-concept single-digit-substitution anti-pattern (PCF-2 19936297/19936298)",
+      "description": "Operator paste 2026-05-11 confirms PCF-2 v1.0 version-DOI = 10.5281/zenodo.19936298 vs concept = 10.5281/zenodo.19936297 (one digit). This is the THIRD confirmed instance of the SIARC Zenodo single-digit anti-pattern: (1) Umbrella concept 19885549 vs v1.0 19885550 (D-162-1 originating case; D-162-1 RESOLVED), (2) T2B concept 19783311 vs v1.0 19783312 (operator paste earlier this session), (3) PCF-2 concept 19936297 vs v1.0 19936298 (this paste). Pattern: Zenodo assigns concept-DOI and first-version-DOI as adjacent integers; high collision risk for human/LLM single-digit substitution errors. Defensive: always paste-verify concept vs v1.0 from the live Zenodo sidebar; never derive one from the other by reasoning. Promote-to-memory candidate.",
+      "evidence": "Operator paste 2026-05-11 ~07:12 JST listing v1.0..v1.4 PCF-2 DOIs in full"
+    },
+    {
+      "id": "UF-165-3",
+      "severity": "INFO",
+      "category": "cosmetic_rendering",
+      "title": "Markdown description body not auto-parsed by Zenodo description editor",
+      "description": "The paste-source description was prepared in Markdown (with **bold**, *italic*, and a 13-row M1-M12 axis-coverage table in Markdown table syntax). Zenodo's description editor wrapped paragraph breaks (\\n\\n) in <p> tags but did NOT process inline Markdown — bold/italic/table all display as literal characters on the public record page. Content is fully preserved; only cosmetics affected. HTML-converted replacement description prepared at session-state files/pcf2_v14_description_HTML.html (~4.2 KB). Operator can apply via Zenodo Edit → Description without triggering a new version (Edit on description metadata does not bump DOI).",
+      "evidence": "https://zenodo.org/api/records/20114315 description field shows '<p>**PCF-2 v1.4** &mdash; ...</p>' with literal '**' characters preserved"
+    },
+    {
+      "id": "UF-165-4",
+      "severity": "INFO",
+      "category": "metadata_completeness",
+      "title": "Three minor metadata gaps in live v1.4 record: keywords, ORCID, dates anomaly",
+      "description": "Beyond UF-165-3 cosmetic Markdown issue, three additional metadata gaps observed: (a) keywords stored as ONE comma-concatenated string (with trailing comma) instead of 9 separate keyword tags; (b) author field has no ORCID attached (paste-source specified 0009-0000-6192-8273); (c) dates field has anomalous entry {type: 'updated', description: '...minor amendment...'} where the description text leaked into the dates array description field. All 3 are cosmetic; all 3 are Zenodo-Edit-fixable without DOI bump.",
+      "evidence": "https://zenodo.org/api/records/20114315 fields metadata.keywords (length 1), metadata.creators[0] (no orcid), metadata.dates[0]"
+    }
+  ]
+}
