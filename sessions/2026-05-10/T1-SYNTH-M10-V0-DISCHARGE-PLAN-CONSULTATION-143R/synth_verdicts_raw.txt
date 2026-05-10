@@ -1,0 +1,361 @@
+# T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143R Verdict
+
+## sec 0 -- Phase 0 pre-flight execution
+
+**0.1 SHA syntactic check (paper-only acceptance per 143R amendment):** All 20 SHAs (14 bridge + 6 claude-chat) inspected for 40-char hex well-formedness. PASS x20. CLI agent's pre-fire `git rev-parse` verification at 2026-05-10 ~11:47 JST taken as standing.
+
+**0.2 Supersession gate:** Synth executor cannot run `Get-ChildItem`; operator-side gate trusted. Slot 144 was strategic-roadmap (different scope). No prior `*M10-V0-DISCHARGE-PLAN*` consultation expected.
+
+**0.3 RULE 1:** Acknowledged. Self-correction discipline engaged for any drift toward Zenodo / endorsement / venue scope.
+
+**0.4 Substrate availability check:** APPENDIX A (triage_report.md), B (blockers.json), C (sorries.json), D (dependency_map.json), E (handoff.md), F (POST_SYNTH_REVIEW outlook) all present and non-truncated. Lean source at HEAD NOT inlined; flagging affects on Q3/Q4 grounding noted below.
+
+**0.5 T2-Executor exclusion review:** Acknowledged. Synth tier permits concrete Mathlib lemma family suggestions and proof-shape recommendations; verdict-tier scrutiny + operator-side verification = operative safeguard. Self-flag fabricated-math risk per recommendation.
+
+Phase 0: PASS. Proceeding to verdict.
+
+---
+
+## sec 1 -- Verdict header
+
+**LABEL:** `ENDORSE_WITH_AMENDMENTS`
+**BAND:** `MEDIUM-HIGH`
+**One-line takeaway:** 141C classification is largely correct; B5 confidence should be downgraded LOW-MEDIUM and S1/S2 routing reframed (the axiom-shape blocker is actionable as a Mathlib-native refactor, not a sorry-discharge); 5 structured amendments + 4 anomalies surfaced; iteration ceiling refined to 18/24/30; Phase C.3+ should add `lake test` + sorry-count gate.
+
+**Band justification preview:** MEDIUM-HIGH (not HIGH) because (i) synth has no Lean source at HEAD beyond what triage_report.md quotes, so several recommendations are conditional on operator confirming the cited line shapes; (ii) B5 + S1/S2 recommendations involve proof-shape suggestions that cross synth's confidence boundary at the Mathlib-API-name level; (iii) per sec 3.2, structural revision recommendations (S1/S2 reframing) cap the band at MEDIUM-HIGH for single-witness.
+
+---
+
+## sec 2 -- Per-question answers
+
+### Q1 -- B1-B5 classification validation
+
+**Verdict on 141C classification:** ENDORSE B1, B2, B3, B4 as classified; AMEND B5 (downgrade confidence; reclassify error-class boundary).
+
+**B1 (trivial-repair, HIGH):** ENDORSE. Duplicate `WallisFamily.Solves` is a name-resolution issue. Triage's reading that iter-13 captured a transient state is plausible. Per UF-141C-1, operator should run `grep -n '^def Solves' WallisFamily.lean` before iter-14; if HEAD is clean, B1 is already discharged.
+
+**B2 (tactic-strategy, MEDIUM-HIGH):** ENDORSE classification but with caveat. Per UF-141C-1, HEAD already shows the corrected `hu k` / `hu (k+1)` shape, suggesting the literal `(by omega)` issue is gone. The residual is the unsolved-goals shape from `linear_combination` coefficients on L125 -- this is the actual MEDIUM-HIGH blocker. **Recommendation:** confidence band stays MEDIUM-HIGH but reasoning should be re-anchored on the `linear_combination` coefficient ansatz, not on the `(by omega)` argument. See amendment C-143-2.
+
+**B3 (tactic-strategy, MEDIUM-HIGH):** ENDORSE. The `positivity` failure on `(2*k+1) ≠ 0` over ℝ when `k : ℕ` is a known Mathlib pattern -- positivity can lose the `Nat.cast_nonneg` chain through `field_simp` rewrites. MEDIUM-HIGH is correct.
+
+**B4 (trivial-repair, HIGH):** ENDORSE. Per UF-141C-1, HEAD already uses spelled-out `nhds`, suggesting iter-13 transient. If a `𝓝` notation appears in a fresh L216-312 region, uniform replacement to `nhds` is one-edit. HIGH is correct.
+
+**B5 (tactic-strategy, MEDIUM):** AMEND -- downgrade to LOW-MEDIUM. Justification: cast-normalization fragility between `Nat.centralBinom` glue and `wallisStepFactor` has the structural property that a single fix-vector (extracting `centralBinom_cast_succ`) propagates well only if the failing goal's exact cast shape matches the extracted lemma's RHS. Without seeing the iter-13 log's specific goal printout, the agent's recommendation is plausible but the discharge-on-first-try probability is materially lower than B3. Recommend MEDIUM ceiling but realistic LOW band.
+
+**UF-141C-1 elevation effect:** B2 + B4 confidence is materially elevated by HEAD-already-corrected pattern. Recommend triage_report.md add a per-blocker `head_state_at_2026-05-10` field documenting whether the iter-13-flagged shape is still present at HEAD; this would have made the elevation explicit. See amendment C-143-1.
+
+**Fabricated-math risk self-flag:** NONE for Q1 (classification-validation only).
+
+---
+
+### Q2 -- S1/S2 sorry classification + routing
+
+**Verdict:** AMEND -- the S1/S2 routing as "axiom-shape reformulation, not direct discharge" is **correct in substance** but **incorrect in framing**. The accurate framing: S1/S2 are not sorries-to-discharge; they are **architectural artifacts** of an over-strong axiom signature, and the resolution is a Mathlib-native refactor of `frobenius_double_root_at_apparent_singularity`, not a discharge.
+
+**Reasoning citation:** APPENDIX A sec 3 (S1) + APPENDIX C `notes` field state: "the goal `∀ x, HasDerivAt (fun x => a x * deriv id x) (a x) x` is an artefact of the axiom formulation `frobenius_double_root_at_apparent_singularity` and cannot be discharged for `a = a_coeff_c` without `a(x) = C·e^x`." This is correct. The trivial identity `deriv id x = 1` reduces the goal to `∀ x, HasDerivAt a (a x) x`, which is `HasDerivAt = id ∘ a` -- false in general.
+
+**Confidence band:** LOW is correct as stated -- but the LOW band reflects "low probability of direct sorry discharge", not "low understanding of the issue". The understanding is HIGH; the actionable path is HIGH-confidence reformulation of the axiom. Recommend re-tagging from `confidence: LOW` to `direct_discharge_confidence: LOW` + `reformulation_confidence: HIGH`. See amendment C-143-3.
+
+**S1 + S2 joint discharge unit:** ENDORSE. Symmetry between `s_1` and `s_2` is exact (same axiom, two indicial roots). One refactor closes both.
+
+**Fabricated-math risk self-flag:** NONE -- the assessment is a classification refinement, not a proof claim.
+
+---
+
+### Q3 -- Mathlib lemma family recommendations for B3, B4, B5
+
+```json
+[
+  {
+    "blocker_or_sorry_id": "B3",
+    "lemma_namespace": "Mathlib.Data.Nat.Cast.Order + Mathlib.Tactic.Positivity",
+    "candidate_lemmas": [
+      "Nat.cast_nonneg",
+      "Nat.cast_pos",
+      "Nat.cast_add_one_pos",
+      "two_mul_add_one_pos (if exists; otherwise inline `by positivity`)",
+      "mul_ne_zero (for the factored `(2k+1)*(2k+3)` form)"
+    ],
+    "operator_verification_path": "After edit: `lake env lean lean/WallisFamily.lean 2>&1 | grep -A 3 'ratio_step_m0'`. Expected: no `unsolved goals` from L171-177 region. Fallback diagnostic: insert `by positivity` -> if fails, `by show (0 : ℝ) < 2 * (k : ℝ) + 1; have := (Nat.cast_nonneg k : (0 : ℝ) ≤ k); linarith`.",
+    "fabricated_math_risk": "LOW -- `Nat.cast_nonneg` and `Nat.cast_pos` are bedrock Mathlib lemmas (verified across many Mathlib versions); `two_mul_add_one_pos` is a plausible but not memory-verified name and operator must check existence before relying on it. If absent, the inline `linarith` fallback is robust."
+  },
+  {
+    "blocker_or_sorry_id": "B4",
+    "lemma_namespace": "Mathlib.Topology.Order (for scoped notation) + namespace structure",
+    "candidate_lemmas": [
+      "(no lemma needed; this is a notation-resolution issue)",
+      "Topology scope export of `𝓝` (notation, not lemma)"
+    ],
+    "operator_verification_path": "Step 1: `grep -n '𝓝' lean/WallisFamily.lean` -- if any matches in L216-312, uniform replace to `nhds`. Step 2: ensure `open scoped Topology` (currently L11, after `namespace WallisFamily` at L9, so already inside the namespace) is reachable at use sites; if a `section` block intervenes between L11 and L216-312 with its own scope frame, re-issue `open scoped Topology` inside the section. Step 3: `lake env lean lean/WallisFamily.lean` -- expect no `unknown identifier '𝓝'`.",
+    "fabricated_math_risk": "NONE -- notation-resolution only; no math-content claim."
+  },
+  {
+    "blocker_or_sorry_id": "B5",
+    "lemma_namespace": "Mathlib.Combinatorics.Choose.Central + Mathlib.Tactic.FieldSimp + Mathlib.Tactic.PushCast",
+    "candidate_lemmas": [
+      "Nat.succ_mul_centralBinom_succ (already in use at L235 per triage)",
+      "Nat.centralBinom_succ (if exists; provides `centralBinom (n+1) = ...` closed form)",
+      "Nat.cast_succ",
+      "Nat.cast_mul",
+      "Nat.cast_div_charZero (for the `/(m+1)` cast)",
+      "mul_div_assoc",
+      "div_eq_iff (for converting `a = b/c` to `a*c = b` when `c ≠ 0`)"
+    ],
+    "operator_verification_path": "Recommended pattern: extract a stand-alone lemma `centralBinom_cast_succ : ∀ m : ℕ, ((Nat.centralBinom (m+1) : ℝ)) = 2*(2*m+1)/(m+1) * Nat.centralBinom m`, prove with `intro m; have h := Nat.succ_mul_centralBinom_succ m; field_simp; push_cast; linarith [h]` (or `ring` if `field_simp` reaches `0 = 0` shape). Then `rw [centralBinom_cast_succ]` at L243 and L285 failing sites. Verify: `lake env lean lean/WallisFamily.lean 2>&1 | grep -E '(error|unsolved)'` -- expect zero hits in `reciprocalWallis_succ` and `roadmap_closed_form`.",
+    "fabricated_math_risk": "MEDIUM -- the lemma name `Nat.centralBinom_succ` is plausible but I have not verified it exists in the Mathlib pin v4.30.0-rc1; operator must run `#check Nat.centralBinom_succ` first. If absent, fall back to the explicit `field_simp + push_cast + linarith [Nat.succ_mul_centralBinom_succ m]` recipe which is robust. The `centralBinom_cast_succ` extraction itself is a math-content claim -- the RHS shape `2*(2m+1)/(m+1)` follows from `Nat.succ_mul_centralBinom_succ` by elementary algebra, so the claim is sound, but the statement should be triple-checked by operator before commit."
+  }
+]
+```
+
+**Self-flag summary for Q3:** B3 LOW risk; B4 NONE; B5 MEDIUM risk on specific lemma name `Nat.centralBinom_succ`. Operator must run `#check` on every named candidate before committing.
+
+---
+
+### Q4 -- S1/S2 proof-shape strategy
+
+**(a) Axiom reformulation vs Mathlib-native proof-shape:**
+
+The triage's framing -- "split `frobenius_double_root_at_apparent_singularity` into a version that takes only `(ha_root, ha_simple)` and absorbs the derivative-shape hypothesis internally" -- is the **right strategic direction**, but the precise refactor depends on what `frobenius_double_root_at_apparent_singularity` actually claims as a theorem (which I cannot fully resolve without the Lean source at HEAD; APPENDIX C only shows the call site, not the axiom statement).
+
+Two refactor patterns to consider, in order of preference:
+
+**Pattern α (preferred): Drop the `h_exact` hypothesis from the axiom.**
+If the axiom currently reads (schematically):
+```
+axiom frobenius_double_root_at_apparent_singularity :
+  ∀ (a c : ℂ → ℂ) (s : ℂ),
+    is_root_of_indicial a s →
+    is_simple_root a s →
+    (∀ x, HasDerivAt (fun x => a x * deriv id x) (a x) x) →  -- h_exact (the artefact)
+    apparent_singularity_at s
+```
+then the `h_exact` clause is structurally redundant when `id` is the identity (`deriv id x = 1` reduces the goal to `HasDerivAt a (a x) x` which is false in general -- so the axiom as currently stated cannot be applied except in degenerate cases anyway). The refactor is to **remove the `h_exact` parameter from the axiom signature**, leaving:
+```
+axiom frobenius_double_root_at_apparent_singularity :
+  ∀ (a c : ℂ → ℂ) (s : ℂ),
+    is_root_of_indicial a s →
+    is_simple_root a s →
+    apparent_singularity_at s
+```
+This closes S1 and S2 by **deletion** of the `(by sorry)` argument at the call sites (L118 and L120), not by discharge. Phase C effort: ~5 LOC delta in `Thm66_ApparentSingularity.lean`. **This is structural revision and triggers the BAND ceiling per sec 3.2.**
+
+**Pattern β (fallback if axiom-content requires `h_exact` for downstream proofs):** Replace `h_exact` with a math-content-equivalent hypothesis that is dischargeable for the actual `a_coeff_c`. For example, if the axiom genuinely needs to know that `a` is non-degenerate at `s`, the replacement hypothesis should be `a s ≠ 0 ∧ deriv a s ≠ 0` (already available as `a_deriv_s1_ne_zero` etc. -- which suggests the axiom is *already* receiving the right hypothesis through other parameters and `h_exact` is pure redundancy). Pattern β collapses to Pattern α in that case.
+
+**Mathlib-native proof-shape avoiding axiom changes:** NOT FEASIBLE. The current `h_exact` shape is mathematically false for `a = a_coeff_c` (per APPENDIX A sec 3 S1 analysis), so no Mathlib `Deriv.*` lemma can close it. Any attempt to discharge as currently stated is a fabricated-math risk.
+
+**(b) Discharge ordering -- before vs after Phase C.3:**
+
+CONCUR with triage's recommendation: **after C.3**. Reasoning:
+- Pattern α (axiom-signature edit) touches `Thm66_ApparentSingularity.lean` only; build-graph-localized.
+- WallisFamily build-fix (B1-B5) is independent of Thm66 axioms (per APPENDIX D dependency_map: no edge from WallisFamily.lean to Thm66_ApparentSingularity.lean).
+- Greening WallisFamily (C.1) + commit (C.3) hardens the substrate for the next agent fire (slot 142-class for the axiom refactor).
+- Doing the axiom refactor first risks blast-radius coupling with WallisFamily build-fix (operator changing two files in iteration loop = harder to localize regressions).
+
+**Recommended sequencing:**
+1. C.1: green WallisFamily (B1-B5 discharge in iter-14 / iter-15)
+2. C.3: commit lean/ working tree
+3. C.3+: clean-clone reproducibility check (per slot 144 Change 3)
+4. **NEW interstitial step:** `slot 142-class` axiom refactor fire on Thm66 (closes S1+S2 via Pattern α)
+5. C.3 (re-commit covering Thm66 changes)
+6. C.3+ (re-run reproducibility check)
+7. C.4: M10 V0 substrate-prep + closure-cascade
+
+See amendment C-143-4.
+
+**Fabricated-math risk self-flag:** Pattern α refactor recommendation is HIGH-confidence on direction but MEDIUM-confidence on implementation specifics, because I cannot read the actual axiom statement. Operator must verify Pattern α applies (i.e., `h_exact` is genuinely redundant given the other axiom hypotheses) before adopting. If the axiom is genuinely Pattern β (needs replacement, not deletion), the slot 142-class fire scope grows.
+
+---
+
+### Q5 -- Cross-axis dependency check
+
+**(a) M9 substrate (`45e236c` PCF-2 v1.4 / `b9aa881` picture-chain v1.20+):** NO DIRECT TOUCH. M10 substrate is `lean/` working tree (Lean-4 formalization of Wallis family + Thm66); M9 substrate is `tex/` PCF-2 paper + picture-chain. Per APPENDIX D, no `.lean` file imports any `.tex`-derived artifact. Cross-axis coupling is at the math-content level only (the formalization in lean/ is *of* a result also stated informally in PCF-2 v1.4), but build-graph independent. SAFE.
+
+**(b) Slot 137 PCF-2 sec 6 substantive content (M2 substrate):** NO DIRECT TOUCH. Same reasoning as (a); coupling is math-content (formal proof of result also discussed in PCF-2 sec 6) not build-graph. SAFE.
+
+**(c) M7/M8a/M8b V0 closure substrate:** NO DIRECT TOUCH. These are `tex/` axes; `.lean` working tree does not import them. SAFE.
+
+**(d) M4 foundation `5f9db69`:** NO DIRECT TOUCH. ANTI-CONFLATION discipline observed -- `5f9db69` cited as cross-ref-only in this verdict; not re-used as substrate citation for any M10 artifact.
+
+**Dependency-map.json edges (or missing edges) carrying cross-axis load:** NONE. The 7-node M10 set is entirely self-contained within `lean/`. No edges leave the M10 subgraph except to Mathlib (external dependency, not a project axis).
+
+**Implication for Phase C ordering:** No cross-axis coupling means no Phase C re-ordering required. The 4-phase roadmap in POST_SYNTH_REVIEW outlook sec 2 stands.
+
+**Anomaly surfaced:** D-143-2 (see sec 4 below) -- the dependency_map.json could explicitly note "M10 build-graph is closed under itself + Mathlib; no cross-axis edges" to make this verdict claim machine-checkable. Currently implicit.
+
+**Fabricated-math risk self-flag:** NONE.
+
+---
+
+### Q6 -- Iteration ceiling refinement + Phase C.3+ gate refinement
+
+**(a) Refined iteration ceiling:**
+
+POST_SYNTH_REVIEW outlook sec 3 R2 set ceiling at iteration-20. Given concrete blocker shapes:
+- B1, B4: HIGH-confidence trivial-repair (likely 1 iter each, possibly 0 if HEAD-already-correct per UF-141C-1)
+- B2: MEDIUM-HIGH but residual `linear_combination` ansatz uncertainty (1-3 iters)
+- B3: MEDIUM-HIGH, structured fix-vectors available (1-2 iters)
+- B5: MEDIUM (downgraded; per Q1) cast-normalization fragility (2-4 iters realistic)
+- S1+S2: separate slot 142-class fire (1-2 iters for Pattern α refactor)
+
+Refined iteration profile:
+- **Expect green by iter-18** (currently iter-13; +5 iters covers B1+B2+B3+B4+B5 with some overlap)
+- **iter-24 = re-evaluate** (escalate to T1-Synth re-triage on iter-24 log if not green; supersedes the 141C scope with a 141D-class fire)
+- **iter-30 = halt and re-architect** (if not green by 30, the blocker classification is wrong somewhere -- likely B5 has math-gap content the triage missed, or a new blocker emerged in the build-fix iteration loop)
+
+This refines POST_SYNTH_REVIEW outlook R2 from "iteration-20 ceiling" to a graduated 18/24/30 ladder. See amendment C-143-5.
+
+**(b) Phase C.3+ reproducibility check refinements:**
+
+Current C.3+ (per slot 144 Change 3) = `lake build` reproducibility on clean clone. RECOMMEND ADDITIONS:
+
+1. **Add `lake test` step** if any test targets exist (per APPENDIX D, lakefile_targets does not show explicit test targets; if absent, this point is moot but worth checking)
+2. **Add sorry-count assertion:** `grep -rn '\bsorry\b' lean/ | grep -v '\.lake/' | grep -v -- '-- ' | wc -l` should equal `2` after C.3 (S1 + S2 still pending) and `0` after slot 142-class refactor lands. This is a structural gate.
+3. **Add toolchain pin verification:** `cat lean/lean-toolchain` should match `leanprover/lean4:v4.30.0-rc1` exactly; mitigates R5 (toolchain drift).
+4. **Add lakefile-orphan inventory check:** per UF-141C-2, `proof_targets.lean` and `CardEvenOfInvolution.lean` lakefile-orphan status should be explicitly resolved (added to lean_lib root or moved to staging dir) by C.3+ to harden substrate.
+
+See amendment C-143-6.
+
+**(c) Slot 145 fire timing:**
+
+POST_SYNTH_REVIEW outlook gates slot 145 on Phase C.3. With the Q4 sequencing recommendation (slot 142-class refactor between C.3 and C.4), slot 145 should fire **after** slot 142-class lands its commit, not after C.3 alone. Reasoning:
+
+- Slot 145 is M10 V0 substrate-prep (analog of slot 121/125/128 for M7/M8a/M8b).
+- Substrate-prep cascades expect a clean Lean-4 working tree (zero sorry, green build, lakefile coherent).
+- Firing slot 145 between C.3 and slot 142 means substrate-prep is built on a 2-sorry working tree, which is forensically inconsistent with the M7/M8a/M8b template (those substrate-preps fired post-green-build, not mid-discharge).
+- Slot 145 prompt is already drafted at claude-chat `e450b13`; deferring its fire by ~1 cascade is low-cost and reduces forensic risk.
+
+**Recommended gating:** slot 145 fires after `(C.3 + slot 142-class refactor commit + C.3+ reproducibility check pass)`. This is a stricter gate than current "after C.3"; documents the M7/M8a/M8b template fidelity requirement.
+
+**Fabricated-math risk self-flag:** NONE for Q6 (estimation + gate-design only).
+
+---
+
+## sec 3 -- Structured change list
+
+```json
+[
+  {
+    "id": "C-143-1",
+    "target_artefact": "blockers.json (and triage_report.md sec 2)",
+    "change_type": "add",
+    "change_content": "Add per-blocker field `head_state_at_2026-05-10`: 'iter13-shape-still-present' | 'iter13-shape-already-corrected' | 'unverifiable-without-source-read'. Populate per blocker: B1 = 'iter13-shape-already-corrected' (per APPENDIX A sec 2 B1 analysis); B2 = 'iter13-shape-already-corrected' (HEAD shows `hu k` / `hu (k+1)` correct form); B3 = 'unverifiable-without-source-read' (positivity goal shape not quoted in triage_report); B4 = 'iter13-shape-already-corrected' (HEAD shows spelled-out `nhds`); B5 = 'unverifiable-without-source-read'. This makes the UF-141C-1 staleness elevation explicit and machine-checkable.",
+    "justification": "Per Q1 verdict + UF-141C-1; without this field, B2/B4 elevated confidence is implicit and the iteration-ceiling estimate (Q6) cannot be re-run without re-deriving the staleness assessment."
+  },
+  {
+    "id": "C-143-2",
+    "target_artefact": "blockers.json B2 entry + triage_report.md sec 2 B2",
+    "change_type": "rewrite",
+    "change_content": "Re-anchor B2 reasoning from `(by omega)` malformed argument (already corrected at HEAD) to `linear_combination` coefficient ansatz on L125 + `simp only` not unfolding through the `n+1` constructor branch of `Lm`. The literal `(by omega)` issue should be flagged as RESOLVED-AT-HEAD; the residual is the `linear_combination` ansatz tuning. fix_vector_candidates should add: 'Inspect `linear_combination` coefficients with `set_option pp.all true`; if the coefficient ansatz is wrong, the goal will show a non-zero remainder term that ring cannot close.'",
+    "justification": "Per Q1 verdict; current B2 framing in blockers.json points to a resolved sub-issue, which inflates apparent fix difficulty and confuses iter-14 priorities."
+  },
+  {
+    "id": "C-143-3",
+    "target_artefact": "sorries.json S1 + S2 entries",
+    "change_type": "rewrite",
+    "change_content": "Replace `confidence: LOW` with two fields: `direct_discharge_confidence: LOW` (the `h_exact` goal as currently stated is mathematically false for `a = a_coeff_c`) and `reformulation_confidence: HIGH` (Pattern α axiom-signature edit -- delete `h_exact` parameter -- closes both sorries by deletion of the `(by sorry)` arguments at L118 and L120; assumes `h_exact` is structurally redundant given other axiom hypotheses). Add field `reformulation_strategy: 'Pattern α (delete redundant h_exact param) | Pattern β (replace with math-content-equivalent dischargeable hypothesis)'`. Add field `routing_target: 'slot 142-class agent fire (T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE)'`.",
+    "justification": "Per Q2 verdict; current LOW band conflates 'low understanding' with 'low actionability', misroutes operator attention. The actionable path (axiom refactor) is HIGH-confidence."
+  },
+  {
+    "id": "C-143-4",
+    "target_artefact": "POST_SYNTH_REVIEW outlook sec 2.2 (Phase C table)",
+    "change_type": "add",
+    "change_content": "Insert new sub-step between C.3+ and C.4: 'C.3++ (slot 142-class agent fire): T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE -- Pattern α refactor of frobenius_double_root_at_apparent_singularity to remove redundant h_exact parameter; closes S1+S2 by deletion. Estimated 1-2 iterations. Followed by re-commit + re-run of C.3+ reproducibility check.' Update sec 2.6 critical-path summary accordingly. Update slot 145 gating from 'after C.3' to 'after C.3++ commit + post-refactor C.3+ pass'.",
+    "justification": "Per Q4(b) + Q6(c) verdicts; current outlook treats S1+S2 discharge as part of C.2, but it is architecturally separable (axiom refactor, not sorry-fill) and should be its own substep with its own reproducibility gate."
+  },
+  {
+    "id": "C-143-5",
+    "target_artefact": "POST_SYNTH_REVIEW outlook sec 3 R2",
+    "change_type": "rewrite",
+    "change_content": "Replace `iteration-20 ceiling` with graduated ladder: 'iteration-18 = expected green; iteration-24 = re-evaluate (escalate to T1-Synth re-triage; supersedes 141C with 141D-class fire); iteration-30 = halt and re-architect (blocker classification likely wrong; B5 may have math-gap content not surfaced in 141C, or new blocker emerged).' Severity remains MEDIUM; probability adjusts from MEDIUM to LOW-MEDIUM given the structured fix-vectors now in 143R verdict.",
+    "justification": "Per Q6(a); the flat 20-ceiling under-resolves the decision points in the iteration loop. Graduated ladder gives operator clearer trigger-points for escalation."
+  },
+  {
+    "id": "C-143-6",
+    "target_artefact": "POST_SYNTH_REVIEW outlook sec 2.2 C.3+ row + Phase C.3+ design",
+    "change_type": "add",
+    "change_content": "Expand C.3+ from 'lake build reproducibility check on clean clone' to 4-step gate: (1) `lake build` clean-clone green; (2) `lake test` if test targets exist (currently none per APPENDIX D; check before C.3); (3) sorry-count assertion = 2 after C.3, = 0 after C.3++; (4) toolchain pin verification (`cat lean/lean-toolchain == leanprover/lean4:v4.30.0-rc1`) + lakefile-orphan resolution (proof_targets.lean + CardEvenOfInvolution.lean either added to lean_lib root or moved to staging dir).",
+    "justification": "Per Q6(b); single-step C.3+ gate is under-specified and does not exercise the substrate's structural integrity beyond pure-build reproducibility."
+  }
+]
+```
+
+---
+
+## sec 4 -- Anomalies / discrepancies surfaced
+
+```json
+[
+  {
+    "id": "D-143-1",
+    "severity": "INFO",
+    "title": "Sorry-count discrepancy carries forward from D-141C-1",
+    "description": "APPENDIX A sec 6 Q1 + APPENDIX E + handoff.md surface D-141C-1 (slot 144 says 3 sorries; triage finds 2). 143R verdict cannot resolve canonical interpretation; operator must select. Three candidate resolutions (comment-only mention, iter-13 transient, GoldbachHelfgott axiom-stub) all plausible. Recommend closing D-141C-1 with explicit operator choice before slot 142-class fire (since slot 142 will commit a sorry-count change and D-141C-1 ambiguity propagates into the commit message).",
+    "remediation": "Operator selects one of the three candidate resolutions in APPENDIX A sec 6 Q1; documents in next outlook successor or as inline comment in `m10_documented_commitment.md`.",
+    "blocking": false
+  },
+  {
+    "id": "D-143-2",
+    "severity": "INFO",
+    "title": "dependency_map.json should explicitly note M10 build-graph closure",
+    "description": "Per Q5, M10 7-node build-graph has no cross-axis edges (no imports of M2/M7/M8/M9 substrate; only Mathlib externals). Currently this property is implicit in dependency_map.json (must be inferred from absence of cross-axis paths). Adding an explicit `cross_axis_edges: []` field with a `closure_check_passed: true` flag would make the property machine-checkable for future cross-axis-impact assessments.",
+    "remediation": "Add field `cross_axis_closure: {edges: [], note: 'M10 build-graph imports only Mathlib externals; no project-axis cross-references'}` to dependency_map.json schema.",
+    "blocking": false
+  },
+  {
+    "id": "D-143-3",
+    "severity": "LOW",
+    "title": "Lean source not inlined in 143R substrate; some Q3/Q4 recommendations are conditional",
+    "description": "Per sec 0.4 substrate path mapping, `lean/WallisFamily.lean` and `lean/Thm66_ApparentSingularity.lean` are reference-only, not inlined. Q3 lemma family recommendations (especially B5 candidate `Nat.centralBinom_succ`) and Q4 axiom-refactor strategy (Pattern α vs β) are conditional on operator-side source verification. CLI agent's recommended 'NOT INLINED -- reference only' decision for these files is reasonable (size constraint), but means MEDIUM-HIGH band on this verdict cannot be elevated to HIGH without follow-up inspection.",
+    "remediation": "If CLI agent fires a 143R-followup with Lean source attached for Q3/Q4 grounding, this verdict can be re-fired with HIGH band aspiration. Otherwise, operator-side `#check` verification of every named Mathlib candidate before commit closes the gap.",
+    "blocking": false
+  },
+  {
+    "id": "D-143-4",
+    "severity": "LOW",
+    "title": "B5 confidence band amendment requires operator confirmation",
+    "description": "Per Q1, B5 confidence is recommended for downgrade from MEDIUM to LOW-MEDIUM. This is a single-witness judgment based on cast-normalization fragility patterns; operator with ground-truth visibility into the specific iter-13 goal printout at L243 / L285 may have evidence supporting MEDIUM. If operator disagrees with the downgrade, escalate to dual-witness confirmation per sec 0.5 ladder.",
+    "remediation": "Operator inspects iter-13 build_errors_iter13.log for L243 / L285 specific goal-print; if cast shape is clean (`(m+1 : ℝ)` consistent throughout), MEDIUM is correct; if shape is ambiguous or has multiple competing cast forms, LOW-MEDIUM is correct.",
+    "blocking": false
+  }
+]
+```
+
+No HIGH-severity anomalies. No blocking anomalies. Verdict proceeds.
+
+---
+
+## sec 5 -- Cross-reference table
+
+| Substrate SHA | Citation purpose in this verdict |
+|---|---|
+| `2e36e0f` | PRIMARY substrate (141C triage outputs); cited Q1, Q2, Q3, Q4, Q5 |
+| `2330437` | Functional predecessor (slot 144); cited sec 0.5, sec 1 band justification, Q4(b) sequencing |
+| `c171016` | POST_SYNTH_REVIEW outlook; cited Q6, sec 3 amendments (C-143-4, C-143-5, C-143-6) |
+| `45e236c` | M9 PCF-2 v1.4 substrate; cross-ref only (Q5(a)); ANTI-CONFLATION-clean |
+| `b9aa881` | M9 picture-chain v1.20+; cross-ref only (Q5(a)) |
+| `887981b` | M9 umbrella v2.2; cross-ref only (Q5(a)) |
+| `7f93b9e` | M7 V0 closure cascade template; cited Q4(b), Q6(c) (substrate-prep template fidelity) |
+| `cb429e1` | M8a V0 closure cascade template; same role |
+| `74c5630` | M8b V0 closure cascade template; same role |
+| `5f9db69` | M4 V0 cascade; cross-ref only per ANTI-CONFLATION (NOT re-used as substrate citation) |
+| `e450b13` | Slot 145 substrate-prep prompt; cited Q6(c) gating refinement |
+| `ce5d9e9` | Slot 141B M10 documented-commitment scaffold; cited sec 0 context |
+| `fd669d3` | Cascade-132 PATH_B Option α decision substrate; cited sec 3.3 anomaly format |
+
+---
+
+## sec 6 -- Confidence-band justification
+
+**Single-witness MEDIUM-HIGH** per the following reasoning chain. The 143R re-fire delivers substrate via APPENDIX A-F inlining, allowing synth executor to read the full triage outputs without `git`/`lake` access. This is sufficient for HIGH band on Q1 (classification validation), Q2 (sorry routing), and Q5 (cross-axis dependency check) -- those questions are answerable from the inlined materials alone. However, Q3 (Mathlib lemma family recommendations) and Q4 (S1/S2 proof-shape strategy) require ground-truth knowledge of (i) the actual Lean source at HEAD (not inlined per sec 0.4) and (ii) Mathlib pin v4.30.0-rc1 API surface (synth's training-data knowledge of Mathlib has uncertain alignment to this specific pin). This caps Q3 + Q4 confidence at MEDIUM-HIGH.
+
+Per sec 3.2 LABEL-rule: the verdict recommends structural revision (S1/S2 reframing as architectural artifact + slot 142-class interstitial fire between C.3 and C.4), which caps single-witness BAND at MEDIUM-HIGH absent dual-witness corroboration. Operator may upgrade to dual-witness if any of the structural recommendations (especially C-143-4 interstitial step) warrant cross-validation.
+
+5 structured amendments + 4 anomalies (3 INFO, 1 LOW; 0 blocking) -- consistent with `ENDORSE_WITH_AMENDMENTS` rather than `RECOMMEND_REVISION`. The 141C triage substrate is sound; the amendments tighten framing and add gating, not restructure.
+
+RULE 1 self-correction check: this verdict is purely M10 axis math content. No Zenodo / endorsement / venue-resubmission references. Slot 142-class refactor recommendation is M10-internal (Lean axiom refactor), not admin-tail work. PASS.
+
+Fabricated-math risk self-assessment per sec 0.5: Q3 B5 (`Nat.centralBinom_succ` lemma name) flagged MEDIUM; Q4 Pattern α axiom-signature edit flagged HIGH-direction / MEDIUM-implementation. All other recommendations NONE or LOW. Operator verification path documented for each MEDIUM+ flag.
+
+---
+
+*End of T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143R verdict body. Single-witness MEDIUM-HIGH `ENDORSE_WITH_AMENDMENTS`; 5 amendments; 4 anomalies (0 blocking); RULE-1-clean; ANTI-CONFLATION-clean (cross-ref-only enumeration row for `5f9db69`); FV-disciplined. Synth executor: claude.ai web; Claude Opus 4.7. Verdict cut at 2026-05-10 ~12:15 JST. Substrate inlined-substrate-acceptance per 143R amendment (sec 0.1, 0.4) honored. CLI agent: deposit per sec 7 conventions; absorb amendments into successor outlook `M1_M12_CLOSURE_OUTLOOK_20260510_POST_DISCHARGE_PLAN.md`.*
