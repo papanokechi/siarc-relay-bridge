@@ -1,0 +1,36 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-140-1",
+      "severity": "INFO",
+      "title": "Section 5 preserved-row cosmetic ASCII normalization (alpha/beta + em-dash + check-mark emoji)",
+      "description": "Predecessor PATH_B_COMPLETE.md section 5 contains unicode glyphs in the slot-136 PATH-decision struck-through row (PATH_alpha, PATH_beta written with U+03B1 / U+03B2 unicode), em-dash U+2014 separators, and U+2705 check-mark emoji on the resolution annotation. The new POST_LEAN_REALITY outlook normalizes these to ASCII (alpha/beta as English transliteration; em-dash to '--'; check-mark emoji removed) per prompt 140 STEP 0.5 ASCII-bias guidance and UF-136-6 PowerShell-redirect-mojibake risk class. Semantic content of the preserved rows is functionally identical; only glyphs differ. Transparency-logged as INFO; no remediation needed.",
+      "anchor_files": [
+        "tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_PATH_B_COMPLETE.md",
+        "tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md"
+      ],
+      "remediation": "none required; documented in outlook_diff.md and section 5.1 of new outlook"
+    },
+    {
+      "id": "D-140-2",
+      "severity": "INFO",
+      "title": "Fire-time lean/ untracked artefact list expanded vs prompt 139 section 1.5 draft-time enumeration",
+      "description": "Prompt 139 section 1.5 enumeration listed 9 untracked artefacts under lean/ (CardEvenOfInvolution.lean, GoldbachHelfgott/, Thm66_ApparentSingularity.lean, TmpCheck.lean, WallisFamily/, build_errors.log, build_errors_iter13.log, build_log.txt, fix_pass_log.md, full_build.log, lake-manifest.json). Fire-time `git status -s -- lean/` (2026-05-10 ~09:30 JST) shows 11 additional untracked artefacts: lean4_claims.jsonl, lean_build_result.txt, lemma_k_scoping.md, numerical_pre_checks.py, proof_status.json, shift_build.log, sorry_log.json, thm66_lean4_summary.md, triage.json, plus proof_targets.lean (which prompt 139 enumerated separately as a project-side .lean file). All additions are tooling / build / log / status artefacts; none are project-side .lean files. The implications block (i)-(v) of prompt 139 section 1.5 holds verbatim. Documented in outlook section 1.2 trailing note.",
+      "anchor_files": [
+        "tex/submitted/control center/prompt/139_t1_synth_best_next_move_consultation_EXECUTED.txt",
+        "tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md"
+      ],
+      "remediation": "none required; expected drift from active sorry-discharge work-stream; documented in outlook"
+    },
+    {
+      "id": "D-140-3",
+      "severity": "INFO",
+      "title": "WallisFamily.lean line-diff drift vs prompt 139 section 1.5 enumeration",
+      "description": "Prompt 139 section 1.5 reported WallisFamily.lean diff stat as +71/-47 staged lines. Fire-time `git diff --stat` shows +60/-48 (108 total line changes). The slot 139 cascade_record.md section 3.1 absorbing notes mentioned a '108-line WallisFamily.lean diff' which is consistent with the line-count total. Discrepancy is consistent with active operator-side editing of WallisFamily.lean between prompt 139 draft (~07:00 JST) and slot 140 fire (~09:30 JST). Recorded for transparency; no impact on M10 status decision (the implications hold whether the diff is +71/-47 or +60/-48).",
+      "anchor_files": [
+        "lean/WallisFamily.lean"
+      ],
+      "remediation": "none required; expected drift"
+    }
+  ]
+}

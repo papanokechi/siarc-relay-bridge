@@ -1,0 +1,26 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-140-1",
+      "severity": "LOW",
+      "title": "Substring-only collision match on '*140*' filter from unrelated INDAG submission folder",
+      "description": "STEP 0.2 supersession-gate scan with `Get-ChildItem -Recurse -Directory -Path sessions -Filter '*140*'` returned one match: `sessions/2026-04-25/263513140-INDAG-SUBMISSION`. This is an INDAG submission identifier whose decimal representation contains the substring '140'; it is NOT a slot-140 fire collision. Refined task-ID-shaped filters (`*-140` and `T2-EXECUTOR-POST-LEAN-REALITY-OUTLOOK*`) returned 0 results, confirming no parallel-CLI slot-140 collision. Judgment call: substring false-positive; proceeded with fire. Filed for awareness as a known false-positive pattern for future supersession-gate checks (numeric task-ID substrings under TASK_ID-shaped folder filters).",
+      "candidate_memory_status": "TRIVIAL_DO_NOT_PROMOTE",
+      "anchor_files": [
+        "siarc-relay-bridge/sessions/2026-04-25/263513140-INDAG-SUBMISSION/"
+      ]
+    },
+    {
+      "id": "UF-140-2",
+      "severity": "LOW",
+      "title": "Aggregate project-side .lean sorry count concentrates in 2 of 5 surveyed files",
+      "description": "Sorry-count survey at fire time: WallisFamily.lean=0, Thm66_ApparentSingularity.lean=2, proof_targets.lean=1, CardEvenOfInvolution.lean=0, TmpCheck.lean=0. Aggregate=3. Distribution is sparser than the iter13-build-error-log filename hints ('iter13' = 13 fix-passes worth of build failures); load is concentrated in Thm66_ApparentSingularity.lean (2 sorries; topical to M10 closure target Theorem 6.6) and proof_targets.lean (1 sorry; sandbox / target-statement file). Note: tactic-block context not classified by the survey; raw `\\bsorry\\b` regex count includes any literal sorry token. If operator picks BUNDLED-DEFERRED-NOTE branch (slot 141 Branch B), the documented commitment paragraph should cite both the iter-count metric (build_errors_iter{N}.log) and this aggregate-sorry-count metric so the commitment-by-date / report-status-by-date framing has two independent progress signals.",
+      "candidate_memory_status": "FILE_LOCAL",
+      "anchor_files": [
+        "lean/Thm66_ApparentSingularity.lean",
+        "lean/proof_targets.lean",
+        "lean/build_errors_iter13.log"
+      ]
+    }
+  ]
+}
