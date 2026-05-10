@@ -1,0 +1,31 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-141C-1",
+      "severity": "INFO",
+      "category": "iteration-log-staleness",
+      "summary": "Iter-13 build-error log appears partially stale relative to HEAD source",
+      "details": "Several details in build_errors_iter13.log do not match the visible HEAD source: blocker B2 references `hu (k + 2) (by omega)` but HEAD uses `hu k` / `hu (k+1)` without inequality side-args; blocker B4 flags unimported `nhds` notation but HEAD uses spelled-out `nhds` throughout L216-312. Pattern: log captures intermediate iteration-13 working-tree state that has since been (partially) repaired.",
+      "implication": "Per E3, agent cannot run `lake build` to verify current state. Recommendation: operator re-runs `lake build` and compares; persistent blockers re-fire as 141D-class on the iteration-14 log.",
+      "blocking": false
+    },
+    {
+      "id": "UF-141C-2",
+      "severity": "INFO",
+      "category": "lakefile-orphan-files",
+      "summary": "Two project-side .lean files not declared in any lean_lib root",
+      "details": "`proof_targets.lean` and `CardEvenOfInvolution.lean` are not listed in any of the three lean_lib targets in lean/lakefile.lean (WallisFamily / Thm66 / GoldbachHelfgott). They appear to be staging or unit-test files reached only via explicit invocation.",
+      "implication": "Out of 141C scope (per E5 no speculative refactoring suggestions). Surface to operator for separate decision: add to lakefile or move to a tests/ subfolder.",
+      "blocking": false
+    },
+    {
+      "id": "UF-141C-3",
+      "severity": "INFO",
+      "category": "possibly-dead-import",
+      "summary": "WallisFamily.lean imports CasoratianPi4 but no symbol referenced by name",
+      "details": "`import WallisFamily.CasoratianPi4` at WallisFamily.lean:3. CasoratianPi4 declares raw_casoratian_step, reduced_casoratian_step, casoratian_closed_form, pi4_series_of_bridge, pi4BridgeTerm, Pi4BridgeObligation. None of these names appears in the visible body of WallisFamily.lean at HEAD.",
+      "implication": "Either reserved for future use or dead. Out of 141C scope to remove. If kept, future-use intent should be commented inline.",
+      "blocking": false
+    }
+  ]
+}

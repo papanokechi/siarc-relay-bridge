@@ -1,0 +1,42 @@
+{
+  "schema_version": "141C-1.0",
+  "task_id": "T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C",
+  "scan_scope": "lean/*.lean and lean/WallisFamily/*.lean (excludes lean/.lake/)",
+  "scan_method": "regex `\\bsorry\\b` minus comment-only mentions and string-literal occurrences",
+  "project_sorry_count": 2,
+  "comment_only_mentions": 2,
+  "sorries": [
+    {
+      "sorry_id": "S1",
+      "location": "Thm66_ApparentSingularity.lean:118",
+      "context": "apparent_singularity_thm_i (proof of conjunct .1) -- supplies the `h_exact` argument to `frobenius_double_root_at_apparent_singularity` for s\u2081. Surrounding code: `exact frobenius_double_root_at_apparent_singularity a_coeff_c c_coeff_c s\u2081 root_s1 a_deriv_s1_ne_zero (by sorry)`",
+      "candidate_lemma_families": [
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Pow"
+      ],
+      "candidate_helpers": [
+        "Thm66_ApparentSingularity.lean::hasDerivAt_a_coeff (real-variable HasDerivAt for a; complex analogue would parallel)",
+        "Thm66_ApparentSingularity.lean::ode_is_exact (product-rule shape)"
+      ],
+      "confidence": "LOW",
+      "notes": "Per fix_pass_log.md `h_exact sorry note`: the goal `\u2200 x, HasDerivAt (fun x => a x * deriv id x) (a x) x` is an artefact of the axiom formulation `frobenius_double_root_at_apparent_singularity` and cannot be discharged for `a = a_coeff_c` without `a(x) = C\u00b7e^x`. AEAL-status: blocked-by-design. Routing target is to REFORMULATE the axiom rather than discharge the sorry. Suggest splitting `frobenius_double_root_at_apparent_singularity` into a version that takes only `(ha_root, ha_simple)` and absorbs the derivative-shape hypothesis internally."
+    },
+    {
+      "sorry_id": "S2",
+      "location": "Thm66_ApparentSingularity.lean:120",
+      "context": "apparent_singularity_thm_i (proof of conjunct .2) -- supplies the `h_exact` argument to `frobenius_double_root_at_apparent_singularity` for s\u2082. Surrounding code: `exact frobenius_double_root_at_apparent_singularity a_coeff_c c_coeff_c s\u2082 root_s2 a_deriv_s2_ne_zero (by sorry)`",
+      "candidate_lemma_families": [
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Pow"
+      ],
+      "candidate_helpers": [
+        "Thm66_ApparentSingularity.lean::hasDerivAt_a_coeff",
+        "Thm66_ApparentSingularity.lean::ode_is_exact"
+      ],
+      "confidence": "LOW",
+      "notes": "Symmetric counterpart of S1 for the second indicial root. Same structural blocker (axiom-shape mismatch). If S1 is closed by axiom reformulation, S2 closes by the same edit. Treat S1 + S2 as a single discharge unit, not two independent ones."
+    }
+  ]
+}

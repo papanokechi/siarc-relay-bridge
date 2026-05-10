@@ -1,0 +1,79 @@
+{
+  "schema_version": "141C-1.0",
+  "task_id": "T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C",
+  "scope": "M10-relevant project-side .lean files (excludes lean/.lake/ and GoldbachHelfgott/)",
+  "node_set": [
+    "WallisFamily.lean",
+    "WallisFamily/ShiftConsistency.lean",
+    "WallisFamily/CasoratianPi4.lean",
+    "WallisFamily/LemmaK.lean",
+    "Thm66_ApparentSingularity.lean",
+    "proof_targets.lean",
+    "CardEvenOfInvolution.lean"
+  ],
+  "edges_in_node_set": {
+    "WallisFamily.lean": [
+      "WallisFamily/CasoratianPi4.lean",
+      "WallisFamily/ShiftConsistency.lean"
+    ],
+    "WallisFamily/ShiftConsistency.lean": [],
+    "WallisFamily/CasoratianPi4.lean": [],
+    "WallisFamily/LemmaK.lean": [],
+    "Thm66_ApparentSingularity.lean": [],
+    "proof_targets.lean": [
+      "WallisFamily/LemmaK.lean"
+    ],
+    "CardEvenOfInvolution.lean": []
+  },
+  "external_imports_per_node": {
+    "WallisFamily.lean": [
+      "Mathlib",
+      "Mathlib.Analysis.Real.Pi.Wallis"
+    ],
+    "WallisFamily/ShiftConsistency.lean": [
+      "Mathlib"
+    ],
+    "WallisFamily/CasoratianPi4.lean": [
+      "Mathlib"
+    ],
+    "WallisFamily/LemmaK.lean": [
+      "Mathlib"
+    ],
+    "Thm66_ApparentSingularity.lean": [
+      "Mathlib.Analysis.Calculus.Deriv.Basic",
+      "Mathlib.Analysis.Calculus.Deriv.Add",
+      "Mathlib.Analysis.Calculus.Deriv.Pow",
+      "Mathlib.Analysis.Calculus.Deriv.Mul",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Data.Matrix.Basic",
+      "Mathlib.Data.Complex.Basic"
+    ],
+    "proof_targets.lean": [
+      "Mathlib"
+    ],
+    "CardEvenOfInvolution.lean": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Algebra.Group.Even",
+      "Mathlib.Logic.Function.Basic"
+    ]
+  },
+  "lakefile_targets": {
+    "WallisFamily": "default_target lean_lib (covers WallisFamily.lean + WallisFamily/*)",
+    "Thm66": "lean_lib with roots = [Thm66_ApparentSingularity]",
+    "GoldbachHelfgott": "lean_lib with roots = [Basic, Statement, Reduction, Certificate, Main] (out of 141C scope)"
+  },
+  "lakefile_orphans": [
+    "proof_targets.lean (not declared in any lean_lib root in lakefile.lean; relies on default-target globbing or explicit invocation)",
+    "CardEvenOfInvolution.lean (not declared in any lean_lib root in lakefile.lean; appears to be staging file)"
+  ],
+  "circular_imports": [],
+  "unused_imports_in_node_set": [
+    "WallisFamily.lean: imports CasoratianPi4 and ShiftConsistency; CasoratianPi4 helpers (raw_casoratian_step, reduced_casoratian_step, casoratian_closed_form, pi4_series_of_bridge) are NOT referenced by name in WallisFamily.lean's visible body, suggesting CasoratianPi4 import may be dead at HEAD",
+    "WallisFamily.lean: ShiftConsistency import is live (uses `Solves`, `pcf_rec`)"
+  ],
+  "missing_imports_relative_to_blockers": [
+    "B4 (`nhds` notation): no missing import; `import Mathlib` (L1) is broad enough; the issue is open-scope ordering not import absence",
+    "B2 (intertwining_lemma): `Solves` is reachable via WallisFamily.ShiftConsistency import; no missing import"
+  ],
+  "notes": "WallisFamily/LemmaK.lean is unreferenced by WallisFamily.lean and is only imported by proof_targets.lean. It is a leaf in the M10 graph and not on the critical build path of the WallisFamily lean_lib target. Build failures in WallisFamily.lean cannot be caused by LemmaK.lean. Conversely, proof_targets.lean depends on LemmaK.lean compiling, so a green WallisFamily build does not transitively imply a green proof_targets.lean."
+}
