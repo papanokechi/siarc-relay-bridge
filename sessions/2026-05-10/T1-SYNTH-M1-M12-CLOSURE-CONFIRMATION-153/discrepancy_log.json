@@ -1,0 +1,43 @@
+{
+  "D-153-1": {
+    "id": "D-153-1",
+    "severity": "LOW",
+    "status": "ACKNOWLEDGED",
+    "source": "Witness 1 (claude-Opus-4.7-claude.ai-2026-05-10) ANOMALIES section",
+    "subject": "UF-152-1 forensic signal (S148R HALT bridge 6c91bf3) observed in Q2(2e) reservation; recorded as resilience test favoring Candidate B's conservative commitment shape",
+    "blocks_op_dp0": false,
+    "operator_action": "none required; positive forensic signal already absorbed into S152 record"
+  },
+  "D-153-2": {
+    "id": "D-153-2",
+    "severity": "LOW",
+    "status": "ACKNOWLEDGED",
+    "source": "Witness 2 (GPT-5.5-OpenAI-2026-05-10) ANOMALIES section",
+    "subject": "M7 (HARD-BRANCH-PENDING) + M8b (d>=3-CAVEAT-CARRIED-FORWARD) explicitly documented internal residuals do not currently re-open closure, but future venue escalation could increase scrutiny",
+    "blocks_op_dp0": false,
+    "mitigation": "Q4(4c) aggregated mitigation: caveat preservation + reproduction checklist + structurally-boxed future-work framing in post-lift admin/distribution artefacts (RULE-1-aligned; no pre-lift work)"
+  },
+  "D-153-3": {
+    "id": "D-153-3",
+    "severity": "LOW",
+    "status": "ACKNOWLEDGED",
+    "source": "Witness 2 (GPT-5.5-OpenAI-2026-05-10) ANOMALIES section",
+    "subject": "Documented-commitment-lift equivalence depends on preserving the tooling-state vs math-content governance distinction post-lift; later narrative drift could weaken the distinction",
+    "blocks_op_dp0": false,
+    "operator_action": "post-lift messaging discipline: any future M10 status report or venue interaction must preserve the tooling-state framing established by slot 139 BUNDLED-DEFERRED-NOTE precedent"
+  },
+  "D-153-4": {
+    "id": "D-153-4",
+    "severity": "LOW",
+    "status": "OPERATOR-ACTION-OPTIONAL",
+    "source": "Witness 1 Q3(3d) DIRTY-WITH-DETAIL + Witnesses 2/3/4 acknowledged as formal-only",
+    "subject": "M2 Q22 final-disposition note formally pending; all 4 witnesses agree it is a low-stakes formal residual without math-content effect (substantive absorption already landed at bridge 45e236c slot 137 sec 6 op:j-zero-amplitude-h6)",
+    "blocks_op_dp0": false,
+    "operator_action_options": [
+      "OPTION A: close M2 Q22 final-disposition note explicitly recording collapsed-to-no-op status (~5 min agent-fireable .fleet.yaml or m2_record.md edit)",
+      "OPTION B: defer until post-OP_DP0 admin window (treat as housekeeping for post-lift audit clarity)",
+      "OPTION C: leave indefinite (slight post-hoc audit ambiguity risk; non-material per all 4 witnesses)"
+    ],
+    "cli_recommendation": "OPTION A (agent-fireable; ~5 min; closes residual cleanly before OP_DP0; eliminates D-153-4 carry-forward) -- or OPTION B if operator prefers OP_DP0 first"
+  }
+}
