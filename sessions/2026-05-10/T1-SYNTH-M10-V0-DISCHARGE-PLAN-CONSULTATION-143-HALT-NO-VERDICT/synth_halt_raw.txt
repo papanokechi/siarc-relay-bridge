@@ -1,0 +1,106 @@
+T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143 -- HALT REPORT (verbatim from claude.ai web Opus 4.7 single-witness 2026-05-10 ~11:55 JST)
+
+==============================================================================
+
+I'll work through this consultation carefully. Let me start with Phase 0 pre-flight, then proceed to the 6 questions.
+
+I have to halt cleanly here. The Phase 0 pre-flight requires substrate access, and the substrate is not available in this synthesizer's environment.
+
+------------------------------------------------------------------------------
+
+T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143 -- HALT REPORT
+
+HALT_143_SUBSTRATE_MISSING_PRIMARY
+
+Halt fired at: Phase 0 STEP 0.4 (substrate availability check)
+Halt class: HALT_143_SUBSTRATE_MISSING_<all-primary-substrate>
+Witness mode: single-witness (Claude Opus 4.7, claude.ai web)
+Verdict status: NOT AUTHORED -- pre-flight failed; cannot proceed to sec 2 questions
+
+------------------------------------------------------------------------------
+
+sec 0 -- Pre-flight execution log
+
+STEP 0.1 -- SHA verification: NOT EXECUTED
+
+CLI agent pre-verified all 20 SHAs at fire time 2026-05-10 ~11:47 JST per prompt sec 0.1. The synth executor (this instance) is required to re-run `git rev-parse --verify <SHA>^{commit}` on each. I have no access to the `siarc-relay-bridge` or `papanokechi/wallis-pcf-lean4` working trees from the claude.ai web environment -- no `git` CLI, no repo mount.
+
+STEP 0.2 -- Supersession gate: NOT EXECUTED
+
+Cannot run `Get-ChildItem -Recurse -Directory -Path sessions -Filter '*M10-V0-DISCHARGE-PLAN*'`. No filesystem access to bridge.
+
+STEP 0.3 -- RULE 1 directive: NOTED (verbatim recorded; no execution required)
+
+STEP 0.4 -- Substrate availability check: FAIL
+
+Of the 7 mandatory substrate paths in sec 0.4, 0 are readable. Specifically:
+
+  triage_report.md          NOT FOUND
+  blockers.json             NOT FOUND
+  sorries.json              NOT FOUND
+  dependency_map.json       NOT FOUND
+  handoff.md                NOT FOUND
+  POST_SYNTH_REVIEW.md      NOT FOUND
+  145_..._substrate_prep    NOT FOUND
+
+/mnt/user-data/uploads/ is empty. No documents attached to the chat turn beyond the prompt itself.
+
+Per prompt sec 0.4: "If any path FAIL Test-Path, halt with HALT_143_SUBSTRATE_MISSING_<file>." All 7 paths failed; halt is mandatory.
+
+------------------------------------------------------------------------------
+
+sec 1 -- Why this halt cannot be worked around
+
+The prompt's six questions are substrate-bound, not reasoning-bound:
+
+- Q1 asks me to validate B1-B5 classifications against blockers.json tuples and the iter-13 log staleness anomaly UF-141C-1 documented in handoff.md. Without those files I would be rating my own paraphrase of the prompt's sec 1.2 summary table -- that is fabricated synthesis, not validation.
+
+- Q2 asks me to evaluate the S1/S2 routing against sorries.json and triage_report.md prose. I have neither.
+
+- Q3 asks for Mathlib lemma family triples for B3/B4/B5. I cannot see the actual error text, the actual Lean source at lean/WallisFamily.lean:171-177, :216-312, :243+285, or which Mathlib version is pinned beyond the toolchain string in sec 1.2. Producing (lemma_namespace, candidate_lemmas[], operator_verification_path) tuples without seeing the actual goal state at each blocker would be exactly the fabricated-math failure mode that prompt sec 0.5 and slot 144 Change 2 EXPLICIT EXCLUSION are built to prevent -- and self-flagging it does not redeem it; the self-flag would saturate every recommendation.
+
+- Q4 asks for proof-shape strategy on frobenius_double_root_at_apparent_singularity h_exact. I cannot see the lemma signature, the surrounding axiom block, or the LOW-confidence reasoning in triage_report.md. Same fabrication risk as Q3, more acute.
+
+- Q5 asks me to check whether B/S items touch M9 / M2 / M7 / M8a / M8b / M4 substrate. The cross-axis check requires reading dependency_map.json adjacency and 45e236c / b9aa881 / 887981b content. I have neither.
+
+- Q6 asks for an iteration-ceiling re-estimate informed by "concrete blocker shapes." I have only the prompt's one-line summaries of each blocker shape, not the shapes themselves.
+
+Sec 0.5 explicitly notes that synth-tier scrutiny is the safety mechanism that permits concrete proof-shape recommendations at this tier. That mechanism requires substrate. Without it, single-witness synth output on Q3/Q4 would not be safety-checked content; it would be plausible-sounding hallucination dressed in JSON tuples. The verdict-tier scrutiny safeguard collapses if there is no substrate to scrutinize against.
+
+The prompt's sec 8 closing note is also explicit: "CLI agent will not interpret missing answers as endorsement. If synth omits an answer to any of Q1-Q6, CLI agent will halt deposit absorption and request clarification." The cleaner outcome here is a single declared halt rather than six self-flagged-fabrication answers that the CLI agent would correctly reject anyway.
+
+------------------------------------------------------------------------------
+
+sec 2 -- halt_log.json (verbatim, deposit-ready)
+
+[See halt_log.json sibling file in this folder]
+
+------------------------------------------------------------------------------
+
+sec 3 -- Remediation paths (operator selects one)
+
+Option A -- attach minimal set, re-fire same prompt. Attach the 5 PRIMARY substrate files (triage_report.md, blockers.json, sorries.json, dependency_map.json, handoff.md) to the next chat turn. SHA verification will be paper-only (CLI agent's pre-fire 20-of-20 PASS taken as standing) since I cannot run git rev-parse from claude.ai web -- operator should confirm whether paper-only acceptance is authorized at synth tier or whether dual-witness with a CLI-capable agent is required for SHA re-verification.
+
+Option B -- attach full set, re-fire same prompt. As Option A plus the POST_SYNTH_REVIEW outlook, the slot 145 prompt, and the two Lean source files at HEAD. This enables fuller Q3/Q4 grounding and reduces fabricated-math risk on the lemma-family recommendations toward NONE rather than LOW.
+
+Option C -- downgrade scope to substrate-independent fragments. Operator could re-scope to a narrower question set that does not require the triage outputs. Not recommended; it changes the consultation class and would not lower R2.
+
+Option D -- route to dual-witness CLI-capable tier. Re-route slot 143 to a CLI-capable executor (e.g., GitHub Copilot in VS Code with repo checkout). This is a re-routing rather than a band-driven escalation.
+
+Recommended: Option B if substrate is small enough to attach in one turn; Option A as fallback if attachment limits constrain. Option D as escalation if neither works.
+
+------------------------------------------------------------------------------
+
+sec 4 -- RULE 1 compliance check on this halt
+
+This halt does not drift from RULE 1 scope. The remediation request is for M10 axis substrate only; no Zenodo / endorsement / venue content is implicated. The halt itself is a procedural Phase 0 outcome and stays within the consultation's operational-tier frame.
+
+------------------------------------------------------------------------------
+
+sec 5 -- One-line takeaway for commit-message-equivalent
+
+T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143 -- HALT; HALT_143_SUBSTRATE_MISSING_PRIMARY; operator must attach 141C triage outputs (5 files minimum) before re-fire.
+
+------------------------------------------------------------------------------
+
+Awaiting operator decision on Options A-D. I will not author a verdict against the prompt's sec 1.2 summary table alone -- the failure mode that produces is exactly what slot 144 Change 2 was written to prevent, and the synth-tier scrutiny safeguard in prompt sec 0.5 cannot operate without substrate to scrutinize.
