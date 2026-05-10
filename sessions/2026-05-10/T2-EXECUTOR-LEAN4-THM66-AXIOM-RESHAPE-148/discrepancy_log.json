@@ -1,0 +1,29 @@
+[
+  {
+    "id": "D-148-1",
+    "severity": "LOW",
+    "status": "OPEN",
+    "step": "STEP 0.1 SHA verification",
+    "description": "Prompt sec 0 STEP 0.1 lists c171016 under siarc-relay-bridge SHAs as 'POST_SYNTH_REVIEW outlook (now superseded; reference)'. git rev-parse --verify c171016^{commit} in siarc-relay-bridge returns 'fatal: Needed a single revision' -- the prefix does not resolve in that repo. The same SHA DOES resolve in papanokechi/wallis-pcf-lean4 -> c171016f08ddd467fc8813d3c32bc9bf83de2a3b. Looks like a repo-mislabel in the prompt body (the POST_SYNTH_REVIEW outlook commit lives in wallis-pcf-lean4, not in the bridge).",
+    "impact": "None on the slot 148 fire substrate. Logged for prompt-drafter feedback. Per slot 143R precedent, paper-only SHA acceptance authorized at single-witness T2-Executor tier; this is one step weaker (paper says 'bridge' but SHA actually lives in wallis-pcf-lean4) and is non-blocking.",
+    "remediation_proposal": "Future slot-148-class re-fire prompt: relabel c171016 under the wallis-pcf-lean4 SHA group, not the bridge group."
+  },
+  {
+    "id": "D-148-2",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "step": "STEP 0.4 (c) prerequisite gate (dirty tree)",
+    "description": "lean/ subtree is dirty at fire start: ` M lean/WallisFamily.lean`, ` M lean/lakefile.lean`, ` M lean/lean-toolchain`, plus `?? lean/Thm66_ApparentSingularity.lean` (the target file is untracked). Halt-trigger regex `^[ ?]?[MARCDU]` matches the three ` M ` lines. The target-file-untracked condition is an additional concern: there is no committed BEFORE baseline against which an AFTER edit could be diffed. This is the trigger for HALT_148_PRECONDITION_DIRTY_TREE.",
+    "impact": "Halts the fire at preflight before any code edit is attempted. Operator triage required before re-fire.",
+    "remediation_proposal": "OPT_A in halt_log.json -> operator commits or stashes the in-progress lean/ modifications (including the new untracked Thm66_ApparentSingularity.lean) and re-fires slot 148 against a clean tree."
+  },
+  {
+    "id": "D-143-1_partial_resolution",
+    "severity": "INFO",
+    "status": "PARTIALLY_RESOLVED",
+    "step": "TASK 1 (observational) + this fire's project-only sorry inventory",
+    "description": "Slot 143/143R surfaced D-143-1: sorry-count canonical interpretation (2 active vs 3 -- whether proof_targets.lean L2 sorry mention is an active sorry term). This fire executed a project-only sorry inventory (excluding .lake/packages/mathlib): the only ACTIVE sorry terms in lean/ are at Thm66_ApparentSingularity.lean:118 and Thm66_ApparentSingularity.lean:120 (both `(by sorry)` term-level, both in the use sites of frobenius_double_root_at_apparent_singularity). Other matches in project files are: comment-narrative at proof_targets.lean:2 ('-- Iteration 12 replaces the generated sorry placeholders with concrete'), comment-marker at Thm66_ApparentSingularity.lean:63 ('-- SORRY: Complex root verification.'), and `Sorry inventory: 0` docstring stamps in GoldbachHelfgott/*.lean. Canonical interpretation: 2 ACTIVE sorry terms, period. D-143-1 is PARTIALLY_RESOLVED -- the inventory is established; full resolution lands when slot 148 (or a successor fire) closes those 2 sorries by axiom-reshape (Pattern alpha).",
+    "impact": "Reduces ambiguity in successor-fire prompt drafting.",
+    "remediation_proposal": "Mark D-143-1 RESOLVED at the moment slot 148 re-fires successfully and reduces project active-sorry count from 2 to 0."
+  }
+]
