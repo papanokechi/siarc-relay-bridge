@@ -1,0 +1,76 @@
+{
+  "schema_version": "141C-1.0",
+  "task_id": "T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C",
+  "source_log": "lean/build_errors_iter13.log",
+  "iteration": 13,
+  "lean_toolchain": "leanprover/lean4:v4.30.0-rc1",
+  "mathlib_pin": "v4.30.0-rc1",
+  "main_file": "lean/WallisFamily.lean",
+  "blockers": [
+    {
+      "blocker_id": "B1",
+      "location": "WallisFamily.lean:58:4",
+      "error_class": "trivial-repair",
+      "error_symptom": "WallisFamily.Solves has already been declared",
+      "fix_vector_candidates": [
+        "Remove any local `def Solves` in WallisFamily.lean if a duplicate was reintroduced during an iteration-13 edit; rely solely on `WallisFamily.ShiftConsistency.Solves` (defined at WallisFamily/ShiftConsistency.lean:45).",
+        "If the local definition is intentionally distinct, rename to `SolvesAlt` or `SolvesLocal` to avoid namespace collision with the imported sibling.",
+        "Run `#check WallisFamily.Solves` after edit to confirm exactly one declaration site remains."
+      ],
+      "confidence": "HIGH",
+      "notes": "Read-only inspection at HEAD shows only `def SolvesShifted` at L54-58 and a use of `Solves` (imported) at L106 in `intertwining_lemma`. The duplicate flagged by iter13 may have been a transient state; if the working tree no longer carries the duplicate, blocker B1 may already be resolved by the operator. Pre-edit `grep -n '^def Solves' WallisFamily.lean` recommended."
+    },
+    {
+      "blocker_id": "B2",
+      "location": "WallisFamily.lean:114-118",
+      "error_class": "tactic-strategy",
+      "error_symptom": "unsolved goals / malformed use of `hu (k + 2) (by omega)` in `intertwining_lemma`",
+      "fix_vector_candidates": [
+        "Drop the `(by omega)` side argument. `Solves m u` (from WallisFamily/ShiftConsistency.lean:45) is `\u2200 n : \u2115, pcf_rec m n u` with no inequality precondition, so `hu (k+2)` (or `hu k`, `hu (k+1)`) is the correct application form.",
+        "Use the destructuring shape currently visible at HEAD (`have h\u2080 := hu k`; `have h\u2081 := hu (k+1)`) and follow with `simp only [pcf_rec] at h\u2080 h\u2081`.",
+        "If a third recurrence application is needed (consistent with the linear_combination ansatz), add `have h\u2082 := hu (k+2)` then `simp only [pcf_rec] at h\u2082` analogously."
+      ],
+      "confidence": "MEDIUM-HIGH",
+      "notes": "Current HEAD already uses the correct calling convention `hu k` / `hu (k+1)` without inequality, suggesting B2 may have been (partially) repaired. Residual `unsolved goals` may instead trace to the `linear_combination` coefficients on L125 or to `simp only [Lm, intertwinerA, intertwinerB, ...]` not unfolding through the `n+1` constructor branch of `Lm`. Recommend `set_option pp.all true` on the failing goal to inspect the unreduced term."
+    },
+    {
+      "blocker_id": "B3",
+      "location": "WallisFamily.lean:171-177",
+      "error_class": "tactic-strategy",
+      "error_symptom": "positivity / rational identity failure in `ratio_step_m0`",
+      "fix_vector_candidates": [
+        "Replace `positivity` on `(2 * (k : \u211d) + 1) \u2260 0` and `(2 * (k : \u211d) + 3) \u2260 0` with explicit `by linarith [Nat.cast_nonneg (k : \u2115)]` or `by have := (k : \u211d).cast_nonneg; linarith`.",
+        "For `((4 : \u211d) * (k+1)^2 - 1) \u2260 0`: keep the factorization `= (2k+1)*(2k+3)` then close with `mul_ne_zero` applied to the two component nonzero hypotheses rather than chaining `positivity`.",
+        "If the failure is at `field_simp [h1, h3, hq]` followed by `push_cast; ring`, swap order to `push_cast; field_simp [h1, h3, hq]; ring` (cast normalization first stabilizes the polynomial form fed to `ring`)."
+      ],
+      "confidence": "MEDIUM-HIGH",
+      "notes": "`positivity` should succeed on `2*k+1 \u2260 0` over \u211d when `k : \u2115` (via Nat.cast_nonneg). Failure suggests either the cast is not being unfolded or the goal has been rewritten into a shape where positivity loses sight of the natural cast. Mathlib lemma `Nat.cast_nonneg` and `Nat.cast_pos` are the routing targets."
+    },
+    {
+      "blocker_id": "B4",
+      "location": "WallisFamily.lean:216-312",
+      "error_class": "trivial-repair",
+      "error_symptom": "unknown / unimported neighborhood notation `\ud835\udcdd` causing multiple `Filter.Tendsto` target failures",
+      "fix_vector_candidates": [
+        "Add `open scoped Topology` (already present at L11) is necessary but in this file the explicit `nhds` is used at L218, L219, L226, L261, L262, L265, L276, L324; if a new lemma at L216-312 introduced `\ud835\udcdd` notation, switch it to spelled-out `nhds` for consistency with the existing style of the file.",
+        "Alternatively re-confirm that `open scoped Topology` is reachable at the use site; namespace `WallisFamily` may shadow the scoped notation in some contexts. Move `open scoped Topology` inside the `namespace WallisFamily` block if currently above it.",
+        "Verify the import chain: `import Mathlib` (L1) is broad enough; the `\ud835\udcdd` notation lives in `Mathlib.Topology.Basic` and is exported under `Topology` scope."
+      ],
+      "confidence": "HIGH",
+      "notes": "Current HEAD opens `scoped Topology` at L11, before `namespace WallisFamily` at L9. This IS inside the namespace block (open scoped after namespace). All visible Tendsto lemmas at L218-324 already use spelled-out `nhds` rather than `\ud835\udcdd`. If iter13 introduced `\ud835\udcdd` somewhere in L216-312 it should be uniformly replaced with `nhds`. This is the lowest-effort blocker."
+    },
+    {
+      "blocker_id": "B5",
+      "location": "WallisFamily.lean:243,285",
+      "error_class": "tactic-strategy",
+      "error_symptom": "`linarith` and rewrite failures in limit propagation / closed-form step",
+      "fix_vector_candidates": [
+        "L243 sits inside `reciprocalWallis_succ`. The `linarith [hcb]` on L243 closes a goal of shape `(centralBinom (m+1) : \u211d) = 2*(2m+1)*centralBinom m / (m+1)`. Replace with `field_simp [hm1] at hcb \u22a2; linarith` or with a direct calc step using `div_eq_iff hm1`.",
+        "L285 sits in `roadmap_closed_form` / between the induction step and `reciprocalWallis_succ`. `simpa [wallisStepFactor] using (reciprocalWallis_succ m).symm` may mismatch on `(m+1 : \u211d)` vs `((m : \u211d) + 1)` casts; add `push_cast` before `simpa` or rewrite with `mul_comm` / `mul_assoc` lemmas explicitly.",
+        "Mathlib routing: `Nat.succ_mul_centralBinom_succ` (already used at L235), `Nat.cast_succ`, `Nat.cast_mul`, `mul_div_assoc`."
+      ],
+      "confidence": "MEDIUM",
+      "notes": "Both line numbers fall inside computational glue between `Nat.succ_mul_centralBinom_succ` and `wallisStepFactor`. The likely failure mode is cast normalization rather than missing lemmas. Recommend extracting a stand-alone lemma `centralBinom_cast_succ : ((centralBinom (m+1) : \u211d)) = 2*(2m+1)/(m+1) * centralBinom m` proved once with `field_simp; push_cast; ring`, then `rw [centralBinom_cast_succ]` at the failing site."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-141C-1",
+      "severity": "INFO",
+      "category": "sorry-count",
+      "summary": "Slot 144 verdict reports `currently 3` project-side sorries; this triage finds 2 literal `by sorry` sites under regex scan",
+      "slot_144_claim": "synth_verdicts_raw.txt line 51: `Sorry count = 0 across project-side .lean files (currently 3).`",
+      "141C_finding": "2 literal `by sorry` instances at Thm66_ApparentSingularity.lean:118 and :120; 2 comment-only mentions at Thm66:63 and proof_targets.lean:2",
+      "candidate_resolutions": [
+        "Slot 144 count may include comment-only mentions (would yield 4, not 3)",
+        "Slot 144 count may include the GoldbachHelfgott/Reduction.lean axiom-stub explicitly noted as `sorry-free in body`",
+        "Slot 144 count may have been forward-looking under an iter-13 working-tree state that introduced a third sorry since removed"
+      ],
+      "blocking": false,
+      "downstream_effect": "Surface to operator via triage_report.md sec 6 Q1; does not affect blocker triage; does not require re-fire"
+    }
+  ]
+}
