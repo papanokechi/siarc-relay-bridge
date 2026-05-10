@@ -1,0 +1,37 @@
+{
+  "halt_id": "HALT_143_SUBSTRATE_MISSING_PRIMARY",
+  "fired_at_phase": "0.4",
+  "fired_at_step": "substrate_availability_check",
+  "witness": "claude_opus_4_7_single_witness_claude_ai_web",
+  "fire_session_date": "2026-05-10",
+  "missing_paths": [
+    "siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/triage_report.md",
+    "siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/blockers.json",
+    "siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/sorries.json",
+    "siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/dependency_map.json",
+    "siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/handoff.md",
+    "tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md",
+    "tex/submitted/control center/prompt/145_t2_executor_m10_v0_ratification_substrate_prep.txt"
+  ],
+  "sha_verification_status": "not_executed_no_repo_access",
+  "supersession_gate_status": "not_executed_no_repo_access",
+  "remediation_required": "operator_must_attach_141C_triage_outputs_and_post_synth_review_outlook_to_chat_turn_or_inline_into_prompt_body",
+  "remediation_minimal_set": [
+    "triage_report.md",
+    "blockers.json",
+    "sorries.json",
+    "dependency_map.json",
+    "handoff.md"
+  ],
+  "remediation_recommended_additional": [
+    "M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md",
+    "145_t2_executor_m10_v0_ratification_substrate_prep.txt",
+    "lean/WallisFamily.lean (HEAD; for B1-B5 line context)",
+    "lean/Thm66_ApparentSingularity.lean (HEAD; for S1/S2 h_exact context)"
+  ],
+  "downstream_impact": "slot_143_deposit_not_authored_phase_C_unblocked_pending_substrate",
+  "blocking": true,
+  "recovery_path_chosen": "slot_143R_substrate_inlined_re_fire",
+  "recovery_action": "CLI_agent_drafts_143R_with_5_PRIMARY_substrate_files_inlined_as_appendices_for_re_dispatch",
+  "rule_1_compliance": "halt_stays_within_M10_axis_math_scope_no_admin_drift"
+}
