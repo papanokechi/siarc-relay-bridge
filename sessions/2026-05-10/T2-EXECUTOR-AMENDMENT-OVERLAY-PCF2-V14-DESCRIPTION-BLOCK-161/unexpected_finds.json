@@ -1,0 +1,57 @@
+{
+  "schema_version": "siarc-uf-v1",
+  "session": "T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161",
+  "session_date": "2026-05-10",
+  "findings": [
+    {
+      "id": "UF-161-1",
+      "severity": "LOW",
+      "class": "PROMPT_DRAFTING_DRIFT",
+      "title": "Slot 161 prompt §1 said baseline has 4 Layer 1 rows; baseline at bridge 45e236c actually has 3",
+      "description": "Slot 161 prompt §1 (\"Baseline state\") declared the slot 137 baseline file (`siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137/zenodo_v14_description_block.md` at bridge `45e236c`) as carrying 4 Layer 1 related-identifiers rows (IsNewVersionOf + IsSupplementTo + Cites + Cites) but direct grep on the LANDED file shows exactly 3 rows present (IsNewVersionOf at line 113; IsSupplementTo at line 114; Cites at line 115). This is a prompt-drafting transcription drift in §1 only; the prescribed Edit 1 in §3 (\"Layer 1 row count 3 → 5\") had the correct starting count, so the actual amendment was applied correctly. Edit 1 added 2 new rows (IsSupplementTo + Cites for Umbrella concept) yielding the locked 5-row pattern.",
+      "consequence": "Documentation-level only; does not affect the substantive amendment. Future prompts citing baseline row counts must verify against direct grep before drafting.",
+      "suggested_followup": "When drafting overlay prompts that cite baseline structural counts, run a quick grep of the cited bridge file BEFORE freezing prompt §1 substrate-state declarations. Same family as substrate-citation memory + Bibliographic-identifier-pre-verification rule.",
+      "verifying_evidence": "grep on bridge file at HEAD `45e236c` returns exactly 3 matches for `^\\| `(IsNewVersionOf|IsSupplementTo|Cites)``"
+    },
+    {
+      "id": "UF-161-2",
+      "severity": "LOW",
+      "class": "STALE_PARENTHETICAL",
+      "title": "Baseline parenthetical at line 117 refers to \"PCF-1 concept DOI and PCF-2 v1.3 prior version\" but is now stale relative to 5-row pattern",
+      "description": "The slot 137 baseline file at line 117 contains the parenthetical \"(PCF-2 v1.4's record only points back to PCF-1 concept DOI and PCF-2 v1.3 prior version)\" which describes the OLD 3-row Layer 1 state. After Edit 1 adds the 2 paired Umbrella rows, the parenthetical is factually stale — the v1.4 record now also points back to the Umbrella concept (`19885550`). Slot 161 §3 prescribed exactly 3 edits and did NOT instruct an inline rewrite of this parenthetical. The agent honoured the prescribed-edits invariant (slot 161 §3 NORMATIVE) and flagged the stale text here rather than amending it inline.",
+      "consequence": "Cosmetic only at deposit time; the parenthetical is in narrative prose not in the metadata fields Zenodo parses. Operator can either (a) edit the parenthetical at deposit-paste time, or (b) fire a follow-up amendment-overlay slot (e.g. slot 162) to bring the runbook prose into full schema compliance.",
+      "suggested_followup": "Recommend follow-up slot 162 amendment-overlay-PCF2-v1.4-runbook-prose-cleanup to update the parenthetical and any other narrative drift introduced by the slot 161 metadata-block amendments. LOW priority; not blocking for RULE 1 lift since the metadata fields themselves are now schema-locked.",
+      "verifying_evidence": "Direct grep on the bridge baseline file at `45e236c` line 117 confirms the parenthetical text is unchanged."
+    },
+    {
+      "id": "UF-161-3",
+      "severity": "INFO",
+      "class": "RENDERING_HYGIENE",
+      "title": "Edit 1 padded column-2 header from 41 → 44 chars to keep Umbrella concept annotation rendering aligned",
+      "description": "The new paired Umbrella rows carry a column-2 cell `\\`10.5281/zenodo.19885550\\` (Umbrella concept)` which is 44 characters wide. The pre-amendment column-2 header `\\`10.5281/zenodo.19931635\\` (PCF-1 concept)` was 41 characters wide. To preserve markdown table rendering hygiene, the agent padded the column-2 header underline from 41 → 44 dashes in the Edit 1 patch. This is a formatting-only adjustment to the underline row, not a semantic change. No content was added or removed.",
+      "consequence": "None. Markdown tables auto-fit at render time; padding is stylistic. Captured here for full audit transparency.",
+      "suggested_followup": "None.",
+      "verifying_evidence": "amendment_diff.md Edit 1 hunk shows the underline-row pad-out alongside the 2 new content rows."
+    },
+    {
+      "id": "UF-161-4",
+      "severity": "INFO",
+      "class": "BASELINE_ENCODING_NORMALIZATION",
+      "title": "Working-tree slot 137 baseline shows CRLF→LF normalization vs bridge `45e236c` (139 lines, no content drift)",
+      "description": "During Phase 0 baseline-drift detection, the working-tree copy of `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137/zenodo_v14_description_block.md` showed a SHA-256 mismatch versus the bridge LANDED copy at `45e236c`. Investigation: line counts were identical (139 lines) and content was identical line-by-line; the byte-count delta (9153 vs 9011) corresponds exactly to the 142 CRLF→LF normalizations git reports for this file under Windows checkout. Concluded NO content drift; baseline is authoritative; HALT_161_BASELINE_DRIFT NOT TRIGGERED. Edit applied against logical content (line indices) not raw bytes, so the LF/CRLF question does not propagate to the amended file.",
+      "consequence": "None operative. Captured for forensic transparency since Phase 0 emitted a brief HALT-suspicion before the CRLF analysis closed it out.",
+      "suggested_followup": "None.",
+      "verifying_evidence": "Direct line-count check (139 lines both copies) + character-content grep matching for all prescribed edit anchors."
+    },
+    {
+      "id": "UF-161-5",
+      "severity": "INFO",
+      "class": "SCHEMA_ROUND_TRIP_VALIDATION",
+      "title": "Schema authority footer is the first-ever in-document deposit-runbook citation of slot 160 verdict bridge SHA `012736f`",
+      "description": "Edit 3 inserts the schema-authority citation footer below the parenthetical and above the Communities subsection. This is the first deposit-runbook artifact in the bridge to carry the slot 160 SHA `012736f` as a content-addressed schema-version anchor. Future amendment-overlay slots (slots 162+ on Umbrella v2.3, Channel Theory v1.x, D2-NOTE v1.x, picture-chain v1.21+) should follow the same footer pattern verbatim to maintain schema-version traceability across the deposit fleet. This validates the slot 160 verdict's operational expectation that schema citations would propagate via amendment-overlay rather than via separate normative documents.",
+      "consequence": "Positive signal. Confirms the slot 160 SCHEMA_LOCK_INLINE / NO-FIRE design works in practice: anchor deposits carry the schema by reference, not redefinition.",
+      "suggested_followup": "Lift the schema-authority footer text to a SQL-tracked todo `schema-v1-citation-on-future-anchors` (already present in SQL state per session-summary) so subsequent amendment-overlay slots reuse the exact wording. Optional: extract to a reusable snippet in `tex/submitted/control center/picture/SCHEMA_V1_FOOTER_SNIPPET.md` for paste-by-reference.",
+      "verifying_evidence": "amended_description_block.md line 143 contains the footer; amendment_diff.md Edit 3 records the prescribed insertion."
+    }
+  ]
+}
