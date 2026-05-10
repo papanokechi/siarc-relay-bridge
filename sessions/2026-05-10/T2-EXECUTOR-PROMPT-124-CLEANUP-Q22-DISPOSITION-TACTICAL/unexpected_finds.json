@@ -1,0 +1,46 @@
+{
+  "fire": "T2-EXECUTOR-PROMPT-124-CLEANUP-Q22-DISPOSITION-TACTICAL",
+  "date": "2026-05-10",
+  "unexpected_finds": [
+    {
+      "id": "UF-TACTICAL-1",
+      "severity": "MEDIUM",
+      "title": "Disposition routing pre-existed slot 139's misattribution -- bridge folder name explicitly encoded SUPERSEDED-BY-099",
+      "description": "The slot 124 halt-and-supersession deposit was made on 2026-05-09 at bridge folder T1-SYNTH-M2-Q22-MATH-ARBITRATION-124-HALT-SUPERSEDED-BY-099/. The folder name itself encodes the disposition (124 halted; superseded by 099). Slot 139's verdict drafter (Claude Opus 4.7 via claude.ai web, 2026-05-10 ~08:15 JST) authored A-139-1 'likely absorbed by slot 137' without checking the bridge for an existing disposition, which the bridge folder name would have surfaced immediately. This is a 'verdict-drafting-without-bridge-cross-check' failure mode parallel to the existing repo memory `prompt drafting discipline` pattern (which targets prompt drafting, not verdict drafting). N=1 instance so far; recommend filing as candidate observation pending second-instance corroboration before promotion.",
+      "candidate_memory_status": "PROMOTION_CANDIDATE_DEFERRED -- await second instance of verdict-drafting-without-bridge-cross-check before promoting; would naturally extend the existing `prompt drafting discipline` memory to cover synth-tier verdict drafting",
+      "blocking": false
+    },
+    {
+      "id": "UF-TACTICAL-2",
+      "severity": "LOW",
+      "title": "Slot 139 verdict's confidence band MEDIUM-HIGH was correctly calibrated -- LOW-severity anomaly was epistemically marked",
+      "description": "Slot 139 verdict A-139-1 was filed at LOW severity (not MED or HIGH), reflecting the synth's appropriate uncertainty about prompt 124's actual disposition (single-witness; no direct repo access; 'suggest operator clarify' framing). The MEDIUM-HIGH overall confidence band was for the MOVE_F2 recommendation (which remains correct -- this fire is the Outcome A endpoint of MOVE_F2's 'wait for operator on M10' branch reconciliation cycle). The LOW severity on A-139-1 was honest epistemic marking; the verdict was not over-confident.",
+      "candidate_memory_status": "not promotable; calibration observation specific to this anomaly",
+      "blocking": false
+    },
+    {
+      "id": "UF-TACTICAL-3",
+      "severity": "LOW",
+      "title": "Tactical fire renamed from slot 143 to non-numeric TACTICAL slot pre-fire",
+      "description": "Per operator-recommended naming-collision avoidance with prompt 142 sec 5 forward-pointed Zenodo slot 143 reservation, the cleanup prompt was renamed from `143_t2_executor_prompt_124_cleanup_q22_disposition.txt` to `tactical_t2_executor_prompt_124_cleanup_q22_disposition.txt` and Task ID from `T2-EXECUTOR-PROMPT-124-CLEANUP-Q22-DISPOSITION-143` to `T2-EXECUTOR-PROMPT-124-CLEANUP-Q22-DISPOSITION-TACTICAL`. This preserves slot 143 numeric for the post-RULE-1-lift first Zenodo deposit. Follows existing project convention of non-numeric task IDs for genuinely tactical work; first instance of explicit pre-fire rename for collision avoidance.",
+      "candidate_memory_status": "PROMOTION_CANDIDATE_DEFERRED -- if a second slot-numeric collision avoidance fire occurs, promote as a lightweight memory documenting the pre-fire rename pattern",
+      "blocking": false
+    },
+    {
+      "id": "UF-TACTICAL-4",
+      "severity": "LOW",
+      "title": "Q22 sub-question count was 1 -- prompt TACTICAL TASK 2 spec assumed multi-sub-question structure",
+      "description": "Prompt TACTICAL TASK 2 spec used plural language ('Q22 sub-questions' / 'matching table' with multiple rows). Reading prompt 124 revealed Q22 is a single-question arbitration (path-(a) vs path-(b) decision; one binary question). The matching table is therefore a 1-row table. q22_absorption_matching.md preserves both the prompt-spec 1-row format AND adds an expanded format (3-slot-source matching) for full audit-trail completeness.",
+      "candidate_memory_status": "not promotable; one-time observation about Q22's specific question structure",
+      "blocking": false
+    },
+    {
+      "id": "UF-TACTICAL-5",
+      "severity": "LOW",
+      "title": "tex/submitted/control center/notes/ directory created as part of this fire",
+      "description": "Prompt TACTICAL TASK 3 specified substrate location `tex/submitted/control center/notes/M2_Q22_FINAL_DISPOSITION_20260510.md`. The `notes/` subdirectory did not exist pre-fire and was created. Future tactical/cleanup fires of this class should expect to use this directory; consider it the canonical home for non-axis-substrate notes (final-disposition memos, recurring-pattern records, operator-facing notes that are NOT part of the picture/ outlook chain or the prompt/ slate).",
+      "candidate_memory_status": "PROMOTION_CANDIDATE_DEFERRED -- if a second non-axis-substrate note lands here, promote as lightweight directory-convention memory",
+      "blocking": false
+    }
+  ]
+}
