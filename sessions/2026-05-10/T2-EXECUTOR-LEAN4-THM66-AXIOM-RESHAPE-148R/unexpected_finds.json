@@ -1,0 +1,19 @@
+[
+  {
+    "id": "UF-148R-1",
+    "summary": "OP_A Phase 4 acceptance check methodology gap: 4-path TREE-only check, never tested `lake build` greenness. iter-13 stash@{0} had been applying local fixes that masked Mathlib-upstream-restructure breakage on WallisFamily.lean L3 import of Mathlib.Analysis.Asymptotics.Asymptotics; stashing iter-13 per OP_A design re-exposed the breakage. Slot 148R STEP 0R.4(a) precondition gate caught what OP_A acceptance check did not.",
+    "class": "process_methodology_gap",
+    "first_observation": true,
+    "implication": "future remediation OP_*-class fires that stash in-flight build-graph repair work should add a `lake build` greenness step to their acceptance check, not just a tree-cleanliness gate",
+    "anchored_at": "halt_log.json anomalies section + this file",
+    "remediation_eligibility": "non-blocking for slot 148R disposition; surface to T1-Synth (Claude) for governance review on next OP_*-class fire authorization"
+  },
+  {
+    "id": "UF-148R-2",
+    "summary": "iter-13 stash content scope inferred to include WallisFamily.lean L3 import-substitution fix (Mathlib.Analysis.Asymptotics.Asymptotics -> presumably Mathlib.Analysis.Asymptotics.Defs/.Theta). Direct verification not performed in this fire (would require popping or applying stash, which is forbidden by sec 0R STEP 0R.6 guard). Operator can verify post-halt via `git stash show -p stash@{0}` from lean/.",
+    "class": "scope_inference",
+    "first_observation": true,
+    "implication": "informs remediation choice between iter-14-class (apply iter-13 fixes) vs targeted-substitute-fire (write a new minimal import-substitute fix) lanes",
+    "anchored_at": "halt_log.json remediation section"
+  }
+]

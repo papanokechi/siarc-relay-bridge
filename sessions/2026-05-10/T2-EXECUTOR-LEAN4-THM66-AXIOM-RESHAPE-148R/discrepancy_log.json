@@ -1,0 +1,24 @@
+[
+  {
+    "id": "D-148R-1",
+    "severity": "INFO",
+    "summary": "lake test reports `wallis-formal-verification: no test driver configured` (exit 1). Naturally NOT_REACHED at slot 148R since (a) failed first; recorded as auxiliary observation. NO_TEST_DRIVER would have been logged at STEP 0R.4(b) had we passed (a).",
+    "evidence": "test_log.txt L2 + L3",
+    "status": "OPEN_INFO"
+  },
+  {
+    "id": "D-148R-2",
+    "severity": "INFO",
+    "summary": "Branch HEAD advanced from 0d05c81 (slot 148R wrapper commit referenced in prompt) to b41e1e8 (slot 152 fill markers post Phase 5) between prompt draft and fire start, due to operator-side slot 151/152 commitment-paragraph commits. None touch lean/Thm66_ApparentSingularity.lean or lean/WallisFamily.lean. STEP 0R.1 SHA verification still passed (611edee remains in HEAD ancestry). Recorded as informational.",
+    "evidence": "git log --oneline -6 from lean/ at fire time: b41e1e8, 755b446, b137cb9, 0d05c81, 611edee, 29183ae",
+    "status": "OPEN_INFO"
+  },
+  {
+    "id": "D-148R-3",
+    "severity": "MEDIUM",
+    "summary": "lake test warning: `manifest out of date: git revision of dependency 'mathlib' changed; use 'lake update mathlib' to update it`. Suggests lake-manifest.json mathlib rev (0c154d67103f74be3a0f2c509f72ccbf5be9f2a7) does not match remote v4.30.0-rc1 tag at the moment. May or may not be related to the missing Asymptotics.lean primary failure.",
+    "evidence": "test_log.txt L2",
+    "status": "OPEN_MEDIUM",
+    "remediation": "operator decide whether to `lake update mathlib` (could resolve restructured-Asymptotics issue OR introduce different breakage); should be coordinated with iter-14 lane plan"
+  }
+]
