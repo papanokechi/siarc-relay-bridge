@@ -1,0 +1,39 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-162-1",
+      "severity": "INFO",
+      "summary": "Slot 135 baseline §1 Deposit metadata 'Concept DOI' cell (L15) and §5 step 1 (L62) both cite the wrong umbrella DOI 10.5281/zenodo.19885550 (mislabeled 'concept DOI'); slot 162 amendment-overlay preserves these per anti-edit 4 (single-deliverable scope: only §4 + §2.5 + §7 are edited). §7 DOI correction note documents the residual. Operator-side resolution at Zenodo deposit time: visit 10.5281/zenodo.19885549 instead of 19885550 for the 'New version' workflow.",
+      "impact": "Operator must consult §7 DOI correction note at deposit time; cannot rely solely on §1 + §5 of the amended block. A future slot (165+) could optionally relax anti-edit 4 to fix §1 + §5 in a single sweep.",
+      "recommended_action": "Defer to slot 165+ at LOW band if the residual §1+§5 wrong-DOI display becomes a deposit-time friction point; otherwise rely on §7 + DOI_CORRECTION_AUDIT.md."
+    },
+    {
+      "id": "UF-162-2",
+      "severity": "INFO",
+      "summary": "Umbrella v2.0 Zenodo record's own description body (doi.org/10.5281/zenodo.19885549 STEP 0.4 fetch 2026-05-11) perpetuates the misclassification verbatim: 'v1 (April 2026, concept DOI 10.5281/zenodo.19885550) anchored the program in PSL_2(Z) and the degree pair (2,1)'. This typo is in the live Zenodo record itself, not just bridge artefacts. Provides apparent (but wrong) substrate confirmation for the v1.0-version-DOI-mislabeled-as-concept value, explaining why the slot 116 resolution heuristic was inverted.",
+      "impact": "Self-reinforcing substrate: anyone checking the v2.0 Zenodo record description as 'ground truth' would see 19885550 labeled 'concept DOI' and conclude wrongly. The Zenodo native version-listing UI sidebar ('Cite all versions' line) is the definitive disambiguator, NOT the description body text.",
+      "recommended_action": "When umbrella v3.0 is authored, fix the description-body text to read 'v1 (April 2026; v1.0 version-DOI 10.5281/zenodo.19885550 within concept 10.5281/zenodo.19885549) anchored the program...'. Out of scope for slot 162."
+    },
+    {
+      "id": "UF-162-3",
+      "severity": "INFO",
+      "summary": "STEP 0.4 doi.org pre-resolve uncovered an additional D2-NOTE version: v2.1 (2026-05-03; record-id 20015923) supersedes v2 (concept 19996689 / version 19996690). D2-NOTE concept-DOI 19996689 STEP 0.4 fetch resolves to v2.1 (latest). This means D2-NOTE has at least 3 versions on Zenodo (v2, v2.1, possibly earlier). Slot 162 only cites D2-NOTE concept-DOI 19996689 in §2.5 axis-coverage table M1 row, which is correct (concept-DOI discipline).",
+      "impact": "No correction needed; concept-DOI citation is robust to version churn. However, the registry memory 'SIARC project Zenodo concept-DOI registry' could optionally be updated with D2-NOTE v2 / v2.1 version-DOIs (19996690 / 20015923) for completeness.",
+      "recommended_action": "Optionally store D2-NOTE registry update memory; not blocking for slot 162."
+    },
+    {
+      "id": "UF-162-4",
+      "severity": "INFO",
+      "summary": "D2-NOTE v2.1 description body (doi.org fetch 2026-05-11) states 'M2 (general-d xi_0 proof in print) is fully done; SIARC-MASTER-V0 (M9) gating reduces from {M2, M4, M6} to {M4, M6} unconditionally.' This suggests M2 has been substantively closed (out-of-table for axis-coverage purposes) — but slot 162 §2.5 M1-M12 axis-coverage table lists M2 as 'tabled (RULE 1)' per slot 159 canonical outlook v7. Possible inconsistency between (a) slot 159 outlook's RULE-1-tabled framing and (b) D2-NOTE v2.1's 'M2 fully done' framing.",
+      "impact": "Slot 162 follows slot 159 canonical outlook framing (M2 tabled); the discrepancy may indicate slot 159 outlook needs revision in light of D2-NOTE v2.1 substrate. NOT blocking for slot 162 deposit (the amended block is internally consistent with slot 159 substrate authority).",
+      "recommended_action": "Surface to next slot 159 outlook revision (F2 work-stream) for M-axis status review; possibly fold M2 into 'external (D2-NOTE M2-closed)' status. Out of scope for slot 162."
+    },
+    {
+      "id": "UF-162-5",
+      "severity": "INFO",
+      "summary": "Slot 162 amendment-overlay §2.5 axis-coverage table is structurally byte-identical to slot 161 amended_description_block.md §2.5 axis-coverage table (both follow slot 160 schema v1; same 13-row layout with M1-M12 atomic listing). This is expected (schema v1 is the locked source-of-truth) but worth noting: future amendment-overlay slots (163+ if they amend a description block) will produce the same table content unless the underlying M-axis statuses change.",
+      "impact": "Confirms schema v1 stability across slot 161 + slot 162 (n=2 instances). Pattern: future slots inheriting the same axis-coverage table can cite either slot 161 or slot 162 axis_coverage_snapshot.md as the snapshot reference.",
+      "recommended_action": "No action; data point for schema-v1 lineage tracking."
+    }
+  ]
+}

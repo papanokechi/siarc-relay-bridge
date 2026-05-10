@@ -1,0 +1,36 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-162-1",
+      "code": "UMBRELLA-CONCEPT-DOI-DRIFT-PROPAGATION",
+      "severity": "HIGH",
+      "summary": "Umbrella concept-DOI 10.5281/zenodo.19885550 was systematically cited and labeled 'concept DOI' across 5 LANDED bridge sessions (≥21 files); actual umbrella concept-DOI is 10.5281/zenodo.19885549 per Zenodo native version-listing UI sidebar (operator paste 2026-05-10 21:43:37 JST: 'Cite all versions? You can cite all versions by using the DOI 10.5281/zenodo.19885549. This DOI represents all versions, and will always resolve to the latest one.'). The mislabeled DOI 19885550 is actually the umbrella v1.0 version-DOI (lives within concept 19885549).",
+      "ground_truth_sources": [
+        "Zenodo native version-listing UI sidebar (umbrella record; operator paste 2026-05-10 21:43:37 JST)",
+        "doi.org/10.5281/zenodo.19885549 STEP 0.4 fetch 2026-05-11 → 'Published May 2, 2026 | Version 2.0' (concept-DOI resolves to latest version)",
+        "doi.org/10.5281/zenodo.19885550 STEP 0.4 fetch 2026-05-11 → 'Published April 29, 2026 | Version 1.0' (v1.0 version-DOI)",
+        "siarc-relay-bridge/sessions/2026-05-02/STRATEGIC-PICTURE-REVISED/picture.md L160 + L1073 (early authoritative registry; cites 19885549 correctly)"
+      ],
+      "propagation": {
+        "wrong_cites_19885550_as_concept": [
+          "siarc-relay-bridge/sessions/2026-05-09/T1-EXECUTOR-116-UMBRELLA-V21-M9-V0-DEPOSIT-133/ (7 files including umbrella_v21.tex + b_amendment.diff + discrepancy_log.json with inverted resolution heuristic + unexpected_finds.json + handoff.md + submission_log_item11_splice.diff + zenodo_v21_deposit_log.md)",
+          "siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135/ (5 files; baseline of slot 162)",
+          "siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137/pcf2_program_statement_v14.tex",
+          "siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160/locked_schema_v1.md L20 + 3 other files",
+          "siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161/amended_description_block.md L~138-139 + 3 other files"
+        ],
+        "correct_cites_19885549": [
+          "siarc-relay-bridge/sessions/2026-05-02/STRATEGIC-PICTURE-REVISED/picture.md L160 + L1073",
+          "siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PICTURE-V120-M9-V0-AMENDMENT-PREP-136/picture_revised_20260507.md"
+        ]
+      },
+      "remediation": {
+        "slot_162_scope": "Slot 162 amendment-overlay corrects §4 IsNewVersionOf row (target updated 19885550 → 19965041 v2.0 version-DOI per schema v1 §Q1c). The §1 Concept DOI cell and §5 step 1 preserved per anti-edit 4 (single-deliverable scope). §7 DOI correction note documents the correction. LANDED predecessors at slot 133/135/137/160/161 NOT modified per immutability protocol.",
+        "slot_163_recommended": "Amendment-overlay against locked_schema_v1.md (slot 160 LANDED 012736f) — single-line edit replacing 19885550 → 19885549 in §Anchor deposits §Reference table umbrella row. LOW band; ~5-10 min agent work.",
+        "slot_164_recommended": "Amendment-overlay against slot 161 amended_description_block.md (LANDED 8906519) — replace 19885550 → 19885549 in 2 paired Umbrella IsSupplementTo + Cites rows. LOW band; ~5-10 min agent work. Can combine with slot 163.",
+        "future_source_cleanup": "Slot 133/135/137 tex-source files are pre-Zenodo source files; operator-side catch at deposit-time-paste is the recommended path (visit 19885549 instead of 19885550). Bake correction into next-version source files (umbrella v2.3 / PCF-2 v1.5) rather than retroactive amendment-overlay slots.",
+        "umbrella_v20_zenodo_description_body_typo": "The v2.0 Zenodo record's own description body says 'v1 (April 2026, concept DOI 10.5281/zenodo.19885550) anchored the program' — this same typo propagated from the v2.0 source. Operator may want to fix the live Zenodo record description text OR carry forward as 'v1 (April 2026; v1.0 version-DOI 10.5281/zenodo.19885550 within concept 10.5281/zenodo.19885549)' in umbrella v3.0+."
+      }
+    }
+  ]
+}
