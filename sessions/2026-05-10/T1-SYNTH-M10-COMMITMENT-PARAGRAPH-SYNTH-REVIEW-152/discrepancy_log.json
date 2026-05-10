@@ -1,0 +1,25 @@
+{
+  "D-152-1": {
+    "id": "D-152-1",
+    "severity": "LOW",
+    "status": "ACKNOWLEDGED",
+    "source": "S152 verdict ANOMALIES section",
+    "subject": "Commitment is silent on report->action linkage if 2026-08-02 status reveals axis stalled",
+    "synth_resolution": "Not a ratification blocker; consistent with slot 139 BUNDLED-DEFERRED-NOTE precedent shape (report-binding vs progress-binding semantics)",
+    "operator_action_options": [
+      "ACCEPT C-152-1 amendment: append one sentence clarifying report-vs-closure binding to sec 3 notes block",
+      "DECLINE C-152-1: rely on existing '(not a closure assertion)' parenthetical at line 10 (CLI default-recommendation)"
+    ],
+    "blocks_op_a2": false
+  },
+  "D-152-2": {
+    "id": "D-152-2",
+    "severity": "LOW",
+    "status": "RESOLVED",
+    "source": "S152 verdict ANOMALIES section",
+    "subject": "Synth executor (claude.ai web) cannot independently verify STEP 0.1 SHAs or STEP 0.2 supersession-gate or STEP 0.4 substrate availability; verdict is conditional on operator pre-flight",
+    "operator_verification": "CLI pre-flight ran 2026-05-10 ~15:48 JST per S152 prompt L31-37: HEAD = 755b446b9d49ebb9b18f90370b31640033bf1a2f includes Phase 5 commit (M10-COMMITMENT-FILLED); m10_documented_commitment.md sec 3 contains 0 residual {...} placeholders / 0 non-ASCII bytes; .fleet.yaml commitments[0].status STILL COMMITMENT-PARAGRAPH-PENDING-OPERATOR (correct pre-OP_A2 state); bridge state dd91b56c8d8593a8972c09db93b9514ed246384d (S151 SELECT_B absorption LANDED)",
+    "resolution_summary": "Synth dependency on operator pre-flight explicitly satisfied; conditional verdict converts to unconditional",
+    "blocks_op_a2": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "UF-152-1": {
+    "id": "UF-152-1",
+    "severity": "LOW",
+    "status": "POSITIVE-FORENSIC-SIGNAL",
+    "subject": "Empirical validation of Candidate B selection within hours of commitment issuance",
+    "description": "S148R HALT (bridge 6c91bf38c616cb340996e7236034ed16fb414417 at 2026-05-10 ~16:00 JST; HALT_148R_PRECONDITION_NOT_MET on lake build red) occurred ~12 minutes after S152 verdict fire-ready state achieved (b41e1e8 at 2026-05-10 ~15:50 JST) and ~14 minutes before S152 verdict received. The HALT root cause (Mathlib upstream restructure removed Mathlib.Analysis.Asymptotics.Asymptotics.lean in pinned v4.30.0-rc1) is precisely the exogenous-event class Candidate B's report-status-by-2026-08-02 semantics absorb without breaking the commitment shape. This validates Q3 PLAUSIBLE-WITH-CAVEAT posture empirically. Counterfactual: had Candidate A (6-week complete-by-2026-06-21) been selected, the public commitment would already be at risk within the first 24 hours of issuance.",
+    "implication_for_methodology": "Future commitment-paragraph candidate selection should weight exogenous-tooling-event risk explicitly. The asymmetry between miss-cost / reversibility profiles (B: LOW/HIGH; A: HIGH/LOW per S151 Q4) is now concretely demonstrated.",
+    "operator_action": "none required; positive signal; surface for project memory consideration"
+  }
+}
