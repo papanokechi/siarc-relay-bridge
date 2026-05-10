@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "session": "T2-EXECUTOR-UMBRELLA-V22-DEPOSIT-PREP-VERDICT-166-ABSORPTION-167",
+  "fire_date": "2026-05-11",
+  "unexpected_finds": [
+    {
+      "id": "UF-167-1",
+      "severity": "MEDIUM",
+      "category": "GOVERNANCE-AMBIGUITY",
+      "summary": "Slot 160 schema v1 §Layer 1 anti-rule (locked_schema_v1.md line 47-48) grammatical-scope ambiguity: 'Do NOT add Cites / IsSupplementTo rows for axis-mediated siblings (e.g., Channel Theory, D2-NOTE, picture v1.19) in PCF-2 v1.4.' The qualifier 'in PCF-2 v1.4' admits two parsings: (A) scope-limiting [the anti-rule only applies to PCF-2 v1.4; other anchor deposits may freely cite CT/D2/picture as Layer 1] OR (B) example-providing [the named axis-mediated siblings are always Layer 2 regardless of deposit; PCF-2 v1.4 is just one instance]. Slot 162 line 88 explicitly adopted interpretation (A), enabling the umbrella v2.2 11-row pattern (with CT + T2B + picture-chain as program-tier Layer 1 paired companions). Slot 166 verdict and slot 167 absorption inherit slot 162's interpretation.",
+      "impact": "If interpretation (B) is the canonical reading: (i) umbrella v2.2 Layer 1 should NOT contain CT rows (lines 78-79) or T2B rows (lines 80-81) either, not just picture-chain rows; (ii) the verdict's α1 deposit-time 9-row state is overshoot — should be 5 rows (1 IsNewVersionOf + 2 paired PCF-1 + 2 paired PCF-2) per slot 160 I3 invariant for umbrella v2.3 reading; (iii) the V4 R4 post-publish Edit on umbrella v2.2 is INVALID and terminal count stays at 9, not 11. Under interpretation (A) (slot 162 + verdict-166 + slot 167 adopted): the 9-row deposit + 11-row terminal is internally consistent and respects locked schema mechanics; only the picture-chain side is deferred.",
+      "recommendation": "Fire a lightweight T1-Synth schema-clarification consultation BEFORE the V4 R4 post-publish Edit happens (which is bottlenecked on picture-chain v1.20+ Zenodo deposit; separate work-stream; not immediate). The consultation asks: does slot 160 §Layer 1 anti-rule 'in PCF-2 v1.4' qualifier scope-limit (interpretation A) or example-provide (interpretation B)? Synth picks one; slot 168+ absorbs. The umbrella v2.2 deposit (slot 167 paste-source) can fire NOW under verdict-166 α1 regardless of the resolution because both interpretations yield 'no picture-chain rows at deposit', differing only in the post-publish Edit decision.",
+      "first_observed": "2026-05-11 slot 167 fire (agent-side V5 verification of slot 160 locked_schema_v1.md + amendment_overlay_targets.md)",
+      "status": "OPEN-DEFERRED",
+      "blocking_for": ["umbrella v2.2 post-publish Edit (Phase D)", "picture-chain v1.20+ deposit-prep Layer 1 row inclusion list"],
+      "non_blocking_for": ["umbrella v2.2 initial Zenodo deposit (Phase A-C of operator_runbook.md)"]
+    },
+    {
+      "id": "UF-167-2",
+      "severity": "INFO",
+      "category": "DOI-CORRECTION-PROPAGATION",
+      "summary": "Slot 167 propagates two slot 162-baseline-preserved values that slot 162 explicitly held back per its single-deliverable scope: (i) §1 Concept DOI cell 19885550 → 19885549 (per slot 163-164 b936eb0 DOI correction); (ii) §1 Resource type 'Working paper' → 'Preprint' (per PCF-2 v1.4 revision-4 chain consistency, observed 2026-05-11 in live Zenodo record 20114315). Both are bookkeeping cleanups beyond verdict-166 V2's strict scope but are necessary for a deposit-ready paste-source (otherwise operator must apply them inline at Phase B).",
+      "impact": "Eliminates 2 sources of operator-time micro-decisions at deposit fire. Paste-source is now deposit-ready without further patching.",
+      "first_observed": "2026-05-11 slot 167 fire",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "UF-167-3",
+      "severity": "INFO",
+      "category": "CROSS-PROVIDER-VERDICT-AUDIT",
+      "summary": "Slot 166 synth verdict was a SINGLE-WITNESS Claude.ai web fire (no triple-witness; no cross-provider). Per cascade-132 §3.4 (UNANIMOUS Q4 cross-provider dual-witness recommended) the umbrella v2.2 substrate path is a 'low-stakes' admin/distribution path where single-witness consultation is operator-discretion-acceptable. Verdict 166 is therefore admissible at MEDIUM-HIGH BAND but with the caveat that any future picture-chain-side V4 R4 absorption fire (if UF-167-1 escalates) should be cross-provider dual-witness if the operator wants extra confidence.",
+      "impact": "Documents the single-witness status for future audit trail; does not invalidate the verdict.",
+      "first_observed": "2026-05-11 slot 167 fire (verdict capture timestamp)",
+      "status": "DOCUMENTED"
+    }
+  ]
+}
