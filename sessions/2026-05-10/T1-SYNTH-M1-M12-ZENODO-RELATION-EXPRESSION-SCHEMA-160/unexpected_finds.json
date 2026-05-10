@@ -1,0 +1,54 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-160-1",
+      "severity": "LOW",
+      "type": "synth-flagged-anomaly",
+      "summary": "Q1a row 1 target DOI 10.5281/zenodo.19963298 (PCF-2 v1.3 version-DOI) was not in the slot 160 prompt's 5-DOI pre-verification table (which lists concept-DOIs only).",
+      "synth_classification": "LOW; not a verdict blocker",
+      "recommended_resolution": "Live-resolve PCF-2 v1.3 version-DOI 19963298 at deposit time per slot 116 J2 sidebar precedent; concept vs version distinction documented in repo memory 'substrate verification' (PCF-2 concept=19936297 / v1.3=19963298).",
+      "blocks": "none",
+      "first_observed_in": "verdict.md §ANOMALIES bullet 1"
+    },
+    {
+      "id": "UF-160-2",
+      "severity": "LOW",
+      "type": "schema-anti-rule-noticed",
+      "summary": "SHA 70d1a48 (PICTURE-V19-CONSOLIDATED-DEPOSIT) is referenced as M9 PARTIAL substrate but Q1a explicitly recommends NOT adding `Cites` / `IsSupplementTo` rows for picture v1.19 in PCF-2 v1.4 Layer 1 metadata.",
+      "synth_classification": "LOW; no conflict, operator-awareness only",
+      "recommended_resolution": "Picture v1.19 axis-tier relation to PCF-2 v1.4 (M9 PARTIAL coverage) is expressed via Layer 2 axis-coverage table, not Layer 1. The slot 160 §Q1a anti-rule is canonical: axis-mediated siblings do not become Layer 1 rows. Documented in locked_schema_v1.md §Layer 1 Anti-rules.",
+      "blocks": "none",
+      "first_observed_in": "verdict.md §ANOMALIES bullet 2"
+    },
+    {
+      "id": "UF-160-3",
+      "severity": "LOW",
+      "type": "verification-tier-flag",
+      "summary": "STEP 0.3 verification of 5 cited concept-DOIs (19931635 / 19936297 / 19941678 / 19996689 / 19885550) was per-memory at consultation time, not live-resolved.",
+      "synth_classification": "LOW; deferred verification acceptable per slot 116 J2 sidebar precedent",
+      "recommended_resolution": "Live-resolve at PCF-2 v1.4 / Umbrella v2.3 deposit-time review per existing 'PCF-2 concept-DOI paste-verify' operator runbook step.",
+      "blocks": "none",
+      "first_observed_in": "verdict.md §ANOMALIES bullet 3"
+    },
+    {
+      "id": "UF-160-4",
+      "severity": "INFO",
+      "type": "synth-amendment-stat",
+      "summary": "4 amendments applied to agent pre-consultation schema: Q1a row count 4->5; Q2b vocab rename covered->closed; Q2b vocab fold retired into closed (retired into Mx); Q4a label SCHEMA_LOCK_INLINE confirmed operative (its absence from §5 Q4a options list was treated as oversight).",
+      "synth_classification": "INFO; high amendment count is structural confirmation of useful synth contribution",
+      "recommended_resolution": "Documented in locked_schema_v1.md §Layer 1 + §Layer 2 (final locked forms reflect amendments).",
+      "blocks": "none",
+      "first_observed_in": "verdict.md §AMENDMENTS"
+    },
+    {
+      "id": "UF-160-5",
+      "severity": "INFO",
+      "type": "candidate-memory-promotions",
+      "summary": "Synth promotes 4 candidate memories: (1) anchor-deposits-carry-table principle; (2) locked vocabulary; (3) IsNewVersionOf concept-DOI exception; (4) cascade SHAs in prose not References rows.",
+      "synth_classification": "INFO; agent to evaluate per memory-storage discipline",
+      "recommended_resolution": "Agent will evaluate each candidate against memory storage criteria post-fire; surviving candidates stored via store_memory.",
+      "blocks": "none",
+      "first_observed_in": "verdict.md §ABSORPTION_GUIDANCE Candidate memory promotions"
+    }
+  ]
+}
