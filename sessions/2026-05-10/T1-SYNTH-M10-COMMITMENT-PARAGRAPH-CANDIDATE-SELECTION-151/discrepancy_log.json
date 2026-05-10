@@ -1,0 +1,22 @@
+{
+  "D-151-1": {
+    "id": "D-151-1",
+    "severity": "LOW",
+    "status": "ACKNOWLEDGED-NO-ACTION",
+    "source": "S151 verdict ANOMALIES section",
+    "subject": "Candidate C two-prong conditional time anchor not explicitly addressed by cascade-132 sec 5 verbatim text",
+    "synth_resolution": "PASS-WITH-NOTE (not FAIL) per slot 139 tooling-state framing favoring single-anchor clarity",
+    "operator_action": "none required for current Candidate B selection; surface to a future precedent-clarification cycle if conditional anchors recur",
+    "blocks_phase_5": false
+  },
+  "D-151-2": {
+    "id": "D-151-2",
+    "severity": "LOW",
+    "status": "RESOLVED",
+    "source": "S151 verdict ANOMALIES section",
+    "subject": "Candidate B sec 2.B notes paragraph references 'SEPARATE-AXIS-DEFERRED downgrade per slot 140 sec 5 outlook'; synth did not have slot 140 sec 5 verbatim in inlined substrate",
+    "operator_verification": "verified by CLI agent at absorption time via grep of bridge sessions/ for 'SEPARATE-AXIS-DEFERRED'; literal definition exists at bridge SHA 6a063a713d9f4c1d0d63526dd3c70bba7207697e in sessions/2026-05-10/T2-EXECUTOR-POST-LEAN-REALITY-OUTLOOK-140/M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md L146 (3-sub-option M10 matrix row); also at L149 (note on functional equivalence with BUNDLED-DEFERRED-NOTE)",
+    "resolution_summary": "Candidate B reference resolves correctly; safe to apply at Phase 5",
+    "blocks_phase_5": false
+  }
+}
