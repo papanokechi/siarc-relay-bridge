@@ -1,0 +1,142 @@
+{
+  "halt_id": "HALT_148_PRECONDITION_DIRTY_TREE",
+  "fired_at_step": "STEP 0.4 (c) -- working tree on lean/ subtree must be clean (no uncommitted modifications)",
+  "fired_at": "2026-05-10",
+  "agent": "GitHub Copilot (VS Code) -- T2-Executor single-witness",
+  "fire_slot": "T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148",
+  "halt_taxonomy_per_prompt_sec3": [
+    "HALT_148_SHA_MISMATCH",
+    "HALT_148_SUPERSEDED",
+    "HALT_148_PRECONDITION_NOT_MET",
+    "HALT_148_PRECONDITION_DIRTY_TREE",
+    "HALT_148_AXIOM_NOT_FOUND_AS_EXPECTED",
+    "HALT_148_PATTERN_ALPHA_INAPPLICABLE",
+    "HALT_148_THEOREM_WEAKENED",
+    "HALT_148_UNEXPECTED_USE_SITE",
+    "HALT_148_BUILD_REGRESSION",
+    "HALT_148_SORRY_COUNT_REGRESSION",
+    "HALT_148_TOOLCHAIN_DRIFT"
+  ],
+  "preflight_outcomes": {
+    "STEP_0_1_sha_verify": {
+      "status": "PASS_WITH_DISCREPANCY",
+      "bridge_repo": {
+        "verified": [
+          "bc641a0 -> bc641a0e69634bdce4dcea287e10d0d26a88cde3 (slot 143R verdict)",
+          "8dc8628 -> 8dc8628120e60d041b379d09ce1c953ae82380e9 (slot 143 halt)",
+          "2e36e0f -> 2e36e0fe1e81413ddc0969bd8b65dc99c48ee2bd (slot 141C build-error triage)",
+          "ce5d9e9 -> ce5d9e90456ca2d2f1493602bd700a0b39932836 (M10 substrate scaffold 141B)",
+          "74c5630 -> 74c563022d3a2df0a4bea0088f4793170a1e64d3 (M8b V0 closure)",
+          "cb429e1 -> cb429e1acba91ba47d1426950d924800a0b02a07 (M8a V0 closure)",
+          "7f93b9e -> 7f93b9e4d624fdfca62f5d85393b4ead35cea751 (M7 V0 closure)"
+        ],
+        "discrepancy": "c171016 -- prompt cites this as POST_SYNTH_REVIEW outlook in bridge but git rev-parse --verify in siarc-relay-bridge returns 'fatal: Needed a single revision' (does not resolve there). It DOES resolve in papanokechi/wallis-pcf-lean4 (-> c171016f08ddd467fc8813d3c32bc9bf83de2a3b). Logged as D-148-1 LOW (paper-only mislabel; non-blocking per slot 143R precedent)."
+      },
+      "wallis_pcf_lean4_repo": {
+        "verified": [
+          "7981750 -> 79817501fbe6e8b312b42e8563b5f90868814a76 (POST_DISCHARGE_PLAN outlook)",
+          "3fab474 -> 3fab474244c1b7dafcf827d2367442ee2eac607a (slot 143 _HALTED rename)",
+          "a6a1857 -> a6a1857c4cb9b218b127b7f3e457c8b6f60c9814 (slot 143R re-fire prompt)",
+          "21aea4d -> 21aea4daa4123ca1083bfe3bdcce92440c5f2aeb (slot 144 prompt commit)"
+        ]
+      }
+    },
+    "STEP_0_2_supersession_gate": {
+      "status": "PASS",
+      "evidence": "Get-ChildItem -Recurse -Directory -Path 'siarc-relay-bridge/sessions' -Filter '*THM66-AXIOM-RESHAPE*' returned no results."
+    },
+    "STEP_0_3_RULE_1_directive": {
+      "status": "PASS",
+      "note": "Math-axis (M10 V0 Phase C C.3++); within RULE 1 scope. No Zenodo / endorsement / venue work touched."
+    },
+    "STEP_0_4_a_lake_build_green": {
+      "status": "NOT_RUN",
+      "reason": "Halted before build attempt because step 0.4(c) failed; running lake build over a dirty in-progress tree would not test the prompt's prerequisite."
+    },
+    "STEP_0_4_b_lake_test_green": {
+      "status": "NOT_RUN",
+      "reason": "Same as 0.4(a)."
+    },
+    "STEP_0_4_c_dirty_tree_check": {
+      "status": "FAIL_HALT_TRIGGER",
+      "regex_per_prompt": "^[ ?]?[MARCDU]",
+      "matches": [
+        " M lean/WallisFamily.lean",
+        " M lean/lakefile.lean",
+        " M lean/lean-toolchain"
+      ],
+      "additional_concern_target_file_untracked": [
+        "?? lean/Thm66_ApparentSingularity.lean -- the file the fire is supposed to edit is itself untracked; there is no committed BEFORE baseline against which to compare an AFTER edit."
+      ],
+      "other_untracked_artefacts_in_lean_subtree": [
+        "?? lean/.lake/",
+        "?? lean/CardEvenOfInvolution.lean",
+        "?? lean/GoldbachHelfgott/",
+        "?? lean/TmpCheck.lean",
+        "?? lean/WallisFamily/",
+        "?? lean/build_errors.log",
+        "?? lean/build_errors_iter13.log",
+        "?? lean/build_log.txt",
+        "?? lean/fix_pass_log.md",
+        "?? lean/full_build.log",
+        "?? lean/lake-manifest.json",
+        "?? lean/lean4_claims.jsonl",
+        "?? lean/lean_build_result.txt",
+        "?? lean/lemma_k_scoping.md",
+        "?? lean/numerical_pre_checks.py",
+        "?? lean/proof_status.json",
+        "?? lean/proof_targets.lean",
+        "?? lean/shift_build.log",
+        "?? lean/sorry_log.json",
+        "?? lean/thm66_lean4_summary.md",
+        "?? lean/triage.json"
+      ]
+    },
+    "STEP_0_4_d_toolchain_pin": {
+      "status": "PASS",
+      "value": "leanprover/lean4:v4.30.0-rc1",
+      "note": "Pin file present and resolvable; included for completeness."
+    }
+  },
+  "task_outcomes": {
+    "TASK_1_read_axiom": {
+      "status": "PARTIAL_OBSERVATIONAL",
+      "note": "Read-only inspection of lean/Thm66_ApparentSingularity.lean lines 80-130 was performed for diagnostic purposes only; no edit attempted. All four ground-truth checks (a)-(d) PASS: axiom name, parameter list (with h_exact), conclusion `IndicialPoly a s = fun rho => rho ^ 2`, and AEAL comment `mathlib_gap: Frobenius ODE theory` all match the prompt's pre-edit ground truth.",
+      "verbatim_axiom_block_lines_88_to_96": [
+        "-- AXIOM: Frobenius theory gives indicial polynomial = rho^2 at apparent singularity.",
+        "-- AEAL-status: blocked | mathlib_gap: Frobenius ODE theory",
+        "axiom frobenius_double_root_at_apparent_singularity",
+        "    (a c : C -> C) (s : C)",
+        "    (ha_root : a s = 0)",
+        "    (ha_simple : deriv a s != 0)",
+        "    (h_exact : forall x, HasDerivAt (fun x => a x * deriv (fun y => y) x)",
+        "                     (a x) x) :",
+        "    IndicialPoly a s = fun rho => rho ^ 2"
+      ]
+    },
+    "TASK_2_pattern_alpha_applicability": "NOT_REACHED",
+    "TASK_3_axiom_signature_edit": "NOT_REACHED",
+    "TASK_4_use_site_cleanup": "NOT_REACHED",
+    "TASK_5_build_verification": "NOT_REACHED",
+    "TASK_6_R6_theorem_strength_review": "NOT_REACHED"
+  },
+  "code_edit_attempted": false,
+  "revert_required": false,
+  "revert_command_run": "none -- no working-tree change made by this fire",
+  "remediation": {
+    "operator_decision_required": true,
+    "options": [
+      "OPT_A: operator commits or stashes the in-progress modifications to lean/WallisFamily.lean, lean/lakefile.lean, lean/lean-toolchain, and the new untracked files (notably lean/Thm66_ApparentSingularity.lean which is the very file targeted by this fire), then re-fires slot 148 against a clean tree per STEP 0.4(c) requirement. Recommended.",
+      "OPT_B: operator amends the slot 148 prompt to widen the prereq gate to permit specific known-in-progress files to be present, with explicit per-file allowlist; this would require a slot 143R amendment or an outlook ratification step before the re-fire is well-formed.",
+      "OPT_C: operator declares the current in-progress lean/ state to be the canonical pre-edit baseline (i.e., elects to commit it as-is to wallis-pcf-lean4 main), then re-fires slot 148. Equivalent to OPT_A with a specific resolution path."
+    ],
+    "recommended": "OPT_A. Rationale: (1) the prompt's STEP 0.4(c) gate is unambiguous and was authored to protect against silently overwriting in-progress operator work; (2) the target file `lean/Thm66_ApparentSingularity.lean` is itself ?? (untracked), so any edit by this fire would land on top of operator authoring with no diff baseline -- this is the worst-case dirty-tree pattern, not the mildest; (3) the fire is non-destructive at this halt step and re-fires cleanly after operator triage."
+  },
+  "iteration_count": 1,
+  "confidence_band_at_halt": "MEDIUM-HIGH (claim unchanged; halt fired at preflight, before fire-internal R6 review could test)",
+  "siblings_unaffected": [
+    "siarc-relay-bridge: untouched at deposit time except for this halt-deposit folder",
+    "lean/: zero modifications by this fire; in-progress state preserved verbatim"
+  ],
+  "operator_actionable_summary": "Slot 148 fire halted at preflight gate STEP 0.4(c) due to dirty working tree on lean/ subtree (3 tracked-modified files + 1 untracked target file + ~20 untracked artefacts). No code edit was attempted; no revert needed. Resolve dirty tree per OPT_A and re-fire."
+}

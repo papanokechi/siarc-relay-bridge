@@ -1,0 +1,24 @@
+# Slot 148 -- sorry inventory at HALT (pre-edit; no fire-induced change)
+
+Project-only inventory in `lean/`, excluding `.lake/packages/mathlib/...`.
+
+```
+lean\proof_targets.lean:2: -- Iteration 12 replaces the generated sorry placeholders with concrete
+lean\Thm66_ApparentSingularity.lean:63: -- SORRY: Complex root verification.
+lean\Thm66_ApparentSingularity.lean:118: a_coeff_c c_coeff_c s_1 root_s1 a_deriv_s1_ne_zero (by sorry)
+lean\Thm66_ApparentSingularity.lean:120: a_coeff_c c_coeff_c s_2 root_s2 a_deriv_s2_ne_zero (by sorry)
+lean\GoldbachHelfgott\Basic.lean:5: Sorry inventory: 0
+lean\GoldbachHelfgott\Certificate.lean:12: Sorry inventory: 0  (we use an `axiom`, scope-bounded as
+lean\GoldbachHelfgott\Main.lean:10: Sorry inventory: 0
+lean\GoldbachHelfgott\Reduction.lean:40: Sorry inventory:
+lean\GoldbachHelfgott\Reduction.lean:43: `sorry` in the body, so the file is sorry-free.
+lean\GoldbachHelfgott\Reduction.lean:64: top-level reduction is sorry-free and the gap is explicit. -/
+lean\GoldbachHelfgott\Statement.lean:17: Sorry inventory: 0  (the stub used elsewhere is an `axiom`, not a `sorry`)
+```
+
+Active term-level sorry count: **2** (Thm66:118 + Thm66:120).
+All other matches are comment narrative or docstring stamps.
+
+(Per prompt sec 2 deliverable 5, this file would normally hold the post-edit
+inventory; renamed to `*_at_halt` here because no edit was made. Successor
+fire's TASK 5(c) deliverable should target the post-edit count = 0.)
