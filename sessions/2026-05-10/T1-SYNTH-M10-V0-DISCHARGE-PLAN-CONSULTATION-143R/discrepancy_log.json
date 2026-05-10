@@ -1,0 +1,34 @@
+[
+  {
+    "id": "D-143-1",
+    "severity": "INFO",
+    "title": "Sorry-count discrepancy carries forward from D-141C-1",
+    "description": "APPENDIX A sec 6 Q1 + APPENDIX E surface D-141C-1 (slot 144 says 3 sorries; triage finds 2). 143R verdict cannot resolve canonical interpretation; operator must select. Three candidate resolutions (comment-only mention, iter-13 transient, GoldbachHelfgott axiom-stub) all plausible. Recommend closing D-141C-1 with explicit operator choice before slot 142-class fire (since slot 142 will commit a sorry-count change and D-141C-1 ambiguity propagates into the commit message).",
+    "remediation": "Operator selects one of the three candidate resolutions in APPENDIX A sec 6 Q1; documents in next outlook successor or as inline comment in `m10_documented_commitment.md`.",
+    "blocking": false
+  },
+  {
+    "id": "D-143-2",
+    "severity": "INFO",
+    "title": "dependency_map.json should explicitly note M10 build-graph closure",
+    "description": "Per Q5, M10 7-node build-graph has no cross-axis edges (no imports of M2/M7/M8/M9 substrate; only Mathlib externals). Currently this property is implicit in dependency_map.json (must be inferred from absence of cross-axis paths). Adding an explicit `cross_axis_edges: []` field with a `closure_check_passed: true` flag would make the property machine-checkable for future cross-axis-impact assessments.",
+    "remediation": "Add field `cross_axis_closure: {edges: [], note: 'M10 build-graph imports only Mathlib externals; no project-axis cross-references'}` to dependency_map.json schema.",
+    "blocking": false
+  },
+  {
+    "id": "D-143-3",
+    "severity": "LOW",
+    "title": "Lean source not inlined in 143R substrate; some Q3/Q4 recommendations are conditional",
+    "description": "Per sec 0.4 substrate path mapping, `lean/WallisFamily.lean` and `lean/Thm66_ApparentSingularity.lean` are reference-only, not inlined. Q3 lemma family recommendations (especially B5 candidate `Nat.centralBinom_succ`) and Q4 axiom-refactor strategy (Pattern alpha vs beta) are conditional on operator-side source verification. CLI agent's recommended 'NOT INLINED -- reference only' decision for these files is reasonable (size constraint), but means MEDIUM-HIGH band on this verdict cannot be elevated to HIGH without follow-up inspection.",
+    "remediation": "If CLI agent fires a 143R-followup with Lean source attached for Q3/Q4 grounding, this verdict can be re-fired with HIGH band aspiration. Otherwise, operator-side `#check` verification of every named Mathlib candidate before commit closes the gap.",
+    "blocking": false
+  },
+  {
+    "id": "D-143-4",
+    "severity": "LOW",
+    "title": "B5 confidence band amendment requires operator confirmation",
+    "description": "Per Q1, B5 confidence is recommended for downgrade from MEDIUM to LOW-MEDIUM. This is a single-witness judgment based on cast-normalization fragility patterns; operator with ground-truth visibility into the specific iter-13 goal printout at L243 / L285 may have evidence supporting MEDIUM. If operator disagrees with the downgrade, escalate to dual-witness confirmation per sec 0.5 ladder.",
+    "remediation": "Operator inspects iter-13 build_errors_iter13.log for L243 / L285 specific goal-print; if cast shape is clean (`(m+1 : R)` consistent throughout), MEDIUM is correct; if shape is ambiguous or has multiple competing cast forms, LOW-MEDIUM is correct.",
+    "blocking": false
+  }
+]

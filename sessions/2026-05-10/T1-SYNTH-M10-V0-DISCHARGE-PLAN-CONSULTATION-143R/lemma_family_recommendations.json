@@ -1,0 +1,53 @@
+[
+  {
+    "blocker_or_sorry_id": "B3",
+    "lemma_namespace": "Mathlib.Data.Nat.Cast.Order + Mathlib.Tactic.Positivity",
+    "candidate_lemmas": [
+      "Nat.cast_nonneg",
+      "Nat.cast_pos",
+      "Nat.cast_add_one_pos",
+      "two_mul_add_one_pos (if exists; otherwise inline `by positivity`)",
+      "mul_ne_zero (for the factored `(2k+1)*(2k+3)` form)"
+    ],
+    "operator_verification_path": "After edit: `lake env lean lean/WallisFamily.lean 2>&1 | grep -A 3 'ratio_step_m0'`. Expected: no `unsolved goals` from L171-177 region. Fallback diagnostic: insert `by positivity` -> if fails, `by show (0 : R) < 2 * (k : R) + 1; have := (Nat.cast_nonneg k : (0 : R) <= k); linarith`.",
+    "fabricated_math_risk": "LOW",
+    "fabricated_math_risk_note": "`Nat.cast_nonneg` and `Nat.cast_pos` are bedrock Mathlib lemmas; `two_mul_add_one_pos` is plausible but not memory-verified -- operator must check existence before relying on it. Inline `linarith` fallback is robust."
+  },
+  {
+    "blocker_or_sorry_id": "B4",
+    "lemma_namespace": "Mathlib.Topology.Order (for scoped notation)",
+    "candidate_lemmas": [
+      "(no lemma needed; this is a notation-resolution issue)",
+      "Topology scope export of nhds (notation, not lemma)"
+    ],
+    "operator_verification_path": "Step 1: grep -n 'nhds-symbol' lean/WallisFamily.lean -- if any matches in L216-312, uniform replace to `nhds`. Step 2: ensure `open scoped Topology` (currently L11) is reachable at use sites; if a `section` block intervenes, re-issue inside the section. Step 3: `lake env lean lean/WallisFamily.lean` -- expect no `unknown identifier`.",
+    "fabricated_math_risk": "NONE",
+    "fabricated_math_risk_note": "Notation-resolution only; no math-content claim."
+  },
+  {
+    "blocker_or_sorry_id": "B5",
+    "lemma_namespace": "Mathlib.Combinatorics.Choose.Central + Mathlib.Tactic.FieldSimp + Mathlib.Tactic.PushCast",
+    "candidate_lemmas": [
+      "Nat.succ_mul_centralBinom_succ (already in use at L235 per triage)",
+      "Nat.centralBinom_succ (UNVERIFIED FOR PIN v4.30.0-rc1; if absent fall back to explicit recipe)",
+      "Nat.cast_succ",
+      "Nat.cast_mul",
+      "Nat.cast_div_charZero",
+      "mul_div_assoc",
+      "div_eq_iff"
+    ],
+    "operator_verification_path": "Recommended pattern: extract a stand-alone lemma `centralBinom_cast_succ : forall m : N, ((Nat.centralBinom (m+1) : R)) = 2*(2*m+1)/(m+1) * Nat.centralBinom m`, prove with `intro m; have h := Nat.succ_mul_centralBinom_succ m; field_simp; push_cast; linarith [h]` (or `ring`). Then `rw [centralBinom_cast_succ]` at L243 and L285 failing sites. Verify: `lake env lean lean/WallisFamily.lean 2>&1 | grep -E '(error|unsolved)'`.",
+    "fabricated_math_risk": "MEDIUM",
+    "fabricated_math_risk_note": "Lemma name `Nat.centralBinom_succ` is plausible but not memory-verified for pin v4.30.0-rc1; operator MUST run `#check Nat.centralBinom_succ` first. If absent, fall back to explicit `field_simp + push_cast + linarith` recipe."
+  },
+  {
+    "blocker_or_sorry_id": "S1+S2_joint",
+    "lemma_namespace": "(no lemma family; structural axiom-signature edit per Pattern alpha)",
+    "candidate_lemmas": [
+      "(none; closure is by deletion of redundant h_exact parameter from frobenius_double_root_at_apparent_singularity axiom)"
+    ],
+    "operator_verification_path": "Step 1: read full axiom statement of frobenius_double_root_at_apparent_singularity at HEAD. Step 2: confirm h_exact parameter is structurally redundant given other axiom hypotheses (is_root_of_indicial + is_simple_root). Step 3 if Pattern alpha applies: edit axiom signature to remove h_exact param; remove `(by sorry)` arg at Thm66_ApparentSingularity.lean:118 and :120. Step 4: lake build green-check. Step 5 if Pattern alpha does NOT apply: fall back to Pattern beta (replace h_exact with math-content-equivalent dischargeable hypothesis; e.g., `a s != 0 AND deriv a s != 0` likely already available).",
+    "fabricated_math_risk": "MEDIUM-implementation / HIGH-direction",
+    "fabricated_math_risk_note": "Pattern alpha refactor direction is HIGH-confidence (synth analysis of S1 sec 3 shows h_exact goal is mathematically false for a = a_coeff_c). Implementation specifics MEDIUM-confidence; depends on actual axiom statement which synth could not read (Lean source not inlined per D-143-3). Operator must verify axiom signature before adopting. Routes to slot 142-class agent fire (T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE)."
+  }
+]
