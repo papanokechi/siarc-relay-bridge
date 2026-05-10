@@ -1,0 +1,85 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-156-A1",
+      "severity": "INFO",
+      "summary": "U2 quadrant untested across multiple M8b closure cascades; V0 framing was '3-of-4 quadrants' implicit",
+      "detail": "Synth ANOMALIES item 1: V0 closure was accepted without surveying U2 (small-(N,M) subtracted Padé). R2's 130R amendment specification flagged U2 as forward-pointer. This is consistent with the slot 156 prompt §1.4 OUT-OF-SCOPE constraint (V0 stands) but indicates V0's '4-lens' framing was actually '3-of-4-quadrants' plus one unsurveyed quadrant. Operator/Claude.ai should confirm reading before A fires, because if A returns positive extraction, V0 closure cascade (74c5630) may need amendment.",
+      "absorption": "Acknowledge in handoff. Pre-flight checklist for A fire must include a precondition statement: 'V0 closure stands only under foreclosure-in-U2 outcome; positive extraction triggers V0 amendment cascade.'",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "UF-156-A2",
+      "severity": "MEDIUM",
+      "summary": "P-009 active variant v1 NOT_YET_DISPATCHED state anomalously persistent given S154 d>=3 highest-risk identification",
+      "detail": "Synth ANOMALIES item 2: asymmetry between 'S154 unanimously identified d>=3 as primary exogenous-trigger axis' and 'P-009 d>=3 binding-window literature reconnaissance is in NOT_YET_DISPATCHED state since 1873538 (2026-05-06)'. Synth flags this as deserving operator attention independent of this consultation. The slot 156 verdict's recommended Pathway E directly addresses this asymmetry by firing the dispatch.",
+      "absorption": "Surface in handoff Anomaly section. Recommend T1-156-FOLLOWUP-E as IMMEDIATE-PRIORITY follow-up (synth Q3d recommendation). Bumps from forward-pointer status to actionable.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "UF-156-A3",
+      "severity": "INFO",
+      "summary": "Pathway B cost estimate has high variance; E's literature reconnaissance directly reduces it",
+      "detail": "Synth ANOMALIES item 3: Pathway B (Birkhoff-Trjitzinsky descendant analysis) cost estimate spans weeks-to-months. If BT-adjacent literature (Sauzin / Ecalle expositions applicable to PCF-class problems) is more accessible than synth's prior, cost could collapse to 1-2 weeks. E directly addresses this variance by performing literature reconnaissance. Strongest argument for firing E first per synth Q3d.",
+      "absorption": "Document in plan.md M8b complete-closeout track as cost-estimate variance note. Inform pathway-B follow-up fire design (do not commit to B until E returns).",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "UF-156-A4",
+      "severity": "NULL",
+      "summary": "No anomaly found in slot 156 prompt §1.3 carry-forward enumeration scope",
+      "detail": "Synth ANOMALIES item 4 (NULL anomaly): all three carry-forwards (NUMERICAL-FORECLOSURE, d>=3-CAVEAT, U2 uncharted-quadrant) are real and framing matches V0 closure cascade record at 74c5630. The conflation noted in synth Amendment 1 is a definitional issue (V0 vs V0+ vs V1-partial vs V1 distinction), not a scope error. Recorded for completeness.",
+      "absorption": "No action required. Confirms slot 156 prompt §1.3 was scope-correct even though categorically under-specified.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "UF-156-1",
+      "severity": "MEDIUM",
+      "summary": "Candidate memory: negative-result closures should distinguish substrate-conditionality from mathematical-content foreclosure",
+      "candidate_memory_status": "PROMOTION_RECOMMENDED",
+      "candidate_memory_text": "Negative-result closures (e.g., M8b V0 NUMERICAL-FORECLOSURE) should explicitly distinguish substrate-conditionality (laptop / dps / order ceiling) from mathematical-content foreclosure (the closed-form result is unreachable in principle). Annotation should encode the substrate scope (e.g., LAPTOP-SUBSTRATE-NUMERICAL-FORECLOSURE) rather than leaving it implicit. Applies beyond M8b to any laptop-feasibility-bounded numerical closure.",
+      "candidate_memory_citations": "siarc-relay-bridge sessions/2026-05-10/T1-SYNTH-M8B-COMPLETE-CLOSEOUT-PATHWAY-CONSULTATION-156/verdict.md Amendment 3 + Q1b + Q5c (Pathway F note); cascade-130R closure cascade record at 74c5630 (where annotation was set without substrate-scope tag).",
+      "candidate_memory_subject": "closure framing",
+      "absorption": "Promote at end of session. Prefix substrate-conditional annotations with substrate qualifier in all future M-axis V0 / V1 cascades.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "UF-156-2",
+      "severity": "MEDIUM",
+      "summary": "Candidate memory: V0+ as recognised intermediate closure state",
+      "candidate_memory_status": "PROMOTION_RECOMMENDED",
+      "candidate_memory_text": "Closure-state framework (V0, V0+, V1-partial, V1) should be recognised program-wide for milestones with carry-forward residuals. V0 = baseline closure (residuals carried forward); V0+ = improved negative-result documentation with substrate-conditionality made explicit and surveyed-quadrant gaps closed (no structural resolution); V1-partial = single carry-forward lifted by mechanism (substrate change OR structural argument) without full mechanism; V1 = positive structural resolution subsuming all carry-forwards.",
+      "candidate_memory_citations": "siarc-relay-bridge sessions/2026-05-10/T1-SYNTH-M8B-COMPLETE-CLOSEOUT-PATHWAY-CONSULTATION-156/verdict.md Q1a + Q5c. M8b V0 at 74c5630 is a baseline-V0 example; V0+(defended) target proposed Q5d.",
+      "candidate_memory_subject": "closure framework",
+      "absorption": "Defer to n=2 (next axis closure cascade with carry-forward residuals). Candidate-status memory for now; promote on second use.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "UF-156-3",
+      "severity": "INFO",
+      "summary": "Candidate memory: pathway prioritisation should weight literature-reconnaissance first when it reduces downstream cost variance",
+      "candidate_memory_status": "PROMOTION_DEFERRED_PENDING_N2",
+      "candidate_memory_text": "When prioritising candidate pathways for V1-class structural-resolution work, dispatch literature-reconnaissance pathways first if they reduce variance on subsequent pathway-cost estimates. Rationale: cheap signal that informs commit/abandon decision on expensive pathways downstream.",
+      "candidate_memory_citations": "siarc-relay-bridge sessions/2026-05-10/T1-SYNTH-M8B-COMPLETE-CLOSEOUT-PATHWAY-CONSULTATION-156/verdict.md Q3a + Q3d + ANOMALIES item 3. Pathway E at hours-to-2-days cost reduces variance on Pathway B (weeks-to-months).",
+      "candidate_memory_subject": "pathway prioritisation",
+      "absorption": "Defer. n=1 evidence; promote on second observation in different scope.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "UF-156-4",
+      "severity": "INFO",
+      "summary": "Slot 156 verdict label divergence from precedent: WITH_AMENDMENT for math-content consultation (cf. S154 ACTION_LADDER_RECOMMENDATION_WITH_AMENDMENT precedent)",
+      "detail": "Slot 156 verdict label CLOSEOUT_PATHWAY_RECOMMENDATION_WITH_AMENDMENT mirrors S154 verdict label ACTION_LADDER_RECOMMENDATION_WITH_AMENDMENT in WITH_AMENDMENT modifier semantics. Pattern: synth-recommended substantive amendments to prompt definitions (slot 156 §1.3 working def, Q2 pathway list, carry-fwd 1 annotation) without rejecting the underlying recommendation framework. Suggests WITH_AMENDMENT modifier is becoming the regular operative label for strategic consultations where prompt definitions are sharpenable.",
+      "absorption": "Document in plan.md governance log. May warrant memory promotion at n>=3 (track separately).",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    }
+  ]
+}

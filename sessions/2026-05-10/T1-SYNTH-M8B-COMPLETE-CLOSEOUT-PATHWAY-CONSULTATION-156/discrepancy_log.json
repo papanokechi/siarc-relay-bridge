@@ -1,0 +1,40 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-156-1",
+      "severity": "OPERATOR-TIER",
+      "summary": "V0+ vs V1 commitment decision",
+      "detail": "Synth recommendation: V0+(defended) as operational target unless E returns BT-positive literature signal, in which case escalate to V1 via Pathway B. Decision tree: E literature null -> V0+(defended) terminal; E binding-window hit -> reconsider V1 via B. Operator must confirm graduated-commitment posture vs all-or-nothing V1 push before E fires (E is fire-eligible regardless; the decision is about what comes after).",
+      "absorption": "FORWARD-POINTER; not blocking E or A fires. Document in plan.md under M8b complete-closeout track.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "D-156-2",
+      "severity": "OPERATOR-TIER",
+      "summary": "Parallel vs sequential firing of E and A",
+      "detail": "Synth Q3d recommends E first (lowest cost, returns literature signal informing B vs D choice); A second (parallel-eligible if substrate permits). Q4a estimates: E ~1-2 days, A ~1-3 days. Total parallel cost ~3 days; sequential cost ~4-5 days. Operator decides based on agent-time bandwidth and whether E's signal materially affects A's design (synth says no -- A is independent of E).",
+      "absorption": "FORWARD-POINTER; defer to operator pre-fire decision on T1-156-FOLLOWUP-E + T1-156-FOLLOWUP-A.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "D-156-3",
+      "severity": "INFO",
+      "summary": "Synth amendment 3 implies post-fire annotation tightening on M8b V0",
+      "detail": "Amendment 3 recommends tightening carry-forward 1 annotation from `NUMERICAL-FORECLOSURE` to `LAPTOP-SUBSTRATE-NUMERICAL-FORECLOSURE`. This is a V0+ move per Q5c. It is a DOWNSTREAM CHANGE to M8b V0 closure cascade record (74c5630) and to all dissemination artefacts that cite the M8b annotation (umbrella v2.2 amendment log, picture-chain v1.20+, PCF-2 v1.4 §6 cross-reference). Amendment is recommended `even if no further pathway fires` but its execution is conditional on V0+ commitment (D-156-1).",
+      "absorption": "FORWARD-POINTER; absorption blocked on D-156-1 resolution. Do not unilaterally amend cascade-130R closure record without operator approval.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    },
+    {
+      "id": "D-156-4",
+      "severity": "INFO",
+      "summary": "Pathway F (substrate-uplift) promotion from synth-discretionary to canonical pathway",
+      "detail": "Amendment 2 promotes Pathway F (substrate-uplift channel: HPC access, specialist Borel-Padé packages) from `synth-identified discretionary` to canonical pathway. Synth Q3a ranks F at position 5 (future contingency, not active fire). This is a discrepancy with the slot 156 prompt §1.3 enumeration (which listed only 5 pathways A-E with F as discretionary). Promotion is documentary, not operational.",
+      "absorption": "Update plan.md M8b complete-closeout track to show 6 canonical pathways A-F with F as future-contingency tag.",
+      "verdict_witness": "claude-opus-4.7-anthropic-2026-05-10",
+      "absorbed_at": "2026-05-10T18:40+09:00"
+    }
+  ]
+}
