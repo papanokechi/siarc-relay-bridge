@@ -1,0 +1,22 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-158-1",
+      "severity": "INFO",
+      "summary": "F3 picture v1.19 concept-DOI verification resolved conclusively in-fire without graceful-fallback (TBD-PENDING-OPERATOR-VERIFICATION). Six independent search/inspection passes ((a)-(f)) all converged on NO-DOI-EXISTS within agent-internal capability; no Zenodo API call needed. UF-157-A2 / D-157-6 LOW closes without operator follow-up.",
+      "implication": "Slot 157 verdict §ANOMALIES A2 'TBD operator verifies' wording was conservatively pessimistic; agent-internal six-pass verification was sufficient. Pattern candidate for memory: 'Bridge-internal-only deposits do not generate Zenodo concept-DOIs; six-pass agent verification is conclusive evidence of DOI absence without external API.'"
+    },
+    {
+      "id": "UF-158-2",
+      "severity": "INFO",
+      "summary": "First slot 158 fire absorbs THREE bundled items in a single T2-Executor fire (F1 + F3 + D-157-8) per slot 157 ABSORPTION_GUIDANCE. Bundling pattern matches the v2.1->v2.2 amendment-overlay precedent (single overlay fire absorbing multiple sub-amendments).",
+      "implication": "Bundle-class T2-Executor amendment-overlay fires are cost-efficient for governance META work (no Zenodo deposit; no manuscript composition); single bridge folder + single commit + single push absorbs multiple verdict follow-ups. Candidate memory: 'T2-Executor amendment-overlay fires can absorb multiple slot-157-class follow-ups in a single fire when items are mutually consistent and RULE-1-clean.'"
+    },
+    {
+      "id": "UF-158-3",
+      "severity": "INFO",
+      "summary": "Agent vs synth RULE 1 fire-eligibility classification disagreement (D-157-9): synth classified F1-F4 as 'RULE-1-blocked from execution but draftable'; agent classified this fire as RULE-1-clean (governance META, no Zenodo deposit, no concept-DOI generation, no IsSupplementTo metadata, no manuscript composition; only operationalizes already-LANDED slot 157 verdict content). Agent default applied; operator may re-classify retroactively.",
+      "implication": "RULE 1 boundary clarification needed: 'governance META overlay fires that produce no Zenodo deposit and no manuscript artefact' is a defensible RULE-1-clean class. Pattern candidate for /memories/repo: 'RULE-1-clean class includes governance META overlays that operationalize already-LANDED verdicts without producing deposit-class artefacts.'"
+    }
+  ]
+}
