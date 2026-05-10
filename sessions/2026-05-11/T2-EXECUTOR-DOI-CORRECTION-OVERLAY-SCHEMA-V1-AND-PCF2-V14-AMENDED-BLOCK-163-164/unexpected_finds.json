@@ -1,0 +1,23 @@
+[
+  {
+    "id": "UF-163-164-1",
+    "severity": "INFO",
+    "title": "OVERLAY-COPY pattern vs in-place amendment",
+    "description": "Slot 163+164 uses the OVERLAY-COPY pattern (full corrected file written to its own bridge folder; LANDED predecessor at original folder NOT modified) instead of an in-place amendment because LANDED bridge artefacts are immutable per the project's repository protocol. Future amendment-overlay fires citing schema v1 or PCF-2 v1.4 paste-source must cite slot 163+164 bridge SHA + relative path for the corrected version, NOT slot 160/161 bridge SHAs for the DOI fields. The slot 160/161 SHAs remain authoritative for everything except the umbrella concept-DOI cells/rows.",
+    "action": "Future amendment-overlay prompt drafts must include a STEP 0.x line citing slot 163+164 as the canonical source for umbrella concept-DOI substrate. Recommend adding to the project's substrate-verification memory class."
+  },
+  {
+    "id": "UF-163-164-2",
+    "severity": "INFO",
+    "title": "Single-digit substitution (0→9) creates a forensic anti-pattern",
+    "description": "The umbrella concept-DOI correction is literally a single digit substitution: `19885550` → `19885549`. The two strings differ only in their final character. This is a forensic anti-pattern because OCR-class errors, eyeball-skim errors, and copy-paste-truncate errors all tend to confuse adjacent-digit DOIs. Recommend that any future amendment-overlay fire involving these two strings explicitly cites Zenodo native version-listing UI sidebar (the only ground truth) at STEP 0.x rather than relying on a typed citation.",
+    "action": "Defer to next substrate-verification memory promotion cycle. STEP 0.4 doi.org pre-resolve already required in slot 162; this surfaces an additional rationale for keeping that gate."
+  },
+  {
+    "id": "UF-163-164-3",
+    "severity": "INFO",
+    "title": "Slot 162 D-162-1 propagation table identified target B (slot 161) but did not enumerate slot 161's specific line numbers",
+    "description": "DOI_CORRECTION_AUDIT.md §2 line 58 cites slot 161 `amended_description_block.md` (paired Umbrella IsSupplementTo + Cites rows; lines ~138-139). The 'approximately 138-139' wording was deliberately fuzzy in slot 162 because the audit's main purpose was scope enumeration, not edit prescription. Slot 163+164 confirmed exact line numbers (138 + 139) via grep + view; the audit's approximation was correct. No remediation needed; this is a documentation refinement note.",
+    "action": "Optional: amend slot 162 DOI_CORRECTION_AUDIT.md §2 to cite exact line numbers in a future house-keeping fire. Not blocking."
+  }
+]
