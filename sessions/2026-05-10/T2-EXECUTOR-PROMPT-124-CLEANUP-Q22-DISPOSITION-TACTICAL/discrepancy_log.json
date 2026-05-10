@@ -1,0 +1,30 @@
+{
+  "fire": "T2-EXECUTOR-PROMPT-124-CLEANUP-Q22-DISPOSITION-TACTICAL",
+  "date": "2026-05-10",
+  "discrepancies": [
+    {
+      "id": "D-TACTICAL-1",
+      "severity": "INFO",
+      "title": "Forbidden-verb pre-write occurrence in M2_Q22_FINAL_DISPOSITION_20260510.md",
+      "description": "Initial first-write contained one FV violation on L34: 'Substantive treatment confirmed: path-(a) content is in v1.4 manuscript'. Caught by post-write FV scan; remediated in-fire to 'Substantive treatment present:'.",
+      "remediation": "edit tool 1-string replacement; re-scan PASS",
+      "blocking": false
+    },
+    {
+      "id": "D-TACTICAL-2",
+      "severity": "INFO",
+      "title": "Slot 139 verdict A-139-1 prediction was partially wrong about routing",
+      "description": "Slot 139 verdict A-139-1 predicted prompt 124 was 'likely absorbed by slot 137' and suggested rename to '_EXECUTED.txt' or '_ABSORBED_BY_137.txt'. Actual disposition (verified at this fire's investigation): slot 124 was HALTED on 2026-05-09 with HALT_124_PRIOR_ARBITRATION_EXISTS; supersession memo deposited at bridge folder T1-SYNTH-M2-Q22-MATH-ARBITRATION-124-HALT-SUPERSEDED-BY-099. The math arbitration came from slot 099 (2026-05-07), NOT slot 137. Slot 137 is the path-(a) implementation, downstream of 099 not 124. Net effect on Q22: identical (absorbed at math-content level). Net effect on artefact rename: target is _HALTED_SUPERSEDED_BY_099.txt, not _ABSORBED_BY_137.txt.",
+      "remediation": "rename target adjusted; disposition note + matching table refined to reflect actual chain (099 -> 124-halt -> 137); slot 139 verdict's misattribution recorded in disposition note sec 4.1",
+      "blocking": false
+    },
+    {
+      "id": "D-TACTICAL-3",
+      "severity": "INFO",
+      "title": "Bridge folder name pattern SUPERSEDED-BY-099 already encodes the disposition",
+      "description": "The slot 124 halt deposit folder name itself (T1-SYNTH-M2-Q22-MATH-ARBITRATION-124-HALT-SUPERSEDED-BY-099) explicitly encodes the supersession state. Slot 139's verdict drafter did not catch this folder-name signal, leading to the verdict's misattribution. Folder-name-as-disposition-signal is reliable substrate that should be checked at verdict-drafting time as well as at execution time.",
+      "remediation": "none in this fire; surfacing as observation for future verdict-drafting QA discipline",
+      "blocking": false
+    }
+  ]
+}
