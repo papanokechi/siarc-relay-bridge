@@ -1,0 +1,22 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-186-1",
+      "severity": "INFO",
+      "description": "PROMPT 186 spec enumerated '5 deliverables' but standard SIARC handoff structure requires 6 files (runbook + handoff + claims + halt + discrepancy + unexpected_finds). This session writes 6 files; the spec's count of 5 was a labeling convenience that lumped discrepancy + unexpected_finds together.",
+      "resolution": "Accept-as-is; 6 files written; no spec violation"
+    },
+    {
+      "id": "D-186-2",
+      "severity": "INFO",
+      "description": "Amendment 4 (Mathlib/toolchain pin) lists no concrete pinned-SHA in the runbook because no M10 discharge fire is active; the pin happens at next 148R-class fire time, not at runbook-compose time.",
+      "resolution": "Accept-as-is; gate-triggered amendment, not state-asserting amendment"
+    },
+    {
+      "id": "D-186-3",
+      "severity": "INFO",
+      "description": "Runbook references slot 174 amendment fire as the source-of-truth for Zenodo concept-DOIs (zenodo.19936297 vs zenodo.19937196 distinction); this is a forward-reference to a prior bridge SHA that this fire does not re-verify in line.",
+      "resolution": "Cross-reference rather than re-verification; downstream Zenodo-deposit-time pre-paste re-verification expected per substrate-verification memory"
+    }
+  ]
+}
