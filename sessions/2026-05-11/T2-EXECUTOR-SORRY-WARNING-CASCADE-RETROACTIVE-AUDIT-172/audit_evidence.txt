@@ -1,0 +1,320 @@
+================================================================================
+audit_evidence.txt -- verbatim grep outputs for retroactive sorry-warning
+cascade audit (slot T2-EXECUTOR-SORRY-WARNING-CASCADE-RETROACTIVE-AUDIT-172)
+================================================================================
+Date:                2026-05-11
+Pre-audit HEAD:      siarc-relay-bridge 591f3ae (slot 148.D / GROUP-B-FIX 171)
+Critique:            D-148D-1 (slot 148.D unexpected_finds.json UF-148D-1 PROMOTE)
+Methodology used by audit: case-sensitive `\bsorry\b` text-grep + literal-match
+                          `'by sorry\|:= sorry'` text-grep (PowerShell Select-String
+                          -CaseSensitive); contemporaneous lean/ tree state where
+                          available; verbatim quote of all `'uses sorry|sorry
+                          count|sorry-discharge|sorry warning'` hits per audit
+                          prompt PHASE B step B.2.
+================================================================================
+
+===============================================================================
+PHASE 0 -- pre-audit gates (verbatim)
+===============================================================================
+
+STEP 0.1 supersession scan:
+  Get-ChildItem sessions -Recurse -Directory -Filter "*SORRY-WARNING*AUDIT*"
+    -> zero hits.
+  Get-ChildItem sessions -Recurse -Directory -Filter "*CASCADE-RETROACTIVE*"
+    -> zero hits.
+  RESULT: PASS (no prior audit slot to absorb).
+
+STEP 0.2 verify slot 148.D SHA:
+  git rev-parse 591f3ae
+    -> 591f3ae310fc4e877ea0e83ff0a657147515fa7b
+  git log 591f3ae -1 --oneline
+    -> 591f3ae T2-EXECUTOR-WALLISFAMILY-GROUP-B-FIX-148-D-171 -- Group B 1->0
+       DISCHARGED via wallisStepFactor def MOVE; Group D 4->0 DISCHARGED
+       (cascade-artifact); 7 hard errors + 0 warnings remain (MEDIUM-HIGH)
+  RESULT: PASS.
+
+STEP 0.3 capture pre-audit bridge HEAD SHA:
+  git rev-parse HEAD
+    -> 591f3ae310fc4e877ea0e83ff0a657147515fa7b   (identical to STEP 0.2)
+  RESULT: captured for halt-able reference.
+
+===============================================================================
+PHASE A -- target enumeration results (verbatim)
+===============================================================================
+
+A.1 slot 145 (substrate-prep template, T2-Executor):
+  Get-ChildItem sessions -Recurse -Directory | Where-Object { $_.Name -like "*145*" }
+    -> sessions/2026-05-10/T2-EXECUTOR-PROMPT-145-Q6C-GATING-AMENDMENT-150/
+       (this is slot 150 amending prompt 145, NOT slot 145 itself).
+  Get-ChildItem sessions -Recurse -Directory -Filter "*M10-V0-RATIFICATION-SUBSTRATE-PREP-145*"
+    -> zero hits.
+
+  RESOLUTION: slot 145 has NO BRIDGE FOLDER -- the substrate-prep fire was
+  never executed. The slot 145 PROMPT FILE exists in claude-chat at
+  `tex/submitted/control center/prompt/145_t2_executor_m10_v0_ratification_substrate_prep.txt`
+  (17119 bytes; amended in-claude-chat by slot 150 at SHA 84ac7ce per
+  84ac7ce commit message: "slot 145 STEP 0.3 G1-G5 -> G1-G7 + literal-match grep").
+
+A.2 slot 146 (T1-Synth M10 V0 solo-dispatch draft):
+  Get-ChildItem sessions -Recurse -Directory | Where-Object { $_.Name -like "*146*" }
+    -> zero hits.
+  Get-ChildItem "tex/submitted/control center/prompt" | Where-Object Name -like "146_*"
+    -> zero hits.
+  git log --all --oneline | Select-String '\b146\b'
+    -> zero hits.
+
+  RESOLUTION: slot 146 was PLANNED (slot 145 §8 cross-references it as
+  "Successor: slot 146 (M10 V0 solo-dispatch, T1-Synth)") but **NEVER FIRED**.
+  No prompt drafted, no bridge folder, no commit.
+
+A.3 slot 147 (T1-Synth M10 V0 cascade-absorption draft):
+  Get-ChildItem sessions -Recurse -Directory | Where-Object { $_.Name -like "*147*" }
+    -> zero hits.
+  Get-ChildItem "tex/submitted/control center/prompt" | Where-Object Name -like "147_*"
+    -> zero hits.
+  git log --all --oneline | Select-String '\b147\b'
+    -> zero hits.
+
+  RESOLUTION: slot 147 was PLANNED (slot 145 §8 "Successor-2: slot 147 (M10 V0
+  cascade absorption, T1-Synth)") but **NEVER FIRED**.
+
+A.4 m10_documented_commitment.md:
+  Get-ChildItem -Recurse -Filter "m10_documented_commitment*"
+    -> siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-M10-DOCUMENTED-COMMITMENT-SCAFFOLD-141B/m10_documented_commitment.md  (bridge scaffold copy)
+    -> tex/submitted/control center/picture/m10_documented_commitment.md   (claude-chat working tree authoritative copy)
+  git log --all --oneline --diff-filter=A -- "**/m10_documented_commitment.md"
+    -> ce5d9e9 T2-EXECUTOR-M10-DOCUMENTED-COMMITMENT-SCAFFOLD-141B -- scaffold m10_documented_commitment.md + .fleet.yaml commitments: YAML block (Branch B DEFERRED-OUT-OF-M9-SCOPE per slot 139 verdict sec 4)
+  git rev-parse ce5d9e9
+    -> ce5d9e90456ca2d2f1493602bd700a0b39932836
+
+  RESOLUTION: file exists; created at bridge `ce5d9e9` (slot 141B scaffold;
+  2026-05-10 10:09:19 +0900). Prompt's "at bridge fd669d3" reference is the
+  cascade-132 PATH_B authorizing-precedent SHA (predates file creation by
+  one day; fd669d3 = 2026-05-09 T1-SYNTH cascade-132 absorption); the file
+  itself was scaffolded by slot 141B at ce5d9e9.
+
+===============================================================================
+PHASE B -- grep outputs per target
+===============================================================================
+
+----------------------------------------------------------------------
+A.1 -- prompt 145 (claude-chat working-tree authoritative copy)
+----------------------------------------------------------------------
+
+B.2 grep `'uses sorry|sorry count|sorry-discharge|sorry warning'` -CaseSensitive:$false:
+  L69:  G2. Sorry count = 0 across project-side .lean files
+  L185: closed the math; sorry count = 0; build green; tree committed)
+  L200: * Sorry count = 0 audit
+  L213: for M10 V0 closure given (a) sorry count = 0, (b) lake build green,
+  L272: E2. NO sorry-discharge work. If sorries remain at fire time, halt at
+
+B.2-broader grep `'\bsorry\b|\bSorry\b'`:
+  L69:  G2. Sorry count = 0 across project-side .lean files
+  L71:    grep -rn 'by sorry\|:= sorry' lean/ --include='*.lean'
+  L73:    (by sorry) discharges in Thm66_ApparentSingularity.lean).
+  L88:        (c) sorry-count == 0 (literal-match grep G2 form)
+  L138:   sorries.json              (TASK 5 sorry-site routing)
+  L156:   lean/Thm66_ApparentSingularity.lean              (sorry sites discharged)
+  L157:   lean/proof_targets.lean                          (sorry sites discharged)
+  L185: closed the math; sorry count = 0; build green; tree committed)
+  L200: * Sorry count = 0 audit
+  L213: for M10 V0 closure given (a) sorry count = 0, (b) lake build green,
+  L272: E2. NO sorry-discharge work. If sorries remain at fire time, halt at
+
+B.3-H.1 claim extraction for A.1:
+  Primary explicit claim (L71 + L73): post-Phase-C.3++ literal-match grep
+  `'by sorry\|:= sorry'` will return ZERO. Pattern alpha discharges 2 sorries
+  at L118 + L120 in `lean/Thm66_ApparentSingularity.lean` (so pre-discharge
+  count = 2; post-discharge count = 0; both forward-looking).
+
+B.3-H.2 referenced lean/ file: `lean/Thm66_ApparentSingularity.lean`
+
+B.3-H.3 contemporaneous source-grep:
+  Repo HEAD at prompt 145 draft: a5a6647 (claude-chat; slot 141C drafted).
+  At a5a6647, `lean/Thm66_ApparentSingularity.lean` was UNTRACKED (file
+  first tracked at claude-chat 611edee per `git log --diff-filter=A`).
+
+  Best comparable proxy: current claude-chat HEAD source-grep of
+  `lean/Thm66_ApparentSingularity.lean`:
+    Select-String -Pattern '\bsorry\b' -CaseSensitive (count) = 2
+      L118: a_coeff_c c_coeff_c s_1 root_s1 a_deriv_s1_ne_zero (by sorry)
+      L120: a_coeff_c c_coeff_c s_2 root_s2 a_deriv_s2_ne_zero (by sorry)
+    Select-String -Pattern 'by sorry|:= sorry' (count) = 2 (same hits L118+L120)
+
+B.3-H.4 comparison: T's claim (pre-discharge 2 at L118+L120) == source-grep
+  current HEAD count (2). MATCH.
+
+B.3-H.5 STATUS for A.1: **GENUINE**.
+  Methodology load-bearing class: literal-match TEXT-GREP (`'by sorry\|:= sorry'`),
+  NOT Lean build-warning count. Does NOT load-bear on cascade-inflated implicit
+  sorrys (D-148D-1 failure mode).
+
+B.4 sharper-bookkeeping for A.1: none. Prompt 145 has already adopted the
+  post-149/150 literal-match canonical methodology.
+
+----------------------------------------------------------------------
+A.2 -- slot 146 (NONEXISTENT)
+----------------------------------------------------------------------
+
+B.2: N/A (target absent).
+B.3-H.1..H.5: N/A.
+B.3-H.5 STATUS for A.2: **UNCLEAR** (structural reason: target nonexistent).
+B.4 sharper-bookkeeping: forward-looking. If/when slot 146 fires, the
+  prompt-drafter must adopt literal-match grep methodology to be cascade-safe.
+
+----------------------------------------------------------------------
+A.3 -- slot 147 (NONEXISTENT)
+----------------------------------------------------------------------
+
+B.2: N/A (target absent).
+B.3-H.1..H.5: N/A.
+B.3-H.5 STATUS for A.3: **UNCLEAR** (same structural reason).
+B.4 sharper-bookkeeping: same forward-looking recommendation as A.2.
+
+----------------------------------------------------------------------
+A.4 -- m10_documented_commitment.md (claude-chat working-tree authoritative)
+----------------------------------------------------------------------
+
+B.2 grep `'uses sorry|sorry count|sorry-discharge|sorry warning'` -CaseSensitive:$false:
+  L1:   # M10 DOCUMENTED COMMITMENT -- Lean-4 sorry-discharge / formalization axis
+  L15:  M10 is the **Lean-4 sorry-discharge / formalization axis**. It tracks the
+  L28:  (e.g. `(SORRY-DISCHARGE-INCOMPLETE; LEAN-V0-PARTIAL)`) is self-contradictory.
+  L34:  M10 = Lean-4 sorry-discharge / formalization axis. Declared post-RULE-1-lift
+  L81:  ### 2.2 -- Sorry counts (case-sensitive `\bsorry\b` match)
+  L83:  | File                                | sorry count |
+  L147: notes: M10 sorry-discharge / formalization work-stream landed via cascade-132
+
+B.2 same grep at bridge-scaffold copy (ce5d9e9 SHA):
+  identical results to working-tree (file unchanged in essential structure).
+
+B.3-H.1 claim extraction for A.4:
+  Operative claim is the §2.2 table (L83-L91):
+    File                                | sorry count
+    lean/CardEvenOfInvolution.lean      |           0
+    lean/lakefile.lean                  |           0
+    lean/proof_targets.lean             |           1
+    lean/Thm66_ApparentSingularity.lean |           2
+    lean/TmpCheck.lean                  |           0
+    lean/WallisFamily.lean              |           0
+    TOTAL (top-level .lean files)       |           3
+
+  Methodology (explicit in heading L81): "case-sensitive `\bsorry\b` match".
+
+  Snapshot timestamp (file L60): 2026-05-10 ~10:05 JST.
+  Snapshot HEAD (file L61): claude-chat 5e89f9a.
+  Bridge HEAD at snapshot (file L62): 6a063a7.
+  Verified: git rev-parse 5e89f9a -> 5e89f9ab57ff16af8d08fafbddaed6c345512ad2.
+
+B.3-H.2 referenced lean/ files: six top-level files (CardEvenOfInvolution,
+  lakefile, proof_targets, Thm66_ApparentSingularity, TmpCheck, WallisFamily).
+
+B.3-H.3 contemporaneous source-grep:
+  At claude-chat SHA 5e89f9a, only 2 of 6 enumerated files were TRACKED:
+    git ls-tree 5e89f9a -- lean/ | grep '\.lean$'
+      -> lean/WallisFamily.lean
+      -> lean/lakefile.lean
+  Per-file source-grep at 5e89f9a (TRACKED tree only, case-insensitive default):
+    lean/WallisFamily.lean         sorry-count = 1
+    lean/lakefile.lean             sorry-count = 0
+  The other 4 enumerated files were UNTRACKED at 5e89f9a (per §2.1 git status
+  in the snapshot itself); their contents at snapshot time are not preserved
+  in git history. Best comparable proxy = current HEAD source-grep (file
+  contents have evolved through slot 148 / 148.B / 148.C / 148.D cycles;
+  Thm66_ApparentSingularity.lean and proof_targets.lean both first tracked
+  at claude-chat 611edee per `git log --diff-filter=A`).
+
+  Current claude-chat HEAD case-sensitive `\bsorry\b` grep (matches §2.2 methodology):
+    lean/Thm66_ApparentSingularity.lean    count = 2
+      L118: a_coeff_c c_coeff_c s_1 root_s1 a_deriv_s1_ne_zero (by sorry)
+      L120: a_coeff_c c_coeff_c s_2 root_s2 a_deriv_s2_ne_zero (by sorry)
+    lean/proof_targets.lean                 count = 1
+      L2:   -- Iteration 12 replaces the generated sorry placeholders with concrete
+    lean/WallisFamily.lean                  count = 1
+      L304: This is the zero-`sorry` Lean statement matching the paper's claim that the
+    lean/CardEvenOfInvolution.lean          count = 0
+    lean/TmpCheck.lean                      MISSING at HEAD (removed)
+    lean/lakefile.lean                      count = 0
+    TOTAL at HEAD: 4
+
+B.3-H.4 comparison: T's claim (3) vs current HEAD source-grep (4). Diff = +1.
+  Attribution of +1 delta: the L304 narrative-comment match in WallisFamily.lean
+  (`"zero-`sorry` Lean statement"`) was added in a post-snapshot file rewrite
+  (slot 148.B/C/D cycle; per slot 148.D handoff "Source-grep cross-check: grep
+  -n sorry WallisFamily.lean returns 1 match at L304, a docstring string literal").
+  At snapshot time (5e89f9a tracked WallisFamily content), the case-sensitive
+  `\bsorry\b` grep would have returned 1 (the snapshot itself reports 0 -- this
+  suggests the operator's local working-tree WallisFamily.lean at 5e89f9a was
+  the MODIFIED version, not the tracked content; per §2.1 ` M lean/WallisFamily.lean`
+  with +62/-46 line delta per §2.4). The snapshot's 0-count for WallisFamily.lean
+  is consistent with operator's local modified working-tree state at snapshot time.
+
+  Discriminating diagnosis:
+    * Diff between T's claim and source-grep is NOT cascade-warning-inflation.
+    * Methodology used by T is case-sensitive `\bsorry\b` TEXT-GREP, NOT
+      Lean build-warning count.
+    * Therefore D-148D-1 cascade-inflated implicit-sorry failure mode does
+      NOT apply to this claim.
+
+B.3-H.5 STATUS for A.4: **GENUINE** (methodology).
+  T's count of 3 is accurate per its stated text-grep methodology applied
+  to the operator's working-tree at snapshot time. The HEAD count of 4 is
+  attributable to one narrative-comment addition (WallisFamily L304) and
+  is not phantom-load.
+
+B.4 sharper-bookkeeping for A.4 (RECOMMENDED, not corrective):
+  Switch §2.2 methodology in any future snapshot refresh from case-sensitive
+  `\bsorry\b` text-grep to literal-match `'by sorry\|:= sorry'` text-grep
+  (per slot 149 sec 8 + slot 150 amendment G2 canonical form). Effect at
+  current HEAD: would yield 2 (Thm66 L118+L120 only), excluding the two
+  narrative-comment matches at proof_targets.lean:L2 and WallisFamily.lean:L304.
+  This aligns the §2.2 snapshot with project-canonical post-150 methodology.
+
+===============================================================================
+PHASE C -- aggregate
+===============================================================================
+
+PHANTOM-LOAD count:                  0 / 4
+GENUINE count:                       2 / 4 (A.1, A.4)
+UNCLEAR count:                       2 / 4 (A.2, A.3 -- target nonexistent)
+slot-157-F6 amendment trigger:       NOT TRIGGERED (no PHANTOM-LOAD found)
+
+===============================================================================
+PHASE C -- cross-corroborating bridge-corpus sweep
+===============================================================================
+
+A broader sweep was performed across all bridge sessions:
+  cd siarc-relay-bridge
+  git grep -nE 'uses sorry|sorry warning|sorry_warning|declaration uses .sorry.'
+    -- 'sessions/**/*.md' 'sessions/**/*.txt' 'sessions/**/*.json'
+
+Key hits (excerpted; full bridge-corpus output preserved internally; only
+slots OUTSIDE the audit's 4-target set are summarized here for context):
+
+  Slot 148.B (169) handoff.md:29:
+    "Group D: 2 sites `declaration uses sorry` (warnings only;
+     pre-existing M10 V0 work)"
+    -> warning-count claim (NOT in audit target set; cited only to show
+       D-148D-1 pattern's origin point).
+
+  Slot 148.C (170) discrepancy_log.json D-148C-3:
+    "Group D sorry warning count grew from 2 to 4 (reachability expansion,
+     not regression)... they have always been in the file as pre-existing
+     M10 V0 sorry-discharge work."
+    -> warning-count claim, OVERTURNED by slot 148.D (D-148C-3 superseded).
+       This is the ORIGINAL D-148D-1 phantom-load site; reproduced here for
+       audit context but is OUTSIDE the audit's 4-target scope.
+
+  Slot 148.D (171) discrepancy_log.json D-148D-1:
+    Source-grep proof that the 4 warnings at slot 148.C were CASCADE-INFLATED
+    implicit sorrys (zero explicit `\bsorry\b` term-level in WallisFamily.lean
+    except 1 narrative comment at L304).
+
+Conclusion of broader sweep: the D-148D-1 cascade-warning failure mode is
+LOCALIZED to slots 148.B / 148.C / 148.D and to that file (WallisFamily.lean).
+It does NOT propagate to slots 145 (planned but not fired; uses literal-match
+grep methodology) or to the commitment file (uses case-sensitive `\bsorry\b`
+text-grep methodology). Slots 146 / 147 do not exist.
+
+===============================================================================
+END audit_evidence.txt
+===============================================================================

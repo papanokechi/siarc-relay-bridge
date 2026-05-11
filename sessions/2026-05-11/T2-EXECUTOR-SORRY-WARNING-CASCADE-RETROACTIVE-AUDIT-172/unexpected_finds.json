@@ -1,0 +1,33 @@
+{
+  "slot": "T2-EXECUTOR-SORRY-WARNING-CASCADE-RETROACTIVE-AUDIT-172",
+  "date": "2026-05-11",
+  "unexpected_finds": [
+    {
+      "id": "UF-172-1",
+      "severity": "MED",
+      "promote_to_memory_candidate": true,
+      "title": "Audit targets A.2 (slot 146) and A.3 (slot 147) NEVER FIRED -- planned successors of slot 145 absent from bridge and prompt registry",
+      "description": "Audit prompt PHASE A enumerates 4 targets including A.2 = slot 146 T1-Synth M10 V0 solo-dispatch draft and A.3 = slot 147 T1-Synth M10 V0 cascade-absorption draft. Negative-existence search across bridge sessions/ (zero matches *-146 or *-147), claude-chat prompt registry tex/submitted/control center/prompt/ (zero matches 146_* or 147_*), and git log titles across both repos (zero matches \\b146\\b or \\b147\\b) confirms these slots were planned but never authored or fired. Root cause: slot 139 verdict sec 4 + cascade-132 sec 5 documented-commitment-lift precedent established Branch B = DEFERRED-OUT-OF-M9-SCOPE path; slot 141B scaffold (ce5d9e9) and slot 142 RULE 1 lift authorization realized Branch B without requiring full M10 V0 ratification cascade. Slot 145 prompt itself was authored as a 'pre-positioned for fire post-Phase-C.3-landing' template (§1 PURPOSE) but its Phase C.3 precondition (lean/ build green + sorry count == 0) was not met by the time the operator pivoted to Branch B. Consequently slot 145 fire never executed and slots 146/147 never followed.",
+      "evidence": "audit_evidence.txt PHASE A; bridge/claude-chat git log surveys; slot 141B / 142 / 132 cross-references",
+      "recommendation": "PROMOTE_TO_MEMORY candidate: when an audit prompt enumerates planned-but-not-fired slot targets, the audit should classify them as STRUCTURALLY-NONEXISTENT (UNCLEAR per the existing taxonomy) rather than attempt to grep against absent artefacts. Prompt-drafter discipline: target descriptors should include 'bridge folder TBD-resolve-at-fire' OR 'PLANNED, may not exist' annotation explicitly (the audit prompt did mark A.2/A.3 as 'TBD-resolve-at-fire' but the absence semantics were not pre-declared, so the audit had to surface this as a meta-finding). Operator action: none required for this slot; recommend updating slot 145 §8 cross-references to mark slots 146/147 as 'SUPERSEDED-BY-BRANCH-B' for future audit clarity."
+    },
+    {
+      "id": "UF-172-2",
+      "severity": "INFO",
+      "promote_to_memory_candidate": false,
+      "title": "D-148D-1 cascade-warning failure mode is LOCALIZED, not propagated",
+      "description": "Audit aggregate verdict was 0 / 4 PHANTOM-LOAD across the named target set. Broader bridge-corpus sweep (git grep -nE 'uses sorry|sorry warning|declaration uses .sorry.' across all sessions/) confirms the warning-count claim methodology is confined to slots 148.B (6ee475b) / 148.C (b14ba31) / 148.D (591f3ae) themselves and to the WallisFamily.lean target file specifically. No earlier or unrelated bridge folder uses 'declaration uses sorry' warning counts as load-bearing sorry-discharge claims; all other slots use either case-sensitive `\\bsorry\\b` text-grep (slot 141B §2.2; m10_documented_commitment.md) or literal-match `'by sorry\\|:= sorry'` text-grep (slot 145 prompt G2; slot 149 sec 8; slot 150 amendment).",
+      "evidence": "audit_evidence.txt PHASE C cross-corroborating bridge-corpus sweep section",
+      "recommendation": "No action required. D-148D-1 is self-contained at the 148.D fire and need not trigger downstream amendments to slot 145 / 146 / 147 / commitment-file substrate. The slot 148.D handoff's own forward-looking recommendation ('update slot 145/146/147 narrative if those slots referenced WallisFamily.lean as a sorry-discharge target') is RESOLVED-NEGATIVE: slot 145 references Thm66_ApparentSingularity.lean as the sorry-discharge target (L73 + L156-L157), NOT WallisFamily.lean; commitment-file §2.2 enumerates WallisFamily but reports 0 sorries there (consistent with slot 148.D source-grep finding). slot-157-F6 description amendment trigger NOT TRIGGERED."
+    },
+    {
+      "id": "UF-172-3",
+      "severity": "LOW",
+      "promote_to_memory_candidate": false,
+      "title": "Commitment file §2.2 methodology drift candidate: case-sensitive `\\bsorry\\b` text-grep is more conservative than slot 149/150 canonical literal-match",
+      "description": "m10_documented_commitment.md §2.2 (slot 141B scaffolded) declares its sorry-count methodology as 'case-sensitive `\\bsorry\\b` match'. This methodology includes narrative-comment matches (e.g. WallisFamily.lean:L304 docstring 'zero-`sorry` Lean statement' and proof_targets.lean:L2 comment 'sorry placeholders'). The slot 149 sec 8 + slot 150 amendment introduced the more discriminating literal-match `'by sorry\\|:= sorry'` form which excludes narrative comments. The §2.2 count of 3 at snapshot is GENUINE per its stated methodology; switching methodology on a future refresh would yield 2 at current HEAD. This is a minor bookkeeping-quality observation, not a substantive over-count.",
+      "evidence": "audit_findings_table.md row A.4 sharper-bookkeeping column",
+      "recommendation": "On the next m10_documented_commitment.md §2.2 snapshot refresh (e.g. post-Phase-C.3 if M10 V0 closure ever resumes), the snapshot author should switch methodology to literal-match `'by sorry\\|:= sorry'` per slot 149/150 canonical form. Current snapshot remains accurate-as-stated; no back-correction required."
+    }
+  ]
+}
