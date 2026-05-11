@@ -1,0 +1,20 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-148B-1",
+      "severity": "LOW",
+      "summary": "Manifest-out-of-date warning emitted by lake under v4.30.0-rc1: 'git revision of dependency mathlib changed; use lake update mathlib to update it'",
+      "context": "Emitted both during lake exe cache get and lake build. The lake-manifest.json pins mathlib at rev 0c154d67103f74be3a0f2c509f72ccbf5be9f2a7 with inputRev v4.30.0-rc1, but the local mathlib clone in .lake/packages/mathlib/ may be at a different (newer) rev under the same v4.30.0-rc1 tag. Since `lake exe cache get` completed cleanly + `lake build` proceeded with 8263/8265 modules green, the manifest drift is BENIGN at the build level.",
+      "fix_path": "Decide between two options: (A) run `lake update mathlib` to refresh manifest to match local clone rev (RISK: may change pin away from 0c154d67); (B) leave as-is and accept the persistent warning (RECOMMENDED since slot 148.B scope is toolchain bump, not manifest hygiene). If (A) is selected, capture new rev for cross-substrate cite; if (B), document the warning as cosmetic and continue.",
+      "recommended": "B (leave as-is); promote to manifest-hygiene work in slot 148.C or successor"
+    },
+    {
+      "id": "D-148B-2",
+      "severity": "INFO",
+      "summary": "Slot 148.B description predicted '5 Phase C.1-C.3 blockers in WallisFamily.lean per build_errors_iter13.log' but actual surfaced set is 18 distinct error/warning sites clustered into ≥4 root-cause groups",
+      "context": "The '5 blockers per build_errors_iter13.log' phrasing referenced a pre-slot-148-Path-A iteration-13 build state under v4.29.1 toolchain with Asymptotics-blocked import. Under v4.30.0-rc1 + Asymptotics→Defs fix, the build proceeds further and surfaces a larger set of blockers (likely a mix of tactic API drift v4.29.1→v4.30.0-rc1 and pre-existing tactic gaps previously masked by the Asymptotics short-circuit). The 18 sites are NOT a regression — they represent successful progression past the toolchain wall.",
+      "fix_path": "Update successor prompts (slot 148.C / slot 145 substrate-prep) to reference the surfaced 4-group taxonomy (A: 𝓝 8 sites; B: wallisStepFactor 1 site; C: tactic-drift ≥7 sites; D: sorry-uses 2 warnings) instead of the iter-13 '5 blockers' count.",
+      "recommended": "Update slot 145 substrate-prep + slot 148.C downstream to reference current 4-group taxonomy"
+    }
+  ]
+}
