@@ -1,0 +1,43 @@
+{
+  "finds": [
+    {
+      "id": "UF-187-1",
+      "severity": "MEDIUM",
+      "description": "Honest-broker witness refusal pattern: Claude's Round 1 response refused to commit because Phase A empty + explicitly named 'fabricated if I proceed'. This is a positive governance signal (Claude correctly invoked D-RELAY-CHAIN-2 strict mode). Sequence: PROMPT 187 commit-round packet fired -> Round 1 Claude refusal -> CLI default-confirm Phase A fill drafted -> Round 2 Claude clean COMMIT. End-to-end ~70 minutes.",
+      "candidate_memory": true,
+      "candidate_memory_subject": "commit round protocol",
+      "candidate_memory_text": "Commit-round protocol pattern (N=1 from slot 187): operator-anchored Phase A slots must be filled before commit; witness honest-broker-refusal on empty Phase A is a positive governance signal; default-confirm all-NONE fill is the correct stance when no new substrate has been surfaced AND vetting-round picks have been recently ratified. Two-round sequence: Round 1 fire-with-empty-Phase-A triggers refusal; Round 2 paste-Phase-A-fill produces commit. End-to-end ~70 min wallclock per round-pair.",
+      "remediation": "Already partially captured in existing 'commit round protocol' memory; this finding extends with the two-round sequence + wallclock observation"
+    },
+    {
+      "id": "UF-187-2",
+      "severity": "MEDIUM",
+      "description": "Pre-validation accuracy: CLI-drafted EXPECTED CLAUDE PHASE B/C OUTPUT section in 187_phase_a_fill_default_confirm_response.txt matched Claude's actual Round 2 commit verbatim on all 3 picks, all 5 unblock/cancel entries, and all 3 coupling analyses. N=1 verification of pre-validation discipline.",
+      "candidate_memory": true,
+      "candidate_memory_subject": "pre-validation discipline",
+      "candidate_memory_text": "Pre-validation discipline for commit-round Phase B/C: when the agent drafts a Phase A fill, it should ALSO draft the expected Phase B/C output grounded in prior-ratification state. If Claude's actual output diverges from pre-validation, that divergence is a signal worth investigating (either Claude reasoning drift or substrate readback inconsistency). N=1 instance (slot 187): full match on all 3 picks + all 5 unblock/cancel + all 3 couplings.",
+      "remediation": "Promote at N=2+ instances; until then, treat as positive precedent"
+    },
+    {
+      "id": "UF-187-3",
+      "severity": "LOW",
+      "description": "Single-coupled-monitor consolidation (Claude flag #2): FIRE-A2 outcome + v2.3 submission timing should be tracked as ONE monitor, not two. Reflects slot 183 C-183-2 compounding architecture pattern. SQL todo creation: 'fire-a2-v23-submission-timing-coupled-watch' replaces hypothetical 2-todo decomposition.",
+      "candidate_memory": false,
+      "remediation": "Create coupled-watch SQL todo at next opportunity; not blocking"
+    },
+    {
+      "id": "UF-187-4",
+      "severity": "LOW",
+      "description": "Commit-round verdict cited 'slot 183 C-183-2 compounding note' twice. This is the second active reference (after slot 185 verdict) to C-183-2 in a downstream verdict, validating the C-183-2 architecture as durable governance substrate (not just slot 183 amendment text).",
+      "candidate_memory": false,
+      "remediation": "Track for promotion if C-183-2 is referenced in N>=3 downstream verdicts"
+    },
+    {
+      "id": "UF-187-5",
+      "severity": "LOW",
+      "description": "Bibliographic Pre-Verification N/A this fire (commit-round operates on governance choices, not literature claims). Confirms post-031 rule has clear scope (preprint-bound DOI/arXiv identifiers) and does NOT extend to internal governance commit-rounds — useful negative-precedent.",
+      "candidate_memory": false,
+      "remediation": "No promotion needed; documented here for future commit-round absorptions"
+    }
+  ]
+}
