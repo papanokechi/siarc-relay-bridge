@@ -1,0 +1,57 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-198-1",
+      "subject": "Audit-timing inversion principle: pattern-recognition audits should fire on pattern recognition, not on next-instance trigger",
+      "context": "Q-198-4 amendment on A7 cover-letter-differentiation audit timing. Operator's implicit framing was reactive-on-rejection-signal. Verdict reasoning: 'the audit's value is *protecting against* the next rejection, which means firing reactively forfeits the benefit'",
+      "generalization": "Process-improvement audits driven by observed-pattern evidence (e.g. 3-of-9 in-flight items being ExpMath re-routings) derive their value from pre-empting recurrence. Reactive-on-trigger firing is structurally a fire-after-the-failure-it-was-meant-to-prevent, forfeiting the audit-as-protection benefit. Applies broadly to: cover-letter audits, code-review pattern audits, fire-collision postmortems, etc.",
+      "memory_promotion_candidate": true,
+      "candidate_memory_subject": "audit timing discipline",
+      "candidate_memory_fact": "Pattern-recognition audits should fire on pattern recognition, not on next-instance trigger; reactive-on-trigger firing forfeits the audit-as-protection benefit",
+      "severity": "MEDIUM",
+      "timestamp": "2026-05-11_~21:53_JST"
+    },
+    {
+      "id": "UF-198-2",
+      "subject": "Mathlib-upstream-drift accelerating risk + checkpoint discipline",
+      "context": "Q-198-5 RISK_FLAG #3: v4.30.0-rc1 restructure in iter-14 is a data point, not a trend. Verdict recommends checkpoint 2026-06-15 (~7 weeks pre-deadline) rather than the default ~2-week pre-deadline checkpoint",
+      "structural_insight": "For deferred-but-deadlined optional work where the underlying substrate is externally-drifting (Mathlib in this case), the checkpoint cadence should be set by drift-risk decay, not by deadline proximity. ~7 weeks pre-deadline = sufficient time for second-OPT-X2-attempt if first fails due to drift. 2-week buffer is structurally inadequate for ~30-day cache-rebuild + ~7-day verification + ~7-day discharge cycles.",
+      "memory_promotion_candidate": false,
+      "actionable": "Calendar 2026-06-15 Lean-axis L2 checkpoint per AGGREGATE_72H Day-4 EOD slot",
+      "severity": "LOW",
+      "timestamp": "2026-05-11_~21:53_JST"
+    },
+    {
+      "id": "UF-198-3",
+      "subject": "30-day awaiting-verdict threshold: in-review -> stalled-needs-nudge transition",
+      "context": "RISK_FLAG #4: 'at some point (probably ~30 days elapsed on the oldest), the modal outcome shifts from in-review to stalled-needs-nudge'",
+      "actionable_threshold": "Item 5 (Khinchin -> ExpMath, since 18 Apr) currently 23 days; will hit 30-day threshold approximately 2026-05-18. If no verdict by then, may warrant editor-status-check inquiry",
+      "tracking_recommendation": "Add watch-item for Item 5 30-day threshold; standing rule for 9-item in-flight cluster: at 30d elapsed, transition from passive-waiting to active editor-status-check stance",
+      "memory_promotion_candidate": false,
+      "severity": "LOW",
+      "timestamp": "2026-05-11_~21:53_JST"
+    },
+    {
+      "id": "UF-198-4",
+      "subject": "A4 (cascade-132-option-alpha-step3) folded into A1 step 3; standalone-todo dropped",
+      "context": "Q-198-1 verdict: 'A4 is folded into A1 step 3 (not a separate fire). The drop of A4 as a standalone item should be reflected in SQL.'",
+      "action": "Close SQL todo cascade-132-option-alpha-step3 as FOLDED_INTO_S153_STEP_3",
+      "structural_insight": "Substrate-prep slots that are subsets of larger deposit-cascade fires should be folded into the cascade fire at SQL-board level once the cascade is sequenced. Standalone-todo retention here would have duplicated state-tracking.",
+      "memory_promotion_candidate": false,
+      "severity": "INFO",
+      "timestamp": "2026-05-11_~21:53_JST"
+    },
+    {
+      "id": "UF-198-5",
+      "subject": "Parallel-CLI fire collision pattern extends to operator-tier git operations on same repo",
+      "context": "RISK_FLAG #1: 'when Phase 0 191A is firing in CLI, do *not* concurrently run operator-tier git operations on the same repo (slot-148-AB tracked-file commits, slot-155-followup Zenodo edits if they touch git-tracked metadata). Sequence CLI substrate-prep and operator-tier git work serially even though they nominally occupy different bandwidth pools.'",
+      "memory_citation_existing": "parallel-CLI shared-clone gotcha (siarc-relay-bridge commit 4cf7252 UF-138-2)",
+      "extension": "Existing memory captures parallel-CLI/CLI collision via shared-clone single-index. This UF extends to CLI-vs-operator-tier-git collisions which can produce the same single-index contention even when the two channels nominally occupy different bandwidth pools.",
+      "memory_promotion_candidate": true,
+      "candidate_memory_subject": "parallel-CLI shared-clone gotcha",
+      "candidate_memory_fact": "Parallel-CLI shared-clone single-index contention also applies to CLI-vs-operator-tier-git operations on the same repo; sequence serially even across nominally-different bandwidth pools",
+      "severity": "MEDIUM",
+      "timestamp": "2026-05-11_~21:53_JST"
+    }
+  ]
+}

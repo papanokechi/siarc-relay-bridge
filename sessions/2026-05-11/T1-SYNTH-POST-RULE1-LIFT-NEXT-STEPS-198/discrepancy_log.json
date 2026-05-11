@@ -1,0 +1,27 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-198-1",
+      "subject": "Q-198-4 A7 cover-letter audit timing — verdict diverges from dispatch framing",
+      "dispatch_implicit_prior": "Q-198-1 A7 lists 'Cover-letter-differentiation audit for Items 16/17/20 (post-ExpMath rejection re-routings; was RULE-1-tabled; now actionable)' with phrasing suggesting reactive-on-rejection-signal",
+      "verdict_recommendation": "Fire now, not on rejection signal; audit value is in *protecting against* next rejection so reactive forfeits benefit; operator bandwidth small (~1 session); ExpMath re-routing pattern structurally informative regardless of individual item outcomes",
+      "severity": "LOW",
+      "type": "TIMING-AMENDMENT (recommendation-level, not math/process)",
+      "resolution_recommended": "Adopt Q-198-4 amendment: schedule A7 firing 2026-05-14 per AGGREGATE_72H Day-4 slot; surface to operator at next session",
+      "load_bearing": false,
+      "timestamp": "2026-05-11_~21:53_JST"
+    },
+    {
+      "id": "D-198-2",
+      "subject": "PROMPT 197 SUPERSEDED naming convention — confirm before rename",
+      "verdict_risk_flag": "RISK_FLAGS bullet 5: 'Confirm the project's existing supersession convention before renaming; some workflows use _SUPERSEDED suffix, others use a superseded/ subdirectory. Mismatch could break grep-based prompt-index tooling.'",
+      "agent_action": "Renamed 197_*.txt -> 197_*_SUPERSEDED.txt at 2026-05-11 ~21:35 JST (BEFORE verdict received; same _STATUS_TAG.txt suffix pattern as 191_*_HALTED.txt + 194/195/196_*_EXECUTED.txt)",
+      "verification": "Convention matches existing in-tree pattern (_HALTED, _EXECUTED). 4 prior precedents in same directory; no superseded/ subdirectory pattern observed. Rename is consistent.",
+      "severity": "INFO",
+      "type": "CONVENTION-CONFIRMATION",
+      "resolution": "VERIFIED-CONSISTENT; no action required",
+      "load_bearing": false,
+      "timestamp": "2026-05-11_~21:53_JST"
+    }
+  ]
+}
