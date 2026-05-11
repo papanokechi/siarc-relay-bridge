@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "slot": "T2-EXECUTOR-WALLISFAMILY-GROUP-B-FIX-148-D-171",
+  "discrepancies": [
+    {
+      "id": "D-148D-1",
+      "severity": "MEDIUM",
+      "title": "Slot 148.C UF-148C-3 / D-148C-3 'reachability expansion' interpretation OVERTURNED",
+      "description": "Slot 148.C handoff and D-148C-3 interpreted the +2 growth in Group D sorry warnings (2 → 4) as 'reachability expansion' — i.e., pre-existing sorrys becoming visible because the build now reached declarations past L208 that were previously short-circuited by Group A 𝓝 errors. Slot 148.D's controlled experiment disambiguates this: with Group B also fixed (def Ratio now elaborates clean), ALL 4 Group D warnings DISAPPEAR. Cross-check: source-grep for `sorry` keyword in lean/WallisFamily.lean returns only 1 match at L304 inside a docstring string literal (`zero-sorry Lean statement`), NOT an executable sorry. Conclusion: the 148.C Group D warnings were CASCADE-INFLATED implicit sorrys arising from Lean's error-recovery elaboration when `def Ratio` failed due to Group B's L190 Unknown identifier — Lean inserted sorry into Ratio's body, downstream declarations referencing Ratio inherited the sorry tag, producing 'declaration uses sorry' warnings.",
+      "recommendation": "Update M10 V0 narrative in slot 145/146/147 substrate-prep: WallisFamily.lean has ZERO explicit sorrys; the 4 warnings observed in slot 148.C were artifact. M10 V0 sorry-discharge work is therefore either in a different file in the lean/ tree, OR already discharged in prior work and the 145/146/147 substrate-prep narrative is stale. Operator should verify against slot 145/146/147 substrate.",
+      "blocks_progress": false
+    },
+    {
+      "id": "D-148D-2",
+      "severity": "LOW",
+      "title": "manifest-out-of-date warning persists from slot 148.B/C (3rd consecutive build)",
+      "description": "Same warning as slot 148.B (D-148B-1) and 148.C (D-148C-1). Benign per established triage.",
+      "recommendation": "No action. Leave as-is.",
+      "blocks_progress": false
+    },
+    {
+      "id": "D-148D-3",
+      "severity": "INFO",
+      "title": "L282 cascade-from-Group-B hypothesis was 50% correct",
+      "description": "Slot 148.C handoff and UF-148C-5 predicted: 'L282 unsolved-goals cascades from L190 Unknown identifier — fix L190 and L282 will auto-close.' Slot 148.D reveals: L282 PARTIALLY cascades — its FORMER failure mode (couldn't type-check the goal because wallisStepFactor was Unknown) IS resolved, but L282 still fails with a NEW failure mode (the goal is reducible-but-not-rfl, requiring an explicit `unfold wallisStepFactor` or `simp [wallisStepFactor]` step). The structural fix (MOVE) was necessary; it was not sufficient to close L282.",
+      "recommendation": "Slot 148.E should add a single-tactic edit at L282 to unfold wallisStepFactor explicitly. Estimated effort: ~20 min.",
+      "blocks_progress": false
+    }
+  ]
+}

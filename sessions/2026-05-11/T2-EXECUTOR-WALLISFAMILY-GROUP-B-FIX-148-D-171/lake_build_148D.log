@@ -1,0 +1,111 @@
+warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it
+Γ£û [8264/8265] Building WallisFamily (455s)
+trace: .> LEAN_PATH=C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\packages\Cli\.lake\build\lib\lean;C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\packages\batteries\.lake\build\lib\lean;C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\packages\Qq\.lake\build\lib\lean;C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\packages\aesop\.lake\build\lib\lean;C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\packages\proofwidgets\.lake\build\lib\lean;C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\packages\importGraph\.lake\build\lib\lean;C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\packages\LeanSearchClient\.lake\build\lib\lean;C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\packages\plausible\.lake\build\lib\lean;C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\packages\mathlib\.lake\build\lib\lean;C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\build\lib\lean c:\Users\shkub\.elan\toolchains\leanprover--lean4---v4.30.0-rc1\bin\lean.exe C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\WallisFamily.lean -o C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\build\lib\lean\WallisFamily.olean -i C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\build\lib\lean\WallisFamily.ilean -c C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\build\ir\WallisFamily.c --setup C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\lean\.lake\build\ir\WallisFamily.setup.json --json
+error: WallisFamily.lean:122:2: ring failed, ring expressions not equal
+m : ΓäÜ
+u : Γäò ΓåÆ ΓäÜ
+hu : ΓêÇ (n : Γäò), 1 Γëñ n ΓåÆ (Γåæn + 1) * u (n + 1) - cCoeff m n * u n + dCoeff m n * u (n - 1) = 0
+k : Γäò
+hn : 2 Γëñ 2 + k
+hΓéü : Γåæk * u (2 + k) - Γåæk * u (1 + k) * 3 + Γåæk * u k * 2 + u (2 + k) * 2 - u (1 + k) * 7 - m * u k * 2 + u k * 3 = 0
+hΓéé :
+  -(Γåæk * u (2 + k) * 3) + Γåæk * u (1 + k) * 2 + Γåæk * u (3 + k) - u (2 + k) * 10 + u (1 + k) * 5 - u (1 + k) * m * 2 +
+      u (3 + k) * 3 =
+    0
+Γèó -(Γåæk * u (2 + k) * 31) - Γåæk * u (2 + k) * m * 6 + Γåæk * m * u (1 + k) * 2 + Γåæk * m * u k * 2 -
+                                      (Γåæk *
+                                          match 2 + k with
+                                          | 0 => -(m * u 0 * 2) - u 0 * 5
+                                          | n.succ =>
+                                            -(m * u (1 + n) * 2) - Γåæn * u (1 + n) + Γåæn * u n - u (1 + n) * 6 +
+                                              u n * 4) *
+                                        3 +
+                                    (Γåæk *
+                                        match 1 + k with
+                                        | 0 => -(m * u 0 * 2) - u 0 * 5
+                                        | n.succ =>
+                                          -(m * u (1 + n) * 2) - Γåæn * u (1 + n) + Γåæn * u n - u (1 + n) * 6 + u n * 4) *
+                                      2 +
+                                  Γåæk * u (1 + k) * 40 -
+                                Γåæk * u k * 11 -
+                              Γåæk ^ 2 * u (2 + k) * 3 +
+                            Γåæk ^ 2 * u (1 + k) * 5 -
+                          Γåæk ^ 2 * u k * 2 -
+                        u (2 + k) * 70 -
+                      u (2 + k) * m * 20 -
+                    (m *
+                        match 1 + k with
+                        | 0 => -(m * u 0 * 2) - u 0 * 5
+                        | n.succ => -(m * u (1 + n) * 2) - Γåæn * u (1 + n) + Γåæn * u n - u (1 + n) * 6 + u n * 4) *
+                      2 -
+                  m * u (1 + k) * 6 +
+                m * u k * 8 -
+              m ^ 2 * u (1 + k) * 4 -
+            (match 2 + k with
+              | 0 => -(m * u 0 * 2) - u 0 * 5
+              | n.succ => -(m * u (1 + n) * 2) - Γåæn * u (1 + n) + Γåæn * u n - u (1 + n) * 6 + u n * 4) *
+              10 +
+          (match 1 + k with
+            | 0 => -(m * u 0 * 2) - u 0 * 5
+            | n.succ => -(m * u (1 + n) * 2) - Γåæn * u (1 + n) + Γåæn * u n - u (1 + n) * 6 + u n * 4) *
+            3 +
+        u (1 + k) * 68 -
+      u k * 12 =
+    0
+error: WallisFamily.lean:177:52: failed to prove positivity/nonnegativity/nonzeroness
+info: WallisFamily.lean:179:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+error: WallisFamily.lean:171:84: unsolved goals
+case e_a
+k : Γäò
+hn : 0 < k.succ
+h1 : 2 * Γåæk + 1 Γëá 0
+h3 : 2 * Γåæk + 3 Γëá 0
+hq : 4 * (Γåæk + 1) ^ 2 - 1 Γëá 0
+Γèó 4 + Γåæk * 8 + Γåæk ^ 2 * 4 =
+    Γåæk * Γåæk.succ ^ 2 * (-1 + Γåæk.succ ^ 2 * 4)Γü╗┬╣ * 32 + Γåæk ^ 2 * Γåæk.succ ^ 2 * (-1 + Γåæk.succ ^ 2 * 4)Γü╗┬╣ * 16 +
+      Γåæk.succ ^ 2 * (-1 + Γåæk.succ ^ 2 * 4)Γü╗┬╣ * 12
+error: WallisFamily.lean:234:49: failed to prove nonzeroness, but it would be possible to prove nonnegativity if desired
+error: WallisFamily.lean:235:56: failed to prove nonzeroness, but it would be possible to prove nonnegativity if desired
+error: WallisFamily.lean:239:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Γåæ(2 * (2 * m + 1) * m.centralBinom)
+in the target expression
+  4 ^ m * 4 * Γåæm.centralBinom * (2 * Γåæm + 1) = 2 * Γåæ(m + 1).centralBinom * 4 ^ m * (Γåæm + 1)
+
+m : Γäò
+hcb : Γåæ(m + 1) * Γåæ(m + 1).centralBinom = Γåæ(2 * (2 * m + 1) * m.centralBinom)
+hm1 : Γåæ(m + 1) Γëá 0
+h21 : Γåæ(2 * m + 1) Γëá 0
+hcbm : Γåæm.centralBinom Γëá 0
+hcbm1 : Γåæ(m + 1).centralBinom Γëá 0
+Γèó 4 ^ m * 4 * Γåæm.centralBinom * (2 * Γåæm + 1) = 2 * Γåæ(m + 1).centralBinom * 4 ^ m * (Γåæm + 1)
+error: WallisFamily.lean:282:14: unsolved goals
+case succ
+V : Γäò ΓåÆ Γä¥
+h0 : V 0 = reciprocalWallis 0
+hstep : ΓêÇ (m : Γäò), V (m + 1) = V m * (2 * (Γåæm + 1) / (2 * Γåæm + 1))
+m : Γäò
+hm : V m = reciprocalWallis m
+Γèó reciprocalWallis m * (2 * (Γåæm + 1) / (2 * Γåæm + 1)) = reciprocalWallis m * wallisStepFactor m
+info: WallisFamily.lean:314:0: WallisFamily.intertwining_lemma {m : ΓäÜ} {u : Γäò ΓåÆ ΓäÜ} (hu : WallisFamily.Solves m u) (n : Γäò) :
+  2 Γëñ n ΓåÆ
+    (Γåæn + 1) * WallisFamily.Lm WallisFamily.intertwinerA WallisFamily.intertwinerB m u (n + 1) -
+          WallisFamily.cCoeff (m + 1) n * WallisFamily.Lm WallisFamily.intertwinerA WallisFamily.intertwinerB m u n +
+        WallisFamily.dCoeff (m + 1) n *
+          WallisFamily.Lm WallisFamily.intertwinerA WallisFamily.intertwinerB m u (n - 1) =
+      0
+info: WallisFamily.lean:315:0: WallisFamily.ratio_step_m0 {n : Γäò} (hn : 0 < n) :
+  WallisFamily.wallisProductRatio n = WallisFamily.wallisProductRatio (n - 1) * (4 * Γåæn ^ 2 / (4 * Γåæn ^ 2 - 1))
+info: WallisFamily.lean:316:0: WallisFamily.limit_step (m : Γäò)
+  (hlim : Filter.Tendsto (WallisFamily.Ratio m) Filter.atTop (nhds (WallisFamily.reciprocalWallis m))) :
+  Filter.Tendsto (WallisFamily.Ratio (m + 1)) Filter.atTop (nhds (WallisFamily.reciprocalWallis (m + 1)))
+info: WallisFamily.lean:317:0: WallisFamily.theorem1_closed_form (m : Γäò) :
+  Filter.Tendsto (WallisFamily.Ratio m) Filter.atTop (nhds (2 * 4 ^ m / (Real.pi * Γåæm.centralBinom)))
+error: Lean exited with code 1
+Some required targets logged failures:
+- WallisFamily
+error: build failed
