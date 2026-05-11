@@ -1,0 +1,7 @@
+{
+  "slot": "T2-EXECUTOR-SORRY-WARNING-CASCADE-RETROACTIVE-AUDIT-172",
+  "date": "2026-05-11",
+  "pre_audit_bridge_head": "591f3ae310fc4e877ea0e83ff0a657147515fa7b",
+  "discrepancies": [],
+  "note": "Per audit PHASE C.4: discrepancy_log.json populated as D-AUDIT-* MEDIUM only if any PHANTOM-LOAD found (overturning prior slot interpretation). Aggregate audit verdict was 0/4 PHANTOM-LOAD; therefore discrepancy_log.json is empty by design. The original D-148D-1 / D-148C-3 phantom-load detections are properties of slot 148.D / 148.C themselves and are NOT introduced or re-logged by this audit slot (they remain logged at their originating bridge folders 591f3ae and b14ba31 respectively)."
+}
