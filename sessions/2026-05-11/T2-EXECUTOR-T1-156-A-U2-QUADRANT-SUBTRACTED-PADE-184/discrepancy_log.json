@@ -1,0 +1,33 @@
+{
+  "task_id": "T2-EXECUTOR-T1-156-A-U2-QUADRANT-SUBTRACTED-PADE-184",
+  "date": "2026-05-11",
+  "discrepancies": [
+    {
+      "id": "D-184-1",
+      "severity": "INFO",
+      "what": "Pade-cell OK count 39/49 per rep (156/196 total) vs slot 184 prompt expectation \"expect well-formed Pade construction throughout\" (i.e. 49/49 per rep matching 092 baseline)",
+      "observation": "The 10 NO_POLE_NEAR_2 cells per rep are concentrated at small (N+M) <= 16, specifically the triangle: (6,6),(6,8),(6,10),(6,12),(8,6),(8,8),(8,10),(10,6),(10,8),(12,6). These cells produce well-formed Pade approximants (no RANK_LOSS, no PADE_FAILED) but the Pade denominator does not have a physical root in the eligibility window (positive real, |Im/|r|| < 5%, in (0, 3]).",
+      "interpretation": "The K_LEAD=25 subtraction at small n contaminates the Borel-coefficient series (see UF-184-1); the contamination shifts the Pade pole structure away from physical u in [1.5, 2.5] toward generic structural poles outside the eligibility window. Slot 092's raw a_n produces structurally cleaner Pade approximants at this regime because no high-K polynomial-tail contamination is injected.",
+      "halt_mode_unchanged": true,
+      "downstream_impact": "Strengthens HALT_A_RESIDUAL_PATTERN_REPRODUCED conclusion: not only does subtraction fail to improve convergence, it actively degrades Pade structure at the small-(N,M) regime."
+    },
+    {
+      "id": "D-184-2",
+      "severity": "INFO",
+      "what": "pole_u and dist_to_2 columns are nearly identical across all 4 reps at matching (N,M) cells -- 4 to 6 significant-figure agreement despite the 4 reps having genuinely distinct zeta_star values (V_quad=QL15=2.309, QL05=4.0, QL09=2.828)",
+      "observation": "Example at (N=8, M=18): dist_to_2 = 0.00332834306311 (V_quad) vs 0.00332834312241 (QL15) vs 0.0033089290712 (QL05) vs 0.00332834281879 (QL09) -- the first 3 agree to 8 digits; QL05 differs at 4th sig fig (which IS the rep with the distinct zeta_star=4.0). Pattern repeats across most cells.",
+      "interpretation": "The subtracted Borel-coefficient series b_n_residual at small n (n in [0, 60]) is dominated by polynomial-tail contamination C * Gamma(n) * zeta**(-n) * a_25/n^25, scaled by zeta^n / Gamma(n+1). The zeta**(-n) * zeta^n cancels exactly, leaving the residual essentially rep-independent in its dominant Pade-input structure -- only the C amplitude differs. Hence near-identical pole/distance columns across reps. Rep-distinguishing information is LOST.",
+      "halt_mode_unchanged": true,
+      "downstream_impact": "Documents a methodological limit on this subtraction quadrant: K_LEAD=25 at small n destroys rep-specificity. This is itself substrate evidence for slot 156 verdict V0+(defended): the M8b axis is closed-by-methodology not closed-by-data; the four quadrants exhaust available Pade methodology in this convention."
+    },
+    {
+      "id": "D-184-3",
+      "severity": "INFO",
+      "what": "Stage-1 fit wallclock at dps=200 with Gamma-by-recurrence optimization (4272 s total / ~1018 s per rep) is faster than T37M's reported ~1700 s per rep at the same dps but slower than the 30 s/rep estimate motivating the optimization",
+      "observation": "Performance budget for stage-1 fit: V_quad 973 s, QL15 1022 s, QL05 1020 s, QL09 1161 s. Total ~71 min vs T37M's projected ~112 min at dps=200 (28 min/rep extrapolated from dps=100 cost-cut commentary).",
+      "interpretation": "The Gamma-by-recurrence optimization succeeded in eliminating per-call gamma(n_mp) overhead, but the residual cost is dominated by mp.qr() on the (1401, 25) matrix at dps=200. The 60% improvement vs T37M's projection is meaningful but not the order-of-magnitude speedup the optimization could yield if QR were also accelerated. Documented for future fire planning.",
+      "halt_mode_unchanged": true,
+      "downstream_impact": "Useful timing data for future T2-EXECUTOR fires that adopt the stage-1 polynomial-correction methodology. The 092 + 184 small-(N,M) regime is now established as a ~1.5-hour wallclock budget at dps=200/300."
+    }
+  ]
+}

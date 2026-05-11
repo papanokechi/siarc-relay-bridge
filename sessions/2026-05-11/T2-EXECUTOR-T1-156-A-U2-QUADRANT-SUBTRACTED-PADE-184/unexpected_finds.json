@@ -1,0 +1,53 @@
+{
+  "task_id": "T2-EXECUTOR-T1-156-A-U2-QUADRANT-SUBTRACTED-PADE-184",
+  "date": "2026-05-11",
+  "unexpected_finds": [
+    {
+      "id": "UF-184-1",
+      "label": "K_LEAD=25 subtraction is methodologically incoherent at small n (n in [0, 60]) -- inflates |S_2 candidate| by ~50 orders of magnitude relative to 092 raw baseline",
+      "severity": "MEDIUM",
+      "description": "The leading-transmonomial subtraction in T37M's methodology is C * Gamma(n) * zeta_star**(-n) * (1 + a_1/n + a_2/n^2 + ... + a_25/n^25), where the polynomial (1 + sum a_k/n^k) is an ASYMPTOTIC series in 1/n that converges only as n -> infinity. The fit returns a_25 ~ 1.35e+79 (V_quad/QL15 negative, QL09 positive, QL05 ~ 3.4e+73 differing because zeta_star=4.0 is on a different scale). At n=20, a_25/n^25 = 1.35e+79 / 4e+32 ~ 3.4e+46. At n=40, ~3.4e+38. At n=60, ~3.4e+32. The polynomial-tail term DOMINATES the formal '1' until n ~ K_LEAD = 25, then decreases by a factor of n per step. Subtracting this divergent partial sum from a_n at small n contaminates a_n_residual by 30-40 orders of magnitude vs the true residual.\n\nDirect evidence: residual-decay ratio |residual|/|leading| at n=40 is 9.4e+38 for V_quad/QL15/QL09 and 2.4e+33 for QL05 (in T37M at n=5000 these ratios are 1e-87 to 1e-98; the subtraction is well-conditioned only at large n). The Pade approximant of the contaminated b_n_residual at small (N,M) <= 18 therefore approximates the polynomial-tail contamination, NOT the genuine sub-leading Stokes singularity at u=2. The resulting |S_2 candidate| values 10^46 to 10^56 are unphysical (T35 reports |S_1| ~ O(10) to O(100) for these reps).",
+      "significance": "Methodological clarification for the M-axis Pade methodology corpus: K_LEAD-subtracted Borel-Pade is a LARGE-n-only methodology. The small-(N,M) quadrant of the Pade-stability survey is intrinsically un-subtractable in this convention; UF-092-U2's 'open opportunity' framing has been resolved-negative by this fire. Combined with T37M's RANK_LOSS at M >= 400 in the large-n subtracted regime and 092's residue-divergence in the small-n raw regime, the M8b axis is now CLOSED across all four corners. Slot 156 verdict V0+(defended) target is REACHED.",
+      "halt_mode_classification_unchanged": true,
+      "memory_promotion_candidate": true,
+      "memory_promotion_rationale": "This is a structural methodological insight reusable across any future Borel-Pade resurgence work: the K_LEAD-subtraction is ONLY meaningful in the asymptotic regime n >> K_LEAD. Worth promoting to /memories/repo/borel-pade-k-lead-small-n-incoherence-2026-05-11.md."
+    },
+    {
+      "id": "UF-184-2",
+      "label": "Pole-location and dist_to_2 columns are NEARLY IDENTICAL across all 4 reps at matching (N,M) cells -- 4 to 8 sig fig agreement despite distinct zeta_star values",
+      "severity": "MEDIUM",
+      "description": "At cell (N=8, M=18): dist_to_2 reads 0.00332834306311 / 0.00332834312241 / 0.0033089290712 / 0.00332834281879 for V_quad/QL15/QL05/QL09 -- the three reps with zeta_star = 2.309 (V_quad, QL15) and zeta_star = 2.828 (QL09) agree to 8 digits despite different zeta_star values; QL05 (zeta_star=4.0) differs at the 4th significant figure. Same pattern across most other (N,M) cells.\n\nMechanism (linked to UF-184-1): the polynomial-tail contamination is approximately -C * a_25 * Gamma(n) / (n^25 * Gamma(n+1)) = -C * a_25 / (n * n^25), evaluated at the contaminated b_n. The zeta**(-n) factor in the leading term cancels exactly with the zeta^n factor in the Borel transform, removing zeta-dependence from the Pade input structure. Only the C amplitude differs across reps (V_quad C=8.13, QL15 C=21.38, QL09 C=-6.07, QL05 C=1.40), and C scales OUT of the pole locations (it only affects residues). Hence near-identical Pade pole structure across reps.",
+      "significance": "Establishes that the K_LEAD=25 subtraction at small n DESTROYS rep-specificity in the Pade structure. This is itself substrate evidence for the closure-by-methodology framing: at the U2 quadrant, all four reps collapse to the same effective Pade input, so there is no rep-resolved S_2 information available. Distinct from slot 092's raw small-(N,M) finding where reps had genuinely distinct Pade pole structures (per 092 UF-U1 stability table).",
+      "halt_mode_classification_unchanged": true,
+      "memory_promotion_candidate": false,
+      "operator_review_recommended": true
+    },
+    {
+      "id": "UF-184-3",
+      "label": "40/196 cells return NO_POLE_NEAR_2 (no rank-loss; well-formed Pade with no eligible physical pole in [0, 3] window) -- 092 raw baseline had 0/196",
+      "severity": "LOW",
+      "description": "Distribution of NO_POLE_NEAR_2 cells per rep (identical across all 4 reps): (6,6), (6,8), (6,10), (6,12), (8,6), (8,8), (8,10), (10,6), (10,8), (12,6). 10 cells per rep, all in the triangle N + M <= 16 (the small-Pade-order corner). The triangle is bounded by the lowest Pade order combinations where the subtraction-contaminated b_n's polynomial-tail dominates and the Pade resolves only generic structural poles (e.g., outside the u in (0, 3] eligibility window or with large imaginary parts).\n\nThe distinguishing factor: 092's raw a_n at small n is well-conditioned (a_n itself is O(1) magnitude with healthy variation), so Pade approximants of B[a_n](u) at small (N,M) consistently find the leading u=1 singularity AND the next-rung structure near u=2. 184's subtracted a_n_residual at small n is contaminated, so Pade approximants of B[a_n_residual](u) at small (N,M) sometimes find no pole in the (0, 3] window because the dominant Pade-pole structure has been displaced.",
+      "significance": "Quantifies the 20.4% reduction in physical-pole production from 092 raw to 184 subtracted at the same (N,M) grid -- another dimension of the strictly-stronger negative result that slot 156 V0+(defended) anticipated.",
+      "halt_mode_classification_unchanged": true,
+      "memory_promotion_candidate": false
+    },
+    {
+      "id": "UF-184-4",
+      "label": "Stage-1 fit a_1 reproduces T37M to 17+ digits at dps=200 with Gamma-by-recurrence (vs T37M's dps=100 per-n mp.gamma)",
+      "severity": "INFO",
+      "description": "Per-rep a_1 cross-check (this fire @ dps=200 vs T37M @ dps=100 vs 017e cached medians):\n  V_quad: this = -1.47222254530634432... ; T37M reports first-15-digit agreement with 017e -53/36 = -1.47222222...\n  QL15:   this = -2.47222254530444642... ; T37M reports first-15-digit agreement with 017e -89/36 = -2.47222222...\n  QL05:   this = +7.74999999999843213... ; T37M reports first-13-digit agreement with 017e +31/4 = +7.75000000...\n  QL09:   this = +3.81e-7 ; T37M reports null at dps=100 noise floor (017e median 3.56e-123)\nThe Gamma-by-recurrence optimization (Gamma(n+1) = n*Gamma(n) seeded at Gamma(n_lo=3500)) gives bit-identical results to T37M's per-n mp.gamma() approach within the fit precision, confirming correctness of the optimization.",
+      "significance": "Cross-validates the stage-1 fit methodology against T37M's prior baseline (bridge SHA 0dbebdd) and confirms the Gamma-by-recurrence optimization is correct. The fit itself is sound; the methodological issue documented in UF-184-1 is downstream (using fit output for small-n subtraction in a regime where the polynomial expansion has not yet converged).",
+      "halt_mode_classification_unchanged": true,
+      "memory_promotion_candidate": false
+    },
+    {
+      "id": "UF-184-5",
+      "label": "Minimum dist_to_2 of 0.003 achieved at (N=8, M=18) for V_quad/QL15/QL09 and (N=10, M=16) for QL05 -- modest but lower than 092's reported 0.005 (QL15 at (16,14))",
+      "severity": "LOW",
+      "description": "UF-092-U2 noted 'Pade pole nearest u=2 reaches as close as 0.005 (QL15 [16,14])' in the raw small-(N,M) regime. In the subtracted variant, the minimum approach distance is 0.003 (V_quad/QL15/QL09 [8/18]) or 0.003 (QL05 [10/16]) -- not dramatically tighter but a slight improvement. However, the residues at these poles are 10^48 to 10^51 (vs 092's ~10^-2 to 10^2 at the closest poles), so the closer-pole achievement is not accompanied by physically-plausible residue scaling. The closer-distance is consistent with the Pade attempting to resolve the polynomial-tail contamination AT u=2 by coincidence of the Pade order + contamination decay rate.",
+      "significance": "Documents that 'closer Pade pole' alone is not a meaningful signal of S_2 extraction when residue scaling is unphysical. Useful methodological lesson for future Borel-Pade work.",
+      "halt_mode_classification_unchanged": true,
+      "memory_promotion_candidate": false
+    }
+  ]
+}

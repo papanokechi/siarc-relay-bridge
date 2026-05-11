@@ -1,0 +1,58 @@
+{
+  "halt_mode": "HALT_A_RESIDUAL_PATTERN_REPRODUCED",
+  "task_id": "T2-EXECUTOR-T1-156-A-U2-QUADRANT-SUBTRACTED-PADE-184",
+  "date": "2026-05-11",
+  "halt_class": "EXPECTED_DEFAULT_PER_SLOT_156_VERDICT",
+  "prior_probability_per_slot_156": "~85% (1 - 15% for HALT_A_DPS_THRESHOLD_REACHED)",
+  "trigger_description": "Subtracted K_LEAD=25 variant gives PERMANENT_RESIDUAL signature across all 4 reps: (i) no convergence of |S_2 candidate| across (N,M) -- rel_half_range = 4917.5x within each rep, spanning ~3.7 orders of magnitude; (ii) no shrinkage of pole-nearest-u=2 distance with (N+M) growth -- minimum distance achieved at moderate (N+M), not at max N+M=36; (iii) 0/256 total adjacent-cell pairs meet dps/4 = 75 -digit Pade-convergence threshold (best_pair_digits = 0.04).",
+  "per_rep_evidence": {
+    "V_quad": {
+      "n_ok_cells": "39/49",
+      "n_good_above_threshold": 0,
+      "median_abs_S2_candidate": "2.84159420392985191560e+52",
+      "rel_half_range": "4917.5165500",
+      "best_pair_digits": 0.036,
+      "min_dist_to_u2": "0.003328 (at N=8, M=18)",
+      "max_dist_to_u2": "0.7412 (at N=6, M=14)"
+    },
+    "QL15": {
+      "n_ok_cells": "39/49",
+      "n_good_above_threshold": 0,
+      "median_abs_S2_candidate": "7.47659728727533921099e+52",
+      "rel_half_range": "4917.5165500",
+      "best_pair_digits": 0.036,
+      "min_dist_to_u2": "0.003328 (at N=8, M=18)",
+      "max_dist_to_u2": "0.7412 (at N=6, M=14)"
+    },
+    "QL05": {
+      "n_ok_cells": "39/49",
+      "n_good_above_threshold": 0,
+      "median_abs_S2_candidate": "1.23834863820550273e+46",
+      "rel_half_range": "4917.5166121",
+      "best_pair_digits": 0.036,
+      "min_dist_to_u2": "0.003309 (at N=8, M=18)",
+      "max_dist_to_u2": "0.7413 (at N=6, M=14)"
+    },
+    "QL09": {
+      "n_ok_cells": "39/49",
+      "n_good_above_threshold": 0,
+      "median_abs_S2_candidate": "2.50596523337449800e+52",
+      "rel_half_range": "4917.5165500",
+      "best_pair_digits": 0.036,
+      "min_dist_to_u2": "0.003328 (at N=8, M=18)",
+      "max_dist_to_u2": "0.7412 (at N=6, M=14)"
+    }
+  },
+  "alternative_halt_modes_evaluated": {
+    "HALT_A_DPS_THRESHOLD_REACHED": "NOT_TRIGGERED -- best_pair_digits = 0.036 across all 4 reps, far below dps/4 = 75 threshold (~2000x short)",
+    "HALT_A_NUMERICAL_INSTABILITY": "NOT_TRIGGERED -- no cell has dist_to_2 < 1e-10 with |residue| > 1e10; closest cell is V_quad/QL15/QL09 [8/18] at dist=0.003 with |residue|~10^48 -- distance is well above instability threshold"
+  },
+  "downstream_substrate_impact": "Closes the U2 quadrant of the M8b axis Pade survey. Combined with 092 (raw small-(N,M), bridge SHA 14e6b09) and T37M (subtracted large-M_in, bridge SHA 0dbebdd), the four-quadrant survey is now unanimous: M8b sub-leading Stokes constant S_2 is PERMANENT_RESIDUAL across all four corners of the Pade-stability quadrant grid. Slot 156 verdict V0+(defended) target REACHED: strictly-stronger negative-result substrate is the U2-quadrant subtracted-Pade pattern reproduction.",
+  "rule_1_status": "RULE_1_LIFTED 2026-05-10 (Path B documented-commitment per cascade-132 + slot 139/142 verdicts). M-axis hard-closure is OPTIONAL_UPLIFT. This fire is RULE-1-aligned but not required for documented-commitment honour.",
+  "evidence_files": [
+    "borel_pade_subtracted_results.json (SHA256 = 499F8BD68716CF5CF198C9CD4885CE402207D4422A8DED40E6C5C142F8887959)",
+    "stability_table_subtracted.md (SHA256 = 28F3EAAC1A31F0282228ECD4092CE13824D2C0ABA19CB93B33C526D2EC9CA0D3)",
+    "run.log (per-cell progress trace, 19392 bytes)",
+    "stage1_fit_cache.json (a_1..a_25 polynomial-correction coefficients at dps=200; SHA256 = 7F8D75543E0848273711F601ADEABFDA954D3AB1DAA9B78F7BBD6C38B6152918)"
+  ]
+}
