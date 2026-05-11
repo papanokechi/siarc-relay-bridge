@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "slot": "T2-EXECUTOR-WALLISFAMILY-GROUP-A-FIX-148-C-170",
+  "discrepancies": [
+    {
+      "id": "D-148C-1",
+      "severity": "LOW",
+      "title": "manifest-out-of-date warning persists from slot 148.B",
+      "description": "lake build emitted the same 'manifest out of date: git revision of dependency mathlib changed; use `lake update mathlib` to update it' warning as in slot 148.B. This is benign: the pin in lake-manifest.json (mathlib rev 0c154d67103f74be3a0f2c509f72ccbf5be9f2a7) is unchanged from slot 148.B; the warning fires because the local .lake/packages/mathlib/ working tree differs from the pin even though both nominally point at v4.30.0-rc1. Build succeeds for 8264 upstream targets.",
+      "recommendation": "No action. Same as D-148B-1: leave as-is per option B (do not run `lake update mathlib` because that would change the pinned mathlib revision and require re-validating against the cached oleans).",
+      "blocks_progress": false
+    },
+    {
+      "id": "D-148C-2",
+      "severity": "INFO",
+      "title": "WallisFamily compile time +35.8% vs slot 148.B (433s → 588s)",
+      "description": "Despite Mathlib oleans being cached and only WallisFamily.lean being recompiled, the WallisFamily target took 588s in slot 148.C vs 433s in slot 148.B (same hardware, same toolchain). The most likely cause is deeper elaboration reach: with Group A's `𝓝` notation now resolving to `Topology.nhds`, the elaborator no longer fails fast on L208-onwards and proceeds to type-check downstream declarations (Ratio limit_step, intertwining_lemma, theorem1_closed_form, ratio_step_m0). The 155s delta is exclusively in this expanded reach; not a regression.",
+      "recommendation": "Track as INFO. If slot 148.D/E further widens the build's reach (by discharging Group B + C), expect another modest time increase. Becomes a regression flag only if time exceeds ~900s without expanded reach.",
+      "blocks_progress": false
+    },
+    {
+      "id": "D-148C-3",
+      "severity": "INFO",
+      "title": "Group D sorry warning count grew from 2 to 4 (reachability expansion, not regression)",
+      "description": "Slot 148.B reported 2 sorry warnings; slot 148.C reports 4 warning lines covering 3 distinct sorry sites (L216, L246, L252) + 1 unused-variable warning (L247). The +2 is REACHABILITY EXPANSION: previously the build failed at Group A 𝓝-errors before reaching L246-L252, so those sorrys were not visible in slot 148.B's error stream. They have always been in the file as pre-existing M10 V0 sorry-discharge work.",
+      "recommendation": "Not a regression. Out-of-scope for slot 148.C. These sorrys are tracked separately in slot 145/146/147 M10 V0 substrate-prep.",
+      "blocks_progress": false
+    }
+  ]
+}

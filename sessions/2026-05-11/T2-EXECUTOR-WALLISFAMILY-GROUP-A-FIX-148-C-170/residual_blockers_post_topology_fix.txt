@@ -1,0 +1,158 @@
+# RESIDUAL BLOCKERS — WallisFamily.lean post slot 148.C Group A fix
+#
+# Slot:           T2-EXECUTOR-WALLISFAMILY-GROUP-A-FIX-148-C-170
+# Build date:     2026-05-11 ~12:13 JST
+# Predecessor:    slot 148.B (bridge 6ee475b) — 18 sites in 4 groups (A:8 B:1 C:7+ D:2)
+# Edit applied:   single line `open scoped Topology` inserted at lean/WallisFamily.lean:10
+# Lean:           4.30.0-rc1 (commit 714601baf118066cbf3f282361339c6d06665b2a)
+# Build outcome:  WallisFamily target FAIL (errors=8 / warnings=4) — UPSTREAM clean
+# WallisFamily compile time: 588s (vs 433s in slot 148.B; +35.8% — see UF-148C-3)
+#
+# Pre-148.C → Post-148.C deltas:
+#   Group A (𝓝 unknown):  8 → 0    [DISCHARGED — 100% of Group A eliminated]
+#   Group B (wallisStepFactor missing): 1 → 1  [unchanged]
+#   Group C (tactic-drift): 7+ → 6 distinct sites (+ L282 cascades from Group B)
+#   Group D (sorry / unused warnings): 2 → 4  [+2 — additional sorrys now reachable
+#                                                downstream of the now-clean Topology
+#                                                lemmas; pre-existing M10 V0 work]
+#
+# Net residual error sites = 8 (down from previous 11 hard errors before Topology fix)
+# Build still exits with code 1; M10 V0 path remains blocked, but blockers narrowed.
+
+# =====================================================================
+# GROUP A — `𝓝` notation (filter neighborhood) — RESOLVED (0 sites)
+# =====================================================================
+#
+# Pre-148.C: 8 sites in slot-148.B lake build log at lines 208, 209, 213, 246,
+# 247, 250, 261, 308 emitted `Function expected at 𝓝 ...`.
+#
+# Slot 148.C fix:
+#   namespace WallisFamily
+#
+#   open Polynomial
+#   open scoped Topology     <-- this single line
+#
+# Lake build 148.C output: ZERO `Function expected at 𝓝` errors.
+# Cross-check: lines L314-L317 info banners report
+#   `Filter.Tendsto (...) Filter.atTop (nhds (...))`
+# confirming 𝓝 now resolves to `Topology.nhds` from `open scoped Topology`
+# and the type elaboration succeeds.
+#
+# Recommendation: this fix lands as part of slot 148.B+C consolidation when
+# operator commits lean/WallisFamily.lean changes to wallis-pcf-lean4 repo.
+
+# =====================================================================
+# GROUP B — Unknown identifier `wallisStepFactor` — 1 site (UNCHANGED)
+# =====================================================================
+#
+# L190:22  error: Unknown identifier `wallisStepFactor`
+# L282:14  error: unsolved goals (case succ; goal references wallisStepFactor)
+#          → L282 cascades from L190 — fix L190, L282 may auto-resolve.
+#
+# Diagnosis: a definition `wallisStepFactor` is referenced at L190 (and used
+# in a goal at L282) but is not defined anywhere in WallisFamily.lean or any
+# imported module. Two candidates:
+#   (i)   the definition was lost / stripped during prior import refactor
+#   (ii)  the definition lives in a parallel companion file not yet imported
+#
+# Operator-tier next step (slot 148.D or operator):
+#   - grep entire wallis-pcf-lean4 repo + bridge cascade-145/146/147 substrate
+#     for the string `wallisStepFactor` to determine origin.
+#   - If lost: re-introduce a `def wallisStepFactor (m : ℕ) : ℝ := ...` definition
+#     before L190 that, when substituted into L282 goal RHS, makes the
+#     `reciprocalWallis m * wallisStepFactor m = reciprocalWallis m * (2 * (m+1) / (2*m+1))`
+#     reduction hold (current L282 goal exposes this; candidate:
+#       def wallisStepFactor (m : ℕ) : ℝ := 2 * (m + 1) / (2 * m + 1)).
+
+# =====================================================================
+# GROUP C — Tactic-drift (Mathlib v4.29.1 → v4.30.0-rc1 API changes) — 6 sites
+# =====================================================================
+#
+# L122:2   error: ring failed, ring expressions not equal
+#          Long polynomial identity in hypotheses h₁, h₂ over ℚ with match
+#          terms on `2 + k`. Likely needs explicit case split on k before ring,
+#          or `ring_nf` instead of `ring`, or restructured hypothesis form.
+#
+# L171:84  error: unsolved goals (case e_a)
+#          Goal: 4 + ↑k*8 + ↑k^2*4 = ↑k * ↑k.succ^2 * (-1 + ↑k.succ^2*4)⁻¹ * 32
+#                                  + ↑k^2 * ↑k.succ^2 * (-1 + ↑k.succ^2*4)⁻¹ * 16
+#                                  + ↑k.succ^2 * (-1 + ↑k.succ^2*4)⁻¹ * 12
+#          Multiplicative inverse with hq : 4*(↑k+1)^2 - 1 ≠ 0 hypothesis available.
+#          Needs `field_simp [hq]` then `ring`, or explicit manipulation.
+#
+# L177:52  error: failed to prove positivity/nonnegativity/nonzeroness
+#          `positivity` extension API may have changed; manual `Nat.succ_ne_zero`
+#          or `Nat.cast_pos.mpr (Nat.succ_pos _)` pattern likely needed.
+#
+# L179:2   info: Try this: [apply] ring_nf
+#          Lean v4.30.0-rc1 `ring`'s suggestion infrastructure offers
+#          ring_nf as a fix candidate. Adopt if remaining goal is normal-form-OK.
+#
+# L234:49  error: failed to prove nonzeroness, but possible to prove nonnegativity
+# L235:56  error: failed to prove nonzeroness, but possible to prove nonnegativity
+#          Same pattern at L234 + L235 — likely a `simp` lemma was renamed
+#          such that the nonneg-extraction path is now preferred. Manual
+#          `ne_of_gt` chain or explicit `pow_ne_zero` usage may be needed.
+#
+# L239:6   error: rewrite tactic failed: pattern `↑(2 * (2 * m + 1) * m.centralBinom)`
+#          not found in target `4^m * 4 * ↑m.centralBinom * (2 * ↑m + 1) = ...`.
+#          The hypothesis `hcb` has the pattern as a Nat.cast image but the
+#          target has the unfolded form. `push_cast at hcb` or
+#          `rw [Nat.cast_mul, Nat.cast_mul, Nat.cast_ofNat] at hcb` to align.
+
+# =====================================================================
+# GROUP D — Sorry / unused warnings — 4 sites (PRE-EXISTING M10 V0 WORK)
+# =====================================================================
+#
+# L216:9   warning: declaration uses `sorry`   (reported 2× / dedup 1 site)
+# L246:6   warning: declaration uses `sorry`
+# L252:11  warning: declaration uses `sorry`   (reported 2× / dedup 1 site)
+# L247:5   warning: unused variable `hlim`
+#
+# These are pre-existing M10 V0 sorry-discharge work-stream items.
+# OUT-OF-SCOPE for slot 148.C; carried forward.
+# Net distinct sorry sites: 3 (L216, L246, L252). Plus 1 unused var (L247).
+# +2 net from 148.B baseline because Group A discharge now permits the build
+# to reach declarations further down the file, exposing previously-shadowed
+# sorrys.
+
+# =====================================================================
+# RECOMMENDED ATTACK ORDER (slot 148.D and beyond)
+# =====================================================================
+#
+# 1. Slot 148.D — Resolve Group B (single missing definition).
+#    Estimated effort: 5-30 min. Single grep + 1-3 line definition insert.
+#    Likely simultaneously resolves L282 cascade.
+#    After fix: 5 hard errors remain (all Group C).
+#
+# 2. Slot 148.E — Resolve Group C tactic-drift, prioritized:
+#    (a) L122 ring        — structural; may unblock L171 via case split
+#    (b) L177 positivity  — likely simplest (single hypothesis tweak)
+#    (c) L234/L235 nonzeroness pair — same root cause, fix together
+#    (d) L171 unsolved    — depends on field_simp + ring strategy
+#    (e) L239 rewrite     — needs push_cast alignment
+#    Estimated effort per: 15-60 min.
+#
+# 3. Slot 148.F (or M10 V0 stream) — Discharge Group D sorrys.
+#    L216 / L246 / L252 are existing M10 V0 work and tracked separately
+#    in slot 145/146/147 substrate-prep.
+
+# =====================================================================
+# CASCADE-HYPOTHESIS RESULT
+# =====================================================================
+#
+# Slot 148.B handoff posed: "Are Groups B/C/D root-independent of Group A,
+# OR cascade from 𝓝 autoImplicit phantom-variable propagation?"
+#
+# Slot 148.C answer: ROOT-INDEPENDENT (with one micro-exception).
+#   - 8 Group A sites cleared by Topology fix.
+#   - Group B (L190 wallisStepFactor) unchanged.
+#   - Group C count went 7+ → 6; this is NOT cascade discharge but reflects
+#     a slight reclassification (L282 was previously in Group C now reattributed
+#     to Group B cascade). The 6 remaining C sites are independent of 𝓝.
+#   - Group D went 2 → 4; this is REACHABILITY EXPANSION (the build now
+#     reaches more declarations), not cascade.
+#
+# Conclusion: Group A was a notation-only obstacle. Groups B + C represent
+# genuine Mathlib v4.29.1 → v4.30.0-rc1 API drift requiring per-site
+# attention. Group D is orthogonal (pre-existing M10 V0 work).

@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "slot": "T2-EXECUTOR-WALLISFAMILY-GROUP-A-FIX-148-C-170",
+  "unexpected_finds": [
+    {
+      "id": "UF-148C-1",
+      "severity": "LOW",
+      "title": "Group A cascade-hypothesis FALSIFIED: B/C/D root-independent of 𝓝 notation",
+      "description": "Slot 148.B handoff explicitly posed the open question: 'Are Groups B/C/D root-independent of Group A, OR cascade from 𝓝 autoImplicit phantom-variable propagation?' Slot 148.C answer: ROOT-INDEPENDENT. Group A (8 sites) discharged completely; Group B (L190 wallisStepFactor) unchanged; Group C went 7+ → 6 distinct (one prior C site was reattributed to B-cascade L282); Group D went 2 → 4 due to REACHABILITY EXPANSION, not cascade. The 𝓝 notation issue was a notation-only obstacle, not a structural sentinel for downstream problems.",
+      "recommendation": "Update slot 145/146/147 substrate-prep references to reflect the 4-group taxonomy is now: A-DISCHARGED + B-pending + C-pending(6 sites) + D-orthogonal. Plan slot 148.D as a focused Group B fix (single missing definition; small wallclock; could unblock L282 cascade simultaneously).",
+      "promote_to_memory_candidate": false
+    },
+    {
+      "id": "UF-148C-2",
+      "severity": "LOW",
+      "title": "1-line edit pattern: `open scoped Topology` is the canonical Mathlib v4.30.0-rc1 import-and-open pattern for filter neighborhood notation",
+      "description": "Slot 148.B UF-148B-2 hypothesized that adding `open scoped Topology` near the top of WallisFamily.lean would resolve the 8 𝓝 sites. Slot 148.C confirmed this with a single line inserted at L10 (after `open Polynomial`). Mathlib's convention is that `𝓝` is defined in `Mathlib.Topology.Order` under `scoped` namespace `Topology` — `open scoped` makes only the notation visible without polluting the rest of the namespace.",
+      "recommendation": "PROMOTE to memory: when Mathlib code emits 'Function expected at 𝓝' under Lean 4.30.0-rc1+, add `open scoped Topology` near top of file. Same pattern applies to other `scoped` notations in Mathlib v4.30.0-rc1+ (e.g., `open scoped BigOperators`, `open scoped Classical`, `open scoped Real` for π and Real.exp).",
+      "promote_to_memory_candidate": true
+    },
+    {
+      "id": "UF-148C-3",
+      "severity": "INFO",
+      "title": "4th consecutive same-session bridge fire by claude-opus-4.7-xhigh CLI agent (slot 138 → 155 → 148.B → 148.C)",
+      "description": "Single CLI session has now fired slots 138 (fleet-bootstrap; via parallel CLI), 155 (PCF-2 v1.4 polish-pass), 148.A (WallisFamily L3 import), 148.B (Lean toolchain bump v4.29.1 → v4.30.0-rc1), and 148.C (Topology fix). Cumulative bridge SHAs: 4cf7252 (138 parallel), 8a131bd (155), 6ee475b (148.B). Operator pattern: post-148.B 'help suggest next prompt' → operator chose 148-C from agent recommendation. Same-session rhythm holding for ~3 days.",
+      "recommendation": "Track for session-fatigue / context-window pressure. Currently context-window is comfortable. Continue.",
+      "promote_to_memory_candidate": false
+    },
+    {
+      "id": "UF-148C-4",
+      "severity": "INFO",
+      "title": "lean/ tree changes pending operator commit grew from 2 to 3 (toolchain bump + 2 WallisFamily edits)",
+      "description": "Per SIARC Phase C.3 gate discipline, lean/ tree commits are operator-tier. Pending changes accumulated across slot 148.A + 148.B + 148.C: (i) lean/lean-toolchain: leanprover/lean4:stable → leanprover/lean4:v4.30.0-rc1 (slot 148.B); (ii) lean/WallisFamily.lean L3: Asymptotics.Asymptotics → Asymptotics.Defs (slot 148.A); (iii) lean/WallisFamily.lean L10: insertion of `open scoped Topology` (slot 148.C). All three are independently verified to compile cleanly upstream-of-WallisFamily-internal-errors. Operator may consolidate into one commit or split.",
+      "recommendation": "Suggest consolidated commit since all three are part of the 'lean toolchain alignment' work-unit and have no individual semantic standalone value.",
+      "promote_to_memory_candidate": false
+    },
+    {
+      "id": "UF-148C-5",
+      "severity": "LOW",
+      "title": "L282 unsolved-goals error explicitly references wallisStepFactor — provides definition signature hint",
+      "description": "L282 error message reveals the goal: `reciprocalWallis m * (2 * (↑m + 1) / (2 * ↑m + 1)) = reciprocalWallis m * wallisStepFactor m`. This goal would close trivially via `congr 1; ...` if `wallisStepFactor m` reduces to `2 * (↑m + 1) / (2 * ↑m + 1)`. Therefore the missing definition is almost certainly `def wallisStepFactor (m : ℕ) : ℝ := 2 * (m + 1) / (2 * m + 1)` or equivalent. Slot 148.D fix candidate: insert this definition before L190.",
+      "recommendation": "Use this signature hint to draft slot 148.D minimal-fix attempt. If correct, single 1-3-line def insertion resolves both Group B sites (L190 + L282 cascade).",
+      "promote_to_memory_candidate": false
+    }
+  ]
+}

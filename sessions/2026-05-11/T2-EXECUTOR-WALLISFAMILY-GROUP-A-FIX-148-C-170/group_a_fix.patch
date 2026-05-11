@@ -1,0 +1,19 @@
+diff --git a/lean/WallisFamily.lean b/lean/WallisFamily.lean
+index 371aa8c..0fa53f8 100644
+--- a/lean/WallisFamily.lean
++++ b/lean/WallisFamily.lean
+@@ -1,12 +1,13 @@
+ import Mathlib
+ import Mathlib.Analysis.Real.Pi.Wallis
+-import Mathlib.Analysis.Asymptotics.Asymptotics
++import Mathlib.Analysis.Asymptotics.Defs
+ 
+ noncomputable section
+ 
+ namespace WallisFamily
+ 
+ open Polynomial
++open scoped Topology
+ 
+ /-- Partial numerator polynomial `a_m(X) = -2 X^2 + (2m+1) X`. -/
+ def aPoly (m : ΓäÜ) : Polynomial ΓäÜ :=
