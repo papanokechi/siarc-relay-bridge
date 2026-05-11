@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "halt_id": "HALT_PHASE_0_INCOMPLETE",
+  "halt_class": "procedural",
+  "halt_severity": "BLOCKING_FOR_FIRE",
+  "halt_severity_for_cascade": "RECOVERABLE_VIA_PHASE_0_FIRE",
+  "triggered_at": "2026-05-11T21:00:00+09:00",
+  "triggered_by": "Q-191-0 gate (in-prompt halt protocol)",
+  "witness": "Claude (claude.ai web; Opus-class)",
+  "fire_id": "PROMPT 191 / FIRE-A2' / T1-SYNTH-READING-LIST-DIGEST",
+  "fire_load_bearing": true,
+  "fire_band_intended": "MEDIUM",
+  "fire_band_actual": "N/A",
+  "content_claim_produced": false,
+  "cascade_corrupted": false,
+  "root_cause": {
+    "category": "placeholder substitution skipped",
+    "specific": "PROMPT 191 line 123 contains literal token {PHASE_0_SHA}; not substituted to a real bridge SHA before paste dispatch to witness; Phase 0 substrate-prep (T2-EXECUTOR-PRE-FIRE-A2-PRIME-SUBSTRATE-PREP-191A) was never fired",
+    "responsible_actor": "CLI agent (this session)",
+    "discipline_violated": "Q-191-5 spirit (would-be hardening rule: grep EOF block for {...} placeholders before paste-ready marker)"
+  },
+  "what_was_missing_per_witness": [
+    "Bridge SHA for T2-EXECUTOR-PRE-FIRE-A2-PRIME-SUBSTRATE-PREP-191A/",
+    "Confirmation Phase 0 P0.1 returned 5/5 PASS (Amendment-7 readiness)",
+    "Confirmation Phase 0 P0.2 staleness audit returned no HF2/HF3-equivalent finding",
+    "R5 arXiv ID resolution (was TBD-flagged at draft time)"
+  ],
+  "remediation_path": [
+    "Step 1: CLI fires Phase 0 substrate-prep at T2-EXECUTOR-PRE-FIRE-A2-PRIME-SUBSTRATE-PREP-191A per PROMPT 191 Phase 0 P0.1-P0.5 spec",
+    "Step 2: Phase 0 lands; CLI records bridge SHA",
+    "Step 3: CLI substitutes real SHA into PROMPT 191 line 123 and any forward-ref locations",
+    "Step 4: CLI runs Q-191-5 hardening self-check (grep for {...} placeholders); reject if any remain",
+    "Step 5: File renamed to v2; operator dispatches re-launched fire"
+  ],
+  "dual_witness_escalation_required": false,
+  "dual_witness_rationale": "procedural halt; not a content-judgment disagreement; no second-witness consultation needed for re-launch",
+  "memory_promotion_status": "CODIFIED — see store_memory call this absorption; subject=prompt drafting discipline; refers to Q-191-5 spirit Option (b) grep-self-check"
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "unexpected_finds": [
+    {
+      "id": "UF-191-1",
+      "severity": "HIGH",
+      "title": "Q-191-5 hardening — pre-fire grep self-check for unresolved {...} placeholders — should become SIARC drafting discipline rule",
+      "detail": "Witness explicitly flagged this as Q-191-5 spirit observation: 'add a Phase 0 P0.6 self-check that greps the EOF block for unresolved {...} placeholders and refuses to print if any remain. Option (b) is cheaper and catches a wider class of substitution failures.' The pattern generalizes: any pre-paste self-check on a relay prompt that runs `grep -E '\\{[A-Z_]+\\}'` over the EOF block and refuses to mark paste-ready if any matches remain. Catches more than just SHA substitution: catches all hand-substitution placeholders (e.g. {TBD}, {RESOLVE_BEFORE_FIRE}, {NN}, {INSERT_X_HERE}). Cheaper than the alternative (auto-emission of EOF blocks from Phase 0 fire output) because it doesn't require Phase 0 to know about every downstream prompt that consumes it.",
+      "memory_promotion_candidate": "YES",
+      "memory_text_proposed": "Before any SIARC relay prompt is marked paste-ready, the drafter must grep the EOF block for unresolved {...} placeholders (e.g. {PHASE_0_SHA}, {TBD}, {NN}) and refuse the paste-ready marker if any matches remain. Pre-fire syntactic self-check; Q-191-5 hardening per slot 191 halt 2026-05-11.",
+      "implementation_hint": "PowerShell one-liner: `Select-String -Path <prompt.txt> -Pattern '\\{[A-Z_]+\\}' -SimpleMatch:$false` — if returns any matches, fail the paste-ready check. Or shell: `grep -Eq '\\{[A-Z_]+\\}' <prompt.txt> && exit 1 || exit 0`."
+    },
+    {
+      "id": "UF-191-2",
+      "severity": "MEDIUM",
+      "title": "PROMPT 191 conflated CLI-driveable Phase 0 with paste-to-Synth FIRE-A2' under a single SQL todo + single file",
+      "detail": "fire-a2-prime-reading-list-digest todo combined two-tier work (CLI fires Phase 0 + Operator pastes FIRE-A2'). This conflation contributed to the halt because the 'todo is in progress' state was ambiguous: was the prompt drafted? Phase 0 fired? Both? Cleaner pattern: separate SQL todos per fire-tier (one for CLI-driveable Phase 0, one for paste-to-Synth FIRE-A2'), with the latter explicitly depending on the former.",
+      "memory_promotion_candidate": "NO_LOW_PRIORITY",
+      "recommended_action": "SQL split applied this absorption (see D-191-2)."
+    },
+    {
+      "id": "UF-191-3",
+      "severity": "INFO",
+      "title": "Halt absorption was clean and fast (~2 min); discipline framework worked as designed",
+      "detail": "From operator paste-of-verdict to CLI bridge deposit + handoff + memory store + SQL update + commit ready: ~2 min wallclock. Q-191-0 gate fired (in-prompt halt protocol). Claude defaulted to halt rather than guess. CLI absorbed with full audit trail. No content claim was made, no cascade was corrupted. The 5-min total from PROMPT 191 dispatch → halt → absorption-complete demonstrates the post-031 + Amendment-7 discipline working as intended.",
+      "memory_promotion_candidate": "NO"
+    },
+    {
+      "id": "UF-191-4",
+      "severity": "LOW",
+      "title": "Witness offered conditional fallback (abstract-only / secondary-source-only digest at LOW band) but recommended against",
+      "detail": "Witness explicitly offered: 'If you want me to proceed anyway on the substrate I do have access to ... I will document the read as abstract-only / secondary-source-only in the read_depth_evidence field and band the entire digest at LOW.' Did not exercise this option. Re-launching via the CLI loop is the correct path (preserves FIRE-A2' scope rather than degrading it).",
+      "memory_promotion_candidate": "NO"
+    }
+  ]
+}

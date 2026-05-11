@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "discrepancies": [
+    {
+      "id": "D-194-1",
+      "severity": "INFO",
+      "title": "Synth verdict revises Operator's slot 148.E default OPT_X1 RECOMMENDED to OPT_X2",
+      "detail": "Slot 148.E handoff at bridge 508d81c surfaced OPT_X1 (privileged retry in place) as RECOMMENDED; slot 148.E unexpected_finds.json UF-148E-1 also implicitly anchored on OPT_X1 mitigation chain. PROMPT 194 verdict Q-194-1 explicitly recommends OPT_X2 (relocate cache to non-OneDrive C:\\lean-cache\\) over OPT_X1 on the substantive ground that OPT_X1 is per-update-recurring whereas OPT_X2 is one-time hardening. This is a recommendation revision rather than a finding contradiction; both options remain viable per the verdict.",
+      "resolution": "Update op-x-cache-repair-lean-axis-unblock todo description to reflect OPT_X2 as RECOMMENDED with OPT_X1 demoted to ladder step 1 (per Q-194-2 fallback ladder)."
+    },
+    {
+      "id": "D-194-2",
+      "severity": "MEDIUM",
+      "title": "Synth caveat: no independent visibility into time-bound M10 closure clauses",
+      "detail": "Q-194-4 verdict caveat (verbatim): 'I'm reasoning from the substrate as stated and don't have independent visibility into whether any cascade-132 obligation has a *time-bound* M10 closure clause that I'm not seeing. If such a clause exists, that overrides this verdict and OPT_X4 becomes NOT_ACCEPTABLE.' CLI/Operator must verify no time-bound M10 closure clause exists in cascade-132 PATH_B chain (umbrella v2.2 / PCF-2 v1.4 / picture-chain v1.20+) before committing to OPT_X4 fallthrough.",
+      "resolution": "Operator/human verification task before any OPT_X4 selection: grep cascade-132 PATH_B deliverables (bridges 887981b / 45e236c / b9aa881) for time-bound language on M10 closure. If found, OPT_X4 NOT_ACCEPTABLE and must escalate to dual-witness."
+    }
+  ]
+}

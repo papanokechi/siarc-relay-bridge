@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "unexpected_finds": [
+    {
+      "id": "UF-195-1",
+      "severity": "MEDIUM",
+      "title": "Pre-commit-hook automation idea forecloses D-143-1 recurrence",
+      "detail": "Synth follow-up note 1 (non-binding): a short shell pre-commit hook combining `grep -c '\\bsorry\\b' --include='*.lean'` + `lake env lean --run` + `#print axioms` can auto-generate the `(sorries=N, axioms=M)` tuple, eliminating the human-counting failure mode that produced D-143-1 in the first place. Synth flags as non-binding but operator may want to add this as a small infra task post-OPT_X2-cache-repair.",
+      "memory_promotion_candidate": "NO",
+      "recommended_action": "Optional operator-tier task; add to wallis-pcf-lean4 .git/hooks/pre-commit or as a scripts/ entry. Not a SQL todo unless operator requests."
+    },
+    {
+      "id": "UF-195-2",
+      "severity": "MEDIUM",
+      "title": "Cauchy-behavior invariant for AEAL audit trails across consecutive slots",
+      "detail": "Q-195-1 substantiation invokes a 'Cauchy behavior' invariant for AEAL audit trails across consecutive slots: sorry-count reports must be monotone-coherent slot-to-slot, hence fixed-point-only canonical. This is a general SIARC discipline pattern not previously codified: discrete-time numerical claims that drive cumulative ledgers (sorry-count, axiom-set, AEAL claim-count) must be reported at observation fixed points only. Worth memory-promoting in a generalized form.",
+      "memory_promotion_candidate": "YES_LOW_PRIORITY",
+      "memory_text_proposed": "For SIARC AEAL audit trails: discrete-time numerical claims that drive cumulative ledgers (sorry-count, axiom-set size, AEAL claim-count) must be reported at observation fixed-points only, not at mid-iteration snapshots, to preserve Cauchy/monotone behavior of consecutive-slot reports."
+    },
+    {
+      "id": "UF-195-3",
+      "severity": "INFO",
+      "title": "Tuple-form (sorries=N, axioms=M) composes with Lean #print axioms idiom",
+      "detail": "Q-195-2 + follow-up 1: the canonical tuple form is structurally aligned with Lean-4's native `#print axioms` introspection. This makes the convention not just SIARC-internal but Lean-ecosystem-coherent, simplifying both reporting hygiene and any future Mathlib-style external citation.",
+      "memory_promotion_candidate": "NO"
+    }
+  ]
+}
