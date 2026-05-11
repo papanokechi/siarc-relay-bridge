@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "discrepancies": [
+    {
+      "id": "D-195-1",
+      "severity": "INFO",
+      "title": "Synth verdict explains the 3-vs-2 sorry count as iter-13 transient",
+      "detail": "Q-195-1 verdict diagnoses the slot 144 '3' as a mid-iter-13 snapshot vs slot 141C's '2' as iter-13 fixed-point. Canonical reporting = fixed-point count. This resolves D-143-1 with Resolution 2 (iter-13-transient) selected as canonical interpretation. No data contradiction; both '3' and '2' were correct at their respective observation times under different reporting semantics.",
+      "resolution": "Codify Resolution 2 as SIARC canonical sorry-count convention via store_memory + close d-143-1-sorry-count-canonical todo. D-141C-1 resolves identically by transitivity."
+    }
+  ]
+}

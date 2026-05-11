@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "unexpected_finds": [
+    {
+      "id": "UF-196-1",
+      "severity": "MEDIUM",
+      "title": "Q-196-4 checklist is auto-implementable as string-scan pass; could become a CLI/operator pre-check script",
+      "detail": "All 8 checklist items reduce to either (a) case-insensitive substring search against a curated blocklist, (b) structural check on enumeration form (file:line vs vague total), or (c) language pattern check (build invariant vs subjective milestone). This is implementable as ~50 lines of shell / Python. If implemented as scripts/check_m10_commitment.sh in wallis-pcf-lean4, the Phase A.1.5 fire becomes a 2-second CI-style pass rather than a synth consultation, freeing the synth dispatch budget for genuinely judgment-tier work.",
+      "memory_promotion_candidate": "NO",
+      "recommended_action": "Optional operator-tier task; bundled with UF-195-1 pre-commit hook automation (both fall under wallis-pcf-lean4 .git/hooks or scripts/)."
+    },
+    {
+      "id": "UF-196-2",
+      "severity": "MEDIUM",
+      "title": "Reject-and-consult default as SIARC discipline rule for novel category encounters",
+      "detail": "Q-196 summary states: 'if the operator introduces a category of statement not anticipated in the EXCLUDE list, the synth reviewer should default to reject and consult rather than approve. The EXCLUDE list is exhaustive over currently-known RULE-1 axes but cannot pre-empt novel admin-tier framings.' This generalizes: whenever a mechanical-checklist pass encounters a novel category not enumerated in the source verdict, default-action = reject + escalate to synth consultation, NOT default-action = approve. This is a SIARC discipline rule worth codifying.",
+      "memory_promotion_candidate": "YES_LOW_PRIORITY",
+      "memory_text_proposed": "For SIARC mechanical-checklist Phase-A1.5-style gates: when the paragraph/artefact under review contains a category not enumerated in the source-verdict EXCLUDE/INCLUDE lists, the default action is REJECT + escalate to synth consultation, NOT APPROVE. Exhaustive lists cannot pre-empt novel framings; reject-and-consult is the safe default."
+    },
+    {
+      "id": "UF-196-3",
+      "severity": "INFO",
+      "title": "7-point INCLUDE template is paste-ready for operator paragraph-fill; reduces Phase A.1 substrate-prep wallclock",
+      "detail": "Q-196-2 delivers a bracketed-slot skeleton that operator can fill in 30-60 minutes of focused work (vs hours of un-scaffolded drafting). This advances m10-commitment-paragraph todo from PENDING DRAFT to PENDING FILL_BRACKETS, materially reducing the Phase A.1 wallclock once Lean axis unblocks. Operator may proceed with paragraph-fill in parallel to OPT_X2 cache-repair work per PROMPT 194 Q-194-3 (c)-parallel verdict.",
+      "memory_promotion_candidate": "NO"
+    },
+    {
+      "id": "UF-196-4",
+      "severity": "INFO",
+      "title": "Verdict labels the 4 borderline cases self-consistently with template structure",
+      "detail": "BC-1 (AEAL count) → point 2 of template; BC-2 (L284 simp) → point 4; BC-3 (M11/M12 cite) → point 5 with condition; BC-4 (clean-clone reproducibility) → point 7. Synth coupled the borderline dispositions to specific template slots. This makes the INCLUDE/EXCLUDE/CONDITIONAL_INCLUDE verdicts immediately operationalizable rather than abstract policy.",
+      "memory_promotion_candidate": "NO"
+    }
+  ]
+}

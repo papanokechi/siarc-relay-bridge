@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "discrepancies": [
+    {
+      "id": "D-191-1",
+      "severity": "MEDIUM",
+      "title": "Placeholder substitution skipped — paste-ready marker applied to PROMPT 191 with unresolved {PHASE_0_SHA}",
+      "detail": "CLI marked PROMPT 191 as paste-ready and operator dispatched to Claude, but line 123 contained literal token {PHASE_0_SHA} that was never substituted to a real bridge SHA. Phase 0 substrate-prep (T2-EXECUTOR-PRE-FIRE-A2-PRIME-SUBSTRATE-PREP-191A) was never fired pre-dispatch. Discrepancy between intended workflow (Phase 0 fires → SHA recorded → substituted into EOF block → fire dispatched) and actual workflow (EOF block dispatched with placeholder intact).",
+      "resolution": "Q-191-5 hardening codified to memory (subject: prompt drafting discipline; grep EOF block for {...} placeholders before any paste-ready marker; refuse if matches found). Forward path requires Phase 0 fire then re-substitution.",
+      "owner": "CLI agent + future prompt drafters across SIARC"
+    },
+    {
+      "id": "D-191-2",
+      "severity": "LOW",
+      "title": "PROMPT 191 was scoped as CLI-driveable Phase 0 + paste-to-Synth FIRE-A2' but the CLI-driveable Phase 0 part was implicitly deferred without a deferral SQL todo",
+      "detail": "The fire-a2-prime-reading-list-digest SQL todo conflated 'draft the prompt' with 'fire Phase 0 + draft the prompt + dispatch'. Phase 0 fire required separate SQL tracking. Fix: split todo (new fire-phase-0-191a-substrate-prep todo created; original todo updated to BLOCKED on Phase 0 fire).",
+      "resolution": "SQL split applied this absorption."
+    }
+  ]
+}
