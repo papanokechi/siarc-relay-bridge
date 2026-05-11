@@ -1,0 +1,36 @@
+{
+  "UF-155-1": {
+    "title": "Consultation timing — slot 155 fired POST-deposit instead of PRE-deposit",
+    "severity": "MEDIUM",
+    "discovered_at": "2026-05-11T10:30:00+09:00",
+    "description": "Slot 155 was drafted 2026-05-10 ~16:55 JST and re-purposed 2026-05-10 ~19:00 JST under cascade-132 Option α' framing as a PRE-deposit consultation (substrate-prep → consultation → deposit). The actual fire (2026-05-11 ~10:30 JST) is POST-deposit for PCF-2 v1.4 (deposit landed at 10.5281/zenodo.20114315 publication_date 2026-05-11). Consultation cleanly reframes as polish-pass-post-deposit under §Q1a's explicit support for 'polish-pass review for already-substantively-drafted artefact'.",
+    "root_cause": "Cascade-132 Option α' Step 1 (PCF-2 v1.4 deposit) was time-critical for the chain-ordering invariant; the consultation could not fire pre-deposit because RULE 1 lift was pending and the operator chose to land the deposit first to unblock cascade-132 Step 2 (Umbrella v2.2 deposit, also landed 2026-05-11).",
+    "consequences": "None blocking; verdict cleanly reframes as polish-pass-post-deposit. Q6 metadata audit is a more valuable use of the consultation post-deposit than the originally-scoped pre-deposit metadata-block-production would have been, because live state can be audited directly rather than predicted.",
+    "recurrence_prevention": "Future Zenodo paper-draft consultations should fire BEFORE deposit fire when cascade ordering permits (Phase 0 → consultation → deposit fire). For time-critical cascades, the post-deposit polish-pass framing is a viable fallback. Recommend slot 155 prompt be re-purposed (slot 155b?) for picture-chain v1.20+ when that fire materializes — fire ORDER discipline: substrate-prep → consultation → deposit."
+  },
+  "UF-155-2": {
+    "title": "Three Zenodo metadata defects on live PCF-2 v1.4 record (D-PCF2-V14-1/2/3)",
+    "severity": "HIGH (composite of 3 MED-severity defects)",
+    "discovered_at": "2026-05-11T10:39:00+09:00",
+    "description": "Q6 metadata audit detected 3 defects on https://zenodo.org/api/records/20114315: D-PCF2-V14-1 (creator-name duplicated), D-PCF2-V14-2 (ORCID missing), D-PCF2-V14-3 (keywords-as-single-string). All three are repairable via Zenodo Edit (metadata-only; no DOI bump per slot 167 P4 precedent).",
+    "evidence_source": "https://zenodo.org/api/records/20114315 JSON; full diff table in verdict.md Q6a and per-defect remediation in discrepancy_log.json",
+    "consequences": "Defects are cosmetic + searchability-reducing but do not invalidate the deposit. Citation by DOI works. Author-page coherence and keyword-search recall are degraded.",
+    "recurrence_prevention": "Future deposits should include a post-publish API-fetch verification step in the operator runbook (similar to slot 167 D-167-3 detection pattern). For Umbrella v2.3 + Picture-chain v1.20+ when those fires materialize: verify creators[0].name is single token, creators[0].orcid is present, keywords is JSON array of length >=5.",
+    "related_memory": "paste-source authoring discipline (slot 167) — analog at the metadata-field-by-field tier rather than description-body tier; both reduce paste-time errors via post-publish verification."
+  },
+  "UF-155-3": {
+    "title": "Q4b cross-citation graph specification under-specified PCF-1 link",
+    "severity": "LOW",
+    "discovered_at": "2026-05-11T10:39:00+09:00",
+    "description": "Slot 155 §Q4b expected PCF-2 v1.4 related_identifiers = {IsContinuationOf PCF-2 v1.3, IsSupplementTo Umbrella concept, References bridge SHAs}. Live state ALSO includes paired IsSupplementTo+Cites to PCF-1 concept-DOI 10.5281/zenodo.19931635. This is consistent with slot 160 schema v1 paired-discipline AND with manuscript L69 \\cite{Papanokechi2026PCF1} citation of PCF-1 as degree-2 progenitor. NOT A DEFECT; the spec was under-complete.",
+    "recurrence_prevention": "Future Q4b specs should enumerate ALL paired cross-links the deposit will carry (including upstream-progenitor links not just immediate-version-chain), not just the minimal expected set."
+  },
+  "UF-155-4": {
+    "title": "Live PCF-2 v1.4 description-body 'forthcoming' wording partially obsolete",
+    "severity": "LOW",
+    "discovered_at": "2026-05-11T10:39:00+09:00",
+    "description": "The deposited description on 20114315 says '<li>Umbrella v2.2 (forthcoming, deposited second per cascade-132 Option α).</li>' and '<li>Picture-chain v1.20+ (forthcoming, deposited third per cascade-132 Option α).</li>'. At fire time, Umbrella v2.2 has LANDED (10.5281/zenodo.20114861) and Picture-chain v1.20+ remains substrate-prep only (bridge b9aa881). The 'forthcoming' wording for Umbrella v2.2 is now partially obsolete.",
+    "decision": "NO Zenodo Edit recommended on this point. The temporal phrasing is a deposit-time snapshot and preserves archival fidelity. A future reader sees that v1.4 was deposited FIRST in the chain. Editing to current state would lose this provenance signal. Q5 caveat-language and Q7a description-body templates for v1.5 should use current state references at v1.5-deposit-time.",
+    "severity_rationale": "LOW because (a) the wording is provenance-faithful, (b) no reader-facing confusion, (c) the cascade-132 ordering claim ('Umbrella v2.2 deposited second per Option α') is now retrospectively VERIFIED rather than predicted."
+  }
+}

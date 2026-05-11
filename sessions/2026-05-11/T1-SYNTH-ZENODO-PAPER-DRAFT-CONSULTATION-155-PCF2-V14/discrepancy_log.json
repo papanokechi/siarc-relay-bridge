@@ -1,0 +1,38 @@
+{
+  "D-PCF2-V14-1": {
+    "title": "Live Zenodo record 10.5281/zenodo.20114315 creators[0].name is duplicated",
+    "severity": "MEDIUM",
+    "detected_at": "2026-05-11T10:39:00+09:00",
+    "detected_by": "Slot 155 Q6 metadata audit (in-CLI single-witness)",
+    "expected": "creators[0].name == \"papanokechi\" (single token; per slot 155 Q6a spec + manuscript L39 \\author{Papanokechi})",
+    "actual": "creators[0].name == \"papanokechi, papanokechi\" (duplicated; comma-separated)",
+    "evidence_source": "https://zenodo.org/api/records/20114315 JSON path .metadata.creators[0].name",
+    "fix_path": "Operator: Zenodo Edit form for record 20114315 → Creators section → replace duplicated value with single \"papanokechi\". Metadata-only Edit; no DOI bump expected per slot 167 P4 precedent.",
+    "pre_flight": "Operator verifies PCF-2 v1.3 record (10.5281/zenodo.19963298) creators[0].name format before applying v1.4 Edit; if v1.3 has the same duplication, decide whether to cross-chain repair or leave v1.3 as-is for archival fidelity.",
+    "blocking_for": "None (metadata-only; deposit is live and citable; defect is cosmetic but reduces Zenodo author-page coherence)"
+  },
+  "D-PCF2-V14-2": {
+    "title": "Live Zenodo record 10.5281/zenodo.20114315 creators[0] missing ORCID field",
+    "severity": "MEDIUM",
+    "detected_at": "2026-05-11T10:39:00+09:00",
+    "detected_by": "Slot 155 Q6 metadata audit (in-CLI single-witness)",
+    "expected": "creators[0].orcid == \"0009-0000-6192-8273\" (per slot 155 Q6a spec + manuscript L40 ORCID footnote declaring orcid.org/0009-0000-6192-8273)",
+    "actual": "creators[0] object does NOT contain 'orcid' field",
+    "evidence_source": "https://zenodo.org/api/records/20114315 JSON path .metadata.creators[0] (orcid key absent)",
+    "fix_path": "Operator: Zenodo Edit form for record 20114315 → Creators section → add ORCID = \"0009-0000-6192-8273\" (Zenodo validates format). Same Edit session as D-PCF2-V14-1.",
+    "pre_flight": "Operator verifies PCF-2 v1.3 record (10.5281/zenodo.19963298) creators[0].orcid presence before applying v1.4 Edit; if v1.3 has ORCID, the v1.4 deposit ingestion path stripped it (possible new-version metadata-loss bug worth flagging to Zenodo support); if v1.3 also lacks ORCID, this is a chain-wide gap.",
+    "blocking_for": "None (metadata-only; deposit is live and citable; defect reduces author-attribution recall via ORCID disambiguation)"
+  },
+  "D-PCF2-V14-3": {
+    "title": "Live Zenodo record 10.5281/zenodo.20114315 keywords stored as array-of-one-string instead of array-of-strings",
+    "severity": "MEDIUM",
+    "detected_at": "2026-05-11T10:39:00+09:00",
+    "detected_by": "Slot 155 Q6 metadata audit (in-CLI single-witness)",
+    "expected": "metadata.keywords is array of 5-9 distinct keyword strings per slot 155 Q2b spec",
+    "actual": "metadata.keywords is array of length 1 containing the single string \"continued fractions, cubic discriminant, WKB amplitude, Chowla–Selberg formula,  Γ(1/3), PSLQ, transcendence predicate, Galois group cubic, equianharmonic CM,\" (trailing comma; double-space before Γ)",
+    "evidence_source": "https://zenodo.org/api/records/20114315 JSON path .metadata.keywords (length 1; comma-separated)",
+    "fix_path": "Operator: Zenodo Edit form for record 20114315 → Keywords section → delete single comma-separated string → add 9 separate keyword entries: 'continued fractions', 'cubic discriminant', 'WKB amplitude', 'Chowla–Selberg formula', 'Γ(1/3)', 'PSLQ', 'transcendence predicate', 'Galois group cubic', 'equianharmonic CM'. Same Edit session as D-PCF2-V14-1/2.",
+    "pre_flight": "Trim 'equianharmonic CM' if reducing to 8 keywords (it overlaps with 'Chowla–Selberg formula' and 'Γ(1/3)'); operator decision.",
+    "blocking_for": "None (metadata-only; deposit is live and citable; defect reduces Zenodo keyword-search hit rate because the entire string is one token)"
+  }
+}

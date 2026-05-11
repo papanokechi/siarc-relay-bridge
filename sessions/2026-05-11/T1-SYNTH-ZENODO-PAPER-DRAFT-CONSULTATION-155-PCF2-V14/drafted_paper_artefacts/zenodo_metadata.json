@@ -1,0 +1,174 @@
+{
+  "_comment": "POST-DEPOSIT AUDIT: this metadata block reflects the live state of 10.5281/zenodo.20114315 fetched 2026-05-11T10:39:00+09:00, ANNOTATED with operator-pending Zenodo Edit fixes per slot 155 verdict Q6b. The CURRENT state is shown in 'live' fields; the TARGET state after Edit is shown in 'target' fields. Apply via Zenodo UI form, not by re-deposit (metadata-only Edit; no DOI bump expected).",
+  "record_url": "https://zenodo.org/records/20114315",
+  "api_url": "https://zenodo.org/api/records/20114315",
+  "doi_url": "https://doi.org/10.5281/zenodo.20114315",
+  "metadata": {
+    "title": {
+      "value": "PCF-2: A Program Statement for the Cubic Extension of the Δ-Discriminant Transcendence Predicate (Version 1.4 — j=0 Chowla–Selberg PSLQ-Exhaustion Amendment)",
+      "status": "CLEAN; matches manuscript title L36-38"
+    },
+    "publication_date": {
+      "value": "2026-05-11",
+      "status": "CLEAN"
+    },
+    "version": {
+      "value": "1.4",
+      "status": "CLEAN"
+    },
+    "resource_type": {
+      "type": "publication",
+      "subtype": "preprint",
+      "title": "Preprint",
+      "status": "CLEAN; matches slot 167 chain-consistency"
+    },
+    "license": {
+      "id": "cc-by-4.0",
+      "status": "CLEAN; recommended in slot 155 Q6a"
+    },
+    "creators": [
+      {
+        "live": {
+          "name": "papanokechi, papanokechi",
+          "affiliation": "Independent Researcher"
+        },
+        "target": {
+          "name": "papanokechi",
+          "affiliation": "Independent Researcher",
+          "orcid": "0009-0000-6192-8273"
+        },
+        "fix_path": "Zenodo Edit form → Creators section → replace duplicated 'papanokechi, papanokechi' with single 'papanokechi'; add ORCID field with value '0009-0000-6192-8273'",
+        "discrepancies": ["D-PCF2-V14-1 (name duplicated)", "D-PCF2-V14-2 (ORCID missing)"]
+      }
+    ],
+    "keywords": {
+      "live": [
+        "continued fractions, cubic discriminant, WKB amplitude, Chowla–Selberg formula,  Γ(1/3), PSLQ, transcendence predicate, Galois group cubic, equianharmonic CM,"
+      ],
+      "target": [
+        "continued fractions",
+        "cubic discriminant",
+        "WKB amplitude",
+        "Chowla–Selberg formula",
+        "Γ(1/3)",
+        "PSLQ",
+        "transcendence predicate",
+        "Galois group cubic",
+        "equianharmonic CM"
+      ],
+      "target_alternative_8_keyword": [
+        "continued fractions",
+        "cubic discriminant",
+        "WKB amplitude",
+        "Chowla–Selberg formula",
+        "Γ(1/3)",
+        "PSLQ",
+        "transcendence predicate",
+        "Galois group cubic"
+      ],
+      "fix_path": "Zenodo Edit form → Keywords section → delete single comma-separated string → add 8 or 9 separate keyword entries",
+      "discrepancy": "D-PCF2-V14-3"
+    },
+    "language": {
+      "value": "eng",
+      "status": "CLEAN"
+    },
+    "doi": {
+      "value": "10.5281/zenodo.20114315",
+      "status": "CLEAN (version-DOI; minted at deposit time)"
+    },
+    "concept_doi": {
+      "value": "10.5281/zenodo.19936297",
+      "status": "CLEAN (PCF-2 concept-DOI per substrate verification memory; NOT v1.3 version 19963298)"
+    },
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.19963298",
+        "relation": "isNewVersionOf",
+        "resource_type": "publication-preprint",
+        "scheme": "doi",
+        "note": "PCF-2 v1.3 version-DOI (immediate predecessor; per slot 160 schema v1 Layer 1 IsNewVersionOf exception targeting version-DOI not concept-DOI)",
+        "status": "CLEAN"
+      },
+      {
+        "identifier": "10.5281/zenodo.19931635",
+        "relation": "isSupplementTo",
+        "resource_type": "publication-preprint",
+        "scheme": "doi",
+        "note": "PCF-1 concept-DOI (NOT v1.3 version-DOI 19937196 — concept-DOI discipline per substrate verification memory)",
+        "status": "CLEAN"
+      },
+      {
+        "identifier": "10.5281/zenodo.19931635",
+        "relation": "cites",
+        "resource_type": "publication-preprint",
+        "scheme": "doi",
+        "note": "Paired with isSupplementTo per slot 160 schema v1 paired-discipline",
+        "status": "CLEAN"
+      },
+      {
+        "identifier": "10.5281/zenodo.19885549",
+        "relation": "isSupplementTo",
+        "resource_type": "publication-preprint",
+        "scheme": "doi",
+        "note": "Umbrella concept-DOI (NOT v2.0 version 19965041, NOT v2.2 version 20114861 — concept-DOI discipline)",
+        "status": "CLEAN"
+      },
+      {
+        "identifier": "10.5281/zenodo.19885549",
+        "relation": "cites",
+        "resource_type": "publication-preprint",
+        "scheme": "doi",
+        "note": "Paired with isSupplementTo per slot 160 schema v1 paired-discipline",
+        "status": "CLEAN"
+      }
+    ],
+    "description": {
+      "status": "CLEAN; live description body is well-structured and slot-167-style-aligned",
+      "no_edit_recommended": true,
+      "uf_155_4_note": "Description body says 'Umbrella v2.2 (forthcoming...)' and 'Picture-chain v1.20+ (forthcoming...)'. Umbrella v2.2 LANDED 2026-05-11 at 10.5281/zenodo.20114861. NO EDIT RECOMMENDED: the 'forthcoming' wording is a deposit-time snapshot preserving archival fidelity; future readers see v1.4 was first in the cascade-132 chain."
+    },
+    "custom": {
+      "code:codeRepository": "https://github.com/papanokechi/pcf-research",
+      "code:programmingLanguage": [{"id": "python", "title": {"en": "Python"}}],
+      "code:developmentStatus": {"id": "active", "title": {"en": "Active"}},
+      "status": "CLEAN"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 4,
+          "is_last": true,
+          "parent": {"pid_type": "recid", "pid_value": "19936297"}
+        }
+      ],
+      "status": "CLEAN; v1.4 is the latest version under concept-recid 19936297"
+    },
+    "access_right": {
+      "value": "open",
+      "status": "CLEAN"
+    }
+  },
+  "edit_runbook": [
+    "1. Operator: open https://zenodo.org/records/20114315 (logged in as papanokechi)",
+    "2. Click Edit (top-right; opens metadata form)",
+    "3. Creators section:",
+    "   a. Replace value of creators[0].name from 'papanokechi, papanokechi' to 'papanokechi'",
+    "   b. Add ORCID = '0009-0000-6192-8273' (Zenodo validates format)",
+    "4. Keywords section:",
+    "   a. Delete the single comma-separated string",
+    "   b. Add 9 keywords as separate entries (or 8 if operator drops 'equianharmonic CM')",
+    "5. Review form (do NOT change anything else)",
+    "6. Save (metadata-only Edit; NO DOI bump expected per slot 167 P4 D2-NOTE precedent)",
+    "7. Re-fetch via https://zenodo.org/api/records/20114315 and verify all 3 defects resolved:",
+    "   - creators[0].name == 'papanokechi' (single)",
+    "   - creators[0].orcid == '0009-0000-6192-8273'",
+    "   - metadata.keywords is array of length 8 or 9 (NOT length 1)"
+  ],
+  "pre_flight": "Operator verifies PCF-2 v1.3 record (10.5281/zenodo.19963298) creators[0] format before applying v1.4 Edit; if v1.3 has same duplication, decide whether to cross-chain repair (same session via separate Zenodo Edit on 19963298) or leave v1.3 as-is for archival fidelity (recommended: leave v1.3 as-is unless author-page coherence requires repair).",
+  "halt_conditions": [
+    "Zenodo Edit form rejects ORCID format → halt; re-verify ORCID '0009-0000-6192-8273' is current and valid",
+    "Zenodo Edit triggers an unexpected DOI bump → halt; metadata-only Edit should NOT bump the version-DOI per slot 167 P4 precedent; if it does, investigate Zenodo policy change before proceeding",
+    "Live record concept-DOI changes from 19936297 → halt; concept-DOI invariant per substrate verification memory must be preserved"
+  ]
+}
