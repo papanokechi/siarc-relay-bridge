@@ -21,7 +21,8 @@
     {
       "id": "D-167-3",
       "severity": "HIGH",
-      "status": "OPEN-OPERATOR-ACTION-REQUIRED",
+      "status": "RESOLVED-VERIFIED-LIVE-2026-05-11T09:52:11+09:00",
+      "resolution_evidence": "Zenodo API GET /api/records/20114861 at 2026-05-11 ~09:52 JST returned revision=4 (up from 3), description length 4739 chars (down from 17747), opening '<p><strong>v2.2 (May 2026):</strong> Consolidates full M-axis V0 closure series...' and closing '...Umbrella v2.3 (forthcoming; mathematical content amendment).</p>'; contamination check on 13 meta-document markers (slot 167 addendum / Parent slot / Part A / Part B / Part C / BEGIN_PASTE / paste-source / TinyMCE / End of ZENODO / Zenodo-Clean Description Body / workflow / ZENODO_CLEAN / 3f0377a) returned CLEAN/CLEAN/.../CLEAN; expected-content check on 18 umbrella markers (Full M-axis V0 Closure Series / M7 V0 / M8a V0 / M8b V0 / 7f93b9e / cb429e1 / 74c5630 / cascade-132 / 20114315 / 19972394 / 19915689 / 19937196 / b9aa881 / M1 / M12 / axis-coverage / Closure Cascade / Painlev) returned PRESENT 18/18; TinyMCE added cosmetic &nbsp; around <code> elements (no semantic impact). Fix performed by operator using ZENODO_DESCRIPTION_DROPIN_FIX.html drop-in BEGIN_PASTE/END_PASTE content per metadata-only Edit workflow; concept DOI 19885549 and version DOI 20114861 both UNCHANGED as expected.",
       "discovered": "2026-05-11T09:30:00+09:00",
       "discovered_during": "Live Zenodo record verification immediately post-publish (umbrella v2.2 record 20114861)",
       "substrate": "https://zenodo.org/records/20114861 Description field (metadata.description in Zenodo API)",
