@@ -1,0 +1,19 @@
+keyword_id,query,source,result_count,relevance,note
+K01,Painleve III Stokes multiplier higher degree,arxiv all-fields,0,NULL-CONJUNCTIVE,over-constrained
+K02,Forrester Witte Painleve higher degree,arxiv all-fields,0,NULL-CONJUNCTIVE,retried as K11
+K03,Birkhoff Trjitzinsky rank borderline anormal,arxiv all-fields,0,NULL,rank-q>=2 borderline-anormal literature does not surface
+K04,Lisovyy Roussillon Painleve III resurgence,arxiv all-fields,0,NULL-CONJUNCTIVE,retried as K12 + K13
+K05,Painleve III D6 D8,arxiv all-fields,0,NULL-CONJUNCTIVE,BLMP 2024 surfaces under K12
+K06,"""binding window"" Painleve",arxiv all-fields,0,NULL-PHRASE,SIARC-internal terminology confirmed
+K07,"""Painleve III"" ""Stokes constant""",arxiv all-fields,0,NULL-PHRASE,no published combo
+K08,"""Painleve III hierarchy""",arxiv all-fields,0,NULL-PHRASE,PIII hierarchy structurally undeveloped
+K09,"""Painleve III"" resurgent Borel",arxiv all-fields,0,NULL-CONJUNCTIVE,no published PIII resurgent-Borel
+K10,"""binding window"" Painleve Stokes multiplier",scholar.google.com,0,NULL-PHRASE,confirms K06 across Scholar
+K11,author:Forrester,arxiv author-listing,89,WEAK-OFFTOPIC,recent corpus is RMT/Riesz gas; no d>=3 PIII
+K12,author:Lisovyy,arxiv author-listing,34,STRONG-ADJACENT-x1-WEAK-ADJACENT-x3,BLMP 2024 + ILT 2014 + ILP 2016 + IILZ 2025
+K13,author:Roussillon,arxiv author-listing,20,WEAK-ADJACENT-x1,LR 2024 PI/III_3 q-Askey semiclassical
+K14,Mazzocco Painleve hierarchy,arxiv all-fields,3,STRUCTURAL-ANALOGUE-PII-x3,JM 2002 + MM 2006 + BM 2020 are PII not PIII
+K15,Aniceto Painleve Stokes,arxiv all-fields,0,NULL-CONJUNCTIVE,resurgence-Stokes expert no PIII work
+K16,Sauzin Painleve resurgence,arxiv all-fields,0,NULL-CONJUNCTIVE,alien-calculus founder no PIII work
+K17,Iwaki Painleve III Stokes,arxiv all-fields,0,NULL-CONJUNCTIVE,Iwaki on PI/top recursion not PIII
+K18,"""Birkhoff-Trjitzinsky"" rank",arxiv all-fields,0,NULL-PHRASE,no descendant of BT rank-q>=2 borderline

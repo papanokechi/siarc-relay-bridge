@@ -1,0 +1,44 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-181-1",
+      "severity": "INFO",
+      "category": "NEGATIVE-RESULT-STRUCTURAL",
+      "description": "The exact phrase 'Painleve III hierarchy' returns zero arxiv hits, in stark contrast to the well-developed PII hierarchy (Joshi-Mazzocco 2002; Mazzocco-Mo 2006; Bobrova-Mazzocco 2020). The PII analogue framework exists and is methodologically rich (Hamiltonian + Lax + sigma-form + tritronquee existence) but has not been transferred to the PIII setting in the published literature.",
+      "implication": "If SIARC eventually constructs a PIII hierarchy in-program, the PII literature can serve as the methodological template. This is a positive finding for Pathway B even though it doesn't reduce Pathway B literature-cost: it identifies the closest published structural reference framework.",
+      "should_promote_to_memory": "YES (suggest /memories/repo/pcf-pIII-hierarchy-pii-template-2026-05-11.md as candidate)"
+    },
+    {
+      "id": "UF-181-2",
+      "severity": "INFO",
+      "category": "NEGATIVE-RESULT-SOCIOLOGICAL",
+      "description": "Canonical resurgence-school authors (Sauzin, Aniceto, Iwaki) have zero published PIII-Stokes-multiplier-discrimination work as of 2026-05-11 arxiv index. The d>=3-PIII question is not under active investigation by the school that has the technical machinery to address it. This is sociological evidence that the question is structurally novel rather than just under-explored.",
+      "implication": "Pathway B (Birkhoff-Trjitzinsky structural analysis adapted to PCF) does not benefit from a 'shoulders of giants' shortcut. The slot 156 verdict Anomaly 3 ('Pathway B cost estimate has high variance...if BT-adjacent literature is more accessible than I'm modelling') is now resolved on the negative branch.",
+      "should_promote_to_memory": "NO (specific to this fire)"
+    },
+    {
+      "id": "UF-181-3",
+      "severity": "INFO",
+      "category": "TERMINOLOGY-NEGATIVE",
+      "description": "The phrase 'binding window' produces zero hits on both arxiv (K06) and Google Scholar (K10) when paired with Painleve / Stokes-multiplier. This terminology is SIARC-internal and has no precedent in published literature.",
+      "implication": "Any future publication using this terminology must either (a) define it SIARC-internally with a forward reference to the P-009 caveat audit trail, or (b) translate the concept into a published-literature-compatible equivalent (e.g., 'large-parameter scaling regime' a la BLMP 2024, or 'monodromy-data acceptance window' a la Iorgov-Lisovyy-Tykhyy 2014). The current P-009 caveat language uses 'relevant binding window' which is internally consistent but externally novel.",
+      "should_promote_to_memory": "NO (specific to P-009 caveat context)"
+    },
+    {
+      "id": "UF-181-4",
+      "severity": "INFO",
+      "category": "METHODOLOGY-TOOLING",
+      "description": "arxiv.org search engine treats unquoted multi-word queries as field-conjunctive (all terms must appear in the same field), which produced spurious zero-result returns on 8 of 18 keyword probes. Phrase-quoted (with double-quotes) and author-restricted listings are the reliable modes. This is the same observation as the 038 dossier (a26ab27) section §F.7 'arxiv search effectiveness' but is reconfirmed here.",
+      "implication": "Recommendation for synthesizer + prompt-drafter (per copilot-instructions standing-final-step): future lit-hunt prompts should specify phrase-quoted strings or author-restricted listings explicitly rather than raw keyword lists. The relay-181 prompt's keyword list at PHASE A worked because each entry was either author-paired or phrase-bracketable; raw multi-word keywords would have led to additional zero-hit-spurious-cycles.",
+      "should_promote_to_memory": "MAYBE (extends 038 dossier observation; consider memory-promotion if pattern recurs)"
+    },
+    {
+      "id": "UF-181-5",
+      "severity": "INFO",
+      "category": "BLMP-STRUCTURAL-RE-READING",
+      "description": "BLMP 2024 D_6 -> D_8 confluence (arXiv:2307.11217, SIGMA 2024 019) can be read as a length-2 PIII degenerate hierarchy: the Backlund-flow (u_n, alpha+4n, beta+4n) under scaling x=z/n maps generic PIII(D_6) onto degenerate PIII(D_8). However, the paper does not use 'hierarchy' terminology and does not propose extension to longer chains. A SIARC-internal Pathway B variant might attempt to extend this confluence step to longer chains and propose a 'PIII(D_6) -> PIII(D_8) -> ??? hierarchy', but this is speculative.",
+      "implication": "This is a NEW observation not captured by 038 dossier or slot 156 verdict. If valid, it suggests a concrete Pathway B starting point: extend BLMP 2024 confluence machinery to a higher-degeneracy chain and check whether the chain extends past length 2.",
+      "should_promote_to_memory": "YES (suggest as Pathway B starter idea memory; specific to T1-156 followup-B if it fires)"
+    }
+  ]
+}
