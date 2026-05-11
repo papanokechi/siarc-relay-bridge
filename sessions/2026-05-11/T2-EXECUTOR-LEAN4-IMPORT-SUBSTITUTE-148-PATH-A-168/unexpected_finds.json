@@ -1,0 +1,38 @@
+{
+  "UF-168-1": {
+    "title": "Lean toolchain (v4.29.1) / Mathlib (v4.30.0-rc1) version mismatch surfaces as next blocker after slot 148 success",
+    "severity": "MEDIUM-HIGH",
+    "discovered_at": "2026-05-11T10:18:27+09:00",
+    "discovered_by": "slot 148 Path A post-fix lake build",
+    "description": "Project lean-toolchain file pins 'leanprover/lean4:stable' (resolves to v4.29.1 on operator machine). Mathlib pinned at git rev 0c154d67103f74be3a0f2c509f72ccbf5be9f2a7 (tag v4.30.0-rc1) which itself requires lean v4.30.0-rc1. Major-rev mismatch causes 6 upstream compile errors in Batteries / Mathlib / ProofWidgets (Unknown constant Lean.Parser.Tactic.Grind.«grind·_», Unknown constant List.Sublist.cons_cons, Unknown identifier foldr_eq_foldl, etc.). The mismatch is PRE-EXISTING (visible in pre-fix log build_log_pre_148R.txt, not caused by slot 148 Path A); slot 148 success simply moves it to the front of the failure queue.",
+    "pre_existing": true,
+    "evidence": {
+      "project_lean_toolchain": "leanprover/lean4:stable (lean/lean-toolchain)",
+      "actually_invoked_toolchain": "c:\\Users\\shkub\\.elan\\toolchains\\leanprover--lean4---v4.29.1\\bin\\lean.exe",
+      "mathlib_rev_on_disk": "0c154d67103f74be3a0f2c509f72ccbf5be9f2a7",
+      "mathlib_git_tag": "tags/v4.30.0-rc1",
+      "mathlib_lean_toolchain": "leanprover/lean4:v4.30.0-rc1",
+      "upstream_failure_count_pre_fix": 6,
+      "upstream_failure_count_post_fix": 6,
+      "wallis_failures_pre_fix": 2,
+      "wallis_failures_post_fix": 0
+    },
+    "downstream_impact": "Blocks Phase C.1-C.3 iterative work on WallisFamily.lean because Lake cannot compile Mathlib far enough to reach the project's lean_lib target. M10 V0 Lean chain remains gated on toolchain alignment.",
+    "recommended_remediation": [
+      "Path α (recommended): Bump lean/lean-toolchain to leanprover/lean4:v4.30.0-rc1 + elan toolchain install + lake clean + lake build",
+      "Path β: Downgrade Mathlib pin to v4.29.x in lakefile.lean (risky; v4.29 may lack Asymptotics/Defs.lean)",
+      "Path γ: Bisect to a custom pinned Mathlib rev that builds clean on Lean v4.29.1 and contains the restructured Asymptotics directory"
+    ],
+    "fire_recommendation": "Fire as slot 148.B (or slot 149) immediately; high-leverage prerequisite for Phase C.1-C.3 + M10 V0 chain unblock"
+  },
+  "UF-168-2": {
+    "title": "Lake manifest-out-of-date warning persists across builds",
+    "severity": "LOW",
+    "discovered_at": "2026-05-11T10:16:16+09:00",
+    "discovered_by": "slot 148 Path A post-fix lake build (also present in pre-fix log)",
+    "description": "Lake emits 'warning: manifest out of date: git revision of dependency mathlib changed; use lake update mathlib to update it' at every build invocation. Inspection: lake-manifest.json records mathlib rev 0c154d67103f74be3a0f2c509f72ccbf5be9f2a7, which matches the on-disk mathlib HEAD (git rev-parse HEAD returns the same SHA). The warning may be a stale-cache artifact or a different manifest field is out of date; non-blocking.",
+    "pre_existing": true,
+    "downstream_impact": "Cosmetic; build proceeds despite the warning. Will likely auto-resolve when operator runs lake update mathlib as part of UF-168-1 remediation.",
+    "recommended_remediation": "Run lake update mathlib once at UF-168-1 Path α/β/γ remediation time"
+  }
+}
