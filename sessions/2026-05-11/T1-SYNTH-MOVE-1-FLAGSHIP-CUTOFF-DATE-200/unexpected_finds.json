@@ -1,0 +1,68 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-200-1",
+      "subject": "Affiliation-friction desk-rejection risk at top general-math venues (Risk #1)",
+      "context": "W3 Q-200-6 risk #1: Inventiones/IMRN/Compositio all desk-screen; 40-60pp consolidation paper from unaffiliated researcher with no co-author and no institutional letterhead may trigger desk-rejection BEFORE referee assignment, independent of content quality.",
+      "structural_insight": "This is a different failure mode from referee-rejection. Cover letter is the only mitigation lever pre-referee. Naming a suggested referee is a high-leverage move most top journals support.",
+      "memory_promotion_candidate": true,
+      "candidate_memory_subject": "submission strategy",
+      "candidate_memory_fact": "For unaffiliated-researcher submissions to top general-math journals (Inventiones/Duke/IMRN/Compositio), affiliation-friction desk-rejection is a primary failure mode independent of content; mitigation requires cover-letter-led-with-third-party-validation (Zenodo deposit trail + prior journal acceptances) + suggested-referee naming (where journal policy allows) before any content discussion",
+      "severity": "HIGH",
+      "timestamp": "2026-05-11_22:23_JST"
+    },
+    {
+      "id": "UF-200-2",
+      "subject": "Cascade-citation backlash threshold: 4 max self-Zenodo cites in flagship (Risk #2)",
+      "context": "W3 Q-200-6 risk #2: citing 8+ own Zenodo deposits reads as self-citation inflation. Concrete threshold: AT MOST 4 self-Zenodo cites; consolidate rest into single 'Supplementary computational materials' Zenodo deposit minted concurrent with arxiv. One DOI in refs not eight.",
+      "structural_insight": "Generalizes to any cascade-rich publication with prior provenance trail. Provenance-engineering risk identified in 199 What-to-table reaches into the citation structure of the flagship itself. The 'Supplementary computational materials' aggregation deposit is itself a new artifact requiring design.",
+      "memory_promotion_candidate": true,
+      "candidate_memory_subject": "publication discipline",
+      "candidate_memory_fact": "For cascade-rich publications with extensive Zenodo provenance trail, limit self-Zenodo citations in main paper to AT MOST 4 (avoid self-citation-inflation reading); consolidate remaining deposits into a single Supplementary computational materials Zenodo aggregation deposit minted concurrent with arxiv submission; one consolidated DOI in references not many",
+      "severity": "MEDIUM-HIGH",
+      "timestamp": "2026-05-11_22:23_JST"
+    },
+    {
+      "id": "UF-200-3",
+      "subject": "PCF-fluency referee assignment risk: first 4-6pp accessible motivation budget (Risk #3)",
+      "context": "W3 Q-200-6 risk #3: general-math journals may assign referees who don't read polynomial continued fractions as a recognized subfield. Paper must motivate PCFs from first principles in Section 1.",
+      "structural_insight": "Resist the temptation to start with the five-stratum theorem. The first 4-6 pages are working as PCF-introduction-for-non-specialists. This is structural to the flagship draft and should be explicitly budgeted in the outline.",
+      "memory_promotion_candidate": false,
+      "operator_action": "Flagship outline should pre-allocate 4-6pp PCF motivation as Section 1 (or Section 0) before any theorem statement.",
+      "severity": "MEDIUM",
+      "timestamp": "2026-05-11_22:23_JST"
+    },
+    {
+      "id": "UF-200-4",
+      "subject": "Negative-result fragility: Desert density needs probabilistic-model framing not empirical-observation (Risk #5)",
+      "context": "W3 Q-200-6 risk #5: Desert density empirical theorem with confidence intervals (Slot 5) is the kind of claim a hostile referee can attack as 'computational, not proven.' Present as theorem-with-explicit-probabilistic-model rather than empirical observation. PSLQ exclusion campaign methodology defensible as rigorous measurement protocol.",
+      "structural_insight": "This is a framing-level rather than content-level change. The Desert density work is already rigorous; W3's flag is about how it READS to a hostile referee. Probabilistic-model framing + PSLQ-as-measurement-protocol language are the load-bearing rhetorical moves.",
+      "memory_promotion_candidate": true,
+      "candidate_memory_subject": "publication framing",
+      "candidate_memory_fact": "Empirical-theorem claims in flagship-tier publications need explicit probabilistic-model framing (theorem-with-probabilistic-model not empirical-observation) and rigorous-measurement-protocol language (e.g., PSLQ exclusion campaign as measurement-protocol not search-procedure) to neutralize 'computational-not-proven' referee attack vector",
+      "severity": "MEDIUM-HIGH",
+      "timestamp": "2026-05-11_22:23_JST"
+    },
+    {
+      "id": "UF-200-5",
+      "subject": "Three-witness convergence on flagship readiness produces HIGH band only after structural amendments adopted",
+      "context": "W3 aggregate analysis: Joint W1+W2+W3 HIGH-band confidence achieved CONDITIONAL on 3 amendments (Slot 6 reframe + Slot 7 trim + hybrid cutoff). Without amendments: MEDIUM-HIGH with nontrivial desk-reject probability.",
+      "structural_insight": "Dual-witness escalation worked: it surfaced specific structural amendments that single-witness or W1-only consultation would have missed. The pattern (W1 single -> CLI reconciliation -> W2 ratify-with-amendment -> CLI reconciliation -> W3 ratify-with-amendment) converged in 3 cycles to actionable specificity.",
+      "memory_promotion_candidate": false,
+      "operator_action": "Flagship scope card v1 (this turn deliverable) must commit to all 3 amendments; otherwise the 3-witness-convergence-to-HIGH-band is forfeited and operator reopens loop.",
+      "severity": "HIGH",
+      "timestamp": "2026-05-11_22:23_JST"
+    },
+    {
+      "id": "UF-200-6",
+      "subject": "Scope-card-as-contract pattern: pre-outline commitment doc prevents 60-day scope-creep",
+      "context": "W3 72h-action: 'Spend the first 24h post-D-199-1 producing a one-page flagship scope card that... commits to 7-slot structure with the Slot 6 + Slot 7 amendments... commits to the hybrid cutoff trigger... pre-specifies the per-item disposition table... drafts the one-sentence Lean footnote. The scope card is the contract that prevents scope-creep over the next 60 days; outline drafting without it risks reopening the dual-witness loop W2 explicitly closed.'",
+      "structural_insight": "Generalizes beyond Move 1 flagship: any multi-week publication-class deliverable benefits from a pre-outline scope card committing to structure + cutoff + disposition rules. The card is a forcing function on the AGENT (CLI) and OPERATOR jointly.",
+      "memory_promotion_candidate": true,
+      "candidate_memory_subject": "publication discipline",
+      "candidate_memory_fact": "For multi-week publication-class deliverables, produce a one-page scope card BEFORE outline drafting begins; card commits to (i) section structure with named amendments, (ii) cutoff trigger (hybrid calendar+conditional), (iii) per-item disposition table for in-flight related items, (iv) one-sentence drafts for any conditional/forthcoming references; scope card = contract preventing scope-creep + tool for re-circulating to prior witnesses for ratification before drafting",
+      "severity": "HIGH",
+      "timestamp": "2026-05-11_22:23_JST"
+    }
+  ]
+}
