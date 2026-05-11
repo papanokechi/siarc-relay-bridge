@@ -1,0 +1,40 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-148B-1",
+      "severity": "LOW",
+      "type": "PERFORMANCE",
+      "summary": "First `lake build` attempt (before `lake exe cache get`) consumed ~23 minutes of laptop compute with only ~12% effective CPU utilization and produced no terminal output (Tee-Object buffered the entire run); aborted and replaced with cache-get + rebuild path that completed user-side compilation in ~13 minutes including Mathlib.Tactic rebuild.",
+      "context": "Without `lake exe cache get`, lake attempts to compile Mathlib from source. The local .lake/build directory at 5773 MB at the time of probe contained mixed v4.29.1 + v4.30.0-rc1 olean artefacts. The cache-get pathway is the canonical Mathlib workflow and should be the default in any toolchain-bump runbook.",
+      "lesson": "Future toolchain-bump prompts (slot 148.B v2 if any) should specify a 3-step sequence: (i) edit lean-toolchain, (ii) `lake exe cache get`, (iii) `lake build`. Skip explicit `lake clean` unless oleans are demonstrably stale; the cache-get pathway handles olean alignment cleanly via Azure pre-built distribution.",
+      "promotion_candidate": "Promote 'toolchain-bump 3-step canonical workflow (edit→cache-get→build)' to project memory as the SIARC Lean tree update discipline"
+    },
+    {
+      "id": "UF-148B-2",
+      "severity": "LOW",
+      "type": "DISCOVERY",
+      "summary": "Single-line fix candidate identified for BLOCKER GROUP A (𝓝 unknown identifier): adding `open scoped Topology` near the top of WallisFamily.lean may resolve all 8 'Function expected at 𝓝' error sites in one stroke",
+      "context": "All 8 sites share the same root cause (Mathlib v4.30.0-rc1 scopes 𝓝 notation under namespace Topology; the file currently lacks `open scoped Topology` even though it has `open Polynomial` at line 9). If the fix succeeds, post-fix build would reveal whether BLOCKER GROUPS B/C/D are independent OR if they are downstream artefacts of GROUP A symbol-resolution cascade (autoImplicit creates a phantom variable `𝓝` of unknown type, which propagates as type-inference failures elsewhere).",
+      "lesson": "Slot 148.C (or whichever successor fires WallisFamily.lean repair) should make GROUP A the first fix attempt; document whether GROUPS B/C/D survive or collapse to a smaller set post-fix.",
+      "promotion_candidate": null
+    },
+    {
+      "id": "UF-148B-3",
+      "severity": "INFO",
+      "type": "WORKFLOW",
+      "summary": "Slot 148.B fire is the second consecutive same-session bridge fire by claude-opus-4.7-xhigh CLI (after slot 148 Path A landing 937e1fb at ~07:00 JST and slot 155 PCF-2 v1.4 polish-pass landing 8a131bd at ~10:30 JST)",
+      "context": "Two T2-Executor fires + one T1-Synth fire in a single CLI session (~8 hours wall-clock). All three fires used the `fire X` / `Run slot X` operator command pattern with single-witness in-CLI agent-as-executor/synth provenance. Per dual-witness M-axis cascade memory, future T1-Synth dual-witness needs should source the 2nd witness from a non-Anthropic vendor to break same-vendor correlation; T2-Executor fires (slot 148 Path A + slot 148.B) are operational mechanical-delegable class and do NOT require cross-vendor witness diversification.",
+      "lesson": "Confirms agent-as-executor model is well-suited for SIARC mechanical-delegable T2-Executor fires (toolchain ops, file edits with verifiable scope); reserves dual-witness discipline for T1-Synth ratification-tier fires.",
+      "promotion_candidate": null
+    },
+    {
+      "id": "UF-148B-4",
+      "severity": "INFO",
+      "type": "DISCIPLINE",
+      "summary": "lean/WallisFamily.lean L3 import substitution from slot 148 Path A remained UNCOMMITTED in repo working tree throughout slot 148.B fire; lean-toolchain bump is also UNCOMMITTED in repo working tree at slot 148.B fire-completion",
+      "context": "Per SIARC discipline, lean/ tree commits are operator-tier (Phase C.3 gate per slot 144 Change 1); agent-as-executor T2-Executor fires deposit substrate to siarc-relay-bridge but do NOT auto-commit lean/ repo changes. Both slot 148 Path A diff (WallisFamily.lean L3) AND slot 148.B diff (lean-toolchain) are now pending operator-tier commit to wallis-pcf-lean4 repo. Operator may commit both in a single 'Lean toolchain v4.30.0-rc1 + Asymptotics import substitution' commit OR separately depending on preference.",
+      "lesson": "Slot 148.C / operator-tier commit step should consolidate both changes into the repo history. Both changes are independently verified working at slot 148.B fire-completion (bridge 148-B-169) so the commit risk is bounded.",
+      "promotion_candidate": null
+    }
+  ]
+}

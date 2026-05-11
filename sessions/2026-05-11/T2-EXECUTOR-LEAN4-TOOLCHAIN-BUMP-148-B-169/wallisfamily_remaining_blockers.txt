@@ -1,0 +1,100 @@
+============================================================================
+WallisFamily.lean — Remaining Phase C.1-C.3 blockers under v4.30.0-rc1
+============================================================================
+Captured at: 2026-05-11 ~11:47 JST (slot 148.B toolchain bump fire)
+Build log:   lake_build_post_cache.log
+Toolchain:   leanprover/lean4:v4.30.0-rc1 (was: leanprover/lean4:stable = v4.29.1)
+Mathlib:     v4.30.0-rc1 (rev 0c154d67103f74be3a0f2c509f72ccbf5be9f2a7)
+Pre-condition: slot 148 Path A (bridge 937e1fb) WallisFamily.lean L3
+               import Asymptotics→Defs FIXED — build now proceeds past
+               Mathlib (8263/8265 modules clean) and INTO user-side code.
+
+----------------------------------------------------------------------------
+SUCCESS CRITERIA OF SLOT 148.B (toolchain alignment)
+----------------------------------------------------------------------------
+[x] lean/lean-toolchain bumped: leanprover/lean4:stable → v4.30.0-rc1
+[x] elan-resolved version: 4.29.1 → 4.30.0-rc1 (confirmed via lean --version)
+[x] Mathlib + Batteries + ProofWidgets + Aesop + Cli + LeanSearchClient +
+    plausible + Qq + importGraph all compile clean (8263/8265 lake targets)
+[x] User-side WallisFamily.lean blockers SURFACE as predicted
+[x] No download time penalty (v4.30.0-rc1 already in elan toolchain cache)
+[x] Mathlib oleans pulled from Azure cache via `lake exe cache get`
+    (0 new files to download; 4 files decompressed; 8244 pre-decompressed)
+
+----------------------------------------------------------------------------
+WALLISFAMILY.LEAN BLOCKERS GROUPED BY ROOT CAUSE
+----------------------------------------------------------------------------
+
+BLOCKER GROUP A: `𝓝` (filter-neighborhood) unknown identifier
+  Lines: 208, 209, 213, 246, 247, 250, 261, 308
+  Pattern: `Function expected at 𝓝 but this term has type ?m.1`
+           Lean's autoImplicit treats `𝓝` as an unknown bound variable.
+  Likely fix: add `open scoped Topology` near top of file (with `open Filter`)
+             OR import an additional Mathlib module that scopes the notation
+             OR write Filter.Tendsto invocations with `nhds` instead of `𝓝`.
+  Root cause: Mathlib v4.30.0-rc1 ships `𝓝` as scoped notation under
+              namespace `Topology`; prior pinned version may have been
+              global. Now requires explicit `open scoped Topology`.
+
+BLOCKER GROUP B: Unknown identifier `wallisStepFactor`
+  Lines: 189
+  Pattern: `Unknown identifier 'wallisStepFactor'`
+  Likely fix: ensure `def wallisStepFactor` or `lemma wallisStepFactor`
+             is declared before line 189 in WallisFamily.lean OR an `import`
+             of a sibling Lean file containing the declaration is missing.
+  Root cause: possibly stale name from prior refactor that survived v4.29.1
+              builds via a Mathlib-side re-export now removed.
+
+BLOCKER GROUP C: tactic / synthesis / rewrite failures
+  Lines: 121 (ring failed), 170 (unsolved goals), 214 (failed to synthesize),
+         233/234 (positivity nonnegativity), 238 (rewrite failed),
+         281 (unsolved goals), 308 (unsolved goals tail)
+  Pattern: various Mathlib tactic API or instance-search drift between
+           v4.29.1 and v4.30.0-rc1.
+  Likely fix: case-by-case tactic re-authoring; may need `field_simp`,
+              `positivity_ext`, or `simp [...]` lemma updates.
+  Root cause: known Mathlib tactic refactor between versions; commonly
+              affects `positivity`, `ring`, `rewrite` patterns.
+
+BLOCKER GROUP D: `sorry` warnings (NOT blockers; pre-existing)
+  Lines: 251 (declaration uses sorry — emitted twice)
+  Pattern: warning only; declaration successfully type-checks WITH sorry.
+  Action: out-of-scope for toolchain bump; these are M10 V0 sorry-discharge
+          work items (slot 145/146/147 successor chain).
+
+----------------------------------------------------------------------------
+COUNT SUMMARY
+----------------------------------------------------------------------------
+Total error/warning lines in build log:    23
+  Distinct (line:col) error sites:         18
+  Sites in WallisFamily.lean:              18
+  Sites in Mathlib/Batteries/etc:          0
+  Lake exit code:                          1
+
+Per slot 148.B description "5 Phase C.1-C.3 blockers": the prediction was
+correct in spirit (build surfaces user-side blockers post-Mathlib-clean);
+the actual blocker count is 18 distinct sites clustered into ≥4 root-cause
+groups (A: 𝓝 8 sites; B: wallisStepFactor 1 site; C: tactic-drift ≥7 sites;
+D: sorry warnings 2 sites). The "5 enumerated blockers per
+build_errors_iter13.log" referenced in the slot 148.B description appears
+to refer to the iteration-13 ANTECEDENT count (pre-Asymptotics-fix), not
+the post-Asymptotics-fix surfaced set under v4.30.0-rc1. Iteration-13 used
+v4.29.1 toolchain and Asymptotics-blocked import path; surfaced blockers
+under v4.30.0-rc1 + Asymptotics→Defs fix may differ in number.
+
+----------------------------------------------------------------------------
+DOWNSTREAM RECOMMENDATION (for slot 148.C or successor)
+----------------------------------------------------------------------------
+1. PRIORITY: fix BLOCKER GROUP A (𝓝 unknown identifier).
+   ONE-LINE SCOPE: add `open scoped Topology` to WallisFamily.lean.
+   May resolve all 8 `Function expected at 𝓝` sites in one stroke.
+2. SECONDARY: fix BLOCKER GROUP B (wallisStepFactor).
+   Investigate declaration site; verify import chain.
+3. TERTIARY: address BLOCKER GROUP C (tactic-drift).
+   Case-by-case re-authoring under v4.30.0-rc1 tactic API.
+4. DEFERRED: BLOCKER GROUP D (sorry discharge).
+   Out-of-scope per M10 V0 work-stream (slot 145/146/147).
+
+If GROUP A fix succeeds and substantially reduces error count, the
+remaining work approaches the canonical M10 V0 sorry-discharge scope,
+and slot 145 ratification substrate-prep becomes viable.
