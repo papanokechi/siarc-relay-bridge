@@ -1,0 +1,27 @@
+{
+  "finds": [
+    {
+      "id": "UF-186-1",
+      "severity": "LOW",
+      "description": "Template 2 (D-153-3 firewall) contains a UTF-8-encoded Greek letter (alpha) that was rendered as the box character '╬▒' in the bridge-stored copy at line 92 (substring 'Cascade-132 PATH_B Option ╬▒'). Inlining preserves the corrupted glyph for byte-identical fidelity.",
+      "candidate_memory": false,
+      "remediation": "Defer; either (a) bridge-side patch to correct UTF-8 encoding at SHA 26d7bf5 baseline (high cost / low value), OR (b) when runbook is consumed for an actual Zenodo deposit, the operator substitutes the correct glyph at paste-time (low cost / high practicality). Path (b) recommended."
+    },
+    {
+      "id": "UF-186-2",
+      "severity": "LOW",
+      "description": "Runbook composition checklist (Composite execution checklist > Composition order) places M8b caveat BEFORE the firewall paragraph. Bridge 26d7bf5 templates do not specify ordering between these two artefacts; Template 1's 'Audit checklist' and Template 2's 'Standard placements' do not conflict.",
+      "candidate_memory": true,
+      "candidate_memory_subject": "deposit composition order",
+      "candidate_memory_text": "S154-compliant Zenodo deposit description order: (1) header/abstract, (2) M8b caveat [Amendment 5 / Template 1], (3) D-153-3 linguistic firewall paragraph [Amendment 3 / Template 2], (4) methodology, (5) Reproduction Appendix link [Template 3], (6) refs/DOIs.",
+      "remediation": "Promote to memory if confirmed at N>=2 deposit fires (first deposit fire after PROMPT 186 will be the candidate-promotion event)."
+    },
+    {
+      "id": "UF-186-3",
+      "severity": "LOW",
+      "description": "Amendment 2 'arXiv push gate' wording in slot 154 verdict is 'until Zenodo DOIs stabilize' (singular 'DOIs', plural without quantifier). This runbook interprets as 'ALL referenced Zenodo DOIs' (universal quantifier). If a future arXiv push references only stabilized Zenodo records and not pending-Edit records, the gate could in principle be partially-cleared. This runbook adopts the conservative universal-quantifier reading.",
+      "candidate_memory": false,
+      "remediation": "Operator-side decision if a partial-clearance scenario arises; default = universal-quantifier conservative reading."
+    }
+  ]
+}
