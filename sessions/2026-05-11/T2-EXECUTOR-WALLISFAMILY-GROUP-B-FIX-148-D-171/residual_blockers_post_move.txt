@@ -1,0 +1,153 @@
+# RESIDUAL BLOCKERS — WallisFamily.lean post slot 148.D Group B MOVE
+#
+# Slot:           T2-EXECUTOR-WALLISFAMILY-GROUP-B-FIX-148-D-171
+# Build date:     2026-05-11 ~13:00 JST
+# Predecessor:    slot 148.C (bridge b14ba31) — 8 errors + 4 warnings
+# Edit applied:   MOVED `def wallisStepFactor` block (with docstring) from old position
+#                 (L219-L224 in pre-148.D file) to new position (L181-L186 in post-148.D)
+#                 immediately before `def Ratio` (now at L195). Pure relocation: net
+#                 file size unchanged (11587 bytes both pre + post).
+# Lean:           4.30.0-rc1 (commit 714601baf118066cbf3f282361339c6d06665b2a)
+# Build outcome:  WallisFamily target FAIL (errors=7 / warnings=0) — UPSTREAM clean
+# WallisFamily compile time: 455s (vs 588s in 148.C; -22.6% — see UF-148D-3)
+#
+# Pre-148.D → Post-148.D deltas:
+#   Group A (𝓝 unknown):  0 → 0    [unchanged from 148.C Topology fix]
+#   Group B (wallisStepFactor undefined): 1 → 0  [DISCHARGED — L190 GONE]
+#   Group C (tactic-drift): 6 → 7  [L282 reattributed from B-cascade to C
+#                                   (needs `unfold wallisStepFactor` / `simp`)]
+#   Group D (sorry warnings): 4 → 0  [DISCHARGED — were cascade-inflated implicit
+#                                     sorrys from `def Ratio` corruption, NOT
+#                                     explicit sorrys. See D-148D-1]
+#
+# Net residual: 7 hard errors + 0 warnings (down from 8+4 in 148.C, -25% error / -100% warning).
+# Build still exits with code 1; M10 V0 path remains blocked by Group C tactic-drift only.
+
+# =====================================================================
+# GROUP A — `𝓝` notation — STILL RESOLVED (0 sites)
+# =====================================================================
+#
+# Topology fix from slot 148.C is preserved.
+# Cross-check: L314-L317 info banners report `nhds (...)` — 𝓝 binds via `open scoped Topology`.
+
+# =====================================================================
+# GROUP B — `wallisStepFactor` forward-reference — RESOLVED (0 sites)
+# =====================================================================
+#
+# Pre-148.D (= 148.C): L190 error "Unknown identifier `wallisStepFactor`"
+# Slot 148.D fix: MOVED def block to before `def Ratio`. Post-148.D position:
+#   L181-L186: /-- One-step Wallis factor docstring + def wallisStepFactor
+#   L188-L197: /-- The real-valued ratio docstring + def Ratio (uses wallisStepFactor at L197)
+# Lake build 148.D output: ZERO `Unknown identifier wallisStepFactor` errors.
+# Cross-check: `def Ratio` elaborates clean; `def Ratio.match_1` etc. emit no errors.
+
+# =====================================================================
+# GROUP C — Tactic-drift (Mathlib API changes) — 7 sites (UP +1 from 148.C)
+# =====================================================================
+#
+# 6 carryovers from 148.C (same line numbers; positions before L181 unchanged):
+#
+# L122:2   error: ring failed, ring expressions not equal
+#          Long polynomial identity in hypotheses h₁, h₂ over ℚ with match
+#          terms on `2 + k`. Candidate fixes: `ring_nf` (per L179 info hint),
+#          case split on k before ring, or restructured hypotheses.
+#
+# L171:84  error: unsolved goals (case e_a)
+#          Goal: 4 + ↑k*8 + ↑k^2*4 = ↑k * ↑k.succ^2 * (-1 + ↑k.succ^2*4)⁻¹ * 32 + …
+#          Available hq : 4*(↑k+1)^2 - 1 ≠ 0. Try `field_simp [hq]; ring`.
+#
+# L177:52  error: failed to prove positivity/nonnegativity/nonzeroness
+#          `positivity` extension API drift. Manual ne-of-pos chain may be needed.
+#
+# L234:49  error: failed to prove nonzeroness, but possible to prove nonnegativity
+# L235:56  error: same as L234 (paired)
+#          `positivity` change: now produces ≥0 instead of ≠0 by default. Add explicit
+#          `pow_ne_zero` or `ne_of_gt` after positivity, or use `by exact_mod_cast …`.
+#
+# L239:6   error: rewrite failed: pattern `↑(2 * (2 * m + 1) * m.centralBinom)`
+#          not found in target `4^m * 4 * ↑m.centralBinom * (2 * ↑m + 1) = …`
+#          Fix: `push_cast at hcb` before the rewrite, OR
+#          `rw [show ((2 * (2 * m + 1) * m.centralBinom : ℕ) : ℝ) = …]` explicit form.
+#
+# 1 NEW site (reattributed from previous B-cascade):
+#
+# L282:14  error: unsolved goals (case succ)
+#          Goal: reciprocalWallis m * (2 * (↑m + 1) / (2 * ↑m + 1)) = reciprocalWallis m * wallisStepFactor m
+#          wallisStepFactor m is now DEFINED (slot 148.D fix landed) but the proof
+#          step doesn't UNFOLD it. The two sides are def-equal modulo unfolding.
+#          Fix: replace failing tactic at L282 with `simp [wallisStepFactor]` or
+#          `unfold wallisStepFactor; ring`, or add `show … = … * (2 * (↑m + 1) / (2 * ↑m + 1))` reduction.
+#
+# NOTE: L282's behavior shift in 148.D is informative. In 148.C it failed because
+# wallisStepFactor was Unknown — Lean couldn't even type-check the goal. In 148.D
+# it fails because the goal is reducible-but-not-rfl, requiring an unfold step.
+# This was a 50/50 hypothesis at slot 148.C UF-148C-5; the result is "MOVE was the
+# right structural fix, AND L282 needs a separate 1-tactic adjustment".
+
+# =====================================================================
+# GROUP D — Sorry warnings — RESOLVED (0 sites; were artifact)
+# =====================================================================
+#
+# Slot 148.C reported 4 warning lines (3 distinct sorrys at L216/L246/L252 + 1
+# unused-var L247). Slot 148.C UF-148C-3 interpreted these as "pre-existing M10 V0
+# sorrys now reachable due to Group A discharge."
+#
+# Slot 148.D reveals this interpretation was INCORRECT (see D-148D-1). With
+# Group B fully discharged (def Ratio now elaborates clean), the build emits
+# ZERO sorry warnings. Cross-check: `grep -n 'sorry' WallisFamily.lean` returns
+# only a comment at L304 (string literal "zero-`sorry` Lean statement..." in a
+# docstring), with no actual `sorry` keyword anywhere in source.
+#
+# Conclusion: The 148.C Group D warnings were CASCADE-INFLATED implicit sorrys.
+# When `def Ratio` failed in 148.C (because L190 wallisStepFactor was Unknown),
+# Lean's error-recovery elaborated `Ratio` with sorry placeholder. Downstream
+# declarations that referenced Ratio in their proof obligations then inherited
+# the sorry, causing the "declaration uses sorry" warnings at L216/L246/L252.
+# These warnings DISAPPEAR in 148.D because `def Ratio` is now fully clean.
+#
+# M10 V0 implication: WallisFamily.lean has ZERO explicit sorrys. The M10 V0
+# sorry-discharge work referenced in slot 145/146/147 substrate-prep is either
+# (i) in a different file in the lean/ tree (not WallisFamily.lean), or
+# (ii) was already discharged in prior work and the 145/146/147 substrate-prep
+#       narrative is stale. Operator should verify against slot 145/146/147.
+
+# =====================================================================
+# RECOMMENDED ATTACK ORDER (slot 148.E and beyond)
+# =====================================================================
+#
+# Slot 148.E — Single-tactic edit at L282 (Group B-cascade C-resolution):
+#   Replace failing tactic with `simp [wallisStepFactor]` or `unfold wallisStepFactor; ring`.
+#   Expected: closes L282 immediately. Residual: 6 hard errors (all genuine Group C).
+#   Effort: ~20 min (~5 min edit + ~10 min build + deliverables).
+#
+# Slot 148.F — Group C tactic-drift, prioritized:
+#   (a) L177 positivity — likely simplest (single-hypothesis tweak)
+#   (b) L234/L235 paired nonzeroness — same root, fix together (positivity→ne_of_pos pattern)
+#   (c) L122 ring — structural; may unblock L171 via case split on k
+#   (d) L171 unsolved e_a — depends on field_simp + ring strategy
+#   (e) L239 rewrite — needs push_cast alignment for Nat.cast unfolding
+#   Effort per: 15-60 min.
+#
+# After 148.E + 148.F discharge: WallisFamily.lean BUILDS CLEAN with zero errors,
+# zero warnings — M10 V0 sub-axis for the WallisFamily.lean file is fully unblocked.
+
+# =====================================================================
+# CASCADE-HYPOTHESIS RESULT (TWO-LAYER)
+# =====================================================================
+#
+# Layer 1 (slot 148.B → 148.C): "Are B/C/D root-independent of A's 𝓝 issue?"
+#   ANSWER: ROOT-INDEPENDENT (confirmed in 148.C; B/C/D unchanged when A fixed).
+#
+# Layer 2 (slot 148.C → 148.D): "Are D's sorry warnings reachability-expansion
+#   from A discharge, or cascade from B's forward-reference?"
+#   ANSWER: CASCADE FROM B (confirmed in 148.D; D fully eliminated when B fixed).
+#   This OVERTURNS slot 148.C's UF-148C-3 / D-148C-3 interpretation, which had
+#   said "reachability expansion." Both interpretations consistent with the
+#   data available at 148.C; only the controlled 148.D experiment disambiguated.
+#
+# Methodological note: implicit sorrys from error-recovery elaboration are
+# difficult to distinguish from explicit source sorrys at observation-time —
+# they emit the same "declaration uses sorry" warning. The disambiguation
+# requires either (a) source-grep for `sorry` keyword, OR (b) running a build
+# where the upstream error-recovery cascade is absent. 148.D performed (b) and
+# 148.D's recovery grep at L304 (only docstring hit) provided (a) as cross-check.

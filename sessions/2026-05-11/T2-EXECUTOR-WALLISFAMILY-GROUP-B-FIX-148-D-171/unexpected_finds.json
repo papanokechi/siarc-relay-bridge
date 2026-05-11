@@ -1,0 +1,54 @@
+{
+  "version": "1.0",
+  "slot": "T2-EXECUTOR-WALLISFAMILY-GROUP-B-FIX-148-D-171",
+  "unexpected_finds": [
+    {
+      "id": "UF-148D-1",
+      "severity": "MEDIUM",
+      "title": "Group D sorry warnings were CASCADE-INFLATED from Group B failure, not pre-existing M10 V0 work",
+      "description": "Slot 148.C posited Group D sorrys were pre-existing M10 V0 sorry-discharge work newly visible after Group A discharge (UF-148C-3 / D-148C-3). Slot 148.D's controlled experiment overturns this: with Group B fixed, all 4 Group D warnings disappear AND source-grep confirms no explicit `sorry` keyword anywhere in WallisFamily.lean. Implication: WallisFamily.lean has no M10 V0 sorry-discharge work — the file is intended to fully elaborate and the M10 V0 substrate-prep narrative at slot 145/146/147 may be referencing different lean/ tree files (or be stale).",
+      "recommendation": "Operator: verify slot 145/146/147 substrate references against actual lean/ tree files. PROMOTE to memory: implicit-sorry warnings from error-recovery elaboration cannot be distinguished from explicit-sorry warnings at observation-time without either (a) source-grep cross-check or (b) controlled fix-the-upstream-error experiment.",
+      "promote_to_memory_candidate": true
+    },
+    {
+      "id": "UF-148D-2",
+      "severity": "LOW",
+      "title": "Pure file-relocation MOVE: identical SHA-content via copy-paste preserves byte count",
+      "description": "Slot 148.D edit moved a 6-line def block (4-line docstring + 2-line def body) plus net-zero surrounding-blank reshuffling. Pre-edit and post-edit WallisFamily.lean both have exactly 11587 bytes and 317 lines. SHA256 differs (f6de853… → 5b1eb9c…) confirming the move did happen, but file metrics (size, line count) preserved. This is a useful confidence-signal pattern: when a pure-relocation edit should leave size unchanged, observing matching byte count is a sanity-check that no content was lost.",
+      "recommendation": "Apply this pre/post byte-count sanity check whenever a future edit is intended as pure-relocation (no content add/delete).",
+      "promote_to_memory_candidate": false
+    },
+    {
+      "id": "UF-148D-3",
+      "severity": "LOW",
+      "title": "WallisFamily compile time -22.6% (588s → 455s) due to localized vs cascade-recovery error mode",
+      "description": "Slot 148.C took 588s for WallisFamily compile; slot 148.D took 455s — a 22.6% speedup despite the SAME number of `lake build` invocations and similar tactic-failure count. The likely cause: in 148.C, Lean's error-recovery elaborator had to reconstruct partial elaboration cascades from the L190 `def Ratio` failure (allocating sorry placeholders, propagating sorry through downstream proof obligations); in 148.D, all errors are localized inside specific tactic blocks where the surrounding declaration headers elaborate cleanly, so the elaborator doesn't need to fan out recovery state.",
+      "recommendation": "Track as INFO. Speedup confirms hypothesis that 148.C's compile time was inflated by error-recovery cascade overhead. Expect another speedup when slot 148.E discharges L282.",
+      "promote_to_memory_candidate": false
+    },
+    {
+      "id": "UF-148D-4",
+      "severity": "INFO",
+      "title": "5th consecutive same-session bridge fire by claude-opus-4.7-xhigh CLI agent (slot 138 → 155 → 148.B → 148.C → 148.D)",
+      "description": "Single CLI session has now fired slots 138 (fleet-bootstrap parallel CLI), 155 (PCF-2 v1.4 polish), 148.B (toolchain bump), 148.C (Topology fix), 148.D (wallisStepFactor MOVE). Cumulative bridge SHAs in this session: 4cf7252 (138), 8a131bd (155), 6ee475b (148.B), b14ba31 (148.C). Operator rhythm: agent-recommendation → 'help locate' verification → 'fire X' → 'help suggest next' → repeat. Same-session execution holding for ~3 days.",
+      "recommendation": "Continue. Context-window pressure remains manageable.",
+      "promote_to_memory_candidate": false
+    },
+    {
+      "id": "UF-148D-5",
+      "severity": "LOW",
+      "title": "lean/ tree changes pending operator commit grew from 3 to 4 (toolchain + 3 WallisFamily edits)",
+      "description": "Pending changes per SIARC Phase C.3 gate discipline: (i) lean/lean-toolchain stable → v4.30.0-rc1 (148.B); (ii) lean/WallisFamily.lean L3 Asymptotics.Asymptotics → Asymptotics.Defs (148.A); (iii) lean/WallisFamily.lean L10 insertion of `open scoped Topology` (148.C); (iv) lean/WallisFamily.lean L181-L186 block insertion + L219-L224 block deletion (148.D MOVE). All four verified working at bridge state of the session's HEAD progression. Operator may consolidate or split.",
+      "recommendation": "Consolidated commit recommended — all four are part of the 'lean toolchain alignment + WallisFamily compatibility' work-unit. Atomicity preserves bisect-clarity if future regressions surface.",
+      "promote_to_memory_candidate": false
+    },
+    {
+      "id": "UF-148D-6",
+      "severity": "LOW",
+      "title": "L282 fix candidate revealed (Group B-cascade C-resolution): `unfold wallisStepFactor` or `simp [wallisStepFactor]`",
+      "description": "Slot 148.D's L282 unsolved-goals error has a new shape now that wallisStepFactor is defined: `reciprocalWallis m * (2 * (↑m + 1) / (2 * ↑m + 1)) = reciprocalWallis m * wallisStepFactor m`. The two sides are def-equal modulo unfolding wallisStepFactor. Fix candidate for slot 148.E: replace the failing tactic at L282 with `simp [wallisStepFactor]` (which unfolds + closes via rfl/ring) OR `congr 1; unfold wallisStepFactor; ring`.",
+      "recommendation": "Use this fix candidate when drafting slot 148.E. Single-tactic edit; ~5 min code change.",
+      "promote_to_memory_candidate": false
+    }
+  ]
+}
