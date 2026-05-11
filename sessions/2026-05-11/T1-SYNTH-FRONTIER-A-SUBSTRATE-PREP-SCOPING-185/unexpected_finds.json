@@ -1,0 +1,36 @@
+{
+  "finds": [
+    {
+      "id": "UF-185-1",
+      "severity": "MEDIUM",
+      "description": "Frontier-A.v notional successor cascade designation introduced in verdict (Lean-4 formalization of n=2 object). This is a NEW cascade-designation token not present in prior SIARC governance ledger. Adoption of this token in future fires should be explicit; otherwise risk of namespace drift with existing Frontier-A label.",
+      "candidate_memory": true,
+      "candidate_memory_subject": "cascade naming",
+      "candidate_memory_text": "Frontier-A.v notional sub-cascade designates Lean-4 formalization of n=2 PIII(D6) object, deferred indefinitely. To be promoted to active cascade ID at the time of any FIRE-A.v-1 fire dispatch.",
+      "remediation": "Promote to memory if Frontier-A.v ever moves from notional to active (N>=1 cascade fire)."
+    },
+    {
+      "id": "UF-185-2",
+      "severity": "LOW",
+      "description": "Q-185-4 introduces a v2.4 hypothetical to absorb FIRE-A2 corollary substrate if v2.3 submission window is too tight. No v2.4 substrate exists yet; this is a forward-naming-claim. Recommend treating v2.4 as named-only-when-firing convention rather than scheduling it now.",
+      "candidate_memory": false,
+      "remediation": "Operator decision at v2.3 submission time; if FIRE-A2 closes with d>=3 corollary substrate before v2.3 venue submission, decide v2.3-late-addendum vs v2.4-mint at that point"
+    },
+    {
+      "id": "UF-185-3",
+      "severity": "LOW",
+      "description": "Amendment-4 BAND-COUPLED creates a fire-specific band elevation pattern (FIRE-A2 = MEDIUM via dual-witness recommendation while parent Frontier-A scope remains LOW-MEDIUM). This is the first instance of fire-specific-band-elevation in SIARC ledger; pattern should be tracked for promotion if it recurs.",
+      "candidate_memory": true,
+      "candidate_memory_subject": "band aggregation",
+      "candidate_memory_text": "Fire-specific band elevation pattern: a child fire within a scope-locked program may have its band elevated above the parent scope's band if its fire-internal witness configuration warrants (e.g., dual-witness recommendation for derivation fires). Aggregate scope band is the floor across constituent fires; child-fire elevation does not propagate upward. N=1 instance: slot 185 FIRE-A2 elevated to MEDIUM while Frontier-A scope remains LOW-MEDIUM.",
+      "remediation": "Promote at N>=2 instances; until then, treat as ad-hoc pattern documented here"
+    },
+    {
+      "id": "UF-185-4",
+      "severity": "LOW",
+      "description": "FIRE-A1 wallclock estimate (1 day agent-time + <=0.5 day operator review) was rendered with explicit operator-review-time component, distinct from prior agent-only wallclock estimates. This is a finer-grained estimate convention worth noting.",
+      "candidate_memory": false,
+      "remediation": "Adopt opportunistically; if pattern stabilizes (N>=3), promote to memory as standard wallclock-estimate convention"
+    }
+  ]
+}
