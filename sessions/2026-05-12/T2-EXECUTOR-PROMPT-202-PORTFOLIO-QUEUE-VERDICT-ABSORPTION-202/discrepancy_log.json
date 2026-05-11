@@ -1,0 +1,37 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-202-1",
+      "severity": "HIGH",
+      "title": "Post-flagship-cutoff operator-bandwidth collision risk surfaced",
+      "description": "Synth AGGREGATE flagged biggest queue-level risk: Move 2 (N4) + Move 3 (N5) + Frontier-A Phase 1 verdict (Z7) all potentially wanting operator attention in 4-8 week post-flagship-cutoff window (~2026-07-15 to ~2026-09-15). Scope card v1.1 locked the cutoff trigger but did not solve the post-cutoff scheduling problem. This is a LOAD-BEARING new risk requiring explicit calendaring discipline before the cutoff fires.",
+      "discovered_at": "2026-05-12 ~08:06 JST",
+      "discovered_by": "synth verdict AGGREGATE clause (verbatim: 'Plan the post-cutoff calendar before the cutoff fires')",
+      "resolution_status": "DOCUMENTED_PENDING_OPERATOR_CALENDAR_LOCK",
+      "resolution_plan": "Triage matrix v1.2 §G adds operator-bandwidth-collision schedule; CLI to draft post-cutoff calendar at next operator-action cycle (recommend before 2026-06-15 = scope card cutoff backstop pre-window)",
+      "owner": "operator (calendaring) + CLI (drafting)"
+    },
+    {
+      "id": "D-202-2",
+      "severity": "MEDIUM",
+      "title": "Cite-budget interaction with Z7 conditional deposit forces forward planning",
+      "description": "Synth Q-202-7 RISK_FLAG: ≤4 self-Zenodo cite limit (scope card v1.1 §VI lock) interacts with Z7 (Frontier-A P1 deposit). If flagship cites Z2 (SM) + Picture-chain + Umbrella + one other, Z7 takes the cite slot ONLY if load-bearing for Section 4. Cite budget must be planned NOW, not at flagship-submit-time.",
+      "discovered_at": "2026-05-12 ~08:06 JST",
+      "discovered_by": "synth Q-202-7 RISK_FLAG",
+      "resolution_status": "RESOLVED_THIS_ABSORPTION",
+      "resolution_plan": "Verdict.md §5.3 pre-plans the cite budget: slots 1-3 = PCF-1 v1.3 / PCF-2 v1.4 / D2-NOTE v2.1; slot 4 = Z2 (SM consolidated deposit); Z7 substitutes slot 3 IF P1 closure is at d=3 (cubic extension territory), else operator-decision-required on ≤4 limit revision vs flagship-text reduction.",
+      "owner": "CLI agent (pre-plan); operator (final cite-list call at submit-time)"
+    },
+    {
+      "id": "D-202-3",
+      "severity": "LOW",
+      "title": "PROMPT 202 cycle time ~6 minutes — verifying as deliberate operator workflow vs. system-anomaly",
+      "description": "PROMPT 202 fired ~08:00 JST; verdict received ~08:06 JST. Cycle time ~6 minutes is fastest T1-Synth response in recent cycle history (compare slot 200 W3 ~24h cycle, slot 199B W2 ~few hours, typical T1-Synth dispatch ~1-24h). Possible explanations: (a) operator was actively at terminal and pasted to active claude.ai session; (b) prompt was structurally simpler than expected (well-scoped questions); (c) anomaly. No follow-up required; logged for cycle-time-pattern tracking only.",
+      "discovered_at": "2026-05-12 ~08:08 JST",
+      "discovered_by": "CLI absorption-time accounting",
+      "resolution_status": "INFO_ONLY",
+      "resolution_plan": "No action; pattern-track in cycle-time discipline",
+      "owner": "CLI (cycle-time observability)"
+    }
+  ]
+}

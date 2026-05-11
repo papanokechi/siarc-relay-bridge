@@ -1,0 +1,52 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-202-1",
+      "title": "Inventiones-submit vs flagship-arXiv-post leverage decoupling (Q-202-9 refinement)",
+      "description": "Synth Q-202-9 refinement: flagship's Inventiones submission is the highest-leverage EVENT, but flagship arXiv post (same-day) is the highest-leverage DEPOSIT. Even if Inventiones desk-rejects, arXiv post does most recognition-signal work; cascade to IMRN/Compositio inherits same arXiv anchor. This decouples the leverage attribution from the journal-acceptance outcome and meaningfully changes the cost-of-Inventiones-attempt calculus (cost is now ~zero given arXiv anchor already established).",
+      "significance": "Reduces operator-anxiety on Inventiones-vs-IMRN decision because the leverage is captured at arXiv-post-time regardless of subsequent journal outcome. Strengthens W2-AMEND-2 'submit with what's closed' framing.",
+      "memory_candidate": false,
+      "n_occurrence_for_memory": "n=1; needs n=2+ for promotion"
+    },
+    {
+      "id": "UF-202-2",
+      "title": "Backlog-driven desk rejections are venue-state rejections (cleanest re-submission case)",
+      "description": "Synth Q-202-5 framing: Math. Comp desk-rejection of Item 19 due to backlog is venue-state rejection, NOT content rejection. This is the cleanest possible re-submission case because the editor is on record saying nothing about quality. Realistic 9-12 month strategy: monitor backlog signal, resubmit when clear, one-line cover-letter acknowledgment of prior backlog-decline.",
+      "significance": "Generalizable principle for the redirect-queue triage logic — distinguish 'venue-state' rejections (backlog, scope-shift, editorial-board-policy) from 'content' rejections (review feedback, methodological objection). Venue-state rejections are revisitable at lower discount than content rejections.",
+      "memory_candidate": true,
+      "n_occurrence_for_memory": "n=1 (this verdict); patterns suggests strong general principle but hold for n=2 before storing"
+    },
+    {
+      "id": "UF-202-3",
+      "title": "Transcendence axiom vs BSD axiom: structurally different referee-defense profile",
+      "description": "Synth Q-202-4 RISK_FLAG: N2 named axiom = transcendence axiom (famously hard-but-not-conjectural); N3 named axiom = BSD axiom (famously conjectural-but-believed). These have different referee-pushback profiles. Same axiomatization-pattern, structurally different defense framing required.",
+      "significance": "Affects N2 cover-letter drafting; transcendence-axiom paper requires citation of known-hard-but-not-conjectural literature (e.g., Schanuel's conjecture status, Lindemann-Weierstrass extensions) to establish axiom-as-research-interface vs axiom-as-convenience-cheat. Tunnell CNP precedent does NOT directly transfer.",
+      "memory_candidate": false,
+      "n_occurrence_for_memory": "specialized to L2/N2 work; not generalizable enough for memory"
+    },
+    {
+      "id": "UF-202-4",
+      "title": "Nudge-or-pull at 30d is venue-conditional asymmetric policy (not uniform)",
+      "description": "Synth Q-202-8 verdict pattern: nudge-or-pull at 30d elapsed is NOT a uniform policy but venue-conditional. ExpMath blacklist memory (6+ desk rejections) → PULL dominates EV. JDE no-blacklist-memory → NUDGE is normal professional behavior. The asymmetry is the core insight; policy uniformity would lead to wrong action in at least one of the two cases.",
+      "significance": "Generalizable to future nudge-or-pull discharges across the redirect queue. Should be applied as default decision-framework when n=2+ in-flight items hit 30d elapsed simultaneously.",
+      "memory_candidate": true,
+      "n_occurrence_for_memory": "n=1; hold for n=2 (next batch of 30d-elapsed decisions)"
+    },
+    {
+      "id": "UF-202-5",
+      "title": "Move 2 pre-commit blocked by Item 11 verdict-TYPE not just verdict-direction",
+      "description": "Synth Q-202-6 RISK_FLAG: if Item 11 (Nonlinearity, V_quad/PIII) lands as major-revision-request rather than full reject, Move 2 standalone question DISSOLVES — operator works the revision instead. Pre-committing Move 2 firing before knowing Item 11 verdict-TYPE (not just direction) is bug-class.",
+      "significance": "Subtle but important: triage matrix v1.1 §A treated Item 11 as reject-vs-accept binary, but the verdict-type space is reject / major-revision-request / minor-revision-request / accept-as-is, and Move 2 disposition depends on verdict-type not just outcome-direction. Triage matrix v1.2 update should reflect this.",
+      "memory_candidate": false,
+      "n_occurrence_for_memory": "specialized framing; n=1"
+    },
+    {
+      "id": "UF-202-6",
+      "title": "Operator-bandwidth-collision in 4-8wk post-cutoff window (LOAD-BEARING SCHEDULE RISK)",
+      "description": "Synth AGGREGATE biggest risk: Move 2 (N4) + Move 3 (N5) + Frontier-A P1 verdict (Z7) all potentially want operator attention in 4-8 week post-flagship-cutoff window. Scope card v1.1 locks cutoff trigger but does NOT solve post-cutoff scheduling. Plan the post-cutoff calendar BEFORE the cutoff fires.",
+      "significance": "Highest-priority follow-up from this absorption. Triage matrix v1.2 §G adds operator-bandwidth-collision schedule. Operator should draft post-cutoff calendar before 2026-06-15 (pre-window for the 2026-07-15 cutoff backstop). Failure mode otherwise: 3 high-value actions land within 4-8 wk + no operator capacity to execute → effective deferral of all 3 → DELTA-1..4 disposition cascade per scope card v1.1 §III.",
+      "memory_candidate": true,
+      "n_occurrence_for_memory": "n=1; this is structurally identical to the pre-cutoff cascade-bandwidth pattern seen in M-axis V0 closure series (cascade-132 PATH_B 3 deposits in 4 days). Pattern recurrence makes memory-promotion plausible at n=2."
+    }
+  ]
+}
