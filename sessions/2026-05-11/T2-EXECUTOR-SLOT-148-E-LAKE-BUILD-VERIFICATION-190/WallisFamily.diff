@@ -1,0 +1,55 @@
+diff --git a/lean/WallisFamily.lean b/lean/WallisFamily.lean
+index 371aa8c..822de62 100644
+--- a/lean/WallisFamily.lean
++++ b/lean/WallisFamily.lean
+@@ -1,12 +1,13 @@
+ import Mathlib
+ import Mathlib.Analysis.Real.Pi.Wallis
+-import Mathlib.Analysis.Asymptotics.Asymptotics
++import Mathlib.Analysis.Asymptotics.Defs
+ 
+ noncomputable section
+ 
+ namespace WallisFamily
+ 
+ open Polynomial
++open scoped Topology
+ 
+ /-- Partial numerator polynomial `a_m(X) = -2 X^2 + (2m+1) X`. -/
+ def aPoly (m : ΓäÜ) : Polynomial ΓäÜ :=
+@@ -177,6 +178,13 @@ lemma ratio_step_m0 {n : Γäò} (hn : 0 < n) :
+   field_simp [pow_two, h1, h3, hq]
+   ring
+ 
++/--
++One-step Wallis factor in the inductive propagation:
++`W_{m+1} = W_m * (2m+2)/(2m+1)`.
++-/
++def wallisStepFactor (m : Γäò) : Γä¥ :=
++  (2 * (m + 1 : Γä¥)) / (2 * m + 1)
++
+ /--
+ The real-valued convergent ratio sequence.
+ 
+@@ -215,13 +223,6 @@ lemma base_case_m0 :
+   simpa [Ratio, wallisProductRatio, wallis_base_limit, one_div, div_eq_mul_inv,
+     Real.pi_ne_zero] using hInv
+ 
+-/--
+-One-step Wallis factor in the inductive propagation:
+-`W_{m+1} = W_m * (2m+2)/(2m+1)`.
+--/
+-def wallisStepFactor (m : Γäò) : Γä¥ :=
+-  (2 * (m + 1 : Γä¥)) / (2 * m + 1)
+-
+ /-- Closed-form compatibility of the step factor with `reciprocalWallis`. -/
+ lemma reciprocalWallis_succ (m : Γäò) :
+     reciprocalWallis (m + 1) = reciprocalWallis m * wallisStepFactor m := by
+@@ -280,6 +281,7 @@ theorem roadmap_closed_form
+   | zero => simpa using h0
+   | succ m hm =>
+       rw [hstep, hm, reciprocalWallis_succ]
++      simp [wallisStepFactor]
+ 
+ /--
+ Final target theorem for the full Lean development.
