@@ -1,0 +1,19 @@
+diff --git a/lean/WallisFamily.lean b/lean/WallisFamily.lean
+index <pre-edit-hash>..<post-edit-hash> 100644
+--- a/lean/WallisFamily.lean
++++ b/lean/WallisFamily.lean
+@@ -1,5 +1,5 @@
+ import Mathlib
+ import Mathlib.Topology.Basic
+-import Mathlib.Analysis.Asymptotics.Asymptotics
++import Mathlib.Analysis.Asymptotics.Defs
+ import Mathlib.Analysis.SpecialFunctions.Pow.Real
+ import Mathlib.Order.Filter.Basic
+-- Slot 148 Path A: substituted Asymptotics.Asymptotics (deleted in Mathlib v4.30.0-rc1 restructure) with Asymptotics.Defs.
+-- Rationale: project-wide symbol audit returned 0 matches for Asymptotics|IsBigO|IsLittleO|IsTheta|IsBigOWith
+-- across 13 .lean files; the import is dead code. Defs preserves a slot for future asymptotic-analysis use in M10
+-- work without bloating compile time. Substrate verification: Defs.lean exists at 67254 bytes; Asymptotics.lean does
+-- not exist. Build evidence: post-fix lake build (SHA256 C02E850F89BE08A8F8491D2F2E8E3BA99529A225B27C719A0B20F71CA3A57B13)
+-- shows 0 occurrences of 'Asymptotics' or 'WallisFamily'; failure-set delta is -2 entries vs pre-fix.
+-- WallisFamily.lean post-edit SHA256: 0275D1DF3191D6A384116EDF6CD85A78A0E2C1416015D4890A7A4A87E74D40F4
+-- Applied 2026-05-11 ~10:13 JST.
