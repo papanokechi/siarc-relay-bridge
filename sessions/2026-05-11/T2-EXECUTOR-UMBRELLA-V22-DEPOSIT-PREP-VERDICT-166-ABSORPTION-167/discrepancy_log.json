@@ -19,6 +19,22 @@
       "recommendation": "Option_B (accept) — Zenodo's machine-readable metadata uses the related-identifiers block (correct), not the PDF body. The PDF table line is cosmetic and will be superseded when Umbrella v2.3 lands. Halt for rebuild only if operator wants pristine substrate-trail."
     },
     {
+      "id": "D-167-3",
+      "severity": "HIGH",
+      "status": "OPEN-OPERATOR-ACTION-REQUIRED",
+      "discovered": "2026-05-11T09:30:00+09:00",
+      "discovered_during": "Live Zenodo record verification immediately post-publish (umbrella v2.2 record 20114861)",
+      "substrate": "https://zenodo.org/records/20114861 Description field (metadata.description in Zenodo API)",
+      "claim": "Operator pasted the ENTIRE meta-document ZENODO_CLEAN_DESCRIPTION_BODY.md verbatim into the Zenodo Description field, including the file's Markdown wrapper, header (# Zenodo-Clean Description Body -- Umbrella v2.2 (slot 167 addendum)), the meta-block (**Date**: 2026-05-11 09:15 JST, **Parent slot**: 167 (bridge SHA 3f0377a)), 'Part A -- Plain-prose mirror' header, 'Part B -- TinyMCE HTML-ready mirror' header, 'Part C -- Diff log' header + 11-row table, 'Operator paste workflow' section, and trailing '**End of ZENODO_CLEAN_DESCRIPTION_BODY.md.**' line. The actual umbrella description body content (sec 2 expanded variant + sec 2.1 blockquote + sec 2.5 axis-coverage table) is present BUT buried inside code fences (```html ... ```) which TinyMCE rendered as literal text rather than as live HTML.",
+      "evidence": "Zenodo API GET /api/records/20114861 description field starts with '<p># Zenodo-Clean Description Body &mdash; Umbrella v2.2 (slot 167 addendum)</p>' and ends with '<p>**End of `ZENODO_CLEAN_DESCRIPTION_BODY.md`.**</p>'. Description length 17747 chars; expected ~4500 chars (Part B HTML only).",
+      "root_cause": "Slot 167 ZENODO_CLEAN_DESCRIPTION_BODY.md was authored as a meta-instruction document containing the paste-source rather than as a drop-in paste-source. The file's three-part structure (Part A plain prose / Part B HTML / Part C diff log) plus instructional headers required the operator to extract Part B from within the file rather than paste the whole file. Cognitive-load gap: the operator-runbook step did not explicitly say 'extract the HTML between Part B's first ```html and the closing ``` — paste only that'. ",
+      "impact": "HIGH: viewers landing on the Zenodo record see internal operational text (slot numbers, bridge SHAs, paste-workflow instructions) instead of the umbrella paper description. Cosmetic-tier on archived-record-content semantics but reputation-tier on professional presentation. The actual scientific content (PDF + .tex source) is correct and unaffected; this is a metadata-Description-field issue only.",
+      "fix_path": "Open Zenodo record 20114861 -> Edit metadata -> Description field -> SELECT ALL -> DELETE -> source-view -> paste ONLY the content of ZENODO_DESCRIPTION_DROPIN_FIX.html (between BEGIN_PASTE and END_PASTE markers; ~4.5KB clean HTML) -> Save -> Publish. Zenodo will bump revision count (currently 3) but NOT version DOI (metadata-Edit only, per D2-NOTE v2.1 precedent at 2026-05-04).",
+      "no_DOI_bump": true,
+      "recommended_action": "FIX IMMEDIATELY before record gets indexed by Google Scholar / cited by external parties. Estimated 2 minutes operator time using ZENODO_DESCRIPTION_DROPIN_FIX.html as paste-source.",
+      "process_lesson": "Future Zenodo paste-source files MUST be authored as direct drop-in replacements (single contiguous block; no meta-wrapper; no multi-part variants; no instructional preamble). If multi-variant authoring is needed for review purposes, the deliverable for the operator's paste-time use MUST be a separate '_DROPIN' artifact containing ONLY the content to paste, with paste-instructions in an HTML comment at the top of the file. ZENODO_CLEAN_DESCRIPTION_BODY.md should have produced TWO files: the review-document (which it is) AND a sibling '_DROPIN' that contains only the chosen variant's content. This memory-class lesson should propagate to future cascade fires."
+    },
+    {
       "id": "D-167-2",
       "severity": "LOW",
       "status": "OPEN-OPERATOR-DECISION",
