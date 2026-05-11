@@ -1,0 +1,59 @@
+<!--
+  ZENODO DESCRIPTION FIELD — DROP-IN REPLACEMENT
+  Umbrella v2.2 (Zenodo record 20114861, concept 19885549)
+  Created 2026-05-11 ~09:30 JST in response to deposit-time UF-167-5/D-167-3
+  (operator pasted ZENODO_CLEAN_DESCRIPTION_BODY.md verbatim including meta-wrapper)
+
+  USAGE:
+    1. Open https://zenodo.org/records/20114861 → "Edit" button
+    2. Scroll to "Description" field
+    3. Switch to HTML source-view (TinyMCE: Tools menu → Source code, or click <> icon)
+    4. SELECT ALL existing content → DELETE
+    5. Paste the HTML between BEGIN_PASTE and END_PASTE below (do NOT include the HTML
+       comment markers themselves, and do NOT include this file's wrapper)
+    6. Switch back to WYSIWYG view → verify table renders + italics on A/S/d look right
+    7. Save → publish (Zenodo will bump revision count, NOT version DOI — metadata-Edit only)
+-->
+
+<!-- ====================== BEGIN_PASTE ====================== -->
+
+<p><strong>v2.2 (May 2026):</strong> Consolidates full M-axis V0 closure series (M4, M7, M8a, M8b) and M6.CC R1; supersedes v2.1 internal staging.</p>
+
+<h3>Version difference</h3>
+
+<p>The v2.2 revision of the SIARC umbrella program statement extends the v2.0 &sect;Closure Cascade and Bridge Provenance section from 3 milestones to 6 milestones, adding the M-axis V0 ratification cascade triple landed 2026-05-09: <strong>M7 V0</strong> (cubic/quartic borderline-anormal <em>A</em> residual; soft-branch ratification at MEDIUM-HIGH; bridge SHA <code>7f93b9e</code>; SOFT-BRANCH, HARD-BRANCH-PENDING), <strong>M8a V0</strong> (catalogue-wide Painlev&eacute;-test stratum labeling via the Conte&ndash;Musette necessary criterion; 60/60 LABELED uniformly; bridge SHA <code>cb429e1</code>; ALG-TEST-SCALE, STOKES-DICHOTOMY-DELEGATED-TO-M8B), and <strong>M8b V0</strong> (numerical foreclosure of the laptop-feasible |<em>S</em><sub>2</sub>| extraction at <em>d</em>=2; cross-provider dual-witness; bridge SHA <code>74c5630</code>; NUMERICAL-FORECLOSURE, <em>d</em>&ge;3 caveat carried forward). The v2.0 &rarr; v2.2 version sequence skips v2.1 (internal staging only at bridge <code>883dddf</code>, 2026-05-09) per the operative cascade-132 (<code>fd669d3</code>) PATH_B decision. All mathematical content, conjectures, open problems, and the &sect;Cross-Degree Triple are unchanged from v2.0; v2.2 is a status/provenance addendum, not a content revision.</p>
+
+<h3>&sect;2.1 Deposit-time companion-artefact snapshot</h3>
+
+<blockquote>
+  <p><strong>Companion artefact state at deposit time (2026-05-11 JST):</strong> PCF-2 v1.4 (<code>10.5281/zenodo.20114315</code>, deposited 2026-05-11; cascade-132 Option &alpha; Step 1 landed), Channel Theory v1.3 (<code>10.5281/zenodo.19972394</code>, deposited 2026-05-02), T2B v3.0 (<code>10.5281/zenodo.19915689</code>, deposited 2026-04-30), PCF-1 v1.3 (<code>10.5281/zenodo.19937196</code>, deposited 2026-05-01). Picture-chain v1.20+ deposit pending (substrate-prep at bridge <code>b9aa881</code> 2026-05-09; concept-DOI not yet minted); cross-link rows to be spliced via post-publish Zenodo Edit upon picture-chain concept-DOI mint (separate work-stream; cascade-132 Option &alpha; Step 3).</p>
+</blockquote>
+
+<h3>&sect;2.5 M1&ndash;M12 program-axis coverage (snapshot at Umbrella v2.2 deposit time)</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr><th>Axis</th><th>Status</th><th>Primary substrate</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>M1</td><td>external</td><td>D2-NOTE concept <code>10.5281/zenodo.19996689</code></td></tr>
+    <tr><td>M2</td><td>tabled (RULE 1)</td><td>&mdash;</td></tr>
+    <tr><td>M3</td><td>tabled (RULE 1)</td><td>&mdash;</td></tr>
+    <tr><td>M4</td><td>closed (V0; folded)</td><td>bridge cascade <code>5f9db69</code> (cascade 106)</td></tr>
+    <tr><td>M5</td><td>tabled (RULE 1)</td><td>&mdash;</td></tr>
+    <tr><td>M6.CC</td><td>closed (retired into Channel Theory)</td><td>Channel Theory concept <code>10.5281/zenodo.19941678</code></td></tr>
+    <tr><td>M7</td><td>closed (V0; folded)</td><td>bridge cascade <code>7f93b9e</code> (cascade 123)</td></tr>
+    <tr><td>M8a</td><td>closed (V0; folded)</td><td>bridge cascade <code>cb429e1</code> (cascade 127R)</td></tr>
+    <tr><td>M8b</td><td>closed (V0; folded)</td><td>bridge cascade <code>74c5630</code> (cascade 130R; <em>d</em>&ge;3 caveat carried forward to Umbrella v2.3)</td></tr>
+    <tr><td>M9</td><td>partial</td><td>bridge cascade <code>b9aa881</code> (slot 136 picture v1.20+)</td></tr>
+    <tr><td>M10</td><td>partial</td><td>Lean sorry discharge work-stream</td></tr>
+    <tr><td>M11</td><td>tabled (RULE 1)</td><td>&mdash;</td></tr>
+    <tr><td>M12</td><td>tabled (RULE 1)</td><td>&mdash;</td></tr>
+  </tbody>
+</table>
+
+<p>The axis-coverage table follows the SIARC v1 schema locked by slot 160 verdict (siarc-relay-bridge cascade <code>012736f</code>); status vocabulary and atomic listing are normative. Bridge cascade SHAs are content-addressed persistent identifiers; URLs may decay if the <code>siarc-relay-bridge</code> repository is renamed but SHAs remain recoverable from any clone.</p>
+
+<p><strong>Per-deposit semantics:</strong> Umbrella v2.2 absorbs the V0-closure cascade via the v2.2 &sect;Closure Cascade and Bridge Provenance amendment. The 4 V0-closed axes (M4, M7, M8a, M8b) and the M6.CC retirement are program-tier provenance for the Umbrella program statement, not new mathematical content; this is the semantic distinction between Umbrella v2.2 (provenance-tier amendment) and Umbrella v2.3 (forthcoming; mathematical content amendment).</p>
+
+<!-- ====================== END_PASTE ====================== -->
