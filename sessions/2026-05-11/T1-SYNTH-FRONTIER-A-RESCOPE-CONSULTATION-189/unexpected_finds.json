@@ -1,0 +1,58 @@
+[
+  {
+    "id": "UF-189-1",
+    "severity": "HIGH",
+    "category": "memory_promotion_candidate",
+    "summary": "Amendment-7 bibliographic-hallucination-rate-trigger: load-bearing reference lists must pass 0/N FAIL before banding",
+    "detail": "Claude added Amendment-7 codifying that 10% hallucination rate in slot 185 reference list (1/10) exceeded the implicit acceptable rate for load-bearing substrate prep. Forward discipline: any reference list supporting a LOAD-BEARING claim must pass post-031 bibliographic pre-verification at 0/N FAIL before the load-bearing claim is banded. The slot 185 1/10 rate should have blocked Amendment-1's LOW-MEDIUM banding. This extends the existing 'Bibliographic identifier pre-verification' memory (post-031 rule for lit-hunt prompts citing DOI/arXiv as acquisition targets) to T1-Synth verdict reference lists supporting load-bearing claims.",
+    "memory_promotion_status": "PROMOTE_RECOMMENDED — extends existing 'Bibliographic identifier pre-verification' memory with load-bearing-band guard"
+  },
+  {
+    "id": "UF-189-2",
+    "severity": "MEDIUM",
+    "category": "load_bearing_discipline_application",
+    "summary": "Claude correctly applied UF-188-2 load-bearing-discipline: MEDIUM-band verdict carrying LOAD-BEARING-PENDING-VERIFY claim with downstream dual-witness mandate",
+    "detail": "Claude's verdict explicitly applied UF-188-2 ('Load-bearing claims require verification rigor MATCHING the load-bearing classification, not the verdict's overall band'): consultation verdict itself is single-witness MEDIUM-band, but Amendment-1' load-bearing claim is downstream-gated on FIRE-A3' dual-witness fire. Amendment-4' mandates dual-witness for FIRE-A3' and FIRE-A4'; FIRE-A2' single-witness acceptable. This is the textbook correct band/load-bearing decoupling pattern. First witnessed application of UF-188-2 since memory stored 2026-05-11.",
+    "memory_promotion_status": "DOWNGRADE_TO_UPVOTE — confirms UF-188-2 memory accuracy; no new memory needed"
+  },
+  {
+    "id": "UF-189-3",
+    "severity": "MEDIUM",
+    "category": "scope_sharpening_via_d_geq_3",
+    "summary": "B-MODIFIED narrows differentiation to d>=3 + tau-bilinear; absorbs Q-v23-1 SHARPER-BOOKKEEPING corollary substrate",
+    "detail": "Claude's narrowing from generic Sakai-D6(1)-geometric to 'Sakai-D6(1) surface-preservation AT ORDER d>=3 with explicit tau-function bilinear identity respecting the Sakai 2-form' has three benefits: (i) absorbs the Q-v23-1 SHARPER-BOOKKEEPING corollary substrate that Frontier-A was originally instrumented to produce; (ii) sharper differentiation criterion against 5 existing constructions which are mostly at d=2 or as recursion-without-surface-bookkeeping; (iii) creates natural fail-condition operationally checkable. Pattern: when scope narrows to a literature-quasi-empty band, the constraint that locks the scope to that band (here d>=3 + tau-bilinear) doubles as the differentiation-against-existing criterion.",
+    "memory_promotion_status": "TOO_NARROW — research-direction-specific; not promote"
+  },
+  {
+    "id": "UF-189-4",
+    "severity": "INFO",
+    "category": "witness_framing_advisory",
+    "summary": "Claude offered unsolicited framing note validating slot 188 + slot 189 discipline; identified Wang-Xu 2025 as principal residual risk",
+    "detail": "Final paragraph of Claude's verdict: 'A note on the consultation framing itself, offered without authority: the discipline shown in slot 188's exact-phrase audit and this re-scope is good — falsifying Amendment-1 cleanly and structurally rather than negotiating around it is the right move, and Option (B-MODIFIED) is a defensible continuation rather than a sunk-cost rescue. The principal residual risk is Wang-Xu 2025; if FIRE-A2' shows that paper invokes Sakai-D6(1) language at d>=3, the cleanest move is HALT_HF2 -> Option (A) -> open alternative-substrate consultation, without further sunk cost.' Advisory absorbed; aligns with explicit HF2 hard-fail trigger in Q-189-2.",
+    "memory_promotion_status": "NOT_APPLICABLE — advisory note, not a pattern"
+  },
+  {
+    "id": "UF-189-5",
+    "severity": "MEDIUM",
+    "category": "forward_precondition",
+    "summary": "Pre-FIRE-A2' staleness check protocol: re-run slot 188 Q01-Q04 audit + exact-phrase 'higher-order Painleve III' audit",
+    "detail": "Claude's Q-189-5.3 wallclock staleness window: 'at FIRE-A2' launch, re-run the slot 188 3-variant Sakai-classification audit AND an exact-phrase \"higher-order Painleve III\" audit to detect any Wang-Xu follow-up or independent post-Dec-2025 construction.' This codifies a recurring forward-precondition pattern: any fire that depends on a recent literature corpus (defined as <12 months pre-publication) must re-run the structural-gap audit at fire-launch, not just at fire-design. If a follow-up has appeared invoking Sakai-D6(1) at d>=3, this is HF2-equivalent and forces collapse.",
+    "memory_promotion_status": "PROMOTE_CANDIDATE_AT_N>=2 — pattern needs second sighting to generalize"
+  },
+  {
+    "id": "UF-189-6",
+    "severity": "MEDIUM",
+    "category": "fire_chain_replacement",
+    "summary": "FIRE-A2/A3 (slot 185) -> FIRE-A2'/A3'/A4' (slot 189): three-fire chain replaces two-fire chain",
+    "detail": "Slot 185 Q-185-3 produced FIRE-A2 (PIII(D6) n=2 derivation) + FIRE-A3 (hierarchy inductive scheme) as two-fire chain. Slot 189 Q-189-4 replaces with three-fire chain: FIRE-A2' (reading-list digest, single-witness) -> FIRE-A3' (differentiation check, dual-witness MANDATORY) -> FIRE-A4' (construction draft, dual-witness MANDATORY). The new chain inserts a verification-gate fire (A3') between the substrate-prep (A2') and the construction (A4'), which is the load-bearing-discipline pattern: any LOAD-BEARING-PENDING-VERIFY claim creates a mandatory verification fire in the chain. The original two-fire chain was structurally non-compliant with UF-188-2 retroactively.",
+    "memory_promotion_status": "PROMOTE_CANDIDATE_AT_N>=2 — structural-pattern needs second example to generalize"
+  },
+  {
+    "id": "UF-189-7",
+    "severity": "LOW",
+    "category": "wang_xu_2025_pre_verification",
+    "summary": "Wang-Xu 2025 arXiv:2512.19381 abstract pre-verified at slot 189 fire: isomonodromic framework, no Sakai language in abstract",
+    "detail": "CLI ran arxiv.org abstract pre-fetch at slot 189 fire (raw HTML web_fetch). Title PASS: 'Asymptotic and monodromy problems for higher-order Painleve III equations'. Abstract describes 'isomonodromy deformation equations for the n*n system of first order meromorphic linear ordinary differential equations with two second order poles' with tt* application. Abstract does NOT invoke Sakai-D6(1) classification or surface-preservation language. Supports Claude's 'GENUINELY UNCERTAIN pending read' provisional verdict; full pre-read at FIRE-A2' remains required to check introduction + body for implicit Sakai factoring (UF-188-1-style HF4 risk).",
+    "memory_promotion_status": "NOT_APPLICABLE — paper-specific finding"
+  }
+]
