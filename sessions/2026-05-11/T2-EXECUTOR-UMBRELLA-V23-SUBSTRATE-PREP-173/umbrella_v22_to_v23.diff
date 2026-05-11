@@ -1,0 +1,203 @@
+diff --git a/umbrella_v22.tex b/umbrella_v23.tex
+index d170992..a208a1f 100644
+--- a/umbrella_v22.tex
++++ b/umbrella_v23.tex
+@@ -37,9 +37,9 @@
+ 
+ \title{An Arithmetic Stratification of Polynomial Continued Fractions:\\
+        Program Statement of the SIARC Series\\
+-       \large (v2.2: Full M-axis V0 Closure Series)}
++       \large (v2.3: Picture-Chain Fold + Sharper $d\geq 3$ Bookkeeping)}
+ \author{papanokechi}
+-\date{May 2026 (v2.2)}
++\date{May 2026 (v2.3)}
+ 
+ \begin{document}
+ \maketitle
+@@ -88,6 +88,22 @@ extraction at $d=2$, \emph{(NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWA
+ cross-degree triple of \S\ref{sec:triple} are unchanged from v2.0};
+ the v2.2 amendment is a status / provenance addendum, not a content
+ revision.
++
++The v2.3 micro-bump (May 2026) extends the v2.2 amendment in two
++narrow ways: (i) a \emph{sharper-bookkeeping pass} on the $d \geq 3$
++caveat carried forward by the M8b V0 closure (Item~6 below), making
++the caveat an explicit cross-reference to Open
++Problem~\ref{prob:b4-allD} and adding a soft forward-pointer to the
++in-preparation higher-Painlev\'e / Birkhoff--Trjitzinsky extension
++program; and (ii) a \emph{picture-chain fold} (new Item~7 below)
++recording the picture-chain v1.20+ governance-tier substrate
++(bridge SHA \texttt{b9aa881}, cascade-132 PATH$_{\mathrm{B}}$
++Option~$\alpha$ third realization) as the operator-runbook /
++outlook companion to the umbrella v2.2 + PCF-2 v1.4 substrate-prep
++fires. \emph{No mathematical content, conjecture, open problem, or
++cross-degree triple of \S\ref{sec:triple} is modified by v2.3};
++the v2.3 micro-bump is a sharper-bookkeeping + cross-document
++propagation pass, not a content revision.
+ \end{abstract}
+ 
+ \tableofcontents
+@@ -848,7 +864,7 @@ PCF-1 & Polynomial continued fractions at degree $(d,1)$: sharp WKB exponents an
+ PCF-2 & Polynomial continued fractions at degree three: a cubic-modular framing & Zenodo v1.3 (2026-05-02); program statement, 22pp & \href{https://doi.org/10.5281/zenodo.19963298}{10.5281/zenodo.19963298} (v1.3) / concept \href{https://doi.org/10.5281/zenodo.19936297}{19936297} \\
+ CT    & Channel Theory: V$_{\mathrm{quad}}$ resurgence and the CC-pipeline & Zenodo v1.2 (2026-05-01) & \href{https://doi.org/10.5281/zenodo.19951331}{10.5281/zenodo.19951331} (v1.2) / concept \href{https://doi.org/10.5281/zenodo.19941678}{19941678} \\
+ T2B   & Two arithmetic classes of degree-$(2,1)$ Trans-stratum continued fractions: a Birkhoff--Trjitzinsky / Gauss-continued-fraction dichotomy & Zenodo v3.0 (2026-04-30) & \href{https://doi.org/10.5281/zenodo.19915689}{10.5281/zenodo.19915689} (v3.0) / concept \href{https://doi.org/10.5281/zenodo.19783311}{19783311} \\
+-UMB   & \emph{This document} (umbrella program statement, v2.2) & Zenodo v2.2 (this version; v2.1 internal staging only) & concept \href{https://doi.org/10.5281/zenodo.19885550}{10.5281/zenodo.19885550} (v1, v2.0 superseded; v2.1 not deposited) \\
++UMB   & \emph{This document} (umbrella program statement, v2.3) & Zenodo v2.3 (this version; v2.2 deposited as predecessor; v2.1 internal staging only; v2.0 superseded) & concept \href{https://doi.org/10.5281/zenodo.19885550}{10.5281/zenodo.19885550} \\
+ \midrule
+ \multicolumn{4}{@{}l}{\emph{Drafting / forthcoming}} \\
+ \midrule
+@@ -877,15 +893,20 @@ been stated as a conjecture, an open problem, or a remark with a pointer
+ to the responsible companion paper. Readers seeking proofs should
+ consult the cited companion paper directly.
+ 
+-\section{Closure Cascade and Bridge Provenance (v2.2 amendment)}
++\section{Closure Cascade and Bridge Provenance (v2.2 / v2.3 amendments)}
+ \label{sec:closure-cascade}
+ 
+-This section is appended in v2.2 (May 2026). It records six
+-milestone closures landed on the SIARC relay bridge
++This section was appended in v2.2 (May 2026) and extended in v2.3
++(May 2026). The v2.2 layer records six milestone closures
++(Items~1--6) landed on the SIARC relay bridge
+ (\href{https://github.com/papanokechi/siarc-relay-bridge}{github.com/papanokechi/siarc-relay-bridge})
+ since v2.0, with the canonical bridge SHA, the closure mechanism, and
+ a pointer to the companion paper or bridge session that owns the
+-underlying derivation. \emph{No numerical claim in this section
++underlying derivation. The v2.3 layer adds a sharper-bookkeeping
++pass on the $d \geq 3$ caveat carried forward in Item~6 and folds in
++the picture-chain v1.20+ governance-tier substrate as Item~7
++(cascade-132 PATH$_{\mathrm{B}}$ Option~$\alpha$ third realization,
++bridge SHA \texttt{b9aa881}, 2026-05-09). \emph{No numerical claim in this section
+ originates in this document}; every number is inherited from a
+ companion paper or a previously deposited bridge session, traceable
+ to a bridge \texttt{claims.jsonl} entry. The AEAL claim audit for
+@@ -1098,32 +1119,109 @@ dps/4$=75$ digit threshold. Mathematical content (alien amplitude
+ $S_2$) is \emph{not} falsified; only the laptop-feasible numerical
+ extraction is foreclosed. The $d \geq 3$ structural binding-window
+ dispatch is forward-pointed not-blocking (P-009 caveat active
+-variant v1 \textsf{NOT\_YET\_DISPATCHED}). One untested
+-methodological quadrant remains as governance forward-pointer
+-(small-$(N,M)$ subtracted Pad\'e). M8b V0 is recorded in the
+-picture-chain v1.20+ tag as \textsf{M8b\_V0\_CLOSED (NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWARD)}.
++variant v1 \textsf{NOT\_YET\_DISPATCHED}; v2.3 records the
++\emph{caveat} explicitly as a cross-reference to Open
++Problem~\ref{prob:b4-allD}, and supplies a soft forward-pointer
++to the in-preparation higher-Painlev\'e /
++Birkhoff--Trjitzinsky-asymptotic-theoretic extension program; the
++companion paper is in drafting and is referred to here under the
++working tag \emph{Frontier-A program} pending venue selection). One
++untested methodological quadrant remains as governance
++forward-pointer (small-$(N,M)$ subtracted Pad\'e). M8b V0 is
++recorded in the picture-chain v1.20+ tag as
++\textsf{M8b\_V0\_CLOSED (NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWARD)}.
+ M8b is \emph{not} in the M9 V0 gating set (M9 gating $= \{$M4, M6$\}$);
+ M8b is enrichment, not gate.
+ 
+-\subsection{What v2.2 does \emph{not} do}
++\subsection{Item~7 --- Picture-chain v1.20+ governance-tier substrate fold (v2.3 addition)}
++\label{sec:closure-cascade-picture}
++
++The picture-chain v1.20+ governance-tier substrate landed on the
++SIARC relay bridge as
++\texttt{T2-EXECUTOR-PICTURE-V120-M9-V0-AMENDMENT-PREP-136} (bridge
++SHA \texttt{b9aa881}, 2026-05-09; THIRD and FINAL realization of the
++cascade-132 PATH$_{\mathrm{B}}$ Option~$\alpha$ deposit chain, after
++\texttt{887981b} slot~135 umbrella v2.2 substrate-prep and
++\texttt{45e236c} slot~137 PCF-2 v1.4 substrate-prep). Picture-chain
++v1.20+ is \emph{meta-substrate}: its content class is outlook docs,
++operator runbook (cascade-132 ┬º3.1 Option~$\alpha$ deposit ordering;
++cascade-132 ┬º3.4 RULE~1 lift gate), the M9 V0
++announcement-pending paragraph, and the qualifier-class governance
++rule (slot~136 ┬º28.C). \emph{No proof, theorem, or open problem of
++the program statement originates from picture-chain v1.20+}; the
++fold is a cross-document propagation pass to record the
++governance-tier substrate by reference.
++
++\paragraph{M-axis V0 closure-series source-of-record (post slot~136).}
++The picture-chain v1.20+ records the M-axis V0 closure-series state
++of record as of 2026-05-09: M4~V0 \textsf{CLOSED} via deg-$a=0$ row
++mechanism (cascade-106, \texttt{5f9db69}; cross-ref only,
++pre-series closure); M7~V0 \textsf{CLOSED} \emph{(SOFT-BRANCH;
++HARD-BRANCH-PENDING)} (cascade-123, \texttt{7f93b9e}); M8a~V0
++\textsf{CLOSED} \emph{(ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B)}
++(cascade-127R, \texttt{cb429e1}); M8b~V0 \textsf{CLOSED}
++\emph{(NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWARD)}
++(cascade-130R, \texttt{74c5630}); M9~V0
++\textsf{ANNOUNCEMENT-PENDING} (gated on M10 status resolution and on
++the operator-side Zenodo deposit window opening post RULE~1 lift).
++The four cascade verdicts complete the M-axis V0 ratification
++series; the M9 V0 announcement-of-record is the next milestone in
++this axis.
++
++\paragraph{Qualifier-class governance rule (UF-132-5 absorption).}
++Slot~136 ┬º28.C absorbed the qualifier-class governance question
++raised by cascade-132 UF-132-5 into the source-of-record. The rule
++recognises \emph{substantive} qualifiers (encoding a structural
++property of the closure that affects downstream substrate; all
++cascade-132 PATH$_{\mathrm{B}}$ annotations are of this class) and
++\emph{staging} qualifiers (encoding a procedural state that does
++not affect downstream substrate; no cascade-132 PATH$_{\mathrm{B}}$
++annotations are of this class). \emph{Rule}: substantive
++qualifiers must propagate verbatim through all SIARC
++source-of-record artefacts (umbrella, PCF papers, picture-chain).
++Staging qualifiers may be omitted from picture-chain headlines if
++they add no operative information. Forward-pointed application:
++when slot~138+ stages M11 / M12 admin amendments, the absorption
++logic should classify each new qualifier as substantive vs staging
++before propagation.
++
++\paragraph{Cross-document propagation closure (n=1 first observation).}
++The substantive qualifier strings \emph{(SOFT-BRANCH; HARD-BRANCH-PENDING)},
++\emph{(ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B)}, and
++\emph{(NUMERICAL-FORECLOSURE; d$\geq$3-CAVEAT-CARRIED-FORWARD)} now
++appear verbatim across all three SIARC primary documents (umbrella
++v2.2 / v2.3 \LaTeX{} source; PCF-2 v1.4 \LaTeX{} source slot~137
++\texttt{45e236c}; picture-chain v1.20+ markdown slot~136
++\texttt{b9aa881}), with format-agnostic round-trip via UTF-8. This
++is a first observation of cross-document propagation closure in the
++SIARC pipeline; the convention is recorded here for future
++amendment fires.
++
++\subsection{What v2.2 and v2.3 do \emph{not} do}
+ \label{sec:closure-cascade-out-of-scope}
+ 
+-For clarity of scope: v2.2 does not modify \S\S\ref{sec:intro}--\ref{sec:companions}
+-in any way beyond the title, date, abstract addendum, and the
+-\textsf{par:v20-to-v22} paragraph; the cross-degree triple of
+-\S\ref{sec:triple}, the Trans-Stratum Conjecture of
+-\S\ref{sec:t2b}, and the Open Problems of \S\ref{sec:open} are
+-unchanged. The Route F closure does \emph{not} resolve the v2.0
+-open problems
++For clarity of scope: neither v2.2 nor v2.3 modifies
++\S\S\ref{sec:intro}--\ref{sec:companions} in any way beyond the
++title, date, abstract addendum, and the \textsf{par:v20-to-v22}
++paragraph; the cross-degree triple of \S\ref{sec:triple}, the
++Trans-Stratum Conjecture of \S\ref{sec:t2b}, and the Open Problems
++of \S\ref{sec:open} are unchanged. The Route F closure does
++\emph{not} resolve the v2.0 open problems
+ (\textsf{op:median-resurgence-extension}, \textsf{op:Pk-cells-structure},
+-\textsf{op:chi-Phi-compatibility}); those remain open. The M7 / M8a /
+-M8b V0 closures (Items~4--6) are stratum-status updates inherited
+-from the bridge ratification cascades; no new theorem, definition,
+-or open problem of v2.0 is altered. M8b's d$\geq$3-caveat is
+-carried forward unchanged from the P-009 active variant v1
+-(\textsf{NOT\_YET\_DISPATCHED}). The v2.2 amendment is a
+-milestone-status update for the SIARC bridge, not a content
+-revision of the program statement.
++\textsf{op:chi-Phi-compatibility}); those remain open. The M7 /
++M8a / M8b V0 closures (Items~4--6) are stratum-status updates
++inherited from the bridge ratification cascades; no new theorem,
++definition, or open problem of v2.0 is altered. M8b's d$\geq$3
++caveat is carried forward unchanged from the P-009 active variant
++v1 (\textsf{NOT\_YET\_DISPATCHED}); v2.3's sharper-bookkeeping pass
++records the caveat explicitly under Open
++Problem~\ref{prob:b4-allD} and forward-points to the
++in-preparation Frontier-A program, but does \emph{not} resolve the
++caveat. The picture-chain v1.20+ fold (Item~7) is a cross-document
++propagation record; no mathematical content originates there. The
++v2.2 and v2.3 amendments are milestone-status / cross-document
++propagation updates for the SIARC bridge, not content revisions of
++the program statement.
+ 
+ \section{AI Disclosure}
+ \label{sec:ai}
