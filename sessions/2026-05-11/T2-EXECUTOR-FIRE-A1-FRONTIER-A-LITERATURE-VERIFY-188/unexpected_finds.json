@@ -1,0 +1,57 @@
+{
+  "finds": [
+    {
+      "id": "UF-188-1",
+      "severity": "HIGH",
+      "description": "Existing 'Painlevé III hierarchy' literature is more developed than slot 181 + slot 185 substrate suggested. 5 distinct construction approaches identified: (1) Sakka original PIII hierarchy (referenced 'in the sense of Sakka' by Bilman-Buckingham 2018); (2) Atkin Lenard-recursion construction (Atkin 2015 earlier paper); (3) Atkin-Claeys-Mezzadri 2015 matrix-model higher-order-pole singularities (arXiv:1501.04475); (4) Bilman-Ling-Miller 2018 NLS rogue waves of infinite order (arXiv:1806.00545; Duke 2020); (5) Wang-Xu 2025 isomonodromic deformations of n×n linear ODE with two 2nd-order poles (arXiv:2512.19381). This is a candidate for memory promotion under 'literature reconnaissance methodology'.",
+      "candidate_memory": true,
+      "candidate_memory_subject": "literature reconnaissance discipline",
+      "candidate_memory_text": "Literature reconnaissance discipline requires BOTH keyword/author probes AND exact-phrase probes; keyword/author probes alone (slot 181 pattern) can miss established named objects in the literature when the named-object phrase is not a query term. The 'Painlevé III hierarchy' case (slot 188): 18 keyword/author probes returned NULL but direct exact-phrase search returned 4+ hits = 5 distinct named constructions. Generalizes to any structural-gap claim: validate via exact-phrase search of the alleged-gap concept BEFORE filing the gap-claim as load-bearing.",
+      "remediation": "Apply to future FIRE-class structural-gap audits"
+    },
+    {
+      "id": "UF-188-2",
+      "severity": "HIGH",
+      "description": "Slot 185 single-witness LOW-MEDIUM band absorbed Amendment-1 'PIII hierarchy literature gap' as LOAD-BEARING without first verifying the gap-claim via direct exact-phrase search. This is an instance of confidence-band mismatch: the gap-claim was the most-load-bearing element of the slot 185 verdict, but the verification rigor was lower (single-witness, no live web lookup) than would be appropriate for a load-bearing-claim. Slot 185 Amendment-1 was specifically designed to acknowledge this with the PENDING-VERIFY tag; this fire is its validation gate, and validation FAILED.",
+      "candidate_memory": true,
+      "candidate_memory_subject": "load-bearing claim discipline",
+      "candidate_memory_text": "Load-bearing claims in T1-Synth verdicts must have verification rigor MATCHING the load-bearing classification, not the verdict's overall band. A single-witness LOW-MEDIUM verdict can still RAISE individual claims to higher-rigor verification (live web lookup, dual-witness, etc.) by using the PENDING-VERIFY tag pattern (slot 185 Amendment-1) and requiring a subsequent T2-executor fire to close the gate. The pattern is HIGH-RISK if the T2-executor fire reveals the load-bearing claim is falsified — entire downstream substrate-prep work plans must be suspended (as occurred slot 188: FIRE-A2 + FIRE-A3 SUSPENDED_PENDING_RESCOPE).",
+      "remediation": "Apply to future T1-Synth verdicts with PENDING-VERIFY tagged claims"
+    },
+    {
+      "id": "UF-188-3",
+      "severity": "MEDIUM",
+      "description": "Bibliographic Pre-Verification (post-031 rule) caught entry 4 'Joshi-Lustri-Topp 2014' as hallucinated identifier. arXiv:1403.1235 resolves to Its-Lisovyy-Tykhyy 2014 (different authors, same year, IS PIII-relevant by serendipity). This is the SECOND documented post-031-rule application this session arc; first was slot 185 verdict's pre-verification of LR 2024 (PASS) + IILZ 2025 (PASS). Pattern: 1/10 hallucination rate in slot 185's reference list of methodological/citation-tier entries.",
+      "candidate_memory": false,
+      "remediation": "Document hallucination-rate as a base-rate estimator for future T1-Synth reference lists; 10% hallucination rate is non-trivial and validates post-031 rule"
+    },
+    {
+      "id": "UF-188-4",
+      "severity": "MEDIUM",
+      "description": "Both anchor entries (Mazzocco-Mo 2006 + Bobrova-Mazzocco 2020) are PII hierarchy papers, NOT PIII. Slot 185 verdict implicitly used them as methodological-template anchors (PII hierarchy is the model template for PIII hierarchy construction). This is defensible but should be explicit in any re-scope verdict. The verdict.md framing 'PIII(D6) hierarchy with n=2 standalone fallback' did not call out that the anchors were PII not PIII — a substrate-readback INFO finding.",
+      "candidate_memory": false,
+      "remediation": "Make methodological-template pattern explicit in any future Frontier-A re-scope verdict"
+    },
+    {
+      "id": "UF-188-5",
+      "severity": "MEDIUM",
+      "description": "Sakai-classification-specific notation (PIII(D6), Painlevé D6, Sakai D6) returns 0 arxiv hits across 3 query variants. The 5 existing PIII hierarchy constructions use different formalism (matrix model, NLS, isomonodromic, Lenard recursion) — none in the Sakai-D6(1) surface-preserving classification language. This SUGGESTS Frontier-A's narrow Sakai-geometric scope MAY still be novel, but requires demonstrating the 5 existing constructions are not Sakai-D6(1) surface-preserving in disguise.",
+      "candidate_memory": false,
+      "remediation": "Surface to operator + Claude as the basis for Option B re-scope; do not assume novelty without the differentiation demonstration"
+    },
+    {
+      "id": "UF-188-6",
+      "severity": "LOW",
+      "description": "Wang-Xu 2025 (arXiv:2512.19381) submitted 22 December 2025, only ~5 months before this fire. This is the LATEST literature in the PIII-hierarchy space as of fire-time and underscores that the field is actively producing new constructions. Suggests Frontier-A re-scope should monitor arXiv for new entries through 2026.",
+      "candidate_memory": false,
+      "remediation": "Add a recurring-monitor watch-item if Frontier-A is re-scoped"
+    },
+    {
+      "id": "UF-188-7",
+      "severity": "LOW",
+      "description": "Lenells-Roussillon 2024 (arXiv:2407.03464, entry 6 LR 2024) explicitly covers PIII3 = PIII(D6) degeneration in its semiclassical-asymptotic-formula framework. This is one of the few PIII-relevant arxiv references in the slot 185 reference list that is NOT a generic PIII hierarchy paper — it's a specific PIII3 semiclassical-asymptotics paper. If Frontier-A is re-scoped to Sakai-geometric construction, LR 2024 is one of the few literature anchors that can be retained without modification.",
+      "candidate_memory": false,
+      "remediation": "Preserve LR 2024 in any re-scope reference list"
+    }
+  ]
+}
