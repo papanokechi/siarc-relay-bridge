@@ -1,0 +1,32 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-148E-1",
+      "severity": "HIGH",
+      "memory_promotion_candidate": true,
+      "summary": "Mathlib cache .ltar files in C:\\Users\\shkub\\.cache\\mathlib\\ are subject to a Windows-only access-denied failure mode during 'lake update mathlib' (and presumably 'lake exe cache get!'). Observed: 7801/8399 decompression attempts return 'Access is denied. (os error 5)' on specific .ltar files, in two batched leantar invocations of 3948 and 2342 files. Probable causes: (a) OneDrive Files-On-Demand sync claiming write-lock on freshly-downloaded files (cf. stored memory 'OneDrive sync git-diff hang'); (b) Windows Defender real-time scanning placing transient locks on .ltar archives during decompression; (c) concurrent Lean Server (VS Code Lean extension) reader holding file handles. Single-file lock probe inconclusive during this fire (terminal exited before reaching the probe block).",
+      "recommended_followup": "Memory-promote a new repo memory entry 'lake-cache-decompression-denied-windows-2026-05-11' documenting the failure mode + the OPT_X1/OPT_X2 remediation menu. Cross-reference with existing 'OneDrive sync git-diff hang' memory."
+    },
+    {
+      "id": "UF-148E-2",
+      "severity": "MED",
+      "memory_promotion_candidate": false,
+      "summary": "lean/lean-toolchain WAS bumped a SECOND time between the original slot 148.B fire and the current slot 148.E fire: rc1 -> rc2. Prompt at Phase A.1 cites stored memory 'slot-148-B-lean-toolchain-bump' as the source-of-record for the bump, implying the bump terminated at rc1. ACTUAL on-disk state: leanprover/lean4:v4.30.0-rc2. Provenance for the second bump not surfaced inside this fire (no rc2-bump session in bridge 2026-05-11 directory listing). Consistent with mathlib rev 14b67616... selected by Phase A.1 lake update.",
+      "recommended_followup": "Operator to confirm which session bumped rc1 -> rc2 (or whether it was an in-CLI rc2 bump that did not yet land in bridge). Update stored memory 'slot-148-B-lean-toolchain-bump' to terminal-state rc2 with provenance footer."
+    },
+    {
+      "id": "UF-148E-3",
+      "severity": "LOW",
+      "memory_promotion_candidate": false,
+      "summary": "lean/ directory contains many untracked stragglers that were not visible in the Phase 0 spot-check of WallisFamily.lean L282-284: lean/CardEvenOfInvolution.lean, lean/GoldbachHelfgott/, lean/TmpCheck.lean, lean/WallisFamily/, lean/build_*.log (x~7), lean/lean4_claims.jsonl, lean/proof_status.json, lean/proof_targets.lean, lean/sorry_log.json, lean/thm66_lean4_summary.md, lean/triage.json, and an entire lean/.lake/ build artefact tree. Any future 'git add lean/' sweep at operator-tier (per stored memory 'slot-148-AB-lean-tree-commit-operator-tier') would pick up ALL of these unless path-narrowed to lean/WallisFamily.lean + lean/lean-toolchain + lean/lake-manifest.json explicitly.",
+      "recommended_followup": "Operator-tier commit per stored 'slot-148-AB-lean-tree-commit' memory should explicitly enumerate the three intended paths (WallisFamily.lean / lean-toolchain / lake-manifest.json) and add the rest to .gitignore if they are truly build-artefacts (most look like in-progress experimental work)."
+    },
+    {
+      "id": "UF-148E-4",
+      "severity": "INFO",
+      "memory_promotion_candidate": false,
+      "summary": "Mathlib at the new pin 14b67616... has restructured Mathlib.Analysis.Asymptotics: the import 'Mathlib.Analysis.Asymptotics.Asymptotics' that broke slot 148.A is GONE; the surviving compatible import in WallisFamily.lean L3 is 'Mathlib.Analysis.Asymptotics.Defs' (already substituted in slot 148.A Path A per bridge session T2-EXECUTOR-LEAN4-IMPORT-SUBSTITUTE-148-PATH-A-168). The L3 import substitute is therefore RATIFIED by the Phase A.1 mathlib update -- it was the necessary precondition for the rc2 bump to be functional.",
+      "recommended_followup": "None for this fire; ratification documented in handoff.md Cumulative Status section."
+    }
+  ]
+}

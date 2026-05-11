@@ -1,0 +1,44 @@
+{
+  "halts": [
+    {
+      "halt_code": "HALT_148E_CACHE_DECOMPRESSION_DENIED",
+      "halt_class": "PRECONDITION_NOT_MET",
+      "triggered_at_phase": "B.1",
+      "triggered_at_timestamp_utc": "2026-05-11T~07:00Z (approx, JST ~16:00)",
+      "summary": "lake build cannot proceed because the mathlib cache (C:\\Users\\shkub\\.cache\\mathlib\\) is in a half-populated state: 8399/8399 .ltar artefacts downloaded but 7801/8399 decompressions failed with Windows 'Access is denied. (os error 5)'. As a consequence, 'lake build --no-build' reports the canonical witnesses Mathlib.Lean.Meta.RefinedDiscrTree.Basic / Mathlib.Util.AtomM / Mathlib.Logic.UnivLE (and presumably many more) as 'target is out-of-date and needs to be rebuilt'. Continuing to a real 'lake build' would trigger a from-source rebuild of ~7800 mathlib modules at v4.30.0-rc2 (estimated wallclock measured in many hours and likely failing on disk/memory pressure during the Mathlib monolith compile).",
+      "remediation_options": [
+        {
+          "id": "OPT_X1_CACHE_REPAIR_PRIVILEGED",
+          "description": "Operator manually frees the locked .ltar files (close VS Code Lean extension, OneDrive sync client, Windows Defender real-time scan on .cache\\mathlib, possibly elevated PowerShell), then re-runs 'lake update mathlib' (or 'lake exe cache get!'). Expected single-shot fix if the lock source is OneDrive/AV.",
+          "estimated_wallclock_minutes": "60-120 (download already cached on disk; only decompression needs to succeed)",
+          "risk": "LOW"
+        },
+        {
+          "id": "OPT_X2_FRESH_CACHE_DIR",
+          "description": "Delete C:\\Users\\shkub\\.cache\\mathlib\\*.ltar entirely, then re-run 'lake exe cache get!'. Costs the full ~5GB re-download but eliminates the locked-file state.",
+          "estimated_wallclock_minutes": "120-180",
+          "risk": "LOW (no source-tree touch; .cache is by definition reproducible)"
+        },
+        {
+          "id": "OPT_X3_REVERT_TOOLCHAIN_BUMP",
+          "description": "Operator-tier: revert lean/lean-toolchain from leanprover/lean4:v4.30.0-rc2 back to the v4.30.0-rc1 (or older) pin that had a working cache locally. NOT RECOMMENDED -- the bump was per slot 148.B and is the predicate condition for the WallisFamily.lean L3 import substitute (Mathlib.Analysis.Asymptotics.Defs only exists at the new mathlib pin).",
+          "estimated_wallclock_minutes": "5",
+          "risk": "HIGH (regresses slot 148.B AND slot 148.A import-substitute work)"
+        },
+        {
+          "id": "OPT_X4_DEFER_LEAN_AXIS",
+          "description": "Accept that the Lean axis is blocked at the toolchain/cache layer pending operator-tier intervention, and recategorise slot-148-E-L282-unfold-fix from 'in_progress' to 'BLOCKED_ON_TOOLCHAIN_LAYER' in SQL todo, with a forward pointer to the OP-Z lift directive packet. Allows downstream T1 / T2 work on the F1-F8 axes to proceed without waiting on Lean.",
+          "estimated_wallclock_minutes": "5",
+          "risk": "LOW (status-only; defers but does not regress)"
+        }
+      ],
+      "recommended_remediation": "OPT_X1_CACHE_REPAIR_PRIVILEGED first; if that fails after one attempt, fall back to OPT_X2_FRESH_CACHE_DIR. OPT_X3 explicitly NOT recommended. OPT_X4 acceptable if X1+X2 both fail.",
+      "fire_outcome": "HALTED_NO_CODE_EDIT_LANDED_DOWNSTREAM",
+      "lean_working_tree_state_at_halt": {
+        "lean/WallisFamily.lean": " M (slot 148.A import-substitute + slot 148.E L284 simp tactic; not yet operator-committed)",
+        "lean/lean-toolchain": " M (slot 148.B bump to v4.30.0-rc2; not yet operator-committed)",
+        "lean/lake-manifest.json": "?? (rewritten by Phase A.1 lake update with new mathlib rev 14b67616...; not yet operator-committed)"
+      }
+    }
+  ]
+}

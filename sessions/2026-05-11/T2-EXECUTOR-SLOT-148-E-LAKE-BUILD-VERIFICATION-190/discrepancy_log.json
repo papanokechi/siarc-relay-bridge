@@ -1,0 +1,28 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-148E-1",
+      "severity": "INFO",
+      "summary": "Prompt assumes lean/lean-toolchain pinned to leanprover/lean4:v4.30.0-rc1 (per stored memory 'slot-148-B-lean-toolchain-bump' as cited in Phase A.1). Working-tree shows leanprover/lean4:v4.30.0-rc2. Most likely interpretation: the operator (or a downstream session, possibly slot 148.D 171) bumped from rc1 -> rc2 after the original 148.B fire and before slot 148.E. The bumped-once-more state is consistent with the new mathlib rev 14b67616... fetched in Phase A.1 (rc2-compatible), and is therefore not blocking; it merely supersedes the prompt's literal toolchain assumption.",
+      "resolution": "NOTED; downstream slot 148.E methodology unchanged. The L284 simp tactic does not depend on which exact rc the toolchain pins."
+    },
+    {
+      "id": "D-148E-2",
+      "severity": "MED",
+      "summary": "Prompt Phase A.1 assumes 'Expected wallclock: 1-2 hours' for lake update and that completion would yield Phase A.2 with the manifest warning resolved. ACTUAL OUTCOME at the local machine: download phase completes (8399/8399 = 100%) at ~78 minutes inside the 1-2hr envelope, but the decompression phase fails with 7801/8399 Windows access-denied errors. Manifest IS rewritten (Phase A.2 manifest grep = 0 hits) so the warning is technically resolved per the prompt's literal Phase A.2 acceptance criterion, but the cache itself is in a half-populated state that prevents Phase B.1 in finite wallclock.",
+      "resolution": "Halt mode HALT_148E_CACHE_DECOMPRESSION_DENIED surfaced. Phase A.2 PASS-WITH-CAVEAT logged."
+    },
+    {
+      "id": "D-148E-3",
+      "severity": "LOW",
+      "summary": "Prompt expects the deliverable 'lake_build_post.log' as the post-mathlib-update build log. In a halt-at-Phase-B.1 fire this artefact does not exist. SUBSTITUTE staged: 'lake_no_build_phase_A2.log' (the 326-byte Phase A.2 manifest-scan output containing the three 'target is out-of-date and needs to be rebuilt' witnesses) + 'lake_update_mathlib.log' (the 221136-byte Phase A.1 lake update output containing the 7801-decompression-failure verdict).",
+      "resolution": "Filename normalisation documented in handoff.md Section 'Files committed'."
+    },
+    {
+      "id": "D-148E-4",
+      "severity": "LOW",
+      "summary": "Pre-existing bridge tree at session start was DIRTY (~85-102 unrelated working-tree entries, matching the slot-138 / slot-150 / slot-158 / slot-159 / slot-172 / slot-181 / slot-184 lesson pattern). HEAD shifted from e9490d3 at Phase 0.2 to 4eb28c4 at Phase D (operator pull-rebase in another session). Path-specific staging applied at Phase D2 picks up only sessions/2026-05-11/T2-EXECUTOR-SLOT-148-E-LAKE-BUILD-VERIFICATION-190/, isolating this fire from the unrelated dirty entries.",
+      "resolution": "Standard precedent slots 138/150/158/159/172/181/184 followed."
+    }
+  ]
+}
