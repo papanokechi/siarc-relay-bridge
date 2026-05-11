@@ -1,1 +1,41 @@
-{}
+{
+  "discrepancies": [
+    {
+      "id": "D-167-1",
+      "severity": "MEDIUM",
+      "status": "OPEN-OPERATOR-DECISION",
+      "discovered": "2026-05-11T09:25:00+09:00",
+      "discovered_during": "umbrella_v22.pdf locate request; PDF substrate sanity-check vs Zenodo description block",
+      "substrate": "tex/submitted/umbrella_program_paper/umbrella_v22.tex line 851 (companion papers table, UMB row)",
+      "claim": "The PDF's own UMB-row entry in the §6 companion-papers table cites '10.5281/zenodo.19885550' as the umbrella concept-DOI.",
+      "evidence": "Line 851 verbatim: 'concept \\href{https://doi.org/10.5281/zenodo.19885550}{10.5281/zenodo.19885550} (v1, v2.0 superseded; v2.1 not deposited)'",
+      "contradicts": "Slot 163-164 verdict (bridge SHA b936eb0) which propagated concept-DOI correction 19885550 -> 19885549 throughout slot 167 deposit substrate. Slot 167 amended_description_block_v2.md §1 metadata correctly cites concept 19885549 / v1.0 version 19885550. Live Zenodo verification: 19885550 is the v1.0 VERSION-DOI; 19885549 is the CONCEPT-DOI.",
+      "impact": "The PDF body uploaded to Zenodo v2.2 will contain an internally-inconsistent self-citation: the Zenodo record metadata will cite concept 19885549, but the PDF's own §6 table will cite 19885550 as 'concept'. Cosmetic-tier inconsistency; does not affect machine-resolvability of related-identifiers (Zenodo uses the metadata, not the PDF body). Long-term substrate-trail hygiene argues for rebuild.",
+      "options": {
+        "option_A_rebuild": "Edit umbrella_v22.tex line 851 (19885550 -> 19885549; '(v1, v2.0 superseded; ...)' -> '(concept; resolves to latest)'); rebuild PDF; re-upload to Zenodo draft. Cost: ~5min LaTeX recompile + re-upload. Benefit: clean substrate-trail.",
+        "option_B_accept": "Upload current PDF; note discrepancy in Zenodo description body or version-notes; corrigendum-via-Edit later if desired. Cost: 0. Benefit: deposit unblocked immediately.",
+        "option_C_corrigendum_only": "Upload current PDF; defer fix to Umbrella v2.3 (next content-tier revision; not yet drafted). Cost: 0. Benefit: deposit unblocked; fix folded into next mathematical-content revision."
+      },
+      "recommendation": "Option_B (accept) — Zenodo's machine-readable metadata uses the related-identifiers block (correct), not the PDF body. The PDF table line is cosmetic and will be superseded when Umbrella v2.3 lands. Halt for rebuild only if operator wants pristine substrate-trail."
+    },
+    {
+      "id": "D-167-2",
+      "severity": "LOW",
+      "status": "OPEN-OPERATOR-DECISION",
+      "discovered": "2026-05-11T09:25:00+09:00",
+      "discovered_during": "umbrella_v22.pdf locate request; PDF substrate sanity-check vs Zenodo description block",
+      "substrate": "tex/submitted/umbrella_program_paper/umbrella_v22.tex line 849 (companion papers table, CT row)",
+      "claim": "The PDF's CT-row entry in the §6 companion-papers table cites Channel Theory v1.2 (Zenodo 19951331).",
+      "evidence": "Line 849 verbatim: 'Zenodo v1.2 (2026-05-01) & \\href{https://doi.org/10.5281/zenodo.19951331}{10.5281/zenodo.19951331} (v1.2) / concept ...19941678'",
+      "contradicts": "Zenodo description block §2.1 (verdict-166-γ2 footnote) cites Channel Theory v1.3 (19972394, 2026-05-02). Live Zenodo: CT v1.3 IS published; PDF cites the immediate predecessor v1.2 (which was published 2026-05-01 per the PDF's own date stamp).",
+      "impact": "Same as D-167-1: cosmetic PDF-vs-Zenodo-metadata version-staleness on companion citation. Concept-DOI (19941678) is correct; only the version-DOI/version-label is stale. PDF was built 2026-05-09 19:44 JST, post-CT-v1.3-publish, so this is a stale-citation oversight not a temporal-impossibility.",
+      "options": {
+        "option_A_rebuild": "Edit line 849: v1.2 -> v1.3; 19951331 -> 19972394; 2026-05-01 -> 2026-05-02. Combine with D-167-1 rebuild for single recompile pass.",
+        "option_B_accept": "Cited concept-DOI is correct; version-staleness is forgivable in a program-statement paper that explicitly versions itself separately from its companions. Accept.",
+        "option_C_corrigendum_only": "Same as D-167-1."
+      },
+      "recommendation": "Option_B unless rebuilding for D-167-1 anyway (in which case fold both)."
+    }
+  ],
+  "scope_note": "Both D-167-1 and D-167-2 are PDF substrate vs Zenodo metadata mismatches that surfaced during pre-deposit verification. Zenodo deposit can proceed with metadata correct per slot 167; PDF body inconsistencies are cosmetic-tier and do not affect machine-resolvability. Operator-decision-tier per cascade-132 §3.4 Q4 admin-path admissibility (low-stakes)."
+}
