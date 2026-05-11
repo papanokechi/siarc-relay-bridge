@@ -1,0 +1,36 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-173-1",
+      "severity": "INFO",
+      "title": "Decision-packet F6 scope did not authorise concept-DOI corrigendum (slot 167 D-167-1); v2.3 retains v1.0-version-DOI in UMB row",
+      "description": "Slot 167 D-167-1 (bridge SHA b14ba31 era) flagged that umbrella concept-DOI in the Companion Papers table UMB row at L851 of v2.2 cites 19885550 (which is the v1.0 version-DOI) rather than 19885549 (the true concept-DOI per slot 163-164 b936eb0 correction). Slot 167 explicitly recommended 'corrigendum via Umbrella v2.3 mathematical-content revision'. The umbrella-v23-frontier-decision-packet Phase B/C verdict (2026-05-11 14:36 JST) authorised only (1) sharper-bookkeeping for d>=3 and (2) picture-chain v1.20+ fold. The concept-DOI corrigendum was OUT OF SCOPE for this fire. The UMB row update in this fire amended only the version-marker (v2.2 -> v2.3) and supersession language, NOT the concept-DOI. The PCF-2 v1.3 -> v1.4 row update was likewise OUT OF SCOPE and retained as v1.3.",
+      "forward_pointed_action": "Operator decision: bundle concept-DOI corrigendum + PCF-2 v1.3->v1.4 row update into a follow-up slot 174+ micro-fire on umbrella v2.3, OR defer to v2.4 corrigendum cycle. Both corrigenda are cosmetic-tier (no semantic content change) and can be addressed at operator timing.",
+      "anchoring_substrate": "siarc-relay-bridge/sessions/2026-05-11/T2-EXECUTOR-UMBRELLA-V22-AMENDED-DESCRIPTION-BLOCK-VERDICT-166-ABSORPTION-167/discrepancy_log.json D-167-1"
+    },
+    {
+      "id": "UF-173-2",
+      "severity": "INFO",
+      "title": "Item 7 picture-chain fold deliberately narrow: references picture-chain v1.20+ by bridge SHA + summary, does NOT verbatim-include the 344-KB markdown",
+      "description": "The decision-packet verdict Q-v23-2 = A 'fold-into-Appendix-C' was interpreted as cross-document propagation reference + summary of governance-tier content, NOT verbatim inclusion. Item 7 includes: (a) 1-paragraph cascade-132 PATH_B Option alpha context with bridge SHAs (887981b + 45e236c + b9aa881); (b) 1-paragraph M-axis V0 closure-series source-of-record summary inherited from slot 136 m9_v0_closure_series_status.md; (c) 1-paragraph qualifier-class governance rule (UF-132-5 absorption) summary inherited from slot 136 qualifier_class_governance_rule.md; (d) 1-paragraph cross-document propagation closure n=1 first observation. Total Item 7 = ~64 lines, ~3300 words new prose.",
+      "forward_pointed_action": "If operator review judges this fold too narrow (i.e., wants verbatim inclusion of slot 136 §28.B / §28.C content), a follow-up fire can expand Item 7. If operator review judges this fold too wide (i.e., wants only a single-paragraph reference), Item 7 can be tightened. Default-pass: fold as-is.",
+      "anchoring_substrate": "User input via Phase B/C verdict 2026-05-11 14:36 JST: 'Q-v23-2 = A FOLD-INTO-APPENDIX-C (A.2.1=meta-only [AD; HIGH] + A.2.3=NO [AD; MEDIUM-HIGH] collapsed split options; A.2.2=unknown treated as tiebreaker per [AD; HIGH-IGNORANCE] label)'."
+    },
+    {
+      "id": "UF-173-3",
+      "severity": "INFO",
+      "title": "Frontier-A pointer used 'soft' wording per default; Q-frontier-1 still REFUSED at decision-packet level",
+      "description": "Per Phase B/C verdict, Q-frontier-1 (frontier selection A/B/C) was REFUSED because load-bearing operator-only inputs (A.3.5 energy preference + A.3.6 diversification need) were [OO; default] not operator-confirmed. The decision-packet thus does NOT commit to Frontier-A; however, the sharper-bookkeeping pass on d>=3 needed a forward-pointer for the carried-forward caveat. The pointer in v2.3 reads 'in-preparation higher-Painleve / Birkhoff-Trjitzinsky-asymptotic-theoretic extension program; the companion paper is in drafting and is referred to here under the working tag Frontier-A program pending venue selection' — this is SOFT in that (a) no companion paper title or venue is named, (b) no DOI / arXiv ID is committed, (c) the tag 'Frontier-A program' is explicitly working-pending. If Q-frontier-1 commits to B or C in a future re-fire, the v2.3 pointer wording will need minor amendment (replace 'higher-Painleve' with the actual selected frontier).",
+      "forward_pointed_action": "If Q-frontier-1 commits to a non-A frontier in next re-fire, file a v2.3 corrigendum to retag the forward-pointer.",
+      "anchoring_substrate": "Phase B/C verdict 'Q-frontier-1 = REFUSED (load-bearing inputs A.3.5 + A.3.6 are [OO] defaults; require operator overwrite)'."
+    },
+    {
+      "id": "UF-173-4",
+      "severity": "INFO",
+      "title": "OneDrive working tree path-handling caused initial git diff hang; resolved",
+      "description": "First attempt to redirect 'git diff --no-index umbrella_v22.tex umbrella_v23.tex > diff_file' hung 30+ seconds with no output. Stopped session and retried; second attempt completed silently and produced valid 12456-byte diff (SHA256 C3DC4CD7...). Possible cause: OneDrive sync activity on the redirect target file. Pattern n=2 with prior commit-message hang (UF-148D-? from slot 148.D session). Mitigation pattern: write to local-temp first, then move to OneDrive destination, OR retry once.",
+      "forward_pointed_action": "If a third instance occurs, add to memory as 'OneDrive sync interferes with PowerShell file redirects in OneDrive paths; use $env:TEMP staging' pattern.",
+      "anchoring_substrate": "This fire 2026-05-11 ~14:48 JST shell 537 hang + recovery."
+    }
+  ]
+}
