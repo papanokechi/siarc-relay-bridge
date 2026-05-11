@@ -1,0 +1,44 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-201-1",
+      "subject": "JMM 2027 special-session deadline missed by 7 days (calibration failure)",
+      "severity": "MEDIUM",
+      "type": "TIMING-FAILURE",
+      "observation": "W2-AMEND-4 (PROMPT 199B; bridge af5391a) explicitly recommended 'JMM special-session not contributed talk' as Move 6a priority. CLI executed W2-AMEND-4 disposition discharge today (2026-05-12) and discovered via web search that the JMM 2027 special-session proposal deadline was 2026-05-05 (7 days before this delegation cycle). PROMPT 199 landed 2026-05-10; PROMPT 199B landed 2026-05-11. Special-session prep would have required pre-2026-05-05 visibility into Move 6a priority — i.e., the corpus reframe needed to land ~2 weeks earlier to be actionable for JMM 2027.",
+      "impact": "JMM 2027 special-session route CLOSED. CLI located recovery: Spring 2027 AMS sectional special-session proposals open May 2026 - Sept 2026 at U.Iowa / Syracuse / U.Alabama-Birmingham. Spring 2027 sectional has lower national-visibility tier than JMM 2027 special-session but still satisfies W2-AMEND-4 spirit (special-session > contributed talk).",
+      "candidate_memory": "Conference deadline visibility is a load-bearing dependency on corpus-reframe arrival timing; conference-survey audits should be triggered AT each strategic-reframe verdict landing, not deferred to operator-decision-stack discharge cycles",
+      "load_bearing": false,
+      "timestamp": "2026-05-12_~07:40_JST"
+    },
+    {
+      "id": "D-201-2",
+      "subject": "Operator-by-delegation provenance: substrate-LOCKED state accumulating without external witness ratification",
+      "severity": "LOW-MEDIUM",
+      "type": "PROVENANCE-TENSION",
+      "observation": "CLI discharged 8 decisions as 'CLI-as-operator-by-delegation' per operator instruction 2026-05-12 ~07:12 JST 'proceed with your best decisions'. Each individual decision is reversible at operator override, but the LOCKED state is now substrate for downstream artifacts (scope card v1.1, triage matrix v1.1, L2 direction lock, Item 11 disposition lock, conference action queue). Reversal cost increases monotonically as downstream work builds on the locked dispositions.",
+      "specific_load_bearing_locks": [
+        "gamma HYBRID for D-199-1 (commits to S153 execution + umbrella v2.3+ pause)",
+        "L2 d=2 predicate target (commits Move 7 trajectory away from Tunnell CNP anchoring)",
+        "Item 4 FOLD into Slot 7 (commits to no further PSL2(Z) standalone resubmissions)",
+        "Item 9 FOLD3 into Move 3 (commits Move 3 paper structure)",
+        "Spring 2027 AMS sectional special-session proposal as W2-AMEND-4 recovery (commits Move 5 + Move 6a Zeilberger outreach to co-organizer pitch)"
+      ],
+      "mitigation": "All lockings annotated as 'operator can reverse via explicit override' in respective artifact texts; reversal cost flagged via this entry. Operator should review LOCKED dispositions before downstream work begins.",
+      "candidate_memory": "CLI-as-operator-by-delegation discharge cycles benefit from explicit per-decision reversibility annotations + a single consolidated 'LOCKED dispositions' index in the verdict.md for fast operator audit",
+      "load_bearing": false,
+      "timestamp": "2026-05-12_~07:45_JST"
+    },
+    {
+      "id": "D-201-3",
+      "subject": "New dispatch class 'CLI-AS-OPERATOR-BY-DELEGATION' not in existing T1-SYNTH / T2-EXECUTOR taxonomy",
+      "severity": "INFO",
+      "type": "PROCESS",
+      "observation": "Slot 201 is neither T1-Synth (no synth witness, no claude.ai fire) nor strictly T2-Executor (no code execution, no Lean build, no PSLQ campaign — only decision discharge + document drafting). Folder named T2-EXECUTOR-OPERATOR-DELEGATED-CASCADE-201 by analogy but the work pattern is distinct.",
+      "process_question": "Should CLI-AS-OPERATOR-BY-DELEGATION become a tagged dispatch class with its own folder-naming convention (e.g., OPCLI-* or T3-OPERATOR-DELEGATE-*), or continue under T2-EXECUTOR umbrella?",
+      "candidate_memory": "CLI-as-operator-by-delegation is a valid dispatch class invoked by explicit 'proceed with your best decisions'-style operator delegation; absorb at bridge with OPERATOR_BY_DELEGATION provenance tag; per-decision reversibility annotations are load-bearing for audit + override",
+      "load_bearing": false,
+      "timestamp": "2026-05-12_~07:50_JST"
+    }
+  ]
+}

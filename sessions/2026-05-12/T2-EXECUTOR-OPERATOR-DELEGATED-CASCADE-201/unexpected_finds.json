@@ -1,0 +1,67 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-201-1",
+      "subject": "JMM 2027 special-session deadline already passed (2026-05-05)",
+      "severity": "MEDIUM",
+      "discovery_context": "Web search executed during operator-by-delegation discharge of decision #8 (conference deadline survey, W2-AMEND-4). CLI did not have prior visibility into JMM 2027 deadline date when W2-AMEND-4 was absorbed at slot 199B 2026-05-11 ~22:23 JST.",
+      "load_bearing": false,
+      "consequence": "W2-AMEND-4 special-session route for JMM 2027 closed. Recovery path = Spring 2027 AMS sectional special-session proposals (open May-Sept 2026). Documented in conference_survey_2026_2027_v1.md + D-201-1.",
+      "memory_promotion_candidate": false,
+      "timestamp": "2026-05-12_~07:30_JST"
+    },
+    {
+      "id": "UF-201-2",
+      "subject": "Kobe Web-Seminar on Painleve Equations identified as highest-leverage first-talk opportunity",
+      "severity": "MEDIUM (positive)",
+      "discovery_context": "Web search for 2026-2027 Painleve / integrable systems / Diophantine conferences surfaced Kobe University Web-Seminar series. Online format = no travel cost; Japan-based = aligned with operator geography (Yokohama); welcoming to new researchers; recent talks include cluster-algebras + q-Painleve work directly adjacent to V_quad/PIII track.",
+      "load_bearing": false,
+      "consequence": "Recommended as independent action (does not gate on flagship arXiv visibility). Pursue Q3 2026 talk-slot request post-Item-11-verdict.",
+      "memory_promotion_candidate": false,
+      "timestamp": "2026-05-12_~07:32_JST"
+    },
+    {
+      "id": "UF-201-3",
+      "subject": "Zeilberger letter Lemma-3.2 + Wimp-Zeilberger-1985 references require manual operator verification",
+      "severity": "LOW-MEDIUM",
+      "discovery_context": "CLI cannot autonomously verify Lemma 3.2 numbering in D2-NOTE v2.1 because D2-NOTE is in pcf-research repo, not claude-chat repo (current CLI cwd). Operator must verify before sending the Zeilberger letter v1.1.",
+      "load_bearing": false,
+      "consequence": "Zeilberger letter v1.1 = READY_TO_SEND but operator-action-blocked on (a) operator name fill, (b) Lemma 3.2 verification, (c) Wimp-Zeilberger-1985 title-year verification.",
+      "memory_promotion_candidate": false,
+      "operator_action": "verify D2-NOTE v2.1 Lemma 3.2 numbering before send",
+      "timestamp": "2026-05-12_~07:36_JST"
+    },
+    {
+      "id": "UF-201-4",
+      "subject": "Move 3 paper title placeholder coined: 'Computational Foundations of the PCF Desert Stratum'",
+      "severity": "INFO",
+      "discovery_context": "Triage matrix v1.1 Section E lock #4 required identifying a Move 3 paper home for Items 3 + 9. CLI coined the title placeholder.",
+      "load_bearing": false,
+      "consequence": "Operator can rename at Move 3 standalone paper inception; title placeholder is not binding.",
+      "memory_promotion_candidate": false,
+      "timestamp": "2026-05-12_~07:38_JST"
+    },
+    {
+      "id": "UF-201-5",
+      "subject": "CLI-as-operator-by-delegation dispatch class candidate for memory promotion",
+      "severity": "MEDIUM",
+      "discovery_context": "Slot 201 introduces a new dispatch class (D-201-3): decision-discharge work invoked by operator instruction like 'proceed with your best decisions' on a stacked decision list. Distinct from T1-Synth (no claude.ai), T2-Executor (no code execution), and substrate-prep fires (no decision-locking).",
+      "load_bearing": false,
+      "consequence": "Pattern likely recurs whenever operator delegates a multi-decision stack to CLI between consultation cycles. Worth memory entry on the discipline (per-decision reversibility annotations + LOCKED dispositions index + operator-action queue separated from CLI-action queue).",
+      "memory_promotion_candidate": true,
+      "candidate_memory_text": "CLI-as-operator-by-delegation is a valid dispatch class invoked by explicit 'proceed with your best decisions'-style instruction; discharge requires per-decision LOCKED disposition with explicit reversibility annotation + operator-action vs CLI-action separation in handoff",
+      "timestamp": "2026-05-12_~07:50_JST"
+    },
+    {
+      "id": "UF-201-6",
+      "subject": "Conference-survey-on-strategic-reframe pattern candidate for memory promotion",
+      "severity": "MEDIUM",
+      "discovery_context": "D-201-1 shows JMM 2027 special-session deadline was missed because the corpus-reframe (PROMPT 199 / 199B) didn't trigger a conference-deadline audit before disposition discharge. The W2-AMEND-4 recommendation was actionable as text but blocked in practice by deadline miss. Lesson: strategic reframes that introduce new conference-action priorities should trigger an immediate deadline-survey, not defer it to operator-decision-stack discharge.",
+      "load_bearing": false,
+      "consequence": "Future PROMPT-class verdicts mentioning conferences or special-sessions should fire a conference-survey side-effect during the synth's own absorption, not wait for downstream operator-by-delegation cycles.",
+      "memory_promotion_candidate": true,
+      "candidate_memory_text": "Strategic reframes introducing new conference / venue / outreach priorities trigger an immediate deadline-survey side-effect during verdict absorption; deferring to downstream decision-stack discharge risks deadline miss",
+      "timestamp": "2026-05-12_~07:52_JST"
+    }
+  ]
+}
