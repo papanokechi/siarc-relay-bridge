@@ -1,0 +1,30 @@
+{
+  "halt_mode": "HALT_A1_GAP_CLOSED",
+  "severity": "HIGH",
+  "triggered_at": "2026-05-11T19:50:00+09:00",
+  "rationale": "Phase B Q01 search for exact-phrase 'Painlevé III hierarchy' returned 4 arXiv hits (Bilman-Ling-Miller 2018 arXiv:1806.00545, Bilman-Buckingham 2018 'Sakka PIII hierarchy', Atkin 2015 Lenard-recursion, mKdV 2024); web-search supplement added 2 more named higher-order-PIII papers (Atkin-Claeys-Mezzadri 2015 arXiv:1501.04475, Wang-Xu 2025 arXiv:2512.19381). 5 distinct PIII-hierarchy construction approaches identified in literature. Slot 181 HALT_E_LITERATURE_NULL signal does NOT hold under direct exact-phrase 'Painlevé III hierarchy' search (slot 181 used 18 keyword/author probes but not this phrase). The broad-scope structural-gap claim of slot 185 verdict ('no PIII hierarchy in the literature') is FALSIFIED.",
+  "impact": {
+    "frontier_a_broad_scope": "ABANDONED — broad PIII hierarchy scope falsified by 5 existing constructions",
+    "frontier_a_narrow_scope": "PLAUSIBLY_OPEN — specific Sakai-D6(1)-classification language (PIII(D6), Painlevé D6, Sakai D6) returns 0 arxiv hits; Frontier-A could re-scope to 'Sakai-geometric construction of PIII hierarchy' BUT requires (a) demonstrating existing 5 constructions are not Sakai-D6(1) surface-preserving in disguise + (b) re-framing contribution as alternative-construction not first-construction",
+    "amendment_1_status": "DOES_NOT_CLOSE_CLEANLY — 7/8 external identifiers PASS but entry 4 Joshi-Lustri-Topp 2014 RETRACTED as hallucinated; 2/10 SIARC-internal entries 9-10 not re-verified in this fire (deprioritized given HALT)",
+    "amendment_2_status": "CLEAR_BUT_MOOT — both entries 5+6 openly accessible on arxiv but Frontier-A re-scope may eliminate need for these refs",
+    "amendment_3_status": "CONFIRMED_BUT_MOOT — LR 2024 (arXiv:2407.03464) explicitly covers PIII3 = PIII(D6) degeneration",
+    "amendment_4_status": "MOOT — FIRE-A2 dual-witness MEDIUM ceiling moot until Frontier-A re-scopes",
+    "fire_a2_status": "SUSPENDED_PENDING_RESCOPE",
+    "fire_a3_status": "SUSPENDED_PENDING_RESCOPE"
+  },
+  "operator_decision_required": "Re-vet Frontier-A scope via Claude (T1-Synth) consultation. Options: (A) abandon Frontier-A entirely and pursue different mathematical direction; (B) narrow to Sakai-D6(1)-geometric construction with mandatory pre-work to differentiate from 5 existing constructions; (C) reframe as 'survey + alternative-construction' rather than 'first PIII hierarchy'.",
+  "required_pre_rescope_reading_list": [
+    {"arxiv_id": "1501.04475", "title": "Random matrix ensembles with singularities and a hierarchy of Painlevé III equations", "authors": "Atkin-Claeys-Mezzadri", "year": 2015, "priority": "HIGHEST — directly competes with Frontier-A's intended construction"},
+    {"arxiv_id": "1806.00545", "title": "Extreme Superposition: Rogue Waves of Infinite Order and the Painlevé-III Hierarchy", "authors": "Bilman-Ling-Miller", "journal": "Duke Math. J. 169(4) (2020) 671-760", "year": 2018, "priority": "HIGH — establishes the literature usage of 'Painlevé-III hierarchy' as a named object"},
+    {"arxiv_id": "2512.19381", "title": "Asymptotic and monodromy problems for higher-order Painlevé III equations", "authors": "Wang-Xu", "year": 2025, "priority": "HIGH — most recent (December 2025), directly named 'higher-order PIII equations'"},
+    {"arxiv_id": "0903.0342", "title": "Bäcklund Transformations for First and Second Painlevé Hierarchies", "authors": "Sakka", "journal": "SIGMA 5 (2009) 024", "year": 2009, "priority": "MEDIUM — origin of 'Sakka PIII hierarchy' terminology (also see Sakka, J. Phys. A 42 (2009) 025210)"},
+    {"arxiv_id": "n/a", "title": "Painlevé III hierarchy via Lenard recursion (Atkin 2015 earlier paper)", "authors": "Atkin", "year": 2015, "priority": "MEDIUM — distinct construction approach"}
+  ],
+  "next_actions": [
+    "DO NOT fire FIRE-A2 (PROMPT 188 follow-up) or FIRE-A3 until Frontier-A re-vet complete",
+    "Operator should consult Claude (T1-Synth) with this halt_log.json + structural_gap_memo.md as input",
+    "Required Claude consultation prompt scope: re-vet Frontier-A scope; choose option (A/B/C); if (B), specify rescope criteria",
+    "If option (B) selected: pre-read 5 existing constructions before any FIRE-A2 substrate-prep"
+  ]
+}

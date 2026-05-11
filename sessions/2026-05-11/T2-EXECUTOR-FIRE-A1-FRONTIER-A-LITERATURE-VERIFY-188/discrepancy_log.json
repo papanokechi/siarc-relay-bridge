@@ -1,0 +1,40 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-188-1",
+      "severity": "INFO",
+      "description": "Slot-number adjustment from prompt body: prompt body Task ID is T2-EXECUTOR-FIRE-A1-FRONTIER-A-LITERATURE-VERIFY-187 but slot 187 already landed at bridge 3d698d7 (T1-SYNTH-UMBRELLA-V23-FRONTIER-COMMIT-ROUND-187 2026-05-11 19:25 JST). This fire uses slot 188 (matching filename 188_t2_executor_fire_a1_frontier_a_literature_verify.txt and avoiding bridge folder collision).",
+      "resolution": "Folder name and commit message use -188 throughout. Slot-187 collision documented analogously to existing parallel-CLI fire collision pattern memory (2026-05-06 incidents)."
+    },
+    {
+      "id": "D-188-2",
+      "severity": "HIGH",
+      "description": "Entry 4 cited 'Joshi-Lustri-Topp 2014' at arXiv:1403.1235 is a hallucinated identifier. arXiv:1403.1235 resolves to 'Its-Lisovyy-Tykhyy 2014, Connection problem for the sine-Gordon/Painlevé III tau function and irregular conformal blocks' (Int. Math. Res. Notices 2015, 8903-8924; DOI 10.1093/imrn/rnu209). Web search for Joshi-Lustri-Topp 2014 returned closest match arXiv:1503.01302 'Stokes Phenomena in Discrete Painlevé I' by Joshi-Lustri 2015 — but this is (a) different year, (b) only 2 authors not 3 (no Topp), (c) discrete PI not continuous PIII. No published Joshi-Lustri-Topp 2014 paper appears to exist.",
+      "resolution": "Treat entry 4 as RETRACTED. Per FIRE-A1 prompt halt-matrix this would default to CLOSE_WITH_AMENDMENT, but is superseded by HALT_A1_GAP_CLOSED. If Frontier-A is rescoped, entry 4 should be replaced with either (a) Its-Lisovyy-Tykhyy 2014 properly attributed (the resolved identifier — IS PIII-relevant in its own right) OR (b) Joshi-Lustri 2015 arXiv:1503.01302 properly attributed (discrete PI Stokes phenomena, methodological-only) OR (c) different exponential-asymptotics methodology paper aligned with Frontier-A's actual need."
+    },
+    {
+      "id": "D-188-3",
+      "severity": "INFO",
+      "description": "Slot 181 HALT_E_LITERATURE_NULL signal does NOT hold under direct 'Painlevé III hierarchy' exact-phrase search. Slot 181's 18 keyword/author probes per its handoff did not include this specific phrase. This fire is the first to test it directly; result is 4 explicit-phrase arXiv hits + 2 web-search-supplemented named higher-order-PIII papers = 6 total PIII-hierarchy-named papers in the literature.",
+      "resolution": "Slot 181 NULL signal must be re-characterized as 'NULL for a specific 18-probe set that did not include the exact phrase Painlevé III hierarchy'. Future literature reconnaissance should include exact-phrase searches as a primary query type alongside keyword/author searches."
+    },
+    {
+      "id": "D-188-4",
+      "severity": "INFO",
+      "description": "Both anchor entries (1 Mazzocco-Mo 2006 + 2 Bobrova-Mazzocco 2020) are PII hierarchy papers, NOT PIII. They are methodological-template anchors (use PII hierarchy as model for PIII construction). Slot 185 verdict implicitly accepted this template pattern but did not explicitly document the PII→PIII transposition assumption. This is a substrate-readback INFO finding, not a Frontier-A flaw — the methodological-template approach is defensible — but the assumption should be made explicit in any future Frontier-A re-scope verdict.",
+      "resolution": "Document the methodological-template pattern explicitly in any re-scope verdict; do not implicitly treat PII hierarchy anchors as PIII hierarchy anchors."
+    },
+    {
+      "id": "D-188-5",
+      "severity": "INFO",
+      "description": "Two SIARC-internal entries (9 cascade-067 V_quad resurgence note, 10 069r3 Sakai D6(1) closure) were NOT re-located in bridge git log during this fire. Their bridge-SHA lookup was deprioritized given HALT_A1_GAP_CLOSED triggered upstream. This leaves 2/10 references in PENDING-VERIFY state.",
+      "resolution": "If Frontier-A is re-scoped and entries 9-10 are still relevant under the new scope, lookup deferred to that re-scope verdict's substrate-prep phase."
+    },
+    {
+      "id": "D-188-6",
+      "severity": "INFO",
+      "description": "Phase B citation-graph scan (entries 1-2 anchors via Google Scholar 'cited by') NOT EXECUTED in this fire. Q01 exact-phrase search alone returned decisive PIII-hierarchy hits; citation-graph scan opportunity cost vs immediate HALT-surface deemed unfavorable. If Frontier-A is re-scoped to narrow-Sakai-D6(1) scope, citation-graph scan of Sakai 2001 (entry 8) becomes higher-priority and can be executed in the re-scope fire.",
+      "resolution": "Accept-as-is; citation-graph scan deferred to potential re-scope fire."
+    }
+  ]
+}
