@@ -1,0 +1,28 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-185-1",
+      "severity": "INFO",
+      "description": "Slot 184 (T2-EXECUTOR-T1-156-A-U2-QUADRANT-SUBTRACTED-PADE-184) folder exists in bridge with parallel-CLI work-in-progress (4 files: 2 .py runners + run.log + stdout_capture.txt; no handoff.md yet). Slot 185 absorption does not touch slot 184; path-specific staging confines this absorption to T1-SYNTH-FRONTIER-A-SUBSTRATE-PREP-SCOPING-185/ subtree only.",
+      "resolution": "Accept-as-is; parallel-CLI fire collision-pattern memory applies if both sessions try to commit simultaneously"
+    },
+    {
+      "id": "D-185-2",
+      "severity": "INFO",
+      "description": "Q-185-2 Bibliographic Pre-Verification deliberately deferred (0/10 PASS) per witness's stated reasoning (no web tool fire in scoping consultation). This is the Amendment-1 LOAD-BEARING gate: scoping output is admissible at LOW-MEDIUM band for substrate-prep but NOT for preprint-bound claims until FIRE-A1 closes.",
+      "resolution": "Tracked as forward-gate via FIRE-A1 SQL todo; not a current-fire violation of post-031 rule because no preprint claim made"
+    },
+    {
+      "id": "D-185-3",
+      "severity": "INFO",
+      "description": "Amendment-3 records scope-expansion: witness added a defensive n=2-standalone fallback not present in original PROMPT 185 substrate. Within LOW-MEDIUM band tolerance (scope-expansion clearly disclosed); does not require re-fire.",
+      "resolution": "Accept-as-disclosed; operator may scope-restrict at FIRE-A1 launch time if desired"
+    },
+    {
+      "id": "D-185-4",
+      "severity": "INFO",
+      "description": "Halt-condition #4 in Q-185-5 references 'Umbrella v2.3 venue rejection' but the current v2.3 timeline / venue / submission-readiness is not pinned in this verdict; the halt-condition is correctly contingent but operator should ensure v2.3 venue selection and submission window are pinned before FIRE-A2 launches.",
+      "resolution": "Tracked as operator-side action-item; no fire blocker"
+    }
+  ]
+}
