@@ -1,0 +1,39 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-207-1",
+      "severity": "MEDIUM",
+      "summary": "Email-verification gap across 11/12 candidates",
+      "detail": "Verdict Section D anomaly #1: only C1 Asperti is [CONFIRMED-internal]. Six candidates flagged [NEEDS-VERIFY] (C5 Macbeth, C6 Carneiro, C7 van Doorn, C8 Hölzl, C9 Baanen); five [PUBLIC-listed] (C2 Buzzard, C3 Avigad, C4 Massot, C10 Paulson, C11 Cremona, C12 Cohen). Per project bibliographic-identifier pre-verification rule, operator must confirm every email before round-1 fire.",
+      "resolution": "Spawned SQL todo verdict-207-c6-carneiro-email-verify (critical path); operator action required for the remaining 5 NEEDS-VERIFY + 6 PUBLIC-listed addresses."
+    },
+    {
+      "id": "D-207-2",
+      "severity": "MEDIUM-HIGH",
+      "summary": "C6 Carneiro contact-path is the weakest link in round-1 composition",
+      "detail": "Verdict Section D anomaly #2: C6 is the highest-receptivity candidate (7.5/MEDIUM-HIGH) but his email is the least verifiable. If no verified address found within 24h, verdict prescribes a specific contingency: replace C6 in round-1 with C4 Massot (Mathlib gatekeeper, patrick.massot@universite-paris-saclay.fr [PUBLIC-listed]) and demote C6 to round-2.",
+      "resolution": "SQL todo verdict-207-c6-carneiro-email-verify drives a 24h budget; Massot-substitution branch documented inline for round-1 fallback."
+    },
+    {
+      "id": "D-207-3",
+      "severity": "MEDIUM",
+      "summary": "Zenodo 10.5281/zenodo.19834824 may diverge from current congruent-relay/paper/main.tex",
+      "detail": "Verdict Section D anomaly #3: endorsers click through to Zenodo; older-version discrepancy creates friction. CLI did not pre-verify Zenodo content equality before the consultation fire.",
+      "resolution": "Spawned SQL todo verdict-207-zenodo-sync-verify (PRE-DISPATCH gate). Resolution choices: (a) update Zenodo with a v-current deposit, or (b) accept v0.x historical record and ensure GitHub release tag for current is visible."
+    },
+    {
+      "id": "D-207-4",
+      "severity": "LOW",
+      "summary": "Paper length (~50pp) may register as 'long for what is being claimed' to skimming endorsers",
+      "detail": "Verdict Section D anomaly #4: not actionable in 48h; flag for future reference if endorsement-ask response rate is below verdict expectations.",
+      "resolution": "Noted as background context for round-1 silence-watch analysis (if all 3 round-1 candidates silent at Day 14, length may be a factor to address before round-2)."
+    },
+    {
+      "id": "D-207-5",
+      "severity": "LOW",
+      "summary": "RULE-1 interaction with endorsement-quest firing is ambiguous",
+      "detail": "RULE 1 prohibits admin/distribution work until M10 closure complete. Strict reading: arXiv endorsement = distribution work → tabled. Loose reading (consistent with today's R7+R5+R4 submission fires): submission/endorsement firing is research-pipeline-essential, not RULE-1-tabled. Verdict assumes the loose reading (recommends 14-day cadence dispatch) without surfacing the gate.",
+      "resolution": "Spawned SQL todo verdict-207-rule1-distribution-work-flag (default loose reading by analogy with today's R7+R5+R4 fires; surface for operator ack before round-1 fire)."
+    }
+  ]
+}

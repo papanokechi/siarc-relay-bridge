@@ -1,0 +1,60 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-207-1",
+      "severity": "MEDIUM-HIGH",
+      "summary": "Verdict elevates C6 Carneiro from initial Tier-1 listing (rank 6/12) to rank 1/12 in round-1 priority",
+      "detail": "The candidate shortlist in PROMPT 207 listed C6 Carneiro as 6th of 6 Tier-1 candidates (alphabetical/affiliation order, not score-weighted). Verdict Section B rescored C6 to 7.5/MEDIUM-HIGH — the single highest score in the table — based on 'highest decisive-verdict-on-code-quality probability'. This is a meaningful re-ranking that affects round-1 dispatch ordering.",
+      "operator_action_implied": "Round-1 dispatch should lead with Carneiro (gated on email verification per D-207-2)."
+    },
+    {
+      "id": "UF-207-2",
+      "severity": "MEDIUM-HIGH",
+      "summary": "Verdict elevates C3 Avigad (rank 3/12 in shortlist) to rank 2/12 in round-1 priority + identifies a specific high-leverage framing angle",
+      "detail": "Verdict Section B rated C3 Avigad 7.0/MEDIUM-HIGH on the basis that 'his written work on what formalization is for maps almost 1:1 to the paper's design philosophy' — a sharper framing match than the original shortlist note ('formal verification of number theory; Lean evangelism'). The recommended ask-framing angle ('cite his own writing on formalization principles in the cover paragraph') is a specific cover-paragraph instruction.",
+      "operator_action_implied": "Round-1 dispatch round-2 slot is Avigad. Cover paragraph must explicitly cite Avigad's prior writings on formalization principles."
+    },
+    {
+      "id": "UF-207-3",
+      "severity": "HIGH",
+      "summary": "Verdict introduces a specific R1+R3 revision gate: do NOT dispatch endorsement asks until R3 (README front-matter) is live",
+      "detail": "Verdict Section A R3 + Section C cadence Day 0: 'Do NOT dispatch endorsement asks until R3 (README front-matter) is live, since endorsers will scroll the repo.' This makes R3 a HARD PRE-DISPATCH GATE, not an optional polish.",
+      "operator_action_implied": "Cannot proceed to round-1 dispatch until verdict-207-r3-readme-frontmatter SQL todo is done. R3 is estimated at 30 minutes; verdict-207-r1-abstract-rewrite is another 30 minutes. Combined ~1 hour pre-dispatch budget."
+    },
+    {
+      "id": "UF-207-4",
+      "severity": "MEDIUM",
+      "summary": "C11 Cremona flagged with arXiv-cs.LO-endorsement-authority uncertainty",
+      "detail": "Verdict Section B C11: 'Limited cs.LO submission history — he may not have cs.LO endorsement privileges; operator should check his arXiv submission record before contacting.' This is a structural endorsement-mechanics question (arXiv requires endorser to have submitted ≥3 papers in the target category over the recent window).",
+      "operator_action_implied": "Before any Cremona contact, operator must check arxiv.org/a/cremona_j_1 (or similar) for cs.LO submission count. If <3 cs.LO submissions, Cremona can endorse math.NT cross-list only, NOT cs.LO primary. This is a NEW structural constraint surfaced by the verdict that should propagate to any future candidate-shortlist drafts."
+    },
+    {
+      "id": "UF-207-5",
+      "severity": "MEDIUM",
+      "summary": "Verdict surfaces a portable convention for arXiv-endorsement-fit assessment",
+      "detail": "Verdict Section A frames the right bar as 'is this paper appropriate for the category' — NOT 'is this novel mathematics.' This is the official arXiv endorsement-policy criterion and should be the framing rubric for ALL future endorsement consultations on ALL papers (not just Tunnell CNP).",
+      "operator_action_implied": "Worth promoting to project memory: arXiv endorsement attractiveness is scored on category-appropriateness, not novelty. Future consultations on PCF-1 v1.3, PCF-2, R6 SIARC PDE, etc. should use the same rubric."
+    },
+    {
+      "id": "UF-207-6",
+      "severity": "LOW",
+      "summary": "Verdict cleanly confirms DS873D math.NT chain orthogonality to cs.LO Tunnell endorsement quest",
+      "detail": "Verdict Section C: 'Structurally orthogonal — safe to run simultaneously.' Reasoning: (1) different categories (math.NT vs cs.LO); (2) different candidate pools with minimal overlap (only C11 Cremona + C12 Cohen on math.NT side, both deferred/blocked). This resolves a latent operator concern about multi-channel-ask pollution.",
+      "operator_action_implied": "Operator may continue both quests in parallel without coordination overhead."
+    },
+    {
+      "id": "UF-207-7",
+      "severity": "LOW",
+      "summary": "Verdict R2 (contributions-list reordering/expansion) is marked OPTIONAL not gating",
+      "detail": "Of the three revision recommendations R1/R2/R3, only R1 and R3 are gating per Section A; R2 is +0.5-1.0 'optional, pursue only if 48h budget permits'. This is a notable verdict-side priority signal.",
+      "operator_action_implied": "verdict-207-r2-contributions-expand SQL todo can stay pending without blocking dispatch."
+    },
+    {
+      "id": "UF-207-8",
+      "severity": "MEDIUM",
+      "summary": "Verdict's three-orthogonal-rationales framing for round-1 composition (code/methodology/topical) is a reusable design pattern",
+      "detail": "Verdict Section B ranked priority order rationale: 'these three represent three orthogonal endorsement-grant rationales (code quality / methodology / topical interest). If any one says yes, the others become irrelevant.' This is a portable principle for any future multi-candidate dispatch — diversify on rationale axis, not just on rank.",
+      "operator_action_implied": "Apply same orthogonal-rationale check when round-2 fires Day 14 (verify C4 Massot / C5 Macbeth / C7 van Doorn are NOT all the same rationale class)."
+    }
+  ]
+}
