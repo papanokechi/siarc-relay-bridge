@@ -1,0 +1,34 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-205-1",
+      "severity": "HIGH",
+      "title": "Substrate-citation contamination pattern recurrence at venue-identifier tier (AAR)",
+      "description": "PROMPT 205 introduced 'AAR (Archive of Automated Reasoning)' as a venue-identifier through CLI agent drafting. Synth rubber-duck QA caught the issue at fire-receive time. Web-verification confirmed AAR is not a recognized peer-reviewed journal. This is the third documented class of substrate-citation hallucination in the project after DOIs/arXiv-IDs (031 case) and bridge SHAs (105 case).",
+      "pattern_taxonomy": {
+        "class": "external-identifier hallucination",
+        "tier": "venue-identifier (new tier; was previously DOI/arXiv-ID + bridge-SHA)",
+        "preventive_rule_analog": "DOI/arXiv-ID pre-verification rule (post-031 verdict; standing instruction)"
+      },
+      "candidate_memory_status": "PROMOTION RECOMMENDED — new fact: 'Venue identifiers (journal acronyms, full names) in relay prompts require pre-verification analog to DOI/arXiv-ID rule; AAR=Archive of Automated Reasoning is one documented hallucinated venue (not peer-reviewed)'",
+      "discovery_credit": "synth (Claude solo-witness) — analogous pattern to W20 068 rubber-duck QA case (operator parallel-QA + synth complementary catching)",
+      "remediation_scope": "triage matrix v1.5 + L2 pivot v1.2 + PROMPT 205 prompt renamed (original AAR text preserved as historical record)"
+    },
+    {
+      "id": "UF-205-2",
+      "severity": "MEDIUM",
+      "title": "Q-205-9 single-highest-leverage CLI prior FLIPPED by synth (Item 21 over Item 18)",
+      "description": "CLI nominated Item 18 SIARC PDE → JFR (post-sorry-reduction) as single highest-leverage redirect on the basis that closing the JAR-cluster question definitively would generate the most useful information. Synth verdict: Item 21 Tunnell CNP → JFR (no pre-resubmit work; manuscript + deposit stable; can fire within 72h) is higher-leverage per leverage = information-per-unit-effort criterion. CLI prior is now superseded.",
+      "calibration_note": "This is the second CLI-prior flip captured in PROMPT 205 absorption (the first being Q-205-3 JNT→JTNB venue order). Two flips out of nine questions = 22% flip rate; consistent with healthy synth-as-T1 dual-witness function rather than CLI epistemic drift.",
+      "downstream_implication": "Item 21 fire → 72h actionable per verdict; Item 18 fire deferred to 2-4 week DELAYED tier",
+      "candidate_memory_status": "OBSERVED — pattern; no promotion needed (already covered by existing 'rubber-duck QA discipline' memory cluster)"
+    },
+    {
+      "id": "UF-205-3",
+      "severity": "LOW",
+      "title": "Adamczewski-editor portfolio-wide check pattern",
+      "description": "Adamczewski rejected Item 22 (JTNB content-mute 6 May 2026) and is being deferred for arXiv-endorsement outreach 6+ months (Q-205-6 LOCK). Synth Q-205-3 RISK_FLAG further extends this: Adamczewski-editor-check required at JTNB BEFORE Item 16 redirect fire (if Adamczewski handles continued-fractions / Diophantine content at JTNB, swap primary to JNT or Bull. LMS). The pattern generalizes: a known-recent-rejector editor should be excluded as both (a) re-submission editor at their journal AND (b) endorsement-outreach contact for 6-12 month cooling period.",
+      "candidate_memory_status": "OBSERVED — operational discipline; may promote if pattern recurs at second editor"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-205-1",
+      "severity": "HIGH",
+      "title": "AAR (Archive of Automated Reasoning) substrate-citation contamination",
+      "discovered_by": "synth Q-205-1 RISK_FLAG (Claude solo-witness)",
+      "verified_at_absorption_time": "2026-05-12T11:15:00+09:00",
+      "verification_method": "web_search via Bing for 'Archive of Automated Reasoning journal peer-reviewed ISSN editorial board Lean formalization' — result: not indexed in any mainstream science catalog; not a recognized peer-reviewed journal",
+      "origin_trace": "CLI agent introduced 'AAR safest fallback' as Q-205-1 prior in PROMPT 205 consultation drafting; acronym propagated through Q-205-2 / Q-205-5 priors and into downstream artefacts (triage matrix v1.4 + L2 pivot v1.1)",
+      "pattern_class": "external-identifier substrate-citation hallucination",
+      "analog_to": ["031 WITTE-FORRESTER-2010-ACQUISITION DOI/arXiv hallucination", "105 substrate-verification bridge-SHA mismatch"],
+      "remediation_applied": [
+        "triage matrix v1.4 → v1.5: AAR removed from §B Item 8 rationale + §H points 3/4/5 + §I cascade-3; substituted JFR primary + ITP/CPP next-deadline fallback",
+        "L2 pivot direction v1.1 → v1.2: §5 Tunnell-CNP-fallback AAR-alternate REMOVED; substituted to JFR + 12-mo JAR cool-off caveat",
+        "PROMPT 205 prompt file renamed to _EXECUTED with original AAR references preserved as historical record"
+      ],
+      "memory_promotion_candidate": "Promote new memory: 'AAR (Archive of Automated Reasoning) is NOT a recognized peer-reviewed venue; pre-verify external venue identifiers analog to DOI/arXiv-ID rule'"
+    },
+    {
+      "id": "D-205-2",
+      "severity": "MEDIUM",
+      "title": "Item 16 Spectral Classes venue order: synth flips CLI prior JNT → JTNB primary",
+      "discovered_by": "synth Q-205-3 verdict",
+      "rationale_synth": "JTNB more receptive to experimentally-anchored arithmetic + shorter desk-screening cycle; JNT increasing desk-rejection-heavy under current editorial regime",
+      "risk_flag_synth": "Adamczewski-editor-check required: if JTNB editor for continued-fractions/Diophantine content is Adamczewski, swap primary to JNT or Bull. LMS (Item 22 6 May 2026 was Adamczewski-content-mute JTNB rejection)",
+      "remediation_applied": "triage matrix v1.5 §B Item 3 updated to JTNB primary > JNT > Bull. LMS with editor-check warning"
+    },
+    {
+      "id": "D-205-3",
+      "severity": "MEDIUM",
+      "title": "Flagship arXiv-endorsement dependency: factual correction (Q-205-6)",
+      "discovered_by": "synth verification step in Q-205-6",
+      "factual_state": "Inventiones / IMRN / Compositio do NOT require arXiv preprints at submission",
+      "implication": "arXiv-endorsement gap is NOT a flagship-cutoff blocker per scope card v1.1; specifically an Indag-class venue blocker only",
+      "supersedes_priors": "UF-204-2 framing of arXiv-endorsement as ACTIVE flagship blocker downgraded to MEDIUM-priority background quest",
+      "remediation_applied": "triage matrix v1.5 §I cascade-1 reframed accordingly"
+    },
+    {
+      "id": "D-205-4",
+      "severity": "MEDIUM",
+      "title": "Q-205-9 single-highest-leverage CLI prior FLIPPED: Item 21 > Item 18",
+      "discovered_by": "synth Q-205-9 verdict",
+      "cli_prior": "Item 18 SIARC PDE → JFR after sorry-reduction work-pass (~1-2 weeks Lean work) was nominated as single highest-leverage redirect",
+      "synth_verdict": "Item 21 Tunnell CNP → JFR (no pre-resubmit work; manuscript stable; deposit zenodo.19834824 stable; can fire within 72h) is higher-leverage per leverage-per-unit-effort criterion",
+      "additional_value": "Item 21 fire yields immediate venue-test data on JFR Lean-submission behavior particularly for Lean papers <1000 lines, which informs Item 18 venue choice downstream",
+      "remediation_applied": "triage matrix v1.5 §J Q-205-9 LOCK reflects flip; SQL board priority updated"
+    }
+  ]
+}
