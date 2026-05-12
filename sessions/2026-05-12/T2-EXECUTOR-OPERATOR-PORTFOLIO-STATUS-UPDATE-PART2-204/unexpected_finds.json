@@ -1,0 +1,34 @@
+{
+  "entries": [
+    {
+      "id": "UF-204-1",
+      "severity": "HIGH",
+      "summary": "JAR editorial policy confirmed BIMODAL (supersedes UF-203-1 single-criterion framing)",
+      "context": "Two distinct JAR rejections same operator-update batch 2026-05-12: (a) substantiality >=~1000 lines (Item 21); (b) zero sorry beyond named axiom (Item 18). Either failure independently triggers rejection.",
+      "implications": [
+        "L2 N2 strategy: L2.4 hypothesized milestone = L2.3 + line-count >=~1000",
+        "Tunnell CNP 3-venue rejected (FAC defunct + JAR 2x substantiality + AFM)",
+        "Cross-venue caveat: substantiality thresholds are venue-specific, NOT community norms",
+        "AAR candidacy elevated to TIER 1 alternative"
+      ],
+      "memory_promoted": true,
+      "memory_subject": "venue editorial policies",
+      "memory_fact": "JAR editorial policy is BIMODAL: (a) substantiality threshold (~1000 lines); (b) zero sorry beyond named axiom. Both required; either failure triggers rejection.",
+      "supersedes": "UF-203-1 single-criterion framing"
+    },
+    {
+      "id": "UF-204-2",
+      "severity": "MEDIUM",
+      "summary": "Operator-initiated-withdraw is a distinct disposition class not previously represented",
+      "context": "Item 20 INDAG-D-26-00112 withdrawn 2026-05-01 by operator for arXiv-endorsement gap. Distinct from venue desk-rejection and venue-side hold.",
+      "implications": [
+        "arXiv-endorsement quest elevated from background to ACTIVE blocker",
+        "Portfolio-wide policy survey needed for in-flight venue arXiv-required status",
+        "Item 20 redirect candidates: JSC / LMS J. Comp. Math / Math. Comp post-clear",
+        "Z2 Supplementary Materials deposit unaffected"
+      ],
+      "memory_candidate": true,
+      "memory_fact_candidate": "Indagationes Mathematicae editorial policy requires arXiv preprint deposited PRIOR to journal submission"
+    }
+  ]
+}
