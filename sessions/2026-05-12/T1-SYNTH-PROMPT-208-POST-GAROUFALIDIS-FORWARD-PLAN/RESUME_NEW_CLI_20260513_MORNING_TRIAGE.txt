@@ -1,0 +1,243 @@
+# RESUME / KICKOFF — new CLI session bootstrap (2026-05-13 morning JST)
+#
+# Purpose:  Single copy-pasteable message to bootstrap a fresh GitHub Copilot CLI
+#           session on the SIARC project. Resumes after the 2026-05-12 night
+#           four-stream external-review absorption + April-10 PCF STEP 1
+#           local-side execution complete (paused at GitHub-auth gate).
+#
+# Created:  2026-05-12 22:16 JST (session d0b490af, post strategic-landscape commit edef567)
+# Bridge HEAD at issue:  edef567 (STRATEGIC-LANDSCAPE-GODSEYE-2026-05-12 LANDED ~22:14 JST)
+# Repo HEAD at issue:    2b5b94e (slot 138 fleet-bootstrap LANDED 2026-05-09 21:11 JST)
+# Local-only repo:       pcf-casoratian-identities/ HEAD f05d58b (no remote configured)
+#
+# Supersedes: RESUME_NEW_CLI_20260510_PATH_B_COMPLETE.txt (cascade-132 chain era;
+#             three-day-old; superseded by tonight's four-stream absorption)
+#
+# Companion artefacts (priority read order):
+#   1. tex/submitted/control center/notes/APRIL10_PCF_STEP1_PROGRESS_20260512.md      [PRIMARY RESUME]
+#   2. tex/submitted/control center/notes/STRATEGIC_LANDSCAPE_GODSEYE_20260512.md     [STRATEGY/TRIAGE]
+#   3. tex/submitted/control center/notes/APRIL10_PCF_PAPER_ENDORSEMENT_READINESS_20260512.md
+#   4. tex/submitted/control center/notes/CORPUS_REVIEW_18_ZENODO_RECORDS_20260512.md
+#   5. tex/submitted/control center/notes/JOURNEY_PIVOT_INTAKE_BRIEF_20260512.md
+#   6. siarc-relay-bridge handoff for verdict 208 (READ ONLY canonical reference)
+#
+# Naming convention:  RESUME_NEW_CLI_<YYYYMMDD>_<TAG>.txt — `_MORNING_TRIAGE` tag
+#   marks the post-four-stream-absorption state with five decisions queued.
+#
+# ============================================================================
+# COPY EVERYTHING BELOW THE LINE INTO THE NEW CLI SESSION
+# ============================================================================
+
+Resume SIARC corpus after 2026-05-12 night four-stream external-review absorption.
+
+ANCHORS:
+  Bridge HEAD:      edef567 (STRATEGIC-LANDSCAPE-GODSEYE-2026-05-12, LANDED ~22:14 JST)
+  Repo HEAD:        2b5b94e (slot 138 fleet-bootstrap, LANDED 2026-05-09)
+  Local-only repo:  pcf-casoratian-identities/ HEAD f05d58b initial commit
+                     (7 files, ~190 KB; NO REMOTE configured yet)
+
+═══════════════════════════════════════════════════════════════════════════════
+READ FIRST (priority order — do not skip 1 and 2)
+═══════════════════════════════════════════════════════════════════════════════
+
+1. tex/submitted/control center/notes/APRIL10_PCF_STEP1_PROGRESS_20260512.md
+   → auth-only blocker on April-10 PCF reproducibility scaffold publish
+   → one 30-sec operator action needed before agent resumes push
+   → Section B.3 has exact commands; Section E has resume checklist
+
+2. tex/submitted/control center/notes/STRATEGIC_LANDSCAPE_GODSEYE_20260512.md
+   → 4th-stream god's-eye-view review + triple-win recommendation ⭐⭐⭐
+   → Section I has morning triage guidance
+   → Section G.4 has Tier 1-4 prioritization across all 11 proposed moves
+   → Section F has the integrated triple-win (M-C + companion note + G-A)
+
+3. tex/submitted/control center/notes/APRIL10_PCF_PAPER_ENDORSEMENT_READINESS_20260512.md
+   → 4-step remediation plan for the April-10 PCF endorsement quest
+   → STEP 1 in progress; STEPs 2-4 BLOCKED on STEP 1 push verification
+
+4. tex/submitted/control center/notes/CORPUS_REVIEW_18_ZENODO_RECORDS_20260512.md
+   → Sections A-H = first corpus review of 18 records
+   → Sections I-L = sharper second meta-assessment + RULE-1-classified S1-S8
+   → Section J.3 has RULE-1 classification table; S6 = highest-leverage flag
+
+5. tex/submitted/control center/notes/JOURNEY_PIVOT_INTAKE_BRIEF_20260512.md
+   → LIReC + LMFDB + RamanujanMachine pivot recommendation
+   → Section E has Prompt 209 scaffolding (6 Q-LOCKs) for tomorrow draft
+
+═══════════════════════════════════════════════════════════════════════════════
+MORNING TRIAGE — five operator decisions in order
+═══════════════════════════════════════════════════════════════════════════════
+
+DECISION 1 [MANDATORY, ~30 sec]:  April-10 PCF STEP 1 GitHub-auth path
+
+  Option α (recommended):  create empty PUBLIC repo at https://github.com/new
+                           name = `pcf-casoratian-identities`
+                           description = "Reproducibility scaffold for the April-10 PCF
+                                          paper (Zenodo 10.5281/zenodo.19491767)"
+                           do NOT init README / .gitignore / license
+                           then say:  "α done"
+
+  Option β (alternative):  run `gh auth login` interactively in a terminal
+                           (web-flow; ~1-2 min)
+                           then say:  "β done — proceed"
+
+  After α or β, agent executes:
+    cd pcf-casoratian-identities
+    git remote add origin https://github.com/papanokechi/pcf-casoratian-identities.git
+    git push -u origin main
+    [verify public access via github-mcp-server-get_file_contents]
+    [mark april10-pcf-step1-publish-casoratian-repo = done]
+    [unblock april10-pcf-step2-zenodo-v2-redeposit]
+
+
+DECISION 2 [MANDATORY, locked, ~2-3 hr total]:  Verdict 208 Day-1 actions
+
+  Per verdict 208 closeout + journey-pivot intake:
+    - Carneiro cs.LO endorsement fire (Q-208-3 γ)
+    - PCF-2 v1.3 / PCF-1 v1.3 arXiv staging
+    - T2B math.NT framing decision (per A-Z6-2)
+
+  → these execute regardless of other decisions; operator should reaffirm scope first
+
+
+DECISION 3 [HIGH-LEVERAGE, pick ONE]:  Substantive Tier-1 activity beyond verdict 208
+
+  ┌──────────────────────────────────────────────────────────────────────────┐
+  │ Option (a)  ⭐  M-A close ξ₀ d=3 directly                                 │
+  │   ~1-2 hr; smallest open math gap; foundational; lowest risk             │
+  │   one cubic representative per Galois bin (3 bins); op:xi0-d3-direct     │
+  │   closure converts D2-NOTE v2.1 d=3 case from formal-level to direct     │
+  │   confidence-builder; lowest activation energy                           │
+  │                                                                          │
+  │ Option (b)  ⭐  S6 rejection-pattern retrospective                        │
+  │   ~2-3 hr; private foundational planning; no compute load                │
+  │   per sharper-review highest-value diagnostic flag of the night          │
+  │   "for each rejection, what was the most charitable interpretation of    │
+  │   the editorial reasoning?"                                              │
+  │   13 rejections + 1 withdrawal + 2 blacklists across submission_log.txt  │
+  │                                                                          │
+  │ Option (c)  ⭐⭐⭐  Triple-win M-C op:cc-median-resurgence-execute        │
+  │   ~4-8 hr (mostly background compute); foundational                     │
+  │   extract S_{ζ*} at ζ*=4/√3; 5000 coefficients dps 250                  │
+  │   Theory-Fleet H4 pre-registered HIGH-confidence ~40-digit forecast     │
+  │   Binary outcome (confirm OR falsify); both publishable                 │
+  │   Outcome → AEAL calibration seed (G-A); answers R3 circularity        │
+  │   ⭐⭐⭐ Highest-leverage single move in the entire landscape           │
+  │   Note: companion-note PUBLISH phase is RULE-1-BLOCKED — queue for      │
+  │         post-RULE-1-lift release; execution itself is permitted          │
+  └──────────────────────────────────────────────────────────────────────────┘
+
+  Drafter recommendation rubric:
+    LOW energy / want quick win        → (a) M-A ξ₀ d=3
+    MEDIUM energy / want planning depth → (b) S6 retrospective
+    HIGH energy / want compute headroom → (c) triple-win M-C
+
+
+DECISION 4 [LOW-COST, ~10 min]:  Journey-pivot Prompt 209 go/no-go
+
+  Read tex/submitted/control center/notes/JOURNEY_PIVOT_INTAKE_BRIEF_20260512.md §E
+  If GO:    agent drafts full Prompt 209 (T1-Synth LIReC+LMFDB pivot ratification)
+  If NO-GO: defer or close branch
+
+
+DECISION 5 [LOW-COST, ~5 min]:  Corpus-review-1 offer (a/b/c) selection
+
+  Read tex/submitted/control center/notes/CORPUS_REVIEW_18_ZENODO_RECORDS_20260512.md §G
+  Or defer entirely; not time-critical
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY VERIFIED SHAs (40-char) — STEP_0_1-confirmed end of 2026-05-12 night
+═══════════════════════════════════════════════════════════════════════════════
+
+  edef567977dc03b7c0f47d8b4809a4240be65762   STRATEGIC-LANDSCAPE-GODSEYE
+  0ecde30f399ca2c6fd7bc2432891f508ce4cfe78   APRIL10-PCF-STEP1-PROGRESS
+  b46f0f4____________________________________   APRIL10-PCF-ENDORSEMENT-READINESS
+  e74c47c____________________________________   CORPUS-REVIEW-APPEND (sharper meta + S1-S8)
+  9964cec____________________________________   CORPUS-REVIEW-18-ZENODO
+  54c027f____________________________________   JOURNEY-PIVOT-INTAKE
+
+  pcf-casoratian-identities (local repo HEAD):
+    f05d58b____________________________________   initial commit (7 files; NO REMOTE)
+
+  Canonical M-axis V0 closure SHAs (cross-ref only):
+    7f93b9e4d624fdfca62f5d85393b4ead35cea751   cascade 123 — M7 V0 closure
+    cb429e1acba91ba47d1426950d924800a0b02a07   cascade 127R — M8a V0 closure
+    74c563022d3a2df0a4bea0088f4793170a1e64d3   cascade 130R — M8b V0 closure
+    b9aa881c53566926390d6f48c2b8a10243c67267   slot 136 — picture-chain v1.20+
+    45e236c2d3f3ff690ede65762cfbfae482cd7560   slot 137 — PCF-2 v1.4 substrate-prep
+    887981bf51860550a05ff949f0145c1687623689   slot 135 — umbrella v2.2 substrate-prep
+
+═══════════════════════════════════════════════════════════════════════════════
+GOVERNANCE STATUS (active)
+═══════════════════════════════════════════════════════════════════════════════
+
+RULE 1 (admin/distribution work TABLED until M1–M12 closure):  STILL IN FORCE
+  Lift gate:  3/4 hard SHAs met (135 + 136 + 137 LANDED)
+  Only M10-status-resolution remains as lift blocker
+  → Operator decision still pending: M10 as separate-axis cascade OR bundled with M9?
+
+AEAL claims.jsonl discipline:  in force
+Halt conditions per copilot-instructions.md:  in force
+Coefficient ordering [a2, a1, a0]:  reaffirm in any new code
+Bibliographic identifier pre-verification:  in force
+Substrate SHA pre-verification (rev-parse before citation):  in force
+Parallel-CLI shared-clone gotcha (stage-restore-before-commit):  in force
+
+═══════════════════════════════════════════════════════════════════════════════
+DO NOT — preserve substrate integrity
+═══════════════════════════════════════════════════════════════════════════════
+
+- DO NOT re-fire slot 135 / 136 / 137 / 138 — all LANDED
+- DO NOT modify .github/agents/*.agent.md cards directly — edit .fleet.yaml + emit_agent_cards.py
+- DO NOT publish the April-10 PCF triple-win companion note (RULE-1-BLOCKED until M-axis closure)
+- DO NOT publish G-B SIARC schema reference card (RULE-1-BLOCKED until M-axis closure)
+- DO NOT execute April-10 PCF STEP 2 (Zenodo v2 re-deposit) until STEP 1 push verified public
+- DO NOT skip the README anomaly A-STEP1-1 fix during STEP 2 — line 142 cites
+  "Experimental Mathematics, forthcoming/submitted manuscript" but ExpMath rejected
+  this paper 2026-04-18; replace with Zenodo concept-DOI 10.5281/zenodo.19491767 citation
+- DO NOT fire Carneiro endorsement without Q-208-5 framing-overlap pre-verification
+
+═══════════════════════════════════════════════════════════════════════════════
+DEFAULT OPENING AGENT ACTION (if operator says nothing more)
+═══════════════════════════════════════════════════════════════════════════════
+
+  # 1. Verify bridge state and pull latest
+  cd "C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge"
+  git pull --quiet
+  git log -1 --format='%h %s'
+
+  # 2. Verify local pcf-casoratian-identities state
+  cd "C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\pcf-casoratian-identities"
+  git log -1 --format='%h %s'
+  git remote -v   # operator may have added origin overnight
+
+  # 3. Check if pcf-casoratian-identities repo now exists publicly
+  #    (via github-mcp-server-get_file_contents papanokechi/pcf-casoratian-identities/)
+
+  # 4. Query ready todos
+  #    (via sql tool — look for april10-pcf-step1-* and gods-eye-view-* + verdict-208-day-1-*)
+
+  # 5. Report status to operator and await DECISION 1 input
+
+═══════════════════════════════════════════════════════════════════════════════
+QUICK CONTEXT REFRESHER (one-paragraph god's-eye-view)
+═══════════════════════════════════════════════════════════════════════════════
+
+Tonight (2026-05-12) absorbed four consecutive external-review intake streams from
+claude.ai-class synth, all converging on the April-10 PCF "Casoratian Identities"
+paper as the strongest single endorsement candidate in the 18-record Zenodo corpus.
+Discovery: the paper's cited GitHub reproducibility scaffold doesn't exist on the
+public-facing `pcf-research` repo — actual scaffold lives at LOCAL-ONLY
+`pcf-casoratian-identities/`. STEP 1 (publish to GitHub) executed local-side
+tonight (HEAD f05d58b, 7 files, ~190 KB); paused at GitHub-auth gate (single
+30-sec operator action needed tomorrow). STEPs 2-4 (Zenodo v2 re-deposit / venue
+matrix Z0 row / arXiv stage + endorsement quest) blocked on STEP 1 verification.
+The 4th review introduced the highest-leverage single execution in the landscape:
+the integrated triple-win = M-C op:cc-median-resurgence-execute (extract Stokes
+data; H4 pre-registered HIGH-confidence prediction; binary outcome) +
+companion note (RULE-1-blocked release) + G-A AEAL calibration paper seed.
+Five decisions queued for tomorrow morning triage.
+
+# ============================================================================
+# END COPY-PASTE BLOCK
+# ============================================================================
