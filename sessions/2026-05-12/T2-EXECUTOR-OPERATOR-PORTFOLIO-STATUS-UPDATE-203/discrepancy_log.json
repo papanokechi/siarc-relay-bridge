@@ -1,0 +1,24 @@
+{
+  "entries": [
+    {
+      "id": "D-203-1",
+      "severity": "HIGH",
+      "summary": "Q-202-4 LOCK refinement needed: L2 Lean d=2 predicate JAR-submission-readiness ≠ Q-202-4 (b) PARTIAL milestone with hard-substep sorry's; JAR-submission-ready = (b) PARTIAL with zero sorry beyond named axiom",
+      "evidence": "Item 18 (JAR SIARC PDE Lean4) rejected 2026-04-27 with explicit editorial policy disclosure 'We cannot accept a Lean publication that has multiple sorry's left in it'. Compare to acceptable pattern at Item 8 Tunnell CNP Zenodo deposit (10.5281/zenodo.19834824): 'Axiom-isolated Lean 4 formalization ... zero sorry beyond it'.",
+      "implications": "L2 milestone needs sub-granularity: L2.2 (PARTIAL with sorry's, suitable for ITP/CPP/AAR) vs L2.3 (PARTIAL zero-sorry beyond named axiom, JAR-submission-ready). Cascade required: l2_lean_pcf_pivot_direction_v1.md v1.1 → v1.2 bump.",
+      "anchor_session": "T2-EXECUTOR-PROMPT-202-PORTFOLIO-QUEUE-VERDICT-ABSORPTION-202",
+      "anchor_sha": "69db4ca",
+      "status": "PENDING_CASCADE_L2_DIRECTION_V1_2"
+    },
+    {
+      "id": "D-203-2",
+      "severity": "MEDIUM",
+      "summary": "Submission ID 261966792 attribution to Item 23 (Monatshefte T2B) is CLI provisional inference, not operator-attested",
+      "evidence": "Operator paste 2026-05-12 ~10:40 JST provided 7 submission updates; 4 were ID-tagged with item-content cues (Items 5/13/16/17/18 self-evident from venue/verdict text); 2 had unambiguous mapping (Item 11 by manuscript-ref pattern NON- = Nonlinearity); 261966792 was tagged only 'status: with Editor' with no item-content cue. CLI provisional inference: only in-flight Springer EM venue with previous ID=pending = Item 23 Monatshefte T2B (other Springer EM venue Item 20 Indagationes already has ID).",
+      "implications": "If 261966792 actually = some other submission (e.g. an unlisted item or mis-IDed earlier), Item 23 status remains pending-of-ID and 261966792 belongs to an unidentified item. Operator confirm or correct required before subsequent absorption cycles rely on this attribution.",
+      "anchor_session": "T2-EXECUTOR-OPERATOR-PORTFOLIO-STATUS-UPDATE-203",
+      "anchor_sha": "PENDING",
+      "status": "OPERATOR_CONFIRM_PENDING"
+    }
+  ]
+}
