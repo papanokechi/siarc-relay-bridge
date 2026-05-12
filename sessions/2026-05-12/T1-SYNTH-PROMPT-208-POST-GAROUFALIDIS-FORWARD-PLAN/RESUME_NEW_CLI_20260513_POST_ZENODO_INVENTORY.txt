@@ -1,0 +1,265 @@
+# RESUME / KICKOFF — new CLI session bootstrap (2026-05-13 ~07:20 JST)
+#
+# Purpose:  Single copy-pasteable message to bootstrap a fresh GitHub Copilot CLI
+#           session on the SIARC project. Drops the new agent into the
+#           post-Zenodo-/me/uploads-inventory state (2026-05-12 ~23:30 JST) with
+#           the active-submissions snapshot and the actionable next-steps queue.
+#
+# Created:  2026-05-13 07:20 JST (session d0b490af-727d-4ff2-b51d-fbe079b0a718,
+#           post Zenodo /me/uploads inventory check tonight)
+# Bridge HEAD at issue:  2aae6fa  (APRIL10-PCF-STEP1-COMPLETE-2026-05-12)
+# Repo HEAD at issue:    0688bbe  (slot 162 prompt _EXECUTED rename;
+#                                  branch vquad/handoff-2026-04-16)
+#
+# Supersedes: RESUME_NEW_CLI_20260513_MORNING_TRIAGE.txt
+#   (drafted 2026-05-12 ~22:14 JST; pre-dated tonight's STEP-1 completion + Zenodo
+#    inventory check + active-submissions enumeration. D1 of that prompt is now
+#    obsolete; D2-D5 carried forward and renumbered here.)
+#
+# Companion artefacts (in priority order):
+#   1. tex/submitted/control center/notes/RESUME_NEW_CLI_20260513_MORNING_TRIAGE.txt
+#      (PRIOR kickoff; D2-D5 still relevant; this file is the active resume now)
+#   2. tex/submitted/control center/notes/APRIL10_PCF_STEP1_COMPLETE_20260512.md
+#      (records last-night STEP 1 GitHub repo publication; see SHA f05d58b)
+#   3. tex/submitted/control center/notes/STRATEGIC_LANDSCAPE_GODSEYE_20260512.md
+#      (~23.4 KB; 4th-stream god's-eye-view review; triple-win recommendation
+#       at §F; tier prioritization at §G.4; tomorrow-triage guidance at §I)
+#   4. tex/submitted/control center/notes/PAPER_VENUE_LIKELIHOOD_MATRIX_20260512.md
+#      (TABLE 5 NEEDS PATCH — missing 2 entries: Z9 = Finite-Depth Transient
+#       Rigidity v1.0 Apr 25 / Z10 = Meinardus G-01 law v1.0 Apr 10)
+#   5. tex/submitted/submission_log.txt
+#      (canonical source for active-submissions table below)
+#
+# ============================================================================
+# COPY EVERYTHING BELOW THE LINE INTO THE NEW CLI SESSION
+# ============================================================================
+
+Resume SIARC operations (2026-05-13 day-start state). Read these in order:
+
+1. tex/submitted/control center/notes/APRIL10_PCF_STEP1_COMPLETE_20260512.md
+   (STEP 1 = April-10 PCF GitHub repo published as
+    github.com/papanokechi/pcf-casoratian-identities at SHA f05d58b7
+    on 2026-05-12 ~22:51 JST via β-path gh auth login)
+
+2. tex/submitted/control center/notes/STRATEGIC_LANDSCAPE_GODSEYE_20260512.md
+   (4th-stream god's-eye-view review from claude.ai; triple-win = M-C resurgence
+    execution + companion note + G-A AEAL calibration paper)
+
+3. tex/submitted/control center/notes/RESUME_NEW_CLI_20260513_MORNING_TRIAGE.txt
+   (PRIOR kickoff; D2-D5 carried forward; D1 obsolete = done)
+
+4. tex/submitted/submission_log.txt
+   (authoritative source for the active-submissions table; lines 38-94 cover
+    Items 5/13/23/26/27/28 + pre-submission inquiry #1)
+
+Bridge HEAD: 2aae6fa (APRIL10-PCF-STEP1-COMPLETE-2026-05-12; β-path complete)
+Repo HEAD:   0688bbe (slot 162 prompt _EXECUTED rename on vquad/handoff-2026-04-16)
+
+============================================================================
+ACTIVE JOURNAL SUBMISSIONS (in-flight as of 2026-05-13 07:20 JST)
+============================================================================
+
+Six active submissions across four venues; three landed on 2026-05-12 alone
+(operator pacing flag: 4 major actions in one day per Item 28 §"Three-papers-
+landed-same-day"; recommended ≥48h verdict-watch posture before next fire).
+
+#5  Khinchin signature null result @ Experimental Mathematics
+    ID: 264514392                  Submitted: 2026-04-18  (25d elapsed)
+    Status: "With Journal Administrator"
+    Action gate: PULL-AT-30d ~2026-05-25 per PROMPT 202 Q-202-8 LOCK
+    Next-venue candidates (pre-pull): JSC / JTNB experimental section
+    NO pull authorization without next venue identified first
+
+#13 Self-Adjoint Structure of PCF Recurrences @ J. Differential Equations
+    ID: JDEQ26-983                 Submitted: 2026-04-21  (22d elapsed)
+    Status: "With Editor"
+    Action gate: NUDGE-AT-30d ~2026-05-21 per PROMPT 202 Q-202-8 LOCK
+    Tone: polite courtesy check; NO pull until 45d+ elapsed AND no editor reply
+
+#23 T2B Conjectural Trans Identity @ Monatshefte für Mathematik
+    ID: 261966792                  Submitted: 2026-04-27  (16d elapsed)
+    Status: "With Editor"
+    Action gate: none until 30d (~2026-05-27)
+    Note: disclosure email from 2026-04-27 should be confirmed read by editor
+    before any follow-up dispatch
+
+#26 Finite-Depth Transient Rigidity in Small-Value CF Dynamics @ J. Symbolic Comp.
+    ID: JSCO-D-26-00112            Submitted: 2026-05-12  (1d elapsed)
+    Status: "Manuscript Submitted"
+    Note: double-blind continuation of Item 20 (Indagationes operator-withdraw
+    over arXiv-endorsement-gap). SSRN auto-post elected YES.
+    Action gate: none; first verdict watch ~2026-05-26 (2 weeks)
+
+#27 Ratio Universality for Meinardus-Class Partitions @ Compositio Mathematica
+    ID: CM 10597                   Submitted: 2026-05-12  (1d elapsed)
+    Status: "submission confirmation received" 2026-05-12 ~17:35 JST
+    Note: redirect of Item 17 (Acta Arith. backlog-cited rejection 2026-05-04);
+    also continuation of Item 1 (ExpMath rejection). Cover letter §3 full
+    prior-disposition disclosure; Option-B cleanup applied pre-fire.
+    Action gate: none; first verdict watch ~2026-05-26
+
+#28 Spectral Classes of PCF: Hypergeometric Framework @ J. Number Theory
+    ID: JNTH-D-26-00612            Submitted: 2026-05-12  (1d elapsed)
+    Status: "Submitted to Journal" confirmed 2026-05-12 ~18:49 JST
+    Note: double-blind; emergency anonymization build executed CLI-side
+    2026-05-12 ~18:05-18:18 JST; Item 4 prior JNT rejection disclosed in
+    cover letter §3 as distinct-manuscript (zero overlap).
+    Action gate: none; first verdict watch ~2026-05-26
+
+Pre-submission inquiry (active):
+#PSI-1  JFR pre-query → asperti@cs.unibo.it  Sent: 2026-05-12 ~17:42 JST
+        Watch window closes 2026-05-29 (14d default per Q-206 LOCK)
+        Response classification: (a) positive→unblock R1/R6 JFR routes;
+        (b) negative→redirect to LMCS/ITP/CPP; (c) no-reply→treat as (b)
+        Verdict: AWAITING RESPONSE
+
+============================================================================
+NEXT-ACTION DECISIONS (renumbered D1-D5; original D1 dropped as obsolete)
+============================================================================
+
+D1 [HIGH] April-10 PCF v2 Zenodo redeposit (was D2 in prior triage)
+   Concept-DOI 10.5281/zenodo.19491767; mint new version with three patches:
+     - Replace placeholder GitHub URL with live
+       https://github.com/papanokechi/pcf-casoratian-identities (resolves D1
+       defect from APRIL10_PCF_PAPER_ENDORSEMENT_READINESS_20260512.md)
+     - Fix abstract space rendering ("computational application,wecertify
+       482quadratic" → proper spacing; resolves D2 defect)
+     - README line 142: replace "Experimental Mathematics, forthcoming" with
+       Zenodo concept-DOI citation (resolves A-STEP1-1 anomaly)
+   RULE 1: PERMITTED (foundational correction to existing record)
+   Estimated effort: ~45 min (tex edit + 3-pass build + Zenodo new-version mint)
+
+D2 [HIGH] Verdict 208 Day-1 work (carried from prior triage)
+   T1-Synth verdict on the post-Garoufalidis Day-1 prompt 208 substrate
+   (siarc-relay-bridge sessions/2026-05-12/T1-SYNTH-PROMPT-208-POST-
+   GAROUFALIDIS-FORWARD-PLAN/). Specific action depends on operator priority;
+   see prior morning-triage prompt §D2 for the full breakdown.
+
+D3 [MED] Tier-1 substantive pick (carried from prior triage)
+   Choose between: (i) M-A close ξ₀ at d=3 direct (1-2h, lowest-cost confidence
+   builder); (ii) M-C op:cc-median-resurgence-execute (triple-win seed; 1-3
+   sessions); (iii) S6 rejection retrospective (sharper-review's highest flag).
+   RULE 1: all three PERMITTED.
+
+D4 [MED] Prompt 209 go/no-go (carried from prior triage)
+   Journey-pivot prompt; operator-pending fire decision; see
+   tex/submitted/control center/notes/JOURNEY_PIVOT_INTAKE_20260511.md
+   (or successor) for context.
+
+D5 [LOW] Corpus-review offer (carried from prior triage)
+   Three options (a) deep-read 18 records / (b) light-read latest 5 /
+   (c) accept-as-given. No action required until operator selects.
+
+D6 [LOW] TABLE 5 patch in PAPER_VENUE_LIKELIHOOD_MATRIX_20260512.md
+   Add Z9 = Finite-Depth Transient Rigidity (Zenodo Apr 25, v1.0) +
+   Z10 = Meinardus G-01 law (Zenodo Apr 10, v1.0). Both confirmed via
+   operator paste of /me/uploads page 2026-05-12 ~23:30 JST.
+
+============================================================================
+VERDICT-WATCH CALENDAR (sorted by nearest action gate)
+============================================================================
+
+   2026-05-21  Item #13 J. Diff. Eq.        NUDGE-AT-30d trigger
+   2026-05-25  Item #5  Exp. Math.          PULL-AT-30d decision lock
+   2026-05-26  Items #26/#27/#28            First verdict watches begin
+   2026-05-27  Item #23 Monatshefte         30d gate (no current trigger)
+   2026-05-29  PSI-1 JFR pre-query          No-reply timeout per Q-206 LOCK
+
+============================================================================
+GOVERNANCE STATE (unchanged from prior session)
+============================================================================
+
+RULE 1 (operator-supplied 2026-05-09 ~11:17 JST): admin/distribution work
+TABLED until M1-M12 mathematical/foundational closure complete.
+  Lift gate: 4/4 hard SHAs (135 + 136 + 137 + cascade-132) met;
+             only M10 status taxonomy resolution remains.
+  Sole remaining operator gate: M10 status taxonomy
+    → separate axis (V0 closure cascade mirroring M7/M8a/M8b 3-arc template — recommended)
+    OR
+    → bundled with M9 (deposit alongside)
+
+Cascade-132 PATH_B Option α deposit chain — 3/3 COMPLETE (last session
+verified). All three Zenodo deposits LANDED (umbrella v2.2 / PCF-2 v1.4 /
+picture-chain v1.20+ at bridge SHA b9aa881 — Zenodo deposit pending, per
+umbrella v2.2 description).
+
+DO NOT re-fire any prior LANDED slot (Phase 0 STEP 0.2 supersession gate
+will halt cleanly). DO NOT modify .github/agents/*.agent.md cards directly —
+edit .fleet.yaml and re-run scripts/emit_agent_cards.py instead.
+
+============================================================================
+ZENODO INVENTORY SNAPSHOT (operator paste 2026-05-12 ~23:30 JST)
+============================================================================
+
+Total published records: 18 (all "Open" status; ZERO drafts in queue)
+
+Page 1 of /me/uploads inventory (newest first):
+   1. May 11 (v2.2) Preprint    — SIARC umbrella v2.2
+   2. May 11 (v1.4) Preprint    — PCF-2 v1.4
+   3. May 6  (v1.0) Working pap — Birkhoff-Trjitzinsky baseline note
+   4. May 4  (v2.1) Preprint    — D2-NOTE v2.1
+   5. May 2  (v1.3) Preprint    — Channel Theory v1.3
+   6. May 1  (v1.3) Preprint    — PCF-1 v1.3 (CM Transcendence Predicate)
+   7. Apr 30 (v3.0) Preprint    — T2B v3.0 (Class A/B dichotomy)
+   8. Apr 28 (v1.0) Software    — Lean 4 Congruent Number Tunnell
+   9. Apr 26 (v1)   Preprint    — (4,2) 2k-degree investigation
+   10. Apr 25 (v1.0) Preprint   — Finite-Depth Transient Rigidity  ← TABLE-5-MISSING
+   11. Apr 24 (v1.0) Other      — AI Peer Review (Paper 11)
+   12. Apr 18 (v1.0) Software   — SIARC Lean 4 Artifact v1.0.0
+   13. Apr 15 (v1.0) Report     — Change Management Framework (Paper 10)
+   14. Apr 15 (v1.0) Report     — ZTEK (Paper 9)
+   15. Apr 14 (v1.0) Report     — AEAL (Paper 8)
+   16. Apr 14 (v1.0) Report     — AI Behavior Science (Paper 7)
+   17. Apr 10 (v1)   Publication — April-10 PCF (Casoratian / 4π / 482 irrationals)
+   18. Apr 10 (v1.0) Publication — Meinardus G-01 law  ← TABLE-5-MISSING
+
+Natural unsubmitted-Zenodo opportunities (candidates NOT yet drafted):
+  - April-10 PCF v2 redeposit (D1 above; RULE-1-PERMITTED)
+  - Picture-chain v1.20+ Zenodo deposit (cascade-132 Step 3; substrate at
+    bridge b9aa881; cited as "deposit pending" in umbrella v2.2 description;
+    borderline RULE 1)
+  - Channel Theory companion note (conditional on M-C execution; distribution
+    BLOCKED until M-axis closure; execution itself PERMITTED)
+  - AEAL calibration paper (G-A pipeline; foundational; PERMITTED)
+
+============================================================================
+QUICK-REFERENCE FULL-SHA TABLE (STEP_0_1-confirmed previously)
+============================================================================
+
+   2aae6fa3...                                  bridge HEAD (APRIL10-PCF-STEP1-COMPLETE)
+   e5b4268...                                   bridge prior (RESUME-NEW-CLI-20260513-MORNING)
+   edef567...                                   bridge prior (STRATEGIC-LANDSCAPE-GODSEYE)
+   f05d58b7fa8a2d192fc146750a4e0db543bac6f2     pcf-casoratian-identities init commit
+   b9aa881c53566926390d6f48c2b8a10243c67267     slot 136 picture-chain v1.20+ substrate
+   45e236c2d3f3ff690ede65762cfbfae482cd7560     slot 137 PCF-2 v1.4 substrate
+   887981bf51860550a05ff949f0145c1687623689     slot 135 umbrella v2.2 substrate
+   7f93b9e4d624fdfca62f5d85393b4ead35cea751     cascade 123 M7 V0 closure
+   cb429e1acba91ba47d1426950d924800a0b02a07     cascade 127R M8a V0 closure
+   74c563022d3a2df0a4bea0088f4793170a1e64d3     cascade 130R M8b V0 closure
+   fd669d347967db2e854f8e9d3725f625bf9fbc2a     cascade 132 PATH_B Option α decision
+   5f9db69c754c410b79091cbd84e6d79b63d10b6e     cascade 106 M4 V0 closure (cross-ref only)
+
+# ============================================================================
+# END COPY-PASTE BLOCK
+# ============================================================================
+#
+# Operator notes (NOT for copy-paste into new CLI):
+#
+# - Three of the six active submissions landed on 2026-05-12. Operator
+#   pacing-flag posture (≥48h verdict-watch before next fire) per Item 28
+#   note. This file does NOT recommend a new submission action today;
+#   first action is D1 Zenodo v2 redeposit (foundational, RULE-1-PERMITTED).
+#
+# - The PRIOR kickoff (RESUME_NEW_CLI_20260513_MORNING_TRIAGE.txt) remains
+#   useful for D2-D5 detail. This file is the operationally-current
+#   snapshot; the prior file is the verbose triage backdrop.
+#
+# - If the new CLI session opens before any verdict arrives (i.e. before
+#   2026-05-21), priority order is:
+#     1. D1 (Zenodo v2 redeposit — fixes 3 endorsement-readiness defects)
+#     2. D3 (Tier-1 substantive pick — M-A is the cheapest confidence builder)
+#     3. D6 (TABLE 5 patch — 5-min housekeeping)
+#     4. D4/D5 (operator-pending)
+#
+# - If a verdict arrives during the session, that verdict's absorption
+#   pre-empts D1-D6 per standing SIARC protocol.
