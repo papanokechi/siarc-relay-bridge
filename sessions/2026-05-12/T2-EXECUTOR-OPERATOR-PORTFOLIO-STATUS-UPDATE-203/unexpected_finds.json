@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "id": "UF-203-1",
+      "severity": "HIGH",
+      "summary": "JAR (Journal of Automated Reasoning) explicit editorial policy disclosure: 'We cannot accept a Lean publication that has multiple sorry's left in it'",
+      "context": "Item 18 (SIARC PDE Lean4, submission ID ec4ede2f-7ed8-4801-aa03-3153e70827a7) rejected 2026-04-27 with policy text in verdict. Editorial policy disclosure in desk-rejection is unusual (most are content-mute or boilerplate-only); when disclosed, it functions as venue-specific publication criterion.",
+      "implications": [
+        "L2 N2 (Lean d=2 predicate) venue strategy: JAR ranked behind LMCS / JFR / MCS / TCS for multi-sorry milestones; ranked competitively at zero-sorry milestone",
+        "Item 21 (Tunnell CNP JAR resub) RISK_FLAG: requires verification of zero-sorry beyond named axiom tunnell_conditional_on_BSD before further wait; preemptive withdrawal-and-redirect path candidate venues = AAR / ITP / CPP / JFR",
+        "Q-202-4 LOCK refinement: (b) PARTIAL milestone needs sub-granularity (L2.2 sorry-permitting milestone vs L2.3 zero-sorry-beyond-named-axiom milestone)",
+        "Cross-program implication: any future Lean publication targeting JAR must meet zero-sorry beyond named axiom at submission-ready threshold"
+      ],
+      "memory_candidate": false,
+      "memory_promoted": true,
+      "memory_subject": "venue editorial policies",
+      "memory_fact": "Journal of Automated Reasoning (JAR) editorial policy explicitly rejects Lean publications with multiple sorry's; acceptable pattern is zero-sorry beyond named axiom interface (mirrors Tunnell CNP Zenodo Software deposit)"
+    },
+    {
+      "id": "UF-203-2",
+      "severity": "MEDIUM",
+      "summary": "UF-202-2 venue-state-vs-content rejection pattern promoted from n=1 candidate to n=2 confirmed",
+      "context": "Prior PROMPT 202 absorption flagged UF-202-2 (Math.Comp Neilan 28+30 Apr 2026 backlog desk-rejections; same editor, same boilerplate, 2-day window) as memory_candidate at n=1 venue. 2026-05-12 absorption adds Item 17 Acta Arithmetica 4 May 2026 backlog-cited rejection with verbatim 'During the last year our journal received more manuscripts than can possibly be accepted...rejected without refereeing'. Same structural pattern at second independent venue.",
+      "implications": [
+        "Pattern operational: backlog-cited desk-rejections are venue-state (capacity-driven), not content rejections; cleanest re-submission case",
+        "Re-submission strategy: monitor backlog status, re-submit at 9-12mo post-clear window (per Q-202-5 LOCK Math.Comp precedent)",
+        "Memory promotion warranted at n=2 confirmed",
+        "Forward indicator: prior pattern Items 4 JNT / 14 Ramanujan / 22 JTNB Adamczewski / 24 AFM appear content-mute desk-rejections (different class — venue scope-fit screening at desk-level)"
+      ],
+      "memory_candidate": false,
+      "memory_promoted": true,
+      "memory_subject": "venue-state rejection pattern",
+      "memory_fact": "Backlog-cited desk-rejections without refereeing (Math.Comp Neilan 28+30 Apr 2026; Acta Arith editorial board 4 May 2026) are venue-state rejections (capacity-driven), NOT content rejections; cleanest re-submission case at 9-12 month monitoring window post-backlog-clear"
+    }
+  ]
+}
