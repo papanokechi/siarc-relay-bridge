@@ -1,0 +1,52 @@
+{
+  "K": 3,
+  "bins": [
+    "+_C3_real",
+    "+_S3_real",
+    "-_S3_CM"
+  ],
+  "representatives": [
+    {
+      "bin_label": "+_C3_real",
+      "family_id": 19,
+      "coeffs_a3_a2_a1_a0": [
+        1,
+        -3,
+        0,
+        1
+      ],
+      "b_latex": "n^{3} - 3 n^{2} + 1",
+      "Galois_group": "C_3",
+      "Delta_3_exact": 81,
+      "expected_xi_0_conj": "3.0"
+    },
+    {
+      "bin_label": "+_S3_real",
+      "family_id": 14,
+      "coeffs_a3_a2_a1_a0": [
+        1,
+        -3,
+        -1,
+        1
+      ],
+      "b_latex": "n^{3} - 3 n^{2} - n + 1",
+      "Galois_group": "S_3",
+      "Delta_3_exact": 148,
+      "expected_xi_0_conj": "3.0"
+    },
+    {
+      "bin_label": "-_S3_CM",
+      "family_id": 50,
+      "coeffs_a3_a2_a1_a0": [
+        1,
+        -2,
+        0,
+        -1
+      ],
+      "b_latex": "n^{3} - 2 n^{2} - 1",
+      "Galois_group": "S_3",
+      "Delta_3_exact": -59,
+      "expected_xi_0_conj": "3.0"
+    }
+  ]
+}
