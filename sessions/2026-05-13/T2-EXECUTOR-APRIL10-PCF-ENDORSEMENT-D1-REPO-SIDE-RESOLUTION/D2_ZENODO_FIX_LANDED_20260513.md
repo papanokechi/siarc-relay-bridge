@@ -51,3 +51,42 @@ Operator decision pending: accept-as-is (D2 substantively closed) OR polish-pass
 
 Next: Carneiro endorsement fire (Q-208-3 γ) or DECISION 3 Tier-1 pick per
 `RESUME_NEW_CLI_20260513_DAY_START_CONSOLIDATED.txt` (bridge 9074757).
+
+---
+
+## Polish-pass attempt 07:59:25 JST — diagnosis: Zenodo editor limitation
+
+After D2 content-level closure at 07:51:28 JST, two polish-pass attempts were made:
+
+| Attempt | Timestamp | `<br>` count | `<p>` count | First-break-after |
+|---|---|---|---|---|
+| Original Option A paste | 07:51:28 | 13 | 1 | "respectively" |
+| Re-save (no content change) | 07:57:07 | 13 | 1 | "respectively" |
+| Notepad path (Option B style) | 07:59:25 | 14 | 1 | **"converge"** |
+
+The shift in first-break-after position (respectively → converge) between attempt 1
+and attempt 3 proves the Notepad path delivered structurally different content
+(single-line paragraphs, no inline newlines). But the `<br>` count stayed roughly
+constant.
+
+**Diagnosis:** Zenodo's WYSIWYG editor auto-injects `<br>` tags based on its own
+visual line-wrap at editor width, freezing those wraps into HTML on Save. No paste
+technique through the WYSIWYG can produce clean `<p>`-only HTML.
+
+The only path that would produce a clean `<p>`-only abstract is direct API:
+```
+PUT https://zenodo.org/api/records/19491768/draft
+Authorization: Bearer <Zenodo-personal-access-token>
+```
+This requires operator-supplied token + ~10-15 min setup. Not pursued; content is
+endorsement-ready as-is.
+
+## Final D2 status: ACCEPTED AS CONTENT-LEVEL CLOSURE
+
+- ✅ All word-boundary defects fixed
+- ✅ All missing ligatures restored ("differs", "unclassified")
+- ✅ Math typesetting correct
+- ✅ Both repos cited
+- ⚠️ Cosmetic `<br>` line breaks accepted as Zenodo editor limitation
+
+**April-10 PCF paper endorsement-readiness: COMPLETE** (D1 ✅ + D2 ✅ + A-STEP1-1 ✅).
