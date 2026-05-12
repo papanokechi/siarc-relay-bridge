@@ -1,0 +1,33 @@
+{
+  "UF-206-1": {
+    "severity": "HIGH",
+    "title": "JFR effective dormancy discovered at PROMPT 206 fire-receive time (C-206-3)",
+    "summary": "Single most consequential finding of PROMPT 206 absorption. JFR (jfr.unibo.it, Bologna, Editor Asperti) has not published a new issue since Vol. 13 No. 1 dated 2020-12-21 — a single Appel & Bertot paper plus corrigendum. Submission portal remains technically open but publishing pipeline has been dormant ~5.5 years. Detected by T1-Synth solo-witness pre-flight verification + independently verified by CLI web_search 2026-05-12 ~12:50 JST.",
+    "structural_significance": "5th documented external-identifier hallucination tier in project; structurally distinct from C-206-1 (LMS J.C.M. discontinued — formal status change) because JFR has not been formally discontinued (ISSN active; portal open). The failure mode is 'venue activity status' — exists-but-effectively-inactive. For future relay-prompt pre-verification: must check BOTH currency (formal status) AND activity (publishing within last 12-24 months).",
+    "downstream_re_architecture": "R1, R6, N2 tier-1 venue FLIP: LMCS promoted from tier-2 to tier-1 (Q-206-8, Q-206-15, Q-206-1-revised). JFR demoted to tier-3 conditional pending pre-query response. 72H pre-query email to Asperti added as firing-order item #1 (NOT RULE-1-blocked since it's not a submission). cover_letter_R1_tunnell_cnp_JFR_draft.txt PARKED; new cover_letter_R1_tunnell_cnp_LMCS_draft.txt created.",
+    "memory_promotion_recommendation": "YES — high-leverage rule extension for the substrate-verification rule. Stored 2026-05-12 (subject: substrate verification)."
+  },
+  "UF-206-2": {
+    "severity": "MEDIUM",
+    "title": "CEA formula time-cost asymmetry blindspot",
+    "summary": "Synth observation in §C: R1/R6/N2 cascades have IDENTICAL CEA whether LMCS or JFR is tier-1 (mathematically commutative under independent-Bernoulli formula), but CEA does not capture downside risk. Firing the JFR (dormant) venue first risks the manuscript locking in submission limbo for months — that's a time-cost asymmetry the CEA formula misses.",
+    "implication": "For future submission-prioritization decisions: when two cascade-orderings are CEA-equivalent, prefer the ordering whose tier-1 has the most ACTIVE pipeline (smallest expected indefinite-limbo risk). This rule generalizes beyond JFR — applies whenever venue-state heterogeneity is high in a cascade.",
+    "structural_pattern": "Analog of P-3 finding (Inventiones-first vs IMRN-first time-cost asymmetry). Both are CEA-mute distinctions that matter for execution scheduling.",
+    "memory_promotion_candidate": "MEDIUM — pattern is generalizable; worth memory if a third instance is found"
+  },
+  "UF-206-3": {
+    "severity": "LOW",
+    "title": "Bull. LMS computational-scope inheritance (C-206-1 side-implication)",
+    "summary": "Synth side-implication of C-206-1 (LMS J.C.M. discontinued): LMS guidance now routes computational mathematics papers to Bull./J./Trans. LMS. Bull. LMS thus inherited the LMS J.C.M. scope mandate, providing a small relevance bump for computational-flavoured manuscripts (R4 + R7 cascades).",
+    "implication": "For R4 (Item 16 Spectral Classes) Bull. LMS tier-2 score: baseline ~4 bumped to 4.5 to reflect inherited scope. For R7 (Finite-Depth Rigidity) the substitution path for the now-discontinued LMS J.C.M. tier-2 slot points to Bull. LMS as a candidate (though Math. Comp post-backlog remains better-fit per Q-206-10).",
+    "memory_promotion_candidate": "LOW — venue-specific; pre-PROMPT-207 if Bull. LMS becomes a more central cascade element"
+  },
+  "UF-206-4": {
+    "severity": "MEDIUM-HIGH",
+    "title": "Synth recommended-substitute pre-verification: LMCS arXiv-mandate blocks R1/R6/N2 tier-1 path",
+    "summary": "After synth promoted LMCS to tier-1 for R1/R6/N2 to remedy C-206-3 (JFR dormancy), CLI pre-flight verification of LMCS revealed an arXiv-mandate submission requirement (preprint on CoRR cs.LO before submission). This is the SAME gate that forced Item 20 Indagationes withdrawal per HB-4. The synth-recommended substitute is therefore not currently executable for the operator without resolving the arXiv-endorsement gap.",
+    "structural_significance": "This is a recurrence of the substrate-pre-verification pattern at the substitute-recommendation tier: when synth proposes a venue substitution to fix one contamination, the substitute itself may have an independent blocker the synth didn't price in. The generalized rule: pre-verify substitutes against the full hot-blocker list (HB-1..HB-5), not just the issue motivating the substitution.",
+    "operator_decision_raised": "Should HB-4 arXiv-endorsement-gap be elevated from MEDIUM-priority background to FIRST-priority active blocker? Resolving it unblocks LMCS for R1/R6/N2 + restores Indagationes for R7 cascade + opens any arXiv-overlay journal. If yes, the operator-bandwidth allocation for the next 2-4 weeks needs to be rebalanced to include arXiv-endorsement pursuit alongside the R5+R7+R4 fires already planned.",
+    "memory_promotion_candidate": "MEDIUM — generalized rule worth storing if a third instance of the synth-recommended-substitute-has-its-own-blocker pattern is found"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "D-206-1": {
+    "severity": "HIGH",
+    "title": "C-206-3 JFR effective dormancy (NEW; 5th external-identifier hallucination tier)",
+    "summary": "Journal of Formalized Reasoning (JFR) has not published a new issue since Vol. 13 No. 1 dated 2020-12-21 (Appel & Bertot + corrigendum). Submission portal at jfr.unibo.it/about/submissions remains technically open but publishing pipeline has been dormant ~5.5 years. The failure mode resembles LMS J. Comp. Math 2015-2017 pre-discontinuation (open-but-publishing-zero).",
+    "detected_by": "T1-Synth solo-witness pre-flight verification at PROMPT 206 fire-receive time",
+    "independently_verified_by": "CLI web_search 2026-05-12 ~12:50 JST (jfr.unibo.it/issue/current returns 'Current Issue (in progress): Vol. 13 No. 1 (2020), Published: 2020-12-21')",
+    "affected_prior_LOCKs": ["Q-205-2 R1 JFR primary", "Q-205-5 R6 JFR primary", "Q-205-7 N2 JFR primary", "Q-205-8 R6 v2-Zenodo-before-JFR-submit"],
+    "remediation": "R1, R6, N2 tier-1 ARCHITECTURE FLIP: LMCS promoted to tier-1 (synth Q-206-8 + Q-206-15 + Q-206-1-revised); JFR demoted to tier-3 conditional. 72H pre-query email to JFR EiC Andrea Asperti (asperti@cs.unibo.it) added as firing-order item #1. JFR cover letter (cover_letter_R1_tunnell_cnp_JFR_draft.txt) PARKED pending pre-query response.",
+    "memory_promotion_candidate": "YES — promoted to memory 2026-05-12 (subject: substrate verification; fact: 'For relay-prompt venue-citation pre-verification, check BOTH currency (not discontinued) AND activity (publishing within last 12-24 months); JFR + LMS J. Comp. Math are documented exemplars of activity-status failure mode')"
+  },
+  "D-206-2": {
+    "severity": "MEDIUM",
+    "title": "Rubric calibration: 5-7 band compression flagged by synth",
+    "summary": "Synth flagged the 0-10 rubric in PROMPT 206 §4 as slightly compressed in the 5-7 middle band and too wide at the bottom (1 vs 2 vs 3 distinctions not empirically meaningful).",
+    "detected_by": "T1-Synth §F.3 rubric-recalibration flag",
+    "remediation": "Apply re-anchored rubric in future fires; current Q-206 LOCKs stand at issued scores (no firing-order changes). Re-anchor table: 8=55-65%, 7=45-55%, 6=35-45%, 5=25-35%, 4=17-25%, 3=10-17% (2 and 1 unchanged; 10 and 9 unchanged).",
+    "memory_promotion_candidate": "LOW — internal rubric note; will become relevant if PROMPT 207+ uses same 0-10 scoring"
+  },
+  "D-206-3": {
+    "severity": "MEDIUM",
+    "title": "P-3 N1 cascade ordering: CEA-equivalent but values-distinct between Inventiones-first and IMRN-first",
+    "summary": "Synth computed CEA = 0.79 for both Inventiones-first (3.0 → 4.5 → 4.5) and IMRN-first (4.5 → 4.5 → 3.0) orderings. Time-discounted they differ: Inventiones-first burns ~3 weeks on desk-rejection survival before cascade advances; IMRN-first lets program advance sooner.",
+    "detected_by": "Synth Section D P-3 analysis",
+    "remediation": "Synth recommendation: keep CLI's Inventiones-first ordering as values-choice (expressive consistency with flagship program-synthesis character); flag time-cost asymmetry. Operator-decision implicit.",
+    "memory_promotion_candidate": "LOW — N1-specific; not a generalizable pattern"
+  },
+  "D-206-4": {
+    "severity": "LOW",
+    "title": "P-7 independent-author penalty calibration refinement",
+    "summary": "CLI prior was 'Inventiones largest; CMP/Compositio next; JFR/JSC/LMCS/J.Phys.A roughly neutral.' Synth refined: CMP penalty is tier-2 (≈2.5×) not tier-3; IMRN ≈1.7×; Bull. LMS ≈1.4× (slightly more institutional than JSC/LMCS due to tighter desk filtering since 2020).",
+    "detected_by": "Synth Section D P-7 refinement",
+    "remediation": "CMP score Q-206-16 kept at 5.0 with offsetting standalone re-cast bonus; refinement informs future N4-related fires.",
+    "memory_promotion_candidate": "LOW — calibration detail"
+  },
+  "D-206-5": {
+    "severity": "MEDIUM-HIGH",
+    "title": "LMCS arXiv-mandate gate (HB-4 collision) — new tier-1 effectively blocked for operator",
+    "summary": "CLI post-verdict pre-flight verification of LMCS (Logical Methods in Computer Science, lmcs.episciences.org) on 2026-05-12 ~12:55 JST confirms LMCS is ACTIVE (Vol. 22 Issue 2 published May 2026; large editorial board; diamond OA via Episciences overlay). BUT submission policy REQUIRES preprint posting on CoRR (arXiv) in cs.LO category BEFORE submission. This is the SAME arXiv-mandate gate that forced Item 20 Indagationes withdrawal per HB-4. The operator's arXiv-endorsement gap is therefore a NEW active blocker for R1/R6/N2 LMCS tier-1 path, not just for the historical Indagationes case.",
+    "detected_by": "CLI web_search 2026-05-12 ~12:55 JST during post-verdict cover-letter drafting pre-flight",
+    "interaction_with_C_206_3": "C-206-3 demoted JFR to tier-3 → LMCS promoted to tier-1; D-206-5 reveals LMCS-as-tier-1 is operator-blocked by HB-4. Combined effect: R1/R6/N2 have NO currently-executable tier-1 venue.",
+    "executable_alternatives_for_R1_R6_N2": [
+      "ITP 2027 / CPP 2027 sequential fallback (Q-206-2 score 5.5; ~6-8 mo from now)",
+      "JFR if pre-query confirms active (Q-206-1 conditional score 6.5)",
+      "Resolve HB-4 arXiv endorsement to unblock LMCS (highest-leverage; promotes HB-4 from MEDIUM-priority background to FIRST-priority active blocker)",
+      "Search for a third tier-1 venue without arXiv-mandate (PROMPT 207 candidate scope)"
+    ],
+    "remediation": "(a) cover_letter_R1_tunnell_cnp_LMCS_draft.txt drafted with HB-4-blocked disclaimer prominent (so operator has the artefact ready when arXiv resolves); (b) arXiv-endorsement-priority elevated to operator decision; (c) firing-order Q-206-AGG line 5 LMCS pathway flagged as HB-4-gated; (d) JFR pre-query (Q-206-AGG line 1) becomes even more critical since LMCS unavailable until HB-4 resolves.",
+    "memory_promotion_candidate": "MEDIUM — generalizable rule: when synth recommends a venue substitution to address one substrate-citation contamination, CLI should pre-verify the recommended substitute against ALL hot-blockers (not just the one motivating the substitution)."
+  }
+}
