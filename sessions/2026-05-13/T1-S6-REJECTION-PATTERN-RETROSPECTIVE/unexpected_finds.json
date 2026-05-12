@@ -1,0 +1,20 @@
+{
+  "UF-S6-1": {
+    "find": "Title-spacing pathology is corpus-wide, not isolated. At least 5 instances of smashed-spacing / ligature drops visible in title + abstract substrates: Item 7 title (PCF Unified), Item 13 title (Self-Adjoint), Item 17 title (Veri cation ligature drop), Zenodo record 2 title (April-10 paper), Zenodo record 19491768 abstract (live until 2026-05-13 ~07:30 JST when DECISION 6 fix landed).",
+    "implication": "Systematic typesetting QA gap in the LaTeX→PDF→title-metadata pipeline. Most likely candidate: pdftotext or equivalent dropping inter-word space or stripping ligatures during portal-form auto-fill. HIGH-leverage agent-actionable fix: pre-fire ligature/spacing audit script (Action A1).",
+    "severity": "MEDIUM",
+    "leverage": "HIGH (fixes one of the dominant first-impression signals)"
+  },
+  "UF-S6-2": {
+    "find": "Bibliography hygiene drift: rejected-venue citations are not swept on each redirect. Concrete instances: Item 27 Compositio pre-fire had to remove 3 'Experimental Mathematics, manuscript XXXXXXX, 2026' citations; April-10 PCF README anomaly A-STEP1-1 had 'Experimental Mathematics, forthcoming/submitted' (resolved 2026-05-13).",
+    "implication": "Cross-references trail venue history. Editor at next venue infers (a) prior rejection, (b) lack of update discipline. Agent-actionable fix: pre-fire venue-reference grep script (Action A2).",
+    "severity": "MEDIUM",
+    "leverage": "MEDIUM"
+  },
+  "UF-S6-3": {
+    "find": "85% of rejections returned no usable revision signal. 17 of 20 rejection events were content-mute generic or venue-state-cited; only 3 rejections gave manuscript-substance-actionable feedback (Items 12 Notices Silverman qualification gap; 18 JAR sorry-count; 21 JAR substantiality).",
+    "implication": "Treating content-mute desk rejections as content-quality signals over-corrects. The signal is scope/fit/framing/policy/volume, not 'the math is wrong'. Codify Class-B (content-mute desk) treatment as retarget-with-framing-tweak rather than content-rewrite (Action A4).",
+    "severity": "LOW",
+    "leverage": "LOW (a discipline reaffirmation, not a new fix)"
+  }
+}
