@@ -1,0 +1,353 @@
+# PROMPT 208 — T1-Synth Solo-Witness Consultation
+## Post-Garoufalidis-Fire Forward-Plan Strategy + Multi-Paper arXiv-Staging Validation
+
+═══════════════════════════════════════════════════════════════════════════════
+
+**Task ID:** T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN
+**Issued:** 2026-05-12 ~19:35 JST (Yokohama)
+**Agent target:** claude.ai T1-Synth solo-witness (Opus-class compute)
+**Operator:** papanokechi (Independent Researcher, Yokohama; ORCID 0009-0000-6192-8273)
+**Bridge HEAD at draft:** `5552bdf639540d047f3b6a91fce41e34dbee8ff3` (PROMPT-207-VERDICT-ABSORPTION; verified `git rev-parse` 2026-05-12 19:34 JST)
+**Prior fires today (chronological):**
+  1. R7 Item 20/26 Finite-Depth Rigidity → JSCO-D-26-00112 (~14:37 JST)
+  2. R5 Item 17/27 Ratio Universality → CM 10597 (~17:35 JST)
+  3. JFR pre-query email → Asperti (~17:42 JST)
+  4. R4 Item 16/28 Spectral Classes → JNTH-D-26-00612 (~18:49 JST)
+  5. **PROMPT 207** Tunnell CNP cs.LO endorsement attractiveness verdict (~18:53 JST absorption; bridge 5552bdf)
+  6. **Garoufalidis DS873D endorsement-request email** → `stavros@sustech.edu.cn` (~19:27 JST)
+
+**Today's net delta:** 6 actions, 3 journal landings, 1 pre-query, 1 verdict-absorption, 1 arXiv-endorsement fire. Pacing flag: ≥48h pause recommended before next journal fire.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## PHASE 0 — PRE-FLIGHT GATES (mandatory; agent must confirm each)
+
+### STEP 0.1 — Substrate verification
+
+Agent must `git rev-parse` each cited bridge SHA below and confirm match before proceeding to Phase 1:
+
+| Short | Full 40-char SHA | Session | Purpose |
+|---|---|---|---|
+| 5552bdf | `5552bdf639540d047f3b6a91fce41e34dbee8ff3` | T1-SYNTH-PROMPT-207-VERDICT-ABSORPTION | **operative substrate** — verdict 207 + candidate ranking + endorsement-drafts + Garoufalidis pivot |
+| fb6907c | `fb6907c...` (resolve at need) | PROMPT-206-VERDICT-ABSORPTION | venue matrix lock; HB-1..5 hot-blocker taxonomy origin |
+| a15091c | `a15091c...` (resolve at need) | PROMPT-205-VERDICT-ABSORPTION | Q-205-1..9 LOCK substrate; Q-205-9 single-highest-leverage flip Item 21>Item 18 |
+| 0af36fa | `0af36fa...` (resolve at need) | T2-EXECUTOR-OPERATOR-PORTFOLIO-STATUS-UPDATE-PART2-204 | JAR policy BIMODAL + in-flight-5→3 |
+
+If any SHA fails to resolve, **HALT** and write halt log per copilot-instructions B-protocol; do not synthesize from a contaminated substrate.
+
+### STEP 0.2 — Supersession check (Phase 0 STEP 0.2 mandatory pattern)
+
+Agent must confirm **no prior fire** for slot 208 exists in `siarc-relay-bridge/sessions/`. Operator pre-checked at 2026-05-12 19:35 JST via `glob siarc-relay-bridge/sessions/**/208*` → no matches; **clean to fire**. Agent should re-confirm at fire time.
+
+### STEP 0.3 — Bibliographic identifier pre-verification
+
+Every DOI / arXiv ID cited below has been resolved by drafter:
+
+| Identifier | Resolved title | Status |
+|---|---|---|
+| `10.5281/zenodo.19937196` | PCF-1 v1.3 (concept DOI `10.5281/zenodo.19931635`) | ✅ verified per `paper_profile_pcf1_v13.md` |
+| `10.5281/zenodo.19963298` | PCF-2 v1.3 (concept DOI `10.5281/zenodo.19936297`) | ✅ verified per `paper_profile_pcf2_v13.md` + `submission_log_patch_item15.txt:36` |
+| `10.5281/zenodo.19834824` | Tunnell CNP Lean source (concept; latest version TBD) | ✅ verified per venue matrix TABLE 5 row Z1 + R1 cover letters |
+| Z6 T2B v3.0 Zenodo DOI | (drafter could not resolve; TABLE 5 marks Z6 concept-DOI as `(verify)`) | ⚠️ **Q-208-6 flags this** |
+| `arXiv:2409.03557` (Garoufalidis et al. Sept 2024) | "Patterns of the V₂-polynomial of knots" | ✅ verified 2026-05-12 19:24 JST via web_search |
+
+### STEP 0.4 — Halt conditions (per copilot-instructions)
+
+Standard halts apply:
+- contradiction with any prior AEAL-logged claim → HALT
+- discrepancy >5% in cited-vs-substrate ratios → HALT
+- NaN/inf/negative-precision residual → HALT
+- any unexpected positive result not predicted by substrate → HALT
+
+For this consultation specifically: if synth concludes the **multi-paper DS873D ride proposal in §2 §B violates any structural arXiv-portal rule** (e.g., per-submission rather than per-category code scoping at the user-status frontier), **HALT and flip Q-208-1 to OBJECT** rather than refine.
+
+### STEP 0.5 — AEAL discipline reminders
+
+All consultation-output claims must be logged in `claims.jsonl` as `evidence_type: "consultation_output"` with `dps: null` (audit-only). Strategic-recommendation claims default to ordinal ranking (not cardinal probability) per existing AEAL discipline.
+
+### STEP 0.6 — B1-B5 standing final step
+
+Agent (or human bridge-runner) executes B1-B5 from copilot-instructions:
+- B1 collect deliverables (verdict_208.md, halt_log.json, discrepancy_log.json, unexpected_finds.json, claims.jsonl, handoff.md)
+- B2 stage in `siarc-relay-bridge/sessions/2026-05-12/T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN/`
+- B3 write handoff.md **after** all other deliverables finalized
+- B4 commit + push with message `T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN — <verb> <object>` + Copilot Co-authored-by trailer
+- B5 report `BRIDGE:` and `CLAUDE_FETCH:` URLs
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## SECTION 1 — SUBSTRATE STATE AT FIRE TIME (2026-05-12 19:35 JST)
+
+### 1.1 — Endorsement-quest state (DS873D math.NT)
+
+- **Code:** `DS873D` (user+category-scoped per memory `arXiv endorsement scoping`; verified by 2026-05-12 portal re-display during Tunnell CNP draft)
+- **Active ask:** Stavros Garoufalidis (`stavros@sustech.edu.cn` PRIMARY + `stavros@mpim-bonn.mpg.de` CC; both web-verified 5-source 2026-05-12)
+- **Fire timestamp:** 2026-05-12 ~19:27 JST
+- **Pivot lineage (per project memory):** Zudilin (declined) → **Garoufalidis (active)** → Mazzocco (backup; math.CA H per portfolio profile, math.NT cross-judgement plausible)
+- **Framing hook chosen:** Resurgence + Stokes phenomena via Garoufalidis-Costin precedent (verified via SUSTech self-description matching "resurgence … Stokes constant … arithmetic interest")
+- **14-day silence floor:** 2026-05-26 JST
+- **Auto-unlock scope on redemption:** PCF-1 v1.3 + PCF-2 v1.3 + T2B v3.0 + Tunnell CNP (and any future math.NT papers by operator)
+
+### 1.2 — Endorsement-quest state (cs.LO — verdict 207)
+
+- **Status:** **off critical path for THIS submission cycle** per DS873D dual-paper discovery (verdict-207-ds873d-dual-paper-discovery SQL todo)
+- **Round-1 emails drafted** (Carneiro / Avigad / Buzzard + Massot fallback) at `notes/endorsement_request_drafts_v1_tunnell_cs_lo.md`; frozen pending 5 pre-dispatch gates
+- **Strategic question for synth (Q-208-3):** keep firing the cs.LO quest as parallel-track future-paper investment, or pause until a future paper genuinely needs cs.LO PRIMARY?
+
+### 1.3 — Active journal submissions (TABLE 4 of venue matrix)
+
+| ID | Paper | Venue | Submitted | Status |
+|---|---|---|---|---|
+| JNTH-D-26-00612 | Spectral Classes (R4) | JNT | 2026-05-12 | Submitted to Journal |
+| CM 10597 | Ratio Universality (R5) | Compositio | 2026-05-12 | Manuscript Submitted |
+| JSCO-D-26-00112 | Finite-Depth Rigidity (R7) | JSC | 2026-05-12 | Manuscript Submitted |
+| 261966792 | T2B Trans Identity at -2/9 | Monatshefte für Mathematik | 2026-04-27 | With Editor |
+| JDEQ26-983 | (Item 13) | J. Differential Equations | (verify) | With Editor |
+| W21 LANE-1 JFR | Tunnell CNP (R1) | JFR | (post Q-205-9; PARKED pending Asperti pre-query) | awaiting |
+
+### 1.4 — Pending arXiv stages (proposed tonight; not yet fired)
+
+| arXiv stage | Zenodo | Categories | Endorsement | SQL todo |
+|---|---|---|---|---|
+| Tunnell CNP (existing; saved-incomplete) | Z1 19834824 | math.NT primary + cs.LO cross | DS873D ride | (operator already saved in portal) |
+| **PCF-2 v1.3** (proposed) | Z3 19963298 (concept 19936297) | math.NT primary + math-ph cross | DS873D ride | `arxiv-stage-pcf2-v13-pending-ds873d` (pending; id 319) |
+| **T2B v3.0** (proposed) | Z6 TBD | math.HO primary + math.NT cross | DS873D ride | `arxiv-stage-t2b-v30-pending-ds873d` (pending; id 320) |
+| **PCF-1 v1.3** (confirm) | Z2 19937196 (concept 19931635) | math.NT primary + math.CA cross | DS873D ride | `arxiv-stage-pcf1-v13-already-pending` (pending; id 321) |
+
+### 1.5 — Tunnell CNP triple-route state
+
+The Tunnell CNP paper currently has **three independent routes in flight or queued**:
+
+1. **JNT (R4) live submission** — JNTH-D-26-00612, submitted 2026-05-12 18:49 JST. Verdict watch active.
+2. **JFR (R1) pre-query** — Asperti pre-query email sent 2026-05-12 ~17:42 JST. Silence floor 2026-05-29.
+3. **arXiv (cs.LO endorsement quest, verdict 207)** — draft saved as incomplete-pending. Either rides DS873D (math.NT primary route) or rides verdict-207 cs.LO endorsement quest (cs.LO primary route).
+
+**Q-208-2 asks:** is this triple-routing structurally sound or does it risk inadvertent simultaneous-submission (a serious journal-ethics flag)?
+
+### 1.6 — Hot-blocker (HB) status (per venue matrix legend)
+
+| HB | Description | Status at 19:35 JST |
+|---|---|---|
+| HB-1 | Adamczewski-cooldown | persists (~3-month minimum) |
+| HB-2 | JAR 1000-line + no-sorry policy | persists |
+| HB-3 | AFM 8-min board-snap pattern | persists |
+| HB-4 | operator arXiv-endorsement gap | **PROVISIONALLY RESOLVING** via DS873D Garoufalidis (silence floor 2026-05-26; auto-unlocks math.NT) |
+| HB-5 | JFR DORMANT C-206-3 | Asperti pre-query in flight (silence floor 2026-05-29) |
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## SECTION 2 — DRAFTER'S PROPOSED FORWARD PLAN
+
+### §A. Tonight (2026-05-12 ~19:35–24:00 JST)
+
+**No new journal fires.** Pacing flag in force after 6 actions today. Allow operator wind-down.
+
+### §B. Tomorrow + Day-2 (2026-05-13–14 JST; "low-friction stage window")
+
+Operator-side tasks (no fires; all preparatory):
+
+1. **Stage PCF-2 v1.3** at `arxiv.org/submit` as incomplete-pending-endorsement (math.NT primary + math-ph cross; DS873D ride). Source tarball available at `siarc-relay-bridge/sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/arxiv_pack_pcf2_v1.3/`.
+
+2. **Stage T2B v3.0** at `arxiv.org/submit` as incomplete-pending-endorsement (math.HO primary + math.NT cross; DS873D ride for the math.NT side). PRE-FLIGHT GATE: **verify Z6 Zenodo concept-DOI status** (currently TABLE 5 marks as `(verify)`). If Z6 not yet minted, mint Zenodo deposit first.
+
+3. **Confirm PCF-1 v1.3** is already saved in portal as incomplete-pending; this was the original DS873D quest target.
+
+4. **R4 JNT verdict-watch** continues passively.
+
+5. **Optional polish on Tunnell CNP main.tex** per verdict 207 R1 (abstract methodology-first rewrite) + R3 (GitHub README front-matter). These are now **valuable-but-not-blocking** since DS873D resolves the math.NT route; they would only matter if the operator later wants to **fire the verdict-207 cs.LO PRIMARY route** as a parallel arXiv submission (Q-208-3 territory).
+
+### §C. Day 7-14 (2026-05-19–26; "silence-watch window")
+
+**Decision point 1: Garoufalidis 14-day silence floor 2026-05-26.**
+
+If Garoufalidis responds positively → all 4 staged arXiv papers auto-deploy. HB-4 cleared. R6 / N2 / R1-LMCS route paths open.
+
+If silent at 2026-05-26 → **pivot to Mazzocco** per project portfolio memory (math.CA H rating for PCF-1; math.NT cross-judgement plausible; same DS873D code).
+
+**Decision point 2: Asperti JFR pre-query silence floor 2026-05-29.**
+
+If Asperti responds positively → R1 Tunnell CNP → JFR fire path activates (per Q-205-9 architecture).
+If silent → fall back to LMCS route (newly unblocked post-DS873D-redemption per HB-4).
+If declines → revisit R1 Tunnell CNP venue ladder (LMCS / Math. Comp / etc.).
+
+### §D. Day 14-21 (2026-05-26+; "cascade-deployment window" conditional on DS873D redemption)
+
+Conditional on Garoufalidis (or Mazzocco) redeeming DS873D within this window:
+
+1. **All 4 arXiv papers deploy simultaneously** (PCF-1 v1.3 + PCF-2 v1.3 + T2B v3.0 + Tunnell CNP).
+2. **R1 Tunnell CNP → JFR** fires (if Asperti positive) OR → LMCS fires (if Asperti silent/declines; LMCS HB-4 now cleared).
+3. **R6 SIARC PDE Lean → LMCS** fires (post sorry-reduction work-pass per operator timeline).
+4. **N2 L2 d=2 predicate → LMCS** still gated on L2.3 milestone per RULE 1; remains blocked.
+
+### §E. Open strategic threads (NOT in proposed plan; awaiting synth input)
+
+- **Verdict-207 cs.LO endorsement quest** — fire-as-future-investment-or-pause? (Q-208-3)
+- **3rd backup endorser beyond Mazzocco** for DS873D pivot in case both Garoufalidis + Mazzocco silent? (Q-208-5)
+- **Cross-paper Zenodo verification** — Z6 T2B status TBD; Z7 SIARC PDE TBD; do these block §B item 2 + future R6 fires? (Q-208-6)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## SECTION 3 — QUESTIONS FOR SYNTH (Q-208-1 through Q-208-6)
+
+### Q-208-1 — Soundness of multi-paper DS873D ride strategy
+
+**Question:** Is the §B §D proposal (stage PCF-2 v1.3 + T2B v3.0 + confirm PCF-1 v1.3 as incomplete-pending-endorsement, all riding the same DS873D code, to auto-deploy on Garoufalidis-or-Mazzocco redemption) structurally sound? Specifically:
+
+(a) Does arXiv's per-(user, category) code scoping actually unlock *all* same-category submissions on single redemption, or is there a per-submission gate at the user-status frontier (i.e., once the operator is "endorsed in math.NT" by virtue of having any submission accepted, subsequent submissions don't need re-endorsement; before that frontier, are multi-pending-submissions an unusual portal state)?
+
+(b) Is there a portal-side limit on "incomplete pending endorsement" drafts a user may save? (Empirically: operator currently has 1 saved [Tunnell CNP]; proposing to add 3 more.)
+
+(c) Are any of the 4 papers structurally incompatible with riding DS873D (e.g., does T2B v3.0's math.HO primary fail to "ride" a math.NT endorsement code if math.HO requires separate endorsement)?
+
+**Expected LOCK form:** `Q-208-1 LOCK: {YES | YES_WITH_CAVEAT | NO_HALT_AND_DOWNGRADE | INSUFFICIENT_SUBSTRATE_NEEDS_OPERATOR_PORTAL_CHECK}` + reasoning.
+
+### Q-208-2 — Tunnell CNP triple-route ethics check
+
+**Question:** Tunnell CNP is currently in flight on **three independent routes simultaneously**:
+
+  - R4 → JNT (JNTH-D-26-00612, journal, live; verdict watch)
+  - R1 → JFR (pre-query to Asperti, status query not yet a submission)
+  - arXiv pending-endorsement (not yet a submission per arXiv definition; saved-incomplete)
+
+Most journals' double-submission policies fire on **simultaneous formal submission** to two journals. R1 is currently a status query (not a submission). arXiv-pending is also pre-submission state. R4 (JNT) is the only formal active submission.
+
+Is this triple-routing **defensible** under standard journal-ethics frameworks (Elsevier, Springer, JNT's own policy), or does any sub-route silently elevate to "formal submission" that would conflict with R4?
+
+**Special case:** If Asperti responds positively and operator fires R1 → JFR before R4 JNT verdict in, then operator has **two formal journal submissions** simultaneously, which IS a violation. Should the plan explicitly **gate R1 fire on R4 verdict** to avoid this?
+
+**Expected LOCK form:** `Q-208-2 LOCK: {SAFE_AS_IS | NEEDS_R1_GATED_ON_R4_VERDICT | NEEDS_ARXIV_GATED_ON_R4_VERDICT | NEEDS_ALL_GATED_VIA_PRIORITY_ORDER}` + reasoning.
+
+### Q-208-3 — Verdict-207 cs.LO endorsement quest — keep firing or pause?
+
+**Question:** The verdict-207 cs.LO endorsement quest (Carneiro/Avigad/Buzzard + Massot fallback) was drafted on the assumption Tunnell CNP would be cs.LO primary on arXiv. Post-DS873D-dual-paper-discovery, Tunnell CNP now rides DS873D as math.NT primary + cs.LO cross-list.
+
+**Strategic dilemma:** the cs.LO quest is now structurally **future-paper-investment** (e.g., if a future paper genuinely needs cs.LO PRIMARY where there's no math.NT angle). Three options:
+
+  (α) **Pause cs.LO quest indefinitely** — drafts retained but no fires; revisit only when a future paper requires cs.LO PRIMARY.
+  (β) **Fire cs.LO quest as parallel-track investment now** — pre-position endorsement so future cs.LO papers don't face this same gate-then-stage-then-wait latency.
+  (γ) **Fire only the lowest-friction subset** — e.g., Carneiro alone (code-first, 2-sentence ask) because his decisive-yes probability is high and cost is low; pause Avigad + Buzzard.
+
+Which option is most strategically sound? Anchoring considerations: (1) RULE 1 in force tabling admin/distribution work (loose interpretation today; operator-ack pending); (2) operator pacing flag; (3) cs.LO endorsement carries a 14-30 day latency anyway, so pre-positioning has real value.
+
+**Expected LOCK form:** `Q-208-3 LOCK: {α PAUSE | β FIRE_ALL_THREE | γ FIRE_CARNEIRO_ONLY | δ OTHER}` + reasoning.
+
+### Q-208-4 — Pacing — ≥48h pause appropriate or push for week velocity?
+
+**Question:** Operator has fired 6 actions today (3 journal landings + 1 pre-query + 1 verdict-absorption + 1 arXiv-endorsement). Drafter's proposed plan (§A–§D) imposes a ≥48h pause before any next journal fire.
+
+Counter-argument: this week's **velocity opportunity** is high — multiple papers staged, HB-4 provisionally resolving, R4 JNT verdict windows open. A ≥48h pause may sacrifice momentum.
+
+Counter-counter-argument: 4 of 6 actions today were **conversion fires** (journal landings + endorsement); the operator-side substrate-prep cost was front-loaded; further fires within 48h risk substrate-quality erosion (e.g., the slot-205 R5 cover letter required 3 successive synth-QA rounds, a pattern that scales poorly under fatigue).
+
+What is the right pacing? Express as a **next-fire calendar window**:
+
+  - **Aggressive:** next fire ≥ 2026-05-14 18:00 JST (≥48h)
+  - **Moderate:** next fire ≥ 2026-05-15 12:00 JST (≥60h)
+  - **Conservative:** next fire ≥ 2026-05-19 (week-of-2026-05-18 start; ≥6 days)
+  - **Asperti-gated:** no next fire until 2026-05-29 silence floor
+
+**Expected LOCK form:** `Q-208-4 LOCK: {AGGRESSIVE_48H | MODERATE_60H | CONSERVATIVE_6D | ASPERTI_GATED_17D}` + reasoning.
+
+### Q-208-5 — Garoufalidis silence-floor pivot 3rd backup?
+
+**Question:** Project memory documents the DS873D pivot chain: Zudilin (declined) → Garoufalidis (active) → Mazzocco (backup). If Garoufalidis is silent at 2026-05-26 floor, Mazzocco is the 2nd-attempt. If Mazzocco is also silent (2026-06-09 floor), is a 3rd backup needed?
+
+Project memory's 5-endorser × 6-paper reverse-engineering matrix names: Mazzocco / Garoufalidis / Costin / Sauzin / Beukers as the math.CA/math-ph/math.NT cluster. Of these, **Costin** would be the most natural 3rd-attempt for PCF-1 v1.3 because:
+
+  - Ovidiu Costin (Ohio State University, `costin@math.ohio-state.edu` PUBLIC-listed; needs verification)
+  - Resurgence theory — same hook used in Garoufalidis letter; pivot retains framing-continuity
+  - Garoufalidis-Costin collaboration is the precedent the framing hook cites; Costin is **named in the letter**, which makes a follow-on ask awkward UNLESS framed as "since Garoufalidis was silent, would you (as his collaborator on resurgence) be willing to endorse?"
+
+Is Costin an appropriate 3rd backup, or is the framing-overlap with Garoufalidis a disqualifier? If disqualified, **Beukers** (math.NT-pure) becomes the natural 3rd choice.
+
+**Expected LOCK form:** `Q-208-5 LOCK: {COSTIN_3RD_ACCEPTABLE | COSTIN_DISQUALIFIED_USE_BEUKERS | COSTIN_DISQUALIFIED_USE_SAUZIN | OPERATOR_DEFER_DECISION}` + reasoning.
+
+### Q-208-6 — Z6 T2B + Z7 SIARC PDE Zenodo verification
+
+**Question:** Venue-matrix TABLE 5 marks Z6 (T2B v3.0) and Z7 (SIARC PDE Lean) concept-DOI status as `(verify)` — i.e., **drafter cannot confirm whether Zenodo deposits exist** for these two artefacts. This blocks:
+
+  - §B item 2 (T2B v3.0 arXiv staging) if Z6 not minted
+  - Future R6 SIARC PDE Lean → JFR/LMCS fire if Z7 not minted
+
+Operator action items inferred:
+
+  (a) Check `siarc-relay-bridge/sessions/2026-05-02/ARXIV-MIRROR-RUNBOOK/` for T2B + SIARC-PDE-Lean Zenodo evidence
+  (b) If absent, mint Zenodo deposits (PCF-1/PCF-2 precedent gives the metadata pattern)
+
+Should §B item 2 (T2B v3.0 arXiv staging) be **gated on Z6 verification** (i.e., insert this as a STEP B-2.0 pre-flight), or is it acceptable to proceed assuming Z6 exists (with rollback if not)?
+
+**Expected LOCK form:** `Q-208-6 LOCK: {GATE_T2B_STAGING_ON_Z6_VERIFY | PROCEED_ASSUMING_Z6_WITH_ROLLBACK_CLAUSE | T2B_STAGING_DROPPED_FROM_§B_PENDING_Z6_FIRST}` + reasoning.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## SECTION 4 — DELIVERABLES (synth output, then bridge deposit)
+
+Synth (claude.ai) produces a single Markdown verdict packet with:
+
+1. **SECTION-(i) — Per-question LOCKs** Q-208-1 through Q-208-6 (one per question; format per "Expected LOCK form" above)
+2. **SECTION-(ii) — Cross-question coherence note** — any LOCK that requires another to flip (e.g., Q-208-2 NEEDS_R1_GATED_ON_R4_VERDICT may interact with Q-208-4 pacing choice)
+3. **SECTION-(iii) — Anomalies + Open questions** — any substrate gap the drafter missed
+4. **SECTION-(iv) — Single recommended next-fire calendar window** — concrete: "Next fire = paper X to venue Y on date Z"
+5. **SECTION-(v) — AEAL claim count** — synth declares how many entries should be logged
+
+After synth output, agent (Copilot CLI) executes B1-B5 standing final step + writes:
+
+- `verdict_208.md` (synth output verbatim)
+- `discrepancy_log.json` (drafter↔synth contradictions, if any)
+- `unexpected_finds.json` (surprises in synth output)
+- `halt_log.json` (empty unless halt triggered)
+- `claims.jsonl` (per AEAL discipline)
+- `handoff.md` (per B3 template)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## SECTION 5 — OUTPUT FORMAT REQUIREMENTS
+
+- Markdown; UTF-8; no LaTeX
+- Each LOCK on its own line, leading with `Q-208-N LOCK:` exactly
+- Numerical confidence bands (HIGH / MED-HIGH / MEDIUM / LOW-MED / LOW) preferred over decimal probabilities (AEAL ordinal-not-cardinal discipline)
+- No hallucinated identifiers (operator-verified DOI/SHA list in §0.3 above is canonical)
+- No new candidate-endorser names beyond Costin/Beukers/Sauzin (already named in project memory matrix); if synth introduces a new name, flag as discrepancy
+- If synth disagrees with any drafter-stated fact in §1, surface as discrepancy with concrete substrate citation
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## APPENDIX A — Drafter's prior-known anomalies (synth should be aware)
+
+1. **D-207-5 (LOW)** RULE 1 distribution-work classification ambiguity — operator-ack pending; default loose-reading by analogy.
+2. **UF-207-4 (MEDIUM)** C11 Cremona arXiv-cs.LO-endorsement-authority uncertainty — separate from this consultation but live in project.
+3. **UF-207-5 (MEDIUM)** "category-appropriateness, NOT novelty" arXiv endorsement rubric — portable principle; candidate for project memory promotion.
+4. **Memory tier "arXiv endorsement scoping" (stored 2026-05-12 19:17 JST)** — DS873D dual-paper discovery; synth should treat this as established convention, not novel hypothesis.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## APPENDIX B — Standing final step protocol reminder
+
+Bridge target folder: `siarc-relay-bridge/sessions/2026-05-12/T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN/`
+
+Commit message format:
+```
+T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN — absorb forward-plan verdict <one-line summary>
+
+Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
+```
+
+Final URL output:
+```
+BRIDGE: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-12/T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN/
+
+CLAUDE_FETCH: https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-05-12/T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN/handoff.md
+```
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## END PROMPT 208 — fire-gated only after operator final ack of:
+
+- [ ] All bibliographic identifiers in §0.3 still resolve (5 entries)
+- [ ] Bridge HEAD still `5552bdf` at fire time (or successor commit that doesn't supersede this slot)
+- [ ] No parallel-CLI fire on slot 208 in flight (`glob siarc-relay-bridge/sessions/**/208*` returns empty at fire time)
+- [ ] Operator comfortable with question list (6 questions; no scope expansion mid-fire)
+
+**Drafter:** GitHub Copilot CLI (claude-opus-4.7-xhigh), session `d0b490af-727d-4ff2-b51d-fbe079b0a718`
+**Drafted timestamp:** 2026-05-12 19:36 JST
+**Estimated synth response time:** 15-25 min Opus compute (mirrors prompts 205-207 cadence)

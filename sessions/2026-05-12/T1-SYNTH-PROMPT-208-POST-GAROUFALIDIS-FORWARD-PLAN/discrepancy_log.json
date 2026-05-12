@@ -1,0 +1,28 @@
+{
+  "session_id": "T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN",
+  "date": "2026-05-12",
+  "discrepancies": [
+    {
+      "id": "D-208-1",
+      "severity": "MEDIUM",
+      "title": "T2B v3.0 arXiv-category-primary assumption",
+      "drafter_position": "Drafter §1.4 + §2.B assumed math.HO primary + math.NT cross-list for T2B v3.0 arXiv staging (mirroring Monatshefte für Mathematik journal categorization)",
+      "synth_position": "Q-208-1(c) reasoning: DS873D is math.NT-only endorsement; T2B with math.HO primary structurally incompatible with DS873D ride. Recommended FLIP to math.NT primary + math.HO cross-list for arXiv submission (independent of Monatshefte journal categorization), if paper's content supports that framing",
+      "resolution": "REFINED — operator must judge T2B v3.0 abstract framing: (a) if math-history/pedagogical-exposition lead → math.HO correct + T2B incompatible with DS873D ride (defer until separate math.HO endorsement); (b) if trans-identity/arithmetic lead → math.NT correct + T2B rides DS873D cleanly. Decision flows into §B Step B-2.0b pre-flight",
+      "downstream_impact": "Step B-2 (T2B arXiv staging) now has 2-stage pre-flight: B-2.0a Z6 Zenodo verify (Q-208-6) + B-2.0b math.NT-primary framing determination (Q-208-1c). T2B is most pre-flight-laden §B item per cross-question Interaction 1",
+      "citations": ["verdict_208.md Q-208-1(c)", "verdict_208.md Section (ii) Interaction 1", "verdict_208.md A-208-1"]
+    },
+    {
+      "id": "D-208-2",
+      "severity": "MEDIUM",
+      "title": "R1 → JFR fire gating not pre-stated in drafter's §B/§D plan",
+      "drafter_position": "Drafter §D (cascade-deployment window Day 14-21) listed R1 → JFR fire as ungated on R4 verdict status",
+      "synth_position": "Q-208-2 LOCK NEEDS_R1_GATED_ON_R4_VERDICT (HIGH confidence): firing R1 before R4 verdict elevates to two simultaneous formal journal submissions; violation under JNT + JFR + Elsevier + Springer + AMS policies",
+      "resolution": "REFINED — §D must add explicit gate: 'R1 → JFR fire conditional on R4 JNT verdict in hand (accept/reject/major-revision; minor-revision treated as still-active)'. arXiv deposit fires independently per preprint-and-formal-submission concurrency carve-out",
+      "downstream_impact": "Day 14-21 §D cascade-deployment window: R1 fire is NOT structurally available at 60h pacing floor (2026-05-15 12:00 JST) per Q-208-4. Next journal fire pool restricted to redirect queue (ASB / PCF Log Ladder / V_quad NON) candidates",
+      "citations": ["verdict_208.md Q-208-2", "verdict_208.md Section (ii) Interaction 2", "verdict_208.md Section (iv) R1 JFR fire row"]
+    }
+  ],
+  "total_count": 2,
+  "summary": "Both discrepancies REFINED (no contradictions; synth strengthened drafter's plan with explicit constraints). No HIGH-severity items; no AEAL contamination."
+}

@@ -1,0 +1,49 @@
+{
+  "session_id": "T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN",
+  "date": "2026-05-12",
+  "anomalies": [
+    {
+      "id": "A-208-1",
+      "severity": "MEDIUM",
+      "title": "T2B v3.0 category-primary determination is substrate gap",
+      "description": "Drafter assumed T2B v3.0 arXiv math.HO primary; synth Q-208-1(c) flagged this as structural soft-spot for DS873D ride. Operator must judge T2B abstract framing to determine arXiv primary category. Decision tree: math-history/pedagogical lead → math.HO + defer until separate math.HO endorsement; trans-identity/arithmetic lead → math.NT + rides DS873D. This decision is pre-flight gate for STEP B-2 (T2B arXiv staging).",
+      "operator_action_required": "Read T2B v3.0 abstract; classify framing; communicate decision to next-prompt drafter or proceed directly to staging with chosen primary.",
+      "citations": ["verdict_208.md Q-208-1(c)", "verdict_208.md A-208-1", "discrepancy_log.json D-208-1"]
+    },
+    {
+      "id": "A-208-2",
+      "severity": "LOW-MED",
+      "title": "Garoufalidis/Asperti silence-floor coordination window",
+      "description": "Asperti silence floor 2026-05-29 sits 3 days after Garoufalidis floor 2026-05-26. Creates small decision-tree window where DS873D-redemption status is known but JFR-fit status is not. Two branches: (a) Garoufalidis redeems + Asperti silent → fire arXiv cascade immediately, defer R1 decision 3 days; (b) Garoufalidis silent + Asperti positive → fire R1 → JFR (gated on R4 per D-208-2) with Mazzocco-pending arXiv as preprint backstop. Branches clean but should be pre-walked before 2026-05-26.",
+      "operator_action_required": "Pre-walk decision tree before 2026-05-26; document branch-selection criteria in advance.",
+      "citations": ["verdict_208.md A-208-2", "verdict_208.md Section (iv) silence-watch rows"]
+    },
+    {
+      "id": "A-208-3",
+      "severity": "LOW",
+      "title": "Mazzocco contact lineage email-verification status uncertain",
+      "description": "Synth has no visibility on whether Mazzocco's contact email was verified within the same 5-source web-search standard used for Garoufalidis on 2026-05-12. Institutional moves are common in math.CA/math-ph; email drift would force identifier-verification delay at the 2026-05-26 pivot moment.",
+      "operator_action_required": "Pre-verify Mazzocco current institutional email before Garoufalidis silence floor 2026-05-26. Default check sources: institutional faculty page + recent arXiv author-field + any 2024-2026 publication corresponding-author block.",
+      "citations": ["verdict_208.md A-208-3"]
+    }
+  ],
+  "open_questions": [
+    {
+      "id": "O-208-1",
+      "title": "Redirect queue venue-matrix mapping post-blacklist",
+      "description": "Three redirect-queue papers (ASB 266535114, PCF Log Ladder 266999523, V_quad NON-110708) need current venue-matrix mapping. Blacklisted venues: Experimental Mathematics, NNTDM. Relevant for next-journal-fire candidate selection at 60h pacing floor (2026-05-15 12:00 JST per Q-208-4).",
+      "next_step": "Surface in next-consultation prompt (T1-Synth Prompt 209 territory)."
+    },
+    {
+      "id": "O-208-2",
+      "title": "Memory promotion candidate — endorsement quest framing-overlap as disqualifier",
+      "description": "Q-208-5 reasoning establishes principle: when a backup endorser is named/cited in the framing hook of an earlier ask, approaching them later requires either suppression of the hook (loss of substantive framing) or awkward acknowledgment of having shopped their collaborator (soft negative signal in endorsement culture). Defaults to disqualification of that backup. Candidate for project memory promotion alongside UF-207-5.",
+      "next_step": "Agent stores memory after verdict absorption."
+    }
+  ],
+  "candidate_memory_promotion": {
+    "subject": "endorsement quest discipline",
+    "fact": "Endorser-shopping framing-overlap is disqualifier: when a backup endorser is named/cited in the framing hook of an earlier ask, approaching them after the first ask's silence floor forces either hook-suppression (loss of substantive framing) or shopping-acknowledgment (soft negative signal); default to disqualification of that backup.",
+    "evidence": "Q-208-5 LOCK COSTIN_DISQUALIFIED_USE_BEUKERS reasoning: Garoufalidis letter explicitly cites Garoufalidis-Costin collaboration as resurgence-precedent hook; approaching Costin after Garoufalidis silence creates the dilemma described."
+  }
+}
