@@ -187,4 +187,177 @@ The corpus review **strengthens** the case for both:
 
 ═══════════════════════════════════════════════════════════════════════════════
 
-**End external corpus review record.**
+# APPENDIX — SECOND EXTERNAL META-ASSESSMENT — 2026-05-12 ~21:43 JST
+
+**Reviewer:** external 3rd-party (same channel as Section A reviewer; explicit meta-assessment of own earlier review)
+**Timing:** 2 minutes after first review filed (intake streams stacking fast tonight)
+**Operator request:** "append with these suggestions"
+**Classification:** sharper, more candid; substantive strategic suggestions; not verdict-class
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## I. SECOND ASSESSMENT — VERBATIM CAPTURE
+
+### I.1 — Meta-critique of the first review
+
+**Where the first reviewer was correct (verbatim):**
+
+> "The reviewer correctly identifies the central tension in your corpus: the *epistemic infrastructure is more novel than any single mathematical result*. That's an accurate diagnosis."
+
+> "The narrative-arc reconstruction ... is also accurate and well-organized. A reader who absorbs that paragraph gets a usable mental map."
+
+> "The two specific weaknesses flagged — internal-jargon density and the 40%-tabled-axes visibility problem — are real and worth taking seriously. The d≥3 caveat and hard-branch pending-status concerns are also accurate."
+
+**Where the first reviewer was too generous:**
+
+> "The reviewer treats provenance discipline and infrastructure as inherent virtues. They aren't, on their own. For an outside mathematician, none of the SHA-256 hashes, AEAL claim_ids, or cascade-132 ordering protocols changes whether a theorem is true. The infrastructure is valuable *only if* it makes claims easier to verify or harder to misread. The assessment doesn't ask the harder question: does any reviewer at JTNB, Ramanujan Journal, or Acta Arithmetica actually use this scaffolding, or does it just raise the activation energy to engage with the math?"
+
+> "Fragmentation into many deposits has real costs: each new artefact dilutes citation weight, splits the audience, and creates surface area for inconsistency."
+
+**Where the first reviewer was too soft:**
+
+> "'High internal-jargon density' undersells the problem. Phrases like 'tabled (RULE 1),' 'V0 closure,' 'M6.CC retirement,' and 'cascade-132 Option α' function as private vocabulary. They are load-bearing inside your workflow but invisible to the math community. The assessment frames this as an onboarding cost; it's closer to a **comprehension barrier that will cause most reviewers to bounce**."
+
+> "The assessment is also silent on the *cumulative-rejection signal*. With **13 rejections, one withdrawal, and two blacklisted venues** in the pipeline, there is a pattern worth diagnosing honestly rather than attributing entirely to LLM-hostility or anonymous referees. Some of it likely is venue mismatch and AI-skepticism. Some of it may be that **the deposits, in their current form, are not optimized for the reader the journals actually employ**."
+
+### I.2 — Three things the first review missed (verbatim)
+
+**Item 1 — The reader model:**
+
+> "A v2.2 umbrella amendment that consolidates four V0 closures has at most three readers in the world who can parse it without preamble — and those three are you, Copilot, and Claude. That's not a publication; it's a project log. The assessment treats umbrella amendments and mathematical papers as comparable artefacts. **They aren't.**"
+
+**Item 2 — Citation gravity:**
+
+> "Eighteen Zenodo deposits in two months means each individual deposit accrues less attention than one well-placed paper would. Zenodo is excellent for timestamping and provenance, weaker for discovery. The corpus needs at least **one anchor artefact** that a search-engine-driven reader can find, understand without prerequisites, and cite. Right now **the entry point is unclear**."
+
+**Item 3 — Program-bundling problem:**
+
+> "The PCF mathematics and the governance stack ... are being deposited in the same series, but they target completely different communities (number theorists vs. AI-evaluation researchers). Bundling them under one author identity is fine; **bundling them under one *program* may be reducing the legibility of both**."
+
+### I.3 — Eight concrete suggestions ordered by leverage (verbatim, drafter-tagged)
+
+**S1 [HIGHEST LEVERAGE] — Separate the two programs in reader-facing materials**
+
+> "The PCF arithmetic stratification program and the AI epistemic governance program are both interesting, but they appeal to disjoint audiences who will be confused by each other's vocabulary. Consider creating two distinct landing pages or umbrella documents — one math-facing, one governance-facing — that each present a clean entry point without requiring the reader to absorb the other program's jargon. Cross-reference them, but **don't intermix them in introductory material**."
+
+**S2 — Write one anchor paper per program, optimized for outside readers**
+
+> "For PCF, this would be a **25-35 page paper** that states the five-stratum classification theorem, proves the Desert-dominance result, gives the four-tier PSL₂(ℤ) obstruction hierarchy, and presents V_quad as the worked example connecting PCFs to Painlevé III(D₆). **No cascade vocabulary, no M-axis labels, no V0/V1/V2 versioning in the body** — just mathematics, with the governance scaffolding moved to an appendix or a separate methods note. For the governance program, an analogous anchor paper would state what AEAL/SIARC/ZTEK actually do, with a concrete worked example (probably the PCF program itself as the case study), aimed at the AI evaluation / responsible-AI-research community."
+
+**S3 — Translate the private vocabulary at every boundary**
+
+> "When a deposit uses 'V0 closure,' 'tabled (RULE 1),' or 'cascade-132,' the first occurrence in any reader-facing artefact should expand it inline: '**V0 closure (the initial validated milestone, prior to independent replication).**' If the expansion feels clunky, that's a signal the term is doing too much work and may need to be replaced. Internal documents can retain the compressed form."
+
+**S4 — Make the tabled axes visible in summary tables**
+
+> "If five of twelve M-axes are deferred, the umbrella's axis-coverage table should make that *the first thing a reader sees* — not a footnote. Current closure status should be presented as '**7 of 12 closed at V0; 5 deferred pending [specific blockers]**.' This converts a hidden weakness into a transparent roadmap and pre-empts the reviewer concern."
+
+**S5 — Reduce deposit frequency and increase per-deposit weight**
+
+> "A minor amendment like PCF-2 v1.4 is genuinely useful for your own provenance trail but **may not need to be a separate Zenodo DOI**. Consider an 'amendments log' deposit that accumulates minor revisions and is itself versioned, with a single DOI that's re-released quarterly. This preserves the audit trail without diluting citation gravity across 18+ entries."
+
+**S6 — Address the rejection pattern explicitly somewhere**
+
+> "Not in a paper — that would be unwise — but in your own planning. The Acta Arithmetica acceptance constraint (no second submission until decision), the Experimental Mathematics and NNTDM blacklists, and 13 rejections are data. **A short private retrospective asking 'for each rejection, what was the most charitable interpretation of the editorial reasoning?' is worth doing before the next round of submissions.** The honest answer may be 'the math is fine but the framing makes it hard to review,' which is fixable."
+
+**S7 — Add a 150-word "for the outside reader" preface to each PCF deposit**
+
+> "Not an abstract — abstracts are for the database. A preface that says: here is the one theorem this paper proves, here is the one open problem it advances, here is what you need to know from elsewhere in the series to read this, and here is what you can safely skip. **This single change would meaningfully reduce the onboarding cost** the assessment correctly identified."
+
+**S8 — Consider Painlevé III(D₆) / V_quad as its own standalone paper**
+
+> "It's mathematically substantial enough to stand alone, and the Painlevé / integrable-systems community is a different (and possibly more receptive) audience than the analytic-number-theory journals that have been rejecting the PCF stratification work. The Sakai surface-type machinery (Route F in your RELAY_069) is exactly the language that community speaks."
+
+### I.4 — Follow-up offer (verbatim)
+
+> "Want me to drill into any of these — for instance, draft an outline for the PCF anchor paper, or sketch what a math-facing umbrella landing page would look like without the SIARC vocabulary?"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## J. DRAFTER ANALYSIS — sharper-assessment actionability
+
+### J.1 — Drafter cross-check (numerical figures)
+
+- **"13 rejections + 1 withdrawal + 2 blacklists":** consistent with session-memory state of submission_log (Items 1-24+) + venue matrix (ExpMath + NNTDM blacklisted; AA acceptance-constraint active). Numerical figures plausible; operator should verify exact count.
+- **"two months":** loose. Apr 10 (PCF anchor paper) → May 11 (umbrella v2.2) is ~31 days. AEAL/SIARC/ZTEK series Apr 14-24 fits inside that window. Reviewer's "two months" is approximate; "one month" would be more accurate but the strategic point is unchanged.
+- **"18 deposits":** same figure as first review; agent has not enumerated, but operator's session-memory shows Z1-Z8 manuscript deposits + AEAL/SIARC/ZTEK governance deposits + version-DOIs separately would reasonably reach 18.
+- **"three readers in the world":** rhetorical, but the substantive point (umbrella amendments target a vanishingly small audience) is accurate.
+
+### J.2 — Tension with operator's existing program-unity model
+
+S1 (separate the two programs in reader-facing materials) **runs counter to** the SIARC umbrella v2.2 design intent (explicit unification under one program statement). The reviewer is not asking operator to dismantle the unification internally — only to **present** the two programs to disjoint audiences via separate entry points. This is a presentation-layer change, not a research-program change. Distinction matters.
+
+### J.3 — RULE 1 classification of the eight suggestions
+
+| Suggestion | Classification | RULE 1 status |
+|---|---|---|
+| S1 separate-programs landing pages | Distribution | BLOCKED by RULE 1 (until M-axis closure) |
+| S2 anchor paper per program (math-facing 25-35pp) | Foundational + Distribution | MIXED — anchor-paper drafting is foundational; release is distribution. **Drafting permissible.** |
+| S3 vocabulary translation | Distribution | BLOCKED |
+| S4 tabled-axes visibility in summary tables | Distribution (minor umbrella amendment) | BLOCKED |
+| S5 amendments-log consolidation | Distribution (deposit-policy) | BLOCKED |
+| S6 rejection-pattern retrospective | Foundational (planning artefact, no public release) | **PERMITTED** |
+| S7 150-word outside-reader preface | Distribution (per-deposit) | BLOCKED |
+| S8 V_quad / P_III(D₆) standalone paper | Foundational | **PERMITTED** for drafting |
+
+**Net:** under current RULE 1 in-force state, S2 (anchor-paper drafting), S6 (rejection retrospective), and S8 (V_quad standalone) are immediately actionable. S1/S3/S4/S5/S7 are RULE-1-blocked until M-axis closure completes.
+
+### J.4 — Interaction with the three concurrent intake streams
+
+1. **Verdict 208:** S8 (V_quad standalone) directly compatible with Q-208-3 γ Carneiro fire (different community / different venue); pacing-flag Q-208-4 governs *journal-fire timing* not drafting. No conflict.
+2. **Journey-pivot intake brief:** S1+S2+S3 are *exactly* what LIReC + LMFDB interfacing would force structurally. The reviewer's S1 ("disjoint audiences") and the pivot's premise ("interface with open foundations") are pointing at the same restructuring from different angles. **High mutual reinforcement.**
+3. **First corpus review offer (c) [SIARC-schema onboarding summary]:** essentially S1+S3+S4 combined into a single artefact. If operator picks offer (c), it satisfies three sharper-assessment suggestions simultaneously.
+
+### J.5 — The "rejection pattern" observation (S6)
+
+This is the **single most valuable diagnostic in either review**. The first reviewer did not flag the cumulative rejection signal. The second reviewer's framing — "may be that the deposits, in their current form, are not optimized for the reader the journals actually employ" — directly contradicts the implicit working-assumption that rejections are driven by AI-skepticism or venue-mismatch alone.
+
+Operator's W18 / W19 weekly review materials already contain partial-retrospective elements per submission-log notes. **Drafter recommendation:** S6 (rejection retrospective with "most-charitable editorial interpretation" frame) is a high-leverage low-cost foundational action that can fire tomorrow without any further consultation. This is the suggestion most likely to materially improve the next submission round.
+
+### J.6 — Drafter assessment: which suggestions to prioritize
+
+**Tier 1 (do soon, regardless of pivot outcome):**
+- **S6** rejection retrospective (foundational, RULE-1-permitted, low-cost, highest information value)
+- **S2** PCF anchor paper outline drafting (foundational, RULE-1-permitted, high-leverage)
+
+**Tier 2 (do if journey-pivot ratifies):**
+- **S1+S3+S4** bundled into reviewer-facing onboarding artefact (= first-review offer (c)); doubles as collaborator substrate
+- **S8** V_quad standalone paper (foundational; potentially the operator's strongest standalone result)
+
+**Tier 3 (do only after M-axis closure / RULE 1 lift):**
+- **S5** amendments-log policy (deposit-policy change)
+- **S7** outside-reader preface (distribution per-deposit)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## K. UPDATED RECOMMENDED NEXT STEPS (supersedes Section G)
+
+**TONIGHT (operator):**
+1. Acknowledge both review captures (this record now contains both Sections A-H + Sections I-J).
+2. Sleep on it. Three concurrent intake streams: verdict 208 forward plan + journey-pivot intake + this two-part corpus review.
+
+**TOMORROW MORNING (2026-05-13):**
+3. Re-read both review sections with fresh eyes.
+4. **S6 rejection-retrospective is the recommended single first action** — foundational-class, RULE-1-permitted, low-cost, addresses the most diagnostic signal in either review. ~2-3 hour work session producing a private planning document, not a deposit.
+5. Then: revisit journey-pivot decision (intake brief §F). If pivot fires, S2 (anchor paper outline) + S1/S3/S4 bundled as offer (c) flow naturally from Prompt 209 ratification.
+6. Optional: S8 V_quad / P_III(D₆) standalone paper sketch can be drafted in parallel; foundational-class.
+
+**ACTIONS THAT REMAIN PENDING FROM VERDICT 208:**
+- Carneiro cs.LO endorsement fire (Q-208-3 γ)
+- PCF-2 v1.3 / PCF-1 v1.3 arXiv staging
+- T2B math.NT framing decision
+
+These are independent of all three review streams and proceed on their own schedule.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## L. AGENT STATE CHANGES — APPEND
+
+- File appended: `tex/submitted/control center/notes/CORPUS_REVIEW_18_ZENODO_RECORDS_20260512.md` (Sections I-L added; total file now Sections A-L)
+- Bridge mirror: same path; will be re-uploaded with new content
+- SQL todos inserted: `corpus-review-s6-rejection-retrospective` (PENDING, Tier 1, foundational, RULE-1-permitted); `corpus-review-s2-pcf-anchor-paper-outline` (PENDING, Tier 1, foundational); `corpus-review-s8-vquad-pIIID6-standalone-sketch` (PENDING, Tier 2, foundational). RULE-1-blocked suggestions S1/S3/S4/S5/S7 NOT inserted as todos (would be misleading until RULE 1 lifts).
+- Drafter assessment: the second review is materially more valuable than the first; the rejection-pattern observation (S6) is the highest-leverage diagnostic of the night.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+**End external corpus review record (Sections A-L; both parts).**
