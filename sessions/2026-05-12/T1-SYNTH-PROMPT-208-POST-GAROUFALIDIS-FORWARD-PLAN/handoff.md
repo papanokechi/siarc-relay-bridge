@@ -68,3 +68,25 @@ Three follow-on questions the agent would have raised mid-fire if synth-channel 
 ## AEAL claim count
 
 **8 entries** written to `claims.jsonl` this session, all `evidence_type: "consultation_output"` with `dps: null` (audit-only; ordinal-not-cardinal per AEAL discipline). Output hash uniformly `claude-ai-Opus-2026-05-12-T19:40-JST` indicating same synth-fire timestamp.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+## ADDENDUM 2026-05-12 19:51 JST — Q-208-6 GATE RESOLVED (Z6 already minted)
+
+Follow-on action requested by operator ("Mint Z6 T2B v3.0 Zenodo (PCF-2 template)") **discovered Z6 already minted 2026-04-30** — 12 days before verdict 208 fire. No new minting needed. Verified by 5-source triangulation including Zenodo web page `https://zenodo.org/records/19915689`.
+
+**Resolved DOIs:**
+- Z6 T2B v3.0: concept `10.5281/zenodo.19783311` / v3.0 `10.5281/zenodo.19915689` (published 2026-04-30, CC BY 4.0)
+- Z4 SIARC Umbrella v2.0 (bonus resolution): concept `10.5281/zenodo.19885549` / v2.0 `10.5281/zenodo.19965041`
+- Z5 Channel Theory v1.3 (bonus resolution): concept `10.5281/zenodo.19941678` / v1.3 `10.5281/zenodo.19972394`
+
+**Supplement file:** `z6_resolution_followup_20260512_1951JST.md` (this folder)
+
+**Status updates:**
+- SQL todo `v208-mint-z6-t2b-zenodo`: `in_progress` → `done`
+- Venue matrix `tex/submitted/control center/notes/PAPER_VENUE_LIKELIHOOD_MATRIX_20260512.md` TABLE 5 updated: 3 rows (Z4 / Z5 / Z6) `(verify)` → resolved with DOIs
+- `v208-stage-t2b-v30-arxiv-post-z6-framing`: Z6 dep satisfied; still blocked on `v208-determine-t2b-framing` (Q-208-1c framing decision)
+
+**Soft anomalies:**
+- **A-Z6-1 (LOW):** local↔Zenodo PDF SHA256 divergence (LaTeX rebuild metadata; not content drift)
+- **A-Z6-2 (MEDIUM):** Zenodo metadata self-declares `arxiv_primary: "math.HO"` for T2B v3.0; this is the verdict-208 Q-208-1(c) structural soft-spot in concrete form. The Zenodo classification is **non-binding on arXiv**; operator retains freedom to choose math.NT primary on arXiv if abstract framing supports it. Drafter informal read of the abstract: textbook math.NT (three arithmetic-class theorems + Stokes obstruction + Brouncker minimality + completeness conjecture). **Recommended operator framing decision: math.NT primary on arXiv → rides DS873D.**
