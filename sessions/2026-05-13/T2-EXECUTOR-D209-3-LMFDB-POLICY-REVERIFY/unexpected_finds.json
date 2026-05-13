@@ -1,0 +1,19 @@
+{
+  "session": "T2-EXECUTOR-D209-3-LMFDB-POLICY-REVERIFY",
+  "unexpected_finds": [
+    {
+      "id": "UF-D2093-1",
+      "severity": "LOW",
+      "finding": "LMFDB Associate Editor John Cremona (Warwick) overlaps with the existing SIARC C11 candidate-endorser skip-list (verdict-207 candidate_endorser_ranking_v1.md C11 DEFER + structural caveat: 'verify Cremona has >=3 cs.LO submissions before any cs.LO ask; he may only have math.NT endorsement privileges per UF-207-4'). Cross-implication: any future LMFDB-developer outreach (post RULE 1 lift) for D-1d should pre-check Cremona overlap to avoid dual-role identifier ambiguity at the LMFDB side.",
+      "candidate_memory_promotion": false,
+      "rationale": "Tactically specific; tied to a particular candidate; not promotable to repository-wide convention."
+    },
+    {
+      "id": "UF-D2093-2",
+      "severity": "LOW",
+      "finding": "LMFDB Associate Editor John Voight (Sydney) is a Mathlib/Lean-community participant and could be a NATURAL bridge between the SIARC PCF cs.LO chain (Tunnell CNP) and the LMFDB number-theory chain when RULE 1 lifts. Currently not on verdict-207 candidate-endorser list. Worth tracking as a Round-2 or Round-3 cs.LO endorsement candidate AFTER M10 lifts.",
+      "candidate_memory_promotion": false,
+      "rationale": "Speculative; depends on multi-step gate clearance; defer to actual M10 V0 closure cascade."
+    }
+  ]
+}
