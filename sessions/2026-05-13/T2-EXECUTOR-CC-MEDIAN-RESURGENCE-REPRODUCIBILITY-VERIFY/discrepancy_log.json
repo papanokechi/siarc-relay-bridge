@@ -1,0 +1,12 @@
+{
+  "D-MC-REPRO-1": {
+    "severity": "INFORMATIONAL",
+    "title": "phaseA_series.log non-matching SHA-256 due to elapsed-time decoration",
+    "description": "7 of 8 output files reproduce with identical SHA-256. phaseA_series.log shows different SHA-256 because the script writes 'elapsed=Xs' decoration lines that depend on host-load timing. All numerical content (a_k magnitudes at every checkpoint, a_1/a_2/a_5/a_5000 explicit values) matches verbatim between the two runs. Compare-Object diff confirms only timing-decoration rows differ.",
+    "resolution": "Accepted as cosmetic-only divergence. The mathematically-significant numerical content reproduces. Determinism claim H4-A8 specifically referenced Qn_5000_dps250.csv hash, which matches bit-for-bit.",
+    "anchors": [
+      "phaseA_series.log SHA-256 (this run): differs from 52C7A0A680762948 (2026-05-02)",
+      "Qn_5000_dps250.csv SHA-256: 0b9e656f08b5b1dae67ebaffa5456e3625594b8e4c1904b4d0b2487ab30687cd (MATCHES)"
+    ]
+  }
+}
