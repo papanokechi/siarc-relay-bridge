@@ -1,0 +1,28 @@
+{
+  "session": "T1-SYNTH-VERDICT-210-NEXT-STEP-ABSORPTION",
+  "date": "2026-05-13",
+  "halt_triggered": false,
+  "halt_set_amendments": [
+    {
+      "amendment_id": "V209-HALT-2-DEAD-CODE",
+      "drafted_at": "2026-05-13T13:32:30+09:00",
+      "status": "DRAFT-PENDING-OPERATOR-SIGNOFF (per verdict-210 Q-210-1 γ)",
+      "description": "Verdict-209 Halt 2 ('LMFDB cross-reference shows no overlap with PCF-2 ring-class field data') reclassified as DEAD-CODE pending RULE 1 lift + LMFDB-team pre-contact authorization. Halt cannot trigger by construction while D-1d row is BLOCKED.",
+      "active_halt_count_before": 6,
+      "active_halt_count_after_if_approved": 5,
+      "reactivation_condition": "RULE 1 lift (per M10 V0 closure or documented-commitment) AND LMFDB-team pre-contact authorization clearance",
+      "cascade_123_compliance": "halt-set composition change does NOT relax any standing halt per most-conservative-LABEL rule; remaining 5 halts (1-refined, 3-refined, 4, 6, 7 in verdict-209 numbering) all remain active"
+    }
+  ],
+  "rationale_no_halt": "Verdict-210 absorption is structural / documentation work; no numerical claim contradicts prior AEAL log; no unexpected positive result; no pre-screen discrepancy >5%; no NaN/inf/negative residual. Q-210-2 α-prior inversion is a documented uncertainty resolution, not a halt-triggering contradiction.",
+  "halts_active_post_absorption": [
+    "Halt 1 (refined): db.identify zero substantive hits per ≥80% PCF-1 v1.3 sample (operational definition)",
+    "Halt 3 (refined): CMF reinterpretation produces no theorem / new conjecture / falsifiable predicate after ≥3 working-note iterations",
+    "Halt 4: operator capacity envelope exceeded by Week-2 mid-point",
+    "Halt 6: strategic-landscape doc stale-label rate >30% on Week-1 recon target rows (re-verified today, currently 10-20% — NOT triggered; bridge SHA b7a7c7a)",
+    "Halt 7: LIReC database leakage of unpublished SIARC results (audit-then-investigate, not auto-rollback)"
+  ],
+  "halts_dead_code_pending_rule_1_lift": [
+    "Halt 2: LMFDB cross-reference (gated on D-1d which is BLOCKED per Amendment 1)"
+  ]
+}
