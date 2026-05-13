@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "unexpected_finds": [
+    {
+      "id": "UF-V212-A2",
+      "anchor": "A-212-2 in verdict_212_full.md",
+      "severity": "LOW-MEDIUM",
+      "category": "substrate_gap_non_blocking",
+      "summary": "Q-212-2 delta lock assumes the arXiv math.NT manual-grant procedural inquiry phase via help@arxiv.org resolves in days, not weeks (the 1-2 week estimate in UF-MAZZOCCO-1 is for the grant decision, not procedural confirmation). If inquiry-phase latency exceeds 1 week, Q-212-2 delta dominance over alpha weakens and Q-212-3 alpha (proactive Beukers pre-verify) becomes more attractive. Spot-check arXiv admin response-time priors recommended.",
+      "operator_action_recommended": "When Q-212-2 substrate work fires, monitor help@arxiv.org response latency. If >7 days, escalate Q-212-3 lock from gamma-dormant to alpha-active.",
+      "status": "OPEN"
+    },
+    {
+      "id": "UF-V212-A3",
+      "anchor": "A-212-3 in verdict_212_full.md",
+      "severity": "INFO",
+      "category": "governance_caveat",
+      "summary": "Verdict-212 downstream authority bounded by Phase 0 STEP 0.5 G4 gate (V211 v1.1 amendment-packet signoff <=48h). Verdict does not cite V210/V211 amendment substance as load-bearing, so agent-side Q-212-2 execution can proceed without G4 satisfaction; operator-side Q-212-1 Carneiro fire on 2026-05-14 should respect G4 if V211 signoff still pending at that date.",
+      "operator_action_recommended": "Verify V211 v1.1 signoff status before 2026-05-14 Carneiro fire. If still pending, either complete signoff first or fold Q-212-1 fire decision into the same operator-attention window as V211 signoff.",
+      "status": "OPEN"
+    },
+    {
+      "id": "UF-V212-M7",
+      "anchor": "§7 Memory-promotion candidate in verdict_212_full.md",
+      "severity": "INFO",
+      "category": "memory_promotion_candidate",
+      "summary": "Verdict-212 surfaced a candidate standing rule: 'For operator-only DISTRIBUTION fires with agent-autonomous substrate-prep, when the fire targets an orthogonal track to an active silence-watch, default is delta (1-night dwell) for the fire and alpha-immediate for substrate-prep on next-tier backup contact. Two clocks run concurrently, not serialized.' Justifies coherence of Q-212-1 delta and Q-212-2 delta despite same-symbol LOCKs serving opposite roles.",
+      "operator_action_recommended": "Promote to project memory under subject 'endorsement-track coordination' after V212 absorption lands. Suggested fact text included in handoff.md §recommended-next-step.",
+      "status": "OPEN"
+    }
+  ]
+}

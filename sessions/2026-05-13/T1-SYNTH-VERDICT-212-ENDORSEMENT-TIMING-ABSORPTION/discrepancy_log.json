@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "discrepancies": [
+    {
+      "id": "D-212-1",
+      "class": "REFINED",
+      "severity": "INFO",
+      "anchor": "A-212-1 in verdict_212_full.md",
+      "summary": "Q-212-2 and Q-212-4 are operationally coupled: the transparency-disclosure language from Q-212-4 delta-mitigation belongs inside the Mazzocco email being drafted under Q-212-2 delta. Not a contradiction; flagged as REFINED per cascade-123 §3.2; both LOCKs stand independently. Operational consequence: when Q-212-2 substrate work fires, it MUST include a one-sentence section referencing Garoufalidis as the standing math.NT primary track.",
+      "resolution": "Cross-question coupling encoded as todo_dep edge: q-212-2-mazzocco-draft DEPENDS_ON nothing but todo description explicitly references Q-212-4 transparency language as a section requirement.",
+      "status": "RESOLVED"
+    }
+  ]
+}
