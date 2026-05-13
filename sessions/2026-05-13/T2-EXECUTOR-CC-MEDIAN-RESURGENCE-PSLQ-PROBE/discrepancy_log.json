@@ -1,0 +1,8 @@
+{
+  "D-PSLQ-1": {
+    "issue": "Initial Run 1 with basis B1_minimal returned a 'FOUND' relation that was actually the trivial -3*(pi/sqrt3) + 1*(pi*sqrt3) = 0 (pure basis linear dependence; coeff[C] = 0).",
+    "severity": "MEDIUM",
+    "resolution": "Added _verify_relation_includes_C() check after each PSLQ call; reclassified zero-C-coefficient hits as FOUND-TRIVIAL (not FOUND). Patched bases B1/B2/B5 to drop the pi/sqrt3 redundancy. Reran as Run 2; 6 FOUND-TRIVIAL hits in B6 (2*log(sqrt3) - log(3) = 0) correctly tagged.",
+    "status": "RESOLVED"
+  }
+}
