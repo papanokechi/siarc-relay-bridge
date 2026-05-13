@@ -1,0 +1,40 @@
+{
+  "session": "T1-SYNTH-VERDICT-210-NEXT-STEP-ABSORPTION",
+  "date": "2026-05-13",
+  "entries": [
+    {
+      "id": "UF-V210-A1",
+      "severity": "LOW",
+      "status": "INFO",
+      "title": "Synth Q-210-2 α-prior at 0.62 INVERTED by file-grep evidence; γ wins at confidence 0.97",
+      "structural_lesson": "Solo-witness synth priors on memory-vs-substrate citation ambiguity are systematically vulnerable to inversion when the memory predates a foundational substrate change. Verdict-210 itself flagged this in Anomaly 1 ('Q-210-2 is underspecified for synth-only resolution. My α-lock at 0.62 confidence is the lowest in this verdict and reflects that I'm reasoning from memory citations I cannot verify. Treat the α-lock as a prior, not a verdict; the grep is the verdict.')",
+      "recommended_action": "For future Q-LOCK consultations on memory-vs-substrate ambiguity, the synth should explicitly route to 'agent file-grep required before locking' rather than locking a low-confidence prior. Verdict-210 did this correctly in Anomaly 1; the agent should reinforce this pattern."
+    },
+    {
+      "id": "UF-V210-A2",
+      "severity": "LOW",
+      "status": "INFO",
+      "title": "M-axis taxonomy not previously memory-anchored; supplementary memory recommended",
+      "details": "The M9 (math-content) vs M10 (tooling-state) structural distinction is documented in `m10_documented_commitment.md` and `M1_M12_CLOSURE_OUTLOOK_20260510_PATH_B_COMPLETE.md` but not anchored as a session memory. Existing memory `M-axis V0 closure series` (2026-05-09) covers only math-axes scope. Future verdict consultations may replicate the verdict-210 Q-210-2 α-prior pattern in absence of taxonomy memory.",
+      "recommended_action": "store_memory call after task_complete; see q210_2_resolution_packet.md §7 for full memory text"
+    },
+    {
+      "id": "UF-V210-A3",
+      "severity": "LOW",
+      "status": "INFO",
+      "title": "Verdict-210 Q-210-1 amendment 4 demoted FORMAL→INFORMAL post-grep; net binding amendments reduce 3→2",
+      "details": "Verdict-210 Q-210-1 amendment binding-class table classified D-209-4 (amendment 4) as FORMAL pending Q-210-2 grep resolution per Anomaly 2 circularity. Post-grep evidence (γ at 0.97 confidence) confirms verdict-209 §4 wording was substrate-accurate; D-209-4 collapses to trivial annotation. Net FORMAL amendments: 1 (D-1d) + 2 (Halt 2) = 2.",
+      "structural_lesson": "amendment-class assignments contingent on pending resolutions should be marked as such (e.g., 'FORMAL pending grep') rather than locked as FORMAL ab initio. Verdict-210 Q-210-1 did this correctly by including Anomaly 2 explicit circularity flag."
+    },
+    {
+      "id": "UF-V210-A4",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Verdict-209 ratification → self-invalidation cycle compressed to ~3 hours (red-team experiment)",
+      "details": "Verdict-209 ratified ~10:15 JST 2026-05-13. Red-team experiment landed ~13:20 JST same day surfacing 5 amendments. The cycle compression is a Q-210-5 flagged risk: 'If this becomes a recurring beat, it signals that ratification confidence is being claimed prematurely.'",
+      "structural_lesson": "Verdict-210 itself has NOT yet been red-teamed. The verdict's own Anomaly 5 explicitly recommends: 'Verdict-210 itself should be self-red-teamed before being treated as authoritative.' Recommend: future verdicts bake red-team into ratification protocol rather than running as Tier-1 successor.",
+      "recommended_action": "Operator should sanity-check verdict-210 before treating amendments as authoritative. Agent should NOT autonomously red-team verdict-210 today (would compress the cycle further); defer to operator-initiated red-team or natural-time check.",
+      "status_at_compaction": "OPEN — agent declined to red-team verdict-210 autonomously per cycle-compression risk"
+    }
+  ]
+}

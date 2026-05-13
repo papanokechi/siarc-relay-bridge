@@ -1,0 +1,47 @@
+{
+  "session": "T1-SYNTH-VERDICT-210-NEXT-STEP-ABSORPTION",
+  "date": "2026-05-13",
+  "entries": [
+    {
+      "id": "D-209-4",
+      "title": "M9 vs M10 axis-taxonomy ambiguity (RESOLVED 2026-05-13)",
+      "severity": "MEDIUM (at first observation) → LOW (post-resolution)",
+      "status": "RESOLVED via Q-210-2 grep this session",
+      "first_observed": "2026-05-13 in T2-EXECUTOR-V209-QLOCK-EXPERIMENT-RED-TEAM (bridge SHA a0043e8) §1 Q-209-2 red-team probe",
+      "resolution_date": "2026-05-13",
+      "resolution_path": "γ (M10 = new axis introduced 2026-05-10 slot 139 verdict + slot 141B documented-commitment scaffold) confirmed at confidence 0.97 via file-grep + canonical document read",
+      "verdict_alpha_prior_inverted": true,
+      "synth_prior_confidence": 0.62,
+      "agent_post_grep_confidence": 0.97,
+      "downstream_effect": "verdict-209 §4 M10 V0 reference is canonical-substrate-accurate per closure outlook 2026-05-10; verdict-209 amendment 4 (D-209-4) demotes from FORMAL to INFORMAL per verdict-210 Anomaly 2",
+      "primary_sources": [
+        "tex/submitted/control center/picture/m10_documented_commitment.md:13-38",
+        "tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_PATH_B_COMPLETE.md:1-80"
+      ]
+    },
+    {
+      "id": "D-210-1",
+      "title": "Memory `M-axis V0 closure series` partial-stale post-2026-05-10 M10 axis introduction",
+      "severity": "LOW",
+      "status": "ANNOTATED (not WRONG; accurate within math-axes scope; supplementary memory recommended)",
+      "first_observed": "2026-05-13 via Q-210-2 grep evidence in this session",
+      "resolution_path": "store_memory call after task_complete with subject 'M-axis taxonomy' anchoring M9 (math-content) vs M10 (tooling-state Lean-4) distinction; do NOT downvote existing memory `M-axis V0 closure series`",
+      "memory_status_assessment": "NOT WRONG within scope (memory explicitly says 'M9 V0 is the only remaining open MATH axis' — true as of 2026-05-13); PARTIAL-STALE on completeness (does not cover M10 tooling-state axis introduced 4 days after memory snapshot)",
+      "downstream_effect": "future Q-LOCK consultations should not replicate verdict-210 Q-210-2's α-prior at 0.62 inverted-confidence",
+      "primary_sources": [
+        "memory M-axis V0 closure series (cited bridge HEAD 74c5630, 2026-05-09)",
+        "tex/submitted/control center/picture/m10_documented_commitment.md (M10 axis introduction)",
+        "this session q210_2_resolution_packet.md §5"
+      ]
+    },
+    {
+      "id": "D-210-2-HALT-COMPOSITION",
+      "title": "Verdict-209 halt-set composition delta (Halt 2 DEAD-CODE pending RULE 1 lift)",
+      "severity": "LOW",
+      "status": "DRAFT-PENDING-OPERATOR-SIGNOFF (per verdict-210 Q-210-1 γ)",
+      "first_observed": "2026-05-13 in verdict_209_v11_amendment_packet.md Amendment 2",
+      "resolution_path": "operator signoff on Amendment 2 → halt-set updates from 6 active to 5 active under current envelope; Halt 2 re-activates after RULE 1 lift + LMFDB-team pre-contact",
+      "cascade_123_rule_check": "halt-set composition change does NOT relax any standing halt per most-conservative-LABEL rule; remaining 5 halts (1-refined, 3-refined, 4, 6, 7) all remain active"
+    }
+  ]
+}
