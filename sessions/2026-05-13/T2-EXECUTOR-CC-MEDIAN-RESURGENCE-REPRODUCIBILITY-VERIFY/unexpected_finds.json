@@ -1,0 +1,34 @@
+{
+  "UF-MC-REPRO-1": {
+    "severity": "INFORMATIONAL",
+    "title": "Same-day n=2 supersession-gate evidence",
+    "description": "Both Tier-1 picks recommended by the 2026-05-12 strategic-landscape review (D3(a) M-A xi_0 d=3 and D3(c) M-C median-resurgence) had ALREADY been executed on 2026-05-02 (commits e93458f and ed61428 respectively). This is the second same-day instance of the supersession-gate pattern stored in memory after this morning's D3(a) instance.",
+    "recommendation": "Reinforce existing memory 'Strategic-landscape / Tier-1 recommendation drafters must include prior-fire bridge search step' — pattern is now n=2 same-day, not single-instance.",
+    "anchors": [
+      "siarc-relay-bridge commit e93458f (2026-05-02 XI0-D3-DIRECT)",
+      "siarc-relay-bridge commit ed61428 (2026-05-02 CC-MEDIAN-RESURGENCE-EXECUTE)",
+      "siarc-relay-bridge commit e949b30 (2026-05-13 D3(a) reproducibility closure)",
+      "this fire's bridge SHA (D3(c) reproducibility closure)"
+    ]
+  },
+  "UF-MC-REPRO-2": {
+    "severity": "INFORMATIONAL",
+    "title": "Reproducibility-certification approach validated at scale",
+    "description": "The reproducibility-certification approach (re-run script in new bridge session; hash-compare outputs vs original; produce certificate.md) — first demonstrated for D3(a) M-A this morning at 9 small text files — scales cleanly to a 1.3 MB numerical CSV containing serialized mpmath data. SHA-256 bit-identity holds across host-process restarts and 11-day clock gap.",
+    "recommendation": "Add this fire to the precedent stack alongside D3(a) when documenting the reproducibility-certification pattern for future stale-status closures.",
+    "anchors": [
+      "Qn_5000_dps250.csv (1318306 bytes; SHA-256 0b9e656f08b5b1dae67ebaffa5456e3625594b8e4c1904b4d0b2487ab30687cd)"
+    ]
+  },
+  "UF-MC-REPRO-3": {
+    "severity": "INFORMATIONAL",
+    "title": "G-A AEAL calibration seed: H4 prediction-vs-execution datapoint preserved",
+    "description": "H4 pre-registered HIGH-confidence forecast 30-50 digits (central 40) vs actual cross-check digit-agreement 108.39 — a 2.7x exceeds-forecast outcome. The triple-win envisioned this as the first calibration data point for the G-A AEAL calibration paper. The reproducibility verification today preserves this prediction-vs-execution pair with fresh hash anchors and current bridge-commit citation.",
+    "recommendation": "When G-A calibration paper drafting begins (post-RULE-1-lift), use this pair as datapoint #1: forecast band [30, 50], central 40, executed 108.39, ratio 2.71x.",
+    "anchors": [
+      "Theory-Fleet H4 forecast (umbrella v2.0 4.4 — see CHANNEL-THEORY-V13-RELEASE d2b3f88)",
+      "2026-05-02 execution outcome (commit ed61428)",
+      "2026-05-13 reproducibility certification (this fire)"
+    ]
+  }
+}
