@@ -1,0 +1,18 @@
+{"discrepancies": [
+  {
+    "id": "D-M1-D2-NOTE-1",
+    "subject": "RULE-1-status-staleness-in-resume-notes-and-closure-outlook",
+    "description": "RESUME_NEW_CLI_20260513_MORNING_TRIAGE.txt, RESUME_NEW_CLI_20260513_POST_ZENODO_INVENTORY.txt, and picture/M1_M12_CLOSURE_OUTLOOK_20260510_PATH_B_COMPLETE.md all annotate governance state as 'RULE 1 STILL IN FORCE' or 'RULE 1 lift pending'. This is STALE wording: RULE 1 was LIFTED 2026-05-10 21:24 JST via claude-chat commit bfcfd92 (Path B documented-commitment-lift). Definitive evidence at bridge slot 198 T1-SYNTH-POST-RULE1-LIFT-NEXT-STEPS-198. The resume-notes propagated the pre-lift framing forward despite the lift commit predating them.",
+    "severity": "MEDIUM",
+    "status": "SURFACED_FOR_OPERATOR_REVIEW",
+    "remediation": "Operator-decision: refresh M1_M12_CLOSURE_OUTLOOK and any active resume notes to reflect the 2026-05-10 21:24 JST lift. Soft deadline: before next resume-note re-issue. Not blocking M1 axis closure (this packet's Option A disposition is correct regardless of RULE 1 state)."
+  },
+  {
+    "id": "D-M1-D2-NOTE-2",
+    "subject": "slot-083-runbook-already-superseded-at-draft-time",
+    "description": "Slot 083 (T1-D2-NOTE-ZENODO-UPLOAD-RUNBOOK-083, dated 2026-05-07) was drafted against D2-NOTE v1.0 (4-page 2026-05-02 pre-cursor draft). v2.0 (6 pp) had already been deposited at the same concept DOI 19996689 on 2026-05-03 -- four days earlier. The slot 083 runbook's own SS0 SUPERSESSION GATE acknowledges this and recommends Option A (DROP). The slot 083 runbook should be marked OBSOLETE-AT-DRAFT going forward; only its metadata.json may be partially reused if a future Option B mint fires.",
+    "severity": "LOW",
+    "status": "ABSORBED_VIA_OPTION_A",
+    "remediation": "No remediation needed; Option A disposition in this packet honors slot 083 SS0 recommendation."
+  }
+]}

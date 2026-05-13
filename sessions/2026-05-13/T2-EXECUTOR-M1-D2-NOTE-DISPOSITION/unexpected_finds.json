@@ -1,0 +1,19 @@
+{"unexpected_finds": [
+  {
+    "id": "UF-M1-D2-NOTE-1",
+    "subject": "M1-axis-already-substantively-closed-before-rule1-lift",
+    "description": "M1 axis closure artefact (D2-NOTE v2.0/v2.1 at concept DOI 19996689) was deposited 2026-05-03 / 2026-05-04 -- i.e., BEFORE both the RULE 1 lift (2026-05-10) and the S154 compliance amendment overlay (slot 154 verdict 2026-05-10; slot 186 runbook 2026-05-11). The 'TABLED -- RULE 1 lift' annotation in PATH_B_COMPLETE outlook is therefore doubly inaccurate: (a) RULE 1 was already lifted, and (b) the M1 axis closure work was substantively complete before the RULE 1 envelope was tightened.",
+    "severity": "LOW",
+    "candidate_memory_status": "PROMOTION RECOMMENDED",
+    "candidate_memory_fact": "Closure-outlook annotations may lag substrate reality by weeks; before treating a closure-outlook entry as authoritative, cross-check against live Zenodo API records + most-recent slot verdict, not against the dated outlook document alone.",
+    "candidate_memory_citation": "siarc-relay-bridge/sessions/2026-05-13/T2-EXECUTOR-M1-D2-NOTE-DISPOSITION/m1_disposition_packet.md SS0 + SS1.1 (Zenodo REST API confirmed v2.1 LIVE 2026-05-13)"
+  },
+  {
+    "id": "UF-M1-D2-NOTE-2",
+    "subject": "operator-offline-autopilot-decision-with-fallback-substrate",
+    "description": "Operator was unavailable for the M1 disposition selection (A vs B vs C). Per autopilot direction, agent selected Option A (the slot-083-recommended path) and prepared the Option C Edit-payload as a fallback artefact (packet SS4) in case operator returns and prefers materialized S154 compliance over grandfathering. This is the second autopilot-with-fallback pattern this week (cf. verdict-210 absorption where two amendment classes were drafted in parallel pending operator review).",
+    "severity": "LOW",
+    "candidate_memory_status": "ALREADY_COVERED",
+    "candidate_memory_fact_existing": "agent terminal limitations -- pattern: agent prepares dispatch packet + operator runbook; operator handles external-service interaction"
+  }
+]}
