@@ -1,0 +1,26 @@
+{"unexpected_finds": [
+  {
+    "id": "UF-V211-A1",
+    "subject": "all-citing-and-cited-artefacts-are-pre-S154-no-current-internal-inconsistency",
+    "description": "Witness Q-211-4 lock zeta priority order (epsilon=internal-cross-refs HIGHEST) assumed at least one of the artefacts that cite D2-NOTE (Umbrella v2.2 / PCF-2 v1.4 / picture-chain v1.20+) would be post-S154 and bear the firewall paragraph, creating a citing-cited stylistic inconsistency that materialization would heal. Agent substrate-grep of bridge git log shows ALL FOUR artefacts (citing + cited) committed BEFORE slot 186 runbook landed 2026-05-11: Umbrella v2.2 slot 135 2026-05-09 19:56; PCF-2 v1.4 slot 137 2026-05-09 21:52; picture-chain v1.20+ slot 136 2026-05-10 06:30; D2-NOTE v2.1 Zenodo 2026-05-04 07:00. All four are PRE-S154 grandfathered together. No current internal inconsistency exists. The only forcing function for v2.1 firewall materialization would be a FUTURE post-S154 deposit citing D2-NOTE -- and per slot 186 Amendment 3 scoping, that future deposit must include the firewall paragraph IN ITS OWN description, which addresses the reader-side narrative without requiring v2.1 to be edited.",
+    "severity": "MEDIUM",
+    "candidate_memory_status": "PROMOTION RECOMMENDED",
+    "candidate_memory_fact": "Pre-vs-post-S154 deposit classification is determined by deposit date relative to slot 186 runbook (2026-05-11), not the slot 154 verdict (2026-05-10). All artefacts in the PCF program deposited before 2026-05-11 are grandfathered together and need not be edited for internal-cross-reference consistency with each other; only FUTURE post-S154 deposits must include the firewall paragraph in their own description.",
+    "candidate_memory_citation": "siarc-relay-bridge/sessions/2026-05-13/T1-SYNTH-VERDICT-211-M1-SAFE-CLOSURE-ABSORPTION/absorption_decisions.md SSB Q-211-4 + git log dates for SHAs 887981b 45e236c b9aa881; slot 186 s154_post_lift_admin_runbook.md SSAmendment-3 status line 'ACTIVE for all future deposits'"
+  },
+  {
+    "id": "UF-V211-A2",
+    "subject": "witness-anomaly-1-resolved-via-agent-grep-future-scoped-mandatory-language",
+    "description": "Witness flagged in Anomaly #1 that the SS3.1 attestation's 'content-neutral or scope-out-of-band' reading rested on whether S154 standardized the firewall paragraph as a 'required' element or a 'recommended' convention -- noting that without slot-186 runbook visibility, witness couldn't verify which it is. Agent grep of slot 186 s154_post_lift_admin_runbook.md lines 37-41+56 resolves cleanly: Amendment 3 is titled 'Mandatory linguistic firewall paragraph' AND its Status line reads 'ACTIVE for all future deposits'. The mandatoryness is REAL (so 'recommended' framing is wrong) BUT future-scoped (so pre-S154 grandfathering remains valid). This vindicates the SS3.1 attestation by establishing that the temporal scoping is itself the grandfathering authority. Cross-pattern with Q-210-2 grep -- agent-grep resolves witness-flagged scope-check premise ambiguity in both fires.",
+    "severity": "LOW",
+    "candidate_memory_status": "ALREADY_COVERED",
+    "candidate_memory_fact_existing": "synth prior discipline -- solo-witness synth priors on memory-vs-substrate citation ambiguity are systematically vulnerable to inversion; route to agent file-grep BEFORE locking low-confidence prior. This fire extends the pattern: even for HIGH-confidence locks, agent post-grep can reduce residual uncertainty by resolving witness's self-flagged scope-check premises."
+  },
+  {
+    "id": "UF-V211-A3",
+    "subject": "absorption-cycle-compression-meta-observation",
+    "description": "Witness Q-211-5 zeta identified the staleness-pattern as systemic; this fire's absorption rhythm IS a manifestation of the same class (prompt fire ~14:30 JST + verdict received ~14:38 JST + absorption completed ~14:50 JST = ~20 minutes of cycle-compression). This is the 8th bridge deposit today. Recommend operator allow signoff on Q-211-1 beta to take >=6 hours of dwell time before flipping the M1 axis annotation to 0x1F7E2 -- both as a substrate-thinning-prevention measure and as operator-side independent review of the SS3.1 attestation premise. The compression isn't a halt condition but it warrants explicit pacing-via-deliberation.",
+    "severity": "INFO",
+    "candidate_memory_status": "NOT_PROMOTED"
+  }
+]}
