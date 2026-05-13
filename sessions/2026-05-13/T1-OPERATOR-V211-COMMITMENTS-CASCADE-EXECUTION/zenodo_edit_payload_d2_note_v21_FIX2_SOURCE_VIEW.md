@@ -223,4 +223,36 @@ WHERE id='opportunistic-option-c-d2-note-edit';
 
 ---
 
+## §8 — PASS-3 SUCCESS (recorded 2026-05-13 ~15:51 JST)
+
+Operator fired the source-view path. Live REST API verification at `https://zenodo.org/api/records/20015923` returned (Updated: `05/13/2026 15:50:30 UTC`; description length 4671 chars):
+
+| Guard | Result |
+|---|:-:|
+| `&lt;` in description | ✅ absent |
+| `&gt;` in addendum block | ✅ absent (4 hits all in pre-existing math: `d >= 2`) |
+| `<h3>S154 Compliance Addendum...` literal tag | ✅ present |
+| `<strong>` literal tag | ✅ present |
+| `<a href` literal tag | ✅ present (4 hyperlinks) |
+| Date `2026-05-13` | ✅ present |
+| Placeholder `2026-05-DD` | ✅ absent |
+| Literal `###` Markdown | ✅ absent |
+| Literal `**` Markdown | ✅ absent |
+| Record DOI | ✅ `10.5281/zenodo.20015923` unchanged |
+| Concept DOI | ✅ `10.5281/zenodo.19996689` stable |
+| Version | ✅ `2.1` (no new version DOI minted) |
+
+Addendum block renders as expected: H3 heading + 3 bold sub-labels (D-153-3 firewall · M8b sub-leading Stokes caveat · Reproduction note) + 4 clickable hyperlinks (lean repo + PCF-1 + PCF-2 + Umbrella DOIs).
+
+**SQL todo `opportunistic-option-c-d2-note-edit` closed** at 2026-05-13 ~15:51 JST per §7 template.
+
+**Three-pass cycle summary (lessons learned):**
+- **Pass-1** (Markdown payload): broke — `###` / `**` rendered as literal text; horizontal rules stripped. Root cause: Zenodo description field does NOT process Markdown.
+- **Pass-2** (HTML pasted into WYSIWYG editor): broke — `<` / `>` escape-encoded to `&lt;` / `&gt;` so tags rendered as literal text. Root cause: TinyMCE WYSIWYG mode html-escapes raw HTML on paste.
+- **Pass-3** (HTML pasted via `</>` source-code toggle): SUCCESS. Tags stored as raw HTML, rendered as DOM elements on the Zenodo record page.
+
+**Memory-promotion candidate:** "Zenodo description field requires HTML in source-view (`</>` toggle); Markdown is not rendered; raw HTML in WYSIWYG mode is escape-encoded."
+
+---
+
 **End fix-pass-2 payload.**
