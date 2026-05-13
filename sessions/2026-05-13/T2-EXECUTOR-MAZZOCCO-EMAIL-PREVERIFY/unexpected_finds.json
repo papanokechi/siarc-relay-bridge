@@ -1,0 +1,22 @@
+{
+  "finds": [
+    {
+      "id": "UF-MAZZOCCO-1",
+      "severity": "MEDIUM",
+      "summary": "Mazzocco arXiv math.NT auto-endorsement-privilege eligibility is unverified and likely NOT auto-granted. Recent arXiv corpus (11+ papers, 2017-2026) shows zero math.NT primary submissions; her primaries are math.CA / math-ph / math.AG / math.QA / math.CV / nlin.SI / math.RT. arXiv's endorsement system typically auto-privileges only authors with ≥2 primary submissions in the requested archive. Manual-grant path exists (help@arxiv.org) and is routine for senior researchers in adjacent fields, but adds 1-2 week latency.",
+      "recommended_action": "Surface to operator at silence-floor 2026-05-26 decision point. Two mitigation options: (a) include polite footnote in email request directing Mazzocco to help@arxiv.org if auto-privilege check fails; (b) skip Mazzocco entirely and fall through to Beukers (3rd backup, math.NT-primary, auto-privileged with certainty). Trade-off: Mazzocco has stronger Painlevé/asymptotic-analysis overlap with PCF-1 substance; Beukers has stronger pure-math.NT credentials and zero eligibility uncertainty."
+    },
+    {
+      "id": "UF-MAZZOCCO-2",
+      "severity": "LOW",
+      "summary": "Mazzocco's Loughborough affiliation is OUTDATED. She moved to Birmingham in Feb 2018. Any project-memory or prior dossier reference that lists her as 'Loughborough' is ≥6 years stale. The bham.ac.uk email confirms current Birmingham affiliation; the lboro.ac.uk legacy email (if any) is unlikely to forward.",
+      "recommended_action": "If operator finds Loughborough-era contact references in older portfolio dossiers, update to Birmingham. Bridge memory store may benefit from a 'contact-data-staleness' update procedure note."
+    },
+    {
+      "id": "UF-MAZZOCCO-3",
+      "severity": "LOW",
+      "summary": "arXiv:2603.18842 'Decorated Local Systems and Character Varieties' (Mazzocco self-submitted Mar 2026, 73pp, math.AG primary) is a recent decorated-Betti-moduli-space paper that has methodological overlap with the Channel Theory v1.3 V_quad → P_III(D_6) correspondence (cascade-067 + cascade-130R). Reading this paper could provide useful cross-validation substrate for the Painlevé / decorated-character-variety side of SIARC. Lower-priority literature item; not blocking.",
+      "recommended_action": "Add to optional read-through queue for Channel Theory follow-up work; not blocking on Mazzocco endorsement decision."
+    }
+  ]
+}
