@@ -1,0 +1,34 @@
+{
+  "finds": [
+    {
+      "id": "UF-RT-1",
+      "severity": "MEDIUM",
+      "summary": "Q-209-1 D-1b (482-PCF canonical CSV export) has scope-tag ambiguity: 'internal-facing' tag true only at export-time, not at consumption-time. If the CSV is piped to LIReC's remote db.identify, the pipe IS distribution. Verdict's tie-breaker reasoning ('export is internal-facing') is fragile under D-1c chaining.",
+      "recommended_action": "v1.1 amendment to Q-209-1 D-1b row: split into D-1b-export (OPS/INFRA/PERMITTED at export time) and D-1b-consume-by-D-1c (DISTRIBUTION-class if D-1c sends data to remote LIReC server). Operator should audit LIReC's db.identify protocol before any D-1c smoke-test."
+    },
+    {
+      "id": "UF-RT-2",
+      "severity": "MEDIUM",
+      "summary": "Q-209-1 D-1c 'direct analog of today's PSLQ probe (108f0313)' is weak. PSLQ was a local-compute probe; LIReC's db.identify is a remote API call. Different external-surface profile. The analogy understates D-1c's distribution-class risk.",
+      "recommended_action": "v1.1 amendment to Q-209-1 D-1c row: replace 'direct analog of today's PSLQ probe' with explicit operational definition of LIReC's db.identify network behavior. If db.identify sends the constant value to a remote server, D-1c may need re-classification or compensating control (e.g., test on already-public Wallis constants only, not 482-PCF SIARC-private)."
+    },
+    {
+      "id": "UF-RT-3",
+      "severity": "LOW",
+      "summary": "Q-209-3 β-DEFER-TO-WEEK-3 calendar reference 'Week-1 ~2026-05-20-22' is invalidated by today's tabling of all 4 arXiv stagings + Carneiro send pending DS873D Garoufalidis silence-floor 2026-05-27. Earliest realistic Week-1 fire date is now 2026-05-27 (+1-3 days for arXiv staging dispatch).",
+      "recommended_action": "v1.1 amendment to Q-209-3: replace calendar reference with event-gate definition tied to DS873D Garoufalidis chain resolution + Mazzocco/Beukers backup-chain-resolution + 3-of-4 arXiv-stagings-landed conjunction."
+    },
+    {
+      "id": "UF-RT-4",
+      "severity": "LOW",
+      "summary": "Q-209-5 Halt 2 (LMFDB cross-reference no overlap) is DEAD-CODE because its gating row D-1d is BLOCKED per today's D-209-3 resolution. Either drop, refactor against narrower read-only sub-task, or preserve as latent.",
+      "recommended_action": "v1.1 amendment to Q-209-5: drop Halt 2 (recommended Option A); halt set reduces to 5 conditions (Halt 1, 3, 4, 6, 7 with renumbering optional)."
+    },
+    {
+      "id": "UF-RT-5",
+      "severity": "LOW",
+      "summary": "Q-209-2 cites memory `op-x-cache-repair-lean-axis-unblock` to justify β PARALLEL-RUN rejection. This memory is not visible in current session memory store. Substrate-citation may be a hallucination at LOCK-justification level. β rejection still defensible on independent grounds (Lean-side and Python-side are bandwidth-independent only if operator-attention is the bottleneck, which is plausible) but verdict's specific citation is unverified.",
+      "recommended_action": "Substrate-verification pass: confirm memory `op-x-cache-repair-lean-axis-unblock` exists OR remove the citation from Q-209-2 reasoning. If memory exists, ensure it is visible to future agent sessions evaluating Q-209-2."
+    }
+  ]
+}
