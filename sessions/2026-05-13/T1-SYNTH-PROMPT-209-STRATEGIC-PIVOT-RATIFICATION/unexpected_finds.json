@@ -1,0 +1,24 @@
+{
+  "UF-209-1": {
+    "finding": "Synth introduced two new halt conditions not proposed by drafter: (6) strategic-landscape doc stale-label rate exceeds 30% on Week-1 recon target rows; (7) D-1c smoke-test reveals LIReC database leakage of unpublished SIARC results (audit concept-DOIs 19491767, 19931635, 19936297). Both halts are net-new pattern recognition not previously codified.",
+    "severity": "MEDIUM",
+    "implication": "Halt (6) operationalises the n=4 same-day supersession-gate evidence from today's morning triage into a forward-looking pivot governance rule. Halt (7) anticipates a database-cross-contamination failure mode (analog of biblio-ID hallucination but at the numerical-relation tier).",
+    "memory_candidate_1": "Strategic-landscape Tier-1 doc stale-label rate should be re-verified at any forward-fire that touches the rows it labels; n>=4 same-day supersession-gate evidence (2026-05-13 morning) raises the prior on labels being stale.",
+    "memory_candidate_2": "When integrating with external numerical-identification databases (LIReC, Inverse Symbolic Calculator class), audit returned relations for provenance leakage from already-public concept-DOIs in your own corpus; analog of biblio-ID hallucination at the numerical-relation tier.",
+    "status": "OPEN_for_memory_promotion"
+  },
+  "UF-209-2": {
+    "finding": "Drafter's pre-registered Q-209-2 (gamma) and Q-209-3 (beta) were both accepted by synth. Q-209-3 received an event-gate amendment (not calendar-locked); other LOCKs were verbatim-accepted. Q-209-4 (no pre-reg, values call) was bound delta (DEFER-DECISION).",
+    "severity": "LOW",
+    "implication": "Pre-registration with explicit drafter-recommendation rubric (gamma/beta) was efficient; values-call deferral (delta) was the AEAL-disciplined outcome on Q-209-4. Pattern worth preserving for future strategic-pivot ratification prompts.",
+    "memory_candidate": "T1-Synth strategic-pivot ratification prompts should pre-register drafter recommendations only on strategy-class questions; values-class questions should be left un-anchored to receive the AEAL-disciplined DEFER lock.",
+    "status": "OPEN_for_memory_promotion"
+  },
+  "UF-209-3": {
+    "finding": "Drafter's halt candidate 5 (RamanujanMachine team non-responsive by Week-3) was REJECTED by synth as premature because Q-209-4 routed co-authorship to delta (DEFER-DECISION); under delta, the team has not yet been contacted at Week-3 so the halt cannot fire. Drafter inadvertently coupled a halt criterion to a path the verdict closed.",
+    "severity": "LOW",
+    "implication": "Halt criteria should be enumerated only over decision-paths still open after the relevant Q-LOCK fires; drafter should sequence Q-LOCK pre-registrations before halt enumeration to avoid this coupling.",
+    "memory_candidate": "Halt criteria in a multi-Q-LOCK relay prompt should be enumerated AFTER all Q-LOCK decision-paths; if a halt assumes a path the verdict will close, it becomes premature/rejected. Sequence: Q-LOCKs first, halt enumeration last.",
+    "status": "OPEN_for_memory_promotion"
+  }
+}

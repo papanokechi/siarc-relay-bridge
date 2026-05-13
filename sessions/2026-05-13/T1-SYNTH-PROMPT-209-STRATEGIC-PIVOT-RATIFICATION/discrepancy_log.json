@@ -1,0 +1,26 @@
+{
+  "D-209-1": {
+    "finding": "PNAS 2024 (PubMed 38875143) identifier flagged for re-resolution; synth could not re-fetch in chat surface. Drafter pre-verified arXiv:2303.09318 v3 (Conservative matrix field, math.GM, David et al. 2023-12-04) which is the arXiv mirror of the PNAS work — substrate adequately anchored.",
+    "severity": "LOW",
+    "implication": "Pivot logic invariant under this resolution; operator should re-verify the PNAS publication record before any D-4 (publication-pathway) decision references it. Not a Week-1 blocker.",
+    "owner": "operator",
+    "trigger": "before any D-4 verdict cites PNAS 2024",
+    "status": "DEFERRED"
+  },
+  "D-209-2": {
+    "finding": "Original informal synth recommendation cited '27 submissions, 14 deposits'. Drafter could not fully verify these counts (27 cumulative submissions is plausible per submission_log.txt Items 1-27+; 14 deposits would require counting all Zenodo versions across Z1-Z8 rows).",
+    "severity": "LOW",
+    "implication": "Pivot logic invariant under correction (26/13 or 28/15 doesn't change the qualitative claim). Audit recommended for AEAL-discipline completeness.",
+    "owner": "operator (definitive submission_log access)",
+    "trigger": "before Week-1 D-1b CSV export fires (cross-check 482-PCF corpus provenance against Items 16/R4 manuscript line-count)",
+    "status": "OPEN_FOR_REVERIFY"
+  },
+  "D-209-3": {
+    "finding": "LMFDB-side appetite for PCF cross-references is unverified. Drafter could not determine whether someone in the LMFDB team needs to be contacted *before* upload, or whether public dump-and-go is the norm.",
+    "severity": "MEDIUM",
+    "implication": "If LMFDB requires pre-contact, D-1d (LMFDB Q(j(tau)) triangulation) flips from FOUNDATIONAL recon (RULE 1 PERMITTED) to DISTRIBUTION-class contact (RULE 1 BLOCKED). This would force a scope-narrowing re-fire before Week-1 completes.",
+    "owner": "agent at D-1d execution (web_fetch of LMFDB contribution-policy page; grep for 'external dataset upload' patterns)",
+    "trigger": "pre-Week-1 D-1d fire (i.e., before any LMFDB-touching deliverable starts)",
+    "status": "OPEN_FOR_REVERIFY"
+  }
+}
