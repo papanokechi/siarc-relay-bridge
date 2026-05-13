@@ -1,0 +1,17 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-209-4",
+      "severity": "MEDIUM",
+      "raised_in": "Q-209-2 substrate-citation probe",
+      "summary": "M9 vs M10 axis-taxonomy ambiguity. Memory `M-axis V0 closure series` (anchor bridge SHA 74c5630) states M9 V0 PARTIAL is the only remaining open math axis as of 2026-05-09. Verdict-209 references M10 V0 closure as the RULE 1 lift blocker. The two are inconsistent unless M10 is a sub-axis of M9 or a new axis post-dating the memory.",
+      "resolution_paths": [
+        "(a) M10 is a sub-axis of M9 — verdict's 'M10 V0 closure' really means 'M9 V0 final discharge with M10 sub-axis closure included'",
+        "(b) M10 is a new axis introduced post-2026-05-09 in a bridge fire I haven't read — operator confirms via mapping bridge session",
+        "(c) Verdict-209 contains a typo / drafter error — should read M9 throughout"
+      ],
+      "operator_action": "Confirm M9 vs M10 mapping before any Week-2+ work fires; Week-1 D-1a-d is unaffected.",
+      "deferred_until": "Pre-Week-2 fire or M10 V0 closure cascade initiation, whichever comes first"
+    }
+  ]
+}
