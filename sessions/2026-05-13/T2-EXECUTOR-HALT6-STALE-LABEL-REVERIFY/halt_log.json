@@ -1,0 +1,29 @@
+{
+  "halt_triggered": false,
+  "halt_id": "HALT_6_STRATEGIC_LANDSCAPE_STALE_LABEL",
+  "verdict_source": "verdict-209 §1 Q-209-5 Halt #6 (synth-added)",
+  "audit_target": "tex/submitted/control center/notes/STRATEGIC_LANDSCAPE_GODSEYE_20260512.md",
+  "anchor_sha": "0ecde30",
+  "bridge_head_at_audit": "80fefbe",
+  "audit_time_jst": "2026-05-13T12:35:00+09:00",
+  "rows_audited": 10,
+  "rows_stale_full": 1,
+  "rows_stale_partial": 1,
+  "stale_rate_minimal_pct": 10.0,
+  "stale_rate_strict_pct": 15.0,
+  "stale_rate_conservative_pct": 20.0,
+  "trigger_threshold_pct": 30.0,
+  "trigger_status": "BELOW_THRESHOLD",
+  "stale_rows": [
+    {"row": "B.M-A", "type": "full", "label_text": "op:xi0-d3-direct is still open", "reality_sha": "e949b30", "reality_anchor_sha": "e93458f", "reality_date": "2026-05-02 -> 2026-05-13 reproducibility-verify"},
+    {"row": "B.M-C", "type": "partial", "label_text": "the most concrete bet you have on the books", "reality_sha": "a4fe865", "reality_anchor_sha": "ed61428", "reality_date": "2026-05-03 -> 2026-05-13 reproducibility-verify", "note": "execute component done; publish-companion + AEAL-calibration-seed components remain open"}
+  ],
+  "watch_item_flagged": true,
+  "watch_item_reason": "2 of today's 5 supersession-gate landings (M-A + M-C) directly correspond to strategic-landscape stale labels; consistent with n=4 same-day supersession evidence trajectory operator flagged earlier today",
+  "recommendation": "append refresh-trail footer to strategic-landscape doc noting substrate-level status of M-A + M-C as of 2026-05-13; preserve publication-tier framing of rows; do not reclassify",
+  "re_fire_conditions": [
+    "If at Week-1 fire-time additional ≥ 2 Tier-1 rows have undergone substrate closure (combined with M-A + M-C would cross 30%)",
+    "If operator updates strategic-landscape doc with new dated snapshot (re-audit against new snapshot)",
+    "If any M-axis V0 closure is retracted (would invalidate G-B BLOCKED row classification)"
+  ]
+}

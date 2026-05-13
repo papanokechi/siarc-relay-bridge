@@ -1,0 +1,16 @@
+{
+  "finds": [
+    {
+      "id": "UF-H6-1",
+      "severity": "MEDIUM",
+      "summary": "Doc-character ambiguity in STRATEGIC_LANDSCAPE_GODSEYE_20260512.md: the rows are written as if substrate-level open-questions (M-A 'still open', M-C 'concrete bet on the books'), but the doc reads stylistically as a publication-tier god's-eye-view. The substrate-tier closures of M-A (e93458f ~May 2) and M-C-execute (ed61428 ~May 3) had already happened 10 days before the doc was written, yet the doc treats both as forward-looking. This is interpretable as either (a) reviewer-visibility gap on local-only commits, or (b) intentional publication-tier framing where 'open' means 'not yet publication-ready'. Future strategic-landscape docs should make this distinction explicit.",
+      "recommended_action": "Promote a memory entry once a second independent god's-eye-view doc surfaces with the same ambiguity pattern (n=2 evidence); for now log as a tactical-tier observation."
+    },
+    {
+      "id": "UF-H6-2",
+      "severity": "LOW",
+      "summary": "The verdict-209 Halt 6 was originally framed as 'on the Week-1 recon target rows' meaning the D-1a..D-1d pivot rows, which do NOT appear in the strategic-landscape doc directly. Operationalized today as 'Tier-1 rows in Sections B + C of strategic-landscape' (10 rows total) for tractable measurement. If operator/synth intends a different operationalization, this audit's stale-rate number (10-20%) should be replaced with the correct denominator. The 'NOT TRIGGERED' top-line is robust across plausible operationalizations because no pivot D-1 row has been retracted or modified since verdict-209 fired.",
+      "recommended_action": "Surface in handoff Anomalies; if synth re-fires Halt 6 with explicit pivot-row denominator (e.g., n=4 for D-1a..D-1d), re-run audit on those 4 rows."
+    }
+  ]
+}
