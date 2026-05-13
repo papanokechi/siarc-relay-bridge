@@ -117,6 +117,12 @@ Per slot 083 §0 SUPERSESSION GATE (applied to the current v2.1 reality rather t
 
 ### §3.1 Attestation
 
+> **[Operator signoff 2026-05-13 ~14:54 JST via Copilot CLI session `d0b490af`]:**
+> §3.1 attestation reviewed and ratified per slot 186 Amendment 3 future-scoping
+> ("Mandatory · ACTIVE for all future deposits"; runbook lines 37-41, 56).
+> β-tier classification confirmed axis-local (UF-V211-A2). M1 axis flipped 🟡 → 🟢.
+> Recorded via slot `T1-OPERATOR-V211-COMMITMENTS-CASCADE-EXECUTION`.
+
 I (drafter: Copilot CLI session `d0b490af-727d-4ff2-b51d-fbe079b0a718`, agent-autonomous, operator-offline) attest the following for M1 axis closure:
 
 1. **Substrate identity.** The M1 axis closure artefact is the D2-NOTE v2.1 Zenodo record at version DOI `10.5281/zenodo.20015923` under concept DOI `10.5281/zenodo.19996689`. Deposit date 2026-05-04 ~07:00 JST.
