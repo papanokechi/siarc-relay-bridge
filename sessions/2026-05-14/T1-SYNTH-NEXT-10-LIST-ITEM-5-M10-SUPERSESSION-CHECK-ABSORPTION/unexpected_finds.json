@@ -1,0 +1,43 @@
+{
+  "UF-NEXT10-5-1": {
+    "id": "UF-NEXT10-5-1",
+    "severity": "MEDIUM",
+    "title": "Q4 external-artefact audit retired with NEGATIVE finding (clean)",
+    "description": "Synth flagged Q4 external-artefact audit as the highest-value latent risk in the M10 supersession decision space: 'If any submitted paper claims hard Lean discharge that doesn't exist, that's a correction-pipeline issue.' Agent-side audit run during absorption: targeted regex across tex/submitted/** for (M10|Lean[- ]?4|Lean 4)[^.]{0,100}(verified|discharged|closed|complete|formaliz) + (formally|fully) (verified|formalized|proved|proven) in Lean + sorries-discharged variants. Result: 7 hits total, ALL reference Item 24 / P-Tunnell 'A Layered, Axiom-Isolated Lean 4 Formalization of the Congruent Number Problem' (a legitimately Lean-4-formalization paper). 1 additional hit in 145_*_SUPERSEDED.txt is correctly archived. Zero overstatement of M10 V0 closure in active submission artefacts.",
+    "evidence_for_promotion": "First time a consultation Q-level risk has been retired with a NEGATIVE finding via agent-side audit during the same absorption session. Pattern: synth flags risk -> agent runs cheap verification -> agent records negative finding in absorption substrate -> risk closed without re-fire.",
+    "promotion_recommendation": "OPTIONAL — pattern is reasonably evident from this session's record. Could promote to memory as 'During absorption of MEDIUM-band consultations with audit recommendations, agent should run the audit immediately rather than spawning a separate todo; cost is low; closure is durable.' But not strongly required.",
+    "memory_text_candidate": "When a T1-Synth verdict surfaces a 'cheap audit' recommendation (low-cost grep / inventory / quick verification), execute it agent-side during the same absorption session — closes the loop in one trip rather than spawning a todo that may slip."
+  },
+  "UF-NEXT10-5-2": {
+    "id": "UF-NEXT10-5-2",
+    "severity": "MEDIUM",
+    "title": "Documented-commitment route precedent load-bearing for M11/M12 (synth Q4 hidden-risk #3)",
+    "description": "Cascade-132 sec 5's documented-commitment clause is currently implicit text invoked once. If M11 or M12 hit similar V0-closure friction, the project will likely invoke the same route — at which point the precedent becomes load-bearing and should be promoted from implicit text to explicit standing rule rather than re-derived from sec 5 each time.",
+    "promotion_recommendation": "Operator-level governance decision — flag for next governance-stack review or M11 V0 substrate-prep session. Not actionable today; surfaced for future awareness.",
+    "memory_text_candidate": null
+  },
+  "UF-NEXT10-5-3": {
+    "id": "UF-NEXT10-5-3",
+    "severity": "INFO",
+    "title": "Long-tail Lean-debt hazard if documented-commitment is overused (synth Q4 hidden-risk #4)",
+    "description": "'OPTIONAL UPLIFT' classification for hard Lean discharge is procedurally correct but creates a soft incentive to never actually do the discharge. If the M-axis ratchets up using documented-commitment routes, cumulative un-discharged Lean burden grows. Synth recommendation: treat documented-commitment as limited-use mechanism with soft cap (e.g., not more than one open documented-commitment per M-axis in flight).",
+    "promotion_recommendation": "DEFERRED — this is a governance-stack policy question rather than an immediate fact. Worth re-surfacing if a second documented-commitment route is invoked while M10's is still open.",
+    "memory_text_candidate": null
+  },
+  "UF-NEXT10-5-4": {
+    "id": "UF-NEXT10-5-4",
+    "severity": "LOW",
+    "title": "2026-08-02 deadline has no external enforcement (synth Q4 hidden-risk #1)",
+    "description": "Self-delegated status-report deadline for m10_documented_commitment.md has no external enforcement. Synth recommended a hard SQL/plan trigger at ~2026-07-15 to force a 2-3 week pre-stage window. Slippage risk non-trivial given submission-pipeline load.",
+    "promotion_recommendation": "ACTIONED — todo `m10-status-report-pre-stage-20260715` spawned status='blocked' with explicit 2026-07-15 trigger date per Q3.beta recommendation.",
+    "memory_text_candidate": null
+  },
+  "UF-NEXT10-5-5": {
+    "id": "UF-NEXT10-5-5",
+    "severity": "INFO",
+    "title": "Q5.beta memory amendment pattern (augment-not-create)",
+    "description": "Synth Q5.beta recommendation: 'augment existing rule rather than create new memory; one amended rule beats two adjacent rules that need cross-reference.' This is the second observed instance (n=2) of memory consolidation via amendment vs adjacent rule — pattern is stabilizing. Existing memory `prompt drafting discipline` now covers BOTH the original re-fire-of-same-scope pattern AND the choice-list-incompleteness generalization.",
+    "promotion_recommendation": "MEMORY-PROMOTION-PATTERN observation — 'When new generalization is structurally adjacent to existing rule, amend existing memory rather than creating sibling.' n=2 not yet at promotion threshold (n=3 per project convention).",
+    "memory_text_candidate": null
+  }
+}
