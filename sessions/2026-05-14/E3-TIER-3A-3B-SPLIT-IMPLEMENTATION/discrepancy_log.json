@@ -1,0 +1,12 @@
+{
+  "discrepancies": [
+    {
+      "id": "D-E3-TIER-1",
+      "severity": "INFO",
+      "status": "RESOLVED",
+      "description": "claude-chat repo docs/ directory is fully untracked in git (status returns ?? for all files including the master governance doc). The E3 amendment to siarc_project_instructions_v2026-05-14.md is therefore local-only on the operator workstation — not visible in any GitHub browser, not propagated via repo clones, not in CI scope.",
+      "resolution": "Bridge-repo absorption of this session is the canonical external record. A copy of the post-amendment master doc was deposited at sessions/2026-05-14/E3-TIER-3A-3B-SPLIT-IMPLEMENTATION/siarc_project_instructions_v2026-05-14.md so the amendment is recoverable from the bridge regardless of claude-chat git scope. Operator may optionally remove docs/ from .gitignore (or explicitly add) if propagation via GitHub is desired; flagged in handoff.md anomaly 1.",
+      "found_at": "2026-05-14 (this session, during git mv attempt)"
+    }
+  ]
+}
