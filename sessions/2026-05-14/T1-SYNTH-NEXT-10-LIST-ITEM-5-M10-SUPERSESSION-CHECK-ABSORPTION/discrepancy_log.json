@@ -1,0 +1,11 @@
+{
+  "D-NEXT10-5-1": {
+    "id": "D-NEXT10-5-1",
+    "severity": "INFO",
+    "title": "Drafter Phase 0 verification asserted vs synth-independent re-verification",
+    "description": "Synth ALSO_KNOWN #1 flagged that the drafter's Phase 0 SHA verification chain was drafter-asserted not synth-re-verified. Agent re-verified Phase 0 STEP 0.8 (cascade-132 sec 5 documented-commitment text) post-absorption — substrate-confirmed verbatim at m9_v0_closure_path_decision.md:53. Other cited SHAs were git-rev-parse-confirmed at draft time per substrate-verification discipline memory.",
+    "resolution": "RESOLVED 2026-05-14 ~23:00 JST via agent-side Select-String on cascade-132 m9_v0_closure_path_decision.md.",
+    "root_cause": "Drafter discipline correct; synth caveat appropriately conservative. No actual gap.",
+    "process_lesson": "When a consultation prompt has Phase 0 verification baked in but the synth does not have repo access to independently re-verify, the synth's MEDIUM band partially encodes this asymmetry. Agent-side post-absorption verification of the most consequential verification steps (here STEP 0.8) closes the loop."
+  }
+}
