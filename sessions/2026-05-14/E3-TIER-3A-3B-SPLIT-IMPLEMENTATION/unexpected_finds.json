@@ -1,0 +1,28 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-E3-TIER-1",
+      "severity": "MEDIUM",
+      "summary": "docs/ directory is untracked in claude-chat git — entire governance stack is local-only",
+      "detail": "git status on docs/ returned ?? for all 9 files including the master governance doc. This means the canonical governance source-of-truth lives only on the operator workstation. Implications: (a) collaborators reading the GitHub repo see no governance doc; (b) loss of workstation = loss of governance history (mitigation: bridge-repo absorption captures versions); (c) the change-log entries in the master doc are not cross-referenceable from any pull request or commit message in GitHub-visible repos. Operator should decide whether this is intentional (privacy / draft-state / single-author project) or oversight.",
+      "recommended_action": "Operator decision needed: (i) leave as-is (intentional local-only) — no action; (ii) git add docs/ in claude-chat — propagates entire governance history to GitHub. If (ii), suggest reviewing each file for sensitive content first; the master doc references ORCID and Yokohama location which are already-public per ORCID profile.",
+      "found_at": "2026-05-14 (this session, during git mv attempt)"
+    },
+    {
+      "id": "UF-E3-TIER-2",
+      "severity": "LOW",
+      "summary": "No standalone Tier 3a inline template file — §8 baseline narrative is the de-facto template",
+      "detail": "The synth recommendation called for two templates (3a + 3b) but the project does not currently have a standalone Tier 3a template file — the inline shape (TASK / BRIDGE / BACKGROUND / numbered STEPS / HALT IF / commit instructions) is described in §8 prose. I created the 3b template but deliberately did not create a parallel 3a template to avoid duplicating §8 verbatim (low-leverage, high-churn artifact).",
+      "recommended_action": "Defer. If onboarding-friction surfaces (new collaborators struggling to write inline prompts from §8 narrative), extract a parallel docs/relay_prompt_inline_template_3a.md at that point. Not blocking for current pipeline operation.",
+      "found_at": "2026-05-14 (this session, during template-file creation)"
+    },
+    {
+      "id": "UF-E3-TIER-3",
+      "severity": "LOW",
+      "summary": "Synthesizer Master Prompt currently mode-agnostic — relay prompts will need MODE-line retro-fit by CLI until next MSB cycle",
+      "detail": "The in-flight Synthesizer Master Prompt does not declare MODE for any embedded relay prompts. Until the 1-June MSB cycle picks up the dual-template instruction, the CLI tier will need to retro-fit MODE declarations onto any embedded relay prompts it converts to per-day instructions. Low friction (mechanical) but worth flagging so CLI doesn't accidentally drop the MODE line on a 3b-shaped workload, defaulting it to 3a and reintroducing the babysitting problem this E3 was meant to fix.",
+      "recommended_action": "Two-track: (a) explicit operator reminder to CLI to add MODE: 3a / MODE: 3b lines on each daily relay prompt until 1-June MSB cycle; (b) next 1-June MSB Master Prompt explicitly carries the dual-template instruction so CLI inherits it.",
+      "found_at": "2026-05-14 (this session, during §8 amendment drafting)"
+    }
+  ]
+}
