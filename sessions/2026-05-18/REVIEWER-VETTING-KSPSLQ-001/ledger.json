@@ -1,0 +1,74 @@
+{
+  "slot_id": "REVIEWER-VETTING-KSPSLQ-001",
+  "slot_path": "siarc-relay-bridge/sessions/2026-05-18/REVIEWER-VETTING-KSPSLQ-001/",
+  "task_date": "2026-05-18",
+  "manuscript_id": "KSPSLQ",
+  "target_venue": "Bulletin of the Australian Mathematical Society (BAustMS)",
+
+  "chain": {
+    "upstream": [
+      "BAUSTMS-PREP-KSPSLQ-001 (2026-05-18) — submission package prepared; cover-letter.txt names 3 suggested reviewers + 1 open slot",
+      "EXPMATH-WITHDRAWAL-KSPSLQ-001 (2026-05-18) — withdrawal email drafted; gating BAustMS submission until confirmation"
+    ],
+    "downstream": [
+      "BAustMS OJS submission (operator action, dependent on both EXPMATH withdrawal confirmation AND adoption of the revised reviewer list emerging from this vetting)"
+    ]
+  },
+
+  "reviewers_vetted": 3,
+  "named_reviewer_open_slots_remaining": 1,
+
+  "per_reviewer_decisions": [
+    {
+      "id": "R1",
+      "name": "David H. Bailey",
+      "decision": "REPLACE",
+      "confidence": "HIGH",
+      "blocking_filter": "Filter B — direct BBC cluster membership (he is the lead 'Bailey' in 'Bailey-Borwein-Crandall')",
+      "passing_filters": ["A (UNVERIFIED-PROBABLE-PASS)", "C", "D (USA)", "E", "F"]
+    },
+    {
+      "id": "R2",
+      "name": "David J. Broadhurst",
+      "decision": "REPLACE",
+      "confidence": "HIGH",
+      "blocking_filter": "Filter B — direct two-author coauthorship with Bailey (Bailey-Broadhurst 2001, manuscript ref [3])",
+      "passing_filters": ["A (UNVERIFIED-PROBABLE-PASS)", "C", "D (UK)", "E", "F"]
+    },
+    {
+      "id": "R3",
+      "name": "Brigitte Vallée",
+      "decision": "KEEP WITH NOTE",
+      "confidence": "MEDIUM-HIGH",
+      "blocking_filter": null,
+      "passing_filters": ["A (UNVERIFIED-PROBABLE-PASS)", "B", "C", "D (FR)", "E", "F"],
+      "notes": "Filter A structurally unverifiable from outside CUP (T&F 403); 24-month publication window slightly thin on surfaced items (operator may want a quick HAL check for additional 2024-2026 items)."
+    }
+  ],
+
+  "replacement_candidates_summary": {
+    "for_R1_Bailey": {
+      "primary": "Yann Bugeaud (IRMA Strasbourg, FR) — CLEAN Filter B",
+      "alternate": "Tanguy Rivoal (Institut Fourier Grenoble, FR) — YELLOW Filter B (2nd-degree to Borwein via Zudilin)"
+    },
+    "for_R2_Broadhurst": {
+      "primary": "Igor E. Shparlinski (UNSW Sydney, AU) — SOFT YELLOW Filter B (2013 Borwein memorial-volume co-edit); AU adds geographic diversity",
+      "alternate": "Stéphane Fischler (Paris-Saclay, FR) — CLEAN Filter B; trades AU diversity for cleaner cluster posture"
+    }
+  },
+
+  "halt_or_partial_events": [
+    "Stage 2 Filter A: T&F editorial board page (uexm20) returned HTTP 403 on direct fetch; Wayback no snapshot. Filter A for all 3 named reviewers rated UNVERIFIED-PROBABLE-PASS via secondary searches. Operator can choose to wait for board reachability before submission, or accept the probabilistic verdict (recommended).",
+    "Initial Bing-mediated synthesis returned a single hallucinated claim ('David Bailey is on the EM board') that was contradicted on follow-up. The contradiction is logged in reviewer-1-report.json under filter_A; final verdict is PROBABLE-PASS."
+  ],
+
+  "set_level_evaluation_summary": "Set FAILS clustering check: Bailey and Broadhurst are direct coauthors (manuscript ref [3]). Geographic diversity is OK (USA, UK, FR — non-AU complete). Subfield mix is weak (2/3 PSLQ-algorithmics, 1/3 CF metric theory). Recommended replacement set {Vallée, Bugeaud, Shparlinski} balances better.",
+
+  "downstream_gate": {
+    "baustms_submission_blocked_on_reviewer_list": false,
+    "rationale": "BAustMS does not require suggested reviewers as a precondition for submission; they are at editor's discretion (cover letter says 'editorial office is of course free to ignore these suggestions'). The submission can technically proceed with the original list. However, presenting a list with 2 reviewers who are direct manuscript-cited coauthors and the cluster head and a clustering-failure within the set is a referee-process risk worth correcting before submission.",
+    "operator_action": "Revise cover-letter.txt suggested-reviewers block per the chosen replacement set, then resubmit to the BAUSTMS-PREP-KSPSLQ-001 slot's send-ready PDF. The OJS portal also allows reviewer suggestions to be entered separately from the cover letter."
+  },
+
+  "final_recommendation": "REPLACE 2, KEEP 1; revised cover letter recommended before BAustMS submission. Submission still gated on EXPMATH-WITHDRAWAL-KSPSLQ-001 confirmation per the prior chain step."
+}

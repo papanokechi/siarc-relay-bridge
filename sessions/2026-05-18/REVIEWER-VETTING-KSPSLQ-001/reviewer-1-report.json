@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "R1",
+  "name": "David H. Bailey",
+  "affiliation_listed_in_cover_letter": "Lawrence Berkeley National Laboratory (retired); University of California, Davis (affiliated)",
+  "email_listed_in_cover_letter": "dhbailey@lbl.gov",
+
+  "filter_2_1_identity_confirmation": {
+    "confirmed_identity": true,
+    "actual_affiliation_per_fetch": "Senior Scientist (retired), Computational Research Department, Lawrence Berkeley National Laboratory. Page also self-describes 'leading figure in the field of high-performance scientific computing' and 'leading figure in the field of computational and experimental mathematics'.",
+    "uc_davis_affiliation": "not confirmed on personal homepage (last update 1 Jan 2026); operator may verify via UC Davis math directory if needed.",
+    "source_url": "https://www.davidhbailey.com/",
+    "fetch_timestamp": "2026-05-18T07:00:00Z"
+  },
+
+  "filter_A_exp_math_editorial_overlap": {
+    "filter_pass": "UNVERIFIED-PROBABLE-PASS",
+    "rationale": "Direct fetch of https://www.tandfonline.com/journals/uexm20/editorial-board returned HTTP 403 (anti-bot). Wayback Machine has no cached snapshot. Secondary web_search for 'David Bailey' / 'David H. Bailey' on the 2024-2025 EM editorial board returned 'no explicit evidence' of board membership; the recent EM board 'reboot' was led by Al Kasprzyk (Editor-in-Chief), with Pieter Belmans joining as a new board member per his blog post.",
+    "first_pass_search_synthesis_error": "An initial Bing-mediated synthesis listed 'David Bailey (Lawrence Berkeley National Laboratory)' as an EM board member. A targeted follow-up search contradicted this and attributed the confusion to Bailey's separate, self-run experimentalmath.info site. The follow-up finding is the more reliable signal.",
+    "evidence_urls": [
+      "https://www.tandfonline.com/journals/uexm20/editorial-board (403)",
+      "https://pbelmans.ncag.info/blog/2024/02/20/editor-for-experimental-mathematics/",
+      "https://www.experimentalmath.info/ (Bailey's personal site, NOT the journal)"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "MEDIUM"
+  },
+
+  "filter_B_bbc_cluster": {
+    "filter_pass": false,
+    "verdict": "DEFINITIVE FAIL by direct cluster membership",
+    "rationale": "David H. Bailey IS the lead 'Bailey' in the named 'Bailey-Borwein-Crandall' coauthorship cluster as defined in the task ('{David Bailey, Jonathan Borwein, Richard Crandall, Helaman Ferguson, Simon Plouffe}'). He is the corresponding author on the Bailey-Borwein-Crandall 1997 paper 'On the Khinchin constant' which is the foundational reference for the Khinchin-constant content of the very manuscript under review (cited as ref [1] BaileyBorweinCrandall1997). He is also a coauthor of refs [2] BaileyBorweinPlouffe1997 and [3] BaileyBroadhurst2001. His personal homepage explicitly names Borwein, Crandall, and Plouffe as 'longtime collaborators'.",
+    "yellow_flags": [],
+    "evidence_urls": [
+      "https://www.davidhbailey.com/",
+      "https://www.ams.org/journals/mcom/1997-66-220/S0025-5718-97-00865-1/",
+      "https://www.davidhbailey.com/dhbpapers/digits.pdf",
+      "https://www.davidhbailey.com/dhbpapers/ppslq.pdf"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "filter_C_recent_activity": {
+    "filter_pass": true,
+    "rationale": "Personal homepage indicates active blog (Math Scholar, Mathematical Investor) updated through Jan 2026; published a 2017 AMS Levi L. Conant Prize-winning paper; 600+ publications. Even in retirement, Bailey continues to produce expository and mathematical work in the relevant areas.",
+    "relevant_publications_recent_24mo": "Inferred active via blog and book activity; no peer-reviewed journal article in last 24mo confirmed via this vetting pass.",
+    "source_url": "https://www.davidhbailey.com/",
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "MEDIUM"
+  },
+
+  "filter_D_geographic": {
+    "country": "USA",
+    "primary_affiliation": "Lawrence Berkeley National Laboratory (retired)",
+    "set_level_diversity_contribution": "USA — non-AU; satisfies set-level non-AU requirement on its own."
+  },
+
+  "filter_E_prior_interaction_with_author": {
+    "filter_pass": true,
+    "rationale": "Papanokechi is pseudonymous with only Zenodo deposits (10.5281/zenodo.19562751, 10.5281/zenodo.20173677, 10.5281/zenodo.20173678) on the ORCID profile; no journal coauthorship trail. No Bailey acknowledgment in the AEAL framework or the Khinchin-signature bundle README. No public peer-review interaction known.",
+    "yellow_flags": [],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "filter_F_baustms_fit": {
+    "filter_pass": true,
+    "rationale": "Senior figure in computational and experimental mathematics; multiple major awards (IEEE Sidney Fernbach 1993, ACM Gordon Bell 2008, MAA Chauvenet 1993, AMS Levi L. Conant 2017). No retraction flags. Would be a natural BAustMS reviewer for a paper in this area if not for the Filter B blocker.",
+    "notes": "Filter F evaluation is essentially moot given the Filter B definitive FAIL.",
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "overall_recommendation": "REPLACE",
+  "overall_confidence": "HIGH",
+  "blocking_filter": "Filter B (direct BBC cluster membership)",
+  "summary": "David H. Bailey is the most natural expert reviewer one could name for a Khinchin-signature PSLQ paper -- precisely because he is one of the authors of the foundational paper the manuscript cites. That same fact makes him ineligible under the task's Filter B (direct BBC cluster membership). Filters A, C, D, E, F all pass or probable-pass, but Filter B is dispositive."
+}

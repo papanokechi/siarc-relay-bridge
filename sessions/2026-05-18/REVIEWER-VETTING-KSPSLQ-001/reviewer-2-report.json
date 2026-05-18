@@ -1,0 +1,87 @@
+{
+  "reviewer_id": "R2",
+  "name": "David J. Broadhurst",
+  "affiliation_listed_in_cover_letter": "The Open University, Milton Keynes, United Kingdom",
+  "email_listed_in_cover_letter": "david.broadhurst@open.ac.uk",
+
+  "filter_2_1_identity_confirmation": {
+    "confirmed_identity": true,
+    "actual_affiliation_per_fetch": "The Open University, UK (per Rutgers Experimental Mathematics Seminar 2025-02-06 listing and Open Research Online repository djb2.html / djb3.html).",
+    "fetch_status": "Open University staff page returned HTTP 403 on direct fetch; identity and affiliation confirmed via secondary sources (Rutgers seminar listing for 6 Feb 2025; Springer proceedings 2025 chapter; carmamaths.org preprint hosting).",
+    "source_urls": [
+      "https://www.open.ac.uk/people/djb47 (403 — direct attempt)",
+      "https://sites.math.rutgers.edu/~zeilberg/expmath/broadhurst2025.pdf",
+      "https://oro.open.ac.uk/view/person/djb2.html"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z"
+  },
+
+  "filter_A_exp_math_editorial_overlap": {
+    "filter_pass": "UNVERIFIED-PROBABLE-PASS",
+    "rationale": "Direct EM board fetch returned 403. Targeted web_search for Broadhurst on EM board returned 'no evidence' of board membership. He has published IN the journal (e.g., the Borwein-Straub-Wan-Zudilin paper appeared in EM 22(1) 2013 — though Broadhurst is not on that paper). The journal's current EIC is Al Kasprzyk.",
+    "evidence_urls": [
+      "https://en.wikipedia.org/wiki/Experimental_Mathematics_(journal)",
+      "https://www.tandfonline.com/journals/uexm20/editorial-board (403)"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "MEDIUM"
+  },
+
+  "filter_B_bbc_cluster": {
+    "filter_pass": false,
+    "verdict": "DEFINITIVE FAIL by direct coauthorship with cluster head Bailey",
+    "rationale": "Bailey-Broadhurst 2001 — 'Parallel integer relation detection: techniques and applications', Mathematics of Computation 70, no. 236, 1719--1736 — is a direct two-author paper between Broadhurst and cluster head David H. Bailey. This paper is cited as the manuscript's reference [3]. Per the task's Filter B rules, direct coauthorship with any of {Bailey, Borwein, Crandall, Ferguson, Plouffe} is an automatic FAIL.",
+    "yellow_flags": [
+      "Broadhurst's recent work (e.g., 'Reciprocal PSLQ and the tiny Nome of Bologna', preprint on carmamaths.org) is hosted on Borwein-legacy infrastructure, suggesting continued community embedding."
+    ],
+    "evidence_urls": [
+      "https://www.davidhbailey.com/dhbpapers/ppslq.pdf",
+      "https://carmamaths.org/jon/Preprints/Papers/Published-InPress/Ising/broad-bessk.pdf",
+      "Manuscript reference [3] BaileyBroadhurst2001 in source-baustms.tex"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "filter_C_recent_activity": {
+    "filter_pass": true,
+    "rationale": "Confirmed active 2024-2025: book chapter 'Multivariate Elliptic Kites and Tetrahedral Tadpoles' in Lie Theory and Its Applications in Physics, Springer Proceedings vol 473 (2025), pp 43-58; invited talk 'Resurgent integer sequences' at Rutgers Experimental Mathematics Seminar, 6 Feb 2025; 'Richard Feynman's talent for finding things out', J. Phys. Conf. Ser. 2877 (2024) 012024.",
+    "relevant_publications_recent_24mo": [
+      "Multivariate Elliptic Kites and Tetrahedral Tadpoles (Springer 2025)",
+      "Richard Feynman's talent for finding things out (J. Phys. Conf. Ser. 2024)",
+      "Resurgent integer sequences (Rutgers EM Seminar talk 2025)"
+    ],
+    "source_urls": [
+      "https://sites.math.rutgers.edu/~zeilberg/expmath/broadhurst2025.pdf",
+      "https://oro.open.ac.uk/view/person/djb2.html"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "filter_D_geographic": {
+    "country": "United Kingdom",
+    "primary_affiliation": "The Open University, Milton Keynes, UK",
+    "set_level_diversity_contribution": "UK — non-AU; satisfies set-level non-AU requirement on its own."
+  },
+
+  "filter_E_prior_interaction_with_author": {
+    "filter_pass": true,
+    "rationale": "No public coauthorship or acknowledgment trail. Papanokechi's only public artefacts are Zenodo deposits with no Broadhurst mention.",
+    "yellow_flags": [],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "filter_F_baustms_fit": {
+    "filter_pass": true,
+    "rationale": "Established mathematical physicist; long publication record in experimental mathematics and PSLQ; no retraction flags. Natural BAustMS reviewer if Filter B did not block.",
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "overall_recommendation": "REPLACE",
+  "overall_confidence": "HIGH",
+  "blocking_filter": "Filter B (direct coauthorship with cluster head Bailey, ref [3] of manuscript)",
+  "summary": "Broadhurst is an excellent topical fit for a PSLQ paper -- he literally co-developed parallel PSLQ with Bailey, and that co-development paper is cited in our manuscript. That same fact disqualifies him under Filter B (direct cluster coauthorship). Filters A, C, D, E, F all pass; Filter B is dispositive."
+}
