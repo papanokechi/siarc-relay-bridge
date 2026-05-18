@@ -1,0 +1,135 @@
+{
+  "$schema_hint": "SIARC plan_dag v0.2",
+  "task_id": "T3B-VQUAD-EXCL-PEGZ3",
+  "target": "T2",
+  "objective": "PSLQ-exclude any Q-linear relation between V_quad and the polynomial basis Q[\u03c0, e, G, \u03b6(3)]_{total deg \u2264 3} at 2000 dp; emit exclusion_certificate.json on null result.",
+  "scope_note": "We test the Q-linear formulation: is V_quad in the Q-vector space spanned by the 35 monomials \u03c0^a e^b G^c \u03b6(3)^d with a+b+c+d \u2264 3? The wider 'algebraic over Q(\u03c0,e,G,\u03b6(3))' question requires additionally testing V_quad^2, V_quad^3 against the same basis at extended size; that is documented as an explicit out-of-scope extension under future work. We stay honest about which question this run answers.",
+  "nodes": [
+    {
+      "id": "N1_env",
+      "kind": "setup",
+      "description": "Snapshot env, write env_snapshot.json",
+      "depends_on": [],
+      "budget_seconds": 30,
+      "budget_ram_mb": 256,
+      "success_predicate": "env_snapshot.json present and parseable"
+    },
+    {
+      "id": "N2_vquad_100",
+      "kind": "compute",
+      "description": "Compute V_quad to 100 dp via backward CF recurrence, depth 800",
+      "depends_on": ["N1_env"],
+      "budget_seconds": 10,
+      "budget_ram_mb": 256,
+      "success_predicate": "first 50 digits agree with canonical reference 1.197373990688357602448603219937206329704270703231"
+    },
+    {
+      "id": "N3_vquad_500",
+      "kind": "compute",
+      "description": "Compute V_quad to 500 dp, depths 2000 and 2400; require \u2265 500 digits agreement",
+      "depends_on": ["N2_vquad_100"],
+      "budget_seconds": 60,
+      "budget_ram_mb": 512,
+      "success_predicate": "agreement_digits \u2265 500"
+    },
+    {
+      "id": "N4_vquad_2000",
+      "kind": "compute",
+      "description": "Compute V_quad to \u2265 2000 dp at depths 5000 and 6000 (working dps 2200); require \u2265 2000 digits agreement",
+      "depends_on": ["N3_vquad_500"],
+      "budget_seconds": 900,
+      "budget_ram_mb": 2048,
+      "success_predicate": "agreement_digits \u2265 2000"
+    },
+    {
+      "id": "N5_constants_2050",
+      "kind": "compute",
+      "description": "Compute \u03c0, e, Catalan G, \u03b6(3) at 2050 dps via mpmath built-ins; record SHA-256 of dumped values",
+      "depends_on": ["N4_vquad_2000"],
+      "budget_seconds": 60,
+      "budget_ram_mb": 512,
+      "success_predicate": "all four constants computed and stable across re-evaluation"
+    },
+    {
+      "id": "N6_basis_enum",
+      "kind": "compute",
+      "description": "Enumerate all monomials \u03c0^a e^b G^c \u03b6(3)^d with a+b+c+d \u2264 3, a,b,c,d \u2265 0, including the constant 1; expected basis_size = 35",
+      "depends_on": ["N5_constants_2050"],
+      "budget_seconds": 5,
+      "budget_ram_mb": 256,
+      "success_predicate": "basis_size == 35 and includes (0,0,0,0) and all four singleton monomials"
+    },
+    {
+      "id": "N7_pslq_500",
+      "kind": "filter",
+      "description": "Run mpmath.pslq([V_quad] + basis) at 500 dp, maxcoeff 10^4. Capture: null OR candidate-relation",
+      "depends_on": ["N6_basis_enum"],
+      "budget_seconds": 300,
+      "budget_ram_mb": 1024,
+      "success_predicate": "PSLQ returns either None (advance to N8) or a candidate (advance to stability re-check at higher dp)"
+    },
+    {
+      "id": "N8_pslq_2000",
+      "kind": "filter",
+      "description": "Re-run PSLQ at 2050 dp working precision; require null OR stable-across-tier candidate",
+      "depends_on": ["N7_pslq_500"],
+      "budget_seconds": 1800,
+      "budget_ram_mb": 4096,
+      "success_predicate": "PSLQ result categorised as one of {NULL, STABLE_CANDIDATE, UNSTABLE_NOISE}"
+    },
+    {
+      "id": "N9_certificate",
+      "kind": "bind",
+      "description": "Emit exclusion_certificate.json (if NULL) OR verified_relations.json (if STABLE_CANDIDATE survives Stage-4 symbolic check)",
+      "depends_on": ["N8_pslq_2000"],
+      "budget_seconds": 120,
+      "budget_ram_mb": 512,
+      "success_predicate": "exactly one of the two artefacts is non-empty"
+    },
+    {
+      "id": "N10_aeal_claims",
+      "kind": "archive",
+      "description": "Append AEAL claim records (seven-field schema) for: V_quad reference value, agreement digits at each tier, PSLQ verdict",
+      "depends_on": ["N9_certificate"],
+      "budget_seconds": 30,
+      "budget_ram_mb": 256,
+      "success_predicate": "claims.jsonl exists with \u2265 4 entries, all schema-valid"
+    },
+    {
+      "id": "N11_manifest",
+      "kind": "archive",
+      "description": "Compute SHA-256 of every artefact; emit manifest.json. If verdict != GOLD_FREEZE, also emit pending_verification.json (only on PENDING) or simply manifest + exclusion record (on EXCLUSION_CERTIFIED).",
+      "depends_on": ["N10_aeal_claims"],
+      "budget_seconds": 30,
+      "budget_ram_mb": 256,
+      "success_predicate": "manifest.json validates"
+    },
+    {
+      "id": "N12_report",
+      "kind": "archive",
+      "description": "Emit report.md with TARGET, executed-stages, evidence table, honest verdict, next-cycle recommendation",
+      "depends_on": ["N11_manifest"],
+      "budget_seconds": 30,
+      "budget_ram_mb": 256,
+      "success_predicate": "report.md present, contains exactly one verdict tag"
+    },
+    {
+      "id": "N13_handoff_push",
+      "kind": "archive",
+      "description": "Write handoff.md per copilot-instructions STANDING FINAL STEP; stage in siarc-relay-bridge, commit, push",
+      "depends_on": ["N12_report"],
+      "budget_seconds": 120,
+      "budget_ram_mb": 256,
+      "success_predicate": "bridge push succeeded or BRIDGE_FAILED zip emitted"
+    }
+  ],
+  "global_budget_seconds": 4200,
+  "global_budget_ram_mb": 6144,
+  "halt_conditions": [
+    "agreement_digits < 2000 at top tier",
+    "RAM usage > 85% of host",
+    "PSLQ returns conflicting candidates at 500 and 2050 dp (UNSTABLE_NOISE)",
+    "any computation produces NaN, inf, or negative precision residual"
+  ],
+  "honest_outcomes_authorised": ["GOLD_FREEZE", "EXCLUSION_CERTIFIED", "PENDING_VERIFICATION", "ABORTED"]
+}
