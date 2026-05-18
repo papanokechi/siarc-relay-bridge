@@ -1,0 +1,79 @@
+{
+  "task_id": "T3B-VQUAD-EXCL-T2PRIME",
+  "target": "T2'",
+  "claim_form": "Q-linear over two sub-bases (union and tensor)",
+  "statement": "No nontrivial Q-linear relation exists between V_quad and the basis {V_quad^k : k=0..3} \u222a {pi^a * e^b * G^c * zeta(3)^d : a+b+c+d <= 2, (a,b,c,d) != (0,0,0,0)} \u222a {1} (B_union, 18 elements), nor among the strictly stronger tensor basis {V_quad^k * m : k=0..3, m a classical monomial of total degree <= 2 in {pi,e,G,zeta(3)}} (B_tensor, 60 elements), at PSLQ working precisions 500 dp and 2050 dp, with maxcoeff = 10^4 throughout.",
+  "scope_caveat": "B_union literally enumerates the smallest test Claude named: it catches a relation of the form sum_k c_k V_quad^k + sum_j d_j m_j = 0 with c_k, d_j in Z and |c|,|d| <= 10^4. B_tensor strictly contains B_union and additionally catches any polynomial relation in V_quad whose coefficients are themselves Z-linear combinations of the degree-<=2 classical monomials (e.g., c_2(pi,e,G,zeta(3)) * V_quad^2 + c_1(...) * V_quad + c_0(...) = 0 with each c_i a polynomial of total degree <= 2). NEITHER basis rules out: (i) classical-monomial coefficients of total degree > 2; (ii) integer coefficients with |c| > 10^4; (iii) degree-4-or-higher polynomial relations in V_quad; (iv) algebraic relations involving constants outside {pi,e,G,zeta(3)} (e.g., gamma, log 2, ln 2, zeta(5), Khinchin's constant). Each of these is a documented next-cycle target.",
+  "constant_under_test": {
+    "name": "V_quad",
+    "definition": "1 + K_{n>=1} 1/(3 n^2 + n + 1), backward GCF",
+    "computed_at_dps": 2200,
+    "agreement_digits_5000_vs_6000": 2200,
+    "first_64_chars": "1.197373990688357602448603219937206329704270703231350336285792769",
+    "predecessor_string_sha256": "52375a71a05bf61ad971cf83ea9334eb96e20ffa054dc3cab74447966a2f5c44",
+    "predecessor_reload_sanity_agreement_digits": 1999,
+    "predecessor_reload_threshold": 1998,
+    "predecessor_reload_explanation": "Predecessor cycle T3B-VQUAD-EXCL-PEGZ3 persisted V_quad as a 2000-decimal-digit text artefact via mp.nstr(...). Round-trip through that representation truncates ~1 ULP at the boundary, so reload-vs-fresh agreement of 1999 digits is the expected signal of correct provenance, not a precision deficit. The FRESH computation (depth 5000, 2200 dps) is what PSLQ consumes."
+  },
+  "sub_certificates": [
+    {
+      "label": "B_union",
+      "description": "Literal union basis named in the T2' relay prompt (smallest test).",
+      "basis_size": 18,
+      "basis_enumeration_artifact": "basis_union_enumeration.json",
+      "pslq_parameters": {
+        "tier1": {
+          "working_dps": 500,
+          "tolerance": "10^-450",
+          "maxcoeff": 10000,
+          "maxsteps": 2000,
+          "wall_seconds": 17.905,
+          "result": null
+        },
+        "tier2": {
+          "working_dps": 2050,
+          "tolerance": "10^-1970",
+          "maxcoeff": 10000,
+          "maxsteps": 4000,
+          "wall_seconds": 174.351,
+          "result": null
+        }
+      },
+      "sub_verdict": "NULL",
+      "stability": "Both tiers returned None on this basis. No relation can have escaped tier-1 (500 dp) detection and re-appeared at tier-2 (2050 dp) within maxcoeff = 10^4."
+    },
+    {
+      "label": "B_tensor",
+      "description": "Strictly stronger tensor basis (agent extension; judgment call).",
+      "basis_size": 60,
+      "basis_enumeration_artifact": "basis_tensor_enumeration.json",
+      "pslq_parameters": {
+        "tier1": {
+          "working_dps": 500,
+          "tolerance": "10^-450",
+          "maxcoeff": 10000,
+          "maxsteps": 2000,
+          "wall_seconds": 224.715,
+          "result": null
+        },
+        "tier2": {
+          "working_dps": 2050,
+          "tolerance": "10^-1970",
+          "maxcoeff": 10000,
+          "maxsteps": 4000,
+          "wall_seconds": 3438.979,
+          "result": null
+        }
+      },
+      "sub_verdict": "NULL",
+      "stability": "Both tiers returned None on this basis. No relation can have escaped tier-1 (500 dp) detection and re-appeared at tier-2 (2050 dp) within maxcoeff = 10^4."
+    }
+  ],
+  "combined_verdict": "EXCLUSION_CERTIFIED",
+  "confidence_statement": "PSLQ provably detects any integer relation among the input vector with coefficient norm <= 2^{D/n - 2} at precision D digits with n input slots [Bailey-Broadhurst]. With D = 2050 dp and n = 18 (union) or n = 60 (tensor), the theoretical detection floor far exceeds the imposed maxcoeff = 10^4 in both cases. Returning None across all four runs therefore certifies the exclusion under the stated bound, with two-tier stability protecting against standard PSLQ failure modes (which the cross-tier check did not surface).",
+  "falsification_triggers_unfired": [
+    "A degree-4 hit at the same basis (would require extending B_union to V_quad^4)",
+    "A V_quad^2 hit at degree <= 2 in the same basis (already in B_tensor; NULL)",
+    "A degree <= 3 hit after expanding maxcoeff to 10^6 (NOT TESTED this cycle)"
+  ]
+}
