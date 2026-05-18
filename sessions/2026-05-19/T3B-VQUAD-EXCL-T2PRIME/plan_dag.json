@@ -1,0 +1,33 @@
+{
+  "$schema_hint": "SIARC plan_dag v0.2",
+  "task_id": "T3B-VQUAD-EXCL-T2PRIME",
+  "target": "T2'",
+  "objective": "Lift the T3B-VQUAD-EXCL-PEGZ3 (Q-linear, V_quad^1 only) exclusion to a polynomial-in-V_quad exclusion of degree \u2264 3, by running PSLQ on two complementary bases at two precision tiers each.",
+  "rationale_for_two_bases": "The user (Claude) named T2' textually as 'Q-linear exclusion of V_quad over {V_quad^k : k=0..3} \u222a {classical monomials deg \u2264 2}' and described this as 'the smallest test that would catch a polynomial relation between V_quad and the classicals'. The strict union reading (18 elements) catches polynomial-in-V_quad relations whose corrections are Q-linear in classical monomials but NOT cross-products like V_quad\u00b7\u03c0. The tensor product reading (60 elements) catches the full bipartite-degree-(3,2) polynomial P(V_quad, \u03c0, e, G, \u03b6(3)) = 0. We run both and report each separately, so the certificate is unambiguous about what is and is not excluded.",
+  "scope_note": "Both tests use maxcoeff = 10^4 (same as predecessor cycle, for direct comparability). Lifting maxcoeff to 10^6 is named as a separate follow-up cycle if both tests here return NULL.",
+  "nodes": [
+    {"id": "N1_env", "kind": "setup", "description": "Env snapshot", "depends_on": [], "budget_seconds": 30, "budget_ram_mb": 256, "success_predicate": "env_snapshot.json present"},
+    {"id": "N2_vquad_reload", "kind": "compute", "description": "Reload V_quad from predecessor artifact, verify SHA-256 match, parse to mpf at 2200 dp, cross-check against fresh CF computation at depth 6000", "depends_on": ["N1_env"], "budget_seconds": 60, "budget_ram_mb": 1024, "success_predicate": "agreement_digits \u2265 2000 vs fresh CF recomputation; SHA-256 of reloaded string matches predecessor"},
+    {"id": "N3_basis_union", "kind": "compute", "description": "Enumerate union basis B_union = {V_quad^k : k\u22083} \u222a {\u03c0^a e^b G^c \u03b6(3)^d : a+b+c+d \u2264 2}, dedupe '1'", "depends_on": ["N2_vquad_reload"], "budget_seconds": 5, "budget_ram_mb": 256, "success_predicate": "size == 18"},
+    {"id": "N4_basis_tensor", "kind": "compute", "description": "Enumerate tensor basis B_tensor = {V_quad^k * \u03c0^a e^b G^c \u03b6(3)^d : k=0..3, a+b+c+d \u2264 2}", "depends_on": ["N2_vquad_reload"], "budget_seconds": 5, "budget_ram_mb": 256, "success_predicate": "size == 60"},
+    {"id": "N5_pslq_union_500", "kind": "filter", "description": "PSLQ B_union at 500 dp, tol 10^-450, maxcoeff 10^4, maxsteps 2000", "depends_on": ["N3_basis_union"], "budget_seconds": 600, "budget_ram_mb": 1024, "success_predicate": "result is None OR a stable candidate"},
+    {"id": "N6_pslq_union_2050", "kind": "filter", "description": "PSLQ B_union at 2050 dp, tol 10^-1970, maxcoeff 10^4, maxsteps 4000", "depends_on": ["N5_pslq_union_500"], "budget_seconds": 600, "budget_ram_mb": 2048, "success_predicate": "result classified NULL / STABLE_CANDIDATE / UNSTABLE_NOISE"},
+    {"id": "N7_pslq_tensor_500", "kind": "filter", "description": "PSLQ B_tensor at 500 dp, tol 10^-450, maxcoeff 10^4, maxsteps 2000", "depends_on": ["N4_basis_tensor"], "budget_seconds": 1200, "budget_ram_mb": 2048, "success_predicate": "result is None OR a stable candidate"},
+    {"id": "N8_pslq_tensor_2050", "kind": "filter", "description": "PSLQ B_tensor at 2050 dp, tol 10^-1970, maxcoeff 10^4, maxsteps 4000 (longest tier)", "depends_on": ["N7_pslq_tensor_500"], "budget_seconds": 3600, "budget_ram_mb": 4096, "success_predicate": "result classified NULL / STABLE_CANDIDATE / UNSTABLE_NOISE"},
+    {"id": "N9_certificate", "kind": "bind", "description": "Emit exclusion_certificate.json with verdicts for both bases and a combined verdict (joint NULL => stronger exclusion)", "depends_on": ["N6_pslq_union_2050", "N8_pslq_tensor_2050"], "budget_seconds": 60, "budget_ram_mb": 256, "success_predicate": "certificate present, verdict is one of {EXCLUSION_CERTIFIED, PENDING_VERIFICATION, GOLD_FREEZE, ABORTED}"},
+    {"id": "N10_aeal", "kind": "archive", "description": "Append AEAL claims for each tier-result + combined verdict", "depends_on": ["N9_certificate"], "budget_seconds": 30, "budget_ram_mb": 256, "success_predicate": "claims.jsonl \u2265 7 entries, all schema-valid"},
+    {"id": "N11_manifest", "kind": "archive", "description": "SHA-256 manifest of all artefacts", "depends_on": ["N10_aeal"], "budget_seconds": 30, "budget_ram_mb": 256, "success_predicate": "manifest.json validates"},
+    {"id": "N12_report", "kind": "archive", "description": "report.md with TARGET, evidence table, honest verdict, next-cycle recommendation", "depends_on": ["N11_manifest"], "budget_seconds": 30, "budget_ram_mb": 256, "success_predicate": "report.md present with exactly one verdict tag"},
+    {"id": "N13_handoff_push", "kind": "archive", "description": "STANDING FINAL STEP: handoff.md, fetch-only check, stage only this directory, commit, push", "depends_on": ["N12_report"], "budget_seconds": 120, "budget_ram_mb": 256, "success_predicate": "push succeeded OR BRIDGE_FAILED zip emitted"}
+  ],
+  "global_budget_seconds": 6300,
+  "global_budget_ram_mb": 6144,
+  "halt_conditions": [
+    "agreement_digits < 2000 at the cross-check tier",
+    "RAM > 85% of host",
+    "PSLQ returns conflicting candidates at 500 dp and 2050 dp on the same basis (UNSTABLE_NOISE)",
+    "Any computation produces NaN, inf, or negative precision residual",
+    "If a STABLE_CANDIDATE survives both tiers on either basis: HALT and emit candidate-relation artefact; do NOT escalate language; route to Stage-4 symbolic check before any binding"
+  ],
+  "honest_outcomes_authorised": ["GOLD_FREEZE", "EXCLUSION_CERTIFIED", "PENDING_VERIFICATION", "ABORTED"]
+}
