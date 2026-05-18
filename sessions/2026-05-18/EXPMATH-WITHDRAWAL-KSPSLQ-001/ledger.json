@@ -1,0 +1,77 @@
+{
+  "ledger_entry": {
+    "chain_id": "EXPMATH-WITHDRAWAL-KSPSLQ-001",
+    "chain_date_jst": "2026-05-18",
+    "chain_kind": "venue withdrawal — duplicate-submission risk gate",
+    "complexity": "low",
+    "parent_chain": "VENUE-RELAY-KSPSLQ-001",
+    "downstream_dependency": {
+      "chain_id": "BAUSTMS-PREP-KSPSLQ-001",
+      "status": "BLOCKED — cannot proceed to BAustMS submission until Exp Math withdrawal is confirmed in writing OR until 10 business days have elapsed from withdrawal-email send date with corroborating ScholarOne dashboard evidence of withdrawn status (see send-instructions.md §4)."
+    },
+    "manuscript_identifier": {
+      "title": "A Precision-Controlled Null Result for a Khinchin-Signature PSLQ Family",
+      "author_pen_name": "Papanokechi",
+      "orcid": "0009-0000-6192-8273",
+      "corresponding_author_email_at_exp_math": "shkubo@outlook.jp",
+      "submission_id_at_exp_math": "264514392",
+      "original_submission_date_jst": "2026-04-18",
+      "returned_for_corrections_date_jst": "2026-05-17",
+      "returned_for_corrections_signatory": "Kaviya, Experimental Mathematics Editorial Office (no surname recorded)",
+      "stated_corrections_cited_in_17_may_notice": [
+        "missing file: agent_h_table1.tex",
+        "missing file: agent_h_table2.tex",
+        "style nonconformance (unspecified)"
+      ],
+      "pre_withdrawal_status_in_author_dashboard": "draft (returned for corrections; not under active review)"
+    },
+    "action": {
+      "type": "withdrawal email drafted",
+      "send_state": "NOT SENT BY AGENT — operator to send from own client",
+      "channels_recommended": [
+        "primary: ScholarOne portal messaging at https://mc.manuscriptcentral.com/uemt inside submission record 264514392",
+        "secondary: direct email to the editorial-office address from the 17 May 2026 Kaviya correspondence (fallback: editorial-office address on the T&F journal page at https://www.tandfonline.com/journals/uemt20)"
+      ],
+      "draft_file": "withdrawal-email-draft.txt",
+      "send_instructions_file": "send-instructions.md"
+    },
+    "confirmation_await": {
+      "status": "AWAITING SEND — operator action required",
+      "send_event": null,
+      "confirmation_received": null,
+      "expected_response_window_business_days": 5,
+      "follow_up_window_business_days": 5,
+      "hard_proceed_window_business_days": 10,
+      "evidence_classes_accepted_for_gate_release": [
+        "written confirmation from Experimental Mathematics editorial office (preferred)",
+        "ScholarOne dashboard status = Withdrawn (corroborating evidence after 10 business days no-reply)"
+      ]
+    },
+    "policy_check_summary": {
+      "venue_withdrawal_procedure": "T&F / Experimental Mathematics accepts withdrawal by formal written request to the editorial office (email and / or ScholarOne portal messaging). No dedicated withdrawal form was identified. Some ScholarOne deployments expose a 'Withdraw' button on the manuscript detail page — operator should use it if present, and follow up with the same email text for redundancy.",
+      "policy_check_evidence": "claims.jsonl (this slot) C1 + C2; T&F instructions URL pattern (https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=uemt20) returned HTTP 403 to anonymous fetch on 2026-05-18; supplementary search-based confirmation recorded in C2 with appropriate evidence-class caveat."
+    },
+    "redirect_queue_update": {
+      "anchor_file": ".copilot/session-state/d0b490af-727d-4ff2-b51d-fbe079b0a718/files/redirect_queue_triage_matrix_v1.md",
+      "row": "Section C, Item 5 (Khinchin-Signature PSLQ Null Result)",
+      "new_note": "Exp Math withdrawal email drafted; awaiting confirmation before BAustMS submission. Duplicate-submission risk gate active.",
+      "applied_in_this_slot": true,
+      "see_also": "redirect_queue_update.md (this slot)"
+    },
+    "do_not_list_carried_forward": [
+      "Do not name the next venue in any correspondence with Experimental Mathematics or in any document that could be forwarded to the journal.",
+      "Do not mention prior rejection counts at this venue.",
+      "Do not critique the journal or the corrections request.",
+      "Do not promise not to submit to Experimental Mathematics in the future.",
+      "Do not provide a substantive reason beyond a simple decision not to resubmit."
+    ],
+    "files_committed_this_slot": [
+      "withdrawal-email-draft.txt",
+      "send-instructions.md",
+      "ledger.json",
+      "claims.jsonl",
+      "redirect_queue_update.md",
+      "handoff.md"
+    ]
+  }
+}
