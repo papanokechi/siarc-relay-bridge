@@ -1,0 +1,12 @@
+{
+  "discrepancies_found_in_chain": [
+    {
+      "discrepancy_id": "VENUE-RELAY-KSPSLQ-001-D1",
+      "stage_detected": 3,
+      "stage_originated": 2,
+      "description": "INTEGERS was ranked #2 in Stage-2 candidate enumeration based on scope-fit (MSC 11K, 11Y, 11N coverage; diamond OA; short-note format; recent CF papers including Singh-Zhang-Hildebrand 2025 on Gauss-Kuzmin). Stage-3 web verification of the venue's submission policy disclosed an explicit hard AI ban: 'Integers will not consider any article that makes use of artificial intelligence in producing mathematics, computer code, bibliographic information, or other content.' (Source: https://math.colgate.edu/~integers/submit.html, fetched 2026-05-18.) The manuscript's existing Computational and AI Disclosure section explicitly names Copilot (code generation) and Claude (synthesis) and is therefore incompatible with INTEGERS' policy.",
+      "resolution": "Remove INTEGERS from candidate list; add to persistent hard-exclusion list alongside NNTDM. Future relay prompts should treat INTEGERS as hard-excluded for any manuscript carrying an AI assistance disclosure.",
+      "lesson": "Stage-2 enumeration based on scope and OA model is insufficient for venues with potential AI bans. Pre-verification of AI policy should be a Stage-2 input filter for any portfolio carrying AI-assisted disclosures, not a Stage-3 cleanup step."
+    }
+  ]
+}

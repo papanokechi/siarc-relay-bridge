@@ -1,0 +1,74 @@
+{
+  "chain_id": "VENUE-RELAY-KSPSLQ-001",
+  "stage": 4,
+  "stage_label": "Relay — strategic venue recommendation",
+  "primary_target": {
+    "venue": "Mathematics of Computation",
+    "publisher": "American Mathematical Society",
+    "rationale_two_sentences": "MComp is the literature centroid: four of the manuscript's five most-cited works (Bailey-Borwein-Crandall 1997 on the Khinchin constant; Ferguson-Bailey-Arno 1999 on PSLQ; Bailey-Borwein-Plouffe 1997 on polylogarithmic constants; Bailey-Broadhurst 2001 on parallel integer relation detection) appeared in this journal, giving the precision-controlled Khinchin/PSLQ null result a direct precedent in remit. Combined with AMS double-anonymous peer review (active since January 2021), which structurally insulates the submission from the author's Experimental Mathematics rejection history, and a verified AI policy that is satisfied verbatim by the manuscript's existing Computational and AI Disclosure section, MComp is the cleanest scope-and-process fit in the audited set."
+  },
+  "backup_target": {
+    "venue": "Bulletin of the Australian Mathematical Society",
+    "publisher": "Cambridge University Press / Australian Mathematical Society",
+    "rationale_two_sentences": "BAustMS provides the fastest verified turnaround in the candidate pool (editorial decisions 'normally within a month of receipt of the paper', per the official CUP/BAustMS page), an exact format fit for the 6-8 page short-note manuscript (length cap 12 pages), and an explicit CUP-level policy clause accommodating pseudonymous authorship. Reviewer-pool overlap with Experimental Mathematics is structurally low (general NT and Australian-based reviewers versus the PSLQ-specialist Exp Math pool), making this the strongest 'fast-decision, low-rejection-cascade-risk' fallback if MComp desk-rejects on novelty grounds."
+  },
+  "reserve_target": {
+    "venue": "Ramanujan Journal",
+    "publisher": "Springer",
+    "rationale_two_sentences": "RJ's broad scope covers continued fractions and metric number theory and has been a historical home for some Khinchin/CF work, though its centroid is q-series and modular forms rather than metric-CF/PSLQ. Reserved here because Stage-3 verification was incomplete (Springer login wall blocked direct policy verification), so this should only be activated if both MComp and BAustMS bounce, and a fresh verification pass should be performed at that point."
+  },
+  "deep_fallback": {
+    "venue": "arXiv (math.NT) + Zenodo DOI deposit",
+    "rationale": "Always-available archival path used elsewhere in this portfolio (P-AEAL, P-ZTEK, P-CMF, P-AI-Behavior). Preserves precedence and provides a citable DOI without any editorial gating. Compatible with subsequent journal submission to BAustMS and MComp under their preprint-friendly policies."
+  },
+  "cross_portfolio_impact": {
+    "redirect_queue_concurrent_submission_check": {
+      "266535114_Arithmetic_Sector_Bifurcation": "Currently at Experimental Mathematics. Targeting MComp for the Khinchin-PSLQ paper creates no overlap (different journal). No re-sequencing required.",
+      "266999523_PCF_Logarithmic_Ladder": "Currently at Experimental Mathematics. Same: no overlap, no re-sequencing.",
+      "NON-110708_Painleve_IIID6": "Currently at Nonlinearity. Different venue and different mathematical area (resurgence/Painlevé). No overlap with the MComp primary target."
+    },
+    "portfolio_sequencing_observation": "Targeting MComp for Khinchin-PSLQ does not block any other portfolio paper. However: if either of the two Experimental Mathematics holdings (266535114, 266999523) is later redirected toward MComp, sequencing should send Khinchin-PSLQ FIRST (it has the cleanest single-method narrative and the best literature-centroid match) and use its outcome as a venue-fit calibration data point before submitting the larger PCF-Desert / PCF-Logarithmic-Ladder papers to the same editorial board.",
+    "active_jnt_paper_advisory": "Journal of Number Theory currently holds JNTH-D-26-00480 (PSL2Z four-tier obstruction). Per the Stage-2 prior-history overlay, do NOT target JNT for the Khinchin-PSLQ paper until that submission has resolved.",
+    "active_jdeq_paper_advisory": "Journal of Differential Equations currently holds JDEQ26-983. Irrelevant scope for Khinchin-PSLQ; no cross-portfolio constraint.",
+    "soft_excluded_acta_arithmetica": "Acta Arithmetica holds submission 260423. No proposed candidate overlaps. No constraint introduced by this chain."
+  },
+  "pre_submission_checklist_primary_mcom": [
+    {
+      "item": "1. AMSLaTeX conversion",
+      "detail": "MComp requires AMSLaTeX. Convert the manuscript's current 11pt article class to amsart with mcomart-compatible options. Acquire the AMSLaTeX package from https://www.ams.org/publications/authors/tex/amslatex. Source rebuild is local; no semantic edits required."
+    },
+    {
+      "item": "2. MSC 2020 codes in submission metadata",
+      "detail": "Primary 11Y65 (Continued fraction calculations); secondaries 11K50, 11J70, 68W30. Confirm at submission portal."
+    },
+    {
+      "item": "3. Computational and AI Disclosure section — minor wording check",
+      "detail": "AMS-COPE policy (verified 2026-05-18) requires disclosure 'in the Materials and Methods (or similar section) of the paper how the AI tool was used and which tool was used'. Manuscript's existing disclosure section names both tools (Copilot and Claude) and the scope of use (code generation, iterative refinement, strategic guidance, synthesis). Verify the wording reads as a Methods-section-style disclosure rather than only an end-matter note; if necessary, retitle to 'Methods and Computational Disclosure' and place immediately before References."
+    },
+    {
+      "item": "4. Reproducibility statement",
+      "detail": "Manuscript already cites https://github.com/papanokechi/khinchin-signature-pslq for code, residual logs, status-block JSON, figure sources. Confirm the repo is public and that the README references the script-level scripts that produce the three numerical claims (n=91 prefix for pi; n=192 prefix for e; 546 + 1152 = 1698 conservative-cap unsupported attempts; 91 wide-cap diagnostic non-unsupported hits in T3+T7). Add a frozen-commit-hash citation to the manuscript if not already present."
+    },
+    {
+      "item": "5. Cover letter framing — methodology contribution foregrounded",
+      "detail": "Frame the contribution as 'a precision-controlled methodology that separates artefacts from structure, applied to the Khinchin-signature coordinate family on the CFs of pi and e, yielding a calibration-value null result' rather than 'PSLQ failed to find a relation'. This reduces editor desk-rejection risk on the 'insufficient novelty' axis identified in Stage 3."
+    },
+    {
+      "item": "6. Double-anonymous preparation",
+      "detail": "Per AMS 2021 policy, both author and referee identities are concealed during review. Confirm the submitted manuscript pdf does NOT contain author name in the body, in figure captions, in the disclosure section, or in PDF metadata. The current source.tex has \\author{} blank; verify the GitHub repo URL in the disclosure does not de-anonymize before submission (consider replacing with 'available at [URL on acceptance]' for the review version, with the actual URL added on revision)."
+    }
+  ],
+  "risk_weighted_expected_outcome_primary_mcom": {
+    "p_accept": 0.20,
+    "p_revise": 0.35,
+    "p_reject": 0.45,
+    "reasoning": "Base rate at top computational-NT venues for a tightly scoped null result is roughly p_accept_first_decision ~ 10-20%, p_R&R ~ 30-40%, p_reject ~ 40-50%. Adjustments: (+) literature centroid alignment, double-anonymous review removing Exp Math rejection shadow; (-) negative result perceived novelty risk; (-) author has no prior MComp publication and no institutional affiliation. Net: posture roughly at the base rate with a slight downward tilt on accept and slight upward tilt on revise. After R&R cycle the cumulative p_eventual_acceptance is ~ 0.45-0.50."
+  },
+  "risk_weighted_expected_outcome_backup_baustms": {
+    "p_accept": 0.18,
+    "p_revise": 0.25,
+    "p_reject": 0.57,
+    "reasoning": "BAustMS' fast-decision posture means desk rejection is more likely than R&R for results judged 'not surprising enough'; however, when accepted, it's typically accepted-as-submitted or with minor revisions only. Expected time-to-verdict ~ 1 month makes this cheap to attempt as backup."
+  },
+  "notes_for_stage5_ledger": "Record this chain. Update redirect queue to mark Khinchin-PSLQ-Family as moving from 'Experimental Mathematics (submitted 2026-04-18, ID 264514392)' to 'queued for resubmission to Mathematics of Computation (primary) with BAustMS (backup)'. Note that the actual withdrawal from Experimental Mathematics is an operator action, not an agent action, and must be performed before resubmission to MComp to avoid concurrent-submission policy violation."
+}
