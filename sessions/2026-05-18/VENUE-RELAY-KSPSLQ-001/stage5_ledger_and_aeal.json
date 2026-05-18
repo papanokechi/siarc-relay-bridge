@@ -1,0 +1,163 @@
+{
+  "ledger_entry": {
+    "chain_id": "VENUE-RELAY-KSPSLQ-001",
+    "chain_date_jst": "2026-05-18",
+    "chain_kind": "venue determination relay",
+    "manuscript_identifier": {
+      "title": "A Precision-Controlled Null Result for a Khinchin-Signature PSLQ Family",
+      "author": "Shunsuke Kubota (ORCID 0009-0000-6192-8273)",
+      "current_submission_id_at_exp_math": "264514392",
+      "current_status_before_chain": "Submitted to Experimental Mathematics, 2026-04-18",
+      "archive_path": "submitted-manuscripts-archive/precision-controlled-null-result-khinchin-signature-pslq-family/"
+    },
+    "final_venue_decision": {
+      "primary": "Mathematics of Computation (AMS)",
+      "backup": "Bulletin of the Australian Mathematical Society (CUP / AustMS)",
+      "reserve": "Ramanujan Journal (Springer)",
+      "deep_fallback": "arXiv math.NT + Zenodo DOI deposit"
+    },
+    "top3_alternatives_considered_and_reason_for_non_selection": [
+      {"venue": "INTEGERS", "reason_for_non_selection": "Hard AI ban discovered in Stage 3 (https://math.colgate.edu/~integers/submit.html). Manuscript's existing Copilot/Claude Disclosure makes it ineligible. Hard-exclude going forward."},
+      {"venue": "Research in Number Theory (Springer)", "reason_for_non_selection": "Stage-3 verification incomplete (Springer login wall); centroid is analytic/arithmetic-geometric NT rather than metric-CF/PSLQ; deprioritised pending fresh audit."},
+      {"venue": "Journal of Symbolic Computation (Elsevier)", "reason_for_non_selection": "Manuscript is evidential (null result for a coordinate family) rather than algorithmic; JSC favours algorithm-development contributions; scope mismatch."}
+    ],
+    "open_questions_and_unresolved_risks": [
+      "Manuscript must be withdrawn from Experimental Mathematics (submission ID 264514392) before resubmission to Mathematics of Computation. This is an operator action, not an agent action.",
+      "AMS double-anonymous review (verified policy since Jan 2021) requires the submitted pdf to be free of author-identifying content including the GitHub URL in the AI Disclosure section. Resolution: prepare a review-version pdf with the URL replaced by a placeholder, and supply the actual URL on revision.",
+      "Springer-side verification (Ramanujan Journal, Research in Number Theory) is incomplete due to login wall. If primary and backup both fail, a fresh Springer-policy audit is required before activating the reserve.",
+      "Mathematics of Computation editorial board composition was not directly enumerated in this audit (board page returned no meaningful content via the fetch path used). If a board-editor-with-PSLQ-history signal is desired for the cover letter, a follow-up manual lookup at https://www.ams.org/mcomedit is recommended.",
+      "Two-constant replication (pi + e) is methodologically decisive but referee may request a third constant (e.g. log(2), Apéry's constant, Catalan's constant) before publication. Cost: one additional certified-prefix run + one additional PSLQ sweep per constant. Substrate availability: the existing precision-controlled pipeline supports this directly."
+    ],
+    "redirect_queue_update": {
+      "before_chain": {
+        "khinchin_pslq_family_264514392": "Experimental Mathematics — submitted 2026-04-18, no decision yet"
+      },
+      "after_chain": {
+        "khinchin_pslq_family_264514392": "QUEUED for withdrawal from Experimental Mathematics and resubmission to Mathematics of Computation (primary) per VENUE-RELAY-KSPSLQ-001; BAustMS as backup if MComp desk-rejects"
+      },
+      "unrelated_redirect_queue_entries_unchanged": [
+        "266535114 (Arithmetic Sector Bifurcation) — still at Experimental Mathematics; outside this chain's scope",
+        "266999523 (PCF Logarithmic Ladder) — still at Experimental Mathematics; outside this chain's scope",
+        "NON-110708 (Painleve IIID6) — still at Nonlinearity; outside this chain's scope",
+        "Acta Arithmetica 260423 — flagged soft-exclude in Stage 2; not affected"
+      ]
+    },
+    "hard_exclusion_list_updates": [
+      {"venue_added": "INTEGERS (Electronic Journal of Combinatorial Number Theory)", "reason": "Verified hard AI ban (https://math.colgate.edu/~integers/submit.html) inconsistent with manuscript's Copilot/Claude Disclosure. Equivalent in posture to NNTDM."}
+    ],
+    "agent_judgment_calls_recorded": [
+      "Recommended primary based on literature-centroid argument (4/5 most-cited works at MComp) combined with verified double-anonymous review removing rejection-history bias. This is a moderately strong signal; an alternative reading could prioritize speed-to-verdict and pick BAustMS as primary.",
+      "Demoted Ramanujan Journal and Research in Number Theory partially due to inability to verify policy pages behind Springer login wall, not solely on scope grounds. If these venues are surfaced again, a fresh verification pass is needed."
+    ]
+  },
+  "aeal_claim_entries": [
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C1",
+      "claim": "INTEGERS (Electronic Journal of Combinatorial Number Theory) operates a hard prohibition against AI-assisted manuscripts: 'Integers will not consider any article that makes use of artificial intelligence in producing mathematics, computer code, bibliographic information, or other content.'",
+      "evidence_type": "web_verification",
+      "source_url": "https://math.colgate.edu/~integers/submit.html",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct fetch of authoritative venue page; verbatim text quoted in stage3_audit.json"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C2",
+      "claim": "American Mathematical Society journal policy (adopted from COPE February 2023) requires disclosure of AI tool use in the Materials-and-Methods-equivalent section of the manuscript but does not prohibit AI-assisted research. AI tools cannot be listed as authors.",
+      "evidence_type": "web_verification",
+      "source_url": "https://www.ams.org/publications/journals/policies/UseofArtificialIntelligence",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct fetch of AMS policy page; verbatim COPE-derived text quoted in stage3_audit.json"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C3",
+      "claim": "American Mathematical Society research journals (including Mathematics of Computation) operate double-anonymous peer review per AMS Council January 2021 decision.",
+      "evidence_type": "web_verification",
+      "source_url": "https://www.ams.org/publications/journals/policies/policies",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct fetch of AMS Ethical Guidelines and Journal Policies page; bullet item 'Double Anonymous Peer Review' explicitly references the AMS Council January 2021 vote"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C4",
+      "claim": "Bulletin of the Australian Mathematical Society (Cambridge University Press / AustMS) editorial decisions are taken 'normally within a month of receipt of the paper.'",
+      "evidence_type": "web_verification",
+      "source_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/information/about-this-journal",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct fetch of CUP journal-information page; verbatim quoted"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C5",
+      "claim": "Bulletin of the Australian Mathematical Society does not normally accept papers longer than 12 pages.",
+      "evidence_type": "web_verification",
+      "source_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/information/about-this-journal",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct fetch of CUP journal-information page; verbatim quoted"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C6",
+      "claim": "Cambridge University Press policy explicitly accommodates pseudonymous authorship: 'Journals may have their own policies on anonymous or pseudonymous authorship.' The standard responsibilities for authorship (legal accountability, ORCID, corresponding-author signing) must still be fulfilled.",
+      "evidence_type": "web_verification",
+      "source_url": "https://www.cambridge.org/core/services/authors/publishing-ethics/research-publishing-ethics-guidelines-for-journals/authorship-and-contributorship",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct fetch of CUP publishing-ethics page; verbatim quoted"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C7",
+      "claim": "Cambridge University Press policy requires AI use to be declared and clearly explained, and prohibits AI tools from being listed as authors.",
+      "evidence_type": "web_verification",
+      "source_url": "https://www.cambridge.org/core/services/authors/publishing-ethics/research-publishing-ethics-guidelines-for-journals/authorship-and-contributorship",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct fetch of CUP publishing-ethics page; verbatim quoted under 'AI Contributions to Research Content'"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C8",
+      "claim": "INTEGERS is an open-access (CC BY 4.0), no-APC, no-submission-fee journal indexed in MathSciNet, zbMATH Open, SCOPUS, DOAJ, and the Free Journal Network.",
+      "evidence_type": "web_verification",
+      "source_url": "https://math.colgate.edu/~integers/policies.html",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct fetch of INTEGERS policies page; recorded for completeness even though INTEGERS is hard-excluded for this manuscript"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C9",
+      "claim": "Mathematics of Computation publishes computational-number-theory work at MSC 11Y65/11Y16 (verified by presence of recent articles-in-press papers including Baird-Kerr-Shparlinski mcom/4001 (MSC 11J71, 11L07, 11Y16, 68Q25), Hiary-Ireland-Kyi mcom/4129 (MSC 11M06, 11Y35), Rosenfeld mcom/4243 (MSC 11K06, 11B75)).",
+      "evidence_type": "web_verification",
+      "source_url": "https://www.ams.org/cgi-bin/mstrack/accepted_papers/mcom",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct fetch of MComp articles-in-press list; specific DOIs and MSC codes recorded above"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C10",
+      "claim": "Manuscript primary contribution type: computational null result; primary MSC 11Y65; manuscript length 6-8 pages; cites Bailey-Borwein-Crandall 1997 (MComp 66, 417-431), Ferguson-Bailey-Arno 1999 (MComp 68, 351-369), Bailey-Borwein-Plouffe 1997 (MComp 66, 903-913), Bailey-Broadhurst 2001 (MComp 70, 1719-1736), Flajolet-Vallee 2000 (CMS Conf Proc 27).",
+      "evidence_type": "computation",
+      "source": "Local file submitted-manuscripts-archive/precision-controlled-null-result-khinchin-signature-pslq-family/source.tex (read 2026-05-18)",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Direct read of manuscript source"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C11",
+      "claim": "Ramanujan Journal (Springer 11139) policy verification was BLOCKED at Springer login wall on 2026-05-18; AI policy and scope details inferred from Springer Nature standard policy, not directly verified. This claim is flagged AS UNVERIFIED and must be re-checked if Ramanujan Journal is activated as a reserve target.",
+      "evidence_type": "web_verification_failed",
+      "source_url_attempted": "https://link.springer.com/journal/11139",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Fetch attempted; redirected to Springer idp.springer.com login flow; no public-side policy retrieval succeeded in this chain"
+    },
+    {
+      "claim_id": "VENUE-RELAY-KSPSLQ-001-C12",
+      "claim": "Research in Number Theory (Springer 40993) policy verification was BLOCKED at Springer login wall on 2026-05-18; flagged AS UNVERIFIED, same handling as C11.",
+      "evidence_type": "web_verification_failed",
+      "source_url_attempted": "https://link.springer.com/journal/40993",
+      "verified_date_jst": "2026-05-18",
+      "reproducible": true,
+      "verification_method": "Fetch attempted; redirected to Springer idp.springer.com login flow"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "chain_id": "VENUE-RELAY-KSPSLQ-001",
+  "stage": 1,
+  "stage_label": "Synthesis — manuscript fingerprint",
+  "manuscript_id": "264514392",
+  "manuscript_title": "A Precision-Controlled Null Result for a Khinchin-Signature PSLQ Family",
+  "primary_contribution_type": "computational null result",
+  "primary_contribution_notes": "Reproducible, precision-controlled negative computational evidence that no low-complexity integer relation survives conservative PSLQ in a stated coordinate family. Includes a positive methodological contribution: a cross-precision stability-mask + conservative-cap / wide-cap diagnostic protocol that separates artefacts from structure.",
+  "msc2020_codes": {
+    "primary": "11Y65 (Continued fraction calculations: number-theoretic)",
+    "secondary": [
+      "11K50 (Metric theory of continued fractions)",
+      "11J70 (Continued fractions and generalizations)",
+      "68W30 (Symbolic computation and algebraic computation)"
+    ]
+  },
+  "methodological_signature": [
+    "PSLQ integer relation detection (Ferguson-Bailey-Arno 1999)",
+    "Arbitrary-precision floating-point (mpmath 1.3.0) at 300-digit working / 600-digit confirmation",
+    "Cross-precision stability mask across 256/512/1024-bit runs",
+    "Khinchin-signature statistic S_n = (prod a_k)^{1/n} on simple-CF partial quotients",
+    "Conservative coefficient cap (maxcoeff = 1e3) vs wide-cap diagnostic (maxcoeff = 1e6)",
+    "Two-constant replication (pi and e) for null-regime robustness",
+    "Six fixed 3D/4D coordinate templates over {S_n, log S_n, S_n - K_0, log n}"
+  ],
+  "claim_strength": "Negative computational evidence — verified to 300-digit working / 600-digit confirmation precision; residuals below 1e-20 over a stability-masked prefix; reproducible. Scope explicitly local (not a universal impossibility theorem).",
+  "reproducibility_artifacts": {
+    "code_repo": "https://github.com/papanokechi/khinchin-signature-pslq",
+    "data": "residual logs, status-block JSON files, figure sources archived in repo",
+    "lean_formalization": "none (paper is purely numerical)",
+    "supplementary_tables": "two in-line tables (agent_h_table1.tex per-template pi counts; agent_h_table2.tex per-template e counts)",
+    "figures": "4 panel figure (figure1_stable_prefix, figure2_conservative_residual_hist, figure3_conservative_residuals_vs_n, figure4_widecap_coeff_scale)"
+  },
+  "length_and_format": {
+    "estimated_pages": "6-8 (short note format; abstract + 1 main section with 4 subsections + Discussion + AI/Compute disclosure + bibliography)",
+    "tables": 2,
+    "figures": 1,
+    "figure_panels": 4,
+    "bibliography_entries": 7,
+    "format": "11pt article, single-column, geometry 1-inch margins"
+  },
+  "adjacent_literature_in_manuscript": [
+    {
+      "ref_key": "FergusonBaileyArno1999",
+      "title": "Analysis of PSLQ, an integer relation finding algorithm",
+      "venue": "Mathematics of Computation 68 (1999) 351-369"
+    },
+    {
+      "ref_key": "BaileyBorweinPlouffe1997",
+      "title": "On the rapid computation of various polylogarithmic constants",
+      "venue": "Mathematics of Computation 66 (1997) 903-913"
+    },
+    {
+      "ref_key": "BaileyBorweinCrandall1997",
+      "title": "On the Khinchin constant",
+      "venue": "Mathematics of Computation 66 (1997) 417-431"
+    },
+    {
+      "ref_key": "BaileyBroadhurst2001",
+      "title": "Parallel integer relation detection: techniques and applications",
+      "venue": "Mathematics of Computation 70 (2001) 1719-1736"
+    },
+    {
+      "ref_key": "FlajoletVallee2000",
+      "title": "Continued fractions, comparison algorithms, and fine structure constants",
+      "venue": "CMS Conf. Proc. 27, AMS 2000, pp. 53-82"
+    }
+  ],
+  "adjacent_literature_observation": "Four of five most-cited works are in Mathematics of Computation. The literature centroid sits squarely in that venue's traditional remit (computational number theory / experimental constants).",
+  "pseudonymity_context": "Author publishes under 'Shunsuke Kubota' with ORCID 0009-0000-6192-8273; no institutional affiliation on file. Important constraint for any venue requiring institutional letterhead, university subscription for APC waivers, or formal supervisor sign-off.",
+  "ai_disclosure_context": "Paper includes a Computational and AI Disclosure section naming Copilot (VS Code) and Anthropic Claude. Author requires LLM-permissive (or at least neutral) venue policy."
+}
