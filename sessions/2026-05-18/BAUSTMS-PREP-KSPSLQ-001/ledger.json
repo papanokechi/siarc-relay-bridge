@@ -1,0 +1,139 @@
+{
+  "slot_id": "BAUSTMS-PREP-KSPSLQ-001",
+  "slot_path": "siarc-relay-bridge/sessions/2026-05-18/BAUSTMS-PREP-KSPSLQ-001/",
+  "task_date": "2026-05-18",
+  "manuscript_id": "KSPSLQ",
+  "manuscript_title": "A Precision-Controlled Null Result for a Khinchin-Signature PSLQ Family",
+  "author_pen_name": "Papanokechi",
+  "author_orcid": "0009-0000-6192-8273",
+  "author_affiliation": "Independent Researcher, Yokohama, Japan",
+  "author_email": "shkubo@outlook.jp",
+
+  "chain": {
+    "upstream": [
+      "VENUE-RELAY-KSPSLQ-001 (2026-05-18) — selected BAustMS as backup; promoted to primary after MComp backlog desk-reject (submission 260422, 2026-04-28)",
+      "EXPMATH-WITHDRAWAL-KSPSLQ-001 (2026-05-18) — withdrawal email drafted; gating downstream submission until written confirmation or 10 business days"
+    ],
+    "downstream": [
+      "OJS submission at journal.austms.org.au — operator action, gated on Exp Math withdrawal confirmation"
+    ]
+  },
+
+  "stage_status": {
+    "stage_1_verification_gates": {
+      "status": "complete",
+      "halt_gate_page_count": "PASS (5pp, cap 12pp)",
+      "halt_gate_policy": "PASS (no AI ban, no mandatory institutional affiliation, no mandatory non-pseudonymous, no conflict with relay-4 backup designation)",
+      "deliverable": "verification.json"
+    },
+    "stage_2_style_conversion": {
+      "status": "complete",
+      "class_file": "amsart fallback (baustms.cls archive unreachable 2026-05-18; BAustMS review submissions are PDF-only, source class file only required post-acceptance)",
+      "compile_result": "5 pages, 0 errors, 0 LaTeX warnings, 0 overfull boxes >5pt, 2 cosmetic underfull \\hbox (badness 2042, 10000)",
+      "deliverables": ["source-baustms.tex", "source-baustms.pdf", "agent_h_table1_baustms.tex", "agent_h_table2_baustms.tex"],
+      "changes_from_source_tex": [
+        "documentclass article -> amsart",
+        "author{} -> author{Papanokechi} + address + email + thanks{ORCID}",
+        "date April 2026 -> May 2026",
+        "added \\subjclass[2020]{Primary 11Y65; Secondary 11K50, 11J70, 68W30}",
+        "added \\keywords{...}",
+        "abstract moved inside document and before \\maketitle (amsart convention)",
+        "table label T7 renumbered to T6 (cosmetic; T6 was historically skipped in working files)",
+        "rewrote Computational and AI Disclosure into Acknowledgements and disclosures with CUP-conforming wording (4 affirmations: not authors, author accountable, work is author's own, AI used only for coding/workflow/drafting/review)",
+        "added Data availability and reproducibility section citing Zenodo concept and v1.0 DOIs",
+        "reordered bibliography alphabetically by first-author surname",
+        "added KhinchinSignatureBundle2026 bibliography entry"
+      ]
+    },
+    "stage_3_content_adaptation": {
+      "status": "complete (executed inline in Stage 2 conversion)",
+      "ai_disclosure_cup_aligned": true,
+      "pseudonymity_declared_in_cover_letter": true,
+      "orcid_in_title_block": true,
+      "affiliation_populated": true,
+      "abstract_word_count_recount": "~160 words (under 200-word cap; original ~213 estimate was incorrect)",
+      "abstract_trim_required": false,
+      "msc_codes_primary": "11Y65",
+      "msc_codes_secondary": ["11K50", "11J70", "68W30"]
+    },
+    "stage_4_cover_letter": {
+      "status": "complete",
+      "deliverable": "cover-letter.txt",
+      "includes_pseudonymity_declaration": true,
+      "includes_ai_disclosure_summary": true,
+      "suggested_reviewers_named": 3,
+      "suggested_reviewers_open_slots": 1,
+      "mentions_exp_math_withdrawal": false,
+      "mentions_mcomp_desk_reject": false
+    },
+    "stage_5_reproducibility": {
+      "status": "complete",
+      "zenodo_concept_doi": "10.5281/zenodo.20173677",
+      "zenodo_v1_doi": "10.5281/zenodo.20173678",
+      "deposit_already_exists": true,
+      "new_deposit_required": false,
+      "github_repo": "https://github.com/papanokechi/khinchin-signature-pslq",
+      "manuscript_section_added": "Data availability and reproducibility"
+    },
+    "stage_6_checklist": {
+      "status": "complete",
+      "deliverable": "baustms-checklist.md",
+      "open_operator_actions": [
+        "verify 3 named reviewers are currently active before submission",
+        "register/confirm OJS account at journal.austms.org.au if not previously registered",
+        "wait for Exp Math withdrawal confirmation (or 10-business-day timeout) per EXPMATH-WITHDRAWAL-KSPSLQ-001 before submitting"
+      ]
+    },
+    "stage_7_ledger_and_claims": {
+      "status": "complete (this file + claims.jsonl)",
+      "deliverables": ["ledger.json", "claims.jsonl", "redirect_queue_update.md"]
+    }
+  },
+
+  "decisions_taken_and_rationale": [
+    {
+      "decision": "use amsart class as fallback for baustms.cls",
+      "rationale": "archive.austms.org.au TCP-timed out on 2026-05-18; baustms.cls unreachable. BAustMS review submissions are PDF-only and the journal class file is only required post-acceptance (verified via cambridge.org and austms.org.au author instructions on 2026-05-18). amsart is the closest AmS-LaTeX cousin and produces a clean journal-style PDF.",
+      "reversibility": "fully reversible — operator can swap documentclass to baustms once the archive comes back online and recompile"
+    },
+    {
+      "decision": "populate the author block with Papanokechi + affiliation rather than anonymize",
+      "rationale": "BAustMS review model defaults to single-blind via OJS (not double-anonymous like Math Comp). ORCID is mandatory in submission metadata. The previous anonymized \\author{} was an Experimental-Mathematics-specific accommodation.",
+      "reversibility": "fully reversible"
+    },
+    {
+      "decision": "renumber T7 to T6 in the tables and body text",
+      "rationale": "the T6 label was historically skipped in the upstream working file (claude-chat/khinchin-signature-pslq/paper/agent_h_table1.tex). Sequential labelling avoids referee/editor confusion at zero substantive cost.",
+      "reversibility": "fully reversible (working copy only; original source.tex untouched per task instructions)"
+    },
+    {
+      "decision": "no abstract trim",
+      "rationale": "recount yielded ~160 words, well under the 200-word cap. The original 213-word estimate (from compaction notes) was wrong. Keeping the 'Open directions' sentence preserves the calibration framing.",
+      "reversibility": "n/a"
+    },
+    {
+      "decision": "tighten AI disclosure wording",
+      "rationale": "original phrasing said 'Anthropic Claude for ... mathematical review', which could be read as AI independently validating mathematics. Rewrote to confine AI roles to drafting/exposition/workflow and to add the four CUP affirmations explicitly (not authors, author accountable, work is author's own, citations).",
+      "reversibility": "fully reversible"
+    },
+    {
+      "decision": "add dedicated KhinchinSignatureBundle2026 bibliography entry citing the paper-specific Zenodo deposit",
+      "rationale": "the original source.tex only cited AEAL-19562751 (the framework deposit), not the paper's own reproducibility bundle. Adding a paper-level citation makes the Data availability section anchor on a stable DOI.",
+      "reversibility": "fully reversible"
+    }
+  ],
+
+  "halt_gates_passed": [
+    "Stage 1.3 page-count gate: 5pp <= 12pp cap",
+    "Stage 1.4 disqualifying-policy gate: BAustMS allows AI-assisted, pseudonymous, no-institutional-affiliation submissions"
+  ],
+
+  "operator_decision_points_open": [
+    "Suggested reviewers list: 3 named candidates need current-activity verification; 1 slot left open for an Australia/Asia-Pacific reviewer of operator/editor choice.",
+    "OJS account: confirm registration at journal.austms.org.au or register new account with pen-name 'Papanokechi' and email shkubo@outlook.jp before submission.",
+    "Submission timing: gated on EXPMATH-WITHDRAWAL-KSPSLQ-001 — either written confirmation that the Exp Math draft has been removed OR 10 business days from withdrawal-email send with no response (whichever comes first).",
+    "baustms.cls download: optional retry if archive.austms.org.au comes back online; not blocking for review-stage submission."
+  ],
+
+  "final_recommendation": "READY TO SUBMIT — gated on Exp Math withdrawal confirmation per EXPMATH-WITHDRAWAL-KSPSLQ-001 and on operator vetting of suggested reviewers"
+}

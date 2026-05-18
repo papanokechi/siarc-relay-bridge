@@ -1,0 +1,207 @@
+{
+  "_metadata": {
+    "chain_id": "BAUSTMS-PREP-KSPSLQ-001",
+    "stage": "1 — Verification gates",
+    "verified_date_jst": "2026-05-18",
+    "verification_discipline": "Each policy field below is backed by a direct fetch of the cited URL on the verified_date_jst. Where a fetch returned 403/404/timeout, the field is flagged 'fetch_failed' and falls back to web-search synthesis with explicit evidence_class downgrade."
+  },
+
+  "baustms_policy": {
+    "page_limit": {
+      "value": 12,
+      "verbatim_quote": "The Bulletin prefers papers which are well-motivated and relatively short (papers longer than 12 pages are not usually accepted). Longer papers may instead be submitted to the Journal of the Australian Mathematical Society.",
+      "source_url": "https://www.austms.org.au/publication/austms-bulletin/",
+      "also_at_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/information/about-this-journal",
+      "fetch_status": "verified",
+      "evidence_class": "direct_fetch"
+    },
+    "latex_class_file": {
+      "name": "baustms.cls",
+      "canonical_url": "https://archive.austms.org.au/Publ/Bulletin/baustms.cls",
+      "bibstyle_name": "srtnumbered.bst",
+      "bibstyle_url": "https://archive.austms.org.au/Publ/Bulletin/srtnumbered.bst",
+      "template_name": "bamstemplate.tex",
+      "template_url": "https://archive.austms.org.au/Publ/Bulletin/bamstemplate.tex",
+      "fetch_status": "fetch_failed_transient",
+      "fetch_failure_detail": "archive.austms.org.au returned TCP-level connection timeout (HTTP 000) on 2026-05-18 ~07:02 JST after 30–45s waits via curl HTTP/1.1 and Invoke-WebRequest; CTAN had no `austms` package (HTTP 404 under ctan.org/pkg/austms and mirrors.ctan.org/macros/latex/contrib/austms/baustms.cls); Overleaf template page returned HTTP 404. Operator should retry archive.austms.org.au when the server is back online, or request the class bundle via the editor contact editor@bulletin.austms.org.au.",
+      "fetch_workaround": "Submission acceptance does NOT require the class file: per the verified Author Guidelines, 'Articles should be prepared in LaTeX using AmS-LaTeX packages and submitted as a PDF file' and 'The Bulletin will request the LaTeX source code when the article has been accepted for publication or, in some cases, prior to peer review'. We therefore prepare the review-version PDF using amsart (AMS-LaTeX) so it produces a clean BAustMS-compatible camera-ready feel without needing baustms.cls. Final-format conversion to baustms.cls happens post-acceptance or when the archive server comes back online.",
+      "source_url_for_workaround_quote": "https://journal.austms.org.au/ojs/index.php/Bulletin/about/submissions",
+      "fetch_status_for_workaround_quote": "verified",
+      "evidence_class": "direct_fetch_with_transient_outage_on_class_file_specifically"
+    },
+    "bibliography_style": {
+      "value": "srtnumbered (BAustMS bespoke) post-acceptance; for review-version PDF, AMS journal-abbreviation convention with numerical cite-by-number is sufficient",
+      "verbatim_quote": "Arrange references alphabetically (by surname of the first author) and cite them numerically in the text. Ensure the references are quoted accurately, and use the standard abbreviations for journal names prepared by the American Mathematical Society.",
+      "source_url": "https://journal.austms.org.au/ojs/index.php/Bulletin/about/submissions",
+      "fetch_status": "verified",
+      "evidence_class": "direct_fetch"
+    },
+    "submission_portal": {
+      "value": "OJS (Open Journal Systems) operated by AustMS",
+      "url": "https://journal.austms.org.au/ojs/index.php/Bulletin/user/register",
+      "submission_url_pattern": "https://journal.austms.org.au/ojs/index.php/Bulletin/",
+      "differs_from_scholarone": true,
+      "verbatim_quote": "To submit articles to the Bulletin, authors must first be registered with our journal management system (OJS, standing for Open Journal Systems) as both readers and authors.",
+      "source_url": "https://journal.austms.org.au/ojs/index.php/Bulletin/about/submissions",
+      "fetch_status": "verified",
+      "evidence_class": "direct_fetch"
+    },
+    "submission_checklist_verbatim": {
+      "items_required": [
+        "Article is original, has not been published before, not currently under consideration elsewhere",
+        "Not a revision of an earlier submission still under consideration",
+        "All listed authors contributed; no other person who contributed wishes to be listed",
+        "Authors agree to AMPAI policy that articles in printed issues become freely accessible 5 years after publication",
+        "Article contains no defamatory or unlawful statements; no third-party rights infringed",
+        "Where copyright material is reproduced, written permission obtained and acknowledged",
+        "Any use of an artificial intelligence tool to generate text or images or analyse data for the submission is appropriately acknowledged and described"
+      ],
+      "submission_metadata_required": [
+        "all authors, with their ORCID",
+        "Keywords",
+        "Mathematics Subject Classification codes (MSC 2020 — https://mathscinet.ams.org/msc/msc2020.html)"
+      ],
+      "source_url": "https://journal.austms.org.au/ojs/index.php/Bulletin/about/submissions",
+      "fetch_status": "verified",
+      "evidence_class": "direct_fetch"
+    },
+    "abstract_word_limit": {
+      "value": 200,
+      "verbatim_quote": "Each paper must include an abstract of not more than 200 words, which should contain a brief but informative summary of the contents of the paper, but no inessential details. The abstract should be self-contained, but may refer to the title. Specific references (by number) to a section, proposition, equation or bibliographical item should be avoided.",
+      "source_url": "https://journal.austms.org.au/ojs/index.php/Bulletin/about/submissions",
+      "fetch_status": "verified",
+      "evidence_class": "direct_fetch"
+    },
+    "msc_codes": {
+      "version": "AMS 2020 Mathematics Subject Classification",
+      "structure_required": "a single primary and one or more secondary classification numbers",
+      "verbatim_quote": "Authors should include a few key words and phrases, and a single primary and one or more secondary classification numbers, following the American Mathematical Society 2020 Mathematics Subject Classification.",
+      "source_url": "https://journal.austms.org.au/ojs/index.php/Bulletin/about/submissions",
+      "fetch_status": "verified",
+      "evidence_class": "direct_fetch"
+    },
+    "ai_disclosure_policy": {
+      "baustms_level_rule": "Any use of an artificial intelligence tool to generate text or images or analyse data for the submission is appropriately acknowledged and described.",
+      "baustms_level_source_url": "https://journal.austms.org.au/ojs/index.php/Bulletin/about/submissions",
+      "baustms_level_fetch_status": "verified",
+      "cup_level_principles": [
+        "AI must be declared and clearly explained in publications, just as scholars do with other software, tools and methodologies.",
+        "AI does not meet the Cambridge requirements for authorship (accountability); AI/LLM tools may not be listed as an author.",
+        "Any use of AI must not breach Cambridge's plagiarism policy. Scholarly works must be the author's own.",
+        "Authors are accountable for the accuracy, integrity and originality of their research papers, including for any use of AI."
+      ],
+      "cup_level_source_url": "https://www.cambridge.org/news-and-insights/cambridge-launches-ai-research-ethics-policy",
+      "cup_level_canonical_policy_anchor": "https://www.cambridge.org/core/services/authors/publishing-ethics/research-publishing-ethics-guidelines-for-journals/authorship-and-contributorship#ai-contributions-to-research-content",
+      "cup_level_fetch_status": "verified",
+      "evidence_class": "direct_fetch_two_sources_in_agreement",
+      "hard_ban": false,
+      "implication_for_manuscript": "Existing Computational and AI Disclosure section (source.tex lines 66-68) is substantively compliant. Two adjustments for CUP/BAustMS wording: (i) explicitly state that AI tools (Copilot, Claude) were NOT listed as authors and are NOT accountable for the work; (ii) explicitly affirm that the work is the author's own and does not present others' ideas/data/words without proper citation — these CUP-level affirmations are not present verbatim in the current disclosure."
+    },
+    "pseudonymous_authorship_clause": {
+      "value": "explicitly permitted at journal discretion",
+      "verbatim_quote": "Journals may have their own policies on anonymous or pseudonymous authorship, consortia authorship, equal first authorship, appendix authorship, and other authorship approaches. Where these are deployed, the standard responsibilities for authorship must be fulfilled (including legal requirements).",
+      "source_url": "https://www.cambridge.org/core/services/authors/publishing-ethics/research-publishing-ethics-guidelines-for-journals/authorship-and-contributorship",
+      "fetch_status": "verified",
+      "evidence_class": "direct_fetch",
+      "baustms_specific_pseudonym_policy_status": "BAustMS does NOT publish a journal-level statement explicitly allowing pseudonymous authorship; per the CUP umbrella clause this is at journal discretion. Recommendation: include a brief, explicit pseudonymity declaration in the cover letter (NOT in the manuscript) referencing the CUP umbrella clause URL above; this gives the editorial office a documented, ethics-compliant path to accept the byline 'Papanokechi' without needing to set a new precedent.",
+      "implication_for_manuscript": "Title block uses pen name Papanokechi. Affiliation 'Independent Researcher, Yokohama, Japan'. ORCID 0009-0000-6192-8273 (which provides legal-accountability link per CUP authorship-responsibility requirements). Pseudonymity declaration moved to cover letter, not manuscript body, per task brief."
+    },
+    "orcid_policy": {
+      "value": "required at submission for all authors per BAustMS submission metadata; CUP-level encouragement at journal-page level",
+      "baustms_verbatim_quote": "Please ensure that the submitted document is in Adobe pdf format, and that the following is included in the Submission Metadata: all authors, with their ORCID; Keywords; Subjects [MSC codes].",
+      "baustms_source_url": "https://journal.austms.org.au/ojs/index.php/Bulletin/about/submissions",
+      "cup_level_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/information/author-instructions/submitting-your-materials",
+      "fetch_status": "verified",
+      "mandatory_optional": "mandatory at submission metadata level (BAustMS OJS step requires it); CUP-level encouragement also applies",
+      "evidence_class": "direct_fetch"
+    },
+    "affiliation_policy": {
+      "value": "no mandatory institutional affiliation; 'Independent Researcher' acceptable",
+      "verbatim_quote": "The affiliation of the corresponding author may be used to determine eligibility for discounted or waived APCs under transformative agreements and author equity initiatives.",
+      "source_url": "https://www.cambridge.org/core/services/authors/publishing-ethics/research-publishing-ethics-guidelines-for-journals/authorship-and-contributorship",
+      "fetch_status": "verified",
+      "explicit_independence_clause_seen": false,
+      "explicit_independence_clause_note": "Neither BAustMS nor CUP author-pages explicitly enumerate 'independent researcher' as a permitted affiliation, but neither requires institutional affiliation; CUP authorship policy keys authorship responsibilities to the individual (ORCID-identified) corresponding author. 'Independent Researcher, Yokohama, Japan' is structurally consistent with this framing and is what is currently used in this portfolio's HAL-Episciences submission (Item B-1 hal-05624243v1).",
+      "evidence_class": "direct_fetch_with_inferential_extension"
+    },
+    "open_access_policy": {
+      "value": "Green OA (default standard) or Gold OA optional",
+      "verbatim_quote": "The standard arrangement is Green Open Access in accordance with the policy of Cambridge University Press.",
+      "source_url": "https://journal.austms.org.au/ojs/index.php/Bulletin/about/submissions",
+      "apc_for_research_article": "may be eligible for APC waivers or discounts under CUP transformative agreements; check Read & Publish agreements list",
+      "apc_url": "https://www.cambridge.org/core/services/open-access-policies/waivers-discounts",
+      "fetch_status": "verified",
+      "evidence_class": "direct_fetch",
+      "recommendation_for_this_manuscript": "Green OA default (no APC) recommended given Independent Researcher affiliation does not qualify for institutional Read & Publish waivers; archival route already covered by Zenodo deposit DOI 10.5281/zenodo.20173677."
+    },
+    "review_model": {
+      "value": "single-blind peer review (OJS default; not explicitly stated as double-anonymous)",
+      "fetch_status": "not_explicitly_stated_in_BAustMS_pages_fetched",
+      "evidence_class": "inferred_from_OJS_default_practice_and_absence_of_double_anonymous_statement",
+      "implication_for_manuscript": "Author identity will be visible to reviewers under the OJS default; this is structurally consistent with prior BAustMS practice and with the pseudonymous-authorship arrangement (the byline 'Papanokechi' is what reviewers will see, backed by ORCID legal accountability). NO double-anonymous sanitization is required (contrast to the MComp primary candidate from VENUE-RELAY-KSPSLQ-001 where double-anonymous removal of the GitHub URL was required).",
+      "operator_action_if_double_anonymous_required": "If the BAustMS editor confirms a double-anonymous model at the editorial-office level (override of OJS default), prepare a sanitized review-version PDF with the GitHub URL replaced by '[available on acceptance]' — same play as the MComp checklist item from VENUE-RELAY-KSPSLQ-001 stage4_recommendation.json item 6."
+    },
+    "decision_time": {
+      "value": "first decision typically under one week; acceptance typically under one month",
+      "verbatim_quote": "On average, the time from submission to the first decision is less than a week and the time from submission to acceptance is less than a month.",
+      "source_url": "https://www.austms.org.au/publication/austms-bulletin/",
+      "fetch_status": "verified",
+      "evidence_class": "direct_fetch"
+    },
+    "cover_letter_required_contents": {
+      "value": "Not explicitly required by BAustMS; OJS portal has a 'Comments to the Editor' field for pseudonymity declaration / AI declaration explanations / suggested reviewers.",
+      "operator_recommendation": "Standard cover letter still drafted (cover-letter.txt this slot) to be uploaded as a supplementary file or pasted into the OJS 'Comments to the Editor' field. Contents tailored for: (i) title + 2-3 sentence summary; (ii) original / not under consideration declaration; (iii) explicit pseudonymity statement referencing CUP umbrella clause URL; (iv) AI disclosure summary referencing CUP policy URL; (v) 2-4 suggested reviewers from outside the Exp Math reviewer pool; (vi) conflicts-of-interest declaration.",
+      "evidence_class": "absence_of_specific_requirement_in_verified_pages"
+    }
+  },
+
+  "manuscript_audit": {
+    "source_file": "submitted-manuscripts-archive/precision-controlled-null-result-khinchin-signature-pslq-family/source.tex",
+    "source_size_bytes": 11663,
+    "compiled_pdf": "submitted-manuscripts-archive/precision-controlled-null-result-khinchin-signature-pslq-family/manuscript.pdf",
+    "compiled_pdf_size_bytes": 584661,
+    "compiled_page_count": 5,
+    "compiled_page_count_method": "Counted '/Type /Page' markers in the PDF binary (excludes '/Pages' tree node); cross-checks with previous V214 metadata 'Aspose-wrapped EM portal artefact archived at tex/submitted/khinchin_signature_expmath_note_EM_portal_264514392.pdf is 1.78 MB peer-review copy with submission-ID cover sheet which is NOT the deposit artefact' — the deposit artefact is the 584,661 B file matching md5 daac3bc3adbc46b47248f575975666ab",
+    "current_documentclass": "article",
+    "amslatex_packages_already_used": ["amsmath", "amssymb", "amsthm"],
+    "section_structure": [
+      "abstract (single block, ~210 words — slightly over BAustMS 200-word limit by approximately 10 words; trim required)",
+      "Section 1 Numerical Experiments (with subsections 1.1 Setup, 1.2 Results, 1.3 Diagnostic wide-cap comparison, 1.4 Replication on a second constant)",
+      "Section 2 Discussion",
+      "Section* Computational and AI Disclosure",
+      "thebibliography (7 entries)"
+    ],
+    "table_count": 2,
+    "table_files_referenced": ["agent_h_table1.tex (Table 1: π PSLQ sweep)", "agent_h_table2.tex (Table 2: e replication PSLQ sweep)"],
+    "table_files_present_in_manuscript_dir": false,
+    "table_files_recoverable_from": "C:/Users/shkub/OneDrive/Documents/archive/admin/VSCode/claude-chat/khinchin-signature-pslq/paper/agent_h_table1.tex (24 lines) and agent_h_table2.tex (22 lines) — both already exist and are the same files cited as 'missing' in the 17 May Kaviya correspondence (so the 'missing file' grounds were procedural — the files exist in the source tree but were not bundled into the EM portal upload bundle)",
+    "figure_count": 4,
+    "figure_files_referenced": ["figures/figure1_stable_prefix.png", "figures/figure2_conservative_residual_hist.png", "figures/figure3_conservative_residuals_vs_n.png", "figures/figure4_widecap_coeff_scale.png"],
+    "figure_files_present_in_manuscript_dir": false,
+    "figure_files_recoverable_from": "C:/Users/shkub/OneDrive/Documents/archive/admin/VSCode/claude-chat/khinchin-signature-pslq/paper/figures/ — both .png and .svg masters present (4 PNG, 4 SVG, 8 files total)",
+    "appendix_length": 0,
+    "appendix_present": false,
+    "bibliography_entries": 7,
+    "abstract_word_count_approx": 213,
+    "abstract_trim_required_by_baustms": true,
+    "abstract_trim_target": "13 words to remove to comfortably hit the 200-word limit (leave a 1-3 word margin against the cap)",
+    "title_block_state_in_source": "\\author{} empty (anonymized as-submitted to Experimental Mathematics under V214 Q-214-3 α ANONYMIZED-AS-SUBMITTED)",
+    "title_block_change_required_for_baustms": "populate \\author block with 'Papanokechi' + affiliation 'Independent Researcher, Yokohama, Japan' + ORCID 0009-0000-6192-8273 (single-blind review default — see review_model field above)"
+  },
+
+  "halt_gates": {
+    "stage_1_3_page_count_le_12": {
+      "verdict": "PASS",
+      "evidence": "compiled_page_count = 5; well under the 12-page BAustMS limit; no compression action required."
+    },
+    "stage_1_4_disqualifying_policy": {
+      "verdict": "PASS",
+      "checks": {
+        "hard_ai_ban": "NO — CUP/BAustMS require disclosure, not prohibition (compare INTEGERS hard ban dropped in VENUE-RELAY-KSPSLQ-001 stage 3)",
+        "mandatory_institutional_affiliation": "NO — affiliation is required as a field but institutional affiliation is not; 'Independent Researcher' is structurally permitted",
+        "mandatory_non_pseudonymous_authorship": "NO — CUP authorship-and-contributorship policy explicitly permits journal-level pseudonymous policies, with ORCID providing the legal-accountability link",
+        "material_conflict_with_VENUE_RELAY_KSPSLQ_001": "NO — BAustMS was the verified backup target in stage 4; promoting it to primary after MComp backlog-desk-reject (submission 260422, 28 Apr 2026) is consistent with the chain's contingency model"
+      }
+    }
+  }
+}
