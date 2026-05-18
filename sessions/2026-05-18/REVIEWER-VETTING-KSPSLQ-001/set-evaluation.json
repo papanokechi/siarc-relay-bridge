@@ -1,0 +1,40 @@
+{
+  "evaluation_date": "2026-05-18",
+  "reviewers_in_set_as_named": ["R1 David H. Bailey", "R2 David J. Broadhurst", "R3 Brigitte Vallée"],
+
+  "filter_D_set_level_diversity": {
+    "country_distribution": {
+      "USA": ["David H. Bailey"],
+      "United Kingdom": ["David J. Broadhurst"],
+      "France": ["Brigitte Vallée"]
+    },
+    "at_least_one_non_AU": true,
+    "verdict": "PASS — all 3 are non-AU; the set is over-diversified geographically and underrepresents the AU community that BAustMS serves. After the recommended replacements one AU reviewer (Shparlinski) should be added.",
+    "confidence": "HIGH"
+  },
+
+  "subfield_diversity_check": {
+    "as_named_subfield_coverage": {
+      "PSLQ_algorithmics_and_high_precision": ["David H. Bailey", "David J. Broadhurst"],
+      "continued_fraction_metric_theory": ["Brigitte Vallée"]
+    },
+    "verdict": "WEAK-PASS — the set is 2/3 weighted toward the PSLQ-algorithmic community (Bailey, Broadhurst) and only 1/3 toward continued-fraction analysis. Worse, both PSLQ-cluster members are in the same coauthorship network. The set after replacement should rebalance toward (a) Diophantine approximation / continued fractions in finite-precision regimes, (b) computational number theory more broadly, (c) continued-fraction metric theory.",
+    "confidence": "HIGH"
+  },
+
+  "clustering_check_no_two_same_group": {
+    "shared_institution": false,
+    "shared_coauthor_group": true,
+    "shared_coauthor_group_detail": "Bailey and Broadhurst are direct two-author paper coauthors (Bailey-Broadhurst 2001, Math. Comp. 70, 1719--1736, manuscript ref [3]). This is a single coauthorship cluster providing two of the three suggested reviewers -- a major clustering failure.",
+    "shared_recent_grant": "not investigated; the Bailey-Broadhurst paper cluster is sufficient finding",
+    "verdict": "FAIL — 2 of 3 reviewers are in the same direct-coauthorship cluster. This is doubly disqualifying given that both individuals also fail Filter B independently.",
+    "confidence": "HIGH"
+  },
+
+  "exp_math_editorial_overlap_set_level": {
+    "any_member_on_em_board": "UNVERIFIED — direct fetch 403; secondary searches found no evidence for any of the 3.",
+    "confidence": "MEDIUM"
+  },
+
+  "overall_set_evaluation": "FAIL on clustering (Filter B doubly). After applying the per-reviewer recommendations (REPLACE Bailey, REPLACE Broadhurst, KEEP Vallée), the recommended replacement set is {Vallée, Bugeaud, Shparlinski} which passes all set-level checks (no shared coauthor group, no shared institution, geographic mix FR+FR+AU, subfield mix CF-metric-theory + Diophantine-approximation-CF + computational-NT)."
+}

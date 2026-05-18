@@ -1,0 +1,96 @@
+{
+  "for_R1_Bailey_REPLACE": [
+    {
+      "candidate_id": "C1A",
+      "name": "Yann Bugeaud",
+      "affiliation": "Institut de Recherche Mathématique Avancée (IRMA), Université de Strasbourg, France",
+      "email_likely": "bugeaud@math.unistra.fr (verify before contacting)",
+      "rank_for_slot": "PRIMARY",
+      "rationale_for_fit": "Specialist in Diophantine approximation and the analytic / number-theoretic side of continued fractions; multiple 2024-2025 papers directly on continued-fraction expansions and rational approximation (Hurwitz CF metrical properties; Thue-Morse CF expansions; explicit p-adic CF expansions). His expertise is the natural complement to the experimental-numeric content of the manuscript: he can stress-test the metric-theory framing in which the Khinchin-signature S_n is interpreted.",
+      "filter_A_check": "Web_search returned no evidence of EM editorial board membership; he serves on Diophantine-approximation editorial boards (verify with operator).",
+      "filter_B_check": "Web_search 'Yann Bugeaud coauthor Bailey/Borwein/Crandall PSLQ' returned: 'There is no evidence that Yann Bugeaud directly coauthored any papers with David H. Bailey, Jonathan Borwein, or Richard Crandall'. CLEAN.",
+      "filter_E_check": "No Papanokechi acknowledgment trail.",
+      "evidence_urls": [
+        "https://irma.math.unistra.fr/~bugeaud/publi.html",
+        "https://scholar.google.com/citations?user=rknVV7cAAAAJ",
+        "https://conferences.cirm-math.fr/3367.html (conference organizer 2025)"
+      ],
+      "fetch_timestamp": "2026-05-18T07:00:00Z",
+      "confidence": "HIGH"
+    },
+    {
+      "candidate_id": "C1B",
+      "name": "Tanguy Rivoal",
+      "affiliation": "Institut Fourier, Université Grenoble Alpes / CNRS, France",
+      "email_likely": "tanguy.rivoal@univ-grenoble-alpes.fr (verify before contacting)",
+      "rank_for_slot": "ALTERNATE",
+      "rationale_for_fit": "Directeur de recherche CNRS; specialist in irrationality and transcendence of values of special functions, particularly zeta values. Co-author of the 'one of the nine odd zeta values is irrational' result (with Ball / Zudilin). Active 2024 paper with Fischler on transcendence of log-of-E-functions (arXiv:2409.18537). Strong on the linear-independence-of-real-numbers side of integer-relation detection.",
+      "filter_A_check": "Web_search returned no evidence of EM editorial board membership.",
+      "filter_B_check": "Direct cluster coauthorship: NONE (web_search: 'There is no evidence of any coauthored paper between Tanguy Rivoal and David H. Bailey, Peter Borwein, Richard Crandall, Simon Plouffe, or Helaman Ferguson'). YELLOW FLAG: collaborates with Wadim Zudilin, who in turn has DIRECT Borwein coauthorship (Borwein-Straub-Wan-Zudilin in Exp Math 22(1) 2013; Canad J Math 2012). This makes Rivoal a 2nd-degree connection to Borwein, which per the task spec is a yellow flag not a fail.",
+      "filter_E_check": "No Papanokechi acknowledgment trail.",
+      "evidence_urls": [
+        "https://en.wikipedia.org/wiki/Tanguy_Rivoal",
+        "https://arxiv.org/abs/2409.18537v1",
+        "https://cv.hal.science/tanguy-rivoal"
+      ],
+      "fetch_timestamp": "2026-05-18T07:00:00Z",
+      "confidence": "MEDIUM-HIGH",
+      "yellow_flags": ["2nd-degree to Borwein via Zudilin collaboration (not disqualifying per task spec)"]
+    }
+  ],
+
+  "for_R2_Broadhurst_REPLACE": [
+    {
+      "candidate_id": "C2A",
+      "name": "Igor E. Shparlinski",
+      "affiliation": "School of Mathematics and Statistics, University of New South Wales (UNSW Sydney), Australia",
+      "email_likely": "igor.shparlinski@unsw.edu.au (verify before contacting)",
+      "rank_for_slot": "PRIMARY",
+      "rationale_for_fit": "Extremely active in computational and analytic number theory (many 2024-2026 publications confirmed). AU-based, providing valuable geographic diversity to a set otherwise concentrated in Europe and matching BAustMS's home community. Specialty includes character sums, exponential sums, integer-relation-adjacent computational problems, and pseudorandomness. Would provide a referee perspective grounded in rigorous computational number theory rather than the experimental-mathematics community where the BBC cluster dominates.",
+      "filter_A_check": "Web_search returned no evidence of EM editorial board membership.",
+      "filter_B_check": "Direct cluster coauthorship: SOFT YELLOW. Co-edited 'Number Theory and Related Fields: In Memory of Alf van der Poorten' (Springer Proc. in Mathematics & Statistics 43, 2013) with Jonathan Borwein and Wadim Zudilin. Editorial co-curation of a memorial volume is collaborative work but is generally lighter than research coauthorship. Web_search also reports adjacent (non-PSLQ) topical coauthorships with Borwein on pseudorandomness/character sums -- topical adjacency, not PSLQ-specific. No foundational PSLQ paper lists Shparlinski as coauthor. Per task spec, a memorial-volume co-edit is at the boundary between 'direct coauthorship' and 'community membership'; flagging as YELLOW rather than FAIL because the volume is a tribute compilation, not a research paper.",
+      "filter_E_check": "No Papanokechi acknowledgment trail.",
+      "evidence_urls": [
+        "https://research.unsw.edu.au/people/professor-igor-shparlinski/publications",
+        "https://orcid.org/0000-0002-5246-9391",
+        "https://dblp.org/pid/s/IgorShparlinski"
+      ],
+      "fetch_timestamp": "2026-05-18T07:00:00Z",
+      "confidence": "MEDIUM",
+      "yellow_flags": [
+        "Memorial-volume co-editorship with J. Borwein (Springer Proc. Math. & Stat. 43, 2013)",
+        "Topical (non-PSLQ) Borwein coauthorship on pseudorandomness/character sums reported"
+      ],
+      "operator_note": "If the operator interprets Filter B strictly (any co-curated publication counts as coauthorship), this candidate would be a FAIL and the next alternate (C2B Fischler) should be promoted to primary."
+    },
+    {
+      "candidate_id": "C2B",
+      "name": "Stéphane Fischler",
+      "affiliation": "Institut de Mathématique d'Orsay, Université Paris-Saclay, France",
+      "email_likely": "stephane.fischler@universite-paris-saclay.fr (verify before contacting)",
+      "rank_for_slot": "ALTERNATE",
+      "rationale_for_fit": "Specialist in irrationality measures, transcendence of E-function values, and quantitative linear-independence results. Recent 2024 paper with Rivoal on 'Transcendence of values of logarithms of E-functions' (arXiv:2409.18537). Provides a rigorous-analytic complement to the experimental-numeric content of the manuscript.",
+      "filter_A_check": "Web_search returned no evidence of EM editorial board membership.",
+      "filter_B_check": "Web_search 'Stéphane Fischler coauthor Borwein Bailey' returned 'no indication that Stéphane Fischler coauthored any paper with Borwein or Bailey'. CLEAN with the same 2nd-degree-via-Zudilin yellow flag as Rivoal (Fischler-Rivoal-Zudilin-Borwein chain).",
+      "filter_E_check": "No Papanokechi acknowledgment trail.",
+      "evidence_urls": [
+        "https://www.imo.universite-paris-saclay.fr/~stephane.fischler/publi.html",
+        "https://arxiv.org/abs/2409.18537v1",
+        "https://www.cirm-math.fr/RepOrga/3270/Abstracts/fischler.pdf"
+      ],
+      "fetch_timestamp": "2026-05-18T07:00:00Z",
+      "confidence": "MEDIUM-HIGH",
+      "yellow_flags": ["2nd-degree to Borwein via Zudilin chain"]
+    }
+  ],
+
+  "rejected_candidates_with_reason": [
+    {
+      "name": "Wadim Zudilin",
+      "rejection_reason": "Filter B FAIL — direct Borwein coauthorship on multiple peer-reviewed papers: Borwein-Straub-Wan-Zudilin 'Densities of short uniform random walks' (Canad. J. Math. 2012) and 'Three-step and four-step random walk integrals' (Experimental Mathematics 22(1) 2013 — published in the very journal Papanokechi is exiting). Cluster-overlap is too direct to recommend, regardless of his strong topical fit.",
+      "evidence_url": "https://www.math.ru.nl/~wzudilin/publications.html"
+    }
+  ],
+
+  "candidate_selection_rationale_summary": "Bugeaud (continued fractions / Diophantine, FR) is the cleanest Filter-B candidate and is positioned as primary replacement for Bailey. Rivoal (irrationality / E-functions, FR) is the alternate; he carries a 2nd-degree-to-Borwein yellow flag via Zudilin. Shparlinski (computational NT, AU) is primary for Broadhurst because he adds the AU geographic dimension that BAustMS's home community values, accepting the SOFT YELLOW from a memorial-volume co-editorship. Fischler (Paris-Saclay, FR) is the alternate, cleaner on Filter B but adds a third French member to the set, weakening Filter D set-level diversity. Operator's choice."
+}

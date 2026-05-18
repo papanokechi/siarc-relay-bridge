@@ -1,0 +1,86 @@
+{
+  "reviewer_id": "R3",
+  "name": "Brigitte Vallée",
+  "affiliation_listed_in_cover_letter": "CNRS / GREYC, Université de Caen Normandie, France",
+  "email_listed_in_cover_letter": "brigitte.vallee@unicaen.fr",
+
+  "filter_2_1_identity_confirmation": {
+    "confirmed_identity": true,
+    "actual_affiliation_per_fetch": "Directrice de Recherche CNRS, Laboratoire GREYC, University of Caen Normandie, France. Wikipedia and her own homepage vallee.users.greyc.fr corroborate.",
+    "fetch_status": "Direct fetch of the GREYC personnel page returned HTTP 404 (URL may have changed). Identity confirmed via Wikipedia and her personal CNRS-hosted page (linked via vallee.users.greyc.fr and dblp 50/4436).",
+    "source_urls": [
+      "https://vallee.users.greyc.fr/",
+      "https://en.wikipedia.org/wiki/Brigitte_Vall%C3%A9e",
+      "https://dblp.org/pid/50/4436"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z"
+  },
+
+  "filter_A_exp_math_editorial_overlap": {
+    "filter_pass": "UNVERIFIED-PROBABLE-PASS",
+    "rationale": "Direct EM board fetch returned 403. Targeted web_search returned 'no credible evidence' of EM editorial board membership for Vallée. She has worked extensively in the dynamical-systems-and-continued-fractions tradition (Hensley, Flajolet) which is editorially adjacent to but not identical with the EM board's research-community center of mass.",
+    "evidence_urls": [
+      "https://vallee.users.greyc.fr/",
+      "https://en.wikipedia.org/wiki/Brigitte_Vall%C3%A9e"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "MEDIUM"
+  },
+
+  "filter_B_bbc_cluster": {
+    "filter_pass": true,
+    "verdict": "PASS — no direct cluster coauthorship",
+    "rationale": "Vallée's principal long-term collaborator was Philippe Flajolet (Vallée-Flajolet 2000, manuscript ref [5]). Flajolet is NOT named in the task's BBC cluster {Bailey, Borwein, Crandall, Ferguson, Plouffe}. Her recent collaborators (Berthé, Nakada, Natsui in the 2021 polynomial-CF paper; co-authors of the 2025 Shannon-weights paper) are likewise outside the cluster. No public Bailey/Borwein/Crandall/Ferguson/Plouffe coauthorship was found.",
+    "yellow_flags": [
+      "Citation neighbourhood overlap: Vallée's work on Khinchin-type constants and CF dynamics inevitably cites the Bailey-Borwein-Crandall 1997 'On the Khinchin constant' paper. This is community-membership-by-citation, not coauthorship. Task spec rule applied: 'does the reviewer have >=3 publications citing PSLQ papers by these authors? If yes, this is a YELLOW flag for community-membership rather than coauthorship.' This is a routine yellow flag for any continued-fractions researcher and does not materially weaken her suitability."
+    ],
+    "evidence_urls": [
+      "https://vallee.users.greyc.fr/Publications/",
+      "https://dblp.org/pid/50/4436"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "filter_C_recent_activity": {
+    "filter_pass": true,
+    "rationale": "Confirmed active recent publications: 'Shannon Weights for binary dynamical recurrent sources of zero entropy' (forthcoming 2025); 'Analysis of generalized continued fraction algorithms over polynomials' (Berthé, Nakada, Natsui, Vallée), Finite Fields and Their Applications 73 (2021) 101849. Continued-fraction analysis directly matches the manuscript topic.",
+    "relevant_publications_recent_24mo": [
+      "Shannon Weights for binary dynamical recurrent sources of zero entropy (2025, forthcoming)",
+      "Analysis of generalized continued fraction algorithms over polynomials (Finite Fields Appl. 2021)"
+    ],
+    "source_urls": [
+      "https://vallee.users.greyc.fr/Publications/",
+      "https://dblp.org/pid/50/4436"
+    ],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "MEDIUM",
+    "caveat": "The 24-month window 2024-04 to 2026-04 is sparser than ideal in the surfaced publication list (the 2025 Shannon-weights paper is the only strictly-in-window confirmed item). Operator may wish to check her HAL / Google Scholar profile for additional 2024-2026 items before relying on her for a fast turnaround."
+  },
+
+  "filter_D_geographic": {
+    "country": "France",
+    "primary_affiliation": "CNRS / GREYC, Université de Caen Normandie",
+    "set_level_diversity_contribution": "France — non-AU. Provides the non-AU member of the set, satisfying Filter D set-level rule."
+  },
+
+  "filter_E_prior_interaction_with_author": {
+    "filter_pass": true,
+    "rationale": "Papanokechi has no public coauthorship trail. The AEAL framework (Zenodo 10.5281/zenodo.19562751) and Khinchin-signature bundle (Zenodo 10.5281/zenodo.20173677/.20173678) include no Vallée acknowledgment, citation in the data layer, or correspondence. No thesis-committee role is knowable for a pseudonymous author, but no signal indicates one.",
+    "yellow_flags": [],
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "filter_F_baustms_fit": {
+    "filter_pass": true,
+    "rationale": "Directrice de Recherche CNRS, Laboratoire GREYC; long-established researcher; member of multiple editorial boards in analysis of algorithms and probabilistic number theory; no retraction flags identified; topical expertise (continued-fraction metric theory) is a near-perfect match for the manuscript content.",
+    "fetch_timestamp": "2026-05-18T07:00:00Z",
+    "confidence": "HIGH"
+  },
+
+  "overall_recommendation": "KEEP WITH NOTE",
+  "overall_confidence": "MEDIUM-HIGH",
+  "blocking_filter": null,
+  "summary": "Vallée passes all six filters with a clean Filter B (her cluster-adjacent collaborator Flajolet is not in the named BBC set) and a near-perfect topical fit. KEEP WITH NOTE because: (a) Filter A is structurally unverifiable from outside CUP today (T&F board page 403, Wayback no snapshot) and is rated PROBABLE-PASS only; (b) the 24-month publication window is somewhat sparse on surfaced items (one in-window paper confirmed; her HAL/Scholar profile likely contains more). Neither concern is disqualifying; both are operator-awareness flags."
+}
