@@ -1,0 +1,43 @@
+{
+  "claim_id": "r1-sakai-nongen-001",
+  "task_id": "R1-ROUTE-F-SAKAI-NONGEN",
+  "predecessor": "R1-ROUTE-F-POC (bridge commit 0d7d20e)",
+  "pre_registered_utc": "2026-05-20",
+  "claim": "Under the Sakai non-generic intersection form for PIII(D_6) on Pic(X) of rank 10, there exists an integer embedding of 7 simple roots alpha_0,...,alpha_6 with self-intersection -2, orthogonal to -K_X, whose pairwise Gram matrix is the symmetric D_6^{(1)} Cartan form with the two-fork topology. Whether the embedding matches the predecessor cycle's alpha_0,...,alpha_6 or differs is recorded as part of the claim, not pre-asserted.",
+  "evidence_type": "computation",
+  "dps": 0,
+  "reproducible": true,
+  "script": "python -m pytest sakai_d6/tests/ -v && python sakai_d6/surface.py --verify-lattice",
+  "verification_criteria": {
+    "intersection_form_sakai_nongen_returns_10x10_integer_matrix": true,
+    "intersection_form_sakai_nongen_unimodular": true,
+    "intersection_form_sakai_nongen_signature_1_9": true,
+    "verdict_branch_resolved_to_exactly_one_of": [
+      "SAKAI_FORM_PRESERVES_POC_EMBEDDING",
+      "SAKAI_FORM_REQUIRES_NEW_EMBEDDING",
+      "SAKAI_FORM_ADMITS_NO_INTEGER_EMBEDDING_AT_THIS_RANK"
+    ],
+    "actual_verdict_resolved": "SAKAI_FORM_REQUIRES_NEW_EMBEDDING",
+    "primary_source": "Kajiwara-Noumi-Yamada 2017, J.Phys.A 50 (2017) 073001 = arXiv:1509.08186v8",
+    "primary_source_sections": "sec.3.3 eq (3.26) for the intersection form; sec.8.2.19 eq (8.98), (8.100), (8.101) for the canonical D_6^{(1)} simple roots delta_i",
+    "sakai_form_equals_generic_form": true,
+    "kny_canonical_embedding_satisfies_d6_affine_cartan": true,
+    "poc_alpha_under_sakai_form_satisfies_d6_affine_cartan": true,
+    "poc_alpha_equals_kny_delta_as_unordered_set": false
+  },
+  "halt_conditions": [
+    "HALTED_REFERENCE_UNAVAILABLE: Sakai 2001 sec.8 and KNY 2017 sec.4 both unretrievable or ambiguously parsed",
+    "HALTED_NUMERICAL_SIGNATURE_AMBIGUOUS: any eigenvalue within 1e-9 of zero",
+    "HALTED_SEARCH_BUDGET_EXCEEDED: constraint search > 30 min wall-clock at max_coef=2"
+  ],
+  "out_of_scope": [
+    "K_X-perp saturation (cycle 2)",
+    "effectivity classification of alpha_i (cycle 3)",
+    "Backlund / Weyl group connection",
+    "V_quad correspondence"
+  ],
+  "output_hash": "df6bbe767fddaa2dc306e04bf3bf56aee9806173711f6cc60db8c2c69bbdc121",
+  "output_hash_algo": "sha256",
+  "output_hash_scope": "utf-8 stdout of `python sakai_d6/surface.py --verify-lattice` after Sakai form added; whitespace-sensitive",
+  "output_hash_note": "see claims.jsonl for the canonical short-form AEAL line"
+}
