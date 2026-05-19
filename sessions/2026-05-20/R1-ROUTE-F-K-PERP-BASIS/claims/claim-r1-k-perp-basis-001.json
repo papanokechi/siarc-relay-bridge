@@ -1,0 +1,52 @@
+{
+  "claim_id": "r1-k-perp-basis-001",
+  "task_id": "R1-ROUTE-F-K-PERP-BASIS",
+  "cycle": "2 of 3 (R1-ROUTE-F three-cycle brief)",
+  "predecessor": "R1-ROUTE-F-SAKAI-NONGEN (bridge commit 53efe94)",
+  "pre_registered_utc": "2026-05-20",
+  "claim": "Fix the cycle-1 canonical Sakai-convention KNY embedding: the seven simple roots delta_0,...,delta_6 from KNY 2017 sec.8.2.19 eq (8.101) span a rank-7 sublattice L_delta of the rank-9 orthogonal complement K_X^perp = {v in Pic(X) : <v, -K_X> = 0} under the (configuration-independent) Pic intersection form. The Smith Normal Form of the 7x9 integer matrix expressing the delta_i in a Z-basis of K_X^perp has seven nonzero elementary divisors d_1, ..., d_7, whose product equals the index [L_delta^sat : L_delta] of L_delta in its saturation L_delta^sat inside K_X^perp. The verdict resolves to SATURATED_AT_RANK_7 if all d_i = 1, otherwise NOT_SATURATED_WITH_INDEX_<k> with k = prod d_i > 1 and the saturation closure generators are recorded.",
+  "evidence_type": "computation",
+  "dps": 0,
+  "reproducible": true,
+  "script": "python -m pytest sakai_d6/tests/ -v && python -m sakai_d6.saturation --analyze",
+  "primary_inputs": {
+    "intersection_form": "intersection_form_sakai_nongen() (= GRAM_PIC, configuration-independent per KNY 2017 sec.3.3 eq (3.26), validated in cycle 1)",
+    "simple_roots": "d6_affine_simple_roots_kny() (KNY 2017 sec.8.2.19 eq (8.101), seven delta_i)",
+    "anti_canonical_class": "anti_canonical() = 2H_1 + 2H_2 - sum E_i (predecessor, K_anti^2 = 0 confirmed)"
+  },
+  "verification_criteria": {
+    "k_perp_basis_has_rank_9": true,
+    "every_k_perp_basis_vector_orthogonal_to_anti_canonical": true,
+    "every_kny_delta_i_expressible_as_integer_combo_of_k_perp_basis": true,
+    "reconstruction_of_kny_delta_i_from_k_perp_coords_equals_d6_affine_simple_roots_kny": true,
+    "snf_has_exactly_seven_nonzero_elementary_divisors": true,
+    "verdict_branch_resolved_to_exactly_one_of": [
+      "SATURATED_AT_RANK_7",
+      "NOT_SATURATED_WITH_INDEX_k_for_k_in_Z_geq_2"
+    ],
+    "actual_verdict_resolved": "SATURATED_AT_RANK_7",
+    "actual_elementary_divisors": [1, 1, 1, 1, 1, 1, 1],
+    "actual_saturation_index": 1,
+    "actual_closure_generators_count": 0,
+    "kny_imaginary_root_equals_anti_canonical": true,
+    "anti_canonical_self_intersection_is_zero": true,
+    "anti_canonical_is_in_k_perp": true
+  },
+  "halt_conditions": [
+    "HALTED_K_PERP_RANK_MISMATCH: computed K_X^perp rank is not exactly 9",
+    "HALTED_KNY_NOT_IN_K_PERP: any KNY delta_i is not orthogonal to -K_X (should be impossible after cycle 1 verification, defensive check)",
+    "HALTED_SATURATION_AMBIGUOUS: SNF computation returns non-integer or non-deterministic elementary divisors",
+    "HALTED_UNEXPECTED_INDEX: the saturation index is > 6 (would be anomalously large for D_6^{(1)} in a rank-9 ambient lattice; bound chosen as the rank of the affine Cartan = 6, anything larger triggers review)",
+    "HALTED_SNF_RANK_DEFICIT: SNF returns fewer than 7 nonzero elementary divisors (would indicate the KNY delta_i are NOT Z-linearly independent in Pic, contradicting cycle 1)"
+  ],
+  "out_of_scope": [
+    "Effectivity classification of saturation generators (cycle 3)",
+    "Identification of L_delta^sat as a known root or weight lattice",
+    "Picard form restricted to K_perp / Z*K_anti and its E_8 identification (cycle 3 candidate)",
+    "Backlund / Weyl group connection",
+    "V_quad correspondence"
+  ],
+  "output_hash": "fe150ee817030bab070b2fa1c07cfbedb4c6e058e4882875db7a9aba0b371ee4",
+  "output_hash_algo": "sha256",
+  "output_hash_scope": "utf-8 stdout of `python -m sakai_d6.saturation --analyze`; whitespace-sensitive"
+}

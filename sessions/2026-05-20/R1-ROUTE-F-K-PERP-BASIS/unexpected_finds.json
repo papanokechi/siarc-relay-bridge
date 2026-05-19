@@ -1,0 +1,28 @@
+{
+  "R1-ROUTE-F-SAKAI-NONGEN_cycle1": {
+    "finding": "pic_intersection_form_is_configuration_independent",
+    "headline": "The Sakai PIII(D_6) non-generic Pic(X) intersection form is identical to the generic 8-point blow-up form.",
+    "primary_source": "Kajiwara-Noumi-Yamada (KNY) 2017, J. Phys. A 50 (2017) 073001 = arXiv:1509.08186v8, sec.3.3 eq (3.26)",
+    "kny_quote_paraphrase": "For any (possibly degenerate / infinitely-near) 8-point blow-up X of P1 x P1, Pic(X) = Z H_1 + Z H_2 + Z E_1 + ... + Z E_8 carries the standard intersection form: H_1.H_2 = 1, H_1^2 = H_2^2 = 0, E_i.E_j = -delta_{ij}, H_k.E_j = 0. The bilinear form depends only on the blow-up combinatorics class (rank 10, signature (1,9)), not on the geometric position of the 8 base points.",
+    "why_this_matters_for_the_brief": "The relay brief framed the work as discover the non-generic intersection form and check whether the POC embedding survives. The algebraic-geometry reality is that the BILINEAR FORM does not change between generic and PIII(D_6) configurations. The PIII(D_6) non-genericity manifests in the CHOICE of seven simple roots delta_0,...,delta_6 (KNY sec.8.2.19 eq (8.101)), NOT in the bilinear form on Pic.",
+    "implication_for_cycle_2": "Cycle 2 was scoped as K_X-perp saturation with the Sakai non-generic form from cycle 1 fixed. Because the form is unchanged, the saturation question is well-posed under the generic Pic form; cycle 2 may proceed with the canonical embedding from cycle 1 as the fixed input. The brief's precondition should be reread as with the canonical Sakai-convention KNY embedding from cycle 1 fixed.",
+    "verdict_observed": "SAKAI_FORM_REQUIRES_NEW_EMBEDDING",
+    "verdict_interpretation": "Both the predecessor (POC) alpha_i and the canonical KNY delta_i satisfy the D_6 affine Cartan condition under the configuration-independent form, but they differ as unordered sets of integer vectors in Pic(X). The POC chose alpha_3 = H_2 - H_1 as the central fork node; the KNY canonical fork node is delta_3 = H_2 - E_5 - E_6 (effective, non-negative E coefficients). The downstream pipeline should consume the KNY embedding as canonical."
+  },
+  "R1-ROUTE-F-K-PERP-BASIS_cycle2": {
+    "finding": "kny_simple_roots_are_primitive_in_K_perp",
+    "headline": "The canonical Sakai-convention KNY simple roots span a SATURATED rank-7 sublattice in K_X^perp; all SNF elementary divisors equal 1.",
+    "verdict_observed": "SATURATED_AT_RANK_7",
+    "verdict_interpretation": "The KNY 2017 sec.8.2.19 eq (8.101) embedding is not just an abstract D_6^(1) embedding into K_X^perp -- it is also Z-primitive there. No primitive integer vector in (Q L_delta) cap K_X^perp lies outside L_delta itself. This is the canonical-expected algebraic-geometry result and matches the SATURATED_AT_RANK_7 branch pre-registered in claim-r1-k-perp-basis-001.json. No surprise; no anomaly.",
+    "elementary_divisors": [1, 1, 1, 1, 1, 1, 1],
+    "saturation_index": 1,
+    "closure_generators_needed": 0,
+    "rank_of_complement_quotient": "K_X^perp / L_delta is free of rank 2 (9 - 7); this is the two-parameter Halphen pencil dimension for PIII(D_6).",
+    "supplementary_pins_established_this_cycle": {
+      "kny_imaginary_root_equals_anti_canonical": "sum_i a_i delta_i = -K_X with affine marks a = (1, 1, 2, 2, 2, 1, 1).",
+      "anti_canonical_self_intersection_zero": "(-K_X)^2 = 0 (Halphen pencil; K^2 = 0 for Bl_8 of P1 x P1). The predecessor test test_self_intersection_is_eight is a misnomer whose body asserts the correct value 0.",
+      "anti_canonical_in_K_perp": "-K_X is itself isotropic and so lies in K_X^perp; explicit decomposition in K_perp coords: -K_X = 2 b_1 + 2 b_2 - sum_{i=3..9} b_i."
+    },
+    "open_question_for_cycle_3_or_later": "Identify the rank-2 lattice K_X^perp / L_delta (Picard form restricted). Likely span by an elliptic fibre class F and the anti-canonical class -K_X, but the precise lattice structure is a candidate cycle 3 sub-question. NOT pursued this cycle."
+  }
+}
