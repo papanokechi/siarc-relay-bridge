@@ -1,0 +1,43 @@
+{
+  "task_id": "T3B-VQUAD-EXCL-T2DPRIME",
+  "predecessor_immediate": "T3B-VQUAD-EXCL-T2PRIME (2026-05-19)",
+  "predecessor_chain": [
+    "T3B-VQUAD-EXCL-PEGZ3 (2026-05-18)  -- T2  flat Q-linear exclusion",
+    "T3B-VQUAD-EXCL-T2PRIME (2026-05-19) -- T2' (3,2)-bipartite exclusion on B_union and B_tensor"
+  ],
+  "target": "T2'' (Claude-named follow-up to T2'; dual-axis exclusion)",
+  "date": "2026-05-19",
+  "agent": "GitHub Copilot (VS Code) under SIARC Tier-3b AEAL governance",
+  "python": "3.12.10",
+  "mpmath": "1.3.0",
+  "sympy": "1.14.0",
+  "lean": "n/a",
+  "platform": "Windows-11-10.0.29591-SP0",
+  "machine": "AMD64",
+  "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+  "ram_gb_estimate": 16,
+  "git_head_claude_chat": "52d9ee432e882095f88f306485da309fedb2d239",
+  "git_head_siarc_relay_bridge_pre_session": "798495cd72a8c2ac19ff5614e5ac6117130e53b7",
+  "venv": ".venv (workspace local)",
+  "input_artifact_predecessor_vquad": "sessions/2026-05-18/T3B-VQUAD-EXCL-PEGZ3/vquad_value_2000dp.txt",
+  "input_artifact_predecessor_vquad_string_sha256": "52375a71a05bf61ad971cf83ea9334eb96e20ffa054dc3cab74447966a2f5c44",
+  "scope": {
+    "axis_1_coefficient_floor": {
+      "basis": "B_tensor_3_2 (V_quad^{0..3} x classical deg<=2, 60 elements; same as T2')",
+      "maxcoeff": 1000000,
+      "tiers_dp": [500, 2050],
+      "intent": "If returns NULL: certificate tightens from |c|<=10^4 to |c|<=10^6; one of the three named falsification triggers closed."
+    },
+    "axis_2_degree_extension": {
+      "basis": "B_tensor_4_2 (V_quad^{0..4} x classical deg<=2, 75 elements; extends V_quad-degree axis from 3 to 4)",
+      "maxcoeff": 10000,
+      "tiers_dp": [500, 2050],
+      "intent": "If returns NULL: closes the 'degree-4 V_quad hit at the same basis' falsification trigger named in T2' report."
+    }
+  },
+  "scope_excluded": [
+    "Bipartite (3,3) tensor (140 elements at 2050 dp ~ 5-8h, exceeds 'one Tier-3b session' time budget; deferred to T2''' if both axes here return NULL)",
+    "Augmented classical generators (gamma, log 2, zeta(5)); separate program-statement question"
+  ],
+  "judgment_call_for_scope_choice": "Claude's relay text proposed 'T2'' as bipartite (3,3) tensor at maxcoeff=10^6, 40 elements, comparable to T2' runtime'. The agent verified the basis size: on the same 4 classical generators that T2' used, (3,3) tensor is 4 x 35 = 140 elements, not 40. The 40-count appears to be an arithmetic slip in the relay prompt. To honor the stated time budget ('one Tier-3b session, comparable to T2' = ~1h') while still covering Claude's stated experimental goal of 'testing two of the three open axes simultaneously', the agent replaced the single (3,3) cycle with a dual-axis cycle on the existing (3,2) basis plus the (4,2) extension. Estimated total wall-clock 2-3 h. The strict (3,3) cycle is deferred to T2''' if and when warranted."
+}

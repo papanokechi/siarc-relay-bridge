@@ -1,0 +1,33 @@
+{
+  "$schema_hint": "SIARC plan_dag v0.2",
+  "task_id": "T3B-VQUAD-EXCL-T2DPRIME",
+  "target": "T2''",
+  "objective": "Strengthen the T2' exclusion certificate by (a) lifting maxcoeff from 10^4 to 10^6 on the existing 60-element (3,2) tensor basis (coefficient-floor axis), and (b) extending V_quad-degree from 3 to 4 on the same classical generators at maxcoeff=10^4 (degree-extension axis). Closes two of the three named falsification triggers from the T2' handoff in one Tier-3b session.",
+  "rationale_for_dual_axis": "Claude's relay text named bipartite (3,3) tensor at maxcoeff=10^6 as the highest-information-per-cycle next step, citing 40 elements and ~T2' runtime. On the 4-classical-generator basis used by T2', the strict (3,3) tensor is 4*35 = 140 elements with ~5-8h wall-clock at maxcoeff=10^6, breaking the stated 'one Tier-3b session' budget. The dual-axis option below tests the same two underlying experimental dimensions (coefficient ceiling AND V_quad-degree extension) within the budget, on the basis where a relation is most likely to live. The strict (3,3) cycle is deferred.",
+  "nodes": [
+    {"id": "N1_env", "kind": "setup", "description": "Env snapshot", "depends_on": [], "budget_seconds": 30, "budget_ram_mb": 256, "success_predicate": "env_snapshot.json present"},
+    {"id": "N2_vquad_fresh", "kind": "compute", "description": "Reload predecessor T2' V_quad string for provenance sanity (require string-content SHA-256 match and >=1998-digit numerical agreement vs fresh); compute fresh V_quad via backward CF at depths 5000 and 6000 (2200 dp working); require dual-depth agreement >= 2000 digits; use depth-5000 fresh value as PSLQ input", "depends_on": ["N1_env"], "budget_seconds": 60, "budget_ram_mb": 1024, "success_predicate": "fresh dual-depth agreement >= 2000 digits AND reload-vs-fresh agreement >= 1998 digits"},
+    {"id": "N3_basis_3_2", "kind": "compute", "description": "Re-enumerate B_tensor_3_2 = {V_quad^k * pi^a * e^b * G^c * zeta(3)^d : k in [0,3], a+b+c+d <= 2} (60 elements, byte-identical to T2' tensor basis)", "depends_on": ["N2_vquad_fresh"], "budget_seconds": 5, "budget_ram_mb": 256, "success_predicate": "size == 60 AND labels match T2' B_tensor exactly"},
+    {"id": "N4_basis_4_2", "kind": "compute", "description": "Enumerate B_tensor_4_2 = {V_quad^k * pi^a * e^b * G^c * zeta(3)^d : k in [0,4], a+b+c+d <= 2} (75 elements; extends k by one)", "depends_on": ["N2_vquad_fresh"], "budget_seconds": 5, "budget_ram_mb": 256, "success_predicate": "size == 75"},
+    {"id": "N5_pslq_3_2_maxc6_500", "kind": "filter", "description": "PSLQ B_tensor_3_2 at 500 dp, tol 10^-450, maxcoeff 10^6, maxsteps 2000 (axis 1 tier 1)", "depends_on": ["N3_basis_3_2"], "budget_seconds": 600, "budget_ram_mb": 2048, "success_predicate": "result is None OR a candidate"},
+    {"id": "N6_pslq_3_2_maxc6_2050", "kind": "filter", "description": "PSLQ B_tensor_3_2 at 2050 dp, tol 10^-1970, maxcoeff 10^6, maxsteps 4000 (axis 1 tier 2)", "depends_on": ["N5_pslq_3_2_maxc6_500"], "budget_seconds": 1200, "budget_ram_mb": 4096, "success_predicate": "result classified NULL / STABLE_CANDIDATE / UNSTABLE_NOISE"},
+    {"id": "N7_pslq_4_2_maxc4_500", "kind": "filter", "description": "PSLQ B_tensor_4_2 at 500 dp, tol 10^-450, maxcoeff 10^4, maxsteps 2000 (axis 2 tier 1)", "depends_on": ["N4_basis_4_2"], "budget_seconds": 900, "budget_ram_mb": 2048, "success_predicate": "result is None OR a candidate"},
+    {"id": "N8_pslq_4_2_maxc4_2050", "kind": "filter", "description": "PSLQ B_tensor_4_2 at 2050 dp, tol 10^-1970, maxcoeff 10^4, maxsteps 4000 (axis 2 tier 2; longest tier; estimated ~110 min)", "depends_on": ["N7_pslq_4_2_maxc4_500"], "budget_seconds": 9000, "budget_ram_mb": 4096, "success_predicate": "result classified NULL / STABLE_CANDIDATE / UNSTABLE_NOISE"},
+    {"id": "N9_certificate", "kind": "bind", "description": "Emit exclusion_certificate.json with sub-certificates for axis 1 (3,2)/maxc=10^6 and axis 2 (4,2)/maxc=10^4, plus a combined verdict", "depends_on": ["N6_pslq_3_2_maxc6_2050", "N8_pslq_4_2_maxc4_2050"], "budget_seconds": 60, "budget_ram_mb": 256, "success_predicate": "certificate present, verdict in {EXCLUSION_CERTIFIED, PENDING_VERIFICATION, GOLD_FREEZE, ABORTED}"},
+    {"id": "N10_aeal", "kind": "archive", "description": "Append AEAL claims for V_quad provenance, fresh CF agreement, 4 PSLQ runs, 2 sub-verdicts, combined verdict (>= 9 entries)", "depends_on": ["N9_certificate"], "budget_seconds": 30, "budget_ram_mb": 256, "success_predicate": "claims.jsonl schema-valid"},
+    {"id": "N11_manifest", "kind": "archive", "description": "SHA-256 manifest", "depends_on": ["N10_aeal"], "budget_seconds": 30, "budget_ram_mb": 256, "success_predicate": "manifest.json validates"},
+    {"id": "N12_report", "kind": "archive", "description": "report.md", "depends_on": ["N11_manifest"], "budget_seconds": 30, "budget_ram_mb": 256, "success_predicate": "report.md present with exactly one verdict tag"},
+    {"id": "N13_handoff_push", "kind": "archive", "description": "STANDING FINAL STEP: handoff.md, fetch-only drift check, stage only this directory, commit, push", "depends_on": ["N12_report"], "budget_seconds": 120, "budget_ram_mb": 256, "success_predicate": "push succeeded OR BRIDGE_FAILED zip emitted"}
+  ],
+  "global_budget_seconds": 12000,
+  "global_budget_ram_mb": 8192,
+  "halt_conditions": [
+    "dual-depth fresh CF agreement < 2000 digits at 2200 dp",
+    "reload-vs-fresh agreement < 1998 digits (predecessor artefact provenance broken)",
+    "RAM > 85% of host",
+    "PSLQ returns conflicting candidates at 500 dp and 2050 dp on the same basis (UNSTABLE_NOISE)",
+    "Any computation produces NaN, inf, or negative precision residual",
+    "If a STABLE_CANDIDATE survives both tiers on either basis: HALT and emit candidate-relation artefact; do NOT escalate language; route to Stage-4 symbolic check before any binding"
+  ],
+  "honest_outcomes_authorised": ["GOLD_FREEZE", "EXCLUSION_CERTIFIED", "PENDING_VERIFICATION", "ABORTED"]
+}

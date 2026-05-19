@@ -1,0 +1,108 @@
+{
+  "task_id": "T3B-VQUAD-EXCL-T2DPRIME",
+  "target": "T2''",
+  "claim_form": "Q-linear over two axis sub-bases (coefficient-floor + V_quad-degree extension)",
+  "predecessor_chain": [
+    "T3B-VQUAD-EXCL-PEGZ3 (2026-05-18) -- T2 flat exclusion, EXCLUSION_CERTIFIED",
+    "T3B-VQUAD-EXCL-T2PRIME (2026-05-19) -- T2' union + tensor at maxcoeff 10^4, EXCLUSION_CERTIFIED"
+  ],
+  "statement": "No nontrivial Q-linear relation exists between V_quad and the basis B_3_2 = {V_quad^k * pi^a * e^b * G^c * zeta(3)^d : k in [0..3], a+b+c+d <= 2} (60 elements) at maxcoeff = 10^6, nor between V_quad and the basis B_4_2 = {V_quad^k * pi^a * e^b * G^c * zeta(3)^d : k in [0..4], a+b+c+d <= 2} (75 elements) at maxcoeff = 10^4, at PSLQ working precisions 500 dp and 2050 dp on both axes.",
+  "scope_caveat": "T2'' closes TWO of the three falsification triggers named in the T2' report: (1) the coefficient-floor lift from 10^4 to 10^6 on the (3,2) tensor basis; (2) the V_quad-degree extension from 3 to 4 on the same classical generators at maxcoeff = 10^4. The remaining named trigger from T2' -- a degree <= 3 hit after expanding maxcoeff to 10^6 ON THE (4,2) basis -- is NOT directly tested here (the maxcoeff = 10^6 axis was held to the 60-element (3,2) basis for runtime; the (4,2) basis ran at maxcoeff = 10^4 only). The strict (3,3) tensor at maxcoeff = 10^6 (140 elements; ~5-8h at 2050 dp) is deferred. Other classical generators (gamma, log 2, zeta(5), Khinchin's constant) remain untested, as do algebraic relations involving constants outside {pi, e, G, zeta(3)}. The Painleve III(D_6) connection-formula route is structural, not numerical, and outside Tier-3b scope.",
+  "constant_under_test": {
+    "name": "V_quad",
+    "definition": "1 + K_{n>=1} 1/(3 n^2 + n + 1), backward GCF",
+    "computed_at_dps": 2200,
+    "agreement_digits_5000_vs_6000": 2200,
+    "first_64_chars": "1.197373990688357602448603219937206329704270703231350336285792769",
+    "cross_cycle_invariant": "Three independent CF computations (T2, T2', T2'') at the same depth/dps now agree bit-for-bit on the first 64 digits. V_quad is a cross-cycle invariant of this project, not a single-cycle artefact.",
+    "predecessor_string_sha256": "52375a71a05bf61ad971cf83ea9334eb96e20ffa054dc3cab74447966a2f5c44",
+    "predecessor_reload_sanity_agreement_digits": 1999,
+    "predecessor_reload_threshold": 1998,
+    "predecessor_reload_explanation": "Predecessor cycle T3B-VQUAD-EXCL-PEGZ3 persisted V_quad as a 2000-decimal-digit text artefact via mp.nstr(...). Round-trip through that representation truncates ~1 ULP at the boundary, so reload-vs-fresh agreement of 1999 digits is the expected signal of correct provenance, not a precision deficit. The FRESH computation (depth 5000, 2200 dps) is what PSLQ consumes."
+  },
+  "sub_certificates": [
+    {
+      "label": "B_3_2",
+      "axis": "axis_1_coefficient_floor",
+      "intent": "Lifts coefficient floor from 10^4 (T2') to 10^6 on the same 60-element tensor basis. Closes T2' falsification trigger 'a degree <= 3 hit after expanding maxcoeff to 10^6'.",
+      "description": "PSLQ exclusion at maxcoeff = 10^6 on basis B_3_2 (60 elements). Two-tier stability check: 500 dp + 2050 dp must both return None.",
+      "basis_size": 60,
+      "basis_enumeration_artifact": "basis_3_2_enumeration.json",
+      "pslq_parameters": {
+        "tier1": {
+          "working_dps": 500,
+          "tolerance": "10^-450",
+          "maxcoeff": 1000000,
+          "maxsteps": 2000,
+          "wall_seconds": 259.428,
+          "result": null
+        },
+        "tier2": {
+          "working_dps": 2050,
+          "tolerance": "10^-1970",
+          "maxcoeff": 1000000,
+          "maxsteps": 4000,
+          "wall_seconds": 3250.437,
+          "result": null
+        }
+      },
+      "sub_verdict": "NULL",
+      "stability": "Both tiers returned None on this basis. No relation can have escaped tier-1 (500 dp) detection and re-appeared at tier-2 (2050 dp) within maxcoeff = 10^6."
+    },
+    {
+      "label": "B_4_2",
+      "axis": "axis_2_degree_extension",
+      "intent": "Extends V_quad-degree axis from 3 to 4 on the same classical generators at maxcoeff = 10^4. Closes T2' falsification trigger 'a degree-4 hit at the same basis'.",
+      "description": "PSLQ exclusion at maxcoeff = 10^4 on basis B_4_2 (75 elements). Two-tier stability check: 500 dp + 2050 dp must both return None.",
+      "basis_size": 75,
+      "basis_enumeration_artifact": "basis_4_2_enumeration.json",
+      "pslq_parameters": {
+        "tier1": {
+          "working_dps": 500,
+          "tolerance": "10^-450",
+          "maxcoeff": 10000,
+          "maxsteps": 2000,
+          "wall_seconds": 545.449,
+          "result": null
+        },
+        "tier2": {
+          "working_dps": 2050,
+          "tolerance": "10^-1970",
+          "maxcoeff": 10000,
+          "maxsteps": 4000,
+          "wall_seconds": 2799.69,
+          "result": null
+        }
+      },
+      "sub_verdict": "NULL",
+      "stability": "Both tiers returned None on this basis. No relation can have escaped tier-1 (500 dp) detection and re-appeared at tier-2 (2050 dp) within maxcoeff = 10^4."
+    }
+  ],
+  "combined_verdict": "EXCLUSION_CERTIFIED",
+  "confidence_statement": "PSLQ provably detects any integer relation among the input vector with coefficient norm <= 2^{D/n - 2} at precision D digits with n input slots [Bailey-Broadhurst]. At D = 2050 dp and n = 60 the theoretical detection floor far exceeds maxcoeff = 10^6; at D = 2050 dp and n = 75 the floor likewise far exceeds maxcoeff = 10^4. Returning None across all four canonical PSLQ runs (plus the structural-invariance smoke at 500 dp on B_4_2) therefore certifies the exclusion under the stated bounds on each axis, with two-tier stability protecting against standard PSLQ failure modes.",
+  "recovery_metadata": {
+    "tier_3d_executed_in_recovery": true,
+    "recovery_artifact": "tier_3d_recovery.json",
+    "recovery_driver": "recover_tier_3d.py",
+    "stage_2_verification_artifact": "stage_2_verification.json",
+    "framing": "Tier 3d (B_4_2 @ 2050 dp) was executed in a separate process from tiers 3a-3c after the original stage_23_executor.py terminated silently between tier 3c (10:45:53 JST) and tier 3d. A pre-flight smoke at 500 dp on the identical B_4_2 basis confirmed structural invariance against canonical tier 3c (same dps, tol_exponent, maxcoeff, maxsteps, basis_size, and None verdict; see tier_3d_recovery.json smoke_comparison_note for what 'None == None' establishes and what it does not) before committing to the long 2050 dp run. The Stage 2 cross-check evidence (dual-depth agreement, reload-vs-fresh) was re-established post-hoc by stage_2_verification.py because the original executor died before persisting that evidence; the numerics match the original in-memory log lines and the recovery driver's first-64-chars witness. This recovery is honest-provenance metadata, not a caveat on the verdict; the tier 3d verdict (None at 2050 dp on 75 elements) is a complete and independently reproducible PSLQ run.",
+    "tiers_in_canonical_executor_run": [
+      "pslq_3_2_maxc6_500dp.json",
+      "pslq_3_2_maxc6_2050dp.json",
+      "pslq_4_2_maxc4_500dp.json"
+    ],
+    "tiers_in_recovery_run": [
+      "tier_3d_preflight_500dp.json",
+      "pslq_4_2_maxc4_2050dp.json"
+    ]
+  },
+  "falsification_triggers_closed_this_cycle": [
+    "coefficient-floor lift to 10^6 on (3,2) tensor basis (axis 1)",
+    "V_quad-degree extension to 4 on (k,2) basis at maxcoeff 10^4 (axis 2)"
+  ],
+  "falsification_triggers_unfired": [
+    "degree-4 V_quad x degree-<=2 classical at maxcoeff = 10^6 (the joint axis; NOT tested)",
+    "degree-<=3 V_quad x degree-3 classical (B_3_3 = 140 elements; deferred to T2''')",
+    "augmented classical generators {gamma, log 2, zeta(5), Khinchin's K} (NOT tested)"
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "task_id": "T3B-VQUAD-EXCL-T2DPRIME",
+  "date": "2026-05-19",
+  "verdict": "EXCLUSION_CERTIFIED",
+  "axis_1_verdict": "NULL",
+  "axis_2_verdict": "NULL",
+  "files": [
+    {
+      "name": "basis_3_2_enumeration.json",
+      "sha256": "05bd19cf4f117e2f154434874c698f367b768c8f5388fe57080a01fb65ea40b2",
+      "bytes": 9004
+    },
+    {
+      "name": "basis_4_2_enumeration.json",
+      "sha256": "ceb9445bb5e9f2f6ae41d19be62491282b0ec7cb1b374e7048b2045fd08c08ee",
+      "bytes": 11267
+    },
+    {
+      "name": "claims.jsonl",
+      "sha256": "ff0f48dbb252a3409f2f0a9404d32356845edbc6a957a1a726c19497e259fbc3",
+      "bytes": 4503
+    },
+    {
+      "name": "discrepancy_log.json",
+      "sha256": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f",
+      "bytes": 4
+    },
+    {
+      "name": "env_snapshot.json",
+      "sha256": "b6275b997757fc67c9a4a4003130c9bcbf841ae4604b791208bf28d67f90f993",
+      "bytes": 2931
+    },
+    {
+      "name": "exclusion_certificate.json",
+      "sha256": "62a1672c1572f40a8da06fc0189a48a07dc7c300f16d950ae4e3a869b7865c58",
+      "bytes": 7955
+    },
+    {
+      "name": "halt_log.json",
+      "sha256": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f",
+      "bytes": 4
+    },
+    {
+      "name": "plan_dag.json",
+      "sha256": "215fad6b17ce8bf0d395f1ac5021257d3e9a32101934e03c62ab10c3b2fc6cdd",
+      "bytes": 6053
+    },
+    {
+      "name": "pslq_3_2_maxc6_2050dp.json",
+      "sha256": "885ae060dbc02e2ab6304eb4d957e84f360fc8af1db2eddeb203e503004b8518",
+      "bytes": 177
+    },
+    {
+      "name": "pslq_3_2_maxc6_500dp.json",
+      "sha256": "e5540d2c5bd9f0f8f07767557c2dcd1e9e52fe2ba2ec2229ac5f06a4b78fffb1",
+      "bytes": 174
+    },
+    {
+      "name": "pslq_4_2_maxc4_2050dp.json",
+      "sha256": "36402dcf8037bcd858e459211bb45f58c2ebac8a0f8c21953392737b2f8a68cd",
+      "bytes": 174
+    },
+    {
+      "name": "pslq_4_2_maxc4_500dp.json",
+      "sha256": "91db87ed35e9ebd4195edbd4b5029e3db03a8a599744412c8792f242bedcf9f5",
+      "bytes": 172
+    },
+    {
+      "name": "recover_tier_3d.py",
+      "sha256": "1c088d8d257711f6384cef31a288fa4a4e58232ed97a10aa3638cc0e5eccf332",
+      "bytes": 16543
+    },
+    {
+      "name": "stage_23_executor.py",
+      "sha256": "f3b66391aa4c113ee12ecbbaed92aab1214ca2df0b9a361b869c66e28c5df7bb",
+      "bytes": 14936
+    },
+    {
+      "name": "stage_2_verification.json",
+      "sha256": "62ac4977cdd14ed95f4def225c60ede58fff7feea52fad887e24165fa31aaef1",
+      "bytes": 1752
+    },
+    {
+      "name": "stage_2_verification.py",
+      "sha256": "e0fd16971e1ffa970c90e086b6c6de4160fb865e663e0e7e6e5224ce892f2e18",
+      "bytes": 6629
+    },
+    {
+      "name": "stage_4_5_archive.py",
+      "sha256": "df2dd64123bf8b489e7119de4df0cd2c6c5d9ba680f31a44e66672c71ec8545b",
+      "bytes": 21796
+    },
+    {
+      "name": "tier_3d_preflight_500dp.json",
+      "sha256": "28a7cb5a0d9afd53102a725fa393fd80159b59c9399db3deef8750cdcf3bef6b",
+      "bytes": 194
+    },
+    {
+      "name": "tier_3d_recovery.json",
+      "sha256": "5ae4977b326a1ffc97bbafcbce4eff949d476ef9c1f3d24e4f99b2866ffe4630",
+      "bytes": 3471
+    },
+    {
+      "name": "unexpected_finds.json",
+      "sha256": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f",
+      "bytes": 4
+    },
+    {
+      "name": "verified_relations.json",
+      "sha256": "142134b0526da36082abf569796d5b50c0e686ff787a644b42949e168c29538a",
+      "bytes": 182
+    }
+  ],
+  "excluded_from_manifest_note": "tier_3d_progress.log and tier_3d_stdout.log are excluded from the manifest because their content is timestamp-dependent (live heartbeat log). They are useful narrative evidence for the recovery section but are not part of the claim chain. They remain in the slot directory."
+}
