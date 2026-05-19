@@ -1,0 +1,18 @@
+{
+  "claim_id": "r1-poc-001",
+  "scope": "D6_affine_root_system_and_surface_intersection_form_compile_and_pass_unit_tests",
+  "evidence_class": "computational",
+  "verification_criteria": {
+    "test_root_system_passes": true,
+    "surface_intersection_form_is_unimodular": true,
+    "orthogonal_complement_lattice_type": "D6_affine"
+  },
+  "reproduce": "cd pcf-r1-route-f && python -m pytest sakai_d6/tests/ -v && python sakai_d6/surface.py --verify-lattice",
+  "out_of_scope": [
+    "V_quad parameter correspondence",
+    "Stokes constant derivation",
+    "R1 closure of any kind"
+  ],
+  "preregistered_at_utc": "2026-05-19T00:00:00Z",
+  "preregistered_by": "GitHub Copilot Agent (R1-ROUTE-F-POC relay)"
+}
