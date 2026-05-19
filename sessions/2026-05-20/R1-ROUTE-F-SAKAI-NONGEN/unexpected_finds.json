@@ -1,0 +1,12 @@
+{
+  "R1-ROUTE-F-SAKAI-NONGEN_cycle1": {
+    "finding": "pic_intersection_form_is_configuration_independent",
+    "headline": "The Sakai PIII(D_6) non-generic Pic(X) intersection form is identical to the generic 8-point blow-up form.",
+    "primary_source": "Kajiwara-Noumi-Yamada (KNY) 2017, J. Phys. A 50 (2017) 073001 = arXiv:1509.08186v8, sec.3.3 eq (3.26)",
+    "kny_quote_paraphrase": "For any (possibly degenerate / infinitely-near) 8-point blow-up X of P1 x P1, Pic(X) = Z H_1 + Z H_2 + Z E_1 + ... + Z E_8 carries the standard intersection form: H_1.H_2 = 1, H_1^2 = H_2^2 = 0, E_i.E_j = -delta_{ij}, H_k.E_j = 0. The bilinear form depends only on the blow-up combinatorics class (rank 10, signature (1,9)), not on the geometric position of the 8 base points.",
+    "why_this_matters_for_the_brief": "The relay brief framed the work as discover the non-generic intersection form and check whether the POC embedding survives. The algebraic-geometry reality is that the BILINEAR FORM does not change between generic and PIII(D_6) configurations. The PIII(D_6) non-genericity manifests in the CHOICE of seven simple roots delta_0,...,delta_6 (KNY sec.8.2.19 eq (8.101)), NOT in the bilinear form on Pic.",
+    "implication_for_cycle_2": "Cycle 2 was scoped as K_X-perp saturation with the Sakai non-generic form from cycle 1 fixed. Because the form is unchanged, the saturation question is well-posed under the generic Pic form; cycle 2 may proceed with the canonical embedding from cycle 1 as the fixed input. The brief's precondition should be reread as with the canonical Sakai-convention KNY embedding from cycle 1 fixed.",
+    "verdict_observed": "SAKAI_FORM_REQUIRES_NEW_EMBEDDING",
+    "verdict_interpretation": "Both the predecessor (POC) alpha_i and the canonical KNY delta_i satisfy the D_6 affine Cartan condition under the configuration-independent form, but they differ as unordered sets of integer vectors in Pic(X). The POC chose alpha_3 = H_2 - H_1 as the central fork node; the KNY canonical fork node is delta_3 = H_2 - E_5 - E_6 (effective, non-negative E coefficients). The downstream pipeline should consume the KNY embedding as canonical."
+  }
+}
