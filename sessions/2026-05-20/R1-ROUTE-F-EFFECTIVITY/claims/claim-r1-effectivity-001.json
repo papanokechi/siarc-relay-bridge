@@ -1,0 +1,75 @@
+{
+  "claim_id": "r1-effectivity-001",
+  "task_id": "R1-ROUTE-F-EFFECTIVITY",
+  "cycle": "3a of original three-cycle R1-ROUTE-F brief (split into 3a effectivity + 3b rank-2 quotient by synthesizer dispatch)",
+  "predecessor_bridge_commit": "139fa8b",
+  "pre_registered_at": "2026-05-20 cycle 3a opening (before any classification was computed)",
+  "claim": "For the KNY 2017 sec.8.2.19 PIII(D_6) base-point configuration P_{12} + P_{34} + P_{5678} (KNY eq 8.98), each of the seven canonical KNY simple roots delta_0, ..., delta_6 (KNY eq 8.101) is classified as one of: 'effective' (admits a non-negative integer decomposition into irreducible components of the configuration: the 7 D_6^{(1)} (-2)-curves themselves plus 3 (-1)-curve chain-tip exceptional divisors E_2, E_4, E_8) / 'not_effective' (no such decomposition exists) / 'effective_after_named_Weyl_move' (becomes effective after a single Weyl reflection through one of the other six delta_j, with the move and post-reflection decomposition recorded). The classification is determined by integer linear-algebra: since the 10 irreducible components form a Z-basis of Pic(X) (verified by unimodular determinant), each Pic class has a unique integer decomposition and effectivity reduces to non-negativity of coefficients. When `effective`, the explicit decomposition is recorded.",
+  "evidence_type": "computation",
+  "dps": 0,
+  "reproducible": true,
+  "script": "python -m pytest sakai_d6/tests/ -v && python -m sakai_d6.effectivity --classify",
+  "output_hash": "e60adeaf8cc08bdf8aafd4afb4b245e55c18cd2f643801857376395ddce4aecd",
+  "output_hash_algo": "sha256",
+  "output_hash_scope": "utf-8 stdout of `python -m sakai_d6.effectivity --classify`; whitespace-sensitive",
+  "pre_registered_verdict_per_delta_i_based_on_actual_d6_affine_simple_roots_kny": {
+    "delta_0_form": "E_1 - E_2",
+    "delta_0_expected": "effective",
+    "delta_0_reasoning": "strict transform of exceptional E_1 after E_2 is blown up at a smooth point on it; chain {1,2} of two infinitely-near base points.",
+    "delta_1_form": "E_3 - E_4",
+    "delta_1_expected": "effective",
+    "delta_1_reasoning": "same chain pattern, chain {3,4}.",
+    "delta_2_form": "H_1 - E_1 - E_3",
+    "delta_2_expected": "effective",
+    "delta_2_reasoning": "strict transform of the H_1 ruling fiber containing both P_1 (head of chain {1,2}) and P_3 (head of chain {3,4}); both chains lie on the same H_1 fiber.",
+    "delta_3_form": "H_2 - E_5 - E_6",
+    "delta_3_expected": "effective",
+    "delta_3_reasoning": "strict transform of the H_2 ruling fiber through P_5 with P_6 infinitely near.",
+    "delta_4_form": "E_6 - E_7",
+    "delta_4_expected": "effective",
+    "delta_4_reasoning": "strict transform of E_6 after blowing up P_7 on it; chain {5,6,7,8}.",
+    "delta_5_form": "E_5 - E_6",
+    "delta_5_expected": "effective",
+    "delta_5_reasoning": "strict transform of E_5 after blowing up P_6 on it; chain {5,6,7,8}.",
+    "delta_6_form": "E_7 - E_8",
+    "delta_6_expected": "effective",
+    "delta_6_reasoning": "strict transform of E_7 after blowing up P_8 on it; end of chain {5,6,7,8}."
+  },
+  "deviation_from_synthesizer_table": {
+    "synthesizer_table_said_delta_4_form": "H_1 - E_5 - E_7",
+    "actual_source_says_delta_4_form": "E_6 - E_7",
+    "synthesizer_table_said_delta_5_form": "E_5 - E_6 (correct)",
+    "actual_source_says_delta_5_form": "E_5 - E_6 (correct)",
+    "resolution": "synthesizer flagged this contingency explicitly: 'the agent should verify the exact delta_i from d6_affine_simple_roots_kny() and update the pre-registered table accordingly. If any delta_i has a form not on this list, declare the expected verdict based on its actual form before computing.' Following that instruction; the synthesizer's reconstructed delta_4 = H_1 - E_5 - E_7 would not satisfy the D_6^{(1)} affine marks identity (sum a_i delta_i = -K_X) under the canonical (1,1,2,2,2,1,1) marks already verified in cycle 2. The actual source delta_4 = E_6 - E_7 does satisfy that identity (verified in cycle 2's test_kny_imaginary_root_equals_anti_canonical). No anomaly; this is the same per-deliverable verification the synthesizer flagged as expected."
+  },
+  "verdict_branch_resolved_to_exactly_one_of_per_delta_i": [
+    "effective",
+    "not_effective",
+    "effective_after_named_Weyl_move"
+  ],
+  "actual_verdict_per_delta_i": {
+    "delta_0": "effective",
+    "delta_1": "effective",
+    "delta_2": "effective",
+    "delta_3": "effective",
+    "delta_4": "effective",
+    "delta_5": "effective",
+    "delta_6": "effective"
+  },
+  "actual_all_seven_effective": true,
+  "actual_irreducible_basis_determinant": 1,
+  "actual_decompositions_summary": "each delta_i decomposes trivially as itself with multiplicity 1; the seven delta_i are the (-2)-component half of the 10-component Z-basis of Pic(X).",
+  "halt_conditions_pre_registered": {
+    "HALTED_EFFECTIVITY_INCONCLUSIVE": "is_effective returns inconclusive for any delta_i within the search budget.",
+    "HALTED_WEYL_REFLECTION_INVALID": "weyl_reflection produces a non-integer or non-(-2) class on any test input.",
+    "HALTED_IRREDUCIBLE_DECOMPOSITION_UNDERDETERMINED": "irreducible-component list cannot be unambiguously derived from KNY sec.8.2.19.",
+    "HALTED_BUDGET_EXCEEDED": "wall-clock exceeds 2x of 45-60 minute budget.",
+    "HALTED_DETERMINANT_NOT_UNIMODULAR": "the 10 irreducible components fail to form a Z-basis of Pic(X) (|det| != 1)."
+  },
+  "scope_constraints_pre_registered": [
+    "only the seven KNY delta_i are classified; no enumeration of all effective (-2)-curves on the surface",
+    "no claims about Backlund transformations, tau-functions, or V_quad connections",
+    "no investigation of the rank-2 quotient K_X^perp / L_delta (deferred to cycle 3b)",
+    "cycle 1 outputs intersection_form_sakai_nongen() and d6_affine_simple_roots_kny() are immutable inputs"
+  ]
+}
