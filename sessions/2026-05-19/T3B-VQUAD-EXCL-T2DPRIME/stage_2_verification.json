@@ -1,0 +1,39 @@
+{
+  "task_id": "T3B-VQUAD-EXCL-T2DPRIME",
+  "stage": 2,
+  "post_hoc": true,
+  "events": [
+    {
+      "event": "predecessor_load",
+      "predecessor_path": "sessions/2026-05-18/T3B-VQUAD-EXCL-PEGZ3/vquad_value_2000dp.txt",
+      "file_bytes_sha": "40418cb8e3710dcee278f893ae96276f0dd456e3fd183b3e8a0a13cee1b4dfb3",
+      "string_content_sha": "52375a71a05bf61ad971cf83ea9334eb96e20ffa054dc3cab74447966a2f5c44",
+      "expected_string_sha": "52375a71a05bf61ad971cf83ea9334eb96e20ffa054dc3cab74447966a2f5c44",
+      "string_sha_match": true
+    },
+    {
+      "event": "fresh_cf_dual_depth",
+      "depths": [
+        5000,
+        6000
+      ],
+      "dps_working": 2200,
+      "wall_seconds_d5000": 0.886,
+      "wall_seconds_d6000": 1.651,
+      "wall_seconds_total": 2.537,
+      "agreement_digits_dual_depth": 2200
+    },
+    {
+      "event": "reload_sanity_check",
+      "agreement_digits_reload_vs_fresh_d5000": 1999,
+      "threshold_minimum": 1998,
+      "note": "Round-trip through mp.nstr at 2000-digit precision truncates 1 ULP at the boundary; agreement >= 1998 is expected."
+    },
+    {
+      "event": "using_fresh_d5000_for_pslq",
+      "first_64": "1.197373990688357602448603219937206329704270703231350336285792769",
+      "note": "The tier-3d recovery driver (recover_tier_3d.py) used a fresh depth-5000 CF computation at the same 2200 dp; its first-64 digits string was logged at 15:02:07 JST and matches this value bit-for-bit. The original stage_23_executor.py also computed a fresh depth-5000 CF at the same dps before running tiers 3a-3c; that intermediate value was not persisted but produced the canonical 3a/3b/3c outputs that agree on the same V_quad value."
+    }
+  ],
+  "status": "OK"
+}

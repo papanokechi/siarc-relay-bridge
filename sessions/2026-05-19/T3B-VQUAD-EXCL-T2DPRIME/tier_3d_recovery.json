@@ -1,0 +1,48 @@
+{
+  "task_id": "T3B-VQUAD-EXCL-T2DPRIME",
+  "tier": "3d",
+  "outcome": "RECOVERED",
+  "reason_for_recovery": "Original stage_23_executor.py terminated silently between tier 3c (landed 2026-05-19 10:45:53 JST) and tier 3d (never produced output). No Python error trace surfaced and no live python.exe was found at 14:56 JST. Likely causes (not confirmed): VS Code terminal session closure, OOM kill during 2050dp PSLQ on 75 elements, or silent mpmath internal failure. The recovery driver re-ran ONLY tier 3d, with a pre-flight 500dp smoke test on the same B_4_2 basis as a structural-invariance check against canonical tier 3c. Notably the recovery run's working-set peak was ~38 MB (logged via Heartbeat thread on a Windows 16 GB host); OOM is therefore retrospectively unlikely as the cause of the original silent kill.",
+  "predecessor_vquad_string_sha256": "52375a71a05bf61ad971cf83ea9334eb96e20ffa054dc3cab74447966a2f5c44",
+  "basis_file": "basis_4_2_enumeration.json",
+  "basis_sha256": "ceb9445bb5e9f2f6ae41d19be62491282b0ec7cb1b374e7048b2045fd08c08ee",
+  "basis_mtime_epoch": 1779151097.6785524,
+  "tier_3c_mtime_epoch": 1779155153.1821148,
+  "smoke_preflight_json": {
+    "dps": 500,
+    "tol_exponent": -450,
+    "maxcoeff": 10000,
+    "maxsteps": 2000,
+    "basis_size": 75,
+    "wall_seconds": 445.095,
+    "result": null,
+    "error": null,
+    "preflight": true
+  },
+  "smoke_structural_invariants_match": true,
+  "smoke_comparison_fields": [
+    "dps",
+    "tol_exponent",
+    "maxcoeff",
+    "maxsteps",
+    "basis_size",
+    "result",
+    "error"
+  ],
+  "smoke_comparison_note": "Comparison checks structural parameters (dps, tol_exponent, maxcoeff, maxsteps, basis_size) plus the PSLQ verdict (result, error). mp.pslq returns only None on failure-to-find or a list of integers on success; it does not surface iteration count, final reduction norm, or any internal trace data. Verdict equality when both are None therefore reduces to None == None: it confirms 'no relation was found within maxcoeff at this dps' is the same outcome the smoke and canonical runs reached, but it does not prove byte-identical internal state. This is a structural-invariance check, not a byte-equality check. Wall-clock differs across runs (canonical tier 3c: 545.449s; smoke 445.095s; ~18% faster) and is excluded from the invariants list by design.",
+  "tier_3d_json": {
+    "dps": 2050,
+    "tol_exponent": -1970,
+    "maxcoeff": 10000,
+    "maxsteps": 4000,
+    "basis_size": 75,
+    "wall_seconds": 2799.69,
+    "result": null,
+    "error": null
+  },
+  "tier_3d_json_sha256": "36402dcf8037bcd858e459211bb45f58c2ebac8a0f8c21953392737b2f8a68cd",
+  "mpmath_version": "1.3.0",
+  "python_version": "3.12.10",
+  "driver_script": "recover_tier_3d.py",
+  "sidecar_history": "Driver wrote initial sidecar at 15:56:12 JST with field name 'smoke_matches_canonical: true'. That phrasing was tightened post-completion to 'smoke_structural_invariants_match' with an explicit comparison-fields list and comparison-note documenting the inherent limit of mp.pslq's None/list-only return. The driver source (recover_tier_3d.py) was patched in-place to match this schema before this sidecar rewrite. Note: the patch landed AFTER the driver process (PID 21336) had already imported the old source, so the in-flight run wrote the old wording; this file is the post-hoc rewrite to bring the persisted sidecar in line with the patched source."
+}
