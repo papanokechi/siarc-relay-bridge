@@ -1,0 +1,85 @@
+{
+  "R1-ROUTE-F-SAKAI-NONGEN_cycle1": {
+    "finding": "pic_intersection_form_is_configuration_independent",
+    "headline": "The Sakai PIII(D_6) non-generic Pic(X) intersection form is identical to the generic 8-point blow-up form.",
+    "primary_source": "Kajiwara-Noumi-Yamada (KNY) 2017, J. Phys. A 50 (2017) 073001 = arXiv:1509.08186v8, sec.3.3 eq (3.26)",
+    "kny_quote_paraphrase": "For any (possibly degenerate / infinitely-near) 8-point blow-up X of P1 x P1, Pic(X) = Z H_1 + Z H_2 + Z E_1 + ... + Z E_8 carries the standard intersection form: H_1.H_2 = 1, H_1^2 = H_2^2 = 0, E_i.E_j = -delta_{ij}, H_k.E_j = 0. The bilinear form depends only on the blow-up combinatorics class (rank 10, signature (1,9)), not on the geometric position of the 8 base points.",
+    "why_this_matters_for_the_brief": "The relay brief framed the work as discover the non-generic intersection form and check whether the POC embedding survives. The algebraic-geometry reality is that the BILINEAR FORM does not change between generic and PIII(D_6) configurations. The PIII(D_6) non-genericity manifests in the CHOICE of seven simple roots delta_0,...,delta_6 (KNY sec.8.2.19 eq (8.101)), NOT in the bilinear form on Pic.",
+    "implication_for_cycle_2": "Cycle 2 was scoped as K_X-perp saturation with the Sakai non-generic form from cycle 1 fixed. Because the form is unchanged, the saturation question is well-posed under the generic Pic form; cycle 2 may proceed with the canonical embedding from cycle 1 as the fixed input. The brief''s precondition should be reread as with the canonical Sakai-convention KNY embedding from cycle 1 fixed.",
+    "verdict_observed": "SAKAI_FORM_REQUIRES_NEW_EMBEDDING",
+    "verdict_interpretation": "Both the predecessor (POC) alpha_i and the canonical KNY delta_i satisfy the D_6 affine Cartan condition under the configuration-independent form, but they differ as unordered sets of integer vectors in Pic(X). The POC chose alpha_3 = H_2 - H_1 as the central fork node; the KNY canonical fork node is delta_3 = H_2 - E_5 - E_6 (effective, non-negative E coefficients). The downstream pipeline should consume the KNY embedding as canonical."
+  },
+  "R1-ROUTE-F-K-PERP-BASIS_cycle2": {
+    "finding": "kny_simple_roots_are_primitive_in_K_perp",
+    "headline": "The canonical Sakai-convention KNY simple roots span a SATURATED rank-7 sublattice in K_X^perp; all SNF elementary divisors equal 1.",
+    "verdict_observed": "SATURATED_AT_RANK_7",
+    "verdict_interpretation": "The KNY 2017 sec.8.2.19 eq (8.101) embedding is not just an abstract D_6^(1) embedding into K_X^perp -- it is also Z-primitive there. No primitive integer vector in (Q L_delta) cap K_X^perp lies outside L_delta itself. This is the canonical-expected algebraic-geometry result and matches the SATURATED_AT_RANK_7 branch pre-registered in claim-r1-k-perp-basis-001.json. No surprise; no anomaly.",
+    "elementary_divisors": [1, 1, 1, 1, 1, 1, 1],
+    "saturation_index": 1,
+    "closure_generators_needed": 0,
+    "rank_of_complement_quotient": "K_X^perp / L_delta is free of rank 2 (9 - 7); this is the two-parameter Halphen pencil dimension for PIII(D_6).",
+    "supplementary_pins_established_this_cycle": {
+      "kny_imaginary_root_equals_anti_canonical": "sum_i a_i delta_i = -K_X with affine marks a = (1, 1, 2, 2, 2, 1, 1).",
+      "anti_canonical_self_intersection_zero": "(-K_X)^2 = 0 (Halphen pencil; K^2 = 0 for Bl_8 of P1 x P1). The predecessor test test_self_intersection_is_eight is a misnomer whose body asserts the correct value 0.",
+      "anti_canonical_in_K_perp": "-K_X is itself isotropic and so lies in K_X^perp; explicit decomposition in K_perp coords: -K_X = 2 b_1 + 2 b_2 - sum_{i=3..9} b_i."
+    },
+    "open_question_for_cycle_3_or_later": "Identify the rank-2 lattice K_X^perp / L_delta (Picard form restricted). Likely span by an elliptic fibre class F and the anti-canonical class -K_X, but the precise lattice structure is a candidate cycle 3 sub-question. NOT pursued this cycle."
+  },
+  "R1-ROUTE-F-EFFECTIVITY_cycle3a": {
+    "finding": "all_seven_kny_delta_are_effective_with_trivial_decomposition",
+    "headline": "Each of the seven canonical KNY simple roots delta_0..delta_6 is an irreducible (-2)-curve on the PIII(D_6) Sakai surface; effectivity is exhibited by the trivial decomposition delta_i = delta_i (multiplicity 1).",
+    "verdict_observed_per_delta_i": {
+      "delta_0": "effective",
+      "delta_1": "effective",
+      "delta_2": "effective",
+      "delta_3": "effective",
+      "delta_4": "effective",
+      "delta_5": "effective",
+      "delta_6": "effective"
+    },
+    "verdict_interpretation": "Canonical-expected outcome matching the pre-registered table (all seven `effective`). No delta_i required a Weyl move; the `effective_after_named_Weyl_move` branch was implemented defensively but not exercised. No anomaly to flag.",
+    "irreducible_component_basis_determinant": 1,
+    "irreducible_component_basis": "10 vectors in Pic(X) forming a Z-basis: the seven (-2)-curves delta_0..delta_6 plus the three (-1)-curve chain-tip exceptional divisors E_2 (tip of chain {1,2}), E_4 (tip of chain {3,4}), E_8 (tip of chain {5,6,7,8}). The basis matrix is unimodular, so every Pic class has a UNIQUE integer decomposition and effectivity reduces to non-negativity of coefficients.",
+    "supplementary_pins_established_this_cycle": {
+      "weyl_reflection_is_isometry": "r_alpha(v) = v + <v, alpha> alpha is an isometry of the Pic intersection form, an involution, and sends every (-2)-root alpha to its negative.",
+      "weyl_reflection_preserves_K_X": "r_{delta_j}(-K_X) = -K_X since each delta_j is orthogonal to -K_X.",
+      "weyl_reflection_preserves_K_perp_setwise": "any vector orthogonal to -K_X stays orthogonal to -K_X after any r_{delta_j}. Verified on a battery including the seven delta_i themselves, -K_X, and integer combinations.",
+      "minus_K_X_extended_decomposition": "in the 10-component basis, -K_X = (1,1,2,2,2,1,1, 1, 1, 2) over (delta_0..delta_6, E_2, E_4, E_8); the affine D_6^(1) marks live in the first 7 slots and the tip-E coefficients absorb the residual."
+    },
+    "open_question_handed_to_cycle_3b": "Identify the rank-2 quotient K_X^perp / L_delta (the structural complement). This is the load-bearing item per synthesizer''s cycle 3 split."
+  },
+  "R1-ROUTE-F-K-PERP-QUOTIENT-LATTICE_cycle3b": {
+    "finding": "rank2_quotient_is_A2_root_lattice_negative_definite_pre_registered_lorentzian_falsified",
+    "headline": "The rank-2 quotient Q := K_X^perp / L_delta is NEGATIVE-DEFINITE with Gram [[-2, -1], [-1, -2]] and discriminant 3. This is the A_2 root lattice (in negative-definite sign convention). The synthesizer's pre-registered Q_LORENTZIAN verdict is FALSIFIED.",
+    "verdict_observed": "Q_DEFINITE_NEGATIVE",
+    "verdict_pre_registered": "Q_LORENTZIAN",
+    "verdict_alignment": "FALSIFIED",
+    "signature_observed_p_n_z": [0, 2, 0],
+    "signature_pre_registered_p_n_z": [1, 1, 0],
+    "discriminant_observed": 3,
+    "discriminant_pre_registered_candidates": [-1, -4],
+    "gram_matrix_observed": [[-2, -1], [-1, -2]],
+    "quotient_basis_observed_in_pic_coords": [[0, 0, -1, 0, 0, 1, 0, 0, 0, 0], [0, 0, -1, 0, 0, 0, 0, 0, 0, 1]],
+    "quotient_basis_observed_in_words": "q_1 = E_4 - E_1, q_2 = E_8 - E_1. The differences of chain-tip exceptional divisors of chains {3,4} and {5,6,7,8} relative to the head of chain {1,2}. Equivalently, the natural transversals from the head of one chain to the tips of the other two.",
+    "structural_identification": "A_2 root lattice in negative-definite sign convention. Each q_i has self-intersection -2 (a (-2)-vector); the off-diagonal -1 corresponds to A_2's 120-degree angle between simple roots; discriminant 3 = |det A_2|. NOTE: this identification is structural and recorded for synthesizer review; per the pre-registered scope it is NOT promoted to an AEAL claim.",
+    "synthesizer_signature_accounting_error_diagnosed": {
+      "headline": "Off-by-one in the K_X^perp / <-K_X> signature reduction.",
+      "synthesizer_claim": "The Pic form restricted to K_X^perp has rank-1 radical spanned by -K_X, so the non-degenerate part has signature (1, 7) on the rank-8 lattice K_X^perp / <-K_X>.",
+      "correct_statement": "For an isotropic line L inside a non-degenerate real symmetric form of signature (p, q), the quotient L^perp / L has signature (p-1, q-1), NOT (p, q-1). The positive direction is annihilated together with one negative direction because the isotropic line L pairs with a transversal isotropic line outside L^perp to form a hyperbolic plane. Geometrically: Pic = (hyperbolic plane <L, L'>) + (orthogonal complement), where <L, L'> has signature (1, 1) and the orthogonal complement has signature (0, 8), and L^perp / L = orthogonal complement (rank 8, signature (0, 8)).",
+      "corrected_accounting": "Pic (1, 9) -> K_X^perp / <-K_X> = (0, 8). Then L_delta / <-K_X> is the finite D_6 root lattice (rank 6, negative-definite, (0, 6)). So Q = (0, 8) - (0, 6) = (0, 2). Computed result matches.",
+      "why_this_matters": "The (1, 7) claim was the load-bearing premise of the Q_LORENTZIAN expectation. With the corrected (0, 8) the natural prediction shifts to Q_DEFINITE_NEGATIVE -- which is what the substrate shows. The substrate is INTERNALLY CONSISTENT; the pre-registration was the off-by-one."
+    },
+    "halt_conditions_status": "all five halt conditions passed -- no halt fires despite the verdict falsification. The synthesizer pre-registered signature accounting tolerance was p in {0, 1} and n in {0, 1, 2} (HALTED_SIGNATURE_ACCOUNTING_VIOLATION), and the actual (p=0, n=2) lands inside this envelope.",
+    "supplementary_pins_established_this_cycle": {
+      "snf_lift_unimodularity": "U @ A @ V = D with det(U) = -1, det(V) = 1 (sympy.matrices.normalforms.smith_normal_decomp). A = M^T is 9x7; D has diagonal (1,1,1,1,1,1,1) and trailing zero rows 7-8.",
+      "quotient_basis_lift_construction": "The Z-basis (q_1, q_2) of Q in K_X^perp coords = (col 7 of U^{-1}, col 8 of U^{-1}). Saturated by unimodularity of U.",
+      "minus_K_X_projection_explicit": "U * (-K_X)_{K_perp coords} = (1, -1, 2, 2, 1, 1, 1, 0, 0). The last two entries vanish, confirming -K_X in L_delta = col(A); cross-checked against the cycle-2 pinned identity sum a_i delta_i = -K_X with a = (1, 1, 2, 2, 2, 1, 1)."
+    },
+    "open_question_handed_to_synthesizer": "The A_2 lattice identification is a candidate structural fingerprint. Possible interpretations to be evaluated externally: (1) symmetry group W(A_2) acting on Q by reflections, (2) connection to the Painleve PIII(D_6) Backlund symmetry group (which is A_1^{(1)}, not A_2 -- so any naive identification is non-trivial), (3) the q_1, q_2 lift as a candidate `transversal frame' between the three chain-tip exceptional divisors. The synthesizer is to decide whether this A_2 finding should be promoted to its own AEAL claim in a follow-on cycle, OR whether the cycle proceeds directly to the V_quad connection.",
+    "scope_extensions_NOT_promoted_to_AEAL_per_pre_registration": [
+      "Identification of Q with the A_2 root lattice -- structural hint only, recorded in handoff and unexpected_finds but NOT an AEAL claim.",
+      "Connection to Painleve tau-function for PIII(D_6) -- out of scope.",
+      "Connection to V_quad transcendent -- out of scope per synthesizer brief."
+    ]
+  }
+}
