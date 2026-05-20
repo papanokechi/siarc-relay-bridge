@@ -1,0 +1,54 @@
+{
+  "session": "R1-ROUTE-F-POC v1.1 audit-and-close",
+  "date_utc": "2026-05-20T05:42:17Z",
+  "bridge_session_path": "sessions/2026-05-20/R1-ROUTE-F-POC/",
+  "summary": "POC claim verified; two data-sourcing anomalies and one schema-backfill anomaly recorded. No halt fired.",
+  "finds": [
+    {
+      "id": "POC-FIND-001",
+      "headline": "stokes_constant_S_not_in_pcf-spectral-classes",
+      "class": "data_sourcing_anomaly",
+      "severity": "informational",
+      "description": "The Stokes constant S = 0.43770528 (8 digits) supplied in the v1.1 brief context is not stored anywhere in pcf-spectral-classes at any commit. The canonical workspace source is pcf-research/vquad/scripts/t2_iter22_s_precision.json with S_best = 0.43770528073458051568 (Dingle late-terms, iter22). The 8-digit value in stokes_table.json matches both the brief and the leading digits of the workspace canonical value.",
+      "impact_on_claim": "none; POC verification_criteria are lattice-only and do not consume the Stokes S value",
+      "operator_decision_needed": "whether to (a) keep the brief-supplied 8-digit value with the documented anomaly, (b) replace with the 20-digit value from pcf-research/vquad/ and add a second source_commit field, or (c) drop the Stokes S field entirely from the POC stokes_table.json",
+      "halt_class_evaluated": "brief_paper_discrepancy was considered but not fired -- the brief's data-sourcing rule (pull from pcf-spectral-classes) is unsatisfiable for the Stokes constant by the source repo's contents, but the brief also supplied the value directly, so transcribing it verbatim is the most faithful interpretation"
+    },
+    {
+      "id": "POC-FIND-002",
+      "headline": "vquad_truncated_from_60_digits_to_31_digits",
+      "class": "data_sourcing_correction",
+      "severity": "informational",
+      "description": "The pre-existing stokes_table.json (from the 2026-05-19 precursor session) recorded a 60-digit V_quad value: 1.19737399068835760244860321993720632970427070323135033628579. Of these, only the leading 31 digits (1.1973739906883576024486032199372) are present in pcf-spectral-classes at the source_commit (row vquad-3-1-1 of pcf_spectral_phase1_taxonomy.csv). The remaining 28 digits originated elsewhere (likely pcf-research/vquad/ or a manuscript file) and constitute a from-memory transcription under the v1.1 rule. The file has been rewritten to record only the 31-digit pcf-spectral-classes value, with explicit vquad_source and vquad_precision_digits fields.",
+      "impact_on_claim": "none; POC verification_criteria are lattice-only",
+      "operator_decision_needed": "none if the operator accepts the conservative pcf-spectral-classes-only truncation; otherwise see POC-FIND-001 option (b)"
+    },
+    {
+      "id": "POC-FIND-003",
+      "headline": "claim_file_pre_registered_before_v1_1_amendments",
+      "class": "schema_backfill",
+      "severity": "informational",
+      "description": "claim-r1-poc-001.json was pre-registered on 2026-05-19 with the v1.0 schema. The v1.1 amendment fields (evidence_class_locked: true; the two new out_of_scope entries 'V_quad-specific base point configuration' and 'Any reference to or restatement of the V_quad paper or any other paper from memory') were not yet defined at preregistration time. The current audit backfills both the top-level fields and an explicit v1_1_audit block documenting the change. The preregistered_at_utc timestamp is unchanged.",
+      "impact_on_claim": "no semantic change; the backfill is documentary only",
+      "operator_decision_needed": "none unless AEAL pre-registration rules forbid post-hoc field addition"
+    },
+    {
+      "id": "POC-FIND-004",
+      "headline": "verifier_stdout_sha256_bit_identical_to_cycle_1",
+      "class": "substrate_stability_signal",
+      "severity": "positive",
+      "description": "The SHA256 of stdout of `python sakai_d6/surface.py --verify-lattice` at this audit is df6bbe767fddaa2dc306e04bf3bf56aee9806173711f6cc60db8c2c69bbdc121, which is bit-identical to the value recorded in claim-r1-sakai-nongen-001 (cycle 1, bridge commit 53efe94). The match confirms the deterministic JSON dump of verify_report() has not drifted across cycles 1, 2, 3a, 3b. This is treated as a positive verification signal (substrate stability), not as a copy-paste error; the coincidence is explicitly documented in the POC claim's hash_coincidence_note.",
+      "impact_on_claim": "positive substrate-stability signal",
+      "operator_decision_needed": "none"
+    },
+    {
+      "id": "POC-FIND-005",
+      "headline": "brief_arrived_after_cycles_1-3b_already_executed",
+      "class": "brief_workspace_anachronism",
+      "severity": "informational",
+      "description": "The R1-ROUTE-F-POC v1.1 brief was dispatched on 2026-05-20 to a workspace where the original POC scaffold had already been written on 2026-05-19 and where downstream cycles 1, 2, 3a, 3b had already been committed to the bridge (bridge HEAD 44f86d3 as of session start). The brief specifies 'create directory pcf-r1-route-f/' which already existed; the brief's verification_criteria are POC-level and were already satisfied by the existing substrate. The agent's autonomous decision (operator unavailable, delegation to agent judgement) was to audit the existing POC layer against v1.1 standards rather than create a parallel directory or overwrite existing files. All v1.1 requirements (banned-phrase scan, no-from-memory check, source_commit verification, claim schema) were applied to the existing substrate.",
+      "impact_on_claim": "claim VERIFIED via audit of existing substrate rather than fresh scaffolding",
+      "operator_decision_needed": "whether the audit-and-close interpretation of the v1.1 brief was the right call given the workspace state, OR whether a parallel fresh-scaffold execution was expected"
+    }
+  ]
+}
