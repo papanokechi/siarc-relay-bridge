@@ -1,0 +1,79 @@
+{
+  "claim_id": "r1-k-perp-quotient-001",
+  "task_id": "R1-ROUTE-F-K-PERP-QUOTIENT-LATTICE",
+  "cycle": "3b",
+  "predecessor": {
+    "cycle": "3a",
+    "task_id": "R1-ROUTE-F-EFFECTIVITY",
+    "bridge_commit": "baf650a",
+    "bridge_path": "sessions/2026-05-20/R1-ROUTE-F-EFFECTIVITY/"
+  },
+  "pre_registered_at": "2026-05-20",
+  "claim_text": "For the canonical Sakai-convention KNY embedding L_delta = Z<delta_0, ..., delta_6> inside the rank-9 K_X-perpendicular lattice K_X^perp = ker(<-, -K_X>_Pic) inside Pic(X) of the PIII(D_6) Sakai surface X = Bl_8(P^1 x P^1) under the configuration P_{12} + P_{34} + P_{5678} (KNY 2017 sec.8.2.19 eq 8.98), the quotient Q := K_X^perp / L_delta is a rank-2 integer lattice. This cycle 3b computes (a) an explicit Z-basis {q_1, q_2} of Q via Smith Normal Form of the integer matrix whose columns are delta_0..delta_6 in K_X^perp-coordinates (cycle 2 already established all elementary divisors are 1, so the cokernel Z^9 / image is free of rank 2 and has a saturated integer lift), (b) the 2x2 integer Gram matrix Gram(Q) under the Picard intersection form's descent to Q, (c) the discriminant det(Gram(Q)) as an exact integer, (d) the signature (p, n, z) of Gram(Q) by exact 2x2 integer analysis, and (e) a verdict classifying Q into exactly one of the five enumerated branches.",
+  "evidence_type": "computation",
+  "dps": 0,
+  "reproducible": true,
+  "script": "python -m pytest sakai_d6/tests/ -v && python -m sakai_d6.quotient --analyze",
+  "output_hash": "a3b766241e15f0cf474a77452758e9a66ed30bbbf08c2b6983a49256d9296812",
+  "output_hash_algo": "sha256",
+  "output_hash_scope": "utf-8 stdout of `python -m sakai_d6.quotient --analyze`; whitespace-sensitive",
+  "verdict_branches_allowed_exactly_one_of": [
+    "Q_DEFINITE_NEGATIVE",
+    "Q_DEFINITE_POSITIVE",
+    "Q_LORENTZIAN",
+    "Q_DEGENERATE_WITH_ISOTROPIC_LINE",
+    "Q_TOTALLY_ISOTROPIC"
+  ],
+  "pre_registered_verdict": "Q_LORENTZIAN",
+  "pre_registered_verdict_reasoning": "Pic(X) has signature (1, 9); the Pic form restricted to K_X^perp has rank-1 radical spanned by -K_X (isotropic and in K_X^perp), so the non-degenerate part has signature (1, 7) on the rank-8 lattice K_X^perp / <-K_X>. L_delta is the affine D_6^(1) root lattice (rank 7) with rank-1 radical also spanned by -K_X (= sum a_i delta_i with marks a = (1,1,2,2,2,1,1)); the non-degenerate part of L_delta / <-K_X> is the finite D_6 root lattice (rank 6, negative-definite, signature (0, 6)). Therefore Q = K_X^perp / L_delta = (K_X^perp / <-K_X>) / (L_delta / <-K_X>) inherits signature (1, 7) - (0, 6) = (1, 1). Q is Lorentzian.",
+  "pre_registered_signature_p_n_z": [1, 1, 0],
+  "pre_registered_discriminant_candidates": [-1, -4],
+  "pre_registered_discriminant_reasoning": "A rank-2 Lorentzian even integer lattice of small discriminant is most plausibly the hyperbolic plane U with Gram [[0,1],[1,0]] (discriminant -1) or a rank-2 indefinite form with discriminant -4 such as <2> + <-2>. Other small-discriminant Lorentzian rank-2 lattices are possible. Discriminant is NOT pre-committed; only the Lorentzian classification is.",
+  "pre_registered_gram_form_predicted": "2x2 integer symmetric matrix with det < 0; specific entries not pre-committed (depend on saturated-lift basis choice from SNF).",
+  "minus_K_X_projection_invariant": "-K_X projects to the zero class in Q because -K_X = sum_i a_i delta_i in L_delta (cycle-2 pinned identity). This is recorded as the substrate-consistency invariant `minus_K_X_projects_to_zero` and cross-checked at runtime; failure halts with HALTED_K_PERP_INCONSISTENT_WITH_PREDECESSORS.",
+  "halt_conditions": {
+    "HALTED_NUMERICAL_SIGNATURE_AMBIGUOUS": "Eigenvalue computation for Gram(Q) signature ambiguous within tolerance 1e-9, AND sympy exact eigenvalue fallback also failed to classify each eigenvalue as positive / negative / zero. (Mitigated: 2x2 integer symmetric matrices admit exact closed-form trace/det signature classification; numerical eigvalsh is provided for redundancy only.)",
+    "HALTED_QUOTIENT_LIFT_AMBIGUOUS": "Smith Normal Form decomposition U A V = D of A (9x7 with columns = delta_i in K-perp coords) returned non-integer transformation matrices, or the rank-2 cokernel basis lifted to K_X^perp is not Z-primitive.",
+    "HALTED_K_PERP_INCONSISTENT_WITH_PREDECESSORS": "-K_X in K_X^perp coordinates does NOT project to the zero class in Q. This contradicts the cycle-2 pinned identity sum_i a_i delta_i = -K_X with a = (1,1,2,2,2,1,1) and would indicate either a cycle-2 bug in k_perp_basis() or a cycle-3b implementation bug in the SNF lift.",
+    "HALTED_SIGNATURE_ACCOUNTING_VIOLATION": "The computed (p, n, z) does NOT satisfy the constraint p in {0, 1} and n in {0, 1, 2} (i.e. signature does NOT come from the (1, 9) Pic signature minus (0, 7) L_delta signature accounting). This would indicate either an error in the pre-registered signature reasoning or in the substrate.",
+    "HALTED_BUDGET_EXCEEDED": "Wall-clock exceeded 2x budget (so >180 min)."
+  },
+  "scope_constraints_respected": {
+    "do_not_modify_cycle_1_substrate": ["d6_affine_simple_roots_kny()", "intersection_form_sakai_nongen()", "anti_canonical()"],
+    "do_not_modify_cycle_2_substrate": ["k_perp_basis()", "kny_in_k_perp_coords()", "elementary_divisors()", "verdict_saturation()"],
+    "do_not_modify_cycle_3a_substrate": ["irreducible_components_kny()", "IRREDUCIBLE_BASIS_MATRIX", "is_effective()", "weyl_reflection()", "classify_kny_roots()"],
+    "do_not_re_derive_pinned_identities": ["affine_marks_identity_sum_a_i_delta_i_equals_minus_K_X_with_a_equals_1_1_2_2_2_1_1", "extended_decomposition_minus_K_X_over_10_component_basis_equals_1_1_2_2_2_1_1_1_1_2"]
+  },
+  "scope_extensions_explicitly_NOT_promoted_to_AEAL": [
+    "Connection of Q to the Painleve tau-function for PIII(D_6) -- noted in handoff open questions only.",
+    "Identification of Q with the Bäcklund symmetry group W(A_1^(1)) lattice -- noted as plausible structural connection in handoff open questions only.",
+    "Identification of Q with a specific named lattice (U, <2>+<-2>, A_1^(1) sublattice, etc.) -- noted in handoff if recognised, NOT promoted to claim.",
+    "Connection to V_quad transcendent -- explicitly out of scope per synthesizer brief."
+  ],
+  "deliverables_pre_committed": [
+    "sakai_d6/quotient.py with k_perp_quotient_basis(), quotient_gram_matrix(), quotient_discriminant(), quotient_signature(), quotient_classification(), and `python -m sakai_d6.quotient --analyze` verifier emitting JSON to stdout with verdict, basis, gram, discriminant, signature, and provenance.",
+    "sakai_d6/tests/test_quotient.py covering rank, K-perp containment, primitivity of lift, minus_K_X projection, gram symmetry, gram integer-valued, signature-accounting constraint, and verdict-branch enumeration.",
+    "quotient_verdict.json artefact recording verdict, basis (K-perp coords AND Pic coords), gram, discriminant, signature, and explicit minus_K_X-projects-to-zero check.",
+    "quotient_basis_provenance.json artefact recording the SNF construction method: D, U, V matrices such that U A V = D, the choice of cokernel-basis pull-back (last two columns of U^{-1}), and the pull-through to Pic-coords via K_PERP_BASIS."
+  ],
+  "explicit_verdict_resolution_logic": "Let G = Gram(Q) = [[a, b], [b, c]] integer 2x2. Let det = a*c - b*b, trace = a + c. Then: if det > 0 and trace > 0: Q_DEFINITE_POSITIVE; if det > 0 and trace < 0: Q_DEFINITE_NEGATIVE; if det < 0: Q_LORENTZIAN; if det == 0 and a == 0 and b == 0 and c == 0: Q_TOTALLY_ISOTROPIC; if det == 0 and (a, b, c) != (0, 0, 0): Q_DEGENERATE_WITH_ISOTROPIC_LINE. (Note: det > 0 with trace == 0 is impossible for a 2x2 real symmetric matrix since det = a*c - b^2 = -a^2 - b^2 <= 0 when c = -a.) This logic is implemented exactly in integer arithmetic; no eigenvalue tolerance issues arise.",
+  "deviation_from_synthesizer_brief": "None expected. The substrate locks (cycles 1-3a) are read from source; the synthesizer's cycle-3a delta_4 deviation that the agent caught is not re-introduced here.",
+  "actual_verdict": "Q_DEFINITE_NEGATIVE",
+  "actual_gram_matrix": [[-2, -1], [-1, -2]],
+  "actual_discriminant": 3,
+  "actual_signature_p_n_z": [0, 2, 0],
+  "actual_q_basis_in_k_perp_coords": [[0, 0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 1]],
+  "actual_q_basis_in_pic_coords": [[0, 0, -1, 0, 0, 1, 0, 0, 0, 0], [0, 0, -1, 0, 0, 0, 0, 0, 0, 1]],
+  "actual_q_basis_pic_interpretation": "q_1 = E_4 - E_1, q_2 = E_8 - E_1. The two chain-tip exceptional divisors of chains {3,4} and {5,6,7,8} relative to the head of chain {1,2}.",
+  "actual_lattice_identification_structural_hint": "Gram [[-2, -1], [-1, -2]] is the A_2 root lattice in negative-definite sign convention (each q_i has self-intersection -2; off-diagonal -1 corresponds to A_2's 120-degree angle). Discriminant 3 matches |A_2| = 3. This identification is recorded for synthesizer review and is NOT promoted to an AEAL claim per the pre-registered scope_extensions_explicitly_NOT_promoted_to_AEAL list.",
+  "actual_verdict_alignment_with_pre_registration": "FALSIFIED. The pre-registered verdict Q_LORENTZIAN (signature (1, 1, 0)) is NOT what the substrate gives; the actual verdict is Q_DEFINITE_NEGATIVE (signature (0, 2, 0)). The signature constraint p in {0, 1} and n in {0, 1, 2} from HALTED_SIGNATURE_ACCOUNTING_VIOLATION is satisfied by the actual result (p=0, n=2, both in range), so no halt fires. The synthesizer's pre-registration reasoning had an off-by-one in the rank/signature accounting for the K_X^perp / <-K_X> quotient: for an isotropic line L in a non-degenerate symmetric form of signature (p, q), the quotient L^perp / L has signature (p-1, q-1), NOT (p, q-1). Applying this corrected reduction: Pic (1, 9) gives K_X^perp / <-K_X> signature (0, 8), not (1, 7); modding by the finite D_6 root lattice (negative-definite, (0, 6)) gives Q signature (0, 8) - (0, 6) = (0, 2), matching the computed result. The synthesizer's brief explicitly states 'If the verdict is anything other than Q_LORENTZIAN, that's a finding worth recording prominently', so this falsification is the headline cycle-3b finding.",
+  "actual_all_halt_conditions_passed": {
+    "HALTED_NUMERICAL_SIGNATURE_AMBIGUOUS": "passed -- exact integer arithmetic, det=3>0 and trace=-4<0 unambiguous",
+    "HALTED_QUOTIENT_LIFT_AMBIGUOUS": "passed -- det(U)=-1 (unimodular), all elementary divisors=1, lift is saturated",
+    "HALTED_K_PERP_INCONSISTENT_WITH_PREDECESSORS": "passed -- U * (-K_X in K-perp coords) has last two entries 0, confirming -K_X projects to zero in Q",
+    "HALTED_SIGNATURE_ACCOUNTING_VIOLATION": "passed -- p=0 in {0, 1}, n=2 in {0, 1, 2}",
+    "HALTED_BUDGET_EXCEEDED": "passed -- well under budget"
+  },
+  "actual_pytest_count": 147,
+  "actual_cycle3b_new_test_count": 22
+}
