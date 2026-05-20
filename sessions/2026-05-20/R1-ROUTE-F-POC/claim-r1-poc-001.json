@@ -1,0 +1,52 @@
+{
+  "claim_id": "r1-poc-001",
+  "task_id": "R1-ROUTE-F-POC",
+  "scope": "D6_affine_root_system_and_surface_intersection_form_compile_and_pass_unit_tests_on_generic_base_point_configuration",
+  "evidence_class": "computational",
+  "evidence_class_locked": true,
+  "verification_criteria": {
+    "test_root_system_passes": true,
+    "surface_intersection_form_is_unimodular": true,
+    "orthogonal_complement_lattice_type": "D6_affine"
+  },
+  "reproduce": "cd pcf-r1-route-f && python -m pytest sakai_d6/tests/ -v && python sakai_d6/surface.py --verify-lattice",
+  "out_of_scope": [
+    "V_quad-specific base point configuration",
+    "V_quad parameter correspondence",
+    "Stokes constant derivation",
+    "R1 closure of any kind",
+    "Any reference to or restatement of the V_quad paper or any other paper from memory"
+  ],
+  "preregistered_at_utc": "2026-05-19T00:00:00Z",
+  "preregistered_by": "GitHub Copilot Agent (R1-ROUTE-F-POC relay)",
+  "v1_1_audit": {
+    "audited_at_utc": "2026-05-20T05:42:17Z",
+    "audited_by": "GitHub Copilot Agent (R1-ROUTE-F-POC v1.1 audit)",
+    "brief_version": "v1.1",
+    "evidence_class_locked_added_at_audit": true,
+    "out_of_scope_v1_1_amendments_added_at_audit": [
+      "V_quad-specific base point configuration",
+      "Any reference to or restatement of the V_quad paper or any other paper from memory"
+    ],
+    "banned_phrase_scan": "PASSED -- regex 'breakthrough|novel|first time|closes R1|proves|establishes|we have shown|deep connection|remarkable|elegant|beautiful|essentially complete' returned zero matches across pcf-r1-route-f/",
+    "paper_from_memory_scan_poc_layer": "PASSED -- sakai_d6/root_system.py D_6^{(1)} Cartan matrix sourced explicitly from Kac 1990 Table Aff 1 (cited in refs.md); sakai_d6/surface.py POC alpha_0..alpha_6 chosen by combinatorial fiat (not restated from any paper) and verified by direct computation to satisfy the D_6^{(1)} symmetric Cartan form; 10x10 Pic intersection form for 8-point blow-up of P^1 x P^1 is standard algebraic-geometry textbook material (not paper-specific). NOTE: cycle-1+ extensions in surface.py do cite KNY 2017 sec.3.3 eq (3.26) and sec.8.2.19 eq (8.101) for the canonical Sakai delta_i embedding; those citations were vetted in the cycle-1 AEAL claim r1-sakai-nongen-001 and are out of scope for the POC verification criteria.",
+    "source_commit_verified": "PASSED -- git -C pcf-spectral-classes cat-file -t 31690b35a612755ceb1ce93a474f78a63bf7ac0f returned 'commit'; this is also the current HEAD of pcf-spectral-classes.",
+    "vquad_source_status": "PARTIAL -- 31 digits (1.1973739906883576024486032199372) are pulled from pcf-spectral-classes/pcf_spectral_phase1_taxonomy.csv line 24 (vquad-3-1-1 row) at the source commit; the additional 28 digits previously recorded in stokes_table.json are NOT in pcf-spectral-classes and have been removed from the file to satisfy the v1.1 no-from-memory rule.",
+    "stokes_S_source_status": "ANOMALY -- the Stokes constant S = 0.43770528 supplied verbatim in the v1.1 brief context is not present in pcf-spectral-classes at any commit. Canonical workspace source is pcf-research/vquad/scripts/t2_iter22_s_precision.json (S_best = 0.43770528073458051568, derived from Dingle late-terms iter22). The 8-digit value in stokes_table.json matches the brief and the leading digits of the workspace canonical value. This anomaly does not affect the POC verification_criteria, which are lattice-only.",
+    "audit_note": "The pre-registered POC claim file existed at preregistration time but lacked the v1.1 amendment fields evidence_class_locked and the two v1.1-specific out_of_scope entries. Those fields are added in this audit block (and propagated to the top-level fields) as a non-substantive backfill; the pre-registered POC contract is unchanged."
+  },
+  "verification": {
+    "verified_at_utc": "2026-05-20T05:42:17Z",
+    "pytest_summary": "147 passed in 35.81s (31 POC tests in test_root_system.py + 116 cycle-1/2/3a/3b tests in test_sakai_nongen.py, test_k_perp_basis.py, test_effectivity.py, test_quotient.py; the latter 116 are out of scope for POC verification_criteria but are confirmed green for substrate stability)",
+    "verify_lattice_exit_code": 0,
+    "verify_lattice_stdout_sha256": "df6bbe767fddaa2dc306e04bf3bf56aee9806173711f6cc60db8c2c69bbdc121",
+    "verify_lattice_stdout_bytes": 592,
+    "verify_lattice_output_hash_algo": "sha256",
+    "verify_lattice_output_hash_scope": "utf-8 stdout of `python sakai_d6/surface.py --verify-lattice`",
+    "hash_coincidence_note": "This SHA256 is bit-identical to claim-r1-sakai-nongen-001 (cycle 1, bridge commit 53efe94). The coincidence is correct and meaningful: the deterministic JSON dump of verify_report() has not drifted between cycle-1 commit and this 2026-05-20 POC audit, demonstrating substrate stability across cycles 1 through 3b.",
+    "test_root_system_passes": true,
+    "surface_intersection_form_is_unimodular": true,
+    "orthogonal_complement_lattice_type": "D6_affine",
+    "status": "VERIFIED"
+  }
+}
