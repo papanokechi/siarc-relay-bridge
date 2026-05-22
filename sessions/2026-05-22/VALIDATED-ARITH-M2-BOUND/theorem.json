@@ -1,0 +1,29 @@
+{
+  "M_certified": 91,
+  "M_certified_log10_approx": 1.9590413923210936,
+  "M_certified_digit_count": 2,
+  "binding_corollary": "FBA-1999 Cor 2 (K-based exponential)",
+  "norm_convention": "Euclidean: |m|_2 = sqrt(sum_i m_i^2). FBA-1999 Theorem 1 and Corollary 2 state lower bounds on the Euclidean norm of any nonzero integer relation. Chebyshev (max|m_i|) bound is derivable as M_certified / sqrt(n) with n=15.",
+  "C1_algebraicity_exclusion": "K_0 satisfies no integer polynomial of degree D in {1, 2, 3, 4, 5, 6} whose coefficient vector (a_0, a_1, ..., a_D) has Euclidean norm <= 91. This follows from the no-relation claim on the pure-power sub-block {1, K_0, K_0^2, K_0^3, K_0^4, K_0^5, K_0^6} of the 15-vector basis B_D(C).",
+  "C2_relation_exclusion": "The 15-vector basis B_D(C) = {1, K_0, K_0^2, K_0^3, K_0^4, K_0^5, K_0^6, log K_0, K_0*pi, K_0*e, K_0*ln2, K_0*gamma, K_0*zeta(2), K_0*zeta(3), K_0*G} admits no nonzero integer relation of Euclidean norm <= 91. In particular, no integer linear identity of the form sum_i m_i * b_i = 0 with (m_0,...,m_14) of Euclidean norm <= 91 holds, ruling out all tested K_0 * c bilinear identities with coefficients in this range.",
+  "scope_and_conditional_statement": "BOUNDED CASE: this milestone certifies the no-relation property only for relations of Euclidean norm <= 91. The UNBOUNDED case (no coefficient bound on the relation) remains open. Conditional on the BBC 1997 series identity for the value and certified Arb-ball enclosure of K_0 at the M1 top rung (P_bits=28712, see GATE-BBC-ANCHOR for independent anchor verification, claude-chat commit 6a1f6ec).",
+  "derivation_summary": {
+    "M1_balls_file_sha256": "4729ea6cc4c2d433cbcb44c6f210ba82e22d77f51753c86aedce9562449a1ccf",
+    "M1_balls_file_path": "M1_outputs/balls_P28712.json",
+    "K_pslq_iteration_count_used_in_cor2_contrapositive": 8782,
+    "K_pslq_iteration_count_raw_termination": 8783,
+    "K_pslq_termination_was_spurious": true,
+    "n_basis_dimension": 15,
+    "dim_R": 1,
+    "maxcoeff_in_oracle_run": "10**70",
+    "maxsteps_in_oracle_run": 100000,
+    "oracle_dps": 2160,
+    "arb_prec_bits_for_certification": 1024,
+    "arb_prec_bits_for_candidate_verification": 32768
+  },
+  "spurious_termination_note": "mpmath.pslq terminated at iter K=8783 with a candidate integer relation of |m|_2 ~ 8e22. Independent verification at ctx.prec=32768 bits against the M1 certified Arb balls REJECTED the candidate (sum_i m_i * x_i = 1.745e-285 with radius 1.80e-325; propagated uncertainty floor 4.67e-8642; |sum| is 8357 orders above noise floor). The Cor 2 contrapositive is therefore applied with K-1 = 8782 (one before the spurious termination), at which point true PSLQ had certainly not yet correctly terminated, since spurious terminations cannot occur in infinite-precision PSLQ. See M2_REPORT.md for the full argument.",
+  "rigorous_recipe": "M_certified := max( floor(lower_endpoint( 1 / max_j |H_init(x)[j,j]| )), # FBA-1999 Thm 1 ; floor(lower_endpoint( exp((K - 2*n^3) / (2*n^2)) )) # FBA-1999 Cor 2 ) with: x = M1-certified Arb basis balls; K = (mpmath.pslq integer iteration counter MINUS 1, taking the last iteration at which mpmath had NOT yet claimed termination); n = 15 = basis dimension; all real arithmetic in flint.arb (interval); all integer arithmetic in Python int / flint.fmpz (exact).",
+  "cross_rung_consistency_pass": true,
+  "false_negative_guard_pass": true,
+  "candidate_verification_at_high_prec_pass": true
+}

@@ -1,0 +1,20 @@
+{
+  "spurious_pslq_termination_at_K_8783": {
+    "summary": "mpmath.pslq at dps=2160 fed the midpoint of the M1 certified Arb ball at P_bits=28712 terminated with a candidate integer relation that REJECTS at high Arb precision.",
+    "candidate_relation_euclidean_norm_approx": "8.0e22",
+    "candidate_sum_arb_prec_32768_bits_midpoint": "1.745126207939765968147247223047454843372e-285",
+    "candidate_sum_arb_prec_32768_bits_radius": "1.80e-325",
+    "candidate_sum_contains_zero_at_high_prec": false,
+    "propagated_uncertainty_from_M1_radii": "4.67e-8642",
+    "orders_above_noise_floor": 8357,
+    "verdict": "REJECTED as spurious mpmath fixed-point artifact",
+    "historical_comparison": "m32a cascade (2026-05-16) at dps=2160 reached K=29363 with norm-cancel termination on all three rungs. The m32a cascade fed mpmath.khinchin (uncertified) into PSLQ; this work feeds the M1-ball Arb midpoint. The two midpoints agree to all displayed digits but differ at the fixed-point PSLQ internal representation, altering the PSLQ trajectory.",
+    "methodological_implication": "The historical empirical bound 1.036e72 was sensitive to the exact mpf binary representation of K_0, in a way no published manuscript can depend on. The M2 enterprise of replacing mpmath-stdout 'bounds' with Arb-rigorous bounds is strictly necessary, not merely audit-hygiene.",
+    "operator_follow_up_recommended": "Rerun mpmath.pslq with sufficient dps (>= 8640 dps; >= 28712 bits intrinsic prec) for the fixed-point internals to be precision-immune to bit-level mpf representation differences. Expected outcome: K ~= 29363, M_certified ~= 6.66e21. The attempted dps=8640 rerun in-session timed out at 60min wall-clock and was killed."
+  },
+  "dps_8640_rerun_killed_at_60min_timeout": {
+    "summary": "Attempted rerun of mpmath.pslq at dps=8640 (matching m32a) was launched but did not finish within the 60min budget. Process killed (PID 16808).",
+    "log_file": "_higher_dps_log.txt (empty — no PSLQ output reached stdout before kill)",
+    "implication": "M_certified at dps=8640 not measured. Operator should re-launch on a longer-running machine to push M_certified ~= 6.66e21."
+  }
+}

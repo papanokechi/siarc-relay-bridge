@@ -1,0 +1,25 @@
+{
+  "halt_event": "M2_dps2160_spurious_relation",
+  "session_id": "VALIDATED-ARITH-M2-BOUND",
+  "occurred_at": "2026-05-22 (in-session)",
+  "summary": "mpmath.pslq at dps=2160 reported a candidate integer relation at iteration K=8783, contradicting the historical m32a cascade null at K=29363. Arb-rigorous verification of the candidate against the M1 certified balls REJECTED it as spurious (sum |sum_i m_i x_i| = 1.745e-285 versus propagated uncertainty 4.67e-8642). Diagnosed: m32a used mpmath.khinchin directly; this M2 run uses M1 Arb ball midpoints. The tiny midpoint difference altered the PSLQ trajectory enough to drive mpmath into a precision-limited false termination at dps=2160. RESOLUTION: re-run mpmath at higher dps so it does not terminate spuriously.",
+  "evidence": {
+    "dps_used": 2160,
+    "candidate_relation_K": 8783,
+    "candidate_relation_max_abs_coef": 38861446070259165830566,
+    "candidate_relation_l2_norm_approx": "8e22",
+    "arb_verification_sum_at_prec_32768_bits": "1.745126207939765968147247223047454843372e-285",
+    "arb_verification_radius_at_prec_32768_bits": "1.80e-325",
+    "propagated_uncertainty_from_M1_radii": "4.67e-8642",
+    "orders_of_magnitude_above_uncertainty": 8357,
+    "verdict": "candidate is spurious; not a true integer relation among certified basis"
+  },
+  "contrast_with_m32a_cascade_2026_05_16": {
+    "m32a_termination_at_dps_2160": "CANCELLING after step 29362/100000 (norm_bound > maxcoeff)",
+    "m32a_K": 29363,
+    "m32a_basis_source": "mpmath.khinchin (uncertified) for K_0",
+    "this_M2_basis_source": "M1 Arb ball midpoints (certified)",
+    "consequence": "different K_0 midpoint values cause PSLQ to find spurious relation at dps=2160 in the M1-certified midpoint case but not in the mpmath.khinchin case"
+  },
+  "next_action": "Re-run mpmath.pslq at dps=4320 (and escalate to dps=8640 if needed) using M1 Arb ball midpoints. The expected outcome is termination via norm_bound > maxcoeff at some K_true, with K_true >> 8783; this K_true is what feeds the certified FBA Corollary 2 bound."
+}
