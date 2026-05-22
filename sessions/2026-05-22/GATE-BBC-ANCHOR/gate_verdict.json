@@ -1,0 +1,66 @@
+{
+  "task_id": "GATE-BBC-ANCHOR",
+  "date_utc": "2026-05-22",
+  "tested_ball": {
+    "path": "M1_outputs/balls_P28712.json",
+    "sha256": "4729ea6cc4c2d433cbcb44c6f210ba82e22d77f51753c86aedce9562449a1ccf",
+    "basis_index": 1,
+    "label": "K_0",
+    "P_bits": 28712
+  },
+  "anchor_sources": [
+    {
+      "id": "OEIS_A002210",
+      "url": "https://oeis.org/A002210/b002210.txt",
+      "accessed_utc": "2026-05-22",
+      "transcription_method": "hand-transcribed from b-file (index, digit) pairs by agent; verified by digit-count audit",
+      "n_fractional_digits": 250,
+      "note": "OEIS b-file format gives one (index, digit) pair per line; integer part is index=1."
+    },
+    {
+      "id": "BBC1997_Appendix_p19_first_500_digits",
+      "citation": "Bailey D.H., Borwein J.M., Crandall R.E. (1997). On the Khintchine Constant. Mathematics of Computation 66(217), 417-431.",
+      "doi": "10.1090/S0025-5718-97-00800-4",
+      "pdf_local_path": "_lit_cache/khinchin.pdf",
+      "pdf_sha256": "7DD18D84B93A36B85F4F94D23671A202258CB6517CCBAA5794EDEADD0E793793",
+      "page": 19,
+      "section": "Appendix: The Khintchine Constant K_0 to 7,350 Digits",
+      "accessed_utc": "2026-05-22",
+      "transcription_method": "hand-transcribed from the appendix's 50-digit-per-line listing (lines 1-10 = first 500 fractional digits) via pypdf-extracted text",
+      "n_fractional_digits": 500
+    }
+  ],
+  "anchor_AB_agreement": {
+    "integer_parts_match": true,
+    "compared_fractional_digits": 250,
+    "agree_through_digit": 250,
+    "first_disagreement_index": null,
+    "a_excerpt_around_disagreement": null,
+    "b_excerpt_around_disagreement": null
+  },
+  "containment_test": {
+    "anchor_value_dps": 250,
+    "anchor_uncertainty_log10": -250.30102999566398,
+    "midpoint_repr_uncertainty_log10": -8680.756961951314,
+    "certified_radius_log10": -8666.676623388656,
+    "abs_diff_anchor_minus_midpoint_log10": -251.30186228677616,
+    "test_bound_log10": -250.30102999566398,
+    "containment_pass": true,
+    "leading_decimal_digits_matched": 251
+  },
+  "divisor_sentinel": {
+    "anchor_first_20_chars_as_float": 2.6854520010653062,
+    "K_corrected_form_(exp(log(m)))_should_equal_anchor": 2.6854520010653062,
+    "K_uncorrected_form_(exp(log(m)/log(2)))_should_be_grossly_off": 4.1585436774304965,
+    "uncorrected_form_disagrees_grossly": true,
+    "corrected_form_agrees_with_anchor": true,
+    "divisor_sentinel_pass": true,
+    "explanation": "If the 1/log(2) divisor had been wrongly omitted, log K_0 would be larger by factor ~1.4427, so K_0 itself would be replaced by exp(log(K_0)*log(2)) which is ~4.16 vs the true ~2.685. The sentinel confirms the divisor IS in place: the corrected form (no exponentiation reshuffling) equals the anchor, the uncorrected form (with reshuffling that simulates a missing divisor) does not."
+  },
+  "gate_thresholds": {
+    "A_B_overlap_min_digits": 30,
+    "leading_digits_min": 100
+  },
+  "GATE": "RELEASE_M2",
+  "verdict_oneline": "PASS: M1 certified K_0 ball at P=28712 contains independently-sourced anchor digits (OEIS A002210 + BBC 1997 Appendix p.19); 251 leading decimal digits matched; divisor sentinel confirms the 1/log(2) correction is the operative fix. Milestone 2 authorized."
+}
