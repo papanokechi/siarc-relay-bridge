@@ -1,0 +1,889 @@
+===PAGE 1===
+On the Khintchine Constant
+David H. Bailey ∗
+Jonathan M. Borwein †
+Richard E. Crandall ‡
+Abstract
+We present rapidly converging series for the Khintchine constant and for
+general “Khintchine means” of continued fractions. We show that each of
+these constants can be cast in terms of an eﬃcient free-parameter series,
+each series involving values of the Riemann zeta function, rationals, and
+logarithms of rationals. We provide an alternative, polylogarithm series
+for the Khintchine constant and indicate means to accelerate such series.
+We discuss properties of some explicit continued fractions, constructing
+speciﬁc fractions that have limiting geometric mean equal to the Khint-
+chine constant. We report numerical evaluations of such special numbers
+and of various Khintchine means. In particular, we used an optimized se-
+ries and a collection of fast algorithms to evaluate the Khintchine constant
+to more than 7000 decimal places.
+Ref: Mathematics of Computation , vol. 66 (1997), pg. 417–431
+Keywords and phrases. Khintchine constant, continued fractions, geometric
+mean, harmonic mean, computational number theory, zeta functions, polyloga-
+rithms.
+1991 Mathematics subject classiﬁcation. Primary 11Y60, 11Y65; Secondary
+11M99.
+∗NASA Ames Research Center, Mail Stop T27A-1, Moﬀett Field, CA 94035-1000, USA.
+dbailey@nas.nasa.gov
+†Centre for Experimental and Constructive Mathematics, Simon Fraser University, Burn-
+aby, BC V5A 1S6, Canada. jborwein@cecm.sfu.ca. (Research supported by the Shrum
+Endowment at Simon Fraser University and NSERC.)
+‡Center for Advanced Computation, Reed College, Portland, OR 97202.
+crandall@reed.edu.
+1
+===PAGE 2===
+2 Bailey, Borwein and Crandall
+1. Introduction
+The Khintchine constant arises in the measure theory of continued fractions.
+Every positive irrational number can be written uniquely as a simple continued
+fraction [a0;a1,a 2, ··· ,an, ··· ], i.e., witha0 a nonnegative integer and all otherai
+positive integers. The Gauss-Kuz’min distribution [13] predicts that the density
+of occurrence of some chosen positive integer k in the fraction of a random real
+number is given by
+Prob(an = k)= − log2
+[
+1 − 1
+(k +1 )2
+]
+.
+In his celebrated text, Khintchine [13] uses the Gauss-Kuz’min distribution to
+show that for almost all positive irrationals the limiting geometric mean of the
+positive elements ai of the relevant continued fraction exists and equals
+K0 :=
+∞∏
+k=1
+[
+1+ 1
+k(k +2 )
+] log2 k
+=
+∞∏
+k=1
+klog2
+[
+1+ 1
+k(k+2)
+]
+.
+The fundamental constant K0 is the Khintchine constant. Ever since Khint-
+chine’s elegant discovery there has been a keen interest in the numerical eval-
+uation of K0 [14, 20, 26, 27, 24]. It is known that this constant can be cast in
+terms of various converging series, the following example of which having been
+used by Shanks and Wrench to provide the ﬁrst high-precision numerical values
+for K0:
+log(K0) log(2) =
+∞∑
+s=1
+ζ(2s) − 1
+s
+(
+1 − 1
+2 + 1
+3 −··· + 1
+2s − 1
+)
+.(1)
+This series can be rendered even more computationally eﬃcient via the introduc-
+tion of a free integer parameter. We used a carefully optimized free-parameter
+series to resolve K
+0 to 7350 decimal places (K0 =2 .68545200106... see §5).
+The Khintchine constant can be thought of as a member of a certain class
+of constants we shall call Khintchine means Kp, for real numbers p< 1. The
+H¨older mean of order p of the continued fraction elements, namely lim k[(ap
+1 +
+ap
+2 + ··· + ap
+k)/k]1/p, also exists with probability one and again with probability
+one equals the constant:
+Kp :=
+{ ∞∑
+k=1
+− kp log2
+[
+1 − 1
+(k +1 )2
+] }1/p
+.
+(See the ﬁnal section of Khintchine’s book [13] for a proof for p< 1
+2 , or more
+modern references on ergodic theory for a proof forp< 1 [19].) We may interpret
+K0 as the limiting instance of the Kp deﬁnition as p → 0. We shall show in
+===PAGE 3===
+On the Khintchine Constant 3
+Theorem 6 below that for any negative integer p the Khintchine mean of order
+p satisﬁes an identity
+(Kp)p log(2) =
+∞∑
+s=2
+(ζ(s − p) − 1)Qsp,(2)
+where each coeﬃcient Qsp is rational. Again, there is a free-parameter general-
+ization, which we employed to resolve theharmonic mean K−1 also to over 7000
+decimal places (K−1 =1 .74540566240... see §5). It is of interest that, evidently,
+only K0 can be written as a series involving exclusively even zeta arguments.
+The computational implications of this unique property of K0 are discussed in
+§5. We should mention that aside from the series (1) forK0 there are other pre-
+viously known formulae for Khintchine means, some of which formulae involve
+derivatives of the zeta function [24].
+In the next section we establish the series forms (1) and (2) for K
+0 and the
+general Khintchine meansKp, respectively. Actually, (1) and (2) can be thought
+of as degenerate cases of free-parameter forms in which an integer parameter can
+be optimized for numerical eﬃciency. Then in§3 we present polylogarithm series
+and a certain zeta-like function whose evaluations can be used to accelerate the
+polylogarithm series. In §4 we discuss explicit continued fractions with a view
+toward determining whether H¨older means exist and coincide with Khintchine
+means. In particular, some numbers known to have geometric mean (zeroth
+H¨older mean) equal to K
+0 are presented. Finally, in §5 we discuss numerical
+details relevant to very-high-precision evaluation of Khintchine means.
+2. Fundamental Identities
+This section is devoted to presenting the basic identities. We begin with a
+list of preliminary, largely elementary, results needed in the paper. The ﬁrst
+lemma amounts to a set of observations due to Wrench and Shanks [27].
+Lemma 1 . (a) We have
+− log(1 − x) log(1 +x)=
+∞∑
+k=1
+Ak
+k x2k,
+where As := ∑2s−1
+m=1 (− 1)m−1/m.
+(b) Further,
+N∑
+k=2
+log(1 − 1
+k) log(1 +1
+k) −
+N∑
+k=2
+log(k − 1) log(1− 1
+k2 )= − log(N) log(1 + 1
+N ).
+(c) Thus,
+∞∑
+k=2
+log(1 − 1
+k) log(1 +1
+k)= − log(K0) log(2).
+===PAGE 4===
+4 Bailey, Borwein and Crandall
+Proof. Part (a) is most easily seen by diﬀerentiating both sides. The left–hand
+side becomes f(x)− f(− x) where f(x) := log(1+x)/(1− x). Using the standard
+relationship
+∞∑
+k=1
+ak
+1 − xxk =
+∞∑
+k=1
+{
+k∑
+j=1
+aj }xk
+produces (a).
+Part(b) is easily established inductively after expanding the left–hand side.
+Part (c) follows on taking limits and noting that
+−
+N∑
+k=2
+log(k − 1) log(1− 1
+k2 ) = log(K0) log(2),
+as follows from the deﬁnition of K0. 2
+We shall ﬁnd it convenient to use theHurwitz zeta function deﬁned by
+ζ(s, N): =
+∞∑
+n=1
+1
+(n + N)s ,
+so that ζ(s)= ζ(s,0) and so that for N a nonnegative integer
+ζ(s, N)= ζ(s) −
+N∑
+n=1
+1
+ns .
+With this notation we have:
+Lemma 2 . (a) For N a positive integer,
+∞∑
+n=2
+ζ(n, N)= 1
+N .
+(b) For N a positive integer,
+∞∑
+n=1
+ζ(2n, N)
+n = log(N +1
+N ).
+(c) ∫ 1
+0
+log(1 − t2)
+t(1 +t) dt = − log2(2).
+Proof. The proofs of the ﬁrst two identities are similar and rely on expanding
+the zeta terms, rearranging the order of summation and re-evaluating. In both
+cases, the result telescopes to the desired conclusion.
+===PAGE 5===
+On the Khintchine Constant 5
+Part (c) is less immediate. Actually, the indeﬁnite integral is evaluable with
+the aid of the theory of the dilogarithm [15]. The integral
+∫ t
+0
+log(1 − x2)
+x(1 +x) dx
+equals the log terms
+− log2(1 +t)
+2 − log2(2)+log(2) log(1 − t) − log(1+ t) log(1− t)+log( t) log(1− t)
+plus the dilog terms
+dilog(t) − dilog(1 +t) − dilog(1+ t
+2 ),
+and the limit as t → 1 yields the desired result − log2(2). 2
+We are now in a position to establish a general Shanks-Wrench identity [20]
+for K0.
+Theorem 3 . For any positive integer N ,
+log(K0) log(2) =
+∞∑
+s=1
+ζ(2s, N)As
+s −
+N∑
+k=2
+log(1 − 1
+k) log(1 +1
+k),(3)
+where As := ∑2s−1
+m=1 (− 1)m−1/m.
+Remark. The integer N is a free parameter that can be optimized in actual
+computations to signiﬁcantly reduce the number of zeta evaluations required.
+Variation of this parameter also provides a kind of error check, for whatever the
+choice of positive integer N, one expects the same result for the left-hand side.
+Note that in the case N = 1 the second summation is empty, and we recover
+precisely the K0 identity (1) of §1.
+Proof.L e tf(N) denote the right-hand side of (1). Then
+f(N − 1) − f(N)=
+∞∑
+s=1
+As
+s N −2s + log(1 − 1
+N ) log(1 + 1
+N )
+which equals zero by Lemma 1(a). Thus, sinceζ(2s, N) → 0 suﬃciently rapidly,
+f(1) = f(N) = lim
+N →∞
+f(N)
+= −
+∞∑
+k=2
+log(1 − 1
+k) log(1 +1
+k).
+===PAGE 6===
+6 Bailey, Borwein and Crandall
+By Lemma 1(c), this sum agrees with log(K0) log(2). 2
+As a companion relation to the identity of Theorem 3, we can establish
+an elegant integral representation for the left-hand side. There is a powerful
+generalization of Lemma 2(b) in the form of a generating function based on
+Euler’s product for sin(πt)/(πt) (see [23, p. 249]). For real t in [0,1) deﬁne g(t)
+by
+g(t): =
+∞∑
+s=1
+ζ(2s) − 1
+s t2s = − log
+( sin(πt)
+πt
+)
++ log(1 − t2),(4)
+and deﬁne also the limiting case g(1) := log 2. We only need observe now that,
+on the basis of Theorem 3 with parameter N =1 ,
+log(K0) log(2) =
+∫ 1
+0
+log(2) +g(t)/t
+1+ t dt,
+and with the help of the previous dilogarithm integral evaluation we thus arrive
+at an integral representation. (Reference [20] contains an equivalent integral
+identity.)
+Corollary 4 . The following integral representation holds for K0:
+∫ 1
+0
+log[sin(πt)/(πt)]
+t(1 +t) dt = − log(K0) log(2).
+It is amusing to observe that Lemma 1(c) may also be turned into an anal-
+ogous integral form:
+log(K0) log(2) =
+∫ ∞
+1
+log(⌊t⌋)
+t(1 +t) dt =
+∫ 1
+0
+log(⌊1/t⌋)
+1+ t dt.
+This was observed from a very diﬀerent starting point by Robert Corless [11]
+but follows immediately on breaking the ﬁrst integral up at integer points.
+We now derive new, corresponding identities for the higher–order Khintchine
+means. They are in some sense simpler, since one logarithmic term is replaced
+by a negative integral power. There is an observation that leads directly to a
+zeta function expansion for these general Khintchine means. Note that a sum
+of terms k
+p log(1 − (k +1 )−2) can be expressed, via expansion of the logarithm,
+in terms of sums of the form (note p is assumed to be a negative integer):
+∞∑
+n=2
+1
+n2s−p(1 − 1/n)−p .
+Upon expansion of the term
+1/(1 − 1/n)−p
+===PAGE 7===
+On the Khintchine Constant 7
+in powers of 1/n, we obtain an identity for thepth power ofKp as a series of zeta
+functions. The result, after the same manner of free-parameter manipulation
+we used for K
+0, is a new series that can be thought of as a companion identity
+to the Shanks-Wrench expansion of Theorem 3.
+Theorem 6 . For negative integer p and positive integer N we have
+Kp
+p log(2) =
+∞∑
+n=1
+∑∞
+j=0
+(j−p−1
+−p−1
+)
+ζ(2n + j − p, N)
+n −
+N∑
+k=2
+log(1 − 1
+k2 )(k − 1)p.
+Remark. Note that for N = 1 the ﬁnal sum is empty, the coeﬃcient of any given
+ζ(s) is an easily computed rational, and we immediately establish a general series
+with rational coeﬃcients, (2) of §1.
+Corollary 7 . The constant K−1 satisﬁes, for any integer N> 0,
+log(2)
+K−1
+=
+∞∑
+n=1
+1
+N − ∑2n
+k=2 ζ(k,N )
+n −
+N∑
+k=2
+log(1 − k−2)
+k − 1 .
+Proof. It suﬃces to show that for every positive integer n
+∞∑
+j=0
+ζ(2n + j +1 ,N )+
+2n∑
+k=2
+ζ(k,N )= 1
+N .
+This follows immediately from Lemma 2(a). 2
+3. Polylogarithm Series
+There exist some interesting identities for the Khintchine constant in terms of
+polylogarithm evaluations. One particularly interesting polylogarithm identity
+is obtained by resolving the integral representation of Corollary 4 in polyloga-
+rithm terms [28]. One may employ the Euler product for sin z/z to write the
+integral as a sum of logarithmic integrals, each in turn expressible in terms of
+polylogarithms. This procedure leads to the series
+log(K
+0) log(2) = log2(2) + Li2(− 1
+2)+ 1
+2
+∞∑
+n=2
+(− 1)nLi2( 4
+n2 ),
+where, Lim(z)i st h epolylogarithm function: Lim(z): = ∑∞
+k=1 zkk−m.
+A somewhat diﬀerent application of polylogarithms is to use the classical
+Abel identity [15]
+log(1− x) log(1− y)=L i 2( x
+1 − y)+Li2( y
+1 − x)− Li2(x)− Li2(y)− Li2( xy
+(1 − x)(1 − y))
+===PAGE 8===
+8 Bailey, Borwein and Crandall
+together with Lemma 1(c), setting x := 1/n, y:= − 1/n to obtain
+log(K0) log(2) = π2
+6 − 1
+2 log2(2) +
+∞∑
+n=2
+Li2( − 1
+n2 − 1).
+An interesting line of analysis starting from this last polylogarithm series is to
+“peel oﬀ” parts of the Li2 function, casting the corrections in closed form. Such
+a procedure gives polylogarithm-based analogues of Theorem 3. For example,
+one can replace the last Li2 summand above with a more rapidly decaying term
+Li2( − 1
+n2 − 1) − − 1
+n2 − 1 − 1
+4
+1
+(n2 − 1)2
+and add back a correction
+− Ω(1) + 1
+4Ω(2) = π2
+48 − 59
+64,
+where Ω is the zeta-like function
+Ω(m): =
+∞∑
+n=2
+1
+(n2 − 1)m .
+Careful Eulerian partial fraction decomposition (as detailed in [7]) can be used
+to produce a closed-form evaluation of Ω(m) for any positive integer m. In this
+way one may accelerate the convergence of relevant polylogarithm sums.
+4. Explicit Continued Fractions
+It is remarkable that, even though a random fraction’s limiting geometric
+mean exists and furthermore equals the Khintchine constant with probability
+one, not a single explicit real number (e.g., a real number cast in terms of fun-
+damental constants) has been demonstrated to have elements whose geometric
+mean equals K
+0. Likewise, for any negative integer p, not a single explicit real
+number has been shown to have elements whose H¨older mean equals Kp.I n
+any event, it is worthwhile to mention some classical continued fractions with
+respect to this theoretical impasse.
+The continued fraction for e is
+e = [2; 1,2,1,1,4,1,1,6,1,1,8,1,1,10,1,1,12,... ].
+The elements are eventually comprised of a meshing of two arithmetic progres-
+sions, one of which has zero common diﬀerence while the other has diﬀerence
+two and diverges. Thus the meshing has diverging geometric mean. Thus, e
+does not possess geometric mean K0. The harmonic mean for e does exist, but
+equals 3/2, which is notK−1. It turns out that any fraction with elements lying
+===PAGE 9===
+On the Khintchine Constant 9
+in a single arithmetic progression can be evaluated in terms of special functions.
+Explicitly, for any positive integers a, d we have [2, eq. 9.1.73]
+[a;a + d, a+2 d, a+3 d, ...]= Ia/d−1( 2
+d )
+Ia/d( 2
+d ) ,
+where Iν is the modiﬁed Bessel function of orderν. These arithmetic progression
+fractions are certainly interesting, and not beyond deep analysis. It was known,
+for example, to C. L. Siegel that these fractions are transcendental [22]. But
+each such fraction has diverging geometric mean and indeed diverging H¨older
+means. Note that the means are monotone nondecreasing inp, and so a fraction
+with lim inf of its elements inﬁnite has inﬁnite means.
+Another example of interest is π, whose continued fraction expansion is
+π = [3; 7,15,1,292,1,1,1,2,1,3,... ].
+The continued fraction elements do not appear to follow any pattern and are
+widely suspected to be in some sense random. Based on the ﬁrst 17,001,303 con-
+tinued fraction elements, the geometric mean (of the fraction elements yielding
+the same precision) is 2.686393 and the harmonic mean is 1.745882 [12]. These
+values are reasonably close to K
+0 and K−1, but of course no conclusion can be
+drawn beyond this.
+It is a well-known theorem of Lagrange that the elements of a simple contin-
+ued fraction form an eventually periodic sequence if and only if the fraction is
+an irrational quadratic surd. All H¨older means for p =0 , − 1, − 2, ... then exist,
+and are completely determined by one period of elements. Hence, each H¨older
+mean of a quadratic surd is an algebraic number. Clearly, for any algebraic
+number c = a
+1/b formed from integers a, b, one can write down a quadratic surd
+having geometric mean c. Along these lines, it is not hard to show that if there
+exists an integer m> 2 such that
+log(K0/m)
+log(2/m)
+is rational, then there exists a quadratic surd with geometric mean K0.T h u s
+the issue of transcendence forK0 and related numbers is an interesting one, and
+one we return to in the next section.
+Even though no explicit real number is known to have elements whose geo-
+metric mean is K0, it is still possible to fabricate explicit lists ofelements whose
+geometric mean does equalK0. If one were in possession of some representation
+of K0 to arbitrary accuracy, one could of course construct a fraction having
+geometric mean K0 by appending a “2” (respectively, “3”) to the element list
+whenever the current geometric mean were above (below) K0. There seems to
+===PAGE 10===
+10 Bailey, Borwein and Crandall
+be no way to determine a priori the value of, say, the nth element. Thus, such
+a constructed fraction is not explicit.
+But it is possible to give an explicit list of elements having the desired
+property. One successful construction has been given by [1], as follows. Consider
+the naturally ordered rationals in (0,1); that is, consider
+1/2,1/3,2/3,1/4,2/4,3/4,1/5,2/5,3/5,4/5,...,
+where for each successive denominator d =2 ,3,4,... we employ in increasing
+order all numerators between 1 and d − 1 inclusive. Now consider the (ﬁnite)
+set of fraction elements for each rational in the list. (We also demand the
+caveat that no such terminating fraction is allowed to end with element 1, so
+for example 2/3 is the fraction [1,2] rather than [1,1,1].) If we concatenate the
+elements from all the terminating fractions, the inﬁnite chain of elements has
+limiting geometric mean equal to K
+0. The resulting sequence of elements starts
+out:
+A = [2; 3,1,2,4,2,1,3,5,2,2,1,1,2,1,4,6,3, 2, 1, 2, 1, 5, 7, 3, 2,... ].
+The geometric mean of the ﬁrst 15,000 elements of A is 2.35821 ..., w h i c h
+appears low but note that as the denominator d increases during construction
+of the elements, larger and larger elements (such as d itself) appear.
+But one may construct elements whose geometric mean converges much more
+rapidly to K0. One such construction is based on a deterministic stochastic
+sampling of the Gauss-Kuz’min density, and proceeds as follows. First, for non-
+negative integer n deﬁne the van der Corput discrepancy sequence [16] to be a
+set of the base-2 numbers
+d(n)=0 .b
+0b1b2 ...,
+where the bi are the binary bits of n, with b0 being least signiﬁcant. As n
+runs through positive integers, the sequence ofd(n) is conﬁned to (0,1) and has
+appealing pseudorandom properties. The construction of the number we shall
+call Z2 then starts with a0 := 0, and loops as follows:
+For n =1t o ∞ ,s e tan := ⌊1/(2d(n) − 1)⌋.
+The continued fraction elements an thus determined start out
+Z2 = [0; 2,5,1,11,1,3,1,22,2,4,1,7,1,2,1,45, 2, 4, 1, 8, 1, 3, 1, 14, 1,... ].
+On the idea that the discrepancy sequence is in a certain sense equidis-
+tributed, we are moved to posit:
+Conjecture. The geometric mean of the number Z2 is in fact the Khintchine
+constant K0. Furthermore, every limiting p-th H¨older mean of Z2 for p =
+− 1, − 2, ... is the respective Khintchine mean Kp.
+===PAGE 11===
+On the Khintchine Constant 11
+With regard to the above conjecture, S. Plouﬀe [18] has reported a computa-
+tion of the geometric and harmonic means through 5206016 continued fraction
+elements of Z
+2. His results are 2.6854823207 and 1.7454074435, respectively,
+which are remarkably close to the expected theoretical values. The authors have
+also been informed by T. Wieting that he has an unpublished proof of the basic
+conjecture, i.e., that the limiting H¨older means of Z
+2 exist for p =0 , − 1, − 2, ...
+and furthermore equal the corresponding Khintchine means [25]. In the wake
+of such positive results, one can ask in addition for, say, the rate of convergence
+to K
+0. Again on the basis of the distribution of discrepancy values we think it
+reasonable to conjecture that the geometric mean Gn of the ﬁrst n elements of
+Z2 satisﬁes
+|Gn − K0| <c / n1/2
+for some absolute constant c.
+Yet a third, and novel construction runs as follows. First, for the correct
+Gauss-Kuz’min density of 1’s, namely p1 = log2(4/3), generate a list of 0’s and
+1′s by assigning element valuesan = k(⌈np1⌉−⌈ (n − 1)p1⌉)f o rn> 0a n dk =1 .
+Now replace the remaining 0’s in the sequence with 2’s, by replacing p1 with
+p2/(1 − p1) and incrementing k to 2, in which case the index n on an refers,
+naturally, to thenth zero of the preceding list. Continuation of this construction
+for k =3 ,4, ··· gives a real number:
+R = [0; 1,2,1,3,1,4,2,1,5,6,2,1,3,1,7,1,8,2, 1, 4, 1, 3, 2, 1, 9, 1,... ].
+Through 100,000 elements the geometric and harmonic means forR work out to
+be 2.6753 and 1.7454, respectively. Although we have not done so, it should be
+possible to prove for example that the limiting geometric mean of these elements
+is indeed K0.
+5. Computation of Khintchine Means
+As intimated in our introduction, calculation of K0 has occupied the atten-
+tion of various researchers. For example, Gosper recently computedK0 to 2217
+digits [12]. Our 7350-digit value is in complete agreement with Gosper’s 2217
+digits. There is also the interesting problem of computing fraction elements
+from decimal representations of certain real numbers, a task that one may wish
+to do in, say, statistical experiments involving Khintchine means. We mention
+that in [21] an interesting algorithm is presented for computation of fraction
+elements without recourse to decimal input. Instead, diﬀerential properties of
+an appropriate function are used. For example, Shiu resolved 10,000 elements
+of the fraction for e
+π using properties of the function f(t) = sin(log(t)).
+By exploiting various modern algorithms to be described presently, the
+present authors have explicitly computedcdots K0 and K−1 to more than 7350
+decimal digit accuracy. These computations were performed with the aid of the
+===PAGE 12===
+12 Bailey, Borwein and Crandall
+MPFUN multiprecision software [4, 5], which was found to be signiﬁcantly faster
+for our purposes than other available multiprecision facilities. One utilizes this
+software by writing ordinary Fortran-90 code, with multiprecision variables de-
+clared to be of type mp
+integer, mp real or mp complex. In the computations
+described below, the level of precision was suﬃciently high that the “advanced”
+routines of the Fortran-90 MPFUN library were employed. These routines em-
+ploy special algorithms, including fast Fourier transform (FFT) multiplication,
+which are eﬃcient for extra-high levels of precision.
+The constant K
+0 was computed using the formula given above in Theorem
+3, with the free integer parameter N = 100, and with N = 120 as a check. The
+implementation of this formula was straightforward except for the computation
+of the Riemann zeta function. To obtain 7350-digit accuracy in the ﬁnal result,
+2048 terms of the indicated series were evaluated, which requires {ζ(2k), 0 ≤
+k ≤ 2048} to be computed. One approach to compute these zeta function values
+is to apply formulas due to P. Borwein [8]. These formulas are very eﬃcient for
+computing one or a few zeta function values, but when many values are required
+as in this case, another approach was found to be more eﬃcient. This method is
+based on an observation that has previously been used in numerical approaches
+to Fermat’s “Last Theorem” [9, 10], namely
+coth(πx)= − 2
+πx
+∞∑
+k=0
+ζ(2k)(− 1)kx2k
+=c o s h (πx)/sinh(πx)
+= 1
+πx · 1+( πx)2/2! + (πx)4/4! + (πx)6/6! + ···
+1+( πx)2/3! + (πx)4/5! + (πx)6/7! + ··· .
+Let N(x)a n dD(x) be the numerator and denominator polynomials obtained
+by truncating these two series to n terms. Then the approximate reciprocal
+Q(x)o f D(x) can be obtained by applying the Newton iteration
+Qk+1(x): = Qk(x)+[ 1 − D(x)Qk(x)]Qk(x).
+Once Q(x) has been computed to suﬃcient accuracy, the quotient polynomial is
+simply the product N(x)Q(x). The required values ζ(2k) can then be obtained
+from the coeﬃcients of this polynomial.
+Computation time for the Newton iteration procedure can be reduced by
+starting with a modest polynomial length and precision level, iterating to con-
+vergence, doubling each, etc., until the ﬁnal length and precision targets are
+achieved. Computation time can be further economized by performing the two
+polynomial multiplications indicated in the above formula using a FFT-based
+convolution scheme. In our implementation, FFTs were actually performed at
+two levels of this computation: (i) to multiply pairs of polynomials, where the
+data elements to be transformed are the multiprecision polynomial coeﬃcients,
+===PAGE 13===
+On the Khintchine Constant 13
+and (ii) to multiply pairs of multiprecision numbers, where the data elements
+to be transformed are integers representing successive sections of the binary
+representations of the two multiprecision numbers.
+The constant K
+−1 was computed by applying the formula in Corollary 7.
+Again, the challenge here is to precompute values of the Riemann zeta function
+for integer values. But in this case both odd and even values are required. The
+odd values can be economically computed by applying the following two for-
+mulas, the ﬁrst given by Ramanujan, but simpliﬁed slightly and known earlier;
+the second derived by diﬀerentiating a companion identity of Ramanujan [6, ch.
+14]:
+ζ(4N +3 ) = − 2
+∞∑
+k=1
+1
+k4N +3(exp(2kπ) − 1)
+− π(2π)4N +2
+2N +2∑
+k=0
+(− 1)k B2kB4N +4−2k
+(2k)!(4N +4 − 2k)!,
+ζ(4N +1 ) = − 1
+N
+∞∑
+k=1
+(2πk +2 N)e x p ( 2πk) − 2N
+k4N +1(exp(2kπ) − 1)2
+− 1
+2N π(2π)4N
+2N +1∑
+k=1
+(− 1)k B2kB4N +2−2k
+(2k − 1)!(4N +2 − 2k)!.
+Here B2k is as always the 2kth Bernoulli number.
+Alternatively, the formulas can be written in terms of the even zetas as
+ζ(4N +3 ) = − 2
+∞∑
+k=1
+1
+k4N +3(exp(2kπ) − 1)
++ 1
+π{(4N +7 )
+2 ζ(4N +4 ) −
+N∑
+k=1
+2ζ(4k)ζ(4N +4 − 4k)},
+ζ(4N +1 ) = − 1
+N
+∞∑
+k=1
+(2πk +2 N)e x p ( 2πk) − 2N
+k4N +1(exp(2kπ) − 1)2
++ 1
+2Nπ {
+2N∑
+k=1
+(− 1)k2kζ(2k)ζ(4N +2 − 2k)+( 2N +1 )ζ(4N +2 )}.
+These two formulas are not very economical for computing a single odd value
+or just a few odd values of ζ(k) — again, the formulas in [8] are more eﬃcient
+for such purposes. But these Ramanujan formulas are quite eﬃcient when a
+large number of odd zetas are required. Note that the inﬁnite series in the two
+formulas can be inexpensively evaluated for many N simultaneously, since the
+expensive parts of these expressions do not involve N. Further, the evaluation
+===PAGE 14===
+14 Bailey, Borwein and Crandall
+Cont. Frac. Geometric Harmonic
+Constant Elements mean mean
+K0 7182 2.660716 1.745541
+K−1 7052 2.722471 1.746871
+A 15000 2.358251 1.745395
+R 100000 2.6753 1.7454
+Z2 5206016 2.685482 1.7454074
+π 17001303 2.686393 1.745882
+Table 1: Continued Fraction Statistics
+of the inﬁnite series can be cut oﬀ once terms for a given N are smaller than
+the “epsilon” of the numeric precision level being used. Happily, convergence
+here is fairly rapid for large N.
+At ﬁrst glance, the latter summations in these two formulas may appear
+quite expensive to evaluate. But note that each is merely the polynomial prod-
+uct of two vectors consisting principally of even zeta values. Thus, both sets of
+summation results can be computed using multiprecision FFT-based convolu-
+tions.
+Computation of K
+0 to 7350 digit precision required 2.5 hours on an IBM
+RS6000/ 590 workstation, and computation of K−1 also to 7350 digits required
+some 12 hours. Excerpts of the resulting decimal expansions for each are in-
+cluded in the appendix. The complete expansions are available from the authors.
+One intriguing question that was raised decades ago [27] is whether the
+continued fraction elements of K0 themselves enjoy a limiting geometric mean
+K0. We can of course ask more generally whether, for the fraction elements
+of any Khintchine mean Kp, the limiting H¨older mean of order q is in fact
+Kq. During the task of computing from a given decimal representation a H¨older
+mean of some order, the issue of where to terminate the list of continued fraction
+elements is an interesting one. We employed a simple criterion: if x is known
+numerically, toD decimals to the right of the decimal point, generate continued
+fraction elements for x until a convergent p/q has 2q2 > 10D. The motivation
+for choosing this simple criterion is the theorem that at least one of any two
+successive convergents must satisfy
+|p
+q − x| < 1
+2q2
+and conversely, any reduced ratio p/q satisfying this inequality must be a con-
+vergent of x [13].
+===PAGE 15===
+On the Khintchine Constant 15
+Our results are shown in Table 1, together with results for the constants
+K−1,A , R, Z 2 (which were deﬁned above), and π. To give statistical per-
+spective to our results for K0 and K−1, we computed the geometric and har-
+monic means of the ﬁrst 7000 fraction elements for each of 100 pseudoran-
+dom multiprecision numbers of the same precision, namely 7350 decimal digits.
+The average and standard deviation of their geometric means were 2.683740
+and 0.030124, respectively. The same statistics for their harmonic means were
+1.745309 and 0.011148, respectively. Note that these two averages are in good
+agreement with the theoretical valuesK
+0 and K−1. In any event, it appears that
+the geometric and harmonic means for the ﬁrst 7182 elements of our 7350-digit
+K0 are within reasonable statistical limits of the expected theoretical values.
+A question implicitly asked in the previous section is whether K0 or K−1
+is algebraic. This question can be numerically explored by means of integer
+relation algorithms. A vector of real numbers (x1,x 2, ..., x n) is said to possess
+an integer relation if there exist integersak such thata1x1+a2x2+··· +anxn =0 .
+It can easily be seen that a real number α is algebraic of degree n − 1i fa n d
+only if the vector (1,α ,α 2, ··· ,α n−1) possesses an integer relation. Even if α
+is not algebraic, integer relation algorithms produce bounds that allow one to
+exclude relations within a region.
+We employed the “PSLQ” algorithm developed by Ferguson and one of the
+authors, a simpliﬁed version of which is given in [3]. This algorithm, when
+applied to power vectors generated from our computed values of K0 or K−1,
+found no relations for either. On the contrary, we obtained the following result:
+if K0 satisﬁes a polynomial of the form
+0= a0 + a1α + a2α2 + a3α3 + ··· + a50α50
+in the variable α, then the magnitude of some integer coeﬃcient ak exceeds
+1070. The same was found to be true for K−1.
+In a second experiment, we explored the possibility thatK0 or K−1 is given
+by a multiplicative formula involving powers of primes and some well-known
+mathematical constants. To that end, let pk denote the kth prime. We estab-
+lished, using PSLQ, that neither K0 nor K−1 satisﬁes a relation of the form
+0= a0 log α +
+15∑
+k=1
+ak log pk
++a16 log π+ a17 log e + a18 log γ+ a19 log ζ(3) +a20 log log 2
+with integer coeﬃcients ak of absolute value 1020 or less. By exponentiating
+this expression, it follows that neither K0 nor K−1 satisﬁes a corresponding
+multiplicative formula with exponents of absolute value 1020 or less.
+===PAGE 16===
+16 Bailey, Borwein and Crandall
+There are many other tests that might be applied. For example, further
+work might be to rule out the possibility that log K0, (log K0)(log 2), or one of
+many other forms involving K0 be an algebraic number of low degree.
+Acknowledgment. Thanks are due to Robert Corless, Greg Fee, Thomas
+Wieting, Simon Plouﬀe, and Joe Buhler for many helpful discussions. We are
+grateful to a referee for suggesting the construction of the candidate number R
+at the end of §4.
+===PAGE 17===
+On the Khintchine Constant 17
+References
+[1] R. Adler, M. Keane and M. Smorodinsky , “A construction of a normal
+number for the continued fraction transformation,”J. of Number Theory 13
+(1981), 95-105.
+[2] M. Abramowitz and I. A. Stegun , Handbook of mathematical functions,
+Dover Publications, Inc., New York, 1972.
+[3] D. H. Bailey, J. M. Borwein, and R. Girgensohn , “Experimental
+evaluation of Euler sums,” Experimental Math. 3 (1994), 17–30.
+[4] D. H. Bailey , “A Fortran-90 based multiprecision system,” ACM Trans.
+on Math. Software 21 (1995), 379–387.
+[5] D. H. Bailey , “Multiprecision translation and execution of Fortran pro-
+grams,” ACM Trans. on Math. Software 19 (1993), 288–319.
+This software and documentation, as well as that described in [4], may be
+obtained by sending electronic mail to mp-request@nas.nasa.gov,o rb y
+using Mosaic at address http://www.nas.nasa.gov.
+[6] B.C. Berndt, Ramanujan ’s notebooks, Part III, Springer Verlag, New York,
+1991.
+[7] D. Borwein, J.M. Borwein, and R. Girgensohn , “Explicit evaluation
+of Euler sums,” Proc. Edinburgh Math. Soc. 38 (1995), 277–294.
+[8] P. Borwein, “An eﬃcient algorithm for the Riemann zeta function,” sub-
+mitted for publication. Available from http://www.cecm.sfu/~pborwein.
+[9] J. Buhler, R. Crandall, and R. Sompolski , “Irregular primes to one
+million,” Math. Comp. 59 (1992), 717–722.
+[10] J. Buhler, R. Crandall, R. Ernvall, and T. Mets ¨ankyl¨a, “Irreg-
+ular primes to four million,” Math. Comp. 61 (1993), 151–153.
+[11] R. Corless, personal communication.
+[12] R. W. Gosper, personal communication.
+[13] A. Khintchine, Continued fractions, University of Chicago Press,
+Chicago, 1964.
+[14] D. Lehmer , “Note on an absolute constant of Khintchine,”Amer. Math.
+Monthly 46 (1939), 148-152.
+[15] L. Lewin, Polylogarithms and associated functions, North Holland, New
+York, 1981.
+===PAGE 18===
+18 Bailey, Borwein and Crandall
+[16] H. Niederreiter , Random number generation and quasi-Monte-Carlo
+methods, CBMS–NSF Regional Conf. Ser. Appl. Math., vol. 63, 1992.
+[17] N. Nielsen, Die Gammafunktion, Princeton University Press, 1949.
+[18] S. Plouffe, personal communication.
+[19] C. Ryll-Nardzewski, “On the ergodic theorems (I,II),”Studia Math. 12
+(1951) 65-79.
+[20] D. Shanks and J. W. Wrench , “Khintchine’s constant,”Amer. Math.
+Monthly 6 (1959), 276-279.
+[21] P. Shiu, “Computation of continued fractions without input values,”Math.
+Comp. 64 (1995), 1307-1317.
+[22] C.L. Siegel, Transcendental numbers, Chelsea, New York, 1965.
+[23] K. R. Stromberg, An introduction to classical real analysis, Wadsworth,
+Belmont, CA, 1981.
+[24] I. V ardi, Computational recreations in mathematica, Addison-Wesley,
+Redwood City, CA, 1991.
+[25] T. Wieting, personal communication.
+[26] J. W. Wrench , “Further evaluation of Khintchine’s constant,” Math.
+Comp. 14 (1960), 370-371.
+[27] J. W. Wrench and D. Shanks , “Questions concerning Khintchine’s con-
+stant and the eﬃcient computation of regular continued fractions,” Math.
+Comp. 20 (1966), 444-448.
+[28] D. Zagier, personal communication.
+===PAGE 19===
+On the Khintchine Constant 19
+Appendix: The Khintchine Constant K0 to 7,350 Digits
+2.
+68545200106530644530971483548179569382038229399446
+29530511523455572188595371520028011411749318476979
+95153465905288090082897677716410963051792533483259
+66838185231542133211949962603932852204481940961806
+86641664289308477880620360737053501033672633577289
+04990427070272345170262523702354581068631850103237
+46558037750264425248528694682341899491573066189872
+07994137235500057935736698933950879021244642075289
+74145914769301844905060179349938522547040420337798
+56398310157090222339100002207725096513324604444391
+.....
+36909874406573435125594396103980583983755664559601
+The Khintchine Harmonic Mean K
+−1 to 7,350 Digits
+1.
+74540566240734686349459630968366106729493661877798
+42565950137735160785752208734256520578864567832424
+20977343982577985596531102601834294460206578713176
+15026238960612981165718728271638949622593992929776
+06160830078357479801549029312671643067241248453710
+96077711207484391474195803753220015690822609477078
+44894635568203493582068440202422591615018316479048
+29229656977733143662210991806388842581650599997697
+61391683577259217628635718712601565066754443340174
+00283376465305136584406098398017126202832041200630
+.....
+78553128249666473680304034761497467330708479436280
+Khintchine Means K
+p to 50 Digits for V arious Negative p
+pK p
+-2 1.450340328495630406052983076680697881408299979605904...
+-3 1.313507078687985766717339447072786828158129861484792...
+-4 1.236961809423730052626227244453422567420241131548937...
+-5 1.189003926465513154062363732771403397386092512639671...
+-6 1.156552374421514423152605998743410046840213070718761...
+-7 1.133323363950865794910289694908868363599098282411797...
+-8 1.115964408978716690619156419345349695769491182230400...
+-9 1.102543136670728013836093402522568351022221284149318...
+-10 1.091877041209612678276110979477638256493272651429656...

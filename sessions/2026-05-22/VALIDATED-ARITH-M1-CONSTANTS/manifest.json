@@ -1,0 +1,105 @@
+{
+  "task_id": "VALIDATED-ARITH-M1-CONSTANTS",
+  "work_order": "Validated-Arithmetic Re-Run for d824d5ae Revision",
+  "milestone": 1,
+  "milestone_label": "M1 — Certified 15-vector basis B_D(C) for D=6",
+  "milestone_status": "COMPLETE_pending_operator_signoff",
+  "halt_and_flag": true,
+  "do_not_proceed_past_milestone": "M1",
+  "created_timestamp_utc": "2026-05-22T00:00:00Z",
+  "owner": "papanokechi",
+  "agent": "GitHub Copilot (VS Code, Claude Opus 4.7)",
+  "environment": {
+    "python_version": "3.14.3",
+    "platform": "Windows-11-10.0.29591-SP0",
+    "venv_path": "c:/Users/shkub/OneDrive/Documents/archive/admin/VSCode/claude-chat/.venv",
+    "python_flint_version": "0.8.0",
+    "FLINT_VERSION": "3.3.1",
+    "FLINT_RELEASE": 30301,
+    "FLINT_BITS": 64,
+    "mpmath_version": "1.3.0_(NOT_USED_IN_CERTIFIED_PATH;_M4_xcheck_only)",
+    "arb_role": "primary certified ball arithmetic backend"
+  },
+  "precision_configuration": {
+    "ladder_bits": [7178, 14356, 28712],
+    "ladder_dps_approx": [2161, 4322, 8643],
+    "P_bits_minimum_target": 7178,
+    "target_dps_baseline": 2160,
+    "guard_bits": 128,
+    "rationale_guard_bits": "128 internal-precision uplift absorbs Arb per-operation rounding across ~3700-14400 BBC series terms and 15 basis-product compositions; empirically delivers ~24 extra dps headroom vs target.",
+    "safety_bits_in_N": 64,
+    "N_truncation_per_rung": {
+      "7178": 3622,
+      "14356": 7211,
+      "28712": 14389
+    },
+    "N_formula": "ceil((P_bits + safety_bits + 1) / 2) + 1, from tail bound (4(zeta(2)-1)/(3(N+1)))*4^{-N} <= 2^{-P_bits - safety_bits}",
+    "achieved_log10_radius_K0_per_rung": {
+      "7178": -2184,
+      "14356": -4345,
+      "28712": -8667
+    }
+  },
+  "load_bearing_identities": [
+    {
+      "identifier": "BBC_1997_eq_1",
+      "citation": "Bailey D. H., Borwein J. M., Crandall R. E. (1997). On the Khintchine Constant. Mathematics of Computation 66(217), 417-431.",
+      "doi": "10.1090/S0025-5718-97-00800-4",
+      "form_used": "log(K_0)*log(2) = sum_{s=1..inf} (zeta(2s)-1)/s * A_s",
+      "auxiliary_definition": "A_s = sum_{m=1..2s-1} (-1)^{m-1}/m  (BBC 1997 Lemma 1(a), p.3)",
+      "local_cache_path": "_lit_cache/khinchin.pdf",
+      "local_cache_sha256": "7DD18D84B93A36B85F4F94D23671A202258CB6517CCBAA5794EDEADD0E793793",
+      "verification_doc": "BBC_FORMULA_VERIFIED.md",
+      "verification_notes": "Identity quoted verbatim from p.2 eq.(1) and p.3 Lemma 1(a). Work-order sketch contained two transcription errors (spurious outer (-1)^{k+1}; missing 1/log(2) for log(K_0)). Both noted in BBC_FORMULA_VERIFIED.md and halt_log.json.",
+      "honesty_status": "Identity is cited, not re-proven here. Our M1 certificate certifies the arithmetic conditional on this identity."
+    },
+    {
+      "identifier": "FLINT_ARB_CORRECTNESS",
+      "citation": "Johansson F. (2017). Arb: efficient arbitrary-precision midpoint-radius interval arithmetic. IEEE Transactions on Computers 66(8).",
+      "version_used": "FLINT 3.3.1 (Arb integrated since FLINT 3.0)",
+      "honesty_status": "Assumed correct as a software dependency; bugs in Arb would propagate to this certificate."
+    }
+  ],
+  "basis_specification": {
+    "B_D_C_dimension": 15,
+    "D_polynomial_degree": 6,
+    "C_external_constants": ["pi", "e", "ln(2)", "gamma", "zeta(2)", "zeta(3)", "Catalan_G"],
+    "labels_in_canonical_order": [
+      "1", "K_0", "K_0^2", "K_0^3", "K_0^4", "K_0^5", "K_0^6",
+      "log(K_0)",
+      "K_0*pi", "K_0*e", "K_0*ln2", "K_0*gamma", "K_0*zeta(2)", "K_0*zeta(3)", "K_0*G"
+    ],
+    "label_source": "harness/basis.py BASIS_LABELS (mpmath empirical tier — kept untouched and consulted only for label ordering)"
+  },
+  "deliverables": {
+    "core_source": [
+      "bbc_series.py",
+      "certified_constants.py",
+      "m1_ladder_run.py"
+    ],
+    "documentation": [
+      "BBC_FORMULA_VERIFIED.md",
+      "_M1_REPORT.md",
+      "manifest.json",
+      "claims.jsonl",
+      "halt_log.json",
+      "discrepancy_log.json",
+      "unexpected_finds.json"
+    ],
+    "outputs_dir": "M1_outputs/",
+    "outputs": [
+      "balls_P7178.json",
+      "balls_P14356.json",
+      "balls_P28712.json",
+      "ladder_consistency.json",
+      "theorem_M1_partial.json"
+    ],
+    "scratch_utility_scripts": [
+      "_smoke_certified.py",
+      "_inspect_m1.py",
+      "_audit_m1.py"
+    ]
+  },
+  "additivity_guarantee": "harness_certified/ is a strictly NEW directory. Nothing in harness/ (mpmath empirical tier) was modified. The two tiers can be diffed pairwise as required by Milestone 4.",
+  "next_step": "AWAIT_OPERATOR_SIGNOFF; do not proceed to Milestone 2 (M_certified construction) without explicit operator approval."
+}
