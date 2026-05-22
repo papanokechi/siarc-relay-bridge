@@ -1,0 +1,54 @@
+{
+  "session": "GATE-BBC-ANCHOR",
+  "date_utc": "2026-05-22",
+  "parent_session": "VALIDATED-ARITH-M1-CONSTANTS (2026-05-22)",
+  "agent": "GitHub Copilot (VS Code, Claude Opus 4.7)",
+  "halt_status": "GATE_RELEASE_DECISION_RECORDED",
+  "explanation": "Independent-anchor gate check on the M1 certified K_0 enclosure. Verdict: RELEASE_M2 (= M1 ball at P=28712 PASSES the external anchor test).",
+  "circularity_ban_observed": {
+    "no_mpmath_khinchin_used": true,
+    "no_flint_khinchin_used": true,
+    "no_library_khinchin_constant_consumed": true,
+    "no_series_recomputation": true,
+    "external_sources": [
+      "OEIS A002210 b-file (hand-transcribed, 250 fractional digits)",
+      "BBC 1997 Math.Comp. paper Appendix p.19 (hand-transcribed from cached PDF sha256 7DD18D84...3793, 500 fractional digits)"
+    ],
+    "transcendental_ops_diagnostic_only": "Arb log/exp used in Step 3 divisor sentinel on the certified midpoint treated as a plain real number; no K_0-source code path involved."
+  },
+  "gate_outcomes": {
+    "anchor_AB_overlap_digits": 250,
+    "anchor_AB_disagreements": 0,
+    "containment_pass": true,
+    "abs_diff_anchor_minus_midpoint_log10": -251.30,
+    "certified_radius_log10": -8666.68,
+    "leading_decimal_digits_matched": 251,
+    "leading_digits_threshold": 100,
+    "divisor_sentinel_pass": true,
+    "K_corrected_form_value": 2.6854520010653062,
+    "K_uncorrected_form_value": 4.1585436774304965,
+    "GATE": "RELEASE_M2"
+  },
+  "pre_coding_anomalies": [],
+  "in_session_halts": [
+    {
+      "id": "PY-INT-STR-LIMIT",
+      "severity": "implementation",
+      "description": "Python 3.11+ default int-from-string limit (4300 digits) blocked parsing of 8700-digit midpoint mantissa into Fraction.",
+      "resolution": "sys.set_int_max_str_digits(1_000_000) at module import. Has no effect on the gate logic; just allows large-string parsing.",
+      "epistemic_status": "Resolved cleanly."
+    }
+  ],
+  "no_contradictions_with_prior_AEAL": true,
+  "no_unexpected_positive_findings": true,
+  "halt_required_for_M2_signoff": "PASS only AUTHORIZES Milestone 2; the operator fires it separately. Agent does not start M2.",
+  "files_added_in_this_session": [
+    "gate_bbc_anchor.py",
+    "anchor_provenance.json",
+    "gate_verdict.json"
+  ],
+  "files_modified_in_this_session": [
+    "claims.jsonl (4 new entries: 2 pre-registration + 2 post-actualisation)",
+    "halt_log.json (this file)"
+  ]
+}
