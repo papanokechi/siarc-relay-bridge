@@ -1,0 +1,33 @@
+{
+  "tag": "d8640_P28712",
+  "status": "INTERRUPTED_PARTIAL",
+  "interrupt_cause": "KeyboardInterrupt external (terminal session reset) at last logged iter 3229; not maxsteps, not relation",
+  "header": {
+    "tag": "d8640_P28712",
+    "dps": "8640",
+    "P_bits": "28712",
+    "M1_ball_sha256": "4729ea6cc4c2d433cbcb44c6f210ba82e22d77f51753c86aedce9562449a1ccf",
+    "maxsteps": "250000",
+    "maxcoeff_exp": "70",
+    "input_source": "M1_certified_ball_midpoint",
+    "N_basis": "15",
+    "starting_at_unix": "1779421779.873"
+  },
+  "dps": 8640,
+  "P_bits": 28712,
+  "M1_ball_sha256": "4729ea6cc4c2d433cbcb44c6f210ba82e22d77f51753c86aedce9562449a1ccf",
+  "maxsteps": 250000,
+  "maxcoeff_exp": 70,
+  "input_source": "M1_certified_ball_midpoint",
+  "K": 3230,
+  "last_iter_parsed": 3229,
+  "iter_count_in_log": 3230,
+  "last_norm_for_comparison_only": 725682,
+  "last_error_str": "2.0e-119",
+  "found_iter": null,
+  "cancel_iter": null,
+  "terminal_state": "INTERRUPTED_PARTIAL",
+  "log_lines": 3241,
+  "log_path": "C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\siarc\\unsolved-relay-staging\\harness_certified\\_refire_checkpoint_d8640_P28712.log",
+  "salvage_note": "This checkpoint is a PARTIAL salvage parsed from the verbose log after an external interrupt; the PSLQ search did NOT reach a natural terminal state. K is the last iteration counter seen in the log. terminal_state=INTERRUPTED_PARTIAL is NOT a result; it does NOT satisfy the M2-REFIRE K-stability gate. Deposit this with the partial-halt verdict in halt_log."
+}
