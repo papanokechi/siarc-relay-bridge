@@ -1,0 +1,140 @@
+{
+  "claim": "M_certified is derived only from M1-certified Arb balls and exact integers. No Python float and no mpmath value participate in the certified arithmetic chain.",
+  "anti_laundering_assertions": [
+    "No Python float appears in the M_certified computation.",
+    "No mpmath value (mpf, mpc, mpi) appears in the M_certified computation.",
+    "mpmath.pslq is invoked ONLY as a discovery oracle to obtain (a) the exact integer iteration counter K and (b) the candidate relation (= None for the 15-vector). Its verbose stdout 'Norm:' value is RECORDED FOR COMPARISON only and is NEVER consumed by the certified derivation.",
+    "All real-valued arithmetic uses flint.arb (rigorous interval arithmetic) at precision ARB_PREC_BITS = 1024 bits.",
+    "All integer arithmetic uses Python int / flint.fmpz (exact).",
+    "Rounding is through the interval: M_certified is the floor of the LOWER endpoint of the final enclosing Arb ball, a rigorous underestimate of the true Ferguson-Bailey bound."
+  ],
+  "inputs": [
+    {
+      "name": "x[0..14] basis Arb balls (top rung)",
+      "type": "M1-ball",
+      "source": "M1_outputs/balls_P28712.json",
+      "sha256": "4729ea6cc4c2d433cbcb44c6f210ba82e22d77f51753c86aedce9562449a1ccf",
+      "n": 15
+    },
+    {
+      "name": "x[0..14] basis Arb balls (middle rung)",
+      "type": "M1-ball",
+      "source": "M1_outputs/balls_P14356.json",
+      "sha256": "378407d760627fd1dab5f3493d8e29037c63d76a4f92a066736b43238af03f54",
+      "n": 15
+    },
+    {
+      "name": "K_top (PSLQ iteration counter at top rung)",
+      "type": "exact-int",
+      "value": 8783,
+      "source": "mpmath.pslq verbose stdout iteration counter (integer extraction; the Norm bound value on the same line is NOT extracted into the certified chain)"
+    },
+    {
+      "name": "K_mid (PSLQ iteration counter at middle rung)",
+      "type": "exact-int",
+      "value": 8783,
+      "source": "mpmath.pslq verbose stdout iteration counter (integer extraction only)"
+    },
+    {
+      "name": "n (basis dimension)",
+      "type": "exact-int",
+      "value": 15,
+      "source": "fixed by M2.3 basis specification"
+    },
+    {
+      "name": "dim_R (FBA Corollary 2 parameter for real K)",
+      "type": "exact-int",
+      "value": 1,
+      "source": "FBA-1999 Corollary 2 statement"
+    }
+  ],
+  "intermediate_quantities": {
+    "M_thm1_init_top": 1,
+    "M_thm1_init_top_arb_str": "[1.000003058379838526957307262625875010636 +/- 1.85e-40]",
+    "M_cor2_top": 91,
+    "M_cor2_top_arb_str": "[91.63174545822849129623937157881956063488 +/- 1.29e-39]",
+    "M_thm1_init_mid": 1,
+    "M_cor2_mid": 91
+  },
+  "outputs": {
+    "M_certified_top": 91,
+    "M_certified_mid": 91,
+    "binding_corollary": "FBA-1999 Cor 2 (K-based exponential)",
+    "cross_rung_consistent": true
+  },
+  "spurious_relation_diagnosis": {
+    "summary": "mpmath.pslq reported a candidate integer relation at iteration K=8783 on both rungs. This candidate was independently verified against the M1 certified Arb balls at ctx.prec=32768 bits and REJECTED as a spurious mpmath fixed-point artifact.",
+    "verification_arb_prec_bits": 32768,
+    "verification_arb_prec_dps_approx": 9863,
+    "M1_intrinsic_precision_bits": 28712,
+    "M1_intrinsic_precision_dps_approx": 8643,
+    "candidate_sum_arb_midpoint": "1.745126207939765968147247223047454843372e-285",
+    "candidate_sum_arb_radius": "1.80e-325",
+    "candidate_sum_contains_zero_at_high_prec": false,
+    "propagated_uncertainty_from_M1_radii": "4.67e-8642",
+    "orders_of_magnitude_sum_above_noise_floor": 8357,
+    "verdict": "candidate REJECTED as spurious mpmath fixed-point artifact",
+    "cor2_argument_under_spurious_termination": "The Cor 2 contrapositive requires PSLQ not to have correctly terminated by iter K. At iter K=8782 (one before the spurious termination), mpmath had not yet claimed any termination. Since true PSLQ at infinite precision cannot terminate spuriously, true PSLQ had also not yet terminated at iter 8782. Hence Cor 2 contrapositive applies with K=8782, giving M_x > exp((8782-6750)/450) = exp(4.5156) ~= 91.27, floor = 91. M_certified = 91 holds rigorously."
+  },
+  "oracle_records_for_comparison_only": {
+    "top_rung": {
+      "K": 8783,
+      "relation": [
+        15179948790500973246422,
+        -6603394654578507390303,
+        6565294395350690323962,
+        -10957173281012461161178,
+        -5983495785540015769527,
+        16807627033953227217868,
+        -5585247812062988178128,
+        -7703456228348489266797,
+        20450190096676615809901,
+        15433720835932586713928,
+        -21000395339540999557086,
+        -38861446070259165830566,
+        10419220659249660832096,
+        -2099160064932962436366,
+        3447828390839822348588
+      ],
+      "mpmath_norm_NOT_USED_IN_CERTIFIED_CHAIN": 32849797439094921178,
+      "termination_reason": "relation_found_BUT_REJECTED_at_high_arb_prec_as_spurious",
+      "elapsed_s": 346.73770650001825
+    },
+    "mid_rung": {
+      "K": 8783,
+      "relation": [
+        15179948790500973246422,
+        -6603394654578507390303,
+        6565294395350690323962,
+        -10957173281012461161178,
+        -5983495785540015769527,
+        16807627033953227217868,
+        -5585247812062988178128,
+        -7703456228348489266797,
+        20450190096676615809901,
+        15433720835932586713928,
+        -21000395339540999557086,
+        -38861446070259165830566,
+        10419220659249660832096,
+        -2099160064932962436366,
+        3447828390839822348588
+      ],
+      "mpmath_norm_NOT_USED_IN_CERTIFIED_CHAIN": 32849797439094921178,
+      "termination_reason": "relation_found_BUT_REJECTED_at_high_arb_prec_as_spurious",
+      "elapsed_s": 342.8323554999952
+    }
+  },
+  "arithmetic_chain": [
+    "1. Load x_arbs from M1_outputs/balls_P28712.json via flint.arb(arb_repr_str). [M1-ball -> arb]",
+    "2. Run mpmath.pslq(midpoint(x_arbs), dps=2160, maxcoeff=10^70, maxsteps=10^5) -> (relation, verbose stdout). [oracle, untrusted]",
+    "3. Parse K = last 'REP/maxsteps' iter counter from verbose stdout. [exact-int extraction]",
+    "4. In Arb (prec=1024 bits): compute s[k] = sqrt(sum_{j>=k} x[j]^2),  k=1..n. [arb]",
+    "5. In Arb: compute H_init[j,j] = s[j+1] / s[j],  j=1..n-1. [arb]",
+    "6. In Arb: max_diag = max_j |H_init[j,j]| via the (a+b+|a-b|)/2 reduction. [arb]",
+    "7. In Arb: b_thm1 = 1 / max_diag. [arb]",
+    "8. In Arb: b_cor2 = (arb(K - 2*n^3) / arb(2*n^2)).exp(). [arb on exact-int inputs]",
+    "9. M_thm1 = int(floor(lower_endpoint(b_thm1))). [arb -> exact-int]",
+    "10. M_cor2 = int(floor(lower_endpoint(b_cor2))). [arb -> exact-int]",
+    "11. M_certified = max(M_thm1, M_cor2, 0). [int -> int]"
+  ]
+}

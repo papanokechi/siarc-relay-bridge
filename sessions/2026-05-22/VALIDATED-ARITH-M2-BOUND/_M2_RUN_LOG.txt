@@ -1,0 +1,58 @@
+== Arb working precision: 1024 bits (~308 dps)
+
+== Step 2.1: load M1 certified balls at top rung P=28712 ==
+  balls_P28712.json sha256 = 4729ea6cc4c2d433cbcb44c6f210ba82e22d77f51753c86aedce9562449a1ccf
+  reloaded 15 basis balls as Arb
+  ball[1] (K_0) sample: [2.68545200106530644530971483548 +/- 1.80e-30]...
+
+== Step 2.2: mpmath PSLQ discovery (top rung) [oracle, untrusted] ==
+  config: dps=2160, maxcoeff=10^70, maxsteps=100000
+  estimated runtime: ~4-5 minutes
+  K (iteration count) = 8783  [exact integer]
+  relation = [15179948790500973246422, -6603394654578507390303, 6565294395350690323962, -10957173281012461161178, -5983495785540015769527, 16807627033953227217868, -5585247812062988178128, -7703456228348489266797, 20450190096676615809901, 15433720835932586713928, -21000395339540999557086, -38861446070259165830566, 10419220659249660832096, -2099160064932962436366, 3447828390839822348588] (candidate)
+  mpmath_norm_for_comparison_only ~ 10^19 (UNCERTIFIED, NOT in chain)
+  elapsed = 346.7 s
+
+== Step 2.3: certified M_x in Arb arithmetic ==
+  M_certified = 91
+    digit count = 2
+    binding: FBA-1999 Cor 2 (K-based exponential)
+    M_thm1_init = 1  (initial H bound; arb: [1.000003058379838526957307262625875010636 +/- 1.85e-40])
+    M_cor2      = 91  (K-based bound; arb: [91.63174545822849129623937157881956063488 +/- 1.29e-39])
+
+  Empirical heuristic (UNCERTIFIED, from M3.2 cascade): ~10^72.02
+  Certified bound (this work):  ~10^1.96
+  Ratio M_certified / empirical = 8.783e-71
+
+  HALT-AND-FLAG: clear. M_certified < empirical 1.036e72 as expected.
+
+== Step 2.5a: cross-rung consistency at middle rung P=14356 ==
+  balls_P14356.json sha256 = 378407d760627fd1dab5f3493d8e29037c63d76a4f92a066736b43238af03f54
+  reloaded 15 basis balls as Arb
+  re-running mpmath PSLQ at same config (~4-5 minutes)...
+  K_mid = 8783  vs K_top = 8783  (consistent)
+  M_certified_mid = 91  vs M_certified_top = 91  (consistent)
+
+== Step 2.5b: emit bound_provenance.json ==
+  -> wrote C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\siarc\unsolved-relay-staging\harness_certified\bound_provenance.json
+
+== Step 2.5c: false-negative guard (planted relation) ==
+  test basis: [pi, pi+1, 1]
+  planted relation: [1, -1, 1] (|m|_2 ~= 1.7321)
+  oracle found: [1, -1, 1]
+  computed M_certified on planted basis: 1
+  guard PASS = True
+  reason: oracle correctly detected planted relation; M_certified bound also consistent (< sqrt(3))
+
+== Step 2.4: emit theorem.json ==
+  -> wrote C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\siarc\unsolved-relay-staging\harness_certified\theorem.json
+
+== Finalisation: emit M2_REPORT.md ==
+  -> wrote C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\siarc\unsolved-relay-staging\harness_certified\M2_REPORT.md
+
+== Summary ==
+  M_certified = 91
+  ratio vs empirical 1.036e72 = 8.783e-71
+  cross-rung consistent = True
+  false-negative guard pass = True
+  halt-and-flag = False
