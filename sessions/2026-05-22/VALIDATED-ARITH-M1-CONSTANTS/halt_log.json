@@ -1,0 +1,43 @@
+{
+  "session": "VALIDATED-ARITH-M1-CONSTANTS",
+  "date_utc": "2026-05-22",
+  "agent": "GitHub Copilot (VS Code, Claude Opus 4.7)",
+  "halt_status": "MILESTONE_BOUNDARY",
+  "explanation": "Milestone 1 (certified 15-vector basis) complete; halting per work-order instruction 'HALT-AND-FLAG at each numbered MILESTONE; do not proceed past a milestone without operator sign-off'.",
+  "pre_coding_anomalies": [
+    {
+      "id": "WO-BBC-SKETCH-DELTA",
+      "severity": "load_bearing",
+      "discovered_at": "pre-implementation, during literature pre-flight",
+      "description": "Work-order presented a sketch of the BBC formula that did NOT match the paper's verbatim eq.(1). Two corrections were required before any code was written:",
+      "corrections": [
+        {
+          "issue": "spurious outer factor (-1)^{k+1}",
+          "work_order_form": "sum (-1)^{k+1} * (1 - sum_{j=1..k} 1/j) / (2k(2k-1)) or similar variant",
+          "paper_actual": "log(K_0)*log(2) = sum_{s>=1} (zeta(2s)-1)/s * A_s with NO outer alternating sign (the alternation is internal to A_s via (-1)^{m-1})",
+          "citation": "BBC 1997 eq.(1), p.2; A_s in Lemma 1(a), p.3"
+        },
+        {
+          "issue": "missing 1/log(2) divisor in log(K_0) extraction",
+          "work_order_form": "log(K_0) = sum ...",
+          "paper_actual": "log(K_0)*log(2) = sum ...; one must divide by log(2) to recover log(K_0)",
+          "implication": "implementation must compute the series result then divide by an Arb ball for log(2)"
+        }
+      ],
+      "resolution": "Both corrections incorporated into bbc_series.py from the start. Discrepancy is documented in BBC_FORMULA_VERIFIED.md (verification artefact) and surfaced here for synth review."
+    }
+  ],
+  "in_session_halts": [
+    {
+      "id": "GUARD-BITS-SHORTFALL",
+      "severity": "implementation",
+      "description": "First smoke test at P_bits=7178 produced K_0 radius ~10^{-2157}, falling ~3 dps short of the 2160-dps target. Diagnosed as Arb internal-precision rounding accumulation across ~3700 BBC series terms.",
+      "resolution": "Introduced GUARD_BITS=128 internal-precision uplift. Re-ran: K_0 radius now <= 10^{-2184} at P_bits=7178; well above target across all three ladder rungs.",
+      "epistemic_status": "Resolved cleanly; documented in manifest.json (precision_configuration.rationale_guard_bits)."
+    }
+  ],
+  "no_contradictions_with_prior_AEAL": true,
+  "no_unexpected_positive_findings": true,
+  "halt_for_signoff_required_before_M2": true,
+  "M2_summary_for_review": "Milestone 2 = 'M_certified construction': substitute the 15 certified Arb balls into the recurrence/relation matrix(es) carried over from harness/precision_budget.md and propagate intervals through the existing pipeline. NOT executed in this session per work-order's halt-and-flag instruction."
+}
