@@ -1,0 +1,47 @@
+{
+  "M_certified": null,
+  "status": "PENDING_M2_REFIRE",
+  "note": "Top-level M_certified is intentionally null pending the M2-REFIRE K-stability gate (see work order 2026-05-22 'WORK ORDER -- MILESTONE 2 RE-FIRE: PRECISION-HARDENED CERTIFIED BOUND'). Until the gate at dps in {8640, 28712} passes, no certified bound is in force. The prior bound 91 (from run of 2026-05-22 dps=2160) is VOID, archived below under 'void_record' for reference and methodological provenance.",
+  "void_record": {
+    "status": "VOID",
+    "reason": "precision-starved spurious termination",
+    "superseded_by": "M2-REFIRE",
+    "voided_on": "2026-05-22",
+    "void_authority": "work order 'WORK ORDER -- MILESTONE 2 RE-FIRE: PRECISION-HARDENED CERTIFIED BOUND'",
+    "prior_M_certified": 91,
+    "prior_M_certified_log10_approx": 1.9590413923210936,
+    "prior_M_certified_digit_count": 2,
+    "binding_corollary": "FBA-1999 Cor 2 (K-based exponential)",
+    "norm_convention": "Euclidean: |m|_2 = sqrt(sum_i m_i^2). FBA-1999 Theorem 1 and Corollary 2 state lower bounds on the Euclidean norm of any nonzero integer relation. Chebyshev (max|m_i|) bound is derivable as M_certified / sqrt(n) with n=15.",
+    "C1_algebraicity_exclusion_PRIOR_VOID": "K_0 satisfies no integer polynomial of degree D in {1, 2, 3, 4, 5, 6} whose coefficient vector (a_0, a_1, ..., a_D) has Euclidean norm <= 91. This follows from the no-relation claim on the pure-power sub-block {1, K_0, K_0^2, K_0^3, K_0^4, K_0^5, K_0^6} of the 15-vector basis B_D(C).",
+    "C2_relation_exclusion_PRIOR_VOID": "The 15-vector basis B_D(C) = {1, K_0, K_0^2, K_0^3, K_0^4, K_0^5, K_0^6, log K_0, K_0*pi, K_0*e, K_0*ln2, K_0*gamma, K_0*zeta(2), K_0*zeta(3), K_0*G} admits no nonzero integer relation of Euclidean norm <= 91.",
+    "scope_and_conditional_statement": "BOUNDED CASE: this milestone certifies the no-relation property only for relations of Euclidean norm <= 91. The UNBOUNDED case (no coefficient bound on the relation) remains open. Conditional on the BBC 1997 series identity for the value and certified Arb-ball enclosure of K_0 at the M1 top rung (P_bits=28712, see GATE-BBC-ANCHOR for independent anchor verification, claude-chat commit 6a1f6ec).",
+    "derivation_summary": {
+      "M1_balls_file_sha256": "4729ea6cc4c2d433cbcb44c6f210ba82e22d77f51753c86aedce9562449a1ccf",
+      "M1_balls_file_path": "M1_outputs/balls_P28712.json",
+      "K_pslq_iteration_count_used_in_cor2_contrapositive": 8782,
+      "K_pslq_iteration_count_raw_termination": 8783,
+      "K_pslq_termination_was_spurious": true,
+      "n_basis_dimension": 15,
+      "dim_R": 1,
+      "maxcoeff_in_oracle_run": "10**70",
+      "maxsteps_in_oracle_run": 100000,
+      "oracle_dps": 2160,
+      "arb_prec_bits_for_certification": 1024,
+      "arb_prec_bits_for_candidate_verification": 32768
+    },
+    "spurious_termination_note": "mpmath.pslq terminated at iter K=8783 with a candidate integer relation of |m|_2 ~ 8e22. Independent verification at ctx.prec=32768 bits against the M1 certified Arb balls REJECTED the candidate (sum_i m_i * x_i = 1.745e-285 with radius 1.80e-325; propagated uncertainty floor 4.67e-8642; |sum| is 8357 orders above noise floor).",
+    "rigorous_recipe": "M_certified := max( floor(lower_endpoint( 1 / max_j |H_init(x)[j,j]| )), floor(lower_endpoint( exp((K - 2*n^3) / (2*n^2)) )) ) -- VOID because K was precision-starved at dps=2160.",
+    "cross_rung_consistency_pass_PRIOR_VOID": true,
+    "false_negative_guard_pass_PRIOR_VOID": true,
+    "candidate_verification_at_high_prec_pass_PRIOR_VOID": true,
+    "void_methodological_finding": "The dps=2160 mpmath.pslq oracle is precision-starved for the 15-vector basis B_D(C) at the M1 ball: it terminates spuriously at K=8783 with a candidate that rejects at high Arb precision by 8357 orders. The Cor-2 contrapositive at K-1=8782 still yields a number (91) but that number is a property of the noisy oracle, not the underlying mathematics: an oracle starved at a *different* dps would terminate spuriously at a *different* K and yield a *different* 'bound'. This is precisely the failure mode the M2-REFIRE K-stability gate is built to detect. The void record is preserved as a publishable methodological example of why mpmath-stdout-derived 'bounds' are not rigorous."
+  },
+  "void_record_provenance": {
+    "void_record_M_REPORT_md_sha256_prior": "53052851cf4f1f0c12e08031a95d5447890d062cbcdf328f2fd17d321cdcafe7",
+    "void_record_bound_provenance_json_sha256_prior": "a9b9c799e043c0c9a2d85bb5019cfaf18790fe5dccc931f5591fe14a7c3939e0",
+    "void_record_halt_log_M2_json_sha256_prior": "57901142c36caf230519dc3f79c7ec1481a46a91bd755ed79f44664057492ae4",
+    "void_record_theorem_json_sha256_prior": "d6533f929e9add5c12e704fd5f0b65aa5b57179e9916e1c6cf7efe4f75ea51cd",
+    "void_record_bridge_commit": "67cc77d"
+  }
+}

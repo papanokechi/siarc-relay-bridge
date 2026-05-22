@@ -1,0 +1,70 @@
+{
+  "halt_event": "M2_REFIRE_PARTIAL_HALT_28712_RUN_UNFINISHED",
+  "session_id": "VALIDATED-ARITH-M2-REFIRE",
+  "occurred_at": "2026-05-22T15:48 (in-session)",
+  "halt_type": "PARTIAL_HALT_AS_PER_WORK_ORDER",
+  "work_order": "WORK ORDER -- MILESTONE 2 RE-FIRE: PRECISION-HARDENED CERTIFIED BOUND (2026-05-22 12:57)",
+  "summary": "M2-REFIRE K-stability gate verdict is INCOMPLETE. Per work-order escape clause: 'If the dps=28712 run cannot complete in the available budget, that is a PARTIAL-HALT: deposit the dps=8640 result + the checkpointed 28712 progress, report K-stability gate INCOMPLETE -- 28712 run unfinished, and do NOT emit a final M_certified.' The dps=28712 run is acknowledged to require many hours of wall time; in this session it reached only iter=308 / ~29363 expected. The dps=8640 run was externally interrupted at iter=3230 (KeyboardInterrupt-equivalent terminal session reset, not a natural terminal state) and therefore ALSO did not satisfy the gate. No certified bound is in force.",
+  "gate_verdict_orchestrator_authoritative": {
+    "file": "k_stability_report.json",
+    "verdict": "INCOMPLETE",
+    "reason": "missing checkpoints for dps=[28712]",
+    "states_observed": {"8640": "INTERRUPTED_PARTIAL", "28712": "MISSING"}
+  },
+  "d8640_run": {
+    "tag": "d8640_P28712",
+    "process_command": "python _refire_discovery.py --dps 8640 --P-bits 28712 --tag d8640_P28712",
+    "process_pids": {"parent": 5508, "worker": 14280},
+    "started_at_utc": "2026-05-22T12:49:39Z",
+    "last_observed_at_utc": "2026-05-22T15:40:07Z",
+    "wallclock_elapsed_s_to_kill": 10227,
+    "K_last_logged": 3230,
+    "last_norm_for_comparison_only": 725682,
+    "last_error_str": "2.0e-119",
+    "terminal_state": "INTERRUPTED_PARTIAL",
+    "checkpoint_json": "_refire_checkpoint_d8640_P28712.json",
+    "checkpoint_log": "_refire_checkpoint_d8640_P28712.log",
+    "interrupt_cause_as_recorded": "KeyboardInterrupt external (terminal session reset)",
+    "note": "Worker PID 14280 was killed externally at ~15:40 UTC, while still mid-search. K=3230 is the last iter recorded in the line-buffered log and is FAR below the empirical expectation K~29363. This run does NOT yield a usable iteration counter; it is recorded as a PARTIAL salvage only."
+  },
+  "d28712_run": {
+    "tag": "d28712_P28712",
+    "process_command": "python _refire_discovery.py --dps 28712 --P-bits 28712 --tag d28712_P28712",
+    "process_pids": {"parent": 18648, "worker": 26608},
+    "started_at_utc": "2026-05-22T13:01:03Z",
+    "still_running_at_deposit_time": true,
+    "deposit_observation_at_utc": "2026-05-22T15:46:14Z",
+    "wallclock_elapsed_s_at_observation": 10069,
+    "K_last_logged_at_observation": 308,
+    "last_norm_for_comparison_only_at_observation": 0,
+    "iter_rate_observed_iter_per_s": 0.0306,
+    "estimated_iters_remaining_to_K_29363_empirical": 29055,
+    "estimated_wallclock_remaining_hours_if_rate_constant": 263.7,
+    "terminal_state_at_deposit": "IN_FLIGHT",
+    "checkpoint_log": "_refire_checkpoint_d28712_P28712.log",
+    "checkpoint_json_present": false,
+    "note": "This is the EXPENSIVE run the work order explicitly warned might exceed the session budget. The line-buffered log persists K continuously; if/when the process completes (or is killed) the discovery script writes a checkpoint JSON. The process has been orphaned (parent PID 9476 is gone but worker 18648/26608 are alive), so it should continue running unattended. The K_last_logged shown here is a SNAPSHOT for record-keeping ONLY and MUST NOT be used as a Cor-2 input (the run is mid-search, with norm=0 still, so K is not a meaningful upper-bound iteration count yet)."
+  },
+  "what_is_certified_in_force": {
+    "M_certified": null,
+    "status": "NO_CERTIFIED_BOUND_IN_FORCE",
+    "void_record": "theorem.json void_record preserves the prior dps=2160 spurious result (M_certified=91 VOID)",
+    "pending_record": "theorem.json top-level status=PENDING_M2_REFIRE; no replacement bound emitted in this session"
+  },
+  "evidence": {
+    "M1_balls_sha256_unchanged": {
+      "balls_P28712.json": "4729ea6cc4c2d433cbcb44c6f210ba82e22d77f51753c86aedce9562449a1ccf",
+      "balls_P14356.json": "378407d760627fd1dab5f3493d8e29037c63d76a4f92a066736b43238af03f54"
+    },
+    "false_negative_guard_pass": true,
+    "candidate_rejection_log": "empty (no candidate relations were produced by either run before this partial-halt)",
+    "orchestrator_dryrun_sanity": "PASS (FBA Cor 2 at K=29363 evaluates to 6.66e21 in Arb at 32768 bits; floor and Thm1 init bound behave correctly)"
+  },
+  "anti_laundering_assertion": "NO certified bound was emitted from a single dps. NO dps=2160 artifact was consumed. NO mpmath value entered any certified chain. The partial-halt is the honest outcome.",
+  "operator_next_actions_suggested": [
+    "Let the d28712 process run unattended; check periodically for the appearance of _refire_checkpoint_d28712_P28712.json indicating natural termination.",
+    "When d28712 completes, ALSO restart d8640 (it was prematurely killed; needs a full re-run to obtain a true terminal K_8640). Both runs are needed for the K-stability gate.",
+    "After both run JSONs exist, re-invoke `python certified_bound_refire.py` to evaluate the gate. The same orchestrator is reused; no code change needed.",
+    "Per work-order Step 3 sanity expectation: a passing gate with K~29363 should yield M_certified ~ 6.66e21 (a value between 91 and 1.036e72 as required)."
+  ]
+}

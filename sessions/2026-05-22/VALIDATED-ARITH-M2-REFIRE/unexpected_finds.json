@@ -1,0 +1,33 @@
+{
+  "session": "VALIDATED-ARITH-M2-REFIRE",
+  "date": "2026-05-22",
+  "unexpected_finds": [
+    {
+      "id": "M2-REFIRE-FIND-001-pslq-cost-scaling-at-high-dps",
+      "category": "runtime-feasibility (methodological)",
+      "sign": "NEGATIVE (cost worse than originally budgeted)",
+      "observation": "mpmath.pslq at dps=28712 against the M1-certified ball midpoints sustains an iteration rate of approximately 0.031 iter/s on the host machine (measured 308 iter / 10069 s wall-clock with worker still alive in the early-error-suppression phase, Norm column still 0). This is approximately 5x slower per iter than dps=8640 (0.15 iter/s observed steady-state), broadly consistent with a Karatsuba-regime cost ratio (95443/28720 internal bit prec) but at the very low end of expected throughput. Wall-clock projection to the empirically-anticipated K~29363 is approximately 263 hours (~11 days), which exceeds any interactive single-session budget and exceeds the work-order's implicit budget (the work order anticipated this risk verbatim: 'The dps=28712 PSLQ run is the EXPENSIVE step...Allocate a long budget').",
+      "why_unexpected": "The work order specifies dps in {8640, 28712} as the precision floor for the K-stability gate. The 28712 rung was anticipated to be expensive, but a ~11-day projection on commodity hardware was not pre-quantified. This means the gate AS SPECIFIED cannot be satisfied in any interactive session and requires either (a) a dedicated multi-day compute slot or (b) a methodological reframe.",
+      "impact": "Forces partial-halt for this session (work order explicit PARTIAL-HALT clause). No M_certified emitted. Operator must own the long-running compute or substitute a faster integer-relation algorithm (with new certified bound)."
+    },
+    {
+      "id": "M2-REFIRE-FIND-002-orphaned-d28712-worker-survives-session",
+      "category": "process-lifecycle (operational)",
+      "sign": "NEUTRAL (intentional)",
+      "observation": "The d28712_P28712 discovery worker (PID 26608, parent 18648) was launched fully detached so that the worker survives the terminal/agent-session lifecycle. At deposit time the parent PID 9476 is gone but worker PID 26608 is alive and continues appending to _refire_checkpoint_d28712_P28712.log. The log is line-buffered so K is recoverable at any kill-time via the salvage tool. The d8640 worker was NOT detached and was killed when the parent went away.",
+      "why_unexpected": "Not unexpected per se, but worth surfacing: the bridge deposit records the d28712 run as IN_FLIGHT (not as a final outcome). The next agent session that touches this harness should check whether _refire_checkpoint_d28712_P28712.json has appeared (natural termination), or whether the worker has been killed (run _refire_salvage_partial_checkpoint.py against the log).",
+      "impact": "Operator follow-up: poll for emergence of _refire_checkpoint_d28712_P28712.json or, if the worker dies, salvage from the log via _refire_salvage_partial_checkpoint.py --tag d28712_P28712 --interrupt-cause '<reason>'."
+    },
+    {
+      "id": "M2-REFIRE-FIND-003-d8640-external-kill-bypassed-checkpoint",
+      "category": "resilience (operational)",
+      "sign": "NEGATIVE (single-source bug; now patched)",
+      "observation": "The d8640 worker was killed externally (probable cause: terminal session reset or VSCode lifecycle event). The original _refire_discovery.py had `except Exception` around the pslq call, which does NOT catch BaseException subclasses like KeyboardInterrupt. As a result, no JSON checkpoint was written by the worker itself; only the line-buffered log persisted. A salvage tool (_refire_salvage_partial_checkpoint.py) was authored mid-session to recover the K from the log.",
+      "why_unexpected": "The work order explicitly anticipated mid-run kills (the 60-min prior was killed mid-run) and mandated a script that 'persists K and terminal-state to disk (checkpoint), so a kill does not lose the result'. The original implementation honored the spirit (log buffering) but not the letter for KeyboardInterrupt-class signals.",
+      "fix_applied": "_refire_discovery.py was patched in this session to catch both KeyboardInterrupt and BaseException, write a checkpoint JSON with terminal_state=INDETERMINATE + interrupted=true, and only then re-raise. Future relaunches will checkpoint cleanly on interrupt. The patch is recorded as part of this bridge deposit.",
+      "impact": "Future agent sessions or operator-owned reruns will not lose K to mid-run interrupts; the salvage tool remains available for the rare cases where the worker process itself is SIGKILL'd."
+    }
+  ],
+  "notes": "No unexpected positive results (no spurious relation candidate, no early termination signal in either run before respective interrupt/snapshot). All three finds above are operational/methodological rather than mathematical surprises. The mathematical machinery (Arb at 32768 bits, FBA Thm 1 + Cor 2) behaves exactly as expected on dryrun input."
+}
+
