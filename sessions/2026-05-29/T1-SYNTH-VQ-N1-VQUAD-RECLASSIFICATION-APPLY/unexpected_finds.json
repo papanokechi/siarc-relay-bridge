@@ -1,0 +1,16 @@
+{
+  "unexpected_finds": [
+    {
+      "id": "UF-VQN1-APPLY-1",
+      "find": "The 2026-05-02 'Okamoto constraint not satisfied' anomaly is a coordinate-category artifact, not a genuine constraint violation. (1/6,0,0,-1/2) are DLMF standard-form PV parameters (alpha,beta,gamma,delta); 'alpha+alpha+beta+beta=0' is an Okamoto symmetric-form (affine-root) constraint in different coordinates. The two cannot be compared directly.",
+      "implication": "The Okamoto corroboration leg was DROPPED-UNCONFIRMED per VERIFY-FIRST. Does NOT weaken VQ-N1 (legs 1-4 stand). It does mean the '2026-05-02 anomaly as independent second witness' framing should not be cited as corroboration in manuscripts.",
+      "severity": "informational"
+    },
+    {
+      "id": "UF-VQN1-APPLY-2",
+      "find": "siarc-relay-bridge working tree had pre-existing uncommitted modifications under sessions/2026-04-29/T2B-RESONANCE-B67/ unrelated to VQ-N1, present before this run.",
+      "implication": "VQ-N1-APPLY did not touch those files. Any commit staged only VQ-N1 paths explicitly to avoid entangling unrelated changes.",
+      "severity": "informational"
+    }
+  ]
+}
