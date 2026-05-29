@@ -1,0 +1,134 @@
+{
+  "artifact_type": "SIARC_VERDICT",
+  "verdict_id": "VQ-N1",
+  "title": "V_quad base-object surface reclassification: PIII(D6) -> doubly-degenerate PV / Sakai D5^(1)",
+  "status": "CLOSED",
+  "band": "MEDIUM",
+  "created_in": "Tier-1 synthesizer session (4-leg CLI relay, Opus 4.8)",
+  "date": "2026-05-29",
+  "persisted_in": "siarc-relay-bridge sessions/2026-05-29/T1-SYNTH-VQ-N1-VQUAD-RECLASSIFICATION-APPLY",
+  "persisted_by": "VQ-N1-APPLY (Opus 4.8) 2026-05-29",
+
+  "supersedes": [
+    {
+      "ref": "VQUAD-PIII-NORMALIZATION-MAP",
+      "ref_date": "2026-05-02",
+      "ref_path": "sessions/2026-05-02/VQUAD-PIII-NORMALIZATION-MAP",
+      "what_it_claimed": "V_quad base object framed as PIII, parameter point (1/6,0,0,-1/2); deliverable pIII_canonical.tex",
+      "why_superseded": "PIII label is incorrect; the (1/6,0,0,-1/2) point is canonical PV, not PIII. The session's own parked 'Okamoto constraint not satisfied' anomaly is the symptom of the mislabel and is resolved here (see okamoto_anomaly_resolution).",
+      "disposition": "WITHDRAWN-AND-REPLACED",
+      "supersede_marker": "sessions/2026-05-02/VQUAD-PIII-NORMALIZATION-MAP/SUPERSEDED_BY_VQ-N1.json"
+    },
+    {
+      "ref": "FRONTIER-A scope slot-189",
+      "ref_date": "2026-05-11",
+      "ref_path": "sessions/2026-05-11/T1-SYNTH-FRONTIER-A-RESCOPE-CONSULTATION-189",
+      "what_it_claimed": "Frontier-A scoped as 'PIII(D6) hierarchy', surface Sakai-D6^(1)",
+      "why_superseded": "Base member is PV/D5^(1), not PIII(D6). Frontier-A surface, symmetry, and novelty framing must re-base to D5^(1)/W(A3^(1)) before any hierarchy work. See downstream_dispositions.frontier_a.",
+      "disposition": "SCOPE-INVALIDATED-PENDING-REBASE",
+      "supersede_marker": "sessions/2026-05-11/T1-SYNTH-FRONTIER-A-RESCOPE-CONSULTATION-189/SCOPE_INVALIDATED_BY_VQ-N1.json"
+    }
+  ],
+
+  "corrected_classification": {
+    "object": "V_quad ~= 1.197373990688... = M11, the Stokes connection coefficient at the irregular point",
+    "equation": "canonical fifth Painleve (PV), doubly-degenerate",
+    "params_abgd": [0.16666666666666666, 0, 0, -0.5],
+    "params_canonical_note": "delta=-1/2 is the canonical PV normalization (DLMF 32.2(ii)); beta=gamma=0, delta!=0. This is NOT a PIII parameter set (PIII normalizes delta=-1).",
+    "sakai_surface": "D5^(1)",
+    "symmetry": "W(A3^(1)) ~= affine S_4",
+    "orbit_class": "generic / non-classical",
+    "orbit_basis": "alcove-interior: theta_inf = sigma+ - sigma- = 2/sqrt3 (irrational), theta_0 = 0, alpha = theta_inf^2/8 = 1/6; point lies on no reflection hyperplane of the W(A3^(1)) action",
+    "geometry": {
+      "finite_singularities": "two apparent (Fuchsian) points at z = (-1 +/- i*sqrt(11))/6, indices [0,0]",
+      "z0": "ordinary point, integer exponents {0,1}, no z^(1/2) ramification",
+      "infinity": "rank-1 UNRAMIFIED irregular point, sigma+- = +/- 1/sqrt3"
+    },
+    "reduces_to_PIII": false,
+    "piii_exclusion": "delta=-1/2 != 0 lies off the PV->PIII coalescence locus (DLMF 32.2.33 sends delta_PV = (1/8)eps^2 d -> 0); PIII(D7) further excluded because z=0 is ordinary with no z^(1/2) ramification"
+  },
+
+  "withdrawn_claim": {
+    "text": "V_quad's M11 satisfies a degenerate PV equivalent to PIII(D6) at (alpha,beta,gamma,delta)=(1/6,0,0,-1/2)",
+    "origin": "iter-18 (t2_iter18_painleve.json); propagated to NON-110708 thm:painleve, Notices ai_discovery_notices.tex, Frontier-A slot-185/187/188/189/191, claims.jsonl L179",
+    "defect_class": "label inherited from derivation INTENT (a PV->PIII coalescence was envisaged) but the post-limit PIII parameters were never re-derived; the displayed quadruple is the PRE-LIMIT degenerate-PV parameter set wearing a PIII label",
+    "math_status": "the underlying mathematics (V_quad = M11, isomonodromy, Stokes/Borel data, PSLQ-null) is INTACT; only the surface LABEL was wrong"
+  },
+
+  "evidence_chain": {
+    "leg1_surface_anchor": {
+      "finding": "literal params (gamma=0, alpha*delta!=0) give PIII(D7) not D6 by DLMF 32.2(ii); flagged delta=-1/2 as PV normalization; HALTed on surface contradiction rather than pinning",
+      "basis": "ARGUED + primary-source (DLMF 32.2(ii))",
+      "citations_verified": ["Sakai 2001 CMP 220:165-229", "KNY 2017 JPhysA 50:073001", "Jimbo 1982 PublRIMS 18:1137-1161", "Okamoto 1987 Funkcial.Ekvac.30 (pages PENDING)"]
+    },
+    "leg2_coalescence": {
+      "finding": "performed DLMF 32.2.32-33 PV->PIII coalescence explicitly; (1/6,0,0,-1/2) has NO finite PIII image (limit forces delta_PV->0, but delta=-1/2!=0); coalescence NOT forced => object is genuine PV. Surface coordinates reproduce banked alpha = theta_inf^2/8 = 1/6 exactly, fixing the previously-floating normalization factor (norm=1/2).",
+      "basis": "ARGUED + primary-source (DLMF 32.2.33); OKSO 2006 verified",
+      "residual_at_leg2": "PV(D5^(1)) vs PIII(D7) not separable from params alone; tie-breaker = z=0 local Lax structure"
+    },
+    "leg3_tiebreaker": {
+      "finding": "C3 resolved from workspace files: z=0 ordinary (connection report, indices 0,1); two finite points apparent Fuchsian (frobenius_apparent_verification, indices [0,0], p0=1 q0=0); rank-1 UNRAMIFIED at infinity (t2_iter17_stokes, beta=gamma=0 integer); finite Fuchsian monodromy (jimbo_monodromy); PIII NO_MATCH (jimbo_piii_connection). No z^(1/2) ramification anywhere => D7 excluded, D5^(1) confirmed.",
+      "basis": "VERIFIED-FROM-FILE",
+      "files": ["vquad_connection_matrix_report_hybrid_scaled_084213.md", "t2_iter17_stokes.json", "frobenius_apparent_verification.json", "jimbo_monodromy.json", "jimbo_piii_connection.json"]
+    },
+    "leg4_closeout": {
+      "finding": "S = 0.43770528073458051568 and sigma_conn = 0.060876890825462076805 verified to stored precision, consistent with rank-1 UNRAMIFIED reading (no D7 invoked). xi0 = 1.1547211828... is self-consistent as Borel radius but a 2.06e-5 NEAR-MISS to exact 2/sqrt3 (file flags xi_0_algebraic=false) -- reinforces non-classicality, NOT an identity.",
+      "basis": "VERIFIED-FROM-FILE",
+      "files": ["t2_iter22_s_precision.json", "t2_iter24_sigma_conn.json", "t2_iter19_resurgence.json", "vquad_negative_certificate.json"]
+    }
+  },
+
+  "okamoto_anomaly_resolution": {
+    "status": "VERIFY-FIRST -- NOT load-bearing; verdict holds without it",
+    "the_anomaly": "VQUAD-PIII-NORMALIZATION-MAP (2026-05-02) recorded that (1/6,0,0,-1/2) fails the Okamoto parameter constraint for PIII(D6) and parked it as an unresolved 'convention residual'.",
+    "claimed_resolution": "The constraint fails BECAUSE the point is not PIII(D6). Once relabeled to doubly-degenerate PV on D5^(1), the anomaly dissolves -- there is no PIII constraint to satisfy. The 2026-05-02 anomaly is thus an INDEPENDENT second witness (via the Okamoto constraint) to the same defect VQ-N1 diagnosed via the delta-normalization / coalescence-locus route.",
+    "verification_required_before_relying": "Confirm the exact form of the Okamoto/Sakai parameter constraint for the D6^(1) surface (the relation asserted as alpha+alpha+beta+beta=0 must be checked against Okamoto 1987 / Sakai 2001) AND confirm (1/6,0,0,-1/2) genuinely violates it. If confirmed: include as corroboration. If the constraint form differs: DROP this corroboration; the PV/D5^(1) verdict still stands on legs 1-4 via the delta-normalization route.",
+    "if_dropped": "verdict unaffected",
+    "verification_outcome": {
+      "decision": "DROPPED-UNCONFIRMED",
+      "verified_by": "VQ-N1-APPLY (Opus 4.8) 2026-05-29, against DLMF 32.2 (live fetch dlmf.nist.gov/32.2)",
+      "reason": "(1/6,0,0,-1/2) are DLMF standard-form PV parameters (alpha,beta,gamma,delta); DLMF 32.2(ii) confirms delta=-1/2 is the canonical PV normalization and delta=-1 the PIII normalization. The asserted 'alpha+alpha+beta+beta=0' is an Okamoto SYMMETRIC-FORM (affine-root) constraint in DIFFERENT coordinates (DLMF 32.2(v) / Okamoto a_i parameters), not the standard-form quadruple. Applying a symmetric-form sum-constraint to standard-form coordinates is a coordinate-category mismatch, so the 'violation' is not well-posed as stated. The exact D6^(1) symmetric-form constraint form could not be confirmed from available sources (Okamoto 1987 page ref still PENDING per leg1). Per VERIFY-FIRST fallback, the corroboration is DROPPED, not asserted unverified.",
+      "verdict_impact": "NONE. PV/D5^(1) classification stands on leg1 (DLMF 32.2(ii) delta-normalization), leg2 (DLMF 32.2.32-33 coalescence-locus exclusion), leg3 (VERIFIED-FROM-FILE surface geometry, no z^(1/2) ramification => D7 excluded, D5^(1) confirmed), leg4 (VERIFIED-FROM-FILE closeout)."
+    }
+  },
+
+  "transcendence_class": {
+    "verdict": "HEURISTIC",
+    "statement": "S is excluded from the Gamma-Barnes closed-form class to 300+ dps by direct PSLQ; combined with alcove-interior non-classicality, S is strongly expected transcendental over that class. Stated as conjecture, not theorem.",
+    "what_full_proof_needs": "a transcendence/irrationality theorem for connection coefficients of generic (non-classical) PV transcendents at CM points -- currently nonexistent",
+    "do_not_overclaim": "manuscripts must state this as conjecture; STRUCTURAL framing would be caught by a referee"
+  },
+
+  "downstream_dispositions": {
+    "tier1_substantive": [
+      "t2_iter18_painleve.json (both copies) -- correct value + add correction_provenance",
+      "t2_iter23_jimbo.json (both copies) -- reinterpret PIII NO_MATCH as supporting evidence",
+      "NON-110708 / vquad_resurgence.tex -- title + thm:painleve + Why-not-PIII remark + transcendence->conjecture + xi0 approx-not-equal",
+      "ai_discovery_notices.tex -- label fix (Route A) OR fold VQ-N1 in as self-correction Episode 4 (Route B, operator decision pending)",
+      "Zenodo V_quad-resurgence deposit(s) -- requires-manual-grep against deposit list; version w/ changelog, old DOI preserved"
+    ],
+    "tier2_framing": {
+      "frontier_a": "RE-BASE to PV(D5^(1)) hierarchy; re-run FIRE-A1 lit/gap audit against D5^(1)/W(A3^(1)); danger object = Noumi-Yamada A3^(1) systems (may render hierarchy ALREADY-KNOWN). Slot-189 scope superseded by this verdict.",
+      "gate": "FIRE-A1 re-fire is GATED on this verdict being persisted + slot-189 superseded"
+    },
+    "tier3_ledger": [
+      "claims.jsonl L179 -- APPEND correction entry (do NOT overwrite); cite VQ-N1",
+      "pcf-research/vquad/README.md, MANUSCRIPTS_INDEX.md, submission_log.txt, ALIGNMENT_REPORT.txt -- correct on next natural revision",
+      "folder painlev-iiid6-... -- rename LAST (path-reference cascade risk)"
+    ]
+  },
+
+  "gate_clearance": {
+    "clears": "HALT_A1_BASE_UNCORRECTED",
+    "condition_now_true": "VQ-N1 relabel persisted; VQUAD-PIII-NORMALIZATION-MAP and slot-189 superseded",
+    "note": "persisting this artifact + applying tier1 corrections is the operator-approved action that flips the FIRE-A1 dependency gate to PASS"
+  },
+
+  "aeal": {
+    "claim_disposition": "RETRACT-AND-REPLACE",
+    "retracted": "V_quad = PIII(D6) transcendent",
+    "replacement": "V_quad = M11 of a generic non-classical doubly-degenerate PV transcendent on Sakai D5^(1), symmetry W(A3^(1))",
+    "evidence_class": "VERIFIED-FROM-FILE (surface) + ARGUED (coalescence exclusion, primary-source) + HEURISTIC (transcendence)",
+    "preserves_history": "prior PIII(D6) claim retained in ledger with retraction pointer; not deleted"
+  }
+}
