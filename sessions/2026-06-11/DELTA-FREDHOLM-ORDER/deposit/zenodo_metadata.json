@@ -1,0 +1,62 @@
+{
+  "_operator_action_required": [
+    "DOI STATUS (verified via Zenodo API 2026-06-10): all 4 related-identifier DOIs are filled with VERIFIED concept DOIs -- pcf-delta (isContinuationOf) 10.5281/zenodo.20578400, growth-law 10.5281/zenodo.20564681, EBR-I 10.5281/zenodo.20564079, ladder 10.5281/zenodo.19491767. No placeholder remains. CONVENTION applied: isContinuationOf -> CONCEPT DOI; references -> CONCEPT DOI for a general/methodological reference (all three here). See each entry's _note for the verified concept/version split and any version-DOI alternatives. OPTIONAL operator choice: pin pcf-delta to the specific v1.3 version DOI 10.5281/zenodo.20593930, or EBR-I to its version DOI 10.5281/zenodo.20564080, if you prefer version-pinning over latest-tracking.",
+    "Set publication_date to the actual deposit date.",
+    "Review keywords and description for house style."
+  ],
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "title": "A Fredholm-determinant representation of the pcf-delta growth constant: finite identity, entire order and genus",
+  "creators": [
+    {
+      "name": "Papanokechi",
+      "affiliation": "Independent Researcher",
+      "orcid": "0009-0000-6192-8273"
+    }
+  ],
+  "description": "Let b(k)=A k^2 + B k + C be a positive quadratic and u_n = 1/(b(n-1) b(n)) for n>=2. The pcf-delta growth constant of the running family (A,B,C)=(1,0,1) is delta = log R_inf(1), where R_inf(lambda) is the weighted independence (sparse-subset) polynomial of the half-infinite path carrying vertex weight lambda u_i. This note gives a self-contained account of the Fredholm-determinant representation delta = (1/2) log det(I + T^2), where T is the edge-weighted path operator with off-diagonal sqrt(u_{j+1}). Two contributions are machine-checked in Lean 4 / Mathlib with a clean axiom cone (subset of {propext, Classical.choice, Quot.sound}, no sorryAx): the finite tridiagonal determinant identity det A_M = c_M (Theorem 1) and its combinatorial reading c_M = R_M (Theorem 2). The Fredholm representation itself is confirmed numerically to 65 significant digits by two independent channels and is stated as a conjecture, with the operator limit carried as an analytic hypothesis. We determine the entire order and genus of R_inf: it is entire of order rho = 1/(2d) (with d=2, so rho = 1/4) and genus 0, with Hadamard product R_inf(lambda)^2 = prod_k (1 + lambda s_k^2) and no exponential factor (Proposition 7). The order is bracketed by elementary by-hand bounds and confirmed by two independent numerical routes (coefficient decay and eigenvalue convergence exponent). We also give a clean telescoping bound S = sum_{n>=2} u_n <= 1/((3A+B)(A+B+C)) governing trace-class convergence; on the integer family A,C>=1, B>=0 this gives S <= 1/6 < 1 unconditionally (the running family (1,0,1) is the extremal lattice point), while for general real coefficients S < 1 is conditional and can fail when the leading coefficient is small. All numerics are high-precision (mpmath, dps >= 80) with SHA-256 output hashes; the Lean project ships with a pinned toolchain (lean4 v4.30.0, Mathlib v4.30.0) and a verbatim #print axioms audit. Four-class status discipline (PROVEN / STRUCTURAL / VERIFIED / CONJECTURED) is applied throughout: PROVEN is reserved for the two Lean-formalized theorems only.",
+  "keywords": [
+    "Fredholm determinant",
+    "entire function order",
+    "Hadamard genus",
+    "canonical product",
+    "polynomial continued fraction",
+    "Jacobi operator",
+    "trace-class operator",
+    "independence polynomial",
+    "Lean 4 formalization",
+    "Mathlib",
+    "high-precision computation",
+    "pcf-delta"
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "relation": "isContinuationOf",
+      "identifier": "10.5281/zenodo.20578400",
+      "resource_type": "publication-preprint",
+      "_note": "pcf-delta CONCEPT DOI, VERIFIED via Zenodo API 2026-06-10: conceptdoi=10.5281/zenodo.20578400, latest version 20593930 (v1.3, published 2026-06-08), title 'pcf-delta: The growth-law correction constant delta = log R_inf of the quadratic polynomial continued fraction'. isContinuationOf -> CONCEPT DOI so the link tracks the latest pcf-delta version. (Specific v1.3 version DOI, if you prefer to pin: 10.5281/zenodo.20593930.)"
+    },
+    {
+      "relation": "references",
+      "identifier": "10.5281/zenodo.20564681",
+      "resource_type": "publication-preprint",
+      "_note": "growth-law CONCEPT DOI, VERIFIED via Zenodo API 2026-06-10: conceptdoi=10.5281/zenodo.20564681 (latest version 20565409), title 'An exact growth constant for the quadratic polynomial continued fraction'. Concept DOI is correct for this general reference."
+    },
+    {
+      "relation": "references",
+      "identifier": "10.5281/zenodo.20564079",
+      "resource_type": "publication-preprint",
+      "_note": "EBR-I CONCEPT DOI, VERIFIED via Zenodo API 2026-06-10. This note cites EBR-I 'An Edge-Borel Radius Theorem for Positive Polynomial Continued Fractions' (the radius-upgrade source) as a methodological model (carry an analytic input cited-conditional), so its CONCEPT DOI 10.5281/zenodo.20564079 is used. CORRECTIONS over the prior round: (a) the number 20564080 that the corpus cites is the EBR-I VERSION DOI, whose conceptdoi is 20564079; (b) the prior-round 20566466 is a DIFFERENT paper -- EBR-II 'The EBR Amplitude as a Connection Coefficient' (concept 20566465) -- not used here, since no version-specific EBR-II claim is load-bearing. Corpus-consistent alternative if you prefer to match existing citations: version DOI 10.5281/zenodo.20564080."
+    },
+    {
+      "relation": "references",
+      "identifier": "10.5281/zenodo.19491767",
+      "resource_type": "publication-preprint",
+      "_note": "ladder CONCEPT DOI, VERIFIED via Zenodo API 2026-06-10: conceptdoi=10.5281/zenodo.19491767 (latest version 19491768), title 'Polynomial Continued Fractions: A Proved Logarithmic Ladder, a 4/pi Casoratian Identity, and 482 Irrational Constants'. Concept DOI is correct for this general reference."
+    }
+  ],
+  "notes": "Companion verification artifacts included in the deposit: Lean 4 project (lean/, Theorems 1-2 PROVEN with clean cone), Phase-0 two-channel numerics (p0/, delta to 65 digits), and Phase-A order/genus computations (phaseA/). PROVEN claims correspond exactly to the Lean axiom cone (Theorems 1 and 2); Proposition 3, Theorem 4, Proposition 7 are STRUCTURAL/VERIFIED; the exact Fredholm identity (Conjecture 6) is CONJECTURED. Reproducibility hashes are in claims.jsonl."
+}

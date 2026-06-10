@@ -1,0 +1,46 @@
+{
+  "task_id": "DELTA-FREDHOLM-P0",
+  "phase": "T1+T2B",
+  "dps": 120,
+  "target_digits": 58,
+  "T1_trace_sanity": {
+    "N=5_exact_half_tr_eq_sum_u": true,
+    "N=10_exact_half_tr_eq_sum_u": true,
+    "N=25_exact_half_tr_eq_sum_u": true,
+    "N=1000_half_tr_minus_sum_u_dps": "0.0",
+    "pass": true
+  },
+  "S_direct_series": "0.13066961898743246965362031790000019617826250656153",
+  "S_closed_form": "0.13066961898743246965362031790000019617826250656153",
+  "S_agreement_digits": 75,
+  "m_max": 68,
+  "observed_tau_ratio_limit": "0.121042251812",
+  "delta_B": "0.12385719436062639272850498970259084096757954585229656821313127",
+  "leading_coeff_is_central_binomial": {
+    "m=2": [
+      true,
+      6
+    ],
+    "m=3": [
+      true,
+      20
+    ],
+    "m=4": [
+      true,
+      70
+    ],
+    "m=5": [
+      true,
+      252
+    ],
+    "m=6": [
+      true,
+      924
+    ]
+  },
+  "enclosure_total": "8.83579e-66",
+  "diff_vs_ref": "4.1477e-45",
+  "agreement_vs_ref_digits": 44,
+  "runtime_s": 74.7,
+  "script_sha256": "348f8a6845da594d55a39115a34c5a0f67ab42106c957822e7b5224524e2452b"
+}
