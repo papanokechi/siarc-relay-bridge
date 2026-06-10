@@ -1,0 +1,128 @@
+{
+  "task_id": "DELTA-FREDHOLM-P0",
+  "verdict": "PASS",
+  "object": {
+    "triple_ABC": [
+      1,
+      0,
+      1
+    ],
+    "b_k": "k^2+1",
+    "u_n": "1/((((n-1)^2+1)((n^2+1))))  for n>=2",
+    "delta_def": "delta = log R_infinity, R the weighted independence polynomial of the path on {2..N}",
+    "delta_ref": "0.12385719436062639272850498970259084096757955  (44 digits, pcf-delta v1.3 certified table)"
+  },
+  "T0_locked_convention": {
+    "matrix_size": "s = M  (M = upper vertex index of R_M on {2..M})",
+    "off_diagonal_entry": "T[j-1,j]=T[j,j-1]=sqrt(u_{j+1}), j=1..M-1",
+    "identity": "R_M(lam)^2 = det(I + lam*T^2);  equivalently R_M = det(I + i*sqrt(lam)*T)",
+    "note_problem_T_M": "problem's T_M has size M+1 (off-diagonals sqrt(u_2..u_{M+1})), so det(I+lam T_M^2) = R_{M+1}(lam)^2 (index +1)."
+  },
+  "T0_verdict": "T0-PASS",
+  "T0_worst_residual_passing": "7.74518e-121",
+  "T0_other_conventions_fail": true,
+  "T1_trace_sanity": {
+    "N=5_exact_half_tr_eq_sum_u": true,
+    "N=10_exact_half_tr_eq_sum_u": true,
+    "N=25_exact_half_tr_eq_sum_u": true,
+    "N=1000_half_tr_minus_sum_u_dps": "0.0",
+    "pass": true
+  },
+  "deltas": {
+    "delta_A_spectral": "0.1238571943606263927285049897025908409675795458522965682131312667",
+    "delta_B_trace": "0.1238571943606263927285049897025908409675795458522965682131312667",
+    "delta_ref": "0.12385719436062639272850498970259084096757955"
+  },
+  "enclosures": {
+    "channel_A_spectral": "2.66679e-61  (spread over N in {2000,4000,8000}, D in {8,9,10}, jhi)",
+    "channel_B_trace": "8.83579e-66  (per-m geometric tail bounds + m-series geometric remainder)"
+  },
+  "pairwise_agreement_digits": {
+    "A_vs_B_PRIMARY": 65,
+    "A_vs_ref": 44,
+    "B_vs_ref": 44,
+    "abs_A_minus_B": "6.83689e-66",
+    "abs_A_minus_ref": "4.1477e-45",
+    "abs_B_minus_ref": "4.1477e-45",
+    "note_ref_limited": "A_vs_ref and B_vs_ref are capped at 44 by delta_ref's own precision; A_vs_B (independent channels) is the primary evidence."
+  },
+  "enclosure_consistency": {
+    "A_vs_B_within_combined_enclosure": true,
+    "comment": "observed |A-B| = 6.837e-66 < encl_A + encl_B = 2.667e-61"
+  },
+  "channel_B_diagnostics": {
+    "S_tau1": "0.13066961898743246965362031790000019617826250656153",
+    "S_closed_form_agreement_digits": 75,
+    "observed_tau_ratio_limit": "0.121042251812",
+    "tau_ratio_expected": "~ s_max^2 = 0.121042... (spec: u_2*O(1), u_2=0.1)",
+    "m_series_truncation_m_max": 68,
+    "leading_bulk_coeff_a_4m_is_central_binomial_C(2m,m)": {
+      "m=2": [
+        true,
+        6
+      ],
+      "m=3": [
+        true,
+        20
+      ],
+      "m=4": [
+        true,
+        70
+      ],
+      "m=5": [
+        true,
+        252
+      ],
+      "m=6": [
+        true,
+        924
+      ]
+    },
+    "site_decay_exponent": "g_m(n) ~ n^{-4m}  (MEASURED; corrects the brief's stated n^{-8m})"
+  },
+  "channel_A_diagnostics": {
+    "spectral_confirmation": {
+      "Nspec": 160,
+      "dps_spec": 80,
+      "sum_pos_log1ps2": "0.123857112984868389931776650434846244675521302",
+      "logR_Nspec": "0.123857112984868389931776650434846244675521302",
+      "agreement_digits": 80,
+      "s1": "0.3479112700276263535870537289143004314788681",
+      "s2": "0.0865913573091655823402699423046655264280037305"
+    },
+    "logrho_tail_coeffs_c4..c10": [
+      "1.0",
+      "2.0",
+      "1.0",
+      "-2.0",
+      "-6.5",
+      "-16.0",
+      "-40.0"
+    ]
+  },
+  "T4_PSLQ": {
+    "verdict": "NULL",
+    "s1": "0.3479112700276263535870537289143004314788681002420087189938960556",
+    "s2": "0.08659135730916558234026994230466552642800373054448606906986391611",
+    "s1_screened": "NULL(artifact: PSLQ relation precision-unstable across dps)",
+    "s2_screened": "NULL(artifact: PSLQ relation precision-unstable across dps)",
+    "basis_note": "j_{1/2,k} = k*pi exactly, so 1/j_{1/2,k} = 1/(k*pi) are Q-linearly dependent (rank 1); PSLQ deflation removes these basis-internal degeneracies before judging the target."
+  },
+  "runtimes_s": {
+    "T2A_spectral": 4.1,
+    "T2B_trace": 74.7,
+    "T4_pslq": 23.6
+  },
+  "script_sha256": {
+    "t0_convention_lock.py": "604154dfbb1313348cfd436f3c6b24992066a656ac250a23aac66ab4e9e15e4b",
+    "t2_spectral_channel.py": "f379c152b114aa920b3b7ec3881c5038d658b65b376374a9c96caa52a69d87c9",
+    "t2_trace_channel.py": "348f8a6845da594d55a39115a34c5a0f67ab42106c957822e7b5224524e2452b",
+    "t4_pslq_probe.py": "bfb2eb2eb61c2f999b4abcdf220fc1e9a69e936e6a82716c4669f45a25fe4b6f"
+  },
+  "output_sha256": {
+    "out/t0_result.json": "3a7ad95711d09547aeffd47cec695e70ac22bc7b3f37703b53ff5ef95cbc620c",
+    "out/t2_spectral_result.json": "a34c7dcce8e04545a39c49b27a442fc2cba45ced13e3a225884cbd9d8d7cffed",
+    "out/t2_trace_result.json": "e3bceb79bb0369e9991003d391d9e96395a0ba127ef416914484e29c7e238e67",
+    "out/t4_pslq_result.json": "215928c947d7fb620a27f72434cac1a9ad8a467f193e56960c4b6f7ba2be9ca2"
+  }
+}

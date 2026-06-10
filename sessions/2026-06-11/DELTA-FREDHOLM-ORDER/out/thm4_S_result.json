@@ -1,0 +1,71 @@
+{
+  "dps": 80,
+  "results": [
+    {
+      "name": "(1,0,1) running family",
+      "A": 1.0,
+      "B": 0.0,
+      "C": 1.0,
+      "S": "0.1306696189874324696530995602249781176064",
+      "bound": "0.1666666666666667",
+      "sufficient_prod": "6.0",
+      "S_lt_1": true
+    },
+    {
+      "name": "(1,0,5)",
+      "A": 1.0,
+      "B": 0.0,
+      "C": 5.0,
+      "S": "0.03356976998159875112669844115647021394271",
+      "bound": "0.05555555555555556",
+      "sufficient_prod": "18.0",
+      "S_lt_1": true
+    },
+    {
+      "name": "(1,3,2)",
+      "A": 1.0,
+      "B": 3.0,
+      "C": 2.0,
+      "S": "0.02173259981844023019372764355120113207629",
+      "bound": "0.02777777777777778",
+      "sufficient_prod": "36.0",
+      "S_lt_1": true
+    },
+    {
+      "name": "(2,1,3)",
+      "A": 2.0,
+      "B": 1.0,
+      "C": 3.0,
+      "S": "0.01807420251234249792480052417301718743341",
+      "bound": "0.02380952380952381",
+      "sufficient_prod": "42.0",
+      "S_lt_1": true
+    },
+    {
+      "name": "(0.01,0,1) degenerate small-A",
+      "A": 0.01,
+      "B": 0.0,
+      "C": 1.0,
+      "S": "6.844296634961337173737513370831151195417",
+      "bound": "33.003300330033",
+      "sufficient_prod": "0.0303",
+      "S_lt_1": false
+    }
+  ],
+  "integer_grid": {
+    "n_triples": 125,
+    "lattice": "A,C in 1..5, B in 0..4",
+    "analytic_min_denominator": 6,
+    "uniform_bound_1_over_6": 0.16666666666666666,
+    "all_S_le_1_over_6": true,
+    "max_S": 0.13066961898737695,
+    "argmax_triple": [
+      1,
+      0,
+      1
+    ]
+  },
+  "sufficient_condition": "(3A+B)(A+B+C) > 1  =>  S <= 1/((3A+B)(A+B+C)) < 1",
+  "integer_regime": "For A,C in Z>=1, B in Z>=0 the denominator (3A+B)(A+B+C) >= 6, so S <= 1/6 < 1 UNCONDITIONALLY (max S on the grid is at the running family (1,0,1)).",
+  "note": "S<1 is NOT universal for real coefficients: degenerate small-A triples give S>1 (e.g. (0.01,0,1): S=6.84). Theorem 4 is therefore stated unconditionally on the integer family (uniform S<=1/6) and conditionally via (3A+B)(A+B+C)>1 in general."
+}

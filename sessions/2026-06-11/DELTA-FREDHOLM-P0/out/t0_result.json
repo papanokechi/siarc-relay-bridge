@@ -1,0 +1,133 @@
+{
+  "task_id": "DELTA-FREDHOLM-P0",
+  "phase": "T0",
+  "dps": 120,
+  "anchor_continuant_all_exact": true,
+  "anchor": [
+    {
+      "M": 1,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.0"
+    },
+    {
+      "M": 2,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1"
+    },
+    {
+      "M": 3,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.12"
+    },
+    {
+      "M": 4,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1264705882352941176470588235294117647058823529412"
+    },
+    {
+      "M": 5,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1290045248868778280542986425339366515837104072398"
+    },
+    {
+      "M": 6,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1301754922343157637275284334107863519628225510578"
+    },
+    {
+      "M": 7,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1307857649504708328237740002445884798825975296564"
+    },
+    {
+      "M": 8,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1311335112557736992126132397625610295293553212105"
+    },
+    {
+      "M": 9,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1313456661835317612825614149971284945349618123043"
+    },
+    {
+      "M": 10,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1314822435212830017678563453569162947075685927101"
+    },
+    {
+      "M": 11,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1315740586216062879033280675947832910145427009565"
+    },
+    {
+      "M": 12,
+      "exact_equal": true,
+      "R_M_1_50dig": "1.1316380203086340596954008689710047108163916307809"
+    }
+  ],
+  "random_lambdas": [
+    "3/5",
+    "18/13",
+    "2/7",
+    "19/18",
+    "6/17"
+  ],
+  "sweep": {
+    "size=M+0,woff=0": {
+      "all_exact_RM_eq_Ps": false,
+      "worst_resid_squared_identity": "2.22755",
+      "worst_resid_lt_1e-80": false
+    },
+    "size=M+0,woff=1": {
+      "all_exact_RM_eq_Ps": true,
+      "worst_resid_squared_identity": "7.74518e-121",
+      "worst_resid_lt_1e-80": true
+    },
+    "size=M+0,woff=2": {
+      "all_exact_RM_eq_Ps": false,
+      "worst_resid_squared_identity": "0.312477",
+      "worst_resid_lt_1e-80": false
+    },
+    "size=M+1,woff=0": {
+      "all_exact_RM_eq_Ps": false,
+      "worst_resid_squared_identity": "2.22811",
+      "worst_resid_lt_1e-80": false
+    },
+    "size=M+1,woff=1": {
+      "all_exact_RM_eq_Ps": false,
+      "worst_resid_squared_identity": "0.296095",
+      "worst_resid_lt_1e-80": false
+    },
+    "size=M+1,woff=2": {
+      "all_exact_RM_eq_Ps": false,
+      "worst_resid_squared_identity": "0.312387",
+      "worst_resid_lt_1e-80": false
+    },
+    "size=M+2,woff=0": {
+      "all_exact_RM_eq_Ps": false,
+      "worst_resid_squared_identity": "2.35172",
+      "worst_resid_lt_1e-80": false
+    },
+    "size=M+2,woff=1": {
+      "all_exact_RM_eq_Ps": false,
+      "worst_resid_squared_identity": "0.359915",
+      "worst_resid_lt_1e-80": false
+    },
+    "size=M+2,woff=2": {
+      "all_exact_RM_eq_Ps": false,
+      "worst_resid_squared_identity": "0.31232",
+      "worst_resid_lt_1e-80": false
+    }
+  },
+  "passing_conventions": [
+    "size=M+0,woff=1"
+  ],
+  "verdict": "T0-PASS",
+  "locked_convention": {
+    "matrix_size": "s = M  (M = upper vertex index of R_M on {2..M})",
+    "off_diagonal_entry": "T[j-1,j]=T[j,j-1]=sqrt(u_{j+1}), j=1..M-1",
+    "identity": "R_M(lam)^2 = det(I + lam*T^2);  equivalently R_M = det(I + i*sqrt(lam)*T)",
+    "note_problem_T_M": "problem's T_M has size M+1 (off-diagonals sqrt(u_2..u_{M+1})), so det(I+lam T_M^2) = R_{M+1}(lam)^2 (index +1)."
+  },
+  "script_sha256": "604154dfbb1313348cfd436f3c6b24992066a656ac250a23aac66ab4e9e15e4b"
+}

@@ -1,0 +1,263 @@
+---
+title: "A Fredholm-determinant representation of the pcf-delta growth constant: finite identity, entire order and genus"
+author: "Papanokechi"
+date: "2026-06-11"
+---
+
+# Abstract {-}
+
+Let $b(k)=Ak^2+Bk+C$ be a positive quadratic and $u_n = 1/\bigl(b(n-1)\,b(n)\bigr)$
+for $n\ge 2$. The *pcf-delta* growth constant of the running family $(A,B,C)=(1,0,1)$ is
+$$
+\delta \;=\; \log R_\infty(1),\qquad
+R_\infty(\lambda)\;=\;\sum_{S}\ \prod_{i\in S}\lambda\,u_i ,
+$$
+the sum taken over finite **sparse** (no two consecutive) subsets $S\subseteq\{2,3,\dots\}$;
+$R_\infty(\lambda)$ is the weighted independence polynomial of the half-infinite path
+carrying vertex weight $\lambda u_i$. We record a self-contained account of the
+**Fredholm-determinant representation** $\delta=\tfrac12\log\det(I+T^2)$, where $T$ is the
+edge-weighted path operator with off-diagonal $\sqrt{u_{j+1}}$. Two contributions are
+machine-checked in Lean 4 / Mathlib with a clean axiom cone: the finite tridiagonal
+determinant identity $\det A_M = c_M$ (Theorem 1) and its combinatorial reading
+$c_M = R_M$ (Theorem 2). The Fredholm representation itself is confirmed numerically to
+**65 significant digits** by two independent channels and is stated as a conjecture, with
+the operator limit carried as an analytic hypothesis. We determine the entire order and
+genus of $R_\infty$: it is entire of order $\rho=\tfrac1{2d}$ (here $d=2$, so $\rho=\tfrac14$)
+and **genus $0$**, with Hadamard product $R_\infty(\lambda)^2=\prod_k\bigl(1+\lambda s_k^2\bigr)$
+and no exponential factor (Proposition 7). The order is bracketed by elementary by-hand bounds
+and confirmed by two independent numerical routes (coefficient decay and eigenvalue
+convergence exponent). We also give a clean telescoping bound
+$S=\sum_{n\ge2}u_n\le 1/\bigl((3A+B)(A+B+C)\bigr)$ governing trace-class convergence; on the
+integer family $A,C\ge1$, $B\ge0$ this yields $S\le\tfrac16<1$ unconditionally, while $S<1$ is
+only conditional for a general positive quadratic.
+
+**Reproducibility.** All numerics are rational / high-precision (mpmath, dps $\ge 80$) and
+deposited with SHA-256 output hashes; the Lean project ships with a pinned toolchain and a
+verbatim `#print axioms` audit.
+
+# Object and conventions
+
+Fix a real quadratic $b(k)=Ak^2+Bk+C$ with $b(k)>0$ for all integers $k\ge1$, and set
+$$
+u_n \;=\; \frac{1}{b(n-1)\,b(n)}\qquad(n\ge2).
+$$
+For the **running family** $(A,B,C)=(1,0,1)$ one has $b(k)=k^2+1$, $u_2=\tfrac1{10}$, and
+$u_n = O(n^{-4})$. The associated generating function is
+$$
+R_\infty(\lambda)\;=\;\sum_{n\ge0} a_n\,\lambda^n,\qquad
+a_n \;=\;\sum_{\substack{\{i_1<\dots<i_n\}\subseteq\{2,3,\dots\}\\ i_{k+1}>i_k+1}}\ \prod_{k} u_{i_k},
+$$
+i.e. $a_n$ is the sum over sparse $n$-subsets. The finite truncation $R_M(\lambda)$ keeps only
+indices in $\{2,\dots,M\}$. Let $T$ be the half-infinite **Jacobi (path) operator** with zero
+diagonal and off-diagonal entries $T_{j-1,j}=T_{j,j-1}=\sqrt{u_{j+1}}$. Because
+$\sum_{n\ge2}u_n<\infty$, $T$ is Hilbert–Schmidt and $T^2$ is trace-class.
+
+The **locked finite convention** (validated to residual $7.75\times10^{-121}$ across
+$M=1,\dots,12$ and falsifying eight alternative size/offset conventions) is
+$$
+\boxed{\;R_M(\lambda)^2 \;=\; \det\!\bigl(I+\lambda\,T_M^2\bigr),\quad
+T_M \text{ of size } M,\ (T_M)_{j-1,j}=\sqrt{u_{j+1}}\;}
+$$
+equivalently $R_M(\lambda)=\det(I+i\sqrt{\lambda}\,T_M)$. Passing $M\to\infty$ gives the
+representation studied here,
+$$
+\delta \;=\; \sum_{s_k>0}\log\!\bigl(1+s_k^2\bigr)\;=\;\tfrac12\log\det(I+T^2),
+$$
+with $\{s_k\}$ the positive spectrum of $T$.
+
+# The finite determinant identity (machine-checked)
+
+Work over a commutative ring $R$ with weights $w:\mathbb N\to R$ and activity
+$\lambda\in R$. Define the **continuant** by
+$$
+c_0=1,\quad c_1=1,\quad c_{n+2}=c_{n+1}+\lambda\,w_{n+2}\,c_n, \tag{REC}
+$$
+and the tridiagonal matrix $A_M\in\mathrm{Mat}_{M}(R)$ by
+$$
+(A_M)_{ii}=1,\quad (A_M)_{i,i+1}=\lambda\,w_{i+2},\quad (A_M)_{i+1,i}=-1,\quad
+\text{else }0.
+$$
+Let $R_M=\sum_{S\subseteq\{2,\dots,M\}\ \mathrm{sparse}}\prod_{i\in S}\lambda w_i$ be the
+weighted independence polynomial.
+
+::: {.theorem name="T-DET, PROVEN in Lean with clean cone"}
+For every $M$, $\det A_M = c_M$.
+:::
+
+::: {.theorem name="T-COMB, PROVEN in Lean with clean cone"}
+For every $M$, $c_M = R_M$. Hence $\det A_M = R_M$.
+:::
+
+Both are formalised in Lean 4 / Mathlib (toolchain pinned to `leanprover/lean4:v4.30.0`,
+Mathlib `v4.30.0`) and carry the axiom cone
+$\{\texttt{propext},\ \texttt{Classical.choice},\ \texttt{Quot.sound}\}$ with **no**
+`sorryAx`; `T_COMB` is proved in full general $M$ by deletion–contraction (not a finite
+fallback). See `lean/PcfFredholm/Core.lean` and `lean/SCOPE.md`.
+
+**G0 falsification finding (reported, not papered over).** An earlier draft pinned the base
+case $c_1=1+\lambda w_1$. This is *wrong* for the verbatim matrix: $A_1=[1]$, so $\det A_1=1$,
+not $1+\lambda w_1$. The corrected, self-consistent base case is $c_1=1$; then $c_M$ is exactly
+the path-$\{2,\dots,M\}$ independence polynomial. Lean witnesses `g0_det_one` and
+`g0_brief_base_is_wrong` record both the correct value and the counterexample.
+
+# Trace-class structure and the constant $S$
+
+::: {.proposition name="determinant factorisation, STRUCTURAL"}
+Over $R$, $\det(I+\lambda T_M^2)=\det(I+i\sqrt\lambda\,T_M)\,\det(I-i\sqrt\lambda\,T_M)=P_M^2$,
+where $P_M$ satisfies (REC); under the locked offset $P_M=R_M$, giving the boxed identity of §1.
+:::
+
+::: {.theorem name="trace-class convergence, STRUCTURAL; unconditional on the integer family"}
+$\sum_{n\ge2}u_n<\infty$, so $T$ is Hilbert–Schmidt and $T^2$ is trace-class with
+$\operatorname{Tr}T^2=2S$, $S=\sum_{n\ge2}u_n$, and the Plemelj–Smithies expansion of
+$\det(I+\lambda T^2)$ converges. For the **integer family studied here**
+($A,C\in\mathbb Z_{\ge1}$, $B\in\mathbb Z_{\ge0}$) convergence is *unconditional*: the
+telescoping bound below gives $S\le\tfrac16<1$ uniformly. For a general positive quadratic
+with real coefficients, $S<1$ is instead the *conditional* hypothesis $(3A+B)(A+B+C)>1$,
+which can fail when the leading coefficient is small (Remark).
+:::
+
+The telescoping identity
+$u_k=\dfrac{1}{b(k)-b(k-1)}\Bigl(\dfrac1{b(k-1)}-\dfrac1{b(k)}\Bigr)$ with
+$b(k)-b(k-1)=A(2k-1)+B\ge 3A+B$ for $k\ge2$ yields the clean **rigorous bound**
+$$
+S \;\le\; \frac{1}{(3A+B)\,b(1)} \;=\; \frac{1}{(3A+B)(A+B+C)},
+$$
+valid for every positive quadratic $b$. On the integer lattice $A,C\ge1$, $B\ge0$ the
+denominator is at least $(3{\cdot}1)(1{+}0{+}1)=6$, so $S\le\tfrac16$ holds *uniformly* over
+the regime; the running family $(1,0,1)$ is itself the extremal lattice point, with the
+largest $S$ yet still $S=0.1307\le\tfrac16$. Hence $S<1$ is automatic throughout the studied
+regime, and for general real $b$ it reduces to the sufficient condition $(3A+B)(A+B+C)>1$.
+
+::: {.remark name=""}
+The integer-regime restriction is genuine, not cosmetic. For $(1,0,1)$:
+$S=0.1306696189874324696536\ldots$ (matching the certified P0 value to $22$ digits); the
+other test families $(1,0,5),(1,3,2),(2,1,3)$ give $S=0.034,\,0.022,\,0.018$. Outside the
+regime — for a small real leading coefficient — $S<1$ fails: the degenerate triple
+$(0.01,0,1)$ gives $S\approx 6.84>1$, and the bound correctly declines to certify it
+(sufficient product $0.0303<1$). Theorem 4 is therefore stated unconditionally on the integer
+family and conditionally, via $(3A+B)(A+B+C)>1$, in general.
+:::
+
+# The Fredholm representation (numerically confirmed; conjectural as a theorem)
+
+::: {.theorem name="two-channel confirmation, VERIFIED to 65 digits"}
+For $(1,0,1)$, two fully independent computational channels — (A) a spectral/Hadamard channel
+$\delta_A=\log R_N+\text{(analytic cluster tail)}$ and (B) a trace/closed-walk channel
+$\delta_B=\sum_{m\ge1}(-1)^{m+1}\tfrac1m\,\tfrac12\operatorname{Tr}T^{2m}$ — agree:
+$$
+|\delta_A-\delta_B| = 6.84\times10^{-66}\quad(65\text{ digits}),
+$$
+deepening monotonically with working precision, and both match the certified anchor
+$\delta_{\mathrm{ref}}$ to its full $44$ digits. The common value is
+$\delta=0.12385719436062639272850498970259084096757955\ldots$
+:::
+
+::: {.conjecture name="Fredholm representation as an exact identity, CONJECTURED"}
+$\delta=\tfrac12\log\det(I+T^2)=\sum_{s_k>0}\log(1+s_k^2)$ holds exactly, i.e. the finite
+identity of §1 passes to the limit. Equivalently $R_\infty(1)^2=\det(I+T^2)$.
+:::
+
+Conjecture 6 rests on the PROVEN finite identity (Theorems 1–2) together with trace-class
+convergence (Theorem 4); the **only** missing step is the analytic interchange
+$\det(I+\lambda T_M^2)\to\det(I+\lambda T^2)$, carried here as an analytic hypothesis exactly as a
+Borel-summability hypothesis is carried elsewhere. It is *not* asserted as a theorem.
+
+**Trace law (structural).** The per-site closed-walk return satisfies
+$g_m(n)=(T^{2m})_{nn}\sim C(2m,m)\,n^{-4m}$ with central-binomial leading coefficient
+($6,20,70,252,924$ for $m=2,\dots,6$); the per-site decay is $n^{-4m}$.
+
+# Entire order and genus
+
+We determine the growth of $R_\infty$. Write $\rho$ for its Hadamard order and $p^{*}$ for its genus.
+
+::: {.proposition name="entire order and genus; see grades below"}
+$R_\infty(\lambda)$ is entire of order $\rho=\dfrac1{2d}$, with $d=2$ the degree of $b$, i.e.
+$\rho=\tfrac14$, and of **genus $0$**. Writing $\{s_k\}$ for the positive spectrum of $T$,
+$$
+R_\infty(\lambda)^2 \;=\; \prod_{k\ge1}\bigl(1+\lambda\,s_k^2\bigr),
+$$
+a genus-$0$ Hadamard product **with no exponential factor**, convergent because
+$\sum_k s_k^2=\operatorname{Tr}T^2=S<\infty$.
+:::
+
+*Proof sketch and grading.*
+
+1. **Entire, order $\le1$ (STRUCTURAL; rigorous, by hand).** $a_n\le \bigl(\sum_i u_i\bigr)^n/n! = S^n/n!$ (the
+   non-sparse overcount), so $\sum a_n\lambda^n$ is dominated by $e^{S|\lambda|}$.
+
+2. **Lower bound $\rho\ge\tfrac1{2d}$ (STRUCTURAL; rigorous, by hand).** Keeping the single dominant sparse term on
+   the indices $2,4,\dots,2n$ gives $a_n\ge \prod_{k\le n}u_{2k}$; since $u_{2k}\sim(2k)^{-2d}$,
+   $\log(1/a_n)\sim 2d\,n\log n$, whence $\rho=\limsup_n \frac{n\log n}{\log(1/a_n)}\ge\frac1{2d}$.
+
+3. **Upper bound $\rho\le\tfrac1{2d}$ (STRUCTURAL).** $a_n\le e_n$, the coefficients of the canonical
+   product $\prod_{i\ge2}(1+\lambda u_i)$, whose order equals the convergence exponent
+   $\inf\{t:\sum_i u_i^{\,t}<\infty\}=\tfrac1{2d}$ of its zeros $\{-1/u_i\}$, by the standard
+   canonical-product theorem.
+
+4. **Sharp value $\rho=\tfrac1{2d}$ (VERIFIED, two independent routes).** A coefficient-decay route
+   (exact $a_n$, dps $220$, Richardson in $1/M^{2d-1}$, direct least squares) gives
+   $2d=4.003$ for $(1,0,1)$; an eigenvalue-convergence-exponent route ($s_k^2\sim k^{-p}$,
+   curvature-corrected fit) gives $p=3.999$. Both yield $\rho=1/4$ and agree across $d=1,2,3$.
+
+5. **Genus $p^{*}=0$ (STRUCTURAL).** The zeros are $\lambda_k=-1/s_k^2$ and
+   $\sum_k|1/\lambda_k|=\sum_k s_k^2=S<\infty$, so $p^{*}=0$ and the product carries no exponential
+   factor. Numerically $\sum s_k^2=0.13066962=S$ to $8$ digits. $\square$
+
+The earlier draft's "order $\le \tfrac1{2d}$, genus $0$" is **correct**, and is upgraded here to the
+**equality** $\rho=\tfrac1{2d}$; the genus is confirmed $0$ and the Hadamard product is written in its
+correct exponential-factor-free form.
+
+# Status block (four-class)
+
+This note partitions every assertion into four classes. **PROVEN** = machine-checked in Lean with a
+clean axiom cone. **STRUCTURAL** = a rigorous by-hand or algebraic argument — an unconditional proof not
+yet formalised in Lean, or one resting on a clearly named hypothesis or a cited standard theorem.
+**VERIFIED** = high-precision numerical evidence with reproducible hashes. **CONJECTURED** = evidenced
+but neither proven nor reduced to a named hypothesis. *PROVEN is reserved for the Lean-formalised results
+only; rigorous by-hand proofs are graded STRUCTURAL until formalised.*
+
+PROVEN
+:   Theorem 1 ($\det A_M=c_M$); Theorem 2 ($c_M=R_M$). These — and only these — are machine-checked in
+    Lean with a clean axiom cone $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, no
+    `sorryAx`.
+
+STRUCTURAL
+:   Proposition 3 (determinant factorisation); Theorem 4 (trace-class convergence — unconditional on the
+    integer family $A,C\ge1$, $B\ge0$ via the uniform bound $S\le\tfrac16$, conditional on
+    $(3A+B)(A+B+C)>1$ in general); the order-$\le 1$ entireness bound, the lower bound $\rho\ge\tfrac1{2d}$, and the
+    telescoping bound $S\le 1/((3A+B)(A+B+C))$ (all rigorous by hand, not formalised); the order upper
+    bound $\rho\le\tfrac1{2d}$ (canonical-product theorem); genus $p^{*}=0$ and the exponential-factor-free
+    Hadamard product (Proposition 7); the central-binomial trace law.
+
+VERIFIED
+:   $\delta_A=\delta_B$ to $65$ digits (Theorem 5); $S(1,0,1)=0.1306696\ldots<1$; the sharp order
+    $\rho=\tfrac14$ by two independent numerical routes.
+
+CONJECTURED
+:   Conjecture 6 (the exact Fredholm representation / analytic limit interchange); the
+    Bessel-zero hypothesis for $s_1,s_2$ (PSLQ probe returned NULL).
+
+# Open problems
+
+- **O1.** Prove Conjecture 6: establish the limit interchange
+  $\det(I+\lambda T_M^2)\to\det(I+\lambda T^2)$ (e.g. via Plemelj–Smithies with the explicit
+  trace-norm bound from $S$), upgrading the $65$-digit identity to a theorem.
+- **O2.** Identify the spectrum $\{s_k\}$ in closed form, or prove the absence of a Bessel-zero
+  relation suggested (and falsified at height $10^{10}$) by the PSLQ probe.
+- **O3.** Extend Theorems 1–2 to the symmetric squared form $c_M^2=\det(I+\lambda\,T^{\mathrm{sym}\,2}_M)$
+  in Lean (deferred; needs the real-$\sqrt{}$-weighted matrix, depends only on Theorem 1).
+
+# References {-}
+
+1. Papanokechi, *pcf-delta growth constant* (concept record), Zenodo `10.5281/zenodo.XXXXXXXX`
+   *(operator to confirm concept DOI)*.
+2. DELTA-FREDHOLM-P0 — *Phase-0 validation of the Fredholm representation* (two-channel, 65 digits),
+   this corpus.
+3. DELTA-FREDHOLM-LEAN-CORE — *Lean 4 finitary core* (Theorems 1–2, clean cone), this corpus.
+4. Related corpus deposits (growth-law / EBR / ladder), DOIs `10.5281/zenodo.XXXXXXXX`
+   *(operator to confirm)*.
+
+*Toolchain pins.* Lean `leanprover/lean4:v4.30.0`, Mathlib `v4.30.0`
+(`lake-manifest.json` rev `c5ea00351c28e24afc9f0f84379aa41082b1188f`); Python `mpmath` 1.3.0,
+`numpy` 2.4.4, `scipy` 1.17.1.
