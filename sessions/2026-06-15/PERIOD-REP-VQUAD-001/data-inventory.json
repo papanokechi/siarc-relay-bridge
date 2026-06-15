@@ -1,0 +1,153 @@
+{
+  "chain_id": "PERIOD-REP-VQUAD-001",
+  "stage": "1 — data inventory",
+  "date": "2026-06-15",
+  "object": "Inventory of V_quad Sakai/Galois/resurgence data + EBR exponential-period template + Fresan-Jossen reference, for the sub-problem-A scoping probe (does the V_quad connection coefficient C admit C = int_gamma e^{f} g dt as a Fresan-Jossen exponential period?).",
+
+  "target_object_identification": {
+    "task_name": "connection coefficient C",
+    "resolved_to": "C_Borel = |Gamma(beta)| * K = 0.43770528619353722123073975... (the Borel branch coefficient; the 'retracted 0.43770528' historical value)",
+    "why": "In the proven EBR sibling (cc3) the connection coefficient is kappa = Gamma(4/3)*A0 (Gamma(branch-exponent) x resurgence amplitude). The exact V_quad analogue of that skeleton is C_Borel = |Gamma(beta)|*K. The Stokes constant S = 2*pi*K = 0.45790662... is the SAME Borel datum in a different normalisation: S/C_Borel = 2*pi/|Gamma(beta)| exactly. The exponential-period target is this connection datum (the Painleve-V Stokes multiplier sigma_conn that S/C encode), not the growth constant delta.",
+    "precision_available": "C_Borel good to ~58 digits via K (K cross-stable 58, conservative 44); S matches its deposited anchor to 41.3 digits. NOT 65 digits (see contradiction C1).",
+    "source": "sectorial/vquad_stokes_resurgence/stokes_2piK_results.json L14-32; MEMO_stokes_2piK_resurgence.md"
+  },
+
+  "sources": [
+    {
+      "id": "VQ-RESURGENCE-MEMO",
+      "path": "project-fingerprint/sectorial/vquad_stokes_resurgence/MEMO_stokes_2piK_resurgence.md",
+      "role": "Primary V_quad resurgence data (Borel transform, action, branch exponent, Stokes constant).",
+      "facts": {
+        "borel_action_A_xi0": "A = xi0 = 2/sqrt3 = 1.15470053837925152901... (algebraic, in Q(sqrt3)) [MEMO sec2; results.json L5]",
+        "branch_exponent_beta": "beta = -1/(3 sqrt3) = -0.19245008972987525483... (algebraic, in Q(sqrt3)) [MEMO sec2; results.json L6]",
+        "borel_transform": "B[phi](xi) = sum_n a_n xi^{n-1}/Gamma(n); large-order a_n ~ (S/2 pi i) Gamma(n+beta)/A^{n+beta} [results.json L7]",
+        "stokes_constant": "S = 2 pi K = 0.457906623169017636119097842548225837962395... [results.json L28]",
+        "amplitude_K": "K = 0.07287810255186696412944236332965251280456 (58 cross-stable digits) [results.json L14-18]",
+        "C_borel_branch_coeff": "C_Borel = |Gamma(beta)| K = 0.43770528619353722123074 [results.json L31-32]",
+        "classification": "S = 2 pi K is STRUCTURAL (alien-derivative dictionary), not coincidence, not PROVEN [results.json L79]"
+      }
+    },
+    {
+      "id": "VQ-RESURGENCE-REPRODUCER",
+      "path": "project-fingerprint/sectorial/vquad_stokes_resurgence/REPRODUCE_stokes_2piK.py",
+      "role": "mpmath reproducer of the WKB/Riccati series a_n -> K -> S; reused verbatim for Stage 5.",
+      "facts": {
+        "riccati_seed": "sigma_rec = -1/sqrt3 [riccati_coeffs / formal_series_coeffs]",
+        "reproducibility": "order 1500, dps 240; K stable to 58 digits cross-setting [docstring + results.json L15-16]"
+      }
+    },
+    {
+      "id": "VQ-RESULTS-JSON",
+      "path": "project-fingerprint/sectorial/vquad_stokes_resurgence/stokes_2piK_results.json",
+      "role": "High-precision anchors + PSLQ closed-form nulls.",
+      "facts": {
+        "pslq_S_eq_2piK": "[1,-2]  => S - 2(pi K) = 0 [L45-49]",
+        "pslq_Gamma_beta_excluded": "null => 2 pi/Gamma(beta) transcendental [L50-51]",
+        "closed_form_null": "no integer relation height<=1000 over {1,pi,sqrt3,log2,zeta3,catalan,Gamma(1/3)} at dps55 [L63-77]",
+        "canonical_sha256": "4b67efe9eb5bc90ae8c1b9fce8168d9f0a1389f25f72972e9974464f7b272025 [L89]"
+      }
+    },
+    {
+      "id": "VQ-SAKAI",
+      "path": "Zenodo 10.5281/zenodo.20455090 (V_quad companion paper, v) / concept 10.5281/zenodo.20455089",
+      "role": "Sakai surface + Painleve-V identification + parameters.",
+      "facts": {
+        "surface": "V_quad = non-classical Painleve V transcendent on Sakai surface D5^(1), symmetry W(A3^(1)), delta = -1/2 != 0 (NOT Painleve III(D6) — that is the retracted root claim) [repo memory 'V_quad surface type'; PCF-1 v1.6]",
+        "theta_inf": "theta_inf = 2/sqrt3 exactly (task prompt + surface-type note)",
+        "alpha": "alpha = theta_inf^2/8 = 1/6 exactly (task prompt)"
+      }
+    },
+    {
+      "id": "EBR-CC3-TEMPLATE",
+      "paths": [
+        "project-fingerprint/sectorial/cc_transcendence/cc3_2_entry_dossier.md",
+        "project-fingerprint/sectorial/cc_transcendence/REPORT_cc3_final.md",
+        "project-fingerprint/sectorial/cc_transcendence/cc4_1_connection_results.json",
+        "project-fingerprint/sectorial/cc_transcendence/cc3_s6_1_period_matrix_results.json"
+      ],
+      "role": "PROVEN exponential-period methodological TEMPLATE on the EBR (D8^(1)) side — the analogue to port to V_quad.",
+      "facts": {
+        "kappa": "kappa = 1.539494848576641034843781903384... realised as connection coefficient A_Phi of an order-4 Borel operator L (singular {0,1/3}, infinity irregular slope 1/4); kappa = Gamma(4/3) A0",
+        "de_rham_basis": "{[Phi],[theta Phi]}; rapid-decay cycles gamma_pm via Hien (Sec 2-4)",
+        "s6_verdict": "STRUCTURAL constructive exp-period; full exp-MOTIVE membership CONJECTURED-with-architecture; rig(L)=0 NON-RIGID; conditional transcendence theorem under FJ period conjecture; GAP LIST G1-G5",
+        "cross_corpus_note": "cc3 §9 / EBR-II §5: V_quad's ODE is DISTINCT (order-2 Heun/PV, irregular, sigma_conn transcendental in accessory parameter); 'same flavor but not the same integral'; no specialisation of one to the other is claimed"
+      }
+    },
+    {
+      "id": "EBR-II-PAPER",
+      "path": "project-fingerprint/files/EBR-II-paper.md",
+      "role": "Secondhand but explicit description of the V_quad linear problem (no standalone Lax file exists).",
+      "facts": {
+        "vquad_linear_problem": "order-2 Heun type, four singular points (p=4), connection datum sigma_conn transcendental in the accessory parameter, in its Painleve-V Stokes data [L59-61]"
+      }
+    },
+    {
+      "id": "EBR-III-DRAFT",
+      "path": "project-fingerprint/sectorial/cc_transcendence/draft/ebr3_v1.tex",
+      "role": "READ-ONLY. EBR-III SL(4) differential-Galois manuscript (Zenodo 20684733). Touches the 'ring of rapid-decay periods' program framing. NOT modified.",
+      "facts": {"status": "not modified by this probe"}
+    },
+    {
+      "id": "FRESAN-JOSSEN-BOOK",
+      "path": "Public draft http://javier.fresan.perso.math.cnrs.fr/expmot.pdf (consulted in-session; third-party book NOT committed to slot — only page/eq locators recorded)",
+      "role": "Authoritative target framework: book 'Exponential Motives' by J. Fresan & P. Jossen (in preparation).",
+      "facts": {
+        "definitions_located": "rapid-decay homology Def 3.1.1.1 (pdf p.91); period pairing eq 1.1.2.1; gamma-motive Example 1.1.4 (sqrt(pi), Gamma(j/n)); Bessel Example 1.1.5; exponential period conjecture Conjecture 1.3.2 (pdf p.16-17): trdeg_Q(periods M) = dim G_M",
+        "arxiv_warning": "task-suggested arXiv 2306.04269 and web-suggested 1612.04872 are BOTH FALSE (unrelated papers); the reference is the book, not an arXiv id"
+      }
+    },
+    {
+      "id": "PCF-DELTA",
+      "path": "pcf-delta/CITATION.cff",
+      "role": "Correct DOIs for the delta growth-constant work (to fix the task's DOI error).",
+      "facts": {
+        "delta_concept_doi": "10.5281/zenodo.20578400; v1.4 = 10.5281/zenodo.20633165",
+        "delta_value_101": "delta(1,0,1) = 0.12385719436062639272850498970259084096757955... is the b_n=n^2+1 family (A=1,B=0,C=1), NOT V_quad"
+      }
+    }
+  ],
+
+  "contradictions_and_version_drift": [
+    {
+      "id": "C1",
+      "severity": "MEDIUM-HIGH (affects the verdict's precision claims)",
+      "task_assertion": "'delta = log R_inf Fredholm determinant verified to 65 digits (Zenodo 20624814)' and implies C is known to 65 digits.",
+      "finding": "The DOI is CORRECT (not an error): commit 50f9989 in this very repo ties Zenodo 10.5281/zenodo.20624814 to 'the Fredholm-determinant representation of the pcf-delta growth constant'; the pcf-delta concept DOI is 10.5281/zenodo.20578400 (v1.4 20633165) -- multiple versions/records of the same work. The SUBSTANTIVE correction is an OBJECT + PRECISION conflation: (a) delta = log R_inf is the GROWTH constant (a convergent/classical period), DISTINCT from the connection coefficient C (the divergent-series Stokes/Borel datum, the exponential-period target). (b) The 65-digit Fredholm precision belongs to delta and does NOT transfer to C: C_Borel is known to ~58 digits via K, and S to ~41 digits. (c) delta(1,0,1) is the b_n=n^2+1 family, not even V_quad (= V(3,1,1)).",
+      "source": "git commit 50f9989 (this repo) for the DOI; pcf-delta/CITATION.cff; repo memory 'pcf-delta Fredholm representation'; stokes_2piK_results.json L14-32"
+    },
+    {
+      "id": "C2",
+      "severity": "MEDIUM (terminology)",
+      "task_assertion": "single 'connection coefficient C' with no normalisation specified.",
+      "finding": "The corpus carries THREE distinct V_quad constants that could be meant: S = 2 pi K (Stokes, ~41 dig); C_Borel = |Gamma(beta)| K (Borel branch coeff = retracted 0.43770528, ~58 dig); delta = log R_inf (growth constant, classical). Probe resolves the exp-period target to C_Borel (the Gamma(branch) x amplitude skeleton, matching EBR kappa = Gamma(4/3) A0). S and C_Borel are interchangeable (S = (2 pi/|Gamma(beta)|) C_Borel).",
+      "source": "stokes_2piK_results.json L11,31-32; cc3 template"
+    },
+    {
+      "id": "C3",
+      "severity": "LOW (resolved-as-exact)",
+      "task_assertion": "'xi0 ~ 2/sqrt3 (hedged, not exact)'.",
+      "finding": "In the resurgence computation the Borel singularity / action A = xi0 = 2/sqrt3 is used and numerically confirmed as EXACT (Stage 5 here: |a_n/a_{n+1}|*n -> 2/sqrt3 to 95.6 digits). The 'hedged' flag appears to be stale (likely an earlier draft where xi0 was only the WKB turning point). For the exp-period skeleton, xi0 in Q(sqrt3) is treated as exact-algebraic.",
+      "source": "Stage 5 numcheck_period_rep_results.json T2 (dominant_radius_vs_xi0_stable_digits = 95.6)"
+    }
+  ],
+
+  "gaps_requiring_external_literature_or_construction": [
+    {
+      "id": "G-LAX",
+      "gap": "NO explicit Lax pair / rank-2 linear ODE for V_quad's Painleve V exists in the corpus. EBR-II §5 describes it only in words ('order-2 Heun, 4 singular points'). Stage 3 must reconstruct the associated linear problem from the standard Jimbo-Miwa Painleve-V isomonodromy (external literature), parameterised by (theta_inf=2/sqrt3, alpha=1/6, accessory parameter).",
+      "status": "construction/literature gap (not a contradiction)"
+    },
+    {
+      "id": "G-KOVACIC",
+      "gap": "Task asserts 'Galois group SL(2) by exact Kovacic'; NO Kovacic-execution file located in the corpus. The SL(2) claim is asserted in the task prompt and consistent with the surface-type memory, but the derivation is not in hand. Marked as ASSERTED, to be sourced/redone before any paper.",
+      "status": "derivation gap"
+    },
+    {
+      "id": "G-OMEGA",
+      "gap": "The load-bearing one. No explicit ALGEBRAIC Borel operator / de Rham model for V_quad (the analogue of EBR cc3's order-4 L) exists. V_quad lives on the non-holonomic WKB/Painleve-transcendent side; its accessory parameter is transcendental (EBR-II §5). Whether the de Rham form omega can be taken algebraic over a number field is UNRESOLVED — this is the sub-step the verdict turns on.",
+      "status": "open research sub-step (-> Stage 7 follow-up definition)"
+    }
+  ],
+
+  "generated_utc_note": "line numbers cite the files as read this session; see claims.jsonl for per-fact grading."
+}

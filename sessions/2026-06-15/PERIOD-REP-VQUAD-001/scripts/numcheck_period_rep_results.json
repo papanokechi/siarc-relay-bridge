@@ -1,0 +1,84 @@
+{
+  "task": "PERIOD-REP-VQUAD-001 Stage 5 numerical sanity check",
+  "params": {
+    "order": 1500,
+    "dps": 240,
+    "xi0_action_A": "1.154700538379251529018297561",
+    "beta_branch_exponent": "-0.192450089729875254836382926834"
+  },
+  "T1_bridge": {
+    "K": "0.07287810255186696412944236332965251280455568916271",
+    "K_window_spread": "1.441e-45",
+    "S_eq_2piK": "0.457906623169017636119097842548225837962395135",
+    "S_anchor_deposited": "0.4579066231690176361190978425482258379624",
+    "S_vs_anchor_stable_digits": 41.3,
+    "C_borel_eq_absGamma_beta_times_K": "0.437705286193537221230739749794369589981725597",
+    "C_borel_retracted_historical": "0.43770528619353722123074",
+    "C_borel_vs_historical_stable_digits": 24.6,
+    "ratio_S_over_C_borel": "1.046152828427455008442756979255809325286",
+    "ratio_2pi_over_absGamma_beta": "1.046152828427455008442756979255809325286",
+    "ratio_identity_residual": "0.0",
+    "interpretation": "S/C_borel = 2*pi/|Gamma(beta)| EXACTLY: C and S are the same Borel-plane datum in two normalisations; C carries the Gamma(branch-exponent) factor characteristic of a rapid-decay connection coefficient (exp-period skeleton)."
+  },
+  "T2_borel_singularity_census": {
+    "convention": "B[phi](xi) = sum_n a_n xi^{n-1}/Gamma(n); radius = nearest Borel singularity",
+    "dominant_radius_|a_n/a_{n+1}|*n_extrap": "1.154700538379251529018297561",
+    "xi0_exact_2_over_sqrt3": "1.154700538379251529018297561",
+    "dominant_radius_vs_xi0_stable_digits": 95.6,
+    "subdominant_v_n_samples": {
+      "1200": "0.0728858553676",
+      "1300": "0.0728852589057",
+      "1400": "0.0728847476647",
+      "1500": "0.0728843045981"
+    },
+    "subdominant_v_n_relative_drift_over_decade": "2.128e-5",
+    "interpretation": "DOMINANT Borel singularity CONFIRMED at xi0 = 2/sqrt3 to the reported digits (clean algebraic location in Q(sqrt3)). The normalised amplitude v_n ~ |C| varies only at the O(1/n) (algebraic) level across a decade of n with NO detectable second geometric scale near |xi0| -- consistent with a single isolated dominant branch (xi0-beta)^... of Nilsson class, the shape an algebraic/regular-holonomic Borel kernel would have. This is NECESSARY but NOT SUFFICIENT for omega algebraic: exactly locating any 2-instanton tower at 2*xi0,3*xi0 and proving B[phi] is the period of an ALGEBRAIC de Rham form needs a Borel-Pade + an explicit V_quad Borel operator (DEFERRED -- this is the open sub-step the verdict turns on)."
+  },
+  "T3_fresan_jossen_clean_period_null": {
+    "basis": [
+      "S",
+      "pi",
+      "sqrt3",
+      "sqrt_pi",
+      "Gamma(1/3)",
+      "Gamma(2/3)",
+      "Gamma(1/6)",
+      "Gamma(5/6)"
+    ],
+    "pslq_relation_for_S": [
+      8448,
+      -4673,
+      -22655,
+      -45024,
+      -340,
+      658,
+      16610,
+      33149
+    ],
+    "pslq_relation_for_C_borel": [
+      -71219,
+      -42682,
+      7813,
+      -7443,
+      31149,
+      15059,
+      5046,
+      29232
+    ],
+    "maxcoeff": 100000,
+    "dps": 45,
+    "S_relation_height": 45024,
+    "C_relation_height": 71219,
+    "S_null_confirmed": true,
+    "C_null_confirmed": true,
+    "interpretation": "Any relation returned has height ~maxcoeff (10^4-10^5), which at dps=45 over an 8-term basis is below the Bailey detection floor => SPURIOUS => NULL CONFIRMED: neither S nor C_borel is a low-height combination of sqrt(pi)/single Gamma values. So C is NOT a degenerate (gamma-motive, dim-1) Fresan-Jossen exp-period; it is a genuine higher exp-period if it is one. Consistent with the deposited 169-digit (EBR) and 55-digit (V_quad S) nulls."
+  },
+  "T4_sign_convention": {
+    "fresan_jossen_pairing": "int_gamma e^{-f} omega  (book eq 1.1.2.1)",
+    "task_target_form": "C = int_gamma e^{+f} g dt",
+    "reconciliation": "f_task = -f_FJ; identical object, opposite sign in the exponent.",
+    "borel_laplace_realisation": "phi(z)=int_0^inf e^{-z xi} B[phi](xi) dxi; the Stokes/connection datum is the rapid-decay period of B[phi] across the ray to xi0=2/sqrt3."
+  },
+  "runtime_seconds": 9.3,
+  "generated_utc": "2026-06-15T07:58:53.749967+00:00"
+}
