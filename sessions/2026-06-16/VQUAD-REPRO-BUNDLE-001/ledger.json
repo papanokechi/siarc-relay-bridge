@@ -1,0 +1,82 @@
+{
+  "chain_id": "VQUAD-REPRO-BUNDLE-001",
+  "title": "Reproducibility bundle for the V_quad exponential-period-representation paper",
+  "date": "2026-06-16",
+  "parent_slots": [
+    "sessions/2026-06-15/PERIOD-REP-VQUAD-001/",
+    "sessions/2026-06-15/PERIOD-REP-VQUAD-002/",
+    "sessions/2026-06-15/PERIOD-REP-VQUAD-003/",
+    "sessions/2026-06-15/VQUAD-PERIODREP-PAPER-001/"
+  ],
+  "purpose": "Assemble a single self-contained bundle (paper + verification scripts + reference data + reproducibility docs) ready for the future VQUAD-ZENODO-DEPOSIT-001 slot. Bundle is ASSEMBLED and integrity-verified in this slot, NOT deposited.",
+  "prerequisite_gap": {
+    "VQUAD-PAPER-CORRECTIONS-001": "DOES NOT EXIST in the bridge as of 2026-06-16; the brief named it a prerequisite.",
+    "cold_read_verdict": "UNRECORDED.",
+    "disposition": "Bundle built against the current byte-reproducible paper draft (PDF sha256 359d1172...). Bundle INTEGRITY is fully verified; paper EDITORIAL-FINAL certification remains an open operator gate. See prerequisite-check.md and bundle-integrity-verification.md section 6.",
+    "fresan_inquiry": "FRESAN-JOSSEN-INQUIRY-001 drafted, not sent; G-MOTGALOIS gap treated as confirmed-pending in the paper's conditional framing."
+  },
+  "stages": {
+    "stage0_prerequisites": {"status": "COMPLETE", "output": "prerequisite-check.md"},
+    "stage1_inventory": {"status": "COMPLETE", "output": "inventory.md"},
+    "stage2_structure": {
+      "status": "COMPLETE",
+      "outputs": ["vquad-periodrep-bundle/ tree", "LICENSE (CC BY 4.0)"],
+      "transformer": "relativize_and_copy.py",
+      "transforms": ["path relativization to __file__ dir", "UTF-8 stdout guard", "stage4_methods.py +1/z Borel-sum convention patch"]
+    },
+    "stage3_readmes": {
+      "status": "COMPLETE",
+      "outputs": ["README.md", "scripts/01-algebraicity/README.md", "scripts/02-galois/README.md", "scripts/03-verification/README.md", "scripts/04-cycle/README.md"]
+    },
+    "stage4_docs": {
+      "status": "COMPLETE",
+      "outputs": ["docs/REPRODUCIBILITY.md", "docs/DEPENDENCIES.md", "docs/SIARC_PROVENANCE.md", "docs/CONVENTIONS.md"]
+    },
+    "stage5_integrity": {
+      "status": "COMPLETE",
+      "output": "bundle-integrity-verification.md",
+      "harness": "verify_bundle.py",
+      "result": "ALL ESSENTIAL SCRIPTS PASS: True (13 run, exit 0; 11 exact, 1 match-modulo-volatile, 1 stdout-only)",
+      "no_absolute_paths": true,
+      "paper_reproducible": true,
+      "pdf_sha256": "359d1172af3f867f4349cf4776a222813a855cd354bc78c0b68ccfb0026c702b",
+      "halt_gate_5": "PASS"
+    },
+    "stage6_packaging": {
+      "status": "COMPLETE",
+      "output": "bundle-archive-info.md",
+      "packager": "_package_bundle.py",
+      "archive": "vquad-periodrep-bundle.zip",
+      "archive_sha256": "e7eff5c85de1a495165730742772ec0a0eac6aa58f46bb210ce4c37bf43d3432",
+      "archive_size_bytes": 708568,
+      "file_count": 40,
+      "portable": "forward-slash entries, single top-level dir, testzip OK, embedded PDF hash verified"
+    },
+    "stage7_ledger_handoff": {
+      "status": "COMPLETE",
+      "outputs": ["ledger.json", "claims.jsonl", "handoff.md"]
+    }
+  },
+  "bundle_integrity_status": "PASS",
+  "bundle_composition": {
+    "total_files": 40,
+    "scripts_py": 14,
+    "scripts_runnable": 13,
+    "support_modules": 1,
+    "data_json": 12,
+    "docs_md": 4,
+    "per_dir_readmes": 4,
+    "top_readme": 1,
+    "license": 1,
+    "paper_files": 4
+  },
+  "autonomy_rule": "Standing meta-rule: agent does NOT deposit to Zenodo and does NOT commit/push the slot. Slot is git-add staged then HELD for operator review.",
+  "downstream_gates": [
+    "operator review of the bundle (contents, docs, archive)",
+    "operator certification that the paper is editorial-final (closes the VQUAD-PAPER-CORRECTIONS-001 / cold-read gap)",
+    "operator runs VQUAD-ZENODO-DEPOSIT-001 (deposit the paper PDF + bundle zip, CC BY 4.0)",
+    "operator commit/push this slot when authorized"
+  ],
+  "commit_message_prepared": "VQUAD-REPRO-BUNDLE-001 \u2014 reproducibility bundle assembled and verified; ready for Zenodo deposit",
+  "held": true
+}

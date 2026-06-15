@@ -1,0 +1,92 @@
+{
+  "slot": "VQUAD-REVIEW-PREP-001",
+  "title": "Commit prep + byte-repro verification + cold-read framework for VQUAD-PERIODREP-PAPER-001",
+  "date": "2026-06-15",
+  "repo": "papanokechi/siarc-relay-bridge",
+  "branch": "main",
+  "depends_on": "VQUAD-PERIODREP-PAPER-001 (paper draft, 23pp, ready-state)",
+  "phase_a_commit": {
+    "intent": "Execute the operator-pre-approved commit + push of the VQUAD-PERIODREP-PAPER-001 slot (durable-record step).",
+    "status": "COMPLETE",
+    "executed": true,
+    "head_before": "50f9989ff1cadec9e9e6577c984a33bf9053be20",
+    "head_after": "f3dd3a41e9725bf1574c7215a7525e916741026e",
+    "head_moved": true,
+    "commit_sha": "f3dd3a41e9725bf1574c7215a7525e916741026e",
+    "push_status": "pushed",
+    "initial_hold": "Phase A first HALTED on a staging mismatch (index held 89 files across 4 slots vs the documented 21). The A.1 gate fired correctly. The operator then authorized a four-slot cleanup releasing the held commits; see phase-a-resolution.md.",
+    "resolution": {
+      "method": "four chronological single-slot commits + pushes (git reset HEAD, then per-slot add/commit/push); __pycache__ unstaged per slot to preserve original file sets.",
+      "commits_in_order": [
+        {"slot": "PERIOD-REP-VQUAD-001", "files": 12, "verdict": "NEEDS-MORE-PROBE", "sha": "911b8a2e618aa68c33da5a7b9ae19c2db785d1dd"},
+        {"slot": "PERIOD-REP-VQUAD-002", "files": 20, "verdict": "outcome_GO_clean", "sha": "3b1417e09e0eba64a200f82ff35701fc38a1fdca"},
+        {"slot": "PERIOD-REP-VQUAD-003", "files": 36, "verdict": "VERIFIED", "sha": "d965b1307f6c9ecf5984e7d0282df441b35609b3"},
+        {"slot": "VQUAD-PERIODREP-PAPER-001", "files": 21, "verdict": "draft complete (23pp; 6 open items)", "sha": "f3dd3a41e9725bf1574c7215a7525e916741026e"}
+      ],
+      "record_file": "phase-a-resolution.md"
+    },
+    "paper_slot_clean": true,
+    "paper_slot_staged_files": 21,
+    "ready_commands_in": "phase-a-result.json (historical; superseded by the executed cleanup)",
+    "url_liveness": {
+      "checked": true,
+      "all_live_http_200": true,
+      "bridge_tree_url": "https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-06-15/VQUAD-PERIODREP-PAPER-001/",
+      "claude_fetch_raw_url": "https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-06-15/VQUAD-PERIODREP-PAPER-001/handoff.md"
+    }
+  },
+  "phase_b_byte_repro": {
+    "status": "VERIFIED",
+    "method": "dual raw pdflatex x2, SHA-256 compare (no SOURCE_DATE_EPOCH)",
+    "build1_sha256": "359D1172AF3F867F4349CF4776A222813A855CD354BC78C0B68CCFB0026C702B",
+    "build2_sha256": "359D1172AF3F867F4349CF4776A222813A855CD354BC78C0B68CCFB0026C702B",
+    "match": true,
+    "bytes": 698730,
+    "pages": 23,
+    "root_cause": "preamble reproducibility guards (\\pdfinfoomitdate=1, \\pdftrailerid{}, \\pdfsuppressptexinfo=-1) suppress all timestamp/random fields; SOURCE_DATE_EPOCH redundant.",
+    "fix_required": false,
+    "fix_proposal_file": null,
+    "result_file": "byte-repro-result.md",
+    "hygiene": "transient build1/build2.pdf and aux/log/out removed; paper slot returned to 21 staged / 0 untracked / 0 modified."
+  },
+  "phase_c_framework": {
+    "status": "READY",
+    "files": [
+      "cold-read-checklist.md",
+      "read-environment-recommendations.md",
+      "open-items-decisions.md"
+    ]
+  },
+  "phase_d_ledger_handoff": {
+    "status": "DONE",
+    "files": ["ledger.json", "handoff.md"]
+  },
+  "open_items_carried": {
+    "MED-1": "Sakai concept DOI -> current state (conservative)",
+    "MED-2": "23pp acceptable; expand only on specific cold-read finding",
+    "MED-3": "G-MOTGALOIS -> STRENGTHEN (Compositio target)",
+    "LOW-1": "pseudonym/affiliation -> defer to VENUE-RELAY",
+    "LOW-2": "b_m table -> review during read",
+    "LOW-3": "§5.3 numerical A -> spot-check during read"
+  },
+  "downstream_gate": "Operator cold-read of the VQUAD-PERIODREP-PAPER-001 draft (use cold-read-checklist.md).",
+  "downstream_blocker": "NONE — Phase A resolved: the paper slot is committed (f3dd3a4) and pushed; BRIDGE + CLAUDE_FETCH URLs are live (HTTP 200). The cold read can proceed.",
+  "subsequent_slot": "VQUAD-PAPER-CORRECTIONS-001 (opened by operator AFTER cold-read completes; scope informed by read findings).",
+  "downstream_sequence_after_corrections": [
+    "reproducibility bundle",
+    "Zenodo deposit",
+    "Compositio pre-clearance email",
+    "VENUE-RELAY chain"
+  ],
+  "this_slot_git": "ready-state HELD (standing meta-rule); staged, not committed/pushed. Re-staged after the four-slot cleanup reset, now including phase-a-resolution.md and the updated ledger.json.",
+  "deliverables": [
+    "phase-a-result.json",
+    "phase-a-resolution.md",
+    "byte-repro-result.md",
+    "cold-read-checklist.md",
+    "read-environment-recommendations.md",
+    "open-items-decisions.md",
+    "ledger.json",
+    "handoff.md"
+  ]
+}

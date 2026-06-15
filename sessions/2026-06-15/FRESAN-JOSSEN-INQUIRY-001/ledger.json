@@ -1,0 +1,54 @@
+{
+  "chain_id": "FRESAN-JOSSEN-INQUIRY-001",
+  "title": "Inquiry email to Prof. Javier Fresan on the motivic-Galois comparison (G-MOTGALOIS gap) for V_quad's exponential motive",
+  "date": "2026-06-15",
+  "parent_paper": "sessions/2026-06-15/VQUAD-PERIODREP-PAPER-001/",
+  "parent_probes": [
+    "sessions/2026-06-15/PERIOD-REP-VQUAD-001/",
+    "sessions/2026-06-15/PERIOD-REP-VQUAD-002/",
+    "sessions/2026-06-15/PERIOD-REP-VQUAD-003/"
+  ],
+  "purpose": "Resolve or clarify the G-MOTGALOIS gap in paper section 6 before deposit, by asking whether the differential (Picard-Vessiot) Galois data licenses the motivic Galois group G_M for V_quad's genus-0 exponential motive.",
+  "stages": {
+    "stage1_monograph_mapping": {
+      "status": "COMPLETE",
+      "output": "monograph-mapping.md",
+      "key_locators": ["Prop. 1.3.1 (G_M)", "Conjecture 1.3.2 / pdf p.17 (comparison)", "Ex. 1.1.4 (gamma)", "Ex. 1.1.5 (Bessel)", "section 12.1 (Lindemann-Weierstrass)", "Def. 3.1.1.1 / p.91 (rapid-decay)", "FJ-axioms section 2.5 #6 (local-vs-global caveat)"]
+    },
+    "stage2_structural_summary": {
+      "status": "COMPLETE",
+      "output": "structural-summary.md",
+      "flag_stage_2_2": "L_V differential Galois group G_V is STRUCTURALLY pinned (G_m from irrational exponent -1+sqrt3/9 + SL(2)-dual irregular block + Stokes) but NOT reduced to a single named group (no Hrushovski tool; VQUAD-003 HALT GATE 3 escape clause). Inquiry framed against SL(2) (firm) + structural G_V, not a claimed single-name G_V."
+    },
+    "stage3_email_draft": {
+      "status": "COMPLETE",
+      "outputs": ["inquiry-draft.txt", "inquiry-rationale.md"],
+      "word_count_body": 374,
+      "frame": "C (does named theorem apply?)",
+      "recipient_verified": "javier.fresan@imj-prg.fr",
+      "recipient_source": "http://javier.fresan.perso.math.cnrs.fr/ (fetched 2026-06-15; page last update Jan 5 2026)",
+      "task_brief_correction": "Fresan is NOT at Ecole Polytechnique; now Professeur at Sorbonne Universite / IMJ-PRG (ERC EMOTIVE). The @polytechnique.edu address is outdated."
+    },
+    "stage4_scenarios": {
+      "status": "COMPLETE",
+      "output": "response-scenarios.md",
+      "scenarios": ["A simplifies", "B full-conjecture", "C extra-condition", "D no-reply->Jossen", "E pseudonymity-friction"]
+    },
+    "stage5_ledger_handoff": {
+      "status": "COMPLETE",
+      "outputs": ["ledger.json", "claims.jsonl", "handoff.md"]
+    }
+  },
+  "inquiry_status": "DRAFTED, NOT SENT",
+  "autonomy_rule": "Standing meta-rule: agent does NOT send the email and does NOT commit/push the slot. Slot is git-add staged then HELD for operator review and send.",
+  "downstream_gates": [
+    "operator review of inquiry-draft.txt (tone/framing/content)",
+    "operator re-verify javier.fresan@imj-prg.fr at send time",
+    "operator send from the same account used for the prior expert inquiry",
+    "operator set 4-week and 6-week follow-up reminders",
+    "on reply: run scenario-specific action (response-scenarios.md) into VQUAD-PAPER-CORRECTIONS-001",
+    "operator commit/push this slot when authorized"
+  ],
+  "commit_message_prepared": "FRESAN-JOSSEN-INQUIRY-001 \u2014 inquiry email drafted; awaiting operator review and send",
+  "held": true
+}
