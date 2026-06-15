@@ -1,0 +1,52 @@
+{
+  "_chain_id": "PERIOD-REP-VQUAD-002",
+  "_object": "Pre-committed outcome map for the G-OMEGA resolution probe (does the V_quad Borel operator L_V have coefficients algebraic over Q(sqrt3)?). Written in Stage 0 BEFORE any computation per Strengthening Condition 2; the Stage-5 selection is mechanical against this map; NO post-hoc reframing.",
+  "_committed_utc": "2026-06-15T17:31:22+09:00",
+  "_committed_before_any_computation": true,
+
+  "outcome_GO_clean": {
+    "condition": "L_V is algebraic over Q(sqrt3) with coefficients in Q(sqrt3)",
+    "verdict_for_subproblem_A": "GO",
+    "next_step": "Open PERIOD-REP-VQUAD-003 for sub-problem B (rapid-decay cycle formalization) and sub-problem C (symbolic verification via L_V)",
+    "tentative_venue": "Compositio Mathematica or JSC",
+    "paper_framing": "An Explicit Fresan-Jossen Exponential-Period Representation of the V_quad Connection Coefficient"
+  },
+  "outcome_GO_small_extension": {
+    "condition": "L_V is algebraic over a small explicit extension of Q(sqrt3), e.g. Q(sqrt3, sqrt-1) or Q(sqrt3, zeta_n) for small n",
+    "verdict_for_subproblem_A": "GO-WITH-COMPLICATION",
+    "next_step": "Same as outcome_GO_clean, but track the base field explicitly through sub-problems B and C",
+    "tentative_venue": "JSC, Math Annalen, or Constructive Approximation",
+    "paper_framing": "Same as GO-clean, with base field stated in the title or abstract"
+  },
+  "outcome_GO_larger_field": {
+    "condition": "L_V is algebraic over a non-CM extension or a genuinely larger field (rank >= 4 over Q)",
+    "verdict_for_subproblem_A": "GO-WITH-COMPLICATION",
+    "next_step": "Reconsider framing. The paper still goes through, but the Fresan-Jossen application becomes less clean. Consider broader framework (Brown-Dupont, generalized period ring). Pause for operator review before proceeding to sub-problem B.",
+    "tentative_venue": "JSC or Letters in Mathematical Physics; Compositio off-table",
+    "paper_framing": "An Exponential-Period Integral Representation of the V_quad Connection Coefficient over <field>"
+  },
+  "outcome_NO_GO_clean": {
+    "condition": "L_V is provably D-transcendental — the Borel transform B-hat(xi) does not satisfy any algebraic differential equation",
+    "verdict_for_subproblem_A": "NO-GO for Fresan-Jossen target",
+    "next_step": "Two options to present to operator: (a) pivot to the relative/family period framing (the Borel transform may be algebraic in a parameter family even if not at the specific V_quad point), or (b) table Direction 2 and select an alternative direction from the original five (1, 3, 4, or 5)",
+    "tentative_venue": "If shorter Borel-structure paper is extracted: JSC or Constructive Approximation",
+    "paper_framing": "If shorter paper is written: 'The Borel Structure of the V_quad Asymptotic Expansion' (without transcendence claim)"
+  },
+  "outcome_INCONCLUSIVE": {
+    "condition": "Neither algebraicity nor D-transcendence can be established within the 2-week budget",
+    "verdict_for_subproblem_A": "NEEDS-MORE-PROBE (deeper)",
+    "next_step": "Operator review: decide whether to extend the probe budget, or to accept the inconclusive result and either table Direction 2 or write the conditional-on-algebraicity paper",
+    "tentative_venue": "TBD",
+    "paper_framing": "TBD"
+  },
+
+  "_selection_rule": {
+    "GO_clean": "L_V coefficients in Q(sqrt3)",
+    "GO_small_extension": "L_V coefficients in Q(sqrt3, sqrt-1), Q(sqrt3, zeta_n) small, or similar CM/cyclotomic extension",
+    "GO_larger_field": "L_V coefficients in non-CM or rank>=4 field",
+    "NO_GO_clean": "no holonomic ODE found AND D-transcendence more strongly evidenced",
+    "INCONCLUSIVE": "no holonomic ODE found within budget, Stage 3.6 inconclusive",
+    "operator_review_flag": "holonomic ODE found but operator structure unusable for the Fresan-Jossen application"
+  },
+  "_do_not": "DO NOT declare GO_clean if the coefficient field is anything other than Q(sqrt3) — even Q(sqrt3, sqrt-1) is GO_small_extension."
+}
