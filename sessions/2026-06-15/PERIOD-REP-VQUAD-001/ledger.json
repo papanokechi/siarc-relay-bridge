@@ -1,0 +1,85 @@
+{
+  "chain_id": "PERIOD-REP-VQUAD-001",
+  "date": "2026-06-15",
+  "slot": "siarc-relay-bridge/sessions/2026-06-15/PERIOD-REP-VQUAD-001/",
+  "object": "Sub-problem A scoping probe: does the V_quad connection coefficient C admit a clean explicit exponential-period representation C = int_gamma e^{f} g dt (Fresan-Jossen), derivable from existing V_quad Sakai/Galois data? Output is a working note, NOT a paper/proof/Lean.",
+  "parent_program": "Sakai Stratification of PCF Transcendence (Zenodo, June 2026); open problem OP1/G1 (explicit period integral representation of C)",
+
+  "verdict": "NEEDS-MORE-PROBE (favourable)",
+  "verdict_one_line": "A candidate (X,f,omega,gamma) is identified and FJ-shaped, numerically consistent (bridge exact; Borel singularity at xi0=2/sqrt3 to 95.6 digits), but FJ axiom 3 (omega algebraicity over Qbar) is UNCLEAR and is the blocking INPUT to B/C/D; resolve via focused 1-2 week follow-up PERIOD-REP-VQUAD-002 before committing.",
+
+  "candidate_compact": {
+    "X": "G_m,xi (Borel curve; singular {0, xi0, infinity})",
+    "f": "xi (Laplace phase, /Q; FJ-sign e^{-f}; task e^{+f} => f_task=-f_FJ)",
+    "omega": "B[phi](xi) dxi (Borel 1-form; local branch (xi0-xi)^{-beta})",
+    "gamma": "Hankel rapid-decay thimble on [xi0, infinity), arg xi = 0",
+    "value": "C = C_Borel = |Gamma(beta)|*K = 0.43770528619353722123073975...",
+    "xi0": "2/sqrt3 (in Q(sqrt3))",
+    "beta": "-1/(3 sqrt3) (in Q(sqrt3))"
+  },
+
+  "numerical_agreement": {
+    "bridge_S_over_C_eq_2pi_over_absGamma_beta": "exact (residual 0.0)",
+    "S_eq_2piK_vs_anchor_digits": 41.3,
+    "borel_singularity_at_xi0_digits": 95.6,
+    "subdominant_relative_drift_over_decade": "2.1e-5 (single isolated branch)",
+    "clean_period_null": "S and C are NOT low-height combinations of sqrt(pi)/single-Gamma values (genuine higher period if any)",
+    "precision_note": "C known to ~58 digits via K; S to ~41; NOT 65 (the task's 65 is the delta growth constant, a different object)"
+  },
+
+  "fresan_jossen_axiom_status": {
+    "1_X_smooth_over_Qbar": "VERIFIED",
+    "2_f_regular": "VERIFIED",
+    "3_omega_algebraic_k_in_Qbar": "UNCLEAR (load-bearing; gap G-OMEGA)",
+    "4_gamma_rapid_decay": "VERIFIED",
+    "5_perfect_comparison_dim_match": "VERIFIED-BUT-NEEDS-CARE",
+    "6_motive_over_number_field_G_M": "UNCLEAR"
+  },
+
+  "stages_completed": ["1 data-inventory", "2 fresan-jossen-axioms", "3 vquad-linear-system", "4 candidate-data", "5 numerical-check", "6 fresan-jossen-compatibility", "7 verdict", "8 ledger+claims+handoff"],
+  "stages_pending": [],
+
+  "gaps": [
+    {"id": "G-OMEGA", "severity": "BLOCKING", "desc": "no explicit algebraic Borel/de-Rham model for V_quad (analogue of EBR cc3 order-4 L); accessory parameter transcendental; omega algebraicity unproven", "resolves_in": "PERIOD-REP-VQUAD-002"},
+    {"id": "G-LAX", "severity": "SUPPORTING", "desc": "no explicit V_quad Lax pair in corpus; Stage-3 system is Jimbo-Miwa PV specialised (literature-derived)", "resolves_in": "PERIOD-REP-VQUAD-002"},
+    {"id": "G-KOVACIC", "severity": "SUPPORTING", "desc": "SL(2) differential-Galois asserted (task/memory) but no Kovacic-execution file located", "resolves_in": "PERIOD-REP-VQUAD-002"}
+  ],
+
+  "contradictions_logged": [
+    {"id": "C1", "desc": "task DOI 20624814 for delta is CORRECT (commit 50f9989 ties it to pcf-delta Fredholm; concept 20578400/v1.4 20633165 are other versions). Real correction: delta = growth constant != connection coefficient C; the 65-digit Fredholm precision is delta's, not C's (C ~58 dig, S ~41)", "severity": "MEDIUM-HIGH"},
+    {"id": "C2", "desc": "task 'connection coefficient C' ambiguous among S/C_Borel/delta; resolved to C_Borel=|Gamma(beta)|K", "severity": "MEDIUM"},
+    {"id": "C3", "desc": "task 'xi0 hedged' stale; xi0=2/sqrt3 confirmed to 95.6 digits, treated exact-algebraic", "severity": "LOW"}
+  ],
+
+  "downstream_gates": [
+    {"gate": "PERIOD-REP-VQUAD-002 (construct V_quad algebraic Borel operator L_V; settle omega algebraicity)", "status": "RECOMMENDED — required before B/C/D; 1-2 weeks, data in hand", "decision_gate": "L_V algebraic /Q(sqrt3) => upgrade A to GO; L_V provably non-algebraic => A NO-GO (clean form), pivot to relative/family period (verdict.md 7.5)"},
+    {"gate": "sub-problem B (explicit period matrix + Hien pairing)", "status": "BLOCKED on A' GO", "estimate": "2-3 weeks"},
+    {"gate": "sub-problem C (FJ motive M, G_M, conditional transcendence theorem)", "status": "BLOCKED on B", "estimate": "3-4 weeks"},
+    {"gate": "sub-problem D (write-up incl. CAS/SOTA section per AAECC/Lecerf lesson)", "status": "BLOCKED on C", "estimate": "2-3 weeks"}
+  ],
+
+  "halt_gate_events": [
+    {"gate": "Stage-4 candidate by week 2", "condition": "halt if no candidate", "result": "NOT triggered — candidate produced", "note": "skeleton identified Stage 4"},
+    {"gate": "GO forbidden while any FJ axiom UNCLEAR", "condition": "downgrade", "result": "TRIGGERED — axioms 3,6 UNCLEAR => verdict downgraded from GO to NEEDS-MORE-PROBE", "operator_decision": "n/a (automatic per task rule)"},
+    {"gate": "3-calendar-week cap", "condition": "halt if exceeded", "result": "NOT triggered — probe completed within budget"}
+  ],
+
+  "no_autonomous_actions_confirmed": {
+    "zenodo_deposit": "NONE (priority work is post-sub-problem-C, not during A)",
+    "corpus_commits": "NONE (no project-fingerprint deposited material modified; EBR-III draft read-only)",
+    "sakai_paper_update": "NONE (probe output is a working note only)"
+  },
+
+  "artifacts": ["data-inventory.json", "fresan-jossen-axioms.md", "vquad-linear-system.md", "candidate-data.md", "numerical-check.md", "fresan-jossen-compatibility.md", "verdict.md", "ledger.json", "claims.jsonl", "handoff.md", "scripts/numcheck_period_rep.py", "scripts/numcheck_period_rep_results.json"],
+  "claims_count": 22,
+
+  "standing_final_step": {
+    "policy": "Standing meta-rule (repository memory): never commit/push/tag/move/delete; prepare to ready-state and STOP for operator. This conflicts with the task's literal 'git add / commit / git push origin main'; the standing rule covers this case — HELD.",
+    "git": "git add of the slot prepared and dry-run verified; commit message composed; NOT executed. Operator runs add/commit/push by hand.",
+    "composed_commit_message": "PERIOD-REP-VQUAD-001 — sub-problem A scoping probe complete; verdict NEEDS-MORE-PROBE",
+    "bridge_url": "https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-06-15/PERIOD-REP-VQUAD-001/",
+    "claude_fetch_url": "https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-06-15/PERIOD-REP-VQUAD-001/handoff.md"
+  },
+
+  "status": "PROBE COMPLETE — NEEDS-MORE-PROBE (favourable); ready-state git HELD for operator"
+}
