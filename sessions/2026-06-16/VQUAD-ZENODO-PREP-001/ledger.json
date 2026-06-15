@@ -1,0 +1,73 @@
+{
+  "chain_id": "VQUAD-ZENODO-PREP-001",
+  "title": "Zenodo deposit kit prepared for the V_quad exponential-period-representation paper",
+  "date": "2026-06-16",
+  "parent_slots": [
+    "sessions/2026-06-15/PERIOD-REP-VQUAD-001/",
+    "sessions/2026-06-15/PERIOD-REP-VQUAD-002/",
+    "sessions/2026-06-15/PERIOD-REP-VQUAD-003/",
+    "sessions/2026-06-15/VQUAD-PERIODREP-PAPER-001/",
+    "sessions/2026-06-16/VQUAD-REPRO-BUNDLE-001/"
+  ],
+  "purpose": "Perform the resolvable preparation work for the eventual VQUAD-ZENODO-DEPOSIT-001 slot: DOI resolution, related-identifiers wiring, metadata draft + anchor, wrong-venue-token decision, operator-prerequisites checklist, and the sandbox/production runbook. NO Zenodo API call, NO token handling, NO sandbox dry-run, NO commit — prepared to ready-state and HELD.",
+  "standing_meta_rule": "HELD. Slot git-add staged only; no commit/push/tag/deposit. Prepared commit message: 'VQUAD-ZENODO-PREP-001 — Zenodo deposit kit prepared and configured; awaiting cold-read and corrections before deposit'.",
+  "stages": {
+    "stage1_kit_verification": {
+      "status": "COMPLETE",
+      "output": "kit-verification.md",
+      "verdict": "KIT PRESENT — no critical tooling missing",
+      "path_corrections": [
+        "templates live in project-fingerprint/zenodo/templates/ (NOT sakai-stratification/templates/ as the brief assumed)",
+        "playbook = project-fingerprint/zenodo/README_ZENODO_DEPOSIT.md (no per-session sakai-deposit README exists in the bridge)"
+      ]
+    },
+    "stage2_related_identifiers": {
+      "status": "COMPLETE",
+      "outputs": ["related-identifiers-resolved.json", "related-identifiers.md"],
+      "counts": {"continues": 2, "isPartOf": 1, "isSupplementTo": 1, "references": 8, "total_wired": 12, "available_to_add": 8, "operator_verify_unresolved": 4},
+      "summary_line": "12 ids = 2 continues + 1 isPartOf + 8 references + 1 isSupplementTo-placeholder",
+      "trap6_corrections": "Brief supplied 5 version/record DOIs; all corrected to concept DOIs (VQUAD 20455090->20455089, EBR-Ib 20569724->20569723, EBR-II 20571232->20566465, FRED 20624814->20624813, UMB 19885550->19885549).",
+      "anticipatory_flag": "EBR-Ib, EBR-II, FRED, and the 3 Marchal papers are NOT in the current V_quad bibliography; they require the corrections pass to add citations OR operator ratification as provenance links. P7-P11 governance stack UNRESOLVED (not cited; no clean concept DOIs)."
+    },
+    "stage3_metadata": {
+      "status": "COMPLETE",
+      "outputs": ["zenodo_metadata.md", "metadata-anchor-current.txt", "metadata-prepared.md"],
+      "metadata_anchor_sha256": "dee9195c7957f25fc57f497d6875cdd2b63d97d24f55f36b5e54e388ec003eb8",
+      "anchor_status": "PROVISIONAL — re-pin after corrections (title/abstract/MSC/affiliation/version)",
+      "open_decisions": ["F-AFFIL (blank vs 'Independent Researcher, Yokohama, Japan')", "addendum scope (keep vs trim to pure Abstract)", "version 1.0.0 vs corpus 1.0"]
+    },
+    "stage4_wrong_venue_token": {
+      "status": "COMPLETE",
+      "output": "wrong-venue-token-decision.md",
+      "decision": "Compositio (primary, case-sensitive); AAECC (secondary advisory)",
+      "excluded": "JSC / 'Symbolic Comput' — citation collision with Kovacic bibitem (paper L1264)",
+      "current_state": "manuscript venue-neutral: 0 occurrences of Compositio/AAECC/ETNA in vquad-periodrep-paper.tex"
+    },
+    "stage5_operator_checklist": {
+      "status": "COMPLETE",
+      "outputs": ["operator-prep-checklist.md", "deposit-pin-update-instructions.md"],
+      "checklist_items": 14,
+      "checklist_complete": 0,
+      "note": "0 of 14 checkable by the agent — all are operator hand-actions or depend on not-yet-existing slots"
+    },
+    "stage6_runbook": {
+      "status": "COMPLETE",
+      "output": "sandbox-and-production-runbook.md",
+      "note": "documents ZENODO_SANDBOX=1 + run_sandbox_draft.py --execute and run_production_draft.py --execute, Gates 0/1/2, outputs draft_ready.md/upload_manifest.md, HALT conditions; both runners STOP at the publish gate"
+    },
+    "stage7_ledger_handoff": {
+      "status": "COMPLETE",
+      "outputs": ["ledger.json", "claims.jsonl", "handoff.md"]
+    }
+  },
+  "provisional_pins": {
+    "pdf_name": "vquad-periodrep-paper.pdf",
+    "pdf_sha256_provisional": "359d1172af3f867f4349cf4776a222813a855cd354bc78c0b68ccfb0026c702b",
+    "pdf_pin_status": "PROVISIONAL — current byte-reproducible draft; re-pin to FINAL corrected PDF",
+    "metadata_anchor_provisional": "dee9195c7957f25fc57f497d6875cdd2b63d97d24f55f36b5e54e388ec003eb8",
+    "forbidden_venue_token": "Compositio",
+    "vquad_blocklist": ["20455090", "20481592", "20694841", "19885550", "20569724", "20571232", "20624814"]
+  },
+  "downstream_gate": "VQUAD-ZENODO-DEPOSIT-001 opens when ALL 14 operator-prep-checklist items complete (paper cold-read Verdict A, VQUAD-PAPER-CORRECTIONS-001 done, BUNDLE-002 regenerated, Fresan resolved, Marchal citation finalized, PDF + metadata anchors re-pinned, affiliation + anticipatory-references decisions resolved, prod token exported + scope-confirmed, post-staging hash re-confirmed, gate constants updated).",
+  "no_network_attestation": "No Zenodo API call (sandbox or production) was made in this slot. No token was handled. No sandbox dry-run was run. All DOIs resolved from authoritative local sources (sakai related_identifiers.md / DEPOSIT_LOG_INDEX.md / the paper bibliography) or journal pages verified against the arXiv API."
+}
