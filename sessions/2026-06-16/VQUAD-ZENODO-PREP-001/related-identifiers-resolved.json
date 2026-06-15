@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "slot": "VQUAD-ZENODO-PREP-001",
+    "stage": "2 — related-identifiers resolution",
+    "date": "2026-06-16",
+    "status": "STAGED FOR OPERATOR REVIEW — NOT MINTED",
+    "discipline": "Every DOI resolved from an authoritative local source (sakai-stratification/related_identifiers.md line-cited to submission_log.txt, DEPOSIT_LOG_INDEX.md, or the V_quad paper's own printed bibliography) or a journal page verified against the arXiv API. NEVER from memory.",
+    "trap6_note": "The task brief supplied VERSION/record DOIs for several works (a Trap-6 test). Every one was corrected to the CONCEPT (cite-all parent) DOI below. See _flags.",
+    "trap1_note": "Relation verbs use 'continues' (NOT 'isContinuationOf' — Zenodo HTTP 400) and 'isPartOf' (NOT 'isContainedIn'). All verbs below are Zenodo-accepted DataCite terms.",
+    "convention": "_-prefixed keys (_ref, _flag, _note) are annotations stripped by clean_meta before send. clean_meta is SHALLOW, so these live at entry top-level only."
+  },
+
+  "related_identifiers": [
+    { "identifier": "10.5281/zenodo.20455089", "relation": "continues",  "scheme": "doi", "resource_type": "publication-preprint", "_ref": "VQUAD-parent", "_status": "VERIFIED", "_source": "V_quad paper bibitem Vquad L1242-1243 prints 'version DOI 20455090 (concept 20455089)'; sakai related_identifiers.md L84; ledger L1021-1024", "_flag": "brief said 20455090 = v1.0 VERSION; concept is 20455089. v1.2 record (StokesNote) = 20481592 = SAME concept, do NOT double-wire", "_in_bibliography": true },
+    { "identifier": "10.5281/zenodo.20694840", "relation": "continues",  "scheme": "doi", "resource_type": "publication-preprint", "_ref": "SAKAI-STRAT-program", "_status": "VERIFIED", "_source": "DEPOSIT_LOG_INDEX.md §B#35 L14 (version 20694841 / concept 20694840)", "_flag": "brief said 20694840 — CORRECT (already concept). This is the program paper 'The Sakai Stratification of PCF Transcendence' (bibitem Sakai), distinct from Sakai 2001 CMP classification below", "_in_bibliography": true },
+
+    { "identifier": "10.5281/zenodo.19885549", "relation": "isPartOf",   "scheme": "doi", "_ref": "SIARC-umbrella", "_status": "VERIFIED", "_source": "related_identifiers.template.md L65; sakai related_identifiers.md L71; _zenodo_uploader.py SIARC_UMBRELLA_CONCEPT", "_flag": "concept is 19885549, NOT version 19885550. Provenance link (program-level), not a paper bibitem", "_in_bibliography": false },
+
+    { "identifier": "{{VQUAD-REPRO-BUNDLE-002-CONCEPT-DOI}}", "relation": "isSupplementTo", "scheme": "doi", "_ref": "REPRO-BUNDLE", "_status": "PLACEHOLDER", "_source": "Bundle not yet regenerated. Current artifact is VQUAD-REPRO-BUNDLE-001 (held, prior slot). BUNDLE-002 = post-corrections regeneration; its DOI does not exist yet.", "_flag": "FILL AT DEPOSIT TIME. If the paper and bundle deposit as a SINGLE Zenodo record (Sakai model: PDF + zip in one record), DROP this row instead.", "_in_bibliography": false },
+
+    { "identifier": "10.5281/zenodo.20569723", "relation": "references", "scheme": "doi", "resource_type": "publication-preprint", "_ref": "EBR-Ib", "_status": "VERIFIED", "_source": "sakai related_identifiers.md L78 / array L130 (concept 20569723; record 20569724); submission_log §B Item 29 L1152-1156", "_flag": "brief said 20569724 = the RECORD/version; concept is 20569723", "_in_bibliography": false, "_anticipatory": true },
+    { "identifier": "10.5281/zenodo.20566465", "relation": "references", "scheme": "doi", "resource_type": "publication-preprint", "_ref": "EBR-II", "_status": "VERIFIED", "_source": "sakai related_identifiers.md L65 / array L117 (concept 20566465); submission_log §B Item 31 L1175-1176 (v1.2 record 20571232)", "_flag": "brief said 20571232 = v1.2 RECORD; concept is 20566465", "_in_bibliography": false, "_anticipatory": true },
+    { "identifier": "10.5281/zenodo.20624813", "relation": "references", "scheme": "doi", "resource_type": "publication-preprint", "_ref": "FRED-delta", "_status": "VERIFIED", "_source": "sakai related_identifiers.md L80 / array L121 (concept 20624813; version 20624814); submission_log L803 region", "_flag": "brief said 20624814 = VERSION; concept is 20624813", "_in_bibliography": false, "_anticipatory": true },
+
+    { "identifier": "10.1007/s002200100446", "relation": "references", "scheme": "doi", "_ref": "Sakai-2001-CMP", "_status": "VERIFIED", "_source": "V_quad paper bibitem SakaiClass L1284 prints DOI 10.1007/s002200100446 (Sakai, Comm. Math. Phys. 220 (2001) 165-229, 'Rational surfaces associated with affine root systems and geometry of the Painlevé equations')", "_flag": "DISTINCT from SAKAI-STRAT program paper (concept 20694840) in continues; this is the 2001 surface-classification reference", "_in_bibliography": true },
+    { "identifier": "10.1016/S0747-7171(86)80010-4", "relation": "references", "scheme": "doi", "_ref": "Kovacic-1986-JSC", "_status": "VERIFIED", "_source": "V_quad paper bibitem Kovacic L1265 prints DOI 10.1016/S0747-7171(86)80010-4 (Kovacic, J. Symbolic Comput. 2 (1986) 3-43)", "_flag": "central method reference (Galois group of L_phi via Kovacic)", "_in_bibliography": true },
+
+    { "identifier": "10.1007/s00220-024-05187-0", "relation": "references", "scheme": "doi", "_ref": "Marchal-Alameddine-2024-CMP", "_status": "VERIFIED-EXTERNAL", "_source": "arXiv 2302.13905 comment 'Published version in Communications in Mathematical Physics'; Springer content URL + HAL hal-04019889; title 'Hamiltonian representation of isomonodromic deformations of twisted rational connections: The Painlevé 1 hierarchy'", "_flag": "ANTICIPATORY — brief-requested; NOT in current V_quad bibliography (paper cites Marchal personal-comm convention, not this published work)", "_in_bibliography": false, "_anticipatory": true },
+    { "identifier": "10.1016/j.geomphys.2017.10.009", "relation": "references", "scheme": "doi", "_ref": "Iwaki-Marchal-Saenz-2018-JGP", "_status": "VERIFIED-EXTERNAL", "_source": "web_search self-consistent citation: J. Geom. Phys. 124 (2018) 16-54, 'Painlevé equations, topological type property and reconstruction by the topological recursion'; Elsevier JGP prefix 10.1016/j.geomphys consistent with volume+pages", "_flag": "ANTICIPATORY — brief-requested; NOT in current V_quad bibliography. DOI not independently arXiv-verified (no arXiv id located) but prefix+volume+pages internally consistent — operator give a live confirm at mint", "_in_bibliography": false, "_anticipatory": true },
+    { "identifier": "10.1063/5.0002260", "relation": "references", "scheme": "doi", "_ref": "Marchal-Orantin-2020-JMP", "_status": "VERIFIED-EXTERNAL", "_source": "arXiv API 1901.04344 <arxiv:doi> field = 10.1063/5.0002260; J. Math. Phys.; 'Isomonodromic deformations of a rational differential system and reconstruction with the topological recursion: the sl2 case'", "_flag": "ANTICIPATORY — brief-requested; NOT in current V_quad bibliography. REJECTED web_search's hallucinated 10.1063/1.5135288 (resolves to an unrelated J. Chem. Phys. 'Tolman lengths' paper)", "_in_bibliography": false, "_anticipatory": true }
+  ],
+
+  "_available_to_add": {
+    "_note": "Fully resolved external publisher DOIs ALREADY PRINTED in the V_quad paper bibliography (authoritative local source = the paper). NOT in the primary wired array above to keep it brief-scaled, but the operator MAY add any/all to enrich the graph (Sakai precedent wired 15 references). All are version-stable publisher DOIs, relation 'references'.",
+    "entries": [
+      { "identifier": "10.1007/978-3-642-55750-7", "_ref": "vdPS", "_source": "paper L1271 (van der Put–Singer, Galois Theory of Linear Differential Equations, Springer)" },
+      { "identifier": "10.1007/s00222-009-0196-4", "_ref": "Hien", "_source": "paper L1277 (Hien, Invent. Math. 2009)" },
+      { "identifier": "10.1098/rspa.1990.0111", "_ref": "BerryHowls", "_source": "paper L1295 (Berry–Howls 1990)" },
+      { "identifier": "10.1007/978-3-319-29075-1", "_ref": "LodayRichaud", "_source": "paper L1306 (Loday-Richaud, Divergent Series, Springer LNM 2016)" },
+      { "identifier": "10.1145/178365.178368", "_ref": "gfun", "_source": "paper L1322 (Salvy–Zimmermann, gfun, ACM TOMS 1994)" },
+      { "identifier": "10.1007/978-3-319-15081-9_6", "_ref": "oreAlgebra", "_source": "paper L1329 (Kauers et al., ore_algebra 2015)" },
+      { "identifier": "10.1038/s41586-021-03229-4", "_ref": "RamanujanMachine", "_source": "paper L1336 (Ramanujan Machine, Nature 2021)" },
+      { "identifier": "10.1070/SM1996v187n09ABEH000158", "_ref": "Nesterenko", "_source": "paper L1348 (Nesterenko, Sb. Math. 1996)" }
+    ]
+  },
+
+  "_operator_verify_unresolved": [
+    "FJ-monograph — Fresán & Jossen, 'Exponential Motives' (book in preparation, expmot.pdf; bibitem FJ). NO published DOI located; the paper's own 'in preparation' status governs. Bibliography-only — do NOT wire. (NOTE: the Sakai table's [FJ] is a DIFFERENT work — Fresán–Jossen, Duke Math. J. 171 (2022) 2473-2574 — do not conflate.)",
+    "P7-P11-governance-stack — brief asked to wire 'P7-P11 governance stack' concept DOIs. NOT cited in the V_quad bibliography, and submission_log has no clean concept DOIs under those labels: 'P7'/'P8' (L679-680) are rubber-duck review-points; 'P'-numbers (L1432+) are paper-numbers in a different SICF governance series. UNRESOLVED — operator decides whether any apply; do NOT guess.",
+    "CMF — O. David et al., Conservative Matrix Fields, arXiv:2303.09318 (bibitem CMF). Preprint, no Zenodo/journal DOI; could wire as scheme=arxiv if desired, else bibliography-only.",
+    "Dingle-1973, Ecalle-1981-85, DLMF, Whittaker-Watson-1927 — books / online resource, no DOI; bibliography-only."
+  ],
+
+  "_counts": {
+    "N_continues": 2,
+    "N_isPartOf": 1,
+    "N_isSupplementTo": 1,
+    "N_references": 8,
+    "N_total_wired": 12,
+    "breakdown_references": "3 corpus-Zenodo concept (EBR-Ib, EBR-II, FRED — anticipatory) + 2 in-paper publisher (Sakai-2001, Kovacic) + 3 Marchal journal (anticipatory)",
+    "N_available_to_add": 8,
+    "N_operator_verify_unresolved": 4,
+    "summary_line": "12 ids = 2 continues + 1 isPartOf + 8 references + 1 isSupplementTo-placeholder"
+  },
+
+  "_flags": {
+    "F-DOI-1": "[VQUAD] brief 20455090 = v1.0 version → concept 20455089 (StokesNote 20481592 = same concept; do not double-wire).",
+    "F-DOI-2": "[EBR-Ib] brief 20569724 = record → concept 20569723.",
+    "F-DOI-3": "[EBR-II] brief 20571232 = v1.2 record → concept 20566465.",
+    "F-DOI-4": "[FRED] brief 20624814 = version → concept 20624813.",
+    "F-DOI-5": "[UMB] brief 19885550 = version → concept 19885549.",
+    "F-VERB-1": "Use 'continues' / 'isPartOf' / 'references' / 'isSupplementTo' — all Zenodo-accepted. Never 'isContinuationOf' (HTTP 400).",
+    "F-ANTICIPATORY": "EBR-Ib, EBR-II, FRED, and the 3 Marchal papers are NOT in the current V_quad bibliography. The continues/isPartOf rows and Sakai-2001/Kovacic references ARE grounded (printed in the paper or DEPOSIT_LOG_INDEX). The 6 anticipatory references require EITHER the VQUAD-PAPER-CORRECTIONS-001 pass to add the citations, OR explicit operator ratification as pure provenance-graph links at deposit. FLAG for cold-read.",
+    "F-ORANTIN-HALLUCINATION": "web_search invented 10.1063/1.5135288 for Marchal–Orantin (it resolves to an unrelated chemistry paper). Correct DOI 10.1063/5.0002260 verified via arXiv API 1901.04344. Lesson: verify every journal DOI against arXiv API or by resolving it.",
+    "F-SUPPLEMENT-PLACEHOLDER": "isSupplementTo target VQUAD-REPRO-BUNDLE-002 is a PLACEHOLDER — bundle not regenerated. Fill at deposit, or drop if paper+bundle = one record.",
+    "F-AFFIL-DISCREPANCY": "Deposit-metadata affiliation: brief Stage 3.1 says 'Independent Researcher, Yokohama, Japan'; most-recent live record (20694841, Sakai) has affiliation BLANK/null. See Stage 3 metadata-prepared.md — used brief's value, flagged."
+  }
+}

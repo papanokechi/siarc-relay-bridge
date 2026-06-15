@@ -1,0 +1,21 @@
+metadata-anchor-current
+========================
+file:    zenodo_metadata.md  (slot VQUAD-ZENODO-PREP-001)
+sha256:  dee9195c7957f25fc57f497d6875cdd2b63d97d24f55f36b5e54e388ec003eb8
+algo:    SHA-256 (Get-FileHash)
+date:    2026-06-16
+
+PURPOSE
+  This is the Gate-2 metadata anchor for run_production_draft.py (the Sakai
+  worked instance pinned its zenodo_metadata.md at 929fef4e...). At deposit time,
+  pin THIS hash (or the re-pinned value) in run_production_draft.py.
+
+RE-PIN TRIGGERS (this hash is provisional — "current draft")
+  * Title changes in VQUAD-PAPER-CORRECTIONS-001.
+  * Abstract/description changes (incl. trimming the bundle/SIARC addendum).
+  * MSC code changes.
+  * Affiliation decision (F-AFFIL): adding "Independent Researcher, Yokohama,
+    Japan" to the creators block, or any edit resolving the blank-vs-value choice.
+  * Version string change (1.0.0 vs corpus 1.0).
+  Any of these edits => recompute Get-FileHash -Algorithm SHA256 zenodo_metadata.md
+  and update both this file and the run_production_draft.py anchor.
