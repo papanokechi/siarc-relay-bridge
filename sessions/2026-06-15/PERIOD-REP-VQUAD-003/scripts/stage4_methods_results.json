@@ -1,0 +1,20 @@
+{
+  "methodA_operator_duality": {
+    "M=h(z)L_phi": true,
+    "note": "PASS established in stage4a_methodA_v2.py with correct Borel-sum convention D_xi->+1/z, xi->+z^2 D_z; this stale entry from the first wrong-sign attempt is superseded by stage4_methodA_results.json",
+    "h(z)": "27*(30*sqrt(3) + 649)/(418501*z**2*(-3 + 2*sqrt(3)))"
+  },
+  "methodB_hankel": {
+    "hankel_=2pi_i/Gamma(1+beta)": true,
+    "leading_period_=S_e^{-xi0}": true,
+    "rel_err": "8.84482e-46",
+    "pass": true
+  },
+  "methodC_stokes": {
+    "S_mult_=2pi_i_A/Gamma(1+beta)": true,
+    "|S_mult|=2piK_rel_err": "8.84482e-46",
+    "C=|A|/|beta|_rel_err": "9.31344e-46",
+    "pass": true
+  },
+  "all_three": true
+}
