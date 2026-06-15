@@ -1,0 +1,17 @@
+{
+  "r": "(11*z**4 + 4*z**2 + 4*z + 12)/(4*z**8 + 8*z**7 + 28*z**6 + 24*z**5 + 36*z**4)",
+  "pole_orders": {
+    "0": 4,
+    "(-1\u00b1i\u221a11)/2": 2
+  },
+  "o_infinity": 4,
+  "leading_coeff_at_0": "1/3",
+  "case3_excluded": "pole order 4 > 2",
+  "case1_excluded": "solve_riccati returned [] (no rational Riccati solution)",
+  "case2_symsq_ansatz": "N/(z^8(z^2+z+3)^4), degN<=18, 38 Q-unknowns",
+  "case2_holds": false,
+  "method1_verdict": "SL(2) (Case 4)",
+  "method2_verdict": "SL(2)",
+  "agreement": "YES",
+  "HALT_GATE_2": "PASS (both methods SL2; confirms V_quad claim)"
+}
