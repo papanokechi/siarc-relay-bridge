@@ -1,0 +1,94 @@
+{
+  "slot": "VQUAD-PERIODREP-PAPER-001",
+  "date": "2026-06-15",
+  "task": "Draft a research paper exhibiting the V_quad connection coefficient C as an explicit exponential-period integral, with three independent verifications and a conditional transcendence corollary.",
+  "result_source": "PERIOD-REP-VQUAD-003 (parents 001/002)",
+  "paper_status": "DRAFT-WITH-OPEN-ITEMS",
+  "framing": {
+    "one_paper_vs_two": "ONE",
+    "lead": "INTEGRAL-LEAD",
+    "sakai_context_depth": "STANDALONE-WITH-REFERENCE"
+  },
+  "main_theorem": "C = (|Gamma(beta)|/2pi) * \\int_gamma e^{xi} Bhat(xi) dxi = |Gamma(beta)| * K",
+  "metrics": {
+    "pages": 23,
+    "target_band": "25-30 (floor 22)",
+    "page_count_note": "23pp: above the 22 floor, lower end of the 25-30 band; all content genuine/sourced; remaining gap is amsart density, not missing content (see self-review item 4).",
+    "body_sections": 8,
+    "sections_incl_references": 9,
+    "subsections": 38,
+    "labelled_equations": 30,
+    "theorems": 5,
+    "propositions": 6,
+    "lemmas": 1,
+    "corollaries": 2,
+    "definitions": 1,
+    "remarks": 7,
+    "distinct_labels": 72,
+    "bibitems": 19,
+    "bibitems_all_cited": true,
+    "distinct_cite_keys": 15
+  },
+  "build": {
+    "engine": "MiKTeX 25.12 pdflatex (x2)",
+    "errors": 0,
+    "undefined_references": 0,
+    "uncited_bibitems": 0,
+    "byte_reproducible": true,
+    "entry_point": "latex/build.py",
+    "pdf": "latex/vquad-periodrep-paper.pdf"
+  },
+  "lecerf_self_review": {
+    "obj1_readable": "PASS",
+    "obj2_objects_defined_before_use": "PASS",
+    "obj3_significance_beyond_program": "PASS",
+    "obj4_cas_sota_context": "PASS",
+    "high_severity_found": 2,
+    "high_severity_fixed": 2,
+    "fixes_applied": [
+      "Reworded the §4 claim 'only transcendental constant' -> 'only non-algebraic factor' (Gamma(beta) transcendence is only conditionally known; was inconsistent with §6 rmk:uncond).",
+      "Cited 4 previously-uncited but relevant bibitems: SakaiClass (§1), Hien (§3 rapid-decay homology), Ecalle (§2 alien tower), LodayRichaud (§5 lateral/median Borel sums); 19/19 now cited."
+    ]
+  },
+  "conditionality_audit": {
+    "transcendence_always_conditional": true,
+    "both_layers_named_everywhere": true,
+    "g_motgalois_acknowledged_in_section6": true
+  },
+  "open_items_operator_review": [
+    {"id": 3, "sev": "MED", "item": "bibitem `Sakai`: insert the real Sakai-stratification Zenodo concept DOI (currently a placeholder) before any deposit/submission."},
+    {"id": 4, "sev": "MED", "item": "Page count 23 is at the lower end of the 25-30 band; accept, or request specific additional in-body content (no auto-padding per AEAL)."},
+    {"id": 5, "sev": "MED", "item": "G-MOTGALOIS: evidence for G_V representing G_mot(M) is heuristic; a motives referee may want Nori/Ayoub specifics. Honest state; do not overclaim."},
+    {"id": 6, "sev": "LOW", "item": "Pseudonymous author / no affiliation; legal-name venues are a VENUE-RELAY downstream concern (do not alter here)."},
+    {"id": 7, "sev": "LOW", "item": "§2 coefficient table could tabulate b_m fully; current inline b_2 suffices."},
+    {"id": 8, "sev": "LOW", "item": "§5.3 amplitude A is a 46-digit numerical (Borel-Pade) extraction, clearly labelled as such (not exact)."}
+  ],
+  "open_items_count": 6,
+  "downstream_gates": [
+    "Operator review of this draft (review self-review.md MED/LOW items; fill Sakai DOI).",
+    "Then VENUE-RELAY-VQUAD-PAPER chain (venue selection, journal-class swap, blinding per venue).",
+    "Zenodo deposit and journal submission are SEPARATE downstream slots, gated on operator approval."
+  ],
+  "governance": {
+    "no_zenodo_deposit": true,
+    "no_journal_submission": true,
+    "no_parent_corpus_edits": true,
+    "no_anonymization": true,
+    "standing_meta_rule": "git staged to ready-state and HELD; no commit/push/tag/move/delete; operator runs by hand."
+  },
+  "deliverables": [
+    "outline-final.md",
+    "sections/section-1.md ... section-8.md",
+    "sections/section-9-references.md",
+    "latex/preamble.tex",
+    "latex/build.py",
+    "latex/vquad-periodrep-paper.tex",
+    "latex/vquad-periodrep-paper.pdf",
+    "vquad-periodrep-paper.md",
+    "self-review.md",
+    "reproducibility-statement.md",
+    "ledger.json",
+    "claims.jsonl",
+    "handoff.md"
+  ]
+}
