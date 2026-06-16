@@ -1,0 +1,9 @@
+whitespace-stripped multiset compare: OLD=54177 NEW=54175
+characters whose COUNT differs (NEW-OLD): 1
+   U+002D    '-': -2
+
+INTERPRETATION: a non-zero count for any DIGIT / LETTER / MATH symbol = real content change (HALT).
+Only ASCII hyphen U+002D differing = line-end hyphenation (reflow-only).
+ASCII-hyphen delta: -2
+NON-hyphen characters with count change: 0 -> {}
+REFLOW-ONLY PROVEN: True
