@@ -1,0 +1,15 @@
+{
+  "Ns": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "method_A": "sympy exact symbolic over Q(sqrt3)",
+  "method_A_all_identically_zero": true,
+  "method_B": "mpmath numeric dps=160, a_n via deposited REPRODUCE_stokes_2piK recursion",
+  "method_B_worst_relative_residual": "1.7072e-161",
+  "LV_source": "VQUAD-002 operator-verification.md sec 4.0(b) (hand-transcribed)",
+  "verdict": "CONFIRMED"
+}
