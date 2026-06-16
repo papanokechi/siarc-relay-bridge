@@ -1,9 +1,10 @@
 # Manual Zenodo upload sheet — V_quad period-representation paper
 
 Copy-paste source for a **manual web-UI deposit** at <https://zenodo.org/uploads/new>.
-All values are the authoritative run-2 deposit pins (from
-`VQUAD-ZENODO-READY-001/run-2/zenodo_metadata.md` + `related_identifiers.md`), **not
-memory**. One record, two files (Scenario B). Publishing is your irreversible step.
+All values are the authoritative run-3 deposit pins (from
+`VQUAD-ZENODO-READY-001/run-3/zenodo_metadata.md` + `related_identifiers.md`, byte-identical
+to run-2 — anchor `4a75234f…` unchanged), **not memory**. One record, two files
+(Scenario B). Publishing is your irreversible step.
 
 ---
 
@@ -11,8 +12,8 @@ memory**. One record, two files (Scenario B). Publishing is your irreversible st
 
 | order | file | path | size | SHA-256 | MD5 (Zenodo shows this after upload) |
 |---|---|---|---|---|---|
-| 1 (default preview) | **vquad-periodrep-paper.pdf** | `C:\LocalWork\siarc-relay-bridge\sessions\2026-06-16\VQUAD-REPRO-BUNDLE-002\vquad-periodrep-bundle\paper\vquad-periodrep-paper.pdf` | 714,771 B (24 pp) | `4ca12a35d655df2227a9e1740e60b39c2e6cabef6a1942c74307cd43849582fe` | `028a1a5d9e10a3a9487596f6db3e6a38` |
-| 2 | **vquad-periodrep-bundle.zip** | `C:\LocalWork\siarc-relay-bridge\sessions\2026-06-16\VQUAD-REPRO-BUNDLE-002\vquad-periodrep-bundle.zip` | 721,715 B | `8752d7c71d074564f112d769932ed83e2ffb8518c49c6683dfa210fd952892eb` | `9d811494d77f4ffa84127ef4d105584a` |
+| 1 (default preview) | **vquad-periodrep-paper.pdf** | `C:\LocalWork\siarc-relay-bridge\sessions\2026-06-16\VQUAD-REPRO-BUNDLE-002\run-2\vquad-periodrep-bundle\paper\vquad-periodrep-paper.pdf` | 773,171 B (24 pp) | `33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea` | `99faea5b0f4095788e4ee932436beeda` |
+| 2 | **vquad-periodrep-bundle.zip** | `C:\LocalWork\siarc-relay-bridge\sessions\2026-06-16\VQUAD-REPRO-BUNDLE-002\run-2\vquad-periodrep-bundle.zip` | 776,968 B | `7bc5d00885bd823a758c4476f60e950a88f54e9f42b7a4bf254730ac894de013` | `c1b5a39c0b56576e81b5c5723935669f` |
 
 After each upload Zenodo lists the file's MD5 — confirm it matches the MD5 column
 above (MD5↔MD5). Set the **PDF** as the default preview.

@@ -11,16 +11,16 @@ not cross windows).
 | what | path |
 |------|------|
 | Runner kit | `C:\LocalWork\project-fingerprint\sectorial\cc_transcendence\sakai-stratification\` |
-| Deposit metadata | `…\VQUAD-ZENODO-READY-001\run-2\zenodo_metadata.md` |
-| Related-ids (underscore) | `…\VQUAD-ZENODO-READY-001\run-2\related_identifiers.md` |
-| Paper PDF | `…\VQUAD-REPRO-BUNDLE-002\vquad-periodrep-bundle\paper\vquad-periodrep-paper.pdf` |
-| Bundle (secondary file) | `…\VQUAD-REPRO-BUNDLE-002\vquad-periodrep-bundle.zip` |
+| Deposit metadata | `…\VQUAD-ZENODO-READY-001\run-3\zenodo_metadata.md` |
+| Related-ids (underscore) | `…\VQUAD-ZENODO-READY-001\run-3\related_identifiers.md` |
+| Paper PDF | `…\VQUAD-REPRO-BUNDLE-002\run-2\vquad-periodrep-bundle\paper\vquad-periodrep-paper.pdf` |
+| Bundle (secondary file) | `…\VQUAD-REPRO-BUNDLE-002\run-2\vquad-periodrep-bundle.zip` |
 
-## Final pins to apply in the runner(s) — from `run-2/stage7-runner-pins.md`
+## Final pins to apply in the runner(s) — from `run-3/run3-stage7-runner-pins.md`
 
 ```python
 PDF_NAME        = "vquad-periodrep-paper.pdf"
-PDF_SHA256_PIN  = "4ca12a35d655df2227a9e1740e60b39c2e6cabef6a1942c74307cd43849582fe"
+PDF_SHA256_PIN  = "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea"
 METADATA_ANCHOR = "4a75234faaef79d68caed6588d0fa0e2418ae17dfb2c18825a150b92f7970895"
 TITLE           = "An explicit exponential-period representation of the V_quad connection coefficient"
 BLOCKLIST       = {"20455090", "20481592", "20694841", "19885550",
@@ -31,8 +31,8 @@ if not (len(arr) == 11 and c == 2 and ip == 1 and rf == 8 and sp == 0):
     halt("wired array not hole-free 11 (2+1+8+0).")
 # forbidden-venue token: ETNA -> Compositio
 ```
-PDF MD5 (compare to Zenodo's returned upload checksum, **MD5↔MD5**): `028a1a5d9e10a3a9487596f6db3e6a38`
-Bundle zip SHA-256: `8752d7c71d074564f112d769932ed83e2ffb8518c49c6683dfa210fd952892eb`
+PDF MD5 (compare to Zenodo's returned upload checksum, **MD5↔MD5**): `99faea5b0f4095788e4ee932436beeda`
+Bundle zip SHA-256: `7bc5d00885bd823a758c4476f60e950a88f54e9f42b7a4bf254730ac894de013` · MD5: `c1b5a39c0b56576e81b5c5723935669f`
 
 ## Pre-flight (once)
 
@@ -43,7 +43,7 @@ Bundle zip SHA-256: `8752d7c71d074564f112d769932ed83e2ffb8518c49c6683dfa210fd952
 2. Apply the pin block above in `run_production_draft.py` **and**
    `run_sandbox_draft.py` (`ETNA`→`Compositio`, the Scenario-B Gate-1 assertion, all
    constants).
-3. **Trap-7** — re-hash the PDF *in the deposit folder*; must equal `4ca12a35…`:
+3. **Trap-7** — re-hash the PDF *in the deposit folder*; must equal `33f339ed…`:
    ```powershell
    (Get-FileHash -Algorithm SHA256 .\vquad-periodrep-paper.pdf).Hash.ToLower()
    ```
@@ -62,7 +62,7 @@ $env:ZENODO_SANDBOX = "1"
 $env:ZENODO_SANDBOX_TOKEN = "<sandbox token>"   # operator; never commit
 python run_sandbox_draft.py --execute
 ```
-Expect: Gate 0/1/2 PASS, draft created, PDF + bundle uploaded, server-MD5 == `028a1a5d…`,
+Expect: Gate 0/1/2 PASS, draft created, PDF + bundle uploaded, server-MD5 == `99faea5b…`,
 `draft_ready.md` + `upload_manifest.md` written, 3 `api_call` claims (sandbox=true),
 **STOP at publish gate**. Open the sandbox draft URL, eyeball the render (Greek/sub-
 superscripts/dashes, 11 related-ids, CC-BY-4.0), then **discard** the throwaway draft.
@@ -123,6 +123,6 @@ the only irreversible step. Only the operator does it.** Capture the published
 |---|---|---|
 | 0 | token present; target instance | `--execute` with no token |
 | 1 | 11-id counts (2+1+8+0); no `BLOCKLIST` leak | wrong counts / a version DOI in the array |
-| 2 | PDF SHA-256 `4ca12a35…`; `Compositio` absent; anchor `4a75234f…` | pin mismatch / venue token present / anchor changed |
+| 2 | PDF SHA-256 `33f339ed…`; `Compositio` absent; anchor `4a75234f…` | pin mismatch / venue token present / anchor changed |
 | self-test | description normalize round-trip + drift detection | normalization mismatch |
 | **publish** | **the defining stop** | **never auto-called — operator hand-step** |

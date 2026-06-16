@@ -1,35 +1,52 @@
 {
   "slot": "VQUAD-ZENODO-DEPOSIT-001",
-  "title": "V_quad period-rep Zenodo deposit — Gate 0 verified; deposit prepared; HELD at Gate 0 (token + runner --execute + publish are operator hand-steps)",
+  "title": "V_quad period-rep Zenodo deposit — pins reconciled to layout-fixed PDF 33f339ed… + bundle 7bc5d008…; MANUAL-UPLOAD consistent with READY-001 run-3; upload-ready; HELD (token + runner --execute + publish are operator hand-steps)",
   "authored": "2026-06-16",
   "repo": "siarc-relay-bridge",
-  "status": "HELD-AT-GATE-0",
+  "status": "RECONCILED-UPLOAD-READY (HELD — token + runner --execute + publish are operator hand-steps)",
+  "reconciliation": {
+    "date": "2026-06-16",
+    "reason": "DEPOSIT-001 (committed 627d17e) rode the pre-layout-fix cascade and pinned the stale PDF/bundle. LAYOUTFIX-001 (627d17e, reflow-only) changed the PDF; BUNDLE-002 run-2 (56a1402) re-pinned the bundle; READY-001 run-3 (0d98662) refreshed the pre-flight. This reconciliation swaps every stale pin/path/provenance reference to the deposit-ready values so MANUAL-UPLOAD.md drives the upload of the correct file. Full from->to map in reconcile-diff.md and stale-pin-inventory.md.",
+    "deposit_ready_pins": {
+      "pdf_sha256": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+      "pdf_md5": "99faea5b0f4095788e4ee932436beeda",
+      "pdf_bytes": 773171,
+      "bundle_sha256": "7bc5d00885bd823a758c4476f60e950a88f54e9f42b7a4bf254730ac894de013",
+      "bundle_md5": "c1b5a39c0b56576e81b5c5723935669f",
+      "bundle_bytes": 776968,
+      "metadata_anchor": "4a75234faaef79d68caed6588d0fa0e2418ae17dfb2c18825a150b92f7970895"
+    },
+    "upload_path_root": "VQUAD-REPRO-BUNDLE-002\\run-2\\vquad-periodrep-bundle (was the slot-root bundle dir; full map in reconcile-diff.md)",
+    "unchanged": "metadata anchor 4a75234f (zenodo_metadata.md byte-identical run-2->run-3), related-ids 11 (concept 20455089 present, version 20455090 absent), abstract, keywords, MSC, affiliation Option C, page count 24, CC-BY-4.0, all gate semantics",
+    "verified_on_disk": "Get-FileHash this task: run-2 PDF == deposit_ready pdf pins; run-2 bundle == deposit_ready bundle pins"
+  },
   "standing_rule": "ready-state HELD; agent never handles tokens, never calls the Zenodo API, never publishes; prepares to ready-state and stops for the operator",
   "halt_reason": "Gate 0.2 — ZENODO_TOKEN absent in the agent execution environment (it lives in the operator's interactive shell; a sandbox run additionally needs a sandbox token). The task's own Gate 0.2 mandates HALT when the token is absent. Independently, the standing meta-rule reserves token handling, runner --execute, and publish for the operator. No Zenodo API was called; the token value was never read or logged.",
   "gate_0": {
     "prerequisites": {
-      "VQUAD-ZENODO-READY-001_run-2": {"status": "PRESENT", "commit": "2a7f969", "note": "HEAD"},
-      "VQUAD-REPRO-BUNDLE-002": {"status": "PRESENT", "commit": "a33ff59"},
-      "VQUAD-PAPER-CORRECTIONS-001": {"status": "PRESENT", "commit": "d4fc87a"}
+      "VQUAD-ZENODO-READY-001_run-3": {"status": "PRESENT", "commit": "0d98662", "note": "HEAD — authoritative pre-flight; supersedes run-2 2a7f969"},
+      "VQUAD-REPRO-BUNDLE-002_run-2": {"status": "PRESENT", "commit": "56a1402", "note": "re-pinned bundle; supersedes a33ff59"},
+      "VQUAD-PAPER-LAYOUTFIX-001": {"status": "PRESENT", "commit": "627d17e", "note": "layout-fixed PDF source; supersedes CORRECTIONS-001 d4fc87a"}
     },
     "token_present_in_agent_env": false,
     "token_value_logged": false,
-    "trap7_pdf_sha256": {"value": "4ca12a35d655df2227a9e1740e60b39c2e6cabef6a1942c74307cd43849582fe", "match": true},
-    "bundle_zip_sha256": {"value": "8752d7c71d074564f112d769932ed83e2ffb8518c49c6683dfa210fd952892eb", "match": true},
+    "trap7_pdf_sha256": {"value": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea", "match": true},
+    "bundle_zip_sha256": {"value": "7bc5d00885bd823a758c4476f60e950a88f54e9f42b7a4bf254730ac894de013", "match": true},
     "runner_kit_present": true,
     "playbook_present": true,
-    "run2_deposit_inputs_present": true,
+    "run3_deposit_inputs_present": true,
     "existing_deposit_folder": "none"
   },
   "pins_for_runner": {
     "PDF_NAME": "vquad-periodrep-paper.pdf",
-    "PDF_SHA256_PIN": "4ca12a35d655df2227a9e1740e60b39c2e6cabef6a1942c74307cd43849582fe",
-    "PDF_MD5": "028a1a5d9e10a3a9487596f6db3e6a38",
+    "PDF_SHA256_PIN": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+    "PDF_MD5": "99faea5b0f4095788e4ee932436beeda",
     "METADATA_ANCHOR": "4a75234faaef79d68caed6588d0fa0e2418ae17dfb2c18825a150b92f7970895",
     "TITLE": "An explicit exponential-period representation of the V_quad connection coefficient",
     "gate1_scenario_B": "len==11 and c==2 and ip==1 and rf==8 and sp==0",
     "venue_token": "Compositio (was ETNA)",
-    "bundle_zip_sha256": "8752d7c71d074564f112d769932ed83e2ffb8518c49c6683dfa210fd952892eb",
+    "bundle_zip_sha256": "7bc5d00885bd823a758c4476f60e950a88f54e9f42b7a4bf254730ac894de013",
+    "bundle_zip_md5": "c1b5a39c0b56576e81b5c5723935669f",
     "affiliation": "Independent Researcher, Yokohama, Japan",
     "orcid": "0009-0000-6192-8273"
   },
