@@ -1,0 +1,65 @@
+{
+  "slot": "VQUAD-ZENODO-READY-001",
+  "run": "run-2",
+  "title": "Final pre-flight for V_quad Zenodo deposit — RE-RUN; all stages PASS; HELD for operator",
+  "authored": "2026-06-16",
+  "repo": "siarc-relay-bridge",
+  "status": "READY",
+  "supersedes_run": "first-run HALT artifact committed c88b996 (preserved at slot root; not overwritten)",
+  "standing_rule": "ready-state HELD; no Zenodo API, no token handling, no sandbox/production execution, no commit/push by agent",
+  "prerequisites": {
+    "cold_read_verdict_A": {"status": "DONE", "evidence": "VQUAD-COLDREAD-001 committed e207b33 (Verdict A)"},
+    "VQUAD-PAPER-CORRECTIONS-001": {"status": "DONE", "evidence": "committed d4fc87a; PDF 4ca12a35..., 24pp, byte-reproducible"},
+    "VQUAD-REPRO-BUNDLE-002": {"status": "DONE", "evidence": "committed a33ff59; archive 8752d7c7..., integrity PASS, retracted DOI absent"},
+    "VQUAD-ZENODO-PREP-001": {"status": "DONE", "evidence": "committed 941a699; deposit kit"}
+  },
+  "operator_decisions": {
+    "F_AFFIL": "Option C — Independent Researcher, Yokohama, Japan",
+    "fresan_section6": "deposit now with section 6 as drafted (doubly-conditional G-MOTGALOIS heuristic); any reply is a Zenodo v2 enhancement, not a held gate",
+    "scenario_B": "confirmed — bundle is a secondary file in the paper's single deposit; isSupplementTo placeholder dropped (no separate bundle DOI)"
+  },
+  "stages": {
+    "stage_1_prerequisite_verification": "PASS — 4/4 prerequisites met",
+    "stage_2_refresh_pdf_pin": "PASS — SHA-256 4ca12a35..., MD5 028a1a5d..., 714771 B, 24pp",
+    "stage_3_refresh_metadata_anchor": "PASS — new anchor 4a75234f...; folds L-3 abstract clause + F-AFFIL Option C; title/MSC/keywords/version unchanged",
+    "stage_4_resolve_bundle_doi": "PASS — Scenario B; isSupplementTo dropped; 12->11 ids; Gate 1 hole-free, no version-DOI leak",
+    "stage_5_wrong_venue_token": "PASS — Compositio/AAECC/ETNA absent in the 4ca12a35 PDF (63635 chars)",
+    "stage_6_operator_checklist_reconcile": "PASS — 9/13 resolved; 4 operator hand-steps remain (token x2, post-staging rehash, apply prepared constants)",
+    "stage_7_runner_commands": "PASS — final constant block + runner files documented in stage7-runner-pins.md",
+    "stage_8_ledger_handoff": "DONE — this ledger + claims.jsonl + handoff.md + README.md"
+  },
+  "new_pins": {
+    "pdf_sha256": "4ca12a35d655df2227a9e1740e60b39c2e6cabef6a1942c74307cd43849582fe",
+    "pdf_md5": "028a1a5d9e10a3a9487596f6db3e6a38",
+    "pdf_bytes": 714771,
+    "pdf_pages": 24,
+    "metadata_anchor_sha256": "4a75234faaef79d68caed6588d0fa0e2418ae17dfb2c18825a150b92f7970895"
+  },
+  "superseded_provisional_pins": {
+    "pdf_sha256": "359d1172af3f867f4349cf4776a222813a855cd354bc78c0b68ccfb0026c702b",
+    "metadata_anchor_sha256": "dee9195c7957f25fc57f497d6875cdd2b63d97d24f55f36b5e54e388ec003eb8"
+  },
+  "gate_1_related_identifiers": {
+    "result": "PASS",
+    "counts": {"total": 11, "continues": 2, "isPartOf": 1, "references": 8, "isSupplementTo": 0},
+    "placeholders": 0,
+    "blocklist_leak": 0,
+    "retracted_20455090_present": false,
+    "concept_20455089_present": true,
+    "all_scheme_doi": true
+  },
+  "gate_2_2_wrong_venue": {
+    "result": "PASS",
+    "pdf_chars": 63635,
+    "tokens_absent": ["Compositio", "AAECC", "ETNA"],
+    "note": "'Symbolic Comput' present = legitimate Kovacic citation, not a venue leak"
+  },
+  "operator_hand_steps_remaining": [
+    "set_prod_token.ps1 (export production ZENODO_TOKEN)",
+    "check_prod_token.ps1 (confirm scope deposit:write + instance production)",
+    "Trap-7 post-staging PDF re-hash == 4ca12a35... in the deposit folder",
+    "apply the prepared stage7 constants into run_production_draft.py + run_sandbox_draft.py"
+  ],
+  "downstream_gate": "Open VQUAD-ZENODO-DEPOSIT-001 once the 4 operator hand-steps are done. Deposit = paper PDF + bundle zip as ONE CC-BY-4.0 record (Scenario B); verify Zenodo server-side MD5 == 028a1a5d...; STOP at the publish gate for hand-publish.",
+  "held": true
+}

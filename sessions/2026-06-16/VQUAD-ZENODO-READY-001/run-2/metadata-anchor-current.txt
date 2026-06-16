@@ -1,0 +1,30 @@
+metadata-anchor-current  (VQUAD-ZENODO-READY-001 / run-2 — RE-PINNED)
+=====================================================================
+file:    zenodo_metadata.md  (slot VQUAD-ZENODO-READY-001/run-2)
+sha256:  4a75234faaef79d68caed6588d0fa0e2418ae17dfb2c18825a150b92f7970895
+algo:    SHA-256
+date:    2026-06-16
+supersedes: dee9195c7957f25fc57f497d6875cdd2b63d97d24f55f36b5e54e388ec003eb8
+            (PREP-001 provisional, pinned to the pre-corrections abstract)
+
+PURPOSE
+  Gate-2 metadata anchor for run_production_draft.py. At deposit time, pin THIS
+  hash in the runner's METADATA_ANCHOR constant. The runner re-hashes the staged
+  zenodo_metadata.md and halts if it differs.
+
+WHAT CHANGED (the re-pin triggers that fired)
+  * Abstract/description: L-3 cold-read clause added — "(the Borel–Laplace dual of
+    the order-2 operator annihilating the series)" after "holonomic of order 4",
+    matching the corrections-final paper verbatim.
+  * Affiliation (F-AFFIL): RESOLVED → Option C — "Independent Researcher, Yokohama,
+    Japan" wired into the creators block.
+  * Scenario B bookkeeping: the internal `_related_identifiers_pointer` note updated
+    from "12 ids; bundle isSupplementTo is a placeholder" to "11 ids; Scenario B —
+    isSupplementTo dropped". (Top-level `_`-key; stripped by clean_meta, never sent to
+    Zenodo — internal consistency only.)
+  UNCHANGED: title, keywords (8), MSC (34M55 / 11J81·34E20·14F40 / 33C20·37K10),
+  version (1.0.0), the bundle/SIARC description addendum.
+
+RE-PIN AGAIN IF
+  Any further title/abstract/MSC/affiliation/version edit before deposit.
+  Command: (Get-FileHash -Algorithm SHA256 .\zenodo_metadata.md).Hash.ToLower()
