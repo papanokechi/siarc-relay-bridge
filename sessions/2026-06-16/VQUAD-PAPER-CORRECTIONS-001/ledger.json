@@ -1,0 +1,80 @@
+{
+  "slot": "VQUAD-PAPER-CORRECTIONS-001",
+  "date": "2026-06-16",
+  "head_at_start": "e207b33",
+  "status": "COMPLETE",
+  "halt_gate": "Stage 3 (H-1) — CLEARED: operator verified the C-vs-S provenance on 2026-06-16",
+  "complete": true,
+  "summary": "All corrections applied and the corrections-final byte-reproducible PDF rebuilt. 1 HIGH (H-1, operator-verified + inserted) + 4 MED + 5 LOW + Stage-4 bibliography repoint (B-1..B-4). H-1 provenance remark inserted at section-4.md 4.3. [Vquad]/[StokesNote] retitled to the real deposit title; retracted v1.0 DOI 20455090 purged in BOTH places it appeared (bibitem + section-8 repro statement); [Vquad]->concept 20455089, [StokesNote]->version 20481592 (v1.2). Marchal personal-communication acknowledgement added. New PDF SHA 4CA12A35; wrong-venue PASS; constants unchanged.",
+  "work_on_copy": true,
+  "parent_untouched": "sessions/2026-06-15/VQUAD-PERIODREP-PAPER-001 (verified pristine; edits made only in this slot)",
+  "provenance_pins": {
+    "pre_corrections_tex_sha256": "BD59D7448022C8C3822A4CFCDDEE4638528159B7650DE06CF5200F16B09C0BA7",
+    "pre_corrections_pdf_sha256": "359D1172AF3F867F4349CF4776A222813A855CD354BC78C0B68CCFB0026C702B",
+    "corrections_final_pdf_sha256": "4CA12A35D655DF2227A9E1740E60B39C2E6CABEF6A1942C74307CD43849582FE",
+    "note": "pre-corrections tex/pdf retained as provenance artifacts; the corrections-final PDF SHA is the NEW pin (supersedes 359d1172). Byte-reproducible: a pristine-temp-dir rebuild produced the identical SHA."
+  },
+  "corrections": {
+    "HIGH": {
+      "H-1": {
+        "status": "OPERATOR-VERIFIED-AND-INSERTED",
+        "inserted": true,
+        "location": "section-4.md 4.3 'The constants', after the bridge sentence (remark rmk:provenance-C)",
+        "operator_verification": "claims (a),(b),(c),(e) confirmed; (d) confirmed with refinement — correction is the companion's Version 1.1 Remark 6.2, record 20481592 = companion v1.2, concept 20455089",
+        "cross_refs_resolve": ["eq:bridge", "eq:C-from-A"],
+        "alters_math": false
+      }
+    },
+    "MED": {
+      "M-1": {"status": "APPLIED", "file": "section-5.md", "kind": "terminology", "alters_math": false},
+      "M-2": {"status": "APPLIED", "file": "section-5.md", "kind": "terminology-global-scan", "alters_math": false, "note": "second 'Stokes multiplier is C' collision (Method-A intro) found by the global scan and fixed"},
+      "M-3": {"status": "APPLIED", "files": ["section-9-references.md", "section-7.md", "section-2.md"], "kind": "bibliographic+expository", "alters_math": false, "bibitems_added": ["MarchalOrantin", "IwakiMarchalSaenz", "MarchalAlameddine"], "dois_source": "related-identifiers.md; titles verified via CrossRef DOI resolution"},
+      "M-4": {"status": "APPLIED", "file": "section-9-references.md", "kind": "bibliographic", "alters_math": false, "doi": "10.5281/zenodo.20694840", "doi_source": "related-identifiers.md"}
+    },
+    "LOW": {
+      "L-1": {"status": "APPLIED", "files": ["section-9-references.md", "section-7.md"], "bibitems_added": ["EBRIb", "EBRII", "FredDelta"], "dois_source": "related-identifiers.md; titles verified via SIARC ledger submission_log.txt"},
+      "L-2": {"status": "APPLIED", "file": "section-6.md", "kind": "phrasing", "alters_math": false},
+      "L-3": {"status": "APPLIED", "file": "preamble.tex", "kind": "abstract-clause", "alters_math": false},
+      "L-4": {"status": "APPLIED", "file": "preamble.tex", "kind": "thanks", "alters_math": false},
+      "L-5": {"status": "APPLIED", "file": "section-2.md", "kind": "citation", "alters_math": false}
+    },
+    "STAGE4_BIBLIOGRAPHY_REPOINT": {
+      "B-1": {"status": "APPLIED", "file": "section-9-references.md", "kind": "bibitem-repoint", "alters_math": false, "detail": "[Vquad] -> concept DOI 10.5281/zenodo.20455089; retracted v1.0 20455090 DROPPED; real deposit title applied"},
+      "B-2": {"status": "APPLIED", "file": "section-9-references.md", "kind": "bibitem-retitle", "alters_math": false, "detail": "[StokesNote] -> real deposit title; version DOI 10.5281/zenodo.20481592 kept, annotated 'version 1.2; correction is Remark 6.2 / eq. (13)'"},
+      "B-3": {"status": "APPLIED", "file": "section-8.md", "kind": "trap6-purge", "alters_math": false, "detail": "section-8 A.5 repro statement: second instance of retracted 20455090 repointed to concept 20455089; calibration annotated version 1.2. Trap-6 scan: only 2 instances existed, both purged."},
+      "B-4": {"status": "APPLIED", "file": "section-7.md", "kind": "acknowledgement", "alters_math": false, "detail": "new \\section*{Acknowledgements}: Marchal personal-communication line (operator-authorized; AEAL barrier cleared)"}
+    }
+  },
+  "deferred_low": [],
+  "conflicts_flagged": [
+    {"id": "CONFLICT-1", "desc": "Prompt 'normalization alignment L_{1,2}=x^2+(1/3)x+1/3' not in corrections-list.md and is a MATHEMATICAL change (forbidden).", "resolution": "SKIPPED (canonical spec + no-math-change rule). Not revisited in Stage 4."},
+    {"id": "CONFLICT-2", "desc": "Prompt 'Marchal personal communication (permission granted)' not in corrections-list.md and unverifiable at Stage 3.", "resolution": "RESOLVED in Stage 4: operator confirmed they hold the granted permission (AEAL cleared) and directed it be added acknowledgement-only (B-4)."}
+  ],
+  "numerical_anchor_mpmath": {
+    "beta": "-0.19245008972987525484",
+    "absGammaBeta": "6.0059917981814175262",
+    "K": "0.07287810255186696412944236",
+    "S_2piK": "0.4579066231690176361190978",
+    "C_absGb_K": "0.4377052861935372212307397",
+    "xi0": "1.154700538379251529",
+    "bridge_S_over_C": "1.046152828427455008442757",
+    "bridge_residual": "0",
+    "C_neq_S": true,
+    "two_derivations_agree": "eq:C-from-A (=|Gamma(beta)|K) and eq:main-recentred (=(|Gamma(beta)|/2pi)S) both reduce to |Gamma(beta)|K"
+  },
+  "pdf_rebuilt": true,
+  "pdf_build": {"engine": "MiKTeX pdflatex x2", "source_date_epoch": "1718409600", "pages": 24, "errors": 0, "undefined_refs": 0, "byte_reproducible_pristine_dir": true},
+  "wrong_venue_check": "PASS — Compositio and all target-venue strings ABSENT (pypdf full-text 63635 chars, WRONGVENUE_HITS=NONE). Definitive check that READY-001 deferred.",
+  "stage5_constants_reverification": "PASS — S, C, beta, xi0 match section-4.md eq:constants; bridge residual 0 exact; two C-derivations agree (verification-pass.md).",
+  "downstream": [
+    "VQUAD-REPRO-BUNDLE-002 (regenerate the reproducibility bundle from this corrections-final paper; new PDF pin 4CA12A35)",
+    "re-run VQUAD-ZENODO-READY-001 (re-pin PDF + metadata against corrections-final; will now pass Stage 1 with corrections done — bundle pending)",
+    "VQUAD-ZENODO-DEPOSIT-001"
+  ],
+  "git": {
+    "staged": true,
+    "committed": false,
+    "push": "HELD per standing meta-rule (operator hand-commits)",
+    "suggested_commit_message_COMPLETE": "VQUAD-PAPER-CORRECTIONS-001 — corrections-final paper complete; H-1 provenance remark operator-verified and inserted; [Vquad]/[StokesNote] repointed to concept DOI 20455089 (retracted v1.0 20455090 purged), Marchal acknowledgement added; PDF rebuilt byte-reproducibly (SHA 4CA12A35), wrong-venue PASS, constants unchanged; ready for VQUAD-REPRO-BUNDLE-002"
+  }
+}
