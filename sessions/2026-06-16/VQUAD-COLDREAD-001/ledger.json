@@ -1,0 +1,63 @@
+{
+  "slot": "VQUAD-COLDREAD-001",
+  "date": "2026-06-16",
+  "type": "cold-read / editorial verdict (not research, not deposit)",
+  "object_read": {
+    "path": "sessions/2026-06-16/VQUAD-REPRO-BUNDLE-001/vquad-periodrep-bundle/paper/vquad-periodrep-paper.tex",
+    "lines": 1352,
+    "pages_approx": 23,
+    "documentclass": "amsart 11pt reqno",
+    "pdf_sibling_sha256": "359d1172af3f...c702b (pre-corrections, unchanged)",
+    "read_scope": "FULL — abstract, sections 1-7, all appendices, references; numerics re-verified with mpmath"
+  },
+  "verdict": "A",
+  "verdict_meaning": "publication-ready pending a small, well-defined set of correction items; no substantive revision, no showstopper",
+  "verdict_tiers_ruled_out": {
+    "B_substantive_revision": "no restructuring or re-derivation required",
+    "C_showstopper": "no mathematical error; transcendence properly doubly-conditional; all central objects defined in-paper; CAS/SOTA sections present"
+  },
+  "lecerf_four_criteria": {
+    "readability": "STRONG",
+    "central_objects_defined": "STRONG",
+    "significance_vs_SOTA": "GOOD with one fillable gap (topological recursion / Marchal absent) -> M-3",
+    "CAS_SOTA_comparison": "STRONG (headline strength: section 1.4 + section 7.5 + reproducibility appendix; directly applies the EBR-III/AAECC Item-40 lesson)"
+  },
+  "six_open_items_status": {
+    "MED-1_sakai_doi": "CONFIRMED placeholder present (L1254) -> operator hand-fill (M-4)",
+    "MED-2_page_count": "HONORED (corrections add <=1 page; stays <=30pp)",
+    "MED-3_g_motgalois": "ADEQUATE as named conjectural hypothesis (mandated stance); minor optional tightening (L-2)",
+    "LOW-1_affiliation": "HANDLED (pseudonym + ORCID, no affiliation); update thanks at submission (L-4)",
+    "LOW-2_bm_table": "SUFFICIENT (eq:coeffstream + b0,b1,b2 in text)",
+    "LOW-3_methodC_A_spotcheck": "PRESENT (large-order extraction + 46-digit logs)"
+  },
+  "top_finding_not_anticipated": {
+    "id": "H-1",
+    "summary": "headline connection coefficient C = |Gamma(beta)|K = 0.4377052861935... is numerically identical to the RETRACTED v1.0 V_quad Stokes-constant value (corrected to S=2piK=0.45790662 in companion v1.1/v1.2)",
+    "math_status": "paper is CORRECT (C and S are distinct; |Gamma(beta)| is the right prefactor for C, the wrong one for S; bridge C/S=|Gamma(beta)|/2pi=0.95588 is exact)",
+    "gap": "paper never disambiguates C from the ex-retracted number; add a ~3-sentence provenance remark (also showcases the paper's core explanatory contribution)"
+  },
+  "numerical_recheck_mpmath_50dps": {
+    "K": "0.0728781025518669641294423633296525128045556892 (deposited, 58 dig)",
+    "beta": "-0.19245008972987525484 = -1/(3*sqrt3)",
+    "abs_Gamma_beta": "6.0059917981814175262",
+    "S_2piK": "0.4579066231690176361190978",
+    "C_absGammaK": "0.4377052861935372212307397",
+    "bridge_C_over_S": "0.95588328284995364297 = |Gamma(beta)|/2pi (exact)"
+  },
+  "corrections_summary": { "HIGH": 1, "MED": 4, "LOW": 5, "requires_redoing_math": false },
+  "venue_neutrality": "CONFIRMED — 0 occurrences of Compositio/AAECC/ETNA in the .tex",
+  "deliverables": [
+    "coldread-verdict.md",
+    "corrections-list.md",
+    "ledger.json",
+    "claims.jsonl",
+    "handoff.md"
+  ],
+  "downstream": {
+    "feeds": "VQUAD-PAPER-CORRECTIONS-001 (scope = corrections-list.md)",
+    "then": "VQUAD-REPRO-BUNDLE-002 -> re-run VQUAD-ZENODO-READY-001 (re-pin PDF+metadata) -> VQUAD-ZENODO-DEPOSIT-001",
+    "unblocks": "the VQUAD-ZENODO-READY-001 Stage-1 HALT prerequisite 'cold-read Verdict A' is now satisfied; CORRECTIONS-001 and BUNDLE-002 remain ABSENT (still blocking the READY re-run)"
+  },
+  "standing_rule": "no autonomous commit/push/deposit; slot staged and HELD; operator hand-commits",
+  "git_status": "staged (git add), NOT committed; HEAD remains dd1edcf"
+}
