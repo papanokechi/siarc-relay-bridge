@@ -1,0 +1,24 @@
+{
+  "methodA_pass": true,
+  "conventions_tested": {
+    "D_xi->+1/z, xi->+1z^2D_z": {
+      "proportional": true,
+      "h(z)": "27*(30*sqrt(3) + 649)/(418501*z**2*(-3 + 2*sqrt(3)))"
+    },
+    "D_xi->+1/z, xi->-1z^2D_z": {
+      "proportional": false,
+      "h(z)": "n/a"
+    },
+    "D_xi->-1/z, xi->+1z^2D_z": {
+      "proportional": false,
+      "h(z)": "n/a"
+    },
+    "D_xi->-1/z, xi->-1z^2D_z": {
+      "proportional": false,
+      "h(z)": "n/a"
+    }
+  },
+  "working_convention": "D_xi->+1/z, xi->+1z^2D_z",
+  "h(z)": "27*(30*sqrt(3) + 649)/(418501*z**2*(-3 + 2*sqrt(3)))",
+  "interpretation": "I_\u03b3(z)=\u222b_\u03b3 e^{-\u03be/z}B\u0302d\u03be solves L_phi; C is its subdominant Stokes coeff"
+}

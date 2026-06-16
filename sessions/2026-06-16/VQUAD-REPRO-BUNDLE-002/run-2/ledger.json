@@ -1,0 +1,117 @@
+{
+  "chain_id": "VQUAD-REPRO-BUNDLE-002",
+  "run": "run-2",
+  "title": "Deposit-target reproducibility bundle for the V_quad exponential-period-representation paper (layout-fixed re-pin)",
+  "date": "2026-06-16",
+  "status": "COMPLETE",
+  "held": true,
+  "supersedes": {
+    "run": "run-1",
+    "slot": "sessions/2026-06-16/VQUAD-REPRO-BUNDLE-002/",
+    "commit": "a33ff59",
+    "archive_sha256": "8752d7c71d074564f112d769932ed83e2ffb8518c49c6683dfa210fd952892eb",
+    "embedded_pdf_sha256": "4ca12a35d655df2227a9e1740e60b39c2e6cabef6a1942c74307cd43849582fe",
+    "reason": "run-1 embedded the pre-layout-fix paper PDF (4ca12a35...), which clipped the right margin on >=3 pages. run-2 re-pins the bundle to the layout-fixed PDF (33f339ed...) from VQUAD-PAPER-LAYOUTFIX-001."
+  },
+  "trigger": {
+    "slot": "sessions/2026-06-16/VQUAD-PAPER-LAYOUTFIX-001/",
+    "commit": "627d17e",
+    "fix": "Systematic right-margin overflow fixed 20->0 overfull hboxes, LAYOUT ONLY. Proven reflow-only (PDF text diff = -2 line-end hyphens, 0 content characters).",
+    "new_pdf_sha256": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+    "new_pdf_md5": "99faea5b0f4095788e4ee932436beeda",
+    "new_pdf_bytes": 773171,
+    "new_pdf_pages": 24
+  },
+  "purpose": "HASH-REFRESH re-run: swap the bundle's paper PDF/.tex/preamble to the layout-fixed versions, refresh the one doc that hard-coded the old hash, re-verify integrity (scripts still pass, PDF reproduces 33f339ed), and package the new deposit-target archive that VQUAD-ZENODO-READY-001 run-3 will pin. Scenario B unchanged (bundle is a secondary file in the paper's single deposit; no separate bundle DOI). Constants NOT re-reviewed (layout fix proven reflow-only upstream).",
+  "stages": {
+    "stage1_delta": {
+      "status": "COMPLETE",
+      "output": "bundle-delta-run2.md",
+      "files_changed_vs_a33ff59": [
+        "paper/vquad-periodrep-paper.pdf",
+        "paper/vquad-periodrep-paper.tex",
+        "paper/preamble.tex",
+        "paper/build.py",
+        "docs/SIARC_PROVENANCE.md"
+      ],
+      "files_changed_count": 5,
+      "scripts_changed": false,
+      "data_changed": false,
+      "method": "Full-tree SHA-256 diff of run-2 bundle vs the a33ff59 bundle: exactly 5 files differ; scripts/ and data/ byte-identical; 40 files both sides, none added/removed."
+    },
+    "stage2_assemble": {
+      "status": "COMPLETE",
+      "method": "Copied the a33ff59 bundle tree (40 files) into run-2/vquad-periodrep-bundle/; replaced paper/ pdf+tex+preamble with the LAYOUTFIX latex/ versions; edited paper/build.py TARGET_SHA (line 30) + docstring hash/size (lines 13-14) to 33f339ed.../773171; added a VQUAD-PAPER-LAYOUTFIX-001 row + re-pinned the provenance note in docs/SIARC_PROVENANCE.md.",
+      "embedded_pdf_sha256_confirmed": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+      "old_hash_hygiene": "4ca12a35 / 714771 / 028a1a5d ABSENT from the whole run-2 bundle tree (whole-tree scan).",
+      "retracted_doi": "20455090 ABSENT; concept 20455089 present (unchanged from run-1)."
+    },
+    "stage3_integrity": {
+      "status": "COMPLETE",
+      "output": "bundle-integrity-run2.md",
+      "harness": "verify_bundle.py",
+      "result": "ALL ESSENTIAL SCRIPTS PASS: True (13 run, exit 0; 11 exact, 1 match-modulo-volatile, 1 stdout-only)",
+      "pattern_identical_to_run1": true,
+      "paper_reproducible": true,
+      "pdf_sha256": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+      "pdf_pages": 24,
+      "pristine_temp_dir_rebuild": "identical SHA",
+      "scripts_cleaned_to_40": true,
+      "halt_gate": "PASS"
+    },
+    "stage4_package": {
+      "status": "COMPLETE",
+      "output": "bundle-archive-info-run2.md",
+      "packager": "_package_bundle.py",
+      "archive": "vquad-periodrep-bundle.zip",
+      "archive_sha256": "7bc5d00885bd823a758c4476f60e950a88f54e9f42b7a4bf254730ac894de013",
+      "archive_md5": "c1b5a39c0b56576e81b5c5723935669f",
+      "archive_size_bytes": 776968,
+      "file_count": 40,
+      "embedded_pdf_sha256": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+      "portable": "forward-slash entries, single top-level dir, testzip OK, no stray byproducts, embedded PDF hash verified, SHA stable on re-pack"
+    },
+    "stage5_ledger_handoff": {
+      "status": "COMPLETE",
+      "outputs": ["ledger.json", "claims.jsonl", "handoff.md"]
+    }
+  },
+  "bundle_integrity_status": "PASS",
+  "bundle_composition": {
+    "total_files": 40,
+    "scripts_py": 14,
+    "scripts_runnable": 13,
+    "support_modules": 1,
+    "data_json": 12,
+    "docs_md": 4,
+    "per_dir_readmes": 4,
+    "top_readme": 1,
+    "license": 1,
+    "paper_files": 4
+  },
+  "new_pins": {
+    "paper_pdf_sha256": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+    "paper_pdf_md5": "99faea5b0f4095788e4ee932436beeda",
+    "paper_pdf_bytes": 773171,
+    "paper_pdf_pages": 24,
+    "archive_sha256": "7bc5d00885bd823a758c4476f60e950a88f54e9f42b7a4bf254730ac894de013",
+    "archive_md5": "c1b5a39c0b56576e81b5c5723935669f",
+    "archive_size_bytes": 776968
+  },
+  "doi_discipline": {
+    "source_of_truth": "sessions/2026-06-15/VQUAD-ZENODO-PREP-001/related-identifiers.md",
+    "vquad_companion_concept": "10.5281/zenodo.20455089",
+    "vquad_v1_retracted_NEVER_CITE": "10.5281/zenodo.20455090"
+  },
+  "scenario_B": "Bundle is a secondary file in the paper's single Zenodo deposit; no separate bundle DOI. Unchanged from run-1.",
+  "autonomy_rule": "Standing meta-rule: agent does NOT deposit to Zenodo and does NOT commit/push the slot. Only this run-2 record's files are git-add staged, then HELD for operator review and hand-commit.",
+  "staging_hygiene": "Only sessions/2026-06-16/VQUAD-REPRO-BUNDLE-002/run-2/ files staged; run-1 (a33ff59) bundle and LAYOUTFIX-001 left pristine; nothing outside this run-record staged.",
+  "downstream_gates": [
+    "operator review of the re-pinned bundle (paper PDF 33f339ed, archive 7bc5d008)",
+    "operator commit/push this run-2 record when authorized (COMPLETE message prepared)",
+    "VQUAD-ZENODO-READY-001 run-3 \u2014 refresh stage2 PDF pin to 33f339ed, the bundle-archive pin to 7bc5d008, and (if it carries the PDF hash) the metadata anchor",
+    "reconcile VQUAD-ZENODO-DEPOSIT-001/MANUAL-UPLOAD.md to 33f339ed + archive 7bc5d008 (it currently points at the stale 4ca12a35 / 8752d7c7)",
+    "operator runs the deposit (paper PDF + bundle zip as one CC-BY-4.0 record; verify Zenodo server-side MD5 == 99faea5b for the PDF and c1b5a39c for the zip)"
+  ],
+  "commit_message_prepared": "VQUAD-REPRO-BUNDLE-002 run-2 \u2014 bundle re-pinned to layout-fixed PDF 33f339ed\u2026; integrity PASS (13/13 scripts, 11 exact); new archive SHA 7bc5d008\u2026; supersedes a33ff59 (clipped-digit PDF); scripts/data unchanged"
+}
