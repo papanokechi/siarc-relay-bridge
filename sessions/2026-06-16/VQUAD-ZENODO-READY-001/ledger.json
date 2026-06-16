@@ -1,0 +1,46 @@
+{
+  "slot": "VQUAD-ZENODO-READY-001",
+  "title": "Final pre-flight for V_quad Zenodo deposit — HALTED at Stage 1 (prerequisites not met)",
+  "authored": "2026-06-16",
+  "repo": "siarc-relay-bridge",
+  "status": "HALTED-AT-STAGE-1",
+  "standing_rule": "ready-state HELD; no Zenodo API, no token handling, no sandbox/production execution, no commit/push by agent",
+  "halt_reason": "3 of 4 prerequisites blocking-absent: cold-read not done (no Verdict), VQUAD-PAPER-CORRECTIONS-001 absent, VQUAD-REPRO-BUNDLE-002 absent. This slot refreshes pins against the corrections-final paper and resolves the bundle-002 DOI; neither artifact exists. Brief rule: do not proceed past Stage 1 if any prerequisite is missing.",
+  "prerequisites": {
+    "cold_read_verdict_A": {"status": "NOT_DONE", "evidence": "VQUAD-REVIEW-PREP-001 holds prep only; no Verdict A/B/C recorded; execution is operator hand-step"},
+    "VQUAD-PAPER-CORRECTIONS-001": {"status": "ABSENT", "evidence": "no slot dir, no commit; paper PDF byte-unchanged at 359d1172af3f...c702b (pre-corrections)"},
+    "VQUAD-REPRO-BUNDLE-002": {"status": "ABSENT", "evidence": "no slot dir, no commit; no bundle-002 concept DOI exists to resolve"},
+    "VQUAD-ZENODO-PREP-001": {"status": "DONE", "evidence": "committed 941a699; deposit kit prepared; provisional anchor dee9195c..."}
+  },
+  "adjacent_status": {
+    "fresan_inquiry": "pending (FRESAN-JOSSEN-INQUIRY-001); incorporate at corrections or confirm-deferred",
+    "marchal_confirmation": "in hand; queued for corrections bibliography"
+  },
+  "stages": {
+    "stage_1_prerequisite_verification": "DONE — verified; HALT triggered",
+    "stage_2_refresh_pdf_pin": "BLOCKED — no corrections-final paper",
+    "stage_3_refresh_metadata_anchor": "BLOCKED — anchor pinned to pre-corrections abstract",
+    "stage_4_resolve_bundle_doi": "BLOCKED — VQUAD-REPRO-BUNDLE-002 does not exist",
+    "stage_5_wrong_venue_token": "DEFERRED — final check needs final PDF; provisional draft already venue-neutral (PREP-001 Stage 4)",
+    "stage_6_operator_checklist_reconcile": "BLOCKED — PREP-001 checklist still 0/14 complete",
+    "stage_7_runner_commands": "ALREADY DOCUMENTED in PREP-001 sandbox-and-production-runbook.md; not re-emitted against unfinished pins",
+    "stage_8_ledger_handoff": "DONE — this ledger + claims.jsonl + handoff.md"
+  },
+  "provisional_pins_unchanged": {
+    "pdf_sha256": "359d1172af3f867f4349cf4776a222813a855cd354bc78c0b68ccfb0026c702b",
+    "metadata_anchor_sha256": "dee9195c7957f25fc57f497d6875cdd2b63d97d24f55f36b5e54e388ec003eb8",
+    "note": "BOTH PROVISIONAL — must be re-pinned by a future re-run of this slot AFTER corrections finalize the paper"
+  },
+  "wrong_venue_token_check": {
+    "result": "DEFERRED (not a definitive PASS — final PDF absent)",
+    "provisional_observation": "Compositio / AAECC / ETNA = 0 occurrences in the current draft (PREP-001 Stage 4)"
+  },
+  "fabrications_avoided": [
+    "did not refresh PDF/metadata pins against a non-existent corrections-final paper",
+    "did not invent a VQUAD-REPRO-BUNDLE-002 concept DOI",
+    "did not claim any sandbox/production gate passes",
+    "did not use the brief's success commit message (would be false)"
+  ],
+  "downstream_gate": "Re-run VQUAD-ZENODO-READY-001 only AFTER: cold-read Verdict -> VQUAD-PAPER-CORRECTIONS-001 complete -> VQUAD-REPRO-BUNDLE-002 generated. Then refresh pins, resolve bundle DOI, pre-verify gates, and open VQUAD-ZENODO-DEPOSIT-001.",
+  "held": true
+}
