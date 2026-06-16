@@ -1,0 +1,51 @@
+{
+  "slot": "VQUAD-PAPER-LAYOUTFIX-001",
+  "date": "2026-06-16",
+  "status": "COMPLETE",
+  "task": "Fix systematic right-margin overflow in the corrections-final V_quad period-representation PDF; LAYOUT ONLY; rebuild byte-reproducibly; prove content-unchanged; re-pin; cascade.",
+  "discipline": "LAYOUT ONLY — no digit/symbol/word/equation changed (proven by character-multiset diff).",
+  "root_cause": "MIX (not global geometry): unbreakable monospace \\texttt{...\\_...} script names (no breakpoint at \\_) + several intrinsically-wide display equations and one wide 4-column table. Paper sizes are consistent (letterpaper everywhere) — NOT a letter/a4 mismatch.",
+  "fix_layers": {
+    "global_preamble": "\\emergencystretch=3em + redefine \\_ to append \\allowbreak (breakable monospace underscore). Content-preserving. Cleared 20 -> 7.",
+    "local_reflow": "Aligned line-breaks (q-poly rows, methodB chain split, local-exponents/motive gathered), font-size scopes (\\small for eq:constants and A.3, \\footnotesize for methods table), and de-array A.3 array{ll} -> aligned. Cleared 7 -> 0."
+  },
+  "overfull_hboxes": { "before": 20, "after": 0, "range_pt_before": "1.24 - 152.86" },
+  "pdf": {
+    "old_sha256": "4ca12a35d655df2227a9e1740e60b39c2e6cabef6a1942c74307cd43849582fe",
+    "old_md5": "028a1a5d9e10a3a9487596f6db3e6a38",
+    "old_bytes": 714771,
+    "new_sha256": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+    "new_md5": "99faea5b0f4095788e4ee932436beeda",
+    "new_bytes": 773171,
+    "pages": 24,
+    "byte_reproducible": true,
+    "byte_repro_method": "pristine temp-dir rebuild produced identical SHA-256"
+  },
+  "content_diff": {
+    "method": "pypdf text extract OLD vs NEW; whitespace-stripped character-multiset (Counter) diff (order-independent)",
+    "result": "REFLOW-ONLY",
+    "multiset_delta": "ASCII hyphen U+002D: -2 ; all other characters: 0 change",
+    "interpretation": "the -2 hyphens are line-end hyphenation (reflow-dependent); no content character changed"
+  },
+  "wrong_venue_gate_2_2": { "verdict": "PASS", "forbidden_absent": ["Compositio","AAECC","ETNA","Comptes Rendus","Crelle","Journal of Number Theory","Mathematika"], "legit_present": "Symbolic Comput (Kovacic/JSC cite)" },
+  "p4_factor": { "status": "CORRECT (not a typo)", "reads": "p_4(xi)=((210276+9720*sqrt3)/418501)*xi*(xi+2/sqrt3)", "note": "sqrt3 scope correct; consistent with xi0=2/sqrt3 and singular locus {0,-2/sqrt3,inf}" },
+  "files_edited": {
+    "latex/preamble.tex": "added \\emergencystretch=3em + breakable \\_ (after byte-repro guards)",
+    "sections/section-2.md": "q_1 and q_2 align* rows split; local-exponents wrapped in gathered",
+    "sections/section-4.md": "eq:constants wrapped in {\\small}",
+    "sections/section-5.md": "eq:methodB-chain equation+split; methods tabular {\\footnotesize}",
+    "sections/section-6.md": "motive-datum wrapped in gathered",
+    "sections/section-8.md": "A.3 array{ll} -> aligned + {\\small}"
+  },
+  "cascade_required": true,
+  "cascade_new_pin": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+  "cascade_chain": "LAYOUTFIX-001 (done) -> BUNDLE-002 re-run (new bundle zip SHA) -> READY-001 run-3 (stage2-pdf-pin, stage7-runner-pins, metadata anchor iff it carries the PDF hash) -> ZENODO-DEPOSIT-001 (update MANUAL-UPLOAD.md PDF pins) -> deposit",
+  "parents_unmodified": ["VQUAD-PAPER-CORRECTIONS-001 (d4fc87a)","VQUAD-REPRO-BUNDLE-002 (a33ff59)","VQUAD-ZENODO-READY-001 run-2 (2a7f969)"],
+  "held": {
+    "git_add_only": true,
+    "no_commit_push": true,
+    "head_unchanged": "HEAD remains operator's; agent staged slot only",
+    "commit_message": "VQUAD-PAPER-LAYOUTFIX-001 — fixed systematic right-margin overflow (A.3/A.5/§5.2 + others); root cause MIX (breakable \\_ + \\emergencystretch global, local display/table reflow); rebuilt byte-repro, 20->0 overfull; text diff reflow-only (multiset -2 hyphen / 0 other); new SHA 33f339ed…; cascade re-pin required"
+  },
+  "halt_gate": "CLEARED (overfull=0 AND content-diff=reflow-only AND p4 not a typo)"
+}
