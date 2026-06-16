@@ -12,15 +12,15 @@ token value was never read or logged.
 | # | check | result |
 |---|-------|--------|
 | 0.1 | Prerequisite slots committed | **PASS** |
-| | · VQUAD-ZENODO-READY-001 run-2 | `2a7f969` ✓ (HEAD) |
-| | · VQUAD-REPRO-BUNDLE-002 | `a33ff59` ✓ |
-| | · VQUAD-PAPER-CORRECTIONS-001 | `d4fc87a` ✓ |
+| | · VQUAD-ZENODO-READY-001 run-3 | `0d98662` ✓ (HEAD) |
+| | · VQUAD-REPRO-BUNDLE-002 run-2 | `56a1402` ✓ |
+| | · VQUAD-PAPER-LAYOUTFIX-001 | `627d17e` ✓ |
 | 0.2 | `ZENODO_TOKEN` present in agent env | **False** (value never logged) |
 | 0.3 | token scope/instance | N/A — no token in agent env to inspect |
-| 0.4 | Trap-7: corrections-final PDF SHA-256 | `4ca12a35…` ✓ **MATCH** |
-| — | bundle archive SHA-256 | `8752d7c7…` ✓ **MATCH** |
+| 0.4 | Trap-7: layout-fixed PDF SHA-256 | `33f339ed…` ✓ **MATCH** |
+| — | bundle archive SHA-256 | `7bc5d008…` ✓ **MATCH** |
 | — | runner kit (4 scripts) + playbook present | ✓ |
-| — | run-2 deposit inputs (`zenodo_metadata.md`, `related_identifiers.md`) present | ✓ |
+| — | run-3 deposit inputs (`zenodo_metadata.md`, `related_identifiers.md`) present | ✓ |
 | — | existing deposit working folder | none (operator stages it at run time) |
 
 ## Determination — HALT at Gate 0 (two converging reasons)
