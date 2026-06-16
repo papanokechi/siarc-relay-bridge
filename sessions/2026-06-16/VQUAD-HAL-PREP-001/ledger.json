@@ -1,0 +1,48 @@
+{
+  "slot": "VQUAD-HAL-PREP-001",
+  "title": "HAL pathway closed pending credential change; rejection documented; preparation status preserved",
+  "authored": "2026-06-16",
+  "repo": "siarc-relay-bridge",
+  "slot_status": "DEFERRED",
+  "deferral_horizon": "12-24 months (gated on first peer-reviewed journal acceptance, task T41)",
+  "standing_rule": "ready-state HELD; no deposit attempt, no appeal now, no commit/push by agent",
+  "stages": {
+    "stage_1_rejection_documentation": "DONE — hal-rejection-record.md (sourced verbatim from submission_log.txt L1257-1349)",
+    "stage_2_preserve_preparation": "SKIPPED per brief 2.3 — no prior V_quad HAL-prep deliverables existed in the bridge; archive-status.md documents the pointer to the operator-side PCF-ladder HAL governance (not moved/copied)",
+    "stage_3_strategic_record": "DONE — preprint-pathway-decision.md (closed: arXiv/HAL/Jxiv; open: Zenodo; reactivation criteria)",
+    "stage_4_submission_log_entry": "DONE — submission-log-entry-draft.md (hal-05624243 already logged; only a NEW V_quad-pipeline cross-note drafted for operator hand-edit)",
+    "stage_5_pipeline_implications": "DONE — pipeline-implications.md (V_quad Zenodo deposit unchanged; HAL-secondary plan removed; no HAL placeholder present to remove)",
+    "stage_6_ledger_handoff": "DONE — ledger.json + claims.jsonl + handoff.md"
+  },
+  "rejection": {
+    "hal_id": "hal-05624243v1",
+    "paper": "Polynomial Continued Fractions: a Proved Logarithmic Ladder, a 4/pi Casoratian Identity, and 482 Irrational Constants (PCF Logarithmic Ladder / 482 constants)",
+    "NOT_vquad": true,
+    "submitted": "2026-05-16T22:35:55+09:00",
+    "rejected": "2026-05-21",
+    "basis": "institutional credentialing gate (PhD enrollment / PhD degree / substantial peer-reviewed publication list); scientific quality 'not in question'",
+    "already_logged": "submission_log.txt L1257-1349 (do not duplicate)"
+  },
+  "reactivation_criteria": {
+    "sourced_trigger": ">=1 peer-reviewed journal acceptance satisfies HAL prong (c); then reconsideration request to hal.support@ccsd.cnrs.fr (task T41)",
+    "brief_reading": "2-3 peer-reviewed publications (more conservative)",
+    "depends_on": "first V_quad journal acceptance (venue deferred; paper names no venue) or fallback",
+    "timeline": "12-24 months (brief-asserted)"
+  },
+  "downstream_impact": {
+    "vquad_zenodo_deposit_001": "UNCHANGED",
+    "hal_secondary_plan": "REMOVED from operator action sequence",
+    "hal_placeholder_in_zenodo_metadata": "NONE present (verified); ensure none added at deposit",
+    "substitute_discovery_channel": "direct expert inquiry (Marchal complete; Fresan pending)"
+  },
+  "flags": {
+    "F-PAPER-IDENTITY": "Brief framed hal-05624243 as the V_quad paper; it is the PCF Logarithmic Ladder paper. Corrected to sourced reality.",
+    "F-DATE": "Brief said rejected 'today' (2026-06-16); sourced rejection date is 2026-05-21. Today is only the authoring date of this deferral record.",
+    "F-ARXIV-DEC2025": "Brief's 'December 2025 arXiv policy tightening' is BRIEF-ASSERTED, not independently sourced in this slot.",
+    "F-JXIV-EXCLUSIVITY": "Brief's Jxiv exclusivity clause is BRIEF-ASSERTED, not in the durable record reviewed here.",
+    "F-EMAIL-VERBATIM": "Verbatim HAL rejection email is operator-held; not reproduced (no fabrication). Only the institutional summary is in submission_log.txt.",
+    "F-AFFIL-CROSSVENUE": "HAL deposit used 'Independent researcher, Yokohama, Japan' (L1264); Zenodo convention is ORCID-only/blank. Feeds the open V_quad F-AFFIL decision."
+  },
+  "downstream_gate": "None blocking. Operator may hand-edit submission_log.txt with the V_quad-pipeline cross-note when convenient; V_quad Zenodo pipeline proceeds independently.",
+  "held": true
+}
