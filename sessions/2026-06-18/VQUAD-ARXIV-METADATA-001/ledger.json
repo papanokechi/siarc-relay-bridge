@@ -1,0 +1,62 @@
+{
+  "slot": "VQUAD-ARXIV-METADATA-001",
+  "session": "sessions/2026-06-18/VQUAD-ARXIV-METADATA-001",
+  "date": "2026-06-18",
+  "status": "COMPLETE",
+  "held": true,
+  "scope": "PREPARE + VERIFY only — arXiv submission metadata package. NO web submission, NO arXiv API, NO final submit. The arXiv web submission is the operator's identity-bound hand action.",
+  "head_at_start": "4ae9b6c",
+  "source": {
+    "tree": "sessions/2026-06-16/VQUAD-PAPER-LAYOUTFIX-001/latex/",
+    "committed": "627d17e",
+    "upload_files": ["vquad-periodrep-paper.tex"],
+    "excluded_from_upload": ["preamble.tex (inlined)", "build.py (build driver)", "vquad-periodrep-paper.pdf (derivative)", "*.aux/*.log/*.out (artifacts)"],
+    "bib_mechanism": "embedded \\begin{thebibliography}{99} — no .bbl, no bibtex",
+    "figures": "none (TikZ inline; no \\includegraphics)",
+    "inputs": "none (no \\input/\\include; fully self-contained)",
+    "layout_fixed": {
+      "pdf_sha256": "33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea",
+      "pdf_size_bytes": 773171,
+      "pages": 24,
+      "guards_present": ["\\emergencystretch=3em", "breakable \\_ redefinition"]
+    }
+  },
+  "metadata_package": {
+    "title": "An explicit exponential-period representation of the $V_{\\mathrm{quad}}$ connection coefficient",
+    "authors": "Papanokechi",
+    "orcid": "0009-0000-6192-8273",
+    "primary_category": "math-ph",
+    "crosslist_later": ["math.NT", "math.CA"],
+    "license": "cc-by-4.0 (must be actively selected; not the arXiv default)",
+    "comments": "24 pages (+ optional Zenodo concept DOI 10.5281/zenodo.20719042)",
+    "msc_optional": ["34M55", "11J81", "34E20", "14F40", "33C20", "37K10"],
+    "doi_journalref_reportno": "blank at submission"
+  },
+  "consistency_gate": {
+    "wrong_venue_absent": "PASS",
+    "identity_papanokechi_only_no_kubota": "PASS",
+    "title_abstract_match_zenodo": "PASS",
+    "verdict": "PASS"
+  },
+  "zenodo_crosscheck": {
+    "record": "20719043",
+    "concept_doi": "10.5281/zenodo.20719042",
+    "version_doi": "10.5281/zenodo.20719043",
+    "title_match": true,
+    "abstract_match": "scientific abstract identical modulo Trap-3 entity encoding; Zenodo appends 3 deposit-context sentences intentionally omitted from arXiv abstract",
+    "license": "cc-by-4.0",
+    "creator": "Papanokechi / aff Independent Researcher / ORCID 0009-0000-6192-8273"
+  },
+  "deliverables": [
+    "arxiv-source-inventory.md",
+    "arxiv-metadata-package.md",
+    "arxiv-consistency-gate.md",
+    "arxiv-submission-runbook.md",
+    "ledger.json",
+    "claims.jsonl",
+    "handoff.md"
+  ],
+  "downstream": "Operator web submission per arxiv-submission-runbook.md (HELD, hand action): upload vquad-periodrep-paper.tex source, transcribe fields, ACTIVELY select CC BY 4.0, attach ORCID, pre-announcement Kubota name-check, submit, then math.NT/math.CA cross-lists.",
+  "staging_hygiene_note": "Two DEPOSIT-001 files (MANUAL-UPLOAD.md, upload-copy-paste.md) were pre-staged HELD from the prior task and remain in the index at start. Flagged to operator. This slot stages ONLY its own files with explicit paths; the operator must commit per-slot (do not let a single hand-commit sweep both slots).",
+  "commit_message_held": "VQUAD-ARXIV-METADATA-001 — arXiv submission metadata prepared + verified (math-ph primary, CC BY 4.0, author Papanokechi); source = layout-fixed; consistency gate PASS; web submission held for operator"
+}
