@@ -11,6 +11,38 @@ ordered roughly by the order in which they will need to be resolved.
 
 ---
 
+## A0. RETRACTION PRE-FLIGHT (blocking — added by RETRACT-01, 2026-08-04)
+
+[  ] A0. Confirm that no claim in `p11_coverletter_mathcomp.txt` has been
+        retracted since the letter was drafted on 2026-05-06.
+
+        AS OF 2026-08-04 THE FOLLOWING ARE RETRACTED AND ARE STILL
+        PRESENT IN THE DRAFT:
+
+          - ¶2 lines 28-29: "at certified precision, with a
+            machine-checkable certificate"
+          - ¶3 line 50: "The machine-checkable certificate is
+            supplementary file f1_base_certificate.json"
+          - ¶1 line 22: "Des(400,093) = 513,387" stated without its
+            precision qualifier
+
+        MANIFEST-01 established that dps=500 covers 50 families, not
+        400,093, and that the pipeline used mpmath floats with no
+        interval enclosure.  "Certified" and "certificate" therefore
+        overstate the artifact, which is a reproducible computation
+        ledger with output hashes.
+
+        NOTE: the supplementary ledger is CORRECT.  claims.jsonl:32
+        reads "2000/2000 confirmed@dps=300, 50 certified@dps=500".
+        The overclaim exists only in the cover-letter prose.
+
+        This box CANNOT be checked while those phrases remain.  The
+        venue argument in ¶2 rests on the retracted claim, so this is
+        a rewrite, not a find-and-replace.  Proposed replacement text:
+        next-journey-01/RETRACT-01_OPERATOR_GATE.md §G-1.4.
+
+---
+
 ## A. Verdict + closure (¶4 of cover letter)
 
 [  ] A1. JTNB editorial verdict text saved verbatim to a bridge

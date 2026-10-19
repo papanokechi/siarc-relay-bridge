@@ -1,0 +1,106 @@
+PROPOSED REVISION — p11_coverletter_mathcomp.txt
+RETRACT-01, 2026-08-04.  NOT APPLIED.  Operator decision required.
+
+WHY THIS IS NOT A FULL REPLACEMENT LETTER
+-----------------------------------------
+Deliberately supplied as a patch, not as a rival draft.  A second
+complete letter sitting beside the first is a dispatch hazard: the wrong
+file gets sent.  Apply these three passages into the existing letter, or
+discard this file.
+
+THE PROBLEM IN ONE LINE
+-----------------------
+Paragraph 2 argues that Mathematics of Computation is the right venue
+BECAUSE the work is "at certified precision, with a machine-checkable
+certificate."  MANIFEST-01 retracted that: dps=500 covers 50 families,
+not 400,093, and the pipeline used mpmath floats with no interval
+enclosure.  So the retracted claim is not a stray figure in the letter —
+it is the stated reason for choosing the journal.  Deleting the number
+leaves the venue argument with no support.  This is a rewrite.
+
+WHAT IS NOT WRONG (do not "fix" these)
+--------------------------------------
+  - line 48, "dps = 300-500"           ACCURATE as a range.
+  - claims.jsonl:32, "2000/2000 confirmed@dps=300, 50 certified@dps=500"
+                                        ACCURATE.  The supplementary
+                                        ledger was correct all along.
+  - the 531,441 enumeration, the Rat/Log/Alg/Trans partition, and the
+    a_2/b_1^2 = -2/9 structural identity are NOT retracted.
+The overclaim exists only in the cover-letter prose that summarises a
+correct ledger.  See ledger F10 (qualifier stripping).
+
+
+PATCH 1 of 3  —  lines 26-29, the venue argument  [LOAD-BEARING]
+----------------------------------------------------------------
+OLD:
+  I believe Mathematics of Computation is the appropriate venue
+  because the central contribution is computational: an algorithmic
+  classification of an explicit arithmetic family at certified
+  precision, with a machine-checkable certificate.
+
+NEW:
+  I believe Mathematics of Computation is the appropriate venue
+  because the central contribution is computational: an exhaustive
+  algorithmic classification of an explicit arithmetic family,
+  carried out at high working precision (dps = 300-500) and shipped
+  with a complete, independently re-runnable computation ledger.
+
+Rationale: "exhaustive" and "independently re-runnable" are true, are
+defensible to a referee, and are the qualities Math. Comp. actually
+selects for.  "Certified" is not available to us and would not survive
+a referee asking to see the enclosure.
+
+
+PATCH 2 of 3  —  lines 45-51, the reproducibility paragraph
+-----------------------------------------------------------
+OLD:
+  ... each tagged with its working precision (dps = 300-500), the
+  script that produced it (f1_base_computation.py), and a SHA-256
+  output hash.  The machine-checkable certificate is supplementary
+  file f1_base_certificate.json.
+
+NEW:
+  ... each tagged with its working precision, the script that
+  produced it (f1_base_computation.py), and a SHA-256 output hash.
+  The computation ledger is supplementary file
+  f1_base_certificate.json.  We state the precision regime
+  explicitly: of the Desert stratum, 2,000 families were confirmed
+  at dps = 300 and 50 at dps = 500.  The classification is a
+  high-precision floating-point computation and does not carry
+  interval enclosures; we make no rigorous-certification claim for
+  it.
+
+Rationale: this is the strongest form of the disclosure.  Stating the
+limitation ourselves is worth more to a referee than having it found,
+and it costs nothing the paper actually had.  Note the filename
+f1_base_certificate.json is left alone — renaming a supplementary
+artifact would break the claim ledger's own hashes.
+
+
+PATCH 3 of 3  —  lines 21-24, the partition sentence
+-----------------------------------------------------
+OLD:
+  ... to give the decomposition Rat(113,270) sqcup Log(0) sqcup
+  Alg(0) sqcup Trans(24) sqcup Des(400,093) = 513,387 of the
+  convergent subspace, ...
+
+NEW:
+  ... to give the decomposition Rat(113,270) sqcup Log(0) sqcup
+  Alg(0) sqcup Trans(24) sqcup Des(400,093) = 513,387 of the
+  convergent subspace, at the working precisions detailed below, ...
+
+Rationale: minimal.  The partition is the paper's actual result and is
+not retracted; only its presentation as certified was.  Six words
+attach the qualifier to the figure so it cannot travel without it —
+which is precisely the failure that produced this patch.
+
+
+AFTER APPLYING
+--------------
+  - re-read the letter end to end for any remaining use of "certified"
+    or "certificate" in the rigorous sense;
+  - then, and only then, box A0 in operator_dispatch_checklist.md may
+    be checked.
+
+If JTNB returned accept or minor-revision, do none of this: the
+checklist header says discard, and the defect goes away with the file.
