@@ -1,4 +1,4 @@
-**Addendum (2026-10-17) to the KNOWN-ISSUES notice of 2026-10-06 (commit c2da211).** These issues are in addition to those already listed.
+**Addendum (2026-10-17) to the KNOWN-ISSUES notice of 2026-10-06 (commit d899e94).** These issues are in addition to those already listed.
 
 1. **Trivial-zero count.** The paper states 729 families with a(1) = 0 (`main_R1.tex`, line 247). The correct count is 44,469: 61 of the 729 numerator polynomials satisfy a(1) = 0, times 729 denominators. The figure 729 counts only a(n) ≡ 0.
 2. **Termination count.** The largest positive integer root of any nonzero a(n) in F(2,4) is 4. At most 67,068 families have a(k) = 0 for some k ≥ 1, plus 729 with a(n) ≡ 0. The stated 112,540 terminations are impossible. This supplements the k ∈ {21..100} item already listed.
