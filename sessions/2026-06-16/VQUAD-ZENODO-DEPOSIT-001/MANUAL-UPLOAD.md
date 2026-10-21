@@ -69,22 +69,29 @@ motivic Galois group
 
 ## 3. Related works (add 11 — Relation + Identifier; scheme auto-detects DOI)
 
-| # | Relation (dropdown) | Identifier (DOI) | what it is |
-|---|---|---|---|
-| 1 | **Continues** | `10.5281/zenodo.20455089` | V_quad companion paper (concept) |
-| 2 | **Continues** | `10.5281/zenodo.20694840` | Sakai-Stratification program (concept) |
-| 3 | **Is part of** | `10.5281/zenodo.19885549` | SIARC umbrella program (concept) |
-| 4 | **References** | `10.5281/zenodo.20569723` | EBR-Ib (concept) |
-| 5 | **References** | `10.5281/zenodo.20566465` | EBR-II (concept) |
-| 6 | **References** | `10.5281/zenodo.20624813` | δ-Fredholm (concept) |
-| 7 | **References** | `10.1007/s002200100446` | Sakai 2001, Comm. Math. Phys. |
-| 8 | **References** | `10.1016/S0747-7171(86)80010-4` | Kovacic 1986, J. Symbolic Comput. |
-| 9 | **References** | `10.1007/s00220-024-05187-0` | Marchal–Alameddine 2024, CMP |
-| 10 | **References** | `10.1016/j.geomphys.2017.10.009` | Iwaki–Marchal–Sałek/Saenz 2018, J. Geom. Phys. |
-| 11 | **References** | `10.1063/5.0002260` | Marchal–Orantin 2020, J. Math. Phys. |
+Each related work also has an optional **Resource type** field that describes the *cited*
+work (NOT this deposit). Set it per the last column — the six Zenodo records are preprints
+(verified live: `resource_type=publication/preprint`); the five publisher DOIs are
+**published journal articles** (verified: Crossref `type=journal-article`), so they must be
+**Publication / Journal article**, not "Preprint".
+
+| # | Relation (dropdown) | Identifier (DOI) | what it is | Resource type (per-work) |
+|---|---|---|---|---|
+| 1 | **Continues** | `10.5281/zenodo.20455089` | V_quad companion paper (concept) | Publication / Preprint |
+| 2 | **Continues** | `10.5281/zenodo.20694840` | Sakai-Stratification program (concept) | Publication / Preprint |
+| 3 | **Is part of** | `10.5281/zenodo.19885549` | SIARC umbrella program (concept) | Publication / Preprint |
+| 4 | **References** | `10.5281/zenodo.20569723` | EBR-Ib (concept) | Publication / Preprint |
+| 5 | **References** | `10.5281/zenodo.20566465` | EBR-II (concept) | Publication / Preprint |
+| 6 | **References** | `10.5281/zenodo.20624813` | δ-Fredholm (concept) | Publication / Preprint |
+| 7 | **References** | `10.1007/s002200100446` | Sakai 2001, Comm. Math. Phys. | **Publication / Journal article** |
+| 8 | **References** | `10.1016/S0747-7171(86)80010-4` | Kovacic 1986, J. Symbolic Comput. | **Publication / Journal article** |
+| 9 | **References** | `10.1007/s00220-024-05187-0` | Marchal–Alameddine 2024, CMP | **Publication / Journal article** |
+| 10 | **References** | `10.1016/j.geomphys.2017.10.009` | Iwaki–Marchal–Sałek/Saenz 2018, J. Geom. Phys. | **Publication / Journal article** |
+| 11 | **References** | `10.1063/5.0002260` | Marchal–Orantin 2020, J. Math. Phys. | **Publication / Journal article** |
 
 **All concept DOIs** (cite-all parents). Do **not** enter the retracted V_quad v1.0
 **version** DOI `10.5281/zenodo.20455090` — use the concept `…20455089` (#1).
+
 
 ---
 
@@ -95,11 +102,8 @@ ships in this record as `vquad-periodrep-bundle.zip`** — so a separate repo UR
 **not required**.
 
 If you nonetheless want to link the source repo, add it as a related work:
-- **Relation** `Is supplemented by` · **Identifier** `https://github.com/papanokechi/project-fingerprint` · **Resource type** `Software`.
-- ⚠️ Only add this if that repo is **public**. If it is private, leave it off (a
-  403/404 link degrades the record). The git remote is
-  `https://github.com/papanokechi/project-fingerprint.git` — confirm its visibility
-  before linking.
+- **Relation** `Is supplemented by` · **Identifier** `https://github.com/papanokechi/project-fingerprint` · **Scheme** URL (auto) · **Resource type** `Software`.
+- ✅ Visibility **confirmed PUBLIC** 2026-06-16 (`gh repo view` → `visibility: PUBLIC, isPrivate: false`; unauthenticated `https://github.com/papanokechi/project-fingerprint` → HTTP 200), so the link is safe (no 403/404). Adding it is still **optional** — the reproducibility code already ships in the deposit as the bundle zip.
 
 ---
 

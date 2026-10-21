@@ -31,7 +31,7 @@ Papanokechi
 
 - Source: **TEX** L53 `\author{Papanokechi}`. Single author.
 - ORCID `0009-0000-6192-8273` (**TEX** L54 `\thanks{ORCID ...}`; **ZEN** `creators[0].orcid`) — attached at the arXiv **account/claim** step (the ORCID link in the user profile), **not** typed into the author-name field.
-- **No [private pattern file]** anywhere in source (Stage 3 PASS). Author must read **Papanokechi** only.
+- **No string from the private pattern file** anywhere in source (Stage 3 PASS). Author must read **Papanokechi** only.
 
 ---
 
@@ -43,7 +43,7 @@ clean **TEX** `\begin{abstract}` text (L59–72) — **not** the Zenodo entity-e
 and **without** the 3 Zenodo deposit-context sentences (see note).
 
 ```
-We prove that the connection coefficient $C$ of the $V_{\mathrm{quad}}$ polynomial continued fraction---the rank-one standalone closure on the Sakai surface $D_5^{(1)}$ (Painlev\'e~V)---admits an explicit exponential-period representation $C=(\lvert\Gamma(\beta)\rvert/2\pi)\int_\gamma e^{\xi}\widehat{B}(\xi)\,d\xi=\lvert\Gamma(\beta)\rvert K$, where $\widehat{B}$ is the Borel transform of the $V_{\mathrm{quad}}$ asymptotic series, holonomic of order $4$ (the Borel--Laplace dual of the order-$2$ operator annihilating the series) with coefficients in the real quadratic field $\mathbb{Q}(\sqrt3)$; $\gamma$ is an explicit Hankel rapid-decay cycle on $(-\infty,-2/\sqrt3]$; and $\beta=-1/(3\sqrt3)$. The identity is verified by three structurally independent methods---differential-equation/operator duality, Borel--Laplace contour deformation, and Stokes-data---agreeing to $46$ digits. The order-$2$ operator annihilating the asymptotic series has differential Galois group $\mathrm{SL}_2(\mathbb{C})$ by Kovacic's algorithm. As a by-product, holonomicity of the Borel transform forces a finite resurgent structure. Finally, conditional on the Fres\'an--Jossen period conjecture for exponential motives and on a stated motivic-comparison hypothesis, $C$ is transcendental over $\overline{\mathbb{Q}}$.
+We prove that the connection coefficient $C$ of the $V_{\mathrm{quad}}$ polynomial continued fraction---the rank-one standalone closure, whose Sakai surface type is conjectured to be $D_5^{(1)}$ (Painlev\'e~V)---admits an explicit exponential-period representation $C=(\lvert\Gamma(\beta)\rvert/2\pi)\int_\gamma e^{\xi}\widehat{B}(\xi)\,d\xi=\lvert\Gamma(\beta)\rvert K$, where $\widehat{B}$ is the Borel transform of the $V_{\mathrm{quad}}$ asymptotic series, holonomic of order $4$ (the Borel--Laplace dual of the order-$2$ operator annihilating the series) with coefficients in the real quadratic field $\mathbb{Q}(\sqrt3)$; $\gamma$ is an explicit Hankel rapid-decay cycle on $(-\infty,-2/\sqrt3]$; and $\beta=-1/(3\sqrt3)$. The identity is verified by three structurally independent methods---differential-equation/operator duality, Borel--Laplace contour deformation, and Stokes-data---agreeing to $46$ digits. The order-$2$ operator annihilating the asymptotic series has differential Galois group $\mathrm{SL}_2(\mathbb{C})$ by Kovacic's algorithm. As a by-product, holonomicity of the Borel transform forces a finite resurgent structure. Finally, conditional on the Fres\'an--Jossen period conjecture for exponential motives and on a stated motivic-comparison hypothesis, $C$ is transcendental over $\overline{\mathbb{Q}}$.
 ```
 
 Macro expansions applied (preamble L38–49 → standard TeX): `\Vquad`→`V_{\mathrm{quad}}`,
