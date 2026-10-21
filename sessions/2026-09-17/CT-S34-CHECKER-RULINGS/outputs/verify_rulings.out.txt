@@ -1,0 +1,63 @@
+==============================================================================
+CT-S34  controls on the four rulings  (θ, ∞ sentinels)
+==============================================================================
+checker under test: C:\LocalWork\siarc-relay-bridge\sessions\2026-09-17\CT-R1-AUDIT\check_invariants.py
+sha256            : 89d163f2c1b7a81d17429eaa5d82104000718052d899ba73d8a9b7202749f30a
+predecessor kept  : 3e675fc52f06a1bbcfe3c0445f8e30bf701f36bc5f89b0bb01f950109291e4e4
+
+RULING 1 — INVARIANT 2 SCOPED TO THE LABEL CONVENTION
+  [PASS] an unlabelled claim dated one day BEFORE the cutoff is a hole, not a failure
+         would have fired if: invariant 2 judging claims written before the convention existed, which is what the ruling forbids
+  [PASS] an unlabelled claim dated one day AFTER the cutoff FAILS invariant 2
+         would have fired if: the scoping having disarmed invariant 2 altogether, i.e. a scoping change that is really a loosening
+  [PASS] the cutoff is inclusive: a claim dated ON the cutoff is in scope
+         would have fired if: an off-by-one at the boundary, leaving the cutoff date itself unchecked
+  [PASS] the real run prints the cutoff date
+         would have fired if: the cutoff being applied without being visible in the output
+
+RULING 2 — INVARIANT 1(b) SPLIT THREE WAYS
+  [PASS] a genuine global collision still FAILS 1(b)(i) and is named a true collision
+         would have fired if: the split having exempted ordinary ids, which would make 1(b) unable to catch the thing it exists for
+  [PASS] a session-local counter reused WITHIN one session FAILS 1(b)(ii)
+         would have fired if: session-local scoping being read as 'never checked', which would let a session collide with itself
+  [PASS] the same counter in TWO sessions is exempt from global uniqueness
+         would have fired if: the exemption not applying, which would re-flag the 10 counters the ruling exempts
+  [PASS] a mirror AT the deposit path is exempt and is listed with the pattern that matched
+         would have fired if: the mirror exemption being silent, which would hide a hole in the check
+  [PASS] a mirror NOT at the deposit path is still reported — identical text is not an exemption
+         would have fired if: text identity having been accepted as an exemption, which would absorb the 59 restatements without a ruling
+  [PASS] an idless claim gets its own printed line and is called a hole
+         would have fired if: idless claims sitting silently outside 1(b), which is how 2641 of them went unremarked
+  [PASS] the real run prints the idless count
+         would have fired if: an exemption being applied without its pattern being printed
+  [PASS] the real run prints the mirror pattern
+         would have fired if: an exemption being applied without its pattern being printed
+  [PASS] the real run prints the counter pattern
+         would have fired if: an exemption being applied without its pattern being printed
+
+RULING 3 — THE UNREADABLE CLAIM LEFT UNREPAIRED
+  [PASS] the real run names the known hole by path and line
+         would have fired if: the damaged line being reported without being identified, or being silently tolerated
+  [PASS] a DIFFERENT damaged line is reported as NEW DAMAGE, not absorbed by the known-hole entry
+         would have fired if: the known-hole list being a blanket amnesty for any damage, which would hide the next truncation
+
+RULING 4 — SCOPE REMOVED FROM ROOTS
+  [PASS] SCOPE is not among the walked roots
+         would have fired if: SCOPE still being walked, leaving the race and the stand-down inside the verdict
+  [PASS] SCOPE appears in EXCLUDE with all three reasons printed
+         would have fired if: the removal being undocumented, so nobody could tell what would have to be settled to restore it
+  [PASS] SCOPE is named on the holes line
+         would have fired if: the exclusion being invisible in the verdict summary
+  [PASS] the input fingerprint is kept
+         would have fired if: the fingerprint being dropped along with the live root it was introduced for
+  [PASS] the fingerprint is printed on a FAILING run, not only a passing one
+         would have fired if: the fingerprint sitting after an early exit, so the one run you most need to reconcile is the one that printed no fingerprint
+  [PASS] the fingerprint is printed over an EMPTY corpus, stating 0 files
+         would have fired if: an empty read being silently indistinguishable from a read that found nothing wrong
+  [PASS] the real run prints exactly one full 64-hex fingerprint
+         would have fired if: a truncated or duplicated fingerprint, which cannot be compared between runs
+
+  [PASS] the real checker is byte-identical after all controls
+         would have fired if: a control having written to the file under test
+
+CONTROLS: 23/23 PASS

@@ -1,0 +1,47 @@
+[0] submission_log.txt  sha256 70f814b926a5fd67a761bbebe19b5474db69b440e7e3f2340624c79029897433
+
+[1] every 'Active journal submissions' count in the file
+    line 1507: count = 26
+
+    line 2005: count = 3
+        Item 13  JDE
+        Item 26  JSC
+        Item 27  Compositio
+        Item 29  JDEA
+        Item 33  Compositio
+        -> 5 of 5 listed items now carry a terminal verdict:
+           Item 13 JDE: REJECTED 2026-05-27 by Qiudong Wang, Handling Editor, Journa
+           Item 26 JSC: REJECTED 2026-06-15 by Josef Schicho, Editor-in-Chief, after
+           Item 27 Compositio: REJECTED 2026-06-01 — verbatim editor letter (managing-edito
+           Item 29 JDEA: REJECTED 2026-05-24 — editor-only scope-mismatch desk-style 
+           Item 33 Compositio: REJECTED 2026-05-22 ~15:39 JST — verbatim editor letter (5-s
+
+    line 2553: count = 3
+        Item 13  JDE
+        Item 26  JSC
+        Item 27  Compositio
+        -> 3 of 3 listed items now carry a terminal verdict:
+           Item 13 JDE: REJECTED 2026-05-27 by Qiudong Wang, Handling Editor, Journa
+           Item 26 JSC: REJECTED 2026-06-15 by Josef Schicho, Editor-in-Chief, after
+           Item 27 Compositio: REJECTED 2026-06-01 — verbatim editor letter (managing-edito
+
+[2] is the count dated?
+    line 1507: nearby dates ['2026-05-21', '2026-05-22', '2026-06-18']
+    line 2005: nearby dates ['2026-05-22', '2026-05-25']
+    line 2553: nearby dates ['2026-05-25', '2026-05-26']
+
+[C] controls -- each must fire
+    FIRED  count regex separates present from absent
+    FIRED  terminal-verdict matcher can say no
+    FIRED  terminal-verdict matcher can say yes
+
+==========================================================================
+FINDINGS: 2
+  1. the 'Active journal submissions: 3' count at line 2005 lists 5 item(s) that now carry a terminal verdict (Item 13, Item 26, Item 27, Item 29, Item 33)
+  2. the 'Active journal submissions: 3' count at line 2553 lists 3 item(s) that now carry a terminal verdict (Item 13, Item 26, Item 27)
+
+NOTE: a snapshot that states its own as-of date is HISTORICAL, not
+stale. See section [2] above before treating any of these as defects.
+==========================================================================
+
+NOT REPAIRED. Read-only.

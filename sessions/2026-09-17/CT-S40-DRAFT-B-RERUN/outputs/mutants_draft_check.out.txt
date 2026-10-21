@@ -1,0 +1,16 @@
+mutants_draft_check -- 12 arms
+
+  M1 S4-03 PROVEN -> CONJECTURED                       rc=1 exp=1 CAUGHT
+  M2 S16-01 INSPECTED -> PROVEN (forbidden upgrade)    rc=1 exp=1 CAUGHT
+  M3 S6-C16 STRUCTURAL -> VERIFIED                     rc=1 exp=1 CAUGHT
+  M4 S16-04 STRUCTURAL -> INSPECTED                    rc=1 exp=1 CAUGHT
+  M5 cite a claim id that does not exist               rc=1 exp=1 CAUGHT
+  M6 cite a structurally superseded claim              rc=1 exp=1 CAUGHT
+  M7 bare short form S9-PVPARAMS-C005 must now FAIL (alias retired) rc=1 exp=1 CAUGHT
+  M8 reader integrity: section3.tex emptied            rc=2 exp=2 CAUGHT
+  M9 boundary: section4.tex reduced to 4 citations     rc=2 exp=2 CAUGHT
+  M10 an \eqref pointed at a label defined nowhere     rc=1 exp=1 CAUGHT
+  M11 outline reverted to the bare short form          rc=1 exp=1 CAUGHT
+  M12 section 1 reverted to the stale CT-S37 copy      rc=1 exp=1 CAUGHT
+
+12/12 arms CAUGHT

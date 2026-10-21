@@ -1,0 +1,285 @@
+1
+
+Notation and standing conventions
+
+This section fixes every symbol, name and hypothesis used in the paper. It introduces no mathematics; a reader who already knows the conventions may skip to §2 and return here as needed.
+
+1.1
+
+The recurrence and its normalisation
+
+Throughout, b is a polynomial with real coefficients,
+b(n) =
+
+d
+X
+
+βk nk ,
+
+βd ̸= 0,
+
+d = deg b ≥ 1,
+
+k=0
+
+so that βd is the leading coefficient and βd−1 the subleading one. A polynomial continued fraction
+(PCF) is the continued fraction whose partial denominators are the values b(1), b(2), . . . of such a
+b at the positive integers; its denominators Qn satisfy the three-term recurrence
+Qn = b(n)Qn−1 + Qn−2
+Write
+Bn =
+
+n
+Y
+
+b(k)
+
+(B0 = 1),
+
+(n ≥ 1),
+
+ψn =
+
+k=1
+
+Q−1 = 0,
+Qn
+,
+Bn
+
+Q0 = 1.
+
+(1)
+
+ψ∞ = lim ψn .
+
+(2)
+
+n→∞
+
+We call ψn the normalised denominator sequence and ψ∞ its limit. The roots of b are written
+ν1 , . . . , νd ∈ C,
+
+b(n) = βd
+
+d
+Y
+
+(n − νi ).
+
+(3)
+
+i=1
+
+Three objects, one letter. The sequence (2), its limit, and the roots (3) are three different
+objects, and in the deposited record all three are written with the letter r. That record’s r1 is
+therefore ambiguous: it is at once the first term of the sequence and the first root.1 Because the
+collision is in the source material and not an artefact of assembly, it is resolved here once and the
+paper uses ψn , ψ∞ and νi everywhere.
+
+1.2
+
+Standing hypotheses
+
+Three hypotheses are used, and they are stated separately because they are consumed separately.
+Only (A1) is in force by default; (A2) and (A3) are invoked by name wherever they are needed.
+(A1) b(k) ̸= 0 for every integer k ≥ 1.
+(A2) No root νi is a positive integer; equivalently, Γ(1 − νi ) is finite for every i. (The Gamma
+function has poles at 0, −1, −2, . . . , so Γ(1 − νi ) is singular exactly when νi ∈ {1, 2, 3, . . . }.)
+Note (A2) ⇒ (A1).
+(A3) ψ∞ = limn→∞ Qn /Bn exists and is nonzero.
+(A2) is not decoration. It is exactly the condition under which Γ(1 − νi ) is finite, and therefore
+the condition under which the constant K of §1.4 is defined at all. A statement that uses K and
+cites only (A1) has omitted a hypothesis.
+1
+Correspondence with the deposited record. The names used in this paper and the names used in the
+Channel Theory deposit (Zenodo concept DOI 10.5281/zenodo.19941678) correspond as follows: ψn ↔ rn , ψ∞ ↔
+r∞ , and ν1 , . . . , νd ↔ r1 , . . . , rd . The deposited records are not altered; the renaming is made in this paper only,
+and this is the single place the correspondence is recorded. A fourth, unrelated object is written r(·) in §1.7 below,
+following van der Put–Saito; it is never one of these three.
+
+1
+
+1.3
+
+Asymptotic and analytic vocabulary
+
+R∞
+Γ denotes Euler’s Gamma function, the meromorphic continuation of Γ(s) = 0 ts−1 e−t dt (ℜs >
+0), with simple poles at s = 0, −1, −2, . . . and Γ(m + 1) = m! for integers m ≥ 0. We write (dn)!
+for Γ(dn + 1) when dn is a non-negative integer.
+For functions of n → ∞: f = O(g) means |f | ≤ C|g| for some constant C and all large n;
+f = o(g) means f /g → 0; and f ∼ g means f /g → 1. In particular o(1) denotes a quantity tending
+to 0. These are statements about n → ∞ unless another limit is named.
+A formal solution is a solution taken as a formal power (or power-and-exponential) series, with
+no convergence asserted. The Newton polygon of a linear differential operator at a point is the lower
+convex hull, in the plane of (order of differentiation, order of vanishing) of the coefficients, of the
+points attached to its terms; its slopes govern the exponential growth of formal solutions at that
+point. A germ coefficient is a coefficient of such a local expansion, i.e. of the germ of the solution at
+the point in question, as opposed to a global invariant. The amplitude of an exponentially small or
+large term is the prefactor multiplying its exponential, and c± denote the amplitudes attached to
+the two branches of a square-root (rank 21 ) irregular singularity. A Stokes constant is the coefficient
+with which one formal solution enters the Borel-plane singularity structure of another across a
+Stokes line; it is a connection datum, not a local one.
+
+1.4
+
+The growth constants
+
+Under (A2) and (A3) the denominators satisfy
+ β n
+
+Qn
+d
+= K·
+· ns · 1 + O(1/n) ,
+d
+Γ(dn + 1)
+d
+which defines the two constants used throughout: the growth exponent
+s=
+
+βd−1 d − 1
++
+βd
+2
+
+and the connection constant K, the amplitude of this asymptotic. K depends on all of β0 , . . . , βd ;
+the base βd /d d depends only on βd , and s only on βd and βd−1 . Consequently a test that inspects
+the base or the exponent alone is insensitive to β0 , . . . , βd−2 , and cannot be used to detect their
+influence.
+Two further symbols belong to the Borel plane of this asymptotic. We write ξ0 for the characteristic root
+2
+ξ0 = √
+(d = 2),
+β2
+and ρ for the exponent of the leading Borel-plane singularity, an indicial exponent in the uniformiser
+√
+u = z. An indicial exponent of a linear differential equation at a regular singular point is a root
+of its indicial equation, equivalently an exponent α for which the equation admits a local solution
+of the form uα (c0 + c1 u + · · · ) with c0 ̸= 0, possibly up to logarithmic terms. The letter ρ is never
+used for anything else; in particular it is not a root of b, which are the νi .
+
+1.5
+
+Numerical vocabulary
+
+dps abbreviates decimal places of working precision, in the sense of mpmath’s mp.dps: a computation
+at dps = 60 carries 60 significant decimal digits throughout. Richardson extrapolation is the
+elimination of successive terms of an assumed expansion in powers of 1/n by taking prescribed
+2
+
+linear combinations of the values at several n; a Richardson level is one such elimination, so that
+m levels remove the terms in n−1 , . . . , n−m . PSLQ is the integer-relation algorithm of Ferguson
+and Bailey: given real numbers y1 , . . . , ym it searches for integers a1 , . . . , am , not all zero, with
+P
+ai yi = 0 to the working precision. A PSLQ result is evidence for a relation and never a proof of
+one.
+Where a numerical limit is reported, the N/2-versus-N agreement criterion is the requirement
+that the value obtained from the first N/2 terms and the value obtained from all N terms agree to
+a stated number of digits; the reported number of digits is the number on which they agree, not
+the working precision.
+
+1.6
+
+The three objects, and their comparison
+
+Three objects are compared in this paper. They are named once, here.
+• A is the generating function
+
+P
+
+n≥0 Qn z
+
+n of the denominators (1).
+
+• B is the differential operator Lφ attached to that generating function.
+• C is the scalar second-order equation y ′′ +√
+PC y ′ + QC y = 0 obtained
+from it by the change of
+√
+variable x = s+ + δz, where s± = (−1 ± i 11)/6 and δ = −i 11/3.
+The letters A, B, C always denote these three objects. They are set in sans serif to distinguish
+them from the coefficients A, A′ , C of a scalar equation written A W ′′ + A′ W ′ + C W = 0, which
+is a different use of the same letters and occurs only in that displayed form.
+Writing a scalar equation as ∂ 2 + P ∂ + Q, its trace-free normal form is obtained by removing
+the P term, and the resulting potential
+R = 14 P 2 + 12 P ′ − Q
+is the normal potential. Two operators are projectively equivalent when their trace-free normal
+forms agree, equivalently when they differ by a rank-one twist y 7→ f y; the normal potential is
+blind to such a twist, while the pair (P, Q) is not.
+With this vocabulary: B and C are projectively equivalent under z 7→ 1/x, their normal potentials
+being identically equal. A statement that two objects are projectively equivalent is therefore weaker
+than a statement that they are isomorphic, and the paper distinguishes the two.
+
+1.7
+
+Katz invariants and the classification table
+
+We follow van der Put and Saito, Moduli spaces for linear differential equations and the Painlevé
+equations, Ann. Inst. Fourier 59 (2009) 2611–2667, and use their notation unchanged.
+For a differential module over the field of formal Laurent series at a point c, the Katz invariant
+r(c) is the largest slope of the Newton polygon at c: it is 0 exactly when c is regular or regular
+singular, and otherwise is the positive rational measuring the irregularity there. The notation is
+theirs, and the symbol r in r(c) is unrelated to the sequence and limit of §1.1, which is why those
+were renamed.
+The Katz multiset of an object is the collection of its Katz invariants at the singular points,
+written in the order used by their Table 2.1, namely
+
+r(0), r(1), r(∞), r(t) ,
+
+3
+
+with a dash in the r(t) position when the singular set contains no fourth point t. It is a multiset
+and not a tuple in the sense that the classification depends on the values present, not on a labelling
+of the points. Table 2.1 attaches to each such multiset a Dynkin symbol and a Painlevé equation;
+the two rows used in this paper are
+e 5 : PV, (0, 0, 1, −), dim P = 3,
+D
+
+e 6 : PVdeg = PIII(D6 ), (0, 0, 1 , −), dim P = 2.
+D
+2
+
+e 5 is the Dynkin symbol labelling its row; the
+Painlevé V (PV) is the fifth Painlevé equation, and D
+two name the same row of Table 2.1 and are used interchangeably, as there. PIII(D6 ), PIII(D7 )
+and PIII(D8 ) denote the three degenerations of the third Painlevé equation, again by their row
+labels.
+A matching multiset is a necessary condition only. Table 2.1 assigns a row to a multiset;
+agreement of multisets therefore excludes every row whose multiset differs, and assigns none. No
+statement in this paper infers a Painlevé label from a multiset match alone.
+
+1.8
+
+Monodromy and trace coordinates
+
+On the monodromy side, B1 , B2 , B3 are the monodromy matrices of the local system, one for each
+of the three punctures, in van der Put–Saito’s notation at p. 2637. They carry ai = tr(Bi ), and the
+affine cubic surface of monodromy data is coordinatised by
+x1 = tr(B2 B3 ),
+
+x2 = tr(B1 B3 ),
+
+x3 = tr(B1 B2 ).
+
+(4)
+
+These are the trace coordinates, and (4) says what they are traces of. Where the paper speaks of
+comparison quantities it means x1 , x2 , x3 and nothing else.
+The letter B is thus used for the monodromy matrices Bi and, in (2), for the product Bn of
+values of b. The two never occur in the same argument; the monodromy matrices always carry an
+index in {1, 2, 3} and the product always an index n.
+
+1.9
+
+What is not fixed here
+
+Two conventions are deliberately left to their points of use, because they are local to one argument:
+the branch of ζ = w1/d , fixed where the Borel variable is introduced, and the orientation of the
+loops generating the monodromy, fixed where M∞ is defined. Both are stated there, and neither is
+used before it is stated.
+
+4
+
+

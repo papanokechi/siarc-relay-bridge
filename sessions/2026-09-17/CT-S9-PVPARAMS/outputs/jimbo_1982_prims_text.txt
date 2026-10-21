@@ -1,0 +1,1087 @@
+Publ. RIMS, Kyoto Univ.
+18(1982), 1137-1161
+
+
+
+     Monodromy Problem and the Boundary Condition
+             for Some Painleve Equations
+                                           By
+                                     Michio JIMBO*
+
+
+                                      Introduction
+
+      The Painleve transcendents and their generalizations have aroused much
+interest among mathematicians and mathematical physicists in recent years
+([l]-[8]). Yet their properties as special functions still remain almost unex-
+plored. For example, the problem of determining their behavior at the fixed
+critical singularities is left open, except for a few special cases ([3] [4]). In the
+present paper we treat this problem for the following three kinds of Painleve
+equations at the fixed critical point i = 0 :
+
+
+
+
+            d*yr _/    1 +      1 \(dy\*_        1 dy +   (j-1) 2
+            'dt ~ \2y~       J=\)\dT)           T^T        t*
+                                                            yy
+                                                             t        y-l
+
+((PVIl) )                                                                      dy
+                ~_ +          __
+                                - +^                  _
+                                                                 -
+                       y(y-l)(y-f)              n t       t-l         t(t-\)
+
+        As is well known ([9] [7]), the Painleve equations arise as monodromy
+preserving deformation equations for a 2x2             system of linear differential
+equations
+
+(0.1)                 -^     =A(x, f)Y9   A(x, t): rational in x.
+
+A particular Painleve transcendent is specified by the monodromy data for (0.1).
+
+   Received November 26, 1981.
+ * Research Institute for Mathematical Sciences, Kyoto University, Kyoto 606, Japan.
+1138                                       MlCHIO JlMBO
+
+
+Now let r(0 denote the associated T function ([10] [7]), say, for (PVI). At
+t = Q it is shown to have the asymptotic expansion of the form
+        T(/)~const. /( ff2 -0o- 0 t)/ 4
+                   i    1   iQ2    QT.
+
+
+
+
+                 16<72(l+<7)2
+
+
+
+
+              + Z Z
+where 0V (v = 0, 1, f, oo) are related to the coefficients a, /?, 7, (5 in (PVI), and cr, s
+are the two integration constants. The main result of this paper is an explicit
+formula which gives these integration constants in terms of the monodromy
+data for (0.1). Similar formulas are derived also for (PHI) and (PV). In the
+case of (PVI), the fixed critical points t = Q, 1 and oo play equivalent roles.
+Hence the result above makes it possible to derive a connection formula for the
+T function for (PVI).
+     This paper is planned as follows. In Section 1 we state the result for (PVI).
+Its derivation is given in Section 2. The method employed here is to study the
+linear differential equation (0.1) in the limit £-»0. We show that the determination
+of the asymptotic expansion is reduced to a connection problem for the limiting
+differential equations, which can be solved in the case of (PVI) in terms of
+hypergeometric functions.
+     In Section 3 we give the results for (PHI) and (PV). As an application we
+derive the short distance expansion of the T function which appears in the 2 point
+correlation function of the Federbush model ([5] IV, Supplement to IV). In a
+special case, this reproduces the result of McCoy-Tracy-Wu [3] (for v = 0).
+
+
+                                         Acknowledgement
+
+    The author would like to thank Professor T. Miwa and Professor K.
+Takano for helpful conversations and encouragement
+                         BOUNDARY CONDITION FOR PAINLEVE EQUATIONS           1139
+
+
+
+
+                               § 1. The Sixth Painleve Equation
+
+    Following [7] II, we first recall the setting of the monodromy problem for
+PVI. We consider a 2 x 2 system of linear differential equations
+
+(1.,)              SY^^A^                   A^    AM\Y^
+                   ox \ x                   x—l   x — tj
+                             -
+                                        y
+                   dt             x-t       '
+
+Without loss of generality we may assume that
+
+
+
+
+                   the eigenvalues of A v(t) = ± -y 0V (v = 0, 1 , f) ,
+
+where 0V are constants. If we write the (1, 2)-th component of A(x, f) as
+(A(x, f))12 = k(t)(x-y(t))/x(x-l)(x-t), then y = y(f) satisfies the sixth Painleve
+equation (PVI) with the parameters
+
+          __ L           1\2      P—    _L
+
+
+
+By definition, the T function i(f) for PVI is given by
+
+(1.2)            -^lo
+
+Setting
+
+
+
+we have the differential equation
+
+
+
+
+                   dt
+                        d£
+                  Xl
+                        dt
+1140                                    MlCfflO JlMBO
+
+
+        In the sequel we assume
+
+(Al)pvi                             00, 01, 0,,
+
+Let Y= Y(x, f) be the fundamental solution matrix of (1.1) normalized at x = oo.
+Its local behavior at the singularities reads as follows.
+                                              e
+(1.4)          Y(x, t) =
+
+
+
+
+                                   ))x 2V    ~6-J                       (x->oo).
+
+Here G (v) (r), C ( v ) are invertible matrices. In particular, the connection
+matrices C ( v ) are independent of t. The monodromy matrices M ( v ) =
+         e l v
+C (v)-i ( * ° e-niev}cw E SL(2, C) satisfy the relation
+
+(1.5)                         M(
+
+
+
+
+                    Figure. The choice of paths corresponding to
+
+Put pv = tr M< v > = 2 cos n9v, pllv = irM^M^ = pvli.                We have then the fol-
+lowing one relation among them :
+(1.6)      Q
+                      l + PtPoo)PQ 1 ~ (Pi Pt + PoPao)Pl t - (PtPo   +PlPao)PtO
+
+                                             tP* - 4.
+
+It is sometimes convenient to write pflv = 2cosna^v with cr/iV = a > V M eC 5 0^
+Re cr^l.
+     Our aim is to determine the asymptotic behavior of i(i) as t-^Q. Here
+we assume further that
+                    BOUNDARY CONDITION FOR PAINLEVE EQUATIONS                                    1141
+
+(A.2)PV1    O^Reorto<l,
+(A.3)PVI     ^(90±9t±'at0), ±(900±9i±'at0)£Z.
+
+Under these conditions, we can parametrize the monodromy matrices satisfying
+(1.5) as follows. When a = at0^0, we have
+(1.7)   Af* 1 '
+                    / cos n<j — e~nie°° cos n9^
+           /sinTtflco ^ 2/--1*'"- sin -^-(9^-9, + a) sin^-
+
+                                                sin -5-(000 + 0!+ <7) sin 4
+                          — COS 71(7 + e7"000 COS 710!
+
+
+
+
+               1      f
+             sn TT o- y 2 s - 1 e - « i ~ 0
+                           t   -rriiT _.!   7t        f f\   ,   f\
+                                                                      t
+                                                                          .   \   •„   TC
+                                                                                            ~0
+
+                                                iff
+                                                      sin -^- (00 + 0f - a) sin ^- (00 - 9t + or)^
+                                            T
+                                                 cos 7i0f + cos 7i00                             /
+
+
+                     i eniff cosn90— cosn9t
+            ismnv      -2,?-1 sin- (00-0t-(r) sin - (00 + 0, 4- cr)
+
+
+
+                                        — g"71^ cos 7i00 + cos n0t
+where
+                      sin - (0^-0,-
+
+                     j-ismZ-Wv-Oi + a) sin-|(0^ + 0,-a) j
+
+and r, s^O. In terms of the invariants 2cos7icr /iv = tr M (M) M (u) 3 the defini-
+tion of the parameter s reads
+
+(1.8)
+
+                                     xsin-~- (0^ + 0! + <7) sin yCfl.-
+1142                                     MlCHIO JlMBO
+
+
+               = (± i sin TTGF cos nalt — cos ndt cos nO^ — cos n60 cosn91)e±nia
+                 + i sin TC<T cos naQ1 + cos 7i0f cos nQl + cos 710^ cos 7i00.
+When o- = o-f0 = 0, the parametrization for M ( f ) , M(0) is obtained by setting
+s = l + s1a and letting <7-»0. Namely we introduce st e C by
+
+(1.7)       M^ = C, t_! /|fi*'9*^_° .
+                            o      ?r 0t
+
+
+
+
+                x sin - (00 + 0r) sin      ( - 00 + 0r) + TT sin ?r0t sin -
+
+
+
+                x sin -5- (00 +0,) sin 4- (-^o+ ^) +7r sin ;r0r sin -5- (00
+
+                       sn -      co-
+
+
+
+
+   (C(°))21 =/-i ^ sin -- ( - 0 0 + 0,) sin             (^ - 0,)
+
+
+
+              = Sl sin i(-    00 + 0() sin-J (0^ + 0,)
+
+
+
+        Now we can state the main result for PVI.
+        Theorem 1.1. Under the assumptions (A.l) PV i— (A.3)PVI, we have the
+following asymptotic expansion of the t function as f->0.
+(1.9)       t(0 ~ const. i("2-»§-e?)/4
+
+
+
+
+                         16(J2(l+(7)2
+                    BOUNDARY CONDITION FOR PAINLEVE EQUATIONS               1143
+
+
+
+
+where a=£Q and s is related to s in (1.8) through
+(1.10)
+
+
+
+
+(1.9)'      t(0 ~ const,
+               x           l-i%-
+
+
+
+
+wf^/7 O=l — SIL — log t, an^/ St is given by
+
+(1.10)'     s1=
+
+
+
+
+           = -7- logT(x) denotes the diGamma function.
+    More precisely, for any (^»0, f/iere exists an 8>0 swc^i t/ia^ (1.7)-(1.7)'
+holds as t-*Q in the sector (tEC\0<\t\<s, |argr|«p] .
+     Higher order expansion is determined from the equation (1.3).
+     The t function is uniquely specified by the exponents 9v and the monodromy
+matrices M (v) . In order to signify the dependence on them, we employ the
+notation r(f; 00> Ot, 9l9 0^; M^\ M«\ M^\           Actually it is invariant under
+the joint similarity transformation M^-WPM^P"-1 (v = 0, f, 1) so that the
+1144                               MlCHIO JlMBO
+
+
+M (v) dependence enters only through the invariants trM ( ^M ( v ) .
+     Since the regular singularities x = 0, 1, t, oo play equivalent roles, one can
+exchange them by a fractional linear transformation. Correspondingly one has
+the transformation law for the T function
+
+                       t (1 -t; 90, Ot, 919 9^1
+              = const. t(r; 019 9t, 00, 0a;
+
+              =const.
+where M<°)=M<°°), ^'^(M^JM^ 1 ^^^^ 00 )^^^^ 1 and J(?( 1 >
+ xM(^)M^\M(^M(l)M^)-^         up to a common similarity factor (note the
+convention for the choice of paths shown in Fig.). Combining this with
+Theorem 1.1, one has thus the following connection formula.
+    Theorem 1.2. Suppose <*) = <*; 60, Ot, Ol9 0^; M<°^ M«>, M^1)) has the
+behavior (1.9) at t = Q with some s and a = a0t. Let cr01 andaltbe defined
+through (1.6), (1.8). We assume
+                                           ji,v = 0, 1, f)
+
+                               •^(fl f l 0 ±0i±'0, y ( 0 i ± ^ ±
+
+            y^ool^ol^i^y^oo + ^ + ^ o i X y ^ o + ^i
+
+T/zen the following asymptotic expansions are valid at f = l , oo:
+
+  <0~ const. (l-0^-^- fl ')/4.
+
+
+
+
+  t(/)~const. r<
+                             BOUNDARY CONDITION FOR PAINLEVE EQUATIONS                                1145
+
+
+
+                                 (701)
+                              1 —n
+
+                               -Re^o]                 (/-> oo).
+
+Here s l r , sfoo are obtained by making the following substitutions in (1.8) and
+(1.10), respectively:
+              s -     > S lf , s -        > s lf , 00 <—> 0i, ° -   >
+                                                                        ^it> o-n -    " ^o* >
+                      >
+               s -         s f>00 , s -    > s foo , 0^ <—> 60, a -       » or01, cr 01 -   > o- 01
+
+\V/f/l COS7T<7 0 1 =tr M ( 0 ) M ( 1 > = — COS7l(J 0r — 2COS7TO" 0 1 COS 7Tt7 l t +2(cOS 7T00 COS 7lQt
+
+
+
+
+                                              § 2.   Derivation
+
+        In this section we show how to derive the formulas (1.9)-(1.9)'.
+        Let us consider a more general situation
+                              dY
+on
+(2A)
+
+
+
+
+where 7, A^ Bv are w? x m matrices, and a^ bv are distinct nonzero constants.
+The integrability of (2.1) leads to the restricted Schlesinger equation
+
+(2.2)       ^6-
+             wi
+                (*) = Z
+                              v=1
+
+
+
+
+                m                   n2
+We assume X A (t)+ Z 5 v(0 = -T(0^= diagonal, constant, and that each of
+               H=l                  v=l                                                                 ^
+A^t), Bv(t) and T^)oo) has eigenvalues distinct modulo integers. Let A%, B?
+be constant matrices such that
+
+
+
+and that the eigenvalues of ^4° (resp. 3°) coincide with those of A^t) (resp. B v (f)).
+                 "2   w-
+
+
+We set A= Z ^?? and denote its eigenvalues by ^ l 5 ...,^ m . The following is
+                v=1
+known :
+        Theorem ([5]II). We assume
+1146                                          MlCHIO JlMBO
+
+
+(2.3)                           |ReOx y -Aijk)|<l, j, fc=l,..., m.
+        (i) Choose a 15 K>Q satisfying            max |ReGx/-/J fc )|«7 1 <l, \A°± \B°\<K.
+                                                l£j,k£m
+For any cp, there exists an s>0 such that (2.2) admits a unique solution in the
+sector SE(p = {t eC|0<|r|<e, |arg ?| «p} with the properties
+
+(2.4)               14/0-^1
+
+
+        (ii)   Let Y(x, f) be the corresponding solution of (2.1) normalized as
+                                 Y(x, t) = (
+
+Then the limits Y(x) = lim Y(x, r), 7(x) = lim r A 7(rx, 0 ex/sf and satisfy the
+                               r-»0                      f->0
+differential      equations
+
+
+
+                                                   So       ]f
+
+                                                  :-b.
+
+
+     We shall study the relation between the monodromy data for (2.1) and those
+for the limiting equations (2.5), (2.6). Let YQ(x) be the solution of (2.5) nor-
+malized at x=oo. Taking into account the assumption (2.3), we see that its
+local behavior reads as follows :
+
+(2.7)          y0(jf) = G
+                    = (l+0(x))x*C                                              (x-»0)
+                                1        0)
+                                 ))x-T<0°                                      (x-»oo).
+
+Here G^}, C ( ^> and C are invertible, and T^} are diagonal. Likewise, let ?0(f)
+be the solution of (2.6) such that
+(2.8)          Y0(x) = G
+                     = (l+0(x~1J)xA
+
+with some G(0V>, C (v) and f ^ v >.
+
+        Proposition 2.1. We have
+(2.9)                  lim 7(jc, 0 = Y0(x),      lim r A Y(tx, f) = Y0(x)C .
+                       f-»0                      f-*0
+
+
+For ^0,        the local behavior of Y(x, t) is given by
+                        BOUNDARY CONDITION FOR PAINLEVE EQUATIONS                              1147
+
+(2.10)        Y(x, l)^G^(t)(l+0(x-all))(x-all)T^C^                               (x^aj
+                     = <3<v>(0 (1 + 0(x - f &„)) (x - ?bv)JT >C< V >C           (x^tbv) .
+
+Here G^(t), G (v) (0 are invertible matrices, and C(lt), C (v) , C are given in
+(2.7), (2.8).
+
+     Proof.         Let F(x, 0= - Z ^^
+                                     —
+                                                           , and set
+
+     U(x, t) = 1 + £               dt,        dt2-         dtkF(x, ti)F(x, t2)-F(x, tk) .
+                       fc = 1 JO         Jo           Jo
+
+
+The integration is taken along the line segment joining Oand / in S £<r Thanks
+to (2.4), this converges uniformly with respect to x on every compact subset of
+{xe€| |x|>|f|fr}, fr = max |fe v |. By using (2.1), it is easy to establish
+
+
+
+This proves the first half of the assertions (2.9), (2.10). Setting ?(x, r) = rAY(tx, t)
+and ro(x) = lim Y(x, t), we have likewise
+                r->0
+
+
+                               Y(x, t)=V(x, 0?oW, I x K i i y f l ,
+
+                                                                       ~        1   "2
+where a = min \av\9 and V(x, t)is a similar series with F(x, t)= — ^                      (t~ABv(t)tA
+                V                                                               *   V=l
+
+
+ -^)+ Z 7-^      — r^Jr)^ in place of F(x, t). Proposition 2.1 is proved if
+        iJi=^lx~Jlii
+we can show YQ(X)= Y0(x)C. Since YQ(X) solves (2.6), it is sufficient to know
+its behavior at x = oo. For this purpose we compare ?(x, f) with Y0(x, t)
+                Set
+                         X(x, 0= ?(x, 0?o(x, tTl = tAU(tx, t)rA.
+For r^O, it is single-valued holomorphic in |x|>b with its value 1 at x = oo.
+Moreover X0(x) = limX(x, t) exists uniformly on every compact subset of
+                   ?-»o
+|x| > b. Hence X0(x) is also holomorphic at x = oo , and has the leading behavior
+1 +0(x~1). On the other hand, (2.3) and (2.7) imply
+
+                        lim ¥0(x, t) = limr
+                        f-*0                   t->0
+
+                                              = xAC.
+This proves
+1148                                           MlCHIO JlMBO
+
+
+thereby completing the proof of Proposition 2.1.
+     We note that, given the connection matrices C(fl\ C(*°C, the Riemann
+problem (2.10) has a solution Y(x, r) for small t and the coefficients A^(t)9
+Bv(t) necessarily behave like (2.4), provided the Riemann problems (2.7), (2.8)
+admit solutions with some C. This follows from the uniqueness of Y(x, 0-
+     Now we apply the results above to the present case of PVI, where both of
+the Riemann problems (2.7), (2.8) can be solved in terms of hypergeometric
+functions F(a, /?, j\ x).
+     Let us summarize the classical results. Consider the Riemann problem
+(2.11)                   7(x) =
+
+
+
+                         the eigenvalues of L (0) = 1 — y, 0
+                         the eigenvalues of L (1) = y — a — ft— 1, 0.
+with the assumption
+
+
+The monodromy matrices M(v) = e2niL(v) (v = 0, 1) satisfy the constraint M (1) M (0)
+       -2nia.        \
+                    2ni h which can be solved as
+                e ~2iriR
+                       pj>
+
+                 ni(y-a-0)    /COS 71J — e~ni(*~^ COS n(j — OC — /?)                p
+M (i) = __—.e
+         ^sin7T(a —p) \                    ^             — cos7cy + e 7r ' (a ~^ ) cos71(7 —a —j9)
+                                a
+                                  ~ ^} - e"i(a—coBn(y
+        .. e~;iy—p) (\ cos n(y—--m(z-P)q
+AT(o) = zsm7r(a                               ~/!) —a~^)
+                                                      ~«««-"/»
+                                                         + e ^~^cosny             nl
+                                       e
+
+pq=4 sin Tia sin n/3 sin 71(7 — a) sin n(y — f}).
+In order that (2.11) has a solution, it is necessary and sufficient to have the
+following conditions.
+     (i) p = 0 if one of a, a —7 + 1, — /?, —(/? — 7+1) is a positive integer
+     (ii) g = 0 if one of —a, — (a — 7 + 1), /?, /? — 7 + 1 is a positive integer.
+Set
+                         BOUNDARY CONDITION FOR PAINLEVE EQUATIONS             1149
+
+
+(2.12)       Y(x;a, />, y)
+
+
+
+
+               a(g-
+               -j8)(a-0 + l) x
+
+
+
+                          , thenT 1 V1 7(x; a, /?, r)(1/.) gives the solution for
+some r^Q. If ajS(a — y + !)(/? — y + l)=0, then either of the following solves
+
+
+
+
+                                                           °
+    For reference we give below the local behavior and the differential equation
+for Y(x; a, & 7).
+
+
+
+
+                                      1
+                                          ))x~                           (x->oo)
+
+where
+
+
+                                                 »-« \1
+                 .-.,(.-y+1,                       _   i( ,_
+     (0)=                       r(y-j8)r(a)                          r(y-a)r()8)
+         v
+     "
+                                                           r(l-a)r(j8-
+1150                                                             MlCHIO JlMBO
+
+
+       dY _r                i        i       / jS-y + i \(-«j8)
+       dx           I x fi-a \ x-y +
+
+
+
+       Returning to the situation (1.4), we find that
+
+            11IH   JL \Xy       t)       I      I    JL I ^V ,   -   \^V oo   \J 1   \J J ,   _
+            r-»o                         \ r
+
+
+
+
+with some r ^ 0. Without loss of generality we may take the overall parameter
+r to be 1. y0(x) = lim Y(x, t) satisfies
+                                     t->0
+
+
+
+
+                                               4fl
+
+
+
+
+We have also
+                    /*, 0
+
+
+
+where G,=G^ (! _,)"\           C1 = (1 _s) C<« with «= -i- (fl. - ^ - a), 0 =
+-^-(-floo-fli -ff),y = l-o-,andSisgivenin(1.8). Hence ?0(^)= limr^yffx, 0
+ ^                                                           t^o
+satisfies
+
+(2. 1 4 )                       =--+                -- Y
+                   dx            \ x                x— 1 / 0
+
+
+
+
+From (2.4), (2.13) and (2.14), we obtain the following asymptotics of A^t):
+(2.15) A^-A^,
+             A0(t)+ ±-eo-I2~tA(A$+                               ±e0-I2)rA
+                     BOUNDARY CONDITION FOR PAINLEVE EQUATIONS                   1151
+
+
+
+
+                             ! + <r) (00-0,- f^r'
+
+
+
+
+                           - 0§)(0oc   -0,-<
+
+
+
+
+The case ff = 0 can be incorporated if we set J = l + (rli and let <r-»0. From the
+definition (1.2) of the r function and (2.15), using
+
+(2.16)           -^-(^-l)-^-logT(0)=0co(^(0)22-y0?
+
+we obtain (1.9), (1.9)'.
+
+      Remark 1. The asymptotic expansion for the Painleve transcendent y(t)
+itself can be obtained by (2.15).
+
+    Remark 2. From the argument above, we see that the assumption (A.3)PVI
+can be relaxed to include the following case.
+     If one of — (On ± 0! ± 'a) is a positive (resp. negative) integer, then (M (1) ) 12
+               —                          1
+ = 0 (resp. (M( 1 0 2 i=0)- If one of — (90±9t±f(r) is a positive (resp. negative)
+integer, then (C<°>M( t >C(°>- 1 ) 12 = 0 (resp. (C^M^C^'l)21 =0).
+
+
+                 §3. The Fifth and the Third Painleve Equations
+
+     By a similar reasoning as in the previous section, one can derive the short
+distance expansions for the fifth and the third Painleve equations.
+     First consider the case of PV, whose linear problem is
+1152                                  MlCHIO JlMBO
+
+
+
+(3 'n'
+v                         ^dx= \(Ao(t}
+                                  x            x-t
+                          8T __ At(t)      y
+                           dt ~ x-t            '
+We set
+
+                    the eigenvalues of Av(f)= + ~0V           (v = 0, ()
+
+                    diagonal of A0(f) + At(t) = -
+
+
+Then XO = ( ^ ( 0 ) i 2 ( ^ o ( 0 ) u + ( ^ ( 0 ) u + ( ^ o ( 0 ) 1 2      satisfies (PV)
+with the parameters
+
+
+
+
+                     = l-eo-9t, &=-
+
+The i function is defined by
+
+(3.2)         -A
+
+and
+
+
+
+satisfies
+
+
+
+
+        We assume
+(Al)pV                                   00>
+Let 7J-(x, r) be the solutions of (3.1) that have the normalized asymptotic behavior
+as x-> oo in the sector «^.= {xeC | —^-(2/-l)<argx<-^(-2/ + 5)}, ; = 1, 2, 3.
+                                     ^              ^
+Namely:
+                       BOUNDARY CONDITION FOR PAINLEVE EQUATIONS                         1153
+
+
+They are related to each other by
+
+(3.4)            Y2(x,t) = Yl(x,
+
+
+                 Y3(x, t)=Y,(xeM9 t)e*~-e                          = Y2(x, t)
+
+with some constants a, 6eC. At the regular singularities x = 0, t, Yj(x, t)
+has the behavior
+
+(3.5)
+
+
+
+The "Stokes multipliers" a, b and the connection matrices C (0) 3 C ( r ) con-
+stitute the monodromy data in the sense of [7]. They satisfy
+
+
+(3.6)
+                   \a l+ab
+                   A f ( v ) = C ( v ) - l I6*'   "              C(v)    ( V = 0 , /).
+                                          \           e -«»e v
+
+
+        In order to parametrize them we set
+
+
+
+In the sequel we assume
+(A2)
+
+(A3)PV                        -y (0
+
+Then the following parametrization is possible :
+
+
+(3.7)
+
+
+
+                   — v~l
+1154                                      MlCHIO JlMBO
+
+
+
+
+                  sin |- (9t + 00 +       ff)         - se~™ sin 2- (9, + 60 - a)
+
+                  V     sin - (9t -60 +         ff)         sin (9, - 00 - a)
+
+
+
+
+(3.7)'    D^C('>D
+                    n—(0 ( + 0 0 )         (^sin —
+
+       x sin     - ( d t — 90)— nsmn6t     x s i n - ( 0 ( — 90)— T t s i n T r ^ t S i n -
+
+       s1+ni                               s1s'm~900-ncos-000
+
+
+
+
+Here D(t\ D (0) and D are invertible diagonal matrices.
+       Theorem 3.1. Under the parametrization (3.7)-(3.7)', we have, for
+
+(3.8)          T(*)~const. / (ff
+
+
+
+
+A_
+                       BOUNDARY CONDITION FOR PAINLEVE EQUATIONS                                1155
+
+// o- = 0, then
+
+(3.9)          r(0 -const, r«-> 4 "l + - 0f
+
+
+
+
+         = l-S 1 -logf, and
+
+
+
+
+     These formulas are derived in the same manner as in Section 2. We need
+also the confluent hypergeometric functions. Set
+(3.10)     Y,(x;K,a)
+           2
+
+               ±«*i-K2                                                         _1+K)/2f a / 2
+
+
+
+
+where FFKj//x) denotes the Whittaker function [11].                 Then
+
+               K, a ~ ( + x - )                     e       x^oo n
+
+                                 5                , Y3(x; K, a)=Yl(x; K, a)
+                                      Vfl™ 1 /                                  \U
+
+
+
+
+with Y3(x; K, a)=Yl(xe2ni; K, ff)e"i^ -«/, and
+
+                                                             :iic               1
+
+
+                    2 j \             2 j                            v        2 ; v2
+                                             —_         _   __ ^     ,     ,. —_ -r(-g)
+                  ff-ie) -1 '_
+                                 5
+                                     c —
+                                     ^^KO-
+
+           y(* + K)
+                                                    2
+1156                                        MlCHIO JlMBO
+
+
+The differential equation for Y/x ; K, a) reads
+
+                                                                                Y
+                        dx          \x 2 \a +K       K          \ O                 '
+       We have then the following result.
+
+                    limf1     \Y1(x,t)(l
+                    t-»o \ r I 2     \ r
+where
+
+                                        1 ^ -1
+           iim r-(     )Y,(fJc, 0'
+           t->o    \ r
+
+                                                                                            , l-0 0 )Ci,
+
+
+where /I = j-( -0fl«       ff 9
+                             ~ ^)andG1 = Gel             _< B^ + a } , C 1 = ( _«9«,
+                                                                                 A
+                                                                                     + (7 )
+               Z\W"ri/oD     i^oo   /                \     J-   ^-    /                      \        ^    /
+
+x C 0ooff . For 0- = 0, one can take the limit er-»0 by setting 5 = 1 + 0-^. The rest of
+                                                                                                           m
+the argument is the same, except that we use —r-(f -i- logr J =(A/0)ii
+                                                             CLl \        ttl           /
+place of (2.15).      As a result we obtain
+
+
+
+
+from which the behavior of the fifth Painleve transcendent y(t) follows.
+    Now we proceed to PHI. Consider the linear differential equation
+
+(3.H)
+V
+            *I
+       ^
+                       BOUNDARY CONDITION FOR PAINLEVE EQUATIONS                 1157
+
+Let B(f) = G(t)-1B(f)G(t)9     and set
+
+(3.12)                       diagonal of         2
+
+                             diagonal of 5(r)= -y I °
+                                                ^ \     ~~^o
+
+Then y(f)= — B(t)l2l^/tA(f)12       satisfies (PHI) withrespect to the variable ?= v /f,
+where
+
+
+Define the T function by
+
+
+
+Setting
+
+
+
+
+we have
+
+                             -     -    -
+               dt2           dt\dt   JV   dt
+
+     The monodromy data for (3.9) are introduced in the following way. At
+  = oo, there exist unique solutions Y/x, 0 O' = l, 2, 3) such that
+
+(3.14)    Yj(x, 0 ~ ( l + 0 ( x - 1 ) ) x ~ - 9 - 0           x->oo     in
+
+                                                      1 O1
+                                Y2(x,t)=Y1(x,
+
+
+                     Y3(x, OsY^xe2"', t^C'-oJ =Y 2 (x, .,, n j
+
+
+where «$*y = {x e C | - -5- (2/ -1) < arg x < - ~ (2j - 5)}. Likewise, at x=0,
+
+there are solutions Y7-(x, t) (j = l, 2, 3) with the properties
+
+(3.15)    Y/x, 0~G(0(l+0(x))xT( e °-J e Co)l,                x _»o   in ^/t)
+1158                                    MlCHIO JlMBO
+
+
+
+                 73(x, t) = Y,(xe-™, t)e«'(e°-eo) = Y2(X, /)( ^ \
+
+where &ffy = {xeC\ -^(2j-l)<arg(±-}< - ?-(2j-5)}.                         We fix a path y
+                           2*                   \ X /   JL
+                                                             as
+joining oo and 0 so that xe^'1 (resp. xe ^2(0)                    *-»oo (resp. x-»0) along
+7, and define the connection matrix C by
+(3.16)                                 Yl(x9t)=Y2(x9t)C.
+Here both sides signify their branches on y. The monodromy data for (3.9)
+are a, b, a, b and C. They are related through
+
+v(3.17)     ('     \W'--.J=<-( l
+            \a l + f l 6 /    \ -a
+Let us introduce cr e C by
+(3.18) eKiB-ab + 2 cos 710^ = e nifl oaB + 2 cos 7C00 = 2 cos TKJ
+
+
+the first equality being a consequence of (3.17).       Again we assume
+(A.l)pm                            0<;Re(7<l
+
+                                            5      -0
+
+Then we can parametrize C as follows :
+                            1
+(3.19)
+                                 2is I
+                                   l
+
+
+
+
+where /c, 5 are nonzero constants,
+                          BOUNDARY CONDITION FOR PAINLEVE EQUATIONS      1 159
+
+
+
+(T=0         C =k          _    6e^
+                                 2/
+(3. 19)'
+
+
+
+
+    Theorem 3.2. Under the assumptions (A.l)PII1-(A.2)pln and the para-
+metrlzation (3.19)-(3.19)', the following asymptotic expansions are valid.
+
+(7^0       T(0- COllSt.        t^-^
+
+
+
+                                              4(7 2 (1-(T) 2
+
+
+
+                                                               a-t
+
+
+
+
+o = 0 r(0 ~ const. rs*/
+(3.20)'
+
+where 0 = 1 — ^ —log f,
+
+
+
+     Example. As an application of the formulas above, let us consider the
+special case of PHI where the connection matrix C is 1. In view of (3.19)-
+(3.19)', this happens if and only if s = l (or s t =0) and 00 + 8Ke2Z. Here
+we discuss the case
+
+
+The general case of 90 + 9-X)e2Z can be achieved by the Schlesinger transfor-
+mation ([7] II).
+    It is known ([5] IV) that both the matrix Y(x, i) and the T function allow
+convergent series expressions as follows.
+1160                                                        MlCHIO JlMBO
+
+
+                                                                                      V    V        .
+
+
+
+                         n=o              o         Jo j=i        n
+
+                               fl - -- 1 - -- xQ'2ex+tx-1
+                               1=1 xt + xl+LJ x2n-x
+
+               21
+
+                               ex:                  f oo    foo 2n+l
+                         i-iZA^
+                            n=0 JO
+                                   ...Jo 7n= 1
+                              / v v    v          \0 / 2n      1    \   1
+                         X
+                              / XlX3-"X2n-\        \ f -j-r ___L__ \___L___ Y- 0/2
+                             l r y ...r %- X2n+l ) 111 X , X-      ) Xy   ,r *
+                              \ ^2^4     2«      / \Z = 1 l~T~ l+l / 2n+l ^X
+                          0               OC         fOO    2/1
+                                                             /1   x-v-                    -V   -V       ...V
+
+
+       !(*, /)) 2 2 = Z ^                      -           n      --g"('J+"7)                            ""'
+                         »=0          Jo             Jo 7 =                                              '"
+
+
+
+
+(3.21) e'r(0
+                    oo    ; 2/i foo(jcj+fx )       3 2 -1
+                                               foo 2n / ^^                     \ / >• -v . . -r
+              - z=i —
+                 n
+                      \ -   n(4^g"
+                    n Jo Joj=i\2n         "  )(
+                                             /\ JC ^4-"^2n"
+                                                 '                                     2
+
+
+
+
+In particular, (3.21) is related to the two point correlation function of the Feder-
+bush model ([5] Supplement to IV).
+    Let
+
+
+                              (xe"", 0)21
+                73(x, f)=Yl(xe 9 t)e-*ie(     2ni
+
+
+Then we have the relations (3.14) with
+
+
+The parametrization (3.18) reads
+
+(3.22)                               A2                    --
+
+       Hence (3.20)-(3.20)' yield the following result.
+       Proposition 3.3* Let i(t) be defined                              by the series (3.21).                 Assume that
+   2
+-yA — cos 7i0 is not a real number ^1, and let a be defined                                               by (3.22), 0:g
+Recr<l.      Then the short distance behavior f->0 of t(f) is given by
+                      BOUNDARY CONDITION FOR PAINLEVE EQUATIONS                    1161
+
+
+            const.
+
+                                                                         (if
+                                      4<7 2 (l-cr) 2
+           ^const. r 0 2 / 4 ( 1+ •^-rt(Q2 + 2Q + 3)+'~)                (if cr=0)
+
+where
+
+
+
+
+                                                             -log?.
+     The particular case 0 = 0 agrees with the result of McCoy-Tracy-Wu [3]
+(for v = 0).
+
+
+                                       References
+[ 1]   Myers, J. M., /. Math. Phys. 6 (1965), 1839.
+[2]    Wu, T. T., McCoy, B. M. Tracy C. A. and Barouch E., Phys. Rev. B13 (1976), 316.
+[ 3]   McCoy, B. M., Tracy C. A. and Wu T. T., /. Math. Phys. 18 (1977), 1058.
+[4]    Ablowitz, M. and Segur H., Phys. Rev. Lett. 38 (1977), 1103. Ablowitz M., Ramani A.
+       and Segur H., /. Math. Phys. 21 (1980), 715, 1006.
+[ 5]   Sato, M., Miwa T. and Jimbo M., Publ. RIMS. Kyoto Univ. 14 (1978), 223, 15 (1979),
+       201, 577, 871, 16 (1980), 531, 17 (1981), 137.
+[ 6]   Jimbo, M., Miwa T., Mori Y. and Sato M., Physica ID (1980), 80.
+[7]    Jimbo, M., Miwa T. and Ueno K., Physica 2D (1981), 245. Jimbo M. and Miwa T.,
+       Physica 2D (1981), 407, ibid. 4D (1981), 26.
+[ 8]   Miwa, T., Publ. RIMS, Kyoto Univ. 17 (1981), 665, 703.
+[9]    Gamier, R., Ann. Ecol. Norm. Sup. 29 (1912), 1.
+[10]   Okamoto, K., Physica 2D (1981), 525.
+[11]   Erdelyi, A., Higher transcendental functions, 1, McGraw-Hill, 1953.
+

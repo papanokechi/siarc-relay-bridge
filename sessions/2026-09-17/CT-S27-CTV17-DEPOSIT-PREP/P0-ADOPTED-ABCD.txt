@@ -1,0 +1,81 @@
+P0 AMENDMENTS A-D -- ADOPTED 2026-09-19
+Paste these four clauses into the session preamble, under the sections named.
+Generated from P0-AMENDMENTS-ABCD.md by scripts/emit_p0_adopted.py. Do not edit by hand.
+
+A -- append under PRE-REGISTRATION
+B -- append under AEAL RECORD
+C -- append under PRE-REGISTRATION, after the vacuity pre-check clause
+D -- append under GOVERNANCE
+
+============================================================================
+
+- BASIS DEGENERACY PRE-CHECK. If the method searches a space you constructed
+  (integer-relation/PSLQ/LLL over a basis, an ansatz with chosen generators, a
+  fit over chosen predictors), you must test that space for internal relations
+  BEFORE consulting the target, and pre-register the test:
+    * Run the identical search on the basis with the TARGET REMOVED. It must
+      return NO relation, at the same bound and tolerance the real search will
+      use. A relation here means the space is degenerate: the search cannot
+      test the target and any result it returns is VOID, not negative.
+    * Treat a returned relation whose coefficient on the target is ZERO as a
+      degeneracy detection, never as a rejection or a negative result.
+    * State in the pre-registration which generators are known to be
+      multiplicatively or linearly dependent and why the remainder are not.
+  A vacuity pre-check tests the observable against the structure; this tests
+  the search space against itself. Passing the first does not imply the second.
+
+
+- ARTEFACT HASHING IS TERMINAL. A claim's output_hash must be taken only after
+  the artefact it points at is FINAL. Specifically:
+    * Re-running a checker, or any script, invalidates every hash already
+      pointing at its output. After any re-run, either re-point every affected
+      claim or write to a NEW output filename; do not leave a stale hash.
+    * Prefer writing to a new versioned filename over overwriting. A hash that
+      resolves to nothing is worse than an extra file, and the previous
+      content is unrecoverable once overwritten.
+    * Never pipe a checker through a tee-style redirect onto a path that an
+      existing claim already cites.
+    * A script must read back what it wrote, and the hash must be computed
+      from the file on disk, not from the in-memory string.
+  The checker does not police its own output. Nothing else will catch this.
+
+
+- READER INTEGRITY. A check that reads a file must verify that it read the
+  file, before it evaluates anything about the contents:
+    * Assert at least one KNOWN-PRESENT feature (a title line, a required
+      section heading, a character set the file is known to contain) and abort
+      on failure. Only then evaluate any known-absent or count-based
+      condition. Where the file contains non-ASCII text, at least one asserted
+      feature MUST contain a non-ASCII character: an ASCII-only sentinel set
+      survives a wrong-codec read intact and cannot detect it.
+    * Where the check reports an ABSENCE, the known-present assertion is
+      mandatory, because "content missing" and "my reader could not see it"
+      produce identical output otherwise. This is most dangerous when the
+      absence CONFIRMS the hypothesis: a check that disagrees with you gets
+      investigated, a check that agrees does not, so an empty search that
+      returns the expected answer produces no symptom at all.
+    * Control the reader as well as the content: run the same check through at
+      least one deliberately defective reader (wrong codec, no newline
+      normalisation, truncated input) and require it to be CAUGHT. Mutant
+      testing verifies a check's logic; it cannot verify its input path,
+      because a broken reader rejects the mutant too.
+    * Normalise line endings once, in one place, immediately after decoding.
+
+
+- DEPOSITED TEXT IS AUTHORITATIVE. For any work this corpus has deposited, the
+  deposited record is the primary source and the working tree is a copy that
+  may be behind it.
+    * Before writing any version notice, erratum, or statement of the current
+      state of a deposited work, FETCH the deposited text of every version you
+      intend to characterise, store it under refs/ with bytes and sha256, and
+      quote from that. A version notice written without reading the record it
+      amends is not verifiable.
+    * Where repository material and deposited text disagree, the record is
+      authoritative and the repository copy is stale, unless you can show the
+      reverse. Mark the stale copy so it is not carried forward.
+    * A repository-wide search establishes absence FROM THE REPOSITORY. Never
+      report it as absence from the corpus. Say which artefact was searched.
+    * Prior session records may also live outside the worktree; check those
+      before treating a citation as unsourced.
+
+

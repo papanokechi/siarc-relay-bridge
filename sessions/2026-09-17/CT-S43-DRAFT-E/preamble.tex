@@ -1,0 +1,41 @@
+% =====================================================================
+%  preamble.tex -- THE authoritative preamble for the paper.
+%
+%  Operator ruling, CT-S41 review, question 2 ("which wrapper is
+%  authoritative at assembly"):
+%
+%      "Neither -- write one.  A single paper.tex preamble that every
+%       section builds under, with hyperref loaded once, and per-section
+%       wrappers that \input it rather than declaring their own packages.
+%       A group whose wrapper differs from assembly's is a check passing
+%       on a document nobody will build."
+%
+%  Consequences, binding on every later group:
+%    * No per-group wrapper may load a package.  It loads THIS file.
+%    * hyperref is loaded here, ONCE, and last among the packages that
+%      care about load order.  Sections 3, 4, 5 and 6 use
+%      \texorpdfstring, which is hyperref's; a wrapper that omits
+%      hyperref builds a different document from assembly's.
+%    * Theorem numbering lives here, so a group wrapper cannot silently
+%      renumber the environments its prose cross-references.
+%
+%  History of the defect this file closes: Group A's wrapper did not
+%  load hyperref and Group B's did, so the two groups' gates were
+%  passing on two different documents, neither of which was the
+%  assembled one.  Recorded at CT-S41/REPORT.md and ruled on above.
+% =====================================================================
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+
+% Loaded last, and exactly once.  See the header note.
+\usepackage{hyperref}

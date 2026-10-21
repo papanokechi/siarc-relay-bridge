@@ -1,0 +1,25 @@
+b = b1*z + b0 : True
+closed form valid when b is NOT constant? False (expected False)
+
+b1 = 0  =>  p = [-q*t*(q - 1)/2 - theta_inf*sqrt(q*(q - 1))/2, -q*t*(q - 1)/2 + theta_inf*sqrt(q*(q - 1))/2]
+b constant on this draw? True
+closed form valid when b IS constant? True
+
+r_z denominator: 108*z**2*(z - 1)**2
+r_z numerator over D^2: -11*z**4/27 + 22*z**3/27 + sqrt(11)*I*z**3/27 - z**2/2 - sqrt(11)*I*z**2/18 + 5*z/54 + sqrt(11)*I*z/54 - 1/4
+
+matching gives 5 coefficient equations (degree 4)
+plus the no-apparent-singularity condition b1 = 0
+
+solutions: 2
+  p       = 5*I*(-28151758571*sqrt(33) + 48874838016*sqrt(11))/4086468672
+  q       = 1/2 + (-457937*sqrt(11)*I + 281700*sqrt(33)*I)/122408
+  t       = -2*sqrt(33)*I/9
+  theta_i = -2 - sqrt(3)/9
+
+  p       = 5*I*(28151758571*sqrt(33) + 48874838016*sqrt(11))/4086468672
+  q       = 1/2 + (-281700*sqrt(33)*I - 457937*sqrt(11)*I)/122408
+  t       = 2*sqrt(33)*I/9
+  theta_i = -2 + sqrt(3)/9
+
+wrote outputs/pq_solution.txt

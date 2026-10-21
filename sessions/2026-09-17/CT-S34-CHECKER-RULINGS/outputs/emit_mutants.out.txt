@@ -1,0 +1,27 @@
+==============================================================================
+CT-S34  mutant arms on the claims emitter  (θ, ∞ sentinels)
+==============================================================================
+artefact under test   : claims.jsonl
+(its sha256 is deliberately NOT printed here: this output is cited BY
+ claims.jsonl, so printing the hash would make the two mutually
+ circular. Byte-identity across each arm is what the arms establish.)
+
+CAUGHT E1  review_note altered -- must fail against the PINNED hash
+       refused=True  right_reason=True  broke_script=False  artefact intact=True
+CAUGHT E2  a claim relabelled to a value outside the recognised set
+       refused=True  right_reason=True  broke_script=False  artefact intact=True
+CAUGHT E3  a duplicate claim_id
+       refused=True  right_reason=True  broke_script=False  artefact intact=True
+CAUGHT E4  a gap in the id sequence
+       refused=True  right_reason=True  broke_script=False  artefact intact=True
+CAUGHT E5  evidence stripped of its hash
+       refused=True  right_reason=True  broke_script=False  artefact intact=True
+CAUGHT E6  a CR injected into the bytes destined for disk
+       refused=True  right_reason=True  broke_script=False  artefact intact=True
+CAUGHT E7  review label flipped away from self
+       refused=True  right_reason=True  broke_script=False  artefact intact=True
+CAUGHT E8  an out-of-scope phrase in a claim
+       refused=True  right_reason=True  broke_script=False  artefact intact=True
+
+artefact byte-identical after every arm: True
+ARMS: 8/8 CAUGHT

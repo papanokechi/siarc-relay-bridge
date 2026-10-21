@@ -1,0 +1,19 @@
+emit_claims_s38 -- pre-write validation
+  every line parses as JSON                            ok
+  claim ids unique                                     ok
+  every label is one of the five (P0 amendment F)      ok
+  every claim text non-empty                           ok
+  every output_hash is 64 hex                          ok
+  every output_hash resolves to its file on disk       ok
+  every script exists                                  ok
+  the residual-risk note survived the projection       ok
+  S38-13 records the supersession of S36-11            ok
+  S38-07 states its scope is the symbols-only snapshot ok
+  S38-09 no longer says the rho defect is unrepaired   ok
+  the INSPECTED label is exercised by this session     ok
+
+  claims written : 19
+  checks run     : 12
+  checks failed  : 0
+  claims.jsonl   : 15936 B  sha256 2fbf4d280d680d6788345f18df55b3f3c516e82211e3a576b9c87e65f49978ca
+  VERDICT: CLAIMS EMITTED

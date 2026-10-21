@@ -1,0 +1,185 @@
+% =====================================================================
+%  Section 4 -- The moduli space and its hypotheses
+%  reader-integrity sentinel — non-ASCII, do not remove: é ö ±
+%  CT-S37-DRAFT-B.  Draft only.
+%
+%  OUTLINE revision 6, repair R-(c): the family (4.1), the flow (4.4)
+%  and the Hamiltonian H_V (4.5) are PRINTED here, not cited, because
+%  the uniqueness argument of the following section rests on the
+%  regularity of (4.4).  Every equation number in parentheses is van
+%  der Put--Saito's own.
+% =====================================================================
+
+\section{The moduli space and its hypotheses}\label{sec:moduli}
+
+\subsection{Type \texorpdfstring{$(0,0,1)$}{(0,0,1)} and the strong
+Riemann--Hilbert problem}\label{ssec:type001}
+
+For a differential module of type $(0,0,1)$ the \emph{strong} Riemann--Hilbert
+problem has a positive answer, and the module is represented by
+\begin{equation}\label{eq:module}
+  \frac{d}{dz}+\frac{A_0}{z}+\frac{A_1}{z-1}+A_\infty ,
+\end{equation}
+with $A_0,A_1$ constant trace-zero $2\times2$ matrices, $A_\infty$ normalised
+to
+\begin{equation}\label{eq:Ainf}
+  A_\infty=\frac{t}{2}\operatorname{diag}(-1,1),\qquad t\in\mathbb C^{*},
+\end{equation}
+with $\det A_i=-\theta_i^2/4$, and with the singular points normalised to
+$0,1,\infty$. This is a reading of van der Put--Saito \S3.2, p.~2637, from the
+page image, and it is \textbf{INSPECTED} (\texttt{S16-01}).
+
+The same reading establishes a negative fact that the paper relies on:
+\emph{no semisimplicity hypothesis and no non-resonance hypothesis appears
+anywhere in this definition} (\texttt{S16-01}, \textbf{INSPECTED}).
+
+\subsection{Resonance and reducibility are not excluded}\label{ssec:resonance}
+
+p.~2636 defines resonance as a difference of eigenvalues lying in
+$\mathbb Z\setminus\{0\}$, and presents resonance and reducibility as sources
+of \emph{singularities of the monodromy space} $R$. Modules with such local
+data are therefore \emph{inside} the moduli space, not excluded from it. This
+too is \textbf{INSPECTED} (\texttt{S16-02}).
+
+The consequence matters for \S\ref{sec:systems}: the logarithmic local data
+established in \S\ref{ssec:nonapparent} --- exponents $\{0,0\}$ with nonzero
+log coefficient --- are admissible here, although they are excluded by the
+non-resonance hypothesis of the more familiar Jimbo normalisation. The
+framework used in this paper is van der Put--Saito's, and the difference is
+stated rather than smoothed over.
+
+\subsection{The explicit family \texorpdfstring{$(4.1)$}{(4.1)}}
+\label{ssec:family}
+
+With $D(z)=z(z-1)$ and
+\[
+  A=\begin{pmatrix} a & b\\ c & -a\end{pmatrix},
+  \qquad y'=Ny,\qquad N=-A/D,
+\]
+the family $(4.1)$ of p.~2655 is
+\begin{align}
+  a &= p+\tfrac12\bigl(-2qt+t-\theta_\infty\bigr)(z-q)
+        -\tfrac12\,t\,(z-q)^2, \label{eq:fam-a}\\[2pt]
+  b &= -\frac{z\Bigl(\bigl(p+\tfrac12(q-1)q\,t\bigr)^2-\dfrac{\theta_1^2}{4}
+        +(q-1)\Bigl(\dfrac{\theta_0^2}{4}-\dfrac{\theta_1^2}{4}
+        -q\,\dfrac{\theta_\infty^2}{4}\Bigr)\Bigr)}{q} \notag\\
+    &\qquad -\frac{(q-1)\bigl(p+\tfrac12((q-1)q\,t-\theta_0+q\theta_\infty)\bigr)
+        \bigl(p+\tfrac12((q-1)q\,t+\theta_0+q\theta_\infty)\bigr)}{q},
+        \label{eq:fam-b}\\[2pt]
+  c &= -\frac{z-q}{q-1}. \label{eq:fam-c}
+\end{align}
+
+\begin{remark}[A typo in the printed source]\label{rem:typo}
+On p.~2655 the first square in the entry $b(z)$ prints
+$\bigl(p+\tfrac12(q-1)q\bigr)^2$, with no $t$, while the second term of the
+same entry carries $(q-1)q\,t$. Tested against the source's \emph{own}
+constraint $\det A(1)=-\theta_1^2/4$, the printed form leaves a nonzero
+remainder, whereas the reading $\bigl(p+\tfrac12(q-1)q\,t\bigr)^2$ used in
+\eqref{eq:fam-b} satisfies it identically; the companion constraint
+$\det A(0)=-\theta_0^2/4$ holds for both readings and therefore does not
+discriminate. The discrimination is by an exact symbolic residual, and the
+correction is \textbf{VERIFIED} (\texttt{S16-05}). It is flagged here rather
+than adopted silently.
+
+A second discrepancy in the same neighbourhood is recorded and \emph{not}
+used: the prose statement that $\theta_\infty$ is the $(1,1)$ entry of
+$A_0+A_1$ does not hold for the printed family, where that entry is
+$-\theta_\infty/2$. Nothing in this paper depends on it.
+\end{remark}
+
+\subsection{The chart \texorpdfstring{$U_0$}{U0}, the Hamiltonian
+\texorpdfstring{$(4.5)$}{(4.5)} and the flow
+\texorpdfstring{$(4.4)$}{(4.4)}}\label{ssec:flow}
+
+The chart is
+\begin{equation}\label{eq:chart}
+  U_0\;\cong\;\mathbb C\times(\mathbb C\setminus\{0,1\}),
+  \qquad\text{coordinates }(p,q),\ q\notin\{0,1\}.
+\end{equation}
+On $U_0\times(\mathbb C\setminus\{0\})$ the foliation given by the $2$-form
+\begin{equation}\label{eq:omega}
+  \Omega=\frac{dp\wedge dq}{q(q-1)}-dH_V\wedge dt
+\end{equation}
+\emph{coincides with the foliation given by isomonodromy}. That sentence is
+quoted from p.~2656 and is \textbf{INSPECTED} (\texttt{S16-03}); the flow and
+the Hamiltonian were cropped from the page image and transcribed by looking,
+not by optical character recognition. They are
+\begin{align}
+  (4.4)\qquad
+  &\frac{dp}{dt}=q(q-1)\,\frac{\partial H_V}{\partial q},
+   \qquad
+   \frac{dq}{dt}=-q(q-1)\,\frac{\partial H_V}{\partial p},
+   \label{eq:flow}\\[4pt]
+  (4.5)\qquad
+  &H_V(p,q,t)=-\frac{p^2}{(q-1)q\,t}
+     -\frac{\theta_0^2}{4qt}
+     +\frac{\theta_1^2}{4(q-1)t}
+     +\tfrac14\,q\bigl(qt-t+2\theta_\infty-2\bigr).
+   \label{eq:HV}
+\end{align}
+
+Both are printed in full, and not merely cited, because the uniqueness argument
+of the following section is an argument about \eqref{eq:flow}: if
+$q(q-1)\neq0$ and $t\neq0$ at a point of $U_0\times(\mathbb C\setminus\{0\})$,
+then the vector field
+$v=\partial_t+v_p\partial_p+v_q\partial_q$ determined by \eqref{eq:flow} is
+regular there, and exactly one leaf passes through that point. Regularity is
+the reason a deformation exists; it is not an ansatz. The verification of
+these two non-vanishing conditions at the located point belongs to the
+following section and is not performed here.
+
+\subsection{What the time variable is}\label{ssec:time}
+
+The three singular points of \eqref{eq:module} are normalised to $0,1,\infty$,
+so $t$ is not the position of a singular point. By \eqref{eq:Ainf}, $t$ is the
+\emph{scale of the irregular type at infinity}. This is why an object of type
+$(0,0,1)$ carries a fixed $t$ with no deformation parameter written alongside
+it: $t$ is an invariant computed from the configuration. The reading of the
+normalisation is \textbf{INSPECTED} (\texttt{S16-01}); the identification of
+what $t$ is, being an interpretation of that normalisation rather than a
+quotation, is \textbf{STRUCTURAL} (\texttt{S16-04}).
+
+\subsection{Painlev\'e conventions fixed by citation}\label{ssec:conventions}
+
+Three conventions are fixed by reading printed sources, and each is
+\textbf{INSPECTED}; none is re-derived here.
+
+\begin{enumerate}
+  \item The Painlev\'e~V equation is taken in the DLMF~32.2.5 convention, with
+        parameters $(\alpha,\beta,\gamma,\delta)$
+        (\texttt{CT-S9-PVPARAMS-C002}).
+  \item The dictionary between those parameters and the monodromy exponents
+        $(\theta_0,\theta_t,\theta_\infty)$ is Jimbo's, p.~1152:
+        \begin{equation}\label{eq:jimbo}
+          \alpha=\tfrac18(\theta_0-\theta_t+\theta_\infty)^2,\quad
+          \beta=-\tfrac18(\theta_0-\theta_t-\theta_\infty)^2,\quad
+          \gamma=1-\theta_0-\theta_t,\quad
+          \delta=-\tfrac12
+        \end{equation}
+        (\texttt{CT-S9-PVPARAMS-C003}).
+  \item Van der Put--Saito's Table~2.1 contains the row labelled
+        $\widetilde D_5$/PV, whose Katz invariants are $(0,0,1)$
+        (\texttt{CT-S9-PVPARAMS-C004}; the folio and the selection rule are
+        recorded at \texttt{S6-C1}).
+\end{enumerate}
+
+Two warnings attach to \eqref{eq:jimbo}. First, Jimbo's normalisation carries a
+non-resonance hypothesis that van der Put--Saito's does not
+(\S\ref{ssec:resonance}), so the dictionary is a translation of parameters and
+not an importation of hypotheses. Second, by
+Remark~\ref{rem:necessary} a multiset match is a necessary condition only, so
+\eqref{eq:jimbo} is never used in this paper to \emph{assign} a Painlev\'e
+label; it is used to state what a label would have to mean.
+
+\subsection{What membership would require}\label{ssec:membership}
+
+Collecting the above: to place a given operator in this moduli space one must
+exhibit a point $(p,q)\in U_0$ and a $t\in\mathbb C^{*}$ at which the family
+\eqref{eq:fam-a}--\eqref{eq:fam-c} reproduces that operator's projective normal
+form. Such a location is a numerical statement about an explicit algebraic
+point; it is not a proof of family membership, and the paper does not report it
+as one. The located point and the strength of the evidence for it are the
+subject of the following section, where the membership conclusion carries the
+label \textbf{STRUCTURAL} (\texttt{S16-14}) and expressly does not rest on the
+pre-registered monodromy-and-Stokes falsifier at $30$ digits, which was not
+run.

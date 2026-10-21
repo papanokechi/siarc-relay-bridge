@@ -1,0 +1,97 @@
+
+### C1 — Remark 2.2 is false (the lemma)
+
+| Claim | Session | Label | Review | Gate verdict |
+|---|---|---|---|---|
+| `R1-18` | CT-R1-AUDIT | PROVEN | cold | PASS (cold) |
+| `R1-43` | CT-R1-AUDIT | PROVEN | cold | PASS (cold) |
+| `step-4-log` | CT-S11-COLDREAD3 | PROVEN | self | REVIEW — self |
+| `c-independence` | CT-S11-COLDREAD3 | VERIFIED | — | REVIEW — no review field |
+| `sympy-examples` | CT-S11-COLDREAD3 | VERIFIED | — | REVIEW — no review field |
+| `S6-C13` | CT-S6-APPARENCY | PROVEN | — | REVIEW — no review field |
+| `S6-C14` | CT-S6-APPARENCY | PROVEN | — | REVIEW — no review field |
+| `S6-C17` | CT-S6-APPARENCY | PROVEN | — | REVIEW — no review field |
+
+### C2 — the PV parameter contradiction
+
+| Claim | Session | Label | Review | Gate verdict |
+|---|---|---|---|---|
+| `R1-65` | CT-R1-AUDIT | PROVEN | self | REVIEW — self |
+| `R1-64` | CT-R1-AUDIT | INSPECTED | self | PASS (INSPECTED) |
+| `R1-31` | CT-R1-AUDIT | PROVEN | cold | PASS (cold) |
+| `R1-32` | CT-R1-AUDIT | INSPECTED | cold | PASS (cold) |
+| `R1-29` | CT-R1-AUDIT | INSPECTED | — | PASS (INSPECTED) |
+| `R1-30` | CT-R1-AUDIT | PROVEN | — | REVIEW — no review field |
+| `R1-34` | CT-R1-AUDIT | STRUCTURAL | — | REVIEW — no review field |
+| `CT-S12-COLDREAD4-Q1-DICT` | CT-S12-COLDREAD4 | VERIFIED | — | REVIEW — no review field |
+| `CT-S12-COLDREAD4-Q1-EIGEN` | CT-S12-COLDREAD4 | VERIFIED | — | REVIEW — no review field |
+| `CT-S12-COLDREAD4-Q3-C4C5` | CT-S12-COLDREAD4 | PROVEN | — | REVIEW — no review field |
+| `CT-S12-COLDREAD4-Q4-C6` | CT-S12-COLDREAD4 | PROVEN | self | REVIEW — self |
+| `CT-S9-PVPARAMS-C003` | CT-S9-PVPARAMS | INSPECTED | — | PASS (INSPECTED) |
+
+### C3 — not well-posed as isomonodromy
+
+| Claim | Session | Label | Review | Gate verdict |
+|---|---|---|---|---|
+| `R1-33` | CT-R1-AUDIT | STRUCTURAL | cold | PASS (cold) |
+| `CT-S12-COLDREAD4-Q5-C7` | CT-S12-COLDREAD4 | STRUCTURAL | self | REVIEW — self |
+| `CT-S9-PVPARAMS-C014` | CT-S9-PVPARAMS | STRUCTURAL | self | REVIEW — self |
+
+### C4 — per-object surface labels
+
+| Claim | Session | Label | Review | Gate verdict |
+|---|---|---|---|---|
+| `R1-52` | CT-R1-AUDIT | STRUCTURAL | cold | PASS (cold) |
+| `R1-53` | CT-R1-AUDIT | INSPECTED | cold | PASS (cold) |
+| `R1-54` | CT-R1-AUDIT | INSPECTED | self | PASS (INSPECTED) |
+| `R1-55` | CT-R1-AUDIT | STRUCTURAL | cold | PASS (cold) |
+| `R1-56` | CT-R1-AUDIT | STRUCTURAL | self | REVIEW — self |
+| `R1-57` | CT-R1-AUDIT | CONJECTURED | self | REVIEW |
+| `R1-06` | CT-R1-AUDIT | INSPECTED | — | PASS (INSPECTED) |
+| `R1-07` | CT-R1-AUDIT | INSPECTED | — | PASS (INSPECTED) |
+| `S4-05` | CT-S4-FORMAL-TYPE | PROVEN | — | REVIEW — no review field |
+| `S4-06` | CT-S4-FORMAL-TYPE | PROVEN | — | REVIEW — no review field |
+| `S5B-C4` | CT-S5B-COVER | PROVEN | — | REVIEW — no review field |
+| `S5B-C5` | CT-S5B-COVER | PROVEN | — | REVIEW — no review field |
+| `S5B-C6` | CT-S5B-COVER | PROVEN | — | REVIEW — no review field |
+| `S6-C9` | CT-S6-APPARENCY | PROVEN | — | REVIEW — no review field |
+| `S6-C10` | CT-S6-APPARENCY | STRUCTURAL | — | REVIEW — no review field |
+| `A4-table` | CT-S13-COLDREAD5 | VERIFIED | self | REVIEW — self |
+| `A5-table` | CT-S13-COLDREAD5 | VERIFIED | self | REVIEW — self |
+
+### C5 — downstream passages in v1.2
+
+| Claim | Session | Label | Review | Gate verdict |
+|---|---|---|---|---|
+| `R1-66` | CT-R1-AUDIT | INSPECTED | self | PASS (INSPECTED) |
+| `R1-63` | CT-R1-AUDIT | INSPECTED | self | PASS (INSPECTED) |
+
+
+=== MISSING: none
+=== FLAGGED (not cold, not INSPECTED): 26
+   step-4-log                       PROVEN       review=self   [C1 — Remark 2.2 is false (the lemma)]
+   c-independence                   VERIFIED     review=None   [C1 — Remark 2.2 is false (the lemma)]
+   sympy-examples                   VERIFIED     review=None   [C1 — Remark 2.2 is false (the lemma)]
+   S6-C13                           PROVEN       review=None   [C1 — Remark 2.2 is false (the lemma)]
+   S6-C14                           PROVEN       review=None   [C1 — Remark 2.2 is false (the lemma)]
+   S6-C17                           PROVEN       review=None   [C1 — Remark 2.2 is false (the lemma)]
+   R1-65                            PROVEN       review=self   [C2 — the PV parameter contradiction]
+   R1-30                            PROVEN       review=None   [C2 — the PV parameter contradiction]
+   R1-34                            STRUCTURAL   review=None   [C2 — the PV parameter contradiction]
+   CT-S12-COLDREAD4-Q1-DICT         VERIFIED     review=None   [C2 — the PV parameter contradiction]
+   CT-S12-COLDREAD4-Q1-EIGEN        VERIFIED     review=None   [C2 — the PV parameter contradiction]
+   CT-S12-COLDREAD4-Q3-C4C5         PROVEN       review=None   [C2 — the PV parameter contradiction]
+   CT-S12-COLDREAD4-Q4-C6           PROVEN       review=self   [C2 — the PV parameter contradiction]
+   CT-S12-COLDREAD4-Q5-C7           STRUCTURAL   review=self   [C3 — not well-posed as isomonodromy]
+   CT-S9-PVPARAMS-C014              STRUCTURAL   review=self   [C3 — not well-posed as isomonodromy]
+   R1-56                            STRUCTURAL   review=self   [C4 — per-object surface labels]
+   R1-57                            CONJECTURED  review=self   [C4 — per-object surface labels]
+   S4-05                            PROVEN       review=None   [C4 — per-object surface labels]
+   S4-06                            PROVEN       review=None   [C4 — per-object surface labels]
+   S5B-C4                           PROVEN       review=None   [C4 — per-object surface labels]
+   S5B-C5                           PROVEN       review=None   [C4 — per-object surface labels]
+   S5B-C6                           PROVEN       review=None   [C4 — per-object surface labels]
+   S6-C9                            PROVEN       review=None   [C4 — per-object surface labels]
+   S6-C10                           STRUCTURAL   review=None   [C4 — per-object surface labels]
+   A4-table                         VERIFIED     review=self   [C4 — per-object surface labels]
+   A5-table                         VERIFIED     review=self   [C4 — per-object surface labels]

@@ -1,0 +1,51 @@
+[MARK] source inspection start
+[MARK] source inspection done
+[MARK] operators done
+[MARK] utilities done
+[MARK] vacuity done
+[MARK] system B apparency done
+[MARK] katz multisets done
+[MARK] git check done
+[MARK] writing output done
+{
+  "output": "sessions\\2026-09-17\\CT-S6-APPARENCY\\apparency_results.json",
+  "output_sha256": "cd26694df8db89ba96766a5c60cd57ff3a87dd98b866d3ed8c95a8bc473c717d",
+  "claims": "sessions\\2026-09-17\\CT-S6-APPARENCY\\claims.jsonl",
+  "system_B_verdicts": [
+    [
+      "rho_minus=(-1-i*sqrt(11))/2",
+      "NOT APPARENT",
+      "Repeated integer exponent 0, but the exact reduction-of-order residue is nonzero, so a log term appears."
+    ],
+    [
+      "rho_plus=(-1+i*sqrt(11))/2",
+      "NOT APPARENT",
+      "Repeated integer exponent 0, but the exact reduction-of-order residue is nonzero, so a log term appears."
+    ],
+    [
+      "infinity (t=1/z)",
+      "NOT APPARENT",
+      "At least one local exponent is not an integer."
+    ]
+  ],
+  "system_B_effective_multiset": [
+    "1",
+    "0",
+    "0",
+    "0"
+  ],
+  "system_A_dash": "The dash is an absent singular point in the classification tuple, not a point dropped as regular or apparent.",
+  "git_HEAD": "08aa0e2381b3dc37ee54a3200b7272755ca11d59",
+  "outside_session_status_entries": [
+    " M sessions/2026-06-16/VQUAD-ZENODO-DEPOSIT-001/MANUAL-UPLOAD.md",
+    " M sessions/2026-06-18/VQUAD-ARXIV-METADATA-001/arxiv-metadata-package.md",
+    "?? sessions/2026-05-02/SUBMISSION-LOG-PATCH-ITEM19/submission_log.txt.pre-LOG-PV-01.bak",
+    "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/README_catalog_d2_STATUS.md",
+    "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/catalog_d2.STATUS_ANNOTATED.csv",
+    "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/recheck_inheritors.py",
+    "?? sessions/2026-06-15/EBR3-REVISION-001/",
+    "?? sessions/2026-06-16/VQUAD-ZENODO-DEPOSIT-001/upload-copy-paste.md",
+    "?? sessions/2026-06-18/VQUAD-ARXIV-METADATA-001/arxiv-metadata-package.md.pre-hedge-fix.bak",
+    "?? sessions/2026-09-17/"
+  ]
+}

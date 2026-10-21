@@ -1,0 +1,143 @@
+==========================================================================
+CT-S32-LD2-ORDINARY-LOCUS  —  L₂ = z·b(θ+1) + z²·a(θ+2) − 1, θ = z d/dz
+independent in-repo re-derivation; uniformiser t = 1/z at ∞
+==========================================================================
+
+general theta-coefficients at d = 2:
+  c_0(z) = alpha0*z**2 + 2*alpha1*z**2 + 4*alpha2*z**2 + beta0*z + beta1*z + beta2*z - 1
+  c_1(z) = z*(alpha1*z + 4*alpha2*z + beta1 + 2*beta2)
+  c_2(z) = z*(alpha2*z + beta2)
+  so c_0(z) = a(2) z^2 + b(1) z - 1  :  b(1) and a(2) are the only way
+  the coefficients enter c_0, and the lone -1 fixes ord_0 c_0 = 0.
+
+--------------------------------------------------------------------------
+(A)  GENERIC deg a = 2
+--------------------------------------------------------------------------
+  generic: b = 3n^2 + n + 1, a = n^2 + 1
+    b(n) = 3*n**2 + n + 1     a(n) = n**2 + 1
+    b(1) = 5   a(1) = 2   a(2) = 5
+    z=0    M1 polygon pts [(0, 2), (1, 3), (2, 3)]     hull [(0, 2), (2, 3)]       -> Katz 1/2 ram 2
+    z=0    M2 potential pole order 3                               -> Katz 1/2 ram 2
+  [PASS] C-M z=0: the two methods agree at z=0
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    z* = -3   exponents ['-2/3', '0']              -> singular (exponents ['-2/3', '0'] are not {0,1})
+    z*     M1 polygon pts [(0, 2), (1, 1), (2, 1)]     hull [(0, 2), (1, 1), (2, 1)] -> Katz 0 ram 1
+    z*     M2 potential pole order 2                               -> Katz 0 ram 1
+  [PASS] C-M z*: the two methods agree at z*
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    inf      exponents ['2 + I', '2 - I']         -> singular (exponents ['2 + I', '2 - I'] are not {0,1})
+    inf    M1 polygon pts [(0, 2), (1, 2), (2, 2)]     hull [(0, 2), (2, 2)]       -> Katz 0 ram 1
+    inf    M2 potential pole order 2                               -> Katz 0 ram 1
+  [PASS] C-M inf: the two methods agree at inf
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    => S = ['0', 'z*', 'inf']   Katz multiset = ['1/2', '0', '0']   Table 2.1 rows: [('D6~', 'PVdeg=PIII(D6)')]
+
+  [PASS] C1  generic deg a = 2 gives three singular points and the row PVdeg=PIII(D6)
+         would have fired if: the generic case producing any other row, or fewer than three singular points
+--------------------------------------------------------------------------
+(B)  THE LOCUS  a(1) = a(2) = 0  AND  b(1) = 0
+--------------------------------------------------------------------------
+  ON the locus: b = n^2 + n - 2, a = (n-1)(n-2)
+    b(n) = (n - 1)*(n + 2)     a(n) = (n - 2)*(n - 1)
+    b(1) = 0   a(1) = 0   a(2) = 0
+    z=0    M1 polygon pts [(0, 2), (1, 3), (2, 3)]     hull [(0, 2), (2, 3)]       -> Katz 1/2 ram 2
+    z=0    M2 potential pole order 3                               -> Katz 1/2 ram 2
+  [PASS] C-M z=0: the two methods agree at z=0
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    z* = -1   exponents ['0', '3']                 -> singular (exponents ['0', '3'] are not {0,1})
+    z*     M1 polygon pts [(0, 2), (1, 1), (2, 1)]     hull [(0, 2), (1, 1), (2, 1)] -> Katz 0 ram 1
+    z*     M2 potential pole order 2                               -> Katz 0 ram 1
+  [PASS] C-M z*: the two methods agree at z*
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    inf      exponents ['0', '1']                 -> ORDINARY, drops out (leading coefficient non-zero)
+    => S = ['0', 'z*']   Katz multiset = ['1/2', '0']   Table 2.1 rows: NONE
+
+  [PASS] C2  on the locus infinity is ORDINARY, #S = 2, multiset (1/2, -, 0), NO row
+         would have fired if: infinity staying singular (which would have kept three points and the row PVdeg), or the two-point multiset happening to match some row of Table 2.1
+  JUST OFF the locus: same a, b = n^2 + n - 1 so b(1) = 1
+    b(n) = n**2 + n - 1     a(n) = (n - 2)*(n - 1)
+    b(1) = 1   a(1) = 0   a(2) = 0
+    z=0    M1 polygon pts [(0, 2), (1, 3), (2, 3)]     hull [(0, 2), (2, 3)]       -> Katz 1/2 ram 2
+    z=0    M2 potential pole order 3                               -> Katz 1/2 ram 2
+  [PASS] C-M z=0: the two methods agree at z=0
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    z* = -1   exponents ['0', '3']                 -> singular (exponents ['0', '3'] are not {0,1})
+    z*     M1 polygon pts [(0, 2), (1, 1), (2, 1)]     hull [(0, 2), (1, 1), (2, 1)] -> Katz 0 ram 1
+    z*     M2 potential pole order 2                               -> Katz 0 ram 1
+  [PASS] C-M z*: the two methods agree at z*
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    inf      exponents ['0', '1']                 -> singular (no holomorphic solution with c_0 = 1: a logarithm is forced)
+    inf    M1 polygon pts [(0, 2), (1, 1), (2, 1)]     hull [(0, 2), (1, 1), (2, 1)] -> Katz 0 ram 1
+    inf    M2 potential pole order 1                               -> Katz 0 ram 1
+  [PASS] C-M inf: the two methods agree at inf
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    => S = ['0', 'z*', 'inf']   Katz multiset = ['1/2', '0', '0']   Table 2.1 rows: [('D6~', 'PVdeg=PIII(D6)')]
+
+  [PASS] C3  moving beta0 by 1 (b(1): 0 -> 1) restores infinity and the row
+         would have fired if: the row failing to move when b(1) leaves zero -- which would have shown the classifier blind to b(1) and C2 therefore uninterpretable
+  a(1)=a(2)=0 but b(1) = 5 != 0: b = 3n^2 + n + 1, a = (n-1)(n-2)
+    b(n) = 3*n**2 + n + 1     a(n) = (n - 2)*(n - 1)
+    b(1) = 5   a(1) = 0   a(2) = 0
+    z=0    M1 polygon pts [(0, 2), (1, 3), (2, 3)]     hull [(0, 2), (2, 3)]       -> Katz 1/2 ram 2
+    z=0    M2 potential pole order 3                               -> Katz 1/2 ram 2
+  [PASS] C-M z=0: the two methods agree at z=0
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    z* = -3   exponents ['0', '7/3']               -> singular (exponents ['0', '7/3'] are not {0,1})
+    z*     M1 polygon pts [(0, 2), (1, 1), (2, 1)]     hull [(0, 2), (1, 1), (2, 1)] -> Katz 0 ram 1
+    z*     M2 potential pole order 2                               -> Katz 0 ram 1
+  [PASS] C-M z*: the two methods agree at z*
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    inf      exponents ['0', '1']                 -> singular (no holomorphic solution with c_0 = 1: a logarithm is forced)
+    inf    M1 polygon pts [(0, 2), (1, 1), (2, 1)]     hull [(0, 2), (1, 1), (2, 1)] -> Katz 0 ram 1
+    inf    M2 potential pole order 1                               -> Katz 0 ram 1
+  [PASS] C-M inf: the two methods agree at inf
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    => S = ['0', 'z*', 'inf']   Katz multiset = ['1/2', '0', '0']   Table 2.1 rows: [('D6~', 'PVdeg=PIII(D6)')]
+
+  [PASS] C4  a(1) = a(2) = 0 alone does NOT drop infinity; b(1) = 0 is required too
+         would have fired if: infinity dropping out on a(1)=a(2)=0 alone, which would have made the locus codimension 2 rather than 3
+--------------------------------------------------------------------------
+(C)  THE PREDICATE DEFECT
+--------------------------------------------------------------------------
+  The ordinary-point test must require the exponents to be {0,1}.
+  Re-running case C4 with that requirement NOT enforced -- the criterion
+  stated in the docstring but not implemented:
+  C4 again, with the DEFECTIVE predicate
+    b(n) = 3*n**2 + n + 1     a(n) = (n - 2)*(n - 1)
+    b(1) = 5   a(1) = 0   a(2) = 0
+    z=0    M1 polygon pts [(0, 2), (1, 3), (2, 3)]     hull [(0, 2), (2, 3)]       -> Katz 1/2 ram 2
+    z=0    M2 potential pole order 3                               -> Katz 1/2 ram 2
+  [PASS] C-M z=0: the two methods agree at z=0
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    z* = -3   exponents ['0', '7/3']               -> ORDINARY, drops out (holomorphic solution with c_0 = 1 exists)
+    inf      exponents ['0', '1']                 -> singular (no holomorphic solution with c_0 = 1: a logarithm is forced)
+    inf    M1 polygon pts [(0, 2), (1, 1), (2, 1)]     hull [(0, 2), (1, 1), (2, 1)] -> Katz 0 ram 1
+    inf    M2 potential pole order 1                               -> Katz 0 ram 1
+  [PASS] C-M inf: the two methods agree at inf
+         would have fired if: the polygon reading and the potential reading disagreeing -- a single method agreeing with itself is not a check
+    => S = ['0', 'inf']   Katz multiset = ['1/2', '0']   Table 2.1 rows: NONE
+
+  [PASS] C5  the defective predicate changes the answer: it drops z* (exponents {0, 7/3}) and loses the row
+         would have fired if: the defective and the correct predicate agreeing -- which would have meant the {0,1} requirement was decorative and the defect harmless
+  The defective predicate asks only whether SOME holomorphic solution
+  with c_0 = 1 exists. At exponents {0, 7/3} one does -- the exponent-0
+  solution -- but the second solution w^(7/3)(...) is not holomorphic, the
+  Wronskian ~ w^(7/3-1) vanishes at w = 0, and the point is singular.
+
+--------------------------------------------------------------------------
+(D)  WHAT THE LOCUS COSTS THE (alpha2, alpha1) STATEMENT
+--------------------------------------------------------------------------
+  C2 and C3 hold the numerator FIXED at a = (n-1)(n-2), i.e. (alpha2,
+  alpha1, alpha0) = (1, -3, 2) unchanged, and move beta0 alone from -2 to
+  -1. The answer changes from NO ROW to PVdeg=PIII(D6).
+  [PASS] C6  with (alpha2, alpha1) held fixed, beta0 alone moves the answer
+         would have fired if: the multiset being unchanged by beta0 on this locus -- which would have left 'the row depends on (alpha2, alpha1) alone' intact
+  Hence: the row is a function of (alpha2, alpha1) alone GENERICALLY,
+  and that statement is FALSE on the codimension-3 locus
+      a(1) = a(2) = 0  and  b(1) = beta2 + beta1 + beta0 = 0,
+  where the operator is not classified by Table 2.1 at all.
+
+==========================================================================
+CONTROLS: 19/19 PASS
+elapsed 2.7s
+==========================================================================

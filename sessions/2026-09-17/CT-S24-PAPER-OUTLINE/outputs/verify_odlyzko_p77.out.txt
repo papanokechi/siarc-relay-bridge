@@ -1,0 +1,74 @@
+========================================================================
+CT-S24 / verify_odlyzko_p77.py
+========================================================================
+source     : odlyzko_asymptotic_enum.pdf
+bytes      : 1116716
+sha256     : d0b58928e580ab355a6a6805846f023d5a89ebffe9fb966048beb28c1da67bff
+sha256 matches the value fixed before reading: OK
+
+pages      : 192
+
+[C4] printed folio 77 found at PDF indices: [76]
+[C4] PDF index 76 -> printed page 77 (offset -1)
+[C4] PASS
+
+[C5] impossible folio 99999 found at: []
+[C5] PASS
+
+[C1] on printed p.77: True  <- 'up to a multiplicative constant'
+[C1] on printed p.77: True  <- 'does not in general provide any techniques for determining that constant'
+[C1] PASS
+
+[C2] fabricated fragment present anywhere: False
+     'provides a closed form for the multiplicative constant in all cases'
+[C2] PASS
+
+[C3] fragments present on decoy PDF index 83: False
+[C3] PASS
+
+page image : odlyzko_p77.png  (298005 bytes, sha256 f9843a43d839ea4edb65c003264c73aca5128b39e4114a2bba0f4d8bc384558c)
+
+------------------------------------------------------------------------
+CONTEXT on printed p.77 (raw extraction, verbatim):
+------------------------------------------------------------------------
+(no 'Birkhoff' token on this page; printing head of page)
+and therefore is often a root of
+1 −
+r
+X
+j=1
+
+lim
+n→∞cj(n)
+
+zj .
+(9.33)
+Whether there are exactly r linearly independent solutions is a diﬃcult problem. Extensive
+research was done on this topic 1920’s and 1930’s [2, 29], culminating in the work of Birkhoﬀ
+and Trjitzinsky [51, 52, 53, 366, 367]. This work applies to recurrences of the form (9.29) where
+the cj(n) have Poincar´e asymptotic expansions
+cj(n) ∼nkj/k{cj,0 + cj,1n−1/k + cj,2n−2/k + · · ·}
+as
+n →∞,
+(9.34)
+where the kj and k are integers and cj,0̸ = 0 if cj(n) is not identically 0 for all n. It follows from
+this work that solutions to the recurrence are expressible as linear combinations of elements of
+the form
+(n!)p/q exp(P(n1/m))nα(log n)h ,
+(9.35)
+where h, m, p, and q are integers, P(z) a polynomial, and α a complex number. An exposition
+of this theory and how it applies to enumeration has been given by Wimp and Zeilberger [384].
+(There is a slight complication in that most of the literature cited above is concerned with
+recurrences for functions of a real argument, not sequences, but this is not a major diﬃculty.)
+There is still a problem in identifying which linear combination provides the derived solution.
+Wimp and 
+
+========================================================================
+  C1: PASS
+  C2: PASS
+  C3: PASS
+  C4: PASS
+  C5: PASS
+CONTROLS: 5/5
+VERDICT: p.77 citation VERIFIED
+========================================================================

@@ -1,0 +1,185 @@
+triage -- section 1 collision candidates
+rule: base occurs in section1.tex AND elsewhere under a key section1.tex does not use
+
+[section-1 bases: 42]
+   27 carry a key used only outside section 1  -> CANDIDATES
+   14 carry exactly the same keys elsewhere    -> same object
+    1 occur in section 1 only                  -> no collision
+
+[candidates, with evidence]
+
+  BASE A          section 1 uses: A
+      elsewhere A_0                outline-cited claims (89), section4.tex
+      elsewhere A_0+A              OUTLINE.md
+      elsewhere A_1                outline-cited claims (89), section4.tex
+      elsewhere A_2                outline-cited claims (89)
+      elsewhere A_\infty           section4.tex
+      elsewhere A_i                outline-cited claims (89), section4.tex
+      elsewhere A_inf              outline-cited claims (89)
+
+  BASE B          section 1 uses: B, B_0, B_1, B_1B, B_2, B_2B, B_3, B_i, B_n
+      elsewhere B_n-1              theorem.tex
+      elsewhere B_n-2              theorem.tex
+      elsewhere B_n\to0            theorem.tex
+      elsewhere B_n\to\rinf\neq0   theorem.tex
+
+  BASE D          section 1 uses: D_5, D_6, D_7, D_8
+      elsewhere D                  OUTLINE.md, outline-cited claims (89), section4.tex
+
+  BASE K          section 1 uses: K
+      elsewhere K_FORMAL           outline-cited claims (89)
+
+  BASE L          section 1 uses: L_\varphi
+      elsewhere L                  outline-cited claims (89), theorem.tex
+      elsewhere L_11               outline-cited claims (89)
+      elsewhere L_V                outline-cited claims (89)
+      elsewhere L_phi              outline-cited claims (89)
+
+  BASE M          section 1 uses: M_\infty
+      elsewhere M                  outline-cited claims (89), theorem.tex
+      elsewhere M_0                outline-cited claims (89)
+      elsewhere M_1                outline-cited claims (89)
+      elsewhere M_11               outline-cited claims (89)
+      elsewhere M_inf              outline-cited claims (89)
+      elsewhere M_n                theorem.tex
+      elsewhere M_n-1              theorem.tex
+      elsewhere M_n\le             theorem.tex
+      elsewhere M_n_0              theorem.tex
+      elsewhere M_t,lambda         outline-cited claims (89)
+      elsewhere M_t,λ              OUTLINE.md
+
+  BASE N          section 1 uses: N
+      elsewhere N_d,n              theorem.tex
+
+  BASE P          section 1 uses: P, P_\mathsf C
+      elsewhere P_1                outline-cited claims (89)
+      elsewhere P_2                outline-cited claims (89)
+      elsewhere P_C                OUTLINE.md, outline-cited claims (89)
+      elsewhere P_F                OUTLINE.md, outline-cited claims (89)
+      elsewhere P_b                outline-cited claims (89)
+      elsewhere P_c                outline-cited claims (89)
+      elsewhere P_n                theorem.tex
+      elsewhere P_n-1              outline-cited claims (89)
+      elsewhere P_route1           outline-cited claims (89)
+      elsewhere P_route2           outline-cited claims (89)
+
+  BASE Q          section 1 uses: Q, Q_-1, Q_0, Q_\mathsf C, Q_n, Q_n-1, Q_n-2, Q_nz
+      elsewhere Q_1                theorem.tex
+      elsewhere Q_C                OUTLINE.md, outline-cited claims (89)
+      elsewhere Q_F                OUTLINE.md, outline-cited claims (89)
+      elsewhere Q_n+1              OUTLINE.md
+
+  BASE \beta      section 1 uses: \beta_0, \beta_2, \beta_d, \beta_d-1, \beta_d-2, \beta_d\neq0, \beta_d\prod, \beta_k
+      elsewhere \beta              outline-cited claims (89), section3.tex, section4.tex
+      elsewhere \beta_1            outline-cited claims (89)
+      elsewhere \beta_3            outline-cited claims (89)
+      elsewhere \beta_4            outline-cited claims (89)
+
+  BASE \lambda    section 1 uses: \lambda_1, \lambda_d\in\C, \lambda_d\leftrightarrow, \lambda_i, \lambda_i\in\
+      elsewhere \lambda            outline-cited claims (89), section3.tex
+
+  BASE \rho       section 1 uses: \rho
+      elsewhere \rho_CT            outline-cited claims (89)
+      elsewhere \rho_\pm           section3.tex
+      elsewhere \rho_d             outline-cited claims (89)
+
+  BASE \xi        section 1 uses: \xi_0
+      elsewhere \xi                outline-cited claims (89)
+
+  BASE a          section 1 uses: a_1, a_i, a_m
+      elsewhere a                  OUTLINE.md, outline-cited claims (89), section3.tex, section4.tex, theorem.tex
+      elsewhere a_k                outline-cited claims (89), theorem.tex
+      elsewhere a_n                OUTLINE.md, outline-cited claims (89)
+
+  BASE b          section 1 uses: b
+      elsewhere b_1                outline-cited claims (89)
+      elsewhere b_k                outline-cited claims (89)
+      elsewhere b_n                OUTLINE.md
+
+  BASE e          section 1 uses: e
+      elsewhere e_1                outline-cited claims (89)
+
+  BASE f          section 1 uses: f
+      elsewhere f_s                OUTLINE.md
+
+  BASE g          section 1 uses: g
+      elsewhere g_s                OUTLINE.md
+
+  BASE k          section 1 uses: k
+      elsewhere k_1                theorem.tex
+      elsewhere k_d                theorem.tex
+      elsewhere k_d-1              theorem.tex
+      elsewhere k_i                theorem.tex
+      elsewhere k_i\ge             theorem.tex
+      elsewhere k_j                theorem.tex
+
+  BASE n          section 1 uses: n
+      elsewhere n_0                theorem.tex
+
+  BASE q          section 1 uses: q_\infty, q_\infty\leftrightarrow, q_n, q_n\leftrightarrow
+      elsewhere q                  outline-cited claims (89), section4.tex
+      elsewhere q_0                section3.tex
+      elsewhere q_1                section3.tex
+      elsewhere q_2                section3.tex
+
+  BASE r          section 1 uses: r, r_1, r_\infty, r_d, r_n
+      elsewhere r_0                outline-cited claims (89), theorem.tex
+      elsewhere r_20000            outline-cited claims (89)
+      elsewhere r_C                outline-cited claims (89)
+      elsewhere r_N                outline-cited claims (89)
+      elsewhere r_\mathsf A        section3.tex
+      elsewhere r_\mathsf B        section3.tex
+      elsewhere r_\mathsf C        section3.tex
+      elsewhere r_d\in\C           theorem.tex
+      elsewhere r_i                OUTLINE.md, outline-cited claims (89), theorem.tex
+      elsewhere r_i\bigr           theorem.tex
+      elsewhere r_inf              outline-cited claims (89)
+      elsewhere r_infinity         outline-cited claims (89)
+      elsewhere r_k                theorem.tex
+      elsewhere r_k-1              theorem.tex
+      elsewhere r_n-1              outline-cited claims (89), theorem.tex
+      elsewhere r_n-2              OUTLINE.md, outline-cited claims (89), theorem.tex
+      elsewhere r_nB               theorem.tex
+      elsewhere r_n\ge1            theorem.tex
+      elsewhere r_n\le             theorem.tex
+      elsewhere r_n\le\exp\Big     theorem.tex
+      elsewhere r_n\to\rinf\neq0   theorem.tex
+      elsewhere r_n−1              OUTLINE.md
+      elsewhere r_n−2              OUTLINE.md
+      elsewhere r_z                outline-cited claims (89)
+
+  BASE s          section 1 uses: s, s_\pm
+      elsewhere s_+                outline-cited claims (89)
+      elsewhere s_-                outline-cited claims (89)
+      elsewhere s_measured         outline-cited claims (89)
+      elsewhere s_pm               outline-cited claims (89)
+      elsewhere s_predicted        outline-cited claims (89)
+
+  BASE t          section 1 uses: t
+      elsewhere t_0                outline-cited claims (89)
+
+  BASE u          section 1 uses: u
+      elsewhere u_k                theorem.tex
+      elsewhere u_k\neq0           theorem.tex
+
+  BASE y          section 1 uses: y, y_1, y_i, y_m
+      elsewhere y_7                outline-cited claims (89)
+      elsewhere y_n                outline-cited claims (89), theorem.tex
+      elsewhere y_n-1              outline-cited claims (89)
+      elsewhere y_n-2              outline-cited claims (89)
+
+  BASE z          section 1 uses: z
+      elsewhere z_n                theorem.tex
+      elsewhere z_n\to0            theorem.tex
+
+[bases with identical keys inside and outside section 1]
+  C O R W \Gamma \alpha \delta \zeta c d i m w x
+
+[bases confined to section 1]
+  o
+
+[measured]
+  candidate count : 27
+  operator's figure for section 1 : 6
+  These are CANDIDATES under a necessary condition; the genuine
+  count is adjudicated in REPORT.md against this evidence.

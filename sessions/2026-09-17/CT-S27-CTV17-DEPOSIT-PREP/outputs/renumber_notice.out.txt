@@ -1,0 +1,27 @@
+reader integrity: ASCII and non-ASCII sentinels present in 48710 bytes
+
+headings (descending, so 8->9 cannot collide with 9->10):
+  ## 9. Sources held and hashed                  -> 10. Sources held and hashed
+  ## 8. What this notice does not claim          -> 9. What this notice does not claim
+  ## 7. Open problems as they now stand          -> 8. Open problems as they now stand
+
+self-references (each must fire exactly once):
+  [ok] line 85 -- open-problems cross-ref
+  [ok] line 301 -- open-problems cross-ref
+  [ok] line 736 -- open-problems cross-ref
+  [ok] line 361 -- sources-table cross-ref
+
+control -- references to OTHER documents must be untouched:
+  [PASS] by its own §8 scope statement                (v1.4 EBR deposit, not this notice) x1
+  [PASS] surviving §9 cost estimates marked unverifie (v1.6 record) x1
+  [PASS] it is in §9 of the v1.6 PDF                  (v1.6 record) x1
+  [PASS] in **§9 of version `10.5281/zenodo.22782807` (v1.6 record) x1
+  [PASS] Fundamental Theorem §9, p. 69                (Birkhoff-Trjitzinsky 1933) x1
+  [PASS] normal-solution shape, §9 p. 69              (Birkhoff-Trjitzinsky 1933) x1
+  [PASS] §9 falsifier text therefore unread           (v1.6 record) x1
+
+no stale self-reference to §7 or §9 survives
+
+written: NOTICE-v1.7-rev2.md
+  bytes  : 48712
+  sha256 : 53f275e3f537249869ce8acfcbc38decd0d89b6ba0639377b813ea619cd59eae  (from disk)

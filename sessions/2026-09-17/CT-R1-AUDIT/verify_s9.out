@@ -1,0 +1,13 @@
+[R] normal form R = 12*x**4 + 4*x**3 + 4*x**2 + 11 / 4*(3*x**2 + x + 1)**2
+[S] s+ = -1/6 + sqrt(11)*I/6, s- = -1/6 - sqrt(11)*I/6
+[TH] s+: normal-form residue -1/4, exponent difference = sqrt(0) = 0  -> theta = 0
+[TH] s-: normal-form residue -1/4, exponent difference = sqrt(0) = 0  -> theta = 0
+[I] R -> 1/3 as x -> oo, so the WKB exponentials are exp(+/- sqrt(3)/3 * x)
+[I] difference of the two exponents = 2*sqrt(3)/3 * x
+[K] Jimbo's normalisation forces the affine scale k = 2*sqrt(3)/3 (so that the exponent difference becomes exactly z)
+[T] s+ -> 0:  t = k*(other - zero) = -2*sqrt(33)*I/9   |t| = 2*sqrt(33)/9
+[T] s- -> 0:  t = k*(other - zero) = 2*sqrt(33)*I/9   |t| = 2*sqrt(33)/9
+[D] alpha = theta_infty**2/8, beta = -theta_infty**2/8, gamma = 1, delta = -1/2
+[D] beta + alpha = 0  -> beta = -alpha identically
+[D] companion tuple (alpha,beta,gamma,delta) = (1/6, 0, 0, -1/2): beta=0 forces theta_infty=0 hence alpha=0, contradicting alpha=1/6; and gamma=1 contradicts gamma=0.
+[SC] PV scaling z -> c*z maps (alpha,beta,gamma,delta) -> (alpha,beta,c*gamma,c^2*delta). Holding delta = -1/2 forces c^2 = 1, i.e. c = +/-1, so gamma is fixed up to sign. gamma = 1 therefore CANNOT be rescaled to gamma = 0: the contradiction is genuine.

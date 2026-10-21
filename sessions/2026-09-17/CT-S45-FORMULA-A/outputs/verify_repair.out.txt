@@ -1,0 +1,10 @@
+verify_repair: the factored difference in Appendix A
+  true value: z*(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+
+  repaired   MATCHES the true factorisation
+             parsed: z*(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+  pre-repair DIFFERS from the true factorisation
+             parsed: -z*(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+             residual: -z*(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/2
+
+VERDICT: PASS -- repaired matches, and the control (pre-repair) is rejected by the same check, so it discriminates

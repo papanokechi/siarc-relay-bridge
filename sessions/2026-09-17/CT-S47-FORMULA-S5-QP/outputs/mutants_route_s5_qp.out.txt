@@ -1,0 +1,29 @@
+==========================================================================
+CONTROL ARMS for route_s5_qp.py   (each runs in a scratch tree)
+==========================================================================
+baseline: exit 0 (expected 0)
+baseline: 36 checks, 0 DIFFER  -- arms are interpretable
+
+[CAUGHT ] M1 coords blind to sqrt33 (the defect actually hit this session)
+          expected halt -> exit 2, got 2
+[CAUGHT ] M2 generators always vanish (route ALPHA cannot fail)
+          expected halt -> exit 2, got 2
+[CAUGHT ] M3 source digest wrong (the file this was written against moved)
+          expected halt -> exit 2, got 2
+[CAUGHT ] M4 parser silently drops a digit of q_A
+          expected halt -> exit 2, got 2
+[CAUGHT ] M5 System C's s_+ corrupted (transport broken -> refuse, not report)
+          expected halt -> exit 2, got 2
+[CAUGHT ] M6 approximation tolerance collapsed to zero
+          expected diff -> exit 1, got 1
+[CAUGHT ] M7 branch pairing compared against its own branch (F4 vacuous)
+          expected diff -> exit 1, got 1
+[CAUGHT ] M8 negative arm: a comment is not a defect
+          expected clean -> exit 0, got 0
+[CAUGHT ] M9 the PAGE carries a transposed digit (457937 -> 457973)
+          expected diff -> exit 1, got 1
+
+==========================================================================
+ARMS: 9 CAUGHT, 0 MISSED, 0 SKIPPED (of 9)
+==========================================================================
+real output still reports: ['ROUTE S (section 5 q,p): 36 checks, 0 DIFFER']

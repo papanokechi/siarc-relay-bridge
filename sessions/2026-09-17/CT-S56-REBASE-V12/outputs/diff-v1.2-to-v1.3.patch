@@ -1,0 +1,92 @@
+--- v1.2
++++ v1.3
+@@ -60,7 +60,8 @@
+ \begin{document}
+ \begin{abstract}
+ We prove that the connection coefficient $C$ of the $\Vquad$ polynomial continued fraction---the
+-rank-one standalone closure on the Sakai surface $D_5^{(1)}$ (Painlev\'e~V)---admits an explicit
++rank-one standalone closure, whose Sakai surface type is conjectured to be $D_5^{(1)}$
++(Painlev\'e~V)~\cite{Vquad}---admits an explicit
+ exponential-period representation
+ $C=(\lvert\Gamma(\beta)\rvert/2\pi)\int_\gamma e^{\xi}\Bhat(\xi)\,d\xi=\lvert\Gamma(\beta)\rvert K$,
+ where $\Bhat$ is the Borel transform of the $\Vquad$ asymptotic series, holonomic of order $4$
+@@ -87,8 +88,8 @@
+ \end{equation}
+ the partial denominators being the quadratic $b_n=3n^2+n+1$ and all partial numerators $1$.
+ This is the rank-one ($n=1$) standalone member of the V\_quad family studied in the V\_quad
+-companion paper~\cite{Vquad}, where it is identified as a non-classical Painlev\'e~V
+-transcendent on the Sakai surface $D_5^{(1)}$ (symmetry $W(A_3^{(1)})$, $\delta=-\tfrac12\ne0$,
++companion paper~\cite{Vquad}, where it is conjectured to be a non-classical Painlev\'e~V
++transcendent on the Sakai surface $D_5^{(1)}$ (Conjecture~4.1 there) (symmetry $W(A_3^{(1)})$, $\delta=-\tfrac12\ne0$,
+ in the surface/symmetry classification of~\cite{SakaiClass}),
+ with formal monodromy exponent $\theta_\infty=2/\sqrt3$ and $\alpha=\theta_\infty^2/8=\tfrac16$.
+ The asymptotic (WKB/Riccati) solution of the associated problem is a Gevrey-1 formal power
+@@ -1083,6 +1084,40 @@
+ \end{remark}
+ 
+ % ===== section-7.md =====
++\section*{Correction notice (v1.3)}
++\addcontentsline{toc}{section}{Correction notice (v1.3)}
++\noindent\textbf{What this version corrects.} This version \emph{withdraws a
++claim}. Through v1.2, \S\ref{sec:disc} stated that the present paper
++\emph{completes part (ii)(a) for $d=2$} of the master conjecture
++of~\cite{Sakai}. Part (ii)(a) of~\cite{Sakai} concerns the Edge--Borel
++coefficient, a different object from the connection coefficient $C$ studied
++here; \cite{Sakai} records the distinction in its Observation on p.~4. The
++sentence is replaced by one that states what Theorem~\ref{thm:main}
++establishes and records part (ii)(a) as open. This is a withdrawal, not an
++additive clarification.
++
++\noindent\textbf{Surface type.} The previous version described $\C$ as ``the
++rank-one standalone closure on the Sakai surface $D_5^{(1)}$ (Painlev\'e~V)''
++without qualification. That classification is Conjecture~4.1 of the companion
++paper~\cite{Vquad} (\texttt{10.5281/zenodo.20455089}, read at v1.2), and this
++version carries it as conjectural throughout.
++
++\noindent\textbf{Build script.} The bundled \texttt{build.py} carried a
++reproducibility target naming the v1.0 PDF, which it retained through v1.2. A
++reproduction run therefore compared a freshly built PDF against superseded
++bytes. The target now names this version's PDF.
++
++\noindent\textbf{What is unchanged.} Theorem~\ref{thm:main} and its proof; the
++$46$-digit agreement of the three independent verifications; every numerical
++value; the differential-Galois and resurgence results; and the conditional
++transcendence statement. No computation is affected.
++
++\noindent\textbf{Sequencing.} The same correction will be carried into the
++journal manuscript at revision. A reader who arrives at this record from the
++manuscript's data-availability statement may therefore find, until that
++revision appears, a manuscript whose corresponding sentences have not yet been
++corrected; this record is the corrected text.
++
+ \section{Discussion}\label{sec:disc}
+ 
+ \subsection{Place in the Sakai stratification}
+@@ -1090,11 +1125,14 @@
+ surface stratum, that the connection constant of a polynomial continued fraction whose tail is
+ governed by the corresponding Painlev\'e equation is an exponential period, and---in part
+ (ii)(a)---that for the $D_5^{(1)}$ (Painlev\'e~V) stratum this period is explicit. For $\Vquad$,
+-the rank-one $D_5^{(1)}$ representative, that entry was previously graded \emph{structural}: the
++the rank-one representative of the conjectured $D_5^{(1)}$ stratum~\cite{Vquad},
++that entry was previously graded \emph{structural}: the
+ skeleton $\C=\Gamma(\beta)\cdot K$ matched, but no period integral was exhibited.
+-Theorem~\ref{thm:main} exhibits the integral and verifies it three ways, so the present paper
+-\emph{completes part (ii)(a) for $d=2$}: the $D_5^{(1)}$ connection constant is realised as an
+-explicit Fres\'an--Jossen exponential period, and (conditionally) transcendental. We do not modify
++Theorem~\ref{thm:main} establishes an exponential-period representation for the $\Vquad$
++object, and, conditional on the Fres\'an--Jossen period conjecture for exponential motives
++and on a stated motivic-comparison hypothesis, the transcendence of $\C$ over $\Qbar$
++(Corollary~\ref{cor:transc}). Part (ii)(a) of~\cite{Sakai} concerns the distinct EBR
++coefficient (see~\cite{Sakai}, Observation on p.~4) and remains open. We do not modify
+ the live stratification deposit; the upgrade is recorded as a recommendation
+ (\texttt{PERIOD-REP-VQUAD-003}, \texttt{ledger.json}). Adjacent instances in the same program
+ corroborate the pattern: the Edge--Borel ring papers characterise the connection/amplitude datum of
+@@ -1323,7 +1361,7 @@
+ Papanokechi,
+ \emph{A non-classical Painlev\'e~V transcendent from a quadratic polynomial continued fraction:
+ surface classification and resurgent Stokes data}.
+-Zenodo, 2026, concept DOI \texttt{10.5281/zenodo.20455089}.
++Zenodo, 2026, concept DOI \texttt{10.5281/zenodo.20455089}, read at v1.2.
+ 
+ \bibitem{StokesNote}
+ Papanokechi,

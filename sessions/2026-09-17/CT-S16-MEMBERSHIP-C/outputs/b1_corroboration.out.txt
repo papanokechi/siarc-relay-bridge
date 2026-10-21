@@ -1,0 +1,21 @@
+==========================================================================
+Is  b(z) first term  ==  z * B1[0,1] ?
+==========================================================================
+  printed  (no t)         b_first - z*B1[0,1] = z*(4*p*q*t - 4*p*q - 4*p*t + 4*p + q**3*t**2 - q**3 - 2*q**2*t**2 + 2*q**2 + q*t**2 - q)/4
+  corrected (with t)      b_first - z*B1[0,1] = 0
+
+  => With the t, b(z) first term is EXACTLY z * B1[0,1].
+     Without it, the identity fails.
+
+  difference between the two readings, factorised:
+    -z*(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+
+CONTROL  a bogus variant must be rejected by the same test
+  variant t^2   -> difference nonzero, rejected
+  variant t+1   -> difference nonzero, rejected
+  variant 2t    -> difference nonzero, rejected
+
+  Control fires on all three bogus variants, so the test discriminates.
+==========================================================================
+CONCLUSION: the omission in b(z) is a transcription slip of an expression
+the authors print CORRECTLY, with the t, elsewhere on the same page.

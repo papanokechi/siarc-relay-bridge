@@ -1,0 +1,47 @@
+--- v1.0
++++ v1.2
+@@ -53,6 +53,9 @@
+ \author{Papanokechi}
+ \thanks{ORCID \texttt{0009-0000-6192-8273}.}
+ \date{15 June 2026}
++\subjclass[2020]{Primary 34M55; Secondary 34M40, 34M56, 34M30, 33E17, 11J81}
++\keywords{Painlev\'e~V; connection coefficient; exponential periods; Stokes constants;
++polynomial continued fractions; isomonodromic deformation}
+ 
+ \begin{document}
+ \begin{abstract}
+@@ -1185,6 +1188,24 @@
+ We thank O.~Marchal for correspondence on the topological-recursion reconstruction of Painlev\'e
+ Stokes data (personal communication, June~2026).
+ 
++\section*{Conflict of interest}
++On behalf of all authors, the corresponding author states that there is no conflict of interest.
++
++\section*{Funding}
++The author received no funding for this work.
++
++\section*{Data availability}
++The data, verification code, and exact-computation certificates supporting the findings of this
++article are openly available in the VQUAD-PERIODREP reproducibility bundle deposited in Zenodo,
++concept DOI \texttt{10.5281/zenodo.20719042}, which resolves to the latest version; see
++Appendix~\ref{app:repro} for details.
++
++\section*{Declaration on the use of AI tools}
++The research and the preparation of this manuscript made use of AI assistants (large language
++models) under the author's SIARC/AEAL governance framework. All mathematical claims were
++independently verified by the exact-computation certificates described in
++Appendix~\ref{app:repro}. The author takes full responsibility for the content of this article.
++
+ % ===== section-8.md =====
+ \appendix
+ \section{Explicit operators, Kovacic certificate, logs, conventions, reproducibility}\label{app:all}
+@@ -1296,9 +1317,6 @@
+ structural argument of Appendix~\ref{app:kovacic}.
+ 
+ % ===== section-9-references.md =====
+-\section*{References}
+-\addcontentsline{toc}{section}{References}
+-
+ \begin{thebibliography}{99}
+ 
+ \bibitem{Vquad}

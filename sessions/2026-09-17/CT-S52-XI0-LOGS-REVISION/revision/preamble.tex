@@ -1,0 +1,74 @@
+% Preamble for: An Explicit Exponential-Period Representation of the V_quad Connection Coefficient
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[letterpaper,margin=1.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,decorations.markings,decorations.pathmorphing}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% --- byte-reproducible build guards (memory: reproducible PDFs) ---
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=-1
+
+% --- layout only (LAYOUTFIX-001): break long monospace file/script names and
+%     relieve tight justification. No content/character changes. ---
+\emergencystretch=3em
+\makeatletter
+\let\vquadorigunderscore\_
+\renewcommand{\_}{\vquadorigunderscore\allowbreak}
+\makeatother
+
+% --- theorem environments ---
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+% --- macros ---
+\newcommand{\Vquad}{V_{\mathrm{quad}}}
+\newcommand{\Bhat}{\widehat{B}}
+\newcommand{\Lphi}{L_{\varphi}}
+\newcommand{\LV}{L_{V}}
+\newcommand{\Qsqrt}{\mathbb{Q}(\sqrt3)}
+\newcommand{\Qbar}{\overline{\mathbb{Q}}}
+\newcommand{\xizero}{\xi_0}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\Gm}{\mathbb{G}_m}
+\providecommand{\C}{}\renewcommand{\C}{C}
+\DeclareMathOperator*{\K}{K}
+
+\title[An exponential-period representation of the $V_{\mathrm{quad}}$ constant]%
+{An explicit exponential-period representation of the $V_{\mathrm{quad}}$ connection coefficient}
+\author{Papanokechi}
+\thanks{ORCID \texttt{0009-0000-6192-8273}.}
+\date{15 June 2026}
+
+\begin{document}
+\begin{abstract}
+We prove that the connection coefficient $C$ of the $\Vquad$ polynomial continued fraction---the
+rank-one standalone closure on the Sakai surface $D_5^{(1)}$ (Painlev\'e~V)---admits an explicit
+exponential-period representation
+$C=(\lvert\Gamma(\beta)\rvert/2\pi)\int_\gamma e^{\xi}\Bhat(\xi)\,d\xi=\lvert\Gamma(\beta)\rvert K$,
+where $\Bhat$ is the Borel transform of the $\Vquad$ asymptotic series, holonomic of order $4$
+(the Borel--Laplace dual of the order-$2$ operator annihilating the series)
+with coefficients in the real quadratic field $\Qsqrt$; $\gamma$ is an explicit Hankel
+rapid-decay cycle on $(-\infty,-2/\sqrt3]$; and $\beta=-1/(3\sqrt3)$. The identity is verified by
+three structurally independent methods---differential-equation/operator duality, Borel--Laplace
+contour deformation, and Stokes-data---agreeing to $46$ digits. The order-$2$ operator annihilating
+the asymptotic series has differential Galois group $\SL_2(\mathbb{C})$ by Kovacic's algorithm.
+As a by-product, holonomicity of the Borel transform forces a finite resurgent structure. Finally,
+conditional on the Fres\'an--Jossen period conjecture for exponential motives and on a stated
+motivic-comparison hypothesis, $C$ is transcendental over $\Qbar$.
+\end{abstract}
+\maketitle

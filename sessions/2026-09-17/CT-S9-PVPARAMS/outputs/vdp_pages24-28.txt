@@ -1,0 +1,277 @@
+            MODULI FOR DIFFERENTIAL AND PAINLEVÉ EQUATIONS                     2633
+
+C[x14 , x25 , x36 , x135 , x246 ] with relation x135 x246 − x14 x25 x36 = 0. The sin-
+gular locus of this space has three components, they are the image of the
+locus where the differential equation is reducible {u| M (u) is reducible}.
+   The group G also acts on the local family M (u) and we obtain a local
+Riemann–Hilbert morphism RH : {u ∈ C12 | kuk < }//G → R. This map
+does not depend on the coefficients (1+u1 ), (1+u6 )ω, (1+u11 )ω 2 of q1 , q2 , q3 .
+The fibres of RH are, by definition, the isomonodromic families. They are
+parametrized by the three variables t1 =: u1 , t2 := u6 , t3 := u11 . Using
+z 7→ λz, one may normalize to (1 + u11 ) = 1 and thus the isomonodromic
+family is parametrized by t1 , t2 . One expects that a suitable expression in
+the other ui satisfies a Painlevé type of partial differential equations w.r.t.
+the variables t1 , t2 . In fact it is possible to convert the situation into a one
+variable case for PVI (cf. [2]).
+
+
+
+   Remarks 2.3. — The papers of M. Jimbo, T. Miwa and K. Ueno.
+   The above introduction of families of differential modules and their for-
+mal and analytic data can be seen as an extension of the papers [17], [16],
+which we will describe now, using our terminology.
+   In [17], [16] the base point b is taken to be ∞ and this point is supposed to
+be (irregular) singular. Further the irregular singularities p are of a simple
+kind, namely all the eigenvalues (generalized exponents) qi are in t−1      −1
+                                                                       p C[tp ],
+and all qi and qi − qj for i 6= j have the same degree in t−1  p (there is one
+exception, related to the Painlevé I equation). We note that Example 2.2
+is of the type considered in [17]. In particular, Borel summation or, better,
+k-summation is sufficient for the asymptotic analysis of the singularity.
+A theorem of Y. Sibuya [28] gives the required input from asymptotics.
+The “links”, that we defined, are present in their work and the family of
+linear differential equations is presented as a matrix differential equation
+ d
+dz + A(z, u). The origin of the examples, in the appendix of [16], of families
+related to Painlevé I–VI, is probably classical (discovered by R. Fuchs [6],
+P. Painlevé [23], R. Garnier [8] et al.). Another source for similar examples
+are the ones discovered by H. Flaschka and A.C. Newell [4]. Later work of
+B. Malgrange [18, 19], clarifies and extends the papers [17], [16].
+   The new tool “multisummation” and the precise construction of the
+Stokes matrices, enables to generalize the work of Jimbo, Miwa and Ueno.
+Especially, as we will show in the next subsection, a “complete” list of the
+equations related to Painlevé I–VI can be derived. Further, the monodromy
+spaces R for the analytic data can now be computed and studied in detail.
+
+
+TOME 59 (2009), FASCICULE 7
+2634                 Marius VAN DER PUT & Masa-Hiko SAITO
+
+
+
+         2.2. Finding the list. Tables for connections and R
+
+   We consider a local family M (u) of differential modules, represented by
+                      d
+a matrix equation dz     + A(z, u) where A(z, u) is a 2 × 2-matrix with trace
+0 and u lies in a small polydisk D around 0. The possibilities of the formal
+structure at the singular points is given in Example 1.3. The local Riemann–
+Hilbert map RH : D → R forgets the formal data, namely the position of
+the set of singular points S and the coefficients of the eigenvalues at the
+irregular singular points.
+   The position of the points S contributes max(−3 + #S, 0) to the dimen-
+sion of the fibre, because of the automorphisms of P1 . A singular point
+p with Katz invariant r(p) contributes to the fibre the dimension r(p) if
+r(p) ∈ Z⩾0 and r+ (p) = 12 + r(p) if r(p) ∈ 21 + Z⩾0 . Further, in the space
+D one divides by the action of a subgroup of the automorphisms of P1 .
+   The requirement that the fibres of RH have dimension 1 produces the
+list:
+   #S > 4 is excluded.
+   #S = 4, then S = {0, 1, ∞, t}, only regular singular points, i.e., all
+r(p) = 0.
+   #S = 3, then S = {0, 1, ∞} and only one irregular point with r(p) ∈
+{1, 12 }. #S = 2, then S = {0, ∞}, the contribution of the singular points
+to the dimension of the fibre is 2, since we divide by the group z 7→ az.
+   #S = 1, then S = {∞}, the contribution of the singular point to the
+dimension of the fibre is 3, since we divide by the group z 7→ az + b.
+   Columns 3–6 of the next table present the ten resulting cases. In the
+second column one finds the classification of the related Painlevé equation
+(some classes are divided into subclasses). The first column gives the ex-
+tended Dynkin diagram of the corresponding Okamoto–Painlevé pair (see
+the Introduction). The space R is mapped to a space of parameters P
+(related to the parameters spaces of the Painlevé equations) consisting of
+traces or eigenvalues of the matrices involved in the construction of R.
+   We will not number these ten families, but indicate them by their Katz
+invariants, e.g., (0, 0, 0, 0), (0, 0, 1), . . . , (0, −, 3/2), (−, −, 3), (−, −, 5/2).
+For a differential module M corresponding to one of the types, the strong
+Hilbert-Riemann problem has a positive answer, except possibly for (1/2,
+−, 1/2) and (−, −, 5/2) (see Definitions and examples 1.12). For these two
+types we only consider the modules M (u) for which the strong Riemann–
+Hilbert problem does have a positive answer. The strong Riemann-Hilbert
+problem for a family M (u) is more subtle. It seems that connections on the
+vector bundle O ⊕ O(−1) is better adapted to families. For the Painlevé VI
+
+
+ANNALES DE L’INSTITUT FOURIER
+            MODULI FOR DIFFERENTIAL AND PAINLEVÉ EQUATIONS                      2635
+
+       Dynkin Painlevé equation           r(0) r(1) r(∞) r(t) dim P
+        D̃4          PVI                   0    0     0   0     4
+        D̃5          PV                    0    0     1   -     3
+        D̃6   PVdeg = PIII(D6)             0    0    1/2  -     2
+        D̃6       PIII(D6)                 1     -    1   -     2
+        D̃7       PIII(D7)                1/2    -    1   -     1
+        D̃8       PIII(D8)                1/2    -   1/2  -     0
+        Ẽ6          PIV                   0     -    2   -     2
+        Ẽ7          PII                   0     -   3/2  -     1
+        Ẽ7          PII                    -    -    3   -     1
+        Ẽ8           PI                    -    -   5/2  -     0
+
+                      Table 2.1. Classification of Families
+
+
+
+case this is type of vector bundle is considered in [12, 13]. Here however we
+will represent a family M (u) by connections on O ⊕ O. This defines, in gen-
+eral, an affine Zariski open subset of the space of all connections. However,
+the monodromy space R classifies the analytic data (modulo some equiv-
+alence) for the complete space of all connections. For each type there are
+many possibilities. We will make choices that are helpful for the computa-
+tion of the Painlevé equations and are moreover close to classical formulas.
+   It turns out that R → P is a family of affine cubic surfaces. There are
+two sources for the singularities of the fibres. The first one is reducibility
+of systems and is connected with the singularities of R itself. The other
+source is resonance, i.e., at least one of the matrices involved in the con-
+struction of R has a difference of eigenvalues belonging to Z\{0}. Section 3
+provides the computations of the families R → P. We will also describe
+the corresponding one-dimensional families of differential modules M (t).
+This subsection ends with a list indicating the families of connections and
+presenting the families R → P of affine cubic surfaces by an equation. The
+monodromy space R for (0, 0, 0, 0) is classical(cf. [5, 15]), the others seem
+to be new.
+
+                                           d    A0   A1   At
+(0,0,0,0). PVI.                            dz + z + z−1 + z−t ,      all tr(A∗ ) = 0.
+
+x1 x2 x3 + x21 + x22 + x23 − s1 x1 − s2 x2 − s3 x3 + s4 = 0, with
+si = ai a4 + aj ak , (i, j, k) = a cyclic permutation of (1, 2, 3),
+s4 = a1 a2 a3 a4 + a21 + a22 + a23 + a24 − 4 with a1 , a2 , a3 , a4 ∈ C.
+
+
+TOME 59 (2009), FASCICULE 7
+2636                  Marius VAN DER PUT & Masa-Hiko SAITO
+
+
+                                  d    A0   A1         −1 0
+                                                                      
+(0,0,1).    PV.                   dz + z + z−1 + t/2 ·  0 1 ,             all tr(A∗ ) = 0.
+
+x1 x2 x3 + x21 + x22 − (s1 + s2 s3 )x1 − (s2 + s1 s3 )x2 − s3 x3 + s23 + s1 s2 s3 + 1 = 0
+with s1 , s2 ∈ C, s3 ∈ C∗ .
+
+                                         d    A0   A1   0 t2
+                                                                      
+(0,0,1/2). PVdeg .                       dz + z + z−1 + 0 0 ,             all tr(A∗ ) = 0.
+
+x1 x2 x3 + x21 + x22 + s0 x1 + s1 x2 + 1 = 0 with s0 , s1 ∈ C.
+
+                                                         t
+                                                            0
+(1,-,1). PIII(D6).                  d
+                                  z dz + A0 z −1 + A1 + 02 − t z, all tr(A∗ ) = 0.
+                                                                 2
+
+
+x1 x2 x3 + x21 + x22 + (1 + αβ)x1 + (α + β)x2 + αβ = 0 with α, β ∈ C∗ .
+
+                                                          t
+                                                            0 
+(1/2,-,1). PIII(D7).                d
+                                  z dz + A0 z −1 + A1 + 0 2− t z, all tr(A∗ ) = 0.
+                                                                 2
+
+
+x1 x2 x3 + x21 + x22 + αx1 + x2 = 0 with α ∈ C∗ .
+
+                                                                          p
+                                                     0 0                    − qt 
+                                                                                   + 00 10 z.
+                                                d
+                                                          −1                             
+(1/2,-,1/2). PIII(D8).                        z dz + −q 0 z   +           q
+                                                                          1 −p
+                                                                             q
+
+
+x1 x2 x3 + x21 − x22 − 1 = 0.
+
+                                                         d                    0
+                                                            + A0 + A1 z + 01 −1
+                                                                                 2
+(0,-,2). PIV.                                          z dz                      z .
+
+x1 x2 x3 +x21 −(s22 +s1 s2 )x1 −s22 x2 −s22 x3 +s22 +s1 s32 = 0 with s1 ∈ C, s2 ∈ C∗ .
+
+                                                       d
+                                                          + A0 + 01 t+q0 z + 00 10 z 2
+                                                                                 
+(0,-,3/2). PIIFN.                                    z dz
+
+x1 x2 x3 + x1 − x2 + x3 + s = 0, with s ∈ C.
+
+                                      d                1 0   2
+                                                                 
+(-,-,3). PII.                         dz + A0 + A1 z + 0 −1 z ,           all tr(A∗ ) = 0.
+
+x1 x2 x3 − x1 − αx2 − x3 + α + 1 = 0 with α ∈ C∗ .
+
+                                                      p t+q 2
+                                                 d
+                                                                     + 10 0q z + 00 10 z 2 .
+                                                                                    
+(-,-,5/2). PI.                                   dz + −q −p
+
+
+x1 x2 x3 + x1 + x2 + 1 = 0.
+
+   Table of the equations of the monodromy spaces for the 10 families.
+
+
+ANNALES DE L’INSTITUT FOURIER
+            MODULI FOR DIFFERENTIAL AND PAINLEVÉ EQUATIONS                   2637
+
+            3. Computation of the monodromy spaces
+
+
+                 3.1. Family (0, 0, 0, 0) and Painlevé PVI
+
+
+   For completeness we describe this classical family. The family of differ-
+ential modules is represented by dzd                d
+                                      + A(z, t) := dz + Az0 + z−1
+                                                               A1
+                                                                   + z−tAt
+                                                                             with
+constant 2 × 2 matrices having trace 0. Dividing by the action, by conju-
+gation, of PSL2 one finds a moduli space M (say the categorical quotient)
+of differential modules with dimension 7.
+   The monodromy data are given by the tuples (M1 , M2 , M3 , M4 ) ∈ SL42
+satisfying M1 · · · M4 = 1. This defines an affine space of dimension 9. The
+categorical quotient R of this space under the action, by conjugation with
+PSL2 , has dimension 6. The fibres of RH : M → R are parametrized by
+t ∈ P1 \ {0, 1, ∞}.
+   The coordinate ring of R is generated over C by x1 , x2 , x3 , a1 , a2 , a3 , a4
+with ai = tr(Bi ) and x1 = tr(B2 B3 ), x2 = tr(B1 B3 ), x3 = tr(B1 B2 ).
+There is only one relation ([5, 14]), namely (as in the list)
+
+            x1 x2 x3 + x21 + x22 + x23 − s1 x1 − s2 x2 − s3 x3 + s4 = 0.
+
+The morphism R → P := C4 , given by (x1 , . . . , a4 ) 7→ (s1 , . . . , s4 ), is a
+family of affine cubic surfaces with “three lines at infinity”. For information
+concerning the singularities of R and of the fibres we refer to [[15], [14],
+[11]].
+
+
+
+                   3.2. Family (0, 0, 1) and Painlevé PV
+
+
+   For a differential module of type (0, 0, 1), the strong Riemann-Hilbert
+problem has a positive answer. Indeed, the lattices at 0 and 1 can be chosen
+arbitrary. By tradition one supposes that the corresponding local exponents
+are ±θ0 /2 and ±θ1 /2. From Definition and examples 1.4 one concludes
+that there exists a unique lattice at ∞ leading to a free vector bundle.
+By tradition, the generalized local exponents at ∞ are ±(tz + θ∞ )/2. The
+module is then represented by the matrix differential equation dz  d
+                                                                     + Az0 +
+ A1
+z−1 + A∞ , for certain constant matrices     A0 , A1 , A∞ with trace 0. A∞
+                                 −1 0
+is normalized by A∞ = t/2 · 0 1 with t ∈ C∗ . Further −θi2 /4 is the
+                                      
+
+determinant of Ai for i = 0, 1 and, θ∞ is the (1, 1) entry of A0 + A1 .
+
+
+TOME 59 (2009), FASCICULE 7
+

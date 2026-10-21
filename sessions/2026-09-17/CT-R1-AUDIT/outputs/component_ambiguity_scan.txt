@@ -1,0 +1,80 @@
+claims comparing/identifying scalar operators: 30
+
+PINNED (component or invariant pair named): 10
+POTENTIALLY AMBIGUOUS: 20
+
+========================================================================
+
+[R1-74] PROVEN  (CT-R1-AUDIT)
+  z=infinity is an ORDINARY point of object B's trace-free normal form: under x=1/z the potential is analytic at x=0 with value 11/4 and series 11/4 - 11x/2 - 29x^2/4 + O(x^3). B therefore has three singular points, not four, and Katz multiset (0,0,1).
+
+[R1-76] STRUCTURAL  (CT-R1-AUDIT)
+  Object B's Table 2.1 row is UNAFFECTED by R1-75: the row is read from the trace-free normal form, which inversion alone reaches (R1-83). The twist is a feature of the companion's printed presentation, not of the classification. The drafted phrase 'up to inversion and twist' was therefore unnecessary and inaccurate, and was removed.
+
+[R1-77] PROVEN  (CT-R1-AUDIT)
+  At each root of A=3x^2+x+1 the companion's PRINTED scalar operator has residue(P)=1 and lim (x-b)^2 Q = 0, hence indicial polynomial lambda^2 and exponents [0,0]; in the trace-free normal form the exponents are [1/2,1/2]. Katz invariant 0 in both presentations, so no row is affected.
+
+[R1-82] PROVEN  (CT-R1-AUDIT)
+  Object B's trace-free normal form, pulled back by z=1/x, is EXACTLY equal to the trace-free normal potential of companion v1.2's printed ODE: both equal (12x^4+4x^3+4x^2+11)/(4(3x^2+x+1)^2). Symbolic difference is identically zero. Objects B and C are therefore PROJECTIVELY EQUIVALENT under z -> 1/x: related by that change of variable together with a scalar (rank-1) gauge transformation. They are 
+
+[R1-83] PROVEN  (CT-R1-AUDIT)
+  Under z=1/x the pullback's first-order term 2/x contributes nothing to the normal potential, since (2/x)^2/4 + d/dx(2/x)/2 = 1/x^2 - 1/x^2 = 0. Hence inversion ALONE reaches object B's trace-free normal form; no twist is required for its Table 2.1 row.
+
+[R1-87] STRUCTURAL  (CT-R1-AUDIT)
+  WORDING CORRECTION under operator review #9: 'B and C are the same object' is too strong for a notice about loose identity claims. What was shown is identical trace-free normal forms under z -> 1/x, i.e. PROJECTIVE EQUIVALENCE (change of variable plus rank-1 gauge). The printed operators differ by a trace-altering twist, so they are not the same operator. Notice and claim text updated.
+
+[R1-89] CONJECTURED  (CT-R1-AUDIT)
+  RECORDED AS FUTURE PROBLEM, NOT A RESULT: because B and C are projectively equivalent under z -> 1/x, the isomonodromic embedding question need be posed only once; a deformation built for either, transported by the equivalence, settles the other. This reduces two open questions to one but does not make the remaining one easier, since a deformation must still be written down. Anyone attempting the 
+
+[CT-S12-COLDREAD4-Q5-C7] STRUCTURAL  (CT-S12-COLDREAD4)
+  If Jimbo's infinity normalization and the affine identification of System C's finite singularities with 0 and t are accepted, k=2/sqrt(3) up to sign/order and t=±2i*sqrt(33)/9; the finite-singularity identification is an assumption not proved by the scalar equation alone.
+
+[c06] PROVEN  (CT-S14-COLDREAD-B)
+  The companion printed scalar operator is obtained from the inverted trace-free normal form by U=sqrt(3x^2+x+1)W, equivalently a rank-1 twist W=(3x^2+x+1)^(-1/2)U.
+
+[c11] STRUCTURAL  (CT-S14-COLDREAD-B)
+  Object B at face value and after inversion of its trace-free normal form structurally match Table 2.1's (0,0,1) row; the additional trace-altering twist to the printed companion scalar operator has no row without re-normalising.
+
+[S16-14] STRUCTURAL  (CT-S16-MEMBERSHIP-C)
+  MEMBERSHIP, the packet's question. System C satisfies every hypothesis under which vdPS build the moduli space M for the (0,0,1) row: H-a SATISFIED (S16-09), H-b SATISFIED (S16-10), H-c SATISFIED (S16-07). It is a point of the chart U_0 (S16-12, S16-13). Since PV IS the isomonodromy foliation on that space (S16-03), and since q(q-1) != 0 and t != 0 at the point so the vector field (4.4) is regular
+
+[S17-05] PROVEN  (CT-S17-TRACEFREE-NORM)
+  STRUCTURAL REASON T3 holds, which is why it is not a coincidence: System C's leading coefficient factors as 3x^2 + x + 1 = 3(x - s_+)(x - s_-) = 3 delta^2 z(z-1) = 3 delta^2 D under x = s_+ + delta z. Hence System C's own Wronskian coefficient is P_C = delta(6x+1)/(3x^2+x+1) = D'/D, and the family's is P = D'/D - b'/b, which equals D'/D exactly when b is constant - i.e. when b_1 = 0, which is the 
+
+[S18-010] PROVEN  (CT-S18-COLDREAD-C3)
+  System C has P_C=(2*z-1)/(z*(z-1)), and P_U0-P_C=-1/(z-q), so it does not match P in admissible U_0.
+
+[S19-004] PROVEN  (CT-S19-COLDREAD-MEMBERSHIP)
+  The affine map x=alpha+(beta-alpha)z sends the two finite singularities of System C to z=0,1 and gives P_C=(2z-1)/(z(z-1)).
+
+[S19-011] STRUCTURAL  (CT-S19-COLDREAD-MEMBERSHIP)
+  System C's trace-free normal form satisfies the local formal hypotheses of the (0,0,1) row; the monodromy coordinate condition s3 in C* is undecided from the packet.
+
+[S2-01] VERIFIED  (CT-S2-RHO-D4)
+  For all 8 PCF2-SESSION-Q1 d=4 representatives, the growth law Q_n/Gamma(4n+1) ~ K (beta_4/4^4)^n n^s holds with s = beta_3/beta_4 + 3/2. Max |s_measured - s_predicted| over the 8 representatives = 7.118e-16, after 4 levels of ratio-2 Richardson extrapolation on the ladder n = 1250,2500,5000,10000,20000 at dps 80. Pre-registered falsifier |diff| > 1e-6 did NOT fire. Label: VERIFIED.
+
+[S2-04] STRUCTURAL  (CT-S2-RHO-D4)
+  Convention map, anchored at d=2 because PCF2-SESSION-Q1 stores no rho at d=4. For V_quad (b(n)=3n^2+n+1) the measured growth exponent is s = 0.83333333333333333267 (predicted 5/6, residual 6.57451e-19), giving -s-1 = -1.83333333333333333268, which equals the rho = -11/6 stored in sessions/2026-05-01/CC-PIPELINE-G/results_vquad.json to 6.6e-19. CC-PIPELINE-G derives that rho independently, from the
+
+[S2-05] INSPECTED  (CT-S2-RHO-D4)
+  NOT FOUND in sessions/2026-05-01/PCF2-SESSION-Q1/ (whole session folder, at commit 08aa0e2381b3dc37ee54a3200b7272755ca11d59) by case-insensitive recursive text search for 'rho': zero matches, so no stored quantity of that name at d=4 was located. What the session DOES store is xi_0 = d/beta_d^{1/d} (newton_d4_results.json) and WKB fit parameters A, alpha, beta, gamma (results.json). P2 task 5's 'c
+
+[S4-02] INSPECTED  (CT-S4-FORMAL-TYPE)
+  The D5^(1) conjecture is NOT about the f(z)=Sum Q_n z^n ODE. Per section-2.md L54-57 and rmk:provenance, L_phi is 'the scalar (Schroedinger) reduction of the V_quad Painleve-V linear problem' and annihilates phi(z)=Sum a_n z^n, the Riccati/WKB series seeded by sigma=-1/sqrt3 -- a different series from the PCF numerator generating function. Both systems were therefore analysed, as P5 step 1 directs
+
+[S6-C18] PROVEN  (CT-S6-APPARENCY)
+  Under z=1/x, System B has exactly the same normal-form potential as System C; the original scalar equations differ by the explicit gauge factor x**(sqrt(3)/18 - 1)*exp(-sqrt(3)*x/3), so they are gauge-equivalent in normal form but not literally the same operator.
+
+========================================================================
+
+PINNED, for spot-checking:
+  [S17-04] PROVEN (CT-S17-TRACEFREE-NORM)
+  [S17-09] PROVEN (CT-S17-TRACEFREE-NORM)
+  [S17-10] PROVEN (CT-S17-TRACEFREE-NORM)
+  [S17-12] PROVEN (CT-S17-TRACEFREE-NORM)
+  [S17-15] PROVEN (CT-S17-TRACEFREE-NORM)
+  [S18-009] PROVEN (CT-S18-COLDREAD-C3)
+  [S19-001] PROVEN (CT-S19-COLDREAD-MEMBERSHIP)
+  [S19-002] PROVEN (CT-S19-COLDREAD-MEMBERSHIP)
+  [S19-006] PROVEN (CT-S19-COLDREAD-MEMBERSHIP)
+  [S19-007] PROVEN (CT-S19-COLDREAD-MEMBERSHIP)

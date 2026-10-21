@@ -1,0 +1,215 @@
+\section{Transport along the leaf, and the second branch}\label{sec:leaf}
+
+Section \ref{sec:point} established, structurally, that exactly one Painlev\'e
+V leaf passes through System $\mathsf C$, and \S\ref{sec:monodromy} produced
+the point of the character variety that the system represents. Neither of those
+is yet a demonstration that the system \emph{moves along} that leaf. This
+section performs the test: integrate the flow in $t$, rebuild the differential
+system at the new time, recompute the trace coordinates, and ask whether they
+have moved.
+
+They should not. The trace coordinates are the isomonodromic invariants; a
+deformation is isomonodromic precisely when they are constant. So the
+observable is the drift, and the test is passed by its absence --- which is why
+\S\ref{ssec:sensitivity} had to establish first that the drift is not absent
+for trivial reasons.
+
+\subsection{The transport test}\label{ssec:transport}
+
+\begin{remark}[Constancy along the flow; \texttt{S22-15}, \textbf{VERIFIED}]
+System $\mathsf C$'s point transports along Painlev\'e V with the trace
+coordinates $x_1,x_2,x_3$ constant to $90.81$ digits at $\varepsilon=10^{-3}$
+and $91.83$ digits at $\varepsilon=10^{-4}$, against a pre-registered threshold
+of $30$ digits. The gap left open in the location analysis is thereby closed
+\emph{numerically}. This is a numerical agreement at one point along one
+direction in $t$; \emph{it is not a proof of leaf membership}.
+\end{remark}
+
+The last sentence is part of the claim, not a hedge added in drafting, and the
+label is \textbf{VERIFIED} for exactly that reason. Ninety digits is a great
+deal of agreement and it is still agreement at a point. What would be required
+for more is set out in \S\ref{ssec:membership-verdict}; what is available is
+this.
+
+A constancy result is only as good as its ability to fail, so the same machine
+was run with the flow deliberately broken.
+
+\begin{remark}[The test discriminates; \texttt{S22-16}, \textbf{VERIFIED}]
+The same transport run with a deliberately wrong vector field --- the constant
+$2\theta_\infty-2$ dropped from $dp/dt$ --- moves the trace coordinates by
+$3.83\times10^{-2}$.
+\end{remark}
+
+The mutation is small and structural: one constant term removed from one
+component of the field \eqref{eq:flow}, leaving a vector field that is still a
+plausible flow and still integrates without complaint. It moves the
+coordinates by nearly ninety orders of magnitude more than the true field does.
+The constancy in \texttt{S22-15} is therefore a property of the specific flow
+of \S\ref{ssec:flow} and not of the integration scheme, the rebuilding
+procedure, or the coordinates.
+
+\subsection{The residual is not round-off}\label{ssec:notroundoff}
+
+Ninety digits of agreement out of a working precision of two hundred invites
+the question of what limits it. If the answer were arithmetic precision, the
+result would be an artefact of the arithmetic; the claim is that it is not.
+
+\begin{remark}[Precision is not the ceiling; \texttt{S22-17},
+\textbf{VERIFIED}]
+Raising the precision from $200$ to $320$ digits leaves the agreement and its
+ratio unchanged to every printed figure --- $90.8118$, $91.8301$, ratio
+$10.429999$ --- while every precision-limited control improves by about $120$
+digits: $\|MMM-I\|$ from $1.20\times10^{-105}$ to $5.57\times10^{-225}$; the
+cubic from $3.96\times10^{-112}$ to $7.13\times10^{-232}$; $|x_3(t_1)-x_3(t_0)|$
+from $2.35\times10^{-113}$ to $3.30\times10^{-233}$. The $\alpha$ residual stays
+at $1.834\times10^{-91}$. Over $\varepsilon=10^{-3},10^{-4},10^{-5}$ the ratios
+are $10.430$ and $10.034$. The residual is therefore a systematic $O(\varepsilon)$
+error and not round-off; it is floored by the optimal-truncation level
+$e^{-|t|R}=10^{-88.7}$ set by the pre-registered $R$, which no precision can
+reduce.
+\end{remark}
+
+This is the cleanest structural statement in the section, and it is worth
+saying why. Two families of quantities were measured at two precisions. One
+family moved by $120$ digits and one did not move at all. A quantity that is
+insensitive to a $120$-digit change in precision is not limited by precision.
+The ratios near $10$ identify what it \emph{is} limited by --- first-order
+dependence on the step $\varepsilon$ --- and the optimal-truncation bound of
+\texttt{S22-09} identifies the floor beneath that. The three measurements
+agree, and the agreement is what converts ``the residual is small'' into ``the
+residual is understood''.
+
+\subsection{The second branch}\label{ssec:branch2}
+
+The location analysis produced a \emph{pair} of solutions, conjugate in
+$\sqrt3$. Everything above concerns one of them. The second was not inferred
+from the first.
+
+\begin{remark}[Branch 2, run independently; \texttt{S22-18},
+\textbf{VERIFIED}]
+Branch $2$ of the sign pair, $t=+2\sqrt{33}\,i/9$, passes the convention
+selection, the sensitivity check and the transport test independently: the
+selection test picks exactly one convention out of $16$, this time
+right${}|{}$clockwise${}|{}\gamma_\infty$ counterclockwise${}|{}01$; the
+sensitivity ratios are $99.9952$ and $99.9998$; the transport agreement is
+$90.82$ and $91.84$ digits against the same $30$-digit threshold. Branch $2$
+was \emph{run}, not inferred.
+\end{remark}
+
+The emphasis is deliberate and \S\ref{ssec:galois} explains why it was
+necessary rather than merely careful.
+
+\subsection{The Galois relation between the branches}\label{ssec:galois}
+
+\begin{remark}[The branches are Galois conjugate; \texttt{S22-19},
+\textbf{PROVEN}]
+Branches $1$ and $2$ are related by the automorphism $\sigma$ of
+$\Q(\sqrt3,\sqrt{11})$ with $\sigma(\sqrt3)=-\sqrt3$ and
+$\sigma(\sqrt{11})=+\sqrt{11}$, which maps $t$, $\theta_\infty$, $q$ and $p$
+term by term, each difference simplifying to exactly zero, with an independent
+numeric arm. They are \emph{not} complex conjugates.
+\end{remark}
+
+\begin{remark}[Why $\sigma$ does not transfer the monodromy; \texttt{S22-19},
+\textbf{PROVEN}]
+$\sigma$ is an automorphism of a number field. It does not act on analytic
+continuation. It therefore transfers the location argument of
+\S\ref{sec:point}, which is algebraic, and carries \emph{no} monodromy
+information --- which is precisely why branch $2$ had to be run.
+\end{remark}
+
+This is the load-bearing distinction of the section. It is tempting to regard
+two Galois-conjugate parameter values as interchangeable and to read off the
+second branch's monodromy from the first. That inference is invalid: the
+monodromy is computed by continuation along paths, and a field automorphism has
+nothing to say about paths. The cost of the distinction is one complete
+independent run; the benefit is that the statement below is a comparison of two
+computed objects rather than a restatement of one.
+
+\begin{remark}[The same point, up to relabelling; \texttt{S22-20},
+\textbf{VERIFIED}]
+The two branches yield the same point of the character variety up to
+relabelling: $x_1$ and $x_2$ are interchanged, while $x_3$ and $\alpha$ are
+identical, and the selected conventions are exact mirrors of one another. The
+mirrored convention is a \emph{result} of branch $2$'s own selection test, not
+an assumption carried over from branch $1$.
+\end{remark}
+
+\subsection{What the upgrade says, and what it does
+not}\label{ssec:upgrade-scope}
+
+The exhaustive elimination of \S\ref{ssec:exhaustive} changes the status of the
+branch relation, and the change has to be stated with its scope attached.
+
+\begin{remark}[The parameter-level upgrade; \texttt{S25-02},
+\textbf{PROVEN}]
+The two branches are Galois conjugate \emph{at the level of the parameters},
+and this is exhibited rather than observed: the saturated matching ideal is
+zero-dimensional of degree exactly $2$ over $K=\Q(i\sqrt{11})$, and its lex
+eliminant in $\theta_\infty$ is proportional to
+$27\theta_\infty^2+108\theta_\infty+107$, whose roots are $-2\pm\sqrt3/9$. The
+map $\sqrt3\mapsto-\sqrt3$ is that eliminant's own Galois action.
+\end{remark}
+
+\begin{remark}[The scope of the upgrade]
+\texttt{S25-02} supplies the structural content that \texttt{S22-20} lacked,
+but it is a statement about the \emph{parameters}. It is not a statement about
+the Stokes data, which is transcendental in the entries of the system. The
+branch relation is therefore no longer purely numerical; it is \emph{not}
+thereby proved at the level of the character variety. The two are different
+statements and this paper does not elide the difference: \texttt{S22-20}
+remains \textbf{VERIFIED}, on two independent runs.
+\end{remark}
+
+\subsection{An involution, and a structural route that does not
+close}\label{ssec:involution}
+
+If the branches give the same point up to an interchange of $x_1$ and $x_2$,
+the natural question is whether some symmetry of the differential system
+realises that interchange. There is an obvious candidate.
+
+\begin{remark}[The involution; \texttt{S22-23}, \textbf{PROVEN}]
+For the System $\mathsf C$ family at both branches the denominator
+$D(z)=z^2-z$ is exactly invariant under $\varphi(z)=1-z$. Hence $\varphi$ fixes
+the singular set $\{0,1,\infty\}$ setwise and exchanges the two finite
+punctures. Since $\theta_0=\theta_1=0$, the local data at $0$ and at $1$ are
+interchangeable, so $\varphi$ is the only candidate involution that could
+produce the observed $x_1\leftrightarrow x_2$ swap with $x_3$ and $\alpha$
+fixed.
+\end{remark}
+
+The candidate is natural, and it fails.
+
+\begin{remark}[No constant-gauge equivalence; \texttt{S22-24},
+\textbf{PROVEN}]
+There is no analytic equivalence between the two branches of the form
+$A_2(z)=-G\,A_1(\varphi(z))\,G^{-1}$ with $G$ a \emph{constant} gauge, for any
+of the four candidate maps $\varphi$: the identity, $z\mapsto1-z$, coefficient
+conjugation, and coefficient conjugation composed with $z\mapsto1-z$. Since $A$
+is traceless, its determinant is the only gauge invariant, and the necessary
+scalar condition on $-\det A$ fails for all four, with maximal coefficient
+$3.83$, $0.416$, $0.416$ and $3.83$ respectively.
+\end{remark}
+
+\begin{remark}[The negative is informative]
+A failed symbolic identity can mean ``no such relation'' or ``the simplifier
+did not get there''. The positive control separates them: $\sigma$ applied to
+branch $1$'s invariant, minus branch $2$'s, returns exactly zero through the
+same radicals and the same simplifier. The machinery is therefore capable of
+returning zero on this class of expression when zero is the answer, and the
+four nonzero results are findings rather than failures to simplify.
+\end{remark}
+
+The consequence is stated plainly. The proposed structural route to
+\texttt{S22-20} does not close, and \texttt{S22-20} stands as
+\textbf{VERIFIED}-numerical on two independent runs, not as structural. What
+has been refuted is the \emph{simplest form} of the argument: a $z$-dependent
+gauge is untested and remains open, and is listed as such in
+\S\ref{sec:open}.
+
+This is the second place in the paper where a structural argument for a
+numerically solid fact has been sought and not found --- the first being the
+twist question of \S\ref{ssec:tracefree}, where one was found. Recording the
+failure at the same weight as the success is the point: a reader who sees only
+the successes cannot tell which of the paper's identifications are supported by
+structure and which are supported by digits.

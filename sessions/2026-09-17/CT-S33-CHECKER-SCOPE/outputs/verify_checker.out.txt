@@ -1,0 +1,58 @@
+==============================================================================
+CT-S33  controls on check_invariants.py  (θ, ∞ sentinels)
+==============================================================================
+checker under test: C:\LocalWork\siarc-relay-bridge\sessions\2026-09-17\CT-R1-AUDIT\check_invariants.py
+sha256            : 3e675fc52f06a1bbcfe3c0445f8e30bf701f36bc5f89b0bb01f950109291e4e4
+
+A. HONESTY OF THE DOCSTRING
+  [PASS] the docstring names the two constants that fix its scope
+         would have fired if: the docstring describing a coverage the code does not have, which is what let the narrowed scope run undetected
+  [PASS] the preserved predecessor does claim 'the whole session corpus' while rooting at parents[1]
+         would have fired if: the predecessor not having the defect, which would make this session's premise wrong
+  [PASS] the new docstring mentions that phrase exactly once, and only inside the quotation describing the old defect
+         would have fired if: the phrase appearing anywhere it could be read as an assertion. NOTE: an earlier form of this control tested `PHRASE not in doc` and fired on the historical quotation -- a control inventing a defect in correct prose
+
+B. THE SCOPE IS PRINTED, NOT IMPLIED
+  [PASS] the run prints repo root
+         would have fired if: the output omitting it, leaving a reader to infer scope from a docstring again
+  [PASS] the run prints SCOPE root
+         would have fired if: the output omitting it, leaving a reader to infer scope from a docstring again
+  [PASS] the run prints the stand-down exclusion
+         would have fired if: the output omitting it, leaving a reader to infer scope from a docstring again
+  [PASS] the run prints the input fingerprint
+         would have fired if: the output omitting it, leaving a reader to infer scope from a docstring again
+  [PASS] the run prints the scope of the verdict
+         would have fired if: the output omitting it, leaving a reader to infer scope from a docstring again
+
+C. SENSITIVITY — a clean corpus passes, each injected defect fails
+  [PASS] a clean synthetic corpus passes (exit 0)
+         would have fired if: the checker failing unconditionally, which would make the three real failures uninformative
+  [PASS] a claim_id reused across two files fails 1(b)
+         would have fired if: 1(b) not noticing a reuse, which is exactly the real 84-id finding
+  [PASS] an unrecognised label fails 2
+         would have fired if: 2 accepting any string, which would void the real 3488-claim finding
+  [PASS] review without review_note fails 3
+         would have fired if: 3 being vacuous, which matters because 3 PASSED on the real corpus
+  [PASS] an unrecognised review value fails 4
+         would have fired if: 4 being vacuous, which matters because 4 PASSED on the real corpus
+  [PASS] PROVEN on file_inspection fails 1(a)
+         would have fired if: 1(a) being vacuous, which matters because 1(a) PASSED on the real corpus
+  [PASS] a BOM fails 5 and the claim behind it is still read
+         would have fired if: the BOM either passing unnoticed or costing the claim
+  [PASS] a JSON array fails 5 and both claims are still read
+         would have fired if: the wrong container costing claims, which is the truncation hypothesis the survey found unsupported
+  [PASS] a bad backslash escape is reported as a DAMAGED LINE
+         would have fired if: the single genuinely damaged line in the corpus going unreported
+  [PASS] an EXCLUDE entry prunes its folder and is printed
+         would have fired if: the exclusion being ignored, which would breach the stand-down, or being silent, which would hide a hole in the check
+
+D. THE PREDECESSOR'S SCOPE, MEASURED
+  files under sessions/2026-09-17 (the old root) .. 31
+  files under the declared roots now .............. 444
+  [PASS] the old root reached under a tenth of the files now reached
+         would have fired if: the widening being immaterial, i.e. the reported coverage gap not being real
+
+  [PASS] the real checker is byte-identical after all controls
+         would have fired if: a control having written to the file under test
+
+CONTROLS: 20/20 PASS

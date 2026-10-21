@@ -1,0 +1,58 @@
+============================================================================
+selftest_readback.py -- exercising the post-publish checker offline
+============================================================================
+
+ARM 1 -- GOOD FIXTURE (must PASS)
+----------------------------------------------------------------------------
+  [PASS] the good fixture passes (rc=0)
+
+ARM 2 -- NEGATIVE FIXTURES (each must FAIL, on its OWN check)
+----------------------------------------------------------------------------
+  [PASS] files not imported (the step most easily missed)
+         expected: exactly one file is published
+         fired   : ['exactly one file is published']
+  [PASS] a second file uploaded by accident
+         expected: exactly one file is published
+         fired   : ['exactly one file is published']
+  [PASS] a DRAFT- filename published
+         expected: no draft marker or record id in the filename
+         fired   : ['no draft marker or record id in the filename', 'the file key is the carried-over name']
+  [PASS] the wrong build attached (v1.6's own defect 1)
+         expected: the file bytes are v1.6's, unchanged
+         fired   : ["the file bytes are v1.6's, unchanged"]
+  [PASS] version left at 1.6
+         expected: version is 1.7
+         fired   : ['version is 1.7']
+  [PASS] description truncated by the editor
+         expected: the description is not truncated
+         fired   : ['published text matches the checked description, character for character (whitespace-normalised)', 'the description is not truncated', 'the load-bearing sentences survived']
+  [PASS] a load-bearing sentence lost in the paste
+         expected: the load-bearing sentences survived
+         fired   : ['published text matches the checked description, character for character (whitespace-normalised)', 'the load-bearing sentences survived']
+  [PASS] affiliation drifted (the v1 record's real defect)
+         expected: affiliation unchanged
+         fired   : ['affiliation unchanged']
+  [PASS] a keyword dropped
+         expected: keyword count is 27
+         fired   : ['keyword count is 27', 'keyword set unchanged']
+  [PASS] the concept DOI overwritten with the version DOI
+         expected: concept DOI unchanged, read from the conceptdoi field
+         fired   : ['concept DOI unchanged, read from the conceptdoi field', 'version DOI differs from the concept DOI']
+  [PASS] a qualification silently dropped by the editor
+         expected: published text matches the checked description, character for character (whitespace-normalised)
+         fired   : ['published text matches the checked description, character for character (whitespace-normalised)']
+  [PASS] a value altered by the editor
+         expected: published text matches the checked description, character for character (whitespace-normalised)
+         fired   : ['published text matches the checked description, character for character (whitespace-normalised)']
+
+ARM 3 -- RE-SERIALISATION (must be ACCEPTED, not rejected)
+----------------------------------------------------------------------------
+  [PASS] 862 inline tags removed; record still accepted (rc=0)
+
+============================================================================
+negative fixtures: 12
+broken           : 0
+
+VERDICT: OK -- the readback accepts the packet and rejects every
+  failure mode it claims to cover, each on its own check.
+============================================================================

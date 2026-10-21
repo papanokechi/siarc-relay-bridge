@@ -1,0 +1,698 @@
+The radius and leading growth of polynomial continued-fraction
+numerators
+Session CT-S1-THEOREM, prompt P4 Task A
+
+Abstract
+Let b ∈ C[n] have degree
+Q d ≥ 1 and let Qn = b(n)Qn−1 + Qn−2 with Q−1 = 0, Q0 = 1.
+We show that rn := Qn / k≤n b(k) always converges (Proposition 1), that its limit r∞ is
+nonzero whenever b(n) > 0 for all n ≥ 1 (Proposition 3), and that under the hypothesis r∞ ̸=
+0 the sequence Qn has radius lim |Qn /(dn)!|1/n = |βd |/dd (Theorem 7) and leading growth
+Qn /Γ(dn + 1) = K(βd /dd )n ns (1 + O(1/n)) with s = βd−1 /βd + (d − 1)/2 and an explicit K
+(Theorem 10). Every step is marked complete or gap. Overall label: Theorems 7 and 10
+are both proven — Theorem 7 with no imported input at all, and Theorem 10 modulo the
+single classical Gamma-ratio normalisation DLMF (5.11.12), which is named explicitly at the
+point of use. (In the first draft Theorem 10 was structural; Gap G1 was closed in audit
+round R1, and a load-bearing unproved assertion in Theorem 7, Step 3, was supplied with a
+proof at the same time.)
+
+1
+
+Setting
+b(n) =
+
+d
+X
+
+k
+
+βk n = βd
+
+d
+Y
+
+(n − ri ),
+
+βd ̸= 0,
+
+d ≥ 1,
+
+(1)
+
+i=1
+
+k=0
+
+with r1 , . . . , rd ∈ C the roots listed with multiplicity. Standing assumptions:
+(A1) b(k) ̸= 0 for every integer k ≥ 1.
+(A2) No ri is a positive integer, equivalently Γ(1 − ri ) is finite for every i. (Recall Γ has poles
+exactly at 0, −1, −2, . . . .) (A2) is used only in Theorem 10; note (A2) ⇒ (A1).
+Define
+Q−1 = 0,
+
+Q0 = 1,
+
+Qn = b(n)Qn−1 + Qn−2 (n ≥ 1),
+
+(2)
+
+and, using (A1),
+Bn :=
+
+n
+Y
+k=1
+
+2
+
+b(k),
+
+rn :=
+
+Qn
+Bn
+
+(n ≥ 0),
+
+B0 := 1.
+
+(3)
+
+The hypothesis (H) and its status
+
+Proposition 1 (Existence of the limit; unconditional). Under (A1) the limit r∞ := limn→∞ rn
+exists in C. Moreover
+
+
+r∞ − rn = O n−(2d−1) .
+(4)
+
+1
+
+Proof. Divide (2) by Bn = b(n)Bn−1 = b(n)b(n − 1)Bn−2 :
+rn−2
+rn = rn−1 +
+b(n − 1)b(n)
+
+(n ≥ 2),
+
+(5)
+
+with r0 = 1 and r1 = Q1 /b(1) = b(1)/b(1) = 1 (using Q−1 = 0). complete.
+Since deg b = d with leading coefficient βd ̸= 0, there are constants c > 0 and n0 with |b(n)| ≥
+c nd for n ≥ n0 ; hence for n ≥ n0 + 1
+εn :=
+
+1
+C
+≤ 2d ,
+|b(n − 1)b(n)|
+n
+
+C := 2d c−2 ,
+
+(6)
+
+P
+where the factor 2d absorbs (n − 1)−d ≤ 2d n−d for n ≥ 2. As 2d ≥ 2, n εn < ∞. complete.
+Let Mn := max(|rn |, |rn−1 |). From (5), |rn | ≤ |rn−1 | + εn |rn−2 | ≤ (1 + εn )Mn−1 , so Mn ≤
+(1 + εn )Mn−1 and therefore
+X 
+Y
+εk =: M < ∞.
+(1 + εk ) ≤ Mn0 exp
+Mn ≤ Mn0
+k>n0
+
+k>n0
+
+So (rn ) is bounded. complete.
+P
+P
+Consequently |rn −P
+rn−1 | = εn |rn−2 | ≤ M εn , and
+n εn < ∞: the
+n |rn − rn−1 | ≤ M
+telescoping series r0 + n≥1 (rn − rn−1 ) converges absolutely, so rn converges to some r∞ ∈ C.
+complete.
+P
+P
+For (4), |r∞ − rn | ≤
+|rk − rk−1 | ≤ M C k>n k −2d = O(n−(2d−1) ), the last step by
+k>n
+R∞
+comparison with n x−2d dx = n−(2d−1) /(2d − 1), valid since 2d ≥ 2 > 1. complete.
+Hypothesis 2 (H). r∞ ̸= 0.
+Proposition 3 ((H) is automatic in the positive case). If b(n) > 0 for every integer n ≥ 1, then
+rn is a strictly increasing sequence of positive reals with rn ≥ 1, hence r∞ ≥ 1 > 0 and (H) holds.
+Proof. By induction rn > 0 for all n ≥ 0: r0 = r1 = 1 > 0, and if rn−1 , rn−2 > 0 then (5) gives
+rn = rn−1 + rn−2 /(b(n − 1)b(n)) > rn−1 > 0 since b(n − 1)b(n) > 0. Thus (rn )n≥1 is strictly
+increasing with r1 = 1, so rn ≥ 1 for n ≥ 1; combined with Proposition 1 the limit exists and
+satisfies r∞ ≥ 1. complete.
+Proposition 4 (Upper bound in the positive case). Assume, in addition to (A1), that b(n) > 0
+for every integer n ≥ 1. Then for every n ≥ 1
+ n−1
+X
+
+
+1
+,
+b(k)b(k + 1)
+k=1
+
+P
+and consequently, with L := exp
+k≥1 1/(b(k)b(k + 1)) < ∞,
+rn ≤ exp
+
+1 ≤ r∞ ≤ L.
+
+(7)
+
+(8)
+
+Proof. Positivity gives rn−2 ≤ rn−1 for every n ≥ 2: for n ≥ 3 this is Proposition 3, and for n = 2
+it is r0 = r1 = 1. complete.
+Fix n ≥ 2. Then εn = 1/(b(n − 1)b(n)) > 0, and substituting the above into (5) gives rn ≤
+rn−1 + εn rn−1 = (1 + εn )rn−1 ≤ rn−1 eεn , using 1 + x ≤ ex . complete.
+Iterating from n downP
+to r1 = 1 and re-indexing by k = m − 1 yields (7); at n = 1 both sides
+equal 1. By (6) the series k≥1 1/(b(k)b(k + 1)) converges, its terms here being positive, so L < ∞
+and its partial sums increase to the total; hence rn ≤ L for every n ≥ 1. Proposition 1 gives the
+limit, and passage to the limit preserves the non-strict inequality, so r∞ ≤ L. The lower bound is
+Proposition 3. complete.
+2
+
+Remark 5. Positivity is a hypothesis of Proposition 4, not a convenience: it is consumed in the
+first step, and (7) is false without it. Three sign-changing b satisfying (A1) violate (7) numerically.
+No minimal-solution or Perron–Kreuser input is used at any step, so Proposition 4 is independent
+of Remark 6.
+Remark 6 (Pincherle interpretation of (H)). Pincherle’s theorem (standard; see e.g. Gautschi,
+Computational aspects of three-term recurrence relations, SIAM Rev. 9 (1967), and Lorentzen–
+Waadeland, Continued Fractions with Applications, Ch. IV) states that the continued fraction
+associated with a three-term recurrence converges if and only if the recurrence possesses a minimal
+solution, Q
+i.e. a solution yn with yn /zn → 0 for every linearly independent solution zn .
+Here k≤n b(k) is, up to a constant, the natural “dominant” scale. Hypothesis (H) says precisely
+that Qn is not the minimal solution of (2): the minimal solution Pn satisfies Pn /Bn → 0, so a
+solution with Qn /Bn → r∞ ̸= 0 is dominant. Equivalently, (H) fails exactly when the chosen initial
+data (Q−1 , Q0 ) = (0, 1) happens to land on the one-dimensional minimal subspace. Since that
+subspace has codimension one, (H) is generic; Proposition 3 makes it automatic in the positive
+case. Label: structural — Pincherle’s theorem is cited as standard and the identification of Bn
+with the dominant scale is asserted here only for interpretation; nothing below depends on this
+remark.
+
+3
+
+Part (i): the radius
+
+Theorem 7 (Radius). Assume (A1) and (H). Then
+Qn 1/n |βd |
+= d.
+n→∞ (dn)!
+d
+lim
+
+(9)
+
+Consequently the Borel-type transform
+B(w) :=
+
+X Qn
+wn
+(dn)!
+
+
+(dn)! = Γ(dn + 1)
+
+(10)
+
+n≥0
+
+has radius of convergence d d /|βd | in the variable w, and in the uniformiser ζ = w1/d the corresponding radius is
+d
+ξ0 =
+.
+(11)
+|βd |1/d
+Remark 8 (Normalisation, stated explicitly). Three conventions are fixed once and for all and
+must be quoted with any use of (11):
+P
+1. the series transformed is n Qn wn /Γ(dn + 1), i.e. the coefficients are the recurrence numerators Qn themselves, divided by Γ(dn + 1) — not by n!, Γ(n + 1), Γ(2n + 1) or Γ(2n);
+2. the Borel variable is w, conjugate to the index n;
+3. the uniformiser is ζ = w1/d , so that ξ0 = |w∗ |1/d with w∗ = dd /βd .
+√
+At d = 2 this gives ξ0 = 2/ β2 , matching the statement labelled prop:xi0 in Channel Theory
+v1.3.1.
+
+3
+
+Proof of Theorem 7. We deliberately avoid Gamma asymptotics, using only rn → r∞ ̸= 0 and
+elementary bounds, together with limn (m!)1/n -type facts in the elementary form below.
+Step 1 (reduce to Bn ). By (3), Qn = rn Bn exactly. Since rn → r∞ ̸= 0, we have |rn |1/n →
+1: indeed for large n, 21 |r∞ | ≤ |rn | ≤ 2|r∞ |, and c1/n → 1 for any fixed c ∈ (0, ∞). Hence
+lim |Qn /(dn)!|1/n = lim |Bn /(dn)!|1/n whenever the latter exists. This is the only place (H) is used,
+and it is used essentially: if r∞ = 0 then |rn |1/n need not tend to 1. complete.
+Step 2 (Bn against (n!)d ). Write b(k) = βd k d uk with uk := b(k)/(βd k d ) → 1. Then
+Bn = βdn (n!)d
+
+n
+Y
+
+uk .
+
+k=1
+
+Since uk = 1+O(1/k) and uk ̸= 0 by (A1), we have log |uk | = O(1/k), so
+1/n
+
+Q
+and therefore
+= exp O(log n)/n → 1. Hence
+k≤n |uk |
+
+P
+
+k≤n log |uk |
+
+Bn 1/n
+= |βd |.
+n→∞ (n!)d
+P
+complete. (Only log(1 + x) = O(x) and k≤n 1/k = O(log n) are used; no Stirling.)
+lim
+
+= O(log n)
+
+(12)
+
+Step 3 ((n!)d against (dn)!). We claim
+
+lim
+
+n→∞
+
+(dn)!
+(n!)d
+
+1/n
+
+= d d.
+
+(13)
+
+
+dn
+Write C(k1 , . . . , kd ) := k1 ,...,k
+= (dn)!/(k1 ! · · · kd !) for a composition k1 + · · · + kd = dn into
+d
+non-negative parts.
+Sub-lemma (the balanced composition is maximal). C attains its maximum over all such compositions at k1 = · · · = kd = n. Indeed, suppose ki ≥ kj + 2 for some i ̸= j. Replacing (ki , kj ) by
+(ki − 1, kj + 1) leaves the total dn unchanged and multiplies C by
+ki ! kj !
+kj + 2
+ki
+=
+≥
+> 1,
+(ki − 1)! (kj + 1)!
+kj + 1
+kj + 1
+so C strictly increases. As the set ofPcompositions is finite, any maximiser must therefore satisfy
+|ki −kj | ≤ 1 for all i, j; together with i ki = dn this forces k1 = · · · = kd = n. Hence (dn)!/(n!)d =
+max C.
+□
+P
+Now (dn)!/(n!)d is one term of the multinomial expansion k1 +···+kd =dn C(k1 , . . . , kd ) = (1 + · · · + 1)dn =
+| {z }
+d
+
+d dn , which gives the upper bound; and being the maximum it is at least the average, i.e. d dn divided by the number Nd,n of compositions. Each composition is determined by (k1 , . . . , kd−1 ) ∈
+{0, 1, . . . , dn}d−1 (the last part being forced), so Nd,n ≤ (dn + 1)d−1 . Therefore
+d dn
+(dn)!
+≤
+≤ d dn .
+d−1
+(dn + 1)
+(n!)d
+Taking n-th roots and using (dn + 1)(d−1)/n → 1 gives (13). complete. (Purely combinatorial; no
+Stirling, as required.)
+
+4
+
+Step 4 (combine). Multiplying the limits from Steps 1–3,
+Bn 1/n .
+Qn 1/n
+= lim
+lim
+lim
+n (n!)d
+n (dn)!
+n
+
+
+
+(dn)!
+(n!)d
+
+1/n
+=
+
+|βd |
+,
+dd
+
+which is (9). complete.
+Step 5 (radius and uniformiser). By Cauchy–Hadamard the radius of (10) is the reciprocal of
+1/d
+(9), namely dd /|βd |. Under ζ = w1/d the disc |w| < dd /|βd | is |ζ| < dd /|βd |
+= d/|βd |1/d = ξ0 .
+complete.
+√
+Corollary 9 (d = 2, V quad). For b(n) = 3n2 + n + 1 one gets ξ0 = 2/ 3, in agreement with the
+stored value in sessions/2026-05-01/CC-PIPELINE-G/results vquad.json.
+
+4
+
+Part (ii): the leading growth
+
+Theorem 10 (Growth). Assume (A2) and (H). Then, with
+s=
+
+βd−1 d − 1
++
+,
+βd
+2
+
+K = r∞ · √
+
+one has
+Qn
+=K
+Γ(dn + 1)
+
+
+
+βd
+dd
+
+n
+
+(2π)(d−1)/2
+,
+Q
+d di=1 Γ(1 − ri )
+
+
+ns 1 + O(1/n) .
+
+(14)
+
+(15)
+
+Proof. Step 1 (exact product formula).
+By (A2) no ri is a positive integer, so telescoping
+Qn
+Γ(x + 1) = xΓ(x) gives, for each i, k=1 (k − ri ) = Γ(n + 1 − ri )/Γ(1 − ri ) with both Gamma values
+finite and nonzero. Hence, by (1),
+Bn = βdn
+
+d
+Y
+Γ(n + 1 − ri )
+
+Γ(1 − ri )
+
+i=1
+
+.
+
+(16)
+
+complete (exact, elementary).
+Step 2 (convergence of the correction product). This is the step the prompt asks to be
+exhibited. Put κ := βd−1 /βd and consider
+"
+
+−κ #
+n
+Y
+k
+b(k)
+.
+Πn :=
+βd k d k − 1
+k=2
+
+Now b(k)/(βd k d ) =
+the form
+
+Q
+
+i (1 − ri /k) = 1 −
+
+P
+
+d
+X
+i=1
+
+2
+2
+i ri /k + O(1/k ) = 1 + κ/k + O(1/k ), using Vieta in
+
+
+
+ri = −
+
+βd−1
+= −κ.
+βd
+
+(17)
+
+−κ
+κ
+2
+Also k/(k
+− 1)
+= (1 − 1/k)
+the bracket
+equals 1 + κ/k +
+
+ = 1 − κ/k2+ O(1/k ). Multiplying,
+Q
+P
+2
+2
+O(1/k ) 1 − κ/k + O(1/k
+)
+=
+1
++
+O(1/k
+).
+A
+product
+(1
++
+a
+)
+with
+|a
+|
+k
+k < ∞ converges to
+P
+2
+a nonzero limit; here k O(1/k ) < ∞. Hence Πn converges to a finite nonzero limit. complete.
+the mechanism that produces the exponent κ = βd−1 /βd : the telescoping factor
+Q This is exactly
+κ
+κ
+k≤n (k/(k − 1)) = n carries it.
+5
+
+Step 3 (Gamma-ratio asymptotics). For fixed r ∈ C,
+
+Γ(n + 1 − r)
+= n−r 1 + O(1/n) .
+Γ(n + 1)
+
+(18)
+
+Proof of (18). Put h(n) := Γ(n + 1 − r) nr /Γ(n + 1) for n > max(0, ℜr), so that (18) is the
+assertion h(n) = 1 + O(1/n). Using Γ(x + 1) = xΓ(x) twice,
+ n r 
+h(n)
+r 
+Γ(n + 1 − r)
+Γ(n)
+1 −r
+= 1−
+.
+(19)
+=
+·
+·
+1−
+h(n − 1)
+Γ(n − r)
+Γ(n + 1)
+n−1
+n
+n
+2 ), so the right-hand side of (19) equals (1−r/n)(1+r/n+
+Expanding, (1−1/n)−r = 1+r/n+O(1/n
+P
+Qn
+2
+2
+2
+O(1/n )) = 1+O(1/n ). Since n O(1/n ) < ∞, the telescoping product h(n)
+=
+h(n
+)
+0
+m=n0 +1 h(m)/h(m−
+P
+2
+1) converges to a finite nonzero limit h∞ , and because the tail of a convergent O(1/m ) is O(1/n),
+
+h(n) = h∞ 1 + O(1/n) .
+(20)
+
+It remains to identify h∞ = 1. This is the classical Gamma-ratio normalisation: DLMF (5.11.12)
+states Γ(z +a)/Γ(z +b) ∼ z a−b as |z| → ∞ with | ph z| ≤ π −δ [1, §5.11(iii)]. Taking a = 1−r, b = 1,
+z = nPgives Γ(n + 1 − r)/Γ(n + 1) ∼ n−r , i.e. h∞ = 1. (The refined expansion Γ(z + a)/Γ(z + b) ∼
+z a−b k≥0 Gk (a, b)z −k is DLMF (5.11.13), with G0 (a, b) = 1 at DLMF (5.11.15); only the leading
+statement (5.11.12) is needed here.) Substituting into (20) yields (18).
+□
+Applying (18) for each i and multiplying, then using (17),
+d
+Y
+
+
+Γ(n + 1 − ri ) = Γ(n + 1)d nκ 1 + O(1/n) .
+
+(21)
+
+i=1
+
+complete, modulo the single cited classical input h∞ = 1; see §5. (Step 2 is an independent,
+elementary route to the same exponent nκ , and (20) above supplies the O(1/n) bookkeeping without
+any citation, so the cited input is only the constant.)
+Q
+Step 4 (Gauss multiplication). The Gauss multiplication formula Γ(dz) = (2π)(1−d)/2 d dz−1/2 d−1
+j=0 Γ(z+
+Pd−1
+j/d
+j/d) at z = n, together with (18) in the form Γ(n + j/d) = Γ(n)n (1 + O(1/n)) and j=0 j/d =
+(d − 1)/2, gives Γ(dn) = (2π)(1−d)/2 d dn−1/2 Γ(n)d n(d−1)/2 (1 + O(1/n)). Multiplying by dn and using
+Γ(n + 1)d = nd Γ(n)d ,
+
+Γ(dn + 1) = (2π)(1−d)/2 d dn+1/2 Γ(n + 1)d n−(d−1)/2 1 + O(1/n) .
+(22)
+complete, modulo the same single cited constant recorded in §5.
+Step 5 (assemble). By Proposition 1 and (4), rn = r∞ (1 + O(1/n)) (here (H) is used to divide
+by r∞ ), so Qn = rn Bn = r∞ Bn (1 + O(1/n)). Combining with (16) and (21),
+
+Γ(n + 1)d nκ
+Qn = r∞ βdn Q
+1 + O(1/n) .
+i Γ(1 − ri )
+Dividing by (22), the factors Γ(n + 1)±d cancel exactly — this cancellation is the reason for normalising by Γ(dn + 1) rather than by n! — leaving
+ n
+
+Qn
+βd
+r∞ (2π)(d−1)/2
+κ+(d−1)/2
+n
+1
++
+O(1/n)
+,
+=√ Q
+Γ(dn + 1)
+d i Γ(1 − ri ) d d
+which is (15) with (14). complete.
+Corollary 11 (Consistency with Theorem 7). (15) implies (9), since |K|1/n → 1 and ns/n → 1.
+The two parts are consistent, and part (i) is strictly weaker but proved without Gap G1.
+6
+
+5
+
+Status of each step, and the gaps
+• Proposition 1: all steps complete. proven.
+• Proposition 3: complete. proven.
+• Proposition 4: all four steps complete. proven. Claim S26-01 (CT-S26-UPPER-BOUND).
+Proposition 3 (S1-02) supplies the first step and the lower bound only; the upper bound (7)
+carries S26-01 and must not be cited to S1-02. Remark 5: the three violating sign-changing
+b are S26-04, verified at dps = 60; the strictness of both inequalities in (8) is S26-06,
+structural, and is deliberately not stated above.
+• Remark 6: cites Pincherle as standard; interpretive only. structural.
+• Theorem 7: Steps 1–5 all complete; no Gamma asymptotics used, as required. proven.
+• Theorem 10: Steps 1–5 all complete. The only imported ingredient is the classical constant h∞ = 1 in (18), cited to DLMF (5.11.12); everything else, including the O(1/n) error
+bookkeeping, is proved here. proven, modulo one explicitly named classical citation.
+
+Gap G1 — now closed (audit round R1). In the first draft the whole of (18) was quoted
+rather than proved, and Theorem 10 was accordingly labelled structural. Step 3 above now
+proves, from Γ(x + 1) = xΓ(x) alone, that h(n) = Γ(n + 1 − r)nr /Γ(n + 1) satisfies h(n)/h(n − 1) =
+1 + O(1/n2 ) and hence h(n) = h∞ (1 + O(1/n)) for a finite nonzero h∞ . The residual dependence
+is the single normalisation h∞ = 1, taken from DLMF (5.11.12). This is a citation of a classical
+result, not an open gap; it is flagged here so that any reader can see exactly what is imported. No
+other gap remains.
+Audit note on Theorem 7, Step 3. The first draft asserted without proof that the balanced
+multinomial coefficient is the largest one. That assertion is load-bearing — it is what converts “at
+least the average” into the lower bound d dn /(dn + 1)d−1 — and it is now proved by the exchange
+argument in the sub-lemma of Step 3.
+Numerical corroboration (not a substitute for proof ). s in (14) was measured for eight
+degree-4 representatives in session CT-S2-RHO-D4 with worst residual 7.12×10−16 , and K in (14) was
+confirmed to 109.7–114.7 digits over eight polynomials spanning d = 2, 3, 4 in session CT-S3B-RINF.
+Per the governance rules these are verified, never proven.
+
+6
+
+Scope remark
+
+Stated plainly, and deliberately restrictive:
+1. The theorem gives the radius and the leading growth only. It locates the singularity
+of B(w) nearest the origin and gives the leading coefficient asymptotics of Qn /Γ(dn + 1). It
+does not determine the analytic type of the Borel singularity at ξ0 : whether it is a pure branch
+point of exponent −(s + 1), whether logarithms occur, and what the subleading germ looks
+like are all outside the statement.
+
+7
+
+2. It reads only βd and βd−1 . The exponent s depends on no other coefficient, and the radius
+depends only on βd . TheQlower coefficients β0 , . . . , βd−2 enter (15) only through the scalar
+prefactor K (via r∞ and i Γ(1 − ri )). Consequently any test that inspects only the radius
+or only the exponent is insensitive to β0 , . . . , βd−2 and will return the same verdict on an
+entire family of b’s. This is the structural explanation of a vacuity phenomenon of exactly
+this shape.
+3. A pointer the operator must supply or correct. The prompt asks this scope remark to
+reference the open item op:xi0-singularity-type and “the v1.6 vacuity finding”. Neither
+could be located in this repository (see sessions/2026-09-17/CT-S0-INVENTORY/REPORT.md,
+§3 items 4 and 5: the identifier op:xi0-singularity-type does not occur, and the newest
+in-repo Channel Theory source is v1.3.1, with v1.5/v1.6 living in a pcf-research/ repository
+not present on this machine). Per the governance rule against inventing identifiers, no citation
+is fabricated; item (1) above states the scope limitation on its own terms, and item (2) states
+the vacuity mechanism on its own terms. The operator should supply the correct identifiers
+if these are to be cross-referenced.
+√
+4. Relation to ζ ∗ = 4/ 3. Session CT-S3A-ZETA-AUDIT concluded (classification (b)) that
+ζ ∗ = 2ξ0 is a different singularity — the action difference |c+ − c− | of the two formal solutions
+— and not a re-expression of ξ0 in another variable. Nothing in this theorem bears on ζ ∗ .
+
+References
+[1] NIST Digital Library of Mathematical Functions, https://dlmf.nist.gov/, Version 1.2.8;
+release date 2026-09-15 (accessed 2026-09-17). §5.11(iii) “Ratios”, Eq. (5.11.12): Γ(z + a)/Γ(z +
+b) ∼ z a−b for | ph z| ≤ π − δ. (The expansion with coefficients Gk (a, b) is Eq. (5.11.13), and
+G0 (a, b) = 1 is Eq. (5.11.15).)
+
+8
+
+

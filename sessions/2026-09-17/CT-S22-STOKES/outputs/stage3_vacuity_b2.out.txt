@@ -1,0 +1,50 @@
+==========================================================================
+CT-S22 STAGE 3 - vacuity pre-check (PREREG 5), run before Stage 4
+dps = 200   branch 2   convention: derived below by the PREREG 2.3 test
+==========================================================================
+
+baseline (on the leaf):
+  UNIQUE convention from PREREG 2.3: right|cw|infccw|01
+  x1 = (5.02747537702065750505136016162 + 2.3656209874946766465307178963j)
+  x2 = (-3.47919089041107207833626113348 - 1.08501357027649140874029027843j)
+  x3 = (1.97257525246363353040026611013 + 1.06733917970491941462165861259e-170j)
+  [convention residuals: MMM-I 1.335e-105, alpha 1.897e-91, cubic 5.379e-169]
+
+perturb q by 1e-6:
+  |dx1| = 0.00109352779088
+  |dx2| = 0.00105891131074
+  |dx3| = 2.23926546115e-5
+  max |dx| = 0.00109352779088
+
+perturb p by 1e-6:
+  |dx1| = 3.43763678632e-5
+  |dx2| = 3.32865400511e-5
+  |dx3| = 7.0391971151e-7
+  max |dx| = 3.43763678632e-5
+
+perturb q by 1e-8:
+  |dx1| = 1.0935805123e-5
+  |dx2| = 1.05891131075e-5
+  |dx3| = 2.23926541232e-7
+  max |dx| = 1.0935805123e-5
+
+perturb p by 1e-8:
+  |dx1| = 3.43764199626e-7
+  |dx2| = 3.32865400511e-7
+  |dx3| = 7.03919711495e-9
+  max |dx| = 3.43764199626e-7
+
+--------------------------------------------------------------------------
+PREREG 5 verdict
+--------------------------------------------------------------------------
+  direction q:  max|dx| at 1e-6 = 0.001093527791  (> 1e-15 ? YES)
+               ratio (1e-6)/(1e-8) = 99.9951790094  (in [50,200] ? YES)
+  direction p:  max|dx| at 1e-6 = 3.437636786e-5  (> 1e-15 ? YES)
+               ratio (1e-6)/(1e-8) = 99.9998484442  (in [50,200] ? YES)
+
+  [PASS] the observable responds at first order and far above the
+         threshold.  Stage 4 may proceed.
+  Scope: this establishes SENSITIVITY of (x1,x2,x3) to (q,p) at t0.
+  It does not establish that the Stage-4 agreement, if obtained, is
+  evidence of leaf membership in general - only that the test is
+  not vacuous at this point.

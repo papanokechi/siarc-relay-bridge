@@ -1,0 +1,63 @@
+==========================================================================
+CT-S22 STAGE 4 - leaf transport along Painleve V
+dps = 320   Taylor order K = 190   convention right|ccw|infcw|10
+==========================================================================
+
+--- C-T1  mpmath and sympy constructions of A(z) agree --------------
+  max |A_sympy - A_mpmath| = 2.65295e-321   (320.58 digits)
+  [PASS]
+
+baseline at t0 (recomputed through the mpmath path):
+  x1 = (-3.479190890411072078336261133476334674927 - 1.085013570276491408740290278433510982481j)
+  x2 = (5.027475377020657505051360161619138164651 + 2.365620987494676646530717896298906559016j)
+  x3 = (1.972575252463633530400266110133921633393 - 1.958644602912610364516437113477892940443e-233j)
+  [MMM-I 3.947e-225  cubic 7.062e-232]
+
+--------------------------------------------------------------------------
+eps = 1e-3 * t0/|t0|   ->  t1 = t0 + eps
+  C-T2 PV residual at t1:  |q' - 2p/t| = 1.26481e-321   |p' - RHS| = 2.53061e-321
+  C-T3 one step vs two half-steps: 2.52962e-321   (320.6 digits)
+  q(t1) = (0.5 + 0.813077148132907733276542345435j)
+  p(t1) = (7.10356833300934181656059770971e-326 + 0.464219362753052175030116733112j)
+  [MMM-I 5.574e-225  alpha 1.834e-91  cubic 7.133e-232]
+  |x1(t1) - x1(t0)| = 1.4875257e-91   (90.8275 digits)
+  |x2(t1) - x2(t0)| = 1.5423249e-91   (90.8118 digits)
+  |x3(t1) - x3(t0)| = 3.3048549e-233   (232.481 digits)
+  worst coordinate agreement: 90.8118 digits
+
+--------------------------------------------------------------------------
+eps = 1e-4 * t0/|t0|   ->  t1 = t0 + eps
+  C-T2 PV residual at t1:  |q' - 2p/t| = 1.26481e-321   |p' - RHS| = 2.53061e-321
+  C-T3 one step vs two half-steps: 5.05923e-321   (320.3 digits)
+  q(t1) = (0.5 + 0.81242243619493964390567914279j)
+  p(t1) = (7.0952690337576148342837694936e-327 + 0.464830703361309137194738469072j)
+  [MMM-I 1.183e-225  alpha 1.897e-91  cubic 3.032e-232]
+  |x1(t1) - x1(t0)| = 1.4506753e-92   (91.8384 digits)
+  |x2(t1) - x2(t0)| = 1.4787393e-92   (91.8301 digits)
+  |x3(t1) - x3(t0)| = 4.6266584e-233   (232.335 digits)
+  worst coordinate agreement: 91.8301 digits
+
+--------------------------------------------------------------------------
+C-D  discrimination: the same transport with a WRONG vector field
+     (the constant 2 theta_inf - 2 dropped from dp/dt)
+  max |x(wrong flow) - x(t0)| = 0.03833645
+  [PASS] the wrong flow moves the coordinates by 0.0383364, so a
+         30-digit agreement under the right flow is discriminating.
+
+==========================================================================
+STAGE 4 VERDICT
+==========================================================================
+  eps = 1e-3:  agreement 90.8118 digits   (PASS, need >= 30)
+  eps = 1e-4:  agreement 91.8301 digits   (PASS, need >= 30)
+  residual ratio (1e-3)/(1e-4) = 10.429999
+  ON THE SCALING, stated carefully.  The trace coordinates are constant
+  along the isomonodromic flow, so the residual is error, not signal.
+  The observed ratio is close to 10, i.e. the residual is roughly LINEAR
+  in eps - consistent with a systematic O(eps) transport error rather
+  than with round-off.  It is NOT claimed as such: both values sit at
+  the computation's noise floor (the baseline alpha residual at t0 is
+  1.9e-91, the same order), so the scaling is reported and not
+  interpreted.  Separating the two would need a run at higher dps.
+
+  PASS.  The point transports along PV with the trace coordinates
+  constant to the stated precision.  LABEL: VERIFIED, not PROVEN.

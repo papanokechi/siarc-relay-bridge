@@ -1,0 +1,37 @@
+rendered_diff -- nothing but symbols changed?
+[target guard] symbols-only snapshot resolved, distinct from the prose-repaired section1.tex
+
+[builds]
+  theorem-old     350912 B pdf  18732 chars text  undefined refs: 0
+  theorem-new     351300 B pdf  18733 chars text  undefined refs: 0
+  section1-old    293573 B pdf  10964 chars text  undefined refs: 0
+  section1-new    293584 B pdf  10966 chars text  undefined refs: 0
+
+[theorem]
+  old rendered  :  17895 chars,  14139 non-whitespace
+  new rendered  :  17897 chars,  14139 non-whitespace
+  new glyphs psi/nu on the page      : 104
+  N2 map fires (new glyphs present)  : ok
+  N1 unmapped new differs from old   : ok
+  ordered text equal (informational) : no -- extractor reading order is not invariant under a glyph-width change
+  char multiset equal (decisive)     : ok  [9 pages, character multisets equal]
+  control: one character removed ('T') : rejected (test can fail)
+  non-whitespace character counts    : equal
+  pages 8 -> 8                       : ok
+  PyMuPDF multiset (second reader)   : agrees
+
+[section1]
+  old rendered  :  10599 chars,   8546 non-whitespace
+  new rendered  :  10599 chars,   8546 non-whitespace
+  new glyphs psi/nu on the page      : 22
+  N2 map fires (new glyphs present)  : ok
+  N1 unmapped new differs from old   : ok
+  ordered text equal (informational) : no -- extractor reading order is not invariant under a glyph-width change
+  char multiset equal (decisive)     : ok  [5 pages, character multisets equal]
+  control: one character removed ('1') : rejected (test can fail)
+  non-whitespace character counts    : equal
+  pages 4 -> 4                       : ok
+  PyMuPDF multiset (second reader)   : agrees
+
+[verdict]
+  VERDICT: RENDERED TEXT EQUIVALENT UNDER THE SYMBOL MAP ALONE

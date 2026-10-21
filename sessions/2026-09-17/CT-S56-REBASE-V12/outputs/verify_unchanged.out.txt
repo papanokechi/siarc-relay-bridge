@@ -1,0 +1,28 @@
+==============================================================================
+CT-S56 -- submitted artefacts byte-unchanged
+==============================================================================
+
+Expected values are the published md5s, hardcoded, not re-read from
+the files under test. Re-reading them would compare a file with
+itself and pass unconditionally.
+
+[1] THE FOUR PUBLISHED VERSION PDFs
+    [PASS] zenodo-v1.0-20719043.pdf     99faea5b0f4095788e4ee932436beeda
+    [PASS] zenodo-v1.1-21410927.pdf     7feaf94c05a1815a9e8a0ea04561f834
+    [PASS] zenodo-v1.2-21412469.pdf     792107efab6317e8ae21e2ca20f092ff
+    [PASS] zenodo-v1.3-22731371.pdf     943545955c2951a9592759862230e46a
+
+[2] THE STAGED v1.2 SOURCE
+    [PASS] sha256 2529da49e377b9ddba905d3fde65e639c676ef9f7029810b09e091e948feb790
+
+[3] THE REVISION IS A SEPARATE FILE, NOT AN EDIT IN PLACE
+    [PASS] the revision differs from the staged base (it must, or nothing was edited)
+           base       88897 B
+           revision   97567 B
+
+[4] CONTROL -- a wrong expectation must FAIL
+    [PASS] a deliberately wrong md5 does not match; the comparison can fail
+
+==============================================================================
+PASS: every submitted artefact is byte-unchanged by this session
+==============================================================================

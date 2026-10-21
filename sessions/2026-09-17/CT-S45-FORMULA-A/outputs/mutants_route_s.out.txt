@@ -1,0 +1,10 @@
+  [baseline] unmutated script reports exactly E12, rc=1
+  CAUGHT   A1 E7 residual sign flipped                          (expect caught, rc=1)
+  CAUGHT   A2 E7 coefficient 4p -> 5p                           (expect caught, rc=1)
+  CAUGHT   A3 E11 digit transposed (4pqt -> 4pqt with q^3 -> q^2) (expect caught, rc=1)
+  CAUGHT   A4 E16 c(0) wrong                                    (expect caught, rc=1)
+  CAUGHT   A5 E8 rational point value altered                   (expect caught, rc=1)
+  CAUGHT   A6 transcription of a(z) corrupted (sign of theta_inf) (expect halt, rc=2)
+  CAUGHT   A7 transcription of c(z) corrupted                   (expect halt, rc=2)
+  CAUGHT   A8 neutral edit (comment added)                      (expect clean, rc=1)
+8 CAUGHT, 0 SKIPPED, 0 MISSED of 8 arms

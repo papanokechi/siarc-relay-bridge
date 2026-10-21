@@ -1,0 +1,48 @@
+reletter -- S38 names: sequence \psi_n / \psi_\infty, roots \nu_1..\nu_d
+
+[preserve the pre-rename originals]
+  theorem.tex     25649 B  sha256 3d66d72fe1dfc5eba461ea1355ac10a1392457b9aaf78c82cfa9744daddb2695
+                 -> refs/theorem-pre-S38.tex  (copy verified byte-identical)
+  section1.tex    13660 B  sha256 39ddd724524f2a7e38febbf32cfd4d575e319b28b13bb200da022b10fa7423ca
+                 -> refs/section1-pre-S38.tex  (copy verified byte-identical)
+
+[theorem.tex]
+  \rinf -> \psiinf                     24 (+1 definition)
+  r_0        -> \psi_0          4
+  r_1        -> \psi_1          5
+  r_i        -> \nu_i         17
+  r_k        -> \psi_k          1
+  r_n        -> \psi_n         30
+  r_{k-1}    -> \psi_{k-1}      1
+  r_{n-1}    -> \psi_{n-1}     14
+  r_{n-2}    -> \psi_{n-2}      6
+  root phrase r_1,..,r_d\in\C          1
+  bare r left untouched                 20
+
+[section1.tex]
+  q_...    -> \psi_...                  10
+  \lambda  -> \nu                       12
+  deposited r_1        preserved           2
+  deposited r_\infty   preserved           1
+  deposited r_d        preserved           1
+  deposited r_n        preserved           1
+
+[pre-write validation]
+  theorem: no r_ token survives              ok
+  theorem: no \rinf survives                 ok
+  theorem: \psiinf defined once              ok
+  theorem: \nu_i present                     ok
+  theorem: \psi_n present                    ok
+  theorem: length within 25%% of original    ok
+  section1: no q_ token survives             ok
+  section1: no \lambda survives              ok
+  section1: deposit footnote intact          ok
+  section1: zenodo id intact                 ok
+
+[write]
+  theorem.tex     25376 B  sha256 21fb5e3e4bf66b72348ae74bd5a017c84eced9169c03a991672d54db93b7de04
+  section1.tex    13380 B  sha256 ae40f6ad617d2cc13ce190f87efecc19db4cee485f49a1b2412f6943b530f4be
+
+  checks run    : 10
+  checks failed : 0
+  VERDICT: RE-LETTERED

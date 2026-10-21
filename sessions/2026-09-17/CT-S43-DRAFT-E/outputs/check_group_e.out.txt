@@ -1,0 +1,92 @@
+CT-S43-DRAFT-E :: Group E drafting gate
+corpus census  : 454 claims.jsonl files, 1447 unique ids
+corpus f/print : 28ffa246ea12c324cd2538fb6a4463e8  (over 454 sorted paths)
+               : the census is a measurement over a LIVE tree.  A
+               : differing count with a differing fingerprint is a
+               : different input, not a disagreement.  NO claim of
+               : byte-reproducibility across sessions is made.
+stub           : ABSENT (every forward-referenced label now exists)
+  section9.tex: 9930 bytes
+  section10.tex: 6428 bytes
+  appendixA.tex: 7480 bytes
+  appendixB.tex: 7647 bytes
+
+[treatment]
+  citations audited : 26 distinct ids
+  literals audited  : 87  (floor 20)
+  labelled in prose : 26
+  bare citations    : 0
+  failures          : 0
+  [self-exclusion] SELF present on disk: True; absent from the walk of 454 files: True
+
+[E8 census] excluded framing across all 13 paper files.
+  A hit in a Group E file FAILS.  A hit in a section drafted
+  earlier is REPORTED, not repaired -- editing a drafted section
+  is outside this group's remit.  This list is an output.
+    Channel Theory         refs/section1.tex:50  'Channel Theory'
+    PCF                    refs/section1.tex:25  'PCF'
+    rho as indicial exponent in u=sqrt z refs/section1.tex:138  'indicial\nexponent in the uniformiser'
+
+[E9 census] terms section 1 defines, searched OUTSIDE section 1.
+  ORPHANED = defined in section 1 and used nowhere else.  The
+  paper lost a section after section 1 was written, so an orphan
+  is expected residue and is a finding for the notation pass.
+    psi_n (normalised sequence)    USED
+    psi_infty (its limit)          USED
+    nu_i (roots of b)              USED
+    (A1)                           USED
+    (A2)                           USED
+    (A3)                           USED
+    Katz invariant                 USED
+    Katz multiset                  USED
+    trace coordinates x1,x2,x3     USED
+    B_1,B_2,B_3                    USED
+    System A                       USED
+    System B                       USED
+    System C                       USED
+    projective equivalence         USED
+    dps / working precision        USED
+    PSLQ                           USED
+    Richardson                     USED
+    Newton polygon                 ORPHANED
+    germ coefficient               ORPHANED
+    amplitude                      USED
+    c_pm (the actions)             ORPHANED
+    D-tilde-5                      USED
+    Painleve V                     USED
+    PCF                            ORPHANED
+    xi_0                           USED
+    rho                            USED
+    K (the amplitude constant)     USED
+    r_infinity                     ORPHANED   <- by design: renamed to psi_infty; section 1's footnote is the only place the deposited name may appear
+  28 terms inspected, 5 orphaned (floor 10)
+  every ORPHANED verdict above was confirmed against the raw
+  sources by a second, differently-implemented read before being
+  reported: an absence report cannot by itself distinguish a term
+  the paper does not use from a term this reader cannot see.
+
+[arms] each mutates a COPY; the rule must fire for the right reason, and each arm asserts its mutation site EXISTS first
+  CAUGHT  E1 unresolvable id                               [E1] 6 failures, 1 on E1
+  CAUGHT  E2 superseded id                                 [E2] 7 failures, 1 on E2
+  CAUGHT  E3 THE wrong label (S16-15 -> VERIFIED)          [E3] 1 failures, 1 on E3
+  CAUGHT  E3b corroboration sold as proof (S16-21 -> PROVEN) [E3] 1 failures, 1 on E3
+  CAUGHT  E4 transposed digit                              [E4] 2 failures, 2 on E4
+  CAUGHT  E4b wrong exponent                               [E4] 1 failures, 1 on E4
+  CAUGHT  E5 literal pool emptied                          [E5] 6 failures, 1 on E5
+  CAUGHT  E6 positive hazard deleted                       [E6] 1 failures, 1 on E6
+  CAUGHT  E6b referee sentence deleted                     [E6] 1 failures, 1 on E6
+  CAUGHT  E6c NEGATIVE hazard: the cut question readmitted [E6] 2 failures, 1 on E6
+  CAUGHT  E6d H1 discharge stated before its caution       [E6] 2 failures, 1 on E6
+  CAUGHT  E7 stub re-declares a label Group E supplies     [E7] 1 failures, 1 on E7
+  CAUGHT  E8 excluded framing imported                     [E8] 2 failures, 1 on E8
+  CAUGHT  E9 definition census emptied                     [E9] 1 failures, 1 on E9
+  CAUGHT  E0 section truncated below floor                 [E0] 8 failures, 3 on E0
+
+  arms: 15/15 CAUGHT
+
+==============================================================
+GATE: PASSED
+checks run    : 26 citations, 87 literals, 5 excluded-framing patterns x 13 files, 28 section-1 terms
+checks failed : 0
+arms caught   : 15/15
+reported, not repaired: 3 excluded-framing hits in earlier sections, 5 orphaned section-1 terms

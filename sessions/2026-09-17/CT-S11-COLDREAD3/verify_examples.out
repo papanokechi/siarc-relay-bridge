@@ -1,0 +1,27 @@
+E1: chi=x, c=0, s=0
+  p0 = 1
+  q0 = 0
+  indicial = lambda**2
+  L[y1] = 0
+  residue of 1/(chi*y1^2) at s = 1
+  log check = elementary second solution log(x)
+  L[y2] = 0
+
+E2: chi=x, c=x, s=0 (c(s)=0, q analytic)
+  p0 = 1
+  q0 = 0
+  indicial = lambda**2
+  L[y1] = 0
+  residue of 1/(chi*y1^2) at s = 1
+  log check = BesselY(0,x) has a logarithmic term
+  L[y2] = 0
+  series(Y0) = 2*EulerGamma/pi - 2*log(2)/pi + 2*log(x)/pi + x**2*(-log(x)/(2*pi) + (2 - 2*EulerGamma)/(4*pi) + log(2)/(2*pi)) + O(x**3*log(x))
+
+E3: chi=x, c=1, s=0 (c(s)!=0)
+  p0 = 1
+  q0 = 0
+  indicial = lambda**2
+  L[y1] = 0
+  residue of 1/(chi*y1^2) at s = 1
+  log check = reduction-of-order integrand has nonzero residue
+

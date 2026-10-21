@@ -1,0 +1,95 @@
+--- PDF page 25 ---
+2634 Marius V AN DER PUT & Masa-Hiko SAITO
+2.2. Finding the list. T ables for connections and R
+We consider a local family M (u) of diﬀerential modules, represented by
+a matrix equation d
+dz + A(z, u) where A(z, u) is a 2 × 2-matrix with trace
+0 and u lies in a small polydisk D around 0. The possibilities of the formal
+structure at the singular points is given in Example 1.3. The local Riemann–
+Hilbert map RH : D → R forgets the formal data, namely the position of
+the set of singular points S and the coeﬃcients of the eigenvalues at the
+irregular singular points.
+The position of the points S contributes max(−3 + #S,0) to the dimen-
+sion of the ﬁbre, because of the automorphisms of P1. A singular point
+p with Katz invariant r(p) contributes to the ﬁbre the dimension r(p) if
+r(p) ∈ Z⩾0 and r+(p) = 1
+2 + r(p) if r(p) ∈ 1
+2 + Z⩾0. Further, in the space
+D one divides by the action of a subgroup of the automorphisms of P1.
+The requirement that the ﬁbres of RH have dimension 1 produces the
+list:
+#S > 4 is excluded.
+#S = 4 , then S = {0,1,∞ , t}, only regular singular points, i.e., all
+r(p) = 0 .
+#S = 3 , then S = {0,1,∞} and only one irregular point with r(p) ∈
+{1,1
+2 }. #S = 2 , then S = {0,∞}, the contribution of the singular points
+to the dimension of the ﬁbre is 2, since we divide by the group z ↦→az.
+#S = 1 , then S = {∞}, the contribution of the singular point to the
+dimension of the ﬁbre is 3, since we divide by the group z ↦→az + b.
+Columns 3–6 of the next table present the ten resulting cases. In the
+second column one ﬁnds the classiﬁcation of the related Painlevé equation
+(some classes are divided into subclasses). The ﬁrst column gives the ex-
+tended Dynkin diagram of the corresponding Okamoto–Painlevé pair (see
+the Introduction). The space R is mapped to a space of parameters P
+(related to the parameters spaces of the Painlevé equations) consisting of
+traces or eigenvalues of the matrices involved in the construction of R.
+We will not number these ten families, but indicate them by their Katz
+invariants, e.g., (0,0,0,0), (0,0,1), . . . ,(0,−,3/2), (−,−,3), (−,−,5/2).
+For a diﬀerential module M corresponding to one of the types, the strong
+Hilbert-Riemann problem has a positive answer, except possibly for (1/2,
+−,1/2) and (−,−,5/2) (see Deﬁnitions and examples 1.12). For these two
+types we only consider the modules M (u) for which the strong Riemann–
+Hilbert problem does have a positive answer. The strong Riemann-Hilbert
+problem for a family M (u) is more subtle. It seems that connections on the
+vector bundle O ⊕ O(−1) is better adapted to families. For the Painlevé VI
+ANNALES DE L’INSTITUT FOURIER
+
+--- PDF page 26 ---
+MODULI FOR DIFFERENTIAL AND PAINLEVÉ EQUATIONS 2635
+Dynkin Painlevé equation r(0) r(1) r(∞ ) r(t) dim P
+˜D4 PVI 0 0 0 0 4
+˜D5 PV 0 0 1 - 3
+˜D6 PVdeg= PIII(D6) 0 0 1/2 - 2
+˜D6 PIII(D6) 1 - 1 - 2
+˜D7 PIII(D7) 1/2 - 1 - 1
+˜D8 PIII(D8) 1/2 - 1/2 - 0
+˜E6 PIV 0 - 2 - 2
+˜E7 PII 0 - 3/2 - 1
+˜E7 PII - - 3 - 1
+˜E8 PI - - 5/2 - 0
+Table 2.1. Classiﬁcation of Families
+case this is type of vector bundle is considered in [ 12, 13]. Here however we
+will represent a family M (u) by connections on O ⊕ O. This deﬁnes, in gen-
+eral, an aﬃne Zariski open subset of the space of all connections. However,
+the monodromy space R classiﬁes the analytic data (modulo some equiv-
+alence) for the complete space of all connections. For each type there are
+many possibilities. We will make choices that are helpful for the computa-
+tion of the Painlevé equations and are moreover close to classical formulas.
+It turns out that R → P is a family of aﬃne cubic surfaces . There are
+two sources for the singularities of the ﬁbres. The ﬁrst one is reducibility
+of systems and is connected with the singularities of R itself. The other
+source is resonance, i.e., at least one of the matrices involved in the con-
+struction of R has a diﬀerence of eigenvalues belonging to Z\{0}. Section 3
+provides the computations of the families R → P . We will also describe
+the corresponding one-dimensional families of diﬀerential modules M (t).
+This subsection ends with a list indicating the families of connections and
+presenting the families R → P of aﬃne cubic surfaces by an equation. The
+monodromy space R for (0,0,0,0) is classical( cf. [5, 15]), the others seem
+to be new.
+(0,0,0,0). PVI. d
+dz + A0
+z + A1
+z− 1 + At
+z− t , all tr(A∗) = 0 .
+x1x2x3 + x2
+1 + x2
+2 + x2
+3 − s1x1 − s2x2 − s3x3 + s4 = 0,with
+si = aia4 + ajak, (i, j, k) = a cyclic permutation of (1,2,3),
+s4 = a1a2a3a4 + a2
+1 + a2
+2 + a2
+3 + a2
+4 − 4 with a1, a2, a3, a4 ∈ C.
+TOME 59 (2009), F ASCICULE 7

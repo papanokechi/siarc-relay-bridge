@@ -1,0 +1,22 @@
+paper_prepass.pdf  sha256 64deab2f2e16a8d8b28518d6cb5e73b565d26aa62be196eeb02cbbef97de3cf4
+paper.pdf          sha256 065967c0d9731e617be0f386c0048a7b82dddb5a0c036157dbee5d84cbfb9f7a
+
+[reader] before 20469 tokens, after 21016 tokens
+[diff] 20 differing region(s)
+  N1-rho-removed         checked
+  N2-newton-polygon      checked
+  N3-R-unified           checked
+  N4-riccati-kappa       checked
+  N5-r1-retired          checked
+  N6-rho-step-scale      checked
+  N7-conventions-added   checked
+  N8a-moduli-font        invisible by design (glyph-only)
+  N8b-moduli-subscript   checked
+[artefacts] page-number x4, unchanged-source(section2.tex) x2
+
+[source] 13 file pairs compared for numeric literals
+  gained (new prose, not policed): section1.tex    {'0': 4, '2': 4, '1': 5, '11': 1}
+  gained (new prose, not policed): section3.tex    {'2': 1}
+  gained (new prose, not policed): section5.tex    {'9': 1}
+
+GATE PASSED: 20 differing regions, all accounted for; no undeclared numeric change in 13 source files

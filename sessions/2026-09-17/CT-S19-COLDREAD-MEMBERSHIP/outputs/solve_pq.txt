@@ -1,0 +1,14 @@
+sign 1
+eq 0 -(108*p**2 + 24*sqrt(33)*I*p*q**2 - 24*sqrt(33)*I*p*q - 44*q**4 + 88*q**3 - 45*q**2 + q)/108
+eq 1 I*(q - 1)*(24*sqrt(33)*p + 88*I*q**2 + 4*sqrt(11)*q - 88*I*q - 2*sqrt(11) - 6*sqrt(3)*I + 11*I)
+eq 2 -108*p**2 - 24*sqrt(33)*I*p*q**2 - 216*p*q + 216*p + 24*sqrt(33)*I*p + 44*q**4 - 24*sqrt(33)*I*q**3 - 131*q**2 - 12*sqrt(3)*q**2 - 4*sqrt(11)*I*q**2 + 48*sqrt(33)*I*q**2 + 12*sqrt(3)*q + 98*q - 24*sqrt(33)*I*q + 6*sqrt(11)*I*q - 11 - 2*sqrt(11)*I
+eq 3 108*p**2 + 24*sqrt(33)*I*p*q**2 + 108*p*q - 24*sqrt(33)*I*p*q - 108*p - 44*q**4 + 88*q**3 + 12*sqrt(33)*I*q**3 - 45*q**2 + 6*sqrt(3)*q**2 - 24*sqrt(33)*I*q**2 - 6*sqrt(3)*q + q + 12*sqrt(33)*I*q
+solcount 1
+{'p': 0, 'q': 1}
+sign -1
+eq 0 -(108*p**2 - 24*sqrt(33)*I*p*q**2 + 24*sqrt(33)*I*p*q - 44*q**4 + 88*q**3 - 45*q**2 + q)/108
+eq 1 -I*(q - 1)*(24*sqrt(33)*p - 88*I*q**2 - 4*sqrt(11)*q + 88*I*q + 2*sqrt(11) - 11*I - 6*sqrt(3)*I)
+eq 2 -108*p**2 + 24*sqrt(33)*I*p*q**2 - 216*p*q + 216*p - 24*sqrt(33)*I*p + 44*q**4 + 24*sqrt(33)*I*q**3 - 131*q**2 + 12*sqrt(3)*q**2 - 48*sqrt(33)*I*q**2 - 4*sqrt(11)*I*q**2 - 12*sqrt(3)*q + 98*q + 6*sqrt(11)*I*q + 24*sqrt(33)*I*q - 11 - 2*sqrt(11)*I
+eq 3 108*p**2 - 24*sqrt(33)*I*p*q**2 + 108*p*q + 24*sqrt(33)*I*p*q - 108*p - 44*q**4 + 88*q**3 - 12*sqrt(33)*I*q**3 - 45*q**2 - 6*sqrt(3)*q**2 + 24*sqrt(33)*I*q**2 + q + 6*sqrt(3)*q - 12*sqrt(33)*I*q
+solcount 1
+{'p': 0, 'q': 1}

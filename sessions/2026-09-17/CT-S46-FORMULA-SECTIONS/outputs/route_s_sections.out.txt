@@ -1,0 +1,76 @@
+==========================================================================
+ROUTE S -- sections 0-10, displays decidable from the paper itself
+==========================================================================
+
+VACUITY PRE-CHECKS (PREREG V1-V4)
+  V3 unperturbed eq:rA residual is zero : True
+  V3 unperturbed eq:QC residual is zero : True
+  V1 eq:sysA 10 -> 11 moves eq:rA      : True
+  V2 eq:QC 22 -> 23 moves the residual  : True
+  V4 eq:QC 54 -> 45 (transposed) moves  : True
+  V4 eliminant 107 -> 170 moves         : True
+  all vacuity pre-checks pass
+
+[G1] the two displays of the normal potential agree
+  MATCHES  G1 sec1 L210 == sec6 L58   textually different, mathematically identical
+
+[A] System A: eq:sysA -> eq:rA
+  MATCHES  A1 eq:rA                   from eq:sysA
+           derived r_A = (-3*z**2 - 5*z + 3)/(9*z**3)
+
+[C] System C: eq:sysC -> eq:rC, eq:spm
+  MATCHES  C1 eq:rC                   from eq:sysC
+  MATCHES  C2 b - a' = 0              eq:sysC is self-adjoint
+  MATCHES  C3 eq:spm s_+              root of 3x^2+x+1
+  MATCHES  C4 eq:spm s_-              
+  MATCHES  C5 eq:spm delta            delta = s_- - s_+
+
+[6] Section 6: the change of variable x = s_+ + delta z
+  MATCHES  S1 L92 factorisation       3(x-s_+)(x-s_-)
+  MATCHES  S2 L92 in z                = 3 delta^2 z(z-1)
+  MATCHES  S3 eq:PC                   delta * (6x+1)/a  ->  (2z-1)/z(z-1)
+  MATCHES  S4 L97 = D'/D              P_C is the logarithmic derivative of D
+  MATCHES  S5 eq:QC                   the 22/22/54/5 display
+           derived Q_C = (22*z**2 - 22*z - 2*sqrt(11)*I*z + 5 + sqrt(11)*I)/(54*z*(z - 1))
+
+[5] Section 5: eq:eliminant
+  MATCHES  E1 eq:eliminant roots      27th^2+108th+107=0  ->  th = -2 -+ sqrt3/9
+  MATCHES  E2 eq:eliminant roots      
+
+[2] Section 2: eq:psi-rec follows from eq:n-rec and eq:n-norm
+  MATCHES  P1 eq:psi-rec              identity in free b(k), shown at n=3
+
+[3] Section 3: the exponential behaviours
+  MATCHES  X1 r_A leading coeff       r_A ~ (1/3) z^-3
+  MATCHES  X2 WKB exponent            int sqrt(r_A) = -2/(sqrt3 sqrt z), matching exp(-+ (2/sqrt3) z^-1/2)
+  MATCHES  X3 r_C at infinity         y'' = (1/3)y  ->  exp(+- x/sqrt3) = exp(+- sqrt3 x/3)
+  MATCHES  X4 sqrt3/3 == 1/sqrt3      
+  MATCHES  X5 xi_0 at beta_2=3        matches the 2/sqrt3 in the section 3 exponential
+
+[B] System B from System C under z = 1/x (section 3 L231-240)
+  MATCHES  B0 Schwarzian of z=1/x     Mobius, so no Schwarzian term
+  MATCHES  B1 eq:rB -> eq:rC          System B's ODE is never displayed; this routes eq:rB anyway
+
+[T] Section 5: the transported potential and the located constants
+  MATCHES  T1 r_z constant term       section 5 L49
+  MATCHES  T2 r_z 1/z coefficient     section 5 L49
+  MATCHES  T3 t on the two branches   t = -+ 2 i sqrt33/9, section 5 L53
+  MATCHES  T4 double pole at z=0      section 5 L44 paragraph
+  MATCHES  T5 double pole at z=1      
+  MATCHES  T6 r_C constant at infinity c_0^2 = 1/3
+  MATCHES  T7 r_C 1/x coefficient     section 5 L68
+  MATCHES  T8 n on one branch         section 5 L68
+  MATCHES  T9 n on the other branch   
+
+[R] restatement checks: the same quantity displayed in two places
+  MATCHES  R1 eq:PC == sec9 L39       align+label vs \[..\]: textually different
+  MATCHES  R2 eq:QC == sec9 L39       the 22/22/54/5 display, reprinted
+  MATCHES  R3 R printed three times   section 1 L210 vs section 9 L36
+  MATCHES  R4 eliminant root == L117  section 5 L117 theta_infty
+  MATCHES  R5 eliminant root == L127  section 5 L127 theta_infty
+  MATCHES  R6 eq:logcoef rationalised sqrt11 i/11 == i/sqrt11
+  MATCHES  R7 s_pm lies in Q(i sqrt11) section 5 L165 field of definition
+
+==========================================================================
+ROUTE S (sections): all 38 checked displays match
+==========================================================================

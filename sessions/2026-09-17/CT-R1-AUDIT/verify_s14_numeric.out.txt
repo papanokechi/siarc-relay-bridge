@@ -1,0 +1,18 @@
+dps = 60
+checking  r_B(1/x)/x^4  ==  r_C(x)  at sample points off the real axis
+
+  x =                   0.37   rel. residual = 1.5558e-61
+  x =                   -1.9   rel. residual = 0.0
+  x =                    2.5   rel. residual = 3.8894e-62
+  x =           (0.4 + 0.9j)   rel. residual = 2.2789e-62
+  x =          (-0.7 + 1.3j)   rel. residual = 3.9197e-62
+  x =           (3.1 - 2.2j)   rel. residual = 2.674e-62
+  x =                  0.001   rel. residual = 1.1337e-61
+  x =                    7.0   rel. residual = 3.8894e-62
+
+worst relative residual over 8 points: 1.5558e-61
+threshold 1e-50: PASS
+
+root correspondence under x = 1/z:
+  1/(-1/2 - sqrt(11)*I/2) = -0.166666666666667+0.552770798392567j   nearest C root -1/6 + sqrt(11)*I/6   |diff| = 0.000e+00
+  1/(-1/2 + sqrt(11)*I/2) = -0.166666666666667-0.552770798392567j   nearest C root -1/6 - sqrt(11)*I/6   |diff| = 0.000e+00

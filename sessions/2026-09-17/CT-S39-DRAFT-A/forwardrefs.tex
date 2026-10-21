@@ -1,0 +1,27 @@
+% =====================================================================
+%  forwardrefs.tex -- BUILD STUB, Group A standalone only.
+%
+%  Sections 3-10 are drafted in groups B-E and do not exist yet, so the
+%  Group A standalone build cannot resolve forward references to them.
+%  This file declares those labels at the section numbers OUTLINE.md
+%  revision 6 assigns, so that the standalone compiles with NO undefined
+%  references while the prose keeps real \ref commands.
+%
+%  IT IS NOT PART OF THE PAPER.  When the sections exist, the assembled
+%  document must NOT \input this file; scripts/check_group_a.py asserts
+%  that groupa_standalone.tex is the only file that does.
+%
+%  Every number here is checked against OUTLINE.md's own headings by
+%  check_group_a.py (F7).  A stub that drifted from the outline would
+%  otherwise silently print a wrong cross-reference.
+% =====================================================================
+\makeatletter
+\expandafter\gdef\csname r@sec:local\endcsname{{3}{1}{}{section.3}{}}
+\expandafter\gdef\csname r@sec:moduli\endcsname{{4}{1}{}{section.4}{}}
+\expandafter\gdef\csname r@sec:point\endcsname{{5}{1}{}{section.5}{}}
+\expandafter\gdef\csname r@sec:projective\endcsname{{6}{1}{}{section.6}{}}
+\expandafter\gdef\csname r@sec:monodromy\endcsname{{7}{1}{}{section.7}{}}
+\expandafter\gdef\csname r@sec:leaf\endcsname{{8}{1}{}{section.8}{}}
+\expandafter\gdef\csname r@sec:limits\endcsname{{9}{1}{}{section.9}{}}
+\expandafter\gdef\csname r@sec:open\endcsname{{10}{1}{}{section.10}{}}
+\makeatother

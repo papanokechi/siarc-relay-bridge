@@ -1,0 +1,55 @@
+==========================================================================
+CT-S25-N1-EXHAUSTIVE / n1_verdict.py
+Constructive route: triangular lex basis, then back-substitution.
+==========================================================================
+
+lex Groebner basis: 5 polynomials, order u > p > q > t > theta_inf
+  degree 1 in u          given theta_inf : -807258670592*theta_inf/283114447225 + u - 525142598...
+  degree 1 in p          given theta_inf : p - 422276378565*sqrt(11)*I*theta_inf/1362156224 - 4...
+  degree 1 in q          given theta_inf : q + 633825*sqrt(11)*I*theta_inf/30602 - 1/2 + 552853...
+  degree 1 in t          given theta_inf : t - 2*sqrt(11)*I*theta_inf - 4*sqrt(11)*I...
+  eliminant (theta_inf only)         : theta_inf**2 + 4*theta_inf + 107/27
+
+--------------------------------------------------------------------------
+1. TRIANGULARITY - each of u, p, q, t appears to degree 1 in some basis
+   element whose only other variable is theta_inf, so a root of the
+   eliminant determines AT MOST ONE point.
+--------------------------------------------------------------------------
+   minimal degree in u         : 1
+   minimal degree in p         : 1
+   minimal degree in q         : 1
+   minimal degree in t         : 1
+   triangular: True
+
+--------------------------------------------------------------------------
+2. THE ELIMINANT'S ROOTS
+--------------------------------------------------------------------------
+   degree 2, roots: [-2 - sqrt(3)/9, -2 + sqrt(3)/9]
+   distinct: True
+
+--------------------------------------------------------------------------
+3. BACK-SUBSTITUTION - each root must reproduce exactly one point, and
+   that point must be one of the two CT-S16 recorded.
+--------------------------------------------------------------------------
+   theta_inf = -2 - sqrt(3)/9
+     solutions in (p,q,t,u): 1
+     matches CT-S16 recorded solution #1
+   theta_inf = -2 + sqrt(3)/9
+     solutions in (p,q,t,u): 1
+     matches CT-S16 recorded solution #2
+
+==========================================================================
+VERDICT
+==========================================================================
+  triangular lex basis                    : True
+  eliminant roots                         : 2 (distinct)
+  each root gives exactly one point       : True
+  both points are the CT-S16 recorded ones: True
+
+  The solution set of the matching system, saturated at q(q-1) != 0,
+  is EXACTLY the two points recorded in CT-S16.  Established twice:
+  by a degree bound of 2 against two exhibited points, and
+  constructively via a triangular eliminant with two roots.
+
+  S16-12's 'for both sign branches' is EXHAUSTIVE.  N1 CLOSES.
+==========================================================================

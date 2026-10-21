@@ -1,0 +1,263 @@
+\section{Locating the point}\label{sec:point}
+
+The preceding section states what membership would require: a point
+$(p,q)\in U_0$ and a $t\in\mathbb C^{*}$ at which the family
+\eqref{eq:fam-a}--\eqref{eq:fam-c} reproduces System~$\mathsf C$'s projective
+normal form \eqref{eq:rC}. This section supplies such a point, checks the
+hypotheses under which the moduli space is built, and then shows that the two
+solutions found are \emph{all} of them. What it does not do is remove the word
+\emph{projective}; that is \S\ref{sec:projective}.
+
+\subsection{The dictionary, and the entry that failed}\label{ssec:dictionary}
+
+Matching \eqref{eq:rC} against the family requires knowing how the family's
+parameters $(\theta_0,\theta_1,\theta_\infty,t)$ appear in the projective
+normal potential $R$. The dictionary was not assumed; it was established by
+probing three exact draws of the family and reading off the correspondence
+(\textbf{VERIFIED}, \texttt{S16-08}). Three entries were confirmed on all three
+draws: the coefficient of the double pole at $z=0$ is $(\theta_0^2-1)/4$, the
+coefficient of the double pole at $z=1$ is $(\theta_1^2-1)/4$, and
+$R(\infty)=t^2/4$.
+
+A fourth entry \emph{failed}, and the failure is reported here because the
+located value of $\theta_\infty$ is unintelligible without it. The naive
+reading of the $1/z$ coefficient at infinity, $t\,\theta_\infty/2$, was
+rejected on all three draws; the draws give
+\[
+  \frac{t\,(\theta_\infty+1)}{2},
+\]
+the $+1$ being the shift introduced by passing to a scalar reduction. That
+shift is the entire reason the located exponent is
+$\theta_\infty=-2\mp\sqrt3/9$ rather than $-1\mp\sqrt3/9$. A reader who
+carries the naive entry will find the value off by exactly one and will look
+for the error in the wrong place.
+
+The three draws were chosen to carry $\theta_0\neq0$, which makes them
+simultaneously the vacuity control for the hypothesis check of
+\S\ref{ssec:hyp-check}: the observable does report a nonzero $\theta_0$ when
+one is present, so its report of $\theta_0=0$ for System~$\mathsf C$ is
+informative and not an artefact.
+
+\subsection{The three hypotheses at System \texorpdfstring{$\mathsf
+C$}{C}}\label{ssec:hyp-check}
+
+\paragraph{Normalised singular points (\texttt{S16-07}, \textbf{PROVEN}).}
+Under the M\"obius map $x=s_++\delta z$ of \eqref{eq:spm} the potential
+\eqref{eq:rC} has poles only at $z=0$ and $z=1$, both double with coefficient
+$-\tfrac14$, and no apparent singularity (\texttt{S16-06}, recorded at
+\S\ref{ssec:sysBC}). At infinity the transported potential expands as
+\[
+  r_z=-\frac{11}{27}+\frac{i\sqrt{11}/27}{z}+\cdots,
+\]
+so the normalisation $t^2/4=R(\infty)$ gives
+\[
+  t=\mp\frac{2i\sqrt{33}}{9}.
+\]
+This is \emph{exactly} the value the companion record prints for
+System~$\mathsf C$. The companion's $t$ is therefore van der Put--Saito's time
+invariant, computed from the configuration; there is no mismatch between the
+two to explain. The agreement is with an exact algebraic number, not a
+numerical coincidence, which is why the label is \textbf{PROVEN}.
+
+\paragraph{Irreducibility (\texttt{S16-10}, \textbf{PROVEN}).}
+System~$\mathsf C$ is irreducible over $\mathbb C(x)$, proved exactly by the
+Riccati test. A solution of $w'+w^2=r$ can have only simple poles; the residues
+at $s_\pm$ satisfy $\kappa^2-\kappa=-\tfrac14$, so $\kappa=\tfrac12$; $w$ is bounded at
+infinity with $c_0^2=\tfrac13$; and matching the $1/x$ coefficient of $r$,
+which is $-\tfrac19$, forces
+\[
+  n=\frac{-1/9}{2c_0}-1=-1\mp\frac{\sqrt3}{18},
+\]
+which is irrational and hence not a non-negative integer. The required
+contradiction follows, and System~$\mathsf C$ does not sit on the classical
+Riccati locus.
+
+\begin{remark}[A void check, retained; \texttt{S16-11},
+\textbf{PROVEN}]\label{rem:void}
+The first irreducibility script reached the verdict \emph{irreducible} with no
+test performed. Symbolic cancellation of $(x-c)^2r$ evaluated at an algebraic
+$c$ returned \texttt{nan}, so the list of admissible residues came out empty,
+the product over that empty list was trivially the required value, and a
+companion test of the form ``every multiplicity equals~$2$'' was vacuously true
+on an empty dictionary. The defect was caught only because a
+reducible-by-construction control was \emph{also} declared irreducible. The
+void script is retained in the record. The general rule it forced --- a step
+that cannot fail cannot be trusted to report failure, so every control must be
+an assertion --- is applied throughout this paper's supporting computations.
+\end{remark}
+
+\paragraph{Local data (\texttt{S16-09}, \textbf{STRUCTURAL}).}
+System~$\mathsf C$ has $\theta_0=\theta_1=0$, hence $\det A_i=0$ and
+$\operatorname{tr}A_i=0$, so $A_0$ and $A_1$ are nilpotent and nonzero: the
+local data are non-semisimple, and \S\ref{ssec:nonapparent} already records the
+logarithmic behaviour this produces. This was \emph{contrary to
+pre-registration}, which recorded the expectation that the hypothesis would be
+violated or left undecided. It is not violated, for two reasons. The eigenvalue
+difference is $0$, which is not in $\mathbb Z\setminus\{0\}$, so the data are
+not resonant in van der Put--Saito's sense; and, as \S\ref{ssec:resonance}
+records, no semisimplicity condition is imposed in the construction in any
+case. Van der Put--Saito admit precisely the logarithmic local data that
+Jimbo's~(A1) excludes.
+
+The label here is \textbf{STRUCTURAL} rather than \textbf{PROVEN}, and the
+reason is worth stating plainly: the conclusion rests on the \emph{absence} of
+a hypothesis in the source (\texttt{S16-01}, \textbf{INSPECTED}). An absence
+read from a page is weaker evidence than a computation, and no amount of
+re-reading converts it.
+
+\subsection{The located point}\label{ssec:located}
+
+With the dictionary of \S\ref{ssec:dictionary} in hand, the match is an
+overdetermined algebraic system: five coefficient equations from matching two
+quartics in $z$, together with the no-apparent-singularity condition $b_1=0$,
+in the four unknowns $p,q,t,\theta_\infty$. It is consistent, and it has a
+solution on each branch of $t$ (\textbf{VERIFIED}, \texttt{S16-12}).
+
+On the branch $t=-2i\sqrt{33}/9$,
+\[
+  \theta_\infty=-2-\frac{\sqrt3}{9},\qquad
+  q=\frac12+\frac{i\bigl(-457937\sqrt{11}+281700\sqrt{33}\bigr)}{122408}
+   \approx 0.5+0.8123\,i,
+\]
+\[
+  p=\frac{5i\bigl(-28151758571\sqrt{33}+48874838016\sqrt{11}\bigr)}
+         {4086468672}\approx 0.4649\,i .
+\]
+On the branch $t=+2i\sqrt{33}/9$,
+\[
+  \theta_\infty=-2+\frac{\sqrt3}{9},\qquad
+  q\approx 0.5-25.6278\,i,\qquad p\approx 396.2089\,i .
+\]
+
+The values were produced by a hand-reduced closed form, and are therefore
+checked by a second route (\textbf{VERIFIED}, \texttt{S16-13}): re-substituting
+each solution into the \emph{general} formula for $R$ --- not the reduced form
+used to derive it --- makes $R-r_z$ simplify identically to zero, with worst
+relative residual over five sample points at $60$ digits of
+$5.79877\times10^{-56}$ on the first branch and $7.00553\times10^{-61}$ on the
+second. In both cases $b_1=0$ and $q\notin\{0,1\}$, so each point lies in the
+chart $U_0$ of \eqref{eq:chart}.
+
+Two things this second route does not do. It is a re-derivation by a different
+route, not an independent confirmation by a different party: the same agent
+wrote both. And it certifies the values it was given; it cannot certify that
+there are no others. That is the next subsection.
+
+\subsection{The location is exhaustive}\label{ssec:exhaustive}
+
+The phrase ``for both sign branches'' in \S\ref{ssec:located} would be empty if
+the solver that produced the two solutions had silently missed a third. It did
+not, and this is settled exactly rather than by trusting the solver
+(\textbf{PROVEN}, \texttt{S25-06}).
+
+\paragraph{Transcription controls (\texttt{S25-01}, \textbf{PROVEN}).}
+The six generators of the matching system were re-derived independently of the
+script that first solved it. A positive control: both recorded solutions
+annihilate all six generators exactly --- as symbolic zero, not as numerical
+smallness --- and both satisfy $q(q-1)\neq0$. A negative control: perturbing
+$\theta_\infty$ by $1/1000$ at the first solution makes generators $1$, $2$,
+$3$ and $5$ nonzero, so the generator set is not identically zero. Both arms
+were pre-registered and run before the main result was consulted.
+
+\paragraph{The base field, and why it is not larger.}
+The radicals visible above are $\sqrt{33}$, $\sqrt{11}$ and $\sqrt3$, which
+invites the field $\mathbb Q(\sqrt3,\sqrt{11})$. The correct base field is
+\[
+  K=\mathbb Q\bigl(i\sqrt{11}\bigr),
+\]
+because that is the field in which the matching equations' \emph{own}
+coefficients live, by way of $s_+=-\tfrac16+\tfrac{i\sqrt{11}}{6}$ and
+$\delta=-\tfrac{i\sqrt{11}}{3}$ in \eqref{eq:spm}. Adjoining $\sqrt3$ in
+advance would not be a harmless convenience: $\sqrt3$ is \emph{generated} by
+the answer, and pre-adjoining it would split the solution set into two
+rational points and make a degree-$2$ ideal look like two components of
+degree~$1$ --- destroying exactly the statement the computation exists to make.
+
+\paragraph{The ideal (\texttt{S25-02}, \textbf{PROVEN}).}
+The ideal generated by the six matching generators, saturated at $q(q-1)\neq0$
+by the Rabinowitsch variable $u$ with $u\,q(q-1)-1=0$, is zero-dimensional of
+degree exactly~$2$ over $K$. It is computed as a count of standard monomials
+under a \texttt{grevlex} Gr\"obner basis over an exact algebraic number field,
+so the result is exact. The lexicographic eliminant in $\theta_\infty$ is
+\begin{equation}\label{eq:eliminant}
+  27\,\theta_\infty^2+108\,\theta_\infty+107=0,
+  \qquad
+  \theta_\infty=-2\pm\frac{\sqrt3}{9},
+\end{equation}
+and \eqref{eq:eliminant} was registered as a prediction \emph{before} the
+computation was run.
+
+\begin{remark}[Galois conjugacy, and what it is not]\label{rem:galois}
+The two branches of \S\ref{ssec:located} are therefore exactly the Galois
+conjugates of one another over $K$ under $\sqrt3\mapsto-\sqrt3$, exhibited by
+the eliminant \eqref{eq:eliminant} rather than observed numerically. This is
+the same symmetry that relates the two branches at the level of the character
+variety (\texttt{S22-20}, \textbf{VERIFIED}), where the two branches give the
+same point up to an interchange of $x_1$ and $x_2$.
+
+It does \emph{not} close the $z$-dependent gauge question, which is an open
+question of this paper (\texttt{S17-07}, \textbf{CONJECTURED}) and is stated as
+one in \S\ref{sec:open}. Two statements in this paper carry a $\sqrt3$; they
+are unrelated, and a reader should not infer a connection from the coincidence
+of a radical.
+\end{remark}
+
+\paragraph{One of the six conditions was already implied (\texttt{S25-03},
+\textbf{PROVEN}).}
+The no-apparent-singularity condition $b_1=0$ lies in the radical of the ideal
+generated by the five coefficient-matching equations together with the
+Rabinowitsch generator --- indeed in the ideal itself, since $b_1$ reduces to
+$0$ modulo the \texttt{grevlex} Gr\"obner basis, and independently since
+adjoining $1-v\,b_1$ yields the unit ideal. So matching the two quartics
+\emph{already forces} $b_1=0$: the system of \S\ref{ssec:located} is
+overdetermined by two, not by one. The membership test carries its own control
+--- $\theta_\infty$, which vanishes nowhere on the variety by
+\eqref{eq:eliminant}, is correctly reported as \emph{not} in the radical --- so
+the test is not accepting everything put to it.
+
+\paragraph{Closure, by two routes (\texttt{S25-06}, \textbf{PROVEN}).}
+The solution set, saturated at $q(q-1)\neq0$, is exactly the two points of
+\S\ref{ssec:located}. Counting route: the degree is $2$, which bounds the
+number of points over the algebraic closure counted with multiplicity by $2$,
+while the positive control exhibits two \emph{distinct} points, so each has
+multiplicity~$1$ and there is no room for a third. Constructive route: the
+lexicographic Gr\"obner basis in the order $u>p>q>t>\theta_\infty$ is
+triangular, with $u$, $p$, $q$ and $t$ each appearing to degree exactly~$1$ in
+a basis element whose only other variable is $\theta_\infty$; so each root of
+\eqref{eq:eliminant} determines at most one point, the eliminant has exactly
+two distinct roots, and back-substitution returns exactly one point per root,
+matching the recorded solutions exactly.
+
+The scope of this result is narrow and should be read narrowly: it settles
+whether the solver's two solutions were all of them. It says nothing about the
+derivation that produced the six generators, which is unchanged here.
+
+\subsection{Membership, and the word it leaves standing}
+\label{ssec:membership-verdict}
+
+Collecting: System~$\mathsf C$ satisfies every hypothesis under which van der
+Put--Saito build the moduli space for the $(0,0,1)$ row --- local data
+(\texttt{S16-09}), irreducibility (\texttt{S16-10}), and the normalisation at
+infinity (\texttt{S16-07}) --- and it is a point of the chart $U_0$
+(\texttt{S16-12}, \texttt{S16-13}), uniquely so up to the Galois conjugate
+(\texttt{S25-06}). Since the foliation given by \eqref{eq:omega} coincides with
+the isomonodromy foliation (\texttt{S16-03}, \textbf{INSPECTED}), and since
+$q(q-1)\neq0$ and $t\neq0$ at the located point so that the vector field
+\eqref{eq:flow} is regular there, exactly one Painlev\'e~V leaf passes through
+System~$\mathsf C$. The deformation exists; it is not an ansatz.
+
+This conclusion is \textbf{STRUCTURAL} (\texttt{S16-14}), and the caution is
+part of the claim rather than a hedge attached to it. What has been matched is
+the \emph{projective} normal form. What is established is therefore that
+$\mathsf C$'s projectivisation is that of the family member at $(p,q,t)$ ---
+equality up to a rank-$1$ twist, in the same sense in which $\mathsf B$ and
+$\mathsf C$ are projectively equivalent at \eqref{eq:gauge} without being the
+same operator.
+
+Two further limits, stated here so that \S\ref{sec:projective} is read as
+removing one of them and not both. The pre-registered monodromy-and-Stokes
+falsifier at $30$ digits was \emph{not} run; nothing above rests on it and
+nothing above stands in for it. And the gauge question of \S\ref{sec:open}
+remains open: the completeness result of \S\ref{ssec:exhaustive} concerns the
+solution set of the matching system, not the uniqueness of a representative
+within a projective class.

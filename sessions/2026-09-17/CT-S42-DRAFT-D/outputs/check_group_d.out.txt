@@ -1,0 +1,39 @@
+CT-S42-DRAFT-D :: Group D drafting gate
+corpus census  : 453 claims.jsonl files, 1434 unique ids
+corpus f/print : 354bda6d335c0b864afb3767ec6ad034  (over 453 sorted paths)
+               : the census is a measurement over a LIVE tree.  A
+               : differing count with a differing fingerprint is a
+               : different input, not a disagreement.  NO claim of
+               : byte-reproducibility across sessions is made.
+  section7.tex: 12419 bytes
+  section8.tex: 11306 bytes
+
+[treatment]
+  citations audited : 23 distinct ids
+  literals audited  : 98  (floor 20)
+  stub labels tested: 3
+  labelled in prose : 21
+  bare citations    : 2
+  failures          : 0
+  [self-exclusion] SELF present on disk: True; absent from the walk of 453 files: True
+
+[arms] each mutates a COPY; the rule must fire for the right reason, and each arm asserts its mutation site EXISTS first
+  CAUGHT  D1 unresolvable id                         [D1] 6 failures, 1 on D1
+  CAUGHT  D2 superseded id                           [D2] 8 failures, 1 on D2
+  CAUGHT  D3 THE wrong label (S22-15 -> PROVEN)      [D3] 1 failures, 1 on D3
+  CAUGHT  D3b STRUCTURAL asserted PROVEN             [D3] 1 failures, 1 on D3
+  CAUGHT  D4 transposed digit                        [D4] 2 failures, 2 on D4
+  CAUGHT  D4b wrong exponent                         [D4] 1 failures, 1 on D4
+  CAUGHT  D5 literal pool emptied                    [D5] 3 failures, 1 on D5
+  CAUGHT  D6 hazard deleted                          [D6] 1 failures, 1 on D6
+  CAUGHT  D6b scope sentence deleted                 [D6] 1 failures, 1 on D6
+  CAUGHT  D7 stub re-declares a live label           [D7] 1 failures, 1 on D7
+  CAUGHT  D0 section truncated below floor           [D0] 5 failures, 3 on D0
+
+  arms: 11/11 CAUGHT
+
+==============================================================
+GATE: PASSED
+checks run    : 23 citations, 98 literals, 3 stub labels
+checks failed : 0
+arms caught   : 11/11

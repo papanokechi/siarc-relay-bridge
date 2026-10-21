@@ -1,0 +1,20 @@
+[baseline] treatment clean, 0 failures
+
+  CAUGHT   A1 undeclared word inserted
+           -> UNDECLARED CHANGE [insert] '' -> 'zzqqx'
+  CAUGHT   A2 declared repair reverted (Newton polygon)
+           -> N2-newton-polygon: text still present after the pass ('Newton–Puiseux diagram')
+  CAUGHT   A3 declared repair reverted (kappa back to A)
+           -> N4-riccati-kappa: replacement text absent after the pass ('κ2 − κ = −')
+  CAUGHT   A4 conventions paragraph deleted
+           -> N7-conventions-added: replacement text absent after the pass ('Letters that carry more than one mean
+  CAUGHT   A5 rho definition reinstated
+           -> N1-rho-removed: replacement text absent after the pass ('That quantity is not a symbol of this paper
+  CAUGHT   A6 r1 reinstated
+           -> N5-r1-retired: text still present after the pass ('r1 = − 1')
+  CAUGHT   A7 two symbols transposed (anagram of the same characters)
+           -> N4-riccati-kappa: replacement text absent after the pass ('κ2 − κ = −')
+  CAUGHT   A8 word inserted inside an untouched paragraph
+           -> UNDECLARED CHANGE [insert] '' -> 'zzqqx'
+
+8 CAUGHT, 0 SKIPPED, 0 MISSED of 8 arms

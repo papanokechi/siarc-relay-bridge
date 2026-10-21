@@ -1,0 +1,36 @@
+# Added R21. The refs/ hold (REFS-LICENCE-REVIEW.md, review #15) is a
+# redistribution question and only arises on commit. Until each row of
+# REFS-MANIFEST.md is individually checked, no reference file or page image is
+# committed. Hashes travel in REFS-MANIFEST.md instead; the bytes stay in the
+# off-repo backup.
+#
+# Patterns exclude directory CONTENTS, not the directories, so the negation
+# below can re-include session-produced scripts.
+**/refs/*
+**/pages/*
+!**/refs/*.py
+!**/pages/*.py
+
+# Build tree: ~124k files. Also excluded from the backup by make_backup.py.
+**/.lake/
+**/__pycache__/
+
+# Added CT-S21 (M6). The R21 patterns above cover refs/ and pages/ ONLY, and the
+# claim that they left zero third-party bytes stageable (R1-107) was FALSE: page
+# images and saved pages also live in coldpackets/, in session roots, and in
+# outputs/. Nine third-party files were still stageable - two vdPS page images,
+# three Jimbo page images, four saved NIST DLMF pages.
+#
+# Default-deny on media, because the licence question is per file and unresolved:
+# the arXiv PDF, for one, is under nonexclusive-distrib/1.0, which grants third
+# parties no redistribution right at all. Un-exclude individual files only after
+# that file's row in REFS-MANIFEST.md has been checked.
+#
+# NOTE: this also excludes the operator OWN CC-BY-4.0 companion page images and
+# CT-S1-THEOREM/theorem.pdf. That is deliberate - default-deny, then re-admit by
+# name - not a judgement that they cannot be committed.
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.pdf
+**/*.html

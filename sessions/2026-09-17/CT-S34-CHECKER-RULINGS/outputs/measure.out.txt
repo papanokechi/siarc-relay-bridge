@@ -1,0 +1,308 @@
+==============================================================================
+CT-S34  measurements for the three rulings  (θ, ∞ sentinels)
+==============================================================================
+claims read from the repository root: 4100
+
+RULING 1 — WHEN WAS THE LABEL CONVENTION INTRODUCED?
+  date          labelled  unlabelled
+  2026-04-22          0          34
+  2026-05-13          6          83
+  2026-05-14          9           9
+  2026-09-17        612           0
+
+  first date with any labelled claim ......... 2026-05-13
+  claims on/after that date .................. 1288
+      of which unlabelled ....................... 661
+  claims strictly before it .................. 2812
+      of which labelled ......................... 0
+  date range of the pre-convention claims .... 2026-04-22 .. 2026-05-12
+
+  labelled share by date, from the first labelled date onward:
+      2026-05-13      6/89      6.7%
+      2026-05-14      9/18     50.0%
+      2026-05-18      0/58      0.0%
+      2026-05-19      0/20      0.0%
+      2026-05-20      0/10      0.0%
+      2026-05-22      0/156     0.0%
+      2026-05-29      0/7       0.0%
+      2026-06-11      0/37      0.0%
+      2026-06-15      0/112     0.0%
+      2026-06-16      0/159     0.0%
+      2026-06-18      0/10      0.0%
+      2026-09-17    612/612   100.0%
+
+RULING 2 — WHAT THE 84 REUSED IDS ACTUALLY ARE
+  distinct ids reused across files ........... 84
+  claims with no claim_id at all ............. 2641
+
+  GENUINE CROSS-SESSION COLLISION       59 id(s)
+  deposit mirror                        15 id(s)
+  session-local counter                 10 id(s)
+
+  IDS THAT ARE NEITHER, AND SO REMAIN REAL COLLISIONS:
+    H1-01
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H1\claims.jsonl
+    H1-02
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H1\claims.jsonl
+    H1-03
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H1\claims.jsonl
+    H1-04
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H1\claims.jsonl
+    H1-05
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H1\claims.jsonl
+    H1-06
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H1\claims.jsonl
+    H2-01
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H2\claims.jsonl
+    H2-02
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H2\claims.jsonl
+    H2-03
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H2\claims.jsonl
+    H2-04
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H2\claims.jsonl
+    H2-05
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H2\claims.jsonl
+    H2-06
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H2\claims.jsonl
+    H2-07
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H2\claims.jsonl
+    H2-08
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H2\claims.jsonl
+    H2-09
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H2\claims.jsonl
+    H3-01
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H3\claims.jsonl
+    H3-02
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H3\claims.jsonl
+    H3-03
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H3\claims.jsonl
+    H3-04
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H3\claims.jsonl
+    H3-05
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H3\claims.jsonl
+    H3-06
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H3\claims.jsonl
+    H3-07
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H3\claims.jsonl
+    H4-01
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H4\claims.jsonl
+    H4-02
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H4\claims.jsonl
+    H4-03
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H4\claims.jsonl
+    H4-04
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H4\claims.jsonl
+    H4-05
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H4\claims.jsonl
+    H4-06
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H4\claims.jsonl
+    H4-07
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H4\claims.jsonl
+    H4-08
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H4\claims.jsonl
+    H4-09
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H4\claims.jsonl
+    H4-A1
+        sessions\2026-05-02\CC-MEDIAN-RESURGENCE-EXECUTE\claims.jsonl
+        sessions\2026-05-13\T2-EXECUTOR-CC-MEDIAN-RESURGENCE-REPRODUCIBILITY-VERIFY\claims.jsonl
+    H4-A2
+        sessions\2026-05-02\CC-MEDIAN-RESURGENCE-EXECUTE\claims.jsonl
+        sessions\2026-05-13\T2-EXECUTOR-CC-MEDIAN-RESURGENCE-REPRODUCIBILITY-VERIFY\claims.jsonl
+    H4-A3
+        sessions\2026-05-02\CC-MEDIAN-RESURGENCE-EXECUTE\claims.jsonl
+        sessions\2026-05-13\T2-EXECUTOR-CC-MEDIAN-RESURGENCE-REPRODUCIBILITY-VERIFY\claims.jsonl
+    H4-A4
+        sessions\2026-05-02\CC-MEDIAN-RESURGENCE-EXECUTE\claims.jsonl
+        sessions\2026-05-13\T2-EXECUTOR-CC-MEDIAN-RESURGENCE-REPRODUCIBILITY-VERIFY\claims.jsonl
+    H4-A5
+        sessions\2026-05-02\CC-MEDIAN-RESURGENCE-EXECUTE\claims.jsonl
+        sessions\2026-05-13\T2-EXECUTOR-CC-MEDIAN-RESURGENCE-REPRODUCIBILITY-VERIFY\claims.jsonl
+    H4-A6
+        sessions\2026-05-02\CC-MEDIAN-RESURGENCE-EXECUTE\claims.jsonl
+        sessions\2026-05-13\T2-EXECUTOR-CC-MEDIAN-RESURGENCE-REPRODUCIBILITY-VERIFY\claims.jsonl
+    H4-A7
+        sessions\2026-05-02\CC-MEDIAN-RESURGENCE-EXECUTE\claims.jsonl
+        sessions\2026-05-13\T2-EXECUTOR-CC-MEDIAN-RESURGENCE-REPRODUCIBILITY-VERIFY\claims.jsonl
+    H4-A8
+        sessions\2026-05-02\CC-MEDIAN-RESURGENCE-EXECUTE\claims.jsonl
+        sessions\2026-05-13\T2-EXECUTOR-CC-MEDIAN-RESURGENCE-REPRODUCIBILITY-VERIFY\claims.jsonl
+    H5-01
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H5\claims.jsonl
+    H5-02
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H5\claims.jsonl
+    H5-03
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H5\claims.jsonl
+    H5-04
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H5\claims.jsonl
+    H5-05
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H5\claims.jsonl
+    H5-06
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H5\claims.jsonl
+    H5-07
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H5\claims.jsonl
+    H5-08
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H5\claims.jsonl
+    H5-09
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H5\claims.jsonl
+    H6-01
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H6\claims.jsonl
+    H6-02
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H6\claims.jsonl
+    H6-03
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H6\claims.jsonl
+    H6-04
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H6\claims.jsonl
+    H6-05
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H6\claims.jsonl
+    H6-06
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H6\claims.jsonl
+    H6-07
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H6\claims.jsonl
+    H6-08
+        sessions\2026-05-01\THEORY-FLEET\AGGREGATOR\claims.jsonl
+        sessions\2026-05-01\THEORY-FLEET\H6\claims.jsonl
+    r1-effectivity-001
+        sessions\2026-05-20\R1-ROUTE-F-EFFECTIVITY\claims.jsonl
+        sessions\2026-05-20\R1-ROUTE-F-K-PERP-QUOTIENT-LATTICE\claims.jsonl
+    r1-k-perp-basis-001
+        sessions\2026-05-20\R1-ROUTE-F-EFFECTIVITY\claims.jsonl
+        sessions\2026-05-20\R1-ROUTE-F-K-PERP-BASIS\claims.jsonl
+        sessions\2026-05-20\R1-ROUTE-F-K-PERP-QUOTIENT-LATTICE\claims.jsonl
+    r1-sakai-nongen-001
+        sessions\2026-05-20\R1-ROUTE-F-EFFECTIVITY\claims.jsonl
+        sessions\2026-05-20\R1-ROUTE-F-K-PERP-BASIS\claims.jsonl
+        sessions\2026-05-20\R1-ROUTE-F-K-PERP-QUOTIENT-LATTICE\claims.jsonl
+        sessions\2026-05-20\R1-ROUTE-F-SAKAI-NONGEN\claims.jsonl
+
+  ids duplicated WITHIN a single file ........ 0
+
+RULING 2b — SAME ID, SAME CLAIM? (copy vs collision)
+  reused id, IDENTICAL claim text everywhere . 74  (a copy or citation)
+  reused id, DIFFERENT claim text ............ 10  (a real collision)
+
+  THE IDS WHERE THE SAME LABEL CARRIES DIFFERENT CLAIMS:
+    121-C1
+        T1-OPERATOR-110-EXTRACTION-TAUTOLOGY-PROMPT-DRAFTED-121 Prompt 111 v2 file_t2_extraction_tautology_static_audit_and_demotion.t
+        T2-EXECUTOR-M7-RATIFICATION-SUBSTRATE-PREP-121       M7 V0 ratification substrate-prep template assembled per 105 M4-RATIFI
+    C1
+        M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT                  The M9 main theorem statement-of-record does not exist as a formal The
+        048R-EARLY-FIRE-DECISION-SUBSTRATE                   048R bridge handoff.md (sessions/2026-05-06/W19-CLOSING-W20-WSB/handof
+        M6-AMENDMENT-1-CMB-GLOSSARY                          Baseline tex/submitted/CMB.txt at fire time has 1874 lines, 83963 byte
+        M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE                   Pre-edit tex/submitted/CMB.txt anchored: SHA-256 04F2A0405F7DF5566D672
+        PCF-2-V2-BIPARTITION-PROMOTION                       Three-confirmation provenance: bridge sessions T2B-BIPARTITION-B6-VERI
+        CT-S15-COLDREAD-DEFERRED                             On vdPS p.2634, P is a space of parameters related to Painleve paramet
+    C2
+        M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT                  The S_2 dependency type for the M9 statement-of-record is INDETERMINAT
+        048R-EARLY-FIRE-DECISION-SUBSTRATE                   decision_matrix.md (sessions/2026-05-06/048R-EARLY-FIRE-DECISION-SUBST
+        M6-AMENDMENT-1-CMB-GLOSSARY                          Source m6_verdict.md at sessions/2026-05-06/M6-ARBITRATION-W19-FRIDAY/
+        M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE                   047 m6_verdict.md anchored: siarc-relay-bridge/sessions/2026-05-06/M6-
+        PCF-2-V2-BIPARTITION-PROMOTION                       Class A b1=6 family list at a2=-8 (ratio -2/9): three Trans hits (-8,4
+        CT-S15-COLDREAD-DEFERRED                             On vdPS p.2635 Table 2.1, the PIII(D8) row has dim P = 0; source hash 
+    C3
+        M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT                  Picture v1.18 M9 gating set is verbatim '{M4, M6} UNCONDITIONALLY' wit
+        048R-EARLY-FIRE-DECISION-SUBSTRATE                   cmb_open_question_entry.txt (sessions/2026-05-06/048R-EARLY-FIRE-DECIS
+        M6-AMENDMENT-1-CMB-GLOSSARY                          Verbatim m6_verdict.md block boundaries in baseline CMB.txt: '----- be
+        M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE                   052 halt deposit cmb_amendment_target_log.md anchored: siarc-relay-bri
+        PCF-2-V2-BIPARTITION-PROMOTION                       Class B b1=6 family at a2=9 (ratio +1/4): one Trans hit (9,0,0,6,3)->1
+        CT-S15-COLDREAD-DEFERRED                             In the permitted vdPS pages, dim P = 0 means that the authors' trace/e
+    C4
+        M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT                  Closed-form S_2 for SIARC d=2 PCF dichotomy is DEFERRED-PENDING-PRIMAR
+        048R-EARLY-FIRE-DECISION-SUBSTRATE                   cmb_paste_target.md (sessions/2026-05-06/048R-EARLY-FIRE-DECISION-SUBS
+        M6-AMENDMENT-1-CMB-GLOSSARY                          P5 (HALT_GLOSSARY_ALREADY_PRESENT) result: PASS. Pre-1644 occurrences 
+        M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE                   Glossary block canonical form (UTF-8, LF, 21 content lines + 1 trailin
+        PCF-2-V2-BIPARTITION-PROMOTION                       b1=7 strong-null verdict: 0 Trans hits in 79,860 candidates at b1=7, a
+        CT-S15-COLDREAD-DEFERRED                             On vdPS p.2634, r(t) belongs to the table's singular-point/Katz-invari
+    C5
+        M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT                  Channel Theory v1.3 section 'Implications for the Master Conjecture' i
+        M6-AMENDMENT-1-CMB-GLOSSARY                          Cited line numbers L930, L972, L985-987 from m6_verdict.md §1 do NOT c
+        M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE                   Verbatim m6_verdict.md block (begin marker '----- begin verbatim m6_ve
+        PCF-2-V2-BIPARTITION-PROMOTION                       Log-stratum off-locus pattern (TWO data points; OPEN STRUCTURAL QUESTI
+        CT-S15-COLDREAD-DEFERRED                             The PIII(D8) dim P = 0 entry is not anomalous in the source's construc
+    C6
+        M6-AMENDMENT-1-CMB-GLOSSARY                          HALT_LINE_LOCATION_MISMATCH FIRED. 3 of 4 cited line ranges (L930, L97
+        M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE                   Post-edit tex/submitted/CMB.txt: SHA-256 = 74073D94F247B59CCAB42A5AA96
+        PCF-2-V2-BIPARTITION-PROMOTION                       U1 Mobius-equivalence local check at b1=6: classical sequence-rescalin
+        CT-S15-COLDREAD-DEFERRED                             Statement 1 is correct with wording change specifying that P is the au
+    C7
+        M6-AMENDMENT-1-CMB-GLOSSARY                          Glossary block per STEP 3 verbatim spec was prepared but NOT applied t
+        M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE                   HALT_DEPOSIT_TIME_PRESERVATION self-check PASS via reverse-validation:
+        PCF-2-V2-BIPARTITION-PROMOTION                       v3.0 source byte-identity verification: working copy tex/submitted/t2b
+        CT-S15-COLDREAD-DEFERRED                             On Jimbo p.1152, system (3.1) has partial_x Y = (A0(t)/x + At(t)/(x-t)
+    C8
+        M6-AMENDMENT-1-CMB-GLOSSARY                          Self-check status (HALT_DEPOSIT_TIME_PRESERVATION + HALT_VERBATIM_BLOC
+        M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE                   HALT_GLOSSARY_PLACEMENT self-check PASS: glossary block at post-edit L
+        PCF-2-V2-BIPARTITION-PROMOTION                       v3.1 manuscript SHA-256 (post-amendment): t2b_paper_v3.1_bipartition_p
+        CT-S15-COLDREAD-DEFERRED                             To instantiate Jimbo (3.1), one needs a t-dependent 2x2 matrix pair A0
+    C9
+        M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE                   Per-site annotation insertion line numbers in post-edit CMB.txt: L404 
+        CT-S15-COLDREAD-DEFERRED                             On companion p.2, the scalar operator is a(x)y''+b(x)y'+c(x)y=0 with a
+
+  Composition of the 84 reused ids by BOTH classifiers:
+    GENUINE CROSS-SESSION COLLISION      same text         59
+    deposit mirror                       same text         15
+    session-local counter                DIFFERENT text    10
+
+CONTROLS
+  [PASS] the corpus contains both labelled and unlabelled claims
+         would have fired if: the corpus being uniform, which would make a date-scoped invariant pointless and the ruling unnecessary
+  [PASS] the session-local pattern matches C1 and 121-C1 and rejects S33-01 and DF-T0-LOCK
+         would have fired if: the pattern being wide enough to exempt real ids such as S33-01, which would silently disable 1(b) for this session's own claims
+  [PASS] the mirror pattern matches a /deposit/ path component and rejects 'deposited' and 'DEPOSIT-FORM'
+         would have fired if: the pattern matching on a substring, which would exempt any path with the letters 'deposit' anywhere in it
+  [PASS] every reused id is classified into exactly one kind
+         would have fired if: a reused id falling through the classifier unseen
+  [PASS] both populations the ruling addresses are non-empty
+         would have fired if: either being empty, which would make the corresponding ruling vacuous and its implementation untestable
+  [PASS] the copy/collision split accounts for every reused id
+         would have fired if: an id falling outside both, or no id being a pure copy, which would mean text identity is not the separator it appears to be
+  [PASS] labelling is universal on 2026-09-17 but began earlier and lapsed
+         would have fired if: labelling being monotone from its first appearance, in which case a cut at that first date would be the right one and this measurement unnecessary
+
+CONTROLS: 7/7 PASS

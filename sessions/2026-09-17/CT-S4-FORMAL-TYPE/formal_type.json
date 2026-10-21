@@ -1,0 +1,109 @@
+{
+  "system_A_certificate": {
+    "operator": "3*z**3*D**2 + 10*z**2*D + (z**2 + 5*z - 1), inhomogeneous term 1",
+    "b(n)": "3*n**2 + n + 1",
+    "first_Q": [
+      "1",
+      "5",
+      "76",
+      "2361",
+      "125209",
+      "10144290"
+    ],
+    "orders_checked": "z^0 .. z^38",
+    "nonvanishing_residual_orders": [],
+    "exact": true
+  },
+  "system_A_normal_form_r": "(-3*z**2 - 5*z + 3)/(9*z**3)",
+  "system_B_certificate": {
+    "source": "sessions/2026-06-15/VQUAD-PERIODREP-PAPER-001/sections/section-2.md, Theorem thm:Lphi and eq:r",
+    "q2_factorisation_reproduced": true,
+    "normal_form_r_reproduced_from_q0q1q2": true,
+    "r_recomputed": "(11*z**4/4 + z**2 + z + 3)/(z**4*(z**4 + 2*z**3 + 7*z**2 + 6*z + 9))",
+    "r_as_printed_in_paper": "(11*z**4 + 4*z**2 + 4*z + 12)/(4*z**4*(z**2 + z + 3)**2)"
+  },
+  "system_A_formal_type": [
+    {
+      "point": "0",
+      "pole_order_of_r": 3,
+      "formal_type": "irregular, RAMIFIED",
+      "ramification_index": 2,
+      "Katz_invariant": "1/2",
+      "Poincare_rank": "1/2",
+      "leading_Laurent_coeff_of_r": "1/3",
+      "exponential_parts_S": [
+        "+(-2*sqrt(3)*sqrt(z)/(3*z))",
+        "-(-2*sqrt(3)*sqrt(z)/(3*z))"
+      ],
+      "_label": "A"
+    },
+    {
+      "point": "infinity (t = 1/z)",
+      "pole_order_of_r_inf": 3,
+      "formal_type": "irregular, RAMIFIED",
+      "ramification_index": 2,
+      "Katz_invariant": "1/2",
+      "r_inf": "(12*t**2 - 47*t - 12)/(36*t**3)",
+      "_label": "A"
+    }
+  ],
+  "system_B_formal_type": [
+    {
+      "point": "0",
+      "pole_order_of_r": 4,
+      "formal_type": "irregular, UNRAMIFIED",
+      "ramification_index": 1,
+      "Katz_invariant": "1",
+      "Poincare_rank": "1",
+      "leading_Laurent_coeff_of_r": "1/3",
+      "exponential_parts_S": [
+        "+(-sqrt(3)/(3*z))",
+        "-(-sqrt(3)/(3*z))"
+      ],
+      "_label": "B"
+    },
+    {
+      "point": "-1/2 - sqrt(11)*I/2",
+      "pole_order_of_r": 2,
+      "formal_type": "regular singular",
+      "ramification_index": 1,
+      "Katz_invariant": "0",
+      "Poincare_rank": "0",
+      "leading_Laurent_coeff_of_r": "-1/4",
+      "exponential_parts_S": null,
+      "_label": "B"
+    },
+    {
+      "point": "-1/2 + sqrt(11)*I/2",
+      "pole_order_of_r": 2,
+      "formal_type": "regular singular",
+      "ramification_index": 1,
+      "Katz_invariant": "0",
+      "Poincare_rank": "0",
+      "leading_Laurent_coeff_of_r": "-1/4",
+      "exponential_parts_S": null,
+      "_label": "B"
+    },
+    {
+      "point": "infinity (t = 1/z)",
+      "pole_order_of_r_inf": 2,
+      "formal_type": "regular singular",
+      "ramification_index": 1,
+      "Katz_invariant": "0",
+      "r_inf": "(12*t**6 + 4*t**5 - 23*t**4 - 18*t**3 - 10*t**2 - 6*t - 3)/(4*t**2*(9*t**4 + 6*t**3 + 7*t**2 + 2*t + 1))",
+      "_label": "B"
+    }
+  ],
+  "action_differences": {
+    "system_A_at_0": "-4*sqrt(3)*sqrt(z)/(3*z)",
+    "system_B_at_0": "-2*sqrt(3)/(3*z)",
+    "xi0_literature": "2*sqrt(3)/3",
+    "zeta_star_literature": "4*sqrt(3)/3"
+  },
+  "covering_check": {
+    "statement": "Pullback along the ramified double cover z = w^2 multiplies the Katz invariant at 0 by 2 and divides the ramification index by 2 when it was 2.",
+    "system_A_Katz_at_0": "1/2",
+    "system_A_Katz_after_pullback_z_eq_w2": "1",
+    "system_B_Katz_at_0": "1"
+  }
+}

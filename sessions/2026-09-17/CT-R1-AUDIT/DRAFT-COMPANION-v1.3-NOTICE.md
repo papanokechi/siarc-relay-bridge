@@ -1,0 +1,570 @@
+# A non-classical Painlevé V transcendent from a quadratic polynomial continued fraction: surface classification and resurgent Stokes data — v1.3 correction notice
+
+Prepared under operator review #4. The operator's assessment: this is the
+stronger publishable material, because these results are new **and** they
+correct a deposited paper.
+
+---
+
+## Proposed notice text
+
+**What this notice does.** Its five items are not five defects, and a reader
+should not count them as such:
+
+| | | |
+|---|---|---|
+| **C1** | **correction** | Remark 2.2's apparency claim is false, and the paper's own `b = a′` structure is what makes it false. |
+| **C2** | **correction** | Conjecture 4.1's stated derivation of `β = γ = 0` is refuted; `γ = 1` on the companion's own data. |
+| **C3** | **clarification — it *strengthens* the companion** | Conjecture 4.1 **presupposes** the isomonodromic deformation family rather than deriving it. That presupposition is **supported**, not corrected: the family's existence follows from the moduli-space framework, and the printed time `t = ∓2i√33/9` is consistent with it. What C3 withdraws is only the *appearance* of an argument the paper did not give, and what it records as open is the **verification**, not the existence. |
+| **C4** | **object labels** | Which of three distinct objects the `D̃₅` attribution actually fits. |
+| **C5** | **scope tabulation** | Which passages of v1.2 cite the refuted apparency claim. It asserts nothing beyond what the page images show. |
+
+So the corrections are **C1 and C2**. C3 is the one place in this notice where an
+independent check came out **in the companion's favour**, and it is included
+because a correction notice that reported only the failures would misrepresent
+the record.
+
+### C1. Remark 2.2 is false in general
+
+Remark 2.2 asserts that the finite singularities — the roots of `χ` — are
+always apparent. This is **false**, and not merely in isolated examples: it
+fails for every such point, by the following lemma.
+
+> **Lemma.** Let `χ, c ∈ ℂ[x]` and consider
+> `χ(x) y'' + χ'(x) y' + c(x) y = 0`. Let `s` be a **simple** root of `χ`.
+> Then `s` is a regular singular point with indicial polynomial `λ²`, both
+> local exponents are `0`, the second local solution contains a logarithm with
+> **nonzero** coefficient, and therefore `s` is **never** apparent — whatever
+> `c` is.
+
+*Proof.* Write `χ = (x−s)h` with `h(s) ≠ 0`. Then
+`(x−s)χ'/χ = χ'/h → 1`, so `p = χ'/χ` has a simple pole of residue exactly `1`;
+and `q = c/χ` has at most a simple pole, so `(x−s)²q → 0`. Hence `s` is regular
+singular with indicial equation `λ(λ−1) + λ = λ² = 0`.
+
+For the logarithm, reduction of order is explicit here. Since `p = χ'/χ`, we
+have `exp(−∫p dx) = 1/χ` up to a constant, so the second solution is
+
+```
+    y₂ = y₁ ∫ dx / ( χ(x) y₁(x)² ) ,
+```
+
+where `y₁` is the Frobenius solution for exponent `0`, normalised with
+`y₁(s) ≠ 0`. The integrand has a **simple pole at `s` with residue
+`1/(h(s) y₁(s)²) ≠ 0`**, so the integral contributes `residue · log(x−s)` and
+`y₂` contains a nonzero multiple of `y₁ log(x−s)`. A point admitting a
+logarithmic local solution has nontrivial local monodromy and is not apparent. ∎
+
+Two remarks.
+
+1. **The hypothesis `c(s) ≠ 0` is unnecessary.** Even if `c(s) = 0` — so that
+   `q` is analytic at `s` — the pole of `p = χ'/χ` is untouched, and the
+   conclusion is unchanged.
+2. **The exactness identity `b = a′`, the very structure the paper highlights,
+   is what forces the result.** It is precisely what pins the residue of `p` to
+   `1` and hence forces the repeated exponent. Remark 2.2 is therefore not
+   merely unsupported: the structure it appeals to implies the **opposite** of
+   what it asserts.
+3. **Scope: this does not touch §3.** The general assertion in Remark 2.2 is
+   false; the computation in §3 is not affected by this, and indeed already
+   exhibits the unipotent monodromy that refutes the general claim. Theorem
+   3.1's own proof obtains `p₀ = 1`, `q₀ = 0` and hence `I(ρ) = ρ² = 0`
+   (numerically certified there at `dps = 150`), places the logarithm in `y₂`
+   and not `y₁`, and displays the local monodromy explicitly as
+
+   ```
+       (y₁, y₂)  ↦  [[1, 2πi], [0, 1]] (y₁, y₂) ,
+   ```
+
+   which is unipotent and **not** the identity. The lemma above is therefore
+   the general form of a computation the paper had already carried out at these
+   two points; what fails is the generalisation in Remark 2.2, not §3.
+
+   Two consequences worth stating, because they limit this correction rather
+   than extend it:
+
+   - **The formal monodromy exponents `θ₁ = θ₂ = 0` survive.** They record the
+     *difference* of the local exponents, and both exponents are `0` by the
+     double root — which is exactly what C1 confirms. Apparency is not needed
+     for `θ = 0`, and indeed `θ = 0` is precisely the resonant case in which
+     logarithms occur. Every passage of v1.2 whose operative premise is
+     `θ₁ = θ₂ = 0` is therefore untouched by this notice.
+   - **Theorem 3.1(ii) is a different statement from apparency**, and this
+     notice takes no position on it. It asserts that the *effective* monodromy
+     on the connection coefficient `M₁₁ = V_quad` is trivial, on the ground
+     that the unipotent action fixes `y₁`. That is weaker than, and logically
+     independent of, the claim that the singularities are apparent. We have not
+     re-derived it and do not assert that it is either correct or incorrect.
+
+### C2. Conjecture 4.1's stated derivation of `β = γ = 0` is refuted
+
+**The primary ground needs nothing proved in this work.** It uses only the
+companion's own local data, the companion's own stated scaling law, and Jimbo's
+published dictionary, all verifiable from published sources.
+
+The companion assigns `θ₁ = θ₂ = 0`, and **those values are correct**: the local
+exponents at both finite points really are `0, 0`. In the notation of
+
+> M. Jimbo, *Monodromy Problem and the Boundary Condition for Some Painlevé
+> Equations*, Publ. RIMS, p. 1152,
+
+where the eigenvalues of `A_ν` are `±θ_ν/2`, the dictionary reads
+
+```
+    α = (1/8)(θ₀ − θ_t + θ_∞)² ,   β = −(1/8)(θ₀ − θ_t − θ_∞)² ,
+    γ = 1 − θ₀ − θ_t ,             δ = −1/2
+```
+
+With `θ₀ = θ_t = 0` this gives `α = θ_∞²/8`, `β = −α` **identically**, and
+
+```
+    γ = 1 − 0 − 0 = 1 .
+```
+
+Hence the published tuple `(α, β, γ, δ) = (1/6, 0, 0, −1/2)` is **not
+attainable**, **on the companion's own local data**: `β = 0` forces `θ_∞ = 0`
+and so `α = 0`, contradicting `α = 1/6`; and independently `γ = 1` contradicts
+`γ = 0`. The correct statement is that `α` is **undetermined by local scalar
+data** (it depends on `θ_∞`, which that data does not fix), while `β = −α` and
+`γ = 1` are determined.
+
+**The contradiction is not a matter of convention — and the paper's own text
+settles it.** Under `z ↦ cz` the Painlevé V parameters transform as
+`(α, β, γ, δ) ↦ (α, β, cγ, c²δ)`. That is not a convention imposed from outside:
+it is **the transformation law the companion itself states and uses**, in the
+derivation following Conjecture 4.1 (v1.2, p. 6), where it is applied with
+`c = √3` to send `δ_raw = −1/6` to `δ = −1/2`. The same paragraph records that
+this "leaves `α = 1/6` and `β = γ = 0` invariant" — which holds for `γ` only
+*because* `γ` was assumed to be `0` already. With the correct value `γ = 1`, the
+identical law gives `γ ↦ √3 ≠ 0`.
+
+Holding `δ = −1/2` forces `c² = 1`, i.e. `c = ±1`, so `γ` is fixed up to sign
+and `γ = 1` cannot be rescaled to `γ = 0`. (The law was additionally derived
+independently by direct substitution, and checked under the opposite scaling
+convention, where it reads `(α, β, γ/c, δ/c²)`; the conclusion is the same
+either way.)
+
+**Independent corroboration, via C1.** Conjecture 4.1 states that `β = γ = 0`
+"reflects the fact that both finite singularities are apparent". By **C1** that
+premise is false, so the stated derivation does not stand either. This is a
+*second* and logically independent defect. Note carefully what **C1** does and
+does not change: it leaves the exponent values `θ₁ = θ₂ = 0` intact — they are
+correct — and changes the **monodromy**, which is unipotent and **nontrivial**,
+not trivial. The parameter contradiction above is therefore not dependent on
+**C1** in any way.
+
+**A caveat that must be stated in the notice.** Jimbo's page carries the
+standing assumption
+
+> **(A1)_PV**  `θ₀, θ_t ∉ ℤ`,
+
+which our case `θ₀ = θ_t = 0` **violates**. The dictionary is stated *before*
+(A1) and is not conditional on it, so the parameter computation above stands;
+but nothing Jimbo derives *after* that line — in particular the monodromy
+parametrisation and the connection analysis — is covered for this case. This is
+internally coherent: integer `θ` is exactly the resonant case, and resonance is
+exactly when logarithms appear, which is what **C1** establishes independently.
+
+### C3. The fixed Painlevé V time is determined by the configuration
+
+Jimbo normalises the irregular part at infinity so that its exponent difference
+is exactly the independent variable. Matching the operator of Conjecture 4.1 by
+an affine change `z = k(x − s₀)` therefore **forces** `k = 2/√3`, and the two
+finite singular points then sit at `0` and
+
+```
+    t = ∓ 2i√33 / 9 ,      |t| = 2√33/9 .
+```
+
+**The Painlevé V time is not a free parameter.** In van der Put–Saito's
+framework the three singular points are normalised to `0`, `1`, `∞` and the time
+is the **scale of the irregular type at infinity** — an invariant computed from
+the configuration, not a coordinate that can be varied independently. An object
+of this type therefore *arrives* with a definite `t`, and the absence of a
+written deformation is a matter of presentation rather than a defect.
+
+The honest restatement is:
+
+> **System C** has the **local formal type** of the Painlevé V / `D̃₅` family,
+> and its trace-free connection is a point of the van der Put–Saito moduli space
+> for that row — exhibited explicitly in the chart `U₀` of that space. The
+> Painlevé V time is **fixed by the affine-normalised configuration up to sign**,
+> giving `t = ∓2i√33/9`, the value printed in v1.2; two independent computations
+> located the point on the two branches, one for each sign. Membership on a
+> single isomonodromic leaf **follows from the framework**; it has **not** been
+> confirmed by an independent computation of the monodromy and Stokes data
+> (**open**).
+
+This restatement does not credit v1.2 with an argument it did not make: the
+framework supplies the leaf, and the companion supplies neither the framework
+nor the verification.
+
+> **Disclosure — a corrected published formula is load-bearing here.** The
+> identification of System C with a point of the moduli space was carried out
+> against van der Put–Saito's explicit family. The entry `b(z)` of that family,
+> as printed on p. 2655 of the journal version **and** on p. 34 of arXiv:0902.1702v5,
+> appears to contain a typographical error: its first term prints
+> `(p + ½(q−1)q)²`, with no `t`, while the parallel second term carries
+> `(q−1)qt`. As printed, the family fails the paper's own constraint
+> `det A(1) = −θ₁²/4`, by a residual carrying the factor `(t − 1)` — vanishing
+> exactly where the two readings agree. With `(p + ½(q−1)qt)²` the constraint
+> holds identically. The corrected reading is what has been used. No published
+> erratum is known to us. This correction has been **independently reproduced**
+> by two cold readers working from the page images alone, which obtained the same
+> residual factorisation in their own code. It is also visible on the page
+> itself: the same bracket appears in the matrix `B₁` of the display
+> `B = zB₀ + (1/t)B₁`, a few lines below, printed **with** the `t` — and under
+> the corrected reading `b(z)`'s first term is exactly `z · B₁[1,2]`, which it is
+> not as printed. The authors were notified of this by email; **no reply had
+> been received when this notice was finalised**, and nothing here is
+> author-confirmed.
+
+Two limitations attach to the affine matching and should be stated with it: the
+identification of the two finite singular points with Jimbo's `0` and `t` is an
+**assumption**, legitimate for placing a two-finite-singularity,
+one-irregular-singularity problem into Jimbo's normalisation, but not proved by
+the scalar equation alone; and the conclusion is conditional on that
+identification.
+
+**Recommendation:** replace Remark 2.2 with the lemma of **C1**, re-ground
+Conjecture 4.1 on the Katz-multiset match rather than on apparency, restate it
+in the form above, and **keep it a conjecture**.
+
+**Scope of the open question.** Because **B** and **C** are projectively
+equivalent under `z ↦ 1/x` (see **C4**), the embedding question need only be
+posed **once**: any deformation constructed for one, transported by that
+equivalence, settles the other. It is natural to pose it for **C**, which
+already carries the companion's printed normalisation and the fixed time above.
+This reduces two open questions to one. What remains open is not the existence
+of a deformation — the framework supplies that — but the **verification**: an
+independent computation of the monodromy and Stokes data along the leaf. Anyone attempting the transport should check that `z ↦ 1/x`
+carries **C**'s time `t = ∓2i√33/9` to a consistent time for **B**. That check
+has **not** been performed here and is recorded as part of the future problem,
+not as a result of this notice.
+
+### C4. Labels are per object — "V_quad" alone is ambiguous
+
+Three distinct objects have been referred to as "the V_quad object". They have
+different formal types, and future text should name them distinctly.
+
+| Object | Description | Katz multiset | van der Put–Saito Table 2.1 row |
+|---|---|---|---|
+| **A** | the series `Σ Qₙ zⁿ` that Channel Theory computes on | `(1/2, −, 1/2)` | PIII(D₈); quadratic cover in the PIII(D₆) row |
+| **B** | `L_φ` | `(0,0,1)` | PV / `D̃₅` |
+| **C** | Conjecture 4.1's ODE | `(0,0,1)` | PV / `D̃₅` |
+
+Objects **B** and **C** carry the same row for a stronger reason than a
+coincidence of invariants: they are **projectively equivalent under `z ↦ 1/x`**
+— related by that change of variable together with a scalar (rank-1) gauge
+transformation. Concretely, their trace-free normal forms are *identically
+equal*: writing the companion's ODE as `A W'' + A′ W' + C W = 0` with
+`A = 3x²+x+1`, both normal potentials are
+
+> `(12x⁴ + 4x³ + 4x² + 11) / (4(3x²+x+1)²)`,
+
+and the inversion carries **B**'s singular points `(−1 ± i√11)/2` exactly onto
+**C**'s `(−1 ± i√11)/6`. They are **not the same operator**: their printed forms
+differ by the rank-1 twist `A^(−1/2)`, which alters the trace by `−dlog A ≠ 0`
+and so falls outside the trace-free class of p. 2634. That twist is a feature of
+the printed presentation, not of the classification: **B**'s row is read from its
+trace-free normal form, which inversion alone reaches. Earlier drafts of this
+notice qualified row **B** with the phrase "up to inversion and twist"; the twist
+clause was both unnecessary and, as stated, inaccurate, and has been removed.
+
+**This sharpens the point of C4.** The three names do not label three unrelated
+objects but **two equivalence classes**: object **A**, which is what Channel
+Theory actually computes on, and the class `{B, C}`, which is the one the `D̃₅`
+label fits. The conflation being corrected is precisely between **A** and the
+`{B, C}` class.
+
+Source for the table:
+
+> M. van der Put and M.-H. Saito, *Moduli spaces for linear differential
+> equations and the Painlevé equations*, **Ann. Inst. Fourier 59 (2009)**,
+> Table 2.1, **p. 2635**.
+
+Seven points must accompany this table wherever it is used:
+
+1. **All row matches are necessary conditions only.** A matching Katz multiset
+   does not establish family membership for any of the three objects. Table 2.1
+   is captioned *"Classification of **Families**"*, and p. 2634 sets it up for
+   *"a local family `M(u)` of differential modules, represented by a matrix
+   equation `d/dz + A(z,u)` where `A(z,u)` is a 2×2-matrix with trace 0"*. It
+   classifies **families of rank-2 trace-free connections**, not individual
+   scalar operators.
+2. **The PIII(D₆) match for A's cover is at special parameters**, not generic
+   ones; it should be described as "a special PIII(D₆) family".
+3. **The `D̃₅` label belongs, at most, to objects B and C** — not to object A,
+   which is what Channel Theory actually computes on.
+4. **The source of the v1.0–v1.3 PIII(D₆) label is not established.** Nothing in
+   this work shows which object it was derived for, so it must **not** be
+   claimed that the earlier label was right.
+5. **Object A's row is one of exactly two exceptional rows in the paper.**
+   This is the sharpest caveat and it must not be omitted. On p. 2634,
+   immediately before the table, van der Put–Saito write:
+
+   > "For a differential module `M` corresponding to one of the types, the
+   > strong Hilbert-Riemann problem has a positive answer, **except possibly
+   > for `(1/2, −, 1/2)` and `(−, −, 5/2)`** […] For these two types we only
+   > consider the modules `M(u)` for which the strong Riemann–Hilbert problem
+   > does have a positive answer."
+
+   `(1/2, −, 1/2)` **is object A's type**. So the PIII(D₈) row does not even
+   apply to all modules with that Katz data: the authors *restrict* the row to
+   those satisfying an additional condition, which has **not** been checked for
+   object A. Any use of this row must carry that restriction.
+
+6. **There is an unbridged scalar-to-connection gap.** `L_A` is a scalar
+   second-order operator; the table concerns rank-2 trace-free connections.
+   The companion construction followed by the gauge that removes the
+   first-derivative term should not disturb the irregular Katz slopes, but the
+   determinant condition, irreducibility and singular set of the resulting
+   connection have not been verified.
+
+7. **`dim P = 0` for the PIII(D₈) row** means only that the family has **no free
+   parameters** in the authors' sense. `P` is not a parameter space of the
+   differential equations in any loose sense: on p. 2634 it is *"a space of
+   parameters `P` (related to the parameters spaces of the Painlevé equations)
+   consisting of traces or eigenvalues of the matrices involved in the
+   construction of `R`"*, and on p. 2635 *"`R → P` is a family of affine cubic
+   surfaces"*. So `P` is the base of a cubic-surface fibration on the
+   **monodromy** side.
+
+   A zero-dimensional `P` is the expected and correct value for PIII(D₈); it is
+   **not** a defect, and it says nothing about the isomonodromic **time**
+   variable. The source itself makes this explicit — immediately after Table 2.1
+   it writes:
+
+   > "We will also describe the corresponding **one-dimensional families of
+   > differential modules `M(t)`**."
+
+   Note also that the table's `r(t)` column is a **Katz-invariant column for a
+   singular point** named `t`, present only when the singular set contains one:
+   the PVI row `(0,0,0,0)` has `r(t) = 0` with `S = {0,1,∞,t}`, whereas the
+   PIII(D₈) row has `r(t) = −`. The letter `t` therefore does two different jobs
+   on that page, and `dim P = 0` must **not** be read as bearing on the
+   single-fibre question of **C3**, which concerns the **verification** of
+   membership, not the absence of parameters. Whether object A lies in a
+   deformation is a **separate open question**.
+
+**An open question, not a claim.** The quadratic cover of object A lands in the
+`(1, −, 1)` row, which is **not** one of the two exceptional types, so the
+strong Riemann–Hilbert guarantee is unrestricted there. Whether that can be used
+to decide the strong Riemann–Hilbert condition for object A itself is
+**unverified**; the pullback relation between the two problems has not been
+examined. This is recorded as a **possible approach only**, labelled
+**CONJECTURED**, and no weight rests on it.
+
+**Notation.** The three-entry form `(1/2, −, 1/2)` is **van der Put–Saito's own**
+designation, not a contraction introduced here. On p. 2634 they write: *"We will
+not number these ten families, but indicate them by their Katz invariants, e.g.,
+`(0, 0, 0, 0)`, `(0, 0, 1)`, …, `(0, −, 3/2)`, `(−, −, 3)`, `(−, −, 5/2)`."*
+The printed table nevertheless has four ordered columns `r(0), r(1), r(∞), r(t)`,
+and the matches above were made in that column order, with a dash denoting an
+absent singular point.
+
+### C5. Downstream passages that depend on the apparency claim
+
+**C1** invalidates a premise that is used in more than one place in v1.2. Each
+of the following must be revisited when the notice is drafted; they were located
+by a full-text pass over v1.2 and read from page images, and the list was then
+re-checked passage by passage against the printed pages in a second pass, which
+added the `§3` row below and reclassified three further passages as **not**
+resting on apparency (see the note following the table).
+
+| v1.2 location | Passage | Effect of C1 |
+|---|---|---|
+| §3, Remark 3.2 | "the monodromy at the finite singularities is exactly trivial by algebra" | asserted without the `M₁₁` qualifier that Theorem 3.1(ii) carries, so it states apparency. This notice records the dependency and takes no position on the sentence's correctness |
+| §4, Conjecture 4.1 | "The vanishing `β = γ = 0` reflects the fact that both finite singularities are apparent" | premise false; and `γ = 0` fails independently (see **C2**) |
+| §4, Conjecture 4.1 derivation | "two regular singularities with formal monodromy exponents `θ₁ = θ₂ = 0` (apparent)" | the **exponents** `0, 0` are correct; the parenthetical "(apparent)" is not |
+| §4 opening | "two regular singularities (at `s₁, s₂`, both apparent)" | false |
+| §6, Remark 6.1 | v1.2's own version notice, "derived from the WKB and apparent-singularity data" | restates the refuted derivation |
+| §7.1, item 1 | "The finite singularities are apparent (trivial monodromy), so `V_quad` cannot arise as a period or CM value at these points" | **substantive.** The monodromy is unipotent and *nontrivial*, so this argument for the identification obstruction does not stand as written |
+
+**Three passages were examined and are *not* listed, deliberately.** Each uses
+the word "apparent", and in each the operative premise is something else:
+
+* **§4, Remark 4.2** — "In the present case `θ₁ = θ₂ = 0` (apparent
+  singularities), the standard connection formula degenerates … consistent with
+  the failure of all tested PSLQ identification bases." What the degeneration
+  of the Jimbo connection formula rests on is `θ₁ = θ₂ = 0`, and those exponents
+  survive **C1** (see C1, point 3). That v1.2 states the same fact **without**
+  the gloss at §7.1 item 3 — "The standard Jimbo connection formula degenerates
+  at `θ₁ = θ₂ = 0`" — confirms the reading. Only the parenthetical is affected.
+* **§6, Remark 6.7** — "The finite singularities … are apparent (trivial local
+  monodromy on `M₁₁ = V_quad`; Theorem 3.1), so `S` cannot be a CM period,
+  Γ-value, or classical hypergeometric special value by any monodromy-based
+  argument." The parenthetical glosses "apparent" as Theorem **3.1(ii)**'s
+  statement about `M₁₁`, which is not the apparency claim; the conclusion drawn
+  is likewise about `M₁₁`. This notice takes no position on Theorem 3.1(ii).
+* **§3, Theorem 3.1** itself — not a downstream passage but the source of the
+  correct local computation; treated under **C1**, point 3.
+
+These exclusions are as much a part of the tabulation as the inclusions. A
+correction notice that swept in every occurrence of the word would overstate the
+reach of **C1**.
+
+The last row is the substantive one, and the notice should treat it as follows —
+**recording what fails, not rebuilding the argument**:
+
+* **item 1 (apparency) is refuted**, citing **C1**;
+* the characterisation of §7.1 as a **"complete explanation"** is **withdrawn**;
+* items 2–4 **do not depend on apparency**, and **their correctness is not
+  re-examined in this notice**.
+
+The last point is deliberately worded as a statement of scope, not of
+endorsement. Nothing in this work has independently checked items 2–4, so the
+notice must not say or imply that they "survive", "stand", or "are unaffected in
+substance". Rebuilding §7.1 belongs to a later revision of the body, not to a
+correction notice.
+
+Note also that §2.2's other conclusions are not touched by **C1**: the identity
+`b(x) = a′(x)`, the discriminant observation `disc(χ) = −11`, and the
+demystification of the "CM numerology". **C1** refutes only the final clause of
+Remark 2.2. Their correctness is likewise not re-examined here.
+
+---
+
+| Item | Label | Review |
+|---|---|---|
+| C1 lemma | PROVEN | **cold** — independently checked, and the reduction-of-order argument above is the cold reader's improvement on the original |
+| C2 contradiction | PROVEN (computation) | **cold** — scaling law re-derived independently in both conventions |
+| C2 (A1) violation | INSPECTED | **cold** — independently rediscovered from the page image |
+| C3 fixed `t` | STRUCTURAL | **cold with caveat** — conditional on the affine identification |
+| C3 moduli-space membership | STRUCTURAL | **cold** — `CT-S19-COLDREAD-MEMBERSHIP` independently derived its own point of the chart `U₀` from scratch, comparing **both** `P` and `Q`, and confirmed the choice of scalar reduction from the paper's own sentence *"The first basis vector is chosen as cyclic vector"* (p. 2655). It landed on the **opposite branch** to the earlier work, so the two independent computations between them exhibit both signs of `t = ∓2i√33/9`. An earlier reader (`CT-S18`) had challenged this row by comparing against the wrong component of the rank-2 system and was overruled (`VERIFY-S18.md`); the reissued packet named that question explicitly. One hypothesis, the monodromy condition `s₃ ∈ C*`, was returned **UNDECIDED** for want of monodromy data — which is the same computation C3 already names as open |
+| C3 corrected `b(z)` | VERIFIED | **cold ×2** — independently reproduced by `CT-S18-COLDREAD-C3`, which read `(p + ½(q−1)q)²` off p. 2655 without sight of the evidence pack, derived the **same** residual factorisation `−(q−1)(t−1)(4p + q²t + q² − qt − q)/4` in its own code, and ran its own bogus-variant control; and again by `CT-S19-COLDREAD-MEMBERSHIP`. Read from two page images (journal p. 2655 and arXiv v5 p. 34) |
+| C4 row matches | STRUCTURAL | **cold ×2** — CT-S13-COLDREAD5 recomputed the Katz data in its own code and read Table 2.1 from the page images; it returned **ERROR** on the sufficiency inference and located the strong-Riemann–Hilbert restriction, and the claim text was weakened accordingly (points 1, 5–7 above). CT-S14-COLDREAD-B then cold-read row **B** specifically and established the exact normal-form identity now stated under the table |
+| C5 tabulation | INSPECTED | **n/a** — C5 records which passages of v1.2 cite the apparency claim. It asserts nothing beyond what the page images show, so inspection is the appropriate standard |
+
+Nothing here is machine-checked, and the notice must not claim otherwise.
+
+### Supporting claims that have *not* had an independent check
+
+The headline claims above are cold-reviewed, but a claim can rest on
+sub-claims that are not. The full dependency audit is in
+`DEPOSIT-DEPENDENCIES.md`: of 49 supporting claims, **48 are cleared** by one of
+four routes. One remains: `R1-57`, which is CONJECTURED on the face of this notice
+and carries no weight. The three claims that were open at the
+last review are listed below with their disposition, because the record should
+say plainly where the support was thinner than the headline.
+
+| Supporting claim | Session | Label | Review | Supports | Disposition |
+|---|---|---|---|---|---|
+| `R1-56` | CT-R1-AUDIT | STRUCTURAL | **cold** | C4 point 7 | **cleared** — CT-S15-COLDREAD-DEFERRED |
+| `CT-S9-PVPARAMS-C014` | CT-S9-PVPARAMS | STRUCTURAL | **cold** | C3 | **cleared** — CT-S15-COLDREAD-DEFERRED |
+| `R1-57` | CT-R1-AUDIT | CONJECTURED | `self` | C4 | corroborating only — remains `self`; CONJECTURED on the face of the notice |
+
+These three were assessed by a single test: **if the claim were false, would any
+sentence in this notice change?** The reasoning is recorded in full in
+`LOADBEARING-TEST.md`.
+
+* **`R1-56` was load-bearing.** C4 point 7 exists only to state it, and nothing
+  else in the notice supplied its content. It was sent for an independent cold
+  read, which returned **CORRECT WITH WORDING CHANGE** and — more usefully —
+  located a sentence on p. 2635 that supports the point *directly* rather than by
+  inference: *"We will also describe the corresponding one-dimensional families
+  of differential modules `M(t)`."* Point 7 has been rewritten to use the source's
+  own narrower definition of `P` and to quote that sentence.
+* **`CT-S9-PVPARAMS-C014` was corroborating only** — the notice asserts that the
+  embedding question is **open**, which its falsity would not contradict, and
+  C3's statement that the time is **determined by the configuration** rests on
+  the separately cold-reviewed
+  affine computation. It travelled in the same packet regardless, and returned
+  **CORRECT**, so it is now `cold` rather than `self`.
+* **`R1-57` is corroborating only.** It is introduced as *"an open question, not
+  a claim"* and labelled CONJECTURED, so no cold read could change any sentence.
+  It was not sent.
+
+Both cold-read statements were adopted claim by claim in `VERIFY-S15.md`, which
+also records two transcription errors in that reader's report that were
+**rejected** — see the methodology note below.
+
+Two further gaps stood in this list until recently and are now **cleared**:
+
+| Supporting claim | Session | Label | Review | Supports | Disposition |
+|---|---|---|---|---|---|
+| `S4-06` | CT-S4-FORMAL-TYPE | PROVEN | **cold** | C4, row **B** | **cleared** — CT-S14-COLDREAD-B |
+| `S5B-C6` | CT-S5B-COVER | PROVEN | **cold** | C4, row **B** | **cleared** — CT-S14-COLDREAD-B |
+
+They carried the `D̃₅` attribution for object **B**, which is where a wrong row
+would have done the most damage, so they were sent for an independent cold read
+before deposit. The specific question put to that reader was whether the twist
+relating **B** to System C preserves membership of the trace-free class Table 2.1
+classifies. The answer, adopted claim by claim in `VERIFY-S14.md`: the twist does
+**not** preserve that class, but **B** does not need it — inversion alone
+identifies **B**'s trace-free normal form with the companion's, exactly. Row
+**B** stands, and the "up to twist" qualifier has been removed from the notice as
+both unnecessary and inaccurate.
+
+---
+
+## Methodology note on the cold reads
+
+Two of the cold reads behind this notice returned findings that were adopted only
+in part, and the record names what was rejected.
+
+**CT-S13-COLDREAD5** returned **ERROR** on a sufficiency inference in C4 and
+located the strong-Riemann-Hilbert restriction now quoted at point 5. Both were
+adopted, and the claim text was weakened accordingly.
+
+**CT-S14-COLDREAD-B** established the normal-form identity now stated under the
+C4 table. Its description of the integer-difference points as *apparent* was
+**rejected**: by the lemma of **C1**, residue 1 with Q at most a simple pole
+forces a log term, so those points are non-apparent. Its substantive conclusion,
+that they are not ordinary, was adopted. That reader was isolated from **C1** by
+design and could not have known.
+
+**CT-S15-COLDREAD-DEFERRED** was supplied with page images. Two of its
+transcriptions were **rejected** after the pages were re-read directly: it
+rendered the constant matrix in Jimbo's (3.1) as (1/2)sigma_3 where the page
+prints diag(1,0), and it reported (A1)_PV as constraining theta_inf as well as
+theta_0 and theta_t, where the page prints only theta_0, theta_t not in Z.
+
+This notice previously attributed both to OCR. That was wrong, and the fault was
+ours. The image supplied to that reader as Jimbo p. 1152 is in fact printed
+p. 1153: it carries (A3)_PV, which *does* constrain theta_inf, and it does not
+carry (3.1) at all. The file had been named by its position in the PDF rather
+than by the number printed on the page. Both transcriptions were therefore
+faithful readings of the page the reader was given, and the defect was in the
+construction of the packet, not in the reader.
+
+Neither error reached this notice. Every Jimbo passage relied on here — the
+(A1) line and the PV dictionary quoted in **C2** — was re-verified on deposit
+day by direct reading of the true printed p. 1152, and is correct as printed.
+Its two verdicts, and the p. 2635 M(t) sentence it located, were adopted.
+
+None of this is machine-checked, and the notice must not claim otherwise.
+
+## Deposit-day checklist (P0 citation rule) — RUN, 18 September 2026
+
+The operator's ruling was to perform this pass **immediately before uploading**,
+not earlier, so that the recorded hashes match what is actually cited on the day.
+It was run on the day of deposit. All four rows re-fetched; all four
+load-bearing page images re-read by eye.
+
+| # | External citation | Result |
+|---|---|---|
+| 1 | van der Put & Saito, *Ann. Inst. Fourier* **59** (2009), Table 2.1, p. 2635, and the strong-Riemann–Hilbert passage on p. 2634 | re-fetched, sha256 `1666bd6b…`, unchanged from the held copy; pp. 2634, 2635 and 2637 re-read from images, all as quoted |
+| 2 | Jimbo, *Publ. RIMS*, p. 1152 — the PV dictionary **and** assumption (A1)_PV | re-fetched, sha256 `255d4f07…`, unchanged; printed p. 1152 re-read from an image: (3.1) prints diag(1,0), (A1)_PV prints theta_0, theta_t not in Z, and the dictionary gives gamma = 1 − theta_0 − theta_t |
+| 3 | Companion v1.2 (Zenodo version DOI) — Remark 2.2, Conjecture 4.1, the tuple, the scaling paragraph on p. 6, §7.1 | re-fetched; still version **1.2**, version DOI `10.5281/zenodo.20481592`, concept DOI `10.5281/zenodo.20455089`; deposited file unchanged |
+| 4 | DLMF §32.2 (cited by v1.2 for the PV normalisation) | re-fetched; **Version 1.2.8, released 2026-09-15** — the release this notice cites |
+
+Per the rule, **hypotheses as well as theorem statements** are in scope — that
+is the lesson of the Gautschi (2.8) near-miss, where an OCR layer rendered the
+hypothesis in a way that would have reversed the conclusion. Read page images,
+never the text layer, for anything load-bearing.
+
+The pass also found a defect of our own, recorded above under
+**CT-S15-COLDREAD-DEFERRED**: a stored page image had been named by its position
+in the PDF rather than by the number printed on it. No quotation in this notice
+was affected, and every affected passage was re-read from the correct page. A
+rendered page is now identified by the number printed on it, never by the
+arithmetic that produced it.
+
+**Status of the notice itself:** all three gates closed; both cold reads
+(`CT-S14-COLDREAD-B` on row **B**, `CT-S15-COLDREAD-DEFERRED` on `R1-56` and
+`CT-S9-PVPARAMS-C014`) have returned and been adopted claim by claim. Every
+supporting claim is `cold` or INSPECTED except `R1-57`, which is CONJECTURED
+on the face of the notice and carries no weight. The deposit-day citation pass
+above is complete. Nothing in this record has been committed or submitted
+elsewhere.

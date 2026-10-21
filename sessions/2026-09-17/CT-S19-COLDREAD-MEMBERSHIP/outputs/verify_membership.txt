@@ -1,0 +1,30 @@
+batch symbolic comparisons in=4
+P1_minus_PC= 0
+Q1_minus_QC_cancel_is_zero= True
+Q1_minus_QC_radsimp_num_is_zero= True
+P2_minus_PC= -11128*(457937*sqrt(11) + 281700*sqrt(33) - 61204*I)/(5095922936*sqrt(11)*z + 3134757600*sqrt(33)*z - 681078112*I*z + 258001705800*sqrt(3)*I + 448111505025*I)
+theta0_sq= 0 theta1_sq= 0
+batch symbolic comparisons out=4
+wrong_Q_shift_symbolic_zero= False
+batch numeric substitution in=6
+z= 2/3 absP= 0.0 absQ= 2.695197924530008e-284
+z= 3/2 absP= 0.0 absQ= 1.101805309446149e-280
+z= 2 absP= 0.0 absQ= 5.545472418115765e-284
+z= 3 absP= 0.0 absQ= 4.23575470456888e-286
+z= -1 absP= 0.0 absQ= 1.3779263331148093e-281
+z= 5/4 absP= 0.0 absQ= 1.1018116139846136e-280
+batch numeric substitution out=6 max= 1.1018116139846136e-280 dps=90
+detA0_good_plus_theta0sq_over4= 0
+detA0_bad_plus_theta0sq_over4= -q*(q*t - q - t + th + 1)*(4*p + q**2*t + q**2 - q*t + q*th - q)/4
+batch local-system residuals in= 9
+Y_at_z= (1, 0) z= 4/5 res_abs= 1.0033153704711505e-208
+Y_at_z= (1, 0) z= 13/10 res_abs= 3.895336155431589e-208
+Y_at_z= (1, 0) z= 11/5 res_abs= 3.441343329750688e-209
+Y_at_z= (0, 1) z= 4/5 res_abs= 4.013261481884602e-208
+Y_at_z= (0, 1) z= 13/10 res_abs= 1.0882483132640066e-208
+Y_at_z= (0, 1) z= 11/5 res_abs= 8.60335832437672e-210
+Y_at_z= (1, -2) z= 4/5 res_abs= 1.0033153704711505e-208
+Y_at_z= (1, -2) z= 13/10 res_abs= 3.895336155431589e-208
+Y_at_z= (1, -2) z= 11/5 res_abs= 3.441343329750688e-209
+batch local-system residuals out=9 max= 4.0132614818846019629132321301129285023118984357927201167651609485823208989186591e-208 dps=100
+wrong_component_P_residual_sample_max= 0.039017443893121517173352401717253264827516112037243

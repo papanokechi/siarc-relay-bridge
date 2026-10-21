@@ -1,0 +1,143 @@
+\section{Computational methods}\label{app:methods}
+
+This appendix records the algorithms behind the numerical statements of
+\S\ref{sec:growth}, \S\ref{sec:monodromy} and \S\ref{sec:leaf}, the controls
+that were run against them, and the residuals they achieved. It also discharges
+the forward reference made in \S\ref{sec:monodromy}, where two algebraic
+identities were deferred to here.
+
+A statement of scope first, because it is easy to leave implicit and it should
+not be. What follows states what was computed, at what precision, with which
+controls, and to what residual. It does not make the computations
+reproducible from this text alone: reproduction requires the scripts, which are
+recorded with the claims and not reprinted here. That is the ordinary condition
+of a paper of this kind, and it is said plainly rather than left to be
+discovered.
+
+\subsection{The solver, and its known-answer test}\label{ssec:methods-solver}
+
+Every monodromy and Stokes computation in \S\ref{sec:monodromy} and
+\S\ref{sec:leaf} is produced by one solver. Before it was applied to System
+$\mathsf C$, it was run against a case whose answers are known in closed form.
+
+\begin{remark}[Known-answer battery; \texttt{S22-01}, \textbf{VERIFIED}]
+The solver reproduces Kummer's monodromy, formal and Stokes data against closed
+forms: $32$ of $32$ checks pass at at least $35$ digits, with $44$ to $151$
+digits observed, at both pre-registered parameter values.
+\end{remark}
+
+Two features of that test are worth naming. The parameter values were fixed
+before the run, so the battery could not be tuned to the solver; and the
+quantities checked include Stokes data, not only monodromy, so the irregular
+part of the machinery is exercised rather than assumed.
+
+\subsection{Truncation of the formal series}\label{ssec:methods-truncation}
+
+The formal solution at the irregular point is divergent, and it is used
+truncated. Where to truncate is decided by the series itself.
+
+\begin{remark}[Optimal truncation; \texttt{S22-09}, \textbf{VERIFIED}]
+The truncated formal series' residual sits at the minimal term of the series
+--- ratio $1.29$ against a bound of $N^{3}$ --- and decays at the predicted
+Gevrey rate $e^{-|t|R}$ between $R=160$ and $R=140$, with observed over
+predicted $1.259$.
+\end{remark}
+
+The truncation radius is pre-registered rather than chosen after the fact, and
+this has a consequence that surfaces in the transport computation: the
+truncation level it fixes is a floor on the achievable agreement.
+
+\begin{remark}[The floor is truncation, not precision; \texttt{S22-17}, \textbf{VERIFIED}]
+Raising the working precision from $200$ to $320$ digits leaves the transport
+agreement and its ratio unchanged to every printed figure --- $90.8118$,
+$91.8301$, ratio $10.429999$ --- while every precision-limited control improves
+by about $120$ digits: one residual from $1.20\times10^{-105}$ to
+$5.57\times10^{-225}$, a second from $3.96\times10^{-112}$ to
+$7.13\times10^{-232}$, a third from $2.35\times10^{-113}$ to
+$3.30\times10^{-233}$, while the $\alpha$ residual stays at
+$1.834\times10^{-91}$. The floor is the optimal-truncation level
+$10^{-88.7}$ set by the pre-registered $R$, which no precision can reduce.
+\end{remark}
+
+This is the paper's clearest instance of a control that separates two
+explanations of the same number. Had the residual been round-off, it would have
+fallen with the precision; the controls did fall and it did not.
+
+\subsection{Two algebraic checks, and what went wrong with them}\label{ssec:methods-algebra}
+
+\S\ref{sec:monodromy} deferred two identities to this appendix. Both are
+recorded here because each was, as first written, defective --- one vacuously
+true, one comparing incompatible factorisation orders --- and because the
+repaired versions do not carry the evidential weight the originals appeared to.
+
+\begin{remark}[A check that could not fail; \texttt{S22-04}, \textbf{PROVEN}]
+Check A6a as first written was algebraically vacuous: $(1+f_1f_2)/\alpha=M_{22}$
+equals $(1-\det M)/m_{11}$ and so vanishes identically for any unimodular $M$
+with $M_{11}\neq0$. It could not fail. This was proved by simplification to
+zero together with an independent numeric arm.
+\end{remark}
+
+\begin{remark}[A check comparing two orderings; \texttt{S22-05}, \textbf{PROVEN}]
+Check A7 as first written used the source's diagonal--lower--upper ordering,
+with trace $\alpha+(1+f_1f_2)/\alpha$, against a computed
+diagonal--upper--lower factorisation, with trace
+$\alpha(1+f_1f_2)+1/\alpha$; the two differ by
+$(\alpha-1/\alpha)f_1f_2$. At the known-answer values the wrong ordering misses
+$2\cos(\pi b)$ by $0.9612$, while the corrected one holds to
+$1.15\times10^{-29}$, reproducing the observed failure at order one.
+\emph{The corrected identity is a dependent restatement of three checks
+already made, not independent evidence.}
+\end{remark}
+
+The last sentence is the reason both appear here rather than among the
+supporting evidence of \S\ref{sec:monodromy}. A repaired check that restates
+what other checks already established is a consistency test on the algebra, and
+counting it as a further confirmation would inflate the evidence.
+
+\subsection{Extrapolation and high-precision limits}\label{ssec:methods-extrapolation}
+
+The growth-law statements of \S\ref{sec:growth} rest on extrapolating a ratio
+sequence, with the extrapolation itself controlled.
+
+\begin{remark}[The exponent, over eight representatives; \texttt{S2-01}, \textbf{VERIFIED}]
+For all $8$ quartic representatives the growth law
+$Q_n/\Gamma(4n+1)\sim K(\beta_4/4^{4})^{n}n^{s}$ holds with
+$s=\beta_3/\beta_4+3/2$. The maximum of
+$\lvert s_{\text{measured}}-s_{\text{predicted}}\rvert$ over the eight is
+$7.118\times10^{-16}$, after $4$ levels of ratio-$2$ Richardson extrapolation
+on the ladder $n=1250,2500,5000,10000,20000$ at $80$ digits. The
+pre-registered falsifier $\lvert\text{diff}\rvert>10^{-6}$ did not fire.
+\end{remark}
+
+\begin{remark}[The limit, to high precision; \texttt{S3B-09}, \textbf{VERIFIED}]
+The limit of the normalised denominator sequence for the quadratic
+representative was computed to $2317.8$ confirmed digits, by agreement between
+runs at $N$ and $2N$ with $N=20000$, $L=640$, stride $520$, at $2800$ digits of
+working precision. This supersedes an earlier $180$-digit value and an earlier
+value at about $13.5$ digits; all three are mutually consistent.
+\end{remark}
+
+Two points of method are visible in the second of these. Confirmation is by
+agreement between two runs at different truncation, not by a residual
+internal to one run; and the superseded values are recorded as superseded and
+checked for consistency, rather than replaced silently.
+
+\subsection{What the methods do not establish}\label{ssec:methods-limits}
+
+Three limitations follow from the above and are stated here rather than left
+implicit.
+
+\begin{enumerate}
+\item Agreement between two runs at different truncation is evidence of
+  internal consistency at a stated precision. It is not a proof, and every
+  label attached to such a statement in this paper is \textbf{VERIFIED} for
+  that reason.
+\item The transport residual is bounded below by a pre-registered truncation
+  radius, so the digits quoted in \S\ref{ssec:numerical-scope} are the
+  instrument's ceiling at that step size, not an approach to an exact
+  statement.
+\item No displayed formula in this paper has been re-derived here from the
+  script that computed it. The formulas trace to recorded claims; re-deriving
+  them symbolically, and verifying against the page those that came from a page
+  rather than a script, is a separate exercise this paper does not perform.
+\end{enumerate}

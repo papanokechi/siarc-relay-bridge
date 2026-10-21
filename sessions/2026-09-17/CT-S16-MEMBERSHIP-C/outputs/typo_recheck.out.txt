@@ -1,0 +1,21 @@
+======================================================================
+AS PRINTED        (p + 1/2 (q-1)q )^2
+   det A(0) = -theta_0^2/4      residual = 0
+                                SATISFIED IDENTICALLY: True
+   det A(1) = -theta_1^2/4      residual = -(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+                                SATISFIED IDENTICALLY: False
+======================================================================
+PROPOSED CORRECTION (p + 1/2 (q-1)q t)^2
+   det A(0) = -theta_0^2/4      residual = 0
+                                SATISFIED IDENTICALLY: True
+   det A(1) = -theta_1^2/4      residual = 0
+                                SATISFIED IDENTICALLY: True
+======================================================================
+printed reading, det A(1) + theta_1^2/4 at an exact rational point:
+   point   : {'p': '2/7', 'q': '5/3', 't': '11/4', 'theta_0': '0', 'theta_1': '0', 'theta_inf': '3/5'}
+   value   : -223/144 = -1.5486111111111111111
+   nonzero : True
+======================================================================
+CONTROL, bogus variant (q-1)q t^2 :
+   det A(1) residual identically zero? False
+   control behaved correctly (test is discriminating)

@@ -1,0 +1,120 @@
+===== thm:radius Step 3: lines 187-233 =====
+187: with $w^*=d^d/\bd$.
+188: \end{enumerate}
+189: At $d=2$ this gives $\xi_0=2/\sqrt{\beta_2}$, matching the statement labelled
+190: \texttt{prop:xi0} in Channel Theory v1.3.1.
+191: \end{remark}
+192: 
+193: \begin{proof}[Proof of Theorem~\ref{thm:radius}]
+194: We deliberately avoid Gamma asymptotics, using only $r_n\to\rinf\neq0$ and
+195: elementary bounds, together with $\lim_{n}(m!)^{1/n}$-type facts in the
+196: elementary form below.
+197: 
+198: \medskip\noindent\textbf{Step 1 (reduce to $B_n$).}
+199: By \eqref{eq:rn}, $Q_n=r_nB_n$ exactly. Since $r_n\to\rinf\neq0$, we have
+200: $|r_n|^{1/n}\to1$: indeed for large $n$, $\tfrac12|\rinf|\le|r_n|\le2|\rinf|$,
+201: and $c^{1/n}\to1$ for any fixed $c\in(0,\infty)$. Hence
+202: $\lim|Q_n/(dn)!|^{1/n}=\lim|B_n/(dn)!|^{1/n}$ whenever the latter exists.
+203: \emph{This is the only place (H) is used, and it is used essentially: if
+204: $\rinf=0$ then $|r_n|^{1/n}$ need not tend to $1$.} \textsc{complete.}
+205: 
+206: \medskip\noindent\textbf{Step 2 ($B_n$ against $(n!)^d$).}
+207: Write $b(k)=\bd k^d\,u_k$ with $u_k:=b(k)/(\bd k^d)\to1$. Then
+208: \[
+209: B_n=\bd^{\,n}\,(n!)^{d}\prod_{k=1}^{n}u_k .
+210: \]
+211: Since $u_k=1+O(1/k)$ and $u_k\neq0$ by (A1), we have $\log|u_k|=O(1/k)$, so
+212: $\bigl|\sum_{k\le n}\log|u_k|\bigr|=O(\log n)$ and therefore
+213: $\bigl(\prod_{k\le n}|u_k|\bigr)^{1/n}=\exp\bigl(O(\log n)/n\bigr)\to1$.
+214: Hence
+215: \begin{equation}\label{eq:Bnroot}
+216: \lim_{n\to\infty}\left|\frac{B_n}{(n!)^{d}}\right|^{1/n}=|\bd| .
+217: \end{equation}
+218: \textsc{complete.} (Only $\log(1+x)=O(x)$ and $\sum_{k\le n}1/k=O(\log n)$ are
+219: used; no Stirling.)
+220: 
+221: \medskip\noindent\textbf{Step 3 ($(n!)^d$ against $(dn)!$).}
+222: We claim
+223: \begin{equation}\label{eq:multinomial}
+224: \lim_{n\to\infty}\left(\frac{(dn)!}{(n!)^{d}}\right)^{1/n}=d^{\,d}.
+225: \end{equation}
+226: Write $C(k_1,\dots,k_d):=\binom{dn}{k_1,\dots,k_d}=(dn)!/(k_1!\cdots k_d!)$ for
+227: a composition $k_1+\cdots+k_d=dn$ into non-negative parts.
+228: 
+229: \emph{Sub-lemma (the balanced composition is maximal).} $C$ attains its maximum
+230: over all such compositions at $k_1=\cdots=k_d=n$. Indeed, suppose
+231: $k_i\ge k_j+2$ for some $i\neq j$. Replacing $(k_i,k_j)$ by $(k_i-1,k_j+1)$
+232: leaves the total $dn$ unchanged and multiplies $C$ by
+233: \[
+
+===== thm:growth Step 3: lines 302-347 =====
+302: \medskip\noindent\textbf{Step 2 (convergence of the correction product).}
+303: This is the step the prompt asks to be exhibited. Put $\kappa:=\bdm/\bd$ and
+304: consider
+305: \[
+306: \Pi_n:=\prod_{k=2}^{n}\left[\frac{b(k)}{\bd k^{d}}\left(\frac{k}{k-1}\right)^{-\kappa}\right].
+307: \]
+308: Now $b(k)/(\bd k^d)=\prod_i(1-r_i/k)=1-\bigl(\sum_i r_i\bigr)/k+O(1/k^2)
+309: =1+\kappa/k+O(1/k^2)$, using Vieta in the form
+310: \begin{equation}\label{eq:vieta}
+311: \sum_{i=1}^{d}r_i=-\frac{\bdm}{\bd}=-\kappa .
+312: \end{equation}
+313: Also $\bigl(k/(k-1)\bigr)^{-\kappa}=(1-1/k)^{\kappa}=1-\kappa/k+O(1/k^2)$.
+314: Multiplying, the bracket equals
+315: $\bigl(1+\kappa/k+O(1/k^2)\bigr)\bigl(1-\kappa/k+O(1/k^2)\bigr)=1+O(1/k^2)$.
+316: A product $\prod(1+a_k)$ with $\sum|a_k|<\infty$ converges to a nonzero limit;
+317: here $\sum_k O(1/k^2)<\infty$. Hence $\Pi_n$ converges to a finite nonzero
+318: limit. \textsc{complete.}
+319: 
+320: This is exactly the mechanism that produces the exponent $\kappa=\bdm/\bd$:
+321: the telescoping factor $\prod_{k\le n}(k/(k-1))^{\kappa}=n^{\kappa}$ carries it.
+322: 
+323: \medskip\noindent\textbf{Step 3 (Gamma-ratio asymptotics).}
+324: For fixed $r\in\C$,
+325: \begin{equation}\label{eq:gammaratio}
+326: \frac{\Gamma(n+1-r)}{\Gamma(n+1)}=n^{-r}\bigl(1+O(1/n)\bigr).
+327: \end{equation}
+328: 
+329: \emph{Proof of \eqref{eq:gammaratio}.} Put
+330: $h(n):=\Gamma(n+1-r)\,n^{r}/\Gamma(n+1)$ for $n>\max(0,\Re r)$, so that
+331: \eqref{eq:gammaratio} is the assertion $h(n)=1+O(1/n)$. Using
+332: $\Gamma(x+1)=x\Gamma(x)$ twice,
+333: \begin{equation}\label{eq:hratio}
+334: \frac{h(n)}{h(n-1)}
+335: =\frac{\Gamma(n+1-r)}{\Gamma(n-r)}\cdot\frac{\Gamma(n)}{\Gamma(n+1)}
+336: \cdot\Bigl(\frac{n}{n-1}\Bigr)^{r}
+337: =\Bigl(1-\frac{r}{n}\Bigr)\Bigl(1-\frac1n\Bigr)^{-r} .
+338: \end{equation}
+339: Expanding, $(1-1/n)^{-r}=1+r/n+O(1/n^{2})$, so the right-hand side of
+340: \eqref{eq:hratio} equals $(1-r/n)(1+r/n+O(1/n^2))=1+O(1/n^{2})$. Since
+341: $\sum_n O(1/n^2)<\infty$, the telescoping product
+342: $h(n)=h(n_0)\prod_{m=n_0+1}^{n}h(m)/h(m-1)$ converges to a finite nonzero limit
+343: $h_\infty$, and because the tail of a convergent $\sum O(1/m^{2})$ is $O(1/n)$,
+344: \begin{equation}\label{eq:hlimit}
+345: h(n)=h_\infty\bigl(1+O(1/n)\bigr).
+346: \end{equation}
+347: It remains to identify $h_\infty=1$. This is the classical Gamma-ratio
+
+===== growth hypotheses: lines 266-276 =====
+266: \eqref{eq:radius}, namely $d^d/|\bd|$. Under $\zeta=w^{1/d}$ the disc
+267: $|w|<d^d/|\bd|$ is $|\zeta|<\bigl(d^d/|\bd|\bigr)^{1/d}=d/|\bd|^{1/d}=\xi_0$.
+268: \textsc{complete.}
+269: \end{proof}
+270: 
+271: \begin{corollary}[$d=2$, V\_quad]\label{cor:vquad}
+272: For $b(n)=3n^2+n+1$ one gets $\xi_0=2/\sqrt3$, in agreement with the stored
+273: value in \texttt{sessions/2026-05-01/CC-PIPELINE-G/results\_vquad.json}.
+274: \end{corollary}
+275: 
+276: \section{Part (ii): the leading growth}
+
+===== A2 assumptions: lines 50-57 =====
+50: 
+51: \begin{equation}\label{eq:setting}
+52: b(n)=\sum_{k=0}^{d}\beta_k n^k=\bd\prod_{i=1}^{d}(n-r_i),
+53: \qquad \bd\neq0,\quad d\ge1,
+54: \end{equation}
+55: with $r_1,\dots,r_d\in\C$ the roots listed with multiplicity. Standing
+56: assumptions:
+57: \begin{itemize}
+

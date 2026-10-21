@@ -1,0 +1,35 @@
+==========================================================================
+CT-S56 -- control harness for emit_claims_s56.py
+==========================================================================
+
+    claims.jsonl sha256 before : 69fe62b39ca8b88f93df90fc96e8ba6d9d8c19caee2b6270941a6f3b6f273ea0
+    arms : 9  (A0 is a positive baseline that must WRITE)
+
+    [PASS] A0 baseline (no mutation)
+           rc=0 wrote=True broke=False
+    [CAUGHT] M1 output_hash is not the hash of its output
+           rc=2 wrote=False broke=False reason_seen=True
+    [CAUGHT] M2 a claim cites a script that does not exist
+           rc=2 wrote=False broke=False reason_seen=True
+    [CAUGHT] M3 a claim is labelled PROVEN
+           rc=2 wrote=False broke=False reason_seen=True
+    [CAUGHT] M4 a figure that occurs in no cited output
+           rc=2 wrote=False broke=False reason_seen=True
+    [CAUGHT] M5 a duplicated claim_id
+           rc=2 wrote=False broke=False reason_seen=True
+    [CAUGHT] M6 an empty claim body
+           rc=2 wrote=False broke=False reason_seen=True
+    [CAUGHT] M7 an invalid epistemic label
+           rc=2 wrote=False broke=False reason_seen=True
+    [CAUGHT] M8 a cited output file that does not exist
+           rc=2 wrote=False broke=False reason_seen=True
+
+    claims.jsonl sha256 after  : 69fe62b39ca8b88f93df90fc96e8ba6d9d8c19caee2b6270941a6f3b6f273ea0
+    [PASS] the real claims.jsonl is byte-identical after the run
+
+    negative arms caught : 8 / 8
+
+==========================================================================
+HARNESS PASS: the baseline writes, every negative arm refuses for its
+own injected reason, and no arm touched the real record.
+==========================================================================

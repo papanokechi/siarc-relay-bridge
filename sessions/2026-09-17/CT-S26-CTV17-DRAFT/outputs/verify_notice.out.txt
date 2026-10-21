@@ -1,0 +1,48 @@
+==========================================================================
+verify_notice.py -- CT-S26-CTV17-DRAFT
+==========================================================================
+notice : sessions/2026-09-17/CT-S26-CTV17-DRAFT/NOTICE-v1.7.md
+sha256 : 495595202689513561fb7f376b7a40ccbdcac63f121ce99377cb8f560cff8929
+bytes  : 32834
+
+SECTION 1 -- CHECKS AGAINST THE NOTICE AS WRITTEN
+--------------------------------------------------------------------------
+  [PASS] concept DOI traced to a held source  -- concept 10.5281/zenodo.19941678 + 2 version DOIs all traced
+  [PASS] all cited paths exist  -- 16 distinct cited paths all exist
+  [PASS] all cited claim ids resolve  -- 22 cited ids, all resolve (corpus has 497)
+  [PASS] load-bearing labels match the corpus  -- 9 load-bearing labels agree with the corpus
+  [PASS] K is VERIFIED and never PROVEN  -- K carries VERIFIED and is never labelled PROVEN
+  [PASS] PSLQ basis printed in full  -- 6-vector printed in full, no ellipsis, Gamma(1/6) removed
+  [PASS] naming prohibition present  -- K at xi_0, S_zeta* at 2 xi_0, prohibition stated
+  [PASS] Wong-Li II stated NOT OBTAINED  -- full citation, HTTP 403, and the suffix trap all present
+  [PASS] no formal-verification claim  -- seven sorries stated; every 'machine-checked' is negated
+  [PASS] Ibrahim-Salvy in the weaker form  -- weaker printed form quoted; stronger form only as the excluded reading
+  [PASS] Odlyzko attribution split survives  -- split stated, B-T objection quoted, pre-emption present
+  [PASS] v1.4-v1.6 absence declared  -- v1.4-v1.6 absence and rem:d3-vacuous unreadability both declared
+  [PASS] the 5B negative is scoped  -- scope, control cost 1.5051, and C all present
+  [PASS] zeta* is an action difference  -- action difference, negation, and source all present
+
+SECTION 2 -- CAN-FAIL CONTROLS (each check run against its own mutant)
+--------------------------------------------------------------------------
+  [PASS] concept DOI traced to a held source -- 1 mutant(s) rejected
+  [PASS] all cited paths exist -- 1 mutant(s) rejected
+  [PASS] all cited claim ids resolve -- 1 mutant(s) rejected
+  [PASS] load-bearing labels match the corpus -- mutant rejected
+  [PASS] K is VERIFIED and never PROVEN -- 1 mutant(s) rejected
+  [PASS] PSLQ basis printed in full -- 3 mutant(s) rejected
+  [PASS] naming prohibition present -- 1 mutant(s) rejected
+  [PASS] Wong-Li II stated NOT OBTAINED -- 1 mutant(s) rejected
+  [PASS] no formal-verification claim -- 1 mutant(s) rejected
+  [PASS] Ibrahim-Salvy in the weaker form -- 1 mutant(s) rejected
+  [PASS] Odlyzko attribution split survives -- 1 mutant(s) rejected
+  [PASS] v1.4-v1.6 absence declared -- 1 mutant(s) rejected
+  [PASS] the 5B negative is scoped -- 1 mutant(s) rejected
+  [PASS] zeta* is an action difference -- 1 mutant(s) rejected
+
+==========================================================================
+checks run          : 14
+checks failed       : 0
+controls fired      : 14 of 14
+broken checks       : 0
+VERDICT: OK
+==========================================================================

@@ -1,0 +1,253 @@
+% =====================================================================
+%  Section 3 -- The differential systems and their local data
+%  reader-integrity sentinel — non-ASCII, do not remove: é ö ±
+%  CT-S37-DRAFT-B.  Draft only.
+%
+%  Every numerical value in this section carries the claim id it comes
+%  from, and every epistemic label is the label that claim currently
+%  carries in the corpus, checked by scripts/draft_check.py.  No figure
+%  is written from memory or from a prior draft.
+% =====================================================================
+
+\section{The differential systems and their local data}\label{sec:systems}
+
+\subsection{From the recurrence to System \texorpdfstring{$\mathsf A$}{A}}
+\label{ssec:sysA}
+
+Take $b(n)=3n^2+n+1$, the quadratic of the companion record, and let
+$f(z)=\sum_{n\ge0}Q_nz^n$ be the generating function of the denominators
+\eqref{eq:n-rec}. Then $f$ satisfies the inhomogeneous equation
+\begin{equation}\label{eq:sysA}
+  3z^3f''+10z^2f'+(z^2+5z-1)f=-1 ,
+\end{equation}
+which we call \emph{System $\mathsf A$}. This is \textbf{PROVEN}
+(\texttt{S4-03}): the residual of \eqref{eq:sysA} against the exact integer
+sequence $Q=1,5,76,2361,125209,10144290,\dots$ vanishes identically at every
+order $z^0,\dots,z^{38}$ in exact arithmetic.
+
+The homogeneous part of \eqref{eq:sysA} has projective normal potential
+\begin{equation}\label{eq:rA}
+  r_{\mathsf A}(z)=\frac{-3z^2-5z+3}{9z^3},
+\end{equation}
+and $z=0$ is its only finite singular point (\textbf{PROVEN}, \texttt{S4-05};
+that no finite affine singular candidate exists outside $z=0$ is separately
+\textbf{PROVEN} at \texttt{S6-C8}).
+
+\subsection{Systems \texorpdfstring{$\mathsf B$}{B} and
+\texorpdfstring{$\mathsf C$}{C}}\label{ssec:sysBC}
+
+\emph{System $\mathsf B$} is the scalar reduction $L_\varphi$, whose
+transcription is certified two independent ways (\textbf{PROVEN},
+\texttt{S4-04}, and again at \texttt{S6-C3}): the factorisation
+$q_2=4(2\sqrt3-3)z^2(z^2+z+3)$ expands exactly to the listed $q_2$, and
+recomputing the normal potential $R=\tfrac14P^2+\tfrac12P'-Q$ of
+\S\ref{ssec:objects}, here at $(P,Q)=(a,b)$ for the operator written
+$\partial^2+a\partial+b$, from $(q_0,q_1,q_2)$ reproduces
+\begin{equation}\label{eq:rB}
+  r_{\mathsf B}(z)=\frac{11z^4+4z^2+4z+12}{4z^4(z^2+z+3)^2}
+\end{equation}
+exactly.
+
+\emph{System $\mathsf C$} is the scalar equation
+\begin{equation}\label{eq:sysC}
+  (3x^2+x+1)\,W''+(6x+1)\,W'-x^2\,W=0 .
+\end{equation}
+It is in self-adjoint form: with $a(x)=3x^2+x+1$ one has $b(x)=6x+1=a'(x)$
+exactly, so \eqref{eq:sysC} is $\bigl(a(x)W'\bigr)'+c(x)W=0$
+(\textbf{PROVEN}, \texttt{S6-C12}; equivalently $b-a'=0$, \textbf{PROVEN},
+\texttt{CT-S9-PVPARAMS-C005}). Its normal potential is
+\begin{equation}\label{eq:rC}
+  r_{\mathsf C}(x)=\frac{12x^4+4x^3+4x^2+11}{4\,(3x^2+x+1)^2}
+\end{equation}
+(\textbf{PROVEN}, \texttt{CT-S9-PVPARAMS-C009} and \texttt{S16-06}), and its
+finite singular points are
+\begin{equation}\label{eq:spm}
+  s_\pm=\frac{-1\pm i\sqrt{11}}{6},
+  \qquad \delta=s_--s_+=-\frac{i\sqrt{11}}{3}
+\end{equation}
+(\textbf{PROVEN}, \texttt{CT-S9-PVPARAMS-C006} and \texttt{S16-06}). Under
+$x=s_++\delta z$ the potential \eqref{eq:rC} has poles only at $z=0$ and $z=1$,
+both double with coefficient $-\tfrac14$, and no apparent singularity, so
+$\mathsf C$'s three singular points are exactly $0,1,\infty$ after the
+normalising M\"obius map (\textbf{PROVEN}, \texttt{S16-06}).
+
+\subsection{Exact formal types}\label{ssec:formaltypes}
+
+All three formal types below are exact, not asymptotic, and each is
+\textbf{PROVEN}.
+
+\paragraph{System $\mathsf A$ (\texttt{S4-05}).} At $z=0$ the pole order of
+$r_{\mathsf A}$ is $3$, which is odd, so the singularity is irregular and
+\emph{ramified}, with ramification index $2$, Katz invariant $\tfrac12$, and
+exponential parts
+\[
+  \exp\Bigl(\mp\tfrac{2}{\sqrt3}\,z^{-1/2}\Bigr).
+\]
+At $z=\infty$ the pole order is again $3$: irregular, ramified, Katz invariant
+$\tfrac12$.
+
+\paragraph{System $\mathsf B$ (\texttt{S4-06}).} At $z=0$ the pole order is
+$4$, which is even, so the singularity is irregular and \emph{unramified}, of
+Poincar\'e rank $1$ and Katz invariant $1$, with exponential parts
+$\exp(\mp(1/\sqrt3)/z)$. At $\rho_\pm=(-1\pm i\sqrt{11})/2$ the pole order is
+$2$: regular singular. At $z=\infty$ the pole order is $2$: regular singular.
+
+\paragraph{System $\mathsf C$ (\texttt{S6-C15}, \texttt{CT-S9-PVPARAMS-C011},
+\texttt{CT-S9-PVPARAMS-C012}).} At infinity, in the coordinate $\tau=1/x$, the
+normal-form potential has pole order $4$, leading coefficient $\tfrac13$, no
+ramification, and Katz invariant --- equivalently Poincar\'e rank --- equal to
+$1$. The scalar normal-form exponential factors there begin
+\[
+  \exp\Bigl(\tfrac{\sqrt3}{3}x\Bigr),\qquad
+  \exp\Bigl(-\tfrac{\sqrt3}{3}x\Bigr),
+\]
+equivalently $\exp(-(\sqrt3/3)/\tau)$ and $\exp((\sqrt3/3)/\tau)$.
+
+\paragraph{Actions read off the equations alone (\texttt{S4-07}).} No
+convention has to be interpreted to extract the following, and it is
+\textbf{PROVEN}. In the uniformiser $u=\sqrt z$, System $\mathsf A$ has single
+action $2/\sqrt3=\xi_0$ and action \emph{difference} $4/\sqrt3$. System
+$\mathsf B$, in $z$, has single action $1/\sqrt3$ and action difference
+$2/\sqrt3=\xi_0$. The quantity $4/\sqrt3$ is therefore an action difference and
+not the image of $\xi_0$ under a change of variables.
+
+\subsection{The two finite singular points are not apparent}
+\label{ssec:nonapparent}
+
+This subsection is the one the companion record got wrong, and the correction
+is stated here as mathematics; the history of the correction is not this
+section's business.
+
+At both finite singular points $s_\pm$ of System $\mathsf C$ the indicial
+polynomial is $\lambda^2$, so the scalar local exponents are $\{0,0\}$ and the
+exponent difference is $0$ (\textbf{PROVEN},
+\texttt{CT-S9-PVPARAMS-C007}). Exponents $\{0,0\}$ do not by themselves decide
+apparency: what decides it is the logarithm. Normalising $y_1(s)=1$, the second
+Frobenius solution has \emph{nonzero} log coefficient
+\begin{equation}\label{eq:logcoef}
+  \frac{\sqrt{11}\,i}{11}\ \text{ at } s_-=\frac{-1-i\sqrt{11}}{6},
+  \qquad
+  -\frac{\sqrt{11}\,i}{11}\ \text{ at } s_+=\frac{-1+i\sqrt{11}}{6}
+\end{equation}
+(\textbf{PROVEN}, \texttt{CT-S9-PVPARAMS-C008}). Consequently \emph{neither
+finite point is apparent}: at $s_-$ this is \textbf{PROVEN} at
+\texttt{S6-C13} and at $s_+$ at \texttt{S6-C14}, in both cases with exact
+repeated-root log residue $1$, and in both cases against the companion's
+recorded exponents $\{0,1\}$.
+
+In the normalised coordinate the same statement reads: the coefficient of
+$(x-s)^{-2}$ in the normal-form potential is $-\tfrac14$ at both points, so the
+normal-form exponent is repeated at $\tfrac12$ (\textbf{PROVEN},
+\texttt{CT-S9-PVPARAMS-C010}).
+
+The corresponding statements for System $\mathsf B$ are \textbf{PROVEN} in the
+same way: $\rho_-$ at \texttt{S6-C4} and $\rho_+$ at \texttt{S6-C5}, both with
+indicial equation $\lambda^2$, exponents $\{0,0\}$ and nonzero exact
+repeated-root log residue; and $\infty$ at \texttt{S6-C6}, where the local
+exponents are $1-\sqrt3/18$ and $2-\sqrt3/18$ and so are not integers.
+
+Finally, the general assertion that such points are always apparent is refuted
+on its own tested instances: for $b=x+1$ and $b=x^2+1$ the simple-root tests
+give exponents $\{0,0\}$ with nonzero log residue $1$, so those instances are
+\emph{not} apparent (\textbf{PROVEN}, \texttt{S6-C17}). That the companion's
+$\beta=\gamma=0$ was read as reflecting apparency of both finite points is
+\textbf{not supported} by the exact test --- a \textbf{STRUCTURAL} conclusion
+(\texttt{S6-C19}), and stated with that label because it is a statement about
+what an argument does and does not support.
+
+\subsection{The Katz mismatch in a fixed coordinate, and the cover that
+removes it}\label{ssec:cover}
+
+Within a fixed base coordinate the formal types of $\mathsf A$ and $\mathsf B$
+at the origin are incompatible: Katz $\tfrac12$ ramified against Katz $1$
+unramified, and no gauge transformation and no unramified change of variable
+can reconcile them. The ramified double cover
+\begin{equation}\label{eq:cover}
+  \pi:\ w\longmapsto z=w^2
+\end{equation}
+--- which is the uniformiser $u=\sqrt z$ of \S\ref{ssec:formaltypes} --- doubles
+the Katz invariant and carries $\mathsf A$'s $\tfrac12$ to $\mathsf B$'s $1$.
+The verdict drawn from this is \textbf{STRUCTURAL} and explicitly
+\emph{inconclusive} as to global equivalence (\texttt{S4-09}).
+
+The pullback is carried out through the normal-form rule
+$R=(\varphi')^2\,r(\varphi)-\tfrac12\,\mathcal S(\varphi)$, with $\mathcal S$
+the Schwarzian, which passes the Euler exponent-difference doubling test
+(\textbf{STRUCTURAL}, \texttt{S5B-C2}); the CT-S4 baseline normal forms and
+certificates recompute exactly beforehand (\textbf{PROVEN},
+\texttt{S5B-C1}). Its \emph{vacuity pre-check} is \textbf{PROVEN}
+(\texttt{S5B-C3}): under $z=w^2$ the model potential $r=1/z^4$ remains
+unramified, while System $\mathsf A$'s pole order at the origin moves from $3$
+to $4$ --- so the observable does move when the data move, and the cover is not
+being credited with an effect it does not have.
+
+After the pullback, $\pi^*\mathsf A$ has exactly one finite singular point
+$w=0$, of pole order $4$, unramified, Katz invariant $1$ (\textbf{PROVEN},
+\texttt{S5B-C4}), and an unramified irregular singularity of Katz invariant $1$
+at infinity (\textbf{PROVEN}, \texttt{S5B-C5}).
+
+Three statements bound what this establishes, and all three are
+\textbf{STRUCTURAL}: the \emph{local} mismatch at the branch point is removed
+(\texttt{S5B-C8}); the \emph{global} singular configurations of $\pi^*\mathsf A$
+and $\mathsf B$ are \emph{not} reconciled by that cover alone
+(\texttt{S5B-C9}); and CT-S4's verdict is therefore sharpened but not settled
+as a global isomorphism (\texttt{S5B-C10}). The paper claims the local
+statement and not the global one.
+
+\subsection{Effective Katz multisets}\label{ssec:multisets}
+
+Apparent singularities may be removed before a Katz multiset is read off, so
+the multiset of record is the \emph{effective} one, computed after the
+apparency tests of \S\ref{ssec:nonapparent} have been applied.
+
+For System $\mathsf C$ the tests remove no finite points, and the effective
+multiset is $(0,0,1,-)$, which matches van der Put--Saito's Table~2.1 row
+$\widetilde D_5$/PV on p.~2635. This is \textbf{STRUCTURAL}
+(\texttt{S6-C16}); the location of that row and of the selection rule on
+p.~2634 is itself a reading of the printed page, \textbf{INSPECTED}
+(\texttt{S6-C1}).
+
+For System $\mathsf B$ the tests likewise remove no points, and the effective
+multiset is $(1,0,0,0)$, which does \emph{not} match that row --- also
+\textbf{STRUCTURAL} (\texttt{S6-C7}).
+
+For System $\mathsf A$ the dash in $(\tfrac12,-,\tfrac12,-)$ denotes an
+\emph{absent} singular point in the classification tuple, not a point dropped
+as regular or as apparent (\textbf{PROVEN}, \texttt{S6-C9}).
+
+\begin{remark}[A matching multiset is necessary, never sufficient]
+\label{rem:necessary}
+Table~2.1 classifies \emph{families} of connections. A single fixed operator
+whose multiset matches a row has satisfied a necessary condition and nothing
+more; family membership is not established until the deformation parameter is
+specified. This is \textbf{STRUCTURAL} (\texttt{S6-C10}), and it is the reason
+\S\ref{ssec:multisets} reports a match for $\mathsf C$ without assigning
+$\mathsf C$ a Painlev\'e label. The label is not assigned anywhere in this
+paper on the strength of a multiset.
+\end{remark}
+
+\subsection{\texorpdfstring{$\mathsf B$ and $\mathsf C$ under $z\mapsto1/x$}%
+{B and C under z to 1/x}}\label{ssec:BC}
+
+Under $z=1/x$, System $\mathsf B$ has \emph{exactly} the same normal-form
+potential as System $\mathsf C$. The two original scalar equations are
+nevertheless not the same operator: they differ by the explicit gauge factor
+\begin{equation}\label{eq:gauge}
+  x^{\sqrt3/18-1}\exp\Bigl(-\tfrac{\sqrt3}{3}x\Bigr),
+\end{equation}
+so they are gauge-equivalent in normal form without being literally equal.
+This is \textbf{PROVEN} (\texttt{S6-C18}). Consistently, the inversion
+$z\mapsto1/x$ applied to $\mathsf B$ makes $x=0$ ordinary, leaves finite
+regular singular points at $(-1\pm i\sqrt{11})/6$, and gives an unramified Katz
+invariant $1$ at infinity (\textbf{PROVEN}, \texttt{S5B-C6}).
+
+That the same configuration was recorded independently in an earlier verdict
+file is \textbf{INSPECTED} only, and with a stated gap: the apparency indices
+were not recomputed there (\texttt{S5B-C7}). Nothing in this section rests on
+that reading.
+
+\medskip
+\noindent
+The distinction \eqref{eq:gauge} draws --- equal normal potential, different
+operator --- is exactly the projective ambiguity that the later section on
+removing that ambiguity resolves.

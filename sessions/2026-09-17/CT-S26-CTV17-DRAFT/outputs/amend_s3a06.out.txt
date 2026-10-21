@@ -1,0 +1,46 @@
+==============================================================================
+AMEND S3A-06 -- narrowing to the artefact actually inspected
+==============================================================================
+
+SECTION 1 -- presence in the deposited descriptions (refs/, held bytes)
+------------------------------------------------------------------------------
+  v1.3   10.5281/zenodo.19972394         'Proposition 3.3.A' x  4   sha256 d278d5fa9cfaf6ac  datacite_19972394.description.txt
+  v1.4   10.5281/zenodo.20585624         'Proposition 3.3.A' x  4   sha256 dd37d2a8ce9dcdfa  datacite_20585624.description.txt
+  v1.5   10.5281/zenodo.22717792         'Proposition 3.3.A' x  4   sha256 0898719bf793867a  zenodo_22717792.description.txt
+  v1.6   10.5281/zenodo.22782807         'Proposition 3.3.A' x  4   sha256 82d51c5375754b02  zenodo_22782807.description.txt
+
+  presence holds in all 4 held descriptions.
+
+SECTION 2 -- reader integrity (a count of 0 must not be a broken read)
+------------------------------------------------------------------------------
+  v1.3   sentinels present,   5672 chars decoded  ok
+  v1.4   sentinels present,   5808 chars decoded  ok
+  v1.5   sentinels present,  14612 chars decoded  ok
+  v1.6   sentinels present,  22312 chars decoded  ok
+
+SECTION 3 -- amend the claim in place, preserving the superseded text
+------------------------------------------------------------------------------
+  target        : 2026-09-17\CT-S3A-ZETA-AUDIT\claims.jsonl
+  sha256 before : 3aa6d5367162c95bb7a019228e11b97131dfc98407eb4b027aee63ee5b755383
+  claims in file: 6
+  label before  : INSPECTED
+  claim before  : 588 chars
+  backup written: CT-S3A-ZETA-AUDIT.claims.jsonl.pre-s26c-amend  (sha256 3aa6d5367162c95b)
+  sha256 after  : 7c16e9a6b5d76c9a75d8e75e036717970385e128d1948f91c62503f1a53e57fa
+
+SECTION 4 -- read back from disk and re-assert
+------------------------------------------------------------------------------
+  [PASS] claim text replaced
+  [PASS] superseded text preserved verbatim
+  [PASS] label unchanged
+  [PASS] amending session named
+  [PASS] earlier amendment trail kept
+  [PASS] narrowing flagged
+  [PASS] audit note present
+  [PASS] no other claim_id lost
+  [PASS] file hash moved
+
+  9 checks, 0 failed
+
+VERDICT: OK
+==============================================================================

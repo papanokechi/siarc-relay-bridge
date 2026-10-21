@@ -1,0 +1,47 @@
+[1] artefact identity, by hash
+    tex sha256 bb392b76fd60c93fefdbffbb155a52cb5ec8f37beb4331fed47ff039c7d69153
+    pdf md5    75ee5c4fcc3dc21668794d02daa23a93
+    both match the as-submitted artefacts
+
+[2] rendering the submitted PDF
+    27800 chars of normalised text
+
+[3] resolving 'Theorem 6.1' in the rendered PDF
+    Theorem 6.1 = (PoincaréPerron, simpli ed form)
+    statement: . Let yn+1 = an yn +bn yn−1 be a second-order linear recurrence with an → a and bn → b as n → ∞, 2 where the characteristic equation z − az − b = 0 has roots λ1 , λ2 with |λ1 | > |λ2 |. Then every non-trivial solution either satis es yn+1 /yn → λ1 or yn+1 /yn → λ2 . For the Wallis recurrence Qn+1 = b(n) Qn + Qn−1 with b(n) = αd nd + · · ·
+
+[4] is Theorem 6.1 applied to the PCF recurrence, or declined?
+    'does not apply directly' in tex : 1
+    'does not apply directly' in pdf : 1
+    stated reason in tex (literal)   : True
+    stated reason in pdf (lig-tol.)  : True
+    \ref to thm:poincare-perron      : 0  []
+
+[5] citation state around the Perron-Kreuser sentence
+    \bibitem for Kreuser            : False
+    Perron-Kreuser cites            : Perron~\cite{Perron21}, Elaydi~\cite{Elaydi05}, Chapter~8
+    Poincare-Perron cites           : Poincar\'e~\cite{Poincare85}; Perron~\cite{Perron21}
+    \bibitem for Gautschi           : False
+    Birkhoff-Trjitzinsky            : Acta Math. 60 (1932)
+
+[C] controls -- each must fire
+    FIRED  fabricated theorem title
+    FIRED  fabricated decline sentence
+    FIRED  absent-bibitem detector separates present from absent
+    FIRED  hash check can fail
+    FIRED  lig() separates present from absent
+    FIRED  lig() recovers a ligature the literal search misses
+    FIRED  Birkhoff-Trjitzinsky bibitem regex resolves
+
+==================================================================
+FINDINGS: 3
+  1. Perron-Kreuser is named but Kreuser has no bibliography entry
+  2. Perron21 (Math. Ann. 84, 1921) is cited for BOTH Poincare-Perron and Perron-Kreuser; Perron-Kreuser proper is Acta Math. 34 (1911) + Kreuser 1914 (Gautschi 1967, Thm 2.3, p.12 / bibliog. p.58)
+  3. Gautschi (1967) is not cited; Thm 2.3(a), case sigma=d > tau=-d, gives Q_{n+1}/Q_n ~ b(n) directly and is the clean route
+
+VERDICT on the operator's question:
+  NOT MISAPPLIED. Theorem 6.1 is stated with its finite-limit hypothesis
+  explicit, and the paper then states that it 'does not apply directly
+  (it requires convergent coefficients)' to the Wallis/PCF recurrence.
+  Section 6 delineates; it does not prove. The residue is citation-level.
+==================================================================

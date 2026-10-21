@@ -1,0 +1,3342 @@
+==========================================================================
+CT-S52 K2 -- rendered diff, revised vs SUBMITTED
+==========================================================================
+
+submitted pdf : sessions\2026-06-16\VQUAD-PAPER-LAYOUTFIX-001\latex\vquad-periodrep-paper.pdf
+  size        : 773171 (expected 773171)
+  md5         : 99faea5b0f4095788e4ee932436beeda
+  expected md5: 99faea5b0f4095788e4ee932436beeda
+  IDENTIFIED  : YES (matches Zenodo record 20719043)
+
+revised pdf   : sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\revision\vquad-periodrep-paper.pdf
+  sha256      : b854e7cafef9e8021c81e866ef8b590c43add82f0ebb22ab5c335fb97ecc2bf8
+
+pages         : submitted 24  ->  revised 26   (delta +2)
+text lines    : submitted 1718  ->  revised 1813
+
+differing lines: 348 removed, 443 added
+
+--------------------------------------------------------------------------
+UNIFIED DIFF OF THE RENDERED TEXT LAYER
+--------------------------------------------------------------------------
+--- submitted
++++ revised
+@@ -3,21 +3,35 @@
+ PAPANOKECHI
+-Abstract. We prove that the connection coefficient C of the Vquad polynomial continued fraction—the rank-one standalone closure on the Sakai surface
++Abstract. We prove that the connection coefficient C of the Vquad polynomial
++continued fraction—the rank-one standalone closure whose Sakai surface type
+ (1)
+-D5 (Painlevé V)—admits an explicit exponential-period representation C =
++is conjectured to be D5 (Painlevé V)—admits an explicit exponential-period
+ R
++b is the Borel
+ b
+-b is the Borel transform of the Vquad
+-(|Γ(β)|/2π) γ eξ B(ξ)
++representation C = (|Γ(β)|/2π) γ eξ B(ξ)
+ dξ = |Γ(β)|K, where B
+-asymptotic series, holonomic of order 4 (the Borel–Laplace dual of the order-2
+-√
+-operator annihilating the series) with coefficients in the real
+-√ quadratic field Q( √3);
+-γ is an explicit Hankel rapid-decay cycle on (−∞, −2/ 3]; and β = −1/(3 3).
+-The identity is verified by three structurally independent methods—differentialequation/operator duality, Borel–Laplace contour deformation, and Stokes-data—
+-agreeing to 46 digits. The order-2 operator annihilating the asymptotic series
+-has differential Galois group SL2 (C) by Kovacic’s algorithm. As a by-product,
+-holonomicity of the Borel transform forces a finite resurgent structure. Finally,
+-conditional on the Fresán–Jossen period conjecture for exponential motives and
+-on a stated motivic-comparison hypothesis, C is transcendental over Q.
++transform of the Vquad asymptotic series, holonomic of order 4 (the Borel–Laplace
++dual of the order-2
++real
++√ operator annihilating the series) with coefficients in the √
++quadratic field Q(
++3);
++γ
++is
++an
++explicit
++Hankel
++rapid-decay
++cycle
++on
++(−∞,
++−2/
++3];
++√
++and β = −1/(3 3). The identity is verified by three structurally independent
++methods—differential-equation/operator duality, Borel–Laplace contour deformation, and Stokes-data—agreeing to 46 digits. The order-2 operator annihilating
++the asymptotic series has differential Galois group SL2 (C) by Kovacic’s algorithm.
++As a by-product, holonomicity of the Borel transform forces a finite resurgent
++structure. Finally, conditional on the Fresán–Jossen period conjecture for exponential motives and on a stated motivic-comparison hypothesis, C is transcendental
++over Q.
+ 
+@@ -39,3 +53,2 @@
+ 5+
+-15 +
+ 
+@@ -47,17 +60,28 @@
+ 31 + · · ·
+-
+-the partial denominators being the quadratic bn = 3n2 + n + 1 and all partial
+-numerators 1. This is the rank-one (n = 1) standalone member of the V_quad family
+-studied in the V_quad companion paper [1], where it is identified as a non-classical
++2
++the partial denominators being the quadratic bn = 3n + n + 1 and all partial
++numerators 1. This is the rank-one (n = 1) standalone member of the V_quad
++family studied in the V_quad companion paper [1], where it is conjectured to be a
+ (1)
+ (1)
+-Painlevé V transcendent on the Sakai surface D5 (symmetry W (A3 ), δ = − 12 =
+-̸ 0,
+-in the surface/symmetry
+-classification of [11]), with formal monodromy exponent
+-√
+-2 /8 = 1 . The asymptotic (WKB/Riccati) solution of the
+-θ∞ = 2/ 3 and α = θ∞
++non-classical Painlevé V transcendent on the Sakai surface D5 (symmetry W (A3 ),
++δ = − 21 ̸= 0, in the surface/symmetry classification of [11]). That identification is
++Conjecture 4.1 of [1], not a theorem, and nothing in the present paper depends on it:
++every result below is a statement about the√operators Lφ and LV and the cycle γ.
++2 /8 = 1 quoted there are
++The formal monodromy exponent θ∞ = 2/ 3 and α = θ∞
+ 6
+-associated problem is a Gevrey-1 formal power series
++the companion’s; its version 1.3 correction notice [26] revises the derivation by which
++15 +
++
++Date: 15 June 2026.
++ORCID 0009-0000-6192-8273.
++1
++
++2
++
++PAPANOKECHI
++
++those Painlevé parameters were obtained. The asymptotic (WKB/Riccati) solution
++of the associated problem is a Gevrey-1 formal power series
+ X
+@@ -69,10 +93,2 @@
+ 
+-Date: 15 June 2026.
+-ORCID 0009-0000-6192-8273.
+-1
+-
+-2
+-
+-PAPANOKECHI
+-
+ √
+@@ -82,4 +98,6 @@
+ β = − √ = −0.19245008972987525 . . .
++3 3
++
+ (3)
+-3 3
++
+ The connection coefficient C of Vquad is the Borel branch amplitude attached to that
+@@ -94,4 +112,4 @@
+ normalisations are tied by the exact bridge identity
++2π
+ S
+-2π
+ =
+@@ -126,2 +144,7 @@
+ by case.
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++3
++
+ 1.3. Main results. We exhibit C as an explicit exponential-period integral and verify
+@@ -136,7 +159,2 @@
+ B
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-3
+-
+ explicit order-4 operator LV (Theorem 2.3); the cycle γ is a rapid-decay cycle for the
+@@ -146,4 +164,4 @@
+ b dξ = |Γ(β)| · K
++C =
+ eξ B(ξ)
+-C =
+ (6)
+@@ -162,4 +180,7 @@
+ √
+-Q( 3)(z) is SL2 (C). This is proved twice: by Kovacic case-elimination and by a
+-structural torus-plus-unipotent argument (Section 2, certificate in Appendix A.2).
++Q( 3)(z) is SL2 (C). The proof is Kovacic case-elimination (Section 2, certificate
++in Appendix A.2). The structural torus-plus-unipotent argument recorded there is a
++consistency check on the same computation, not a second proof: a maximal torus
++together with one root unipotent generates a Borel subgroup, and the passage to SL2 (C)
++uses the exclusion of the reducible case, which is Kovacic’s Case 1.
+ b has an immediate qualitative consequence for the resurgence of
+@@ -181,14 +202,4 @@
+ 1.4. What is and is not computer-algebra-automatable here. The differential
+-backbone of this paper is squarely within reach of present-day symbolic software,
+-and we have used it: the recognition of Lφ and LV from the coefficient stream
+-is exactly holonomic guessing as implemented in gfun [18] and ore_algebra [19];
+-the Kovacic decision and the differential-Galois data are the province of Kovacic’s
+-algorithm [8] and of packages such as Maple’s DEtools[DifferentialGaloisGroup]
+-(we reproduced the Kovacic verdict by case-elimination and by an independent
+-structural argument, Appendix A.2); and the Borel–Padé and large-order extractions
+-are standard exponential-asymptotics computations. What is not automatable, and
+-what constitutes the mathematical content of the paper, is (a) the identification
+-of the precise rapid-decay cycle γ and the proof that the three period-extraction
+-routes agree, and (b) the motivic interpretation (Corollary 1.4), which lies beyond
+-any current CAS. We return to this comparison in Section 7 and Appendix A.5.
++backbone of this paper is squarely within reach of present-day symbolic software, and
++we have used it: the recognition of Lφ and LV from the coefficient stream is exactly
+ 
+@@ -198,2 +209,13 @@
+ 
++holonomic guessing as implemented in gfun [18] and ore_algebra [19]; the Kovacic
++decision and the differential-Galois data are the province of Kovacic’s algorithm [8]
++and of packages such as Maple’s DEtools[DifferentialGaloisGroup] (we obtained
++the Kovacic verdict by case-elimination, with the structural argument of Appendix A.2
++as a consistency check on it, not as a second derivation); and the Borel–Padé and
++large-order extractions are standard exponential-asymptotics computations. What
++is not automatable, and what constitutes the mathematical content of the paper, is
++(a) the identification of the precise rapid-decay cycle γ and the proof that the three
++period-extraction routes agree, and (b) the motivic interpretation (Corollary 1.4),
++which lies beyond any current CAS. We return to this comparison in Section 7 and
++Appendix A.5.
+ 1.5. Organisation. Section 2 constructs and verifies Lφ and LV , proves Theorem 1.2
+@@ -207,3 +229,2 @@
+ statement.
+-
+ √
+@@ -223,4 +244,4 @@
+ b
++=
+ B(ξ)
+-=
+ bm ξ m ; the dual variables satisfy z ↔ 1/ξ at the level
+@@ -240,3 +261,2 @@
+ is a high-precision floating check.
+-
+ 2. The differential operators Lφ and LV
+@@ -256,2 +276,7 @@
+ Q( 3), obtained by linear algebra over Q( 3) (Fraction pairs p + q 3), not by
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++5
++
+ numerical
+@@ -262,8 +287,5 @@
+ The exactness is concrete already at the level
+-stream. Seeding
+-√ of the coefficient
+-√
+-1
+-2
+-the V_quad Riccati recursion with σ = −1/ 3 (so σ = 3 ∈ Q, 1/σ = − 3)
++√ of the coefficient stream. Seeding
++√
++the V_quad Riccati recursion with σ = −1/ 3 (so σ 2 = 13 ∈ Q, 1/σ = − 3)
+ √
+@@ -272,7 +294,2 @@
+ corresponding Borel coefficients bm = am+1 /m!, are (script holonomic_recognition_
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-5
+-
+ q3.py, PERIOD-REP-VQUAD-002):
+@@ -280,5 +297,3 @@
+ n an ∈ Q( 3)
+-
+ (decimal)
+-
+ 0 1
+@@ -295,7 +310,7 @@
+ √
++13415
+ 6589
+-13415
++− 746496
++3 41472
+ 3
+-3 41472
+-− 746496
+ √
+@@ -335,6 +350,5 @@
+ √  2
++253
+ 14
+-253
+ 488
+-+
+ 3
+@@ -343,5 +357,6 @@
+ −
+-+
+ 3 z ,
+ q0 (z) = 1 + 23
+++
+++
+ 9
+@@ -352,4 +367,4 @@
+ √
+-√
+ √  2
++√
+ 52
+@@ -360,8 +375,8 @@
+ 3
++
+ 
+-
+ √
+ 100
+++ − 152
+ 3 z3,
+-+ − 152
+ 3 + 3
+@@ -385,2 +400,7 @@
+ linear problem, recovered from the Riccati linearisation c = ψ ′ /ψ; the parent corpus
++
++6
++
++PAPANOKECHI
++
+ records the existence of this linear problem only verbally [1], and Theorem 2.1 makes
+@@ -392,7 +412,2 @@
+ dedicated search returned none; PERIOD-REP-VQUAD-002, lax-pair-found.md), so
+-
+-6
+-
+-PAPANOKECHI
+-
+ the holonomic route is the available one and is in fact stronger here: it yields the
+@@ -406,13 +421,12 @@
+ √ σ = −1/ 3
+-(σ 2 = 1/3 ∈ Q) and with the formal monodromy exponent θ∞ = 2/ 3 of [1].
++2
++(σ = 1/3 ∈ Q) and with the formal monodromy exponent θ∞ = 2/ 3 of [1].
+ 2.2. Singular structure of Lφ and
+ R its Galois group. Reducing Lφ to normal
+-1
+-′′
+-form u = r u via y = u exp(− 2 q1 /q2 ) gives, with a = q1 /q2 , b = q0 /q2 and
++form u′′ = r u via y = u exp(− 12 q1 /q2 ) gives, with a = q1 /q2 , b = q0 /q2 and
+ r = 14 a2 + 12 a′ − b,
+ 11z 4 + 4z 2 + 4z + 12
++r(z) =
+ .
+ (8)
+-r(z) =
+ 4 z 4 (z 2 + z + 3)2
+@@ -430,3 +444,30 @@
+ configuration of Lφ alongside its Borel dual LV .
++Proof of Theorem 1.2. We give both arguments.
++(1) Kovacic case-elimination. In the Kovacic case/group dictionary [8, 9] for
++′′
++u = ru: Case 3 (finite groups A4 , S4 , A5 ) requires every pole order ≤ 2; the pole
++of order 4 at z = 0 excludes it. Case 1 (reducible, G ⊆ Borel) holds iff the Riccati
++equation v ′ = r − v 2 has a rational solution; a complete rational Riccati solver
++returns none. Case 2 (imprimitive, G ⊆ N (T )) holds, given Case 1 excluded, iff
++3
++′
++the symmetric square L⊙2
++φ  = D − 4rD − 2r has a rational solution; the ansatz
++8
++2
++4
++f = N (z)/ z (z + z + 3) , deg N ≤ 18, yields a homogeneous linear system in 38
++rational unknowns whose only solution is trivial. With Cases 1,2,3 excluded, the
++algorithm returns Case 4: G = SL2 (C).
++(2) Structural argument (a consistency check on (1), not a second proof ). The
++reduced equation u′′ = ru has no first-order term, so the Wronskian
++is constant
++√
++and G ⊆ SL2 . At z = 0 the two distinct exponentials exp(±(1/ 3)/z) generate the
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
+ Lφ (order 2, on z)
++
++7
+ 
+@@ -442,5 +483,6 @@
+ −1±i 11
++b holomorphic there), −ξ0 (branch)
++finite singularities ρ± =
+ (reg.)
+-0 (apparent), −ξ0 (branch)
+-finite singularities ρ± =
++0 (reg. sing., logarithmic; B
+ 2
+@@ -460,33 +502,17 @@
+ 
+-Proof of Theorem 1.2. We give both arguments.
+-(1) Kovacic case-elimination. In the Kovacic case/group dictionary [8, 9] for
+-u′′ = ru: Case 3 (finite groups A4 , S4 , A5 ) requires every pole order ≤ 2; the pole
+-of order 4 at z = 0 excludes it. Case 1 (reducible, G ⊆ Borel) holds iff the Riccati
+-equation v ′ = r − v 2 has a rational solution; a complete rational Riccati solver
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-7
+-
+-returns none. Case 2 (imprimitive, G ⊆ N (T )) holds, given Case 1 excluded, iff
+-3
+-′
+-the symmetric square L⊙2
+-φ  = D − 4rD − 2r has a rational solution; the ansatz
+-f = N (z)/ z 8 (z 2 + z + 3)4 , deg N ≤ 18, yields a homogeneous linear system in 38
+-rational unknowns whose only solution is trivial. With Cases 1,2,3 excluded, the
+-algorithm returns Case 4: G = SL2 (C).
+-(2) Structural argument. The reduced equation u′′ = ru has no first-order term,
+-so the Wronskian
+-is constant and G ⊆ SL2 . At z = 0 the two distinct exponentials
+-√
+-exp(±(1/ 3)/z) generate the full diagonal torus Gm ⊂ SL2 (the local exponential
+-torus). The nonvanishing Stokes constant S = 2πK ̸= 0 at this irregular point is a
+-nonidentity unipotent off that torus. A maximal torus together with one off-torus
+-unipotent generate SL2 , whence G = SL2 (C).
++diagonal torus T = Gm ⊂ SL2 (the local exponential torus), and the nonvanishing
++Stokes constant S = 2πK =
++̸ 0 at this irregular point supplies one root unipotent
++u ∈ U . A maximal torus together with a single root unipotent generates the Borel
++subgroup B = T ⋉ U : the opposite root group is not produced, so this datum alone
++gives only G ⊇ B. Passing from B to SL2 (C) requires ruling out G ⊆ B, i.e. ruling
++out the reducible case—which is precisely Kovacic’s Case 1, eliminated in (1). With
++that exclusion in hand, G ⊋ B and the only connected subgroup of SL2 properly
++containing a Borel subgroup is SL2 (C) itself, whence G = SL2 (C).
+ □
+-The two routes are genuinely independent—an exhaustive negative search versus
+-a positive generation argument from the Stokes datum—and agree. (Only one
+-symbolic engine was available; the second route supplies the cross-check that a second
+-computer-algebra system would otherwise provide. See Appendix A.2.)
++The two routes are therefore not independent: route (2) is conditional on the
++Case 1 exclusion established in route (1), and cross-checks that computation
++rather than replacing it. (Only one symbolic engine was available; an independent
++verdict would require a second computer-algebra system, for example Maple’s
++DEtools[DifferentialGaloisGroup]. See Appendix A.2.)
+ 2.3. The Borel operator LV . We construct LV from Lφ by Borel–Laplace duality.
+@@ -514,2 +540,7 @@
+ the formal map alone.
++
++8
++
++PAPANOKECHI
++
+ √
+@@ -517,6 +548,4 @@
+ b
+-B
+ Theorem
+-2.3
+-(
++2.3 (B
+ =
+@@ -524,2 +553,4 @@
+ m
++b
++ξ
+ ,
+@@ -536,12 +567,12 @@
+ operator
+-b
+-ξ
+-m
+ m
+ m+1
+-m≥0
++m≥0 m
+ P4
++k of order 4 and degree 2, normalised by p
+ LV =
+-(ξ)Dk of order 4 and degree 2, normalised by p0 ≡ 1, with
+-k=0 pk√
++(ξ)D
++p
++0 ≡ 1, with
++k=0 k√
+ b is
+@@ -558,5 +589,5 @@
+ p4 (ξ) =
+-ξ ξ+√ ,
+ 418501 = 431 × 971,
+ (10)
++ξ ξ+√ ,
+ 418501
+@@ -569,18 +600,31 @@
+ irregular of slope 1 at ξ = ∞,
+-
+-8
+-
+-PAPANOKECHI
+-
+ √
+ with −(1 + β) = −1 + 3/9 = −0.80754991027 . . . the unique non-integer exponent.
+-At ξ = 0 the four exponents are consecutive integers, so the point is apparent (singleb itself is the holomorphic exponent-0 solution). At ξ = −ξ0 the branch is
+-valued, B
++At ξ = 0 the four exponents are consecutive integers, so every step of the Frobenius
++recursion from the lowest exponent −1 to the next is resonant and a logarithm is
++possible. It occurs: the recursion started at ξ −1 is obstructed at the first resonant
++step, the obstruction being the nonzero element
++√
++√
++38286 + 24984 3
++∈ Q( 3),
++418501
++so there is no formal solution with leading exponent −1, the log-free local solution space
++has dimension 3 (leading exponents 0, 1, 2) and the fourth local solution carries log ξ.
++Hence ξ = 0 is a genuine regular singular point of LV with unipotent local monodromy,
++b itself is the exponent-0 solution and is holomorphic at 0,
++not an apparent one. B
++√
++which is all the main identity uses (Lemma 2.7). The computation is exact in Q( 3)
++and is confirmed by three implementations that share no code: the resonant-step
++obstruction, the rank of the truncated Laurent system, and the explicit construction
++of the logarithmic solution; see Appendix A.3. At ξ = −ξ0 the branch is carried by
+ b
+-carried by the single irrational exponent −(1 + β), governing B(ξ)
+-∼ A (ξ + ξ0 )−(1+β)
+-and hence the large-order law an ∼ Γ(n + β)/ξ0n+β up to the amplitude A. Both
+-statements are obtained twice, by a falling-factorial indicial computation and by direct
+-solution of the Frobenius recurrence at −ξ0 (residuals 1.6 × 10−46 , no logarithms);
+-see Appendix A.3.
++the single irrational exponent −(1 + β), governing B(ξ)
++∼ A (ξ + ξ0 )−(1+β) and hence
++n+β
++the large-order law an ∼ Γ(n + β)/ξ0
++up to the amplitude A. Both statements are
++obtained twice, by a falling-factorial indicial computation and by direct solution of the
++Frobenius recurrence at −ξ0 (residuals 1.6 × 10−46 , no logarithms); see Appendix A.3.
+ Remark 2.5 (From branch exponent to large-order law). The single irrational
+@@ -595,5 +639,3 @@
+ −(1+β)
+-−(1+β)
+-against (ξ + ξ0 )
+-= ξ0
++against (ξ + ξ0 )−(1+β) = ξ0
+ (ξ/ξ0 )m gives, by Stirling,
+@@ -612,14 +654,10 @@
+ the standard resurgence
+-late-term
+-law
+-with
+-action
+-ξ
+-=
+-2/
+-3 and characteristic
+-0
+-√
+-exponent
+-√ β = −1/(3 3). Thus the operator datum at −ξ0 (an algebraic exponent
++√ late-term law with action ξ0 = 2/ 3 and characteristic
++exponent β = −1/(3 3). Thus the operator datum at −ξ0 (an algebraic exponent
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++9
++
++√
+ in Q( 3)) and the analytic datum K governing |an | are two readings of the same
+@@ -635,12 +673,14 @@
+ Proof of Corollary 1.3. A holonomic function has finitely many singularities, located
+-among the zeros of the leading coefficient of its annihilator and the point at infinity.
+-b ⊆
+-By Theorem 2.3 the leading coefficient p4 vanishes only at 0 and −ξ0 , so Sing(B)
+-{0, −ξ0 , ∞}; the point 0 is apparent (Proposition 2.4), leaving the genuine singularities
+-b has no singularity at 2ξ0 , 3ξ0 , . . . , so the
+-−ξ0 and the irregular ∞. In particular B
+-hypothetical infinite alien tower (in the sense of Écalle’s alien calculus [14]) suggested
+-by the (1/2)n numerical floor reported in the parent probe (PERIOD-REP-VQUAD-001,
+-numerical-check.md) does not exist; the resurgence of Vquad is governed by the
+-finite rank-4 connection LV .
++among the zeros of the leading coefficient of its annihilator and the point at infinity. By Theorem 2.3 the leading coefficient p4 vanishes only at 0 and −ξ0 , so
++b ⊆ {0, −ξ0 , ∞}; and although 0 is a genuine regular singular point of LV ,
++Sing(B)
++b is not that solution: it
++carrying a logarithmic local solution (Proposition 2.4), B
++b leaving the genis the holomorphic exponent-0 one, so 0 is not a singularity of B,
++b
++uine singularities −ξ0 and the irregular ∞. In particular B has no singularity at
++2ξ0 , 3ξ0 , . . . , so the hypothetical infinite alien tower (in the sense of Écalle’s alien
++calculus [14]) suggested by the (1/2)n numerical floor reported in the parent probe
++(PERIOD-REP-VQUAD-001, numerical-check.md) does not exist; the resurgence of
++Vquad is governed by the finite rank-4 connection LV .
+ □
+@@ -649,23 +689,33 @@
+ sees exactly that branch.
+-b at ξ = 0
+-Lemma 2.7 (The apparent point carries no period). The singularity of B
+-contributes nothing to any rapid-decay period: its local exponents {−1, 0, 1, 2} are
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-9
+-
+-b extends holomorphically
+-consecutive integers, so the local monodromy is trivial and B
+-across 0 (it is the exponent-0 solution). Hence no cut emanates from 0, and the only
+-branch a thimble can wrap is the one at −ξ0 .
+-Proof. At a regular-singular point with integer exponents differing by integers and
+-no logarithmic solution, the local solution space contains a single-valued generator
+-for each exponent, with the top exponent solution holomorphic; the indicial data at
+-0 ((10) gives a simple zero of p4 at 0, and the falling-factorial indicial polynomial
+-b the exponent-0 member, is
+-∝ s(s − 2)(s − 1)(s + 1) has roots {−1, 0, 1, 2}) shows B,
+-holomorphic. Triviality of the monodromy is the definition of an apparent singularity.
+-Source: PERIOD-REP-VQUAD-002, operator-verification.md §4.2.
++Lemma 2.7 (The point ξ = 0 carries no period). The point ξ = 0 contributes nothing
++b The local solution space of LV at 0 does contain a
++to any rapid-decay period of B.
++b
++logarithm (Proposition 2.4), so 0 is not an apparent singularity of the operator; but B
++b extends across 0, no cut of B
++b emanates
++is the holomorphic exponent-0 solution, so B
++from 0, and the only branch a thimble can wrap is the one at −ξ0 .
++Proof. The indicial data at 0 ((10) gives a simple zero of p4 at 0, and the fallingfactorial indicial polynomial ∝ (s + 1)s(s − 1)(s − 2) has roots {−1, 0, 1, 2}) make 0
++regular singular with consecutive integer exponents. The exponent-0 solution is the
++b vanishes identically
++b = P bm ξ m itself: the residual LV B
++convergent power series B
++m
++√
++b is holomorphic
++in Q( 3) through order ξ 129 (Theorem 2.3, Appendix A.1), and B
++at 0 because φ is Gevrey-1. A function holomorphic at a point has no cut there,
++whatever the monodromy of the other local solutions of its annihilator; and the
++cycle γ of Section 3 lies in (−∞, −ξ0 ] and does not approach 0. Note that the older
++assertion that 0 is apparent is false—consecutive integer exponents make the point
++resonant, not apparent—and is corrected in Proposition 2.4; the present lemma, and
++with it the main identity, does not use apparency. Source: PERIOD-REP-VQUAD-002,
++operator-verification.md §4.2, and Appendix A.3.
+ □
++
++10
++
++PAPANOKECHI
++
+ 2.5. Algebraicity for Fresán–Jossen. Theorems 2.1 and 2.3 discharge the loadb dξ is an algebraic de
+@@ -674,8 +724,9 @@
+ 4
+-Rham form for the √
+-twisted connection E ⊗ (O , ∇LV ) with f = −ξ, defined over
+-the number field Q( 3). The transcendental Painlevé-V accessory parameter of Vquad
+-lives in the√nonlinear moduli; the linear scalar reduction governing the asymptotics
+-is over Q( 3), which is why no transcendental constant enters Lφ or LV . We make
+-the motivic use of this precise in Section 6.
++Rham form for the
++√ twisted connection E ⊗(O , ∇LV ) with f = −ξ, defined over the
++number field Q( 3). Under the conjectured identification of [1], Conjecture 4.1, the
++transcendental Painlevé-V accessory parameter of Vquad would live in the√nonlinear
++moduli; the linear scalar reduction governing the asymptotics is over Q( 3), which
++is why no transcendental constant enters Lφ or LV . We make the motivic use of this
++precise in Section 6.
+ 3. The rapid-decay cycle γ
+@@ -717,26 +768,2 @@
+ 
+-10
+-
+-PAPANOKECHI
+-
+-Im ξ
+-eξ → 0
+-γabove
+-
+-cut
+-
+-γbelow
+-
+-0
+-(apparent)
+-
+-−ξ0
+-
+-Re ξ
+-
+-Figure 1. The rapid-decay cycle γ = γbelow + γloop + γabove (Defb
+-inition 3.1): a Hankel thimble wrapping the cut (−∞, −ξ0 ] of B,
+-ξ
+-clockwise about the branch point −ξ0 . The action factor e decays
+-into Re ξ → −∞, which is the cut direction; the point ξ = 0 is apparent and carries no cut.
+ 3.2. Rapid decay.
+@@ -779,2 +806,30 @@
+ is precisely the Fresán–Jossen rapid-decay condition at the non-compact ends.
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++11
++
++Im ξ
++eξ → 0
++γabove
++
++cut
++
++γbelow
++
++0
++(no cut)
++
++−ξ0
++
++Re ξ
++
++Figure 1. The rapid-decay cycle γ = γbelow + γloop + γabove (Defb
++inition 3.1): a Hankel thimble wrapping the cut (−∞, −ξ0 ] of B,
++ξ
++clockwise about the branch point −ξ0 . The action factor e decays
++b is holomorphic at
++into Re ξ → −∞, which is the cut direction; B
++b emanates from that point.
++ξ = 0, so no cut of B
+ Branch point. By (12) the local exponent satisfies −(1 + β) > −1 (equivalently
+@@ -796,5 +851,5 @@
+ (13)
++−∞
++
+ γ
+-
+-−∞
+ 
+@@ -817,7 +872,2 @@
+ H1rd (X, M ) = H1 (X, Z; rd) (in the sense of Hien’s rapid-decay homology [10], the Betti
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-11
+-
+ realisation underlying the Fresán–Jossen pairing), Z = {−ξ0 }, with the rapid-decay
+@@ -839,2 +889,6 @@
+ 
++12
++
++PAPANOKECHI
++
+ Remark 3.4 (Rank of the rapid-decay homology). The local system underlying
+@@ -842,10 +896,10 @@
+ with nontrivial monodromy at −ξ0 . Of the four local exponents {−(1 + β), 0, 1, 2}
+-there, the three integer exponents give single-valued (holomorphic) solutions and the
+-apparent point ξ = 0 contributes nothing (Proposition 2.4); the monodromy around
+-−ξ0 is therefore the rank-one factor e2πi (−(1+β)) = e−2πi(1+β) = e−2πiβ acting on the
+-branch solution. The discontinuity (13) is exactly (1 − e2πi(1+β) ) times the one-sided
+-integral, so [γ] is the generator of the one-dimensional rapid-decay homology of this
+-branch, paired against the algebraic class [ω]. This is why a single thimble captures
+-the entire connection datum: the finite resurgence of Corollary 1.3 has reduced the
+-period problem to a rank-one branch.
++there, the three integer exponents give single-valued (holomorphic) solutions, and
++b is holomorphic there and γ does not approach
++ξ = 0 contributes nothing—B
++it (Lemma 2.7)— the monodromy around −ξ0 is therefore the rank-one factor
++e2πi (−(1+β)) = e−2πi(1+β) = e−2πiβ acting on the branch solution. The discontinuity (13) is exactly (1 − e2πi(1+β) ) times the one-sided integral, so [γ] is the generator of
++the one-dimensional rapid-decay homology of this branch, paired against the algebraic
++class [ω]. This is why a single thimble captures the entire connection datum: the finite
++resurgence of Corollary 1.3 has reduced the period problem to a rank-one branch.
+ The three structural conditions a Fresán–Jossen thimble must satisfy ([7];
+@@ -869,7 +923,2 @@
+ 4.1. Statement.
+-
+-12
+-
+-PAPANOKECHI
+-
+ b LV , γ, β and K as above,
+@@ -879,4 +928,4 @@
+ b dξ = |Γ(β)| · K,
++C =
+ eξ B(ξ)
+-C =
+ 2π
+@@ -892,6 +941,6 @@
+ b dξ = S,
++eξ+ξ0 B(ξ)
++C =
+ S.
+ (18)
+-eξ+ξ0 B(ξ)
+-C =
+ 2π
+@@ -901,2 +950,7 @@
+ f 7→ f − ξ0 (a Ga -shift, admissible in the Fresán–Jossen formalism since it changes
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++13
++
+ E −f by the constant rank-one factor E ξ0 ) multiplies the integrand by eξ0 , absorbing
+@@ -938,6 +992,3 @@
+ argument β = −1/(3
+-3)
+-∈
+-Q(
+-3); everything else—B,
++3) ∈ Q( 3); everything else—B,
+ √
+@@ -959,7 +1010,2 @@
+ both sides are 2π/|Γ(β)| by (17).
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-13
+-
+ Remark 4.2 (Provenance of the value 0.43770528 . . .). A reader familiar with the
+@@ -976,2 +1022,7 @@
+ double duty and mislabelled as S.
++
++14
++
++PAPANOKECHI
++
+ 4.4. Numerical confirmation. The identity (17) is confirmed numerically to 46
+@@ -1003,7 +1054,2 @@
+ It never touches γ at all, and is the tightest (9.31 × 10−46 ).
+-
+-14
+-
+-PAPANOKECHI
+-
+ Thus Method A certifies which differential equation the period solves, Method B
+@@ -1026,2 +1072,7 @@
+ forced by the normalisation bm = am+1 /m! (since am+1 = bm m! = bm 0 e−t tm dt).
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++15
++
+ Along a contour with vanishing boundary terms—the rapid-decay
+@@ -1071,7 +1122,2 @@
+ Borel–Laplace duality between Lφ and LV .
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-15
+-
+ Finally, Iγ is the difference of the two lateral Borel sums (the median-summation
+@@ -1095,2 +1141,6 @@
+ 
++16
++
++PAPANOKECHI
++
+ The cancellation that produces (25) is worth displaying, since it is the heart of the
+@@ -1100,9 +1150,6 @@
+ 2πi
+-ξ
+-−(1+β)
+-−ξ0
+-e A(ξ + ξ0 )
+-dξ = A e
++eξ A(ξ + ξ0 )−(1+β) dξ = A e−ξ0
+ eη η −(1+β) dη = A e−ξ0
+-Γ(1 + β)
++Γ(1
+++ β)
+ γ
+@@ -1112,5 +1159,5 @@
+ −ξ0
++=
+ e
+ =Se ,
+-=
+ 2πi
+@@ -1124,6 +1171,3 @@
+ (27)
+-−ξ
+-0
+-Method B is independent of the Stokes datum: it derives S e
+-from the cycle and
++Method B is independent of the Stokes datum: it derives S e−ξ0 from the cycle and
+ the branch exponent, rather than assuming S.
+@@ -1160,7 +1204,2 @@
+ ξ0m+1+β
+-
+-16
+-
+-PAPANOKECHI
+-
+ (Proposition 2.4, Remark 2.5).
+@@ -1180,2 +1219,7 @@
+ point (the exponential-torus generator), and 1/Γ(1 + β) is the branch normalisation
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++17
++
+ at −ξ0 (the Gm generator attached to the irrational exponent −(1 + β)). Their
+@@ -1225,7 +1269,2 @@
+ itself, and a motivic-comparison hypothesis we label G-MOTGALOIS. Sources:
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-17
+-
+ [7], and the slot deliverables fj-application.md, galois-LV-verification.md,
+@@ -1250,3 +1289,5 @@
+ 
+-a period of the exponential motive H 1 A1 ∖ {0, −ξ0 }, ∇ attached to (X, f, ω), and
++1
++1
++a period of the exponential motive H A ∖ {0, −ξ0 }, ∇ attached to (X, f, ω), and
+ R
+@@ -1254,2 +1295,7 @@
+ by (17) so is C = (|Γ(β)|/2π) γ eξ B
++
++18
++
++PAPANOKECHI
++
+ The auxiliary Fresán–Jossen condition most easily overlooked—the structure of
+@@ -1288,7 +1334,2 @@
+ (Method C, (28)).
+-
+-18
+-
+-PAPANOKECHI
+-
+ Because GV carries both a non-abelian SL2 -type part and a transcendentalmonodromy torus Gm with irrational character, the motivic Galois group is
+@@ -1301,4 +1342,4 @@
+ assembles into the period matrix
++
+ 
+-
+ 1
+@@ -1307,5 +1348,5 @@
+ 1
++P (M ) = 
+ det P (M ) = 2πi,
+ (30)
+-P (M ) = 
+ 2πi
+@@ -1314,2 +1355,7 @@
+ 2πi is the exponential-torus period of E ξ , the off-diagonal 1/Γ(1 + β) is the branch
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++19
++
+ normalisation at −ξ0 , and the connection coefficient C = |Γ(β)|K = |A|/|β| is the
+@@ -1343,7 +1389,2 @@
+ through the irrational character 3/9 and an SL2 -type Stokes part). The period
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-19
+-
+ conjecture (29) predicts trdegQ of this algebra equals dim Gmot (M ), which under GMOTGALOIS is ≥ 1 with C outside the invariants; equality at any value ≥ 1 already
+@@ -1362,18 +1403,27 @@
+ not collapse this into an unconditional claim.
++
++20
++
++PAPANOKECHI
++
+ 7. Discussion
+-7.1. Place in the Sakai stratification. The master conjecture of the Sakaistratification program [3] predicts, for each Sakai surface stratum, that the connection
+-constant of a polynomial continued fraction whose tail is governed by the corresponding Painlevé equation is an exponential period, and—in part (ii)(a)—that for
++7.1. Place in the Sakai stratification. The master conjecture of the Sakaistratification program [3] predicts, for each Sakai surface stratum, that the connection constant of a polynomial continued fraction whose tail is governed by the
++corresponding Painlevé equation is an exponential period, and—in part (ii)(a)—that
+ (1)
++for the D5 (Painlevé V) stratum this period is explicit. For Vquad , conjecturally the
+ (1)
+-the D5 (Painlevé V) stratum this period is explicit. For Vquad , the rank-one D5
+-representative, that entry was previously graded structural : the skeleton C = Γ(β) · K
+-matched, but no period integral was exhibited. Theorem 1.1 exhibits the integral and
++rank-one D5 representative ([1], Conjecture 4.1), that entry was previously graded
++structural : the skeleton C = Γ(β) · K matched, but no period integral was exhibited.
++Theorem 1.1 exhibits the integral and verifies it three ways. What this establishes is
++an instance of part (ii)(a) for the single representative Vquad : its connection constant
++is realised as an explicit Fresán–Jossen exponential period, and is transcendental
+ (1)
+-verifies it three ways, so the present paper completes part (ii)(a) for d = 2: the D5
+-connection constant is realised as an explicit Fresán–Jossen exponential period, and
+-(conditionally) transcendental. We do not modify the live stratification deposit; the
+-upgrade is recorded as a recommendation (PERIOD-REP-VQUAD-003, ledger.json).
+-Adjacent instances in the same program corroborate the pattern: the Edge–Borel ring
+-papers characterise the connection/amplitude datum of related polynomial-continuedfraction families [4, 5], and a companion Fredholm-determinant representation realises
+-a related pcf growth constant as an explicit determinant [6].
++under the two hypotheses of Corollary 1.4. The instance is attached to the D5
++stratum only through the conjectured surface identification of [1], Conjecture 4.1.
++Part (ii)(a) is not established for the stratum: no statement is made here about
++any other member, and nothing here proves that Vquad lies in that stratum. We
++do not modify the live stratification deposit; the upgrade is recorded as a recommendation (PERIOD-REP-VQUAD-003, ledger.json). Adjacent instances in the same
++program corroborate the pattern: the Edge–Borel ring papers characterise the connection/amplitude datum of related polynomial-continued-fraction families [4, 5],
++and a companion Fredholm-determinant representation realises a related pcf growth
++constant as an explicit determinant [6].
+ 7.2. The d ≥ 3 program. The method is structural rather than special to d = 2, but
+@@ -1382,3 +1432,18 @@
+ degenerations).
+-√ First, the exact coefficient field: for Vquad the Riccati seed σ = −1/ 3
++First,
++the
++exact
++coefficient
++field:
++for
++V
++the
++Riccati
++seed
++σ
++=
++−1/
++3
++quad
++√
+ lands in Q( 3), which is what makes Lφ , LV algebraic over a real quadratic field;
+@@ -1392,7 +1457,2 @@
+ passes does the period extraction proceed.
+-
+-20
+-
+-PAPANOKECHI
+-
+ 7.3. Relation to the Ramanujan Machine and conservative matrix fields.
+@@ -1403,2 +1463,7 @@
+ invisible to convergence-rate heuristics, and the content of this paper is its period
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++21
++
+ structure rather than a closed-form value. We see the two as a natural pairing—
+@@ -1440,7 +1505,2 @@
+ (and by packages such as Maple’s DEtools[DifferentialGaloisGroup]); the largeorder/Borel–Padé extraction of K, S and the branch exponent is standard exponential
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-21
+-
+ asymptotics. None of these steps is conjectural, and we have used all of them. What
+@@ -1451,2 +1511,7 @@
+ confirm every algebraic identity in this paper; it cannot supply the period-theoretic
++
++22
++
++PAPANOKECHI
++
+ meaning. The reproducibility statement (Appendix A.5) lists the exact tools and
+@@ -1464,2 +1529,3 @@
+ constants?
++
+ Acknowledgements
+@@ -1485,8 +1551,7 @@
+ 431
++√
++√
+ √ 431
+-√
+-√
++2552175 + 199224 3 496044 + 61620 3
+ 70092 + 3240 3 2
+-2552175 + 199224 3 496044 + 61620 3
+-p2 =
+ +
+@@ -1494,2 +1559,3 @@
+ ξ ,
++p2 =
+ 418501 √
+@@ -1516,7 +1582,2 @@
+ 418501
+-
+-22
+-
+-PAPANOKECHI
+-
+ √
+@@ -1528,2 +1589,5 @@
+ §4.0.
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
+ A.2. Kovacic
+@@ -1538,2 +1602,4 @@
+ r u via y
++
++23
+ 
+@@ -1563,7 +1629,8 @@
+ • Case 4 : by elimination, G = SL2 (C).
+-Independent structural confirmation: the reduced equation
+-√ has no first-order term,
+-so G ⊆ SL2 ; the two distinct exponentials exp(±(1/ 3)/z) at z = 0 generate
+-the diagonal torus, and the nonzero Stokes constant S = 2πK supplies an offtorus unipotent; torus-plus-unipotent generate SL2 . Source: PERIOD-REP-VQUAD-003,
+-kovacic-verification.md.
++Structural consistency check (not independent of the above): the reduced√equation
++has no first-order term, so G ⊆ SL2 ; the two distinct exponentials exp(±(1/ 3)/z) at
++z = 0 generate the diagonal torus, and the nonzero Stokes constant S = 2πK supplies
++one root unipotent. Torus-plus-one-root-unipotent generates a Borel subgroup; SL2
++follows only after the reducible case is excluded, which is Case 1 above. Source:
++PERIOD-REP-VQUAD-003, kovacic-verification.md.
+ A.3. Numerical logs. All constants to the stated precision (PERIOD-REP-VQUAD-001,
+@@ -1577,5 +1644,27 @@
+ √
++ξ0 = 2/ 3 = 1.1547005383792517 . . . ,
+ β = −1/(3 3) = −0.19245008972987525 . . . ,
+-ξ0 = 2/ 3 = 1.1547005383792517 . . . ,
+ C = |Γ(β)|K = 0.437705286193537221230739749794369589981725597 . . . .
++
++Logarithms at ξ = 0 (exact, no floating point). The local exponents of LV at ξ = 0 are
++the consecutive integers {−1, 0, 1, 2}, the exact integer roots of the indicial polynomial.
++√
++Running the Frobenius recursion from the lowest exponent −1 √
++in exact Q( 3)
++arithmetic, the first resonant step is obstructed by (38286 + 24984 3)/418501 ̸= 0;
++the steps from exponents 0, 1 and 2 are unobstructed. The log-free local solution
++space therefore has dimension 3, with leading exponents 0, 1, 2, and the fourth local
++−1
++solution carries log
++√ ξ; a representative of it, ξ (1 + · · · ) + c log ξ (v0 + v1 ξ + · · · )
++with v0 = −(2 + 3)/24, is exhibited explicitly. Three implementations sharing no
++code agree: the resonant-step obstruction, the rank of the truncated Laurent system
++(dimension 3 at truncation orders 16 and 24), and the explicit logarithmic solution.
++b the exponent-0 solution,
++Consequently ξ = 0 is not an apparent singularity of LV ; B,
++is unaffected, and so is the main identity (Lemma 2.7).
++
++24
++
++PAPANOKECHI
+ 
+@@ -1586,9 +1675,5 @@
+ recurrence residual 1.6 × 10−46 (stage3b_frobenius_v2.py).
++
+ A.4. The four sign conventions for Method A. Method A (§5.2) hinges on
+ the Borel–Laplace intertwiner (23). Because both the kernel exponent and the ξmultiplication carry a sign, there are four a priori conventions; we tested all four
+-
+-AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
+-
+-23
+-
+ (stage4a_methodA_v2.py) and only one produces a proportional operator M =
+@@ -1636,2 +1721,3 @@
+ method-A-verification.md.
++
+ A.5. Reproducibility statement and code availability. Every computational claim of this paper is reproducible from the scripts in the probe slots
+@@ -1651,3 +1737,9 @@
+ cross-checkable in Maple’s DEtools[DifferentialGaloisGroup], is here obtained
+-by open case-elimination plus the structural argument of Appendix A.2.
++by open case-elimination, with the structural argument of Appendix A.2 as a
++consistency check that depends on the same Case 1 exclusion.
++
++AN EXPONENTIAL-PERIOD REPRESENTATION OF THE Vquad CONSTANT
++
++25
++
+ References
+@@ -1664,7 +1756,2 @@
+ dividing-line conjecture. Zenodo, 2026, concept DOI 10.5281/zenodo.20566465.
+-
+-24
+-
+-PAPANOKECHI
+-
+ [6] Papanokechi, A Fredholm-determinant representation of the pcf-δ growth constant: finite identity,
+@@ -1704,2 +1791,7 @@
+ [21] O. David, The conservative matrix field. Preprint, arXiv:2303.09318 [math.GM], 2023.
++
++26
++
++PAPANOKECHI
++
+ [22] O. Marchal and N. Orantin, Isomonodromic deformations of a rational differential system and
+@@ -1716,2 +1808,5 @@
+ 10.1070/SM1996v187n09ABEH000158.
++[26] Papanokechi, A non-classical Painlevé V transcendent from a quadratic polynomial continued fraction: surface classification and resurgent Stokes data. Zenodo, 2026, version DOI
++10.5281/zenodo.22831933 (version 1.3; concept DOI 10.5281/zenodo.20455089). See its correction notice, whose items C1 and C2 respectively withdraw an apparency claim and revise
++the derivation of the quoted Painlevé parameters.
+ 
+
+==========================================================================
+WORD-LEVEL DIFF (reflow removed: whole document as one token stream)
+==========================================================================
+A line diff of a reflowed document reports every line after an edit as
+changed. The token stream below is insensitive to line breaking, so each
+block is an actual edit.
+
+tokens before furniture strip: submitted 11245  revised 12092
+tokens after  furniture strip: submitted 11124  revised 11962
+
+--- edit block 1  (replace) ---
+  REMOVED: on the
+  ADDED  : whose
+
+--- edit block 2  (insert) ---
+  ADDED  : type
+
+--- edit block 3  (insert) ---
+  ADDED  : is conjectured to be
+
+--- edit block 4  (delete) ---
+  REMOVED: representation C =
+
+--- edit block 5  (delete) ---
+  REMOVED: b
+
+--- edit block 6  (replace) ---
+  REMOVED: transform of the
+  ADDED  : b representation C =
+
+--- edit block 7  (insert) ---
+  ADDED  : transform of the
+
+--- edit block 8  (insert) ---
+  ADDED  : real
+
+--- edit block 9  (delete) ---
+  REMOVED: real
+
+--- edit block 10  (replace) ---
+  REMOVED: √3);
+  ADDED  : 3);
+
+--- edit block 11  (insert) ---
+  ADDED  : √
+
+--- edit block 12  (replace) ---
+  REMOVED: methods—differentialequation/operator
+  ADDED  : methods—differential-equation/operator
+
+--- edit block 13  (replace) ---
+  REMOVED: Stokes-data— agreeing
+  ADDED  : Stokes-data—agreeing
+
+--- edit block 14  (delete) ---
+  REMOVED: +
+
+--- edit block 15  (insert) ---
+  ADDED  : 2
+
+--- edit block 16  (replace) ---
+  REMOVED: 3n2
+  ADDED  : 3n
+
+--- edit block 17  (replace) ---
+  REMOVED: identified as
+  ADDED  : conjectured to be
+
+--- edit block 18  (delete) ---
+  REMOVED: non-classical
+
+--- edit block 19  (insert) ---
+  ADDED  : non-classical
+
+--- edit block 20  (replace) ---
+  REMOVED: 12 = ̸
+  ADDED  : 21 ̸=
+
+--- edit block 21  (replace) ---
+  REMOVED: [11]), with formal monodromy exponent √
+  ADDED  : [11]). That identification is Conjecture 4.1 of [1], not a theorem, and nothing in the present paper depends on it: every result below is a statement about the√operators Lφ and LV and the cycle γ.
+
+--- edit block 22  (replace) ---
+  REMOVED: .
+  ADDED  : quoted there are
+
+--- edit block 23  (replace) ---
+  REMOVED: asymptotic (WKB/Riccati) solution of the
+  ADDED  : formal monodromy exponent
+
+--- edit block 24  (insert) ---
+  ADDED  : the companion’s; its version 1.3 correction notice [26] revises the derivation by which + 1 2 those Painlevé parameters were obtained. The asymptotic (WKB/Riccati) solution of the
+
+--- edit block 25  (delete) ---
+  REMOVED: 1 2
+
+--- edit block 26  (delete) ---
+  REMOVED: (3)
+
+--- edit block 27  (insert) ---
+  ADDED  : (3)
+
+--- edit block 28  (insert) ---
+  ADDED  : 2π
+
+--- edit block 29  (delete) ---
+  REMOVED: 2π
+
+--- edit block 30  (insert) ---
+  ADDED  : 3
+
+--- edit block 31  (delete) ---
+  REMOVED: 3
+
+--- edit block 32  (insert) ---
+  ADDED  : C =
+
+--- edit block 33  (delete) ---
+  REMOVED: C =
+
+--- edit block 34  (replace) ---
+  REMOVED: This
+  ADDED  : The proof
+
+--- edit block 35  (delete) ---
+  REMOVED: proved twice: by
+
+--- edit block 36  (delete) ---
+  REMOVED: and by a structural torus-plus-unipotent argument
+
+--- edit block 37  (insert) ---
+  ADDED  : The structural torus-plus-unipotent argument recorded there is a consistency check on the same computation, not a second proof: a maximal torus together with one root unipotent generates a Borel subgroup, and the passage to SL2 (C) uses the exclusion of the reducible case, which is Kovacic’s Case 1.
+
+--- edit block 38  (insert) ---
+  ADDED  : 4
+
+--- edit block 39  (replace) ---
+  REMOVED: reproduced
+  ADDED  : obtained
+
+--- edit block 40  (replace) ---
+  REMOVED: case-elimination and by an independent
+  ADDED  : case-elimination, with the
+
+--- edit block 41  (replace) ---
+  REMOVED: argument,
+  ADDED  : argument of
+
+--- edit block 42  (replace) ---
+  REMOVED: A.2);
+  ADDED  : A.2 as a consistency check on it, not as a second derivation);
+
+--- edit block 43  (delete) ---
+  REMOVED: 4
+
+--- edit block 44  (insert) ---
+  ADDED  : =
+
+--- edit block 45  (delete) ---
+  REMOVED: =
+
+--- edit block 46  (insert) ---
+  ADDED  : 5
+
+--- edit block 47  (delete) ---
+  REMOVED: stream. Seeding
+
+--- edit block 48  (insert) ---
+  ADDED  : stream. Seeding
+
+--- edit block 49  (delete) ---
+  REMOVED: 1 2
+
+--- edit block 50  (insert) ---
+  ADDED  : 2
+
+--- edit block 51  (replace) ---
+  REMOVED: 3
+  ADDED  : 13
+
+--- edit block 52  (delete) ---
+  REMOVED: 5
+
+--- edit block 53  (insert) ---
+  ADDED  : 13415
+
+--- edit block 54  (replace) ---
+  REMOVED: 13415 3
+  ADDED  : − 746496
+
+--- edit block 55  (replace) ---
+  REMOVED: − 746496
+  ADDED  : 3
+
+--- edit block 56  (insert) ---
+  ADDED  : 253
+
+--- edit block 57  (delete) ---
+  REMOVED: 253
+
+--- edit block 58  (delete) ---
+  REMOVED: +
+
+--- edit block 59  (delete) ---
+  REMOVED: +
+
+--- edit block 60  (insert) ---
+  ADDED  : + +
+
+--- edit block 61  (delete) ---
+  REMOVED: √
+
+--- edit block 62  (insert) ---
+  ADDED  : √
+
+--- edit block 63  (insert) ---
+  ADDED  : 
+
+--- edit block 64  (delete) ---
+  REMOVED: 
+
+--- edit block 65  (delete) ---
+  REMOVED: 3 z3,
+
+--- edit block 66  (insert) ---
+  ADDED  : 3 z3,
+
+--- edit block 67  (insert) ---
+  ADDED  : 6
+
+--- edit block 68  (delete) ---
+  REMOVED: 6
+
+--- edit block 69  (insert) ---
+  ADDED  : 2
+
+--- edit block 70  (delete) ---
+  REMOVED: 2
+
+--- edit block 71  (delete) ---
+  REMOVED: 1 ′′
+
+--- edit block 72  (replace) ---
+  REMOVED: u
+  ADDED  : u′′
+
+--- edit block 73  (replace) ---
+  REMOVED: 2
+  ADDED  : 12
+
+--- edit block 74  (insert) ---
+  ADDED  : r(z) =
+
+--- edit block 75  (delete) ---
+  REMOVED: r(z) =
+
+--- edit block 76  (insert) ---
+  ADDED  : Proof of Theorem 1.2. We give both arguments. (1) Kovacic case-elimination. In the Kovacic case/group dictionary [8, 9] for ′′ u = ru: Case 3 (finite groups A4 , S4 , A5 ) requires every pole order ≤ 2; the pole of order 4 at z = 0 excludes it. Case 1 (reducible, G ⊆ Borel) holds iff the Riccati equation v ′ = r − v 2 has a rational solution; a complete rational Riccati solver returns none. Case 2 (imprimitive, G ⊆ N (T )) holds, given Case 1 excluded, iff 3 ′ the symmetric square L⊙2 φ  = D − 4rD − 2r has a rational solution; the ansatz 8 2 4 f = N (z)/ z (z + z + 3) , deg N ≤ 18, yields a homogeneous linear system in 38 rational unknowns whose only solution is trivial. With Cases 1,2,3 excluded, the algorithm returns Case 4: G = SL2 (C). (2) Structural argument (a consistency check on (1), not a second proof ). The reduced equation u′′ = ru has no first-order term, so the Wronskian is constant √ and G ⊆ SL2 . At z = 0 the two distinct exponentials exp(±(1/ 3)/z) generate the
+
+--- edit block 77  (insert) ---
+  ADDED  : 7
+
+--- edit block 78  (replace) ---
+  REMOVED: (reg.) 0 (apparent),
+  ADDED  : b holomorphic there),
+
+--- edit block 79  (insert) ---
+  ADDED  : (reg.) 0 (reg. sing., logarithmic; B
+
+--- edit block 80  (delete) ---
+  REMOVED: Proof of Theorem 1.2. We give both arguments. (1) Kovacic case-elimination. In the Kovacic case/group dictionary [8, 9] for u′′ = ru: Case 3 (finite groups A4 , S4 , A5 ) requires every pole order ≤ 2; the pole of order 4 at z = 0 excludes it. Case 1 (reducible, G ⊆ Borel) holds iff the Riccati equation v ′ = r − v 2 has a rational solution; a complete rational Riccati solver 7 returns none. Case 2 (imprimitive, G ⊆ N (T )) holds, given Case 1 excluded, iff 3 ′ the symmetric square L⊙2 φ  = D − 4rD − 2r has a rational solution; the ansatz f = N (z)/ z 8 (z 2 + z + 3)4 , deg N ≤ 18, yields a homogeneous linear system in 38 rational unknowns whose only solution is trivial. With Cases 1,2,3 excluded, the algorithm returns Case 4: G = SL2 (C). (2) Structural argument. The reduced equation u′′ = ru has no first-order term, so the Wronskian is constant and G ⊆ SL2 . At z = 0 the two distinct exponentials √ exp(±(1/ 3)/z) generate the full
+
+--- edit block 81  (insert) ---
+  ADDED  : T =
+
+--- edit block 82  (replace) ---
+  REMOVED: torus). The
+  ADDED  : torus), and the
+
+--- edit block 83  (replace) ---
+  REMOVED: ̸=
+  ADDED  : = ̸
+
+--- edit block 84  (replace) ---
+  REMOVED: is a nonidentity
+  ADDED  : supplies one root
+
+--- edit block 85  (replace) ---
+  REMOVED: off that torus.
+  ADDED  : u ∈ U .
+
+--- edit block 86  (replace) ---
+  REMOVED: one off-torus
+  ADDED  : a single root
+
+--- edit block 87  (replace) ---
+  REMOVED: generate
+  ADDED  : generates the Borel subgroup B = T ⋉ U : the opposite root group is not produced, so this datum alone gives only G ⊇ B. Passing from B to
+
+--- edit block 88  (replace) ---
+  REMOVED: ,
+  ADDED  : (C) requires ruling out G ⊆ B, i.e. ruling out the reducible case—which is precisely Kovacic’s Case 1, eliminated in (1). With that exclusion in hand, G ⊋ B and the only connected subgroup of SL2 properly containing a Borel subgroup is SL2 (C) itself,
+
+--- edit block 89  (replace) ---
+  REMOVED: genuinely independent—an exhaustive negative search versus a positive generation argument from
+  ADDED  : therefore not independent: route (2) is conditional on
+
+--- edit block 90  (replace) ---
+  REMOVED: Stokes datum—and agree.
+  ADDED  : Case 1 exclusion established in route (1), and cross-checks that computation rather than replacing it.
+
+--- edit block 91  (replace) ---
+  REMOVED: the second route supplies the cross-check that
+  ADDED  : an independent verdict would require
+
+--- edit block 92  (replace) ---
+  REMOVED: system would otherwise provide.
+  ADDED  : system, for example Maple’s DEtools[DifferentialGaloisGroup].
+
+--- edit block 93  (insert) ---
+  ADDED  : 8
+
+--- edit block 94  (delete) ---
+  REMOVED: B
+
+--- edit block 95  (replace) ---
+  REMOVED: (
+  ADDED  : (B
+
+--- edit block 96  (insert) ---
+  ADDED  : b ξ
+
+--- edit block 97  (delete) ---
+  REMOVED: b ξ m
+
+--- edit block 98  (insert) ---
+  ADDED  : m
+
+--- edit block 99  (replace) ---
+  REMOVED: LV = (ξ)Dk
+  ADDED  : k
+
+--- edit block 100  (replace) ---
+  REMOVED: p0
+  ADDED  : p LV = (ξ)D p 0
+
+--- edit block 101  (replace) ---
+  REMOVED: pk√
+  ADDED  : k√
+
+--- edit block 102  (delete) ---
+  REMOVED: ξ ξ+√ ,
+
+--- edit block 103  (insert) ---
+  ADDED  : ξ ξ+√ ,
+
+--- edit block 104  (delete) ---
+  REMOVED: 8
+
+--- edit block 105  (insert) ---
+  ADDED  : every step of
+
+--- edit block 106  (insert) ---
+  ADDED  : Frobenius recursion from the lowest exponent −1 to the next is resonant and a logarithm is possible. It occurs: the recursion started at ξ −1 is obstructed at the first resonant step, the obstruction being the nonzero element √ √ 38286 + 24984 3 ∈ Q( 3), 418501 so there is no formal solution with leading exponent −1, the log-free local solution space has dimension 3 (leading exponents 0, 1, 2) and the fourth local solution carries log ξ. Hence ξ = 0 is a genuine regular singular
+
+--- edit block 107  (replace) ---
+  REMOVED: is apparent (singleb
+  ADDED  : of LV with unipotent local monodromy, b
+
+--- edit block 108  (insert) ---
+  ADDED  : exponent-0 solution and is
+
+--- edit block 109  (replace) ---
+  REMOVED: exponent-0 solution).
+  ADDED  : at 0, not an apparent one. B √ which is all the main identity uses (Lemma 2.7). The computation is exact in Q( 3) and is confirmed by three implementations that share no code: the resonant-step obstruction, the rank of the truncated Laurent system, and the explicit construction of the logarithmic solution; see Appendix A.3.
+
+--- edit block 110  (delete) ---
+  REMOVED: valued, B b
+
+--- edit block 111  (insert) ---
+  ADDED  : b
+
+--- edit block 112  (insert) ---
+  ADDED  : n+β
+
+--- edit block 113  (replace) ---
+  REMOVED: β)/ξ0n+β
+  ADDED  : β)/ξ0
+
+--- edit block 114  (delete) ---
+  REMOVED: −(1+β)
+
+--- edit block 115  (replace) ---
+  REMOVED: )
+  ADDED  : )−(1+β)
+
+--- edit block 116  (insert) ---
+  ADDED  : √
+
+--- edit block 117  (replace) ---
+  REMOVED: ξ
+  ADDED  : ξ0
+
+--- edit block 118  (delete) ---
+  REMOVED: 0 √
+
+--- edit block 119  (delete) ---
+  REMOVED: √
+
+--- edit block 120  (insert) ---
+  ADDED  : 9 √
+
+--- edit block 121  (delete) ---
+  REMOVED: b ⊆
+
+--- edit block 122  (replace) ---
+  REMOVED: Sing(B)
+  ADDED  : b ⊆
+
+--- edit block 123  (replace) ---
+  REMOVED: the point
+  ADDED  : and although
+
+--- edit block 124  (replace) ---
+  REMOVED: apparent
+  ADDED  : a genuine regular singular point of LV , Sing(B) b is not that solution: it carrying a logarithmic local solution
+
+--- edit block 125  (insert) ---
+  ADDED  : B b
+
+--- edit block 126  (replace) ---
+  REMOVED: genuine
+  ADDED  : genis the holomorphic exponent-0 one, so 0 is not a singularity of B, b uine
+
+--- edit block 127  (replace) ---
+  REMOVED: b
+  ADDED  : −ξ0 and the irregular ∞. In particular B
+
+--- edit block 128  (delete) ---
+  REMOVED: −ξ0 and the irregular ∞. In particular B
+
+--- edit block 129  (replace) ---
+  REMOVED: b at
+  ADDED  : Lemma 2.7 (The point
+
+--- edit block 130  (delete) ---
+  REMOVED: Lemma 2.7 (The apparent point
+
+--- edit block 131  (replace) ---
+  REMOVED: singularity of B
+  ADDED  : point ξ = 0
+
+--- edit block 132  (insert) ---
+  ADDED  : b The local solution space of LV at 0 does contain a
+
+--- edit block 133  (replace) ---
+  REMOVED: period: its local exponents {−1, 0, 1, 2} are 9
+  ADDED  : period of B. b logarithm (Proposition 2.4), so 0 is not an apparent singularity of the operator; but B
+
+--- edit block 134  (replace) ---
+  REMOVED: holomorphically consecutive integers, so the local monodromy is trivial and
+  ADDED  : across 0, no cut of
+
+--- edit block 135  (replace) ---
+  REMOVED: across 0 (it
+  ADDED  : b emanates
+
+--- edit block 136  (insert) ---
+  ADDED  : holomorphic
+
+--- edit block 137  (replace) ---
+  REMOVED: solution). Hence no cut emanates
+  ADDED  : solution, so B
+
+--- edit block 138  (replace) ---
+  REMOVED: At a regular-singular point with integer exponents differing by integers and no logarithmic solution, the local solution space contains a single-valued generator for each exponent, with the top exponent solution holomorphic; the
+  ADDED  : The
+
+--- edit block 139  (replace) ---
+  REMOVED: falling-factorial
+  ADDED  : fallingfactorial
+
+--- edit block 140  (delete) ---
+  REMOVED: b the exponent-0 member, is
+
+--- edit block 141  (replace) ---
+  REMOVED: s(s − 2)(s
+  ADDED  : (s + 1)s(s
+
+--- edit block 142  (replace) ---
+  REMOVED: + 1)
+  ADDED  : − 2)
+
+--- edit block 143  (replace) ---
+  REMOVED: shows B, holomorphic. Triviality
+  ADDED  : make 0 regular singular with consecutive integer exponents. The exponent-0 solution is the b vanishes identically b = P bm ξ m itself: the residual LV B convergent power series B m √ b is holomorphic in Q( 3) through order ξ 129 (Theorem 2.3, Appendix A.1), and B at 0 because φ is Gevrey-1. A function holomorphic at a point has no cut there, whatever the monodromy
+
+--- edit block 144  (replace) ---
+  REMOVED: monodromy
+  ADDED  : other local solutions of its annihilator; and the cycle γ of Section 3 lies in (−∞, −ξ0 ] and does not approach 0. Note that the older assertion that 0
+
+--- edit block 145  (insert) ---
+  ADDED  : apparent is false—consecutive integer exponents make
+
+--- edit block 146  (replace) ---
+  REMOVED: definition of an apparent singularity.
+  ADDED  : point resonant, not apparent—and is corrected in Proposition 2.4; the present lemma, and with it the main identity, does not use apparency.
+
+--- edit block 147  (replace) ---
+  REMOVED: §4.2.
+  ADDED  : §4.2, and Appendix A.3.
+
+--- edit block 148  (insert) ---
+  ADDED  : 10
+
+--- edit block 149  (replace) ---
+  REMOVED: ⊗ (O
+  ADDED  : ⊗(O
+
+--- edit block 150  (replace) ---
+  REMOVED: The
+  ADDED  : Under the conjectured identification of [1], Conjecture 4.1, the
+
+--- edit block 151  (replace) ---
+  REMOVED: lives
+  ADDED  : would live
+
+--- edit block 152  (delete) ---
+  REMOVED: 10 Im ξ eξ → 0 γabove cut γbelow 0 (apparent) −ξ0 Re ξ Figure 1. The rapid-decay cycle γ = γbelow + γloop + γabove (Defb inition 3.1): a Hankel thimble wrapping the cut (−∞, −ξ0 ] of B, ξ clockwise about the branch point −ξ0 . The action factor e decays into Re ξ → −∞, which is the cut direction; the point ξ = 0 is apparent and carries no cut.
+
+--- edit block 153  (insert) ---
+  ADDED  : 11 Im ξ eξ → 0 γabove cut γbelow 0 (no cut) −ξ0 Re ξ Figure 1. The rapid-decay cycle γ = γbelow + γloop + γabove (Defb inition 3.1): a Hankel thimble wrapping the cut (−∞, −ξ0 ] of B, ξ clockwise about the branch point −ξ0 . The action factor e decays b is holomorphic at into Re ξ → −∞, which is the cut direction; B b emanates from that point. ξ = 0, so no cut of B
+
+--- edit block 154  (insert) ---
+  ADDED  : −∞
+
+--- edit block 155  (delete) ---
+  REMOVED: −∞
+
+--- edit block 156  (delete) ---
+  REMOVED: 11
+
+--- edit block 157  (insert) ---
+  ADDED  : 12
+
+--- edit block 158  (replace) ---
+  REMOVED: solutions
+  ADDED  : solutions,
+
+--- edit block 159  (replace) ---
+  REMOVED: the apparent point
+  ADDED  : b is holomorphic there and γ does not approach
+
+--- edit block 160  (replace) ---
+  REMOVED: nothing (Proposition 2.4);
+  ADDED  : nothing—B it (Lemma 2.7)—
+
+--- edit block 161  (delete) ---
+  REMOVED: 12
+
+--- edit block 162  (insert) ---
+  ADDED  : C =
+
+--- edit block 163  (delete) ---
+  REMOVED: C =
+
+--- edit block 164  (delete) ---
+  REMOVED: S. (18)
+
+--- edit block 165  (insert) ---
+  ADDED  : S. (18)
+
+--- edit block 166  (insert) ---
+  ADDED  : 13
+
+--- edit block 167  (delete) ---
+  REMOVED: 13
+
+--- edit block 168  (insert) ---
+  ADDED  : 14
+
+--- edit block 169  (delete) ---
+  REMOVED: 14
+
+--- edit block 170  (insert) ---
+  ADDED  : 16
+
+--- edit block 171  (replace) ---
+  REMOVED: ξ −(1+β) −ξ0 e
+  ADDED  : eξ
+
+--- edit block 172  (replace) ---
+  REMOVED: )
+  ADDED  : )−(1+β)
+
+--- edit block 173  (replace) ---
+  REMOVED: e
+  ADDED  : e−ξ0
+
+--- edit block 174  (insert) ---
+  ADDED  : =
+
+--- edit block 175  (delete) ---
+  REMOVED: =
+
+--- edit block 176  (delete) ---
+  REMOVED: −ξ 0
+
+--- edit block 177  (replace) ---
+  REMOVED: e
+  ADDED  : e−ξ0
+
+--- edit block 178  (delete) ---
+  REMOVED: 16
+
+--- edit block 179  (insert) ---
+  ADDED  : 17
+
+--- edit block 180  (delete) ---
+  REMOVED: 17
+
+--- edit block 181  (insert) ---
+  ADDED  : 1 1
+
+--- edit block 182  (replace) ---
+  REMOVED: 1 A1
+  ADDED  : A
+
+--- edit block 183  (insert) ---
+  ADDED  : 18
+
+--- edit block 184  (delete) ---
+  REMOVED: 18
+
+--- edit block 185  (insert) ---
+  ADDED  : 
+
+--- edit block 186  (delete) ---
+  REMOVED: 
+
+--- edit block 187  (insert) ---
+  ADDED  : P (M ) = 
+
+--- edit block 188  (delete) ---
+  REMOVED: P (M ) = 
+
+--- edit block 189  (insert) ---
+  ADDED  : 19
+
+--- edit block 190  (delete) ---
+  REMOVED: 19
+
+--- edit block 191  (insert) ---
+  ADDED  : 20
+
+--- edit block 192  (insert) ---
+  ADDED  : (1)
+
+--- edit block 193  (delete) ---
+  REMOVED: (1) (1)
+
+--- edit block 194  (insert) ---
+  ADDED  : conjecturally
+
+--- edit block 195  (insert) ---
+  ADDED  : (1)
+
+--- edit block 196  (replace) ---
+  REMOVED: representative,
+  ADDED  : representative ([1], Conjecture 4.1),
+
+--- edit block 197  (delete) ---
+  REMOVED: (1)
+
+--- edit block 198  (replace) ---
+  REMOVED: ways, so the present paper completes
+  ADDED  : ways. What this establishes is an instance of
+
+--- edit block 199  (delete) ---
+  REMOVED: d = 2:
+
+--- edit block 200  (replace) ---
+  REMOVED: D5
+  ADDED  : single representative : its
+
+--- edit block 201  (replace) ---
+  REMOVED: (conditionally) transcendental.
+  ADDED  : is transcendental (1) under the two hypotheses of Corollary 1.4. The instance is attached to the D5 stratum only through the conjectured surface identification of [1], Conjecture 4.1. Part (ii)(a) is not established for the stratum: no statement is made here about any other member, and nothing here proves that lies in that stratum.
+
+--- edit block 202  (replace) ---
+  REMOVED: polynomial-continuedfraction
+  ADDED  : polynomial-continued-fraction
+
+--- edit block 203  (delete) ---
+  REMOVED: √
+
+--- edit block 204  (insert) ---
+  ADDED  : V
+
+--- edit block 205  (insert) ---
+  ADDED  : quad √
+
+--- edit block 206  (delete) ---
+  REMOVED: 20
+
+--- edit block 207  (insert) ---
+  ADDED  : 21
+
+--- edit block 208  (delete) ---
+  REMOVED: 21
+
+--- edit block 209  (insert) ---
+  ADDED  : 22
+
+--- edit block 210  (delete) ---
+  REMOVED: 431
+
+--- edit block 211  (replace) ---
+  REMOVED: 70092 + 3240 3 2
+  ADDED  : 431
+
+--- edit block 212  (replace) ---
+  REMOVED: p2 =
+  ADDED  : 70092 + 3240 3 2
+
+--- edit block 213  (insert) ---
+  ADDED  : p2 =
+
+--- edit block 214  (delete) ---
+  REMOVED: 22
+
+--- edit block 215  (insert) ---
+  ADDED  : 23
+
+--- edit block 216  (replace) ---
+  REMOVED: Independent structural confirmation:
+  ADDED  : Structural consistency check (not independent of
+
+--- edit block 217  (replace) ---
+  REMOVED: reduced equation √
+  ADDED  : above): the reduced√equation
+
+--- edit block 218  (replace) ---
+  REMOVED: an offtorus unipotent; torus-plus-unipotent generate
+  ADDED  : one root unipotent. Torus-plus-one-root-unipotent generates a Borel subgroup;
+
+--- edit block 219  (replace) ---
+  REMOVED: .
+  ADDED  : follows only after the reducible case is excluded, which is Case 1 above.
+
+--- edit block 220  (insert) ---
+  ADDED  : ξ0 = 2/ 3 = 1.1547005383792517 . . . ,
+
+--- edit block 221  (delete) ---
+  REMOVED: . . . , ξ0 = 2/ 3 = 1.1547005383792517
+
+--- edit block 222  (insert) ---
+  ADDED  : Logarithms at ξ = 0 (exact, no floating point). The local exponents of LV at ξ = 0 are the consecutive integers {−1, 0, 1, 2}, the exact integer roots of the indicial polynomial. √ Running the Frobenius recursion from the lowest exponent −1 √ in exact Q( 3) arithmetic, the first resonant step is obstructed by (38286 + 24984 3)/418501 ̸= 0; the steps from exponents 0, 1 and 2 are unobstructed. The log-free local solution space therefore has dimension 3, with leading exponents 0, 1, 2, and the fourth local −1 solution carries log √ ξ; a representative of it, ξ (1 + · · · ) + c log ξ (v0 + v1 ξ + · · · ) with v0 = −(2 + 3)/24, is exhibited explicitly. Three implementations sharing no code agree: the resonant-step obstruction, the rank of the truncated Laurent system (dimension 3 at truncation orders 16 and 24), and the explicit logarithmic solution. b the exponent-0 solution, Consequently ξ = 0 is not an apparent singularity of LV ; B, is unaffected, and so is the main identity (Lemma 2.7). 24
+
+--- edit block 223  (delete) ---
+  REMOVED: 23
+
+--- edit block 224  (replace) ---
+  REMOVED: case-elimination plus
+  ADDED  : case-elimination, with
+
+--- edit block 225  (replace) ---
+  REMOVED: A.2.
+  ADDED  : A.2 as a consistency check that depends on the same Case 1 exclusion. 25
+
+--- edit block 226  (delete) ---
+  REMOVED: 24
+
+--- edit block 227  (insert) ---
+  ADDED  : 26
+
+--- edit block 228  (insert) ---
+  ADDED  : [26] Papanokechi, A non-classical Painlevé V transcendent from a quadratic polynomial continued fraction: surface classification and resurgent Stokes data. Zenodo, 2026, version DOI 10.5281/zenodo.22831933 (version 1.3; concept DOI 10.5281/zenodo.20455089). See its correction notice, whose items C1 and C2 respectively withdraw an apparency claim and revise the derivation of the quoted Painlevé parameters.
+
+edit blocks: 228
+words      : submitted 11124  ->  revised 11962  (delta +838)
+
+--------------------------------------------------------------------------
+CLASSIFICATION: 55 pagination artefacts, 173 substantive blocks  (total 228)
+--------------------------------------------------------------------------
+artefact blocks (running header / page number / equation tag only):
+  15, 25, 26, 27, 30, 31, 38, 43, 46, 49, 50, 51, 52, 56, 57, 67, 68, 69, 70, 73, 77, 93, 104, 148, 156, 157, 161, 166, 167, 168, 169, 170, 178, 179, 180, 181, 183, 184, 189, 190, 191, 192, 193, 195, 197, 206, 207, 208, 209, 210, 214, 215, 223, 226, 227
+
+--------------------------------------------------------------------------
+SUBSTANTIVE EDIT BLOCKS
+--------------------------------------------------------------------------
+
+--- block 1  (replace) ---
+  REMOVED: on the
+  ADDED  : whose
+
+--- block 2  (insert) ---
+  ADDED  : type
+
+--- block 3  (insert) ---
+  ADDED  : is conjectured to be
+
+--- block 4  (delete) ---
+  REMOVED: representation C =
+
+--- block 5  (delete) ---
+  REMOVED: b
+
+--- block 6  (replace) ---
+  REMOVED: transform of the
+  ADDED  : b representation C =
+
+--- block 7  (insert) ---
+  ADDED  : transform of the
+
+--- block 8  (insert) ---
+  ADDED  : real
+
+--- block 9  (delete) ---
+  REMOVED: real
+
+--- block 10  (replace) ---
+  REMOVED: √3);
+  ADDED  : 3);
+
+--- block 11  (insert) ---
+  ADDED  : √
+
+--- block 12  (replace) ---
+  REMOVED: methods—differentialequation/operator
+  ADDED  : methods—differential-equation/operator
+
+--- block 13  (replace) ---
+  REMOVED: Stokes-data— agreeing
+  ADDED  : Stokes-data—agreeing
+
+--- block 14  (delete) ---
+  REMOVED: +
+
+--- block 16  (replace) ---
+  REMOVED: 3n2
+  ADDED  : 3n
+
+--- block 17  (replace) ---
+  REMOVED: identified as
+  ADDED  : conjectured to be
+
+--- block 18  (delete) ---
+  REMOVED: non-classical
+
+--- block 19  (insert) ---
+  ADDED  : non-classical
+
+--- block 20  (replace) ---
+  REMOVED: 12 = ̸
+  ADDED  : 21 ̸=
+
+--- block 21  (replace) ---
+  REMOVED: [11]), with formal monodromy exponent √
+  ADDED  : [11]). That identification is Conjecture 4.1 of [1], not a theorem, and nothing in the present paper depends on it: every result below is a statement about the√operators Lφ and LV and the cycle γ.
+
+--- block 22  (replace) ---
+  REMOVED: .
+  ADDED  : quoted there are
+
+--- block 23  (replace) ---
+  REMOVED: asymptotic (WKB/Riccati) solution of the
+  ADDED  : formal monodromy exponent
+
+--- block 24  (insert) ---
+  ADDED  : the companion’s; its version 1.3 correction notice [26] revises the derivation by which + 1 2 those Painlevé parameters were obtained. The asymptotic (WKB/Riccati) solution of the
+
+--- block 28  (insert) ---
+  ADDED  : 2π
+
+--- block 29  (delete) ---
+  REMOVED: 2π
+
+--- block 32  (insert) ---
+  ADDED  : C =
+
+--- block 33  (delete) ---
+  REMOVED: C =
+
+--- block 34  (replace) ---
+  REMOVED: This
+  ADDED  : The proof
+
+--- block 35  (delete) ---
+  REMOVED: proved twice: by
+
+--- block 36  (delete) ---
+  REMOVED: and by a structural torus-plus-unipotent argument
+
+--- block 37  (insert) ---
+  ADDED  : The structural torus-plus-unipotent argument recorded there is a consistency check on the same computation, not a second proof: a maximal torus together with one root unipotent generates a Borel subgroup, and the passage to SL2 (C) uses the exclusion of the reducible case, which is Kovacic’s Case 1.
+
+--- block 39  (replace) ---
+  REMOVED: reproduced
+  ADDED  : obtained
+
+--- block 40  (replace) ---
+  REMOVED: case-elimination and by an independent
+  ADDED  : case-elimination, with the
+
+--- block 41  (replace) ---
+  REMOVED: argument,
+  ADDED  : argument of
+
+--- block 42  (replace) ---
+  REMOVED: A.2);
+  ADDED  : A.2 as a consistency check on it, not as a second derivation);
+
+--- block 44  (insert) ---
+  ADDED  : =
+
+--- block 45  (delete) ---
+  REMOVED: =
+
+--- block 47  (delete) ---
+  REMOVED: stream. Seeding
+
+--- block 48  (insert) ---
+  ADDED  : stream. Seeding
+
+--- block 53  (insert) ---
+  ADDED  : 13415
+
+--- block 54  (replace) ---
+  REMOVED: 13415 3
+  ADDED  : − 746496
+
+--- block 55  (replace) ---
+  REMOVED: − 746496
+  ADDED  : 3
+
+--- block 58  (delete) ---
+  REMOVED: +
+
+--- block 59  (delete) ---
+  REMOVED: +
+
+--- block 60  (insert) ---
+  ADDED  : + +
+
+--- block 61  (delete) ---
+  REMOVED: √
+
+--- block 62  (insert) ---
+  ADDED  : √
+
+--- block 63  (insert) ---
+  ADDED  : 
+
+--- block 64  (delete) ---
+  REMOVED: 
+
+--- block 65  (delete) ---
+  REMOVED: 3 z3,
+
+--- block 66  (insert) ---
+  ADDED  : 3 z3,
+
+--- block 71  (delete) ---
+  REMOVED: 1 ′′
+
+--- block 72  (replace) ---
+  REMOVED: u
+  ADDED  : u′′
+
+--- block 74  (insert) ---
+  ADDED  : r(z) =
+
+--- block 75  (delete) ---
+  REMOVED: r(z) =
+
+--- block 76  (insert) ---
+  ADDED  : Proof of Theorem 1.2. We give both arguments. (1) Kovacic case-elimination. In the Kovacic case/group dictionary [8, 9] for ′′ u = ru: Case 3 (finite groups A4 , S4 , A5 ) requires every pole order ≤ 2; the pole of order 4 at z = 0 excludes it. Case 1 (reducible, G ⊆ Borel) holds iff the Riccati equation v ′ = r − v 2 has a rational solution; a complete rational Riccati solver returns none. Case 2 (imprimitive, G ⊆ N (T )) holds, given Case 1 excluded, iff 3 ′ the symmetric square L⊙2 φ  = D − 4rD − 2r has a rational solution; the ansatz 8 2 4 f = N (z)/ z (z + z + 3) , deg N ≤ 18, yields a homogeneous linear system in 38 rational unknowns whose only solution is trivial. With Cases 1,2,3 excluded, the algorithm returns Case 4: G = SL2 (C). (2) Structural argument (a consistency check on (1), not a second proof ). The reduced equation u′′ = ru has no first-order term, so the Wronskian is constant √ and G ⊆ SL2 . At z = 0 the two distinct exponentials exp(±(1/ 3)/z) generate the
+
+--- block 78  (replace) ---
+  REMOVED: (reg.) 0 (apparent),
+  ADDED  : b holomorphic there),
+
+--- block 79  (insert) ---
+  ADDED  : (reg.) 0 (reg. sing., logarithmic; B
+
+--- block 80  (delete) ---
+  REMOVED: Proof of Theorem 1.2. We give both arguments. (1) Kovacic case-elimination. In the Kovacic case/group dictionary [8, 9] for u′′ = ru: Case 3 (finite groups A4 , S4 , A5 ) requires every pole order ≤ 2; the pole of order 4 at z = 0 excludes it. Case 1 (reducible, G ⊆ Borel) holds iff the Riccati equation v ′ = r − v 2 has a rational solution; a complete rational Riccati solver 7 returns none. Case 2 (imprimitive, G ⊆ N (T )) holds, given Case 1 excluded, iff 3 ′ the symmetric square L⊙2 φ  = D − 4rD − 2r has a rational solution; the ansatz f = N (z)/ z 8 (z 2 + z + 3)4 , deg N ≤ 18, yields a homogeneous linear system in 38 rational unknowns whose only solution is trivial. With Cases 1,2,3 excluded, the algorithm returns Case 4: G = SL2 (C). (2) Structural argument. The reduced equation u′′ = ru has no first-order term, so the Wronskian is constant and G ⊆ SL2 . At z = 0 the two distinct exponentials √ exp(±(1/ 3)/z) generate the full
+
+--- block 81  (insert) ---
+  ADDED  : T =
+
+--- block 82  (replace) ---
+  REMOVED: torus). The
+  ADDED  : torus), and the
+
+--- block 83  (replace) ---
+  REMOVED: ̸=
+  ADDED  : = ̸
+
+--- block 84  (replace) ---
+  REMOVED: is a nonidentity
+  ADDED  : supplies one root
+
+--- block 85  (replace) ---
+  REMOVED: off that torus.
+  ADDED  : u ∈ U .
+
+--- block 86  (replace) ---
+  REMOVED: one off-torus
+  ADDED  : a single root
+
+--- block 87  (replace) ---
+  REMOVED: generate
+  ADDED  : generates the Borel subgroup B = T ⋉ U : the opposite root group is not produced, so this datum alone gives only G ⊇ B. Passing from B to
+
+--- block 88  (replace) ---
+  REMOVED: ,
+  ADDED  : (C) requires ruling out G ⊆ B, i.e. ruling out the reducible case—which is precisely Kovacic’s Case 1, eliminated in (1). With that exclusion in hand, G ⊋ B and the only connected subgroup of SL2 properly containing a Borel subgroup is SL2 (C) itself,
+
+--- block 89  (replace) ---
+  REMOVED: genuinely independent—an exhaustive negative search versus a positive generation argument from
+  ADDED  : therefore not independent: route (2) is conditional on
+
+--- block 90  (replace) ---
+  REMOVED: Stokes datum—and agree.
+  ADDED  : Case 1 exclusion established in route (1), and cross-checks that computation rather than replacing it.
+
+--- block 91  (replace) ---
+  REMOVED: the second route supplies the cross-check that
+  ADDED  : an independent verdict would require
+
+--- block 92  (replace) ---
+  REMOVED: system would otherwise provide.
+  ADDED  : system, for example Maple’s DEtools[DifferentialGaloisGroup].
+
+--- block 94  (delete) ---
+  REMOVED: B
+
+--- block 95  (replace) ---
+  REMOVED: (
+  ADDED  : (B
+
+--- block 96  (insert) ---
+  ADDED  : b ξ
+
+--- block 97  (delete) ---
+  REMOVED: b ξ m
+
+--- block 98  (insert) ---
+  ADDED  : m
+
+--- block 99  (replace) ---
+  REMOVED: LV = (ξ)Dk
+  ADDED  : k
+
+--- block 100  (replace) ---
+  REMOVED: p0
+  ADDED  : p LV = (ξ)D p 0
+
+--- block 101  (replace) ---
+  REMOVED: pk√
+  ADDED  : k√
+
+--- block 102  (delete) ---
+  REMOVED: ξ ξ+√ ,
+
+--- block 103  (insert) ---
+  ADDED  : ξ ξ+√ ,
+
+--- block 105  (insert) ---
+  ADDED  : every step of
+
+--- block 106  (insert) ---
+  ADDED  : Frobenius recursion from the lowest exponent −1 to the next is resonant and a logarithm is possible. It occurs: the recursion started at ξ −1 is obstructed at the first resonant step, the obstruction being the nonzero element √ √ 38286 + 24984 3 ∈ Q( 3), 418501 so there is no formal solution with leading exponent −1, the log-free local solution space has dimension 3 (leading exponents 0, 1, 2) and the fourth local solution carries log ξ. Hence ξ = 0 is a genuine regular singular
+
+--- block 107  (replace) ---
+  REMOVED: is apparent (singleb
+  ADDED  : of LV with unipotent local monodromy, b
+
+--- block 108  (insert) ---
+  ADDED  : exponent-0 solution and is
+
+--- block 109  (replace) ---
+  REMOVED: exponent-0 solution).
+  ADDED  : at 0, not an apparent one. B √ which is all the main identity uses (Lemma 2.7). The computation is exact in Q( 3) and is confirmed by three implementations that share no code: the resonant-step obstruction, the rank of the truncated Laurent system, and the explicit construction of the logarithmic solution; see Appendix A.3.
+
+--- block 110  (delete) ---
+  REMOVED: valued, B b
+
+--- block 111  (insert) ---
+  ADDED  : b
+
+--- block 112  (insert) ---
+  ADDED  : n+β
+
+--- block 113  (replace) ---
+  REMOVED: β)/ξ0n+β
+  ADDED  : β)/ξ0
+
+--- block 114  (delete) ---
+  REMOVED: −(1+β)
+
+--- block 115  (replace) ---
+  REMOVED: )
+  ADDED  : )−(1+β)
+
+--- block 116  (insert) ---
+  ADDED  : √
+
+--- block 117  (replace) ---
+  REMOVED: ξ
+  ADDED  : ξ0
+
+--- block 118  (delete) ---
+  REMOVED: 0 √
+
+--- block 119  (delete) ---
+  REMOVED: √
+
+--- block 120  (insert) ---
+  ADDED  : 9 √
+
+--- block 121  (delete) ---
+  REMOVED: b ⊆
+
+--- block 122  (replace) ---
+  REMOVED: Sing(B)
+  ADDED  : b ⊆
+
+--- block 123  (replace) ---
+  REMOVED: the point
+  ADDED  : and although
+
+--- block 124  (replace) ---
+  REMOVED: apparent
+  ADDED  : a genuine regular singular point of LV , Sing(B) b is not that solution: it carrying a logarithmic local solution
+
+--- block 125  (insert) ---
+  ADDED  : B b
+
+--- block 126  (replace) ---
+  REMOVED: genuine
+  ADDED  : genis the holomorphic exponent-0 one, so 0 is not a singularity of B, b uine
+
+--- block 127  (replace) ---
+  REMOVED: b
+  ADDED  : −ξ0 and the irregular ∞. In particular B
+
+--- block 128  (delete) ---
+  REMOVED: −ξ0 and the irregular ∞. In particular B
+
+--- block 129  (replace) ---
+  REMOVED: b at
+  ADDED  : Lemma 2.7 (The point
+
+--- block 130  (delete) ---
+  REMOVED: Lemma 2.7 (The apparent point
+
+--- block 131  (replace) ---
+  REMOVED: singularity of B
+  ADDED  : point ξ = 0
+
+--- block 132  (insert) ---
+  ADDED  : b The local solution space of LV at 0 does contain a
+
+--- block 133  (replace) ---
+  REMOVED: period: its local exponents {−1, 0, 1, 2} are 9
+  ADDED  : period of B. b logarithm (Proposition 2.4), so 0 is not an apparent singularity of the operator; but B
+
+--- block 134  (replace) ---
+  REMOVED: holomorphically consecutive integers, so the local monodromy is trivial and
+  ADDED  : across 0, no cut of
+
+--- block 135  (replace) ---
+  REMOVED: across 0 (it
+  ADDED  : b emanates
+
+--- block 136  (insert) ---
+  ADDED  : holomorphic
+
+--- block 137  (replace) ---
+  REMOVED: solution). Hence no cut emanates
+  ADDED  : solution, so B
+
+--- block 138  (replace) ---
+  REMOVED: At a regular-singular point with integer exponents differing by integers and no logarithmic solution, the local solution space contains a single-valued generator for each exponent, with the top exponent solution holomorphic; the
+  ADDED  : The
+
+--- block 139  (replace) ---
+  REMOVED: falling-factorial
+  ADDED  : fallingfactorial
+
+--- block 140  (delete) ---
+  REMOVED: b the exponent-0 member, is
+
+--- block 141  (replace) ---
+  REMOVED: s(s − 2)(s
+  ADDED  : (s + 1)s(s
+
+--- block 142  (replace) ---
+  REMOVED: + 1)
+  ADDED  : − 2)
+
+--- block 143  (replace) ---
+  REMOVED: shows B, holomorphic. Triviality
+  ADDED  : make 0 regular singular with consecutive integer exponents. The exponent-0 solution is the b vanishes identically b = P bm ξ m itself: the residual LV B convergent power series B m √ b is holomorphic in Q( 3) through order ξ 129 (Theorem 2.3, Appendix A.1), and B at 0 because φ is Gevrey-1. A function holomorphic at a point has no cut there, whatever the monodromy
+
+--- block 144  (replace) ---
+  REMOVED: monodromy
+  ADDED  : other local solutions of its annihilator; and the cycle γ of Section 3 lies in (−∞, −ξ0 ] and does not approach 0. Note that the older assertion that 0
+
+--- block 145  (insert) ---
+  ADDED  : apparent is false—consecutive integer exponents make
+
+--- block 146  (replace) ---
+  REMOVED: definition of an apparent singularity.
+  ADDED  : point resonant, not apparent—and is corrected in Proposition 2.4; the present lemma, and with it the main identity, does not use apparency.
+
+--- block 147  (replace) ---
+  REMOVED: §4.2.
+  ADDED  : §4.2, and Appendix A.3.
+
+--- block 149  (replace) ---
+  REMOVED: ⊗ (O
+  ADDED  : ⊗(O
+
+--- block 150  (replace) ---
+  REMOVED: The
+  ADDED  : Under the conjectured identification of [1], Conjecture 4.1, the
+
+--- block 151  (replace) ---
+  REMOVED: lives
+  ADDED  : would live
+
+--- block 152  (delete) ---
+  REMOVED: 10 Im ξ eξ → 0 γabove cut γbelow 0 (apparent) −ξ0 Re ξ Figure 1. The rapid-decay cycle γ = γbelow + γloop + γabove (Defb inition 3.1): a Hankel thimble wrapping the cut (−∞, −ξ0 ] of B, ξ clockwise about the branch point −ξ0 . The action factor e decays into Re ξ → −∞, which is the cut direction; the point ξ = 0 is apparent and carries no cut.
+
+--- block 153  (insert) ---
+  ADDED  : 11 Im ξ eξ → 0 γabove cut γbelow 0 (no cut) −ξ0 Re ξ Figure 1. The rapid-decay cycle γ = γbelow + γloop + γabove (Defb inition 3.1): a Hankel thimble wrapping the cut (−∞, −ξ0 ] of B, ξ clockwise about the branch point −ξ0 . The action factor e decays b is holomorphic at into Re ξ → −∞, which is the cut direction; B b emanates from that point. ξ = 0, so no cut of B
+
+--- block 154  (insert) ---
+  ADDED  : −∞
+
+--- block 155  (delete) ---
+  REMOVED: −∞
+
+--- block 158  (replace) ---
+  REMOVED: solutions
+  ADDED  : solutions,
+
+--- block 159  (replace) ---
+  REMOVED: the apparent point
+  ADDED  : b is holomorphic there and γ does not approach
+
+--- block 160  (replace) ---
+  REMOVED: nothing (Proposition 2.4);
+  ADDED  : nothing—B it (Lemma 2.7)—
+
+--- block 162  (insert) ---
+  ADDED  : C =
+
+--- block 163  (delete) ---
+  REMOVED: C =
+
+--- block 164  (delete) ---
+  REMOVED: S. (18)
+
+--- block 165  (insert) ---
+  ADDED  : S. (18)
+
+--- block 171  (replace) ---
+  REMOVED: ξ −(1+β) −ξ0 e
+  ADDED  : eξ
+
+--- block 172  (replace) ---
+  REMOVED: )
+  ADDED  : )−(1+β)
+
+--- block 173  (replace) ---
+  REMOVED: e
+  ADDED  : e−ξ0
+
+--- block 174  (insert) ---
+  ADDED  : =
+
+--- block 175  (delete) ---
+  REMOVED: =
+
+--- block 176  (delete) ---
+  REMOVED: −ξ 0
+
+--- block 177  (replace) ---
+  REMOVED: e
+  ADDED  : e−ξ0
+
+--- block 182  (replace) ---
+  REMOVED: 1 A1
+  ADDED  : A
+
+--- block 185  (insert) ---
+  ADDED  : 
+
+--- block 186  (delete) ---
+  REMOVED: 
+
+--- block 187  (insert) ---
+  ADDED  : P (M ) = 
+
+--- block 188  (delete) ---
+  REMOVED: P (M ) = 
+
+--- block 194  (insert) ---
+  ADDED  : conjecturally
+
+--- block 196  (replace) ---
+  REMOVED: representative,
+  ADDED  : representative ([1], Conjecture 4.1),
+
+--- block 198  (replace) ---
+  REMOVED: ways, so the present paper completes
+  ADDED  : ways. What this establishes is an instance of
+
+--- block 199  (delete) ---
+  REMOVED: d = 2:
+
+--- block 200  (replace) ---
+  REMOVED: D5
+  ADDED  : single representative : its
+
+--- block 201  (replace) ---
+  REMOVED: (conditionally) transcendental.
+  ADDED  : is transcendental (1) under the two hypotheses of Corollary 1.4. The instance is attached to the D5 stratum only through the conjectured surface identification of [1], Conjecture 4.1. Part (ii)(a) is not established for the stratum: no statement is made here about any other member, and nothing here proves that lies in that stratum.
+
+--- block 202  (replace) ---
+  REMOVED: polynomial-continuedfraction
+  ADDED  : polynomial-continued-fraction
+
+--- block 203  (delete) ---
+  REMOVED: √
+
+--- block 204  (insert) ---
+  ADDED  : V
+
+--- block 205  (insert) ---
+  ADDED  : quad √
+
+--- block 211  (replace) ---
+  REMOVED: 70092 + 3240 3 2
+  ADDED  : 431
+
+--- block 212  (replace) ---
+  REMOVED: p2 =
+  ADDED  : 70092 + 3240 3 2
+
+--- block 213  (insert) ---
+  ADDED  : p2 =
+
+--- block 216  (replace) ---
+  REMOVED: Independent structural confirmation:
+  ADDED  : Structural consistency check (not independent of
+
+--- block 217  (replace) ---
+  REMOVED: reduced equation √
+  ADDED  : above): the reduced√equation
+
+--- block 218  (replace) ---
+  REMOVED: an offtorus unipotent; torus-plus-unipotent generate
+  ADDED  : one root unipotent. Torus-plus-one-root-unipotent generates a Borel subgroup;
+
+--- block 219  (replace) ---
+  REMOVED: .
+  ADDED  : follows only after the reducible case is excluded, which is Case 1 above.
+
+--- block 220  (insert) ---
+  ADDED  : ξ0 = 2/ 3 = 1.1547005383792517 . . . ,
+
+--- block 221  (delete) ---
+  REMOVED: . . . , ξ0 = 2/ 3 = 1.1547005383792517
+
+--- block 222  (insert) ---
+  ADDED  : Logarithms at ξ = 0 (exact, no floating point). The local exponents of LV at ξ = 0 are the consecutive integers {−1, 0, 1, 2}, the exact integer roots of the indicial polynomial. √ Running the Frobenius recursion from the lowest exponent −1 √ in exact Q( 3) arithmetic, the first resonant step is obstructed by (38286 + 24984 3)/418501 ̸= 0; the steps from exponents 0, 1 and 2 are unobstructed. The log-free local solution space therefore has dimension 3, with leading exponents 0, 1, 2, and the fourth local −1 solution carries log √ ξ; a representative of it, ξ (1 + · · · ) + c log ξ (v0 + v1 ξ + · · · ) with v0 = −(2 + 3)/24, is exhibited explicitly. Three implementations sharing no code agree: the resonant-step obstruction, the rank of the truncated Laurent system (dimension 3 at truncation orders 16 and 24), and the explicit logarithmic solution. b the exponent-0 solution, Consequently ξ = 0 is not an apparent singularity of LV ; B, is unaffected, and so is the main identity (Lemma 2.7). 24
+
+--- block 224  (replace) ---
+  REMOVED: case-elimination plus
+  ADDED  : case-elimination, with
+
+--- block 225  (replace) ---
+  REMOVED: A.2.
+  ADDED  : A.2 as a consistency check that depends on the same Case 1 exclusion. 25
+
+--- block 228  (insert) ---
+  ADDED  : [26] Papanokechi, A non-classical Painlevé V transcendent from a quadratic polynomial continued fraction: surface classification and resurgent Stokes data. Zenodo, 2026, version DOI 10.5281/zenodo.22831933 (version 1.3; concept DOI 10.5281/zenodo.20455089). See its correction notice, whose items C1 and C2 respectively withdraw an apparency claim and revise the derivation of the quoted Painlevé parameters.
+
+==========================================================================
+NET TOKEN BALANCE (multiset difference over the whole document)
+==========================================================================
+pdftotext orders the glyphs of a displayed equation by layout, so a
+page break reorders tokens that did not change. A reordering cancels
+in a multiset; a real edit does not. The two lists below are therefore
+the content actually removed and actually added.
+LIMIT: a pure permutation of unchanged words is invisible to this test.
+It is covered instead by the exact source-level diff (K2b), where there
+is no reflow at all.
+
+net removed tokens: 110 (103 distinct)
+    -1   (
+    -1   (O
+    -1   (apparent)
+    -1   (apparent),
+    -1   (conditionally)
+    -1   (it
+    -1   (singleb
+    -1   (ξ)Dk
+    -1   .
+    -1   1)
+    -1   2)(s
+    -1   2.4);
+    -1   2:
+    -1   2}
+    -1   3)4
+    -1   3n2
+    -1   A.2);
+    -1   A.2.
+    -1   A1
+    -1   At
+    -1   Independent
+    -1   Stokes-data—
+    -1   This
+    -1   Triviality
+    -1   [11]),
+    -1   agree.
+    -1   agreeing
+    -2   apparent
+    -1   argument,
+    -1   argument.
+    -1   by
+    -2   case-elimination
+    -1   completes
+    -1   confirmation:
+    -1   contains
+    -1   cross-check
+    -1   cut.
+    -1   d
+    -1   datum—and
+    -1   definition
+    -1   differing
+    -3   e
+    -1   each
+    -1   equation
+    -1   exhaustive
+    -1   exponent,
+    -1   falling-factorial
+    -1   full
+    -2   generate
+    -1   generation
+    -1   generator
+    -1   genuinely
+    -1   holomorphic.
+    -1   holomorphic;
+    -1   holomorphically
+    -1   identified
+    -1   independent—an
+    -1   integers,
+    -1   lives
+    -1   methods—differentialequation/operator
+    -1   monodromy
+    -1   negative
+    -1   nonidentity
+    -1   off
+    -1   off-torus
+    -1   offtorus
+    -1   otherwise
+    -1   p0
+    -1   period:
+    -1   pk√
+    -1   plus
+    -1   polynomial-continuedfraction
+    -1   positive
+    -1   proved
+    -1   provide.
+    -1   reduced
+    -1   regular-singular
+    -1   representative,
+    -1   reproduced
+    -1   s(s
+    -1   search
+    -1   shows
+    -1   single-valued
+    -1   singularity.
+    -2   solution).
+    -1   structural
+    -1   top
+    -1   torus).
+    -1   torus-plus-unipotent
+    -1   torus.
+    -1   transcendental.
+    -1   trivial
+    -1   twice:
+    -1   unipotent;
+    -1   valued,
+    -1   versus
+    -1   ways,
+    -1   §4.2.
+    -1   β)/ξ0n+β
+    -2   −(1+β)
+    -1   −ξ
+    -1   √3);
+    -1   ⊗
+
+net added tokens: 948 (457 distinct)
+    +1   (1
+    +2   (1),
+    +1   (1).
+    +1   (2)
+    +1   (38286
+    +1   (B
+    +3   (C)
+    +3   (Lemma
+    +1   (Theorem
+    +1   ([1],
+    +1   (a
+    +1   (dimension
+    +1   (exact,
+    +1   (ii)(a)
+    +1   (leading
+    +1   (no
+    +1   (not
+    +1   (reg.
+    +1   (s
+    +1   (v0
+    +1   (version
+    +1   (ξ)D
+    +1   (−∞,
+    +1   ).
+    +2   )−(1+β)
+    +7   +
+    +8   0
+    +6   0,
+    +1   0.
+    +1   0;
+    +3   1
+    +1   1)s(s
+    +3   1,
+    +1   1.
+    +1   1.3
+    +1   1.3;
+    +1   1.4.
+    +1   10.5281/zenodo.20455089).
+    +1   10.5281/zenodo.22831933
+    +1   129
+    +1   13
+    +1   16
+    +1   2
+    +2   2)
+    +1   2,
+    +1   2.3,
+    +1   2.4),
+    +1   2.4;
+    +2   2.7).
+    +1   2.7)—
+    +1   2026,
+    +1   21
+    +1   24),
+    +2   24984
+    +1   25
+    +1   26
+    +1   2},
+    +3   3
+    +4   3)
+    +1   3),
+    +1   3)/24,
+    +1   3)/418501
+    +1   3);
+    +1   3,
+    +1   38286
+    +1   3n
+    +1   4
+    +1   4.1
+    +1   4.1),
+    +1   4.1,
+    +1   4.1.
+    +1   418501
+    +2   :
+    +1   ;
+    +8   =
+    +3   A
+    +1   A.1),
+    +2   A.2
+    +2   A.3.
+    +3   Appendix
+    +10  B
+    +2   B,
+    +2   B.
+    +4   Borel
+    +1   C1
+    +1   C2
+    +5   Case
+    +4   Conjecture
+    +1   Consequently
+    +1   Corollary
+    +1   DEtools[DifferentialGaloisGroup].
+    +2   DOI
+    +2   Frobenius
+    +3   G
+    +1   Gevrey-1.
+    +1   It
+    +2   Kovacic’s
+    +7   LV
+    +2   Laurent
+    +1   Logarithms
+    +1   Lφ
+    +1   Maple’s
+    +1   Note
+    +1   P
+    +3   Painlevé
+    +1   Papanokechi,
+    +1   Part
+    +1   Passing
+    +1   Proposition
+    +4   Q(
+    +1   Running
+    +3   SL2
+    +1   Section
+    +1   See
+    +1   Stokes-data—agreeing
+    +1   Structural
+    +2   T
+    +1   That
+    +8   The
+    +1   Three
+    +1   Torus-plus-one-root-unipotent
+    +2   U
+    +1   Under
+    +2   V
+    +1   What
+    +1   With
+    +1   Zenodo,
+    +1   [11]).
+    +3   [1],
+    +2   [26]
+    +1   ]
+    +17  a
+    +2   about
+    +1   above):
+    +1   above.
+    +1   after
+    +1   agree:
+    +1   all
+    +1   alone
+    +1   although
+    +3   an
+    +23  and
+    +1   annihilator;
+    +1   any
+    +1   apparency
+    +1   apparency.
+    +1   apparent—and
+    +2   approach
+    +2   are
+    +1   argument
+    +1   arithmetic,
+    +2   as
+    +1   assertion
+    +9   at
+    +1   attached
+    +12  b
+    +2   be
+    +1   because
+    +1   being
+    +1   below
+    +1   bm
+    +1   but
+    +1   c
+    +1   carries
+    +1   carrying
+    +1   case
+    +1   case,
+    +2   case-elimination,
+    +1   case—which
+    +5   check
+    +1   claim
+    +1   classification
+    +1   code
+    +1   code:
+    +1   companion’s;
+    +2   computation
+    +1   computation,
+    +1   concept
+    +1   conditional
+    +1   confirmed
+    +1   conjecturally
+    +4   conjectured
+    +1   connected
+    +1   consecutive
+    +5   consistency
+    +1   construction
+    +1   contain
+    +1   containing
+    +1   continued
+    +1   convergent
+    +1   corrected
+    +2   correction
+    +1   cross-checks
+    +2   cut
+    +1   cut)
+    +2   cycle
+    +1   data.
+    +1   datum
+    +2   depends
+    +2   derivation
+    +1   derivation);
+    +2   dimension
+    +4   does
+    +1   element
+    +1   eliminated
+    +1   emanates
+    +2   established
+    +1   establishes
+    +2   every
+    +3   exact
+    +1   example
+    +1   excluded,
+    +3   exclusion
+    +1   exclusion.
+    +1   exhibited
+    +2   explicit
+    +1   explicitly.
+    +2   exponent
+    +2   exponent-0
+    +3   exponents
+    +1   exponents.
+    +1   eξ
+    +2   e−ξ0
+    +1   fallingfactorial
+    +1   false—consecutive
+    +2   first
+    +1   floating
+    +1   follows
+    +1   for
+    +1   formal
+    +2   fourth
+    +1   fraction:
+    +5   from
+    +1   function
+    +3   generates
+    +1   genis
+    +1   genuine
+    +1   gives
+    +1   group
+    +1   hand,
+    +3   has
+    +2   here
+    +7   holomorphic
+    +1   hypotheses
+    +1   i.e.
+    +1   identically
+    +3   identification
+    +2   identity
+    +1   identity,
+    +2   implementations
+    +10  in
+    +1   independent
+    +1   independent:
+    +1   indicial
+    +2   instance
+    +2   integer
+    +35  is
+    +3   it
+    +2   it,
+    +1   it.
+    +1   it:
+    +1   items
+    +3   its
+    +1   itself,
+    +1   itself:
+    +1   k
+    +1   k√
+    +2   leading
+    +1   lemma,
+    +2   lies
+    +1   live
+    +6   local
+    +3   log
+    +2   log-free
+    +2   logarithm
+    +2   logarithmic
+    +1   logarithmic;
+    +2   lowest
+    +2   m
+    +1   made
+    +3   main
+    +2   make
+    +1   maximal
+    +1   methods—differential-equation/operator
+    +1   monodromy,
+    +1   n+β
+    +1   next
+    +5   no
+    +1   non-classical
+    +1   nonzero
+    +16  not
+    +1   nothing
+    +1   nothing—B
+    +1   notice
+    +1   notice,
+    +2   obstructed
+    +1   obstruction
+    +2   obstruction,
+    +1   obtained
+    +1   obtained.
+    +1   occurs:
+    +26  of
+    +1   older
+    +5   on
+    +2   one
+    +1   one,
+    +1   one.
+    +4   only
+    +1   operator;
+    +1   opposite
+    +1   order
+    +1   orders
+    +2   other
+    +2   out
+    +2   p
+    +1   parameters
+    +1   parameters.
+    +1   passage
+    +1   period
+    +1   point).
+    +1   point.
+    +1   polynomial
+    +1   polynomial-continued-fraction
+    +1   polynomial.
+    +1   possible.
+    +1   power
+    +1   precisely
+    +1   present
+    +1   produced,
+    +2   proof
+    +1   proof:
+    +1   properly
+    +1   proves
+    +1   quad
+    +1   quadratic
+    +2   quoted
+    +2   rank
+    +1   rather
+    +1   recorded
+    +3   recursion
+    +1   reduced√equation
+    +3   reducible
+    +3   regular
+    +1   replacing
+    +3   representative
+    +1   require
+    +1   requires
+    +1   residual
+    +3   resonant
+    +1   resonant,
+    +2   resonant-step
+    +1   respectively
+    +1   result
+    +1   resurgent
+    +1   revise
+    +1   revises
+    +5   root
+    +1   roots
+    +1   route
+    +2   ruling
+    +2   same
+    +2   second
+    +1   see
+    +1   series
+    +1   share
+    +1   sharing
+    +1   sing.,
+    +2   single
+    +3   singular
+    +2   singularity
+    +5   so
+    +7   solution
+    +1   solution,
+    +1   solution.
+    +1   solution:
+    +1   solution;
+    +1   solutions,
+    +2   space
+    +1   started
+    +2   statement
+    +2   step
+    +1   step,
+    +1   steps
+    +1   stratum
+    +1   stratum.
+    +1   stratum:
+    +3   subgroup
+    +1   subgroup,
+    +1   subgroup;
+    +2   surface
+    +2   system,
+    +1   than
+    +8   that
+    +50  the
+    +1   theorem,
+    +4   there
+    +1   there),
+    +1   there,
+    +2   therefore
+    +1   the√operators
+    +2   this
+    +1   those
+    +1   three
+    +2   through
+    +6   to
+    +1   together
+    +1   torus
+    +1   torus),
+    +1   transcendent
+    +1   transcendental
+    +2   truncated
+    +1   truncation
+    +1   two
+    +1   type
+    +1   u
+    +1   uine
+    +1   unaffected,
+    +1   under
+    +2   unipotent
+    +1   unipotent.
+    +1   unobstructed.
+    +1   use
+    +2   uses
+    +1   v0
+    +1   v1
+    +1   vanishes
+    +1   verdict
+    +2   version
+    +1   ways.
+    +1   were
+    +1   whatever
+    +4   which
+    +2   whose
+    +6   with
+    +1   withdraw
+    +1   would
+    +1   §4.2,
+    +6   ·
+    +1   ̸=
+    +1   β)/ξ0
+    +2   γ
+    +1   γ.
+    +9   ξ
+    +1   ξ.
+    +1   ξ0
+    +1   ξ;
+    +1   φ
+    +2   ∈
+    +1   −(2
+    +4   −1
+    +1   −1,
+    +6   √
+    +1   ⊆
+    +1   ⊇
+    +1   ⊋
+    +1   ⊗(O
+    +1   ⋉
+
+==========================================================================
+K2b -- EXACT SOURCE DIFF (pristine .tex vs revised .tex, no reflow)
+==========================================================================
+source lines : submitted 1458  ->  revised 1529
+hunks        : 21
+Neither a hunk count nor line containment is the right check: the
+replacements do not begin or end at line boundaries, so a changed line
+is generally tabled-text plus untouched tail. The decidable check is
+exact reconstruction -- apply the table to the pristine source here,
+independently of apply_revision.py's own run, and require the result to
+be byte-identical to the copy on disk. Any edit made to the copy
+outside the table then shows up as a mismatch.
+
+replacements in table : 19
+reconstructed sha256 : d15f9cf506490934327475dcdf5e18edfdc45fb868e78037127f9d777385db89
+on-disk copy  sha256 : d15f9cf506490934327475dcdf5e18edfdc45fb868e78037127f9d777385db89
+RECONSTRUCTION: byte-identical -- the copy contains the tabled edits and nothing else.
+
+--- submitted.tex
++++ revised.tex
+@@ -60 +60,2 @@
+-rank-one standalone closure on the Sakai surface $D_5^{(1)}$ (Painlev\'e~V)---admits an explicit
++rank-one standalone closure whose Sakai surface type is conjectured to be $D_5^{(1)}$
++(Painlev\'e~V)---admits an explicit
+@@ -87,4 +88,9 @@
+-companion paper~\cite{Vquad}, where it is identified as a non-classical Painlev\'e~V
+-transcendent on the Sakai surface $D_5^{(1)}$ (symmetry $W(A_3^{(1)})$, $\delta=-\tfrac12\ne0$,
+-in the surface/symmetry classification of~\cite{SakaiClass}),
+-with formal monodromy exponent $\theta_\infty=2/\sqrt3$ and $\alpha=\theta_\infty^2/8=\tfrac16$.
++companion paper~\cite{Vquad}, where it is \emph{conjectured} to be a non-classical
++Painlev\'e~V transcendent on the Sakai surface $D_5^{(1)}$ (symmetry $W(A_3^{(1)})$,
++$\delta=-\tfrac12\ne0$, in the surface/symmetry classification of~\cite{SakaiClass}).
++That identification is Conjecture~4.1 of~\cite{Vquad}, not a theorem, and nothing in the
++present paper depends on it: every result below is a statement about the operators $\Lphi$
++and $\LV$ and the cycle $\gamma$. The formal monodromy exponent $\theta_\infty=2/\sqrt3$ and
++$\alpha=\theta_\infty^2/8=\tfrac16$ quoted there are the companion's; its version~1.3
++correction notice~\cite{VquadV13} revises the derivation by which those Painlev\'e
++parameters were obtained.
+@@ -165,3 +171,6 @@
+-The differential Galois group of $\Lphi$ over $\Qsqrt(z)$ is $\SL_2(\mathbb{C})$. This is proved
+-twice: by Kovacic case-elimination and by a structural torus-plus-unipotent argument
+-(Section~\ref{sec:operators}, certificate in Appendix~\ref{app:kovacic}).
++The differential Galois group of $\Lphi$ over $\Qsqrt(z)$ is $\SL_2(\mathbb{C})$. The proof is
++Kovacic case-elimination (Section~\ref{sec:operators}, certificate in
++Appendix~\ref{app:kovacic}). The structural torus-plus-unipotent argument recorded there is a
++consistency check on the same computation, not a second proof: a maximal torus together with
++one root unipotent generates a \emph{Borel} subgroup, and the passage to $\SL_2(\mathbb{C})$
++uses the exclusion of the reducible case, which is Kovacic's Case~1.
+@@ -198,2 +207,3 @@
+-\texttt{DEtools[DifferentialGaloisGroup]} (we reproduced the Kovacic verdict by case-elimination
+-and by an independent structural argument, Appendix~\ref{app:kovacic}); and the Borel--Pad\'e
++\texttt{DEtools[DifferentialGaloisGroup]} (we obtained the Kovacic verdict by case-elimination,
++with the structural argument of Appendix~\ref{app:kovacic} as a consistency check on it, not as
++a second derivation); and the Borel--Pad\'e
+@@ -339 +349 @@
+-finite singularities & $\rho_\pm=\tfrac{-1\pm i\sqrt{11}}2$ (reg.) & $0$ (apparent), $-\xizero$ (branch) \\
++finite singularities & $\rho_\pm=\tfrac{-1\pm i\sqrt{11}}2$ (reg.) & $0$ (reg. sing., logarithmic; $\Bhat$ holomorphic there), $-\xizero$ (branch) \\
+@@ -365,6 +375,11 @@
+-\emph{(2) Structural argument.} The reduced equation $u''=ru$ has no first-order term, so the
+-Wronskian is constant and $G\subseteq\SL_2$. At $z=0$ the two distinct exponentials
+-$\exp(\pm(1/\sqrt3)/z)$ generate the full diagonal torus $\mathbb{G}_m\subset\SL_2$ (the local
+-exponential torus). The nonvanishing Stokes constant $S=2\pi K\ne0$ at this irregular point is a
+-nonidentity unipotent off that torus. A maximal torus together with one off-torus unipotent
+-generate $\SL_2$, whence $G=\SL_2(\mathbb{C})$.
++\emph{(2) Structural argument (a consistency check on~(1), not a second proof).} The reduced
++equation $u''=ru$ has no first-order term, so the Wronskian is constant and $G\subseteq\SL_2$.
++At $z=0$ the two distinct exponentials $\exp(\pm(1/\sqrt3)/z)$ generate the diagonal torus
++$T=\mathbb{G}_m\subset\SL_2$ (the local exponential torus), and the nonvanishing Stokes constant
++$S=2\pi K\ne0$ at this irregular point supplies one root unipotent $u\in U$. A maximal torus
++together with a single root unipotent generates the Borel subgroup $B=T\ltimes U$: the opposite
++root group is not produced, so this datum alone gives only $G\supseteq B$. Passing from $B$ to
++$\SL_2(\mathbb{C})$ requires ruling out $G\subseteq B$, i.e. ruling out the reducible case---which
++is precisely Kovacic's Case~1, eliminated in~(1). With that exclusion in hand, $G\supsetneq B$
++and the only connected subgroup of $\SL_2$ properly containing a Borel subgroup is
++$\SL_2(\mathbb{C})$ itself, whence $G=\SL_2(\mathbb{C})$.
+@@ -373,4 +388,5 @@
+-The two routes are genuinely independent---an exhaustive negative search versus a positive
+-generation argument from the Stokes datum---and agree. (Only one symbolic engine was available;
+-the second route supplies the cross-check that a second computer-algebra system would otherwise
+-provide. See Appendix~\ref{app:kovacic}.)
++The two routes are therefore \emph{not} independent: route~(2) is conditional on the Case~1
++exclusion established in route~(1), and cross-checks that computation rather than replacing it.
++(Only one symbolic engine was available; an independent verdict would require a second
++computer-algebra system, for example Maple's \texttt{DEtools[DifferentialGaloisGroup]}. See
++Appendix~\ref{app:kovacic}.)
+@@ -417,2 +433,15 @@
+-the four exponents are consecutive integers, so the point is \emph{apparent} (single-valued, $\Bhat$
+-itself is the holomorphic exponent-$0$ solution). At $\xi=-\xizero$ the branch is carried by the
++the four exponents are consecutive integers, so every step of the Frobenius recursion from the
++lowest exponent $-1$ to the next is \emph{resonant} and a logarithm is possible. It occurs: the
++recursion started at $\xi^{-1}$ is obstructed at the first resonant step, the obstruction being
++the nonzero element
++\[
++  \frac{38286+24984\sqrt3}{418501}\;\in\;\Qsqrt ,
++\]
++so there is no formal solution with leading exponent $-1$, the log-free local solution space has
++dimension $3$ (leading exponents $0,1,2$) and the fourth local solution carries $\log\xi$. Hence
++$\xi=0$ is a genuine regular singular point of $\LV$ with unipotent local monodromy, \emph{not}
++an apparent one. $\Bhat$ itself is the exponent-$0$ solution and is holomorphic at $0$, which is
++all the main identity uses (Lemma~\ref{lem:apparent}). The computation is exact in $\Qsqrt$ and
++is confirmed by three implementations that share no code: the resonant-step obstruction, the
++rank of the truncated Laurent system, and the explicit construction of the logarithmic solution;
++see Appendix~\ref{app:numlogs}. At $\xi=-\xizero$ the branch is carried by the
+@@ -454,2 +483,5 @@
+-$\operatorname{Sing}(\Bhat)\subseteq\{0,-\xizero,\infty\}$; the point $0$ is apparent
+-(Proposition~\ref{prop:exponents}), leaving the genuine singularities $-\xizero$ and the
++$\operatorname{Sing}(\Bhat)\subseteq\{0,-\xizero,\infty\}$; and although $0$ is a genuine regular
++singular point of $\LV$, carrying a logarithmic local solution
++(Proposition~\ref{prop:exponents}), $\Bhat$ is not that solution: it is the holomorphic
++exponent-$0$ one, so $0$ is not a singularity of $\Bhat$, leaving the genuine singularities
++$-\xizero$ and the
+@@ -467,5 +499,6 @@
+-\begin{lemma}[The apparent point carries no period]\label{lem:apparent}
+-The singularity of $\Bhat$ at $\xi=0$ contributes nothing to any rapid-decay period: its local
+-exponents $\{-1,0,1,2\}$ are consecutive integers, so the local monodromy is trivial and $\Bhat$
+-extends holomorphically across $0$ (it is the exponent-$0$ solution). Hence no cut emanates from
+-$0$, and the only branch a thimble can wrap is the one at $-\xizero$.
++\begin{lemma}[The point $\xi=0$ carries no period]\label{lem:apparent}
++The point $\xi=0$ contributes nothing to any rapid-decay period of $\Bhat$. The local solution
++space of $\LV$ at $0$ does contain a logarithm (Proposition~\ref{prop:exponents}), so $0$ is not
++an apparent singularity of the operator; but $\Bhat$ is the holomorphic exponent-$0$ solution, so
++$\Bhat$ extends across $0$, no cut of $\Bhat$ emanates from $0$, and the only branch a thimble
++can wrap is the one at $-\xizero$.
+@@ -475,7 +508,13 @@
+-At a regular-singular point with integer exponents differing by integers and no logarithmic
+-solution, the local solution space contains a single-valued generator for each exponent, with the
+-top exponent solution holomorphic; the indicial data at $0$
+-(\eqref{eq:p4-factor} gives a simple zero of $p_4$ at $0$, and the falling-factorial indicial
+-polynomial $\propto s(s-2)(s-1)(s+1)$ has roots $\{-1,0,1,2\}$) shows $\Bhat$, the exponent-$0$
+-member, is holomorphic. Triviality of the monodromy is the definition of an apparent singularity.
+-Source: \texttt{PERIOD-REP-VQUAD-002}, \texttt{operator-verification.md}~\S4.2.
++The indicial data at $0$ (\eqref{eq:p4-factor} gives a simple zero of $p_4$ at $0$, and the
++falling-factorial indicial polynomial $\propto(s+1)s(s-1)(s-2)$ has roots $\{-1,0,1,2\}$) make
++$0$ regular singular with consecutive integer exponents. The exponent-$0$ solution is the
++convergent power series $\Bhat=\sum_m b_m\xi^m$ itself: the residual $\LV\Bhat$ vanishes
++identically in $\Qsqrt$ through order $\xi^{129}$ (Theorem~\ref{thm:LV},
++Appendix~\ref{app:coeffs}), and $\Bhat$ is holomorphic at $0$ because $\varphi$ is Gevrey-$1$.
++A function holomorphic at a point has no cut there, whatever the monodromy of the other local
++solutions of its annihilator; and the cycle $\gamma$ of Section~\ref{sec:cycle} lies in
++$(-\infty,-\xizero]$ and does not approach $0$. Note that the older assertion that $0$ is
++\emph{apparent} is false---consecutive integer exponents make the point resonant, not
++apparent---and is corrected in Proposition~\ref{prop:exponents}; the present lemma, and with it
++the main identity, does not use apparency. Source: \texttt{PERIOD-REP-VQUAD-002},
++\texttt{operator-verification.md}~\S4.2, and Appendix~\ref{app:numlogs}.
+@@ -488 +527,2 @@
+-field $\Qsqrt$. The transcendental Painlev\'e-V accessory parameter of $\Vquad$ lives in the
++field $\Qsqrt$. Under the conjectured identification of~\cite{Vquad}, Conjecture~4.1, the
++transcendental Painlev\'e-V accessory parameter of $\Vquad$ would live in the
+@@ -544 +584 @@
+-  \node[font=\footnotesize] at (0.05,-0.32) {(apparent)};
++  \node[font=\footnotesize] at (0.05,-0.32) {(no cut)};
+@@ -562,2 +602,2 @@
+-$e^{\xi}$ decays into $\operatorname{Re}\xi\to-\infty$, which is the cut direction; the point
+-$\xi=0$ is apparent and carries no cut.}
++$e^{\xi}$ decays into $\operatorname{Re}\xi\to-\infty$, which is the cut direction; $\Bhat$ is
++holomorphic at $\xi=0$, so no cut of $\Bhat$ emanates from that point.}
+@@ -631,2 +671,2 @@
+-(holomorphic) solutions and the apparent point $\xi=0$ contributes nothing
+-(Proposition~\ref{prop:exponents}); the monodromy around $-\xizero$ is therefore the rank-one
++(holomorphic) solutions, and $\xi=0$ contributes nothing---$\Bhat$ is holomorphic there and
++$\gamma$ does not approach it (Lemma~\ref{lem:apparent})--- the monodromy around $-\xizero$ is therefore the rank-one
+@@ -1090 +1130,2 @@
+-the rank-one $D_5^{(1)}$ representative, that entry was previously graded \emph{structural}: the
++conjecturally the rank-one $D_5^{(1)}$ representative (\cite{Vquad}, Conjecture~4.1), that
++entry was previously graded \emph{structural}: the
+@@ -1092,3 +1133,8 @@
+-Theorem~\ref{thm:main} exhibits the integral and verifies it three ways, so the present paper
+-\emph{completes part (ii)(a) for $d=2$}: the $D_5^{(1)}$ connection constant is realised as an
+-explicit Fres\'an--Jossen exponential period, and (conditionally) transcendental. We do not modify
++Theorem~\ref{thm:main} exhibits the integral and verifies it three ways. What this
++establishes is an \emph{instance} of part~(ii)(a) for the single representative $\Vquad$:
++its connection constant is realised as an explicit Fres\'an--Jossen exponential period, and
++is transcendental under the two hypotheses of Corollary~\ref{cor:transc}. The instance is
++attached to the $D_5^{(1)}$ stratum only through the conjectured surface identification
++of~\cite{Vquad}, Conjecture~4.1. Part~(ii)(a) is \emph{not} established for the stratum: no
++statement is made here about any other member, and nothing here proves that $\Vquad$ lies in
++that stratum. We do not modify
+@@ -1233,4 +1279,6 @@
+-Independent structural confirmation: the reduced equation has no first-order term, so
+-$G\subseteq\SL_2$; the two distinct exponentials $\exp(\pm(1/\sqrt3)/z)$ at $z=0$ generate the
+-diagonal torus, and the nonzero Stokes constant $S=2\pi K$ supplies an off-torus unipotent;
+-torus-plus-unipotent generate $\SL_2$. Source: \texttt{PERIOD-REP-VQUAD-003},
++Structural consistency check (not independent of the above): the reduced equation has no
++first-order term, so $G\subseteq\SL_2$; the two distinct exponentials $\exp(\pm(1/\sqrt3)/z)$ at
++$z=0$ generate the diagonal torus, and the nonzero Stokes constant $S=2\pi K$ supplies one root
++unipotent. Torus-plus-one-root-unipotent generates a \emph{Borel} subgroup; $\SL_2$ follows only
++after the reducible case is excluded, which is Case~1 above. Source:
++\texttt{PERIOD-REP-VQUAD-003},
+@@ -1251,0 +1300,14 @@
++\emph{Logarithms at $\xi=0$ (exact, no floating point).} The local exponents of $\LV$ at
++$\xi=0$ are the consecutive integers $\{-1,0,1,2\}$, the exact integer roots of the indicial
++polynomial. Running the Frobenius recursion from the lowest exponent $-1$ in exact $\Qsqrt$
++arithmetic, the first resonant step is obstructed by
++$(38286+24984\sqrt3)/418501\ne0$; the steps from exponents $0$, $1$ and $2$ are unobstructed.
++The log-free local solution space therefore has dimension $3$, with leading exponents
++$0,1,2$, and the fourth local solution carries $\log\xi$; a representative of it,
++$\xi^{-1}(1+\cdots)+c\,\log\xi\,(v_0+v_1\xi+\cdots)$ with $v_0=-(2+\sqrt3)/24$, is exhibited
++explicitly. Three implementations sharing no code agree: the resonant-step obstruction, the
++rank of the truncated Laurent system (dimension $3$ at truncation orders $16$ and $24$), and
++the explicit logarithmic solution. Consequently $\xi=0$ is \emph{not} an apparent singularity
++of $\LV$; $\Bhat$, the exponent-$0$ solution, is unaffected, and so is the main identity
++(Lemma~\ref{lem:apparent}).
++
+@@ -1295,2 +1357,3 @@
+-\texttt{DEtools[DifferentialGaloisGroup]}, is here obtained by open case-elimination plus the
+-structural argument of Appendix~\ref{app:kovacic}.
++\texttt{DEtools[DifferentialGaloisGroup]}, is here obtained by open case-elimination, with the
++structural argument of Appendix~\ref{app:kovacic} as a consistency check that depends on the
++same Case~1 exclusion.
+@@ -1454,0 +1518,8 @@
++\bibitem{VquadV13}
++Papanokechi,
++\emph{A non-classical Painlev\'e~V transcendent from a quadratic polynomial continued fraction:
++surface classification and resurgent Stokes data}.
++Zenodo, 2026, version DOI \texttt{10.5281/zenodo.22831933} (version~1.3; concept DOI
++\texttt{10.5281/zenodo.20455089}). See its correction notice, whose items~C1 and~C2 respectively
++withdraw an apparency claim and revise the derivation of the quoted Painlev\'e parameters.
++
+
+==========================================================================
+K2: every SUBSTANTIVE block above must be accounted for in CHANGES.md
+==========================================================================

@@ -1,0 +1,17 @@
+Subject: MATH-D-26-00523: item 4 resolved, and one further correction
+
+Dear Professor Jimbo,
+
+Further to my message about MATH-D-26-00523, I have completed the check referred to in item 4, and found one further issue, which I add as item 5.
+
+4. The point xi = 0 is not an apparent singularity of L_V. A direct Frobenius computation, exact over Q(sqrt 3), shows that the first resonant step from the exponent -1 is obstructed, so one local solution carries a logarithm and the local monodromy is unipotent rather than trivial. Proposition 2.4, Lemma 2.7, Table 1, Figure 1, Remark 3.4 and the proof of Corollary 1.3 need correcting where they call xi = 0 apparent. This includes Proposition 2.4's statement that its results were obtained twice: the direct Frobenius solution was computed only at -xi_0, not at 0. The main identity is unaffected: B-hat is the holomorphic exponent-0 solution at 0 on the principal sheet, and the cycle gamma lies on (-infinity, -2/sqrt 3].
+
+5. The abstract, Section 1.3, Section 5 and Table 2 present Methods B and C as independent verifications agreeing at 8.84 x 10^-46. As implemented, the numerical check for Method B took the branch amplitude from K and compared against the deposited S, so it reduces algebraically to Method C's comparison of |S_mult| with 2 pi K: the two agreements are one comparison reported twice. Method C's separate comparison, C = |Gamma(beta)| K at 9.31 x 10^-46, is unaffected. An independent version of Method B exists: extracting the amplitude directly from the coefficient stream, with no reference to S, and rebuilding Method B on it reconstructs S to relative error 3.7 x 10^-46. The identity (17) stands, but the paper's account of three independent verifications needs restating to what was actually measured. My cover letter repeats the same description.
+
+A revised manuscript incorporating all five corrections can be prepared if you would like it.
+
+With thanks and best regards,
+
+Papanokechi
+Independent researcher, Yokohama
+ORCID 0009-0000-6192-8273

@@ -1,0 +1,26 @@
+check_assembly (CT-S42, repointed from CT-S41) -- cross-section labels, sections 0-8
+
+[reader integrity]
+  124 distinct labels defined, 76 distinct targets referenced  OK
+  stub absent or empty: R1 resolves against real labels only, which is strictly stronger than the stub-allowed form  OK
+
+[R1 every referenced target resolves]
+  all 76 referenced targets resolve  OK
+
+[R2 the stub may not stand in for a section that exists]
+  the stub is retired: every label it carried is now defined by a section, and R1 above consulted no stub  OK
+  no stub entry collides with a drafted section  OK
+
+[R2b no label is defined twice]
+  no label defined twice  OK
+
+[R3 the compiler agrees]
+  build log: 0 errors, 0 undefined, 0 multiply-defined references  OK
+
+[summary]
+  sections analysed : 13
+  labels defined    : 124
+  targets referenced: 76
+  stub entries      : 0
+  failures          : none
+VERDICT: PASS

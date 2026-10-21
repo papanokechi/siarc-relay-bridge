@@ -1,0 +1,18 @@
+general flow:
+  dq/dt = 2*p/t
+  dp/dt = (8*p**2*q - 4*p**2 + 2*q**5*t**2 - 5*q**4*t**2 + 2*q**4*t*theta_inf - 2*q**4*t + 4*q**3*t**2 - 4*q**3*t*theta_inf + 4*q**3*t - q**2*t**2 + 2*q**2*t*theta_inf - 2*q**2*t + q**2*theta_0**2 - q**2*theta_1**2 - 2*q*theta_0**2 + theta_0**2)/(4*q*t*(q - 1))
+
+at System C's point (branch t = -2i sqrt(33)/9):
+  q       = (0.5+0.81234960875745j)
+  q - 1   = (-0.5+0.81234960875745j)
+  q(q-1)  = (-0.909911886848382+0j)
+  t       = -1.2765694770084508j
+  q(q-1) != 0 : True
+  t != 0      : True
+
+  H_V  = (-0.7981125224324688-1.1923697356755987j)
+  dq/dt= (-0.7283560391780161+0j)
+  dp/dt= (0.6783202525819821+0j)
+
+all finite -> the isomonodromy vector field is regular at the point,
+so exactly one PV leaf passes through it.

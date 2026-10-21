@@ -1,0 +1,35 @@
+==========================================================================
+CT-S57 -- the first email's objects against v1.2, the version LMP holds
+==========================================================================
+    reference : v1.2 PDF, md5 792107efab6317e8ae21e2ca20f092ff
+    pages     : 25
+
+[1] EVERY NUMBERED OBJECT THE EMAIL CITES MUST EXIST
+    [PASS] Theorem 1.1
+    [PASS] Theorem 1.2
+    [PASS] Corollary 1.3
+    [PASS] Corollary 1.4
+    [PASS] Proposition 2.4
+    [PASS] Lemma 2.7
+    [PASS] Table 1
+    [PASS] Remark 3.4
+
+[2] EVERY SECTION THE EMAIL NAMES MUST EXIST
+    [PASS] Section 1.1
+    [PASS] Section 1.2
+    [PASS] Section 7.1
+
+[3] DISCRIMINATION -- the v1.0 numbering must be ABSENT
+    Without this the check would pass against v1.0 too, and could
+    not tell the two versions apart.
+    [PASS] Remark 3.3 does not occur in v1.2
+
+[4] CONTROL -- the reader must be able to fail
+    [PASS] a word known to be present is found
+    [PASS] a fabricated object is not found
+
+email sha256 : 9bdcd347505999fdfb269ca0b632b23d83c25245e55fac066f565cd29a0572a0
+
+CLEAN -- every object the first email cites exists in the manuscript
+the editor is holding.
+==========================================================================

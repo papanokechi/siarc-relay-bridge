@@ -1,0 +1,38 @@
+==============================================================================
+CT-S33  mutant arms on emit_claims.py  (θ, ∞ sentinels)
+==============================================================================
+claims.jsonl before any arm: sha256 690be5c0cb694e73f7bb2469bd6882a923d3f5ca8d01b0620c0845f3dd88e35d
+
+  [CAUGHT] M1 duplicate claim_id
+         refused=True  for-the-injected-reason=True  artefact-intact=True
+         AssertionError: duplicate claim_id in memory
+  [CAUGHT] M2 unrecognised label
+         refused=True  for-the-injected-reason=True  artefact-intact=True
+         AssertionError: S33-03
+  [CAUGHT] M3 review label dropped
+         refused=True  for-the-injected-reason=True  artefact-intact=True
+         AssertionError: S33-01
+  [CAUGHT] M4 contamination note altered
+         refused=True  for-the-injected-reason=True  artefact-intact=True
+         AssertionError: review_note text does not match its pinned hash
+  [CAUGHT] M5 PROVEN resting on file inspection
+         refused=True  for-the-injected-reason=True  artefact-intact=True
+         AssertionError: S33-01
+  [CAUGHT] M6 empty evidence
+         refused=True  for-the-injected-reason=True  artefact-intact=True
+         AssertionError: S33-03
+  [CAUGHT] M7 CRLF injected into the bytes destined for disk
+         refused=True  for-the-injected-reason=True  artefact-intact=True
+         AssertionError: carriage return in the bytes destined for disk
+  [CAUGHT] M8 hash asserted against the wrong bytes
+         refused=True  for-the-injected-reason=True  artefact-intact=True
+         AssertionError
+
+ARMS: 8/8 CAUGHT
+claims.jsonl after every arm:  sha256 690be5c0cb694e73f7bb2469bd6882a923d3f5ca8d01b0620c0845f3dd88e35d
+
+What would have made an arm fire: the emitter accepting the injected
+defect; refusing for an unrelated reason (a mutation that breaks the
+script rather than the claim set); or refusing only after the write, the
+failure mode of CT-S28 defect 6.3 and CT-S32 arm M6, which condition 3
+is the only one of the three able to detect.

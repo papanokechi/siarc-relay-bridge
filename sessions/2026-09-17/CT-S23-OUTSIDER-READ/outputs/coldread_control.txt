@@ -1,0 +1,264 @@
+## 1. Points at which I could not proceed
+
+I could read the prose as a list of reported results, but I could not independently follow the argument because the document supplies neither definitions nor derivations. In order:
+
+1. **“The solver reproduces Kummer's monodromy, formal and Stokes data against closed forms, 32/32 checks at ≥ 35 digits (44–151 observed), at both pre-registered parameter values.”**  
+   Missing: the solver, Kummer’s system, monodromy, formal data, Stokes data, the closed forms, the 32 checks, the parameter values, and the meaning of “44–151 observed.”  
+   Guessable? Only at a very general level. I could guess that numerical computations were compared with exact formulas, but not what was computed or which parameter values were used. Confidence in any specific reconstruction: low.
+
+2. **“Kummer's companion system is not trace-free, so the vdPS `SL₂` factorisation requires the trace-free gauge.”**  
+   Missing: Kummer’s companion system, `vdPS`, `SL₂`, the factorisation, “trace-free,” and the gauge transformation.  
+   Guessable? I could guess that a \(2\times2\) system was changed by a gauge transformation to make its coefficient matrices traceless, but not the actual transformation or factorisation. Confidence: moderate only for that general interpretation.
+
+3. **“The ccw circle at ∞ is homotopic to `γ₀`; vdPS's `M_∞` is the clockwise loop, hence their `α` is `e^{−2πiL₁₁}`.”**  
+   Missing: `ccw`, the topology and base point, `∞`, `γ₀`, `M_∞`, `α`, \(L_{11}\), and the convention connecting monodromy to \(L_{11}\).  
+   Guessable? I could guess that “ccw” means counterclockwise and that a sign changes because the loop orientation is reversed. I could not determine the precise loop system or why the indicated exponential is the relevant one. Confidence: moderate for the orientation explanation, low for the details.
+
+4. **“Check `A6a` as first written was algebraically vacuous: `(1+f₁f₂)/α − M₂₂` equals `(1 − det M)/m₁₁` and vanishes identically for any unimodular `M` with `M₁₁ ≠ 0`.”**  
+   Missing: check `A6a`, \(f_1,f_2,\alpha,M,M_{22},m_{11}\), “unimodular,” and the earlier version “as first written.”  
+   Guessable? I could infer that \(M\) is a \(2\times2\) matrix and that “unimodular” means determinant one. I could not know the definitions of \(f_1,f_2,\alpha\), or the original check. Confidence: high only for the meaning of determinant one.
+
+5. **“`A7` as first written used vdPS's `diag·lower·upper` ordering against a computed `diag·upper·lower` factorisation; the two differ by `(α − α⁻¹)f₁f₂`. The corrected identity is a dependent restatement of `A4a`+`A5`+`A6e`.”**  
+   Missing: `A7`, `A4a`, `A5`, `A6e`, `diag`, `lower`, `upper`, the matrices being factored, and what “dependent restatement” means in this context.  
+   Guessable? The factor-ordering issue is guessable; the actual identities and matrices are not. Confidence: moderate for the general point, low for the specifics.
+
+6. **“At the CT-S16 point the printed family satisfies `det A₀ = det A₁ = 0` exactly and `A_∞ = (t/2)diag(−1,1)`.”**  
+   Missing: CT-S16, the “printed family,” \(A_0,A_1,A_\infty,t\), and the source in which the family was printed.  
+   Guessable? I could infer that \(A_0,A_1,A_\infty\) are coefficient matrices of a differential system. I could not reconstruct the family or the point. Confidence: low.
+
+7. **“`(A₀+A₁)₁₁ = −θ_∞/2`, contradicting the prose of p. 2629.”**  
+   Missing: the matrix-entry notation, \(\theta_\infty\), the relevant prose on p. 2629, and the convention for the sign.  
+   Guessable? The \((1,1)\)-entry notation is standard; the parameter and the allegedly contradictory statement are not supplied. Confidence: moderate for notation, low for the comparison.
+
+8. **“`L₁₁ = θ_∞/2` exactly, hence `α = e^{±iπθ_∞}` in closed form with `|α| = 1`, `|arg α| = π√3/9`.”**  
+   Missing: \(L\), \(L_{11}\), \(\theta_\infty\), the sign convention for \(\alpha\), and the actual value of \(\theta_\infty\).  
+   Guessable? The algebraic implication is understandable if the preceding conventions are assumed. The numerical argument value suggests a particular value of \(\theta_\infty\), but that value is not stated. Confidence: moderate for the algebra, low for the underlying definitions.
+
+9. **“The truncated formal series' residual sits at the minimal term and decays at the Gevrey rate `e^{−|t|R}`.”**  
+   Missing: the formal series, its truncation, the residual, \(t\), \(R\), “minimal term,” and “Gevrey rate.”  
+   Guessable? I could give a general interpretation from asymptotic analysis, but not identify the series or verify the rate. Confidence: moderate for the general terminology.
+
+10. **“PREREG §2.3's 8-element candidate set could not represent `γ₀γ₁ = γ_∞`; widened to 16 with the four conditions and the threshold unchanged.”**  
+    Missing: PREREG, §2.3, the candidate set, \(\gamma_0,\gamma_1,\gamma_\infty\), the four conditions, and the threshold.  
+    Guessable? I could infer that this concerns enumerating loop/convention candidates. I could not know the candidates or conditions. Confidence: low.
+
+11. **“Over the 16 candidates, exactly one satisfies all four PREREG §2.3 conditions: right action, small loops ccw, `M_∞` clockwise, vdPS `M₁ = γ₁`.”**  
+    Missing: “right action,” “small loops,” the precise orientation convention, \(M_1\), and the relationship between \(M_1\) and \(\gamma_1\).  
+    Guessable? The orientation words are understandable, but the action and monodromy conventions are not. Confidence: low to moderate.
+
+12. **“The trace coordinates of System C at `t₀` are `x₁, x₂, x₃` as tabulated, with error bar `8.49e-105` from step halving.”**  
+    Missing: System C, \(t_0\), the definition of trace coordinates, the tabulation procedure, and the step-halving calculation.  
+    Guessable? I could infer that \(x_i\) are three trace-type invariants and that step halving estimates numerical error. I could not calculate or identify them from the text alone. Confidence: moderate for the general interpretation.
+
+13. **“The point is a smooth point of the singular cubic fibre: `max|∇F| = 21.24`, non-zero.”**  
+    Missing: the point, the cubic fibre, \(F\), the ambient coordinates, and why a nonzero maximum gradient establishes the stated smoothness in this setting.  
+    Guessable? Standard algebraic-geometric terminology gives the general idea, but not the actual cubic or gradient. Confidence: moderate.
+
+14. **“The observable is sensitive to leaf membership: `max|Δx_i| ≈ 10⁻⁵` at `δ = 10⁻⁶`, first order, ratios `99.9998` and `99.9996`.”**  
+    Missing: the observable, leaves, \(\Delta x_i\), \(\delta\), the perturbation, and the definitions of the two ratios.  
+    Guessable? I could infer a first-order perturbation test, but not its construction. Confidence: moderate for that broad interpretation.
+
+15. **“System C's point transports along PV with `x₁, x₂, x₃` constant to 90.8 and 91.8 digits at `ε = 10⁻³, 10⁻⁴`. Gap `S16-15` closed numerically.”**  
+    Missing: PV, the transport equation, the meaning of “constant to 90.8 and 91.8 digits,” \(\epsilon\), and gap S16-15.  
+    Guessable? “PV” might refer to a Painlevé V flow, but that is only a guess. Confidence: low.
+
+16. **“The Stage-4 test discriminates: a wrong vector field moves the coordinates by `3.8e-2`.”**  
+    Missing: Stage 4, the vector field, the coordinates, the test interval and norm, and the definition of “wrong.”  
+    Guessable? Only the broad idea of a control experiment is clear. Confidence: low.
+
+17. **“Raising `dps` 200→320 leaves the agreement and its ratio unchanged to every printed figure while every dps-limited control improves by ~120 digits; over `ε = 10⁻³, 10⁻⁴, 10⁻⁵` the ratios are `10.430` and `10.034`.”**  
+    Missing: `dps`, the agreement, its ratio, the controls, and the two ratio definitions.  
+    Guessable? I could infer that `dps` means decimal precision, but not the reported quantities. Confidence: high for `dps`, low otherwise.
+
+18. **“Branch 2 of the CT-S16 sign pair (`t = +2√33i/9`) passes Stages 2, 3 and 4 independently: unique convention `right\|cw\|infccw\|01`, agreement `90.82`/`91.84` digits.”**  
+    Missing: the sign pair, branch numbering, Stages 2–4, `cw`, `infccw`, `01`, and the meaning of the convention string.  
+    Guessable? `cw` is plausibly clockwise, but the complete convention and branch construction are not recoverable. Confidence: moderate for `cw`, low overall.
+
+19. **“Branches 1 and 2 are related by the Galois automorphism `σ: √3 ↦ −√3, √11 ↦ √11` of `Q(√3,√11)`, which maps `t, θ_∞, q, p` term by term; they are not complex conjugates.”**  
+    Missing: branches 1 and 2, \(\sigma\), \(t,\theta_\infty,q,p\), the field notation, and their branch-specific formulas.  
+    Guessable? The field-theoretic statement is standard, but its application cannot be checked from the supplied data. Confidence: high for the meaning of the field notation, low for the claimed mapping.
+
+20. **“The two branches' trace coordinates are the same multiset with `x₁` and `x₂` interchanged and `x₃`, `α` identical; the winning convention is the exact mirror.”**  
+    Missing: the branch values, “winning convention,” and “exact mirror.”  
+    Guessable? The permutation claim is readable but not independently verifiable. Confidence: moderate.
+
+21. **“The Stage-5A search space was degenerate: `Γ(1/6) = 2^{2/3}√3 Γ(1/3)²/(2√π)`, so PSLQ returned that identity with zero coefficient on `log C` and never tested `C`. Stage 5A is VOID, not negative.”**  
+    Missing: Stage 5A, PSLQ, the search space, \(C\), \(\log C\), the coefficient representation, and the meaning of “VOID.”  
+    Guessable? I could infer that PSLQ searches for integer relations and that the displayed Gamma identity caused linear dependence. I could not know the registered search protocol or the precise status convention. Confidence: moderate.
+
+22. **“In the corrected space `{2, 3, π, Γ(1/3)}` — shown independent by a degeneracy pre-check — no relation `C = ± 2^a 3^b π^c Γ(1/3)^d e^f` exists with `|coeff| ≤ 10⁶`, `1 ≤ |m| ≤ 12`, cost `≤ 40`, against `C` known to 100 digits.”**  
+    Missing: the meaning of “independent,” \(a,b,c,d,e,f,m\), `coeff`, “cost,” the relation-search algorithm, and how \(C\) was known to 100 digits.  
+    Guessable? I could infer that this is a bounded integer-relation search. I could not reproduce its admissible relation space or certify the negative result. Confidence: moderate for the general interpretation.
+
+23. **“`C = 8.127336795495072367112578732023583182264542722338793…`”**  
+    Missing: the definition or origin of \(C\), and the omitted digits.  
+    Guessable? No specific definition can be inferred.
+
+24. **“`S_{ζ*} = 2πiC = 51.0655631399546622698316746099456615679204103033104… i`”**  
+    Missing: \(S_{\zeta^*}\), \(\zeta^*\), and the role of the displayed identity.  
+    Guessable? The algebraic relation is explicit; the objects’ meanings are not.
+
+25. **“`ζ* = 4/√3`”**  
+    Missing: the definition of \(\zeta^*\) and why this value matters.  
+    Guessable? No.
+
+26. **“The gap `S16-15` is closed numerically at the 30-digit threshold with ~60 digits of margin, on both branches of the CT-S16 sign pair.”**  
+    Missing: the gap’s formal statement, the threshold protocol, the margin calculation, and the two branches.  
+    Guessable? Only that a numerical acceptance criterion was met. Confidence: moderate.
+
+27. **“Stage 5's closed-form search returned a pre-registered negative result after its first search space was found degenerate and void.”**  
+    Missing: Stage 5, the pre-registration, the search spaces, and the formal distinction between “negative,” “degenerate,” and “void.”  
+    Guessable? The broad procedural meaning is clear, but not the rules governing the conclusion. Confidence: low to moderate.
+
+## 2. Terms, symbols, labels, and object names used before definition or never defined
+
+The document defines almost none of its notation. The following are used without prior definition; where a numerical value or explanatory phrase is supplied, that is not a full definition of the underlying object.
+
+### First results row
+
+- **solver** — first row 1; never defined.
+- **Kummer's monodromy** — row 1; never defined.
+- **Kummer's companion system** — row 2; never defined.
+- **formal data** — row 1; never defined.
+- **Stokes data** — row 1; never defined.
+- **closed forms** — row 1; never defined.
+- **32/32 checks** — row 1; never defined.
+- **35 digits**, **44–151 observed** — row 1; never defined.
+- **pre-registered parameter values** — row 1; never defined.
+- **vdPS** — row 2; never expanded or defined.
+- **`SL₂`** — row 2; never defined.
+- **factorisation** — row 2; never defined.
+- **trace-free gauge** — row 2; never defined.
+- **ccw** — row 3; never defined.
+- **∞** — row 3; used as a singular point, never defined.
+- **`γ₀`** — row 3; never defined.
+- **`M_∞`** — row 3; never defined.
+- **clockwise loop** — row 3; never defined.
+- **`α`** — row 3; used before its displayed exponential relation; never independently defined.
+- **`L₁₁`** — row 3; never defined.
+- **`A6a`** — row 4; never defined.
+- **`f₁`, `f₂`** — row 4; never defined.
+- **`M₂₂`**, **`M₁₁`**, **`m₁₁`** — row 4; never defined; the document changes capitalization between \(M_{11}\) and \(m_{11}\).
+- **`M`** — row 4; never defined.
+- **unimodular** — row 4; not defined, although its determinant-one implication is used.
+- **`A7`** — row 5; never defined.
+- **`diag`**, **`lower`**, **`upper`** — row 5; never defined.
+- **`A4a`**, **`A5`**, **`A6e`** — row 5; never defined.
+- **dependent restatement** — row 5; never defined.
+- **CT-S16 point** — row 6; never defined.
+- **printed family** — row 6; never identified.
+- **`A₀`, `A₁`, `A_∞`** — row 6; never defined.
+- **`t`** — row 6; never defined.
+- **`θ_∞`** — row 7; never defined.
+- **p. 2629** — row 7; referenced but not supplied in this document.
+- **`L`** — row 8; never defined.
+- **`e^{±iπθ_∞}`** — row 8; expression is displayed, but its sign convention is not defined.
+- **`|α|`**, **`arg α`** — row 8; standard notation but not defined in the document.
+- **truncated formal series** — row 9; never defined.
+- **residual** — row 9; never defined.
+- **minimal term** — row 9; never defined.
+- **Gevrey rate** — row 9; never defined.
+- **`R`** — row 9; never defined.
+- **PREREG** and **§2.3** — row 10; never identified.
+- **candidate set** — row 10; never defined.
+- **`γ₁`, `γ_∞`** — row 10; never defined.
+- **four conditions** — row 10; not listed there; only partly named in row 11.
+- **threshold** — row 10; never defined.
+- **right action** — row 11; never defined.
+- **small loops** — row 11; never defined.
+- **`M₁`** — row 11; never defined.
+- **System C** — row 12; never defined.
+- **`t₀`** — row 12; never defined.
+- **trace coordinates** — row 12; never defined.
+- **`x₁`, `x₂`, `x₃`** — row 12; first numerically tabulated only after being named; their mathematical definitions never appear.
+- **error bar** — row 12; never defined.
+- **step halving** — row 12; never defined.
+- **singular cubic fibre** — row 13; never defined.
+- **`F`** and **`∇F`** — row 13; never defined.
+- **point** — row 13; no point is specified.
+- **observable** — row 14; never defined.
+- **leaf membership** — row 14; never defined.
+- **`Δx_i`** — row 14; never defined.
+- **`δ`** — row 14; never defined.
+- **first order** — row 14; never defined as a criterion here.
+- **ratios** — row 14; never defined.
+- **PV** — row 15; never expanded or defined.
+- **transports** — row 15; never defined.
+- **`ε`** — row 15; never defined.
+- **gap S16-15** — row 15; never defined.
+- **Stage-4 test** — row 16; never defined.
+- **wrong vector field** — row 16; never defined.
+- **`dps`** — row 17; never defined, although it plausibly denotes decimal precision.
+- **agreement** — row 17; never defined.
+- **dps-limited control** — row 17; never defined.
+- **Stage 2, Stage 3, Stage 4** — row 18; never defined.
+- **Branch 2**, **sign pair** — row 18; never defined.
+- **`cw`**, **`infccw`**, **`01`** — row 18; never defined.
+- **convention** — row 18; never defined.
+- **Galois automorphism** — row 19; not defined.
+- **`σ`** — row 19; introduced as an automorphism, but its action on the whole field is not defined beyond two generators.
+- **`Q(√3,√11)`** — row 19; never defined.
+- **`q`, `p`** — row 19; never defined.
+- **complex conjugates** — row 19; never defined in relation to the branches.
+- **multiset** — row 20; never defined.
+- **exact mirror** — row 20; never defined.
+- **Stage-5A** — row 21; never defined.
+- **search space** — row 21; never defined.
+- **`Γ`** — row 21; Gamma notation is used without definition.
+- **PSLQ** — row 21; never expanded or defined.
+- **`log C`** — row 21; depends on undefined \(C\).
+- **VOID** and **negative** — row 21; never defined procedurally.
+- **corrected space** — row 22; never defined.
+- **degeneracy pre-check** — row 22; never defined.
+- **relation** — row 22; never defined.
+- **`a,b,c,d,e,f,m`** — row 22; never defined.
+- **`coeff`** — row 22; never defined.
+- **cost** — row 22; never defined.
+- **`C`** — numerical-values section; given a numerical approximation but never defined.
+- **`S_{ζ*}`** — numerical-values section; never defined.
+- **`ζ*`** — numerical-values section; assigned \(4/\sqrt3\), but never defined conceptually.
+- **30-digit threshold** — conclusion; never defined.
+- **60 digits of margin** — conclusion; never defined.
+- **Stage 5** — conclusion; never defined.
+- **closed-form search** — conclusion; never defined.
+- **pre-registered negative result** — conclusion; never defined.
+
+## 3. Claims resting on facts not stated in the document
+
+1. The solver’s reported agreement with Kummer data rests on the unstated existence and implementation of the solver, the closed forms, and the parameter values.
+2. The assertion that the companion system is not trace-free assumes an unstated matrix representation and trace calculation.
+3. The assertion that the vdPS factorisation requires a trace-free gauge assumes external factorisation conventions and results attributed to vdPS.
+4. The homotopy claim about the counterclockwise circle at infinity and \(\gamma_0\) assumes an unstated punctured-plane topology, base point, and loop system.
+5. The identification of vdPS’s \(M_\infty\) as clockwise assumes an external convention from vdPS.
+6. The algebraic-vacuity claim for A6a assumes definitions of \(f_1,f_2,\alpha,M\) and the original check.
+7. The ordering claim for A7 assumes an external or earlier version of the factorisation and the definitions of A4a, A5, and A6e.
+8. The CT-S16 claims assume an unstated printed family and parameter point.
+9. The contradiction with p. 2629 assumes access to that page and its prose.
+10. The closed-form claim for \(\alpha\), including its modulus and argument, assumes the unstated value and convention for \(\theta_\infty\).
+11. The Gevrey-rate claim assumes an unstated formal expansion, truncation rule, residual norm, and asymptotic estimate.
+12. The PREREG candidate-set claims assume the contents of an external or earlier PREREG §2.3.
+13. The uniqueness of the convention assumes an unstated exhaustive list of 16 candidates and precise definitions of the four tests.
+14. The trace-coordinate error bar assumes an unstated numerical integration and step-halving protocol.
+15. The smoothness claim assumes the defining equation \(F\), the point, and the relevant smoothness criterion.
+16. The leaf-sensitivity claim assumes an unstated foliation/leaf structure and perturbation experiment.
+17. The transport claim assumes an unstated PV vector field and transport calculation.
+18. The Stage-4 discrimination claim assumes an unstated correct vector field, wrong vector field, interval, and comparison norm.
+19. The precision-stability claim assumes unstated numerical controls and definitions of the ratios.
+20. The branch-2 validation assumes unstated definitions of branches, stages, and convention strings.
+21. The Galois claim assumes unstated formulas for \(t,\theta_\infty,q,p\) and their branch assignments.
+22. The branch-symmetry claim assumes unstated branch-specific coordinate computations.
+23. The Stage-5A status assumes an unstated pre-registration and search protocol.
+24. The displayed Gamma identity is used as an explanation of PSLQ’s behaviour without supplying the relation-search basis or algorithm.
+25. The corrected-space negative result assumes an unstated independence proof, coefficient bounds, cost function, integer-relation algorithm, and 100-digit computation of \(C\).
+26. The conclusion that S16-15 is closed assumes an unstated definition of that gap and an unstated acceptance threshold.
+27. The conclusion that Stage 5 produced a “pre-registered negative result” assumes external procedural definitions of “pre-registered,” “negative,” “degenerate,” and “void.”
+
+## 4. Main result and method
+
+**Main result:** The document reports that the numerical verification programme closes the gap S16-15 on both branches of the CT-S16 sign pair, satisfying the stated 30-digit threshold with approximately 60 digits of margin. It also reports that the Stage-5 closed-form search yielded no relation of the tested form for \(C\), after an initial degenerate search space was declared void.
+
+**Method:** The method is numerical and computational: compare a solver against Kummer monodromy, formal and Stokes data; test loop and factorisation conventions; compute trace coordinates and their numerical stability; transport points along PV; use wrong-vector-field and precision controls; and perform a bounded PSLQ/integer-relation search for a closed form for \(C\).
+
+## 5. Verdict
+
+**NOT SELF-CONTAINED** — the document is a results fragment. It relies on undefined systems, parameters, matrices, loops, conventions, stages, checks, numerical protocols, and external references, so a reader cannot follow it end to end using only the supplied text.

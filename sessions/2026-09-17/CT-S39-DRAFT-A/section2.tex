@@ -1,0 +1,247 @@
+% =====================================================================
+%  Section 2 -- Growth of the recurrence
+%  CT-S39-DRAFT-A.  Draft only.
+%
+%  Every citation in 2.0 was verified against the held page image or PDF
+%  named beside it, and NOT against OUTLINE.md or a claim text
+%  (CT-S39-DRAFT-A/scripts/check_group_a.py; PREREG.md O1-O3).
+%  Symbols follow section 1: psi_n, psi_infty, nu_i.
+% =====================================================================
+
+\section{Growth of the recurrence}\label{sec:growth}
+
+\subsection{Attribution}\label{ssec:attribution}
+
+The growth statement of this section is, in its leading term, classical. This
+subsection says precisely which part is classical, to whom it is due, and what
+is left. It is placed first because the section would otherwise read as a claim
+of novelty that it does not make.
+
+\paragraph{The radius is prior art.} Write \eqref{eq:n-rec} in the homogeneous
+form $Q_{n+1}+a_nQ_n+b_nQ_{n-1}=0$ with $a_n=-b(n+1)\sim-\beta_d n^{d}$ and
+$b_n=-1$, so that in the notation of the Newton--Puiseux diagram for such a
+recurrence $\alpha=d$ and $\beta=0$. The vertex $P_1=(1,d)$ then lies strictly
+above the segment $P_0P_2$, which is case~(a) of Gautschi's Theorem~2.3,
+attributed on that page to Perron and Kreuser. Case~(a) supplies two linearly
+independent solutions whose consecutive ratios behave like $-a_n$ and
+$-b_n/a_n$; for \eqref{eq:n-rec} the first of these gives
+$Q_{n+1}/Q_n\sim\beta_d n^{d}$, and the radius statement of
+Theorem~\ref{thm:radius} below is an immediate corollary. The minimal/dominant
+dichotomy that makes hypothesis (A3) meaningful is Pincherle's, in Gautschi's
+Theorem~1.1 on p.~31: the associated continued fraction converges if and only if
+the recurrence possesses a minimal solution with non-vanishing initial term.
+
+The attribution is to Gautschi, \emph{SIAM Review} \textbf{9} (1967),
+Theorem~2.3(a) p.~35 for Perron--Kreuser and Theorem~1.1 p.~31 for Pincherle;
+the same dichotomy appears at DLMF~\S3.6(ii). That the recurrence of this paper
+falls in case~(a) is \texttt{CT-S8-LITCHECK-002} (PROVEN); the readings of the
+two Gautschi pages are \texttt{CT-S8-LITCHECK-001} and
+\texttt{CT-S8-LITCHECK-008} (both INSPECTED).
+
+\paragraph{DLMF (2.9.5)--(2.9.6), and why they do not apply.} It would be
+natural to look for the exponent in DLMF~\S2.9(i), which for
+$w(n+2)+f(n)w(n+1)+g(n)w(n)=0$ gives the characteristic roots $\rho_j$ by
+(2.9.5) and then the exponents explicitly by
+\[
+  \alpha_j=\frac{f_1\rho_j+g_1}{f_0\rho_j+2g_0}
+  \tag{DLMF 2.9.6}
+\]
+That formula is available \emph{only} under the bounded-coefficient hypothesis
+$f(n)\sim\sum_s f_s n^{-s}$, $g(n)\sim\sum_s g_s n^{-s}$ with $g_0\neq0$. Here
+$f(n)=-b(n+2)$ grows like $n^{d}$, so for every $d\ge1$ that expansion does not
+exist, $f_0$ is not defined, and the clauses do not apply. This is not an
+oversight in the source: DLMF routes exactly this class elsewhere, at (2.9.14),
+``in which $P$ and $Q$ are any integers see Wong and Li (1992a).'' Both equation
+numbers and the deferral are present in the held capture
+\texttt{CT-S8-LITCHECK/refs/dlmf\_2\_9.txt}
+(\texttt{CT-S8-LITCHECK-003}, INSPECTED).
+
+\paragraph{Wong--Li II was not obtained.} The article DLMF defers to ---
+J.~Wong and R.~Li, \emph{Asymptotic expansions for second-order linear
+difference equations, II}, \emph{Stud.\ Appl.\ Math.} \textbf{87} (1992)
+289--324, DOI \texttt{10.1002/sapm1992874289} --- is paywalled and returned HTTP
+403; it has not been read, and nothing in this paper is attributed to it
+(\texttt{CT-S8-LITCHECK-004}, INSPECTED). The asymmetry should be stated with
+the admission. The unread article cannot reach the exponent $s$, which is
+derived in \S\ref{ssec:growth-law} and confirmed independently in
+\S\ref{ssec:numerics-growth}, and it cannot reach the framing of
+\S\ref{sec:local}--\S\ref{sec:leaf}; it could bear only on whether a closed form
+for the amplitude $K$ is already known.
+
+\paragraph{The connection constant.} Classical difference-equation asymptotics
+of this kind determines a solution only up to a multiplicative connection
+coefficient. That is exactly the gap the amplitude $K$ of
+\eqref{eq:growth-law} fills, with the single transcendental input isolated into
+$\psi_\infty$ and hypothesis (A3). Two independent sources state the limitation.
+Odlyzko, \emph{Asymptotic Enumeration Methods}, p.~77, writes that
+\begin{quote}
+Wimp and Zeilberger point out that it is usually easy to show that the largest
+of the terms of the form (9.35) does show up with a nonzero coefficient, and so
+determines the asymptotics of $a_n$ up to a multiplicative constant. However,
+the Birkhoff--Trjitzinsky method does not in general provide any techniques for
+determining that constant.
+\end{quote}
+The attribution inside this passage divides, and the division matters: the first
+sentence is Odlyzko \emph{reporting Wimp and Zeilberger}, his reference [384],
+and only the second is his own assertion. Citing the whole passage to Odlyzko
+would misattribute the first half. Independently, Nemes (2026),
+arXiv:2508.15246v2, describes connection coefficients as ``often treated as
+unknowns in other methods'' and otherwise computed numerically. The two are kept
+side by side rather than one replacing the other
+(\texttt{S24-12}, \texttt{S24-13}, \texttt{CT-S8-LITCHECK-010}, all INSPECTED).
+
+\paragraph{Nothing here rests on Birkhoff--Trjitzinsky.} The same page of
+Odlyzko records the standard objection, that the Birkhoff--Trjitzinsky results
+``may not be rigorous, since gaps are alleged to exist in the complicated
+proofs'' [211, 383]. A reader who checks p.~77 for the quotation above will read
+this too, so it is answered here rather than later. The objection does not bear
+on this paper. The radius is Perron--Kreuser through Gautschi; the exponent $s$
+is derived directly in \S\ref{ssec:growth-law}; the upper and lower bounds on
+$\psi_\infty$ are proved from the recurrence itself. Birkhoff and Trjitzinsky,
+\emph{Acta Math.} \textbf{60} (1933), Fundamental Theorem \S9 p.~69, are cited
+in this paper for one thing only --- the provenance of the \emph{shape}
+$\rho^{n}n^{s}(1+O(1/n))$ of a normal solution --- and that citation is not
+load-bearing, because the shape is established here for \eqref{eq:n-rec} by
+direct computation (\texttt{CT-S8-LITCHECK-005}, INSPECTED).
+
+\paragraph{What is claimed.} Narrowly: the exponent
+$s=\beta_{d-1}/\beta_d+(d-1)/2$ written at the level of the coefficients of $b$
+for this recurrence, and the amplitude $K$ of \eqref{eq:K} made explicit through
+$\psi_\infty$ and the roots of $b$. The Borel-plane reading of the radius in
+\S\ref{ssec:radius} is an expository repackaging of the classical statement and
+is presented as one.
+
+\subsection{Convergence of the normalised sequence}\label{ssec:convergence}
+
+\begin{proposition}[\texttt{S1-01}, PROVEN]\label{prop:exists}
+Assume (A1). Then $\psi_n=Q_n/B_n$ converges, with no hypothesis on the limit,
+and $\psi_\infty-\psi_n=O(n^{-(2d-1)})$.
+\end{proposition}
+
+The proof is elementary and is the reason the method statement of this paper
+does not invoke a minimal-solution argument. Dividing \eqref{eq:n-rec} by $B_n$
+gives the exact recurrence
+\begin{equation}\label{eq:psi-rec}
+  \psi_n=\psi_{n-1}+\frac{\psi_{n-2}}{b(n-1)b(n)}\qquad(n\ge2),
+\end{equation}
+whose increments are absolutely summable because $\deg b\ge1$ makes
+$\sum_n 1/|b(n-1)b(n)|$ convergent; the telescoping series then converges
+absolutely. Nothing is assumed about the limit at this stage.
+
+\begin{remark}[\texttt{S1-05}, STRUCTURAL]\label{rem:pincherle}
+Hypothesis (A3) says exactly that $Q_n$ is not the minimal solution of
+\eqref{eq:n-rec}, and the minimal subspace has codimension one, so (A3) is
+generic. This is Pincherle's dichotomy as recalled in \S\ref{ssec:attribution}.
+The remark is interpretive: it is recorded because it explains what (A3) means,
+and nothing below depends on it.
+\end{remark}
+
+\subsection{Two-sided bounds under positivity}\label{ssec:bounds}
+
+\begin{proposition}[\texttt{S1-02}, PROVEN]\label{prop:positive}
+Assume (A1) and in addition $b(n)>0$ for every integer $n\ge1$. Then $\psi_n>0$,
+the sequence $(\psi_n)_{n\ge1}$ is strictly increasing, and
+$\psi_\infty\ge\psi_1=1$. In particular (A3) holds automatically.
+\end{proposition}
+
+\begin{proposition}[Proposition U; \texttt{S26-01}, PROVEN]\label{prop:upper}
+Under the hypotheses of Proposition~\ref{prop:positive}, for every $n\ge1$
+\[
+  \psi_n\le\exp\!\Big(\sum_{k=1}^{n-1}\frac{1}{b(k)b(k+1)}\Big),
+  \qquad\text{hence}\qquad
+  1\le\psi_\infty\le\exp\!\Big(\sum_{k\ge1}\frac{1}{b(k)b(k+1)}\Big)<\infty .
+\]
+\end{proposition}
+
+Proposition~\ref{prop:upper} is proved from \eqref{eq:psi-rec} in four steps:
+monotonicity gives $\psi_{n-2}\le\psi_{n-1}$; substituting into
+\eqref{eq:psi-rec} gives $\psi_n\le(1+\varepsilon_n)\psi_{n-1}\le
+\psi_{n-1}e^{\varepsilon_n}$ with $\varepsilon_n=1/(b(n-1)b(n))$; iterating down
+to $\psi_1=1$ gives the finite-$n$ form; and the summability already used for
+Proposition~\ref{prop:exists} permits passage to the limit.
+
+Two points are worth stating explicitly, because both have been got wrong in
+this project's own records. First, the upper bound is \emph{not} part of
+Proposition~\ref{prop:positive}: that proposition supplies the monotonicity step
+and the lower bound only, and the upper half carries \texttt{S26-01}. Second,
+the positivity hypothesis is load-bearing rather than decorative. Of six
+sign-changing $b$ satisfying (A1), three violate the inequality outright,
+including $b(n)=n-7/2$, for which $\psi_n$ becomes non-positive
+(\texttt{S26-04}, VERIFIED, at dps 60 to $n=2000$). No claim is made here about
+which sign-changing $b$ do satisfy it.
+
+\subsection{The radius}\label{ssec:radius}
+
+\begin{theorem}[\texttt{S1-03}, PROVEN]\label{thm:radius}
+Assume (A1) and (A3). Then $\lim_n|Q_n/(dn)!|^{1/n}=|\beta_d|/d^{d}$, so
+$\sum_n Q_n w^{n}/(dn)!$ has radius $d^{d}/|\beta_d|$ in $w$, and radius
+$\xi_0=d/|\beta_d|^{1/d}$ in the variable $\zeta=w^{1/d}$.
+\end{theorem}
+
+The proof in the source is independent of Gamma asymptotics: the step that
+would ordinarily call on Stirling's formula is replaced by a combinatorial
+multinomial sandwich. This matters for the attribution of
+\S\ref{ssec:attribution}: Theorem~\ref{thm:radius} is a corollary of
+Perron--Kreuser, but it is also proved here without importing anything.
+
+\subsection{The growth law and the exponent}\label{ssec:growth-law}
+
+\begin{theorem}[\texttt{S1-04}, PROVEN]\label{thm:growth}
+Assume (A2) and (A3). Then
+\begin{equation}\label{eq:growth-law}
+  \frac{Q_n}{\Gamma(dn+1)}
+  =K\Big(\frac{\beta_d}{d^{d}}\Big)^{n}n^{s}\bigl(1+O(1/n)\bigr),
+  \qquad
+  s=\frac{\beta_{d-1}}{\beta_d}+\frac{d-1}{2},
+\end{equation}
+with
+\begin{equation}\label{eq:K}
+  K=\frac{\psi_\infty\,(2\pi)^{(d-1)/2}}{\sqrt{d}\,\prod_{i=1}^{d}\Gamma(1-\nu_i)} .
+\end{equation}
+\end{theorem}
+
+One classical input is imported, and it is named at the point of use rather than
+absorbed silently: the normalisation $h_\infty=1$ for the Gamma ratio, DLMF
+(5.11.12), $\Gamma(z+a)/\Gamma(z+b)\sim z^{a-b}$. The decay
+$h(n)/h(n-1)=1+O(1/n^{2})$ that reduces the ratio to that single constant is
+proved in the source from the functional equation alone. A reader who wishes to
+see exactly what is imported should look there and nowhere else.
+
+\begin{remark}[Scope]\label{rem:scope}
+Only $\beta_d$ and $\beta_{d-1}$ appear in \eqref{eq:growth-law}. The remaining
+coefficients $\beta_0,\dots,\beta_{d-2}$ do not affect the exponent at all; they
+enter only through $\psi_\infty$ and the roots $\nu_i$ in \eqref{eq:K}. This is
+a statement about the exponent, and it is confirmed rather than assumed in
+\S\ref{ssec:numerics-growth}.
+\end{remark}
+
+Hypothesis (A2) is consumed here and not before: it is exactly the condition
+that no $\nu_i$ is a positive integer, hence that every $\Gamma(1-\nu_i)$ in
+\eqref{eq:K} is finite. A statement of \eqref{eq:K} citing only (A1) has omitted
+a hypothesis.
+
+\subsection{Numerical confirmation}\label{ssec:numerics-growth}
+
+The exponent was checked independently of its derivation. For all eight quartic
+representatives of the $d=4$ family, the measured exponent agrees with
+$s=\beta_3/\beta_4+3/2$ to a maximum discrepancy of $7.118\times10^{-16}$, after
+four levels of ratio-2 Richardson extrapolation on the ladder
+$n=1250,2500,5000,10000,20000$ at dps 80; the pre-registered falsifier
+$|\Delta s|>10^{-6}$ did not fire (\texttt{S2-01}, VERIFIED). The accompanying
+vacuity arms confirm that the measured exponent does move when $\beta_{d-1}$ is
+varied and does not move when the lower coefficients are, which is what
+Remark~\ref{rem:scope} asserts.
+
+For the quadratic case $b(n)=3n^{2}+n+1$ the limit itself is available to high
+precision:
+\[
+  \psi_\infty=1.016604441058510936337097213267657686917983514389\ldots
+\]
+computed to 2317.8 confirmed digits by an $N$-versus-$2N$ agreement criterion at
+dps 2800 (\texttt{S3B-02} and \texttt{S3B-09}, both VERIFIED). Hypothesis (A2)
+holds for this $b$, its roots being a complex-conjugate pair and in particular
+not positive integers (\texttt{S3B-03}, PROVEN). A PSLQ search for an integer
+relation between $\psi_\infty$ and a ten-element basis of standard constants
+returned NULL at dps 500, 1000 and 2000 with height bound $10^{6}$
+(\texttt{S3B-08}, VERIFIED); this is a negative result against a stated search
+space and is not evidence that no closed form exists.

@@ -1,0 +1,36 @@
+CT-S61  ITEM 36/37 CONCURRENT-SUBMISSION WINDOW
+run 2026-09-21   log sha256 70f814b926a5fd67a761bbebe19b5474db69b440e7e3f2340624c79029897433
+scanner C:\LocalWork\deposit-A076227\out\scan_decided_not_fired.py
+------------------------------------------------------------------------------
+[A1] same title at two venues, both non-terminal
+     item 36 venue: Submitted to The Ramanujan Journal (Springer) — single-blind; editoria
+     item 37 venue: Submitted to SIGMA (Symmetry, Integrability and Geometry: Methods and 
+     titles identical: True     both non-terminal: True
+
+[A2] withdrawal requested, still unconfirmed
+     withdrawal-request recorded 2026-06-01 : True   (+112d)
+     portal check found reviewer accepted   : True
+
+[A3] why the scanner suppressed item 36
+     TERMINAL match in Verdict: 'accepted'
+     context: ...wer(s)"; "There is 1 reviewer(s) that has accepted." The 2026-06-01 requ...
+
+[A4] item 36's own escalation dates
+     WATCH-1 2026-09-01  present:True  overdue:+20d  PAT matches:False
+     WATCH-2 2026-09-12  present:True  overdue:+9d  PAT matches:False
+
+[C] controls
+    FIRED  title extractor returns real text
+    FIRED  verdict extractor returns real text for 36
+    FIRED  verdict-terminal matcher fires on a real rejection
+    FIRED  withdrawal phrase absent from an unrelated item
+    FIRED  scanner TERMINAL fires on a known rejection
+    FIRED  scanner TERMINAL does NOT fire on neutral prose
+    FIRED  scanner PAT fires on a phrase it was built for
+
+FINDINGS
+  - A1 same manuscript non-terminal at two venues
+  - A2 withdrawal unconfirmed after 112d; reviewer actively refereeing
+  - A3 record suppressed as terminal on the word 'accepted'
+  - A4 overdue WATCH lines not matched by PAT
+  (4 finding(s))

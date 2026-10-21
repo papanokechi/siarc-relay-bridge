@@ -1,0 +1,76 @@
+==========================================================================
+CT-S22-STOKES  STAGE 5 - closed-form recognition for S_{zeta*}
+==========================================================================
+NAMING: K is the amplitude at xi_0.  S_{zeta*} is at 2 xi_0.
+        K is NOT computed, fitted or mentioned as a result here.
+
+read C from C:\LocalWork\siarc-relay-bridge\sessions\2026-05-02\CC-MEDIAN-RESURGENCE-EXECUTE\S_zeta_star_digits.txt
+cross-check copy S_zeta_star_digits.txt agrees on first 251 characters
+D_trust = 100 digits (deliberately below the fire's 108.39)
+C  = 8.127336795495072367112578732023583182265 ...
+S_{zeta*} = 2 pi i C = 51.06556313995466226983167460994566156792 i
+zeta* = 4/sqrt(3) = 2.30940107675850305803659512201
+normalisation: V_quad NATIVE, 'leading B[Phi]=1' (stored fire's words).
+A closed form found here is a closed form OF THAT NUMBER IN THAT
+NORMALISATION and of nothing else; the V_quad -> P-III(D6) map is OPEN
+and no comparison with Stages 1-4 of this session is licensed.
+
+search space (fixed, 7 long): log C, log 2, log 3, log pi, log G(1/3), log G(1/6), 1
+bounds: |coeff| <= 1000000, |m| <= 12, cost <= 40
+
+--------------------------------------------------------------------------
+VACUITY PRE-CHECK (PREREG-STAGE5 section 6) - runs BEFORE the search
+--------------------------------------------------------------------------
+  decoy C*(1+1e-30):
+    maxcoeff      100: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff     1000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff    10000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff   100000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff  1000000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    rejected (best rejected cost 5.3959)
+  decoy 8.1|pi-digits:
+    maxcoeff      100: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff     1000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff    10000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff   100000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff  1000000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    rejected (best rejected cost 5.3959)
+  decoy C + 1/7:
+    maxcoeff      100: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff     1000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff    10000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff   100000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff  1000000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    rejected (best rejected cost 5.3959)
+  positive control  C_k = 4 pi^2 / (3 Gamma(1/3)) = 4.912196515259508388576064
+    maxcoeff      100: n=5 h=2 cost=1.5051 ACCEPT   -1*log C + 2*log 2 + -1*log 3 + 2*log pi + -1*log G(1/3)
+    maxcoeff     1000: n=5 h=2 cost=1.5051 ACCEPT   -1*log C + 2*log 2 + -1*log 3 + 2*log pi + -1*log G(1/3)
+    maxcoeff    10000: n=5 h=2 cost=1.5051 ACCEPT   -1*log C + 2*log 2 + -1*log 3 + 2*log pi + -1*log G(1/3)
+    maxcoeff   100000: n=5 h=2 cost=1.5051 ACCEPT   -1*log C + 2*log 2 + -1*log 3 + 2*log pi + -1*log G(1/3)
+    maxcoeff  1000000: n=5 h=2 cost=1.5051 ACCEPT   -1*log C + 2*log 2 + -1*log 3 + 2*log pi + -1*log G(1/3)
+    control ACCEPTED (pipeline recognises a known form)
+
+  pre-check result: 0 decoys accepted (need 0), control accepted (need accepted)
+  [PASS] 3 decoys rejected, 1 control accepted.  The search may run.
+
+--------------------------------------------------------------------------
+THE SEARCH (PREREG-STAGE5 sections 3-4)
+--------------------------------------------------------------------------
+    maxcoeff      100: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff     1000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff    10000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff   100000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+    maxcoeff  1000000: n=5 h=12 cost=5.3959 reject(m)   -2*log 2 + 3*log 3 + -3*log pi + 12*log G(1/3) + -6*log G(1/6)
+
+  RESULT: NOT FOUND.
+  No multiplicative relation
+      C = +/- 2^a 3^b pi^c Gamma(1/3)^d Gamma(1/6)^e e^f
+  exists with all coefficients bounded by 1000000, |m| <= 12,
+  and digit cost <= 40, against C known to 100
+  decimal digits.
+  smallest digit cost achieved by any rejected candidate: 5.39591
+  SCOPE: this EXCLUDES THAT SPACE.  It is NOT evidence that C has
+  no closed form.  It says nothing about spaces containing other
+  gamma values, other algebraic irrationalities, polylogarithms,
+  or zeta(3).
+  LABEL: VERIFIED (a verified statement about a search).

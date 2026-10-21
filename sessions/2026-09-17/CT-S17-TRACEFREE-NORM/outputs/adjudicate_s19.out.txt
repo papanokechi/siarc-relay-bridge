@@ -1,0 +1,34 @@
+affine map delta = beta - alpha = -sqrt(11)*I/3
+P_C = (2*z - 1)/(z*(z - 1))
+==========================================================================
+CT-S19 point:
+   db/dz = 0
+   q in {0,1}?  False
+   P - P_C = 0
+   Q - Q_C = 0
+   t^2 = -44/27  (companion: -44/27 = -44/27 )
+   -> CT-S19 point reproduces System C exactly.
+CT-S17 point:
+   db/dz = 0
+   q in {0,1}?  False
+   P - P_C = 0
+   Q - Q_C = 0
+   t^2 = -44/27  (companion: -44/27 = -44/27 )
+   -> CT-S17 point reproduces System C exactly.
+==========================================================================
+branch relation between the two independently derived points:
+   t19 + t17 = 0    (so t19 = -t17)
+   both satisfy t^2 = -44/27: True True
+   q19 - conj-in-sqrt33 of q17 = 0
+   ti19 - ti17 flipped in sqrt(3) = 0
+==========================================================================
+CONTROL  perturbed points must be rejected
+   q nudged     -> matches System C? False
+   p nudged     -> matches System C? False
+   t sign only  -> matches System C? False
+   control fired on 3/3 perturbations.
+==========================================================================
+CONCLUSION: CT-S19 independently derived a VALID point of U_0 on the
+OPPOSITE branch to CT-S17. Both reproduce System C exactly. The two
+branches are the two signs of the companion's t = -+ 2 i sqrt(33)/9,
+so two isolated sessions between them exhibited both.

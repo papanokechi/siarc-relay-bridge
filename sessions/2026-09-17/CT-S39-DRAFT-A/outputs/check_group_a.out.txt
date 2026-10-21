@@ -1,0 +1,142 @@
+[O1-O3] citations verified against the held page or PDF
+[O4] claim ids and labels against the corpus
+[F6] standing rulings, as machine-checkable conditions
+
+  gautschi1967.pdf                               folio   31 -> pdf index   7   sha 47ed9dffc00a52b7
+  gautschi1967.pdf                               folio   35 -> pdf index  11   sha 47ed9dffc00a52b7
+  odlyzko_asymptotic_enum.pdf                    folio   77 -> pdf index  76   sha d0b58928e580ab35
+  dlmf_2_9.txt                                   (text capture)          sha 72d6a344c2d04dc3
+  dlmf_3_6.txt                                   (text capture)          sha f6e2559307f5ac5f
+  dlmf_bib_W.html                                (text capture)          sha 2a90b9f01153541f
+  bt1933.txt                                     (text capture)          sha 63595af76698ff23
+  nemes2025.txt                                  (text capture)          sha 62a650030c3d2791
+  dlmf_5.11.html                                 (text capture)          sha 929045c7b1cd72f3
+
+[checks]
+  O1 held artefact: Gautschi Thm 1.1 p.31 (Pincherle)                                    ok
+  O2 folio 31 located in its own page: Gautschi Thm 1.1 p.31 (Pincherle)                 ok
+  O3 fragment on p.31 [Gautschi]: "THREE-TERM RECURRENCE RELATIONS 31..."                ok
+  O3 fragment on p.31 [Gautschi]: "Pincherle..."                                         ok
+  O3 fragment on p.31 [Gautschi]: "possesses a minimal solution..."                      ok
+  A2 decoy index 6 rejects p.31 fragments                                                ok
+  A2 decoy index 8 rejects p.31 fragments                                                ok
+  A3 impossible folio 9999 does not resolve in gautschi1967.pdf                          ok
+  O1 held artefact: Gautschi Thm 2.3(a) p.35 (Perron-Kreuser)                            ok
+  O2 folio 35 located in its own page: Gautschi Thm 2.3(a) p.35 (Perron-Kreuser)         ok
+  O3 fragment on p.35 [Gautschi]: "THREE-TERM RECURRENCE RELATIONS 35..."                ok
+  O3 fragment on p.35 [Gautschi]: "Perron [42], Kreuser [29]..."                         ok
+  O3 fragment on p.35 [Gautschi]: "two linearly independent..."                          ok
+  A2 decoy index 10 rejects p.35 fragments                                               ok
+  A2 decoy index 12 rejects p.35 fragments                                               ok
+  A3 impossible folio 9999 does not resolve in gautschi1967.pdf                          ok
+  O1 held artefact: Odlyzko p.77 (connection constant; B-T objection)                    ok
+  O2 folio 77 located in its own page: Odlyzko p.77 (connection constant; B-T objection) ok
+  O3 fragment on p.77 [Odlyzko]: "Wimp and Zeilberger point out that it is usu..."       ok
+  O3 fragment on p.77 [Odlyzko]: "However, the Birkhoff-Trjitzinsky method doe..."       ok
+  O3 fragment on p.77 [Odlyzko]: "major objection to the use of the Birkhoff-T..."       ok
+  A2 decoy index 75 rejects p.77 fragments                                               ok
+  A2 decoy index 77 rejects p.77 fragments                                               ok
+  A3 impossible folio 9999 does not resolve in odlyzko_asymptotic_enum.pdf               ok
+  O1 held artefact: DLMF 2.9.5 / 2.9.6 / 2.9.14 deferral                                 ok
+  O3 fragment in dlmf_2_9.txt: "2.9.5..."                                                ok
+  O3 fragment in dlmf_2_9.txt: "2.9.6..."                                                ok
+  O3 fragment in dlmf_2_9.txt: "2.9.14..."                                               ok
+  O3 fragment in dlmf_2_9.txt: "in which P and Q are any integers see Wo..."             ok
+  O1 held artefact: DLMF 3.6(ii) minimal/dominant                                        ok
+  O3 fragment in dlmf_3_6.txt: "minimal..."                                              ok
+  O3 fragment in dlmf_3_6.txt: "dominant..."                                             ok
+  O1 held artefact: Wong-Li II bibliographic identification                              ok
+  O3 fragment in dlmf_bib_W.html: "Asymptotic expansions for second-order l..."          ok
+  O1 held artefact: Birkhoff-Trjitzinsky Fundamental Theorem p.69                        ok
+  O3 fragment in bt1933.txt: "Fundamental Theorem..."                                    ok
+  O3 fragment in bt1933.txt: "is completely proper in each of the seve..."               ok
+  O1 held artefact: Nemes 2026 connection coefficients                                   ok
+  O3 fragment in nemes2025.txt: "treated as unknowns..."                                 ok
+  O3 fragment in nemes2025.txt: "connection coefficient..."                              ok
+  O1 held artefact: DLMF 5.11.12 Gamma ratio                                             ok
+  O3 fragment in dlmf_5.11.html: "5.11.12..."                                            ok
+  A4 fabricated near-miss absent from all 192 pages (Odlyzko sentence with its negation  ok
+  O4 non-vacuity: prose cites claim ids at all                                           ok
+  O4 non-vacuity: prose carries labelled citations                                       ok
+  O4 id resolves exactly once: CT-S8-LITCHECK-001                                        ok
+  O4 id resolves exactly once: CT-S8-LITCHECK-002                                        ok
+  O4 id resolves exactly once: CT-S8-LITCHECK-003                                        ok
+  O4 id resolves exactly once: CT-S8-LITCHECK-004                                        ok
+  O4 id resolves exactly once: CT-S8-LITCHECK-005                                        ok
+  O4 id resolves exactly once: CT-S8-LITCHECK-008                                        ok
+  O4 id resolves exactly once: CT-S8-LITCHECK-010                                        ok
+  O4 id resolves exactly once: S1-01                                                     ok
+  O4 id resolves exactly once: S1-02                                                     ok
+  O4 id resolves exactly once: S1-03                                                     ok
+  O4 id resolves exactly once: S1-04                                                     ok
+  O4 id resolves exactly once: S1-05                                                     ok
+  O4 id resolves exactly once: S2-01                                                     ok
+  O4 id resolves exactly once: S24-12                                                    ok
+  O4 id resolves exactly once: S24-13                                                    ok
+  O4 id resolves exactly once: S26-01                                                    ok
+  O4 id resolves exactly once: S26-04                                                    ok
+  O4 id resolves exactly once: S3B-02                                                    ok
+  O4 id resolves exactly once: S3B-03                                                    ok
+  O4 id resolves exactly once: S3B-08                                                    ok
+  O4 id resolves exactly once: S3B-09                                                    ok
+  O4 label matches corpus: CT-S8-LITCHECK-003 -> INSPECTED                               ok
+  O4 label matches corpus: CT-S8-LITCHECK-004 -> INSPECTED                               ok
+  O4 label matches corpus: CT-S8-LITCHECK-005 -> INSPECTED                               ok
+  O4 label matches corpus: S1-01 -> PROVEN                                               ok
+  O4 label matches corpus: S1-05 -> STRUCTURAL                                           ok
+  O4 label matches corpus: S1-02 -> PROVEN                                               ok
+  O4 label matches corpus: S26-01 -> PROVEN                                              ok
+  O4 label matches corpus: S26-04 -> VERIFIED                                            ok
+  O4 label matches corpus: S1-03 -> PROVEN                                               ok
+  O4 label matches corpus: S1-04 -> PROVEN                                               ok
+  O4 label matches corpus: S2-01 -> VERIFIED                                             ok
+  O4 label matches corpus: S3B-03 -> PROVEN                                              ok
+  O4 label matches corpus: S3B-08 -> VERIFIED                                            ok
+  F6a no Painleve label asserted for V_quad                                              ok
+  F6b Proposition U carries S26-01, not S1-02                                            ok
+  F6c method paragraph introduces the mechanism before Pincherle                         ok
+  F6c' Pincherle absent from the method paragraph's first sentence                       ok
+  F6c'' method paragraph states Pincherle is not used                                    ok
+  F6d attribution subsection is first in section 2                                       ok
+  F6e Wong-Li II stated NOT OBTAINED in the prose                                        ok
+  F6f nothing rests on Birkhoff-Trjitzinsky, stated plainly                              ok
+  F6g the Wimp-Zeilberger attribution split is stated                                    ok
+  F6h DLMF 5.11.12 named at the point of use                                             ok
+  F7 stub declares the 8 undrafted sections                                              ok
+  F7 non-vacuity: outline headings parsed                                                ok
+  F7 stub sec:leaf -> §8 matches the outline heading                                     ok
+  F7 stub sec:limits -> §9 matches the outline heading                                   ok
+  F7 stub sec:local -> §3 matches the outline heading                                    ok
+  F7 stub sec:moduli -> §4 matches the outline heading                                   ok
+  F7 stub sec:monodromy -> §7 matches the outline heading                                ok
+  F7 stub sec:open -> §10 matches the outline heading                                    ok
+  F7 stub sec:point -> §5 matches the outline heading                                    ok
+  F7 stub sec:projective -> §6 matches the outline heading                               ok
+  F7 stub is inputted by groupa_standalone.tex alone                                     ok
+  F7 no section file references the stub                                                 ok
+  F7 stub declares itself NOT part of the paper                                          ok
+
+[controls] each arm must be CAUGHT
+  A1 one-word-altered fragment reported ABSENT                                           CAUGHT
+  A5 deliberately wrong label S1-05 PROVEN is detectable                                 CAUGHT
+  A6 fabricated id S1-99 does not resolve in the corpus                                  CAUGHT
+  A7 F6c fires when the method paragraph leads with Pincherle                            CAUGHT
+  A7 F6b fires when Proposition U is attributed to S1-02                                 CAUGHT
+  A8 band scan is shown defective (>=2 candidates, first is not 76)                      CAUGHT
+  A8' strict resolver returns exactly one index, and it is 76                            CAUGHT
+  A9 an ambiguous folio (two markers) resolves to None                                   CAUGHT
+  A10 F7 fires when a stub number drifts (leaf 8 -> 7)                                   CAUGHT
+  A11 rendered PDF carries 'wimpandzeilberger'                                           CAUGHT
+  A11 rendered PDF carries 'perron'                                                      CAUGHT
+  A11 rendered PDF carries 'kreuser'                                                     CAUGHT
+  A11 rendered PDF carries 'pincherle'                                                   CAUGHT
+  A11 rendered PDF carries 'wasnotobtained'                                              CAUGHT
+  A11 rendered PDF carries '5.11.12'                                                     CAUGHT
+  A11 rendered PDF does NOT carry the stub's warning text                                CAUGHT
+
+[verdict]
+  checks run      : 102
+  checks failed   : 0
+  control arms    : 16
+  arms missed     : 0
+  VERDICT: GROUP A CITATIONS AND LABELS VERIFIED

@@ -1,0 +1,48 @@
+==========================================================================
+CT-S22 STAGE 2 - System C monodromy and Stokes data at t0
+dps = 120   z* = R = 160.0   loop radius = 0.25   threshold 1e-30
+==========================================================================
+
+|t| = 1.2765694770084508133   |t z*| = 204.25111632135213013
+optimal truncation N = 204   -> e^-N = 2.53469e-89
+
+--- C-A  the printed family's constraints at the point --------------
+  det A_0 + th0^2/4          =            0.0   (+inf digits)
+  det A_1 + th1^2/4          =            0.0   (+inf digits)
+  A_inf = (t/2)diag(-1,1)    =   2.42231e-122   (121.62 digits)
+  (A_0+A_1)_11             = (1.0962250448649376274 - 2.4203699467808239205e-122j)
+  -theta_inf/2             = 1.0962250448649376274
+  theta_inf                = -2.1924500897298752548
+  [CT-S16's finding: the printed family gives -theta_inf/2, not theta_inf.]
+
+--- formal data at infinity ----------------------------------------
+  Lam = diag((0.0 - 0.63828473850422540665j), (0.0 + 0.63828473850422540665j))
+  L   = diag((-1.0962250448649376274 + 0.0j), (1.0962250448649376274 + 0.0j))
+  C-5 predicted alpha = e^{i pi theta_inf} = (0.82272965712005465178 - 0.56843285557321306726j)   |alpha| = 1.0
+  L_11 - theta_inf/2 = 0.0   (+inf digits)
+
+--- C-0  formal series residual, by rate not by magnitude ----------
+  residual at R=160.0          1.67573e-85
+  minimal term of the series 1.29878e-85
+  e^-|t z*|                  2.53469e-89
+  C-0a residual / min term = 1.29024  (want < N^3 = 8489664)
+  residual at R=140.0          1.63048e-74
+  C-0b observed ratio  1.0277564e-11
+       predicted e^-|t|(R-R2) = 8.1631619e-12
+       observed/predicted = 1.2590176  (want within 10^+-2)
+  [PASS] residual is at the minimal term and decays at rate e^-|t|R
+
+--- PREREG 2.3  overdetermined convention test ----------------------
+  convention                 MMM-I     tr0-2     tr1-2     alpha     shape     cubic  verdict
+  left|ccw|01               9.3e+5 4.87e-110 4.85e-110      2.27   5.5e-34   4.14e+3  .
+  left|ccw|10              4.63e+5 4.87e-110 4.85e-110      2.27   5.5e-34   4.14e+3  .
+  left|cw|01               4.63e+5 5.01e-110 4.76e-110      2.34  4.93e-34    2.0e+3  .
+  left|cw|10               9.43e+5 5.01e-110 4.76e-110      2.34  4.93e-34    2.0e+3  .
+  right|ccw|01                13.8 4.87e-110 4.85e-110     0.327  1.22e-33      57.7  .
+  right|ccw|10                6.85 4.87e-110 4.85e-110     0.327  1.22e-33      57.7  .
+  right|cw|01                 6.85 5.01e-110 4.76e-110  1.57e-33  1.57e-33      25.1  .
+  right|cw|10                 14.0 5.01e-110 4.76e-110  1.57e-33  1.57e-33      25.1  .
+
+  conventions passing all four conditions: 0
+  *** HALT (PREREG 2.3): the convention is not uniquely determined.
+      Reporting rather than choosing.

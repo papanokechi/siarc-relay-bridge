@@ -1,0 +1,57 @@
+==============================================================================
+doi_probe_v17.py -- READ-ONLY citation resolution
+Nothing here is written from memory.  Each identifier is resolved and
+the RESOLVER'S OWN title is printed so the match can be seen, not assumed.
+==============================================================================
+
+SECTION 1 -- DOIs
+------------------------------------------------------------------------------
+  [RESOLVED  ] gautschi1967  (by TITLE QUERY)
+       provenance : not recorded in the corpus -- discovered here by title query
+       doi        : 10.1137/1009002
+       title      : Computational Aspects of Three-Term Recurrence Relations
+       author     : Walter Gautschi
+       venue      : SIAM Review 9(1) 24-82, 1967
+  [RESOLVED  ] birkhoff_trjitzinsky1933  (by DOI)
+       provenance : CT corpus doi_resolution_probe.md, Crossref-canonical, marked YES
+       doi        : 10.1007/bf02398269
+       title      : Analytic theory of singular difference equations
+       author     : George D. Birkhoff; W. J. Trjitzinsky
+       venue      : Acta Mathematica 60(0) 1-89, 1933
+  [RESOLVED  ] wong_li_II_1992  (by DOI)
+       provenance : CT corpus AUDIT.md; paywalled, NOT OBTAINED
+       doi        : 10.1002/sapm1992874289
+       title      : Asymptotic Expansions for Second‐Order Linear Difference Equations, II
+       author     : R. Wong; H. Li
+       venue      : Studies in Applied Mathematics 87(4) 289-324, 1992
+
+SECTION 2 -- POISON CONTROL (a known-bad DOI the corpus already caught)
+------------------------------------------------------------------------------
+  [PASS] Birkhoff 1930 -- KNOWN BAD, must NOT match Birkhoff
+       resolves to: 'Thermal studies and spectral characterization of the chelate of bis-(η5-cyclopentadienyl titanium(IV) with salicylidene-4-methylaniline' by Virendra Mishra; D. S. Parmar; Virendra Joshi; N. K. Kaushik (1995)
+       -> the probe reports what the DOI IS, not what it was claimed
+          to be; a title check on this row would reject it.
+
+SECTION 3 -- URL-IDENTIFIED SOURCES
+------------------------------------------------------------------------------
+  [CHECK    ] dlmf_3_6           https://dlmf.nist.gov/3.6
+       http 200, 195587 bytes, title: DLMF: §3.6 Linear Difference Equations ‣ Areas ‣ Chapter 3 Numerical Methods
+       expected text 'Existence' NOT found on the page
+  [REACHED  ] dlmf_2_9           https://dlmf.nist.gov/2.9
+       http 200, 115439 bytes, title: DLMF: §2.9 Difference Equations ‣ Areas ‣ Chapter 2 Asymptotic Approximations
+  [REACHED  ] nemes2025          https://arxiv.org/abs/2508.15246
+       http 200, 42410 bytes, title: [2508.15246] Hyperasymptotics for linear difference equations with an irregular singularit
+  [REACHED  ] wong_zhao2022      https://arxiv.org/abs/2204.09305
+       http 200, 42204 bytes, title: [2204.09305] Recent Advances in Asymptotic Analysis
+  [REACHED  ] ibrahim_salvy2023  https://arxiv.org/abs/2306.05930
+       http 200, 41321 bytes, title: [2306.05930] Positivity certificates for linear recurrences
+  [REACHED  ] odlyzko_asymptotic https://www-users.cse.umn.edu/~odlyzko/doc/asymptotic.enum.pdf
+       http 200, 1116716 bytes
+
+==============================================================================
+rows probed : 10
+not fit to publish: 0
+
+Any row above that is not RESOLVED or REACHED must NOT be written into
+the description as a resolvable citation.  Report it as unobtained.
+==============================================================================

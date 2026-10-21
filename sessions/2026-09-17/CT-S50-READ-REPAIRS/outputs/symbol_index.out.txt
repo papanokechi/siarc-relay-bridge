@@ -1,0 +1,62 @@
+==============================================================================
+CT-S50 -- symbol index over the FINAL text
+==============================================================================
+corpus resolved positively: section 1 carries the repaired reuse list
+
+section 1 names these letters as reused: A, L, M, b, r, u
+
+sym  roles (sections)             verdict
+------------------------------------------------------------------------------
+a    BARE:441; CALL:6; SUB:12     NOT IN SECTION 1'S LIST
+b    BARE:51; CALL:37; SUB:14     listed
+c    BARE:25; CALL:8; SUB:6       NOT IN SECTION 1'S LIST
+e    BARE:30; SUB:3               NOT IN SECTION 1'S LIST
+f    BARE:15; CALL:4; SUB:12      NOT IN SECTION 1'S LIST
+g    BARE:6; CALL:2; SUB:4        NOT IN SECTION 1'S LIST
+m    BARE:7; SUB:1                NOT IN SECTION 1'S LIST
+n    BARE:162; SUB:7              NOT IN SECTION 1'S LIST
+q    BARE:116; CALL:11; SUB:5     NOT IN SECTION 1'S LIST
+r    BARE:7; CALL:12; SUB:15      listed
+s    BARE:117; SUB:20             NOT IN SECTION 1'S LIST
+t    BARE:98; CALL:1; SUB:5       NOT IN SECTION 1'S LIST
+v    BARE:9; SUB:2                NOT IN SECTION 1'S LIST
+w    BARE:15; CALL:3              NOT IN SECTION 1'S LIST
+x    BARE:49; SUB:43              NOT IN SECTION 1'S LIST
+y    BARE:7; SUB:7                NOT IN SECTION 1'S LIST
+z    BARE:140; CALL:7; SUB:1      NOT IN SECTION 1'S LIST
+A    BARE:127; CALL:8; SUB:24     listed
+B    BARE:28; SUB:33              NOT IN SECTION 1'S LIST
+C    BARE:83; CALL:2              NOT IN SECTION 1'S LIST
+D    BARE:8; CALL:3; SUB:9        NOT IN SECTION 1'S LIST
+K    BARE:19; CALL:1              NOT IN SECTION 1'S LIST
+L    BARE:11; SUB:6               listed
+M    BARE:6; SUB:29               listed
+O    BARE:2; CALL:12              NOT IN SECTION 1'S LIST
+P    BARE:35; SUB:14              NOT IN SECTION 1'S LIST
+Q    BARE:27; CALL:2; SUB:37      NOT IN SECTION 1'S LIST
+R    BARE:24; CALL:2              NOT IN SECTION 1'S LIST
+S    BARE:10; CALL:1              NOT IN SECTION 1'S LIST
+U    BARE:2; SUB:16               NOT IN SECTION 1'S LIST
+V    BARE:13; CALL:2              NOT IN SECTION 1'S LIST
+
+multi-role letters: 31; not named by section 1: 26
+
+CONTROL
+------------------------------------------------------------------------------
+  [FIRED] C1  b is a multi-role letter; refs/ did NOT list it, the live tree DOES
+        -- so a clean run below is a result, not a silent screen
+
+==============================================================================
+SYMBOL INDEX: 31 multi-role letters; 26 not named by an \item head in section 1's reuse list
+
+This is a SCREEN, not a verdict. A letter in two syntactic roles need
+not carry two meanings, and section 1 declares some reuse in prose
+outside the list -- P and Q against Q_n, s against s_pm -- which an
+\item-head reader cannot see. The residue below is therefore a list of
+CANDIDATES for the notation pass, not a list of defects:
+  a, c, e, f, g, m, n, q, s, t, v, w, x, y, z, B, C, D, K, O, P, Q, R, S, U, V
+
+What the screen does assert, and what the control backs, is narrower:
+the letter b was in two roles across four sections and was NOT named by
+any item head before this session, and IS named now.
+==============================================================================

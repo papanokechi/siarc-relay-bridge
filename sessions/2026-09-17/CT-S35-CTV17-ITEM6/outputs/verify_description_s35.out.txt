@@ -1,0 +1,82 @@
+============================================================================
+verify_description.py -- the text that would be pasted into Zenodo
+============================================================================
+
+SECTION 0 -- READER INTEGRITY
+----------------------------------------------------------------------------
+  [PASS] description read: 68303 chars, sentinels present, no CR
+file   : DESCRIPTION-v1.7-rev3.html
+sha256 : 33a3893372dfd9dcd2c89c4202b8db5aa6d8914acf4707bfd93e7442f8c7e293   (from disk)
+chars  : 68303
+
+SECTION 1 -- THE GATE
+----------------------------------------------------------------------------
+  [PASS] T1 tags inside the house set -- tags are exactly ['em', 'p', 'strong']
+  [PASS] T2 tags balanced and unnested -- every p/strong/em is balanced and no <p> is nested
+  [PASS] T3 no markdown residue -- no markdown residue: no **, backticks, pipes, #, ---, fences
+  [PASS] T4 entities well-formed and HTML4 -- 38 distinct entities, all HTML4-defined, no bare ampersands
+  [PASS] T5 no double-escaped entities -- no double-escaped entities; no entity text survives rendering
+  [PASS] X1 declared exclusions applied and still live -- 3 exclusion rules all present in the notice and absent here
+  [PASS] X2 no draft-stage language published -- no unquoted draft-stage language; 4 occurrence(s) allowed as quotation of v1.6's watermark or as version history
+  [PASS] N1 all five commissioned items present -- all five commissioned items present, in order
+  [PASS] N2 PSLQ basis stated in full -- PSLQ basis printed in full (5 generators + constant), bounds stated, Γ(1/6) recorded as removed
+  [PASS] N3 naming prohibition survives -- naming prohibition present: K at xi_0, S_{zeta*} at 2 xi_0
+  [PASS] N4 label discipline on K survives -- K remains VERIFIED with its caveat intact
+  [PASS] N5 sixth item present and not overclaimed -- sixth item present and two-sided: exclusion, three tiers, necessary-not-sufficient caveat, and no merger with the V_quad identification
+  [PASS] N5b three tiers, each labelled in the prose -- three tiers present, each labelled in running text with its own level of confirmation
+  [PASS] N6 necessary condition only; no row assigned -- necessary-not-sufficient stated, no row assigned, no Painlevé label asserted for V_quad
+  [PASS] N7 label history stated, not adjudicated -- label history stated on both sides, with the reason it is not adjudicated, and no verdict on either
+  [PASS] N8 no superseded description hash published -- no superseded description hash appears in the published text (2 checked)
+  [PASS] B1 attached build declared as v1.6, unchanged -- the attached build is declared as the v1.6 build, unchanged
+  [PASS] B2 no v1.7 build is claimed -- no v1.7 build is claimed; every mention is negated and 'no PDF was rebuilt' is stated plainly
+  [PASS] B3 DOIs correct and none invented -- concept DOI and superseded v1.6 DOI both present, no v1.7 DOI invented
+  [PASS] P1 no unresolvable internal provenance -- no unresolvable internal provenance; 0 resolvable sessions/ URL(s) under the public repository are kept
+  [PASS] P2 resolvable identifiers survive the strip -- 11 of 11 resolvable identifiers present, with 18 sha256 value(s)
+
+SECTION 2 -- CAN-FAIL CONTROLS (mutate the DESCRIPTION)
+----------------------------------------------------------------------------
+  [PASS] T1 tags inside the house set -- 2 mutant(s) rejected
+  [PASS] T2 tags balanced and unnested -- 2 mutant(s) rejected
+  [PASS] T3 no markdown residue -- 2 mutant(s) rejected
+  [PASS] T4 entities well-formed and HTML4 -- 2 mutant(s) rejected
+  [PASS] T5 no double-escaped entities -- 2 mutant(s) rejected
+  [PASS] X1 declared exclusions applied and still live -- 2 mutant(s) rejected
+  [PASS] X2 no draft-stage language published -- 3 mutant(s) rejected
+  [PASS] N1 all five commissioned items present -- 2 mutant(s) rejected
+  [PASS] N2 PSLQ basis stated in full -- 3 mutant(s) rejected
+  [PASS] N3 naming prohibition survives -- 1 mutant(s) rejected
+  [PASS] N4 label discipline on K survives -- 1 mutant(s) rejected
+  [PASS] N5 sixth item present and not overclaimed -- 4 mutant(s) rejected
+  [PASS] N5b three tiers, each labelled in the prose -- 3 mutant(s) rejected
+  [PASS] N6 necessary condition only; no row assigned -- 3 mutant(s) rejected
+  [PASS] N7 label history stated, not adjudicated -- 4 mutant(s) rejected
+  [PASS] N8 no superseded description hash published -- 2 mutant(s) rejected
+  [PASS] B1 attached build declared as v1.6, unchanged -- 2 mutant(s) rejected
+  [PASS] B2 no v1.7 build is claimed -- 2 mutant(s) rejected
+  [PASS] B3 DOIs correct and none invented -- 2 mutant(s) rejected
+  [PASS] P1 no unresolvable internal provenance -- 3 mutant(s) rejected
+  [PASS] P2 resolvable identifiers survive the strip -- 2 mutant(s) rejected
+
+SECTION 3 -- READER CONTROLS (mutate the INPUT PATH)
+----------------------------------------------------------------------------
+  [PASS] binary read of a CRLF file, not normalised -- caught: CR present: line endings were not normalised
+  [PASS] wrong codec (latin-1) -- caught: sentinel '&xi;₀' absent
+  [PASS] silently truncated read -- caught: sentinel '&xi;₀' absent
+
+SECTION 4 -- THE ENTITY RULE, VALIDATED AGAINST THE DEPOSITED v1.6 TEXT
+----------------------------------------------------------------------------
+  The rule is 'named HTML4 entity where one exists, raw UTF-8 where
+  none does'.  That is a claim ABOUT THE RECORD, so it is tested on
+  the record: decode the deposited v1.6 description, re-encode it by
+  the rule, and require the entity set to come back unchanged.
+  [PASS] round trip of the deposited description: 28 non-markup entity names in, 28 out
+  [PASS] the record itself keeps 14 raw non-ASCII char(s) with no HTML4 name, e.g. ‖ ⁴ ⁶ ⁸ ⁻ ⁿ -- so does this description
+
+============================================================================
+checks run     : 21
+checks failed  : 0
+broken checks  : 0
+reader controls: 3 of 3 caught
+
+VERDICT: OK
+============================================================================

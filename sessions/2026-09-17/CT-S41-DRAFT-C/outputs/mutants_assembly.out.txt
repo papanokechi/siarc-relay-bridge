@@ -1,0 +1,11 @@
+mutants_assembly -- 7 arms
+
+  A1 reinstate the sec:local / sec:systems mismatch    rc=1 exp=1 CAUGHT
+  A2 stub declares a label a drafted section defines   rc=1 exp=1 CAUGHT
+  A3 the same label defined by two sections            rc=1 exp=1 CAUGHT
+  A4 build log removed                                 rc=1 exp=1 CAUGHT
+  A5 build log carries an undefined reference          rc=1 exp=1 CAUGHT
+  A6 stub emptied of entries (R2 must not pass vacuously) rc=2 exp=2 CAUGHT
+  A7 all sections emptied (bounds, not fingerprints)   rc=2 exp=2 CAUGHT
+
+7/7 arms CAUGHT

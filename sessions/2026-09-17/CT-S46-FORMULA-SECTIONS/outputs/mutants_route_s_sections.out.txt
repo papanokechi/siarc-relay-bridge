@@ -1,0 +1,15 @@
+ARMS: 14/14 as expected
+  M1 eq:rA numerator 3 -> 2                    CAUGHT   expect=caught
+  M2 eq:QC constant 5 -> 6                     CAUGHT   expect=caught
+  M3 eq:QC sign +i sqrt11 -> -i sqrt11         CAUGHT   expect=caught
+  M4 eq:QC denominator 54 -> 45 (transposed)   CAUGHT   expect=caught
+  M5 eq:rC constant 11 -> 111                  CAUGHT   expect=caught
+  M6 eq:spm sqrt11 -> sqrt13                   CAUGHT   expect=caught
+  M7 eliminant 108 -> 180 (transposed)         CAUGHT   expect=caught
+  M8 eq:PC 2z-1 -> 2z+1                        CAUGHT   expect=caught
+  M9 baseline corrupted -> V3 must refuse      CAUGHT   expect=halt
+  M10 residual always zero -> V1 must refuse   CAUGHT   expect=halt
+  M11 X2 reader blinded -> must refuse         CAUGHT   expect=halt
+  M12 comment reworded (neutral)               CLEAN    expect=clean
+  M13 sec9 reprint of eq:QC altered            CAUGHT   expect=caught
+  M14 sec9 reprint of P_C altered              CAUGHT   expect=caught

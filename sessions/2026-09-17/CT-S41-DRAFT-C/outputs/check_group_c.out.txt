@@ -1,0 +1,46 @@
+CT-S41-DRAFT-C :: Group C drafting gate
+corpus: 452 files, 1422 ids
+  section5.tex: 14310 bytes, sha256 ec41c7bff76ff101
+  section6.tex: 13228 bytes, sha256 af27f8b9444d0c82
+
+[treatment]
+  citations audited : 33 distinct ids
+  literals audited  : 31
+  labelled in prose : 30
+  bare citations    : 3
+  failures          : 0
+  [self-exclusion] SELF present on disk: True; absent from the walk of 452 files: True
+
+[arms] each mutates a COPY; the rule must fire for the right reason
+  FAIL C4: section5.tex ssec:hyp-check: S16-07 asserted VERIFIED, corpus says PROVEN
+  FAIL C4: section5.tex ssec:membership-verdict: S16-14 asserted PROVEN, corpus says STRUCTURAL
+  FAIL C5: section5.tex ssec:located: literal '5.97877\\times10^{-56}' not found in the text of any claim cited here
+  FAIL C5: section6.tex ssec:route: literal '4.8\\times10^{-16}' not found in the text of any claim cited here
+  FAIL C2: section6.tex ssec:pq: S17-99 does not resolve
+  FAIL C5: section6.tex ssec:pq: literal '10^{-3}' not found in the text of any claim cited here
+  FAIL C3: section5.tex ssec:located: S1-04 is superseded by S40-10
+  FAIL C4: section5.tex ssec:located: S1-04 asserted VERIFIED, corpus says PROVEN
+  FAIL C5: section5.tex ssec:located: literal '5.79877\\times10^{-56}' not found in the text of any claim cited here
+  FAIL C5: section5.tex ssec:located: literal '7.00553\\times10^{-61}' not found in the text of any claim cited here
+  FAIL C6: pre-declared hazard marker absent: field named
+  FAIL C6: pre-declared hazard marker absent: gauge not closed
+  FAIL C1: section6.tex: 100 bytes, below the 4000-byte floor
+  FAIL C1: section6.tex: fewer than 4 subsections
+  FAIL C1: section6.tex: fewer than 8 claim citations
+  CAUGHT  A-control  wrong label           [C4] 1 failures, 1 on C4
+  CAUGHT  A-control2 PROVEN for STRUCTURAL [C4] 1 failures, 1 on C4
+  CAUGHT  A-numeric  transposed digit      [C5] 1 failures, 1 on C5
+  CAUGHT  A-numeric2 wrong exponent        [C5] 1 failures, 1 on C5
+  CAUGHT  A-unres    bad id                [C2] 2 failures, 1 on C2
+  CAUGHT  A-super    superseded id         [C3] 4 failures, 1 on C3
+  CAUGHT  A-hazard   field un-named        [C6] 1 failures, 1 on C6
+  CAUGHT  A-hazard2  gauge claim dropped   [C6] 1 failures, 1 on C6
+  CAUGHT  A-bounds   section emptied       [C1] 3 failures, 3 on C1
+
+  arms: 9/9 CAUGHT
+
+==============================================================
+GATE: PASSED
+checks run    : 33 citations across 2 files
+checks failed : 0
+arms caught   : 9/9

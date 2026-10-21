@@ -1,0 +1,240 @@
+\section{Monodromy, Stokes data, and the character variety}\label{sec:monodromy}
+
+Sections \ref{sec:point} and \ref{sec:projective} identified System $\mathsf C$
+with a member of the van der Put--Saito family at a located point of the chart
+$U_0$, and removed the projective qualifier from that identification. What has
+not yet been produced is the \emph{monodromy} data: the point of the character
+variety that System $\mathsf C$ represents. This section produces it. It does
+so with a solver that is first validated against a case with closed-form
+answers, and under a set of orientation and ordering conventions that are
+\emph{selected by test} rather than assumed.
+
+The distinction matters more here than anywhere else in the paper. Trace
+coordinates are not convention-independent: a different choice of loop
+orientation, of the order in which local monodromies are composed, or of which
+loop at infinity is called $\gamma_\infty$, produces a different triple for the
+same differential system. A stated triple without a stated convention is not a
+result. The convention used below is therefore the output of
+\S\ref{ssec:selection}, not an input to it.
+
+\subsection{The solver, and a case where the answer is
+known}\label{ssec:kummer}
+
+The solver computes formal solutions at the irregular singular point, the
+Stokes matrices relating consecutive sectors, and the monodromy
+representation, by numerical analytic continuation of a fundamental matrix. It
+was validated on Kummer's equation, whose monodromy, formal data and Stokes
+data are all available in closed form.
+
+\begin{remark}[Known-answer validation; \texttt{S22-01}, \textbf{VERIFIED}]
+The solver reproduces Kummer's monodromy, formal and Stokes data against the
+closed forms: $32$ of $32$ checks pass at at least $35$ digits, with $44$ to
+$151$ digits observed, at both pre-registered parameter values.
+\end{remark}
+
+Two structural facts about Kummer's case were established in the course of that
+validation, and both are used later.
+
+\begin{remark}[The trace-free gauge is not optional; \texttt{S22-02},
+\textbf{STRUCTURAL}]
+Kummer's companion system is not trace-free: $\operatorname{tr}B=1-b/z$. Hence
+$\det M_0=e^{-2\pi i b}\neq 1$, and the van der Put--Saito $\mathrm{SL}_2$
+factorisation is unavailable until the trace-free gauge of
+\S\ref{ssec:tracefree} has been applied. This is the same reduction that
+\S\ref{sec:projective} performed for System $\mathsf C$, met here in a case
+where its necessity is visible from the local exponents alone.
+\end{remark}
+
+\begin{remark}[Orientation at infinity; \texttt{S22-03}, \textbf{STRUCTURAL}]
+The counterclockwise circle at infinity is homotopic to $\gamma_0$. Van der
+Put--Saito's $M_\infty$ is the \emph{clockwise} loop, and their $\alpha$ is
+consequently $e^{-2\pi i L_{11}}$. The sign in the exponent is the whole
+content of the remark: it is the difference between two conventions that agree
+on every other datum, and it is the reason \S\ref{ssec:selection} tests
+orientation rather than fixing it.
+\end{remark}
+
+Two further algebraic checks from the same validation are omitted from this
+section deliberately. Both were \emph{vacuous as first written} --- one an
+identity that holds for every unimodular matrix with a nonzero corner entry,
+the other a comparison across two different factorisation orderings --- and
+both were repaired and proved. They record how the validation battery was
+debugged, not what the battery established, and are set out in the methods
+appendix, \S\ref{app:methods}, with the claims \texttt{S22-04} and
+\texttt{S22-05}. The corrected form of the second is in any case a
+\emph{dependent} restatement of checks already counted, and is not independent
+evidence.
+
+\subsection{The system at the located point}\label{ssec:atpoint}
+
+Before any monodromy is computed, the family member at the located point is
+checked against the local data it is supposed to have.
+
+\begin{remark}[The family at the point; \texttt{S22-06}, \textbf{VERIFIED}]
+At the point located in \S\ref{sec:point}, the printed $(4.1)$ family satisfies
+$\det A_0=\det A_1=0$ exactly, and $A_\infty=(t/2)\operatorname{diag}(-1,1)$ to
+$121$ digits.
+\end{remark}
+
+The first of these is exact rather than numerical because it is a polynomial
+identity in the entries; the second is the residue at infinity, and is the
+datum the whole Riemann--Hilbert side depends on. One discrepancy with the
+printed source surfaced at this stage and is recorded here because a reader
+checking against that source will meet it.
+
+\begin{remark}[A discrepancy with the printed prose; \texttt{S22-07},
+\textbf{VERIFIED}]
+The computation gives $(A_0+A_1)_{11}=-\theta_\infty/2$, where the prose of van
+der Put--Saito at p.~2629 states $\theta_\infty$. This was first found in the
+location analysis and is reconfirmed here at the numeric point. \emph{Nothing
+in this paper rests on it}: the factor is never used, and it is reported so
+that the discrepancy is on record rather than rediscovered.
+\end{remark}
+
+\begin{remark}[The exponent at infinity, in closed form; \texttt{S22-08},
+\textbf{VERIFIED}]
+$L_{11}=\theta_\infty/2$ exactly, so that $\alpha=e^{\pm i\pi\theta_\infty}$ in
+closed form, with $|\alpha|=1$ and
+$|\arg\alpha|=\pi\sqrt3/9=0.60459978807807261686$. Both the modulus and the
+argument were predicted before the run, and both were hit.
+\end{remark}
+
+That $|\alpha|=1$ is worth a sentence. It says the monodromy eigenvalue at
+infinity lies on the unit circle, which is what one expects of a $\theta_\infty$
+that is real --- and $\theta_\infty=-2\pm\sqrt3/9$ is real, by
+\eqref{eq:eliminant}. The prediction was registered in advance precisely
+because a modulus differing from $1$ would have indicated a transcription error
+in the exponent rather than a feature of the system.
+
+The formal series at the irregular point is divergent, so the accuracy
+available from it is bounded by optimal truncation, and that bound has to be
+measured rather than assumed.
+
+\begin{remark}[Optimal truncation; \texttt{S22-09}, \textbf{VERIFIED}]
+The truncated formal series' residual sits at the minimal term of the series
+--- ratio $1.29$ against a bound of $N^3$ --- and decays at the predicted
+Gevrey rate $e^{-|t|R}$ between $R=160$ and $R=140$, with observed over
+predicted $1.259$.
+\end{remark}
+
+This is the accuracy ceiling for everything downstream. It is not a limitation
+of the arithmetic precision, and \S\ref{ssec:notroundoff} shows directly that
+raising the precision does not move it.
+
+\subsection{Selecting the convention}\label{ssec:selection}
+
+The conventions were not chosen. A candidate set was enumerated, four
+conditions were registered in advance, and the set was searched.
+
+The four conditions are: that the monodromy representation act on the right;
+that the small loops around the finite punctures run counterclockwise; that
+$M_\infty$ be the clockwise loop at infinity, as \texttt{S22-03} requires; and
+that van der Put--Saito's $M_1$ be the loop $\gamma_1$. The test is the
+relation $M_0M_1M_\infty=I$, at a threshold of $10^{-30}$.
+
+\begin{remark}[The candidate set was too small; \texttt{S22-10},
+\textbf{STRUCTURAL}]
+The pre-registered $8$-element candidate set tied the orientation of
+$\gamma_\infty$ to that of the small loops, and therefore could not represent
+$\gamma_0\gamma_1=\gamma_\infty$ at all. None of the $8$ passed; the best
+residual was $\|MMM-I\|=6.85$. The set was widened to $16$ by untying the two
+orientations, with the four conditions and the $10^{-30}$ threshold left
+unchanged.
+\end{remark}
+
+The widening is recorded rather than quietly performed because it is a change
+to a pre-registered object. What was \emph{not} changed is the criterion: the
+same four conditions and the same threshold were applied to the larger set. A
+failure of all eight candidates at $O(1)$ is not a marginal miss, and it is the
+signature of a set that omits the truth rather than of a threshold set too
+tight.
+
+\begin{remark}[Exactly one convention survives; \texttt{S22-11},
+\textbf{VERIFIED}]
+Over the $16$ candidates exactly one satisfies all four conditions: right
+action, small loops counterclockwise, $M_\infty$ clockwise, van der
+Put--Saito's $M_1=\gamma_1$. For it, $\|M_0M_1M_\infty-I\|=2.44\times10^{-105}$.
+The other $15$ fail, several on $\alpha$ alone, with residuals $0.327$, $2.27$
+and $2.34$.
+\end{remark}
+
+The gap between $2.44\times10^{-105}$ and the nearest competitor is not a
+matter of ranking: the surviving candidate satisfies the relation to the full
+working precision, and the others miss it by $O(1)$. \emph{Exactly one} is
+therefore a genuine selection and not a choice among near-misses, which is what
+makes the triple below well defined.
+
+\subsection{The trace coordinates}\label{ssec:traces-value}
+
+Throughout, $B_1,B_2,B_3$ are the monodromy matrices in the sense fixed in
+\S\ref{ssec:traces}, with $a_i=\operatorname{tr}(B_i)\equiv 2$, and the affine
+trace coordinates are
+\begin{equation}\label{eq:traces-restate}
+x_1=\operatorname{tr}(B_2B_3),\qquad
+x_2=\operatorname{tr}(B_1B_3),\qquad
+x_3=\operatorname{tr}(B_1B_2),
+\end{equation}
+as in \eqref{eq:n-traces}. We restate \eqref{eq:traces-restate} here rather
+than refer to it, because the values below are meaningless without knowing
+which product each coordinate is the trace of, and because $x_1$ is the trace
+of the product that omits $B_1$ --- the indexing most easily got backwards.
+
+\begin{remark}[The values; \texttt{S22-12}, \textbf{VERIFIED}]
+At $t_0$, in the convention selected in \S\ref{ssec:selection},
+\begin{align*}
+x_1&=-3.4791908904110720783362611334763347
+ -1.085013570276491408740290278433511\,i,\\
+x_2&=\hphantom{-}5.0274753770206575050513601616191382
+ +2.3656209874946766465307178962989066\,i,\\
+x_3&=\hphantom{-}1.9725752524636335304002661101339216,\\
+\alpha&=\hphantom{-}0.82272965712005465178275844880452679
+ +0.56843285557321306726020179279562511\,i.
+\end{align*}
+The error bar is $8.49\times10^{-105}$, obtained from step halving --- $273$
+steps against $487$ --- and not from a single
+run.
+\end{remark}
+
+That the error estimate comes from step halving rather than from a residual
+reported by a single integration is the point of the parenthesis. A single run
+can report a small residual and be wrong by far more; two runs at different
+step sizes bound the discretisation error they do not share. Note also that
+$x_3$ is real while $x_1$ and $x_2$ are not, and that
+$|\alpha|=1$ to the digits shown, consistent with \texttt{S22-08}.
+
+\begin{remark}[A smooth point of a singular fibre; \texttt{S22-13},
+\textbf{VERIFIED}]
+The point is a \emph{smooth} point of a \emph{singular} cubic fibre. The fibre
+is singular because $s_1=s_2=2$ places it on two resonance divisors; but
+$\operatorname{grad}F$ has modulus $(1.523094,\,1.5231748,\,21.240405)$
+componentwise there, which is nonvanishing, so the coordinates retain
+first-order sensitivity at the point.
+\end{remark}
+
+The two adjectives pull in opposite directions and both are needed. Singularity
+of the fibre is what \S\ref{ssec:resonance} warned of: the resonance conditions
+are not excluded, and they are met here. Smoothness of the point is what
+rescues the computation, because a coordinate system that degenerated at the
+point would make the triple above uninformative however many digits it carried.
+
+\subsection{The coordinates see the leaf}\label{ssec:sensitivity}
+
+One thing remains to be checked before \S\ref{sec:leaf} can use these
+coordinates as a test of leaf membership: that they move when the point moves
+off the leaf. An invariant that is constant for a trivial reason confirms
+nothing.
+
+\begin{remark}[Sensitivity; \texttt{S22-14}, \textbf{VERIFIED}]
+The observable is sensitive to leaf membership: at $\delta=10^{-6}$,
+$\max_i|dx_i|=8.686\times10^{-6}$ in the $q$ direction and
+$2.639\times10^{-5}$ in the $p$ direction, against a floor of $10^{-15}$, with
+first-order ratios $99.99978$ and $99.99956$, both inside the pre-registered
+window $[50,200]$.
+\end{remark}
+
+The ratios are the substance, not the magnitudes. They say the response is
+first order in the displacement, which is what distinguishes a coordinate that
+genuinely resolves the leaf direction from one that happens to be small. The
+constancy reported in \S\ref{sec:leaf} is therefore a statement with content:
+the same coordinates, displaced off the leaf by $10^{-6}$, move by five orders
+of magnitude more than the floor.

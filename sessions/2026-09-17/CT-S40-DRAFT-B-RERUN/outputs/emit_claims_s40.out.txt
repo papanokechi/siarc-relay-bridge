@@ -1,0 +1,26 @@
+emit_claims_s40 -- pre-write validation
+  every line parses as JSON                                ok
+  claim ids unique                                         ok
+  every label is one of the five (P0 amendment F)          ok
+  every claim text is substantive                          ok
+  every output_hash is 64 hex                              ok
+  every output_hash resolves to a file on disk             ok
+  every script exists                                      ok
+  S40-02 names both colliding labels                       ok
+  S40-04 states the two roots it distinguishes             ok
+  S40-04 and S40-07 request a ruling and carry a note or say so ok
+  S40-04 carries the review_note recording replayability   ok
+  no claim upgrades a label in prose                       ok
+  at least one supersession is recorded                    ok
+  every supersedes field is named in its own claim text    ok
+  every superseding claim leads with SUPERSEDES            ok
+  every superseded claim id resolves in the corpus         ok
+  S40-10 does not disturb S1-04's label                    ok
+  S40-11 records that F's digest was checked before editing ok
+  S40-05 records the correction, not the conclusion        ok
+
+  claims written : 11
+  checks run     : 19
+  checks failed  : 0
+  claims.jsonl   : 14088 B  sha256 c55e49ea887d36f0e9ad178533e1ea55cfa030047a6dc1b216f212fffea3123b
+VERDICT: CLAIMS EMITTED

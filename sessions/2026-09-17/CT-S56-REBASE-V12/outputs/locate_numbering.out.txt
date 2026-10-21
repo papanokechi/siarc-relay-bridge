@@ -1,0 +1,107 @@
+==============================================================================
+CT-S56 STAGE 4b -- each edit located in v1.2's own numbering
+==============================================================================
+
+    base : zenodo-v1.2-21412469.pdf
+    md5  : 792107efab6317e8ae21e2ca20f092ff
+    numbered objects found in the render : 67
+    replacements to locate               : 33
+
+[0] CONTROL -- the locator must find a known object and miss a fiction
+    [PASS] found: 'Lemma 2.7 (The apparent point carries no period)' (expected found=True)
+    [PASS] missed: 'this sentence does not occur anywhere in the paper at al' (expected found=False)
+
+[1] LOCATION OF EACH EDIT
+
+    item 1  [front matter    ] abstract: D5 stated as fact
+    item 1  [MISS] 1.1: identification + v1.3 notice on the Painleve parameters
+    item 1  [MISS] 7.1: the representative described as a D5 representative
+    item 1  [MISS] 4.x algebraicity: accessory parameter asserted as fact (foun
+    item 2  [MISS] 7.1: 'completes part (ii)(a) for d=2'
+    item 3  [MISS] Theorem 1.2: 'proved twice'
+    item 3  [MISS] 1.4: 'an independent structural argument'
+    item 3  [Theorem 1.2     ] 2.2 proof: the structural argument restated correctly
+    item 3  [Theorem 2.1     ] Appendix A.2: 'Independent structural confirmation'
+    item 3  [Theorem 2.1     ] A.5: 'case-elimination plus the structural argument'
+    item 4  [Proposition 2.4 ] Prop 2.4: apparency at xi=0
+    item 4  [MISS] Table 1: '0 (apparent)'
+    item 4  [MISS] Cor 1.4 proof: 'the point 0 is apparent'
+    item 4  [MISS] Lemma 2.7 statement and proof
+    item 4  [MISS] figure: node label '(apparent)'
+    item 4  [Figure 1        ] figure caption: 'xi=0 is apparent and carries no cut'
+    item 4  [Remark 3.4      ] Remark 3.3: 'the apparent point'
+    item 4  [Theorem 2.1     ] A.3: record the xi=0 log computation
+    item R  [MISS] new bibitem for the companion's v1.3 correction notice
+    item 4  [Proposition 2.4 ] Prop 2.4 closing: 'Both statements are obtained twice'
+    item 5  [front matter    ] abstract: 'three structurally independent methods'
+    item 5  [MISS] 1.3 main results: 'three independent ways'
+    item 5  [Proposition 3.2 ] Theorem 1.1: 'three structurally independent methods'
+    item 5  [MISS] 5 preamble: 'three structurally independent ways' / 'disjoin
+    item 5  [Remark 4.2      ] 5.1 strategy: heading and the 'disjoint inputs' premis
+    item 5  [MISS] 5.1 Method A bullet: independence inferred, not measured
+    item 5  [MISS] 5.1 Method B bullet: name the amplitude dependence
+    item 5  [MISS] 5.3 methodB chain: name where S enters
+    item 5  [MISS] 5.3 methodB: the error figure and the independence sentence
+    item 5  [MISS] 5.5 prop:cross: 'disjoint inputs'
+    item 5  [MISS] Table 2: row B 'Independent of' and its figure
+    item 5  [MISS] Table 2 caption: record the shared amplitude
+    item 5  [Table 2         ] 5.5 closing: 'spurious triple coincidence'
+
+    located: 13    not located: 20
+
+[2] TAG vs RENDER -- which tags are stale v1.0 leftovers?
+    The locator above is a CENSUS, not an adjudicator: it finds the
+    nearest preceding numbered object, which is wrong whenever the
+    edit's text is lossy under detex. It cannot be used to correct a
+    tag. What IS decidable is whether the object a tag names exists in
+    v1.2 at all -- an object that does not exist is a stale number.
+
+    [SOUND] item 3: Theorem 1.2 exists in v1.2 -- tag usable
+    [SOUND] item 4: Proposition 2.4 exists in v1.2 -- tag usable
+    [SOUND] item 4: Table 1 exists in v1.2 -- tag usable
+    [SOUND] item 4: Corollary 1.4 exists in v1.2 -- tag usable
+    [SOUND] item 4: Lemma 2.7 exists in v1.2 -- tag usable
+    [STALE] item 4: Remark 3.3 does NOT exist in v1.2
+            nearest render object at the edit: Remark 3.4
+            -> CONFIRM BY HAND before quoting a number
+    [SOUND] item 4: Proposition 2.4 exists in v1.2 -- tag usable
+    [SOUND] item 5: Theorem 1.1 exists in v1.2 -- tag usable
+            (locator guessed Proposition 3.2; the locator is wrong here)
+    [SOUND] item 5: Table 2 exists in v1.2 -- tag usable
+    [SOUND] item 5: Table 2 exists in v1.2 -- tag usable
+
+    tags naming an object present in v1.2 : 9
+    tags naming an object ABSENT in v1.2  : 1
+
+[3] NUMBERED OBJECTS PRESENT IN v1.2 (for the corrections document)
+    Corollary 1.3
+    Corollary 1.4
+    Definition 3.1
+    Figure 1
+    Lemma 2.7
+    Proposition 2.4
+    Proposition 3.2
+    Proposition 3.3
+    Proposition 5.1
+    Proposition 5.2
+    Proposition 6.1
+    Remark 2.2
+    Remark 2.5
+    Remark 2.6
+    Remark 3.4
+    Remark 3.5
+    Remark 4.2
+    Remark 6.2
+    Remark 6.3
+    Table 1
+    Table 2
+    Theorem 1.1
+    Theorem 1.2
+    Theorem 2.1
+    Theorem 2.3
+    Theorem 4.1
+
+==============================================================================
+Every number quoted to the referees must appear in the [3] list.
+[1] is advisory only; [2] flags stale tags; neither is authoritative.
+==============================================================================

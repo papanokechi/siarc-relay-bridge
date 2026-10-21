@@ -1,0 +1,55 @@
+CT-S23-OUTSIDER-READ - mechanical first-use index
+packet: PACKET.md (30002 chars)
+packet sha256: a62b7b864c1a3405834824e7a07bd182bc136fbad1d199ccc396904a934f67cd
+
+DEGENERACY PRE-CHECK on the core term set
+  candidate pairs tested : 399
+  aliasing pairs found   : none
+  terms collapsed        : none
+
+CLASSIFIER CONTROL
+  syn-defined-then-used  -> False expected False  ok
+  syn-used-then-defined  -> True  expected True   ok
+  syn-never-defined      -> True  expected True   ok
+  syn-absent             -> None  expected None   ok
+  live-U_0               -> False expected False  ok
+  live-Katz              -> True  expected True   ok
+  all 6 arms ok (4 synthetic, 2 live hand-adjudicated)
+
+term               1st use  verdict    note
+----------------------------------------------------------------
+V_quad             -        ABSENT     not used in packet
+Channel Theory     -        ABSENT     not used in packet
+System A           116      defined    
+System B           117      defined    
+System C           169      UNDEFINED  first use precedes definition
+PCF                -        ABSENT     not used in packet
+xi_0               53       defined    
+rho                57       defined    
+K                  42       UNDEFINED  first use precedes definition
+r_inf              26       defined    
+S_zeta_star        103      defined    
+zeta_star          93       defined    
+B1B2B3             -        ABSENT     not used in packet
+Q_n                21       defined    
+theta_infty        206      defined    
+U_0                233      defined    
+row_001            117      defined    
+Katz multiset      114      UNDEFINED  no definition in packet
+PV                 1        UNDEFINED  first use precedes definition
+D5tilde            117      UNDEFINED  no definition in packet
+Stokes constant    103      defined    
+trace coords       417      defined    
+
+G (used before defined), |G| = 5:
+  - System C
+  - K
+  - Katz multiset
+  - PV
+  - D5tilde
+
+defined in packet, 13: ['System A', 'System B', 'xi_0', 'rho', 'r_inf', 'S_zeta_star', 'zeta_star', 'Q_n', 'theta_infty', 'U_0', 'row_001', 'Stokes constant', 'trace coords']
+absent from packet, 4: ['V_quad', 'Channel Theory', 'PCF', 'B1B2B3']
+
+PREREG F2: the cold read is recorded as LOW-SENSITIVITY if
+  |T2 n G| / |G| < 0.5, i.e. fewer than 3 of the 5 above.

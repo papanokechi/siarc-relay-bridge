@@ -1,0 +1,49 @@
+==========================================================================
+CT-S22 STAGE 3 - vacuity pre-check (PREREG 5), run before Stage 4
+dps = 200   convention fixed by Stage 2: right|ccw|infcw|10
+==========================================================================
+
+baseline (on the leaf):
+  x1 = (-3.47919089041107207833626113348 - 1.08501357027649140874029027843j)
+  x2 = (5.02747537702065750505136016162 + 2.3656209874946766465307178963j)
+  x3 = (1.97257525246363353040026611013 + 4.70271219398924221418443488023e-113j)
+  [convention residuals: MMM-I 2.444e-105, alpha 1.9e-91, cubic 1.174e-111]
+
+perturb q by 1e-6:
+  |dx1| = 8.30659183327e-7
+  |dx2| = 8.68567407009e-6
+  |dx3| = 6.22060452131e-7
+  max |dx| = 8.68567407009e-6
+
+perturb p by 1e-6:
+  |dx1| = 1.48686378243e-5
+  |dx2| = 2.63913052961e-5
+  |dx3| = 1.52738726572e-6
+  max |dx| = 2.63913052961e-5
+
+perturb q by 1e-8:
+  |dx1| = 8.30659183208e-9
+  |dx2| = 8.68569295634e-8
+  |dx3| = 6.22060452122e-9
+  max |dx| = 8.68569295634e-8
+
+perturb p by 1e-8:
+  |dx1| = 1.48686378243e-7
+  |dx2| = 2.63914214779e-7
+  |dx3| = 1.52738726556e-8
+  max |dx| = 2.63914214779e-7
+
+--------------------------------------------------------------------------
+PREREG 5 verdict
+--------------------------------------------------------------------------
+  direction q:  max|dx| at 1e-6 = 8.68567407e-6  (> 1e-15 ? YES)
+               ratio (1e-6)/(1e-8) = 99.999782559  (in [50,200] ? YES)
+  direction p:  max|dx| at 1e-6 = 2.63913053e-5  (> 1e-15 ? YES)
+               ratio (1e-6)/(1e-8) = 99.9995597744  (in [50,200] ? YES)
+
+  [PASS] the observable responds at first order and far above the
+         threshold.  Stage 4 may proceed.
+  Scope: this establishes SENSITIVITY of (x1,x2,x3) to (q,p) at t0.
+  It does not establish that the Stage-4 agreement, if obtained, is
+  evidence of leaf membership in general - only that the test is
+  not vacuous at this point.

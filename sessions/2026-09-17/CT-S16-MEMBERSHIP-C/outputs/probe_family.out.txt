@@ -1,0 +1,24 @@
+candidate dictionary:
+   double-pole coeff at z=0  ==  (theta_0^2 - 1)/4
+   double-pole coeff at z=1  ==  (theta_1^2 - 1)/4
+   R(infinity)               ==  t^2/4
+   1/z coefficient at infty  ==  t*theta_inf/2
+
+draw 1: p=2/3 q=5/7 t=3/2 th0=1/5 th1=4/3 thinf=2/7
+   d0 = -6/25   predicted -6/25   ok=True
+   d1 = 7/36   predicted 7/36   ok=True
+   R(inf) = 9/16   predicted 9/16   ok=True
+   1/z coeff = 27/28   predicted 3/14   ok=False
+
+draw 2: p=-1/2 q=3/4 t=-5/3 th0=7/2 th1=-1/3 thinf=5/6
+   d0 = 45/16   predicted 45/16   ok=True
+   d1 = -2/9   predicted -2/9   ok=True
+   R(inf) = 25/36   predicted 25/36   ok=True
+   1/z coeff = -55/36   predicted -25/36   ok=False
+
+draw 3: p=3 q=-2/5 t=1/4 th0=-2/3 th1=1/2 thinf=-3/4
+   d0 = -5/36   predicted -5/36   ok=True
+   d1 = -3/16   predicted -3/16   ok=True
+   R(inf) = 1/64   predicted 1/64   ok=True
+   1/z coeff = 1/32   predicted -3/32   ok=False
+

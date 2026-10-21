@@ -1,0 +1,65 @@
+==============================================================================
+CT-S33  claims.jsonl format survey — no repair  (θ, ∞ sentinels)
+==============================================================================
+repository: C:\LocalWork\siarc-relay-bridge
+claims.jsonl files walked: 445
+
+BY FILE FORMAT
+  JSONL                                     436 file(s)
+  JSONL + BOM                                 5 file(s)
+  WRONG CONTAINER (JSON array)                3 file(s)
+  DAMAGED                                     1 file(s)
+
+total claims readable across all formats: 4060
+
+EVERY FILE THAT IS NOT PLAIN JSONL
+  sessions\2026-04-22\H017-SIGN-A2-TRANS\claims.jsonl           
+      JSONL + BOM                            claims=3 damaged_lines=0
+  sessions\2026-04-24\LEAN4-LWP-STATEMENT-FIX\claims.jsonl      
+      JSONL + BOM                            claims=1 damaged_lines=0
+  sessions\2026-04-27\P16-TRUSTED-CORE-BUILD-REPAIR\claims.jsonl
+      JSONL + BOM                            claims=1 damaged_lines=0
+  sessions\2026-04-27\TUNNELL-AFM-REVISION\claims.jsonl         
+      JSONL + BOM                            claims=3 damaged_lines=0
+  sessions\2026-04-28\AUDIT-MASTER-THEOREM-INVENTORY\claims.jsonl
+      WRONG CONTAINER (JSON array)           claims=3 damaged_lines=0
+  sessions\2026-04-28\P17-CONTROL-BARRIERS-REPAIR\claims.jsonl  
+      JSONL + BOM                            claims=1 damaged_lines=0
+  sessions\2026-04-30\SIARC-COHERENCE-AUDIT\claims.jsonl        
+      DAMAGED                                claims=4 damaged_lines=1
+  sessions\2026-05-08\T2-105-COPILOT-RESEARCHER-PROMPT-DRAFT-109\claims.jsonl
+      WRONG CONTAINER (JSON array)           claims=7 damaged_lines=0
+  sessions\2026-05-08\T2-TIER-B-PASTE-PACKET-PRESTAGE-110\claims.jsonl
+      WRONG CONTAINER (JSON array)           claims=7 damaged_lines=0
+
+DAMAGED LINES  (the only category that is data loss)
+  sessions\2026-04-30\SIARC-COHERENCE-AUDIT\claims.jsonl:3
+      Invalid \escape: line 1 column 249 (char 248)   len=350
+      {"claim":"Tier-1 mismatch MM-01: P06 line 314 contains 'degree profile (2,2)' while cited P11 prop:deg21 estab
+
+VERDICT
+  BOM ahead of valid JSON .................. 5 file(s), 0 claims lost
+  wrong container, every claim readable .... 3 file(s), 0 claims lost
+  damaged, claim unreadable ................ 1 line(s)
+
+  There are NO truncations. The hypothesis that these lines are
+  truncations of the kind the append-path defect produced is NOT
+  supported: every non-JSONL file here is a whole, valid JSON document
+  in the wrong container, and the damaged line is a bad backslash escape
+  inside a LaTeX fragment, not a cut-off write.
+
+CONTROLS
+  [PASS] classifier returns JSONL                                  on a synthetic file
+         would have fired if: that branch being unreachable, which would have made a zero count for the format uninterpretable
+  [PASS] classifier returns JSONL + BOM                            on a synthetic file
+         would have fired if: that branch being unreachable, which would have made a zero count for the format uninterpretable
+  [PASS] classifier returns WRONG CONTAINER (JSON array)           on a synthetic file
+         would have fired if: that branch being unreachable, which would have made a zero count for the format uninterpretable
+  [PASS] classifier returns WRONG CONTAINER (single JSON object)   on a synthetic file
+         would have fired if: that branch being unreachable, which would have made a zero count for the format uninterpretable
+  [PASS] classifier returns DAMAGED                                on a synthetic file
+         would have fired if: that branch being unreachable, which would have made a zero count for the format uninterpretable
+  [PASS] the real corpus exercises the non-trivial branches, not only the probes
+         would have fired if: the corpus being uniform, in which case the classifier would be exercised only by its own synthetic probes
+
+CONTROLS: 6/6 PASS

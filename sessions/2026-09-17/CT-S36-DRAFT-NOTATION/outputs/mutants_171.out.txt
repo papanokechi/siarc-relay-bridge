@@ -1,0 +1,13 @@
+mutants_171.py -- negative controls for check_171.py
+
+BASELINE (undamaged inputs): exit=0  PASS
+  M1 monodromy subsection deleted                exit=1 reason=True  broke=False -> CAUGHT
+  M2 footnote paragraph deleted                  exit=1 reason=True  broke=False -> CAUGHT
+  M3 Katz subsection deleted                     exit=1 reason=True  broke=False -> CAUGHT
+  M4 hypothesis (A2) removed                     exit=1 reason=True  broke=False -> CAUGHT
+  M5 section 1 emptied                           exit=1 reason=True  broke=False -> CAUGHT
+  M6 one item dropped from the 171               exit=1 reason=True  broke=False -> CAUGHT
+  M7 items file decoded as latin-1 (mojibake)    exit=1 reason=True  broke=False -> CAUGHT
+  M8 control item 054 ruled defined elsewhere    exit=1 reason=True  broke=False -> CAUGHT
+
+8/8 arms CAUGHT

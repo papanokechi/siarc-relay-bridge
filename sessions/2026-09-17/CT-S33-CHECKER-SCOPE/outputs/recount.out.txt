@@ -1,0 +1,57 @@
+==============================================================================
+CT-S33  independent recount of the widened pass  (θ, ∞ sentinels)
+==============================================================================
+  repo    445 file(s)   4060 claim(s)
+  SCOPE     2 file(s)     35 claim(s)
+  TOTAL   447 file(s)   4095 claim(s)
+
+  files walked .......................... 447
+  files contributing >= 1 claim ......... 444
+  files that are empty (0 bytes) ........ 3
+      C:\LocalWork\siarc-relay-bridge\sessions\2026-04-25\TRIAGE-UNSOLVED-3\claims.jsonl
+      C:\LocalWork\siarc-relay-bridge\sessions\2026-05-01\CHANNEL-THEORY-OUTLINE\claims.jsonl
+      C:\LocalWork\siarc-relay-bridge\sessions\2026-05-01\SIARC-MASTER-V0\claims.jsonl
+
+  input fingerprint ..................... 7f7e3d1a58ba162bdbf65a285af5654dff95a722066ff6767e9f6ffa4109fc51
+  SCOPE is a LIVE tree written by other processes; its files at read time:
+      CT-S28-LD-ORDER                                            1347f89b7e477dcb
+      CT-S30-PACKET-BUILD                                        b81b680a0d7c336a
+
+  claims with no claim_id ............... 2641
+  distinct claim_ids reused ............. 84
+  claims with no recognised label ....... 3488
+  unparseable lines surviving format fix  1
+
+LABEL TALLY (second route to the invariant-2 total)
+     CONJECTURED        5
+     INSPECTED        219
+   * None            3473
+   * PROCEED           14
+     PROVEN           147
+   * REFINED            1
+     STRUCTURAL       100
+     VERIFIED         136
+  ( * = not a recognised label; these sum to the invariant-2 failure )
+
+AGREEMENT WITH THE CHECKER'S OWN RUN
+  recount input fingerprint: 7f7e3d1a58ba162bdbf65a285af5654dff95a722066ff6767e9f6ffa4109fc51 over 447 file(s)
+  [PASS] both implementations read byte-identical inputs
+         would have fired if: any root changing between the two runs. At least one root is a live tree written by other processes, so this must be settled BEFORE any count is called a disagreement
+  [PASS] total claims             = 4095   agrees with the checker's artefact
+         would have fired if: the two implementations disagreeing on this count, which is the whole point of recounting
+  [PASS] files contributing a claim = 444    agrees with the checker's artefact
+         would have fired if: the two implementations disagreeing on this count, which is the whole point of recounting
+  [PASS] invariant-2 failures     = 3488   agrees with the checker's artefact
+         would have fired if: the two implementations disagreeing on this count, which is the whole point of recounting
+  [PASS] reused claim_ids         = 84     agrees with the checker's artefact
+         would have fired if: the two implementations disagreeing on this count, which is the whole point of recounting
+  [PASS] claims with no claim_id  = 2641   agrees with the checker's artefact
+         would have fired if: the two implementations disagreeing on this count, which is the whole point of recounting
+  [PASS] walked-minus-contributing is accounted for exactly by empty files
+         would have fired if: the two file counts differing for any reason OTHER than empty files, which would mean one of the two walks is missing a file the other sees
+  [PASS] invariant-2 total derived from the label tally, not from the fail list
+         would have fired if: every claim being unlabelled, which would make the tally route vacuous
+  [PASS] SCOPE contributes files and none is under the stood-down folder
+         would have fired if: the stand-down being violated, or SCOPE contributing nothing at all
+
+CONTROLS: 9/9 PASS

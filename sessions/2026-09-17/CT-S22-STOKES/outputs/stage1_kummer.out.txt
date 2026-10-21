@@ -1,0 +1,59 @@
+==============================================================================
+CT-S22 STAGE 1 - Kummer known-answer control
+dps = 150   R = 110.0   optimal truncation N = 110
+optimal-truncation error ~ e^-110 = 1.6889e-48
+falsifier: below 35 significant digits
+==============================================================================
+
+--- parameter value 1:  a = 0.33333333333333333333   b = 0.71428571428571428571
+  Lam = diag(0.0, 1.0)   (expected diag(0,1))
+    [PASS] A2  L = diag(-a, a-b): 151.42 digits (need 130), residual 3.8187e-152
+    [PASS] A1  C-0 formal series residual is below the truncation error: 1.0229 digits (need 0), residual 1.6022e-49
+        (C-0 residual 1.6022e-49 vs truncation error 1.6889e-48)
+    [PASS] A3a U'(a,b,z) = -a U(a+1,b+1,z) [mpmath identity]: 50.79 digits (need 30), residual 1.6214e-51
+    [PASS] A3b recessive column vs mpmath U on ray +pi/2: 40.529 digits (need 35), residual 2.9608e-41
+    [PASS] A3c recessive column vs mpmath U on ray -pi/2 (crossing arg z = 0): 46.709 digits (need 35), residual 1.9526e-47
+    [PASS] A4a tr M0 = 1 + e^{-2 pi i b}: 139.79 digits (need 35), residual 1.629e-140
+    [PASS] A4b det M0 = e^{-2 pi i b}: 139.9 digits (need 35), residual 1.2547e-140
+    [FAIL] A5  M0 M_inf = I: -0.4561 digits (need 35), residual 2.8583
+    [FAIL] A6a M_inf has the vdPS triangular x diagonal shape: 0.15625 digits (need 35), residual 0.69782
+    [FAIL] A6b alpha = e^{-2 pi i a}: -0.50848 digits (need 35), residual 3.2246
+    [FAIL] A7  f1 f2 = alpha(1+e^{2 pi i b}) - alpha^2 - 1: -0.46671 digits (need 35), residual 2.9289
+    [PASS] C-7 step halving (h_factor 4 vs 8) agreement: 125.51 digits (need 35), residual 3.0776e-126
+    f1 = (5.07235566566445653572406606439 + 0.80731834793679681900747131226j)
+    f2 = (-0.0520727425305854718981494233605 - 0.62566299248447690802614832174j)
+    A8 (REPORT ONLY - recalled candidates, gate nothing):
+       2pi i / (Gamma(a) Gamma(a-b+1)) = (0.0 + 1.6207990700808214088j)
+       2pi i / (Gamma(b-a) Gamma(1-a)) = (0.0 + 1.9895379480979877977j)
+
+--- parameter value 2:  a = (0.4 + 0.3j)   b = (1.1 - 0.2j)
+  Lam = diag(0.0, 1.0)   (expected diag(0,1))
+    [PASS] A2  L = diag(-a, a-b): 151.07 digits (need 130), residual 8.5388e-152
+    [PASS] A1  C-0 formal series residual is below the truncation error: 0.09718 digits (need 0), residual 1.3503e-48
+        (C-0 residual 1.3503e-48 vs truncation error 1.6889e-48)
+    [PASS] A3a U'(a,b,z) = -a U(a+1,b+1,z) [mpmath identity]: 51.016 digits (need 30), residual 9.6398e-52
+    [PASS] A3b recessive column vs mpmath U on ray +pi/2: 40.971 digits (need 35), residual 1.0689e-41
+    [PASS] A3c recessive column vs mpmath U on ray -pi/2 (crossing arg z = 0): 46.089 digits (need 35), residual 8.1508e-47
+    [PASS] A4a tr M0 = 1 + e^{-2 pi i b}: 140.54 digits (need 35), residual 2.8588e-141
+    [PASS] A4b det M0 = e^{-2 pi i b}: 140.86 digits (need 35), residual 1.3942e-141
+    [FAIL] A5  M0 M_inf = I: -0.41229 digits (need 35), residual 2.584
+    [FAIL] A6a M_inf has the vdPS triangular x diagonal shape: 0.20433 digits (need 35), residual 0.6247
+    [FAIL] A6b alpha = e^{-2 pi i a}: -0.87643 digits (need 35), residual 7.5236
+    [FAIL] A7  f1 f2 = alpha(1+e^{2 pi i b}) - alpha^2 - 1: -1.8599 digits (need 35), residual 72.433
+    [PASS] C-7 step halving (h_factor 4 vs 8) agreement: 126.35 digits (need 35), residual 4.4259e-127
+    f1 = (2.50569330344747806231834941892 - 0.77997866733990805388892785345j)
+    f2 = (-0.111751215818837587063148654659 + 0.0534859531999593260226527209977j)
+    A8 (REPORT ONLY - recalled candidates, gate nothing):
+       2pi i / (Gamma(a) Gamma(a-b+1)) = (-2.7147242019728765479 - 0.48953585600776998316j)
+       2pi i / (Gamma(b-a) Gamma(1-a)) = (4.08776313654097839 + 3.0703993065339777431j)
+
+==============================================================================
+STAGE 1 FALSIFIER FIRED - the session does NOT proceed to Stage 2
+    A5  M0 M_inf = I: only -0.4561 digits
+    A6a M_inf has the vdPS triangular x diagonal shape: only 0.15625 digits
+    A6b alpha = e^{-2 pi i a}: only -0.50848 digits
+    A7  f1 f2 = alpha(1+e^{2 pi i b}) - alpha^2 - 1: only -0.46671 digits
+    A5  M0 M_inf = I: only -0.41229 digits
+    A6a M_inf has the vdPS triangular x diagonal shape: only 0.20433 digits
+    A6b alpha = e^{-2 pi i a}: only -0.87643 digits
+    A7  f1 f2 = alpha(1+e^{2 pi i b}) - alpha^2 - 1: only -1.8599 digits

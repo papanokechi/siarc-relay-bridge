@@ -1,0 +1,599 @@
+{
+ "salvy": {
+  "file": "ibrahim_salvy_2023_positivity_certificates_arxiv-2306.05930.pdf",
+  "pages": 18,
+  "n_hits": 8,
+  "hits": [
+   {
+    "page_index": 2,
+    "printed_guess": 3,
+    "pattern": "leading coefficient",
+    "context": "fective aspects of some of his proofs and apply them to questions of positivity. We deal with P-finite sequences of Poincaré type, which means that after dividing by the leading coefficient and taking the limit n →∞, each of the coefficients has a finite limit. (We show in Section 2.2 how to reduce to this case.) Moreover, we demand that the characteristic polynomial of this new recurrence has only one root of maxim"
+   },
+   {
+    "page_index": 4,
+    "printed_guess": 5,
+    "pattern": "connexion",
+    "context": "he closest we have is a certified numerical approxi- mation in the form of an interval that can be made arbitrarily small, but 0 cannot be excluded. This is known as the connexion problem for linear differential equations. Still, this is a good basis for an analytic proof of positivity, as was recently shown "
+   },
+   {
+    "page_index": 4,
+    "printed_guess": 5,
+    "pattern": "leading coefficient",
+    "context": "is made harder by the fact that there is no ‘simple’ basis of solutions. Also, the constants that appear (the analogues of the coefficients of the Ci above), even in the leading coefficient of the asymptotic behaviour, are difficult to relate to the initial conditions. This is illustrated by the following. Example 3. The number of ‘fragmented permutations’ of size n is cn/n! where (cn)n∈N is defined by (n + 2)cn+2 ="
+   },
+   {
+    "page_index": 4,
+    "printed_guess": 5,
+    "pattern": "leading coefficient",
+    "context": "ions’ of size n is cn/n! where (cn)n∈N is defined by (n + 2)cn+2 = (2n + 3)cn+1 −ncn, c0 = c1 = 1. It satisfies [FS09, Prop. VIII.4] cn ∼n−3/4e2√n 2√eπ , n →∞. Here, the leading coefficient 1/2√eπ is computed (with the rest of the asymp- totic behaviour) by exploiting a closed-form expression of the generating function of (cn/n!)n∈N. In general, this is not available. While we know how to compute a basis of formal a"
+   },
+   {
+    "page_index": 4,
+    "printed_guess": 5,
+    "pattern": "leading coefficient",
+    "context": "ymptotic expansions that are solutions of linear recurrences (by the results of Birkhoff-Trjitzinsky improved by Immink [BT32; Imm84]), we do not know how to compute the leading coefficient exactly in general. Currently, the closest we have is a certified numerical approxi- mation in the form of an interval that can be made arbitrarily small, but 0 cannot be excluded. This is known as the connexion problem for linea"
+   },
+   {
+    "page_index": 4,
+    "printed_guess": 5,
+    "pattern": "certified numerical",
+    "context": " of Birkhoff-Trjitzinsky improved by Immink [BT32; Imm84]), we do not know how to compute the leading coefficient exactly in general. Currently, the closest we have is a certified numerical approxi- mation in the form of an interval that can be made arbitrarily small, but 0 cannot be excluded. This is known as the connexion problem for linear differential equations. Still, this is a good basis for an analytic proof "
+   },
+   {
+    "page_index": 5,
+    "printed_guess": 6,
+    "pattern": "leading coefficient",
+    "context": "n) of Eq. (1) vanishes at a positive integer, or equivalently, when the matrix A(n) is not invertible for some n ∈N. For positivity testing, one can pro- ceed as for the leading coefficient: treat the initial terms of the sequence separately up to the largest integer where this happens, and then shift the index. Perron, Kreuser and later Kooman gave results of a converse type: sufficient conditions for a solution to"
+   },
+   {
+    "page_index": 7,
+    "printed_guess": 8,
+    "pattern": "certified numerical",
+    "context": "lities) defining the cone. This amounts to d(d −1)(2d −2) (resp. d2) polynomials in Q[n] that have to be proved positive for n ≥N (e.g., by Sturm sequences, or simply by certified numerical evaluation of the roots). The complexity of that step is thus singly exponential in the order of the recurrence. Concerning the initial conditions, checking Un ≥0 for n ≤N has complexity that is clearly polynomial in N (one can a"
+   }
+  ]
+ },
+ "wong_zhao": {
+  "file": "wong_zhao_2022_recent_advances_arxiv-2204.09305.pdf",
+  "pages": 46,
+  "n_hits": 88,
+  "hits": [
+   {
+    "page_index": 0,
+    "printed_guess": 1,
+    "pattern": "Wong",
+    "context": "arXiv:2204.09305v1 [math.CA] 20 Apr 2022 Recent Advances in Asymptotic Analysis R. Wong† and Yu-Qiu Zhao‡ Abstract This is a survey article on an old topic in classical analysis. We present some new developments in asymptotics in the last ﬁfty years. We start with the classi- cal method of Darboux and its generaliza"
+   },
+   {
+    "page_index": 1,
+    "printed_guess": 2,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "can be obtained by taking their inverse transformations; see, e.g., [95], [4, p. 286]. The situation is quite diﬀerent if the equation is of the form u(t) = f(t) + Z ∞ 0 k(t −τ)u(τ)dτ. (1.1) As far as we are aware, there is only one paper on asymptotic solutions to such an equa- tion [63]. Equation in (1.1) is known as of Wiener-Hopf type or renewal equation on half 2 "
+   },
+   {
+    "page_index": 4,
+    "printed_guess": 5,
+    "pattern": "Wong",
+    "context": "at the error term εm(n) = 1 2πi Z C [f(z) −fm(z)] z−n−1dz = o(n−N), where Re α + m + 1 ≤N < Re α + m + 2. The above error estimate has been proved rigorously; see, e.g., Wong [97, Ch. 2.6]. Thus we have the following result. Theorem 2.1. With f(z) given in (2.3), (2.4) and (2.5), assume that α̸ ∈Z is a complex constant, and z = 1 is the only singularity on the circle of convergence |z| = 1. For any m "
+   },
+   {
+    "page_index": 5,
+    "printed_guess": 6,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "the branches are chosen such that (e±iθ −z)−1 2 →e∓1 2iθ as z →0. Now applying Darboux’s method yields Pn(cos θ) ∼ \u0012 2 sin θ \u0013 1 2 ∞ X k=0 \u0012 −1 2 k \u0013 \u0012 k −1 2 n \u0013 cos θn,k (2 sin θ)k , n →∞, where θn,k = \u0012 n −k + 1 2 \u0013 θ + \u0012 n −1 2k −1 4 \u0013 π. On the other hand, Pn(cos θ) = \u0012 1 2 sin θ \u0013 1 2 ∞ X k=0 \u0012 −1 2 k \u0013 \u0012 k −1 2 n \u0013 cos θn,k (2 sin θ)k for 1 6π < θ < 5 6π. A paradox now arises, since one has Pn"
+   },
+   {
+    "page_index": 5,
+    "printed_guess": 6,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "\u0013 cos θn,k (2 sin θ)k , n →∞, where θn,k = \u0012 n −k + 1 2 \u0013 θ + \u0012 n −1 2k −1 4 \u0013 π. On the other hand, Pn(cos θ) = \u0012 1 2 sin θ \u0013 1 2 ∞ X k=0 \u0012 −1 2 k \u0013 \u0012 k −1 2 n \u0013 cos θn,k (2 sin θ)k for 1 6π < θ < 5 6π. A paradox now arises, since one has Pn(cos θ) ∼2Pn(cos θ), 1 6π < θ < 5 6π, n →∞; (2.8) cf. Olver [71]. 6 "
+   },
+   {
+    "page_index": 5,
+    "printed_guess": 6,
+    "pattern": "Wong",
+    "context": "ingularities on the circle of convergence, the ﬁnal result can be extended by adding up the contributions from all singular points; see Szeg˝o [80, p. 207, Thm. 8.4] and Wong [97, p. 119, Thm. 5]. Applying Theorem 2.1 to the generating function (2.2) (cf. [97, p. 120]), one ﬁnds that un ∼b√n as n →∞, with b = 4e−3/2/π; this is Robinson’s constant. The theorem can also be used to solve a problem of Erl"
+   },
+   {
+    "page_index": 6,
+    "printed_guess": 7,
+    "pattern": "Wong",
+    "context": "Darboux’s method dates back to 1878. Although frequently used, it does not appear to have been extended until around 1970. In 1974, Wong and Wyman [102] have given a generalization of Darboux’s method, which allows the generating function f(z) in (2.3) to have logarithmic-type singularities on its circle of convergence. This paper was considered an important early"
+   },
+   {
+    "page_index": 6,
+    "printed_guess": 7,
+    "pattern": "Wong",
+    "context": "em of Knuth (2004, [48]): What is the asymptotic behavior of the constant ln deﬁned by the generating function 1 ln(1 −z) + 1 z = ∞ X n=0 lnzn, |z| < 1. (2.11) In [102], Wong and Wyman dealt with the general case f(z) = (1 −z)α[ln(1 −z)]µg(z) = ∞ X n=0 anzn, |z| < 1, (2.12) where α and µ are complex constants, and g(z) is analytic in |z| ≤1 + δ for some δ > 0. Now we brieﬂy outline their treatment. Ag"
+   },
+   {
+    "page_index": 7,
+    "printed_guess": 8,
+    "pattern": "Wong",
+    "context": "Wong and Wyman further introduced the function Jm = −1 2πi I |t|=δn (−t)α+m[ln(−t)]µPm((n + 1)t)e−(n+1)tdt, (2.14) where Pm(w) is a polynomial given by Pm(w) = 1 m! dm dtm \u0014 g(t + 1) exp \u001a −1 2wt \u00142(ln(1 + t) −t) t2 \u0015\u001b\u0015 t=0 := m X s=0"
+   },
+   {
+    "page_index": 7,
+    "printed_guess": 8,
+    "pattern": "Wong",
+    "context": "iven by Pm(w) = 1 m! dm dtm \u0014 g(t + 1) exp \u001a −1 2wt \u00142(ln(1 + t) −t) t2 \u0015\u001b\u0015 t=0 := m X s=0 psws, so that Jm ∼ m X s=0 ps(n + 1)sM(α + m + s, µ, n) as n →∞. Theorem 2.2. (Wong-Wyman, [102]) If f(z) is the function given in (2.12), then its Maclaurin coeﬃcient an has the asymptotic expansion an ∼ ∞ X m=0 (−1)mJm, where Jm is deﬁned in (2.14) and has the asymptotic expansion Jm ∼(−ln(n + 1))µ (n + 1)α+m+"
+   },
+   {
+    "page_index": 8,
+    "printed_guess": 9,
+    "pattern": "Wong",
+    "context": "on in the sense of Olver [73, p. 102], they are found to be too complicated for any practical application; see, e.g., Erd´elyi [35, p. 167], Olver [73, pp. 112-113], and Wong [97, p. 145]. For example, Olver commented that It may be desirable to investigate whether any sim- pliﬁcations are feasible since the results in [37] are rather complicated to apply in their present form. A motivation for the un"
+   },
+   {
+    "page_index": 8,
+    "printed_guess": 9,
+    "pattern": "Wong",
+    "context": "presented a uniform treatment of the steepest descent method, Bleistein (1967, [10]) considered the problem of many nearby stationary points and algebraic singularities, Wong (1989, [97, Ch. VII]) provided various types of coalescence of singular points, in particular uniform asymptotics of orthogonal polynomials, and Olde Daalhuis and Temme (1994, [66]) introduced a class of rational functions based "
+   },
+   {
+    "page_index": 8,
+    "printed_guess": 9,
+    "pattern": "Wong",
+    "context": "ics of orthogonal polynomials, and Olde Daalhuis and Temme (1994, [66]) introduced a class of rational functions based on which error terms can be estimated. The work of Wong and Zhao [103] in 2005 seems to have responded to Olver’s request mentioned above, i.e., to derive simpler forms of uniform asymptotic expansions when two or more algebraic singularities, on the circle of convergence, coalesce wi"
+   },
+   {
+    "page_index": 8,
+    "printed_guess": 9,
+    "pattern": "Wong",
+    "context": "ansions when two or more algebraic singularities, on the circle of convergence, coalesce with each other as certain parameter approaches a critical value. To begin with, Wong and Zhao ﬁrst considered the simplest case with two singularities, namely f(z, θ) = h (eiθ −z)(e−iθ −z) i−α g(z, θ) = ∞ X n=0 an(θ)zn, (2.16) where g(z, θ) is analytic in |z| ≤eη, η > 0, which is a special case of Fields; cf. (2."
+   },
+   {
+    "page_index": 9,
+    "printed_guess": 10,
+    "pattern": "Wong",
+    "context": "at T1(x) = √π Γ(α) \u0010x 2 \u0011α−1 2 Jα−1 2 (x), and T2(x) = √π Γ(α) \u0010x 2 \u0011α−1 2 \u00142α −1 x Jα−1 2(x) −Jα+ 1 2(x) \u0015 = √π Γ(α) \u0010x 2 \u0011α−1 2 Jα−3 2 (x). Hence we have Theorem 2.3. (Wong-Zhao [103]; see also [60, Cor. 1]) If f(z, θ) is the function given in (2.16). Then its Maclaurin coeﬃcient has the asymptotic expansion an(θ) ∼ √π Γ(α) \u0010 n 2θ \u0011α−1 2 \" Jα−1 2(nθ) ∞ X k=0 αk(θ) nk + Jα−3 2(nθ) ∞ X k=0 βk(θ) nk # "
+   },
+   {
+    "page_index": 10,
+    "printed_guess": 11,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "tial equation xdqw dxq + q−1 X l=0 (dlx + cl)dlw dxl = 0, where the coeﬃcients cl and dl are determined by qY k=1 (s + isk) := sq + q−1 X l=0 dlsl, q X k=1 (1 −αk) Y k′̸=k (s + isk′) := q−1 X l=0 clsl. Now we check the special case (2.15) investigated by Fields [37]. Theorem 2.4 applies, and we may set q = 3; s1 = 0, α1 = λ; s2 = 1, α2 = ∆; s3 = −1, α3 = ∆. By expanding a part of the integrand in (2."
+   },
+   {
+    "page_index": 10,
+    "printed_guess": 11,
+    "pattern": "Wong",
+    "context": ".21) for l = 1, 2, · · · , q, where Γ0 is also a Hankel-type loop which starts and ends at −∞, encircling all points s = −isk(θ) in the positive direction. Theorem 2.4. (Wong-Zhao [103]) Let f(z, θ) be the function given in (2.20). If zk(θ) = eiskθ, sk being real constants, then an(θ) ∼θ1−α q X l=1 Tl(nθ) ∞ X k=0 βk,l(θ) nk (2.22) as n →∞, uniformly in θ ∈[0, ν] with ν < min1≤k≤q{π/|sk|}, where α = Pq"
+   },
+   {
+    "page_index": 11,
+    "printed_guess": 12,
+    "pattern": "Wong",
+    "context": "erived uniform asymptotics for the Jacobi polynomials via uniform treatment of Darboux’s method, using not the results but the ideas discussed above. Later in 2013, Liu, Wong and Zhao [60] apply the uniform Darboux’s method to analyze the Heisenberg polynomials. The asymptotic expansion obtained involves the Kummer function and its derivative. We mention yet another situation, which may be termed a si"
+   },
+   {
+    "page_index": 11,
+    "printed_guess": 12,
+    "pattern": "Wong",
+    "context": "lars. The computations involved in the algebraic theory alone are truly mind-boggling. The above comments were certainly the driving force behind the work carried out by Wong and Li [99, 100] in the 1990’s. In order to understand the problem better, they ﬁrst studied in [99] the simple second-order diﬀerence equation y(n + 2) + a(n)y(n + 1) + b(n)y(n) = 0, 12 "
+   },
+   {
+    "page_index": 11,
+    "printed_guess": 12,
+    "pattern": "\\bLi\\b",
+    "context": " computations involved in the algebraic theory alone are truly mind-boggling. The above comments were certainly the driving force behind the work carried out by Wong and Li [99, 100] in the 1990’s. In order to understand the problem better, they ﬁrst studied in [99] the simple second-order diﬀerence equation y(n + 2) + a(n)y(n + 1) + b(n)y(n) = 0, 12 "
+   },
+   {
+    "page_index": 12,
+    "printed_guess": 13,
+    "pattern": "Wong",
+    "context": " in [99, 100] is essentially the method of successive approximations, which is customarily used in the asymptotic theory of diﬀerential equa- tions. The ultimate goal of Wong’s investigation was to develop a turning point theory for the three-term recurrence relation yn+1 = (anx + bn)yn −cnyn−1, n = 1, 2, · · · , (3.3) where an, bn and cn are constants. If x is a ﬁxed number, then the recurrence relat"
+   },
+   {
+    "page_index": 15,
+    "printed_guess": 16,
+    "pattern": "Wong",
+    "context": "not be used to derive a uniform asymptotic expansion for Jν(νx) such as the one given in (3.9). We are now ready to present a summary of the investigation carried out by Wong and his collaborators in the last twenty years. Returning to equation (3.3), we ﬁrst deﬁne a sequence {Kn} recursively by Kn+1/Kn−1 = cn, with K0 and K1 depending on the particular sequence {yn} satisfying (3.3). Then we put An ="
+   },
+   {
+    "page_index": 19,
+    "printed_guess": 20,
+    "pattern": "\\bLi\\b",
+    "context": " being zero is exactly the case of Wilson polynomials. For the results in that case, we refer to [57]. The presentation of Case (ii) here is based on the work of Cao and Li [13]. Case (iii) We now consider the case θ = 0. Here, there is no need to make the scale change x = νθt in Case (i) or x = N θt in Case (ii); cf. (3.25) and (3.31). Also, we will not be concerned with whether the transition poin"
+   },
+   {
+    "page_index": 21,
+    "printed_guess": 22,
+    "pattern": "Wong",
+    "context": "als are investigated in Johansson [46] and Baik et al. [3]. The orthogonal polynomials with respect to Freud weights are considered in Kriecherbauer and McLaughlin [50]. Wong and his coauthors have made attempts to bring in a global treatment to the Riemann-Hilbert approach; see [89] and a brief account in [104], in which all zeros of the polynomials belong to one single domain of uniformity. There ha"
+   },
+   {
+    "page_index": 24,
+    "printed_guess": 25,
+    "pattern": "Wong",
+    "context": "n large enough. The leading order behavior of the parametrix has not yet been explicitly given, though it does not aﬀect the determination of zero distribution. In 1982, Wong [96] considered quadrature formulas for oscillatory integral transforms with Fourier kernel and Bessel kernels. Also, in a paper [22], Dai, Hu and Wang have proposed a study of the asymptotics of orthogonal polynomials whose weig"
+   },
+   {
+    "page_index": 25,
+    "printed_guess": 26,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "cherbauer and McLaughlin [50] can readily be constructed. More precisely, we assume that uβ and vβ solve, respectively, the following integral equations u(x) = 1 + Z ∞ 0 K(t)u(t)dt t + x , x ∈(0, ∞), (4.15) v(x) = 1 − Z ∞ 0 K(t)v(t)dt t + x , x ∈(0, ∞), (4.16) 26 "
+   },
+   {
+    "page_index": 25,
+    "printed_guess": 26,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "ed. More precisely, we assume that uβ and vβ solve, respectively, the following integral equations u(x) = 1 + Z ∞ 0 K(t)u(t)dt t + x , x ∈(0, ∞), (4.15) v(x) = 1 − Z ∞ 0 K(t)v(t)dt t + x , x ∈(0, ∞), (4.16) 26 "
+   },
+   {
+    "page_index": 26,
+    "printed_guess": 27,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "where K(t) = 1 2πi h exp \u0010 e( π 2 + βπ 2 )itβ\u0011 −exp \u0010 e−( π 2 + βπ 2 )itβ\u0011i (4.17) = 1 π exp \u0012 −tβ sin πβ 2 \u0013 sin \u0012 tβ cos πβ 2 \u0013 . (4.18) Note that ηL(t) = 2πi(−1)n+1K(t) for t ∈[0, +∞). First, we formally derive the integral equations f"
+   },
+   {
+    "page_index": 27,
+    "printed_guess": 28,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": " outline the investigation carried out in Wong and Zhao [105]. To begin with, we have Lemma 4.1. The operator T is a compact operator on L2[0, +∞), where (Tu)(x) = Z ∞ 0 K(t)u(t)dt t + x . (4.22) The reason is that K(t) t+x ∈L2([0, +∞) × [0, +∞)), with K(t) given by (4.18). Thus, T is a Hilbert-Schmidt operator, and hence is compact; cf. e.g. [108, p. 277]. The next step is to show that the operator"
+   },
+   {
+    "page_index": 27,
+    "printed_guess": 28,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "g and Zhao [105]. To begin with, we have Lemma 4.1. The operator T is a compact operator on L2[0, +∞), where (Tu)(x) = Z ∞ 0 K(t)u(t)dt t + x . (4.22) The reason is that K(t) t+x ∈L2([0, +∞) × [0, +∞)), with K(t) given by (4.18). Thus, T is a Hilbert-Schmidt operator, and hence is compact; cf. e.g. [108, p. 277]. The next step is to show that the operators I ± T has trivial null space by using a van"
+   },
+   {
+    "page_index": 27,
+    "printed_guess": 28,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "ve Lemma 4.1. The operator T is a compact operator on L2[0, +∞), where (Tu)(x) = Z ∞ 0 K(t)u(t)dt t + x . (4.22) The reason is that K(t) t+x ∈L2([0, +∞) × [0, +∞)), with K(t) given by (4.18). Thus, T is a Hilbert-Schmidt operator, and hence is compact; cf. e.g. [108, p. 277]. The next step is to show that the operators I ± T has trivial null space by using a vanishing lemma technique. To this aim, w"
+   },
+   {
+    "page_index": 27,
+    "printed_guess": 28,
+    "pattern": "Wong",
+    "context": "We are rigorously deﬁning a pair of new special functions, using the above integral equations, to construct a parametrix. We now outline the investigation carried out in Wong and Zhao [105]. To begin with, we have Lemma 4.1. The operator T is a compact operator on L2[0, +∞), where (Tu)(x) = Z ∞ 0 K(t)u(t)dt t + x . (4.22) The reason is that K(t) t+x ∈L2([0, +∞) × [0, +∞)), with K(t) given by (4.18). T"
+   },
+   {
+    "page_index": 27,
+    "printed_guess": 28,
+    "pattern": "Wong",
+    "context": ") and u−Tu = 0 (or u+Tu = 0) in L2[0, +∞). Then, u ≡0 for x ∈[0, ∞) in L2[0, +∞). To conclude, we have the unique existence of uβ(x) and vβ(x) in L2 sense. Theorem 4.1. (Wong-Zhao [105]) There exist unique solutions u(x) and v(x) to the integral equations (4.15) and (4.16), respectively, such that u(x) −1 ∈L2[0, +∞) and v(x) −1 ∈L2[0, +∞). Further analysis of the integral equations (4.15) and (4.16) s"
+   },
+   {
+    "page_index": 27,
+    "printed_guess": 28,
+    "pattern": "Wong",
+    "context": ", +∞) and v(x) −1 ∈L2[0, +∞). Further analysis of the integral equations (4.15) and (4.16) show that uβ(x) and vβ(x) are in fact bounded for all β ∈(0, 1). Theorem 4.2. (Wong-Zhao [105]) Let uβ(x) and vβ(x) be solutions of the integral equations in (4.15) and (4.16), respectively. Then uβ(x), vβ(x) ∈L∞[0, ∞) and uβ(x), vβ(x) ∈C[0, ∞). Since uβ(x) and vβ(x) solve the integral equations (4.15) and (4.16"
+   },
+   {
+    "page_index": 28,
+    "printed_guess": 29,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "em 4.1, we readily obtain the asymptotic approximations uβ(z) ∼1 + ∞ X k=1 ck zk and vβ(z) ∼1 + ∞ X k=1 dk zk as z →+∞, | arg z| < 3π 2 , (4.26) where ck = (−1)k−1 Z ∞ 0 K(t)tk−1uβ(t)dt and dk = (−1)k Z ∞ 0 K(t)tk−1vβ(t)dt (4.27) for k = 1, 2, · · · . The Stokes phenomenon is also addressed in [105]. Assume that the functions uβ(z) and vβ(z) solve respectively (4.15) and (4.16), such that uβ −1, vβ "
+   },
+   {
+    "page_index": 28,
+    "printed_guess": 29,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "tic approximations uβ(z) ∼1 + ∞ X k=1 ck zk and vβ(z) ∼1 + ∞ X k=1 dk zk as z →+∞, | arg z| < 3π 2 , (4.26) where ck = (−1)k−1 Z ∞ 0 K(t)tk−1uβ(t)dt and dk = (−1)k Z ∞ 0 K(t)tk−1vβ(t)dt (4.27) for k = 1, 2, · · · . The Stokes phenomenon is also addressed in [105]. Assume that the functions uβ(z) and vβ(z) solve respectively (4.15) and (4.16), such that uβ −1, vβ −1 ∈L2[0, ∞). Then the Stokes lines f"
+   },
+   {
+    "page_index": 28,
+    "printed_guess": 29,
+    "pattern": "Wong",
+    "context": "Theorem 4.3. (Wong-Zhao [105]) The piece-wise analytic function L(s) =            \u0012 Lβ(s) (−1)nUβ(se−πi) (−1)nUβ(s) Lβ(se−πi) \u0013 , 0 < arg s < π; \u0012 Lβ(s) (−1)nUβ(seπi) (−1)nUβ(s) Lβ(seπi) \u0013 , −π < arg s < 0 (4.23) solves the Riemann-Hilbe"
+   },
+   {
+    "page_index": 29,
+    "printed_guess": 30,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "92]. Here we ﬁrst give an outline of this technique, leading to an integral representation of the solution. For convenience we reproduce (1.1) below; u(t) = f(t) + Z ∞ 0 k(t −τ)u(τ)dτ, t > 0. (5.1) The following notations will be used throughout this section: u+(t) = ( u(t), t > 0, 0, t < 0 (5.2) and u−(t) = ( 0, t > 0, f(t) + R ∞ 0 k(t −τ)u(τ)dτ, t < 0. (5.3) Since we are only concerned with t > 0 "
+   },
+   {
+    "page_index": 29,
+    "printed_guess": 30,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": " ∞ 0 k(t −τ)u(τ)dτ, t > 0. (5.1) The following notations will be used throughout this section: u+(t) = ( u(t), t > 0, 0, t < 0 (5.2) and u−(t) = ( 0, t > 0, f(t) + R ∞ 0 k(t −τ)u(τ)dτ, t < 0. (5.3) Since we are only concerned with t > 0 in equation (5.1), in most cases the function f(t) is identically zero for t negative. Equation (5.1) can now be written as u+(t) + u−(t) = f(t) + Z ∞ −∞ k(t −τ)u+(τ"
+   },
+   {
+    "page_index": 29,
+    "printed_guess": 30,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "rned with t > 0 in equation (5.1), in most cases the function f(t) is identically zero for t negative. Equation (5.1) can now be written as u+(t) + u−(t) = f(t) + Z ∞ −∞ k(t −τ)u+(τ)dτ, −∞< t < ∞. (5.4) Taking Fourier transforms on both sides of this equation gives h 1 − √ 2πK(λ) i U+(λ) = F(λ) −U−(λ), (5.5) 30 "
+   },
+   {
+    "page_index": 29,
+    "printed_guess": 30,
+    "pattern": "Wong",
+    "context": " [63] in 1970. But, their approach assumes that the solution behaves like t−δ/M as t →+∞, where δ is a positive number and M is a constant. An attempt was made by Li and Wong [59] in 1994 to remove such an assumption and to derive the asymptotic solution directly from the integral equation, but their attempt was not successful. Later, it was realized that equation (1.1) is known as of Wiener-Hopf type"
+   },
+   {
+    "page_index": 29,
+    "printed_guess": 30,
+    "pattern": "Wong",
+    "context": "y from the integral equation, but their attempt was not successful. Later, it was realized that equation (1.1) is known as of Wiener-Hopf type. This naturally led Li and Wong [58] to use the famous Wiener- Hopf technique [92]. Here we ﬁrst give an outline of this technique, leading to an integral representation of the solution. For convenience we reproduce (1.1) below; u(t) = f(t) + Z ∞ 0 k(t −τ)u(τ)d"
+   },
+   {
+    "page_index": 29,
+    "printed_guess": 30,
+    "pattern": "\\bLi\\b",
+    "context": "ernberg [63] in 1970. But, their approach assumes that the solution behaves like t−δ/M as t →+∞, where δ is a positive number and M is a constant. An attempt was made by Li and Wong [59] in 1994 to remove such an assumption and to derive the asymptotic solution directly from the integral equation, but their attempt was not successful. Later, it was realized that equation (1.1) is known as of Wiener-"
+   },
+   {
+    "page_index": 29,
+    "printed_guess": 30,
+    "pattern": "\\bLi\\b",
+    "context": "directly from the integral equation, but their attempt was not successful. Later, it was realized that equation (1.1) is known as of Wiener-Hopf type. This naturally led Li and Wong [58] to use the famous Wiener- Hopf technique [92]. Here we ﬁrst give an outline of this technique, leading to an integral representation of the solution. For convenience we reproduce (1.1) below; u(t) = f(t) + Z ∞ 0 k(t"
+   },
+   {
+    "page_index": 30,
+    "printed_guess": 31,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "where K(λ) = 1 √ 2π Z ∞ −∞ k(t)eiλtdt, F(λ) = 1 √ 2π Z ∞ −∞ f(t)eiλtdt, U±(λ) = 1 √ 2π Z ∞ −∞ u±(t)eiλtdt, (5.6) and λ = σ + iτ. In (5.5), we note that U+(λ) and U−(λ) are unknown functions, and that K(λ) and F(λ) are known functions. To "
+   },
+   {
+    "page_index": 30,
+    "printed_guess": 31,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "where K(λ) = 1 √ 2π Z ∞ −∞ k(t)eiλtdt, F(λ) = 1 √ 2π Z ∞ −∞ f(t)eiλtdt, U±(λ) = 1 √ 2π Z ∞ −∞ u±(t)eiλtdt, (5.6) and λ = σ + iτ. In (5.5), we note that U+(λ) and U−(λ) are unknown functions, and that K(λ) and F(λ) are known functions. To solve this functional"
+   },
+   {
+    "page_index": 30,
+    "printed_guess": 31,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": ")eiλtdt, F(λ) = 1 √ 2π Z ∞ −∞ f(t)eiλtdt, U±(λ) = 1 √ 2π Z ∞ −∞ u±(t)eiλtdt, (5.6) and λ = σ + iτ. In (5.5), we note that U+(λ) and U−(λ) are unknown functions, and that K(λ) and F(λ) are known functions. To solve this functional equation involves a factorization of the function 1 − √ 2πK(λ), which is the crux of the idea in the Wiener- Hopf technique. Let L(λ) be an analytic function of λ = σ + iτ "
+   },
+   {
+    "page_index": 30,
+    "printed_guess": 31,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "−λdζ, L−(λ) = 1 2πi Z ∞+id −∞+id L(ζ) ζ −λdζ, (5.8) and τ−< c < d < τ+. It is easily seen that L+(λ) is analytic for all τ > c and L−(λ) is analytic for all τ < d. If ln K(λ) satisﬁes the conditions imposed on the function L(λ) above, then we immediate have K(λ) = K+(λ) K−(λ), (5.9) where K+(λ) = exp \u001a 1 2πi Z ∞+ic −∞+ic ln K(ζ) ζ −λ dζ \u001b (5.10) and K−(λ) = exp \u001a 1 2πi Z ∞+id −∞+id ln K(ζ) ζ −λ dζ \u001b"
+   },
+   {
+    "page_index": 30,
+    "printed_guess": 31,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "n that L+(λ) is analytic for all τ > c and L−(λ) is analytic for all τ < d. If ln K(λ) satisﬁes the conditions imposed on the function L(λ) above, then we immediate have K(λ) = K+(λ) K−(λ), (5.9) where K+(λ) = exp \u001a 1 2πi Z ∞+ic −∞+ic ln K(ζ) ζ −λ dζ \u001b (5.10) and K−(λ) = exp \u001a 1 2πi Z ∞+id −∞+id ln K(ζ) ζ −λ dζ \u001b . (5.11) It is not diﬃcult to see that K+(λ) and K−(λ) are analytic, bounded and nonzer"
+   },
+   {
+    "page_index": 30,
+    "printed_guess": 31,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": " τ < d. If ln K(λ) satisﬁes the conditions imposed on the function L(λ) above, then we immediate have K(λ) = K+(λ) K−(λ), (5.9) where K+(λ) = exp \u001a 1 2πi Z ∞+ic −∞+ic ln K(ζ) ζ −λ dζ \u001b (5.10) and K−(λ) = exp \u001a 1 2πi Z ∞+id −∞+id ln K(ζ) ζ −λ dζ \u001b . (5.11) It is not diﬃcult to see that K+(λ) and K−(λ) are analytic, bounded and nonzero in the half-planes τ > τ−and τ < τ+, respectively. Returning to (5"
+   },
+   {
+    "page_index": 30,
+    "printed_guess": 31,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "tion L(λ) above, then we immediate have K(λ) = K+(λ) K−(λ), (5.9) where K+(λ) = exp \u001a 1 2πi Z ∞+ic −∞+ic ln K(ζ) ζ −λ dζ \u001b (5.10) and K−(λ) = exp \u001a 1 2πi Z ∞+id −∞+id ln K(ζ) ζ −λ dζ \u001b . (5.11) It is not diﬃcult to see that K+(λ) and K−(λ) are analytic, bounded and nonzero in the half-planes τ > τ−and τ < τ+, respectively. Returning to (5.5), we assume that 1 − √ 2πK(λ) has zeros a1, · · · , am. As "
+   },
+   {
+    "page_index": 32,
+    "printed_guess": 33,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "+iα P(λ) + C+(λ) K+(λ)(λ −a1)(λ −a2) · · · (λ −am) e−itλdλ, t > 0, (5.20) for any α, τ−< α < τ+. A major assumption in the preceding analysis is that the kernel function k(t) in equation (5.1) is exponentially decaying at inﬁnity. This enables one to factor 1 − √ 2πK(λ) (λ −a1)(λ −a2) · · · (λ −am) into two components K+(λ) and K−(λ), one analytic in an upper half-plane, the other analytic in a lowe"
+   },
+   {
+    "page_index": 32,
+    "printed_guess": 33,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "-plane, and the two half-planes overlapping in an inﬁnite strip parallel to the real axis. If the kernel is not exponentially decaying, e.g., the Cauchy density function k(t) = 1 π 1 1 + t2 , then one would not to be able to decompose \u0002 1 − √ 2πK(λ) \u0003 /(λ−a1)(λ−a2) · · · (λ−am) into two factors analytic in two overlapping half-planes. A natural way to extend the method presented above is to introduc"
+   },
+   {
+    "page_index": 32,
+    "printed_guess": 33,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "decreasing sequence tending to zero as n →∞. Deﬁne ˜en(t) = ( e−εnt, t > 0 0, t < 0. We call u(t) a solution of (5.1), if for any η > 0 it satisﬁes lim n→∞ e−η|t| Z ∞ −∞ k(t −τ)˜en(τ)u(τ)dτ −e−η|t| [u(t) −f(t)] 2 = 0. (5.21) 33 "
+   },
+   {
+    "page_index": 33,
+    "printed_guess": 34,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": "ted for some technical reasons. If such a solution does exist, then it is well known that there will exist a subsequence {εnk} such that εnk →0 as k →∞ and lim k→∞ Z ∞ 0 k(t −τ)˜enk(τ)u(τ)dτ = u(t) −f(t) (5.22) holds almost everywhere; see [12, Prop. 0.1.10]. To make this argument work, Widom ﬁrst proved that the functional equation U−(ζ) = F(ζ) + h√ 2πK(ζ) −1 i U+(ζ), ζ ∈R, (5.23) holds almost ever"
+   },
+   {
+    "page_index": 34,
+    "printed_guess": 35,
+    "pattern": "\\bK\\b\\s*\\(",
+    "context": " a solution of (5.1). For illustration purpose, it suﬃces to consider just the special case in which all zeros of 1 − √ 2πK(λ) are simple; i.e., m1 = · · · = ml = 1, and K(λ) and F(λ) are both smooth, except possibly for a ﬁnite number of points in R \\ {α1, · · · , αl}. By Cauchy’s residue theorem, the integral in (5.35) can be expressed as u(t) = 1 √ 2π Z ∞ −∞ − [P(λ) + H+(λ)] φ+(λ) (λ −α1)(λ −α2) "
+   },
+   {
+    "page_index": 38,
+    "printed_guess": 39,
+    "pattern": "Wong",
+    "context": "Discrete orthog- onal polynomials. Asymptotics and applications, Annals of Mathematics Studies, 164, Princeton University Press, Princeton, NJ, 2007. [4] R. Beals and R. Wong, Explorations in complex functions, Springer, Cham, 2020. [5] G. Birkhoﬀ(Ed.), A source book in classical analysis, Harvard University Press, Cambridge, MA, 1973, assisted by U. Merzbach. [6] G. D. Birkhoﬀ, On the asymptotic char"
+   },
+   {
+    "page_index": 38,
+    "printed_guess": 39,
+    "pattern": "\\bLi\\b",
+    "context": "h θ = 1. Then for any n ∈N+, we have H+ ϕ (x) = n−1 X s=0 s X i=0 i X j=0 j+1 X l=0 (−1)s+1(s + 1)!αs,iCj 1,s,i \u0012j + 1 l \u0013 γj+1−l,s 2(j + 1) × h (ln x + iπ)l + (ln x −iπ)li x−s−1 − n X s=1 (−1)s(s −1)!c∗ sx−s + 1 xn Z ∞ 0 − τ nϕn(τ) τ −x dτ, (5.56) where c∗ s = ϕs,s(1) − R 1 0 ϕs−1,s−1(t)dt, ϕs,s(t) = (−1)s (s−1)! R ∞ t (τ −t)s−1ϕs(τ)dτ for s ∈N+, and ϕ0,0(t) = ϕ(t). To obtain the asymptotic behavio"
+   },
+   {
+    "page_index": 39,
+    "printed_guess": 40,
+    "pattern": "Wong",
+    "context": "stein, Uniform asymptotic expansions of integrals with many nearby sta- tionary points and algebraic singularities, J. Math. Mech., 17 (1967), 533-560. [11] R. Bo and R. Wong, Asymptotic behavior of the Pollaczek polynomials and their zeros, Stud. Appl. Math., 96 (1996), 307-338. [12] P. L. Butzer and R. J. Nessel, Fourier analysis and approximation I, Academic Press, New York, 1971. [13] L.-H. Cao an"
+   },
+   {
+    "page_index": 39,
+    "printed_guess": 40,
+    "pattern": "\\bLi\\b",
+    "context": "Stud. Appl. Math., 96 (1996), 307-338. [12] P. L. Butzer and R. J. Nessel, Fourier analysis and approximation I, Academic Press, New York, 1971. [13] L.-H. Cao and Y.-T. Li, Linear diﬀerence equations with a transition point at the origin, Anal. Appl., 12 (2014), 75-106. [14] T. Carleman, L’int´egrale de Fourier et questions qui s’y rattachent, Uppsala, 1944. [15] J. F. Carlson and A. E. Heins, The "
+   },
+   {
+    "page_index": 42,
+    "printed_guess": 43,
+    "pattern": "Wong",
+    "context": "inear diﬀerential equations of the second order, with special reference to a turning point, Trans. Amer. Math. Soc., 67 (1949), 461-490. [57] Y.-T. Li, X.-S. Wang and R. Wong, Asymptotics of the Wilson polynomials, Anal. Appl., 18 (2020), 237-270. [58] K. Li and R. Wong, Asymptotic expansions for Wiener-Hopf equations, Anal. Appl., 19 (2021), 1059-1092. [59] X. Li and R. Wong, Error bounds for asympto"
+   },
+   {
+    "page_index": 42,
+    "printed_guess": 43,
+    "pattern": "Wong",
+    "context": "s. Amer. Math. Soc., 67 (1949), 461-490. [57] Y.-T. Li, X.-S. Wang and R. Wong, Asymptotics of the Wilson polynomials, Anal. Appl., 18 (2020), 237-270. [58] K. Li and R. Wong, Asymptotic expansions for Wiener-Hopf equations, Anal. Appl., 19 (2021), 1059-1092. [59] X. Li and R. Wong, Error bounds for asymptotic expansions of Laplace convolu- tions, SIAM J. Math. Anal., 25 (1994), 1537-1553. [60] S.-Y. "
+   },
+   {
+    "page_index": 42,
+    "printed_guess": 43,
+    "pattern": "Wong",
+    "context": "lynomials, Anal. Appl., 18 (2020), 237-270. [58] K. Li and R. Wong, Asymptotic expansions for Wiener-Hopf equations, Anal. Appl., 19 (2021), 1059-1092. [59] X. Li and R. Wong, Error bounds for asymptotic expansions of Laplace convolu- tions, SIAM J. Math. Anal., 25 (1994), 1537-1553. [60] S.-Y. Liu, R. Wong and Y.-Q. Zhao, Uniform treatment of Darboux’s method and the Heisenberg polynomials, Proc. Ame"
+   },
+   {
+    "page_index": 42,
+    "printed_guess": 43,
+    "pattern": "Wong",
+    "context": "2021), 1059-1092. [59] X. Li and R. Wong, Error bounds for asymptotic expansions of Laplace convolu- tions, SIAM J. Math. Anal., 25 (1994), 1537-1553. [60] S.-Y. Liu, R. Wong and Y.-Q. Zhao, Uniform treatment of Darboux’s method and the Heisenberg polynomials, Proc. Amer. Math. Soc., 141 (2013), 2683-2691. [61] J. P. McClure and R. Wong, Explicit error terms for asymptotic expansions of Stieltjes tran"
+   },
+   {
+    "page_index": 42,
+    "printed_guess": 43,
+    "pattern": "Wong",
+    "context": "u, R. Wong and Y.-Q. Zhao, Uniform treatment of Darboux’s method and the Heisenberg polynomials, Proc. Amer. Math. Soc., 141 (2013), 2683-2691. [61] J. P. McClure and R. Wong, Explicit error terms for asymptotic expansions of Stieltjes transforms, J. Inst. Math. Appl., 22 (1978), 129-145. [62] J. P. McClure and R. Wong, Exact remainders for asymptotic expansions of frac- tional integrals, J. Inst. Mat"
+   },
+   {
+    "page_index": 42,
+    "printed_guess": 43,
+    "pattern": "Wong",
+    "context": "1] J. P. McClure and R. Wong, Explicit error terms for asymptotic expansions of Stieltjes transforms, J. Inst. Math. Appl., 22 (1978), 129-145. [62] J. P. McClure and R. Wong, Exact remainders for asymptotic expansions of frac- tional integrals, J. Inst. Math. Appl., 24 (1979), 139-147. [63] R. Muki and E. Sternberg, Note on an asymptotic property of solutions of a class of Fredholm integral equations"
+   },
+   {
+    "page_index": 42,
+    "printed_guess": 43,
+    "pattern": "\\bLi\\b",
+    "context": "olutions of ordinary linear diﬀerential equations of the second order, with special reference to a turning point, Trans. Amer. Math. Soc., 67 (1949), 461-490. [57] Y.-T. Li, X.-S. Wang and R. Wong, Asymptotics of the Wilson polynomials, Anal. Appl., 18 (2020), 237-270. [58] K. Li and R. Wong, Asymptotic expansions for Wiener-Hopf equations, Anal. Appl., 19 (2021), 1059-1092. [59] X. Li and R. Wong, "
+   },
+   {
+    "page_index": 42,
+    "printed_guess": 43,
+    "pattern": "\\bLi\\b",
+    "context": "oint, Trans. Amer. Math. Soc., 67 (1949), 461-490. [57] Y.-T. Li, X.-S. Wang and R. Wong, Asymptotics of the Wilson polynomials, Anal. Appl., 18 (2020), 237-270. [58] K. Li and R. Wong, Asymptotic expansions for Wiener-Hopf equations, Anal. Appl., 19 (2021), 1059-1092. [59] X. Li and R. Wong, Error bounds for asymptotic expansions of Laplace convolu- tions, SIAM J. Math. Anal., 25 (1994), 1537-1553."
+   },
+   {
+    "page_index": 42,
+    "printed_guess": 43,
+    "pattern": "\\bLi\\b",
+    "context": " Wilson polynomials, Anal. Appl., 18 (2020), 237-270. [58] K. Li and R. Wong, Asymptotic expansions for Wiener-Hopf equations, Anal. Appl., 19 (2021), 1059-1092. [59] X. Li and R. Wong, Error bounds for asymptotic expansions of Laplace convolu- tions, SIAM J. Math. Anal., 25 (1994), 1537-1553. [60] S.-Y. Liu, R. Wong and Y.-Q. Zhao, Uniform treatment of Darboux’s method and the Heisenberg polynomial"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": "olutions of certain ordinary diﬀerential equations associated with multiple roots of the characteristic equation, Amer. J. Math., 66 (1936), 364-376. [86] Z. Wang and R. Wong, Uniform asymptotic expansion of Jν(νa) via a diﬀerence equation, Numer. Math., 91 (2002), 147-193. [87] Z. Wang and R. Wong, Asymptotic expansions for second-order linear diﬀerence equations with a turning point, Numer. Math., 9"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": "th., 66 (1936), 364-376. [86] Z. Wang and R. Wong, Uniform asymptotic expansion of Jν(νa) via a diﬀerence equation, Numer. Math., 91 (2002), 147-193. [87] Z. Wang and R. Wong, Asymptotic expansions for second-order linear diﬀerence equations with a turning point, Numer. Math., 94 (2003), 147-194. [88] Z. Wang and R. Wong, Linear diﬀerence equations with transition points, Math. Comp., 74 (2005), 629-6"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": ". [87] Z. Wang and R. Wong, Asymptotic expansions for second-order linear diﬀerence equations with a turning point, Numer. Math., 94 (2003), 147-194. [88] Z. Wang and R. Wong, Linear diﬀerence equations with transition points, Math. Comp., 74 (2005), 629-653. [89] Z. Wang and R. Wong, Bessel-type asymptotic expansions via the Riemann-Hilbert approach, Proc. R. Soc. Lond. A, 461 (2005), 2839-2856. [90]"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": "oint, Numer. Math., 94 (2003), 147-194. [88] Z. Wang and R. Wong, Linear diﬀerence equations with transition points, Math. Comp., 74 (2005), 629-653. [89] Z. Wang and R. Wong, Bessel-type asymptotic expansions via the Riemann-Hilbert approach, Proc. R. Soc. Lond. A, 461 (2005), 2839-2856. [90] W. A. Whitworth, Choice and chance, 5th ed., George Bell, London, 1901. [91] H. Widom, Equations of Wiener-Ho"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": ", 261-270. [92] N. Wiener and E. Hopf, ¨Uber eine klasse singul¨arer integral gleichungen, Sitz. Ber. Preuss. Akad. Wiss., 30 (1931), 696-706. [93] J. Wimp, Review of R. Wong’s book ‘Asymptotic approximations of integrals’, Math. Comp., 56 (1991), 388-394. [94] J. Wimp and D. Zeilberger, Recurrenting the asymptotics of linear recurrences, J. Math. Anal. Appl., 111 (1985), 162-176. [95] J. S. W. Wong a"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": ". Comp., 56 (1991), 388-394. [94] J. Wimp and D. Zeilberger, Recurrenting the asymptotics of linear recurrences, J. Math. Anal. Appl., 111 (1985), 162-176. [95] J. S. W. Wong and R. Wong, Asymptotic solutions of linear Volterra integral equations with singular kernels, Trans. Amer. Math. Soc., 189 (1974), 185-200. [96] R. Wong, Quadrature formulas for oscillatory integral transforms, Numer. Math., 39 "
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": "(1991), 388-394. [94] J. Wimp and D. Zeilberger, Recurrenting the asymptotics of linear recurrences, J. Math. Anal. Appl., 111 (1985), 162-176. [95] J. S. W. Wong and R. Wong, Asymptotic solutions of linear Volterra integral equations with singular kernels, Trans. Amer. Math. Soc., 189 (1974), 185-200. [96] R. Wong, Quadrature formulas for oscillatory integral transforms, Numer. Math., 39 (1982), 351-"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": ". [95] J. S. W. Wong and R. Wong, Asymptotic solutions of linear Volterra integral equations with singular kernels, Trans. Amer. Math. Soc., 189 (1974), 185-200. [96] R. Wong, Quadrature formulas for oscillatory integral transforms, Numer. Math., 39 (1982), 351-360. [97] R. Wong, Asymptotic approximations of integrals, Academic Press, Boston, 1989; reprinted by SIAM, Philadelphia, PA, 2001. [98] R. Wo"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": "r kernels, Trans. Amer. Math. Soc., 189 (1974), 185-200. [96] R. Wong, Quadrature formulas for oscillatory integral transforms, Numer. Math., 39 (1982), 351-360. [97] R. Wong, Asymptotic approximations of integrals, Academic Press, Boston, 1989; reprinted by SIAM, Philadelphia, PA, 2001. [98] R. Wong, Asymptotics of linear recurrences, Anal. Appl., 12 (2014), 463-484. [99] R. Wong and H. Li, Asymptoti"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": " Numer. Math., 39 (1982), 351-360. [97] R. Wong, Asymptotic approximations of integrals, Academic Press, Boston, 1989; reprinted by SIAM, Philadelphia, PA, 2001. [98] R. Wong, Asymptotics of linear recurrences, Anal. Appl., 12 (2014), 463-484. [99] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions, J. Comput. Appl. Math., 41 (1992), 65-94. [100] R. Wong and H. Li, "
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": "grals, Academic Press, Boston, 1989; reprinted by SIAM, Philadelphia, PA, 2001. [98] R. Wong, Asymptotics of linear recurrences, Anal. Appl., 12 (2014), 463-484. [99] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions, J. Comput. Appl. Math., 41 (1992), 65-94. [100] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions II, Stud. Appl"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": "ppl., 12 (2014), 463-484. [99] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions, J. Comput. Appl. Math., 41 (1992), 65-94. [100] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions II, Stud. Appl. Math., 87 (1992), 289-324. [101] R. Wong and J. P. McClure, Generalized Mellin convolutions and their asymptotic expansions, Canad. J."
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "Wong",
+    "context": "Math., 41 (1992), 65-94. [100] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions II, Stud. Appl. Math., 87 (1992), 289-324. [101] R. Wong and J. P. McClure, Generalized Mellin convolutions and their asymptotic expansions, Canad. J. Math., 36 (1984), 924-960. 45 "
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "\\bLi\\b",
+    "context": "mic Press, Boston, 1989; reprinted by SIAM, Philadelphia, PA, 2001. [98] R. Wong, Asymptotics of linear recurrences, Anal. Appl., 12 (2014), 463-484. [99] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions, J. Comput. Appl. Math., 41 (1992), 65-94. [100] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions II, Stud. Appl. Math., 8"
+   },
+   {
+    "page_index": 44,
+    "printed_guess": 45,
+    "pattern": "\\bLi\\b",
+    "context": "14), 463-484. [99] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions, J. Comput. Appl. Math., 41 (1992), 65-94. [100] R. Wong and H. Li, Asymptotic expansions for second-order linear diﬀerence equa- tions II, Stud. Appl. Math., 87 (1992), 289-324. [101] R. Wong and J. P. McClure, Generalized Mellin convolutions and their asymptotic expansions, Canad. J. Math., 36"
+   },
+   {
+    "page_index": 45,
+    "printed_guess": 46,
+    "pattern": "Wong",
+    "context": "[102] R. Wong and M. Wyman, The method of Darboux, J. Approximation Theory, 10 (1974), 159-171. [103] R. Wong and Y.-Q. Zhao, On a uniform treatment of Darboux’s method, Constr. Approx., 21 (2005), 225-255. [104] R. Wong and Y.-Q. Zhao, Asympt"
+   },
+   {
+    "page_index": 45,
+    "printed_guess": 46,
+    "pattern": "Wong",
+    "context": "[102] R. Wong and M. Wyman, The method of Darboux, J. Approximation Theory, 10 (1974), 159-171. [103] R. Wong and Y.-Q. Zhao, On a uniform treatment of Darboux’s method, Constr. Approx., 21 (2005), 225-255. [104] R. Wong and Y.-Q. Zhao, Asymptotics of orthogonal polynomials via the Riemann- Hilbert approach, Acta Math. Sci. Ser. B, 29 (2"
+   },
+   {
+    "page_index": 45,
+    "printed_guess": 46,
+    "pattern": "Wong",
+    "context": "oux, J. Approximation Theory, 10 (1974), 159-171. [103] R. Wong and Y.-Q. Zhao, On a uniform treatment of Darboux’s method, Constr. Approx., 21 (2005), 225-255. [104] R. Wong and Y.-Q. Zhao, Asymptotics of orthogonal polynomials via the Riemann- Hilbert approach, Acta Math. Sci. Ser. B, 29 (2009), 1005-1034. [105] R. Wong and Y.-Q. Zhao, Special functions, integral equations and a Riemann- Hilbert pro"
+   },
+   {
+    "page_index": 45,
+    "printed_guess": 46,
+    "pattern": "Wong",
+    "context": "), 225-255. [104] R. Wong and Y.-Q. Zhao, Asymptotics of orthogonal polynomials via the Riemann- Hilbert approach, Acta Math. Sci. Ser. B, 29 (2009), 1005-1034. [105] R. Wong and Y.-Q. Zhao, Special functions, integral equations and a Riemann- Hilbert problem, Proc. Amer. Math. Soc., 144 (2016), 4367-4380. [106] S.-X. Xu, D. Dai and Y.-Q. Zhao, Critical edge behavior and the Bessel to Airy transition "
+   }
+  ],
+  "section_headings": [
+   {
+    "page_index": 15,
+    "printed_guess": 16,
+    "heading": "2. One"
+   }
+  ]
+ }
+}

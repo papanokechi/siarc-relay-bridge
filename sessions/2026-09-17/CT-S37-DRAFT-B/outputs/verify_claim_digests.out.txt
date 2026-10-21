@@ -1,0 +1,19 @@
+[cited digests]
+  ok      S37B-01   8a9d7a3ef216decc... -> section3.tex
+  ok      S37B-02   315e2a30d683540b... -> section4.tex
+  ok      S37B-03   8d1c9e74d824b8a4... -> outputs\draft_check.out.txt
+  ok      S37B-04   88abafcde172c1a4... -> outputs\mutants_draft_check.out.txt
+  ok      S37B-05   8d1c9e74d824b8a4... -> outputs\draft_check.out.txt
+  ok      S37B-06   88abafcde172c1a4... -> outputs\mutants_draft_check.out.txt
+  ok      S37B-07   8d1c9e74d824b8a4... -> outputs\draft_check.out.txt
+  ok      S37B-08   524ef2462cab2d38... -> groupB_standalone.pdf
+  ok      S37B-09   8d1c9e74d824b8a4... -> outputs\draft_check.out.txt
+  ok      S37B-10   8d1c9e74d824b8a4... -> outputs\draft_check.out.txt
+  ok      S37B-11   8d1c9e74d824b8a4... -> outputs\draft_check.out.txt
+  ok      S37B-12   8d1c9e74d824b8a4... -> outputs\draft_check.out.txt
+
+[gate output stability]
+  stable   scripts/draft_check.py rc=0, output reproduces the cited bytes
+  stable   scripts/mutants_draft_check.py rc=0, output reproduces the cited bytes
+
+VERDICT: PASS (0 problems)

@@ -1,0 +1,26 @@
+label_census -- epistemic labels actually carried by the corpus
+  root: C:\LocalWork\siarc-relay-bridge\sessions\2026-09-17
+[census]
+  claims.jsonl files : 35
+  claim lines        : 649
+    PROVEN        140
+    VERIFIED      170
+    STRUCTURAL    118
+    INSPECTED     215
+    CONJECTURED     6
+  C1 every claim line carries a label          ok
+  C2 no line carries two label fields          ok
+  C3 every label is one of the five            ok
+  C4 the five partition the corpus             ok
+  C5 INSPECTED is present in the corpus        ok
+  C6 this session's own claims.jsonl exists and is excluded ok
+
+[control -- an injected sixth label must be reported]
+  injected ASSUMED reported as not-in-the-five : CAUGHT
+    <injected>  CONTROL-00 -> ASSUMED
+
+[verdict]
+  INSPECTED 215 of 649 claim lines (33.1%), the most common label
+  checks failed : 0
+  control       : CAUGHT
+  VERDICT: P0's FOUR-LABEL LIST IS STALE; THE CORPUS CARRIES FIVE

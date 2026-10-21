@@ -1,0 +1,35 @@
+==========================================================================
+CT-S56 -- Amendment H sweep, v1.2 before vs revision after
+==========================================================================
+
+    terms parsed : before 8, after 8
+    totals       : before 57, after 65   (net +8)
+
+    [PASS] per-term counts sum to the reported totals in both files
+
+[1] PER-TERM
+
+    term                        before   after   delta
+    D_5                              6       6      +0
+    Painlev near transcendent        6       7      +1   <-
+    Sakai                           14      14      +0
+    apparent                         9      14      +5   <-
+    completes                        2       1      -1   <-
+    independent                     15      20      +5   <-
+    structural argument              3       3      +0
+    twice                            2       0      -2   <-
+
+[2] THE TWO TERMS THAT WERE MEANT TO FALL
+    [as intended] completes: 2 -> 1
+    [as intended] twice: 2 -> 0
+
+[3] THE TWO TERMS THAT ROSE, AND WHY THAT IS NOT A DEFECT
+    independent: 15 -> 20  (+5)
+    apparent: 9 -> 14  (+5)
+    Items 3, 4 and 5 replace assertions of independence and apparency
+    with discussion of why neither holds. Prose that explains a
+    correction necessarily uses the word it is correcting, so the
+    count rising is expected. Every remaining hit was read by hand;
+    the count alone decides nothing.
+
+==========================================================================

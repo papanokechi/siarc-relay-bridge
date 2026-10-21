@@ -1,0 +1,44 @@
+==========================================================================
+CT-S52 PART B step 1 -- which source rebuilds to the submitted PDF?
+==========================================================================
+
+submitted artefact (the file published in Zenodo record 20719043):
+  local path : sessions\2026-06-16\VQUAD-PAPER-LAYOUTFIX-001\latex\vquad-periodrep-paper.pdf
+  size       : 773171  (record says 773171: MATCH)
+  md5        : 99faea5b0f4095788e4ee932436beeda  (record says 99faea5b0f4095788e4ee932436beeda: MATCH)
+  sha256     : 33f339edd17c5405bfd24a85ba1a5df65aeeb836e25fb525d778599aa7ba3eea
+
+candidate .tex files found by name (name is evidence of nothing; each
+is rebuilt below): 6
+  submitted PDF text layer: 65373 chars, 1546 lines
+  sessions\2026-06-15\VQUAD-PERIODREP-PAPER-001\latex\vquad-periodrep-paper.tex
+      tex sha256 bd59d7448022c8c3  size 82159
+      rebuild: 23 pages, text layer DIFFERS from the submitted PDF
+      differing lines: 1526 of 1546
+  sessions\2026-06-16\VQUAD-PAPER-CORRECTIONS-001\latex\vquad-periodrep-paper.tex
+      tex sha256 c97f1af78057a76b  size 87354
+      rebuild: 24 pages, text layer DIFFERS from the submitted PDF
+      differing lines: 1314 of 1546
+  sessions\2026-06-16\VQUAD-PAPER-LAYOUTFIX-001\latex\vquad-periodrep-paper.tex
+      tex sha256 d8906249e8d0eaff  size 87778
+      rebuild: 24 pages, text layer MATCHES the submitted PDF
+  sessions\2026-06-16\VQUAD-REPRO-BUNDLE-001\vquad-periodrep-bundle\paper\vquad-periodrep-paper.tex
+      tex sha256 bd59d7448022c8c3  size 82159
+      rebuild: 23 pages, text layer DIFFERS from the submitted PDF
+      differing lines: 1526 of 1546
+  sessions\2026-06-16\VQUAD-REPRO-BUNDLE-002\run-2\vquad-periodrep-bundle\paper\vquad-periodrep-paper.tex
+      tex sha256 d8906249e8d0eaff  size 87778
+      rebuild: 24 pages, text layer MATCHES the submitted PDF
+  sessions\2026-06-16\VQUAD-REPRO-BUNDLE-002\vquad-periodrep-bundle\paper\vquad-periodrep-paper.tex
+      tex sha256 c97f1af78057a76b  size 87354
+      rebuild: 24 pages, text layer DIFFERS from the submitted PDF
+      differing lines: 1314 of 1546
+
+RESULT
+  2 of 6 candidates rebuild to the submitted text layer
+    MATCH  sessions\2026-06-16\VQUAD-PAPER-LAYOUTFIX-001\latex\vquad-periodrep-paper.tex  (24 pages, tex sha256 d8906249e8d0eaff)
+    MATCH  sessions\2026-06-16\VQUAD-REPRO-BUNDLE-002\run-2\vquad-periodrep-bundle\paper\vquad-periodrep-paper.tex  (24 pages, tex sha256 d8906249e8d0eaff)
+  The matching files are byte-identical to one another (single sha256
+  d8906249e8d0eaff), so the source is unique up to copies.
+  SOURCE OF RECORD: sessions\2026-06-16\VQUAD-PAPER-LAYOUTFIX-001\latex\vquad-periodrep-paper.tex
+==========================================================================

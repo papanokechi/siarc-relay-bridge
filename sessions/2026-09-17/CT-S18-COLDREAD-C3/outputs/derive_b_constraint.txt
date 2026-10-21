@@ -1,0 +1,5 @@
+printed_residual= -(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+corrected_residual= 0
+printed_minus_corrected_b= z*(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+residual_U= -(-U + t)*(q - 1)*(U*q**2 - U*q + 4*p + q**2*t - q*t)/4
+U_solution= [{U: t}]

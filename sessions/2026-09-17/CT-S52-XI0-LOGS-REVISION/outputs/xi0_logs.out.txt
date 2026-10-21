@@ -1,0 +1,124 @@
+==========================================================================
+CT-S52 PART A -- logarithms at xi = 0 for L_V (exact over Q(sqrt3))
+==========================================================================
+
+[A0] transcription of L_V from the manuscript source
+  source: sessions/2026-06-16/VQUAD-PAPER-LAYOUTFIX-001/latex/vquad-periodrep-paper.tex
+  sha256: d8906249e8d0eaff681da0f21d6996e6ac824f60550be1d12a21857ae2f6a906
+  12 coefficient entries compared, parser vs independent hand table: AGREE
+    p_0 = (1 + 0*sqrt3)xi^0
+    p_1 = (659/431 + 150/431*sqrt3)xi^0  (432/431 + 12/431*sqrt3)xi^1
+    p_2 = (2552175/418501 + 199224/418501*sqrt3)xi^0  (496044/418501 + 61620/418501*sqrt3)xi^1  (70092/418501 + 3240/418501*sqrt3)xi^2
+    p_3 = (77760/418501 + 560736/418501*sqrt3)xi^0  (1685448/418501 + 101124/418501*sqrt3)xi^1  (70092/418501 + 3240/418501*sqrt3)xi^2
+    p_4 = (19440/418501 + 140184/418501*sqrt3)xi^1  (210276/418501 + 9720/418501*sqrt3)xi^2
+
+[A1] residual  L_V B-hat  through xi^129, exact in Q(sqrt3)
+  N = 0..129, 130 orders tested
+  nonzero residuals: 0
+  res(xi^N) = 0 exactly for every N in 0..129   [reproduces the manuscript's own Appendix A.1 claim]
+
+[A2] indicial polynomial at xi = 0 and its exact roots
+  L = max(k - i) = 3, so the lowest power is xi^(s-3)
+  I(s) = (38880/418501 + 280368/418501*sqrt3)s^1 + (-19440/418501 - 140184/418501*sqrt3)s^2 + (-38880/418501 - 280368/418501*sqrt3)s^3 + (19440/418501 + 140184/418501*sqrt3)s^4
+  exact integer roots: [-1, 0, 1, 2]   (degree remaining after division: 0)
+  exponents at xi = 0: {-1, 0, 1, 2}  -- consecutive integers, so every
+  step n = 1, 2, 3 from the lowest exponent is RESONANT and a logarithm
+  is possible at each. That is what A3 decides.
+
+[A3] Frobenius basis at xi = 0  [OBSERVABLE]
+  Route 1: recursion from each exponent, obstructions carried as exact
+  linear forms in the free parameters. At a resonant step the
+  obstruction is a CONSTRAINT: violate it and a logarithm is forced.
+
+  from exponent s = -1:
+      n=0  seed       c_0 free (exponent -1)
+      n=1  constraint exponent 0: obstruction 38286/418501 + 24984/418501*sqrt3 must vanish
+      n=2  constraint exponent 1: obstruction -68353/418501 - 41850/418501*sqrt3 , 0 + 0*sqrt3 must vanish
+      n=3  constraint exponent 2: obstruction 323/971 - 12/971*sqrt3 , 0 + 0*sqrt3 , 0 + 0*sqrt3 must vanish
+      free parameters 4, independent constraints 1, log-free dimension 3
+      log-free solution with leading exponent exactly -1: NO -- logarithm forced
+
+  from exponent s = 0:
+      n=0  seed       c_0 free (exponent 0)
+      n=1  consistent exponent 1: obstruction vanishes identically
+      n=2  consistent exponent 2: obstruction vanishes identically
+      free parameters 3, independent constraints 0, log-free dimension 3
+      log-free solution with leading exponent exactly 0: YES
+
+  from exponent s = 1:
+      n=0  seed       c_0 free (exponent 1)
+      n=1  consistent exponent 2: obstruction vanishes identically
+      free parameters 2, independent constraints 0, log-free dimension 2
+      log-free solution with leading exponent exactly 1: YES
+
+  from exponent s = 2:
+      n=0  seed       c_0 free (exponent 2)
+      free parameters 1, independent constraints 0, log-free dimension 1
+      log-free solution with leading exponent exactly 2: YES
+
+  Route 2: independent check by exact Gaussian elimination on the
+  truncated Laurent ansatz y = sum_{m=-1}^{M} c_m xi^m. Shares no code
+  with Route 1: no indicial polynomial, no notion of resonance.
+      M=16  nullspace dimension 3, leading exponents [0, 0, 0]
+      M=24  nullspace dimension 3, leading exponents [0, 0, 0]
+  Route 1 log-free dimension from the lowest exponent: 3
+  Route 2 log-free dimension: 3
+
+  Route 3 (positive): does a logarithmic solution actually exist?
+  Ansatz y = sum u_m xi^m + log(xi) sum v_m xi^m, solved exactly. A
+  nullspace vector with v != 0 IS a logarithmic solution; this is
+  presence, not the absence of a power solution.
+      total local solution dimension found: 4
+      of which carry a nonzero log part: 1
+      lowest power appearing in the log solution's u-part: xi^-1
+      exhibited solution, normalised to u_-1 = 1:
+        u: u_-1 = 1 + 0*sqrt3 ; u_0 = -12082972078491468155369293726525800135270897668404132135526558282725343058803320222986769554807818428522607030899403560073/55735245283722465714882874272837139047676918589492803870786200835436715798438749690642144022744932674437120 + 10691156172856611271727337842032479484789754373618534048581639280448318613061016455588265316502482324878720724316864381229/139338113209306164287207185682092847619192296473732009676965502088591789496096874226605360056862331686092800*sqrt3 ; u_1 = 7890056245556144911393810566540899272064415791928519371992248052946002443306584312834535262109093107928493261537339293/230921632763185555663253539413478368609864594752621825782176834750732166881168170743462645105837473792000 - 13225573515190126873201028656773832097905797531165313669199288016909449216706966038258441815722642668311975692411844781/808225714671149444821387387947174290134526081634176390237618921627562584084088597602119257870431158272000*sqrt3
+        v: v_0 = -1/12 - 1/24*sqrt3 ; v_1 = -73/1152 - 17/648*sqrt3
+      (v is a nonzero multiple of B-hat, so the fourth local
+       solution is  xi^-1(1 + ...) + c*log(xi)*B-hat-like series)
+
+  PART A VERDICT (observable, before controls): LOGARITHMS FOUND
+  per-exponent report:
+    exponent -1 : recursion INCONSISTENT -- LOGARITHM FORCED (first obstruction at n=1, exponent 0)
+    exponent  0 : recursion CONSISTENT at every resonant step reachable from it; log-free solution exists
+    exponent  1 : recursion CONSISTENT at every resonant step reachable from it; log-free solution exists
+    exponent  2 : recursion CONSISTENT at every resonant step reachable from it; log-free solution exists
+  a log-free local basis has dimension 3 of the 4 required
+  => xi = 0 is NOT an apparent singularity of L_V: the four
+     exponents are consecutive integers, but the recursion is
+     obstructed, and the local solution space needs 1 logarithmic
+     solution(s). B-hat itself is the holomorphic exponent-0
+     solution and is unaffected (A1 above).
+
+[C] controls -- same routine, no special-casing
+  C-LOG   exponents [0, 2] ; known basis {xi^2, 1 + xi^2 log xi}
+            n=0  seed       c_0 free (exponent 0)
+            n=2  constraint exponent 2: obstruction 4 + 0*sqrt3 must vanish
+            route 1: log-free solution at exponent 0: NO
+            route 2: log-free dimension 1, leading exponents [2]
+            route 3: solutions carrying a log: 1 (expected >= 1)
+          -> FIRED (the logarithm at exponent 0 is detected, and only xi^2 survives)
+  C-NOLOG exponents [-1, 0] ; known basis {1/xi, -log(1-xi)/xi}, both log-free
+            n=0  seed       c_0 free (exponent -1)
+            n=1  consistent exponent 0: obstruction vanishes identically
+            route 1: log-free solution at exponent -1: YES
+            route 2: log-free dimension 2, leading exponents [-1, 0]
+            route 3: solutions carrying a log: 0 (expected 0)
+          -> FIRED (a consistent resonance is NOT reported as a logarithm)
+  controls: 2/2 FIRED
+
+[V] vacuity pre-check for the residual A1
+  p_2 constant term perturbed by +1/418501; nonzero residuals in N=0..20: 21
+  -> FIRED (A1 can see a wrong operator)
+
+==========================================================================
+PART A SUMMARY
+  transcription  : 12 entries, parser == hand table
+  residual       : 0 exactly for xi^0 .. xi^129 (exact Q(sqrt3))
+  exponents      : {-1, 0, 1, 2}, exact integer roots of I(s)
+  verdict        : LOGARITHMS FOUND
+  two routes     : AGREE (Route 1 dim 3, Route 2 dim 3)
+  arithmetic     : exact throughout; no floating point in any verdict
+  controls       : C-LOG FIRED, C-NOLOG FIRED, vacuity FIRED
+  VERDICT STATUS : STANDS
+==========================================================================

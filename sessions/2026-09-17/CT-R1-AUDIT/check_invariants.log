@@ -1,0 +1,12 @@
+corpus: 259 claims in 17 files
+
+ok   1(b): all 259 claim_ids unique
+ok   1(a): no PROVEN claim rests on file_inspection
+ok   2: every claim carries exactly one recognised label
+ok   3: every reviewed claim carries a review_note
+ok   4: every review value is one of self|cold|lean
+
+labels: CONJECTURED=3  INSPECTED=97  PROVEN=82  STRUCTURAL=51  VERIFIED=26
+review: (none)=166  cold=25  self=68
+
+INVARIANTS OK

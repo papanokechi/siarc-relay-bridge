@@ -1,0 +1,56 @@
+==============================================================================
+CT-S22 STAGE 1 (2nd run) - Kummer known-answer control, trace-free gauge
+dps = 150   R = 110.0   truncation N = 110   error ~ e^-110 = 1.6889e-48
+falsifier: below 35 significant digits
+==============================================================================
+
+--- parameter value 1:  a = 0.33333333333333333333   b = 0.71428571428571428571
+  Lam = diag(-0.5, 0.5)   L = diag(0.0238095238095, -0.0238095238095)   expected diag(b/2-a, a-b/2) = diag(0.0238095238095, -0.0238095238095)
+    [PASS] A2  L = diag(b/2-a, a-b/2) [closed form]: 151.78 digits (need 130), residual 1.6707e-152
+    [info] A1 C-0 formal residual 1.6022e-49 vs truncation error 1.6889e-48
+    [PASS] A1  C-0 formal residual at or below the truncation error: 1.0229 digits (need 0), residual 1.6022e-49
+    [PASS] A3a U'(a,b,z) = -a U(a+1,b+1,z) [mpmath]: 50.79 digits (need 30), residual 1.6214e-51
+    [PASS] A3b recessive column vs mpmath U, ray +pi/2: 40.529 digits (need 35), residual 2.9608e-41
+    [PASS] A3c recessive column vs mpmath U, ray -pi/2 (crosses arg z = 0): 46.709 digits (need 35), residual 1.9526e-47
+    [PASS] A4a tr M0 = 2 cos(pi b) [closed form]: 145.08 digits (need 35), residual 8.2835e-146
+    [PASS] A4b det M0 = 1 [trace-free gauge]: 146.08 digits (need 35), residual 8.2389e-147
+    [PASS] A5  M0 * M_inf(cw) = I: 99.064 digits (need 35), residual 8.6366e-100
+    [info] S_pi is lower triangular, S_2pi is upper triangular, opposite = True
+    [PASS] A6a S_pi unipotent (diag = 1): 48.834 digits (need 35), residual 1.467e-49
+    [PASS] A6b S_pi triangular (one off-diagonal = 0): 48.999 digits (need 35), residual 1.0028e-49
+    [PASS] A6c S_2pi unipotent (diag = 1): 48.833 digits (need 35), residual 1.4681e-49
+    [PASS] A6d S_2pi triangular (one off-diagonal = 0): 48.846 digits (need 35), residual 1.4252e-49
+    [PASS] A6e M_inf,ccw = e^{2 pi i L} S_2pi S_pi: 98.95 digits (need 35), residual 1.123e-99
+    [PASS] A6f alpha = e^{i pi b - 2 pi i a} [closed form]: 151.24 digits (need 35), residual 5.728e-152
+    [FAIL] A7  f1 f2 = alpha(2 cos(pi b) - alpha) - 1 [closed form]: 0.017179 digits (need 35), residual 0.96122
+    [PASS] C-7 step halving (h_factor 4 vs 8): 145.28 digits (need 35), residual 5.2472e-146
+    f1 = (-0.341628128662157355261628222118 + 2.26655453780766178080288766936j)
+    f2 = (0.414666228985028625995025614217 + 1.34431489688997778336962370307j)
+
+--- parameter value 2:  a = (0.4 + 0.3j)   b = (1.1 - 0.2j)
+  Lam = diag(-0.5, 0.5)   L = diag((0.15 - 0.4j), (-0.15 + 0.4j))   expected diag(b/2-a, a-b/2) = diag((0.15 - 0.4j), (-0.15 + 0.4j))
+    [PASS] A2  L = diag(b/2-a, a-b/2) [closed form]: 151.37 digits (need 130), residual 4.2694e-152
+    [info] A1 C-0 formal residual 1.3503e-48 vs truncation error 1.6889e-48
+    [PASS] A1  C-0 formal residual at or below the truncation error: 0.09718 digits (need 0), residual 1.3503e-48
+    [PASS] A3a U'(a,b,z) = -a U(a+1,b+1,z) [mpmath]: 51.016 digits (need 30), residual 9.6398e-52
+    [PASS] A3b recessive column vs mpmath U, ray +pi/2: 40.971 digits (need 35), residual 1.0689e-41
+    [PASS] A3c recessive column vs mpmath U, ray -pi/2 (crosses arg z = 0): 46.089 digits (need 35), residual 8.1508e-47
+    [PASS] A4a tr M0 = 2 cos(pi b) [closed form]: 145.62 digits (need 35), residual 2.4211e-146
+    [PASS] A4b det M0 = 1 [trace-free gauge]: 145.59 digits (need 35), residual 2.5796e-146
+    [PASS] A5  M0 * M_inf(cw) = I: 99.845 digits (need 35), residual 1.4297e-100
+    [info] S_pi is lower triangular, S_2pi is upper triangular, opposite = True
+    [PASS] A6a S_pi unipotent (diag = 1): 47.648 digits (need 35), residual 2.2496e-48
+    [PASS] A6b S_pi triangular (one off-diagonal = 0): 49.303 digits (need 35), residual 4.9758e-50
+    [PASS] A6c S_2pi unipotent (diag = 1): 47.651 digits (need 35), residual 2.2353e-48
+    [PASS] A6d S_2pi triangular (one off-diagonal = 0): 46.052 digits (need 35), residual 8.874e-47
+    [PASS] A6e M_inf,ccw = e^{2 pi i L} S_2pi S_pi: 99.169 digits (need 35), residual 6.7784e-100
+    [PASS] A6f alpha = e^{i pi b - 2 pi i a} [closed form]: 150.21 digits (need 35), residual 6.1099e-151
+    [FAIL] A7  f1 f2 = alpha(2 cos(pi b) - alpha) - 1 [closed form]: -2.2417 digits (need 35), residual 174.46
+    [PASS] C-7 step halving (h_factor 4 vs 8): 145.44 digits (need 35), residual 3.6685e-146
+    f1 = (-20.9442171135701258169023543143 - 43.3678275525719203047278238773j)
+    f2 = (0.007687556225871707422672036045 - 0.0224395409518555223248962203531j)
+
+==============================================================================
+STAGE 1 FALSIFIER FIRED - the session does NOT proceed to Stage 2
+    A7  f1 f2 = alpha(2 cos(pi b) - alpha) - 1 [closed form]: only 0.017179 digits
+    A7  f1 f2 = alpha(2 cos(pi b) - alpha) - 1 [closed form]: only -2.2417 digits

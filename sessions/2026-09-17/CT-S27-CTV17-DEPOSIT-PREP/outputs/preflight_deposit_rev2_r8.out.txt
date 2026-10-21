@@ -1,0 +1,74 @@
+============================================================================
+preflight_deposit_rev2.py -- description-only shape, as ruled
+  A GATE.  Any FAIL blocks the deposit.  No thresholds.
+============================================================================
+
+SECTION 0 -- READER INTEGRITY
+----------------------------------------------------------------------------
+  [PASS] form read: 31 keys, sentinels present, no CR
+  [PASS] description read
+artefact : DESCRIPTION-v1.7-rev2.html   (nothing is uploaded)
+sha256   : 026e7a9ebef7393564e408f7733adc7d3b7e6afe79b12092345b9af38c09b7ac   (from disk, after the last edit)
+chars    : 54068
+
+SECTION 1 -- THE GATE
+----------------------------------------------------------------------------
+  [PASS] S1 upload/ is empty, no file is published -- upload/ is empty and the form forbids a new file
+  [PASS] S2 description hash matches the file on disk -- description and source-notice hashes both match the files on disk
+  [PASS] S3 description is the verified revision -- description is the revision that passed 16/16 with 3/3 reader controls
+  [PASS] S4 carried file described from the record, not re-staged -- carried file described from the record (channel_theory_outline.pdf, 609300 bytes, md5 aa56a94a) and not re-staged
+  [PASS] S5 shape is the ruled description-only -- shape is the ruled DESCRIPTION-ONLY, with the blocker still recorded
+  [PASS] C1 title does not drift from the record -- title matches the deposited v1.6 title exactly
+  [PASS] C2 version is 1.7 over a record at 1.6 -- record at 1.6, form at 1.7, declared as a deliberate change
+  [PASS] C3 creator and affiliation do not drift -- creator name and affiliation match the record exactly
+  [PASS] C4 licence and keyword count do not drift -- licence cc-by-4.0 and 27 keywords, both unchanged from the record
+  [PASS] C5 concept DOI read from the conceptdoi field -- concept DOI read from the conceptdoi field, distinct from the version DOI
+  [PASS] D2 the rebuild blocker still holds against the tree -- 9 Channel Theory sources in the tree, newest v1.3.1; no v1.4-v1.6 source, so the outline cannot be rebuilt at v1.7
+
+SECTION 2 -- CAN-FAIL CONTROLS (mutate the ARTEFACT, not the prose)
+----------------------------------------------------------------------------
+  [PASS] S1 upload/ is empty, no file is published -- 2 mutant(s) rejected
+  [PASS] S2 description hash matches the file on disk -- 3 mutant(s) rejected
+  [PASS] S3 description is the verified revision -- 1 mutant(s) rejected
+  [PASS] S4 carried file described from the record, not re-staged -- 3 mutant(s) rejected
+  [PASS] S5 shape is the ruled description-only -- 2 mutant(s) rejected
+  [PASS] C1 title does not drift from the record -- 2 mutant(s) rejected
+  [PASS] C2 version is 1.7 over a record at 1.6 -- 2 mutant(s) rejected
+  [PASS] C3 creator and affiliation do not drift -- 1 mutant(s) rejected
+  [PASS] C4 licence and keyword count do not drift -- 2 mutant(s) rejected
+  [PASS] C5 concept DOI read from the conceptdoi field -- 2 mutant(s) rejected
+  [n/a ] D2 the rebuild blocker still holds against the tree -- reads the tree; controlled in SECTION 2b
+
+SECTION 2b -- FILESYSTEM CONTROL for S1
+----------------------------------------------------------------------------
+  S1 reads the directory, so a form mutant cannot reach its second
+  clause.  A file is created in upload/, S1 must reject, and it is
+  removed in a finally block.
+  [PASS] S1 rejects a non-empty upload/ -- upload/ is not empty (['_s1_control.tmp']) -- under a description-only version nothing is uploaded, and a file sitting in the staging directory is the only way to publish one by accident
+  [PASS] control cleaned up; upload/ is empty again
+
+SECTION 2c -- TREE CONTROL for D2
+----------------------------------------------------------------------------
+  [PASS] D2's pattern recognises a v1.5 source when one is present
+
+SECTION 3 -- READER CONTROLS (mutate the INPUT PATH)
+----------------------------------------------------------------------------
+  [PASS] binary read, CRLF not normalised -- caught: CR present: line endings were not normalised
+  [PASS] wrong codec (latin-1) -- caught: sentinel 'ξ₀ = 2/√β₂' absent: the read is suspect
+  [PASS] silently truncated read -- caught: sentinel 'ξ₀ = 2/√β₂' absent: the read is suspect
+
+============================================================================
+checks run     : 11
+checks failed  : 0
+broken checks  : 0
+reader controls: 3 of 3 caught
+
+GATE: PASSED
+
+DEPOSIT READY: YES, for a description-only new version, subject to
+  the six by-eye checks in DEPOSIT-FORM.md section 4 and the
+  walkthrough's stop points.  The gate certifies the packet; it
+  cannot see the browser, so the carried-over file and the pasted
+  description must be confirmed in the dialog before publishing.
+  PUBLISHING REMAINS OPERATOR-GATED AND IS IRREVERSIBLE.
+============================================================================

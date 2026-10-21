@@ -1,0 +1,40 @@
+check_s1_repairs -- the three authorised section-1 repairs
+  section1.tex                    14325 B
+  refs/section1-symbols-only.tex  13380 B
+
+[non-vacuity: the repair is a real change]
+  the snapshot still carries the false claim           ok
+  the current file does not                            ok
+  the repair added text                                ok
+
+[checks]
+  R1 the false rho exclusivity claim is gone           ok
+  R2 rho's two meanings are stated, with the subscript rule ok
+  R3 Q is separated from the denominators Q_n          ok
+  R4 s is separated from s_pm                          ok
+  R5 every \ref target has a \label in this file       ok
+  R6 the re-lettering survived the repair              ok
+  R7 the deposit footnote still names the deposited symbols ok
+  R8 theorem.tex: the roots are nu_1..nu_d, not psi    ok
+  R9 theorem.tex: exactly 1 nu_1 and 1 nu_d (the root sentence) ok
+  R10 theorem.tex: the 5 sequence sites became psi_1   ok
+  R11 theorem.tex: no r_1 or r_d survives              ok
+  R12 non-vacuity: the old file really did overload r_1 ok
+
+[arms -- each mutation must be REJECTED, by the named check]
+  A1 the false claim restored                    CAUGHT  (fired: R1)
+  A2 the Q paragraph deleted                     CAUGHT  (fired: R3)
+  A3 the s paragraph deleted                     CAUGHT  (fired: R4)
+  A4 a dangling reference introduced             CAUGHT  (fired: R5)
+  A5 the rename undone                           CAUGHT  (fired: R6)
+
+[arms -- theorem.tex's r_1 ambiguity]
+  A6 both roles collapsed onto psi_1             CAUGHT  (fired: R10, R8, R9)
+  A7 one sequence site left un-renamed           CAUGHT  (fired: R10, R11)
+  A8 both roles collapsed onto nu_1              CAUGHT  (fired: R10, R9)
+
+[verdict]
+  checks run    : 12
+  checks failed : 0
+  arms CAUGHT   : 8/8
+  VERDICT: SECTION-1 REPAIRS VERIFIED

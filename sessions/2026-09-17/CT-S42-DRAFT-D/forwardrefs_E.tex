@@ -1,0 +1,19 @@
+% =====================================================================
+%  forwardrefs_E.tex -- BUILD STUB, combined sections 0-8.
+%
+%  RULE (CT-S40 R2, from the sec:local defect): a stub may declare ONLY
+%  labels for sections that DO NOT EXIST.  A stub that declares a label
+%  for a section which exists manufactures a target nobody defines, and
+%  both the build and the "0 undefined references" check read clean.
+%
+%  Group D has landed: sections 7 and 8 now EXIST and define
+%  sec:monodromy and sec:leaf themselves.  Those two entries are
+%  therefore GONE from this stub.  Only Group E's two remain.
+% =====================================================================
+\makeatletter
+\expandafter\gdef\csname r@sec:limits\endcsname{{9}{1}{}{section.9}{}}
+\expandafter\gdef\csname r@sec:open\endcsname{{10}{1}{}{section.10}{}}
+% The methods appendix does not exist either: section 7 defers S22-04 and
+% S22-05 to it, and Group E owes it.
+\expandafter\gdef\csname r@app:methods\endcsname{{A}{1}{}{appendix.A}{}}
+\makeatother

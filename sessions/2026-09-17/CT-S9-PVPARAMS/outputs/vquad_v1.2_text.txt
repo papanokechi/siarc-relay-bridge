@@ -1,0 +1,710 @@
+     A non-classical Painlevé V transcendent from a quadratic
+     polynomial continued fraction: surface classification and
+                       resurgent Stokes data
+                                              papanokechi∗
+
+                                              June 1, 2026
+
+
+
+                                                Abstract
+          We study the resurgence and isomonodromic structure of a constant Vquad ≈ 1.19737 . . .
+      arising as the limit of a quadratic polynomial continued fraction (PCF). The convergent
+      denominators satisfy a Wallis-type recurrence whose continuum limit yields an exact second-
+      order ODE of the form a(x)y ′′ + a′ (x)y ′ + c(x)y = 0, with a(x) = 3x2 + x + 1 and c(x) = −x2 .
+      This exact-ODE structure forces both finite singularities to be apparent and explains, via
+      monodromy, the failure of CM-period and hypergeometric identification strategies. The CM
+      discriminant disc(a) = 1 − 12 = −11 that appears throughout the analysis is the discrim-
+      inant of the Wallis characteristic polynomial, not a deep CM structure; this explains why
+      exhaustive PSLQ searches against CM period bases at discriminant −11 return null by a
+      structural argument independent of precision.
+          The isomonodromic deformation of the underlying connection is governed by the fifth
+      Painlevé equation with parameters α = 1/6, β = γ = 0, δ = −1/2 (δ ̸= 0); we iden-
+                                                                                  (1)
+      tify, conjecturally, its space of initial conditions as the Sakai surface D5 with affine Weyl
+                       (1)
+      symmetry W (A3 ). Since δ ̸= 0 the equation does not reduce to Painlevé III, and the con-
+      stant is expected to be a generic, non-classical PV transcendent. The formal asymptotic
+                      √ is Gevrey-1 divergent; its Borel transform has a branch-point
+      series at infinity                                                            √        singular-
+      ity at ξ0 = 2/ 3 (the Stokes gap) with branch exponent βexp = −1/(3 3), confirmed to
+      eight significant figures by Domb–Sykes analysis and Richardson3 extrapolation. The Stokes
+      constant is fixed by an explicit convention (S is the real Stokes multiplier of the Dingle
+      normalization, S = |SJimbo |, the Jimbo connection formula being purely imaginary) and is
+      extracted to 55 reliable digits, S = 0.4579066231690176 . . . (= 2πK), as the consensus of
+      two independent methods—Dingle–Neville extrapolation and an independent Berry–Howls
+      optimal-truncation resummation built from the dominant solution. This is a VERIFIED-
+      numerical value, with no rigorous error bound claimed. Integer-relation (PSLQ) searches at
+      300-digit precision exclude S from the standard closed-form families:√it is√not algebraic of
+      degree ≤ 8 (height ≤ 1025 ) and admits no relation over {π, log 2, log 3, 3, 11, G, ζ(3)}, the
+      discriminant-(−11) Chowla–Selberg Γ-product, or Γ-value bases—consistent with S being a
+      generic, non-classical PV transcendent. Its closed-form identification requires the connection
+      parameter σconn (a back-derived,
+                             √            non-independent quantity), transcendental in the accessory
+      parameter q = (5 + i 11)/54.
+          The structure b(x) = a′ (x) identified here is a general feature of PCF-derived ODEs:
+      for any polynomial continued fraction, the Wallis recurrence produces an exact ODE whose
+      apparent singularity positions are the roots of the Wallis characteristic polynomial and whose
+      CM discriminant is disc(a).
+      AI assistance disclosure. Vquad was discovered and characterized through the SIARC (Self-
+      Iterating Analytic Relay Chain) multi-model AI relay pipeline. Manuscript preparation
+      involved Claude (claude-opus-4-8, Anthropic) and GitHub Copilot (Microsoft). All math-
+      ematical claims were independently verified by the author.
+∗
+    ORCID: 0009-0000-6192-8273
+
+
+
+                                                     1
+2020 Mathematics Subject Classification: 34M55, 34M56, 34E05, 11J70, 33E30.
+Keywords: polynomial continued fractions, resurgence, Stokes constant, apparent singularity,
+                                                    (1)
+confluent Heun equation, Painlevé V, Sakai surface D5 , Borel summation, arithmetic identifi-
+cation.
+
+
+1     Introduction
+A polynomial continued fraction (PCF) of degree d is an expression
+                                  a(n)
+                  K = b(0) + K         ,       a(n), b(n) ∈ Z[n],    deg a, deg b ≤ d.
+                              n≥1 b(n)
+
+These objects have a distinguished history: the Gauss continued fraction expresses 2 F1 ratios [6],
+and Apéry’s proof of the irrationality of ζ(3) [1] exploits the PCF with a(n) = −n6 and b(n) =
+34n3 + 51n2 + 27n + 5. Recent systematic searches, notably the Ramanujan Machine project [8],
+have generated new conjectural PCF identities for known constants.
+   This paper studies the PCF with constant partial numerators a(n) = 1 and quadratic partial
+denominators b(n) = 3n2 + n + 1:
+                                           1
+                   Vquad = 1 + K                   = 1.19737399068835760244 . . .                 (1)
+                                n≥1 3n2 + n + 1
+
+We proved in [9] that Vquad is irrational with irrationality measure µ(Vquad ) = 2, and that it is not
+a rational linear combination of values from 16 special-function families at 2 050-digit precision.
+The present paper explains why these identification searches fail via a structural analysis of the
+governing differential equation.
+
+1.1    Main results
+Conceptually, the paper has two intertwined themes: (i) a structural mechanism that forces
+apparent singularities and obstructs CM and hypergeometric identification, and (ii) a detailed
+                                                  (1)
+resurgent analysis of the associated Painlevé V (D5 ) connection problem.
+
+    1. (Exact ODE structure, §2) The convergent denominators satisfy a three-term recur-
+       rence whose continuum limit produces the ODE
+
+                                     a(x) y ′′ + a′ (x) y ′ + c(x) y = 0,                         (2)
+
+       where a(x) = 3x2 + x + 1 and c(x) = −x2 . The identity b(x) ≡ a′ (x) is the structural key.
+                                                                                           √
+    2. (Apparent singularity exclusion, §3) Both finite singularities s1,2 = (−1 ± i 11)/6
+       are apparent: indicial exponents {0, 0}, trivial monodromy. This rules out identification of
+       Vquad via CM periods or classical hypergeometric special values (Theorem 3.1).
+    3. (Painlevé classification, §4) The isomonodromic deformation is governed by the fifth
+       Painlevé equation with parameters (α, β, γ, δ) = (1/6, 0, 0, −1/2); we identify its space of
+                                                                   (1)                (1)
+       initial conditions, conjecturally, as the Sakai surface D5 (symmetry W (A3 ); Conjec-
+       ture 4.1). Since δ ̸= 0 it does not reduce to Painlevé III.
+    4. (Resurgence analysis, §5) The formal asymptotic series√ at ∞ is Gevrey-1 divergent. Its
+                                     √ singularity at ξ0 = 2/ 3 (the Stokes gap σ+ −σ− ) with
+       Borel transform has a branch-point
+       branch exponent βexp = −1/(3 3), confirmed to eight significant figures (Theorem 5.1).
+    5. (Stokes constant, §6) In the fixed Dingle convention (S = |SJimbo |), the Stokes constant
+       is extracted to 55 reliable digits, S = 0.4579066231690176 . . . (= 2πK), as the consensus
+       of two independent methods (VERIFIED-numerical; no rigorous error bound).
+
+                                                   2
+    6. (Closed-form exclusion, §6.1) PSLQ at 300-digit precision excludes S from the standard
+       algebraic, CM, and Γ-value families. The obstruction is the choice of basis (σconn via the
+       Gamayun–Iorgov–Lisovyy τ -function at discriminant −11), not numerical precision.
+
+
+2     The constant Vquad
+2.1     Definition and convergence
+The convergent denominators Qn of the PCF (1) satisfy the three-term recurrence
+
+                    Qn+1 = (3n2 + n + 1) Qn + Qn−1 ,           Q−1 = 0, Q0 = 1.               (3)
+
+Since b(n) = 3n2 + n + 1 ≥ 5 for n ≥ 1, the Śleszyński–Pringsheim theorem guarantees conver-
+gence. The Wronskian identity Pn Qn−1 − Pn−1 Qn = (−1)n+1 yields the irrationality of Vquad
+with optimal irrationality measure µ(Vquad ) = 2.
+
+2.2     The governing ODE
+Formal continuum passage from (3). Let Q(x) be a smooth interpolant of the convergent
+denominator sequence, so that Q(n) = Qn , and Taylor-expand about x = n:
+
+                       Qn±1 = Q(x) ± Q′ (x) + 12 Q′′ (x) + O Q′′′ (x) .
+                                                                     
+                                                                                  (4)
+
+Substituting into the recurrence (3), and writing a(x) := 3x2 + x + 1 for the polynomial that
+interpolates the recurrence coefficient b(n) = 3n2 + n + 1, gives the formal balance
+
+ 2Q(x)+Q′′ (x)+O(Q′′′ ) = a(x) Q(x)+Qn−1 = a(x) Q(x)+Q(x)−Q′ (x)+ 12 Q′′ (x)+O(Q′′′ ), (5)
+
+so that at leading order the first-derivative term −Q′ (x) cannot be absorbed into the Q, Q′′
+balance and must be repackaged against the polynomial a′ (x) = 6x + 1 — the identity b(x) =
+a′ (x) of (8) below. Differentiating the leading balance and combining via the exact-form ansatz
+ d         ′
+dx [a(x) Q ] + c(x) Q = 0 yields
+
+                                  a(x) y ′′ + b(x) y ′ + c(x) y = 0,                          (6)
+
+where
+                       a(x) = 3x2 + x + 1,     b(x) = 6x + 1,     c(x) = −x2 .                (7)
+Remark 2.1 (Confluent Heun class). The ODE (6) belongs to the confluent Heun class in the
+sense of√Ronveaux [10]: it has exactly two finite regular singular points (at the roots s1,2 =
+(−1 ± i 11)/6 of a(x) = 3x2 + x + 1) and one irregular singular point of Poincaré rank 1 at
+x = ∞ (verified: limx→∞ q(x) = −1/3 ̸= 0 where q = −x2 /a(x)). This singularity structure
+places the connection problem and the associated isomonodromic deformation in the confluent
+                                             (1)
+Heun sector, making the Painlevé V (D5 ) identification of Conjecture 4.1 available via the
+Jimbo–Miwa–Ueno framework [5]. Explicit HeunC parameters in Ronveaux normal form require
+a coordinate change sending s1 7→ 0, s2 7→ 1 followed by a gauge transformation y = eλz ψ; we
+do not use these parameters further and omit their derivation.
+                                                                                            √
+    The trailing coefficient c(x) = −x2 is fixed by matching the large-n WKB scales σ± = ±1/ 3
+of (11) to the exponential growth rate of the dominant Wallis solution Qn ; we omit the routine
+verification. This continuum limit is formal; the ODE captures the leading asymptotic behavior
+of Qn for large n.
+    The decisive algebraic identity is
+                                                           d
+                          b(x) = a′ (x) i.e. 6x + 1 ≡        (3x2 + x + 1).                   (8)
+                                                          dx
+
+                                                  3
+This holds symbolically and has the immediate consequence that the ODE is exact: the first two
+terms form a total derivative,
+                                    d
+                                       a(x) y ′ + c(x) y = 0.
+                                               
+                                                                                            (9)
+                                   dx
+
+
+                    Table 1: Polynomial data for the Vquad continued fraction.
+                 Object                 Polynomial               Degree   Discriminant
+                 Partial numerator      a(n) = 1                 0        —
+                 Partial denominator    b(n) = 3n2 + n + 1       2        −11
+                 ODE leading coeff.     a(x) = 3x2 + x + 1       2        −11
+                 ODE middle coeff.      b(x) = 6x + 1 = a′ (x)   1        —
+                 ODE trailing coeff.    c(x) = −x2               2        0
+
+
+Remark 2.2 (PCF-derived ODEs and the b(x) = a′ (x) structure). The identity b(x) = a′ (x)
+is not a coincidence specific to Vquad : it is a general feature of PCF-derived ODEs. For any
+polynomial continued fraction with a(n) = 1 and polynomial partial denominator b(n), the
+Wallis recurrence Qn+1 = b(n) Qn + Qn−1 produces a continuum ODE of the form χ(x) y ′′ +
+χ′ (x) y ′ + c(x) y = 0, where χ(x) = b(x) is the Wallis characteristic polynomial. The exact-ODE
+structure dx  d
+                [χ(x) y ′ ] + c(x) y = 0 is therefore automatic, and the finite singularities of the ODE
+— the roots of χ — are always apparent.
+    In particular, the “CM discriminant” −11 that appears throughout the analysis of Vquad is
+simply disc(χ) = disc(3x2 + x + 1) = 1 − 12 = −11 — the discriminant of the characteristic
+polynomial. For a different quadratic PCF with b(n) = αn2 + βn + γ, the CM discriminant
+would be β 2 − 4αγ, with no necessary connection to the arithmetic of elliptic curves of the same
+conductor. This demystifies the CM numerology that pervaded earlier analyses [9]. In particular,
+PSLQ searches against CM period bases at discriminant −11 return null structurally, not merely
+at the current precision.
+
+2.3    Singularity structure
+The finite singularities of (6) are the roots of a(x):
+                                      √
+                               −1 ± i 11
+                       s1,2 =             ,     disc(a) = 1 − 4 · 3 · 1 = −11.                     (10)
+                                    6
+Both are regular singular points. The point x = ∞ is an irregular singular point of Poincaré
+rank 1 (the coefficient c(x)/a(x) has a pole of order 2 at ∞).
+    We define Vquad = M11 as the (1, 1)-entry of the connection matrix expressing the canonical
+recessive solution at +∞ in terms of the analytic Frobenius basis at s1 ; this is the natural
+normalization for the Stokes connection coefficient.
+    The WKB analysis at ∞ gives y ∼ xµ± eσ± x with
+                                     1                         1
+                             σ± = ± √ ,              µ± = −1 ∓ √ .                                 (11)
+                                      3                       6 3
+                              √
+The Stokes gap is σ+ − σ− = 2/ 3.
+
+
+3     Apparent singularity exclusion
+Theorem 3.1 (Apparent singularity exclusion for Vquad ). Let Vquad be the Stokes connection
+coefficient M11 of the ODE (6).
+
+
+
+                                                     4
+                                                 √
+  (i) At both finite singularities s1,2 = (−1 ± i 11)/6, the indicial equation is ρ2 = 0, giving a
+      double root ρ = 0.
+
+ (ii) The monodromy around each sk fixes M11 = Vquad ; the effective monodromy on the connec-
+      tion coefficient is trivial. In particular, Vquad cannot be identified via CM elliptic periods,
+      gamma values, or classical hypergeometric special values by any monodromy-based argu-
+      ment.
+Proof. Step 1: Indicial exponents. Write P (x) = a′ (x)/a(x) and Q(x) = c(x)/a(x). At a
+simple root sk of a:
+                                                       (x − sk ) a′ (x)  a′ (sk )
+                   p0 = lim (x − sk ) P (x) = lim                       = ′       = 1,
+                        x→sk                      x→sk     a(x)          a (sk )
+
+since a(x) ∼ a′ (sk )(x − sk ) near a simple root. And
+
+                                                               (x − sk )2 c(x)
+                       q0 = lim (x − sk )2 Q(x) = lim                          = 0,
+                             x→sk                         x→sk     a(x)
+
+since a(x) has only a simple zero at sk , making Q(x) have only a simple pole and (x−sk )2 Q(x) →
+0.
+    The indicial equation is therefore
+
+                               I(ρ) = ρ(ρ − 1) + p0 ρ + q0 = ρ2 = 0,
+
+giving a double root ρ = 0 at both s1 and s2 . This establishes part (i).
+                                                                                         P∞          n (with
+Step 2: Analytic first solution. For ρ = 0, the Frobenius ansatz y1 =                     n=0 cn ζ
+ζ = x − sk , c0 = 1) satisfies the recurrence
+                                    n−1
+                                    X
+                         2
+                                                                
+                        n cn = −           (j + 1)pn−1−j + qn−1−j cj ,     n ≥ 1,
+                                    j=0
+
+where pj , qj are the Taylor coefficients of P (x)(x − sk ) and Q(x)(x − sk )2 at ζ = 0. Since n2 ̸= 0
+for n ≥ 1, this determines all cn uniquely and y1 is analytic at sk .
+Step 3: Exact ODE form and Wronskian. The identity b(x) ≡ a′ (x) gives a(x) y ′′ +
+a′ (x) y ′ = dx
+              d
+                [a(x) y ′ ], so the ODE (6) is equivalent to the exact form (9). By Abel’s theorem,
+the Wronskian of any two solutions satisfies
+                                                                C
+                                           W [y1 , y2 ](x) =
+                                                               a(x)
+
+for a constant C. Near sk , a(x) ∼ a′ (sk )ζ, so W ∼ C/(a′ (sk )ζ).
+P∞The second     Frobenius solution for the double root ρ = 0 has the form y2 = y1 log ζ +
+           n
+   n=1 dn ζ . One computes
+                                    W [y1 , y2 ] = y12 /ζ + O(1),
+consistent with the Abel formula. The logarithm appears only in y2 , not in y1 .
+Step 4: Trivial monodromy on M11 . The monodromy around sk acts as
+                                          
+                             y1       1 2πi   y1
+                                  7→              .
+                             y2       0 1     y2
+
+The connection coefficient M11 = Vquad is the coefficient of the analytic solution y1 in the
+expansion of the recessive solution at ∞. Since monodromy around sk fixes y1 , the coefficient
+M11 is unchanged. The effective monodromy on Vquad is therefore trivial, establishing part (ii).
+
+                                                      5
+Numerical certificate. The identity b(x) ≡ a′ (x) was verified symbolically. The resulting
+values p0 = 1 and q0 = 0 at both s1,2 were confirmed numerically at dps= 150:
+                             p0 (s1 ) = 1 exactly,       q0 (s1 ) = 0 exactly,
+                             p0 (s2 ) = 1 exactly,       q0 (s2 ) = 0 exactly.
+Verification script: verify_frobenius_apparent.py; results in
+frobenius_apparent_verification.json.
+
+Remark 3.2. The content of Theorem 3.1 is not a computational exclusion but a structural
+one. No increase in PSLQ precision can overcome the obstruction: the monodromy at the finite
+singularities is exactly trivial by algebra, and the CM discriminant −11 is simply the discriminant
+of the characteristic polynomial a(x) = 3x2 + x + 1.
+
+
+4    Painlevé classification
+The ODE (6) has two regular singularities (at s1 , s2 , both apparent) and one irregular singularity
+of rank 1 (at x = ∞). This singularity configuration on P1 is precisely the setting of the Jimbo–
+Miwa–Ueno isomonodromic deformation theory [5].
+                                   (1)
+Conjecture 4.1 (Painlevé V (D5 ) classification). The isomonodromic deformation family con-
+taining the ODE (6) is governed by the fifth Painlevé equation with parameters
+                                  1                                  1
+                                α= ,      β = 0,         γ = 0,   δ=− ,
+                                  6                                  2
+so that β = γ = 0 while δ = − 21 ̸= 0. Its space of initial conditions is the Sakai rational surface of
+       (1)                                    (1)
+type D , with affine Weyl symmetry W (A ) ∼
+       5                                      3   =S  e 4 . The vanishing β = γ = 0 reflects the fact
+that both finite singularities are apparent; z = 0 is an ordinary point with exponents {0, 1}. Since
+δ ̸= 0, the equation lies off the PV→PIII confluence and does not reduce to PIII(D6 ); the absence
+of any z 1/2 ramification excludes PIII(D7 ) as well. The parameters α = 1/6, β = 0, γ = 0 are
+determined by the WKB exponents (11) and the apparent-singularity condition θ1 = θ2 = 0; the
+                                 (1)
+surface-type determination D5 rests on a match against the Jimbo–Miwa–Ueno classification
+table [5] and is not yet corroborated by an independent Lax-pair derivation (see Remark 4.5).
+Derivation. The singularity data is: two regular singularities with formal monodromy exponents
+θ1 = θ2 = 0 (apparent), and one irregular singularity at ∞ with Stokes data (σ+ , σ− , µ+ , µ− )
+given by (11).
+    Following the Jimbo–Miwa–Ueno classification [5], the configuration {2 regular (apparent) +
+1 irregular (rank 1)} on P1 is the isomonodromy setting of the fifth Painlevé equation, whose
+                                                     (1)                      (1)
+space of initial conditions is the Sakai surface D5 with symmetry W (A3 ). The parameters are
+determined by the formal monodromy at ∞:
+                                                    √                       2
+                    α = 21 (µ+ − µ− ) = 21 · 3√
+                                              1
+                                                3
+                                                  ·   3 = 61 , δraw = − 12 σ+ = − 16 .
+
+Since θ1 = θ2 = 0, β = γ = 0. The value δraw = − 16 is expressed in the raw WKB scale, in which
+                                                 √
+the irregular exponential coefficient is σ+ =√1/ 3. The canonical Painlevé V normalization fixes
+this coefficient to 1 by the rescaling √ z 7→ 3 z, under which the PV parameters transform as
+(α, β, γ, δ) 7→ (α, β, cγ, c δ) with c = 3. This leaves α = 16 and β = γ = 0 invariant and sends
+                            2
+
+δ 7→ 3·(− 16 ) = − 12 ̸= 0 (DLMF §32.2; [11]), which is the canonical value stated in Conjecture 4.1.
+Since δ ̸= 0 in every scale, the equation does not degenerate to Painlevé III. Finally, the PV→PIII
+degeneration of DLMF §32.2(vi), Eq. 32.2.33, is a scaling limit in which the PV δ-term tends to
+zero; since δ = − 12 is fixed and nonzero, no such limit is taken and the equation does not reduce
+to PIII(D6 ). Equivalently, z = 0 is an ordinary point (exponents {0, 1}) with no z 1/2 branching,
+which excludes the ramified PIII(D7 ).
+
+                                                     6
+Remark 4.2 (Connection coefficient). The Jimbo connection formula expresses the Stokes con-
+nection coefficient M11 in terms of the monodromy data. For generic parameters, this involves
+products of gamma functions evaluated at the formal monodromy exponents. In the present
+case θ1 = θ2 = 0 (apparent singularities), the standard connection formula degenerates, and the
+resulting expression for M11 is not immediately computable in closed form. This is consistent
+with the failure of all tested PSLQ identification bases.
+Remark 4.3 (Why not Painlevé III). The equation arises as a parameter specialization (β =
+γ = 0) of PV but does not further reduce to PIII. The PV→PIII confluence (DLMF §32.2(vi),
+Eq. 32.2.33) is a scaling limit sending the PV δ-term to zero; here δ = − 21 ̸= 0 (canonical
+normalization; see the rescaling above) and no such limit is taken, so the equation remains
+                    (1)
+genuinely PV on D5 . The ramified PIII(D7 ) reading is independently excluded because z = 0
+is ordinary (integer exponents {0, 1}) with no z 1/2 branching.
+Remark
+   √      4.4 (Generic, non-classical orbit). The formal monodromy at infinity θ∞ = σ+ − σ− =
+2/ 3 is irrational, so the parameters do not satisfy the integer/resonance conditions that char-
+acterize the Riccati, algebraic, and classical special-function solution families of PV under the
+      (1)
+W (A3 ) action. Together with the exhaustive PSLQ-null evidence of §6, this indicates that Vquad
+is a generic, non-classical PV transcendent; we do not prove this and state it as an expectation
+(cf. Conjecture 7.1).
+                                                                                            (1)
+Remark 4.5 (Open: independent Lax-pair confirmation). The surface-type assignment D5 in
+Conjecture 4.1 follows from matching the singularity configuration to the Jimbo–Miwa–Ueno
+classification table [5]. An independent derivation of the same surface type from an explicit
+                                                                                             (1)
+Lax pair or Hamiltonian for the deformation family—one that does not presuppose the D5
+assignment—is not carried out here and is left as an open problem. Until such a re-derivation is
+available we state the classification as a conjecture rather than a theorem.
+
+
+5     Resurgence analysis
+5.1   Formal asymptotic series
+The recessive solution at x = +∞ has the formal asymptotic expansion
+                                            √     ∞
+                                                  X
+                          yrec (x) ∼ xµ− e−x/ 3         an x−n ,   a0 = 1,                   (12)
+                                                  n=0
+                          √
+where µ− = −1 + 1/(6 3). The coefficients an are determined by substituting (12) into (6)
+and matching powers of x−n ; this produces a two-term recurrence with factorial growth |an | ∼
+C · n! · ξ0−n for a constant C, confirming that the series is Gevrey-1 divergent.
+
+5.2   Borel transform
+                                                                                    √
+The Borel transform ŷ(ξ) = ∞           n
+                              P
+                                n=0 an ξ /n! has radius of convergence √ |ξ0 | = 2/   3 ≈ 1.15470,
+the Stokes gap. This value coincides with the Stokes gap σ+ − σ− = 2/ 3 from (11), as expected
+from the general relation between exponential scales and Borel singularities in resurgent systems.
+Theorem 5.1 (Borel singularity).√ The Borel transform ŷ(ξ) of the formal series (12) has a
+branch-point singularity at ξ0 = 2/ 3 on the negative real Borel axis.
+                                                                   √
+   (i) The Domb–Sykes ratio rn = |an /an−1 | satisfies rn → 1/ξ0 = 3/2, confirmed by Richard-
+       son extrapolation to five significant figures.
+                                                           √
+  (ii) The branch exponent is βexp = µ+ − µ− = −1/(3 3) ≈ −0.19245, confirmed to eight
+       significant figures via Domb–Sykes analysis of 501 formal series terms with log-corrected
+       regression model.
+
+                                                  7
+(iii) The singularity structure (logarithmic branch point, not a simple pole) is consistent with
+      the generic resurgence structure of Painlevé V transcendents.
+Proof. (i) We compute 501 coefficients an of the formal series via the Riccati recurrence at
+dps= 200, then form the ratio sequence rn = |a   √n /an−1 |. Richardson extrapolation of order 3
+applied to 1/rn gives ξ0 ≈ 1.15472, matching 2/ 3 = 1.15470 . . . to five significant figures.
+   (ii) The branch exponent is extracted from the refined Domb–Sykes analysis: the sequence
+βn = n(1 − rn /rn−1 ) − 1 is fitted to the model βn = β + c1 log n/n + c2 /n + O(log n/n2 )√using
+5-parameter nonlinear regression. The result βest = −0.192450088 agrees with −1/(3 3) =
+−0.192450090 . . . to eight significant figures.
+   (iii) The branch exponent is non-integer and non-half-integer, ruling out a simple pole (β =
+−1) or square-root branch point (β = −1/2). The logarithmic branch-point structure is the
+generic singularity type for Borel transforms of Painlevé V trans-series, where the exponent
+equals the difference of formal monodromy exponents at ∞.
+
+   A rigorous proof of Borel summability for this class of continued-fraction formal series, in the
+sense of Costin [13], would require establishing Gevrey-1 bounds on the coefficient sequence an ;
+we leave this as an open problem and treat the present result as strong numerical evidence.
+
+
+6    The Stokes constant
+Remark 6.1 (Version 1.2 — Classification demoted to conjecture; δ normalization made explicit).
+Two editorial corrections, with no change to mathematical substance. (1) The Painlevé V / Sakai-
+           (1)
+surface-D5 classification (formerly stated as a theorem) is restated as a labeled Conjecture 4.1:
+the parameters α = 1/6, β = γ = 0 are derived from the WKB and apparent-singularity
+                                              (1)
+data, but the surface-type determination D5 rests on a match against the Jimbo–Miwa–Ueno
+classification table [5] and awaits an independent Lax-pair derivation (Remark 4.5). (2) The
+δ-parameter line is corrected for internal consistency: the relation δ = − 12 σ+
+                                                                               2 applied to the raw
+                            √                  1
+WKB exponent σ+ = 1/ 3 gives δraw = − 6 , and the canonical value δ = − 12 (DLMF §32.2;
+                                             √                   √
+[11]) follows by the standard rescaling z 7→ 3 z (δ 7→ c2 δ, c = 3, with α, β, γ invariant). Since
+δ ̸= 0 in every scale, the PV (non-PIII) determination, the surface type, and all numerical results
+are unchanged.
+Remark 6.2 (Version 1.1 — Stokes-constant numeric correction). The Stokes constant is corrected
+from the version 1.0 value S ≈ 0.43770528 to S = 2πK = 0.45790662316901763611 . . . (certified
+to 38 digits). The v1.0 value was produced by an incorrect normalization prefactor in the Dingle
+late-term extraction (13): the late-term amplitude was multiplied by Γ(βexp ) = −6.00599 . . . in-
+stead of the universal resurgence factor 2π = 6.28319 . . .; because the two agree to 4.4% the slip
+survived the internal multi-method consensus. The underlying amplitude K = 0.07287810255 . . .
+is unchanged and triple-confirmed (Neville–Richardson, Berry–Howls, Domb–Sykes), and is cal-
+ibrated against Euler’s series (|S| = 2π ⇒ K = 1). The correction changes the reported
+S, the prefactor in (13), and the conjectural σconn pinned to |S| via Conjecture 7.1 (which    √
+moves from 0.06087689
+                √        to 0.06335272). Conjecture 4.1,   the Gevrey–Borel  structure (ξ0 = 2/  3,
+βexp = −1/(3 3)), the Wallis-discriminant exclusion, and the closed-form non-identification
+(re-verified against S = 2πK: mp.identify→None) are all unchanged.
+
+Stokes-constant convention. S is defined by the lateral-Borel-sum discontinuity across the
+principal anti-Stokes ray,
+
+                         (S+ − S− )[φ](z) = 2πi S e−ξ0 /z z βexp (1 + O(z)),
+
+with Borel transform B[φ](ξ) = n≥1 an ξ n−1 /Γ(n) (Γ(n), not n!), the full Stokes jump (not the
+                                 P
+                                  √                      √
+half-Stokes prescription), ξ0 = 2/ 3, and βexp = −1/(3 3). Under this convention the late-term
+
+                                                8
+amplitude K satisfies S = 2πK, the factor 2π certified by running the identical extraction on
+Euler’s series (|S| = 2π, K = 1).
+   The Stokes constant S governs the exponentially small discontinuity across the Stokes line:
+                                  (Stokes+)    (Stokes−)
+                                 yrec       − yrec       = S · ydom .
+
+Convention (definitional). Throughout, S denotes the real Stokes multiplier of the Dingle
+normalization—the real coefficient of the discontinuity above. The Jimbo connection formula of
+Conjecture 7.1 is instead purely imaginary, SJimbo = 2i sin(πσconn ) Γ(1 − σconn )2 /Γ(1 + σconn )2 ,
+with |SJimbo | = 0.4579 . . .; the two conventions differ by a factor i absorbed into the phase of the
+dominant solution ydom , so that S = |SJimbo |. All numerical values of S reported below are in
+this real Dingle convention.
+    By the Dingle late-term formula [2],
+                                            n+β
+                                 an · 2π · ξ0 exp
+                          Sn =                      −→ S        as n → ∞.                        (13)
+                               (−1)n · Γ(n + βexp )
+The prefactor 2π is the universal Borel–Laplace discontinuity factor; it was calibrated by running
+the identical extraction on Euler’s series, for which K = 1 and |S| = 2π exactly. (Version 1.0
+used Γ(βexp ) = −6.00599 . . . in place of 2π = 6.28319 . . . here; the two agree to 4.4%, which
+camouflaged a systematic factor in the reported S. See the v1.1 provenance note.)
+                                                                                               √
+Proposition √  6.3 (Stokes  constant  estimate;  VERIFIED-numerical).     With   βexp =  −1/(3  3)
+and ξ0 = 2/ 3, applied to the late terms an of the recessive formal solution at ∞:
+  (i) Dingle–Neville extrapolation of (13) in 1/(n + βexp ), using up to 6500 formal terms at
+      dps= 360, gives
+       S = 2πK = 0.4579066231690176361190978425 48225837962395135153682702551866 . . .
+
+ (ii) Cross-method consensus. An independent Berry–Howls optimal-truncation resummation,
+      assembled from the coefficients of the dominant formal solution at ∞ (singulant sign −ξ0 ),
+      reproduces (i) to 55 significant digits. We therefore report 55 reliable digits, in the sense
+      of agreement between two independent methods.
+(iii) Same-method stability (reported separately, not as the reliable-digit count). Two disjoint
+      extrapolation windows (n ∈ [1500, 1700] versus [2800, 3000]) agree to 152 digits, and the
+      extrapolated value is unchanged to 169 digits under a precision increase from dps= 800 to
+      dps= 1600.
+                                                             Domb–Sykes ratio an /an−1 extrap-
+ (iv) Independent confirmation of the Borel singularity. The √
+      olates to −1/ξ0 = −0.8660254 . . ., confirming ξ0 = 2/ 3 independently of the amplitude
+      extraction.
+We claim no rigorous error bound: the reliable-digit count rests on cross-method agreement and
+stability under documented precision increases, not on a proved estimate. This determination
+supersedes the earlier 8-digit value.
+    The bridge equation relating the Stokes constant S to alien derivatives of the formal solution,
+in the sense of Écalle’s resurgence theory [14], is not established here; Conjecture 7.1 provides a
+conjectural identification via the Jimbo [4] formula. Increasing the numerical precision of S does
+not alter this: the Écalle bridge equation remains unestablished, and no rigorous error bound is
+claimed, regardless of digit count.
+Remark 6.4 (Precision is no longer the obstruction). Earlier determinations of S reached only 8
+digits, insufficient for integer-relation identification. The present extraction removes that limi-
+tation: S is available to 55 cross-method-reliable digits, and to several hundred digits of internal
+stability. As §6.1 shows, closed-form identification nonetheless fails—the obstruction is structural
+(the choice of basis, through σconn ), not the digit count.
+
+                                                  9
+6.1    Closed-form exclusion certificates
+Using the 55-digit consensus value (with a 300-digit working value from the same extraction
+spine for search headroom), we ran integer-relation (PSLQ) searches and report the negative
+results as exclusion certificates.
+
+Proposition 6.5 (Exclusion certificates; STRUCTURAL). At working precision P = 300 digits:
+
+  (i) Algebraicity. S is not algebraic of degree ≤ 8: no integer relation 8k=0 ck S k = 0 with
+                                                                                 P
+      height maxk |ck | ≤ 1025 exists.
+
+ (ii) Transcendental families. No linear relation c0 +c1 S + j cj κj = 0 (height ≤ 1020 ) holds for
+                                                              P
+                                                √ √
+      any of the bases {κj }: {π,Q log 2, log 3, 3, 11, G, ζ(3)}; the discriminant-(−11)√Chowla–
+      Selberg Γ-product P−11 = 10    k=1 Γ(k/11)
+                                                 χ−11 (k) = 12.17410 . . . together with π, 11, log 3;
+
+      the Γ-value basis {Γ(1/3), Γ(1/4), π, log 3}; and the log / exp and π-only families. The
+      associated precision-limited detection (height) bounds are 1030 , 1039 , and 1045 respectively.
+      Likewise log S admits no such relation.
+
+Remark 6.6 (Low-degree “hits” are spurious). PSLQ run at the edge of available precision returns
+relations with enormous coefficients; each is refuted by a precision increase not used to find it.
+The degree-6 candidate found at dps= 110 has residual 7 × 10−84 when evaluated at dps= 165
+(a genuine relation would vanish to full precision); the degree-8 candidate found at dps= 165
+disappears at 300 digits. The minimum height of any detected relation grows with the working
+precision—the signature of no genuine relation, rather than an as-yet-undetected one.
+Remark 6.7 (Structural reading). These certificates are consistent with S being a generic, non-
+                 (1)                                                        √
+classical PV/D5 transcendent. The finite singularities s1,2 = (−1 ± i 11)/6 are apparent
+(trivial local monodromy on M11 = Vquad ; Theorem 3.1), so S cannot be a CM period, Γ-
+value, or classical hypergeometric special value by any monodromy-based argument—and indeed
+no such identification survives at 300 digits. The obstruction is the basis: a closed form, if
+any, runs through the connection parameter σconn via the Gamayun–Iorgov–Lisovyy τ -function
+at discriminant −11 (j = −215 ), not through direct integer relations of S with elementary
+constants. Increasing the digit count changes neither this structural obstruction nor the absence
+of a rigorous error bound.
+
+
+7     Discussion and open problems
+7.1    Summary of the identification obstruction
+The structural exclusion of Theorem 3.1 and the Painlevé classification of Conjecture 4.1 together
+provide a complete explanation for the failure of identification searches for Vquad :
+
+    1. The finite singularities are apparent (trivial monodromy), so Vquad cannot arise as a period
+       or CM value at these points.
+
+    2. The irregular singularity at ∞ places the problem in the confluent-Heun / Painlevé V
+         (1)
+       (D5 ) sector, outside the Gauss hypergeometric framework.
+
+    3. The standard Jimbo connection formula degenerates at θ1 = θ2 = 0, leaving no known
+       closed-form expression.
+
+    4. The √Jimbo formula search (iteration 23) established that the formal WKB exponent σ± =
+       ±1/ 3 is distinct from the connection parameter σconn required by the Jimbo formula,
+       precisely locating the obstruction to closed-form identification of S.
+
+
+
+                                                 10
+7.2   The connection parameter and Jimbo formula
+Conjecture 7.1 (Identification of S). In the imaginary Jimbo normalization (cf. the convention
+of §6, under which S = |SJimbo |), the Stokes constant |S| = 0.4579066231690176 . . . is conjec-
+turally given by the Jimbo (1982) [4] formula
+
+                                                         Γ(1 − σconn )2
+                              SJimbo = 2i sin(πσconn )                  ,
+                                                         Γ(1 + σconn )2
+
+where σconn satisfies tr(M1 M2 ) = 2 cos(2πσconn ) for the monodromy matrices of the associated
+Riemann–Hilbert problem, and is a transcendental function of the accessory parameter
+                                                   √
+                                             5 + i 11
+                                         q=             .
+                                                  54
+Numerically,
+                                 σconn = 0.063352723332494 . . .
+This value is back-derived from S by inverting the Jimbo formula above; it therefore carries no
+information independent of S, and its precision is inherited from (and capped by) the precision
+of the S extraction. It is not an independent datum: any closed-form identification of σconn is
+      √ to one of S. An exhaustive PSLQ search over 12 bases including algebraic extensions
+equivalent
+of
+√   Q(  11), arctan/π combinations, CM gamma values, Dedekind eta quotients at τ = (−1 +
+   −11)/2, and the accessory parameter q itself found no identification at 8-digit precision. This
+exclusion was re-verified against the corrected value S = 2πK (mp.identify returns None over
+the same 12 bases); the structural exclusion is therefore unchanged by the v1.1 normalization
+correction.
+    An exhaustive search over 245 formula variants (nine theta-parameter identifications, twenty
+formula types, thirty-five theta-free
+                                √     formulas) found no match to S within 10−4 , confirming that
+the WKB exponent σ± = ±1/ 3 is distinct from σconn .
+                                                                                         (1)
+    Identification of σconn likely requires the τ -function of the Painlevé V equation (D5 ) at the
+accessory parameter q; in the CM case this may reduce to classical theta series via the conformal
+block approach of Gamayun–Iorgov–Lisovyy [3].
+Remark 7.2 (CFT approach). The τ -function approach of [3] expresses the Painlevé connection
+parameter as the zero of a Fourier series with Nekrasov partition function coefficients. In the
+CM case (discriminant −11), these may reduce to theta series of the CM elliptic curve with
+j-invariant −32768, potentially yielding a closed form for σconn and hence S.
+
+7.3   Further open problems
+  1. Transcendence. Is Vquad transcendental? The structural exclusion from hypergeometric
+     families and the non-D-finite evidence of [9] suggest transcendence, but a proof would
+     require fundamentally new methods.
+
+  2. Universality of the b = a′ structure. Does the b(x) = a′ (x) structure persist when
+     a(n) is a non-constant polynomial? For degree-d PCFs with polynomial a(n), the Wallis
+     characteristic polynomial has degree 2d and the apparent singularity condition imposes 2d
+     constraints on the ODE coefficients—characterizing when these are satisfied is the general
+     question.
+
+
+Acknowledgements
+Computations were performed using mpmath [7] for arbitrary-precision arithmetic. Supplemen-
+tary scripts and data: github.com/papanokechi/pcf-research.
+
+                                                11
+AI assistance disclosure. The preparation of this manuscript involved assistance from Claude
+(claude-opus-4-8, Anthropic) and GitHub Copilot (Microsoft). All mathematical results were
+conceived, directed, and validated by the author.
+
+
+References
+ [1] R. Apéry, Irrationalité de ζ(2) et ζ(3), Astérisque 61 (1979), 11–13.
+
+ [2] R. B. Dingle, Asymptotic Expansions: Their Derivation and Interpretation, Academic Press,
+     London, 1973.
+
+ [3] O. Gamayun, N. Iorgov, and O. Lisovyy, Conformal field theory of Painlevé VI, J. High
+     Energy Phys. 2012 (2012), no. 10, 038. arXiv:1207.0787.
+
+ [4] M. Jimbo, Monodromy problem and the boundary condition for some Painlevé equations,
+     Publ. Res. Inst. Math. Sci. 18 (1982), no. 3, 1137–1161.
+
+ [5] M. Jimbo, T. Miwa, and K. Ueno, Monodromy preserving deformation of linear ordinary
+     differential equations with rational coefficients. I., Physica D 2 (1981), 306–352.
+
+ [6] L. Lorentzen and H. Waadeland, Continued Fractions: Convergence Theory, 2nd ed., At-
+     lantis Studies in Mathematics, vol. 1, Atlantis Press, 2008.
+
+ [7] F. Johansson et al., mpmath: a Python library for arbitrary-precision floating-point arith-
+     metic (version 1.3), 2023. http://mpmath.org/
+
+ [8] G. Raayoni et al., Generating conjectures on fundamental constants with the Ramanujan
+     Machine, Nature 590 (2021), 67–73.
+
+ [9] papanokechi, Spectral Classes of Polynomial Continued Fractions: A Hypergeometric Frame-
+     work and Arithmetic Obstructions, Zenodo, 2026, doi:10.5281/zenodo.20173773.
+
+[10] A. Ronveaux (ed.), Heun’s Differential Equations, Oxford University Press, 1995.
+
+[11] V. I. Gromak, I. Laine, and S. Shimomura, Painlevé Differential Equations in the Complex
+     Plane, de Gruyter Studies in Mathematics, vol. 28, Walter de Gruyter, Berlin, 2002.
+
+[12] K. Okamoto, Studies on the Painlevé equations I, Ann. Mat. Pura Appl. 146 (1987), 337–
+     381.
+
+[13] O. Costin, On Borel summation and Stokes phenomena for rank-1 nonlinear systems of
+     ordinary differential equations, Duke Math. J. 93 (1998), 289–344.
+
+[14] J. Écalle, Les fonctions résurgentes, Vols. I–III, Publ. Math. d’Orsay, 1981–1985.
+
+
+
+
+                                               12
+

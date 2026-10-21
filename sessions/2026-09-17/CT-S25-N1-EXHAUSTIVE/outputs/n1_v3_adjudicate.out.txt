@@ -1,0 +1,44 @@
+==========================================================================
+CT-S25-N1-EXHAUSTIVE / n1_v3_adjudicate.py
+Adjudicating the V3 failure: redundancy (R) or insensitivity (I)?
+==========================================================================
+
+--------------------------------------------------------------------------
+V3a  Is b1 in the RADICAL of <5 coefficient equations, Rabinowitsch>?
+     Decided exactly: b1 is in the radical iff adjoining 1 - v*b1
+     produces the UNIT ideal.  This is a yes/no algebraic fact.
+--------------------------------------------------------------------------
+  plain ideal membership: b1 reduces to 0
+  b1 in the ideal itself                : True
+  Rabinowitsch ideal basis: [1]   (0.2s)
+  unit ideal  =>  b1 in the RADICAL      : True
+  [control] theta_inf in the radical?    : False  (must be False;
+            theta_inf vanishes nowhere on the variety, so a test that
+            returned True here would be accepting everything)
+V3a: b1 IS in the radical -> cause (R) supported
+
+--------------------------------------------------------------------------
+V3b  Positive sensitivity control.  Drop each coefficient equation in
+     turn, keeping b1 = 0.  If the degree moves for ANY drop, the
+     observable demonstrably CAN see a generator being removed, which
+     excludes cause (I).
+--------------------------------------------------------------------------
+  [full system] degree 2   (0.5s)
+  [drop coefficient eq 0] degree 2   (0.4s)
+  [drop coefficient eq 1] degree 2   (0.4s)
+  [drop coefficient eq 2] degree 2   (0.3s)
+  [drop coefficient eq 3] degree 2   (0.4s)
+  [drop coefficient eq 4] degree 2   (0.3s)
+  drops that moved the degree from 2: NONE
+V3b: FAIL - observable is blind to every drop
+
+==========================================================================
+V3 ADJUDICATION
+==========================================================================
+  V3a  b1 in the radical of the other generators : True
+  V3a  control (must be False)                   : False
+  V3b  degree moves on some other drop           : False  []
+
+  CAUSE (I) - INSENSITIVITY.  The observable cannot see any generator
+  being dropped.  Every degree reported by this instrument is VOID.
+==========================================================================

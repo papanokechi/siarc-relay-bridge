@@ -1,0 +1,18 @@
+============================================================================
+mutants_walkthrough.py -- 6 arms, none drawn from the gate's own
+  pattern lists; every arm is a defect this packet really had.
+============================================================================
+
+  [PASS] baseline: unmutated copy passes the gate (rc=0)
+
+  M1 check count left behind when checks were added    CAUGHT  rc=1 expected W1 fired W1
+  M2 char count of a superseded revision               CAUGHT  rc=1 expected W2 fired W2
+  M3 hash reinstated for comparison by eye             CAUGHT  rc=1 expected W3 fired W3
+  M4 cd into the session the packet was copied from    CAUGHT  rc=1 expected W4 fired W4
+  M5 display command truncates the counts              CAUGHT  rc=1 expected W8 fired W8
+  M6 runnable block names a script that is absent      CAUGHT  rc=1 expected W5 fired W5,W8
+
+============================================================================
+6/6 arms caught, each by the check that is supposed to catch it
+WALKTHROUGH.md unchanged by the mutant run: True
+============================================================================

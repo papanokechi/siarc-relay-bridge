@@ -1,0 +1,54 @@
+==========================================================================
+CT-S54 -- Method B and the Stokes datum
+==========================================================================
+read-only with respect to the corpus; nothing is edited, sent or deposited.
+
+[provenance]
+  stage4_methods.py            sha256 064449fbc4dee4fa8976946bdbfde5cc2d2f1307c5f4581b224d53df56e8c3d5
+  numerical-integral.md        sha256 a3f11f5c95b4c61fc7e7a3761ff88521116de112124c0594011fce3866cdf211
+  all three deposited constants found verbatim in stage4_methods.py
+  independently extracted A confirmed in numerical-integral.md section 2
+  Method B block references a Borel coefficient stream: False
+
+[observable] baseline, dps=120
+  O1 relB  (Method B, vs S e^-xi0) = 8.84482e-46
+  O2 relC1 (Method C, |S_mult| vs S) = 8.84482e-46
+  O3 relC2 (C = |A|/|beta| vs C)     = 9.31344e-46
+  |O1 - O2| = 6.19566e-122
+  P1: O1 and O2 are the same quantity: True
+
+[discrimination] perturb S alone by relative 1e-30
+  O1 relative move = 1.13061e+15
+  O2 relative move = 1.13061e+15
+  O3 relative move = 0.0   <-- A0: must stay put
+  O1 moved: True   O2 moved: True   O3 moved: False
+  O1 and O2 moved by the same amount: True
+
+[vacuity pre-check] perturb K alone by relative 1e-30
+  O1 moved: True   O2 moved: True   O3 moved: True
+  P3 (K moves all three): True
+
+[O4] Method B rebuilt on Stage 1.4's independently extracted A
+  A extracted (from b_m)      = 0.0842364216031869667544084552453
+  A predicted  = K*Gamma(1+b) = 0.0842364216031869667544084552453
+  S reconstructed             = 0.4579066231690176361190978425482258379624
+  S deposited                 = 0.4579066231690176361190978425482258379624
+  O4 relB_indep = 3.68728e-46
+  P4: O4 is a different figure from O1: True
+
+==========================================================================
+VERDICT
+  Method B, as printed in eq. (26) and as implemented in the cited
+  script, takes its amplitude from the Stokes datum: A = K*Gamma(1+beta),
+  K = S/2pi. Its reported figure is arithmetically the SAME comparison
+  as Method C's first check -- the factor e^-xi0 cancels -- so the two
+  are one numerical fact reported twice, not two agreeing methods.
+  The claim 'independent of the Stokes datum' is therefore an overclaim
+  about the derivation and about the computation.
+
+  A genuinely S-independent route EXISTS and was executed in Stage 1.4:
+  A extracted from the coefficient stream by Neville acceleration
+  reconstructs S to 3.69e-46, a different and honest figure.
+  The repair is therefore a REWORDING plus a corrected figure, not a
+  retraction of Method B.
+==========================================================================

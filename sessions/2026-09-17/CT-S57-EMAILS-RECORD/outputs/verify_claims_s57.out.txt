@@ -1,0 +1,49 @@
+==========================================================================
+CT-S57 -- post-hoc verification of the email record
+==========================================================================
+Re-reads claims.jsonl and every cited email file from disk. Takes no
+value from any recorder.
+
+claims on disk: 12
+
+email files on disk: 2
+    email/email_as_sent.txt  2862 B  9bdcd347505999fd
+    email/followup_as_sent.txt  2041 B  75d41c372645b157
+
+--- per-claim: cited hash vs the file on disk ---
+  S53-01  ok    (no filename cited; the digest is email/email_as_sent.txt on disk)
+  S53-02  ok    (no filename cited; the digest is email/email_as_sent.txt on disk)
+  S53-03  ok    (no filename cited; the digest is email/email_as_sent.txt on disk)
+  S53-04  ok    (no filename cited; the digest is email/email_as_sent.txt on disk)
+  S53-05  ok    (no filename cited; the digest is email/email_as_sent.txt on disk)
+  S57-F01  ok    email/followup_as_sent.txt  2041 B
+  S57-F02  ok    email/followup_as_sent.txt  2041 B
+  S57-F03  ok    email/followup_as_sent.txt  2041 B
+  S57-F04  ok    email/followup_as_sent.txt  2041 B
+  S57-F05  ok    email/followup_as_sent.txt  2041 B
+  S57-F06  ok    email/followup_as_sent.txt  2041 B
+  S57-F07  ok    email/followup_as_sent.txt  2041 B
+  12 of 12 claim(s) carried a hash to check
+
+--- labels ---
+  INSPECTED: 12
+
+--- substance: assertions re-read from the cited text ---
+  S53-03  ok    the first email's item 4 carries its bracketed alternatives (hits=1)
+  S57-F03  ok    the follow-up carries an item 5 (hits=1)
+  S57-F04  ok    the follow-up carries NO bracketed alternative (hits=0)
+  S57-F04  ok    the follow-up asserts non-apparency (hits=1)
+  S57-F05  ok    the follow-up quotes the stream-extracted reconstruction (hits=1)
+
+--- control: a one-byte perturbation must be detected ---
+  email/email_as_sent.txt: appending one byte changes the digest -- the comparison discriminates
+  email/followup_as_sent.txt: appending one byte changes the digest -- the comparison discriminates
+
+--- control: the no-filename path must reject an absent digest ---
+  synthetic digest 2c1949b590477bf2 resolves to None -> would be reported STALE
+  real digest      9bdcd347505999fd resolves to email/email_as_sent.txt -> ok
+  the path separates present from absent; it cannot pass everything
+
+==========================================================================
+All 12 claims consistent with the files on disk.
+Files verified: email/email_as_sent.txt, email/followup_as_sent.txt

@@ -1,0 +1,131 @@
+==============================================================================
+CT-S49-FULLREAD -- every finding confirmed against the source bytes
+==============================================================================
+
+corpus: 15 source files; section5.tex sha256 af25048b9b62a6f4
+  [FIRED] V3    section5.tex hashes to the digest CT-S47 checked, so the tree being read is the tree that was checked
+
+F1  the formula-pass disclaimer is stale, and contradicts Appendix A
+------------------------------------------------------------------------------
+  [OK  ] F1a   PRESENT 'none has been symbolically re-derived here'                section9.tex:183
+  [OK  ] F1b   PRESENT 'No displayed formula in this paper has been re-derived'    appendixB.tex:139
+  [OK  ] F1c   PRESENT 'the formulas of Appendix~\\ref{app:typo} were transcrib'   section9.tex:184
+  [OK  ] F1d   PRESENT 'Both routes were exercised for this appendix in \\textt'   appendixA.tex:147
+        -- Appendix A states the re-derivation WAS performed, per equation
+  [FIRED] F1c1  CT-S45-FORMULA-A is named exactly once in the paper (Appendix A), so the closure is recorded in one place and disclaimed in two
+
+F2  a sentence that contradicts itself
+------------------------------------------------------------------------------
+  [OK  ] F2a   PRESENT 'the second place in the paper where a structural argum'    section8.tex:210
+  [OK  ] F2b   PRESENT 'the first being the twist question of \\S\\ref{ssec:trac'  section8.tex:211
+        -- 'sought and NOT found ... where one WAS found', in one sentence
+
+F3  a phrase quoted from a section that does not contain it
+------------------------------------------------------------------------------
+  [OK  ] F3a   PRESENT "The phrase ``for both sign branches'' in \\S\\ref{ssec:l"  section5.tex:148
+  [OK  ] F3b   OUTSIDE-ITS-OWN-QUOTATION  occurrences=1  elsewhere=none
+        -- the phrase exists only in the sentence that attributes it to \S5.3; \S5.3 does not contain it
+  [FIRED] F3c   the wording \S5.3 actually uses is 'On the branch', twice -- so the reader can see the section, and 'absent' is not 'unreadable'
+
+F4  the paper declares one scalar displayed form and uses another
+------------------------------------------------------------------------------
+  [OK  ] F4a   PRESENT "of a scalar equation written $A\\,W''+A'\\,W'+C\\,W=0$, w"  section1.tex:205
+  [OK  ] F4b   PRESENT 'which is a different use of the same letters and occur'    section1.tex:205
+  [OK  ] F4c   PRESENT "(3x^2+x+1)\\,W''+(6x+1)\\,W'-x^2\\,W=0"                    section3.tex:53
+        -- the paper's ONLY equation of that shape
+  [OK  ] F4d   PRESENT "with $a(x)=3x^2+x+1$ one has $b(x)=6x+1=a'(x)$"            section3.tex:55
+        -- named with lowercase a, b, c, not A, A', C
+  [FIRED] F4e   the declared form A W'' + A' W' + C W occurs ONCE -- in its own declaration -- and never in the body
+
+F5  the letter b carries four meanings; section 1's list omits it
+------------------------------------------------------------------------------
+  [OK  ] F5a   PRESENT 'b(n)=\\sum_{k=0}^{d}\\beta_k n^k'                          section1.tex:22
+        -- meaning 1: the polynomial of the recurrence
+  [OK  ] F5b   PRESENT "$b(x)=6x+1=a'(x)$"                                         section3.tex:55
+        -- meaning 2: a coefficient of System C
+  [OK  ] F5c   PRESENT 'A=\\begin{pmatrix} a & b\\\\ c & -a\\end{pmatrix}'         section4.tex:56
+        -- meaning 3: an entry of the matrix A
+  [OK  ] F5d   PRESENT 'the no-apparent-singularity condition $b_1=0$'             section5.tex:112
+        -- meaning 4: a coefficient of that entry
+  [OK  ] F5e   PRESENT 'Six further letters are reused, in each case with a st'    section1.tex:225
+  [OK  ] F5f   PRESENT 'This section fixes every symbol, name and hypothesis u'    section1.tex:14
+  [FIRED] F5g   section 1's reuse list has no entry for the letter b (the six are M, A, L, u, beta, r)
+
+F6  b_1 is used in section 5 and only explicable in section 6
+------------------------------------------------------------------------------
+  [OK  ] F6a   PRESENT '$b_1=0$'                                                   section5.tex:112, section5.tex:138, section5.tex:207, section5.tex:212
+  [OK  ] F6b   PRESENT 'these coincide exactly when $b$ is constant --- that i'    section6.tex:100
+        -- the first place b_1 is tied to the entry b
+  [FIRED] F6c   both occurrences resolve, so the ordering claim is about real text
+
+F7  s_1, s_2 are used in section 7 and declared nowhere
+------------------------------------------------------------------------------
+  [OK  ] F7a   PRESENT 'is singular because $s_1=s_2=2$ places it on two reson'    section7.tex:208
+  [OK  ] F7b   PRESENT 'The unsubscripted letter $s$ always denotes this growt'    section1.tex:130
+  [OK  ] F7c   PRESENT 'they are a different object, and the subscript is what'    section1.tex:133
+        -- section 1 enumerates exactly two uses of s: bare, and s_pm
+  [OK  ] F7d   ABSENT  's_1'                                                       confirmed absent
+        -- s_1 is never declared in the notation section
+  [FIRED] F7e   the quantity section 7 calls s_i is declared as a_i in section 1, so a declared name for it does exist
+
+F8  the Katz-multiset convention of section 1 is not the one used
+------------------------------------------------------------------------------
+  [OK  ] F8a   PRESENT 'with a dash in the $r(t)$ position when the singular s'    section1.tex:284
+  [OK  ] F8b   PRESENT 'the effective multiset is $(0,0,1)$'                       section3.tex:203
+        -- three slots, no dash
+  [OK  ] F8c   PRESENT 'the effective multiset is $(1,0,0,0)$'                     section3.tex:210
+        -- four slots, none of which is r(1)
+  [OK  ] F8d   PRESENT 'the dash in $(\\tfrac12,-,\\tfrac12)$ denotes an'          section3.tex:214
+        -- a dash in the r(1) position, not r(t)
+  [OK  ] F8e   PRESENT '\\widetilde D_5:\\ \\mathrm{PV},\\ (0,0,1,-),\\ \\dim P=3'  section1.tex:290
+        -- section 1 writes the PV row with FOUR slots
+  [OK  ] F8f   PRESENT '$\\widetilde D_5$/PV, whose Katz invariants are $(0,0,1'   section4.tex:161
+        -- section 4 writes the SAME row with THREE
+  [FIRED] F8g   the 4-slot form occurs exactly once in the paper -- in the table section 1 declares the convention with -- so the shapes genuinely differ across sections and are not in the reader
+
+F9  a cross-reference that resolves and points at the wrong subsection
+------------------------------------------------------------------------------
+  [OK  ] F9a   PRESENT 'It is recorded in the correspondence footnote of \\S\\re'  section1.tex:157
+  [OK  ] F9b   PRESENT '\\subsection{The recurrence and its normalisation}\\labe'  section1.tex:18
+  [OK  ] F9c   PRESENT '\\textbf{Correspondence with the deposited record.}'       section1.tex:49
+  [OK  ] F9d   PRESENT '\\subsection{The three objects, and their comparison}\\l'  section1.tex:188
+
+F10 one formula, four typographies
+------------------------------------------------------------------------------
+  [OK  ] F10a  PRESENT "R=\\tfrac14P^2+\\tfrac12P'-Q"                              section1.tex:211
+  [OK  ] F10b  PRESENT "R=\\tfrac14P^2+\\tfrac12P'-Q"                              section3.tex:43
+  [OK  ] F10c  PRESENT "R=\\frac{P^2}{4}+\\frac{P'}{2}-Q"                          section6.tex:59
+  [OK  ] F10d  PRESENT "R=P^2/4+P'/2-Q"                                            section9.tex:36
+
+F11 the same counterexample stated at full length twice
+------------------------------------------------------------------------------
+  [OK  ] F11a  PRESENT 'L=\\partial-\\frac{1}{2z}'                                 section6.tex:25
+  [OK  ] F11b  PRESENT 'L=\\partial-\\tfrac{1}{2z}'                                section10.tex:25
+  [OK  ] F11c  PRESENT "with rational witness $w=z$ satisfying $2f+w'/w=0$"        section6.tex:27, section10.tex:26
+        -- the identical witness sentence appears in both
+
+F12 one discrepancy, two page attributions
+------------------------------------------------------------------------------
+  [OK  ] F12a  PRESENT 'A second discrepancy in the same neighbourhood is reco'    section4.tex:84
+        -- 'the same neighbourhood' is p. 2655
+  [OK  ] F12b  PRESENT 'the family $(4.1)$ of p.~2655 is'                          section4.tex:59
+  [OK  ] F12c  PRESENT 'der Put--Saito at p.~2629 states $\\theta_\\infty$'        section7.tex:88
+        -- the same discrepancy, attributed to p. 2629
+  [FIRED] F12d  2629 occurs exactly once in the paper, so the two attributions are not a transcription of one another
+
+F13 section 10 says machinery is absent that sections 1 and 3 set up
+------------------------------------------------------------------------------
+  [OK  ] F13a  PRESENT 'because stating it would require machinery that no sec'    section10.tex:7
+  [OK  ] F13b  PRESENT 'One further symbol belongs to the Borel plane of this '    section1.tex:136
+  [OK  ] F13c  PRESENT 'A \\emph{Stokes constant} is the coefficient with which'   section1.tex:108
+  [OK  ] F13d  PRESENT 'has single action $2/\\sqrt3=\\xi_0$ and action \\emph{di'  section3.tex:108
+
+F14 two coefficients displayed twice, unnumbered the second time
+------------------------------------------------------------------------------
+  [OK  ] F14a  PRESENT 'P_{\\mathsf C}&=\\frac{2z-1}{z(z-1)},\\label{eq:PC}'       section6.tex:69
+  [OK  ] F14b  PRESENT 'P_{\\mathsf C}=\\frac{2z-1}{z(z-1)},\\qquad'               section9.tex:40
+        -- the same coefficient, re-displayed rather than \eqref'd
+
+==============================================================================
+READ CHECK: 14 findings, all predicates confirmed; 9 controls, 9 FIRED
+==============================================================================

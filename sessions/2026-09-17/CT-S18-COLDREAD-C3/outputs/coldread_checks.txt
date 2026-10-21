@@ -1,0 +1,27 @@
+BATCH determinant variants: in=3 out=3
+printed_det_residual_factorized = -(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+corrected_det_residual_factorized = 0
+b_printed_minus_corrected_factorized = z*(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+wrong_U_t_plus_1_residual_factorized = (q - 1)*(4*p + 2*q**2*t + q**2 - 2*q*t - q)/4
+numeric_det_point_1_printed_abs = 4.700e-01
+numeric_det_point_1_corrected_abs = 0.000e+00
+numeric_det_point_1_wrong_abs = 2.897e-01
+numeric_det_point_2_printed_abs = 8.616e-01
+numeric_det_point_2_corrected_abs = 0.000e+00
+numeric_det_point_2_wrong_abs = 2.802e+00
+system_map_h = -sqrt(11)*I/3
+system_map_x0 = -1/6 + sqrt(11)*I/6
+P_system = (2*z - 1)/(z*(z - 1))
+Q_system = (2*sqrt(11)*z - sqrt(11) - I)**2/(108*z*(z - 1))
+R_system = (44*z**4 - 88*z**3 - 4*sqrt(11)*I*z**3 + 54*z**2 + 6*sqrt(11)*I*z**2 - 10*z - 2*sqrt(11)*I*z + 27)/(108*z**2*(z - 1)**2)
+indicial_z0: p0=1, q0=0, equation=rho**2
+indicial_z1: p0=1, q0=0, equation=rho**2
+R_system_infinity_limit = 11/27
+riccati_forced_residual_numerator = 2*z*(z - 1)*(54*L**2*z**2 - 54*L**2*z + 108*L*z - 54*L + 22*z**2 - 22*z - 2*sqrt(11)*I*z + 5 + sqrt(11)*I)
+riccati_forced_lambda_solutions = []
+riccati_control_fake_R_accepts = True
+P_family_U0_theta0_theta1_0 = (-2*q*z + q + z**2)/(z*(-q + z)*(z - 1))
+P_family_minus_P_system = -1/(-q + z)
+numeric_P_mismatch_sample_abs = 1.714e+00
+P_control_self_comparison_accepts = True
+all_assertions_passed = True

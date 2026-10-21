@@ -1,0 +1,47 @@
+CT-S51 UPLOAD READINESS -- read-only
+source : sessions/2026-06-16/VQUAD-PAPER-LAYOUTFIX-001/latex/vquad-periodrep-paper.tex
+
+A. arXiv source integrity
+  A1    OK   tex size 87778 bytes (inventory records 87778)
+        tex sha256 d8906249e8d0eaff681da0f21d6996e6ac824f60550be1d12a21857ae2f6a906
+  A2    OK   pdf re-hashes to the layout-fixed pin: 33f339edd17c5405
+  A3    OK   self-contained: input=0, include=0, includegraphics=0, bibliography=0, bibliographystyle=0, thebibliography=1
+  A4    OK   identity: 0 of 15 private-pattern strings, author reads Papanokechi
+  A5    OK   no venue string in the public source
+  A6    OK   build log reports 24 pages
+
+B. Zenodo record state (stored snapshot of the live API)
+  B1    OK   record 20719043 state=done submitted=True
+  B2    OK   version DOI 10.5281/zenodo.20719043 / concept DOI 10.5281/zenodo.20719042
+  B3    OK   license cc-by-4.0
+  B4    OK   2 files, 11 related identifiers
+  B5    OK   creator ORCID 0009-0000-6192-8273
+        published 2026-06-16
+
+C. Does the uploaded source say what the typed abstract says?
+  C1    FAIL macro-expanded tex abstract == package abstract
+        2 differing region(s):
+          SOURCE : 'closure on the'
+          PACKAGE: 'closure, whose'
+          SOURCE : ''
+          PACKAGE: 'type is conjectured to be'
+  C2    FAIL PRE-REGISTERED, ILL-POSED: counts diff REGIONS, not semantic changes; 2 regions, 1 carrying a hedge
+  C2b   OK   removing the hedge clause from the package text makes it identical to the source abstract: the hedge is the only difference
+  C3    OK   the PUBLISHED record carries the unhedged wording
+
+D. What label does the corpus give the D_5^(1) attribution?
+  D1    OK   CT-S4 records the companion's v1.2 as carrying 'CONJECTURE 4.1'
+  D2    OK   CT-S4's own verdict on the attribution is 'VERDICT (c) INCONCLUSIVE'
+        S4-01 quotes: ...s a THEOREM; in v1.2 (10.5281/zenodo.20481592, 12 pp) it is CONJECTURE 4.1, 'Painleve V (D5^(1)) classification'. ...
+        S4-09 quotes: ...{"claim_id": "S4-09", "task_id": "P5-4", "claim": "VERDICT (c) INCONCLUSIVE. Within a fixed base coordinate the for...
+
+Vacuity pre-checks (run after the observables, per the CT-S47 ordering)
+  V1    FIRED  construct reader finds planted constructs and does not count \includegraphics as \include
+  V2a   FIRED  comparator reports equality for a text and its expansion
+  V2b   FIRED  comparator reports difference when one word changes
+  V3    FIRED  snapshot reader distinguishes an absent field from an unread one
+  V4    FIRED  identity reader fires on each planted private pattern, the A4 test fails on the source plus a planted one, and the benign name is present
+
+RESULT: 17 checks, 2 FINDING(S); 5 controls, 5 FIRED
+  FINDING C1: macro-expanded tex abstract == package abstract
+  FINDING C2: PRE-REGISTERED, ILL-POSED: counts diff REGIONS, not semantic changes; 2 regions, 1 carrying a hedge

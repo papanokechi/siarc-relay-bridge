@@ -1,0 +1,187 @@
+\section{Scope and limits}\label{sec:limits}
+
+The preceding sections established a chain: a growth law for the denominators,
+a local classification, a moduli space, a located point, the removal of a
+projective ambiguity, a point of the character variety, and transport along the
+flow. This section states what that chain does and does not establish. It is
+written so that a reader who stops here is not left to infer the strength of
+any link from the confidence of the prose.
+
+\subsection{Membership: a caution, and its discharge}\label{ssec:verdict}
+
+The membership result was obtained twice, and the order in which it was
+obtained is part of what it means.
+
+\begin{remark}[Membership, with the original caution; \texttt{S16-14}, \textbf{STRUCTURAL}]
+System $\mathsf C$ satisfies every hypothesis under which van der Put and Saito
+build the moduli space $\mathcal M$ for the $(0,0,1)$ row, it is a point of the
+chart $U_0$, and since Painlev\'e V \emph{is} the isomonodromy foliation on
+that space, and since $q(q-1)\neq0$ and $t\neq0$ at the point so that the
+vector field is regular there, exactly one leaf passes through System
+$\mathsf C$. The deformation exists and is not an ansatz. The caution attached
+to it was this: the match was of \emph{projective} normal forms, so what was
+established was that $\mathsf C$'s projectivisation is that of the family
+member at $(p,q,t)$ --- equality up to a rank-one twist, in the same sense in
+which $\mathsf B$ and $\mathsf C$ are projectively equivalent. That caution is
+the reason the label is \textbf{STRUCTURAL} and not \textbf{PROVEN}.
+\end{remark}
+
+The caution was real, and it was not overlooked: it was stated by the session
+that produced the result, against its own conclusion. It was discharged
+afterwards, by a different computation.
+
+\begin{remark}[The caution removed; \texttt{S17-04}, \textbf{PROVEN}]
+A second-order operator is determined by the \emph{pair} $(P,Q)$ in
+$\partial^2+P\partial+Q$. The projective invariant
+$R=P^2/4+P'/2-Q$ that the earlier match used is blind to a rank-one twist,
+whereas $(P,Q)$ is not. Comparing both coefficients: System $\mathsf C$ in the
+$z$ coordinate has
+\[
+  P_{\mathsf C}=\frac{2z-1}{z(z-1)},\qquad
+  Q_{\mathsf C}=\frac{22z^{2}-22z-2i\sqrt{11}\,z+5+i\sqrt{11}}{54\,z(z-1)},
+\]
+and the family's scalar operator at the located point $(p,q,t,\theta_\infty)$
+with cyclic vector $e_1$ has exactly the same $P$ and $Q$:
+$P_{\mathsf F}-P_{\mathsf C}=0$ and $Q_{\mathsf F}-Q_{\mathsf C}=0$
+identically. The two differential modules are therefore \emph{isomorphic}, not
+merely projectively isomorphic.
+\end{remark}
+
+\begin{remark}[The consequence, and its ground; \texttt{S17-06}, \textbf{STRUCTURAL}]
+The ``up to a rank-one twist'' caveat is accordingly withdrawn. It is withdrawn
+because the full operators were verified to agree, and \emph{not} because
+trace-freeness singles out a representative of a projective class; that
+argument is false, and \S\ref{ssec:gauge} says why. The defensible wording is
+that the differential module of System $\mathsf C$ is the module of the van der
+Put--Saito family at the located point of $U_0$, with no twist qualifier.
+\end{remark}
+
+Two things did not change when the caveat was withdrawn.
+
+\begin{remark}[The statement changed, not the label; \texttt{S17-08}, \textbf{STRUCTURAL}]
+Membership was deliberately not raised above \textbf{STRUCTURAL}. Any such
+raise was tied in advance to a falsifier that remains unrun
+(\S\ref{ssec:unrun}). What the discharge changed is the \emph{statement} ---
+membership is now about System $\mathsf C$'s actual differential module rather
+than its projectivisation --- and not the strength of the evidence for it.
+\end{remark}
+
+This is the reason the paper's central result is labelled as it is. The
+operator identity is \textbf{PROVEN}; the membership statement built on it is
+\textbf{STRUCTURAL}. Nothing in the intervening sections upgrades the second
+because the first was strengthened.
+
+\subsection{The falsifier that was not run}\label{ssec:unrun}
+
+\begin{remark}[Not established; \texttt{S16-15}, \textbf{CONJECTURED}]
+The pre-registered falsifier was \emph{not run}. It requires integrating
+Painlev\'e V from $(t_0,q,p)$ to $t_0+\varepsilon$ for two values of
+$\varepsilon$, rebuilding the linear system, and computing monodromy
+\emph{and Stokes} data agreeing with $\mathsf C$'s to at least $30$ digits.
+Computing Stokes data for an irregular rank-two system at that precision is a
+separate undertaking, and it was outside the budget. What was done instead, and
+what is reported as supplementary rather than as the falsifier, is a regularity
+check of the vector field at the point.
+\end{remark}
+
+The threshold was left unchanged for whenever the falsifier is run. No
+threshold was weakened to close this gap, and the gap is recorded as a gap. A
+reader should take the label at face value: \textbf{CONJECTURED} here means
+that a specific, stated, still-available test has not been performed.
+
+\subsection{What the numerical confirmation covers}\label{ssec:numerical-scope}
+
+The transport computation of \S\ref{sec:leaf} closed the same gap
+\emph{numerically}, which is a different thing, and the difference is the
+subject of this subsection.
+
+\begin{remark}[Constancy, and its limits; \texttt{S22-15}, \textbf{VERIFIED}]
+The trace coordinates $x_1,x_2,x_3$ are constant along the flow to $90.81$
+digits at $\varepsilon=10^{-3}$ and $91.83$ digits at $\varepsilon=10^{-4}$,
+against a threshold of $30$ digits. This is a numerical agreement at one point
+along one direction in $t$; \emph{it is not a proof of leaf membership}.
+\end{remark}
+
+That last sentence belongs to the claim and not to the drafting. Three further
+qualifications delimit it.
+
+First, the confirmation is for the trace coordinates, and for those alone. It
+is not a confirmation of the monodromy representation itself, still less of the
+Stokes data, which is what \S\ref{ssec:unrun}'s falsifier would require.
+
+Second, it is a confirmation \emph{under one convention}, and the selection of
+that convention is itself a result rather than an assumption.
+
+\begin{remark}[The convention is a result; \texttt{S22-11}, \textbf{VERIFIED}]
+Of $16$ candidate conventions exactly one satisfies all four pre-registered
+conditions --- right action, small loops counter-clockwise, $M_\infty$
+clockwise, van der Put--Saito's $M_1=\gamma_1$. For it,
+$\lVert M_0M_1M_\infty-I\rVert=2.44\times10^{-105}$; the other fifteen fail,
+several on $\alpha$ alone, at $0.327$, $2.27$ and $2.34$.
+\end{remark}
+
+A reader is entitled to ask whether the result is an artefact of a convention
+chosen to make it work. The answer is that the convention was fixed by
+pre-registered conditions before the comparison, that fifteen of sixteen
+alternatives are excluded by those conditions, and that the exclusion is
+quantitative rather than stylistic. What is \emph{not} shown is that the result
+would survive a different set of conditions; that is the open question of
+\S\ref{ssec:convention-independence}.
+
+Stated for the record, in the form in which it should be quoted:
+\emph{membership is confirmed for the trace coordinates $x_1,x_2,x_3$, under
+the one convention of sixteen that passed, and the selection of that convention
+is itself a result and not an assumption.}
+
+Third, the agreement does not improve without bound, and the reason is
+understood.
+
+\begin{remark}[The residual is systematic, not round-off; \texttt{S22-17}, \textbf{VERIFIED}]
+Raising the working precision from $200$ to $320$ digits leaves the agreement
+and its ratio unchanged to every printed figure --- $90.8118$, $91.8301$, ratio
+$10.429999$ --- while every precision-limited control improves by about $120$
+digits. Over $\varepsilon=10^{-3},10^{-4},10^{-5}$ the ratios are $10.430$ and
+$10.034$. The residual is therefore a systematic $O(\varepsilon)$ error of the
+integrator, not round-off, and it is floored by the optimal-truncation level
+$10^{-88.7}$ set by the pre-registered truncation radius, which no increase in
+precision can reduce.
+\end{remark}
+
+The practical consequence is that ninety digits is the instrument's ceiling at
+this $\varepsilon$, and that quoting a larger figure would require a different
+integrator rather than a longer run.
+
+The second branch of the sign pair was treated the same way rather than
+inferred from the first.
+
+\begin{remark}[Branch two was run; \texttt{S22-18}, \textbf{VERIFIED}]
+Branch $2$, at $t=+2\sqrt{33}\,i/9$, passes the convention selection, the
+sensitivity stage and the transport stage independently: exactly one convention
+of $16$ is selected, the sensitivity ratios are $99.9952$ and $99.9998$, and
+the transport agreement is $90.82$ and $91.84$ digits against the $30$-digit
+threshold. It was run, not inferred.
+\end{remark}
+
+\subsection{What this paper does not claim}\label{ssec:not-claimed}
+
+Collected, so that they are not left to be reconstructed:
+
+\begin{enumerate}
+\item That leaf membership is \emph{proven}. It is \textbf{STRUCTURAL}, and the
+  test that would raise it is named and unrun (\S\ref{ssec:unrun}).
+\item That the numerical transport constitutes such a proof. Its own claim says
+  it does not.
+\item That the monodromy or Stokes data of System $\mathsf C$ have been
+  compared with the family's along the flow. They have not.
+\item That the projective normalisation has a unique representative on general
+  grounds. The natural argument for that is false
+  (\S\ref{ssec:gauge}).
+\item That the result is independent of the monodromy convention. One
+  convention was selected by stated criteria; independence is open
+  (\S\ref{ssec:convention-independence}).
+\item That any displayed formula in this paper has been re-derived from the
+  computation that produced it. Each traces to a recorded claim; none has been
+  symbolically re-derived here, and the formulas of
+  Appendix~\ref{app:typo} were transcribed from page images rather than
+  computed.
+\end{enumerate}

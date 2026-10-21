@@ -1,0 +1,77 @@
+CT-S26-UPPER-BOUND  --  Proposition U, numerical check
+mpmath dps = 60   N = 20000   F1 tolerance = 1e-40 (relative)
+Arms as registered in PREREG.md section 5.  Proof: PROOF.md.
+==============================================================================
+
+V1  known-answer, POSITIVE.  y_n = (-1)^n I_n(2) solves
+    y_n = n y_{n-1} + y_{n-2},  because I_{v-1}(2) - I_{v+1}(2) = v I_v(2).
+    Threshold: >= 40 digits for n = 2..40.  (F2 below that.)
+    worst agreement: 0.30103 digits at n = 2
+    V1 FAIL
+
+V2  known-answer, NEGATIVE.  Perturb y_7 by a relative 1e-20; the same
+    residual must then be LARGE.  Guards a residual that is zero
+    whatever it is fed.  Requires < 25 digits somewhere in n = 7..9.
+    best agreement under perturbation: 0.845098 digits
+    V2 PASS  (the check can return a negative)
+
+V3  MAIN ARM.  (U-finite) at every n <= N, tested in log space as
+    P_{n-1} - log r_n >= 0.  F1 fires below -1e-40.
+
+    b                             min_n (P - log r_n)             r_N / exp(P)
+    --------------------------------------------------------------------------
+    b(n) = n                            0.09453489189       0.8386125671260782
+    b(n) = n + 1                        0.01251598684       0.9647700208064677
+    b(n) = 2n - 1                       0.04565126088       0.9359257154242826
+    b(n) = n/2 + 1/4                     0.3407296633       0.4740494076107038
+    b(n) = n^2                          0.02685644869       0.9676800932696285
+    b(n) = n^2 + n + 1                 0.001099031984       0.9982949644623683
+    b(n) = 3n^2 - 2n + 1               0.001488334285       0.9982295543146394
+    b(n) = n^3 + 1                     0.001488334285       0.9982949289474526
+    b(n) = 10n                         1.245848896e-5        0.999975110851083
+    b(n) = 100 n^2                    3.124947918e-10       0.9999999996117842
+
+    All min slacks >= 0: YES
+
+    Checkpoints for b(n) = n:   n,  r_n,  exp(P_{n-1}),  slack
+      n =      2   r_n = 1.5                      bound = 1.6487212707001281468    slack = 0.1487212707
+      n =      3   r_n = 1.6666666666666666667    bound = 1.9477340410546758566    slack = 0.2810673744
+      n =      5   r_n = 1.875                    bound = 2.2255409284924676046    slack = 0.3505409285
+      n =     10   r_n = 2.0637816909171075838    bound = 2.4596031111569496638    slack = 0.3958214202
+      n =    100   r_n = 2.256904189290131476     bound = 2.6912344723492622891    slack = 0.4343302831
+      n =   1000   r_n = 2.2773068575863381472    bound = 2.7155649053185666873    slack = 0.4382580477
+      n =  20000   r_n = 2.2794713259205270753    bound = 2.7181459177654179385    slack = 0.4386745918
+    (For b(n) = n the sum is sum 1/(k(k+1)) = 1 exactly, so the
+     limiting bound is L = e = 2.718281828459045235360287.)
+
+V4  CAN THE CHECK FAIL?  Re-run V3 against the WEAKENED bound with the
+    k = 1 term deleted.  r_2 = 1 + 1/(b(1)b(2)) > 1 = exp(0), so a
+    correct checker MUST report a violation.  F3 fires if none does.
+    families violating the weakened bound: 10 of 10
+    V4 PASS  (V3's passes are informative: the arm can return a negative)
+
+V5  IS THE BOUND INFORMATIVE?  The ratios r_N / exp(P) must span a
+    range; all-equal-to-1 would mean (U-finite) holds for reasons
+    unrelated to the argument.  F4 fires if the spread is < 0.01.
+    min ratio = 0.4740494076107038   max ratio = 0.9999999996117842
+    spread    = 0.525950592
+    V5 PASS
+
+V6  IS POSITIVITY LOAD-BEARING?  NOT A GATE.  Sign-changing b, all with
+    b(n) != 0 for n >= 1.  A violation shows the hypothesis b > 0 is
+    necessary; no violation is reported as NOT ESTABLISHED, and is NOT
+    evidence that the hypothesis can be dropped.
+    b(n) = 2n - 9          min slack =           -0.04235066097   VIOLATED
+    b(n) = n - 7/2         min slack =                     -inf   VIOLATED
+    b(n) = n^2 - 7n + 3    min slack =           0.001099031984   holds
+    b(n) = n^2 - 10n + 2   min slack =           4.634423122e-5   holds
+    b(n) = 3n - 100        min slack =          -0.004279784399   VIOLATED
+    b(n) = -n^2 + 5n - 1   min slack =           0.002128145529   holds
+
+    V6 RESULT: (U-finite) FAILS without positivity, at 3 of
+    6 sign-changing b: b(n) = 2n - 9, b(n) = n - 7/2, b(n) = 3n - 100.
+    The hypothesis b > 0 is therefore LOAD-BEARING, not decorative.
+
+==============================================================================
+DEFECT: F2: V1 below 40 digits -- engine wrong, no result reported
+VERDICT: FAIL

@@ -1,0 +1,48 @@
+==========================================================================
+S22-20 structural attempt: analytic equivalence of the CT-S16 branches
+==========================================================================
+
+branch 1:  t = -2*sqrt(33)*I/9   theta_inf = -2 - sqrt(3)/9
+branch 2:  t = 2*sqrt(33)*I/9   theta_inf = -2 + sqrt(3)/9
+
+STEP 1  denominator invariance under phi(z) = 1 - z
+  D(z)   = z**2 - z
+  D(1-z) = z**2 - z
+  D(1-z) - D(z) = 0
+  -> invariant.  phi fixes the singular set {0, 1, infinity} setwise,
+     exchanging 0 and 1.  [PROVEN]
+
+STEP 2  the only gauge invariant of a traceless A is det A.
+  A = [[a, b], [c, -a]]/D,   det A = -(a^2 + b c)/D^2,
+  so a constant gauge forces  P_2(z) = P_1(1-z)  with P = a^2 + b c.
+
+  deg P_1 = 4
+  deg P_2 = 4
+
+STEP 3  POSITIVE CONTROL first: the comparison machinery must be able
+        to detect a TRUE identity of the same radical complexity.
+        Without this, 'nonzero' four times could just mean simplify()
+        cannot zero nested radicals, and the negative would be void.
+        Control: sigma(P_1) - P_2 with sigma: sqrt3 -> -sqrt3, which
+        branch_relation.py proves is identically zero.
+
+  CONTROL  sigma(P_1)(z) - P_2(z)                ZERO   max|coeff| ~ 0
+  -> machinery detects a true identity through the same radicals.
+     The negatives below are therefore informative.  [control passed]
+
+STEP 3b  candidate relations, each simplified to zero or not.
+  A pass on exactly one candidate is the informative outcome; a pass
+  on several would mean the test does not discriminate.
+
+  identity            P_2(z)   - P_1(z)        nonzero   max|coeff| ~ 3.83454
+  swap 0<->1          P_2(z)   - P_1(1-z)      nonzero   max|coeff| ~ 0.415740
+  conj coeffs         P_2(z)   - conj(P_1)(z)  nonzero   max|coeff| ~ 0.415740
+  conj coeffs + swap  P_2(z)   - conj(P_1)(1-z) nonzero   max|coeff| ~ 3.83454
+
+  candidates passing: 0
+
+VERDICT  the necessary determinant condition does not single out an
+         analytic candidate.  Pre-declared falsifier fires: this
+         route is dead and S22-20 REMAINS VERIFIED-NUMERICAL.
+         No further candidate maps are tried here, per the
+         pre-declaration in this script's docstring.

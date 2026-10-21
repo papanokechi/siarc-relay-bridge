@@ -1,0 +1,99 @@
+==========================================================================
+CT-S55-BASE-VERSION -- which manuscript version does LMP hold?
+==========================================================================
+
+[0] AUTHENTICITY OF REFERENCES (PREREG F3)
+    v1.0  record 20719043  zenodo-v1.0-20719043.pdf
+           bytes 773171  md5 99faea5b0f4095788e4ee932436beeda  API 99faea5b0f4095788e4ee932436beeda  MATCH
+    v1.1  record 21410927  zenodo-v1.1-21410927.pdf
+           bytes 775400  md5 7feaf94c05a1815a9e8a0ea04561f834  API 7feaf94c05a1815a9e8a0ea04561f834  MATCH
+    v1.2  record 21412469  zenodo-v1.2-21412469.pdf
+           bytes 778209  md5 792107efab6317e8ae21e2ca20f092ff  API 792107efab6317e8ae21e2ca20f092ff  MATCH
+    v1.3  record 22731371  zenodo-v1.3-22731371.pdf
+           bytes 784836  md5 943545955c2951a9592759862230e46a  API 943545955c2951a9592759862230e46a  MATCH
+    EM file  MATH-D-26-00523-EM.pdf
+           bytes 1074874  sha256 cf80089b36b580d136da35afb6bb392e0adb59a95fbe59b04c9995002226b849
+           md5 e2f27a8ee5288dd1f0d8fedb0909a63f
+    all 4 Zenodo references authenticated against the stored API response
+
+[1] LOCATING THE MANUSCRIPT BODY INSIDE THE EM BUILD (PREREG F4)
+    EM PDF total pages: 27
+    pages matching the title-page rule: [3]
+    EM cover pages: 2   body starts at EM page 3
+    EM body pages: 25
+    Editorial Manager overlay stripped from every body page under S1-S3
+
+[2] SECONDARY OBSERVABLE O_name -- the filename EM was given
+    filenames found, verbatim   : []
+    filenames found, de-wrapped : ['vquad-periodrep-paper-v1.2.pdf']
+    O_name = ['vquad-periodrep-paper-v1.2.pdf']
+
+[3] PRIMARY OBSERVABLE -- page-for-page normalised text match
+    (evaluated BEFORE the vacuity block, per PREREG section 6)
+    v1.0  pages  24   O_match   0/25   O_full FALSE
+    v1.1  pages  25   O_match  20/25   O_full FALSE
+    v1.2  pages  25   O_match  25/25   O_full TRUE 
+    v1.3  pages  26   O_match  16/25   O_full FALSE
+
+    candidates with O_full TRUE: ['1.2']
+    RESULT: the manuscript Editorial Manager holds is v1.2 (Zenodo record 21412469), matching all 25 pages
+
+[4] WHICH VERSION DID CT-S52 REVISE? (PREREG P5)
+    CT-S52 source of record : sessions\2026-06-16\VQUAD-PAPER-LAYOUTFIX-001\latex\vquad-periodrep-paper.pdf
+    md5 99faea5b0f4095788e4ee932436beeda
+    byte-identical to Zenodo version: v1.0
+    CT-S52's base is v1.0 (24 pages); Editorial Manager holds v1.2 (25 pages)
+    REBASE REQUIRED: YES
+
+[5] DOES THE FILENAME AGREE WITH THE BYTES?
+    O_name                      : ['vquad-periodrep-paper-v1.2.pdf']
+    name implied by the bytes   : vquad-periodrep-paper-v1.2.pdf
+    filename and content agree  : YES
+
+[6] VACUITY / DISCRIMINATION BLOCK (guards the PASS only)
+    V1 pairwise distinctness of the four candidates:
+       v1.0 vs v1.1: differ
+       v1.0 vs v1.2: differ
+       v1.0 vs v1.3: differ
+       v1.1 vs v1.2: differ
+       v1.1 vs v1.3: differ
+       v1.2 vs v1.3: differ
+       all 6 pairs differ -> a full match against one excludes the others
+    V2 negative control: swap one EM body page with the next
+       v1.0: O_match 0/25  O_full False
+       v1.1: O_match 18/25  O_full False
+       v1.2: O_match 23/25  O_full False
+       v1.3: O_match 14/25  O_full False
+       no candidate matches the perturbed body -> observable is content-sensitive
+    V2b the stripping rule cannot manufacture a match (strip_em replaced by the identity):
+       v1.0: O_match 0/25  O_full False
+       v1.1: O_match 0/25  O_full False
+       v1.2: O_match 0/25  O_full False
+       v1.3: O_match 0/25  O_full False
+       0 pages match unstripped -> the match is produced by manuscript content surviving the overlay, not by the rule
+    V3 graded observable (how near is the runner-up?):
+       v1.2:  25 of 25 pages match
+       v1.1:  20 of 25 pages match
+       v1.3:  16 of 25 pages match
+       v1.0:   0 of 25 pages match
+       winner v1.2 at 25, runner-up v1.1 at 20; margin 5 pages
+
+==========================================================================
+SUMMARY
+==========================================================================
+S55 EM total pages: 27
+S55 EM cover pages: 2
+S55 EM body pages: 25
+S55 LMP holds version: v1.2
+S55 LMP holds record: 21412469
+S55 LMP page match: 25 of 25
+S55 CT-S52 base version: v1.0
+S55 CT-S52 base pages: 24
+S55 rebase required: YES
+S55 runner-up version: v1.1
+S55 runner-up page match: 20 of 25
+S55 unstripped page match: 0 of 25
+S55 filename in EM header: vquad-periodrep-paper-v1.2.pdf
+S55 filename agrees with bytes: YES
+S55 predictions: P1 HELD, P2 HELD, P3 HELD, P4 HELD, P5 HELD
+S55 falsifiers fired: none

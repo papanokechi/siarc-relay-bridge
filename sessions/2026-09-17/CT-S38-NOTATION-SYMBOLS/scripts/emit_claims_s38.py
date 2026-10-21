@@ -1,0 +1,314 @@
+#!/usr/bin/env python3
+"""emit_claims_s38 -- write claims.jsonl for CT-S38-NOTATION-SYMBOLS.
+
+The buffer is validated BEFORE anything reaches disk: a post-write assertion
+still leaves a corrupt artefact behind.  Every output_hash is resolved against
+the file on disk at emission time, and no gate is re-run afterwards -- an
+output produced by walking the corpus changes when this file is written into
+that corpus.
+"""
+import hashlib
+import json
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SESS = os.path.dirname(HERE)
+OUT = os.path.join(SESS, "outputs")
+ART = os.path.join(SESS, "claims.jsonl")
+TASK = "CT-S38-NOTATION-SYMBOLS"
+
+LABELS = {"PROVEN", "VERIFIED", "INSPECTED", "STRUCTURAL", "CONJECTURED"}
+
+
+def sha_file(name):
+    p = os.path.join(OUT, name)
+    if not os.path.exists(p):
+        print("HALT: cited output missing: %s" % p)
+        sys.exit(1)
+    with open(p, "rb") as fh:
+        return hashlib.sha256(fh.read()).hexdigest()
+
+
+IDX = "symbol_index.out.txt"
+PRP = "check_proposal.out.txt"
+TRI = "triage.out.txt"
+REL = "reletter.out.txt"
+RND = "rendered_diff.out.txt"
+MUT = "mutants_s38.out.txt"
+ADJ = "adjudicate_ctx.out.txt"
+CHK = "check_s1_repairs.out.txt"
+CEN = "label_census.out.txt"
+OCI = "check_outline_citation.out.txt"
+
+C = [
+    ("S38-01", "VERIFIED",
+     "A symbol index over 6 sources (theorem.tex, section1.tex, OUTLINE.md "
+     "rev 6, section3.tex, section4.tex and the 89 outline-cited claim texts) "
+     "records 82 distinct bases, 274 distinct keys and 2318 occurrences, of "
+     "which 38 bases are collision candidates. section3.tex and section4.tex "
+     "were ADDED to the four sources named in the ruling; excluding them would "
+     "hide the q_0,q_1,q_2 and indicial-lambda collisions, both of which live "
+     "in section 3.", "file_inspection", IDX, "symbol_index.py"),
+    ("S38-02", "STRUCTURAL",
+     "The base q carries THREE distinct meanings, one more than the ruling "
+     "names: the Okamoto/van der Put-Saito chart coordinate q in section4.tex "
+     "and the outline-cited claims (53 occurrences); the normalised "
+     "denominator sequence q_n and its limit q_infinity in section1.tex (8); "
+     "and the coefficients q_0,q_1,q_2 of System B's scalar transcription in "
+     "section3.tex (4). The third was not previously recorded.",
+     "file_inspection", IDX, "symbol_index.py"),
+    ("S38-03", "STRUCTURAL",
+     "The base lambda carries at least FOUR distinct meanings: the roots "
+     "lambda_1..lambda_d of b in section1.tex; the indicial variable in "
+     "section3.tex, where the indicial polynomial is lambda^2; the rank-1 "
+     "twist scalar of claim S17-01, A -> A + lambda*Id; and the parameter of "
+     "the moduli space M_{t,lambda} in the outline-cited claims.",
+     "file_inspection", IDX, "symbol_index.py"),
+    ("S38-04", "VERIFIED",
+     "The base r is the worst in the corpus: 167 occurrences under 29 "
+     "distinct keys across 5 sources, spanning the normalised sequence, the "
+     "roots of b, van der Put-Saito's Katz invariant r(c), the normal "
+     "potential r(varphi), the fixed r in C of theorem.tex Step 3, and "
+     "r_A, r_B, r_C in section3.tex.", "file_inspection", IDX,
+     "symbol_index.py"),
+    ("S38-05", "STRUCTURAL",
+     "Inside theorem.tex, which carries cold-read PROVEN status, the single "
+     "token r_1 denotes two different objects: the first term of the "
+     "normalised sequence at eq:rnrec (r_0 = r_1 = 1) and the first root of b "
+     "in 'r_1,...,r_d in C the roots listed with multiplicity'. A blanket "
+     "substitution on r_1 would therefore have been wrong in one of the two "
+     "places; the root phrase was rewritten first as a literal and the "
+     "remaining r_<sub> mapped through an explicit table.",
+     "file_inspection", REL, "reletter.py"),
+    ("S38-06", "VERIFIED",
+     "The pair psi_n, psi_infinity for the normalised sequence and its limit, "
+     "and nu_1..nu_d for the roots of b, is admissible under all six "
+     "PREREG Part B clauses. Ten control candidates (q, lambda, r, rho, "
+     "varrho, mu, l, omega, chi, eta) were each rejected, and each on the "
+     "clause named in advance.", "file_inspection", PRP, "check_proposal.py"),
+    ("S38-07", "VERIFIED",
+     "Re-lettering theorem.tex and section1.tex changed nothing but symbols: "
+     "under the inverse map the whitespace-stripped character multiset of the "
+     "rendered text is equal page by page for both documents, on both "
+     "pdftotext and PyMuPDF; non-whitespace character counts are equal "
+     "(14139 = 14139 for theorem, 8546 = 8546 for section 1); page counts are "
+     "unchanged at 8 and 4; there are no undefined references; and the "
+     "decisive test rejects a single deleted character. SCOPE: for section 1 "
+     "this compares refs/section1-pre-S38.tex against "
+     "refs/section1-symbols-only.tex, the snapshot taken after the rename and "
+     "BEFORE the three authorised prose repairs of S38-16. It does NOT "
+     "describe the live section1.tex, which differs from the snapshot by "
+     "those repairs. rendered_diff.py resolves the snapshot positively, by "
+     "requiring it to still carry the pre-repair rho sentence, rather than "
+     "trusting the path string.",
+     "build", RND, "rendered_diff.py"),
+    ("S38-08", "STRUCTURAL",
+     "Section 1 has 27 collision candidates under the necessary condition "
+     "'base occurs in section1.tex and also elsewhere under a key section 1 "
+     "does not use', not the 6 stated in the ruling. Adjudicated against the "
+     "printed evidence, 12 are genuine collisions of distinct objects "
+     "(q, lambda, r, M, P, Q, rho, s, A, L, u, beta), 3 are marginal "
+     "(N, k, e) and 12 are not collisions. The ruling named 2 of the 12.",
+     "file_inspection", TRI, "triage.py"),
+    ("S38-09", "VERIFIED",
+     "section1.tex asserts 'The letter rho is never used for anything else', "
+     "and section3.tex uses rho_pm = (-1 +/- i sqrt(11))/2 for System B's "
+     "finite singular points. The assertion in the drafted section 1 is "
+     "therefore false as the corpus stands. REPORTED at the time, and since "
+     "REPAIRED by operator ruling: 'fix section 1, not section 3', section "
+     "3's rho_pm being established corpus usage. The repair is S38-16; this "
+     "claim records the finding and its date, not the present state of "
+     "section1.tex.",
+     "file_inspection", ADJ, "symbol_index.py"),
+    ("S38-10", "STRUCTURAL",
+     "An ORDERED comparison of rendered text is not a valid instrument for a "
+     "symbol rename. pdftotext orders tokens by glyph position and renaming r "
+     "to psi changes glyph widths, so stacked displays are emitted with their "
+     "limits interleaved differently while containing identical characters; "
+     "PyMuPDF shares the sensitivity and so does not discriminate either. A "
+     "second extractor is independent only with respect to failure modes it "
+     "does not share. Both extractors agree once the observable is the "
+     "whitespace-stripped character multiset.", "build", RND,
+     "rendered_diff.py"),
+    ("S38-11", "VERIFIED",
+     "The index instrument applied its NOT_SYMBOLS exclusion in scan_tex but "
+     "not in scan_prose, so a token excluded from the TeX reading was still "
+     "admitted from a prose source. Found by control arm 8, which did not "
+     "fire when B was added to NOT_SYMBOLS. Repaired so both readers apply "
+     "the same exclusion; arm 8 was also re-cast to remove base B from both "
+     "scanners, which is the condition the arm was written to exercise.",
+     "computation", MUT, "mutants_s38.py"),
+    ("S38-12", "VERIFIED",
+     "All eight pre-registered control arms are CAUGHT for the stated reason: "
+     "non-zero exit, the expected condition named in the output, and no "
+     "Traceback, SyntaxError or NameError. Arm 4's letter is discovered from "
+     "the index at run time rather than taken from the checker's own "
+     "forbidden list.", "computation", MUT, "mutants_s38.py"),
+    ("S38-13", "STRUCTURAL",
+     "Claim S36-11, which fixed the names q_n, q_infinity and "
+     "lambda_1..lambda_d with label CONJECTURED and noted that the letters "
+     "themselves were not ruled on, is SUPERSEDED by this session: the "
+     "operator overturned those names and the replacements are psi_n, "
+     "psi_infinity and nu_1..nu_d.", "file_inspection", REL, "reletter.py"),
+    ("S38-14", "STRUCTURAL",
+     "The proposal psi_n, psi_infinity for the normalised sequence and its "
+     "limit, and nu_1..nu_d for the roots of b, was ACCEPTED by operator "
+     "ruling, with the two disclosed adjacencies accepted as acceptable: psi "
+     "sits near varphi, which occurs only as the subscript of L_varphi, and "
+     "nu sits beside the index n in b(n) = beta_d prod (n - nu_i). The "
+     "admissibility argument is the pre-registered clause test of S38-06; the "
+     "ruling is the operator's and is not itself a checkable proposition.",
+     "file_inspection", PRP, "check_proposal.py"),
+    ("S38-15", "VERIFIED",
+     "The r_1 ambiguity INSIDE theorem.tex is resolved by the re-lettering, "
+     "not merely renamed. The pre-rename file used r_1 for two distinct "
+     "objects, 6 occurrences in total: 1 in the root phrase 'r_1,...,r_d are "
+     "the roots' and 5 in sequence contexts. The re-lettered file has exactly "
+     "1 nu_1 and 1 nu_d, both in the root sentence, and exactly 5 psi_1, all "
+     "in sequence contexts; no r_1 or r_d survives. Three control arms cover "
+     "the failures that the build, the page count and the rendered-multiset "
+     "diff all pass: both roles collapsed onto psi_1, both collapsed onto "
+     "nu_1, and one sequence site left un-renamed. All three CAUGHT.",
+     "file_inspection", CHK, "check_s1_repairs.py"),
+    ("S38-16", "VERIFIED",
+     "Three authorised prose repairs are present in section1.tex and each is "
+     "separately checkable. (i) The false sentence 'the letter rho is never "
+     "used for anything else' is GONE, replaced by a statement that rho "
+     "carries two meanings separated by the presence of a subscript, the "
+     "subscripted rho_pm = (-1 +/- i sqrt(11))/2 being section 3's finite "
+     "singular points of System B. (ii) Q, the coefficient of a normal-form "
+     "equation, is separated from the denominators Q_n. (iii) The "
+     "unsubscripted growth exponent s is separated from the actions s_pm. "
+     "All three follow section 1's existing precedent for the sans-serif "
+     "A,B,C collision: state the convention, do not rename the letter. 12 "
+     "checks pass, 8 control arms are CAUGHT, and the section-1 build is 4 "
+     "pages with no undefined references, unchanged.",
+     "file_inspection", CHK, "check_s1_repairs.py"),
+    ("S38-17", "VERIFIED",
+     "P0's EPISTEMIC LABELS block enumerates four labels; the corpus carries "
+     "five. A census of all 35 claims.jsonl files under sessions/2026-09-17/ "
+     "OTHER THAN this session's own finds 649 claim lines labelled PROVEN "
+     "140, VERIFIED 170, INSPECTED 215, STRUCTURAL 118, CONJECTURED 6. The "
+     "five PARTITION the corpus (140+170+215+118+6 = 649), so there is no "
+     "sixth label, and INSPECTED is not a marginal fifth category but the "
+     "MOST COMMON label, carrying 33.1% of all claims, more than PROVEN and "
+     "CONJECTURED combined. Every line carries exactly one label field. This "
+     "session's claims.jsonl is excluded BY CONSTRUCTION so that the census "
+     "is invariant under its own emission; the exclusion is asserted, not "
+     "assumed, by check C6. A control injecting a synthetic sixth label is "
+     "reported as outside the five, which is what distinguishes 'no sixth "
+     "label exists' from 'the reader could not see labels'. Adopted as P0 "
+     "amendment F.",
+     "file_inspection", CEN, "label_census.py"),
+    ("S38-18", "VERIFIED",
+     "OUTLINE.md's citation defect is fixed at the source: the two bare "
+     "S9-PVPARAMS-* citations are now CT-S9-PVPARAMS-*, the corpus form, and "
+     "no bare short-form citation survives. Every CT-S9-PVPARAMS id the "
+     "outline cites resolves to exactly one claim among the 649 distinct "
+     "claim ids of the corpus outside this session. Three controls are "
+     "CAUGHT: reinstating the short form, pointing a citation at a "
+     "non-existent claim, and removing the family entirely. Per operator "
+     "ruling, an alias implemented in the checker is a workaround for a "
+     "citation defect, so the defect is repaired in the outline rather than "
+     "tolerated in CT-S37's draft_check.",
+     "file_inspection", OCI, "check_outline_citation.py"),
+    ("S38-19", "INSPECTED",
+     "CT-S37 Group B's third reported item requires NO action. The drafting "
+     "rule 'exclusions are VERIFIED' conflicted with the corpus label on "
+     "S6-C7; the operator ruled that the corpus wins and that the rule was "
+     "written from the v1.7 notice's tier table and does not hold generally. "
+     "Nothing is relabelled. Recorded so that a later reader does not "
+     "rediscover the conflict and 'repair' it in the wrong direction.",
+     "file_inspection", OCI, "check_outline_citation.py"),
+]
+
+RESIDUAL = ("psi sits near varphi, which occurs only as the subscript of "
+            "L_varphi; nu sits beside the index n in b(n) = beta_d prod "
+            "(n - nu_i). Both are disclosed, neither is a homoglyph "
+            "collision under the clause applied.")
+
+
+def main():
+    rows = []
+    for cid, label, text, ev, outfile, script in C:
+        rows.append({
+            "claim_id": cid,
+            "task_id": TASK,
+            "claim": text,
+            "label": label,
+            "evidence_type": ev,
+            "dps": None,
+            "reproducible": True,
+            "script": "scripts/" + script,
+            "output_hash": sha_file(outfile),
+            "output_file": "outputs/" + outfile,
+        })
+    rows[5]["review_note"] = RESIDUAL
+
+    buf = "\n".join(json.dumps(r, ensure_ascii=True) for r in rows) + "\n"
+
+    # ---- pre-write validation of the BUFFER --------------------------------
+    print("emit_claims_s38 -- pre-write validation")
+    parsed = [json.loads(l) for l in buf.strip().split("\n")]
+    checks = [
+        ("every line parses as JSON", len(parsed) == len(C)),
+        ("claim ids unique",
+         len({r["claim_id"] for r in parsed}) == len(parsed)),
+        ("every label is one of the five (P0 amendment F)",
+         all(r["label"] in LABELS for r in parsed)),
+        ("every claim text non-empty",
+         all(len(r["claim"].strip()) > 40 for r in parsed)),
+        ("every output_hash is 64 hex",
+         all(len(r["output_hash"]) == 64 for r in parsed)),
+        ("every output_hash resolves to its file on disk",
+         all(r["output_hash"] == sha_file(os.path.basename(r["output_file"]))
+             for r in parsed)),
+        ("every script exists",
+         all(os.path.exists(os.path.join(SESS, r["script"]))
+             for r in parsed)),
+        ("the residual-risk note survived the projection",
+         any(r.get("review_note") for r in parsed)),
+        ("S38-13 records the supersession of S36-11",
+         any("S36-11" in r["claim"] and "SUPERSEDED" in r["claim"]
+             for r in parsed)),
+        ("S38-07 states its scope is the symbols-only snapshot",
+         any(r["claim_id"] == "S38-07"
+             and "section1-symbols-only.tex" in r["claim"]
+             and "does NOT describe the live section1.tex" in r["claim"]
+             for r in parsed)),
+        ("S38-09 no longer says the rho defect is unrepaired",
+         any(r["claim_id"] == "S38-09"
+             and "not repaired" not in r["claim"]
+             and "S38-16" in r["claim"] for r in parsed)),
+        ("the INSPECTED label is exercised by this session",
+         any(r["label"] == "INSPECTED" for r in parsed)),
+    ]
+    bad = 0
+    for label, good in checks:
+        print("  %-52s %s" % (label, "ok" if good else "FAILED"))
+        bad += 0 if good else 1
+    if bad:
+        print("HALT: %d pre-write check(s) failed; nothing written." % bad)
+        sys.exit(1)
+
+    with open(ART, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(buf)
+    with open(ART, "rb") as fh:
+        disk = fh.read()
+    if hashlib.sha256(disk).hexdigest() != \
+            hashlib.sha256(buf.encode("utf-8")).hexdigest():
+        print("HALT: read-back does not match the validated buffer")
+        sys.exit(1)
+
+    print("\n  claims written : %d" % len(parsed))
+    print("  checks run     : %d" % len(checks))
+    print("  checks failed  : 0")
+    print("  claims.jsonl   : %d B  sha256 %s"
+          % (len(disk), hashlib.sha256(disk).hexdigest()))
+    print("  VERDICT: CLAIMS EMITTED")
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()

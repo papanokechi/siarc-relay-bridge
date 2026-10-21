@@ -1,0 +1,113 @@
+source   section5.tex  sha256 af25048b9b62a6f4  14603 bytes
+guard    carries \subsection{The located point}
+
+======================================================================
+PARSE (all numerals and signs taken from the .tex, none typed here)
+======================================================================
+  parsed  p_D            = 28151758571
+  parsed  p_D_sign       = -1
+  parsed  p_E            = 48874838016
+  parsed  p_E_sign       = 1
+  parsed  p_F            = 4086468672
+  parsed  p_lead         = 5
+  parsed  q_A            = 457937
+  parsed  q_A_sign       = -1
+  parsed  q_B            = 281700
+  parsed  q_B_sign       = 1
+  parsed  q_C            = 122408
+  parsed  q_frac_den     = 2
+  parsed  q_frac_num     = 1
+  parsed  t_sign_1       = -1
+  parsed  t_sign_2       = 1
+  parsed  th_lead_1      = -1
+  parsed  th_lead_2      = -1
+  parsed  th_tail_1      = -1
+  parsed  th_tail_2      = 1
+  parsed  approx q br1  = 0.5 + 0.8123 i
+  parsed  approx p br1  = 0.4649 i
+  parsed  approx q br2  = 0.5 - 25.6278 i
+  parsed  approx p br2  = 396.2089 i
+
+V3 parser round-trip (positive control)
+  [MATCH ] q re-renders to the source
+  [MATCH ] p re-renders to the source
+
+pre-condition  r_z denominator is D^2 times 108
+======================================================================
+VACUITY V1/V2 - transpose the last two digits of each parsed integer
+======================================================================
+A transposition that still annihilates the system means the generators do
+not determine that coefficient, and route ALPHA is vacuous for it.
+
+  [CAUGHT ] q_A: 457937 -> 457973  breaks 3/6 generators (z^2 coeff)
+  [SKIPPED] q_B: last two digits identical (00), transposition is a no-op -- sensitivity NOT yet demonstrated
+  [CAUGHT ] q_C: 122408 -> 122480  breaks 3/6 generators (z^2 coeff)
+  [CAUGHT ] p_D: 28151758571 -> 28151758517  breaks 3/6 generators (z^2 coeff)
+  [CAUGHT ] p_E: 48874838016 -> 48874838061  breaks 3/6 generators (z^2 coeff)
+  [CAUGHT ] p_F: 4086468672 -> 4086468627  breaks 3/6 generators (z^2 coeff)
+
+V1b supplementary arms for coefficients whose last-two swap was a no-op
+  [CAUGHT ] q_B: 281700 -> 821700  breaks 3/6 generators (z^2 coeff)
+
+V4 approximation tolerance is not vacuous
+  [MATCH ] a 5th-decimal perturbation is rejected at 4 dp
+
+======================================================================
+ROUTE ALPHA - do the numerals ON THE PAGE satisfy the matching system?
+======================================================================
+branch 1 (t sign -1, theta_infty = -2 - sqrt(3)/9)
+  [MATCH ] generator z^4 coeff
+  [MATCH ] generator z^3 coeff
+  [MATCH ] generator z^2 coeff
+  [MATCH ] generator z^1 coeff
+  [MATCH ] generator z^0 coeff
+  [MATCH ] generator b_1 = 0
+
+F4 branch pairing is load-bearing
+  [MATCH ] the printed (p,q) do NOT solve the other branch   3/6 generators nonzero on the cross-pairing
+
+ROUTE ALPHA2 - the same point through the UNREDUCED R = P^2/4 + P'/2 - Q
+  [MATCH ] general R minus r_z is identically zero
+  [MATCH ] b is constant at the parsed point (b_1 = 0)
+  [MATCH ] q is in the chart U_0 (q not in {0,1})
+
+======================================================================
+ROUTE BETA - solve independently, then compare integer by integer
+======================================================================
+  [MATCH ] exactly two solutions (F5)   found 2
+  [MATCH ] a solved branch carries the printed t of branch 1   1 candidates
+  solved q = 1/2 + (-457937*sqrt(11)*I + 281700*sqrt(33)*I)/122408
+  solved p = 5*I*(-28151758571*sqrt(33) + 48874838016*sqrt(11))/4086468672
+
+decomposer controls (a reader that returns 0 for what it cannot see)
+  [MATCH ] positive: 1+2sqrt3+3sqrt11+4sqrt33 decomposes exactly   [1, 2, 3, 4]
+  [MATCH ] positive: sqrt33 is SEEN as the sqrt33 coordinate, not as 0
+  [MATCH ] negative: a pure rational has only the '1' coordinate
+
+per-coefficient ledger (one row per coordinate, both branches)
+  [MATCH ] q: rational part equals the printed 1/2   solved 1/2  printed 1/2
+  [MATCH ] q: coefficient of i*sqrt(11)   solved -457937/122408  printed -457937/122408
+  [MATCH ] q: coefficient of i*sqrt(33)   solved 70425/30602  printed 281700/122408
+  [MATCH ] q: no i*sqrt(3) term is hidden in the printed form
+  [MATCH ] p: coefficient of i*sqrt(33)   solved -140758792855/4086468672  printed 5*-28151758571/4086468672
+  [MATCH ] p: coefficient of i*sqrt(11)   solved 1272782240/21283691  printed 5*48874838016/4086468672
+  [MATCH ] p: purely imaginary, as printed
+  [MATCH ] theta_infty branch 1   solved -2 - sqrt(3)/9  printed -2 - sqrt(3)/9
+  [MATCH ] theta_infty branch 2   solved -2 + sqrt(3)/9  printed -2 + sqrt(3)/9
+  [MATCH ] t branch 2
+
+======================================================================
+ROUTE GAMMA - printed approximations, half-ulp of the last printed place
+======================================================================
+  [MATCH ] q branch 1 Re   printed 0.5  exact 0.5000000000
+  [MATCH ] q branch 1 Im   printed 0.8123  exact 0.8123496088
+  [MATCH ] p branch 1 Re   printed 0  exact 0
+  [MATCH ] p branch 1 Im   printed 0.4649  exact 0.4648985440
+  [MATCH ] q branch 2 Re   printed 0.5  exact 0.5000000000
+  [MATCH ] q branch 2 Im   printed -25.6278  exact -25.62780622
+  [MATCH ] p branch 2 Re   printed 0  exact 0
+  [MATCH ] p branch 2 Im   printed 396.2089  exact 396.2088861
+
+======================================================================
+ROUTE S (section 5 q,p): 36 checks, 0 DIFFER
+======================================================================

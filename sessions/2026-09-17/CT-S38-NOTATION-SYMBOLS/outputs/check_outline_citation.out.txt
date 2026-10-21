@@ -1,0 +1,20 @@
+check_outline_citation -- the outline cites the corpus form
+  outline : C:\LocalWork\siarc-relay-bridge\sessions\2026-09-17\CT-S24-PAPER-OUTLINE\OUTLINE.md (49916 B)
+  corpus  : 649 distinct claim ids
+
+[outline as it now stands]
+  bare S9-PVPARAMS-* citations : 0
+  CT-S9-PVPARAMS-* cited       : 2  (CT-S9-PVPARAMS-C002, CT-S9-PVPARAMS-C005)
+  O1 no bare short-form citation survives          ok
+  O2 the corpus form is actually cited             ok
+  O3 every cited id resolves to exactly one claim  ok
+
+[controls -- each mutation must be REJECTED]
+  C1 the short form reinstated                   CAUGHT  (fired: O1, O2)
+  C2 a citation pointed at a non-existent claim  CAUGHT  (fired: O3)
+  C3 the family removed entirely (non-vacuity)   CAUGHT  (fired: O2)
+
+[verdict]
+  checks failed : 0
+  arms CAUGHT   : 3/3
+  VERDICT: OUTLINE CITES THE CORPUS FORM

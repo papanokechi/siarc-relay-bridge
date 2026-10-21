@@ -1,0 +1,69 @@
+==============================================================================
+CT-S56 STAGE 3 -- apply items 1-4 (CT-S52) and item 5 to the v1.2 source
+==============================================================================
+
+base source   : refs/src-v1.2/vquad-periodrep-paper.tex
+base sha256   : 2529da49e377b9ddba905d3fde65e639c676ef9f7029810b09e091e948feb790
+line endings  : CRLF
+
+CT-S52 replacements imported : 19
+item 5 replacements defined  : 13
+item 4 additions (L455)      : 1
+
+[1] PRE-APPLICATION VALIDATION (all patterns, before anything is written)
+    item 1  [  ok  ] matches=1  abstract: D5 stated as fact
+    item 1  [  ok  ] matches=1  1.1: identification + v1.3 notice on the Painleve parame
+    item 1  [  ok  ] matches=1  7.1: the representative described as a D5 representative
+    item 1  [  ok  ] matches=1  4.x algebraicity: accessory parameter asserted as fact (
+    item 2  [  ok  ] matches=1  7.1: 'completes part (ii)(a) for d=2'
+    item 3  [  ok  ] matches=1  Theorem 1.2: 'proved twice'
+    item 3  [  ok  ] matches=1  1.4: 'an independent structural argument'
+    item 3  [  ok  ] matches=1  2.2 proof: the structural argument restated correctly
+    item 3  [  ok  ] matches=1  Appendix A.2: 'Independent structural confirmation'
+    item 3  [  ok  ] matches=1  A.5: 'case-elimination plus the structural argument'
+    item 4  [  ok  ] matches=1  Prop 2.4: apparency at xi=0
+    item 4  [  ok  ] matches=1  Table 1: '0 (apparent)'
+    item 4  [  ok  ] matches=1  Cor 1.4 proof: 'the point 0 is apparent'
+    item 4  [  ok  ] matches=1  Lemma 2.7 statement and proof
+    item 4  [  ok  ] matches=1  figure: node label '(apparent)'
+    item 4  [  ok  ] matches=1  figure caption: 'xi=0 is apparent and carries no cut'
+    item 4  [  ok  ] matches=1  Remark 3.3: 'the apparent point'
+    item 4  [  ok  ] matches=1  A.3: record the xi=0 log computation
+    item R  [  ok  ] matches=1  new bibitem for the companion's v1.3 correction notice
+    item 4  [  ok  ] matches=1  Prop 2.4 closing: 'Both statements are obtained twice' (
+    item 5  [  ok  ] matches=1  abstract: 'three structurally independent methods'
+    item 5  [  ok  ] matches=1  1.3 main results: 'three independent ways'
+    item 5  [  ok  ] matches=1  Theorem 1.1: 'three structurally independent methods'
+    item 5  [  ok  ] matches=1  5 preamble: 'three structurally independent ways' / 'dis
+    item 5  [  ok  ] matches=1  5.1 strategy: heading and the 'disjoint inputs' premise
+    item 5  [  ok  ] matches=1  5.1 Method A bullet: independence inferred, not measured
+    item 5  [  ok  ] matches=1  5.1 Method B bullet: name the amplitude dependence
+    item 5  [  ok  ] matches=1  5.3 methodB chain: name where S enters
+    item 5  [  ok  ] matches=1  5.3 methodB: the error figure and the independence sente
+    item 5  [  ok  ] matches=1  5.5 prop:cross: 'disjoint inputs'
+    item 5  [  ok  ] matches=1  Table 2: row B 'Independent of' and its figure
+    item 5  [  ok  ] matches=1  Table 2 caption: record the shared amplitude
+    item 5  [  ok  ] matches=1  5.5 closing: 'spurious triple coincidence'
+
+    all 33 patterns match exactly once.
+
+[2] APPLYING
+    33 replacements applied.
+
+[3] BUFFER CHECKS (still before writing)
+    revised buffer differs from base            : yes
+    every replacement's new text present        : yes
+    bibitems base=25  revised=26  (expected +1)
+    new bibitem is the final entry              : yes (numbering preserved)
+
+[4] WRITTEN
+    revision\vquad-periodrep-paper.tex
+    sha256 973145689699bdb79a2b67d314ea821e8754d7f59e41952ae0d63a0a6c428452
+    97567 bytes
+
+[5] BASE UNCHANGED
+    v1.2 source byte-identical after the run: YES
+
+==============================================================================
+STAGE 3 CLEAN
+==============================================================================

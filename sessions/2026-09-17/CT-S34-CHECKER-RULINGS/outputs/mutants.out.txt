@@ -1,0 +1,24 @@
+==============================================================================
+CT-S34  mutants on the checker  (θ, ∞ sentinels)
+==============================================================================
+checker sha256 before: 89d163f2c1b7a81d17429eaa5d82104000718052d899ba73d8a9b7202749f30a
+harness              : verify_rulings.py
+
+CAUGHT M1  cutoff moved one day later, hiding a claim that should be judged
+       refused=True  right_reason=True  broke_script=False
+CAUGHT M2  counter pattern widened to any id, disabling 1(b)(i) wholesale
+       refused=True  right_reason=True  broke_script=False
+CAUGHT M3  within-session duplicate threshold raised, disabling 1(b)(ii)
+       refused=True  right_reason=True  broke_script=False
+CAUGHT M4  mirror pattern unanchored, so any path containing 'mirror' matches
+       refused=True  right_reason=True  broke_script=False
+CAUGHT M5  identical claim text accepted as an exemption -- the loosening the ruling forbids
+       refused=True  right_reason=True  broke_script=False
+CAUGHT M6  known-hole list turned into a blanket amnesty for any damage
+       refused=True  right_reason=True  broke_script=False
+CAUGHT M7  idless claims fall silent instead of getting their own line
+       refused=True  right_reason=True  broke_script=False
+
+checker sha256 after : 89d163f2c1b7a81d17429eaa5d82104000718052d899ba73d8a9b7202749f30a
+byte-identical       : True
+ARMS: 7/7 CAUGHT

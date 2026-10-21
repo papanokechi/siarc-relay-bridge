@@ -1,0 +1,462 @@
+                      On the Lax pairs of the sixth Painlevé equation
+
+                                                                                            Robert Conte
+
+
+                    yService de physique de létat condensé (URA 2464), CEA‐Saclay
+                                  F‐91191 Gif‐sur‐Yvette Cedex, France
+                                                                      \mathrm{E} ‐mail: Robert.Conte@cea.fr
+
+                                                                                                    Abstract
+
+                 The dependence of the sixth equation of Painlevé on its four parameters (2 $\alpha$, -2 $\beta$, 2 $\gamma$, 1-
+
+           2)=($\theta$_{\infty}^{2}, $\theta$_{0}^{2}, $\theta$_{1}^{2}, $\theta$_{x}^{2}) is holomorphic, therefore one expects all its Lax pairs to display such a
+           dependence.               This is indeed the case of the second order scalar Lax                                                                         pair of Fuchs, but the
+           second order matrix Lax pair of Jimbo and Miwa presents a meromorphic dependence on $\theta$_{\infty}
+
+           (and a holomorphic dependence on the three other $\theta$_{j} ). We analyze the reason for this feature
+           and make suggestions to suppress it.
+
+
+Keywords:               Sixth Painlevé                       function,                Fuchsian system, Lax                                    pair, apparent singularity,                                isomon‐
+odromic deformation.
+MSC 2000 35\mathrm{Q}58, 35\mathrm{Q}99
+PACS 199502. 20.\mathrm{Q}\mathrm{s}11.10.\mathrm{L}\mathrm{m}
+
+
+
+Contents
+
+1     Introduction
+
+
+2     Holomorphic Lax pair by scalar isomonodromy
+
+3     Meromorphic Lax pair by matrix isomonodromy
+
+4     Towards a holomorphic matrix Lax pair
+
+
+5     A Kimura‐type Lax pair
+
+
+6     Conclusion
+
+
+
+1          Introduction
+
+Consider a second order linear ordinary dierential equation for                   $\psi$(t) with five Fuchsian singula‐
+rities,      one      of them t=u            being apparent (i.e. the ratio of two linearly independent solutions
+remains single valued around it) and the four others having a crossratio x The condition that the                                                                         .
+
+
+
+
+ratio $\psi$_{1}/$\psi$_{2} of two linearly independent solutions be singlevalued when t goes around any of these
+
+singularities results in one constraint between u and x which is [2] that the apparent singularity u,                     ,
+
+
+considered as a function of the crossratio x obeys the sixth Painlevé equation P6. In its normalized
+                                                                                               ,
+
+
+form (choice (\infty, 0,1, x) of the four nonapparent Fuchsian singularities), this ODE is [2]
+
+
+
+
+                         E(u) \displaystyle \equiv -u^{0/}+\frac{1}{2}[\frac{1}{u}+\frac{1}{u-1}+\frac{1}{u-x}]u^{02}-[\frac{1}{x}+\frac{1}{x-1}+\frac{1}{u-x}]u^{0}
+                                              +\displaystyle \frac{u(u-1)(u-x)}{x^{2}(x-1)^{2} [ $\alpha$+ $\beta$\frac{x}{u^{2} + $\gamma$\frac{x-1}{(u-1)^{2} + $\delta$\frac{x(x-1)}{(u-x)^{2} ]=0,
+                                                                                                              1
+its four parameters $\alpha$, $\beta$, $\gamma$, $\delta$ representing the dierences                                                                                $\theta$_{j} of the two Fuchs indices at the four
+nonapparent singularities t=\infty, 0 , 1, x,
+
+                                                                           (2 $\alpha$, -2 $\beta$, 2 $\gamma$, 1-2 $\delta$)=($\theta$_{\infty}^{2}, $\theta$_{0}^{2}, $\theta$_{1}^{2}, $\theta$_{x}^{2})   .
+
+                                                                                                                                                                                                                                                (1)
+     The proof by Poincaré [11] of the impossibility to remove the apparent singularity in the second
+order scalar isomonodromic deformation certainly motivated Jimbo and Miwa to consider, in place
+of the scalar isomonodromy problem, the matrix isomonodromy problem of the same order (two),
+
+                                                               \partial_{x} $\psi$=L $\psi$,             \partial_{t} $\psi$=M $\psi$         ,      [@        x
+                                                                                                                                                                   —
+
+
+
+
+                                                                                                                                                                        L ; @t            —
+
+
+
+
+                                                                                                                                                                                                 M ] =0           .
+
+                                                                                                                                                                                                                                                (2)
+There indeed exists a choice                                         [5] of second order matrices (L, M) whose isomonodromy condition
+also yields P6, in which the singularities of the monodromy matrix M in the t complex plane are
+four Fuchsian points of crossratio x , without the need for an apparent singularity.
+     This beautiful result however presents the drawback to have a meromorphic dependence on one
+of the four monodromy exponents $\theta$_{j} , while u^{0/} in P6 has a holomorphic such dependence.                                                                                                                                           The
+purpose of this work is to explore several directions in order to remove this drawback from matrix
+Lax pairs.
+     A possibility to achieve that is to consider some simple physical system admitting a Lax pair and
+a   reduction to P6. The corresponding reduction of its Lax pair could then provide a holomorphic
+Lax pair of P6.                    One such system if the three‐wave resonant interaction, but the resulting Lax
+pair has third order, and its reduction to second order still encounters some obstacles                                                                                                                                                 [1].   The
+Maxwell‐Bloch system [12] could be a better candidate because its Lax pair is second order.
+     The paper is organized as follows.                                                               In section                            2, we recall the scalar (Lax pair of Richard
+Fuchs, because its expression is required later on.
+     In section 3, we point out the meromorphic dependence in the second order Lax pair obtained
+
+by matrix monodromy.
+     In section 4, we dene in some detail the small amount of required computations in order to
+obtain a holomorphic Lax pair.
+     In section 5,   explore the simplest possibility beyond the assumption of Jimbo and Miwa.
+                                 we
+
+The  resulting                             a type studied by Kimura
+                           Lax pair is linked to                       [6] and the matrix elements are
+algebraic functions of u^{0}, u, x while in the JM  case they are rational functions.
+
+
+
+2       Holomorphic Lax pair by scalar isomonodromy
+     This pair           [2, 3], as more nicely written in Ref. [4], is characterized by the two homographic
+invariants (S, C) ,
+
+
+                                                                                         @_{t}^{2} $\psi$+(S/2) $\psi$=0                               ,                                                                                        (3)
+                                                                                         \partial_{x} $\psi$+C@_{t} $\psi$-(1/2)C_{t} $\psi$=0                                            ,                                                     (4)
+with the commutativity condition,
+
+                                                                                  X\equiv S_{x}+C_{ttt}+CS_{t}+2C_{t}S=0                                                                            ,                                           (5)
+where
+
+
+
+              -C=\displaystyle \frac{t(t-1)(u-x)}{(t-u)x(x-1)}               ,                                                                                                                                                                  (6)
+
+
+
+              -\displaystyle\frac{S}{2}=\frac{3/4}{(t-u)^{2} +\frac{$\beta$_{1}u^{0}+$\beta$_{0} {(t-u)t( -1)}+\frac{[($\beta$_{1}u^{0})^{2}-$\beta$_{0}^{2}]\frac{u-x}{u( -1)}+f_{\mathrm{G} (u)}{t( -1)(t-x)}+f_{\mathrm{G} (t)   ,           (7)
+
+
+             $\beta$_{1}=-\displaystyle \frac{x(x-1)}{2(u-x)}, $\beta$_{0}=-u+\frac{1}{2}                   ,                                                                                                                                   (8)
+
+
+             f_{G}(z)=\displaystyle \frac{a}{z^{2} +\frac{b}{(z-1)^{2} +\frac{c}{(z-x)^{2} +\frac{d}{z(z-1)}                                               ,                                                                                    (9)
+
+             (2 $\alpha$, -2 $\beta$, 2 $\gamma$, 1-2 $\delta$)=(4(a+b+c+d+1), 4a+1,4b+1,4c+1)                                                                                                                        .
+
+                                                                                                                                                                                                                                               (10)
+
+                                                                                                                                  2
+     Like u^{0/} in the denition of P6, this scalar Lax pair depends holomorphically on the four $\theta$_{j},
+and also on their squares. Its singularities in the complex plane of t are the five Fuchsian points
+t=\infty, 0 1, x, u among which t=u is apparent.
+           ,                    ,
+
+
+
+
+3      Meromorphic Lax pair by matrix isomonodromy
+Let us introduce the Pauli matrices $\sigma$_{k}
+
+
+
+                             $\sigma$_{1}=\left(\begin{ar ay}{l} 0&1\ 1&0 \end{ar ay}\right),$\sigma$_{2}=\left(\begin{ar ay}{l} 0&-i\ i&0 \end{ar ay}\right),$\sigma$_{3}=\left(\begin{ar ay}{l} 1&0\ 0&-1 \end{ar ay}\right),$\sigma$_{j}$\sigma$_{k}=$\delta$_{jk}+i$\epsilon$_{jkl}$\sigma$_{l}   ,       (11)
+
+
+                             $\sigma$^{+}=\left(\begin{ar ay}{l} 0&1\ 0&0 \end{ar ay}\right),$\sigma$^{-}=\left(\begin{ar ay}{l} 0&0\ 1&0 \end{ar ay}\right).
+     As proven in [5], the apparent singularity of the scalar Lax pair can be removed by considering
+a   second order matrix Lax pair,
+
+                                                                                                                        \partial_{x} $\Psi$=L $\Psi$, \partial_{t} $\Psi$=M $\Psi$                          ,                                                                                                 (12)
+and dening the monodromy matrix M as the sum of four Fuchsian singularities t=\infty, 0 , 1, x,
+
+
+
+                                                 M=\displaystyle \frac{M_{0}(x)}{t}+\frac{M_{1}(x)}{t-1}+\frac{M_{x}(x)}{t-x}, M_{\infty}+M_{0}+M_{1}+M_{x}=0                                                                                                                       .
+
+                                                                                                                                                                                                                                                                                                              (13)
+
+However, in order to integrate the dierential system of the monodromy conditions,
+
+                                                                                                         \forall t:L_{t}-M_{x}+LM-ML=0                                                                                      .
+
+                                                                                                                                                                                                                                                                                                              (14)
+the choice of L is not unique and the type of dependence of L(x, t) on t must be an input. With
+the very convenient choice [5] of a simple pole at the crossratio t=x,
+
+
+
+                         L=-\displaystyle \frac{M_{x} {t-x}, M=\frac{M_{0}(x)}{t}+\frac{M_{1}(x)}{t-1}+\frac{M_{x}(x)}{t-x}, M_{\infty}+M_{0}+M_{1}+M_{x}=0                                                                                                                                               ,   (15)
+
+and after minor transformations [10] mainly aimed at making all entries (L_{jk}, M_{jk}) algebraic (not
+only with algebraic logarithmic derivatives), one obtains the traceless, algebraic Lax pair,
+
+
+                  L = -\displaystyle \frac{M_{x} {t-x}+L_{\infty}, M=\frac{M_{0} {t}+\frac{M_{1} {t-1}+\frac{M_{x} {t-x}                                                                           ,                                                                                                          (16)
+
+
+            L_{\infty} = -\displaystyle \frac{($\Theta$_{\infty}-1)(u-x)}{2x(x-1)}$\sigma$_{3}                             ,                                                                                                                                                                                  (17)
+
+        2M_{\infty} = $\Theta$_{\infty}$\sigma$_{3}                ,                                                                                                                                                                                                                                          (18)
+
+          2M_{0} = z_{0}$\sigma$_{3}-\displaystyle \frac{u}{x}$\sigma$^{+}+(z_{0}^{2}-$\theta$_{0}^{2})\frac{x}{u}$\sigma$^{-}                       ,                                                                                                                                                        (19)
+
+          2M_{1} = z_{1}$\sigma$_{3}+\displaystyle \frac{u-1}{x-1}$\sigma$^{+}-(z_{1}^{2}-$\theta$_{1}^{2})\frac{x-1}{u-1}$\sigma$^{-}                                            ,                                                                                                                           (20)
+
+
+         2M_{x} = ( $\theta$_{0}^{2}-z_{0}^{2})\displaystyle \frac{x}{u}-($\theta$_{1}^{2}-z_{1}^{2})\frac{x-1}{u-1})$\sigma$^{-} \frac{u-x}{x(x-1)}$\sigma$^{+}
+                                             -($\Theta$_{\infty}+z_{0}+z_{1})$\sigma$_{3}                           ,                                                                                                                                                                                         (21)
+
+                z_{0} = \displaystyle \frac{1}{2$\Theta$_{\infty}x(u-1)(u-x)}[(x(x-1)u^{0}-(u-1)(u-$\Theta$_{\infty}(u-x) )^{2}
+                              -($\Theta$_{\infty}^{2}+$\theta$_{0}^{2})x(u-1)(u-x)+$\theta$_{1}^{2}(x-1)u(u-x)-$\theta$_{x}^{2}x(x-1)u(u-1)],
+                z_{1} = \displaystyle \frac{-1}{2$\Theta$_{\infty}(x-1)u(u-x)}[(x(x-1)u^{0}-u(u-1-$\Theta$_{\infty}(u-x) )^{2}
+                              +($\Theta$_{\infty}^{2}+$\theta$_{1}^{2})(x-1)u(u-x)-$\theta$_{0}^{2}x(u-1)(u-x)-$\theta$_{x}^{2}x(x-1)u(u-1)],
+                                             (2 $\alpha$, -2 $\beta$, 2 $\gamma$, 1-2 $\delta$)=( $\Theta$_{\infty}-1)^{2}, $\theta$_{0}^{2}, $\theta$_{1}^{2}, $\theta$_{x}^{2})                                 .
+
+
+
+
+                                                                                                                                                         3
+   The origin of the meromorphic dependence in (16), as displayed in z_{0} and z_{1}                                                                                                                                                                                                            ,
+                                                                                                                                                                                                                                                                                                        seems   to be the
+
+simplifying assumption [5] that the residue M_{\infty} can be chosen diagonal,
+
+
+                                                                                                                                  M_{\infty}=\displaystyle\frac{$\Theta$_{\infty} {2}$\sigma$_{3}   .
+
+                                                                                                                                                                                                                                                                                                                     (22)
+
+Indeed, when $\Theta$_{\infty} vanishes, the residue also vanishes and one singular point is lost, thus preventing
+to obtain P6 which requires four nonapparent singular points.
+    As an additional motivation of the present work, this meromorphic feature is also present in
+many discrete Lax pairs of discrete P6 equations, for instance in the Lax pair found by Jimbo and
+Sakai [8], as an output to the matrix discrete isomonodromy problem
+
+
+                                                                                              Y(x, qt)=A(x, t)Y(x, t)                                                                                       ,                                                                                                        (23)
+                                                                                              A=A_{0}(x)+A_{1}(x)t+A_{2}(x)t^{2}                                                                                                 ,                                                                                   (24)
+where x is the independent variable, t is the spectral parameter, and the matrix A denes four
+singular points in the t complex plane. If the residue A_{2} at t=\infty is chosen diagonal [8, Eq. (10)],
+
+                                                                                                                           A_{2}=\mathrm{d}\mathrm{i}\mathrm{a}\mathrm{g}($\kappa$_{1}, $\kappa$_{2})   ,                                                                                                            (25)
+then the Lax pair contains the denominator $\kappa$_{1}-$\kappa$_{2} and, when $\kappa$_{1}=$\kappa$_{2} , the isomonodromy problem
+cannot yield a q—P6 equation.
+
+
+
+
+4       Towards a holomorphic matrix Lax pair
+
+In order to get rid of this unwanted meromorphic dependence, let us change the assumptions on
+the matrix Lax pair              (L, M) along the lines explored in Ref. [9].                                                                                                                                                   For the assumption                                                         (13) on M,
+which must be kept, we adopt the convention
+
+
+
+                                                 tr M_{j}=0,
+                                                                                                 \displaystyle \det M_{j}=-\frac{$\theta$_{j}^{2} {4}              =
+                                                                                                                                                                              constant; j=\infty, 0 1, x                                                    ,                  ,                                     (26)
+
+and we represent the four residues so as to preserve the invariance under permutation,
+
+
+
+
+                                              M_{j}=\displaystyle \frac{1}{2} (_{($\theta$_{j}+z_{j})u_{j}^{-1} z_{j} ($\theta$_{j}-z_{j})u_{j}-z_{j}) , j=\infty, 0, 1, x                                                                                                         ,                                 (27)
+
+in which z_{j}, u_{j}   are   functions of x.
+     After an assumption has been chosen for the dependence of L(x, t)                                                                                                                                                                                       on            t , there is                     no   need to
+integrate the monodromy conditions (14). Indeed, one a priori knows that their general solution
+is expressed in terms of a P6 function. Therefore a (lazy method to perform the integration is
+to first convert the matrix Lax pair (12) to scalar form, then to identify the result with the scalar
+Lax pair (3)-(4)         .
+
+
+
+
+    Let us denote $\Psi$={}^{\mathrm{t} ($\psi$_{1}$\psi$_{2} ) the base vectors of the matrix Lax pair after rotation by an
+
+arbitrary constant angle $\varphi$,
+
+
+                               P=\left(\begin{ar ay}{l \mathrm{c}\mathrm{o}\mathrm{s}$\varphi$&\mathrm{s}\mathrm{i}\mathrm{n}$\varphi$\ -\mathrm{s}\mathrm{i}\mathrm{n}$\varphi$&\mathrm{c}\mathrm{o}\mathrm{s}$\varphi$ \end{ar ay}\right),@_{x}$\Psi$=P^{-1}LP$\Psi$,@_{t}$\Psi$=P^{-1}MP$\Psi$   .
+
+                                                                                                                                                                                                                                                                                                                     (28)
+
+After elimination of $\psi$_{2} and removal of the first derivative $\psi$_{1}^{0} in the resulting second order linear
+ODE for $\psi$_{1} , the identication of the two sets of coecients (S, C) will provide L and M in terms
+of asolution u of P6.
+     Whatever be the assumption for L , the three scalar conditions of zero sum for the residues,
+
+
+                                                                                                       M_{\infty}+M_{0}+M_{1}+M_{x}=0                                                                                    ,                                                                                           (29)
+
+
+
+                                                                                                                                                      4
+under the condition that u_{0}, u_{1}, u_{x} are all dierent, are first solved for z_{0}, z_{1}, z_{x},
+
+
+
+
+in which J denotes the Jacobian
+                                     \left{bginary}cJu_{1-xz0=\infty}(^{-1+u_x)$\hetainfy}-z_{)u\t1^}_{x-($hea\infty+z_{})u^-1\+$thea_{0}(u1^-x_{0})+$\thea1(ux^{-}_)+$\theax(u{1}^-_),\frac{Jux}-_0z1=\infty({^-}+u_01)$\thea{infy}-z_)u\t{x^1}_0-($hea\infty+z_{})u^-1\+$thea_{}(ux^-10_{})+$\theax(u0^{-1}_)+$\thea0(u{x}^-1_),\frac{J}u0-_1zx=\infty({}^-+u_1)$\thea{infy}-z_)u\t{0^1}_-($heta\infy+z_{})ut^-1\+$hea_{x}(u0^-1 _{x})+$\thea0(u1^{-}_)+$\thea1(u{0}^-_),\endary}ight.       (30)
+
+
+
+
+                                                                       J\displaystyle \equiv\frac{D(M_{\infty,1 },M_{\infty,12},M_{\infty,21})}{D(z_{0},z_{1},z_{x})}=-\frac{(u_{0}-u_{1})(u_{1}-u_{x})(u_{x}-u_{0})}{u_{0}u_{1}u_{x}                                                                                                                                                                                                                      .
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               (31)
+
+
+5      A Kimura‐type Lax pair
+
+Following (16) and [9, Eq. (4.18)], let us assume
+
+
+                                                                                                                                                        L=-\displaystyle \frac{M_{x} {t-x}+L_{\infty}, L_{\infty}=m(x)M_{\infty}                                                                                                                                         ,                                                                                                                     (32)
+
+which denes the dierential system
+
+
+
+
+Such a choice ensures that M_{0}+M_{1}+M_{x} is a first integral, and therefore M_{\infty} a constant. The
+system (33) is equivalent to
+                                                                                                                   \left{bginary}{l M_0}^{=\underli {[M_x}, {0]-m[M_{\infty},M_{0]\ M_{1}^0=\frac{[M_x}^{XM_1}]{x- m[M_{\infty},M_{1]\ M_{x}^0=-\frac{[M_x}, {0]x}-\frac{[M_x}, {1]x-}m[M_{\infty},M_{x].\end{ary}\ight.                                                                                                                                                                       (33)
+
+
+
+
+                                 z_{j}^{0}=\displaystyle \frac{P_{j}(u_{k},z_{k},$\theta$_{k},m)}{x(x-1)u_{0}u_{1}u_{x} , u_{j}^{0}=\frac{Q_{j}(u_{k},z_{k},$\theta$_{k},m)}{x(x-1)u_{0}u_{1}u_{x} , j\in\{0, 1, x\}, k\in\{\infty, 0, 1, x\}                                                                                                                                                                                                                                              ,   (34)
+
+in which              P_{j}, Q_{j} denote polynomials of their arguments, and the closure conditions z_{j}^{0}=(z_{j})^{0}
+between the systems (34) and (30) are identically satised.
+    The identication of the two C s of the two scalar Lax pairs of the type                                                                                                                                                                                                                                                                                                                                               (3)-(4) is equivalent
+to the two relations
+
+
+
+
+        \left\{ begin{ar y}{l [m+\frac{u-x}{(x-1)}][z_{\infty}-$\thea$_{\infty}\frac{(\os2$\varphi$+1)u_{\infty}+(\cos2$\varphi$-1)u_{\infty}^{-1}{(\cos2$\varphi$+1)u_{\infty}-(\cos2$\varphi$-1)u_{\infty}^{-1}2\sin2$\varphi$}]=0,(35)\ \mathrm{w}\mathrm{h}\mathrm{e}\mathrm{n} $\varphi$=0:(z_{\infty}-$\thea$_{\infty})u_{\infty}u( -x)+(z_{0}-$\thea$_{0})u_{0}(u-x)(z_{x}-$\thea$_{x})u_{x}(-1)u=0, \end{ar y}\right.
+in which, for brevity, the rotation angle $\varphi$ has been set to 0 in the second relation.
+
+    Solving the first equation in (35) for the second factor would result in the vanishing of M_{\infty}
+with $\theta$_{\infty} , hence in the same singularity of the Lax pair at $\theta$_{\infty}=0 than in (16). Therefore this first
+equation is solved for m and in the second one can eliminate z_{0}, z_{1}, z_{x} with (30),         ,
+
+
+
+
+in which F is a polynomial of its arguments, of degree two in u and each u_{j}.
+                                                                                                                             \left\{ begin{ar y}{l m=-\frac{u-x}{ (x-1)},\ F(z_{\infty},u_{\infty},$\thea$_{\infty},u_{0},$\thea$_{0},u_{x},$\thea$_{x},u x,e^{i$\varphi$})=0, \end{ar y}\right.                                                                                                                                                                                               (36)
+
+
+
+
+                                                                                                                                                                                                                                                 5
+    Before transformation to the normalized form (3), the second order ODE for $\psi$_{1} is then
+
+
+
+
+                              (t-u)p_{1}(t)\displaystyle \frac{\mathrm{d}^{2}$\psi$_{1} {\mathrm{d}t^{2} +\frac{p_{4}(t)}{t( -1)(t-x)}\frac{\mathrm{d}$\psi$_{1} {\mathrm{d}t +\frac{p_{6}(t)}{[t( -1)(t-x)]^{2} $\psi$_{1}=0   ,       (37)
+
+in which p_{j} denotes                 polynomials of degree j whose dependence on x has been omitted.                                                                                                                                  The
+condition that   (t-u)p_{1}, p_{4}, p_{6} have a                                             common                       zero          t     (otherwise                       there would be two apparent
+
+singularities) results in (when $\varphi$=0 ),
+
+
+
+
+                (z_{\infty}-$\theta$_{\infty})u_{\infty}=(z_{0}-$\theta$_{0})u_{0}\displaystyle \frac{x}{u^{2} =(z_{1}-$\theta$_{1})u_{1}\frac{x-1}{(u-1)^{2} =(z_{x}-$\theta$_{x})u_{x}\frac{x(1-x)}{(u-x)^{2}                     ,   (38)
+
+and these relations imply p_{1}(t)=t-u and a multiplicity two for the zero t=u of the element M_{12}
+of the monodromy matrix M                                        .    As proven in                           [7], this results in a dierence of 3 between the two
+Fuchs indices at the apparent singularity t=u , not 2 like in                                                                    (7). The Schwarzian associated to
+(37), which cannot be identied to (7), must then be identied to the Schwarzian of the equation
+labelled \mathrm{L}_{\mathrm{V}1 ^{n} in [6]. The resulting matrix Lax pair will probably be holomorphic in the four $\theta$_{j} but
+surely not rational in u, u', x                              ,
+                                                                     since the transformation between the apparent singularities of \mathrm{L}_{\mathrm{V}1 ^{n}
+and (3) is not birational [7]. Therefore its explicit expression will not be given.
+
+
+
+6      Conclusion
+
+In order to build a second order matrix Lax pair of \mathrm{P}6(u, x) at the same time holomorphic in $\theta$_{j}
+and rational in u(x) , u'(x) , x , it is necessary to make an assumption for L which is dierent from
+
+(32), probably by adding to L a term linear in t like in [6, \mathrm{X}6] and [9, Eq. (4.18)]. This will be the
+subject of future research.
+
+
+Acknowledgments
+RC thanks the Japanese organisers for their warm hospitality.
+
+
+
+References
+
+ [1] R. Conte, A. M. Grundland, and M. Musette, A reduction of the resonant three‐wave inter‐
+     action to the generic sixth Painlevé equation, J. Phys. A: Math. Gen. 39 (2006) 12115‐12127.
+     Special issue One hundred years of Painlevé VI. http://arXiv.org/abs/nlin.SI/0604011
+
+ [2] R. Fuchs, Sur quelques équations diérentielles linéaires du second ordre, C. R. Acad. Sc. Paris
+     141 (1905) 555‐558.
+
+
+ [3] R. Fuchs, Über lineare homogene Dierentialgleichungen zweiter Ordnung mit drei im
+     Endlichen gelegenen wesentlich singulären Stellen, Math. Annalen 63 (1907) 301‐321.
+
+
+ [4] R. Garnier, Sur des équations diérentielles du troisième ordre dont lintégrale générale est
+      uniforme et sur une classe déquations nouvelles dordre supérieur dont lintégrale générale a
+      ses   points critiques fixes, Ann. Éc. Norm. 29 (1912) 1‐126.
+
+ [5] M. Jimbo and T. Miwa, Monodromy preserving deformations of linear ordinary dierential
+     equations with rational coecients. II, Physica D2 (1981) 407‐448.
+
+ [6] T. Kimura, On the isomonodromic deformation for linear ordinary dierential equations of
+     the second order, Proc. Japan Acad. 57 (1981) 285‐290.
+
+
+ [7] T. Kimura, On the isomonodromic deformation for linear ordinary dierential equations of
+     the second order. II, Proc. Japan Acad. 58 (1982) 294‐297.
+
+
+
+
+                                                                                                                      6
+ [8] M. Jimbo and H. Sakai, A q ‐analog of the sixth Painlevé equation, Lett. Math. Phys.       38
+
+     (1996) 145‐154.
+ [9] Lin Run‐liang, R. Conte, and M. Musette, On the Lax pairs of the continuous and discrete
+     sixth Painlevé equations, J. Nonl. Math. Phys. 10, Supp. 2, 107‐118 (2003).
+
+
+[10] G. Mahoux, Introduction to the theory of isomonodromic deformations of linear ordinary
+    dierential equations with rational coecients, The Painlevé property,   one   century later, 35‐
+    76, ed. R. Conte, CRM series in mathematical physics (Springer, New York, 1999).
+
+[11] H. Poincaré, Sur les groupes des équations linéaires, Acta mathematica 4 (1883) 201‐312.
+     Reprinted, Oeuvres (Gauthier‐Villars, Paris), tome II, 300‐401.
+
+[12] H. Steudel and R. Meinel, Periodic solutions generated by Bäcklund transformations, Physica
+     D21 (1986) 155‐162.
+
+
+
+
+                                               7
+

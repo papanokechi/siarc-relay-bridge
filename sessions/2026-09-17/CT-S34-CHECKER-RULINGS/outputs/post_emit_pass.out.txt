@@ -1,0 +1,92 @@
+SCOPE OF THIS CHECK
+  root     C:\LocalWork\siarc-relay-bridge               447 file(s)   4100 claim(s)
+  EXCLUDED C:\LocalWork\SCOPE
+           REMOVED FROM ROOTS 2026-09-19. Three reasons, all open: (a) the operator stand-down on CT-S3
+           1-COLDREAD-ROWS, an input packet being assembled for a separate uncontaminated process; (b) 
+           the tree is written by other processes WHILE THE CHECK RUNS -- one file gained three claims 
+           between two runs minutes apart, so any verdict over it has a race in it; (c) Window B's stat
+           us is unsettled. Restore to ROOTS when all three are closed, not before.
+  EXCLUDED C:\LocalWork\SCOPE\CT-S31-COLDREAD-ROWS
+           operator stand-down 2026-09-19: not to be read, listed or written. Retained explicitly so th
+           at restoring the parent does not silently restore this folder too.
+
+input fingerprint: f5947419b462bccb3c0384ee690c5042b014a8cde1ff8fe71bd25bcba42b0282  over 447 file(s) read
+  (sha256 of the sorted path+content hashes. Compare two runs on this line
+   before calling any count difference a disagreement.)
+  3 file(s) read but empty, absent from the per-file count below:
+      C:\LocalWork\siarc-relay-bridge\sessions\2026-04-25\TRIAGE-UNSOLVED-3\claims.jsonl
+      C:\LocalWork\siarc-relay-bridge\sessions\2026-05-01\CHANNEL-THEORY-OUTLINE\claims.jsonl
+      C:\LocalWork\siarc-relay-bridge\sessions\2026-05-01\SIARC-MASTER-V0\claims.jsonl
+
+corpus: 4100 claims in 444 files across 1 reachable root(s)
+invariant 2 cutoff (pinned): 2026-09-17
+
+ok   0: all 1 declared root(s) exist
+ok   1(a): no PROVEN claim rests on file_inspection
+ok   1(b)(ii): 152 session-local counter id(s), each unique within its own session
+               10 of them recur across sessions, which is what a session-local
+               counter is for, and is not checked globally
+FAIL 1(b)(i): 59 id(s) reused across sessions and matching no exemption
+   H1-01                  identical claim text in all 2 places
+   H1-02                  identical claim text in all 2 places
+   H1-03                  identical claim text in all 2 places
+   H1-04                  identical claim text in all 2 places
+   H1-05                  identical claim text in all 2 places
+   H1-06                  identical claim text in all 2 places
+   H2-01                  identical claim text in all 2 places
+   H2-02                  identical claim text in all 2 places
+   H2-03                  identical claim text in all 2 places
+   H2-04                  identical claim text in all 2 places
+   H2-05                  identical claim text in all 2 places
+   H2-06                  identical claim text in all 2 places
+   of the 59: 59 carry IDENTICAL claim text in every place they appear,
+   i.e. they are restatements (an aggregator or a verifier citing the id it
+   verified), and 0 carry different text. Text identity is NOT accepted here
+   as an exemption: no pattern was invented to absorb them. They are reported
+   in full so the convention can be ruled on.
+ok   1(b)(i): 15 id(s) exempt as deposit mirrors, pattern [\\/]deposit[\\/]
+               DF-T0-LOCK       matched C:\LocalWork\siarc-relay-bridge\sessions\2026-06-11\DELTA-FREDHOLM-ORDER\deposit\p0\claims.jsonl
+               DF-T1-TRACE      matched C:\LocalWork\siarc-relay-bridge\sessions\2026-06-11\DELTA-FREDHOLM-ORDER\deposit\p0\claims.jsonl
+               DF-T2A-DELTA     matched C:\LocalWork\siarc-relay-bridge\sessions\2026-06-11\DELTA-FREDHOLM-ORDER\deposit\p0\claims.jsonl
+               DF-T2A-SPECTRAL  matched C:\LocalWork\siarc-relay-bridge\sessions\2026-06-11\DELTA-FREDHOLM-ORDER\deposit\p0\claims.jsonl
+               DF-T2B-BINOM     matched C:\LocalWork\siarc-relay-bridge\sessions\2026-06-11\DELTA-FREDHOLM-ORDER\deposit\p0\claims.jsonl
+               DF-T2B-DELTA     matched C:\LocalWork\siarc-relay-bridge\sessions\2026-06-11\DELTA-FREDHOLM-ORDER\deposit\p0\claims.jsonl
+               DF-T2B-S         matched C:\LocalWork\siarc-relay-bridge\sessions\2026-06-11\DELTA-FREDHOLM-ORDER\deposit\p0\claims.jsonl
+               DF-T3-CROSSCHECK matched C:\LocalWork\siarc-relay-bridge\sessions\2026-06-11\DELTA-FREDHOLM-ORDER\deposit\p0\claims.jsonl
+               ... and 7 more
+     1(b)(iii): 2641 claim(s) carry no claim_id at all and are outside every
+                uniqueness check. This is a hole, not a pass.
+ok   2: all 612 claim(s) dated on/after 2026-09-17 carry exactly one recognised label
+     2: 3488 claim(s) dated before 2026-09-17 are OUT OF SCOPE, range 2026-04-22 .. 2026-06-18
+        0 carry a recognised label; 15 carry a label field of any kind.
+        The 15 difference is an earlier attempt at the convention that lapsed
+        (values such as PROCEED and REFINED). Not judged either way.
+ok   3: every reviewed claim carries a review_note
+ok   4: every review value is one of self|cold|lean
+FAIL 5: 9 claims file(s) are not plain JSONL
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H017-SIGN-A2-TRANS\claims.jsonl
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-24\LEAN4-LWP-STATEMENT-FIX\claims.jsonl
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-27\P16-TRUSTED-CORE-BUILD-REPAIR\claims.jsonl
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-27\TUNNELL-AFM-REVISION\claims.jsonl
+   WRONG CONTAINER (JSON array)           C:\LocalWork\siarc-relay-bridge\sessions\2026-04-28\AUDIT-MASTER-THEOREM-INVENTORY\claims.jsonl
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-28\P17-CONTROL-BARRIERS-REPAIR\claims.jsonl
+   DAMAGED                                C:\LocalWork\siarc-relay-bridge\sessions\2026-04-30\SIARC-COHERENCE-AUDIT\claims.jsonl
+   WRONG CONTAINER (JSON array)           C:\LocalWork\siarc-relay-bridge\sessions\2026-05-08\T2-105-COPILOT-RESEARCHER-PROMPT-DRAFT-109\claims.jsonl
+   WRONG CONTAINER (JSON array)           C:\LocalWork\siarc-relay-bridge\sessions\2026-05-08\T2-TIER-B-PASTE-PACKET-PRESTAGE-110\claims.jsonl
+   KNOWN HOLE C:\LocalWork\siarc-relay-bridge\sessions\2026-04-30\SIARC-COHERENCE-AUDIT\claims.jsonl:3  Invalid \escape: line 1 column 249 (char 248)
+      left unrepaired: raw LaTeX \(2,2\) inside a JSON string; one line in 4066; left unrepaired by ruling 2026-09-19
+   (all of the above were READ anyway; only a DAMAGED line loses a claim)
+
+labels: CONJECTURED=5  INSPECTED=215  None=3473  PROCEED=14  PROVEN=140  REFINED=1  STRUCTURAL=108  VERIFIED=144
+review: (none)=3922  cold=27  self=151
+
+2 INVARIANT(S) FAILED
+scope of that verdict: C:\LocalWork\siarc-relay-bridge = 4100 claims
+holes in that verdict:
+  - not walked at all: C:\LocalWork\SCOPE
+  - not walked at all: C:\LocalWork\SCOPE\CT-S31-COLDREAD-ROWS
+  - 10 session-local counter id(s) are exempt from GLOBAL uniqueness by pattern ^(?:\d+-)?C\d+$
+  - 15 id(s) exempt from uniqueness as deposit mirrors, pattern [\\/]deposit[\\/]
+  - 2641 claim(s) have no claim_id and are outside 1(b) entirely
+  - 3488 claim(s) dated 2026-04-22 .. 2026-06-18 predate the label convention and are outside invariant 2
+  - 1 claim unreadable at sessions/2026-04-30/SIARC-COHERENCE-AUDIT/claims.jsonl:3, left unrepaired by ruling

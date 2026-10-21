@@ -1,0 +1,498 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+
+\newcommand{\bd}{\beta_d}
+\newcommand{\bdm}{\beta_{d-1}}
+\newcommand{\rinf}{r_\infty}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{The radius and leading growth of polynomial continued-fraction
+numerators\\[4pt]
+\large Session \texttt{CT-S1-THEOREM}, prompt P4 Task A}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $b\in\C[n]$ have degree $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2}$ with
+$Q_{-1}=0$, $Q_0=1$. We show that $r_n:=Q_n/\prod_{k\le n}b(k)$ always
+converges (Proposition~\ref{prop:exists}), that its limit $\rinf$ is nonzero
+whenever $b(n)>0$ for all $n\ge1$ (Proposition~\ref{prop:positive}), and that
+under the hypothesis $\rinf\neq0$ the sequence $Q_n$ has radius
+$\lim|Q_n/(dn)!|^{1/n}=|\bd|/d^d$ (Theorem~\ref{thm:radius}) and leading growth
+$Q_n/\Gamma(dn+1)=K(\bd/d^d)^n n^s(1+O(1/n))$ with
+$s=\bdm/\bd+(d-1)/2$ and an explicit $K$ (Theorem~\ref{thm:growth}).
+Every step is marked \textsc{complete} or \textsc{gap}.
+\textbf{Overall label: Theorems~\ref{thm:radius} and~\ref{thm:growth} are both
+\textsc{proven}} --- Theorem~\ref{thm:radius} with no imported input at all, and
+Theorem~\ref{thm:growth} modulo the single classical Gamma-ratio normalisation
+DLMF~(5.11.12), which is named explicitly at the point of
+use. (In the first draft Theorem~\ref{thm:growth} was \textsc{structural}; Gap~G1
+was closed in audit round R1, and a load-bearing unproved assertion in
+Theorem~\ref{thm:radius}, Step~3, was supplied with a proof at the same time.)
+\end{abstract}
+
+\section{Setting}
+
+\begin{equation}\label{eq:setting}
+b(n)=\sum_{k=0}^{d}\beta_k n^k=\bd\prod_{i=1}^{d}(n-r_i),
+\qquad \bd\neq0,\quad d\ge1,
+\end{equation}
+with $r_1,\dots,r_d\in\C$ the roots listed with multiplicity. Standing
+assumptions:
+\begin{itemize}
+\item[\textbf{(A1)}] $b(k)\neq0$ for every integer $k\ge1$.
+\item[\textbf{(A2)}] No $r_i$ is a positive integer, equivalently
+$\Gamma(1-r_i)$ is finite for every $i$. (Recall $\Gamma$ has poles exactly at
+$0,-1,-2,\dots$.) \emph{(A2) is used only in Theorem~\ref{thm:growth}; note
+(A2) $\Rightarrow$ (A1).}
+\end{itemize}
+Define
+\begin{equation}\label{eq:rec}
+Q_{-1}=0,\qquad Q_0=1,\qquad Q_n=b(n)Q_{n-1}+Q_{n-2}\ \ (n\ge1),
+\end{equation}
+and, using (A1),
+\begin{equation}\label{eq:rn}
+B_n:=\prod_{k=1}^{n}b(k),\qquad r_n:=\frac{Q_n}{B_n}\quad(n\ge0),\qquad B_0:=1 .
+\end{equation}
+
+\section{The hypothesis (H) and its status}
+
+\begin{proposition}[Existence of the limit; unconditional]\label{prop:exists}
+Under \textup{(A1)} the limit $\rinf:=\lim_{n\to\infty}r_n$ exists in $\C$.
+Moreover
+\begin{equation}\label{eq:rate}
+\rinf-r_n=O\!\left(n^{-(2d-1)}\right).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Divide \eqref{eq:rec} by $B_n=b(n)B_{n-1}=b(n)b(n-1)B_{n-2}$:
+\begin{equation}\label{eq:rnrec}
+r_n=r_{n-1}+\frac{r_{n-2}}{b(n-1)b(n)}\qquad(n\ge2),
+\end{equation}
+with $r_0=1$ and $r_1=Q_1/b(1)=b(1)/b(1)=1$ (using $Q_{-1}=0$).
+\textsc{complete.}
+
+Since $\deg b=d$ with leading coefficient $\bd\neq0$, there are constants
+$c>0$ and $n_0$ with $|b(n)|\ge c\,n^{d}$ for $n\ge n_0$; hence for $n\ge n_0+1$
+\begin{equation}\label{eq:eps}
+\varepsilon_n:=\frac{1}{|b(n-1)b(n)|}\le \frac{C}{n^{2d}},\qquad C:=2^{d}c^{-2},
+\end{equation}
+where the factor $2^d$ absorbs $(n-1)^{-d}\le 2^d n^{-d}$ for $n\ge2$.
+As $2d\ge2$, $\sum_n\varepsilon_n<\infty$. \textsc{complete.}
+
+Let $M_n:=\max(|r_n|,|r_{n-1}|)$. From \eqref{eq:rnrec},
+$|r_n|\le|r_{n-1}|+\varepsilon_n|r_{n-2}|\le(1+\varepsilon_n)M_{n-1}$, so
+$M_n\le(1+\varepsilon_n)M_{n-1}$ and therefore
+\[
+M_n\le M_{n_0}\prod_{k>n_0}(1+\varepsilon_k)\le
+M_{n_0}\exp\Big(\sum_{k>n_0}\varepsilon_k\Big)=:M<\infty .
+\]
+So $(r_n)$ is bounded. \textsc{complete.}
+
+Consequently $|r_n-r_{n-1}|=\varepsilon_n|r_{n-2}|\le M\varepsilon_n$, and
+$\sum_n|r_n-r_{n-1}|\le M\sum_n\varepsilon_n<\infty$: the telescoping series
+$r_0+\sum_{n\ge1}(r_n-r_{n-1})$ converges absolutely, so $r_n$ converges to some
+$\rinf\in\C$. \textsc{complete.}
+
+For \eqref{eq:rate}, $|\rinf-r_n|\le\sum_{k>n}|r_k-r_{k-1}|
+\le MC\sum_{k>n}k^{-2d}=O(n^{-(2d-1)})$, the last step by comparison with
+$\int_n^\infty x^{-2d}\,dx=n^{-(2d-1)}/(2d-1)$, valid since $2d\ge2>1$.
+\textsc{complete.}
+\end{proof}
+
+\begin{hypothesis}[H]\label{hyp:H}
+$\rinf\neq0$.
+\end{hypothesis}
+
+\begin{proposition}[(H) is automatic in the positive case]\label{prop:positive}
+If $b(n)>0$ for every integer $n\ge1$, then $r_n$ is a strictly increasing
+sequence of positive reals with $r_n\ge1$, hence $\rinf\ge1>0$ and
+\textup{(H)} holds.
+\end{proposition}
+
+\begin{proof}
+By induction $r_n>0$ for all $n\ge0$: $r_0=r_1=1>0$, and if
+$r_{n-1},r_{n-2}>0$ then \eqref{eq:rnrec} gives
+$r_n=r_{n-1}+r_{n-2}/(b(n-1)b(n))>r_{n-1}>0$ since $b(n-1)b(n)>0$.
+Thus $(r_n)_{n\ge1}$ is strictly increasing with $r_1=1$, so $r_n\ge1$ for
+$n\ge1$; combined with Proposition~\ref{prop:exists} the limit exists and
+satisfies $\rinf\ge1$. \textsc{complete.}
+\end{proof}
+
+\begin{remark}[Pincherle interpretation of (H)]\label{rem:pincherle}
+Pincherle's theorem (standard; see e.g.\ Gautschi, \emph{Computational aspects
+of three-term recurrence relations}, SIAM Rev.\ 9 (1967), and Lorentzen--Waadeland,
+\emph{Continued Fractions with Applications}, Ch.~IV) states that the continued
+fraction associated with a three-term recurrence converges if and only if the
+recurrence possesses a \emph{minimal} solution, i.e.\ a solution $y_n$ with
+$y_n/z_n\to0$ for every linearly independent solution $z_n$.
+
+Here $\prod_{k\le n}b(k)$ is, up to a constant, the natural ``dominant'' scale.
+Hypothesis (H) says precisely that $Q_n$ is \emph{not} the minimal solution of
+\eqref{eq:rec}: the minimal solution $P_n$ satisfies $P_n/B_n\to0$, so a
+solution with $Q_n/B_n\to\rinf\neq0$ is dominant. Equivalently, (H) fails exactly
+when the chosen initial data $(Q_{-1},Q_0)=(0,1)$ happens to land on the
+one-dimensional minimal subspace. Since that subspace has codimension one, (H) is
+generic; Proposition~\ref{prop:positive} makes it automatic in the positive case.
+\textbf{Label: \textsc{structural}} --- Pincherle's theorem is cited as standard
+and the identification of $B_n$ with the dominant scale is asserted here only for
+interpretation; nothing below depends on this remark.
+\end{remark}
+
+\section{Part (i): the radius}
+
+\begin{theorem}[Radius]\label{thm:radius}
+Assume \textup{(A1)} and \textup{(H)}. Then
+\begin{equation}\label{eq:radius}
+\lim_{n\to\infty}\left|\frac{Q_n}{(dn)!}\right|^{1/n}=\frac{|\bd|}{d^{\,d}} .
+\end{equation}
+Consequently the Borel-type transform
+\begin{equation}\label{eq:borel}
+\mathcal{B}(w):=\sum_{n\ge0}\frac{Q_n}{(dn)!}\,w^n
+\qquad\bigl((dn)!=\Gamma(dn+1)\bigr)
+\end{equation}
+has radius of convergence $d^{\,d}/|\bd|$ in the variable $w$, and in the
+uniformiser $\zeta=w^{1/d}$ the corresponding radius is
+\begin{equation}\label{eq:xi0}
+\xi_0=\frac{d}{|\bd|^{1/d}} .
+\end{equation}
+\end{theorem}
+
+\begin{remark}[Normalisation, stated explicitly]\label{rem:norm}
+Three conventions are fixed once and for all and must be quoted with any use of
+\eqref{eq:xi0}:
+\begin{enumerate}
+\item the \emph{series} transformed is $\sum_n Q_n w^n/\Gamma(dn+1)$, i.e.\ the
+coefficients are the recurrence numerators $Q_n$ themselves, divided by
+$\Gamma(dn+1)$ --- \emph{not} by $n!$, $\Gamma(n+1)$, $\Gamma(2n+1)$ or
+$\Gamma(2n)$;
+\item the \emph{Borel variable} is $w$, conjugate to the index $n$;
+\item the \emph{uniformiser} is $\zeta=w^{1/d}$, so that $\xi_0=|w^*|^{1/d}$
+with $w^*=d^d/\bd$.
+\end{enumerate}
+At $d=2$ this gives $\xi_0=2/\sqrt{\beta_2}$, matching the statement labelled
+\texttt{prop:xi0} in Channel Theory v1.3.1.
+\end{remark}
+
+\begin{proof}[Proof of Theorem~\ref{thm:radius}]
+We deliberately avoid Gamma asymptotics, using only $r_n\to\rinf\neq0$ and
+elementary bounds, together with $\lim_{n}(m!)^{1/n}$-type facts in the
+elementary form below.
+
+\medskip\noindent\textbf{Step 1 (reduce to $B_n$).}
+By \eqref{eq:rn}, $Q_n=r_nB_n$ exactly. Since $r_n\to\rinf\neq0$, we have
+$|r_n|^{1/n}\to1$: indeed for large $n$, $\tfrac12|\rinf|\le|r_n|\le2|\rinf|$,
+and $c^{1/n}\to1$ for any fixed $c\in(0,\infty)$. Hence
+$\lim|Q_n/(dn)!|^{1/n}=\lim|B_n/(dn)!|^{1/n}$ whenever the latter exists.
+\emph{This is the only place (H) is used, and it is used essentially: if
+$\rinf=0$ then $|r_n|^{1/n}$ need not tend to $1$.} \textsc{complete.}
+
+\medskip\noindent\textbf{Step 2 ($B_n$ against $(n!)^d$).}
+Write $b(k)=\bd k^d\,u_k$ with $u_k:=b(k)/(\bd k^d)\to1$. Then
+\[
+B_n=\bd^{\,n}\,(n!)^{d}\prod_{k=1}^{n}u_k .
+\]
+Since $u_k=1+O(1/k)$ and $u_k\neq0$ by (A1), we have $\log|u_k|=O(1/k)$, so
+$\bigl|\sum_{k\le n}\log|u_k|\bigr|=O(\log n)$ and therefore
+$\bigl(\prod_{k\le n}|u_k|\bigr)^{1/n}=\exp\bigl(O(\log n)/n\bigr)\to1$.
+Hence
+\begin{equation}\label{eq:Bnroot}
+\lim_{n\to\infty}\left|\frac{B_n}{(n!)^{d}}\right|^{1/n}=|\bd| .
+\end{equation}
+\textsc{complete.} (Only $\log(1+x)=O(x)$ and $\sum_{k\le n}1/k=O(\log n)$ are
+used; no Stirling.)
+
+\medskip\noindent\textbf{Step 3 ($(n!)^d$ against $(dn)!$).}
+We claim
+\begin{equation}\label{eq:multinomial}
+\lim_{n\to\infty}\left(\frac{(dn)!}{(n!)^{d}}\right)^{1/n}=d^{\,d}.
+\end{equation}
+Write $C(k_1,\dots,k_d):=\binom{dn}{k_1,\dots,k_d}=(dn)!/(k_1!\cdots k_d!)$ for
+a composition $k_1+\cdots+k_d=dn$ into non-negative parts.
+
+\emph{Sub-lemma (the balanced composition is maximal).} $C$ attains its maximum
+over all such compositions at $k_1=\cdots=k_d=n$. Indeed, suppose
+$k_i\ge k_j+2$ for some $i\neq j$. Replacing $(k_i,k_j)$ by $(k_i-1,k_j+1)$
+leaves the total $dn$ unchanged and multiplies $C$ by
+\[
+\frac{k_i!\,k_j!}{(k_i-1)!\,(k_j+1)!}=\frac{k_i}{k_j+1}\ \ge\ \frac{k_j+2}{k_j+1}>1 ,
+\]
+so $C$ strictly increases. As the set of compositions is finite, any maximiser
+must therefore satisfy $|k_i-k_j|\le1$ for all $i,j$; together with
+$\sum_ik_i=dn$ this forces $k_1=\cdots=k_d=n$. Hence
+$(dn)!/(n!)^d=\max C$. \hfill$\square$
+
+Now $(dn)!/(n!)^d$ is one term of the multinomial expansion
+$\sum_{k_1+\cdots+k_d=dn}C(k_1,\dots,k_d)=(\underbrace{1+\cdots+1}_{d})^{dn}=d^{\,dn}$,
+which gives the upper bound; and being the \emph{maximum} it is at least the
+average, i.e.\ $d^{\,dn}$ divided by the number $N_{d,n}$ of compositions. Each
+composition is determined by $(k_1,\dots,k_{d-1})\in\{0,1,\dots,dn\}^{d-1}$
+(the last part being forced), so $N_{d,n}\le(dn+1)^{d-1}$. Therefore
+\[
+\frac{d^{\,dn}}{(dn+1)^{d-1}}\ \le\ \frac{(dn)!}{(n!)^d}\ \le\ d^{\,dn}.
+\]
+Taking $n$-th roots and using $(dn+1)^{(d-1)/n}\to1$ gives
+\eqref{eq:multinomial}. \textsc{complete.} (Purely combinatorial; no Stirling,
+as required.)
+
+\medskip\noindent\textbf{Step 4 (combine).}
+Multiplying the limits from Steps 1--3,
+\[
+\lim_n\left|\frac{Q_n}{(dn)!}\right|^{1/n}
+=\lim_n\left|\frac{B_n}{(n!)^{d}}\right|^{1/n}
+\Big/\lim_n\left(\frac{(dn)!}{(n!)^{d}}\right)^{1/n}
+=\frac{|\bd|}{d^{\,d}},
+\]
+which is \eqref{eq:radius}. \textsc{complete.}
+
+\medskip\noindent\textbf{Step 5 (radius and uniformiser).}
+By Cauchy--Hadamard the radius of \eqref{eq:borel} is the reciprocal of
+\eqref{eq:radius}, namely $d^d/|\bd|$. Under $\zeta=w^{1/d}$ the disc
+$|w|<d^d/|\bd|$ is $|\zeta|<\bigl(d^d/|\bd|\bigr)^{1/d}=d/|\bd|^{1/d}=\xi_0$.
+\textsc{complete.}
+\end{proof}
+
+\begin{corollary}[$d=2$, V\_quad]\label{cor:vquad}
+For $b(n)=3n^2+n+1$ one gets $\xi_0=2/\sqrt3$, in agreement with the stored
+value in \texttt{sessions/2026-05-01/CC-PIPELINE-G/results\_vquad.json}.
+\end{corollary}
+
+\section{Part (ii): the leading growth}
+
+\begin{theorem}[Growth]\label{thm:growth}
+Assume \textup{(A2)} and \textup{(H)}. Then, with
+\begin{equation}\label{eq:sK}
+s=\frac{\bdm}{\bd}+\frac{d-1}{2},
+\qquad
+K=\rinf\cdot\frac{(2\pi)^{(d-1)/2}}{\sqrt{d}\ \prod_{i=1}^{d}\Gamma(1-r_i)},
+\end{equation}
+one has
+\begin{equation}\label{eq:growth}
+\frac{Q_n}{\Gamma(dn+1)}
+=K\left(\frac{\bd}{d^{\,d}}\right)^{\!n} n^{s}\bigl(1+O(1/n)\bigr).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\textbf{Step 1 (exact product formula).} By (A2) no $r_i$ is a positive
+integer, so telescoping $\Gamma(x+1)=x\Gamma(x)$ gives, for each $i$,
+$\prod_{k=1}^{n}(k-r_i)=\Gamma(n+1-r_i)/\Gamma(1-r_i)$ with both Gamma values
+finite and nonzero. Hence, by \eqref{eq:setting},
+\begin{equation}\label{eq:Bnexact}
+B_n=\bd^{\,n}\prod_{i=1}^{d}\frac{\Gamma(n+1-r_i)}{\Gamma(1-r_i)} .
+\end{equation}
+\textsc{complete} (exact, elementary).
+
+\medskip\noindent\textbf{Step 2 (convergence of the correction product).}
+This is the step the prompt asks to be exhibited. Put $\kappa:=\bdm/\bd$ and
+consider
+\[
+\Pi_n:=\prod_{k=2}^{n}\left[\frac{b(k)}{\bd k^{d}}\left(\frac{k}{k-1}\right)^{-\kappa}\right].
+\]
+Now $b(k)/(\bd k^d)=\prod_i(1-r_i/k)=1-\bigl(\sum_i r_i\bigr)/k+O(1/k^2)
+=1+\kappa/k+O(1/k^2)$, using Vieta in the form
+\begin{equation}\label{eq:vieta}
+\sum_{i=1}^{d}r_i=-\frac{\bdm}{\bd}=-\kappa .
+\end{equation}
+Also $\bigl(k/(k-1)\bigr)^{-\kappa}=(1-1/k)^{\kappa}=1-\kappa/k+O(1/k^2)$.
+Multiplying, the bracket equals
+$\bigl(1+\kappa/k+O(1/k^2)\bigr)\bigl(1-\kappa/k+O(1/k^2)\bigr)=1+O(1/k^2)$.
+A product $\prod(1+a_k)$ with $\sum|a_k|<\infty$ converges to a nonzero limit;
+here $\sum_k O(1/k^2)<\infty$. Hence $\Pi_n$ converges to a finite nonzero
+limit. \textsc{complete.}
+
+This is exactly the mechanism that produces the exponent $\kappa=\bdm/\bd$:
+the telescoping factor $\prod_{k\le n}(k/(k-1))^{\kappa}=n^{\kappa}$ carries it.
+
+\medskip\noindent\textbf{Step 3 (Gamma-ratio asymptotics).}
+For fixed $r\in\C$,
+\begin{equation}\label{eq:gammaratio}
+\frac{\Gamma(n+1-r)}{\Gamma(n+1)}=n^{-r}\bigl(1+O(1/n)\bigr).
+\end{equation}
+
+\emph{Proof of \eqref{eq:gammaratio}.} Put
+$h(n):=\Gamma(n+1-r)\,n^{r}/\Gamma(n+1)$ for $n>\max(0,\Re r)$, so that
+\eqref{eq:gammaratio} is the assertion $h(n)=1+O(1/n)$. Using
+$\Gamma(x+1)=x\Gamma(x)$ twice,
+\begin{equation}\label{eq:hratio}
+\frac{h(n)}{h(n-1)}
+=\frac{\Gamma(n+1-r)}{\Gamma(n-r)}\cdot\frac{\Gamma(n)}{\Gamma(n+1)}
+\cdot\Bigl(\frac{n}{n-1}\Bigr)^{r}
+=\Bigl(1-\frac{r}{n}\Bigr)\Bigl(1-\frac1n\Bigr)^{-r} .
+\end{equation}
+Expanding, $(1-1/n)^{-r}=1+r/n+O(1/n^{2})$, so the right-hand side of
+\eqref{eq:hratio} equals $(1-r/n)(1+r/n+O(1/n^2))=1+O(1/n^{2})$. Since
+$\sum_n O(1/n^2)<\infty$, the telescoping product
+$h(n)=h(n_0)\prod_{m=n_0+1}^{n}h(m)/h(m-1)$ converges to a finite nonzero limit
+$h_\infty$, and because the tail of a convergent $\sum O(1/m^{2})$ is $O(1/n)$,
+\begin{equation}\label{eq:hlimit}
+h(n)=h_\infty\bigl(1+O(1/n)\bigr).
+\end{equation}
+It remains to identify $h_\infty=1$. This is the classical Gamma-ratio
+normalisation: DLMF~(5.11.12) states
+$\Gamma(z+a)/\Gamma(z+b)\sim z^{a-b}$ as
+$|z|\to\infty$ with $|\operatorname{ph}z|\le\pi-\delta$
+\cite[\S5.11(iii)]{DLMF}. Taking $a=1-r$, $b=1$, $z=n$ gives
+$\Gamma(n+1-r)/\Gamma(n+1)\sim n^{-r}$, i.e.\ $h_\infty=1$. (The refined
+expansion $\Gamma(z+a)/\Gamma(z+b)\sim z^{a-b}\sum_{k\ge0}G_k(a,b)z^{-k}$ is
+DLMF~(5.11.13), with $G_0(a,b)=1$ at DLMF~(5.11.15); only the leading statement
+(5.11.12) is needed here.) Substituting into
+\eqref{eq:hlimit} yields \eqref{eq:gammaratio}. \hfill$\square$
+
+Applying \eqref{eq:gammaratio} for each $i$ and multiplying, then using
+\eqref{eq:vieta},
+\begin{equation}\label{eq:prodgamma}
+\prod_{i=1}^{d}\Gamma(n+1-r_i)=\Gamma(n+1)^{d}\,n^{\kappa}\bigl(1+O(1/n)\bigr).
+\end{equation}
+\textsc{complete}, modulo the single cited classical input $h_\infty=1$; see
+\S\ref{sec:gaps}. (Step 2 is an independent, elementary route to the same
+exponent $n^{\kappa}$, and \eqref{eq:hlimit} above supplies the $O(1/n)$
+bookkeeping without any citation, so the cited input is only the
+\emph{constant}.)
+
+\medskip\noindent\textbf{Step 4 (Gauss multiplication).}
+The Gauss multiplication formula
+$\Gamma(dz)=(2\pi)^{(1-d)/2}d^{\,dz-1/2}\prod_{j=0}^{d-1}\Gamma(z+j/d)$ at
+$z=n$, together with \eqref{eq:gammaratio} in the form
+$\Gamma(n+j/d)=\Gamma(n)n^{j/d}(1+O(1/n))$ and
+$\sum_{j=0}^{d-1}j/d=(d-1)/2$, gives
+$\Gamma(dn)=(2\pi)^{(1-d)/2}d^{\,dn-1/2}\Gamma(n)^{d}n^{(d-1)/2}(1+O(1/n))$.
+Multiplying by $dn$ and using $\Gamma(n+1)^d=n^d\Gamma(n)^d$,
+\begin{equation}\label{eq:gauss}
+\Gamma(dn+1)=(2\pi)^{(1-d)/2}d^{\,dn+1/2}\,\Gamma(n+1)^{d}\,n^{-(d-1)/2}
+\bigl(1+O(1/n)\bigr).
+\end{equation}
+\textsc{complete}, modulo the same single cited constant recorded in
+\S\ref{sec:gaps}.
+
+\medskip\noindent\textbf{Step 5 (assemble).}
+By Proposition~\ref{prop:exists} and \eqref{eq:rate}, $r_n=\rinf(1+O(1/n))$
+(here (H) is used to divide by $\rinf$), so $Q_n=r_nB_n=\rinf B_n(1+O(1/n))$.
+Combining with \eqref{eq:Bnexact} and \eqref{eq:prodgamma},
+\[
+Q_n=\rinf\,\bd^{\,n}\,
+\frac{\Gamma(n+1)^{d}\,n^{\kappa}}{\prod_i\Gamma(1-r_i)}\bigl(1+O(1/n)\bigr).
+\]
+Dividing by \eqref{eq:gauss}, the factors $\Gamma(n+1)^{\pm d}$ cancel
+\emph{exactly} --- this cancellation is the reason for normalising by
+$\Gamma(dn+1)$ rather than by $n!$ --- leaving
+\[
+\frac{Q_n}{\Gamma(dn+1)}
+=\frac{\rinf(2\pi)^{(d-1)/2}}{\sqrt d\prod_i\Gamma(1-r_i)}
+\left(\frac{\bd}{d^{\,d}}\right)^{\!n}
+n^{\kappa+(d-1)/2}\bigl(1+O(1/n)\bigr),
+\]
+which is \eqref{eq:growth} with \eqref{eq:sK}. \textsc{complete.}
+\end{proof}
+
+\begin{corollary}[Consistency with Theorem~\ref{thm:radius}]
+\eqref{eq:growth} implies \eqref{eq:radius}, since $|K|^{1/n}\to1$ and
+$n^{s/n}\to1$. The two parts are consistent, and part (i) is strictly weaker but
+proved without Gap~G1.
+\end{corollary}
+
+\section{Status of each step, and the gaps}\label{sec:gaps}
+
+\begin{itemize}
+\item Proposition~\ref{prop:exists}: all steps \textsc{complete}.
+\textbf{\textsc{proven}.}
+\item Proposition~\ref{prop:positive}: \textsc{complete}. \textbf{\textsc{proven}.}
+\item Remark~\ref{rem:pincherle}: cites Pincherle as standard; interpretive only.
+\textbf{\textsc{structural}.}
+\item Theorem~\ref{thm:radius}: Steps 1--5 all \textsc{complete}; no Gamma
+asymptotics used, as required. \textbf{\textsc{proven}.}
+\item Theorem~\ref{thm:growth}: Steps 1--5 all \textsc{complete}. The only
+imported ingredient is the classical constant $h_\infty=1$ in
+\eqref{eq:gammaratio}, cited to DLMF~(5.11.12); everything else, including the
+$O(1/n)$ error bookkeeping, is proved here. \textbf{\textsc{proven}, modulo one
+explicitly named classical citation.}
+\end{itemize}
+
+\paragraph{Gap G1 --- now closed (audit round R1).} In the first draft the whole
+of \eqref{eq:gammaratio} was quoted rather than proved, and
+Theorem~\ref{thm:growth} was accordingly labelled \textsc{structural}. Step~3
+above now proves, from $\Gamma(x+1)=x\Gamma(x)$ alone, that
+$h(n)=\Gamma(n+1-r)n^{r}/\Gamma(n+1)$ satisfies $h(n)/h(n-1)=1+O(1/n^{2})$ and
+hence $h(n)=h_\infty(1+O(1/n))$ for a finite nonzero $h_\infty$. The residual
+dependence is the single normalisation $h_\infty=1$, taken from
+DLMF~(5.11.12). This is a citation of a classical result, not an
+open gap; it is flagged here so that any reader can see exactly what is
+imported. \textbf{No other gap remains.}
+
+\paragraph{Audit note on Theorem~\ref{thm:radius}, Step 3.} The first draft
+asserted without proof that the balanced multinomial coefficient is the largest
+one. That assertion is load-bearing --- it is what converts ``at least the
+average'' into the lower bound $d^{\,dn}/(dn+1)^{d-1}$ --- and it is now proved
+by the exchange argument in the sub-lemma of Step~3.
+
+\paragraph{Numerical corroboration (not a substitute for proof).}
+$s$ in \eqref{eq:sK} was measured for eight degree-$4$ representatives in session
+\texttt{CT-S2-RHO-D4} with worst residual $7.12\times10^{-16}$, and $K$ in
+\eqref{eq:sK} was confirmed to $109.7$--$114.7$ digits over eight polynomials
+spanning $d=2,3,4$ in session \texttt{CT-S3B-RINF}. Per the governance rules
+these are \textsc{verified}, never \textsc{proven}.
+
+\section{Scope remark}
+
+Stated plainly, and deliberately restrictive:
+
+\begin{enumerate}
+\item \textbf{The theorem gives the radius and the leading growth only.} It
+locates the singularity of $\mathcal{B}(w)$ nearest the origin and gives the
+leading coefficient asymptotics of $Q_n/\Gamma(dn+1)$. It does \emph{not}
+determine the \emph{analytic type} of the Borel singularity at $\xi_0$: whether
+it is a pure branch point of exponent $-(s+1)$, whether logarithms occur, and
+what the subleading germ looks like are all outside the statement.
+\item \textbf{It reads only $\bd$ and $\bdm$.} The exponent $s$ depends on no
+other coefficient, and the radius depends only on $\bd$. The lower coefficients
+$\beta_0,\dots,\beta_{d-2}$ enter \eqref{eq:growth} \emph{only} through the
+scalar prefactor $K$ (via $\rinf$ and $\prod_i\Gamma(1-r_i)$). Consequently any
+test that inspects only the radius or only the exponent is insensitive to
+$\beta_0,\dots,\beta_{d-2}$ and will return the same verdict on an entire family
+of $b$'s. This is the structural explanation of a vacuity phenomenon of exactly
+this shape.
+\item \textbf{A pointer the operator must supply or correct.} The prompt asks
+this scope remark to reference the open item \texttt{op:xi0-singularity-type}
+and ``the v1.6 vacuity finding''. \emph{Neither could be located in this
+repository} (see \texttt{sessions/2026-09-17/CT-S0-INVENTORY/REPORT.md}, \S3
+items 4 and 5: the identifier \texttt{op:xi0-singularity-type} does not occur,
+and the newest in-repo Channel Theory source is v1.3.1, with v1.5/v1.6 living in
+a \texttt{pcf-research/} repository not present on this machine). Per the
+governance rule against inventing identifiers, no citation is fabricated; item
+(1) above states the scope limitation on its own terms, and item (2) states the
+vacuity mechanism on its own terms. The operator should supply the correct
+identifiers if these are to be cross-referenced.
+\item \textbf{Relation to $\zeta^*=4/\sqrt3$.} Session
+\texttt{CT-S3A-ZETA-AUDIT} concluded (classification (b)) that $\zeta^*=2\xi_0$
+is a \emph{different} singularity --- the action difference $|c_+-c_-|$ of the
+two formal solutions --- and not a re-expression of $\xi_0$ in another variable.
+Nothing in this theorem bears on $\zeta^*$.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{DLMF}
+NIST Digital Library of Mathematical Functions, \texttt{https://dlmf.nist.gov/},
+Version 1.2.8; release date 2026-09-15 (accessed 2026-09-17).
+\S5.11(iii) ``Ratios'', Eq.~(5.11.12):
+$\Gamma(z+a)/\Gamma(z+b)\sim z^{a-b}$ for
+$|\operatorname{ph}z|\le\pi-\delta$. (The expansion with coefficients
+$G_k(a,b)$ is Eq.~(5.11.13), and $G_0(a,b)=1$ is Eq.~(5.11.15).)
+\end{thebibliography}
+
+\end{document}

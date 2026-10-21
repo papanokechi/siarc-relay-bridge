@@ -1,0 +1,36 @@
+==========================================================================
+CT-S56 -- the companion reference against Zenodo
+==========================================================================
+
+[1] WHAT ZENODO SAYS
+    record      : 22831933
+    version doi : 10.5281/zenodo.22831933
+    concept doi : 10.5281/zenodo.20455089   <- read from the `conceptdoi` field
+    version     : 1.3
+    title       : A non-classical Painlevé V transcendent from a quadratic polynomial co...
+
+[2] THE API AGREES WITH WHAT THE BIBITEM CLAIMS
+    [PASS] version DOI  10.5281/zenodo.22831933
+    [PASS] concept DOI  10.5281/zenodo.20455089
+    [PASS] version      1.3
+
+[3] THE BIBITEM CARRIES BOTH DOIs, EXPLICITLY
+    [PASS] version DOI present in the entry
+    [PASS] concept DOI present in the entry
+
+[4] IT IS NOT THIS PAPER'S OWN v1.3
+    The confusable object. If either of these appears in the
+    companion's entry the reference names the wrong paper.
+    [PASS] this paper's v1.3 record (22731371) absent
+    [PASS] this paper's concept id (20719042) absent
+
+[5] THE TITLE IS THE COMPANION'S, NOT THIS PAPER'S
+    [PASS] the bibitem's title ends 'surface classification and resurgent Stokes data'
+    [PASS] so does Zenodo's
+
+[6] CONTROL -- the comparison must be able to fail
+    [PASS] a fabricated DOI does not match the API's
+    [PASS] the concept DOI and the version DOI are DIFFERENT strings -- the whole point
+
+CLEAN -- the companion reference is the companion's v1.3.
+==========================================================================

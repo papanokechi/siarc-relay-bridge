@@ -1,0 +1,16 @@
+from fractions import Fraction
+import sympy as sp
+x, r = sp.symbols('x r')
+expr = (1-r*x)*(1-x)**(-r)
+series = sp.series(expr, x, 0, 5)
+log_series = sp.series(sp.log(expr), x, 0, 5)
+print('expr=(1-r*x)*(1-x)^(-r), x=1/n')
+print('series_to_x4=', series)
+print('coeff_x0=', sp.expand(series.removeO()).coeff(x, 0))
+print('coeff_x1=', sp.simplify(sp.expand(series.removeO()).coeff(x, 1)))
+print('coeff_x2=', sp.simplify(sp.expand(series.removeO()).coeff(x, 2)))
+print('coeff_x3=', sp.simplify(sp.expand(series.removeO()).coeff(x, 3)))
+print('log_series_to_x4=', log_series)
+print('log_coeff_x1=', sp.simplify(sp.expand(log_series.removeO()).coeff(x, 1)))
+print('log_coeff_x2=', sp.simplify(sp.expand(log_series.removeO()).coeff(x, 2)))
+print('conclusion=1/n coefficient cancels identically; ratio is 1 + r*(1-r)/(2*n^2) + O(n^-3) for fixed r')

@@ -1,0 +1,78 @@
+{
+  "task_id": "EBR3-REVISION-001",
+  "stage": "3 — revision plan",
+  "date": "2026-06-15",
+  "baseline": "ebr3_v1.tex (786 lines, 14 pp) == AAECC-submitted == Zenodo 20684733. Work copy at Stage 4 will be source-revised.tex; original AAECC source untouched.",
+  "diagnostic_summary": {
+    "objection_1_readability": "VALID / MEDIUM",
+    "objection_2_definitions": "VALID / MEDIUM-HIGH (HIGH sub-items: EBR construction, connection coefficient)",
+    "objection_3_significance": "FRAMING-PROBLEM / MEDIUM (coupled to 4)",
+    "objection_4_cas_sota": "ABSENT / HIGH"
+  },
+
+  "options": [
+    {
+      "option": "A",
+      "name": "minimal",
+      "scope_summary": "Address only the HIGH-severity findings: add the CAS/SOTA context (Obj 4) and self-contained definitions for the two HIGH objects (EBR construction, connection coefficient). Leave the abstract/readability and significance framing essentially as-is.",
+      "estimated_effort_days": "2-3",
+      "section_by_section_changes": [
+        {"target": "new subsection in sec:main or sec:intro", "change": "Add one CAS/SOTA paragraph: Kovacic is order-2 only; Maple DEtools[DFactor]/van Hoeij decide factorization not the full group; no push-button order-4 differential-Galois-group routine exists for an irregular-singular operator; this paper supplies one with a priori completeness bounds. Cite Compoint-Singer, van Hoeij-Weil, DFactor."},
+        {"target": "intro L120-132", "change": "Insert a self-contained one-line definition of the EBR construction (the PCF Q_n, the Borel transform G(s), the radius R and exponent gamma) so it does not require reading EBR-I/II."},
+        {"target": "intro near L126-129", "change": "State the connection-coefficient definition early (the connection-matrix entry linking the exponent-0 solution at 0 to the exponent-(-gamma) solution at R) instead of deferring to L557."}
+      ],
+      "new_content": ["~1 CAS/SOTA paragraph (Obj 4, mandatory even in Option A per 4.3)", "~2 inline definitions (EBR construction, connection coefficient)", "4-6 new bibliography entries (Compoint-Singer, van Hoeij-Weil, Maple DFactor doc, possibly Singer-Ulmer)"],
+      "page_count_delta_estimate": "+0.5 to +1 pp",
+      "venue_sufficiency": {"JSC": "MARGINAL — fixes the editor-core gap but leaves readability/significance flags", "AAECC_resubmission": "INSUFFICIENT — addresses ~1.5 of 4 stated objections; high second-desk-reject risk", "stronger_venue": "NO"},
+      "acceptance_uplift_confidence": "LOW-MEDIUM",
+      "uplift_reasoning": "Closes the single most damaging gap (Obj 4) and the two HIGH definitional items, but Lecerf raised four objections; a referee/editor at any computational venue will still hit the wall-of-text abstract and the self-referential significance framing. Banks the cheapest insurance, not a strong submission.",
+      "residual_risk": "Objection 1 (readability) and Objection 3 (significance framing) remain largely unaddressed; the 35-line abstract and EBR-internal motivation persist."
+    },
+    {
+      "option": "B",
+      "name": "focused",
+      "operator_default": true,
+      "scope_summary": "Address Objections 2 and 4 THOROUGHLY (new Definitions/Preliminaries section; full CAS/SOTA subsection with modern bibliography), plus a LIGHT pass on 1 (split abstract, add roadmap, shorten worst sentences, push forward-referenced terms into Preliminaries) and 3 (1-2 sentence significance reframe leveraging the CAS section).",
+      "estimated_effort_days": "4-6",
+      "section_by_section_changes": [
+        {"target": "abstract L78-113", "change": "Split the single 35-line paragraph into 3 short paragraphs (object & operator; the four results in increasing strength; the explicit non-claim). Move the densest specialist terms out of sentence-initial position. (Obj 1 light)"},
+        {"target": "new section after intro (e.g. 'Preliminaries and definitions')", "change": "Formal \\begin{definition} environments for: the EBR/PCF construction and Borel transform G(s); the connection coefficient; the G-function (Andre-Bombieri) property; the differential Galois group / Picard-Vessiot setup; the Aschbacher maximal-subgroup classes as used. Every central object defined before its first use. (Obj 2 thorough)"},
+        {"target": "intro, add roadmap paragraph after R1-R6 list (~L179)", "change": "One 'The paper is organized as follows' paragraph mapping sections to results. (Obj 1 light)"},
+        {"target": "new subsection 'Relation to computer algebra and prior algorithms' (in sec:main or its own short section)", "change": "Full CAS/SOTA treatment: Kovacic order-2 boundary; van Hoeij/DFactor factorization vs full-group computation; Compoint-Singer and van Hoeij-Weil as the SOTA group-computation framework and their practical limits at order 4 with an irregular singularity; which sub-results are CAS-replicable from the repro bundle. (Obj 4 thorough)"},
+        {"target": "intro L119-134 + the new CAS subsection", "change": "Add 1-2 sentences framing the theorem as a COMPLETE, bound-complete, partly-Lean-verified group computation that current CAS tooling does not perform push-button — converting Obj 4 into the Obj 3 significance argument. (Obj 3 light)"}
+      ],
+      "new_content": ["1 Preliminaries/Definitions section (~0.75-1 pp)", "1 CAS/SOTA subsection (~1-1.5 pp)", "1 roadmap paragraph", "abstract restructure (no length change required)", "6-9 new bibliography entries (modern algorithmic differential-Galois literature)"],
+      "page_count_delta_estimate": "+1.5 to +2.5 pp (-> ~16-16.5 pp)",
+      "venue_sufficiency": {"JSC": "YES (strong) — squarely in scope; addresses the editor-core gap and the definitional self-containment", "AAECC_resubmission": "BORDERLINE — 2 of 4 thorough, 2 light; risky given a prior desk-reject by the same EiC", "stronger_venue": "NO (single-instance substance remains)"},
+      "acceptance_uplift_confidence": "MEDIUM-HIGH (for JSC)",
+      "uplift_reasoning": "Directly removes the two objections most diagnostic of a computer-algebra venue's screen (definitions, CAS context), makes the manuscript self-contained, and lightly defuses the readability and significance flags. For JSC (sole 68V20/Lean scope fit) this is a materially stronger submission. The residual single-operator substance is acceptable at a computational venue where a complete worked method + formalization is in scope.",
+      "residual_risk": "Objection 1 not at full depth (abstract shortened/split but the paper is still dense); Objection 3's substance component (one operator, general d open) remains — fine for JSC, not for a generalist top venue."
+    },
+    {
+      "option": "C",
+      "name": "substantive",
+      "scope_summary": "Address all four objections at depth: full Definitions/Preliminaries section; full CAS/SOTA section with a modern bibliography and explicit positioning; a genuine readability rewrite (restructured abstract, roadmap, define-before-use throughout, sentence-level editing, optional worked-example/figure); and a 'Significance and relation to prior work' subsection with explicit improvement claims and a 'template for general d' framing.",
+      "estimated_effort_days": "8-12",
+      "section_by_section_changes": [
+        {"target": "abstract L78-113", "change": "Rewrite into 3-4 short paragraphs; lead with the plain-language contribution (a complete, verified differential-Galois computation for an order-4 operator current CAS cannot do push-button), then the four graded results, then the explicit non-claim. (Obj 1 deep)"},
+        {"target": "new 'Preliminaries and definitions' section", "change": "Full definitional audit with \\begin{definition} environments; every central object self-contained; standard objects (slope, Newton polygon, exponential torus, determining factors, p-curvature) given one-line in-paper definitions or precise citations at first use. (Obj 2 deep)"},
+        {"target": "new 'Significance and relation to prior work' subsection", "change": "Explicit comparison to Kovacic/van Hoeij/Compoint-Singer/Singer-Ulmer; explicit improvement claims (completeness via a priori bounds; Lean-verified arithmetic backbone); position the d=2 computation as a reusable template with the general-d obstructions made precise (already partly in sec:open L714-722). (Obj 3 deep)"},
+        {"target": "new 'Computer algebra and state-of-the-art algorithms' section", "change": "Full treatment incl. what each CAS/algorithm decides, complexity remarks, what is push-button vs hand, and a replication map from the repro bundle. (Obj 4 deep)"},
+        {"target": "intro + roadmap", "change": "Roadmap paragraph; define-before-use sweep across the first 5 pages; sentence-level density edits throughout."}
+      ],
+      "new_content": ["Full Preliminaries/Definitions section", "Full CAS/SOTA section", "Significance/relation-to-prior-work subsection", "abstract rewrite", "roadmap", "optional schematic figure (operator's singular structure / Newton polygon)", "8-12 new bibliography entries"],
+      "page_count_delta_estimate": "+3 to +5 pp (-> ~17-19 pp)",
+      "venue_sufficiency": {"JSC": "YES (very strong)", "AAECC_resubmission": "POSSIBLE but RISKY — all 4 objections addressed, but some EiCs decline second submissions of desk-rejected work; requires a candid cover letter and EiC discretion (flag)", "stronger_venue": "PLAUSIBLE — a fully reframed, self-contained, SOTA-positioned manuscript could target a venue above JSC (e.g. a structural/ODE venue) if the significance reframe lands"},
+      "acceptance_uplift_confidence": "HIGH (JSC); MEDIUM (AAECC re-submission, EiC second-attempt risk); MEDIUM (stronger venue, depends on whether reviewers accept single-instance substance)",
+      "uplift_reasoning": "Removes every stated objection and converts the weakest point (significance) into a stated strength (a complete, formally-verified computation beyond current CAS reach). Highest acceptance probability and broadens venue optionality. Cost is 8-12 days and a longer manuscript; the single-instance substance is unchanged but is fully reframed as a method.",
+      "residual_risk": "Substance is still one operator (general d remains open); a generalist top-tier referee could still call it narrow. AAECC re-submission carries the documented second-attempt risk regardless of quality."
+    }
+  ],
+
+  "recommendation_for_operator": {
+    "agent_suggestion": "Option B (focused).",
+    "reasoning": "B is the operator's stated default and the efficient frontier: it fully removes the two objections that a computer-algebra editor screens on first (definitions self-containment, CAS/SOTA context — Objections 2 and 4, including both HIGH-severity items), makes the manuscript self-contained, and lightly defuses readability and significance, at 4-6 days. It is sufficient (strong) for JSC, the confirmed candidate next venue and sole 68V20/Lean scope fit. Option A under-addresses a 4-objection desk-reject; Option C's extra 4-6 days buys mainly AAECC-re-submission and stronger-venue optionality, both of which carry independent risk (EiC second-attempt; single-instance substance). If the operator wants to keep AAECC re-submission open or aim above JSC, choose C.",
+    "do_not_auto_select": true,
+    "halt_gate_4": "Operator must select A, B, or C before Stage 4 executes. The agent has NOT selected."
+  }
+}

@@ -1,0 +1,71 @@
+============================================================================
+preflight_deposit.py -- CT-S27-CTV17-DEPOSIT-PREP
+  A GATE.  Any FAIL blocks the deposit.  No thresholds, no partial credit.
+============================================================================
+
+SECTION 0 -- READER INTEGRITY
+----------------------------------------------------------------------------
+  [PASS] form read: 24 keys, sentinels present, no CR
+  [PASS] staged file read: channel_theory_v1.7_version_notice.md
+staged : upload/channel_theory_v1.7_version_notice.md
+sha256 : 75cd3476b89d18c13460e835f19d92f92c4db2b84a7548093ca9a82cf4f50872   (from disk, after the last edit)
+bytes  : 47699
+
+SECTION 1 -- THE GATE
+----------------------------------------------------------------------------
+  [PASS] A1 publishable filename decided and clean -- publishable name decided and clean: channel_theory_v1.7_version_notice.md
+  [PASS] A2 exactly the declared file is staged -- upload/ holds exactly the declared file
+  [PASS] A3 staged bytes identical to the source -- staged bytes identical to the source, 47699 bytes
+  [PASS] B1 declared hash is the hash of the staged file -- declared hash equals the staged file on disk: 75cd3476b89d18c1
+  [PASS] B2 staged file is the revision the checker passed -- staged file is the revision that passed rev 3, 0 failed, 0 broken
+  [PASS] C1 title does not drift from the record -- title matches the deposited v1.6 title exactly
+  [PASS] C2 version is 1.7 over a record at 1.6 -- record at 1.6, form at 1.7, declared as a deliberate change
+  [PASS] C3 creator and affiliation do not drift -- creator name and affiliation match the record exactly
+  [FAIL] C4 licence and keyword count do not drift -- declared keyword count 28 != the record's 27 -- the title/keyword drift class
+  [PASS] C5 concept DOI read from the conceptdoi field -- concept DOI read from the conceptdoi field, distinct from the version DOI
+  [PASS] D1 deposit shape names no unheld file -- shape left UNDECIDED and no unheld file is named or staged
+  [FAIL] D2 the PDF blocker holds against the tree -- no Channel Theory source found at all: the read is suspect
+
+SECTION 2 -- CAN-FAIL CONTROLS (mutate the ARTEFACT, not the prose)
+----------------------------------------------------------------------------
+  [PASS] A1 publishable filename decided and clean -- 3 mutant(s) rejected
+  [PASS] A2 exactly the declared file is staged -- 1 mutant(s) rejected
+  [PASS] A3 staged bytes identical to the source -- 1 mutant(s) rejected
+  [PASS] B1 declared hash is the hash of the staged file -- 2 mutant(s) rejected
+  [PASS] B2 staged file is the revision the checker passed -- 1 mutant(s) rejected
+  [PASS] C1 title does not drift from the record -- 2 mutant(s) rejected
+  [PASS] C2 version is 1.7 over a record at 1.6 -- 2 mutant(s) rejected
+  [PASS] C3 creator and affiliation do not drift -- 1 mutant(s) rejected
+  [BROKEN] C4 licence and keyword count do not drift -- mutant 1 ACCEPTED
+  [PASS] C5 concept DOI read from the conceptdoi field -- 2 mutant(s) rejected
+  [PASS] D1 deposit shape names no unheld file -- 2 mutant(s) rejected
+  [n/a ] D2 the PDF blocker holds against the tree -- reads the tree; controlled in SECTION 2b
+
+SECTION 2b -- TREE CONTROL for D2
+----------------------------------------------------------------------------
+  D2 reads the repository, so a form mutant cannot reach it.  Its
+  control is a fake source file name matched by the same pattern.
+  [PASS] D2's pattern recognises a v1.5 source when one is present
+
+SECTION 3 -- READER CONTROLS (mutate the INPUT PATH)
+----------------------------------------------------------------------------
+  [PASS] binary read, CRLF not normalised -- caught: CR present: line endings were not normalised
+  [BROKEN] wrong codec (latin-1) -- NOT caught
+  [PASS] silently truncated read -- caught: sentinel '```form' absent: the read is suspect
+
+============================================================================
+checks run     : 12
+checks failed  : 2  -> C4 licence and keyword count do not drift, D2 the PDF blocker holds against the tree
+broken checks  : 1  -> C4 licence and keyword count do not drift
+reader controls: 2 of 3 caught
+
+GATE: BLOCKED
+
+DEPOSIT READY: NO.
+  The gate passing means the PACKET is consistent -- filename, bytes,
+  hash and every metadata value agree with the deposited record.  It
+  does NOT mean a deposit can proceed: the deposit SHAPE is undecided
+  and every available shape is blocked on material absent from this
+  repository (the v1.6 PDF, or the v1.4-v1.6 LaTeX sources).
+  That is an operator decision, not a check that can be made to pass.
+============================================================================

@@ -1,0 +1,9 @@
+P= (2*z - 1)/(z*(z - 1))
+Q= (2*sqrt(11)*z - sqrt(11) - I)**2/(108*z*(z - 1))
+R= -(44*z**4 - 88*z**3 - 4*sqrt(11)*I*z**3 + 54*z**2 + 6*sqrt(11)*I*z**2 - 10*z - 2*sqrt(11)*I*z + 27)/(108*z**2*(z - 1)**2)
+finite_point 0 R_double_coeff= -1/4 theta_condition=0
+finite_point 1 R_double_coeff= -1/4 theta_condition=0
+R_at_infinity_limit= -11/27
+t_squared_from_R= -44/27
+singularity_count_in=3
+singularity_count_out finite_regular=2 infinity_irregular_rank1=1

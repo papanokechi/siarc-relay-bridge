@@ -1,0 +1,382 @@
+{
+  "task_id": "CT-S6-APPARENCY-SCOPE-UPDATE",
+  "sympy_version": "1.14.0",
+  "dps": null,
+  "companion_v12_inspection": {
+    "path": "sessions\\2026-09-17\\CT-R1-AUDIT\\refs\\vquad_resurgence_v1.2_zenodo-20481592.pdf",
+    "sha256": "a5d9e264699e6397030f0512e17f0cd503fcf2eafd57db9b00b57523fcc88d85",
+    "sha256_matches_operator": true,
+    "relevant_extract_path": "sessions\\2026-09-17\\CT-S6-APPARENCY\\vquad_resurgence_v1.2_relevant_extract.txt",
+    "relevant_extract_sha256": "1be959ba51f15a77cbe7f07f7a5998c0a3c6c1cd69cac6d0f1a9571894a7535f",
+    "relevant_pdf_pages_one_based": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11
+    ],
+    "conjecture_4_1_found": true,
+    "remark_2_2_found": true,
+    "equation_tokens_found": true
+  },
+  "system_C": {
+    "operator": "(3*x**2+x+1)*y'' + (6*x+1)*y' - x**2*y = 0",
+    "self_adjoint_identity_b_equals_a_prime": true,
+    "finite_apparency_tests": [
+      {
+        "point": "s_minus=(-1-i*sqrt(11))/6",
+        "principal_coefficients": {
+          "p_minus_1": "1",
+          "q_minus_2": "0"
+        },
+        "indicial_equation": "lam**2",
+        "exponents_with_multiplicity": [
+          "0",
+          "0"
+        ],
+        "expected_exponents": [
+          "0",
+          "1"
+        ],
+        "expected_exponents_match": false,
+        "exponents_are_integers": [
+          true,
+          true
+        ],
+        "frobenius_log_test": {
+          "P_residue": "1",
+          "P_minus_residue_over_local_at_0": "3*sqrt(11)*I/11",
+          "normalized_reduction_of_order_integrand_residue": "1",
+          "log_term_present": true,
+          "method": "symbolic Frobenius repeated-root test via reduction of order; exponent difference 0"
+        },
+        "verdict": "NOT APPARENT",
+        "reason": "Repeated integer exponent 0 and exact nonzero log residue."
+      },
+      {
+        "point": "s_plus=(-1+i*sqrt(11))/6",
+        "principal_coefficients": {
+          "p_minus_1": "1",
+          "q_minus_2": "0"
+        },
+        "indicial_equation": "lam**2",
+        "exponents_with_multiplicity": [
+          "0",
+          "0"
+        ],
+        "expected_exponents": [
+          "0",
+          "1"
+        ],
+        "expected_exponents_match": false,
+        "exponents_are_integers": [
+          true,
+          true
+        ],
+        "frobenius_log_test": {
+          "P_residue": "1",
+          "P_minus_residue_over_local_at_0": "-3*sqrt(11)*I/11",
+          "normalized_reduction_of_order_integrand_residue": "1",
+          "log_term_present": true,
+          "method": "symbolic Frobenius repeated-root test via reduction of order; exponent difference 0"
+        },
+        "verdict": "NOT APPARENT",
+        "reason": "Repeated integer exponent 0 and exact nonzero log residue."
+      }
+    ],
+    "infinity": {
+      "r_C": "(12*x**4 + 4*x**3 + 4*x**2 + 11)/(4*(3*x**2 + x + 1)**2)",
+      "r_infinity_local": "(-3*u**6 - 6*u**5 - 10*u**4 - 18*u**3 - 23*u**2 + 4*u + 12)/(4*u**4*(u**2 + u + 3)**2)",
+      "pole_order_at_infinity": 4,
+      "formal_type": "irregular, UNRAMIFIED",
+      "Katz": "1",
+      "ramification_index": "1",
+      "Poincare_rank": "1",
+      "companion_poincare_rank_1_confirmed": true
+    },
+    "all_points": [
+      {
+        "point": "s_minus",
+        "Katz": "0",
+        "apparent_removed": false
+      },
+      {
+        "point": "s_plus",
+        "Katz": "0",
+        "apparent_removed": false
+      },
+      {
+        "point": "infinity",
+        "Katz": "1",
+        "apparent_removed": false
+      }
+    ],
+    "effective_points_after_removing_apparent": [
+      {
+        "point": "s_minus",
+        "Katz": "0",
+        "apparent_removed": false
+      },
+      {
+        "point": "s_plus",
+        "Katz": "0",
+        "apparent_removed": false
+      },
+      {
+        "point": "infinity",
+        "Katz": "1",
+        "apparent_removed": false
+      }
+    ],
+    "effective_multiset": [
+      "0",
+      "0",
+      "1"
+    ]
+  },
+  "remark_2_2_tests": {
+    "pre_registered_b_polynomials": [
+      "x+1",
+      "x**2+1"
+    ],
+    "tests": [
+      {
+        "label": "b_test_1",
+        "b": "x + 1",
+        "roots": [
+          "-1"
+        ],
+        "root_tests": [
+          {
+            "point": "b_test_1 root -1",
+            "principal_coefficients": {
+              "p_minus_1": "1",
+              "q_minus_2": "0"
+            },
+            "indicial_equation": "lam**2",
+            "exponents_with_multiplicity": [
+              "0",
+              "0"
+            ],
+            "expected_exponents": null,
+            "expected_exponents_match": null,
+            "exponents_are_integers": [
+              true,
+              true
+            ],
+            "frobenius_log_test": {
+              "P_residue": "1",
+              "P_minus_residue_over_local_at_0": "0",
+              "normalized_reduction_of_order_integrand_residue": "1",
+              "log_term_present": true,
+              "method": "symbolic Frobenius repeated-root test via reduction of order; exponent difference 0"
+            },
+            "verdict": "NOT APPARENT",
+            "reason": "Repeated integer exponent 0 and exact nonzero log residue."
+          }
+        ]
+      },
+      {
+        "label": "b_test_2",
+        "b": "x**2 + 1",
+        "roots": [
+          "-I",
+          "I"
+        ],
+        "root_tests": [
+          {
+            "point": "b_test_2 root -I",
+            "principal_coefficients": {
+              "p_minus_1": "1",
+              "q_minus_2": "0"
+            },
+            "indicial_equation": "lam**2",
+            "exponents_with_multiplicity": [
+              "0",
+              "0"
+            ],
+            "expected_exponents": null,
+            "expected_exponents_match": null,
+            "exponents_are_integers": [
+              true,
+              true
+            ],
+            "frobenius_log_test": {
+              "P_residue": "1",
+              "P_minus_residue_over_local_at_0": "I/2",
+              "normalized_reduction_of_order_integrand_residue": "1",
+              "log_term_present": true,
+              "method": "symbolic Frobenius repeated-root test via reduction of order; exponent difference 0"
+            },
+            "verdict": "NOT APPARENT",
+            "reason": "Repeated integer exponent 0 and exact nonzero log residue."
+          },
+          {
+            "point": "b_test_2 root I",
+            "principal_coefficients": {
+              "p_minus_1": "1",
+              "q_minus_2": "0"
+            },
+            "indicial_equation": "lam**2",
+            "exponents_with_multiplicity": [
+              "0",
+              "0"
+            ],
+            "expected_exponents": null,
+            "expected_exponents_match": null,
+            "exponents_are_integers": [
+              true,
+              true
+            ],
+            "frobenius_log_test": {
+              "P_residue": "1",
+              "P_minus_residue_over_local_at_0": "-I/2",
+              "normalized_reduction_of_order_integrand_residue": "1",
+              "log_term_present": true,
+              "method": "symbolic Frobenius repeated-root test via reduction of order; exponent difference 0"
+            },
+            "verdict": "NOT APPARENT",
+            "reason": "Repeated integer exponent 0 and exact nonzero log residue."
+          }
+        ]
+      }
+    ],
+    "always_apparent_claim_refuted_by_these_tests": true
+  },
+  "system_C_vs_System_B": {
+    "coordinate_map": "z=1/x",
+    "r_B_inverted": "(12*x**4 + 4*x**3 + 4*x**2 + 11)/(4*(3*x**2 + x + 1)**2)",
+    "r_C": "(12*x**4 + 4*x**3 + 4*x**2 + 11)/(4*(3*x**2 + x + 1)**2)",
+    "normal_form_difference": "0",
+    "same_normal_form_after_inversion": true,
+    "literal_P_difference_PBinv_minus_PC": "(-6*sqrt(3)*x - 18 + sqrt(3))/(9*x)",
+    "literal_Q_difference_QBinv_minus_QC_is_zero": false,
+    "gauge_factor_from_inverted_B_solution_to_C_solution": "x**(sqrt(3)/18 - 1) * exp(-sqrt(3)*x/3)",
+    "half_integral_PBinv_minus_PC": "(-6*sqrt(3)*x - 18*log(x) + sqrt(3)*log(x))/18",
+    "interpretation": "If Y(x)=y_B(1/x) solves inverted System B, then y_C(x)=x**(sqrt(3)/18 - 1)*exp(-sqrt(3)*x/3)*Y(x) has System C normal form; the gauge is multivalued at x=0.",
+    "F8": "not fired"
+  },
+  "table_2_1": {
+    "path": "sessions\\2026-09-17\\CT-R1-AUDIT\\refs\\vanderPut-Saito-AIF-2009-59-7-2611.pdf",
+    "sha256": "1666bd6be824a99fc0b48adbe48233a9b2a520fd7e8adf187e98d22525473605",
+    "existing_extract_path": "sessions\\2026-09-17\\CT-S6-APPARENCY\\pdf_pages_25_26_extract.txt",
+    "D5_PV_row_page": "p.2635 / PDF page 26",
+    "D5_PV_row": "D5 PV 0 0 1 - dim P 3",
+    "system_C_matches_D5_PV_row_after_actual_apparency_removal": true
+  },
+  "falsifiers": {
+    "F5_companion_exponents_0_1": "FIRED",
+    "F6_apparent_with_log_or_nonholomorphic": "not fired; no System C finite point was classified APPARENT",
+    "F7_infinity_not_rank_1": "not fired",
+    "F8_relation_difference_nonzero": "not fired"
+  },
+  "git_verification": {
+    "HEAD": "08aa0e2381b3dc37ee54a3200b7272755ca11d59",
+    "HEAD_matches_expected": true,
+    "status_porcelain_lines": [
+      " M sessions/2026-06-16/VQUAD-ZENODO-DEPOSIT-001/MANUAL-UPLOAD.md",
+      " M sessions/2026-06-18/VQUAD-ARXIV-METADATA-001/arxiv-metadata-package.md",
+      "?? sessions/2026-05-02/SUBMISSION-LOG-PATCH-ITEM19/submission_log.txt.pre-LOG-PV-01.bak",
+      "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/README_catalog_d2_STATUS.md",
+      "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/catalog_d2.STATUS_ANNOTATED.csv",
+      "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/recheck_inheritors.py",
+      "?? sessions/2026-06-15/EBR3-REVISION-001/baseline.json",
+      "?? sessions/2026-06-15/EBR3-REVISION-001/claims.jsonl",
+      "?? sessions/2026-06-15/EBR3-REVISION-001/diagnostic.json",
+      "?? sessions/2026-06-15/EBR3-REVISION-001/handoff.md",
+      "?? sessions/2026-06-15/EBR3-REVISION-001/ledger.json",
+      "?? sessions/2026-06-15/EBR3-REVISION-001/revision-plan.json",
+      "?? sessions/2026-06-15/EBR3-REVISION-001/venue-recommendation.md",
+      "?? sessions/2026-06-16/VQUAD-ZENODO-DEPOSIT-001/upload-copy-paste.md",
+      "?? sessions/2026-06-18/VQUAD-ARXIV-METADATA-001/arxiv-metadata-package.md.pre-hedge-fix.bak",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/AUDIT.md",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/CLASSIFICATION-TABLE.md",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/REPORT.md",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/apply_audit.log",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/apply_audit.py",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/apply_audit_r2.log",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/apply_audit_r2.py",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/claims.jsonl",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/list_inspection.py",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/make_claims.py",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/refs/vanderPut-Saito-AIF-2009-59-7-2611.pdf",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/refs/vquad_resurgence_v1.0_zenodo-20455090.pdf",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/refs/vquad_resurgence_v1.1_zenodo-20480603.pdf",
+      "?? sessions/2026-09-17/CT-R1-AUDIT/refs/vquad_resurgence_v1.2_zenodo-20481592.pdf",
+      "?? sessions/2026-09-17/CT-S0-INVENTORY/REPORT.md",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/PREREG.md",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/REPORT.md",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/claims.jsonl",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/lake_build.log",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/lean/.gitignore",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/lean/XiZero.lean",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/lean/XiZero/Basic.lean",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/lean/lake-manifest.json",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/lean/lakefile.toml",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/lean/lean-toolchain",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/make_claims.py",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/theorem.aux",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/theorem.log",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/theorem.out",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/theorem.pdf",
+      "?? sessions/2026-09-17/CT-S1-THEOREM/theorem.tex",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/PREREG.md",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/REPORT.md",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/claims.jsonl",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/d2_anchor.json",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/d2_anchor.log",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/d2_anchor.py",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/make_claims.py",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/run.log",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/s_exponent.py",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/s_table.json",
+      "?? sessions/2026-09-17/CT-S2-RHO-D4/vacuity.json",
+      "?? sessions/2026-09-17/CT-S3A-ZETA-AUDIT/REPORT.md",
+      "?? sessions/2026-09-17/CT-S3A-ZETA-AUDIT/claims.jsonl",
+      "?? sessions/2026-09-17/CT-S3B-RINF/DERIVATION.md",
+      "?? sessions/2026-09-17/CT-S3B-RINF/PREREG.md",
+      "?? sessions/2026-09-17/CT-S3B-RINF/REPORT.md",
+      "?? sessions/2026-09-17/CT-S3B-RINF/amplitude.json",
+      "?? sessions/2026-09-17/CT-S3B-RINF/claims.jsonl",
+      "?? sessions/2026-09-17/CT-S3B-RINF/make_claims.py",
+      "?? sessions/2026-09-17/CT-S3B-RINF/partA.log",
+      "?? sessions/2026-09-17/CT-S3B-RINF/partB.log",
+      "?? sessions/2026-09-17/CT-S3B-RINF/partC.log",
+      "?? sessions/2026-09-17/CT-S3B-RINF/partC_pslq.py",
+      "?? sessions/2026-09-17/CT-S3B-RINF/pslq.json",
+      "?? sessions/2026-09-17/CT-S3B-RINF/rinf.json",
+      "?? sessions/2026-09-17/CT-S3B-RINF/rinf_amplitude.py",
+      "?? sessions/2026-09-17/CT-S3B-RINF/rinf_highprec.txt",
+      "?? sessions/2026-09-17/CT-S4-FORMAL-TYPE/PREREG.md",
+      "?? sessions/2026-09-17/CT-S4-FORMAL-TYPE/REPORT.md",
+      "?? sessions/2026-09-17/CT-S4-FORMAL-TYPE/claims.jsonl",
+      "?? sessions/2026-09-17/CT-S4-FORMAL-TYPE/formal_type.json",
+      "?? sessions/2026-09-17/CT-S4-FORMAL-TYPE/formal_type.py",
+      "?? sessions/2026-09-17/CT-S4-FORMAL-TYPE/make_claims.py",
+      "?? sessions/2026-09-17/CT-S4-FORMAL-TYPE/run.log",
+      "?? sessions/2026-09-17/CT-S5B-COVER/PREREG.md",
+      "?? sessions/2026-09-17/CT-S5B-COVER/REPORT.md",
+      "?? sessions/2026-09-17/CT-S5B-COVER/claims.jsonl",
+      "?? sessions/2026-09-17/CT-S5B-COVER/formal_type.py",
+      "?? sessions/2026-09-17/CT-S5B-COVER/formal_type_p5b.json",
+      "?? sessions/2026-09-17/CT-S5B-COVER/run.log",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/PREREG.md",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/REPORT.md",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/apparency.py",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/apparency_results.json",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/claims.jsonl",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/git-status-uall.txt",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/pdf_pages_25_26_extract.txt",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/run.log",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/system_c_analysis.py",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/system_c_results.json",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/system_c_run.log",
+      "?? sessions/2026-09-17/CT-S6-APPARENCY/vquad_resurgence_v1.2_relevant_extract.txt"
+    ]
+  }
+}

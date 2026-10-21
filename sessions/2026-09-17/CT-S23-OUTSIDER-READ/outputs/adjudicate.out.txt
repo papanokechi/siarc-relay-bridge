@@ -1,0 +1,51 @@
+CT-S23-OUTSIDER-READ - adjudication of the cold returns
+
+  main     coldread_main.txt          sha256 8660122ac226b7442118b0ddfa56bd2c21f6a43775e43d72b6e2648593cf54b5
+  control  coldread_control.txt       sha256 af56b49e775f302524abd550ef62a7f4262c1046dc446959461959321a627fda
+  index    jargon_index.out.txt       sha256 a4fd37acfee7d512f965a5d06bfd82b3cf0931e4289d932d14eaa96583aeb80b
+
+G, from the index hashed before dispatch: ['System C', 'K', 'Katz multiset', 'PV', 'D5tilde']
+
+read       verdict                                task-2 items
+----------------------------------------------------------------
+MAIN       NOT SELF-CONTAINED                     171
+CONTROL    NOT SELF-CONTAINED                     106
+
+F1  instrument validity (control must not say SELF-CONTAINED,
+    and must list >= 5 task-2 items)
+    control verdict   : NOT SELF-CONTAINED
+    control T2 items  : 106
+    -> F1 did not fire
+
+F2  sensitivity of the MAIN read, scored on its task-2 section
+    System C         FOUND
+    K                FOUND
+    Katz multiset    FOUND
+    PV               FOUND
+    D5tilde          FOUND
+    |T2 n G| / |G|    : 5/5 = 1.00  (threshold 0.50)
+    -> F2 did not fire
+
+VAC PREREG section 4 arm (i): fires if both reads return the
+    SAME verdict
+    main = NOT SELF-CONTAINED
+    ctrl = NOT SELF-CONTAINED
+    -> VAC FIRED
+
+    NOTE, recorded and NOT adjusted. Arm (i) was written on
+    the assumption that the packet would come back
+    SELF-CONTAINED, so it encoded 'different verdicts' as the
+    signal that the instrument reads its input. It cannot
+    distinguish an insensitive instrument from two documents
+    that are both genuinely not self-contained. As written it
+    is ILL-POSED. Per P0 this is reported as a finding; the
+    criterion is not rewritten to fit the outcome. The
+    surviving discrimination evidence is F1 and F2, both
+    pre-registered and both independent of the verdict, plus
+    the task-2 item counts above.
+
+DISPOSITION
+  Instrument discriminates (F1 clear) and the main read is
+  sensitive (F2 clear, 5/5). Its CONTENT is admissible as
+  evidence. Its VERDICT is weakened by VAC firing and is
+  reported with that qualification attached.

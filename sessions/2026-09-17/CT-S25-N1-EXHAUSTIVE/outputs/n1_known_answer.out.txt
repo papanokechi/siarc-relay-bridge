@@ -1,0 +1,27 @@
+==========================================================================
+CT-S25-N1-EXHAUSTIVE / n1_known_answer.py
+Known-answer control for the degree-counting code path.
+Expected values fixed in PREREG-ADDENDUM-2.md before this was run.
+==========================================================================
+
+row  expected    got         result    note
+--------------------------------------------------------------------------
+A    1           1           PASS      four linear equations: a single point
+B    2           2           PASS      p quadratic: two points
+C    3           3           PASS      p cubic: three points
+D    4           4           PASS      2 x 2; both roots q = +/-2 survive saturation
+E    6           6           PASS      2 x 3
+F    not 0-dim   not 0-dim   PASS      theta_inf free: must NOT be zero-dimensional
+G    0           0           PASS      forces q = 0, which saturation removes: empty
+--------------------------------------------------------------------------
+KNOWN-ANSWER BATTERY: 7/7
+
+==========================================================================
+The degree-counting code path is CORRECT on independently known answers,
+across degrees 0, 1, 2, 3, 4, 6 and one positive-dimensional case.
+Row G confirms the saturation actively removes the q = 0 locus rather
+than being inert.
+
+This licenses the main result's degree of 2 as a genuine bound, without
+relying on any sensitivity arm on the overdetermined target system.
+==========================================================================

@@ -1,0 +1,29 @@
+==============================================================================
+S16-05 | VERIFIED | script: check_bz.py
+SUSPECTED TYPO IN THE PUBLISHED PAPER, vdPS p.2655, entry b(z) of the family (4.1): the first term prints (p + (1/2)(q-1)q)^2, with no t, while the second term carries (q-1)q t. Tested against the paper's OWN constraint det A(1) = -theta_1^2/4: the printed form leaves a nonzero remainder, whereas (p + (1/2)(q-1)q t)^2 satisfies it IDENTICALLY. det A(0) = -theta_0^2/4 holds for both readings and so does not discriminate. The corrected reading is used for computation and is flagged here rather than adopted silently.
+NOTE: discriminated by an exact symbolic residual, not by preference.
+==============================================================================
+S16-18 | INSPECTED | script: None
+TYPO RE-VERIFIED BY LOOKING, as review #13 required. The b(z) entry of van der Put-Saito's family is on journal page 2655, confirmed from the running head, and its first term prints (p + (1/2)(q-1)q)^2 with NO t, while the second term carries (q-1)q t twice. The original transcription was correct. Also read from the same display: c(z) = -(z-q)/(q-1), hence c(0) = q/(q-1); a(z) = p + (1/2)(-2qt + t - theta_inf)(z-q) - (1/2)t(z-q)^2; 'q is the unique zero of c(z) and p = a(q)'; and '(p,q) gives canonical coordinates on an affine Zariski open set U_0 = C x (C\{0,1}) of the moduli space M_{t,lambda}'.
+NOTE: 8x crop of journal p.2655 viewed alone in one message; header asserted in the rendering script before the crop was saved.
+==============================================================================
+S16-19 | INSPECTED | script: None
+THE TYPO IS PRESENT IN THE AUTHORS' LATEST CORRECTED VERSION TOO. arXiv:0902.1702 v5, p.34, prints the identical first term (p + (1/2)(q-1)q)^2 with no t. The v5 comment records that 'the signs for Hamiltonian systems in Section 4 and the equations (3) (PV) and (7) (degenerate PV) are corrected', so Section 4 WAS revised and this entry was not among the corrections. A web check found no published erratum or corrigendum in Annales de l'Institut Fourier.
+NOTE: arXiv v5 downloaded (sha256 1d4be8e4526f6ca834506a976a6ffc999e9659acc2da08753b87e1f59d006e47) and the display viewed directly.
+==============================================================================
+S16-20 | VERIFIED | script: typo_recheck.py
+DISCRIMINATING TEST, re-run with a control. Since A(z) = z(z-1)A_inf + (z-1)A_0 + z A_1, the paper's own constraints det A_i = -theta_i^2/4 read det A(0) = -theta_0^2/4 and det A(1) = -theta_1^2/4. det A(0) holds identically for BOTH readings, so it does not discriminate. det A(1) holds IDENTICALLY for the corrected reading (p + (1/2)(q-1)q t)^2, and for the printed reading leaves the residual -(q-1)(t-1)(4p + q^2 t + q^2 - q t - q)/4, which is non-zero at the exact rational point p=2/7, q=5/3, t=11/4, theta_0=theta_1=0, theta_inf=3/5, where it equals -223/144. A deliberately bogus variant (q-1)q t^2 is REJECTED by the same test, so the test discriminates rather than accepting anything.
+NOTE: control is an assertion; formulas transcribed from the two page images.
+==============================================================================
+S16-21 | VERIFIED | script: typo_recheck.py
+CORROBORATING STRUCTURE: the printed reading's residual carries the factor (t-1) and so vanishes precisely at t = 1 - which is exactly the value at which the two readings coincide, since (q-1)q*1 = (q-1)q. A dropped factor of t produces exactly this signature. This is corroboration for the typo diagnosis, not independent proof of it.
+NOTE: read off from the factored residual; labelled as corroboration, not proof.
+==============================================================================
+S16-R18-01 | INSPECTED | script: pages/vdps_j2655_B1_top_LOOK.png and pages/arxiv_v5_p34_B1_LOOK.png, both confirmed rendered by viewing
+DECISIVE CORROBORATION of the b(z) typo, found on the page itself: the bracket whose t is missing in b(z) appears a SECOND time on journal p. 2655, in the matrix B_1 of the display B = z B_0 + (1/t) B_1, where its (1,2) entry prints (p + 1/2(q-1)q t)^2 WITH the t. Confirmed by looking at a 9x render. The same asymmetry is present in arXiv:0902.1702v5 p. 34, also confirmed by looking. So both sources print the expression correctly a few lines below the place where the t is missing.
+==============================================================================
+S16-R18-02 | PROVEN | script: b1_corroboration.py
+Under the corrected reading, b(z) first term equals EXACTLY z * B_1[1,2]; under the printed reading it does not, the difference being z(4pqt - 4pq - 4pt + 4p + q^3 t^2 - q^3 - 2 q^2 t^2 + 2 q^2 + q t^2 - q)/4. The difference between the two readings factors as -z(q-1)(t-1)(4p + q^2 t + q^2 - qt - q)/4, carrying the SAME factor as the det A(1) residual, so the two independent tests agree on the correction term for term. Three bogus variants (t^2, t+1, 2t) are rejected by the same test.
+==============================================================================
+S17-17 | INSPECTED | script: packet/pages/vdPS_p2655.png, confirmed rendered by viewing
+ADOPTED from CT-S19 and confirmed by looking at the page image: vdPS p. 2655 states "The first basis vector is chosen as cyclic vector and following Subsection 4.1, q is the unique zero of c(z) and p = a(q)." This settles the component question from the authors own stated convention and SUPERSEDES the structural argument used in VERIFY-S18, while confirming its conclusion. It is also why q, being read off c(z), bears on the second-component reduction rather than the first.

@@ -1,0 +1,84 @@
+SCOPE OF THIS CHECK
+  root     C:\LocalWork\siarc-relay-bridge               445 file(s)   4060 claim(s)
+  root     C:\LocalWork\SCOPE                              2 file(s)     35 claim(s)
+  EXCLUDED C:\LocalWork\SCOPE\CT-S31-COLDREAD-ROWS      operator stand-down 2026-09-19: input packet being assembled for a separate uncontaminated process; not to be read, listed or written. Remove this entry once the packet is released.
+
+input fingerprint: 7f7e3d1a58ba162bdbf65a285af5654dff95a722066ff6767e9f6ffa4109fc51  over 447 file(s) read
+  (sha256 of the sorted path+content hashes. At least one root is a live tree
+   written by other processes; two runs that disagree on a count should be
+   compared on this line first, before either is called wrong.)
+  3 file(s) read but empty, so absent from the per-file count below:
+      C:\LocalWork\siarc-relay-bridge\sessions\2026-04-25\TRIAGE-UNSOLVED-3\claims.jsonl
+      C:\LocalWork\siarc-relay-bridge\sessions\2026-05-01\CHANNEL-THEORY-OUTLINE\claims.jsonl
+      C:\LocalWork\siarc-relay-bridge\sessions\2026-05-01\SIARC-MASTER-V0\claims.jsonl
+
+corpus: 4095 claims in 444 files across 2 reachable root(s)
+
+ok   0: all 2 declared root(s) exist
+FAIL 1(b): 84 duplicate claim_id(s)
+   121-C1: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-08\\T1-OPERATOR-110-EXTRACTION-TAUTOLOGY-PROMPT-DRAFTED-121\\claims.jsonl:1', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-09\\T2-EXECUTOR-M7-RATIFICATION-SUBSTRATE-PREP-121\\claims.jsonl:1']
+   C1: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-05\\M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT\\claims.jsonl:1', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\048R-EARLY-FIRE-DECISION-SUBSTRATE\\claims.jsonl:1', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY\\claims.jsonl:1', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE\\claims.jsonl:1', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-07\\PCF-2-V2-BIPARTITION-PROMOTION\\claims.jsonl:1', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-09-17\\CT-S15-COLDREAD-DEFERRED\\claims.jsonl:1']
+   C2: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-05\\M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT\\claims.jsonl:2', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\048R-EARLY-FIRE-DECISION-SUBSTRATE\\claims.jsonl:2', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY\\claims.jsonl:2', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE\\claims.jsonl:2', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-07\\PCF-2-V2-BIPARTITION-PROMOTION\\claims.jsonl:2', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-09-17\\CT-S15-COLDREAD-DEFERRED\\claims.jsonl:2']
+   C3: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-05\\M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT\\claims.jsonl:3', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\048R-EARLY-FIRE-DECISION-SUBSTRATE\\claims.jsonl:3', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY\\claims.jsonl:3', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE\\claims.jsonl:3', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-07\\PCF-2-V2-BIPARTITION-PROMOTION\\claims.jsonl:3', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-09-17\\CT-S15-COLDREAD-DEFERRED\\claims.jsonl:3']
+   C4: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-05\\M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT\\claims.jsonl:4', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\048R-EARLY-FIRE-DECISION-SUBSTRATE\\claims.jsonl:4', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY\\claims.jsonl:4', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE\\claims.jsonl:4', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-07\\PCF-2-V2-BIPARTITION-PROMOTION\\claims.jsonl:4', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-09-17\\CT-S15-COLDREAD-DEFERRED\\claims.jsonl:4']
+   C5: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-05\\M9-MAIN-THEOREM-S2-DEPENDENCY-AUDIT\\claims.jsonl:5', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY\\claims.jsonl:5', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE\\claims.jsonl:5', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-07\\PCF-2-V2-BIPARTITION-PROMOTION\\claims.jsonl:5', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-09-17\\CT-S15-COLDREAD-DEFERRED\\claims.jsonl:5']
+   C6: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY\\claims.jsonl:6', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE\\claims.jsonl:6', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-07\\PCF-2-V2-BIPARTITION-PROMOTION\\claims.jsonl:6', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-09-17\\CT-S15-COLDREAD-DEFERRED\\claims.jsonl:6']
+   C7: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY\\claims.jsonl:7', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE\\claims.jsonl:7', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-07\\PCF-2-V2-BIPARTITION-PROMOTION\\claims.jsonl:7', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-09-17\\CT-S15-COLDREAD-DEFERRED\\claims.jsonl:7']
+   C8: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY\\claims.jsonl:8', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE\\claims.jsonl:8', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-07\\PCF-2-V2-BIPARTITION-PROMOTION\\claims.jsonl:8', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-09-17\\CT-S15-COLDREAD-DEFERRED\\claims.jsonl:8']
+   C9: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-05-06\\M6-AMENDMENT-1-CMB-GLOSSARY-REFIRE\\claims.jsonl:9', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-09-17\\CT-S15-COLDREAD-DEFERRED\\claims.jsonl:9']
+   DF-T0-LOCK: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\p0\\claims.jsonl:1', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-P0\\claims.jsonl:1']
+   DF-T1-TRACE: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\p0\\claims.jsonl:2', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-P0\\claims.jsonl:2']
+   DF-T2A-DELTA: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\p0\\claims.jsonl:3', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-P0\\claims.jsonl:3']
+   DF-T2A-SPECTRAL: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\p0\\claims.jsonl:4', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-P0\\claims.jsonl:4']
+   DF-T2B-BINOM: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\p0\\claims.jsonl:7', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-P0\\claims.jsonl:7']
+   DF-T2B-DELTA: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\p0\\claims.jsonl:5', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-P0\\claims.jsonl:5']
+   DF-T2B-S: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\p0\\claims.jsonl:6', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-P0\\claims.jsonl:6']
+   DF-T3-CROSSCHECK: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\p0\\claims.jsonl:8', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-P0\\claims.jsonl:8']
+   DF-T4-PSLQ: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\p0\\claims.jsonl:9', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-P0\\claims.jsonl:9']
+   DFL-DET-REC: ['C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-LEAN-CORE\\claims.jsonl:3', 'C:\\LocalWork\\siarc-relay-bridge\\sessions\\2026-06-11\\DELTA-FREDHOLM-ORDER\\deposit\\lean\\claims.jsonl:3']
+   ... and 64 more
+     (2641 claim(s) carry no claim_id at all and are outside 1(b))
+ok   1(a): no PROVEN claim rests on file_inspection
+FAIL 2: 3488 claim(s) with an unrecognised or missing label
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\DISC-A-DESERT-CHECK\claims.jsonl:1 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\DISC-A-DESERT-CHECK\claims.jsonl:2 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:1 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:2 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:3 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:4 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:5 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:6 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:7 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:8 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:9 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:10 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H001-H004-FULL-VERIFY\claims.jsonl:11 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H017-SIGN-A2-TRANS\claims.jsonl:1 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H017-SIGN-A2-TRANS\claims.jsonl:2 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H017-SIGN-A2-TRANS\claims.jsonl:3 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\L2-EXACTNESS-SCANNER-POC\claims.jsonl:1 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\L2-EXACTNESS-SCANNER-POC\claims.jsonl:2 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\L2-EXACTNESS-SCANNER-POC\claims.jsonl:3 None -> None
+   C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\L2-EXACTNESS-SCANNER-POC\claims.jsonl:4 None -> None
+   ... and 3468 more
+ok   3: every reviewed claim carries a review_note
+ok   4: every review value is one of self|cold|lean
+FAIL 5: 9 claims file(s) are not plain JSONL
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-22\H017-SIGN-A2-TRANS\claims.jsonl
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-24\LEAN4-LWP-STATEMENT-FIX\claims.jsonl
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-27\P16-TRUSTED-CORE-BUILD-REPAIR\claims.jsonl
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-27\TUNNELL-AFM-REVISION\claims.jsonl
+   WRONG CONTAINER (JSON array)           C:\LocalWork\siarc-relay-bridge\sessions\2026-04-28\AUDIT-MASTER-THEOREM-INVENTORY\claims.jsonl
+   JSONL + BOM                            C:\LocalWork\siarc-relay-bridge\sessions\2026-04-28\P17-CONTROL-BARRIERS-REPAIR\claims.jsonl
+   DAMAGED                                C:\LocalWork\siarc-relay-bridge\sessions\2026-04-30\SIARC-COHERENCE-AUDIT\claims.jsonl
+   WRONG CONTAINER (JSON array)           C:\LocalWork\siarc-relay-bridge\sessions\2026-05-08\T2-105-COPILOT-RESEARCHER-PROMPT-DRAFT-109\claims.jsonl
+   WRONG CONTAINER (JSON array)           C:\LocalWork\siarc-relay-bridge\sessions\2026-05-08\T2-TIER-B-PASTE-PACKET-PRESTAGE-110\claims.jsonl
+   DAMAGED LINE C:\LocalWork\siarc-relay-bridge\sessions\2026-04-30\SIARC-COHERENCE-AUDIT\claims.jsonl:3  Invalid \escape: line 1 column 249 (char 248)
+   (all of the above were READ anyway; only a DAMAGED line loses a claim)
+
+labels: CONJECTURED=5  INSPECTED=219  None=3473  PROCEED=14  PROVEN=147  REFINED=1  STRUCTURAL=100  VERIFIED=136
+review: (none)=3922  cold=27  self=146
+
+3 INVARIANT(S) FAILED
+scope of that verdict: C:\LocalWork\siarc-relay-bridge = 4060 claims; C:\LocalWork\SCOPE = 35 claims
+holes in that verdict: C:\LocalWork\SCOPE\CT-S31-COLDREAD-ROWS

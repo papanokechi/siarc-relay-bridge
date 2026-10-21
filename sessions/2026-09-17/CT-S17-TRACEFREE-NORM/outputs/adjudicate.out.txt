@@ -1,0 +1,35 @@
+==========================================================================
+PART A  generic elimination, from scratch (no formula assumed)
+  route 1 (ODE for y1):  P = -n11(z) - n22(z) - Derivative(n12(z), z)/n12(z)
+  route 2 (ODE for y2):  P = -n11(z) - n22(z) - Derivative(n21(z), z)/n21(z)
+  -> the two routes differ by  n21'/n21 - n12'/n12, i.e. by d/dz log(c/b).
+     They are NOT the same scalar equation and are not meant to be.
+==========================================================================
+PART B  the located point: which route is System C?
+  b(z) constant?  db/dz = 0
+  q0 in {0,1}?    False
+  route 1  P - P_C = 0
+  route 1  Q - Q_C = 0
+  route 2  P - P_C = -8*(119869747712*z**3 - 179804621568*z**2 - 448441218368*sqrt(11)*I*z**2 + 275858668800*sqrt(33)*I*z**2 + 22704150110400*sqrt(3)*z + 39493747316056*z - 275858668800*sqrt(33)*I*z + 448441218368*sqrt(11)*I*z - 19716906221100 - 11352075055200*sqrt(3) + 9223870089825*sqrt(11)*I + 5811994116900*sqrt(33)*I)/(958957981696*z**4 - 1917915963392*z**3 + 631899957056896*z**2 - 630940999075200*z + 573306755630625)
+  route 2 predicted mismatch  -c'/c =  -122408/(122408*z - 61204 - 281700*sqrt(33)*I + 457937*sqrt(11)*I)
+  => System C IS route 1 exactly; route 2 misses it by exactly -c'/c.
+==========================================================================
+PART C  control: solve the system, test both ODEs on its y1 component
+  initial (y1,y2)=(1,0):  |route-1 residual| = 4.784e-61   |route-2 residual| = 8.987e+00
+  initial (y1,y2)=(2/5,-3/4 + I):  |route-1 residual| = 6.941e-62   |route-2 residual| = 4.047e+00
+  The control fires on both seeds: y1 of the system satisfies route 1 and
+  NOT route 2, so the test is capable of distinguishing them.
+==========================================================================
+PART D  CT-S18 method notes
+  (i)  CT-S18 asserted  simplify(Pfam - Pfam) == 0  as its "P control".
+       That expression is identically zero for ANY Pfam, so the control
+       cannot fail and certifies nothing.
+  (ii) CT-S18 evaluated its mismatch at a GENERIC sample
+       (q=2/3, p=1/5, t=7/11) and never at the located point. Since the
+       route-2 mismatch is -1/(z-q), which has no zero in z, no choice of
+       point could ever have made route 2 match. The test was therefore
+       insensitive to the very thing it was meant to decide.
+==========================================================================
+CONCLUSION: CT-S18 tasks 1 and 2 stand. Task 3 computation is correct but
+answers a different question; its inference, and the ERROR verdict resting
+on it, are REJECTED.

@@ -1,0 +1,28 @@
+mutants_s38 -- eight pre-registered arms
+  arm 4 letter discovered from the index at run time: \C
+
+[arms 1-4: the proposal screen]
+  1 proposal uses q            -> clause 2             CAUGHT
+      rc=2  reason=True  broke=False
+  2 proposal uses \lambda      -> clause 3             CAUGHT
+      rc=2  reason=True  broke=False
+  3 proposal uses r            -> clause 4             CAUGHT
+      rc=2  reason=True  broke=False
+  4 proposal uses \C             -> clause 1           CAUGHT
+      rc=2  reason=True  broke=False
+
+[arms 5-6: the rendered-text equivalence]
+  5 a word of prose also changed                       CAUGHT
+      rc=2  reason=True  broke=False
+  6 rename changed nothing (non-vacuity)               CAUGHT
+      rc=2  reason=True  broke=False
+
+[arms 7-8: reader integrity and the vacuity pre-check]
+  7 a source emptied -> refuse, not 'no collisions'    CAUGHT
+      rc=2  reason=True  broke=False
+  8 B sensitivity control removed                      CAUGHT
+      rc=3  reason=True  broke=False
+
+[verdict]
+  arms CAUGHT : 8/8
+  VERDICT: ALL ARMS CAUGHT FOR THE STATED REASON

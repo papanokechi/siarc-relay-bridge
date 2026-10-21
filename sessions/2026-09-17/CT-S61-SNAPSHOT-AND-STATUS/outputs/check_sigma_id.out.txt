@@ -1,0 +1,45 @@
+CT-S61  SIGMA SUBMISSION IDENTIFIER  (section-A item 37)
+run 2026-09-21   log sha256 70f814b926a5fd67a761bbebe19b5474db69b440e7e3f2340624c79029897433
+cover letter sha256 06255bf34d592c782e6255ac9b12feb426079ac4dc18becbea8e725f4f004a2c
+------------------------------------------------------------------------------
+[B1] SIGMA-shaped manuscript IDs anywhere in the log
+     matches: NONE
+
+[B2] item 37 Submission ID field
+     PENDING — email submission; no portal/manuscript ID assigned yet; awaiting editorial acknowledgement
+
+[B3] acknowledgement of receipt
+     positive acknowledgement recorded: False
+     days since submission 2026-06-01: +112
+
+[B4] artefact as logged
+     vquad_resurgence.pdf (612,719 B; MD5 4d1e4d59072cad0db8edc86280af45a1) — direct-email PDF submission; byte-identical to the published Zenodo v1.2 reco
+     PDF only (no .zip / .tex): True
+
+[B5] cover-letter framing of the non-arXiv route
+     ...affiliation; I understand from your office that should I encounter difficulty posting to arXiv, I may send the article PDF directly, and I will follow that route if needed.
+
+Thank you for your consideration.
+
+Best regards,
+Papanokechi
+ORCID: 0009-0000-6192-827...
+     framed as contingency ('if needed'): True
+
+[C] controls
+    FIRED  item-37 body is non-trivial and names SIGMA
+    FIRED  the ID matcher can find a real ID pattern
+    FIRED  the ID matcher rejects ordinary prose
+    FIRED  Submission ID field extracted non-empty
+    FIRED  the acknowledgement matcher fires on a positive phrase
+    FIRED  filename field extracted
+    FIRED  pdf-only test would reject a zip submission
+    FIRED  cover letter mentions arXiv at all
+
+FINDINGS
+  - B1 no SIGMA manuscript ID exists anywhere in the log
+  - B2 Submission ID recorded as PENDING
+  - B3 no acknowledgement recorded after 112 days
+  - B4 PDF-only submission; SIGMA's exceptional route asks for zipped TeX/LaTeX plus PDF
+  - B5 cover letter frames the direct-PDF route as a contingency, not an exercised choice with a reason
+  (5 finding(s))

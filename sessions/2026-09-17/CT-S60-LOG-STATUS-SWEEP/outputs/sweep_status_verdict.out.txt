@@ -1,0 +1,85 @@
+[0] submission_log.txt  450188 bytes  sha256 70f814b926a5fd67a761bbebe19b5474db69b440e7e3f2340624c79029897433
+
+[1] delimiting section A
+    section A spans 62..251698  (251636 chars)
+    section B header at 255481  (outside A: True)
+
+[2] splitting items, bounded at the next item AND at the section end
+    42 items, numbered 1..42
+
+[3] classification of every section-A item
+      #  STATUS   VERDICT   SubID                    title
+     1  VENUE    TERMINAL  260636324                Ratio universality for Meinardus-class partition fun
+     2  VENUE    TERMINAL  266535114                Arithmetic Sector Bifurcation in Quadratic Continued
+     3  VENUE    TERMINAL  268704746                Spectral Classes of Polynomial Continued Fractions: 
+     4  VENUE    TERMINAL  JNTH-D-26-00480          PSL2(Z) and a Four-Tier Obstruction Hierarchy in the
+     5  TERMINAL TERMINAL  264514392                A Precision-Controlled Null Result for a Khinchin-Si
+     6  VENUE    TERMINAL  263513140                Finite-Depth Transient Rigidity in Small-Value Conti
+     7  VENUE    TERMINAL  266999523                PolynomialContinuedFractions: aProvedLogarithmicLadd
+     8  TERMINAL TERMINAL  265340205                SIARC: A Mechanized Safety–Stability–Controllability
+     9  VENUE    TERMINAL  267262713                SIARC: A COMPUTATIONAL VERIFICATION OF THE POLYNOMIA
+    10  VENUE    TERMINAL  261945835                TRIVIAL RATIONAL CONTAMINATION IN PSLQ-BASED POLYNOM
+    11  TERMINAL TERMINAL  NON-110708               Painlevé III(D6) and resurgence for a constant from 
+    12  VENUE    TERMINAL  260421-Papanokechi       From False Positive to Painlevé Transcendent: AI-Ass
+ << 13  LIVE     TERMINAL  JDEQ26-983               SELF-ADJOINTSTRUCTUREOFPOLYNOMIAL CONTINUEDFRACTIONR
+    14  VENUE    TERMINAL  5448b2ad-a9c0-4f83-ae75- PSL2(Z) and a Four-Tier Obstruction Hierarchy in the
+    15  VENUE    TERMINAL  260422-Papanokechi       A COMPLETE ARITHMETIC STRATIFICATION OF DEGREE-2 POL
+    16  TERMINAL TERMINAL  RNTB-D-26-00209          Spectral Classes of Polynomial Continued Fractions:A
+    17  TERMINAL TERMINAL  260423-Papanokechi       Ratio Universality for Meinardus-Class Partition Fun
+    18  TERMINAL TERMINAL  ec4ede2f-7ed8-4801-aa03- SIARC: A Mechanized Safety–Stability–Controllability
+    19  VENUE    TERMINAL  260424-Papanokechi       EXHAUSTIVE PSLQ EVIDENCE FOR A DEGREE THRESHOLD IN P
+    20  TERMINAL TERMINAL  INDAG-D-26-00112         Finite-Depth Transient Rigidity in Small-Value Conti
+    21  TERMINAL TERMINAL  8c1339cb-f84d-453f-a8fe- A Layered, Axiom-Isolated Lean 4 Formalization of th
+    22  TERMINAL TERMINAL  JTNB-2400 Handling edito A Complete Arithmetic Stratification of Degree-2 Pol
+    23  VENUE    OPEN      N/A (no portal record at A Conjectural Trans Identity for Degree-(2,1) Polyno
+    24  TERMINAL TERMINAL  afm:18102 Handling edito A Layered, Axiom-Isolated Lean 4 Formalization of th
+    25  TERMINAL TERMINAL  N/A (Incomplete Submissi A Layered, Axiom-Isolated Lean 4 Formalization of th
+ << 26  LIVE     TERMINAL  JSCO-D-26-00112 Editoria Finite-Depth Transient Rigidity in Small-Value Conti
+    27  TERMINAL TERMINAL  CM 10597 Portal: composi Ratio Universality for Meinardus-Class Partition Fun
+    29  TERMINAL TERMINAL  261966792 (ScholarOne po Two arithmetic classes of degree-(2,1) Trans-stratum
+    28  TERMINAL TERMINAL  JNTH-D-26-00612 Portal:  Spectral Classes of Polynomial Continued Fractions: 
+    30  TERMINAL TERMINAL  ETDS-2026-0128 Portal: E Finite-Depth Transient Rigidity in Small-Value Conti
+    31  TERMINAL TERMINAL  RMSB-D-26-00142 Portal:  A Hypergeometric Classification of Polynomial Contin
+    32  TERMINAL TERMINAL  d824d5ae-683f-4c50-98ec- A bounded two-tier null result for integer relations
+    33  TERMINAL TERMINAL  CM 10573 Portal: composi Complex multiplication as a transcendence predicate 
+    34  TERMINAL TERMINAL  UNKNOWN (not embedded in The (4,3)–(5,3) Desert Conjecture for Polynomial Con
+    35  VENUE    TERMINAL  JMP26-AR-01521 Portal: P The WKB Geometry of Newton Polygons: A Stratified Cl
+    36  VENUE    OPEN      0f62ace0-70fb-4d25-8fdc- A non-classical Painlevé V transcendent from a quadr
+    37  VENUE    ABSENT    PENDING — email submissi A non-classical Painlevé V transcendent from a quadr
+    38  VENUE    TERMINAL  407 (ETNA OJS) Confirmat A Certified and Formalized Fredholm Determinant: Exa
+    39  VENUE    OPEN      262 (EasyChair conf=rc1; A Certified and Formalized Fredholm Determinant: Exa
+    40  VENUE    TERMINAL  AAECC-3022-PAPANOKECHI ( The EBR operator at d=2 is not a G-operator and its 
+    41  VENUE    TERMINAL  e589d3e6-cd57-4267-9e45- A Discrete-Wronskian Pearl: One Order-2 Casoratian C
+    42  LIVE     OPEN      MATH-D-26-00523          An explicit exponential-period representation of the
+
+[4] cells
+    LIVE x TERMINAL   =   2   <-- contradiction, the Item 13 class
+    VENUE x TERMINAL  =  16   Status names the venue only; conventional, not a defect
+    LIVE x OPEN/ABS   =   1   genuinely live, or awaiting; consistent
+    total items       =  42
+
+[C] controls -- each must fire
+    FIRED  positive control: JDEQ26-983 present and flagged
+    FIRED  section B excluded: 'Concept DOI:' label absent in A, present in file
+    FIRED  the split actually excluded items
+    FIRED  spans bounded: no item absorbs the next
+    FIRED  final item does not absorb the trailing block
+    FIRED  liveness detector says not-live on terminal wording
+    FIRED  liveness detector says LIVE on the Item 13 wording
+    FIRED  verdict detector says OPEN on an open verdict
+    FIRED  fabricated status is not classified LIVE
+
+==============================================================================
+CONTRADICTIONS: 2
+
+  Item 13  [JDEQ26-983]  SELF-ADJOINTSTRUCTUREOFPOLYNOMIAL CONTINUEDFRACTIONR
+    Status : Submitted to Journal of Differential Equations (active review)
+    Verdict: REJECTED 2026-05-27 by Qiudong Wang, Handling Editor, Journal of Differential Equations (initial screening before refereeing; no referee reports). [CORRECTION RECORDED 2026-08-29 from the decision email of 2026-05-27 ~00:24 JST via em.yjdeq@editorialmanager.com. Grounds quoted: "we must make an init
+
+  Item 26  [JSCO-D-26-00112 Editoria]  Finite-Depth Transient Rigidity in Small-Value Conti
+    Status : With Editor at Journal of Symbolic Computation (Elsevier; double-blind; active review) — Editor-in-Chief Dr. Josef Schicho assigned as handling editor 2026-05-19
+    Verdict: REJECTED 2026-06-15 by Josef Schicho, Editor-in-Chief, after peer review. [CORRECTION RECORDED 2026-08-29 from the decision email of 2026-06-15 ~19:00 JST via em.jsco@editorialmanager.com, quoted: "I regret to inform you that the reviewers recommend against publishing your manuscript, and I must the
+==============================================================================
+
+NOT REPAIRED. This script is read-only; submission_log.txt is the
+operator's record and how it should read is the operator's call.

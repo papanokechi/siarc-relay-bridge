@@ -1,0 +1,66 @@
+============================================================================
+verify_description.py -- the text that would be pasted into Zenodo
+============================================================================
+
+SECTION 0 -- READER INTEGRITY
+----------------------------------------------------------------------------
+  [PASS] description read: 54164 chars, sentinels present, no CR
+file   : DESCRIPTION-v1.7.html
+sha256 : e8b3f36faf79880cbc834bfcff18ed4ce9cfa16436a94a3e1bab3b1a33ea9d35   (from disk)
+chars  : 54164
+
+SECTION 1 -- THE GATE
+----------------------------------------------------------------------------
+  [PASS] T1 tags inside the house set -- tags are exactly ['em', 'p', 'strong']
+  [PASS] T2 tags balanced and unnested -- every p/strong/em is balanced and no <p> is nested
+  [PASS] T3 no markdown residue -- no markdown residue: no **, backticks, pipes, #, ---, fences
+  [PASS] T4 entities well-formed and HTML4 -- 37 distinct entities, all HTML4-defined, no bare ampersands
+  [PASS] X1 declared exclusions applied and still live -- 3 exclusion rules all present in the notice and absent here
+  [PASS] X2 no draft-stage language published -- no draft-stage language survives into the description
+  [PASS] N1 all five commissioned items present -- all five commissioned items present, in order
+  [PASS] N2 PSLQ basis stated in full -- PSLQ basis printed in full (5 generators + constant), bounds stated, Γ(1/6) recorded as removed
+  [PASS] N3 naming prohibition survives -- naming prohibition present: K at xi_0, S_{zeta*} at 2 xi_0
+  [PASS] N4 label discipline on K survives -- K remains VERIFIED with its caveat intact
+  [PASS] B1 attached build declared as v1.6, unchanged -- the attached build is declared as the v1.6 build, unchanged
+  [PASS] B2 no v1.7 build is claimed -- no v1.7 build is claimed; every mention is negated and 'no PDF was rebuilt' is stated plainly
+  [PASS] B3 DOIs correct and none invented -- concept DOI and superseded v1.6 DOI both present, no v1.7 DOI invented
+
+SECTION 2 -- CAN-FAIL CONTROLS (mutate the DESCRIPTION)
+----------------------------------------------------------------------------
+  [PASS] T1 tags inside the house set -- 2 mutant(s) rejected
+  [PASS] T2 tags balanced and unnested -- 2 mutant(s) rejected
+  [PASS] T3 no markdown residue -- 2 mutant(s) rejected
+  [PASS] T4 entities well-formed and HTML4 -- 2 mutant(s) rejected
+  [PASS] X1 declared exclusions applied and still live -- 2 mutant(s) rejected
+  [PASS] X2 no draft-stage language published -- 1 mutant(s) rejected
+  [PASS] N1 all five commissioned items present -- 2 mutant(s) rejected
+  [PASS] N2 PSLQ basis stated in full -- 3 mutant(s) rejected
+  [PASS] N3 naming prohibition survives -- 1 mutant(s) rejected
+  [PASS] N4 label discipline on K survives -- 1 mutant(s) rejected
+  [PASS] B1 attached build declared as v1.6, unchanged -- 2 mutant(s) rejected
+  [PASS] B2 no v1.7 build is claimed -- 2 mutant(s) rejected
+  [PASS] B3 DOIs correct and none invented -- 2 mutant(s) rejected
+
+SECTION 3 -- READER CONTROLS (mutate the INPUT PATH)
+----------------------------------------------------------------------------
+  [PASS] binary read of a CRLF file, not normalised -- caught: CR present: line endings were not normalised
+  [PASS] wrong codec (latin-1) -- caught: sentinel '&xi;₀' absent
+  [PASS] silently truncated read -- caught: sentinel '&xi;₀' absent
+
+SECTION 4 -- THE ENTITY RULE, VALIDATED AGAINST THE DEPOSITED v1.6 TEXT
+----------------------------------------------------------------------------
+  The rule is 'named HTML4 entity where one exists, raw UTF-8 where
+  none does'.  That is a claim ABOUT THE RECORD, so it is tested on
+  the record: decode the deposited v1.6 description, re-encode it by
+  the rule, and require the entity set to come back unchanged.
+  [PASS] round trip of the deposited description: 28 non-markup entity names in, 28 out
+  [PASS] the record itself keeps 14 raw non-ASCII char(s) with no HTML4 name, e.g. ‖ ⁴ ⁶ ⁸ ⁻ ⁿ -- so does this description
+
+============================================================================
+checks run     : 13
+checks failed  : 0
+broken checks  : 0
+reader controls: 3 of 3 caught
+
+VERDICT: OK
+============================================================================

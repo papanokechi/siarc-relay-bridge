@@ -1,0 +1,29 @@
+==============================================================================
+S16-14 | STRUCTURAL | script: flow_regularity.py
+MEMBERSHIP, the packet's question. System C satisfies every hypothesis under which vdPS build the moduli space M for the (0,0,1) row: H-a SATISFIED (S16-09), H-b SATISFIED (S16-10), H-c SATISFIED (S16-07). It is a point of the chart U_0 (S16-12, S16-13). Since PV IS the isomonodromy foliation on that space (S16-03), and since q(q-1) != 0 and t != 0 at the point so the vector field (4.4) is regular there, exactly one PV leaf passes through System C. The deformation EXISTS and is not an ansatz. CAUTION ON STRENGTH: the match is of PROJECTIVE normal forms, so what is established is that C's projectivisation is that of the family member at (p,q,t) - equality up to a rank-1 twist - in the same sense in which B and C are projectively equivalent. This is the reason the label is STRUCTURAL and not PROVEN.
+NOTE: the pre-registered step-3(b) monodromy/Stokes falsifier at 30 digits was NOT run; this claim does not rest on it and does not stand in for it.
+==============================================================================
+S17-06 | STRUCTURAL | script: tracefree.py
+CONSEQUENCE FOR THE CT-S16 CAVEAT. The 'up to rank-1 twist' caveat is WITHDRAWN, but NOT for the reason given in review #13. The operator's conclusion is right and the operator's argument is wrong: uniqueness does not follow from trace-freeness (S17-02). It follows here from direct verification that the full operators agree (S17-04). The defensible wording is therefore: 'the differential module of System C is the module of the van der Put-Saito family at the located point of U_0', with no twist qualifier. Per the adopted P0 rule, a correct finding does not certify the reasoning around it; each adopted statement is verified on its own - and that rule is applied here to the operator's own review.
+NOTE: adoption of the operator's conclusion, with its stated ground replaced.
+==============================================================================
+S22-18 | VERIFIED | script: scripts/stage4_transport.py
+Branch 2 of the CT-S16 sign pair (t = +2 sqrt(33) i/9) passes Stages 2, 3 and 4 independently: the PREREG 2.3 test selects exactly one convention of 16, right|cw|infccw|01; Stage 3 ratios 99.9952 and 99.9998; Stage 4 agreement 90.82 and 91.84 digits against the 30-digit threshold. Branch 2 was RUN, not inferred.
+==============================================================================
+S22-15 | VERIFIED | script: scripts/stage4_transport.py
+System C's point transports along Painleve V with the trace coordinates x1, x2, x3 constant to 90.81 digits at eps = 1e-3 and 91.83 digits at eps = 1e-4, against a 30-digit threshold. Gap S16-15 closed NUMERICALLY. This is a numerical agreement at one point along one direction in t; it is not a proof of leaf membership.
+==============================================================================
+S22-01 | VERIFIED | script: scripts/stage1_kummer2.py
+The solver reproduces Kummer's monodromy, formal and Stokes data against closed forms: 32 of 32 checks pass at >= 35 digits (44-151 observed) at both pre-registered parameter values.
+==============================================================================
+S22-09 | VERIFIED | script: scripts/stage2_systemC.py
+The truncated formal series' residual sits at the minimal term of the series (ratio 1.29, bound N^3) and decays at the predicted Gevrey rate e^{-|t| R} between R = 160 and R = 140 (observed/predicted 1.259).
+==============================================================================
+S22-04 | PROVEN | script: scripts/algebra_checks.py
+Check A6a as first written was algebraically vacuous: (1 + f1 f2)/alpha = M_22 equals (1 - det M)/m11 and so vanishes identically for any unimodular M with M_11 != 0, so it could not fail. Proved by simplify-to-zero plus an independent numeric arm.
+==============================================================================
+S22-05 | PROVEN | script: scripts/algebra_checks.py
+Check A7 as first written used vdPS's diag*lower*upper ordering (trace alpha + (1+f1 f2)/alpha) against a computed diag*upper*lower factorisation (trace alpha(1+f1 f2) + 1/alpha); the two differ by (alpha - 1/alpha) f1 f2. At the Stage-1 values the wrong ordering misses 2cos(pi b) by 0.9612 while the corrected one holds to 1.15e-29, reproducing the observed O(1) failure. The corrected identity is a DEPENDENT restatement of A4a+A5+A6e, not independent evidence.
+==============================================================================
+S22-17 | VERIFIED | script: scripts/stage4_transport.py
+Raising dps from 200 to 320 leaves the Stage-4 agreement and its ratio unchanged to every printed figure (90.8118, 91.8301, ratio 10.429999) while every dps-limited control improves by about 120 digits (MMM-I 1.20e-105 -> 5.57e-225; cubic 3.96e-112 -> 7.13e-232; |x3(t1)-x3(t0)| 2.35e-113 -> 3.30e-233), and the alpha residual stays at 1.834e-91. Over eps = 1e-3, 1e-4, 1e-5 the ratios are 10.430 and 10.034. The residual is therefore a systematic O(eps) error, not round-off; it is floored by the optimal-truncation level e^-|t|R = 1e-88.7 set by the PRE-REGISTERED R, which no dps can reduce.

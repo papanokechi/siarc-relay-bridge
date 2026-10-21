@@ -1,0 +1,25 @@
+check_assembly (CT-S41, repointed from CT-S40) -- cross-section labels, sections 0-6
+
+[reader integrity]
+  89 distinct labels defined, 62 distinct targets referenced  OK
+  4 stub entries parsed: sec:leaf, sec:limits, sec:monodromy, sec:open  OK
+
+[R1 every referenced target resolves]
+  all 62 referenced targets resolve  OK
+
+[R2 the stub may not stand in for a section that exists]
+  no stub entry collides with a drafted section  OK
+
+[R2b no label is defined twice]
+  no label defined twice  OK
+
+[R3 the compiler agrees]
+  build log: 0 errors, 0 undefined, 0 multiply-defined references  OK
+
+[summary]
+  sections analysed : 7
+  labels defined    : 89
+  targets referenced: 62
+  stub entries      : 4
+  failures          : none
+VERDICT: PASS

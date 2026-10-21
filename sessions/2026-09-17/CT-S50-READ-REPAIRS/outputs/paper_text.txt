@@ -1,0 +1,2027 @@
+1     Introduction
+Let b be a polynomial of degree d ≥ 1 with b(k) ̸= 0 for every integer k ≥ 1, and let Qn be the
+denominators of the associated polynomial continued fraction,
+
+                          Qn = b(n)Qn−1 + Qn−2 ,         Q−1 = 0,     Q0 = 1.
+
+This paper is about one such recurrence, the quadratic case b(n) = 3n2 + n + 1, and about the
+differential equation its generating function satisfies. The results are of two kinds, and they are
+established to two different standards. Saying which is which is the purpose of this introduction.
+                                                  Q
+Growth. The normalised sequence ψn = Qn / k≤n b(k) converges for every such b, with no
+hypothesis on its limit, and when the limit ψ∞ is non-zero the denominators satisfy
+                       Qn         β n
+                                     d                                βd−1 d − 1
+                              = K d ns 1 + O(1/n) ,
+                                                 
+                                                                 s=       +      ,
+                    Γ(dn + 1)      d                                   βd    2
+
+with K given in closed form by ψ∞ and the roots of b. The exponential rate here is classical — it is
+a corollary of the Perron–Kreuser theorem, and §3.1 says so before anything else in §3 — and what
+is offered is the exponent written at the level of the coefficients of b, together with the amplitude K
+made explicit. These statements are proved, and §3.1 names the one classical normalisation that
+is imported rather than proved.
+
+The differential equation, and the leaf. For the quadratic case the generating function satis-
+fies a second-order linear ODE. After an explicit scalar reduction, the connection attached to that
+ODE is shown to be the differential module of a specific member of van der Put–Saito’s rank-2
+family of type (0, 0, 1, −), sitting at an explicit point of the chart U0 of the moduli space Mt,λ . The
+identification is of the full operator and not merely of its projective class; removing the projective
+ambiguity is a separate step, carried out in §7. Painlevé V is the isomonodromy foliation of that
+moduli space, and the deformation vector field is regular at the point, so exactly one leaf passes
+through it. Transporting along that leaf and recomputing the trace coordinates x1 , x2 , x3 of the
+monodromy and Stokes data leaves them invariant to better than 90 decimal digits, at two step
+sizes and on both branches of a sign pair exchanged by an explicit Galois automorphism.
+
+The two limits. Both are stated here rather than in a closing section, because a reader is entitled
+to know them before reading the argument.
+
+    1. Leaf membership is numerical. The invariance of the trace coordinates under transport
+       is a high-precision numerical agreement, checked against a pre-registered falsifier and accom-
+       panied by controls that displace the point off the leaf and that substitute a deliberately wrong
+       deformation field. It is evidence, and it is strong evidence, but it is not a proof, and nothing
+       in this paper upgrades it to one. The identification of the operator, by contrast, is exact and
+       is proved by elimination.
+
+    2. No Painlevé label is asserted for this recurrence. The classification question — which
+       row of van der Put–Saito’s Table 2.1 the operator occupies — is addressed only negatively.
+       §4 shows that one row is excluded for every admissible coefficient vector, by a Katz-invariant
+       argument at z = 0. A matching multiset is a necessary condition and not a sufficient one, so
+       excluding a row is not the same as assigning one, and no row is assigned.
+
+
+                                                   1
+Method, in one paragraph. The argument is a chain of identifications, each checked by a
+control that could have failed. Growth comes from the exact recurrence ψn = ψn−1 + ψn−2 /(b(n −
+1)b(n)), whose increments are absolutely summable, so that convergence follows by telescoping
+under (A1) alone; positivity of b then supplies ψ∞ ̸= 0 together with a two-sided bound. Pincherle’s
+theorem supplies the minimal-solution interpretation of that non-vanishing, but it is not used. The
+local data of the ODE — pole orders, Katz invariants, local exponents, and the non-apparency of
+the two finite singular points — are computed exactly and matched against the hypotheses under
+which van der Put–Saito construct Mt,λ . The point of U0 is located by matching projective normal
+forms, an overdetermined system of five coefficient equations and one non-apparency condition
+in four unknowns; the √ two located points are shown to be the complete solution set by Gröbner
+elimination over Q(i 11), rather than reported as what a solver returned. The projective ambiguity
+is then removed by comparing the pair (P, Q) of the scalar operator directly, which a rank-one twist
+does not fix. Monodromy and Stokes data are computed by numerical analytic continuation, with
+the solver first validated against the closed-form Stokes multipliers of Kummer’s equation to 32
+of 32 digits, and with the sectorial and orientation conventions not assumed but selected as the
+unique one of sixteen candidates meeting four independent consistency conditions.
+
+Organisation. §2 fixes notation and the three standing hypotheses; a reader who knows the
+conventions may begin at §3. §3 treats growth, and opens with the attribution paragraph. §4
+computes the local data, §5 recalls the moduli space, §6 locates the point and §7 removes the
+projective ambiguity. §8 computes the monodromy and Stokes data and §9 transports along the
+leaf. §10 states the scope and limits, and §11 the open questions.
+
+
+2     Notation and standing conventions
+This section fixes every symbol, name and hypothesis used in the paper. It introduces no mathe-
+matics; a reader who already knows the conventions may skip to §2 and return here as needed.
+
+2.1     The recurrence and its normalisation
+Throughout, b is a polynomial with real coefficients,
+                                     d
+                                     X
+                          b(n) =           βk nk ,     βd ̸= 0,      d = deg b ≥ 1,
+                                     k=0
+
+so that βd is the leading coefficient and βd−1 the subleading one. A polynomial continued fraction
+(PCF) is the continued fraction whose partial denominators are the values b(1), b(2), . . . of such a
+b at the positive integers; its denominators Qn satisfy the three-term recurrence
+
+                   Qn = b(n)Qn−1 + Qn−2                (n ≥ 1),          Q−1 = 0,      Q0 = 1.   (1)
+
+Write
+                          n
+                          Y                                       Qn
+                   Bn =         b(k)    (B0 = 1),         ψn =       ,       ψ∞ = lim ψn .       (2)
+                                                                  Bn                   n→∞
+                          k=1
+We call ψn the normalised denominator sequence and ψ∞ its limit. The roots of b are written
+                                                                    d
+                                                                    Y
+                                ν1 , . . . , νd ∈ C,    b(n) = βd         (n − νi ).             (3)
+                                                                    i=1
+
+
+                                                         2
+Three objects, one letter. The sequence (2), its limit, and the roots (3) are three different
+objects, and in the deposited record all three are written with the letter r. That record’s r1 is
+therefore ambiguous: it is at once the first term of the sequence and the first root.1 Because the
+collision is in the source material and not an artefact of assembly, it is resolved here once and the
+paper uses ψn , ψ∞ and νi everywhere.
+
+2.2     Standing hypotheses
+Three hypotheses are used, and they are stated separately because they are consumed separately.
+Only (A1) is in force by default; (A2) and (A3) are invoked by name wherever they are needed.
+
+(A1) b(k) ̸= 0 for every integer k ≥ 1.
+
+(A2) No root νi is a positive integer; equivalently, Γ(1 − νi ) is finite for every i. (The Gamma
+     function has poles at 0, −1, −2, . . . , so Γ(1 − νi ) is singular exactly when νi ∈ {1, 2, 3, . . . }.)
+     Note (A2) ⇒ (A1).
+
+(A3) ψ∞ = limn→∞ Qn /Bn exists and is nonzero.
+
+    (A2) is not decoration. It is exactly the condition under which Γ(1 − νi ) is finite, and therefore
+the condition under which the constant K of §2.4 is defined at all. A statement that uses K and
+cites only (A1) has omitted a hypothesis.
+
+2.3     Asymptotic and analytic vocabulary
+                                                                                    R∞
+Γ denotes Euler’s Gamma function, the meromorphic continuation of Γ(s) = 0 ts−1 e−t dt (ℜs >
+0), with simple poles at s = 0, −1, −2, . . . and Γ(m + 1) = m! for integers m ≥ 0. We write (dn)!
+for Γ(dn + 1) when dn is a non-negative integer.
+    For functions of n → ∞: f = O(g) means |f | ≤ C|g| for some constant C and all large n;
+f = o(g) means f /g → 0; and f ∼ g means f /g → 1. In particular o(1) denotes a quantity tending
+to 0. These are statements about n → ∞ unless another limit is named.
+    A formal solution is a solution taken as a formal power (or power-and-exponential) series, with
+no convergence asserted. The Newton polygon of a linear differential operator at a point is the lower
+convex hull, in the plane of (order of differentiation, order of vanishing) of the coefficients, of the
+points attached to its terms; its slopes govern the exponential growth of formal solutions at that
+point. A germ coefficient is a coefficient of such a local expansion, i.e. of the germ of the solution at
+the point in question, as opposed to a global invariant. The amplitude of an exponentially small or
+large term is the prefactor multiplying its exponential, and c± denote the amplitudes attached to
+the two branches of a square-root (rank 12 ) irregular singularity. A Stokes constant is the coefficient
+with which one formal solution enters the Borel-plane singularity structure of another across a
+Stokes line; it is a connection datum, not a local one.
+   1
+     Correspondence with the deposited record. The names used in this paper and the names used in the
+Channel Theory deposit (Zenodo concept DOI 10.5281/zenodo.19941678) correspond as follows: ψn ↔ rn , ψ∞ ↔
+r∞ , and ν1 , . . . , νd ↔ r1 , . . . , rd . That record also carries an unsubscripted ρ for the leading Borel-plane exponent,
+which is named here only so that a reader of both documents can match them; it is not a symbol of this paper.
+The deposited records are not altered; the renaming is made in this paper only, and this is the single place the
+correspondence is recorded. A fourth, unrelated object is written r(·) in §2.7 below, following van der Put–Saito; it
+is never one of these three.
+
+
+
+
+                                                              3
+2.4    The growth constants
+Under (A2) and (A3) the denominators satisfy
+
+                                Qn           β n
+                                                d
+                                                   · ns · 1 + O(1/n) ,
+                                                                    
+                                       = K·     d
+                             Γ(dn + 1)        d
+
+which defines the two constants used throughout: the growth exponent
+                                                 βd−1 d − 1
+                                            s=       +
+                                                  βd    2
+and the connection constant K, the amplitude of this asymptotic. K depends on all of β0 , . . . , βd ;
+the base βd /d d depends only on βd , and s only on βd and βd−1 . Consequently a test that inspects
+the base or the exponent alone is insensitive to β0 , . . . , βd−2 , and cannot be used to detect their
+influence.
+    The unsubscripted letter s always denotes this growth exponent. The subscripted s± introduced
+in §2.6 below are the two finite singular points at which the change of variable forming C is made;
+they are a different object, and the subscript is what distinguishes them.
+    One further symbol belongs to the Borel plane of this asymptotic. We write ξ0 for the charac-
+teristic root
+                                              2
+                                       ξ0 = √         (d = 2),
+                                               β2
+which is the case d = 2 of the general ξ0 = d/|βd |1/d recorded in §3. An indicial exponent of a
+linear differential equation at a regular singular point is a root of its indicial equation, equivalently
+an exponent α for which the equation admits a local solution of the form uα (c0 + c1 u + · · · ) with
+c0 ̸= 0, possibly up to logarithmic terms; the term is used in §4 and nowhere depends on the Borel
+plane.
+
+The letter ρ. The deposited record uses an unsubscripted ρ for the exponent of the leading Borel-
+                                                                √
+plane singularity, an indicial exponent in the uniformiser u = z. That quantity is not a symbol of
+this paper. Its definition is tied to a convention this paper does not set up — the correspondence
+between it and the growth exponent s above was anchored only at d = 2 — and the paper states no
+result about it, so importing the name would be importing a quantity whose definition the paper
+cannot fully give. It is recorded in the correspondence footnote of §2.6 and used nowhere.
+    The letter ρ does occur, in three senses, each of which is local to the section that uses it and
+each of which is subscripted or otherwise marked: ρj for the characteristic roots of the homogeneous
+recurrence in√§3; ρ as the growth base in the normal-solution form ρ n ns in the same section; and
+ρ± = (−1 ± i 11)/2 for the pair of finite singular points of System B in §4. In none of these is ρ a
+root of b; the roots are the νi .
+
+2.5    Numerical vocabulary
+dps abbreviates decimal places of working precision, in the sense of mpmath’s mp.dps: a computation
+at dps = 60 carries 60 significant decimal digits throughout. Richardson extrapolation is the
+elimination of successive terms of an assumed expansion in powers of 1/n by taking prescribed
+linear combinations of the values at several n; a Richardson level is one such elimination, so that
+m levels remove the terms in n−1 , . . . , n−m . PSLQ is the integer-relation algorithm of Ferguson
+and Bailey: given real numbers y1 , . . . , ym it searches for integers a1 , . . . , am , not all zero, with
+
+
+                                                     4
+P
+   ai yi = 0 to the working precision. A PSLQ result is evidence for a relation and never a proof of
+one.
+    Where a numerical limit is reported, the N/2-versus-N agreement criterion is the requirement
+that the value obtained from the first N/2 terms and the value obtained from all N terms agree to
+a stated number of digits; the reported number of digits is the number on which they agree, not
+the working precision.
+
+2.6    The three objects, and their comparison
+Three objects are compared in this paper. They are named once, here.
+
+    • A is the generating function                n of the denominators (1).
+                                     P
+                                       n≥0 Qn z
+
+    • B is the differential operator Lφ attached to that generating function.
+
+    • C is the scalar second-order equation y ′′ +√
+                                                  PC y ′ + QC y = 0 obtained
+                                                                     √       from it by the change of
+      variable x = s+ + δz, where s± = (−1 ± i 11)/6 and δ = −i 11/3.
+
+   The letters A, B, C always denote these three objects, and are set in sans serif for that reason.
+The lower-case a, b, c of a scalar equation written a W ′′ + b W ′ + c W = 0 are a different use,
+separated from them by case; that form occurs only at (11), where b = a′ and the equation is
+therefore self-adjoint.
+   Writing a scalar equation as ∂ 2 + P ∂ + Q, its trace-free normal form is obtained by removing
+the P term, and the resulting potential
+
+                                         R = 14 P 2 + 12 P ′ − Q
+
+is the normal potential. Two operators are projectively equivalent when their trace-free normal
+forms agree, equivalently when they differ by a rank-one twist y 7→ f y; the normal potential is
+blind to such a twist, while the pair (P, Q) is not.
+    The coefficients P and Q of an equation written in this displayed form are a different object
+from the denominators Qn of (1). The subscript is what separates them: the denominators always
+carry an index, P and Q never do, and PC , QC are the coefficients of the particular equation C.
+
+Letters that carry more than one meaning. The following letters are reused, in each case
+with a stated discriminator. They are collected here so that no section has to introduce a convention
+of its own.
+
+    • P
+      b carries four meanings, separated by argument and by subscript. With argument n, b(n) =
+                k
+         k βk n is the polynomial of the recurrence (1) — the paper’s central object, and the default
+      reading of a bare b. With argument x, b(x) is the first-order coefficient of the scalar equation
+      (11), where                ′
+              a   b
+                     it equals a (x). Without argument, b is the upper-right entry of the matrix
+      A = c −a of (20), and a, c are its other entries; this is the only use of a and c that is not a
+      coefficient of (11). With subscript, b1 is the coefficient of z in that entry, so that b1 = 0 says
+      the entry is constant.
+
+    • Mt,λ , always calligraphic and always with its subscript, is van der Put–Saito’s moduli space.
+      Roman M with a subscript from {0, 1, ∞} — M0 , M1 , M∞ — is a monodromy matrix, and
+      these are the only two uses; a bare M or Mij inside a matrix computation denotes an arbitrary
+      2 × 2 matrix and its entries, and is local to the computation in which it appears.
+
+                                                     5
+   • Upright A with a subscript from {0, 1, ∞} denotes a residue matrix of the rank-two system
+     of the moduli section, and A(z) the matrix of that system; A, A′ , C in the displayed form
+     above are scalar coefficients. Sans-serif A is never either of these.
+
+   • Lφ , always with its subscript, is the scalar operator of B. An unsubscripted L appears only
+     as a rank-one connection in worked counterexamples, where it is defined on the spot; L11 is
+     a matrix entry and L as a block length occurs only in the computational appendix.
+          √
+   • u = z is the uniformiser, and is used only where a ramified double cover is in play. The u of
+     the Rabinowitsch trick, adjoined to saturate a localisation, is a different variable and occurs
+     only inside that ideal computation.
+
+   • βk , always with a subscript, is a coefficient of b. Unsubscripted β is never a coefficient of b:
+     it is a Newton-polygon exponent in the growth section, and the second of the four Painlevé
+     parameters (α, β, γ, δ) in the moduli and local-data sections.
+
+   • r with a sans-serif subscript — rA , rB , rC — is the normal potential of the corresponding
+     object, and r(φ) is that potential pulled back along φ. Together with the Katz invariant r(c)
+     of §2.7 and the deposited names recorded in the footnote above, these are all the uses of the
+     letter; in particular no object in this paper is written r1 .
+
+   With this vocabulary: B and C are projectively equivalent under z 7→ 1/x, their normal potentials
+being identically equal. A statement that two objects are projectively equivalent is therefore weaker
+than a statement that they are isomorphic, and the paper distinguishes the two.
+
+2.7   Katz invariants and the classification table
+We follow van der Put and Saito, Moduli spaces for linear differential equations and the Painlevé
+equations, Ann. Inst. Fourier 59 (2009) 2611–2667, and use their notation unchanged.
+    For a differential module over the field of formal Laurent series at a point c, the Katz invariant
+r(c) is the largest slope of the Newton polygon at c: it is 0 exactly when c is regular or regular
+singular, and otherwise is the positive rational measuring the irregularity there. The notation is
+theirs, and the symbol r in r(c) is unrelated to the sequence and limit of §2.1, which is why those
+were renamed.
+    The Katz multiset of an object is the collection of its Katz invariants at the singular points,
+written in the order used by their Table 2.1, namely
+                                                              
+                                        r(0), r(1), r(∞), r(t) ,
+
+with a dash in any position whose singular point is absent from the singular set — most often the
+r(t) position, when there is no fourth point t, but equally the r(1) position for an object unramified
+at 1. Every multiset in this paper is written with all four positions, so that a dash is always visible
+as an absent point rather than inferred from a shorter tuple. It is a multiset and not a tuple in
+the sense that the classification depends on the values present, not on a labelling of the points.
+Table 2.1 attaches to each such multiset a Dynkin symbol and a Painlevé equation; the two rows
+used in this paper are
+      e 5 : PV, (0, 0, 1, −), dim P = 3,
+      D                                       e 6 : PVdeg = PIII(D6 ), (0, 0, 1 , −), dim P = 2.
+                                              D                               2
+
+                                                      e 5 is the Dynkin symbol labelling its row; the
+Painlevé V (PV) is the fifth Painlevé equation, and D
+two name the same row of Table 2.1 and are used interchangeably, as there. PIII(D6 ), PIII(D7 )
+
+                                                  6
+and PIII(D8 ) denote the three degenerations of the third Painlevé equation, again by their row
+labels.
+    A matching multiset is a necessary condition only. Table 2.1 assigns a row to a multiset;
+agreement of multisets therefore excludes every row whose multiset differs, and assigns none. No
+statement in this paper infers a Painlevé label from a multiset match alone.
+
+2.8   Monodromy and trace coordinates
+On the monodromy side, B1 , B2 , B3 are the monodromy matrices of the local system, one for each
+of the three punctures, in van der Put–Saito’s notation at p. 2637. They carry ai = tr(Bi ), and the
+affine cubic surface of monodromy data is coordinatised by
+
+                      x1 = tr(B2 B3 ),     x2 = tr(B1 B3 ),     x3 = tr(B1 B2 ).                   (4)
+
+These are the trace coordinates, and (4) says what they are traces of. Where the paper speaks of
+comparison quantities it means x1 , x2 , x3 and nothing else.
+    The letter B is thus used for the monodromy matrices Bi and, in (2), for the product Bn of
+values of b. The two never occur in the same argument; the monodromy matrices always carry an
+index in {1, 2, 3} and the product always an index n.
+
+2.9   What is not fixed here
+Two conventions are deliberately left to their points of use, because they are local to one argument:
+the branch of ζ = w1/d , fixed where the Borel variable is introduced, and the orientation of the
+loops generating the monodromy, fixed where M∞ is defined. Both are stated there, and neither is
+used before it is stated.
+
+
+3     Growth of the recurrence
+3.1   Attribution
+The growth statement of this section is, in its leading term, classical. This subsection says precisely
+which part is classical, to whom it is due, and what is left. It is placed first because the section
+would otherwise read as a claim of novelty that it does not make.
+
+The radius is prior art. Write (1) in the homogeneous form Qn+1 + an Qn + bn Qn−1 = 0 with
+an = −b(n + 1) ∼ −βd nd and bn = −1, so that in the notation of the Newton polygon for such a
+recurrence α = d and β = 0. The vertex P1 = (1, d) then lies strictly above the segment P0 P2 , which
+is case (a) of Gautschi’s Theorem 2.3, attributed on that page to Perron and Kreuser. Case (a)
+supplies two linearly independent solutions whose consecutive ratios behave like −an and −bn /an ;
+for (1) the first of these gives Qn+1 /Qn ∼ βd nd , and the radius statement of Theorem 3.5 below is
+an immediate corollary. The minimal/dominant dichotomy that makes hypothesis (A3) meaningful
+is Pincherle’s, in Gautschi’s Theorem 1.1 on p. 31: the associated continued fraction converges if
+and only if the recurrence possesses a minimal solution with non-vanishing initial term.
+    The attribution is to Gautschi, SIAM Review 9 (1967), Theorem 2.3(a) p. 35 for Perron–
+Kreuser and Theorem 1.1 p. 31 for Pincherle; the same dichotomy appears at DLMF §3.6(ii). That
+the recurrence of this paper falls in case (a) is CT-S8-LITCHECK-002 (PROVEN); the readings of
+the two Gautschi pages are CT-S8-LITCHECK-001 and CT-S8-LITCHECK-008 (both INSPECTED).
+
+
+
+                                                  7
+DLMF (2.9.5)–(2.9.6), and why they do not apply. It would be natural to look for the
+exponent in DLMF §2.9(i), which for w(n+2)+f (n)w(n+1)+g(n)w(n) = 0 gives the characteristic
+roots ρj by (2.9.5) and then the exponents explicitly by
+
+                                                  f1 ρj + g1
+                                          αj =                                         (DLMF 2.9.6)
+                                                 f0 ρj + 2g0
+
+That formula is available only under the bounded-coefficient hypothesis f (n) ∼ s fs n−s , g(n) ∼
+                                                                                P
+         −s with g ̸= 0. Here f (n) = −b(n + 2) grows like nd , so for every d ≥ 1 that expansion
+P
+  s gs n          0
+does not exist, f0 is not defined, and the clauses do not apply. This is not an oversight in the
+source: DLMF routes exactly this class elsewhere, at (2.9.14), “in which P and Q are any integers
+see Wong and Li (1992a).” Both equation numbers and the deferral are present in the held capture
+CT-S8-LITCHECK/refs/dlmf 2 9.txt (CT-S8-LITCHECK-003, INSPECTED).
+
+Wong–Li II was not obtained. The article DLMF defers to — J. Wong and R. Li, Asymptotic
+expansions for second-order linear difference equations, II, Stud. Appl. Math. 87 (1992) 289–324,
+DOI 10.1002/sapm1992874289 — is paywalled and returned HTTP 403; it has not been read, and
+nothing in this paper is attributed to it (CT-S8-LITCHECK-004, INSPECTED). The asymmetry
+should be stated with the admission. The unread article cannot reach the exponent s, which is
+derived in §3.5 and confirmed independently in §3.6, and it cannot reach the framing of §4–§9; it
+could bear only on whether a closed form for the amplitude K is already known.
+
+The connection constant. Classical difference-equation asymptotics of this kind determines a
+solution only up to a multiplicative connection coefficient. That is exactly the gap the amplitude
+K of (6) fills, with the single transcendental input isolated into ψ∞ and hypothesis (A3). Two
+independent sources state the limitation. Odlyzko, Asymptotic Enumeration Methods, p. 77, writes
+that
+
+     Wimp and Zeilberger point out that it is usually easy to show that the largest of the
+     terms of the form (9.35) does show up with a nonzero coefficient, and so determines the
+     asymptotics of an up to a multiplicative constant. However, the Birkhoff–Trjitzinsky
+     method does not in general provide any techniques for determining that constant.
+
+The attribution inside this passage divides, and the division matters: the first sentence is Odlyzko
+reporting Wimp and Zeilberger, his reference [384], and only the second is his own assertion. Cit-
+ing the whole passage to Odlyzko would misattribute the first half. Independently, Nemes (2026),
+arXiv:2508.15246v2, describes connection coefficients as “often treated as unknowns in other meth-
+ods” and otherwise computed numerically. The two are kept side by side rather than one replacing
+the other (S24-12, S24-13, CT-S8-LITCHECK-010, all INSPECTED).
+
+Nothing here rests on Birkhoff–Trjitzinsky. The same page of Odlyzko records the standard
+objection, that the Birkhoff–Trjitzinsky results “may not be rigorous, since gaps are alleged to exist
+in the complicated proofs” [211, 383]. A reader who checks p. 77 for the quotation above will read
+this too, so it is answered here rather than later. The objection does not bear on this paper. The
+radius is Perron–Kreuser through Gautschi; the exponent s is derived directly in §3.5; the upper and
+lower bounds on ψ∞ are proved from the recurrence itself. Birkhoff and Trjitzinsky, Acta Math. 60
+(1933), Fundamental Theorem §9 p. 69, are cited in this paper for one thing only — the provenance
+of the shape ρn ns (1+O(1/n)) of a normal solution — and that citation is not load-bearing, because
+the shape is established here for (1) by direct computation (CT-S8-LITCHECK-005, INSPECTED).
+
+                                                  8
+What is claimed. Narrowly: the exponent s = βd−1 /βd + (d − 1)/2 written at the level of the
+coefficients of b for this recurrence, and the amplitude K of (7) made explicit through ψ∞ and
+the roots of b. The Borel-plane reading of the radius in §3.4 is an expository repackaging of the
+classical statement and is presented as one.
+
+3.2   Convergence of the normalised sequence
+Proposition 3.1 (S1-01, PROVEN). Assume (A1). Then ψn = Qn /Bn converges, with no hy-
+pothesis on the limit, and ψ∞ − ψn = O(n−(2d−1) ).
+
+   The proof is elementary and is the reason the method statement of this paper does not invoke
+a minimal-solution argument. Dividing (1) by Bn gives the exact recurrence
+
+                                                  ψn−2
+                                ψn = ψn−1 +                   (n ≥ 2),                           (5)
+                                              b(n − 1)b(n)
+                                                                   P
+whose increments are absolutely summable because deg b ≥ 1 makes n 1/|b(n−1)b(n)| convergent;
+the telescoping series then converges absolutely. Nothing is assumed about the limit at this stage.
+
+Remark 3.2 (S1-05, STRUCTURAL). Hypothesis (A3) says exactly that Qn is not the mini-
+mal solution of (1), and the minimal subspace has codimension one, so (A3) is generic. This
+is Pincherle’s dichotomy as recalled in §3.1. The remark is interpretive: it is recorded because it
+explains what (A3) means, and nothing below depends on it.
+
+3.3   Two-sided bounds under positivity
+Proposition 3.3 (S1-02, PROVEN). Assume (A1) and in addition b(n) > 0 for every integer
+n ≥ 1. Then ψn > 0, the sequence (ψn )n≥1 is strictly increasing, and ψ∞ ≥ ψ1 = 1. In particular
+(A3) holds automatically.
+
+Proposition 3.4 (Proposition U; S26-01, PROVEN). Under the hypotheses of Proposition 3.3,
+for every n ≥ 1
+
+                n−1
+                 X           1                                    X           1       
+       ψn ≤ exp                        ,   hence       1 ≤ ψ∞ ≤ exp                       < ∞.
+                        b(k)b(k + 1)                                       b(k)b(k + 1)
+                  k=1                                                k≥1
+
+    Proposition 3.4 is proved from (5) in four steps: monotonicity gives ψn−2 ≤ ψn−1 ; substituting
+into (5) gives ψn ≤ (1 + εn )ψn−1 ≤ ψn−1 eεn with εn = 1/(b(n − 1)b(n)); iterating down to ψ1 = 1
+gives the finite-n form; and the summability already used for Proposition 3.1 permits passage to
+the limit.
+    Two points are worth stating explicitly, because both have been got wrong in this project’s
+own records. First, the upper bound is not part of Proposition 3.3: that proposition supplies
+the monotonicity step and the lower bound only, and the upper half carries S26-01. Second, the
+positivity hypothesis is load-bearing rather than decorative. Of six sign-changing b satisfying (A1),
+three violate the inequality outright, including b(n) = n − 7/2, for which ψn becomes non-positive
+(S26-04, VERIFIED, at dps 60 to n = 2000). No claim is made here about which sign-changing b
+do satisfy it.
+
+
+
+
+                                                   9
+3.4    The radius
+Theorem  3.5 (S1-03, PROVEN). Assume (A1) and (A3). Then limn |Qn /(dn)!|1/n = |βd |/dd , so
+       n                   d                                    1/d in the variable ζ = w 1/d .
+P
+ n Qn w /(dn)! has radius d /|βd | in w, and radius ξ0 = d/|βd |
+    The proof in the source is independent of Gamma asymptotics: the step that would ordinarily
+call on Stirling’s formula is replaced by a combinatorial multinomial sandwich. This matters for
+the attribution of §3.1: Theorem 3.5 is a corollary of Perron–Kreuser, but it is also proved here
+without importing anything.
+
+3.5    The growth law and the exponent
+Theorem 3.6 (S1-04, PROVEN). Assume (A2) and (A3). Then
+                  Qn         β n
+                                d                      βd−1 d − 1
+                         = K d ns 1 + O(1/n) ,
+                                             
+                                                   s=      +      ,                                (6)
+               Γ(dn + 1)      d                         βd    2
+with
+                                           ψ∞ (2π)(d−1)/2
+                                      K = √ Qd              .                                      (7)
+                                           d i=1 Γ(1 − νi )
+   One classical input is imported, and it is named at the point of use rather than absorbed silently:
+the normalisation h∞ = 1 for the Gamma ratio, DLMF (5.11.12), Γ(z + a)/Γ(z + b) ∼ z a−b . The
+decay h(n)/h(n − 1) = 1 + O(1/n2 ) that reduces the ratio to that single constant is proved in the
+source from the functional equation alone. A reader who wishes to see exactly what is imported
+should look there and nowhere else.
+Remark 3.7 (Scope). Only βd and βd−1 appear in (6). The remaining coefficients β0 , . . . , βd−2
+do not affect the exponent at all; they enter only through ψ∞ and the roots νi in (7). This is a
+statement about the exponent, and it is confirmed rather than assumed in §3.6.
+   Hypothesis (A2) is consumed here and not before: it is exactly the condition that no νi is a
+positive integer, hence that every Γ(1 − νi ) in (7) is finite. A statement of (7) citing only (A1) has
+omitted a hypothesis.
+
+3.6    Numerical confirmation
+The exponent was checked independently of its derivation. For all eight quartic representatives
+of the d = 4 family, the measured exponent agrees with s = β3 /β4 + 3/2 to a maximum dis-
+crepancy of 7.118 × 10−16 , after four levels of ratio-2 Richardson extrapolation on the ladder
+n = 1250, 2500, 5000, 10000, 20000 at dps 80; the pre-registered falsifier |∆s| > 10−6 did not fire
+(S2-01, VERIFIED). The accompanying vacuity arms confirm that the measured exponent does
+move when βd−1 is varied and does not move when the lower coefficients are, which is what Re-
+mark 3.7 asserts.
+    For the quadratic case b(n) = 3n2 + n + 1 the limit itself is available to high precision:
+                ψ∞ = 1.016604441058510936337097213267657686917983514389 . . .
+computed to 2317.8 confirmed digits by an N -versus-2N agreement criterion at dps 2800 (S3B-02
+and S3B-09, both VERIFIED). Hypothesis (A2) holds for this b, its roots being a complex-conjugate
+pair and in particular not positive integers (S3B-03, PROVEN). A PSLQ search for an integer
+relation between ψ∞ and a ten-element basis of standard constants returned NULL at dps 500,
+1000 and 2000 with height bound 106 (S3B-08, VERIFIED); this is a negative result against a
+stated search space and is not evidence that no closed form exists.
+
+                                                  10
+4     The differential systems and their local data
+4.1    From the recurrence to System A
+Take b(n) = 3n2 + n + 1, the quadratic of the companion record, and let f (z) = n≥0 Qn z n be the
+                                                                               P
+generating function of the denominators (1). Then f satisfies the inhomogeneous equation
+
+                                 3z 3 f ′′ + 10z 2 f ′ + (z 2 + 5z − 1)f = −1,                            (8)
+
+which we call System A. This is PROVEN (S4-03): the residual of (8) against the exact integer
+sequence Q = 1, 5, 76, 2361, 125209, 10144290, . . . vanishes identically at every order z 0 , . . . , z 38 in
+exact arithmetic.
+   The homogeneous part of (8) has projective normal potential
+
+                                                    −3z 2 − 5z + 3
+                                         rA (z) =                  ,                                      (9)
+                                                          9z 3
+and z = 0 is its only finite singular point (PROVEN, S4-05; that no finite affine singular candidate
+exists outside z = 0 is separately PROVEN at S6-C8).
+
+4.2    Systems B and C
+System B is the scalar reduction Lφ , whose transcription√is certified two independent ways (PROVEN,
+S4-04, and again at S6-C3): the factorisation q2 = 4(2 3 − 3)z 2 (z 2 + z + 3) expands exactly to the
+listed q2 , and recomputing the normal potential R = 14 P 2 + 12 P ′ − Q of §2.6, here at (P, Q) = (a, b)
+for the operator written ∂ 2 + a∂ + b, from (q0 , q1 , q2 ) reproduces
+
+                                                 11z 4 + 4z 2 + 4z + 12
+                                      rB (z) =                                                           (10)
+                                                   4z 4 (z 2 + z + 3)2
+exactly.
+   System C is the scalar equation
+
+                              (3x2 + x + 1) W ′′ + (6x + 1) W ′ − x2 W = 0.                              (11)
+
+It is in self-adjoint form: with a(x) = 3x2 + x + 1 one has b(x) = 6x + 1 = a′ (x) exactly,
+                      ′
+so (11) is a(x)W ′ + c(x)W = 0 (PROVEN, S6-C12; equivalently b − a′ = 0, PROVEN,
+CT-S9-PVPARAMS-C005). Its normal potential is
+
+                                                 12x4 + 4x3 + 4x2 + 11
+                                     rC (x) =                                                            (12)
+                                                    4 (3x2 + x + 1)2
+(PROVEN, CT-S9-PVPARAMS-C009 and S16-06), and its finite singular points are
+                               √                            √
+                         −1 ± i 11                         i 11
+                    s± =           ,   δ = s− − s + = −                                                  (13)
+                             6                               3
+(PROVEN, CT-S9-PVPARAMS-C006 and S16-06). Under x = s+ + δz the potential (12) has poles
+only at z = 0 and z = 1, both double with coefficient − 14 , and no apparent singularity, so C’s three
+singular points are exactly 0, 1, ∞ after the normalising Möbius map (PROVEN, S16-06).
+
+4.3    Exact formal types
+All three formal types below are exact, not asymptotic, and each is PROVEN.
+
+                                                      11
+System A (S4-05). At z = 0 the pole order of rA is 3, which is odd, so the singularity is irregular
+and ramified, with ramification index 2, Katz invariant 12 , and exponential parts
+                                                        
+                                         exp ∓ √23 z −1/2 .
+
+At z = ∞ the pole order is again 3: irregular, ramified, Katz invariant 12 .
+
+System B (S4-06). At z = 0 the pole order is 4, which is even, so the singularity is irregular
+                                                                                          √
+                of Poincaré rank 1 and Katz invariant 1, with exponential parts exp(∓(1/ 3)/z).
+and unramified, √
+At ρ± = (−1 ± i 11)/2 the pole order is 2: regular singular. At z = ∞ the pole order is 2: regular
+singular.
+
+System C (S6-C15, CT-S9-PVPARAMS-C011, CT-S9-PVPARAMS-C012). At infinity, in the coordi-
+nate τ = 1/x, the normal-form potential has pole order 4, leading coefficient 13 , no ramification, and
+Katz invariant — equivalently Poincaré rank — equal to 1. The scalar normal-form exponential
+factors there begin                  √               √ 
+                                 exp 33 x ,        exp − 33 x ,
+                    √                  √
+equivalently exp(−( 3/3)/τ ) and exp(( 3/3)/τ ).
+
+Actions read off the equations alone (S4-07). No convention has to be interpreted to√extract
+                                                        √
+the following, and it is PROVEN.
+                          √      In the uniformiser u = z, System
+                                                             √    A has single action 2/√ 3 = ξ0
+                 √ 4/ 3. System B, in z, has single action 1/ 3 and action difference 2/ 3 = ξ0 .
+and action difference
+The quantity 4/ 3 is therefore an action difference and not the image of ξ0 under a change of
+variables.
+
+4.4   The two finite singular points are not apparent
+This subsection is the one the companion record got wrong, and the correction is stated here as
+mathematics; the history of the correction is not this section’s business.
+     At both finite singular points s± of System C the indicial polynomial is λ2 , so the scalar local
+exponents are {0, 0} and the exponent difference is 0 (PROVEN, CT-S9-PVPARAMS-C007). Expo-
+nents {0, 0} do not by themselves decide apparency: what decides it is the logarithm. Normalising
+y1 (s) = 1, the second Frobenius solution has nonzero log coefficient
+                    √                      √          √                      √
+                       11 i          −1 − i 11          11 i          −1 + i 11
+                            at s− =            ,    −         at s+ =                             (14)
+                      11                 6              11                 6
+(PROVEN, CT-S9-PVPARAMS-C008). Consequently neither finite point is apparent: at s− this is
+PROVEN at S6-C13 and at s+ at S6-C14, in both cases with exact repeated-root log residue 1,
+and in both cases against the companion’s recorded exponents {0, 1}.
+    In the normalised coordinate the same statement reads: the coefficient of (x−s)−2 in the normal-
+form potential is − 14 at both points, so the normal-form exponent is repeated at 12 (PROVEN,
+CT-S9-PVPARAMS-C010).
+    The corresponding statements for System B are PROVEN in the same way: ρ− at S6-C4 and
+ρ+ at S6-C5, both with indicial equation λ2 , exponents {0, 0}√and nonzero exact
+                                                                               √ repeated-root log
+residue; and ∞ at S6-C6, where the local exponents are 1 − 3/18 and 2 − 3/18 and so are not
+integers.
+
+
+                                                  12
+    Finally, the general assertion that such points are always apparent is refuted on its own tested
+instances: for b = x + 1 and b = x2 + 1 the simple-root tests give exponents {0, 0} with nonzero
+log residue 1, so those instances are not apparent (PROVEN, S6-C17). That the companion’s
+β = γ = 0 was read as reflecting apparency of both finite points is not supported by the exact test
+— a STRUCTURAL conclusion (S6-C19), and stated with that label because it is a statement
+about what an argument does and does not support.
+
+4.5    The Katz mismatch in a fixed coordinate, and the cover that removes it
+Within a fixed base coordinate the formal types of A and B at the origin are incompatible: Katz
+1
+2 ramified against Katz 1 unramified, and no gauge transformation and no unramified change of
+variable can reconcile them. The ramified double cover
+
+                                            π : w 7−→ z = w2                                           (15)
+                                    √
+— which is the uniformiser u = z of §4.3 — doubles the Katz invariant and carries A’s 12 to
+B’s 1. The verdict drawn from this is STRUCTURAL and explicitly inconclusive as to global
+equivalence (S4-09).
+    The pullback is carried out through the normal-form rule R = (φ′ )2 r(φ) − 12 S(φ), with S the
+Schwarzian, which passes the Euler exponent-difference doubling test (STRUCTURAL, S5B-C2);
+the CT-S4 baseline normal forms and certificates recompute exactly beforehand (PROVEN,
+S5B-C1). Its vacuity pre-check is PROVEN (S5B-C3): under z = w2 the model potential r = 1/z 4
+remains unramified, while System A’s pole order at the origin moves from 3 to 4 — so the observable
+does move when the data move, and the cover is not being credited with an effect it does not have.
+    After the pullback, π ∗ A has exactly one finite singular point w = 0, of pole order 4, unramified,
+Katz invariant 1 (PROVEN, S5B-C4), and an unramified irregular singularity of Katz invariant 1
+at infinity (PROVEN, S5B-C5).
+    Three statements bound what this establishes, and all three are STRUCTURAL: the local
+mismatch at the branch point is removed (S5B-C8); the global singular configurations of π ∗ A and
+B are not reconciled by that cover alone (S5B-C9); and CT-S4’s verdict is therefore sharpened but
+not settled as a global isomorphism (S5B-C10). The paper claims the local statement and not the
+global one.
+
+4.6    Effective Katz multisets
+Apparent singularities may be removed before a Katz multiset is read off, so the multiset of record
+is the effective one, computed after the apparency tests of §4.4 have been applied.
+    For System C the tests remove no finite points, and the effective multiset is (0, 0, 1, −), which
+matches van der Put–Saito’s Table 2.1 row D      e 5 /PV on p. 2635. This is STRUCTURAL (S6-C16);
+the location of that row and of the selection rule on p. 2634 is itself a reading of the printed page,
+INSPECTED (S6-C1).
+    For System B the tests likewise remove no points, and the effective multiset is (1, 0, 0, 0), which
+does not match that row — also STRUCTURAL (S6-C7).
+    For System A the dash in ( 21 , −, 12 , −) denotes an absent singular point in the classification tuple,
+not a point dropped as regular or as apparent (PROVEN, S6-C9).
+
+Remark 4.1 (A matching multiset is necessary, never sufficient). Table 2.1 classifies families
+of connections. A single fixed operator whose multiset matches a row has satisfied a necessary
+condition and nothing more; family membership is not established until the deformation parameter
+
+
+                                                    13
+is specified. This is STRUCTURAL (S6-C10), and it is the reason §4.6 reports a match for
+C without assigning C a Painlevé label. The label is not assigned anywhere in this paper on the
+strength of a multiset.
+
+4.7   B and C under z 7→ 1/x
+Under z = 1/x, System B has exactly the same normal-form potential as System C. The two
+original scalar equations are nevertheless not the same operator: they differ by the explicit gauge
+factor                                  √            √ 
+                                       x 3/18−1 exp − 33 x ,                                   (16)
+
+so they are gauge-equivalent in normal form without being literally equal. This is PROVEN
+                                    √ z 7→ 1/x applied to B makes x = 0 ordinary, leaves finite
+(S6-C18). Consistently, the inversion
+regular singular points at (−1 ± i 11)/6, and gives an unramified Katz invariant 1 at infinity
+(PROVEN, S5B-C6).
+    That the same configuration was recorded independently in an earlier verdict file is INSPECTED
+only, and with a stated gap: the apparency indices were not recomputed there (S5B-C7). Nothing
+in this section rests on that reading.
+The distinction (16) draws — equal normal potential, different operator — is exactly the projective
+ambiguity that the later section on removing that ambiguity resolves.
+
+
+5     The moduli space and its hypotheses
+5.1   Type (0, 0, 1, −) and the strong Riemann–Hilbert problem
+For a differential module of type (0, 0, 1, −) the strong Riemann–Hilbert problem has a positive
+answer, and the module is represented by
+                                      d    A0    A1
+                                         +    +     + A∞ ,                                      (17)
+                                      dz   z    z−1
+with A0 , A1 constant trace-zero 2 × 2 matrices, A∞ normalised to
+                                         t
+                                 A∞ =      diag(−1, 1),    t ∈ C∗ ,                             (18)
+                                         2
+with det Ai = −θi2 /4, and with the singular points normalised to 0, 1, ∞. This is a reading of van
+der Put–Saito §3.2, p. 2637, from the page image, and it is INSPECTED (S16-01).
+    The same reading establishes a negative fact that the paper relies on: no semisimplicity hypothe-
+sis and no non-resonance hypothesis appears anywhere in this definition (S16-01, INSPECTED).
+
+5.2   Resonance and reducibility are not excluded
+p. 2636 defines resonance as a difference of eigenvalues lying in Z \ {0}, and presents resonance and
+reducibility as sources of singularities of the monodromy space R. Modules with such local data
+are therefore inside the moduli space, not excluded from it. This too is INSPECTED (S16-02).
+    The consequence matters for §4: the logarithmic local data established in §4.4 — exponents
+{0, 0} with nonzero log coefficient — are admissible here, although they are excluded by the non-
+resonance hypothesis of the more familiar Jimbo normalisation. The framework used in this paper
+is van der Put–Saito’s, and the difference is stated rather than smoothed over.
+
+
+                                                 14
+5.3   The explicit family (4.1)
+With D(z) = z(z − 1) and
+                                    
+                               a b
+                           A=          ,         y ′ = N y,     N = −A/D,
+                                c −a
+
+the family (4.1) of p. 2655 is
+
+           a = p + 12 −2qt + t − θ∞ (z − q) − 21 t (z − q)2 ,
+                                       
+                                                                                                 (19)
+                                     2 θ 2             θ2 θ2        θ2 
+                 z p + 12 (q − 1)q t − 1 + (q − 1) 0 − 1 − q ∞
+           b=−                             4              4   4         4
+                                               q
+                    (q − 1) p + 12 ((q − 1)q t − θ0 + qθ∞ ) p + 12 ((q − 1)q t + θ0 + qθ∞ )
+                                                                                          
+                 −                                                                           ,   (20)
+                                                        q
+                 z−q
+           c=−         .                                                                         (21)
+                 q−1
+
+Remark 5.1 (A typo in the printed source). On p. 2655 the first square in the entry b(z) prints
+                2
+ p + 21 (q − 1)q , with no t, while the second term of the same entry carries (q − 1)q t. Tested
+against the source’s own constraint det A(1) = −θ12 /4, the printed form leaves a nonzero remainder,
+                                     2
+whereas the reading p + 12 (q − 1)q t used in (20) satisfies it identically; the companion constraint
+det A(0) = −θ02 /4 holds for both readings and therefore does not discriminate. The discrimination
+is by an exact symbolic residual, and the correction is VERIFIED (S16-05). It is flagged here
+rather than adopted silently.
+    A second discrepancy in the same neighbourhood is recorded and not used: the prose statement
+that θ∞ is the (1, 1) entry of A0 + A1 does not hold for the printed family, where that entry is
+−θ∞ /2. Nothing in this paper depends on it.
+
+5.4   The chart U0 , the Hamiltonian (4.5) and the flow (4.4)
+The chart is
+                     U0 ∼
+                        = C × (C \ {0, 1}),                              / {0, 1}.
+                                                   coordinates (p, q), q ∈                       (22)
+On U0 × (C \ {0}) the foliation given by the 2-form
+
+                                             dp ∧ dq
+                                        Ω=            − dHV ∧ dt                                 (23)
+                                             q(q − 1)
+
+coincides with the foliation given by isomonodromy. That sentence is quoted from p. 2656 and is
+INSPECTED (S16-03); the flow and the Hamiltonian were cropped from the page image and
+transcribed by looking, not by optical character recognition. They are
+                    dp            ∂HV           dq             ∂HV
+          (4.4)        = q(q − 1)     ,            = −q(q − 1)     ,                             (24)
+                    dt             ∂q           dt              ∂p
+                                           p2      θ2    θ12
+                                                 − 0 +          + 41 q qt − t + 2θ∞ − 2 .
+                                                                                       
+          (4.5)     HV (p, q, t) = −                                                             (25)
+                                       (q − 1)q t 4qt 4(q − 1)t
+
+    Both are printed in full, and not merely cited, because the uniqueness argument of the following
+section is an argument about (24): if q(q − 1) ̸= 0 and t ̸= 0 at a point of U0 × (C \ {0}), then
+
+                                                   15
+the vector field v = ∂t + vp ∂p + vq ∂q determined by (24) is regular there, and exactly one leaf
+passes through that point. Regularity is the reason a deformation exists; it is not an ansatz. The
+verification of these two non-vanishing conditions at the located point belongs to the following
+section and is not performed here.
+
+5.5   What the time variable is
+The three singular points of (17) are normalised to 0, 1, ∞, so t is not the position of a singular
+point. By (18), t is the scale of the irregular type at infinity. This is why an object of type
+(0, 0, 1, −) carries a fixed t with no deformation parameter written alongside it: t is an invariant
+computed from the configuration. The reading of the normalisation is INSPECTED (S16-01);
+the identification of what t is, being an interpretation of that normalisation rather than a quotation,
+is STRUCTURAL (S16-04).
+
+5.6   Painlevé conventions fixed by citation
+Three conventions are fixed by reading printed sources, and each is INSPECTED; none is re-
+derived here.
+
+  1. The Painlevé V equation is taken in the DLMF 32.2.5 convention, with parameters (α, β, γ, δ)
+     (CT-S9-PVPARAMS-C002).
+
+  2. The dictionary between those parameters and the monodromy exponents (θ0 , θt , θ∞ ) is Jimbo’s,
+     p. 1152:
+
+            α = 18 (θ0 − θt + θ∞ )2 ,   β = − 18 (θ0 − θt − θ∞ )2 ,   γ = 1 − θ0 − θt ,   δ = − 21   (26)
+
+      (CT-S9-PVPARAMS-C003).
+
+  3. Van der Put–Saito’s Table 2.1 contains the row labelled D e 5 /PV, whose Katz invariants are
+     (0, 0, 1, −) (CT-S9-PVPARAMS-C004; the folio and the selection rule are recorded at S6-C1).
+
+   Two warnings attach to (26). First, Jimbo’s normalisation carries a non-resonance hypothesis
+that van der Put–Saito’s does not (§5.2), so the dictionary is a translation of parameters and not
+an importation of hypotheses. Second, by Remark 4.1 a multiset match is a necessary condition
+only, so (26) is never used in this paper to assign a Painlevé label; it is used to state what a label
+would have to mean.
+
+5.7   What membership would require
+Collecting the above: to place a given operator in this moduli space one must exhibit a point
+(p, q) ∈ U0 and a t ∈ C∗ at which the family (19)–(21) reproduces that operator’s projective normal
+form. Such a location is a numerical statement about an explicit algebraic point; it is not a proof
+of family membership, and the paper does not report it as one. The located point and the strength
+of the evidence for it are the subject of the following section, where the membership conclusion
+carries the label STRUCTURAL (S16-14) and expressly does not rest on the pre-registered
+monodromy-and-Stokes falsifier at 30 digits, which was not run.
+
+
+
+
+                                                     16
+6     Locating the point
+The preceding section states what membership would require: a point (p, q) ∈ U0 and a t ∈ C∗
+at which the family (19)–(21) reproduces System C’s projective normal form (12). This section
+supplies such a point, checks the hypotheses under which the moduli space is built, and then shows
+that the two solutions found are all of them. What it does not do is remove the word projective;
+that is §7.
+
+6.1   The dictionary, and the entry that failed
+Matching (12) against the family requires knowing how the family’s parameters (θ0 , θ1 , θ∞ , t) appear
+in the projective normal potential R. The dictionary was not assumed; it was established by probing
+three exact draws of the family and reading off the correspondence (VERIFIED, S16-08). Three
+entries were confirmed on all three draws: the coefficient of the double pole at z = 0 is (θ02 − 1)/4,
+the coefficient of the double pole at z = 1 is (θ12 − 1)/4, and R(∞) = t2 /4.
+     A fourth entry failed, and the failure is reported here because the located value of θ∞ is unin-
+telligible without it. The naive reading of the 1/z coefficient at infinity, t θ∞ /2, was rejected on all
+three draws; the draws give
+                                               t (θ∞ + 1)
+                                                          ,
+                                                    2
+the +1 being the shift introduced by√passing to a scalar reduction.
+                                                               √        That shift is the entire reason
+the located exponent is θ∞ = −2 ∓ 3/9 rather than −1 ∓ 3/9. A reader who carries the naive
+entry will find the value off by exactly one and will look for the error in the wrong place.
+     The three draws were chosen to carry θ0 ̸= 0, which makes them simultaneously the vacuity
+control for the hypothesis check of §6.2: the observable does report a nonzero θ0 when one is present,
+so its report of θ0 = 0 for System C is informative and not an artefact.
+
+6.2   The three hypotheses at System C
+Normalised singular points (S16-07, PROVEN). Under the Möbius map x = s+ + δz of
+(13) the potential (12) has poles only at z = 0 and z = 1, both double with coefficient − 14 , and no
+apparent singularity (S16-06, recorded at §4.2). At infinity the transported potential expands as
+                                                 √
+                                           11 i 11/27
+                                    rz = − +             + ··· ,
+                                           27       z
+so the normalisation t2 /4 = R(∞) gives
+                                                   √
+                                                 2i 33
+                                             t=∓       .
+                                                   9
+This is exactly the value the companion record prints for System C. The companion’s t is therefore
+van der Put–Saito’s time invariant, computed from the configuration; there is no mismatch between
+the two to explain. The agreement is with an exact algebraic number, not a numerical coincidence,
+which is why the label is PROVEN.
+
+Irreducibility (S16-10, PROVEN). System C is irreducible over C(x), proved exactly by the
+Riccati test. A solution of w′ + w2 = r can have only simple poles; the residues at s± satisfy
+
+
+
+
+                                                   17
+κ2 − κ = − 41 , so κ = 21 ; w is bounded at infinity with c20 = 31 ; and matching the 1/x coefficient of
+r, which is − 19 , forces
+                                                               √
+                                          −1/9                    3
+                                      n=         − 1 = −1 ∓         ,
+                                            2c0                18
+which is irrational and hence not a non-negative integer. The required contradiction follows, and
+System C does not sit on the classical Riccati locus.
+Remark 6.1 (A void check, retained; S16-11, PROVEN). The first irreducibility script reached
+the verdict irreducible with no test performed. Symbolic cancellation of (x − c)2 r evaluated at
+an algebraic c returned nan, so the list of admissible residues came out empty, the product over
+that empty list was trivially the required value, and a companion test of the form “every multiplic-
+ity equals 2” was vacuously true on an empty dictionary. The defect was caught only because a
+reducible-by-construction control was also declared irreducible. The void script is retained in the
+record. The general rule it forced — a step that cannot fail cannot be trusted to report failure, so
+every control must be an assertion — is applied throughout this paper’s supporting computations.
+
+Local data (S16-09, STRUCTURAL). System C has θ0 = θ1 = 0, hence det Ai = 0 and
+tr Ai = 0, so A0 and A1 are nilpotent and nonzero: the local data are non-semisimple, and §4.4
+already records the logarithmic behaviour this produces. This was contrary to pre-registration,
+which recorded the expectation that the hypothesis would be violated or left undecided. It is not
+violated, for two reasons. The eigenvalue difference is 0, which is not in Z \ {0}, so the data are not
+resonant in van der Put–Saito’s sense; and, as §5.2 records, no semisimplicity condition is imposed
+in the construction in any case. Van der Put–Saito admit precisely the logarithmic local data that
+Jimbo’s (A1) excludes.
+    The label here is STRUCTURAL rather than PROVEN, and the reason is worth stating
+plainly: the conclusion rests on the absence of a hypothesis in the source (S16-01, INSPECTED).
+An absence read from a page is weaker evidence than a computation, and no amount of re-reading
+converts it.
+
+6.3   The located point
+With the dictionary of §6.1 in hand, the match is an overdetermined algebraic system: five coefficient
+equations from matching two quartics in z, together with the no-apparent-singularity condition
+b1 = 0, in the four unknowns p, q, t, θ∞ . Here b1 is the coefficient of z in the entry b of (20),
+which is affine in z; so b1 = 0 says exactly that b is constant, and §7.1 is where that matters. It is
+consistent, and it has a solution
+                              √    on each branch of t (VERIFIED, S16-12).
+   On the branch t = −2i 33/9,
+                         √                            √             √ 
+                           3           1 i −457937 11 + 281700 33
+           θ∞ = −2 −         ,    q= +                                    ≈ 0.5 + 0.8123 i,
+                          9            2               122408
+                                            √                    √ 
+                           5i −28151758571 33 + 48874838016 11
+                      p=                                              ≈ 0.4649 i.
+                                          4086468672
+                         √
+On the branch t = +2i 33/9,
+                                 √
+                                   3
+                     θ∞ = −2 +       ,    q ≈ 0.5 − 25.6278 i,     p ≈ 396.2089 i.
+                                  9
+   The values were produced by a hand-reduced closed form, and are therefore checked by a second
+route (VERIFIED, S16-13): re-substituting each solution into the general formula for R — not
+
+                                                  18
+the reduced form used to derive it — makes R − rz simplify identically to zero, with worst relative
+residual over five sample points at 60 digits of 5.79877×10−56 on the first branch and 7.00553×10−61
+on the second. In both cases b1 = 0 and q ∈   / {0, 1}, so each point lies in the chart U0 of (22).
+    Two things this second route does not do. It is a re-derivation by a different route, not an
+independent confirmation by a different party: the same agent wrote both. And it certifies the
+values it was given; it cannot certify that there are no others. That is the next subsection.
+
+6.4   The location is exhaustive
+The two solutions of §6.3, one on each branch of t, would be an empty inventory if the solver that
+produced the two solutions had silently missed a third. It did not, and this is settled exactly rather
+than by trusting the solver (PROVEN, S25-06).
+
+Transcription controls (S25-01, PROVEN). The six generators of the matching system were
+re-derived independently of the script that first solved it. A positive control: both recorded solutions
+annihilate all six generators exactly — as symbolic zero, not as numerical smallness — and both
+satisfy q(q − 1) ̸= 0. A negative control: perturbing θ∞ by 1/1000 at the first solution makes
+generators 1, 2, 3 and 5 nonzero, so the generator set is not identically zero. Both arms were
+pre-registered and run before the main result was consulted.
+                                                                                    √         √      √
+The base field, and why   √ it√is not larger. The radicals visible above are            33,    11 and 3,
+which invites the field Q( 3, 11). The correct base field is
+                                                 √ 
+                                         K = Q i 11 ,
+
+because√ that is the field in which the matching equations’ own coefficients live, by way of s+ =
+  1    i 11
+                        √
+                       i 11
+                                             √
+− + 6 and δ = − 3 in (13). Adjoining 3 in advance would not be a harmless convenience:
+√6
+  3 is generated by the answer, and pre-adjoining it would split the solution set into two rational
+points and make a degree-2 ideal look like two components of degree 1 — destroying exactly the
+statement the computation exists to make.
+
+The ideal (S25-02, PROVEN). The ideal generated by the six matching generators, saturated
+at q(q − 1) ̸= 0 by the Rabinowitsch variable u with u q(q − 1) − 1 = 0, is zero-dimensional of degree
+exactly 2 over K. It is computed as a count of standard monomials under a grevlex Gröbner basis
+over an exact algebraic number field, so the result is exact. The lexicographic eliminant in θ∞ is
+                                                                       √
+                               2                                          3
+                           27 θ∞ + 108 θ∞ + 107 = 0,       θ∞ = −2 ±        ,                     (27)
+                                                                         9
+and (27) was registered as a prediction before the computation was run.
+Remark 6.2 (Galois conjugacy, and what it is not). The
+                                                    √ two branches
+                                                           √         of §6.3 are therefore exactly
+the Galois conjugates of one another over K under 3 7→ − 3, exhibited by the eliminant (27)
+rather than observed numerically. This is the same symmetry that relates the two branches at the
+level of the character variety (S22-20, VERIFIED), where the two branches give the same point
+up to an interchange of x1 and x2 .
+    It does not close the z-dependent gauge question, which is an open question of this paper
+(S17-07,
+   √       CONJECTURED) and is stated as one in §11. Two statements in this paper carry
+a 3; they are unrelated, and a reader should not infer a connection from the coincidence of a
+radical.
+
+                                                  19
+One of the six conditions was already implied (S25-03, PROVEN). The no-apparent-
+singularity condition b1 = 0 lies in the radical of the ideal generated by the five coefficient-matching
+equations together with the Rabinowitsch generator — indeed in the ideal itself, since b1 reduces
+to 0 modulo the grevlex Gröbner basis, and independently since adjoining 1 − v b1 yields the unit
+ideal. So matching the two quartics already forces b1 = 0: the system of §6.3 is overdetermined
+by two, not by one. The membership test carries its own control — θ∞ , which vanishes nowhere
+on the variety by (27), is correctly reported as not in the radical — so the test is not accepting
+everything put to it.
+
+Closure, by two routes (S25-06, PROVEN). The solution set, saturated at q(q − 1) ̸= 0, is
+exactly the two points of §6.3. Counting route: the degree is 2, which bounds the number of points
+over the algebraic closure counted with multiplicity by 2, while the positive control exhibits two
+distinct points, so each has multiplicity 1 and there is no room for a third. Constructive route: the
+lexicographic Gröbner basis in the order u > p > q > t > θ∞ is triangular, with u, p, q and t each
+appearing to degree exactly 1 in a basis element whose only other variable is θ∞ ; so each root of (27)
+determines at most one point, the eliminant has exactly two distinct roots, and back-substitution
+returns exactly one point per root, matching the recorded solutions exactly.
+    The scope of this result is narrow and should be read narrowly: it settles whether the solver’s two
+solutions were all of them. It says nothing about the derivation that produced the six generators,
+which is unchanged here.
+
+6.5   Membership, and the word it leaves standing
+Collecting: System C satisfies every hypothesis under which van der Put–Saito build the moduli
+space for the (0, 0, 1, −) row — local data (S16-09), irreducibility (S16-10), and the normalisation
+at infinity (S16-07) — and it is a point of the chart U0 (S16-12, S16-13), uniquely so up to the
+Galois conjugate (S25-06). Since the foliation given by (23) coincides with the isomonodromy
+foliation (S16-03, INSPECTED), and since q(q − 1) ̸= 0 and t ̸= 0 at the located point so that
+the vector field (24) is regular there, exactly one Painlevé V leaf passes through System C. The
+deformation exists; it is not an ansatz.
+    This conclusion is STRUCTURAL (S16-14), and the caution is part of the claim rather than
+a hedge attached to it. What has been matched is the projective normal form. What is established
+is therefore that C’s projectivisation is that of the family member at (p, q, t) — equality up to a
+rank-1 twist, in the same sense in which B and C are projectively equivalent at (16) without being
+the same operator.
+    Two further limits, stated here so that §7 is read as removing one of them and not both. The
+pre-registered monodromy-and-Stokes falsifier at 30 digits was not run; nothing above rests on it
+and nothing above stands in for it. And the gauge question of §11 remains open: the completeness
+result of §6.4 concerns the solution set of the matching system, not the uniqueness of a representative
+within a projective class.
+
+
+7     Removing the projective ambiguity
+§6 matches projective normal forms, and leaves standing the qualifier “up to a rank-1 twist”. This
+section removes it. The removal is not by an abstract uniqueness argument — the obvious such
+argument is false, and is refuted below — but by exhibiting the isomorphism directly.
+
+
+
+
+                                                  20
+7.1   Trace-freeness does not do the work
+The natural attempt is to argue that van der Put–Saito’s normalisation picks a canonical represen-
+tative, so that a projective match is automatically a match. Half of that is right.
+
+What is true (S17-01, PROVEN). A rank-1 twist acts by A 7→ A + λ Id and changes the trace
+by 2λ, so in characteristic 0 the equation tr(A + λ Id) = 0 has the unique solution λ = − tr(A)/2.
+Within the orbit of a fixed connection under rank-1 twists there is therefore exactly one trace-free
+member.
+
+What is false (S17-02, PROVEN). Trace-freeness alone does not single out a representative
+of a projective class, and the obstruction is explicit. Over C(z) put
+                                                         1
+                                              L=∂−         .
+                                                        2z
+Then L ⊗ L = ∂ − 1/z is trivial, with rational witness w = z satisfying 2f + w′ /w = 0; whereas
+L itself is non-trivial, since the residue of f at 0 is − 12 , not an integer, so f is not the logarithmic
+derivative of a rational function. Tensoring a trace-free module by such a 2-torsion L preserves
+both the projective class and the triviality of the determinant. A projective class can therefore
+contain more than one trace-free module up to isomorphism.
+
+Remark 7.1 (A printed line that contradicted its own conclusion; S17-03, PROVEN). The first
+run of the check above printed “L ⊗ L trivial? False” while the surrounding text drew the opposite
+conclusion. The test had compared 2f against −v ′ /v with v = 1/u, rather than testing whether
+2f is a logarithmic derivative at all; the correct witness is w = z, not 1/z. It was replaced by
+a residue-based test — all poles simple, all residues integers, witness constructed and verified —
+which is self-checked in both directions, on ∂ − 1/z (trivial) and on ∂ − 1/(2z) (non-trivial), before
+being used. The conclusion did not change, but the evidence as first printed did not support it, and
+the episode is recorded rather than tidied away.
+
+   Because the general statement fails, the correct hypothesis under which a projective class has
+a unique normalised representative is not settled in this paper. It is stated as an open question in
+§11 (S17-07, CONJECTURED), and nothing below depends on it.
+
+7.2   Comparing the pair (P, Q), not the invariant R
+A second-order operator is determined by the pair (P, Q) in ∂ 2 + P ∂ + Q, and the projective
+invariant
+                                    R = 41 P 2 + 12 P ′ − Q
+that §6 matched is by construction blind to a rank-1 twist. The pair is not. So the ambiguity is
+removed by comparing both coefficients rather than their invariant combination — which requires
+no new theory, only that the comparison actually be made.
+   It has been (PROVEN, S17-04). In the z coordinate System C has
+                                       2z − 1
+                               PC =            ,                                                     (28)
+                                      z(z − 1)
+                                                     √           √
+                                    22z 2 − 22z − 2i 11 z + 5 + i 11
+                               QC =                                  ,                               (29)
+                                                54 z(z − 1)
+
+
+                                                   21
+and the family’s scalar operator at the located point (p, q, t, θ∞ ), taken with cyclic vector e1 , has
+exactly the same P and the same Q: both differences vanish identically, with worst relative residual
+0 over five sample points at 60 digits. System C’s differential module and the family’s module at
+that point are therefore isomorphic, not merely projectively isomorphic.
+   Both vacuity controls fired. A value of q perturbed by 10−3 is rejected; and an operator
+constructed to have the same R but a different P is separated by the (P, Q) test though not by R
+— which is the precise sense in which the test sees what the invariant cannot.
+
+7.3   Why no twist has to be inserted
+That the two operators agree on the nose, rather than after a correction, has a structural reason, and
+stating it is what makes the agreement something other than a coincidence (PROVEN, S17-05).
+    System C’s leading coefficient factors as
+
+                      3x2 + x + 1 = 3(x − s+ )(x − s− ) = 3δ 2 z(z − 1) = 3δ 2 D
+
+under x = s+ + δz, with D(z) = z(z − 1) as in §5.3. Hence System C’s own Wronskian coefficient is
+
+                                              δ (6x + 1)   D′
+                                      PC =               =    ,
+                                             3x2 + x + 1   D
+which is (28). The family’s is P = D′ /D − b′ /b, and these coincide exactly when b is constant —
+that is, when b1 = 0, the condition the match of §6.3 already forced, and which §6.4 shows was
+implied by the coefficient equations in any case. The two objects carry the same rank-1 twist, so
+there is no twist to insert between them.
+
+7.4   Which scalar reduction, and why the choice is not free
+The comparison of §7.2 is between a scalar operator and a rank-2 system, so it presupposes an
+answer to a question that was for some time contested: which scalar equation the system is to be
+compared against.
+
+There are two (S17-09, PROVEN). A rank-2 first-order system y ′ = N y admits two scalar
+reductions, the equations satisfied by its two components. Derived generically by elimination,
+with no formula assumed, route 1 (for y1 ) has P = − tr N − n′12 /n12 and route 2 (for y2 ) has
+P = − tr N − n′21 /n21 . Fixing the orientation once, so that a later reader cannot re-derive it
+backwards:
+                                                   d     c c′ b′
+                             Proute 1 − Proute 2 =    log = − .                             (30)
+                                                   dz    b  c   b
+                                                                     d
+The proviso attached to (30) matters: in general the difference is dz  log(n21 /n12 ), and it equals
+dz log(c/b) only because the convention N = −A/D of §5.3 divides both off-diagonal entries by the
+ d
+
+same D. Both routes are correct; neither is “the” scalar equation of the connection.
+
+Route 1 is the one (S17-10, PROVEN). At the located point, route 1 reproduces System C
+exactly — P − PC = 0 and Q − QC = 0 symbolically — while route 2 misses it by exactly
+−c′ /c = −1/(z − q). Both b′ = 0 and q ∈
+                                       / {0, 1} are re-confirmed at the point.
+
+
+
+
+                                                  22
+A control independent of the derivation (S17-11, VERIFIED). Rather than compare
+formulas, one may solve the system at an ordinary point and ask which scalar equation the resulting
+                       3
+y1 satisfies. At z0 = 10 + 7i , over two independent seeds, the route-1 residuals are 4.8 × 10−61 and
+6.9 × 10 −62 against route-2 residuals of 9.0 and 4.0. The control fires on both seeds, so the test can
+in fact distinguish the routes.
+
+Confirmation from a separately commissioned computation (S17-20–S17-23). Because
+the choice of route had been contested, it was re-decided by a computation isolated from the
+sessions that first made it. That computation re-derived the two reductions from a generic y ′ = N y
+and obtained (30) exactly, supplying the orientation and the denominator proviso that the earlier
+derivation had left implicit (S17-20, PROVEN); neither of its√two√controls fired. At the point it
+was given, the b-route reproduced System C exactly over Q(i, 3, 11) — by exact cancellation,
+never by comparing radicals for equality — with numeric residuals 2.0 × 10−177 and 2.5 × 10−175 at
+40 digits over four sample points, while the c-route missed by −1/(z −q), numerically 1.45, with the
+Q difference numerically 8.1; the same test rejected a deliberately wrong point q 7→ q + 1 (S17-21,
+PROVEN).
+    That computation also explains the earlier contested result rather than merely overruling it
+(S17-22, PROVEN). The c-route residual −1/(z − q) is the simple zero of c(z) = −(z − q)/(q − 1)
+of (21) at z = q, which is what (30) predicts when b is constant at the point. Since −1/(z −q) has no
+zero in z, a comparison made against the c-route returns a mismatch at every sample point and at
+every parameter value: the earlier test could not have returned a match under any circumstances.
+The residual was reached without the computation being told to expect it.
+    Finally, the local data at infinity were checked independently (S17-23, PROVEN). The leading
+matrix at infinity is diag(t/2, −t/2) with distinct entries, so the +t/2 branch has eigenvector e1 +
+O(1/z)                                √ exponent θ∞ /2 with no shift, for any θ∞ ; System C demands
+       √and its first component carries
+−1 − 3/18, forcing θ∞ = −2 − 3/9 with residual 0 at 40 digits, and the subdominant branch
+was predicted from ord∞ (n12 ) = 2 and matched exactly. Its scope is stated in the claim itself and
+is repeated here: since P and Q already agree identically, agreement of every local datum follows.
+This is corroboration by a second route, not an independent constraint, and it must not be counted
+twice.
+
+Remark 7.2 (Two method defects, self-caught; S17-25, PROVEN). Recorded as findings about
+method, and deliberately not adopted as claims about the mathematics. First, keeping θ∞ symbolic
+inside the scalar reduction and reading heads at infinity is unsound, because degz b drops from 1 to
+0 at exactly the value of θ∞ of interest, so the heads are discontinuous there. Second, the difference
+of the two exponents at infinity is not gauge-invariant between the system and a scalar reduction,
+the branches carrying √powers 0 and −2; this second defect returned the verdict inconsistent together
+with the value θ∞ = 3/9, wrong by exactly the shift 2 of §6.1. It was caught by an arithmetic
+control — the scalar exponents must sum to −P1 , and they summed to −1 against System C’s −2.
+This is the converse of Remark 6.1: a control that fired, on a real defect, inside a check that would
+otherwise have returned a confident wrong answer.
+
+7.5   The caveat, withdrawn
+The “up to rank-1 twist” qualifier of §6.5 is withdrawn (S17-06, STRUCTURAL). The defensible
+statement is
+
+      the differential module of System C is the module of the van der Put–Saito family at
+      the located point of U0 ,
+
+                                                  23
+with no twist qualifier.
+    It is worth being exact about why it is withdrawn, because the conclusion was first reached
+for a reason that does not support it. Uniqueness does not follow from trace-freeness; §7.1 refutes
+that. It follows here from the direct verification of §7.2 that the full operators agree. A correct
+conclusion does not certify the reasoning that reached it, and each statement adopted in this paper
+is verified on its own account.
+    The adjudication that settled the contested step is itself recorded with its limits (S17-24,
+STRUCTURAL). The separately commissioned computation was independent of the two sessions
+it adjudicated, but not of the input file it was handed, which this programme wrote; and it was
+given the point rather than locating one, so it is not a second independent location of a point of
+U0 . It tested the disputed step and nothing else, which is what it was asked to do.
+    One bookkeeping note, recorded so that the citation trail is readable. S17-09 was amended in
+place to carry the orientation and the denominator proviso of (30); its label and its mathematics
+are unchanged, and the prior text is preserved verbatim in the record (S17-26, STRUCTURAL).
+What §6 and this section together establish is an isomorphism of differential modules at an explicitly
+located, provably unique pair of points, and therefore a unique Painlevé V leaf through System C.
+What they do not establish is that the normalised representative of a projective class is unique in
+general — that remains §11’s question — and the monodromy and Stokes data, which §8 computes,
+are not used anywhere above.
+
+
+8     Monodromy, Stokes data, and the character variety
+Sections 6 and 7 identified System C with a member of the van der Put–Saito family at a located
+point of the chart U0 , and removed the projective qualifier from that identification. What has
+not yet been produced is the monodromy data: the point of the character variety that System C
+represents. This section produces it. It does so with a solver that is first validated against a case
+with closed-form answers, and under a set of orientation and ordering conventions that are selected
+by test rather than assumed.
+    The distinction matters more here than anywhere else in the paper. Trace coordinates are
+not convention-independent: a different choice of loop orientation, of the order in which local
+monodromies are composed, or of which loop at infinity is called γ∞ , produces a different triple
+for the same differential system. A stated triple without a stated convention is not a result. The
+convention used below is therefore the output of §8.3, not an input to it.
+
+8.1   The solver, and a case where the answer is known
+The solver computes formal solutions at the irregular singular point, the Stokes matrices relating
+consecutive sectors, and the monodromy representation, by numerical analytic continuation of a
+fundamental matrix. It was validated on Kummer’s equation, whose monodromy, formal data and
+Stokes data are all available in closed form.
+
+Remark 8.1 (Known-answer validation; S22-01, VERIFIED). The solver reproduces Kummer’s
+monodromy, formal and Stokes data against the closed forms: 32 of 32 checks pass at at least 35
+digits, with 44 to 151 digits observed, at both pre-registered parameter values.
+
+   Two structural facts about Kummer’s case were established in the course of that validation,
+and both are used later.
+
+
+
+                                                 24
+Remark 8.2 (The trace-free gauge is not optional; S22-02, STRUCTURAL). Kummer’s com-
+panion system is not trace-free: tr B = 1 − b/z. Hence det M0 = e−2πib ̸= 1, and the van der
+Put–Saito SL2 factorisation is unavailable until the trace-free gauge of §7.1 has been applied. This
+is the same reduction that §7 performed for System C, met here in a case where its necessity is
+visible from the local exponents alone.
+
+Remark 8.3 (Orientation at infinity; S22-03, STRUCTURAL). The counterclockwise circle
+at infinity is homotopic to γ0 . Van der Put–Saito’s M∞ is the clockwise loop, and their α is
+consequently e−2πiL11 . The sign in the exponent is the whole content of the remark: it is the
+difference between two conventions that agree on every other datum, and it is the reason §8.3 tests
+orientation rather than fixing it.
+
+    Two further algebraic checks from the same validation are omitted from this section deliberately.
+Both were vacuous as first written — one an identity that holds for every unimodular matrix with
+a nonzero corner entry, the other a comparison across two different factorisation orderings — and
+both were repaired and proved. They record how the validation battery was debugged, not what
+the battery established, and are set out in the methods appendix, §B, with the claims S22-04 and
+S22-05. The corrected form of the second is in any case a dependent restatement of checks already
+counted, and is not independent evidence.
+
+8.2   The system at the located point
+Before any monodromy is computed, the family member at the located point is checked against the
+local data it is supposed to have.
+
+Remark 8.4 (The family at the point; S22-06, VERIFIED). At the point located in §6, the
+printed (4.1) family satisfies det A0 = det A1 = 0 exactly, and A∞ = (t/2) diag(−1, 1) to 121 digits.
+
+   The first of these is exact rather than numerical because it is a polynomial identity in the
+entries; the second is the residue at infinity, and is the datum the whole Riemann–Hilbert side
+depends on. One discrepancy with the printed source surfaced at this stage and is recorded here
+because a reader checking against that source will meet it.
+
+Remark 8.5 (A discrepancy with the printed prose; S22-07, VERIFIED). The computation
+gives (A0 + A1 )11 = −θ∞ /2, where the prose of van der Put–Saito at p. 2629 states θ∞ . This was
+first found in the location analysis and is reconfirmed here at the numeric point. Nothing in this
+paper rests on it: the factor is never used, and it is reported so that the discrepancy is on record
+rather than rediscovered.
+
+Remark 8.6 (The exponent at infinity, in closed form; S22-08, VERIFIED).
+                                                                √           L11 = θ∞ /2 exactly,
+so that α = e±iπθ∞ in closed form, with |α| = 1 and | arg α| = π 3/9 = 0.60459978807807261686.
+Both the modulus and the argument were predicted before the run, and both were hit.
+
+    That |α| = 1 is worth a sentence. It says the monodromy eigenvalue at infinity
+                                                                                 √      lies on the unit
+circle, which is what one expects of a θ∞ that is real — and θ∞ = −2 ± 3/9 is real, by (27).
+The prediction was registered in advance precisely because a modulus differing from 1 would have
+indicated a transcription error in the exponent rather than a feature of the system.
+    The formal series at the irregular point is divergent, so the accuracy available from it is bounded
+by optimal truncation, and that bound has to be measured rather than assumed.
+
+
+
+                                                  25
+Remark 8.7 (Optimal truncation; S22-09, VERIFIED). The truncated formal series’ residual
+sits at the minimal term of the series — ratio 1.29 against a bound of N 3 — and decays at the
+predicted Gevrey rate e−|t|R between R = 160 and R = 140, with observed over predicted 1.259.
+
+   This is the accuracy ceiling for everything downstream. It is not a limitation of the arithmetic
+precision, and §9.2 shows directly that raising the precision does not move it.
+
+8.3   Selecting the convention
+The conventions were not chosen. A candidate set was enumerated, four conditions were registered
+in advance, and the set was searched.
+    The four conditions are: that the monodromy representation act on the right; that the small
+loops around the finite punctures run counterclockwise; that M∞ be the clockwise loop at infinity,
+as S22-03 requires; and that van der Put–Saito’s M1 be the loop γ1 . The test is the relation
+M0 M1 M∞ = I, at a threshold of 10−30 .
+
+Remark 8.8 (The candidate set was too small; S22-10, STRUCTURAL). The pre-registered
+8-element candidate set tied the orientation of γ∞ to that of the small loops, and therefore could
+not represent γ0 γ1 = γ∞ at all. None of the 8 passed; the best residual was ∥M M M − I∥ = 6.85.
+The set was widened to 16 by untying the two orientations, with the four conditions and the 10−30
+threshold left unchanged.
+
+     The widening is recorded rather than quietly performed because it is a change to a pre-registered
+object. What was not changed is the criterion: the same four conditions and the same threshold
+were applied to the larger set. A failure of all eight candidates at O(1) is not a marginal miss, and
+it is the signature of a set that omits the truth rather than of a threshold set too tight.
+
+Remark 8.9 (Exactly one convention survives; S22-11, VERIFIED). Over the 16 candidates
+exactly one satisfies all four conditions: right action, small loops counterclockwise, M∞ clockwise,
+van der Put–Saito’s M1 = γ1 . For it, ∥M0 M1 M∞ − I∥ = 2.44 × 10−105 . The other 15 fail, several
+on α alone, with residuals 0.327, 2.27 and 2.34.
+
+   The gap between 2.44 × 10−105 and the nearest competitor is not a matter of ranking: the
+surviving candidate satisfies the relation to the full working precision, and the others miss it by
+O(1). Exactly one is therefore a genuine selection and not a choice among near-misses, which is
+what makes the triple below well defined.
+
+8.4   The trace coordinates
+Throughout, B1 , B2 , B3 are the monodromy matrices in the sense fixed in §2.8, with ai = tr(Bi ) ≡ 2,
+and the affine trace coordinates are
+
+                      x1 = tr(B2 B3 ),     x2 = tr(B1 B3 ),    x3 = tr(B1 B2 ),                  (31)
+
+as in (4). We restate (31) here rather than refer to it, because the values below are meaningless
+without knowing which product each coordinate is the trace of, and because x1 is the trace of the
+product that omits B1 — the indexing most easily got backwards.
+
+
+
+
+                                                 26
+Remark 8.10 (The values; S22-12, VERIFIED). At t0 , in the convention selected in §8.3,
+
+ x1 = −3.4791908904110720783362611334763347 − 1.085013570276491408740290278433511 i,
+ x2 =     5.0274753770206575050513601616191382 + 2.3656209874946766465307178962989066 i,
+ x3 =     1.9725752524636335304002661101339216,
+    α=    0.82272965712005465178275844880452679 + 0.56843285557321306726020179279562511 i.
+
+The error bar is 8.49 × 10−105 , obtained from step halving — 273 steps against 487 — and not from
+a single run.
+    That the error estimate comes from step halving rather than from a residual reported by a
+single integration is the point of the parenthesis. A single run can report a small residual and be
+wrong by far more; two runs at different step sizes bound the discretisation error they do not share.
+Note also that x3 is real while x1 and x2 are not, and that |α| = 1 to the digits shown, consistent
+with S22-08.
+Remark 8.11 (A smooth point of a singular fibre; S22-13, VERIFIED). The point is a smooth
+point of a singular cubic fibre. The fibre is singular because a1 = a2 = 2 places it on two resonance
+divisors; but grad F has modulus (1.523094, 1.5231748, 21.240405) componentwise there, which is
+nonvanishing, so the coordinates retain first-order sensitivity at the point.
+    The two adjectives pull in opposite directions and both are needed. Singularity of the fibre is
+what §5.2 warned of: the resonance conditions are not excluded, and they are met here. Smoothness
+of the point is what rescues the computation, because a coordinate system that degenerated at the
+point would make the triple above uninformative however many digits it carried.
+
+8.5      The coordinates see the leaf
+One thing remains to be checked before §9 can use these coordinates as a test of leaf membership:
+that they move when the point moves off the leaf. An invariant that is constant for a trivial reason
+confirms nothing.
+Remark 8.12 (Sensitivity; S22-14, VERIFIED). The observable is sensitive to leaf membership:
+at δ = 10−6 , maxi |dxi | = 8.686 × 10−6 in the q direction and 2.639 × 10−5 in the p direction,
+against a floor of 10−15 , with first-order ratios 99.99978 and 99.99956, both inside the pre-registered
+window [50, 200].
+    The ratios are the substance, not the magnitudes. They say the response is first order in the
+displacement, which is what distinguishes a coordinate that genuinely resolves the leaf direction
+from one that happens to be small. The constancy reported in §9 is therefore a statement with
+content: the same coordinates, displaced off the leaf by 10−6 , move by five orders of magnitude
+more than the floor.
+
+
+9     Transport along the leaf, and the second branch
+Section 6 established, structurally, that exactly one Painlevé V leaf passes through System C, and
+§8 produced the point of the character variety that the system represents. Neither of those is yet
+a demonstration that the system moves along that leaf. This section performs the test: integrate
+the flow in t, rebuild the differential system at the new time, recompute the trace coordinates, and
+ask whether they have moved.
+
+                                                  27
+    They should not. The trace coordinates are the isomonodromic invariants; a deformation is
+isomonodromic precisely when they are constant. So the observable is the drift, and the test is
+passed by its absence — which is why §8.5 had to establish first that the drift is not absent for
+trivial reasons.
+
+9.1    The transport test
+Remark 9.1 (Constancy along the flow; S22-15, VERIFIED). System C’s point transports along
+Painlevé V with the trace coordinates x1 , x2 , x3 constant to 90.81 digits at ε = 10−3 and 91.83 digits
+at ε = 10−4 , against a pre-registered threshold of 30 digits. The gap left open in the location analysis
+is thereby closed numerically. This is a numerical agreement at one point along one direction in t;
+it is not a proof of leaf membership.
+    The last sentence is part of the claim, not a hedge added in drafting, and the label is VERI-
+FIED for exactly that reason. Ninety digits is a great deal of agreement and it is still agreement
+at a point. What would be required for more is set out in §6.5; what is available is this.
+    A constancy result is only as good as its ability to fail, so the same machine was run with the
+flow deliberately broken.
+Remark 9.2 (The test discriminates; S22-16, VERIFIED). The same transport run with a
+deliberately wrong vector field — the constant 2θ∞ − 2 dropped from dp/dt — moves the trace
+coordinates by 3.83 × 10−2 .
+    The mutation is small and structural: one constant term removed from one component of the
+field (24), leaving a vector field that is still a plausible flow and still integrates without complaint.
+It moves the coordinates by nearly ninety orders of magnitude more than the true field does. The
+constancy in S22-15 is therefore a property of the specific flow of §5.4 and not of the integration
+scheme, the rebuilding procedure, or the coordinates.
+
+9.2    The residual is not round-off
+Ninety digits of agreement out of a working precision of two hundred invites the question of what
+limits it. If the answer were arithmetic precision, the result would be an artefact of the arithmetic;
+the claim is that it is not.
+Remark 9.3 (Precision is not the ceiling; S22-17, VERIFIED). Raising the precision from 200 to
+320 digits leaves the agreement and its ratio unchanged to every printed figure — 90.8118, 91.8301,
+ratio 10.429999 — while every precision-limited control improves by about 120 digits: ∥M M M − I∥
+from 1.20 × 10−105 to 5.57 × 10−225 ; the cubic from 3.96 × 10−112 to 7.13 × 10−232 ; |x3 (t1 ) − x3 (t0 )|
+from 2.35×10−113 to 3.30×10−233 . The α residual stays at 1.834×10−91 . Over ε = 10−3 , 10−4 , 10−5
+the ratios are 10.430 and 10.034. The residual is therefore a systematic O(ε) error and not round-
+off; it is floored by the optimal-truncation level e−|t|R = 10−88.7 set by the pre-registered R, which
+no precision can reduce.
+    This is the cleanest structural statement in the section, and it is worth saying why. Two families
+of quantities were measured at two precisions. One family moved by 120 digits and one did not
+move at all. A quantity that is insensitive to a 120-digit change in precision is not limited by
+precision. The ratios near 10 identify what it is limited by — first-order dependence on the step
+ε — and the optimal-truncation bound of S22-09 identifies the floor beneath that. The three
+measurements agree, and the agreement is what converts “the residual is small” into “the residual
+is understood”.
+
+                                                    28
+9.3   The second branch
+                                                                     √
+The location analysis produced a pair of solutions, conjugate in         3. Everything above concerns
+one of them. The second was not inferred from the first.
+
+Remark √ 9.4 (Branch 2, run independently; S22-18, VERIFIED). Branch 2 of the sign pair,
+t = +2 33 i/9, passes the convention selection, the sensitivity check and the transport test inde-
+pendently: the selection test picks exactly one convention out of 16, this time right|clockwise|γ∞
+counterclockwise|01; the sensitivity ratios are 99.9952 and 99.9998; the transport agreement is 90.82
+and 91.84 digits against the same 30-digit threshold. Branch 2 was run, not inferred.
+
+   The emphasis is deliberate and §9.4 explains why it was necessary rather than merely careful.
+
+9.4   The Galois relation between the branches
+Remark 9.5 (The branches are Galois  √ conjugate;
+                                         √           S22-19,
+                                                       √      PROVEN).
+                                                                  √          Branches
+                                                                             √          1√and 2 are
+related by the automorphism σ of Q( 3, 11) with σ( 3) = − 3 and σ( 11) = + 11, which
+maps t, θ∞ , q and p term by term, each difference simplifying to exactly zero, with an independent
+numeric arm. They are not complex conjugates.
+
+Remark 9.6 (Why σ does not transfer the monodromy; S22-19, PROVEN). σ is an automor-
+phism of a number field. It does not act on analytic continuation. It therefore transfers the location
+argument of §6, which is algebraic, and carries no monodromy information — which is precisely
+why branch 2 had to be run.
+
+     This is the load-bearing distinction of the section. It is tempting to regard two Galois-conjugate
+parameter values as interchangeable and to read off the second branch’s monodromy from the
+first. That inference is invalid: the monodromy is computed by continuation along paths, and a
+field automorphism has nothing to say about paths. The cost of the distinction is one complete
+independent run; the benefit is that the statement below is a comparison of two computed objects
+rather than a restatement of one.
+
+Remark 9.7 (The same point, up to relabelling; S22-20, VERIFIED). The two branches yield
+the same point of the character variety up to relabelling: x1 and x2 are interchanged, while x3
+and α are identical, and the selected conventions are exact mirrors of one another. The mirrored
+convention is a result of branch 2’s own selection test, not an assumption carried over from branch
+1.
+
+9.5   What the upgrade says, and what it does not
+The exhaustive elimination of §6.4 changes the status of the branch relation, and the change has
+to be stated with its scope attached.
+
+Remark 9.8 (The parameter-level upgrade; S25-02, PROVEN). The two branches are Galois
+conjugate at the level of the parameters, and this is exhibited rather√than observed: the saturated
+matching ideal is zero-dimensional of degree exactly 2 over K = Q(i                  √ eliminant
+                                                                    √ 11), and its lex        √ in
+θ∞ is proportional to 27θ∞2 + 108θ + 107, whose roots are −2 ± 3/9. The map            3 7 → − 3 is
+                                   ∞
+that eliminant’s own Galois action.
+
+Remark 9.9 (The scope of the upgrade). S25-02 supplies the structural content that S22-20 lacked,
+but it is a statement about the parameters. It is not a statement about the Stokes data, which is
+
+
+                                                  29
+transcendental in the entries of the system. The branch relation is therefore no longer purely
+numerical; it is not thereby proved at the level of the character variety. The two are different
+statements and this paper does not elide the difference: S22-20 remains VERIFIED, on two
+independent runs.
+
+9.6    An involution, and a structural route that does not close
+If the branches give the same point up to an interchange of x1 and x2 , the natural question is
+whether some symmetry of the differential system realises that interchange. There is an obvious
+candidate.
+
+Remark 9.10 (The involution; S22-23, PROVEN). For the System C family at both branches
+the denominator D(z) = z 2 − z is exactly invariant under φ(z) = 1 − z. Hence φ fixes the singular
+set {0, 1, ∞} setwise and exchanges the two finite punctures. Since θ0 = θ1 = 0, the local data at 0
+and at 1 are interchangeable, so φ is the only candidate involution that could produce the observed
+x1 ↔ x2 swap with x3 and α fixed.
+
+     The candidate is natural, and it fails.
+
+Remark 9.11 (No constant-gauge equivalence; S22-24, PROVEN). There is no analytic equiv-
+alence between the two branches of the form A2 (z) = −G A1 (φ(z)) G−1 with G a constant gauge,
+for any of the four candidate maps φ: the identity, z 7→ 1 − z, coefficient conjugation, and coeffi-
+cient conjugation composed with z 7→ 1 − z. Since A is traceless, its determinant is the only gauge
+invariant, and the necessary scalar condition on − det A fails for all four, with maximal coefficient
+3.83, 0.416, 0.416 and 3.83 respectively.
+
+Remark 9.12 (The negative is informative). A failed symbolic identity can mean “no such relation”
+or “the simplifier did not get there”. The positive control separates them: σ applied to branch 1’s
+invariant, minus branch 2’s, returns exactly zero through the same radicals and the same simplifier.
+The machinery is therefore capable of returning zero on this class of expression when zero is the
+answer, and the four nonzero results are findings rather than failures to simplify.
+
+   The consequence is stated plainly. The proposed structural route to S22-20 does not close, and
+S22-20 stands as VERIFIED-numerical on two independent runs, not as structural. What has
+been refuted is the simplest form of the argument: a z-dependent gauge is untested and remains
+open, and is listed as such in §11.
+   This is the second place in the paper where a structural argument for a numerically solid fact
+has been sought; the first was the twist question of §7.1, where one was found. Here none was.
+Recording the failure at the same weight as the success is the point: a reader who sees only the
+successes cannot tell which of the paper’s identifications are supported by structure and which are
+supported by digits.
+
+
+10      Scope and limits
+The preceding sections established a chain: a growth law for the denominators, a local classification,
+a moduli space, a located point, the removal of a projective ambiguity, a point of the character
+variety, and transport along the flow. This section states what that chain does and does not
+establish. It is written so that a reader who stops here is not left to infer the strength of any link
+from the confidence of the prose.
+
+
+                                                 30
+10.1    Membership: a caution, and its discharge
+The membership result was obtained twice, and the order in which it was obtained is part of what
+it means.
+Remark 10.1 (Membership, with the original caution; S16-14, STRUCTURAL). System C
+satisfies every hypothesis under which van der Put and Saito build the moduli space Mt,λ for the
+(0, 0, 1, −) row, it is a point of the chart U0 , and since Painlevé V is the isomonodromy foliation
+on that space, and since q(q − 1) ̸= 0 and t ̸= 0 at the point so that the vector field is regular
+there, exactly one leaf passes through System C. The deformation exists and is not an ansatz. The
+caution attached to it was this: the match was of projective normal forms, so what was established
+was that C’s projectivisation is that of the family member at (p, q, t) — equality up to a rank-one
+twist, in the same sense in which B and C are projectively equivalent. That caution is the reason
+the label is STRUCTURAL and not PROVEN.
+    The caution was real, and it was not overlooked: it was stated by the session that produced the
+result, against its own conclusion. It was discharged afterwards, by a different computation.
+Remark 10.2 (The caution removed; S17-04, PROVEN). A second-order operator is determined
+by the pair (P, Q) in ∂ 2 + P ∂ + Q. The projective invariant R = 14 P 2 + 21 P ′ − Q that the earlier
+match used is blind to a rank-one twist, whereas (P, Q) is not. Comparing both coefficients: System
+C in the z coordinate has the pair PC , QC of (28)–(29), and the family’s scalar operator at the
+located point (p, q, t, θ∞ ) with cyclic vector e1 has exactly the same P and Q: PF − PC = 0 and QF −
+QC = 0 identically. The two differential modules are therefore isomorphic, not merely projectively
+isomorphic.
+Remark 10.3 (The consequence, and its ground; S17-06, STRUCTURAL). The “up to a rank-
+one twist” caveat is accordingly withdrawn. It is withdrawn because the full operators were verified to
+agree, and not because trace-freeness singles out a representative of a projective class; that argument
+is false, and §11.1 says why. The defensible wording is that the differential module of System C is
+the module of the van der Put–Saito family at the located point of U0 , with no twist qualifier.
+   Two things did not change when the caveat was withdrawn.
+Remark 10.4 (The statement changed, not the label; S17-08, STRUCTURAL). Membership
+was deliberately not raised above STRUCTURAL. Any such raise was tied in advance to a falsifier
+that remains unrun (§10.2). What the discharge changed is the statement — membership is now
+about System C’s actual differential module rather than its projectivisation — and not the strength
+of the evidence for it.
+    This is the reason the paper’s central result is labelled as it is. The operator identity is
+PROVEN; the membership statement built on it is STRUCTURAL. Nothing in the intervening
+sections upgrades the second because the first was strengthened.
+
+10.2    The falsifier that was not run
+Remark 10.5 (Not established; S16-15, CONJECTURED). The pre-registered falsifier was not
+run. It requires integrating Painlevé V from (t0 , q, p) to t0 + ε for two values of ε, rebuilding the
+linear system, and computing monodromy and Stokes data agreeing with C’s to at least 30 digits.
+Computing Stokes data for an irregular rank-two system at that precision is a separate undertaking,
+and it was outside the budget. What was done instead, and what is reported as supplementary rather
+than as the falsifier, is a regularity check of the vector field at the point.
+
+                                                  31
+    The threshold was left unchanged for whenever the falsifier is run. No threshold was weakened
+to close this gap, and the gap is recorded as a gap. A reader should take the label at face value:
+CONJECTURED here means that a specific, stated, still-available test has not been performed.
+
+10.3    What the numerical confirmation covers
+The transport computation of §9 closed the same gap numerically, which is a different thing, and
+the difference is the subject of this subsection.
+Remark 10.6 (Constancy, and its limits; S22-15, VERIFIED). The trace coordinates x1 , x2 , x3
+are constant along the flow to 90.81 digits at ε = 10−3 and 91.83 digits at ε = 10−4 , against a
+threshold of 30 digits. This is a numerical agreement at one point along one direction in t; it is not
+a proof of leaf membership.
+    That last sentence belongs to the claim and not to the drafting. Three further qualifications
+delimit it.
+    First, the confirmation is for the trace coordinates, and for those alone. It is not a confirmation
+of the monodromy representation itself, still less of the Stokes data, which is what §10.2’s falsifier
+would require.
+    Second, it is a confirmation under one convention, and the selection of that convention is itself
+a result rather than an assumption.
+Remark 10.7 (The convention is a result; S22-11, VERIFIED). Of 16 candidate conventions
+exactly one satisfies all four pre-registered conditions — right action, small loops counter-clockwise,
+M∞ clockwise, van der Put–Saito’s M1 = γ1 . For it, ∥M0 M1 M∞ − I∥ = 2.44 × 10−105 ; the other
+fifteen fail, several on α alone, at 0.327, 2.27 and 2.34.
+    A reader is entitled to ask whether the result is an artefact of a convention chosen to make
+it work. The answer is that the convention was fixed by pre-registered conditions before the
+comparison, that fifteen of sixteen alternatives are excluded by those conditions, and that the
+exclusion is quantitative rather than stylistic. What is not shown is that the result would survive
+a different set of conditions; that is the open question of §11.2.
+    Stated for the record, in the form in which it should be quoted: membership is confirmed for
+the trace coordinates x1 , x2 , x3 , under the one convention of sixteen that passed, and the selection
+of that convention is itself a result and not an assumption.
+    Third, the agreement does not improve without bound, and the reason is understood.
+Remark 10.8 (The residual is systematic, not round-off; S22-17, VERIFIED). Raising the
+working precision from 200 to 320 digits leaves the agreement and its ratio unchanged to every
+printed figure — 90.8118, 91.8301, ratio 10.429999 — while every precision-limited control improves
+by about 120 digits. Over ε = 10−3 , 10−4 , 10−5 the ratios are 10.430 and 10.034. The residual is
+therefore a systematic O(ε) error of the integrator, not round-off, and it is floored by the optimal-
+truncation level 10−88.7 set by the pre-registered truncation radius, which no increase in precision
+can reduce.
+    The practical consequence is that ninety digits is the instrument’s ceiling at this ε, and that
+quoting a larger figure would require a different integrator rather than a longer run.
+    The second branch of the sign pair was treated the same way rather than inferred from the first.
+                                                                                      √
+Remark 10.9 (Branch two was run; S22-18, VERIFIED). Branch 2, at t = +2 33 i/9, passes
+the convention selection, the sensitivity stage and the transport stage independently: exactly one
+convention of 16 is selected, the sensitivity ratios are 99.9952 and 99.9998, and the transport agree-
+ment is 90.82 and 91.84 digits against the 30-digit threshold. It was run, not inferred.
+
+                                                  32
+10.4    What this paper does not claim
+Collected, so that they are not left to be reconstructed:
+
+  1. That leaf membership is proven. It is STRUCTURAL, and the test that would raise it is
+     named and unrun (§10.2).
+  2. That the numerical transport constitutes such a proof. Its own claim says it does not.
+  3. That the monodromy or Stokes data of System C have been compared with the family’s along
+     the flow. They have not.
+  4. That the projective normalisation has a unique representative on general grounds. The nat-
+     ural argument for that is false (§11.1).
+  5. That the result is independent of the monodromy convention. One convention was selected
+     by stated criteria; independence is open (§11.2).
+  6. That every displayed formula in this paper has been re-derived from the computation that
+     produced it. All 56 displays of §§0–10 are routed: 21 were re-derived symbolically from the
+     script that computed them, 9 were verified against the printed page they were transcribed
+     from, 11 are definitional, and 15 trace to a recorded claim without symbolic re-derivation.
+     Of those 15, the exact q and p of §6.3 were subsequently re-derived coefficient by coefficient,
+     as was the coefficient QC of (29), in each case against a prediction fixed in advance. The
+     remaining twelve, all short displays, are traced but not symbolically re-derived, and that is
+     the residual. Here re-derived means recomputed symbolically from the script and compared,
+     not merely checked.
+
+
+11     Open questions
+Two questions are left open by this paper, and this section states them precisely enough that
+answering either is a definite piece of work. A third question, on the closed form of a constant
+arising in the Borel plane, belonged to an earlier scope for this paper and has left it together with
+the material it depended on; it is not restated here, because stating it would require machinery
+that no section above sets up.
+
+11.1    Uniqueness of the normalised representative
+The membership argument of §10.1 compares System C with a member of the van der Put–Saito
+family. That comparison is between representatives, and the family is presented in a normalised
+form. It is natural to ask whether the normalisation determines the representative — whether,
+inside a projective class, van der Put–Saito’s normalised form is reached by exactly one module. If
+it were, membership would follow from a projective match alone, and the whole of §10.1’s second
+step would be unnecessary.
+    The obvious argument for uniqueness is that a trace-free representative is unique. That argu-
+                                                                                 1
+ment is false, and the counterexample is explicit: the 2-torsion object L = ∂ − 2z of §7.1 (S17-02,
+PROVEN) is trivial after tensoring with itself but not before, so tensoring by it preserves both
+the projective class and the triviality of the determinant while changing the module. A projective
+class can therefore contain more than one trace-free module up to isomorphism, and “exactly one
+trace-free representative per projective class” is false as a general statement.
+    What replaces it is not settled here.
+
+                                                 33
+Remark 11.1 (The question, deliberately not answered; S17-07, CONJECTURED). Since
+trace-freeness alone is insufficient, the correct sharper hypothesis under which a projective class has
+a unique representative in van der Put–Saito’s normalised form is not settled. A 2-torsion twist
+shifts local exponents by 12 , but individual local exponents depend on the choice of lattice, so whether
+the normalisation “local exponents ±θi /2” excludes such twists needs an argument this work does
+not make. It is reported as an open question rather than guessed.
+    Two remarks on the status of this gap.
+    It is not load-bearing. The membership result does not depend on uniqueness, precisely because
+the comparison of (P, Q) was carried out directly rather than deduced from a projective match.
+The question is open, and the paper is not waiting on it.
+                                                                            √ work, and the point
+    It is also not closed by the Galois symmetry that appears elsewhere in this
+is worth making explicitly, because two statements in this paper carry a 3 and a reader could
+otherwise join them.
+Remark 11.2 (The elimination, and what its symmetry is about; S25-02, PROVEN). The ideal
+generated by the six matching
+                         √     generators, saturated at q(q − 1) ̸= 0, is zero-dimensional of degree
+exactly 2 over K = Q(i 11). Its lex eliminant in θ∞ is proportional to 27θ∞       2 + 108θ
+                                                                                           ∞ + 107
+— exactly
+      √    the polynomial
+                      √   registered as a prediction before the computation   was  run
+                                                                                     √ —  with√roots
+−2 − 3/9 and −2 + 3/9. The two solutions are Galois conjugate over K under 3 7→ − 3.
+    That conjugacy relates the two solutions of the elimination, and hence the two branches of the
+sign pair, both of which were run (§10.3). It is a statement about parameters. The open question
+of this subsection is about a z-dependent gauge transformation between modules, whose effect is
+√ a substitution
+not      √         in a parameter field. The two are unrelated, and neither bears on the other: the
+  3 7→ − 3 conjugacy does not close the gauge question. It is stated here so that the reader
+does not have to decide for themselves whether a connection was intended.
+
+11.2     Independence of the monodromy convention
+The comparison of characters in §8 is carried out in one convention, selected from sixteen by four
+pre-registered conditions (§10.3, S22-11). The selection is a result: the conditions were fixed first,
+and fifteen candidates fail them quantitatively. What is open is the next statement along, which is
+stronger and which this paper does not make.
+
+       Question. Is the identification of System C’s point in the character variety independent
+       of the four conditions used to fix the convention — that is, would a different, equally
+       defensible set of conventions yield a point equivalent to this one under the corresponding
+       change of coordinates?
+
+    The distinction matters because the two statements are easy to conflate. What is established is
+that, given the four conditions, the convention is forced and the comparison succeeds. What is not
+established is that the conditions themselves are inessential. A convention is a choice of orientation,
+of side for the group action, and of which loop is which; a different choice induces a computable
+change of coordinates on the character variety, and showing independence means exhibiting that
+change and verifying that it carries the located point to the located point.
+    Answering it is mechanical rather than deep: enumerate the conventions as before, and for
+each, transport the located point along the induced coordinate change instead of discarding it. The
+reason it was not done is that fifteen of the sixteen do not satisfy the conditions, so the machinery
+built for this work excludes them before any transport is attempted. A study of independence would
+
+                                                   34
+need the excluded fifteen carried forward rather than dropped, which is a different computation
+from the one performed.
+   Until it is done, the membership statement should be read with the scope given in §10.3:
+confirmed for the trace coordinates x1 , x2 , x3 , under the one convention of sixteen that passed.
+
+
+A     A misprint in the published family, and its correction
+This appendix is not errata history. The point located in §6 lies in a family whose defining matrix is
+quoted from the published source, and one entry of that matrix is misprinted. Everything computed
+in this paper uses the corrected entry. The correction is therefore part of the mathematics the paper
+depends on, and it is set out here in full, with the evidence that decides it, so that a reader working
+from the published page reproduces this work rather than diverging from it silently.
+
+A.1    The entry, as printed
+Remark A.1 (The printed reading; S16-18, INSPECTED). On journal page 2655, confirmed
+                                                                                         2
+from the running head, the b(z) entry of the family prints its first term as p+ 21 (q−1)q , with no t,
+while the second term carries (q − 1)q t twice. Read from the same display: c(z) = −(z − q)/(q − 1),
+hence c(0) = q/(q−1); a(z) = p+ 21 (−2qt+t−θ∞ )(z−q)− 12 t(z−q)2 ; “q is the unique zero of c(z) and
+p = a(q)”; and “(p, q) gives canonical coordinates on an affine Zariski open set U0 ∼ = C×(C\{0, 1})
+of the moduli space Mt,λ ”.
+     The label is INSPECTED: the statement is what the page shows, verified by looking at a
+magnified render of it, and it is not the output of a computation. The same discipline applies to
+every quotation from the source in this appendix.
+     The asymmetry within the entry — one term with t, the neighbouring term without — is what
+first drew attention, but an asymmetry is not an argument. The argument is that the printed
+reading fails a test the source itself supplies.
+
+A.2    The test that discriminates
+Remark A.2 (The discriminating test, with a control; S16-20, VERIFIED). Since A(z) =
+z(z − 1)A∞ + (z − 1)A0 + zA1 , the source’s own constraints det Ai = −θi2 /4, stated on journal page
+2637 for i = 0, 1, read det A(0) = −θ02 /4 and det A(1) = −θ12 /4. The first holds identically for
+both readings and2 so does not discriminate. The second holds identically for the corrected reading
+     1
+ p + 2 (q − 1)q t , and for the printed reading leaves the residual
+                              − 14 (q − 1)(t − 1) 4p + q 2 t + q 2 − qt − q ,
+                                                                           
+
+which is non-zero at the exact rational point p = 2/7, q = 5/3, t = 11/4, θ0 = θ1 = 0, θ∞ = 3/5,
+where it equals −223/144. A deliberately bogus variant (q − 1)q t2 is rejected by the same test, so
+the test discriminates rather than accepting anything offered to it.
+    The control is the part that makes this evidence. A test that accepted the corrected reading and
+was silent on everything else would establish only that the corrected reading is consistent; rejecting
+a third variant shows the test has the power to separate.
+Remark A.3 (Corroborating structure; S16-21, VERIFIED). The printed reading’s residual
+carries the factor (t − 1) and so vanishes precisely at t = 1 — which is exactly the value at which
+the two readings coincide, since (q − 1)q · 1 = (q − 1)q. A dropped factor of t produces exactly this
+signature. This is corroboration for the diagnosis, not independent proof of it.
+
+                                                  35
+   The final sentence is the claim’s own, and it is reproduced rather than paraphrased. A signature
+consistent with a dropped factor is consistent with other things too; it raises confidence without
+deciding anything by itself.
+
+A.3    The same expression, printed correctly, a few lines below
+The decisive corroboration is on the page itself.
+
+Remark A.4 (The bracket appears twice; S16-R18-01, INSPECTED). The bracket whose t
+is missing in b(z) appears a second time on journal page 2655, in the matrix B1 of the display
+                                                                   2
+B = zB0 + (1/t)B1 , where its (1, 2) entry prints p + 21 (q − 1)q t with the t. This was confirmed
+by looking at a magnified render. The same asymmetry is present in arXiv:0902.1702v5, also
+confirmed by looking. Both sources therefore print the expression correctly a few lines below the
+place where the t is missing.
+
+Remark A.5 (The two readings, compared exactly; S16-R18-02, PROVEN). Under the corrected
+reading, the first term of b(z) equals exactly z · B1 [1, 2]; under the printed reading
+                                                                                      it does not, the
+                  1                               3 2      3     2 2      2     2
+difference being 4 z 4pqt − 4pq − 4pt + 4p + q t − q − 2q t + 2q + qt − q . The difference
+between the two readings factors as 41 z(q − 1)(t − 1) 4p + q 2 t + q 2 − qt − q , which is exactly −z
+times the det A(1) residual and so carries the same factor, so the two independent tests agree on
+the correction term for term. Five bogus variants — t2 , t + 1, 2t, t/2, t − 1 — are rejected by the
+same test.
+
+   Two tests built from different material — one from the source’s determinant constraints, one
+from an expression printed twice on the same page — produce the same correction factor. That is
+why this subsection carries the appendix’s only PROVEN label.
+
+A.4    The misprint persists in the authors’ revised version
+Remark A.6 (Present in v5; S16-19, INSPECTED). arXiv:0902.1702 v5, page 34, prints the
+                                    2
+identical first term p + 21 (q − 1)q with no t. The v5 comment records that “the signs for Hamil-
+tonian systems in Section 4 and the equations (3) (PV) and (7) (degenerate PV) are corrected”, so
+that section was revised and this entry was not among the corrections. A search found no published
+erratum or corrigendum.
+
+   This matters for reproduction rather than for the mathematics: a reader who reaches for the
+most recent version of the source, expecting it to supersede the journal text, will find the same
+misprint there.
+
+A.5    A convention read from the same page
+One further reading from the same display settles a question that would otherwise have to be
+argued structurally.
+
+Remark A.7 (The authors’ stated convention; S17-17, INSPECTED). Page 2655 states: “The
+first basis vector is chosen as cyclic vector and following Subsection 4.1, q is the unique zero of c(z)
+and p = a(q).” This settles the component question from the authors’ own stated convention, and
+supersedes an earlier structural argument for the same conclusion while confirming it. It is also
+why q, being read off c(z), bears on the second-component reduction rather than the first.
+
+
+
+                                                    36
+A.6    What was adopted, and how
+Remark A.8 (The correction, adopted openly; S16-05, VERIFIED). The corrected reading
+                  2
+ p + 12 (q − 1)q t is the one used for computation throughout this work, and it is flagged here rather
+than adopted silently. It was discriminated by an exact symbolic residual, not by preference.
+
+    A closing scope note. The expressions in this appendix reach it by two different routes, and
+the distinction matters to anyone checking it. The quotations from a(z), b(z), c(z), B1 and the
+surrounding prose are transcriptions from an image of the printed page; there is no computation
+that produced them, and a reader should check them against the page. The residual, the difference
+between the readings and its factorisation are by contrast the output of exact symbolic computation
+from those transcriptions, and a reader should re-derive them. Both routes were exercised for this
+appendix in CT-S45-FORMULA-A, per equation, and the factored form of the difference was found to
+carry the wrong sign and corrected; the sign had been copied from the det A(1) residual without
+the flip that the factor −z introduces.
+
+
+B     Computational methods
+This appendix records the algorithms behind the numerical statements of §3, §8 and §9, the controls
+that were run against them, and the residuals they achieved. It also discharges the forward reference
+made in §8, where two algebraic identities were deferred to here.
+    A statement of scope first, because it is easy to leave implicit and it should not be. What
+follows states what was computed, at what precision, with which controls, and to what residual.
+It does not make the computations reproducible from this text alone: reproduction requires the
+scripts, which are recorded with the claims and not reprinted here. That is the ordinary condition
+of a paper of this kind, and it is said plainly rather than left to be discovered.
+
+B.1    The solver, and its known-answer test
+Every monodromy and Stokes computation in §8 and §9 is produced by one solver. Before it was
+applied to System C, it was run against a case whose answers are known in closed form.
+
+Remark B.1 (Known-answer battery; S22-01, VERIFIED). The solver reproduces Kummer’s
+monodromy, formal and Stokes data against closed forms: 32 of 32 checks pass at at least 35 digits,
+with 44 to 151 digits observed, at both pre-registered parameter values.
+
+    Two features of that test are worth naming. The parameter values were fixed before the run,
+so the battery could not be tuned to the solver; and the quantities checked include Stokes data,
+not only monodromy, so the irregular part of the machinery is exercised rather than assumed.
+
+B.2    Truncation of the formal series
+The formal solution at the irregular point is divergent, and it is used truncated. Where to truncate
+is decided by the series itself.
+
+Remark B.2 (Optimal truncation; S22-09, VERIFIED). The truncated formal series’ residual
+sits at the minimal term of the series — ratio 1.29 against a bound of N 3 — and decays at the
+predicted Gevrey rate e−|t|R between R = 160 and R = 140, with observed over predicted 1.259.
+
+
+
+
+                                                 37
+   The truncation radius is pre-registered rather than chosen after the fact, and this has a con-
+sequence that surfaces in the transport computation: the truncation level it fixes is a floor on the
+achievable agreement.
+
+Remark B.3 (The floor is truncation, not precision; S22-17, VERIFIED). Raising the working
+precision from 200 to 320 digits leaves the transport agreement and its ratio unchanged to every
+printed figure — 90.8118, 91.8301, ratio 10.429999 — while every precision-limited control improves
+by about 120 digits: one residual from 1.20 × 10−105 to 5.57 × 10−225 , a second from 3.96 × 10−112 to
+7.13×10−232 , a third from 2.35×10−113 to 3.30×10−233 , while the α residual stays at 1.834×10−91 .
+The floor is the optimal-truncation level 10−88.7 set by the pre-registered R, which no precision can
+reduce.
+
+     This is the paper’s clearest instance of a control that separates two explanations of the same
+number. Had the residual been round-off, it would have fallen with the precision; the controls did
+fall and it did not.
+
+B.3    Two algebraic checks, and what went wrong with them
+§8 deferred two identities to this appendix. Both are recorded here because each was, as first
+written, defective — one vacuously true, one comparing incompatible factorisation orders — and
+because the repaired versions do not carry the evidential weight the originals appeared to.
+
+Remark B.4 (A check that could not fail; S22-04, PROVEN). Check A6a as first written was
+algebraically vacuous: (1 + f1 f2 )/α = M22 equals (1 − det M )/m11 and so vanishes identically for
+any unimodular M with M11 ̸= 0. It could not fail. This was proved by simplification to zero
+together with an independent numeric arm.
+
+Remark B.5 (A check comparing two orderings; S22-05, PROVEN). Check A7 as first written
+used the source’s diagonal–lower–upper ordering, with trace α + (1 + f1 f2 )/α, against a computed
+diagonal–upper–lower factorisation, with trace α(1 + f1 f2 ) + 1/α; the two differ by (α − 1/α)f1 f2 .
+At the known-answer values the wrong ordering misses 2 cos(πb) by 0.9612, while the corrected one
+holds to 1.15 × 10−29 , reproducing the observed failure at order one. The corrected identity is a
+dependent restatement of three checks already made, not independent evidence.
+
+    The last sentence is the reason both appear here rather than among the supporting evidence of
+§8. A repaired check that restates what other checks already established is a consistency test on
+the algebra, and counting it as a further confirmation would inflate the evidence.
+
+B.4    Extrapolation and high-precision limits
+The growth-law statements of §3 rest on extrapolating a ratio sequence, with the extrapolation
+itself controlled.
+
+Remark B.6 (The exponent, over eight representatives; S2-01, VERIFIED). For all 8 quartic
+representatives the growth law Qn /Γ(4n + 1) ∼ K(β4 /44 )n ns holds with s = β3 /β4 + 3/2. The
+maximum of |smeasured − spredicted | over the eight is 7.118 × 10−16 , after 4 levels of ratio-2 Richard-
+son extrapolation on the ladder n = 1250, 2500, 5000, 10000, 20000 at 80 digits. The pre-registered
+falsifier |diff| > 10−6 did not fire.
+
+Remark B.7 (The limit, to high precision; S3B-09, VERIFIED). The limit of the normalised
+denominator sequence for the quadratic representative was computed to 2317.8 confirmed digits, by
+
+                                                   38
+agreement between runs at N and 2N with N = 20000, L = 640, stride 520, at 2800 digits of
+working precision. This supersedes an earlier 180-digit value and an earlier value at about 13.5
+digits; all three are mutually consistent.
+
+    Two points of method are visible in the second of these. Confirmation is by agreement between
+two runs at different truncation, not by a residual internal to one run; and the superseded values
+are recorded as superseded and checked for consistency, rather than replaced silently.
+
+B.5    What the methods do not establish
+Three limitations follow from the above and are stated here rather than left implicit.
+
+  1. Agreement between two runs at different truncation is evidence of internal consistency at a
+     stated precision. It is not a proof, and every label attached to such a statement in this paper
+     is VERIFIED for that reason.
+
+  2. The transport residual is bounded below by a pre-registered truncation radius, so the digits
+     quoted in §10.3 are the instrument’s ceiling at that step size, not an approach to an exact
+     statement.
+
+  3. Every displayed formula in this paper is routed to exactly one form of evidence, and the routes
+     are not equally strong. Of the 56 displays of §§0–10, 21 were re-derived symbolically from the
+     script that computed them, 9 were verified against the printed page they were transcribed
+     from, 11 are definitional, and 15 trace to a recorded claim only. Three of that last group
+     — the exact q and p of §6.3 — were later re-derived coefficient by coefficient, leaving twelve
+     short displays that are traced but not symbolically re-derived. Re-derived is used here in the
+     strict sense: recomputed from the script and compared symbolically. A display that is traced
+     has a claim asserting it; it does not have a recomputation.
+
+
+
+
+                                                39
+

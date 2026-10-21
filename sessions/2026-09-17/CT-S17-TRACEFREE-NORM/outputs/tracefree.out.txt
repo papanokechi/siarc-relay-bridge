@@ -1,0 +1,42 @@
+========================================================================
+T1  uniqueness of the trace-free representative under a rank-1 twist
+   twist  A -> A + lambda*Id   changes the trace by 2*lambda
+   solutions of tr(A + lambda Id) = 0 : [{lambda: -A11/2 - A22/2}]
+   unique solution lambda = -tr(A)/2  ->  T1 SATISFIED (exact)
+========================================================================
+T2  does trace-freeness ALONE pin the representative down?
+   triviality test self-check passed on d-1/z (trivial) and d-1/(2z) (non-trivial)
+   candidate rank-1 module L = d + f with f = -u'/(2u), u = z -> f = -1/(2*z)
+   L tensor L = d + 2f = d + ( -1/z )
+      trivial? True  witness w = z   (check 2f + w'/w = 0 )
+   L itself trivial? False  (residue of f at 0 is -1/2 , not an integer)
+   => a NON-TRIVIAL 2-torsion rank-1 module exists over C(z).
+   Tensoring by it preserves the projective class AND triviality of the
+   determinant, so T2 is FALSIFIED: trace-freeness alone does NOT pin
+   the representative down.  A sharper hypothesis is needed.
+========================================================================
+T3  are System C and the family's point the SAME differential module?
+   System C :  P_C = (2*z - 1)/(z*(z - 1))
+               Q_C = (22*z**2 - 22*z - 2*sqrt(11)*I*z + 5 + sqrt(11)*I)/(54*z*(z - 1))
+   family   :  b(z) constant in z?  b1 = 0
+               P_F = (2*z - 1)/(z*(z - 1))
+               Q_F = (22*z**2 - 22*z - 2*sqrt(11)*I*z + 5 + sqrt(11)*I)/(54*z*(z - 1))
+   -> P_F - P_C = 0
+   -> Q_F - Q_C = 0
+   BOTH coefficients identical (symbolic): True
+   worst relative residual over 5 points, dps 60 : 0
+========================================================================
+VACUITY CONTROLS (assertions)
+   1) perturbed q by 1e-3 -> Q difference zero? False
+      control fired correctly (wrong point rejected)
+   2) twisted operator: R unchanged? True
+      but P differs? True
+      => R-matching alone CANNOT see this twist; the (P,Q) test can.
+      (P,Q) test separates it? True
+      control fired correctly
+========================================================================
+VERDICT T3: SATISFIED
+   System C's operator in the z coordinate IS, coefficient for
+   coefficient, the family's scalar operator at the located point.
+   The two differential modules are isomorphic, not merely
+   projectively isomorphic.

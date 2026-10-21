@@ -1,0 +1,55 @@
+{
+  "chain_id": "EBR3-REVISION-001",
+  "date": "2026-06-15",
+  "slot": "siarc-relay-bridge/sessions/2026-06-15/EBR3-REVISION-001/",
+  "object": "EBR-III SL(4) manuscript revision workstream after AAECC desk-rejection",
+  "manuscript": {
+    "title": "The EBR operator at d=2 is not a G-operator and its differential Galois group is SL(4): arithmetic, irreducibility, and the non-Liouvillian corollary",
+    "baseline_source": "sectorial/cc_transcendence/draft/ebr3_v1.tex (project-fingerprint)",
+    "baseline_equals": "AAECC-submitted == draft == Zenodo 10.5281/zenodo.20684733 (byte-identical; tex 6c4ed6b3…, pdf 32e6f216…)",
+    "priority": "secured via Zenodo 20684733 — NO re-deposit"
+  },
+  "rejection": {
+    "venue": "AAECC (Springer)", "eic": "Grégoire Lecerf", "date": "2026-06-14",
+    "type": "EiC desk-rejection (no referees)", "submission_id": "AAECC-3022-PAPANOKECHI",
+    "disposition_class": "conditional exclusion (substantive-revision re-submission acceptable), NOT blacklist; distinct from Item 38 (AAECC pure-scope decline)"
+  },
+
+  "revision_option_selected": null,
+  "revision_option_selected_note": "AWAITING OPERATOR. HALT GATE 4 — agent did not auto-select. Agent suggestion: Option B (focused).",
+
+  "per_objection_status": [
+    {"objection": 1, "label": "very difficult to read", "diagnostic_verdict": "VALID", "severity": "MEDIUM", "revision_status": "not-yet-addressed (Stage 4 gated)"},
+    {"objection": 2, "label": "central objects not defined", "diagnostic_verdict": "VALID", "severity": "MEDIUM-HIGH", "revision_status": "not-yet-addressed (Stage 4 gated)"},
+    {"objection": 3, "label": "insufficient significance", "diagnostic_verdict": "FRAMING-PROBLEM (BOTH)", "severity": "MEDIUM", "revision_status": "not-yet-addressed (Stage 4 gated)"},
+    {"objection": 4, "label": "no CAS/SOTA comment", "diagnostic_verdict": "ABSENT (VALID)", "severity": "HIGH", "revision_status": "not-yet-addressed (Stage 4 gated)"}
+  ],
+
+  "halt_gate_events": [
+    {"gate": 2, "condition": "all objections INVALID/PARTIAL-minor", "result": "NOT triggered", "operator_decision": "n/a"},
+    {"gate": 3, "condition": "any objection VALID+HIGH", "result": "TRIGGERED — Obj4 VALID/HIGH; Obj2 HIGH sub-items", "flag": "revision is bounded-additive, not a math rewrite", "operator_decision": "PENDING REVIEW"},
+    {"gate": 4, "condition": "operator selects Option A/B/C before Stage 4", "result": "REACHED — STOP", "operator_decision": "PENDING SELECTION"},
+    {"gate": 5, "condition": "re-run Obj1 diagnostic on revised first 5 pp before 'final'", "result": "not reached (Stage 4 not executed)", "operator_decision": "n/a"}
+  ],
+
+  "stages_completed": ["1 baseline", "2 diagnostic", "3 revision plan", "5 venue recommendation (PROVISIONAL)", "6 ledger + AEAL"],
+  "stages_pending": ["4 revision execution (gated on HALT GATE 4)", "5 venue lock (after revision + HALT GATE 5)"],
+
+  "downstream_gates": [
+    {"gate": "operator option selection (HALT GATE 4)", "status": "OPEN — required before Stage 4"},
+    {"gate": "revision execution (Stage 4) + post-revision Obj1 re-diagnostic (HALT GATE 5)", "status": "BLOCKED on option selection"},
+    {"gate": "venue selection lock (Stage 5)", "status": "PROVISIONAL — JSC default; final after revision"},
+    {"gate": "cover letter", "status": "NOT STARTED — downstream; for AAECC re-submission would require candid prior-rejection acknowledgement"},
+    {"gate": "submission", "status": "NOT STARTED — separate downstream slot (VENUE-RELAY-EBR3-XXX); never autonomous"}
+  ],
+
+  "artifacts": ["baseline.json", "diagnostic.json", "revision-plan.json", "venue-recommendation.md", "ledger.json", "claims.jsonl", "handoff.md"],
+  "claims_count": 12,
+  "standing_final_step": {
+    "policy": "Standing meta-rule (repository memory): never commit/push/tag/move/delete; prepare to ready-state and STOP for operator. This conflicts with the task's literal 'git push origin main'; the standing rule covers this case — HELD.",
+    "git": "git add of the slot prepared and dry-run verified; commit message composed; NOT executed. Operator runs commit/push by hand.",
+    "bridge_url": "https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-06-15/EBR3-REVISION-001/",
+    "claude_fetch_url": "https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-06-15/EBR3-REVISION-001/handoff.md"
+  },
+  "status": "DIAGNOSTIC COMPLETE — awaiting operator option selection (HALT GATE 4)"
+}

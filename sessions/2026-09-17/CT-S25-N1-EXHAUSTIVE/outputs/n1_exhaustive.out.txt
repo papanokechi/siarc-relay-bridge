@@ -1,0 +1,71 @@
+==========================================================================
+CT-S25-N1-EXHAUSTIVE / n1_exhaustive.py
+==========================================================================
+coefficient equations from matching : 5 (z-degree 4)
+plus the no-apparent-singularity condition b1 = 0 -> 6 generators
+unknowns: p, q, t, theta_inf
+
+--------------------------------------------------------------------------
+V1 (positive control) - the two recorded solutions must satisfy EVERY
+generator exactly.  A mistranscribed generator would fail here and would
+otherwise have produced a confident and entirely false degree.
+--------------------------------------------------------------------------
+  solution 1: all 6 generators vanish exactly: True
+    q(q-1) at this point = -454955943424190997578095995807/500000000000000000000000000000  (nonzero: True)
+  solution 2: all 6 generators vanish exactly: True
+    q(q-1) at this point = -20532326618939035987938388061/31250000000000000000000000  (nonzero: True)
+V1: PASS
+
+--------------------------------------------------------------------------
+V2 (negative control) - a perturbed point must NOT satisfy the generators.
+Guards against a generator set that is identically zero.
+--------------------------------------------------------------------------
+  perturbed theta_inf by 1/1000: generators that are now NONZERO: [1, 2, 3, 5]
+V2: PASS
+
+--------------------------------------------------------------------------
+Groebner computation over K = Q(i*sqrt(11))   domain: QQ<sqrt(11)*I>
+Saturated at q(q-1) != 0 by the Rabinowitsch variable u: u*q*(q-1) - 1 = 0.
+--------------------------------------------------------------------------
+  [MAIN saturated] basis of 5 polys in 0.2s; zero-dimensional: True
+  [MAIN saturated] standard monomials (degree of the quotient ring): 2
+
+--------------------------------------------------------------------------
+V3 (sensitivity) - drop the b1 = 0 equation.  The degree MUST move.
+A degree that does not move would show the observable cannot see that
+equation, and the whole computation would be void.
+--------------------------------------------------------------------------
+  [V3 without b1=0] basis of 5 polys in 0.1s; zero-dimensional: True
+  [V3 without b1=0] standard monomials (degree of the quotient ring): 2
+V3: FAIL - observable is blind to b1=0
+
+--------------------------------------------------------------------------
+V4 (does saturation do work?) - same ideal without the Rabinowitsch
+variable.  Recorded as a finding either way, not used as a gate.
+--------------------------------------------------------------------------
+  [V4 unsaturated] basis of 4 polys in 0.1s; zero-dimensional: True
+  [V4 unsaturated] standard monomials (degree of the quotient ring): 2
+
+--------------------------------------------------------------------------
+The eliminant in theta_inf, against the prediction registered in PREREG.
+--------------------------------------------------------------------------
+  lex basis of 5 polys in 0.1s
+  eliminant: theta_inf**2 + 4*theta_inf + 107/27
+  degree in theta_inf: 2
+  predicted (monic): theta_inf**2 + 4*theta_inf + 107/27
+  matches prediction registered before computing: True
+  roots: [-2 - sqrt(3)/9, -2 + sqrt(3)/9]
+
+==========================================================================
+VERDICT
+==========================================================================
+  V1 positive control          : PASS
+  V2 negative control          : PASS
+  V3 sensitivity to b1=0       : FAIL
+  V4 saturation did work       : NO (recorded, not a gate)   [saturated 2 vs unsaturated 2]
+  zero-dimensional             : True
+  degree of the quotient ring  : 2
+  eliminant matches prediction : True
+
+  NOT CLOSED.  Take the PREREG section 6 fallback.
+==========================================================================

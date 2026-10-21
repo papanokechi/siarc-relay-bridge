@@ -1,0 +1,42 @@
+==========================================================================
+CT-S56 -- claims.jsonl verified against the files on disk
+==========================================================================
+
+    claims.jsonl : 16345 B, 24 claims
+    sha256       : db615e9220014345c298600e81c01075481aa9969ee7b6c0e556fbad9dba5f7d
+
+    Both sides are read from disk, so this check has independent
+    provenance and can actually fail -- unlike the emitter's own
+    build-time comparison of a computed hash with itself.
+
+    [  ok  ] S56-01: locate_source.out.txt
+    [  ok  ] S56-02: locate_source.out.txt
+    [  ok  ] S56-03: locate_source.out.txt
+    [  ok  ] S56-04: version_diff.out.txt
+    [  ok  ] S56-05: version_diff.out.txt
+    [  ok  ] S56-06: apply_revision_v12.out.txt
+    [  ok  ] S56-07: apply_revision_v12.out.txt
+    [  ok  ] S56-08: build_check.out.txt
+    [  ok  ] S56-09: render_diff.out.txt
+    [  ok  ] S56-10: render_diff.out.txt
+    [  ok  ] S56-11: render_diff.out.txt
+    [  ok  ] S56-12: locate_numbering.out.txt
+    [  ok  ] S56-13: locate_numbering.out.txt
+    [  ok  ] S56-14: make_docs.out.txt
+    [  ok  ] S56-15: sweep_compare.out.txt
+    [  ok  ] S56-16: sweep_v12_before.out.txt
+    [  ok  ] S56-17: version_diff.out.txt
+    [  ok  ] S56-18: verify_unchanged.out.txt
+    [  ok  ] S56-19: mutants_s56.out.txt
+    [  ok  ] S56-20: apply_revision_v12.out.txt
+    [  ok  ] S56-21: pattern_drift.out.txt
+    [  ok  ] S56-23: pattern_drift.out.txt
+    [  ok  ] S56-22: home_for_s56_01.out.txt
+    [  ok  ] S56-24: companion_doi.out.txt
+
+[control] the comparison must be able to fail
+    [PASS] a synthetic hash does not match a real output
+
+==========================================================================
+PASS: every claim's cited output hashes to the recorded value.
+==========================================================================

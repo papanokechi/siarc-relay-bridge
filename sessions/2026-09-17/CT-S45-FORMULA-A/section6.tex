@@ -1,0 +1,243 @@
+\section{Removing the projective ambiguity}\label{sec:projective}
+
+\S\ref{sec:point} matches projective normal forms, and leaves standing the
+qualifier ``up to a rank-$1$ twist''. This section removes it. The removal is
+not by an abstract uniqueness argument --- the obvious such argument is false,
+and is refuted below --- but by exhibiting the isomorphism directly.
+
+\subsection{Trace-freeness does not do the work}\label{ssec:tracefree}
+
+The natural attempt is to argue that van der Put--Saito's normalisation picks a
+canonical representative, so that a projective match is automatically a match.
+Half of that is right.
+
+\paragraph{What is true (\texttt{S17-01}, \textbf{PROVEN}).}
+A rank-$1$ twist acts by $A\mapsto A+\lambda\,\mathrm{Id}$ and changes the
+trace by $2\lambda$, so in characteristic $0$ the equation
+$\operatorname{tr}(A+\lambda\,\mathrm{Id})=0$ has the unique solution
+$\lambda=-\operatorname{tr}(A)/2$. Within the orbit of a fixed connection under
+rank-$1$ twists there is therefore exactly one trace-free member.
+
+\paragraph{What is false (\texttt{S17-02}, \textbf{PROVEN}).}
+Trace-freeness alone does \emph{not} single out a representative of a
+projective class, and the obstruction is explicit. Over $\mathbb C(z)$ put
+\[
+  L=\partial-\frac{1}{2z}.
+\]
+Then $L\otimes L=\partial-1/z$ is trivial, with rational witness $w=z$
+satisfying $2f+w'/w=0$; whereas $L$ itself is non-trivial, since the residue of
+$f$ at $0$ is $-\tfrac12$, not an integer, so $f$ is not the logarithmic
+derivative of a rational function. Tensoring a trace-free module by such a
+$2$-torsion $L$ preserves both the projective class and the triviality of the
+determinant. A projective class can therefore contain more than one trace-free
+module up to isomorphism.
+
+\begin{remark}[A printed line that contradicted its own conclusion;
+\texttt{S17-03}, \textbf{PROVEN}]\label{rem:contradiction}
+The first run of the check above printed ``$L\otimes L$ trivial? False'' while
+the surrounding text drew the opposite conclusion. The test had compared $2f$
+against $-v'/v$ with $v=1/u$, rather than testing whether $2f$ is a logarithmic
+derivative at all; the correct witness is $w=z$, not $1/z$. It was replaced by
+a residue-based test --- all poles simple, all residues integers, witness
+constructed and verified --- which is self-checked in both directions, on
+$\partial-1/z$ (trivial) and on $\partial-1/(2z)$ (non-trivial), before being
+used. The conclusion did not change, but the evidence as first printed did not
+support it, and the episode is recorded rather than tidied away.
+\end{remark}
+
+Because the general statement fails, the correct hypothesis under which a
+projective class has a unique normalised representative is not settled in this
+paper. It is stated as an open question in \S\ref{sec:open}
+(\texttt{S17-07}, \textbf{CONJECTURED}), and nothing below depends on it.
+
+\subsection{Comparing the pair \texorpdfstring{$(P,Q)$}{(P,Q)}, not the
+invariant \texorpdfstring{$R$}{R}}\label{ssec:pq}
+
+A second-order operator is determined by the pair $(P,Q)$ in
+$\partial^2+P\partial+Q$, and the projective invariant
+\[
+  R=\frac{P^2}{4}+\frac{P'}{2}-Q
+\]
+that \S\ref{sec:point} matched is by construction blind to a rank-$1$ twist.
+The pair is not. So the ambiguity is removed by comparing both coefficients
+rather than their invariant combination --- which requires no new theory, only
+that the comparison actually be made.
+
+It has been (\textbf{PROVEN}, \texttt{S17-04}). In the $z$ coordinate
+System~$\mathsf C$ has
+\begin{align}
+  P_{\mathsf C}&=\frac{2z-1}{z(z-1)},\label{eq:PC}\\[2pt]
+  Q_{\mathsf C}&=\frac{22z^2-22z-2i\sqrt{11}\,z+5+i\sqrt{11}}
+                     {54\,z(z-1)},\label{eq:QC}
+\end{align}
+and the family's scalar operator at the located point $(p,q,t,\theta_\infty)$,
+taken with cyclic vector $e_1$, has \emph{exactly} the same $P$ and the same
+$Q$: both differences vanish identically, with worst relative residual $0$ over
+five sample points at $60$ digits. System~$\mathsf C$'s differential module and
+the family's module at that point are therefore isomorphic, not merely
+projectively isomorphic.
+
+Both vacuity controls fired. A value of $q$ perturbed by $10^{-3}$ is rejected;
+and an operator constructed to have the same $R$ but a different $P$ is
+separated by the $(P,Q)$ test though not by $R$ --- which is the precise sense
+in which the test sees what the invariant cannot.
+
+\subsection{Why no twist has to be inserted}\label{ssec:notwist}
+
+That the two operators agree on the nose, rather than after a correction, has a
+structural reason, and stating it is what makes the agreement something other
+than a coincidence (\textbf{PROVEN}, \texttt{S17-05}).
+
+System~$\mathsf C$'s leading coefficient factors as
+\[
+  3x^2+x+1=3(x-s_+)(x-s_-)=3\delta^2 z(z-1)=3\delta^2 D
+\]
+under $x=s_++\delta z$, with $D(z)=z(z-1)$ as in \S\ref{ssec:family}. Hence
+System~$\mathsf C$'s own Wronskian coefficient is
+\[
+  P_{\mathsf C}=\frac{\delta\,(6x+1)}{3x^2+x+1}=\frac{D'}{D},
+\]
+which is \eqref{eq:PC}. The family's is $P=D'/D-b'/b$, and these coincide
+exactly when $b$ is constant --- that is, when $b_1=0$, which is precisely the
+condition the match of \S\ref{ssec:located} already forced, and which
+\S\ref{ssec:exhaustive} shows was implied by the coefficient equations in any
+case. The two objects carry the same rank-$1$ twist, so there is no twist to
+insert between them.
+
+\subsection{Which scalar reduction, and why the choice is not
+free}\label{ssec:route}
+
+The comparison of \S\ref{ssec:pq} is between a scalar operator and a rank-$2$
+system, so it presupposes an answer to a question that was for some time
+contested: \emph{which} scalar equation the system is to be compared against.
+
+\paragraph{There are two (\texttt{S17-09}, \textbf{PROVEN}).}
+A rank-$2$ first-order system $y'=Ny$ admits two scalar reductions, the
+equations satisfied by its two components. Derived generically by elimination,
+with no formula assumed, route~$1$ (for $y_1$) has
+$P=-\operatorname{tr}N-n_{12}'/n_{12}$ and route~$2$ (for $y_2$) has
+$P=-\operatorname{tr}N-n_{21}'/n_{21}$. Fixing the orientation once, so that a
+later reader cannot re-derive it backwards:
+\begin{equation}\label{eq:route-diff}
+  P_{\text{route }1}-P_{\text{route }2}
+    =\frac{d}{dz}\log\frac{c}{b}
+    =\frac{c'}{c}-\frac{b'}{b}.
+\end{equation}
+The proviso attached to \eqref{eq:route-diff} matters: in general the
+difference is $\tfrac{d}{dz}\log(n_{21}/n_{12})$, and it equals
+$\tfrac{d}{dz}\log(c/b)$ only because the convention $N=-A/D$ of
+\S\ref{ssec:family} divides both off-diagonal entries by the same $D$. Both
+routes are correct; neither is ``the'' scalar equation of the connection.
+
+\paragraph{Route~$1$ is the one (\texttt{S17-10}, \textbf{PROVEN}).}
+At the located point, route~$1$ reproduces System~$\mathsf C$ exactly --- $P-
+P_{\mathsf C}=0$ and $Q-Q_{\mathsf C}=0$ symbolically --- while route~$2$
+misses it by exactly $-c'/c=-1/(z-q)$. Both $b'=0$ and $q\notin\{0,1\}$ are
+re-confirmed at the point.
+
+\paragraph{A control independent of the derivation (\texttt{S17-11},
+\textbf{VERIFIED}).}
+Rather than compare formulas, one may solve the \emph{system} at an ordinary
+point and ask which scalar equation the resulting $y_1$ satisfies. At
+$z_0=\tfrac{3}{10}+\tfrac{i}{7}$, over two independent seeds, the route-$1$
+residuals are $4.8\times10^{-61}$ and $6.9\times10^{-62}$ against route-$2$
+residuals of $9.0$ and $4.0$. The control fires on both seeds, so the test can
+in fact distinguish the routes.
+
+\paragraph{Confirmation from a separately commissioned computation
+(\texttt{S17-20}--\texttt{S17-23}).}
+Because the choice of route had been contested, it was re-decided by a
+computation isolated from the sessions that first made it. That computation
+re-derived the two reductions from a generic $y'=Ny$ and obtained
+\eqref{eq:route-diff} exactly, supplying the orientation and the denominator
+proviso that the earlier derivation had left implicit (\texttt{S17-20},
+\textbf{PROVEN}); neither of its two controls fired. At the point it was given,
+the $b$-route reproduced System~$\mathsf C$ exactly over
+$\mathbb Q(i,\sqrt3,\sqrt{11})$ --- by exact cancellation, never by comparing
+radicals for equality --- with numeric residuals $2.0\times10^{-177}$ and
+$2.5\times10^{-175}$ at $40$ digits over four sample points, while the
+$c$-route missed by $-1/(z-q)$, numerically $1.45$, with the $Q$ difference
+numerically $8.1$; the same test rejected a deliberately wrong point
+$q\mapsto q+1$ (\texttt{S17-21}, \textbf{PROVEN}).
+
+That computation also explains the earlier contested result rather than merely
+overruling it (\texttt{S17-22}, \textbf{PROVEN}). The $c$-route residual
+$-1/(z-q)$ is the simple zero of $c(z)=-(z-q)/(q-1)$ of \eqref{eq:fam-c} at
+$z=q$, which is what \eqref{eq:route-diff} predicts when $b$ is constant at the
+point. Since $-1/(z-q)$ has no zero in $z$, a comparison made against the
+$c$-route returns a mismatch at every sample point and at every parameter
+value: the earlier test could not have returned a match under any
+circumstances. The residual was reached without the computation being told to
+expect it.
+
+Finally, the local data at infinity were checked independently
+(\texttt{S17-23}, \textbf{PROVEN}). The leading matrix at infinity is
+$\operatorname{diag}(t/2,-t/2)$ with distinct entries, so the $+t/2$ branch has
+eigenvector $e_1+O(1/z)$ and its first component carries exponent
+$\theta_\infty/2$ with no shift, for any $\theta_\infty$; System~$\mathsf C$
+demands $-1-\sqrt3/18$, forcing $\theta_\infty=-2-\sqrt3/9$ with residual $0$
+at $40$ digits, and the subdominant branch was predicted from
+$\operatorname{ord}_\infty(n_{12})=2$ and matched exactly. Its scope is stated
+in the claim itself and is repeated here: since $P$ and $Q$ already agree
+identically, agreement of every local datum \emph{follows}. This is
+corroboration by a second route, not an independent constraint, and it must not
+be counted twice.
+
+\begin{remark}[Two method defects, self-caught; \texttt{S17-25},
+\textbf{PROVEN}]\label{rem:s20b-defects}
+Recorded as findings about method, and deliberately not adopted as claims about
+the mathematics. First, keeping $\theta_\infty$ symbolic inside the scalar
+reduction and reading heads at infinity is unsound, because $\deg_z b$ drops
+from $1$ to $0$ at exactly the value of $\theta_\infty$ of interest, so the
+heads are discontinuous there. Second, the difference of the two exponents at
+infinity is not gauge-invariant between the system and a scalar reduction, the
+branches carrying powers $0$ and $-2$; this second defect returned the verdict
+\emph{inconsistent} together with the value $\theta_\infty=\sqrt3/9$, wrong by
+exactly the shift~$2$ of \S\ref{ssec:dictionary}. It was caught by an
+arithmetic control --- the scalar exponents must sum to $-P_1$, and they summed
+to $-1$ against System~$\mathsf C$'s $-2$. This is the converse of
+Remark~\ref{rem:void}: a control that fired, on a real defect, inside a check
+that would otherwise have returned a confident wrong answer.
+\end{remark}
+
+\subsection{The caveat, withdrawn}\label{ssec:withdrawn}
+
+The ``up to rank-$1$ twist'' qualifier of \S\ref{ssec:membership-verdict} is
+withdrawn (\texttt{S17-06}, \textbf{STRUCTURAL}). The defensible statement is
+\begin{quote}
+  the differential module of System~$\mathsf C$ is the module of the van der
+  Put--Saito family at the located point of $U_0$,
+\end{quote}
+with no twist qualifier.
+
+It is worth being exact about \emph{why} it is withdrawn, because the
+conclusion was first reached for a reason that does not support it. Uniqueness
+does not follow from trace-freeness; \S\ref{ssec:tracefree} refutes that. It
+follows here from the direct verification of \S\ref{ssec:pq} that the full
+operators agree. A correct conclusion does not certify the reasoning that
+reached it, and each statement adopted in this paper is verified on its own
+account.
+
+The adjudication that settled the contested step is itself recorded with its
+limits (\texttt{S17-24}, \textbf{STRUCTURAL}). The separately commissioned
+computation was independent of the two sessions it adjudicated, but not of the
+input file it was handed, which this programme wrote; and it was given the
+point rather than locating one, so it is \emph{not} a second independent
+location of a point of $U_0$. It tested the disputed step and nothing else,
+which is what it was asked to do.
+
+One bookkeeping note, recorded so that the citation trail is readable.
+\texttt{S17-09} was amended in place to carry the orientation and the
+denominator proviso of \eqref{eq:route-diff}; its label and its mathematics are
+unchanged, and the prior text is preserved verbatim in the record
+(\texttt{S17-26}, \textbf{STRUCTURAL}).
+
+\medskip
+\noindent
+What \S\ref{sec:point} and this section together establish is an isomorphism of
+differential modules at an explicitly located, provably unique pair of points,
+and therefore a unique Painlev\'e~V leaf through System~$\mathsf C$. What they
+do not establish is that the normalised representative of a projective class is
+unique in general --- that remains \S\ref{sec:open}'s question --- and the
+monodromy and Stokes data, which \S\ref{sec:monodromy} computes, are not used
+anywhere above.

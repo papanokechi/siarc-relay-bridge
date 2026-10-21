@@ -1,0 +1,24 @@
+
+=== System C ===
+  r = 12*x**4 + 4*x**3 + 4*x**2 + 11 / 4*(3*x**2 + x + 1)**2
+  poles of r (with multiplicity): {-1/6 - sqrt(11)*I/6: 2, -1/6 + sqrt(11)*I/6: 2}
+  at x=-1/6 - sqrt(11)*I/6: double-pole coeff B=nan -> admissible residues []
+  at x=-1/6 + sqrt(11)*I/6: double-pole coeff B=nan -> admissible residues []
+  at infinity: r -> 1/3 (= c0^2), 1/x coefficient r_1 = -1/9
+  VERDICT: IRREDUCIBLE (no rational Riccati solution)
+
+=== CONTROL (reducible by construction) ===
+  r = 36*x**4 + 240*x**3 + 136*x**2 + 92*x + 115 / 36*(3*x**2 + x + 1)**2
+  poles of r (with multiplicity): {-1/6 - sqrt(11)*I/6: 2, -1/6 + sqrt(11)*I/6: 2}
+  at x=-1/6 - sqrt(11)*I/6: double-pole coeff B=nan -> admissible residues []
+  at x=-1/6 + sqrt(11)*I/6: double-pole coeff B=nan -> admissible residues []
+  at infinity: r -> 1/9 (= c0^2), 1/x coefficient r_1 = 2/3
+  VERDICT: IRREDUCIBLE (no rational Riccati solution)
+
+=== CONTROL (perturbed System C) ===
+  r = 84*x**4 + 28*x**3 + 88*x**2 + 20*x + 97 / 28*(3*x**2 + x + 1)**2
+  poles of r (with multiplicity): {-1/6 - sqrt(11)*I/6: 2, -1/6 + sqrt(11)*I/6: 2}
+  at x=-1/6 - sqrt(11)*I/6: double-pole coeff B=nan -> admissible residues []
+  at x=-1/6 + sqrt(11)*I/6: double-pole coeff B=nan -> admissible residues []
+  at infinity: r -> 1/3 (= c0^2), 1/x coefficient r_1 = -1/9
+  VERDICT: IRREDUCIBLE (no rational Riccati solution)

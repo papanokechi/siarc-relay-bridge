@@ -1,0 +1,112 @@
+check_proposal -- PREREG Part B screening
+index: 82 distinct bases; home sources: theorem.tex, section1.tex, OUTLINE.md
+
+[controls -- each must be REJECTED, and for the named clause]
+
+  q  (the letter being removed)      REJECTED
+      C1 unused in index             FAIL   8 keys in outline-cited claims (89), section1.tex, section3.tex, section4.tex
+      C2 not a chart coordinate      FAIL   Painleve/Okamoto chart coordinate
+      C3 not an exponent letter      pass   
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    pass   no homoglyph partner
+
+  \lambda (the letter being removed) REJECTED
+      C1 unused in index             FAIL   6 keys in outline-cited claims (89), section1.tex, section3.tex
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      FAIL   reserved for exponents
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    pass   no homoglyph partner
+
+  r  (the r-family)                  REJECTED
+      C1 unused in index             FAIL   29 keys in OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      pass   
+      C4 not r / \rinf / r(c)        FAIL   the r-family being disambiguated
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    pass   no homoglyph partner
+
+  \rho (exponent letter)             REJECTED
+      C1 unused in index             FAIL   4 keys in outline-cited claims (89), section1.tex, section3.tex
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      FAIL   reserved for exponents
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    pass   no homoglyph partner
+
+  \varrho (variant glyph of \rho)    REJECTED
+      C1 unused in index             pass   no meaning in any source
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      FAIL   reserved for exponents
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         FAIL   reads as a different letter in isolation
+      C6 homoglyph partner absent    FAIL   partner \rho occurs: section1.tex x2
+
+  \mu (exponent letter)              REJECTED
+      C1 unused in index             pass   no meaning in any source
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      FAIL   reserved for exponents
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    pass   no homoglyph partner
+
+  l  (reads as 1)                    REJECTED
+      C1 unused in index             pass   no meaning in any source
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      pass   
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         FAIL   reads as a different letter in isolation
+      C6 homoglyph partner absent    pass   no homoglyph partner
+
+  \omega (partner w in use)          REJECTED
+      C1 unused in index             pass   no meaning in any source
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      pass   
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    FAIL   partner w occurs: OUTLINE.md x1; section1.tex x1; theorem.tex x12
+
+  \chi (partner x in use)            REJECTED
+      C1 unused in index             pass   no meaning in any source
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      pass   
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    FAIL   partner x occurs: OUTLINE.md x17; section1.tex x8; theorem.tex x14
+
+  \eta (partner n in use)            REJECTED
+      C1 unused in index             pass   no meaning in any source
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      pass   
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    FAIL   partner n occurs: OUTLINE.md x58; section1.tex x43; theorem.tex x342
+
+[proposal]
+
+  submitted candidate psi            ADMISSIBLE
+      C1 unused in index             pass   no meaning in any source
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      pass   
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    pass   no homoglyph partner
+
+  submitted candidate nu             ADMISSIBLE
+      C1 unused in index             pass   no meaning in any source
+      C2 not a chart coordinate      pass   
+      C3 not an exponent letter      pass   
+      C4 not r / \rinf / r(c)        pass   
+      C5 not glyph-ambiguous         pass   
+      C6 homoglyph partner absent    pass   no homoglyph partner
+
+[residual risk -- disclosed, not screened]
+    \psi     near \varphi   both Greek with a vertical stroke; \varphi occurs only as the subscript of L_\varphi
+             section1.tex x1
+    \nu      near n         nu sits beside the index n in b(n)=beta_d prod (n - nu_i)
+             OUTLINE.md x58; section1.tex x43; theorem.tex x342
+
+[verdict]
+  controls: 10/10 rejected for the expected clause
+  VERDICT: PROPOSAL ADMISSIBLE -- \psi_n, \psi_\infty and \nu_1..\nu_d

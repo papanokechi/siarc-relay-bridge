@@ -1,0 +1,106 @@
+% =====================================================================
+%  Section 0 -- Introduction
+%  CT-S39-DRAFT-A.  Draft only.
+%
+%  States the recurrence, the result, and the TWO limits: the
+%  identification is exact, but leaf membership is numerical and is not
+%  proven.  No new claims; every figure traces to a claim id.
+% =====================================================================
+
+\section{Introduction}\label{sec:intro}
+
+Let $b$ be a polynomial of degree $d\ge1$ with $b(k)\neq0$ for every integer
+$k\ge1$, and let $Q_n$ be the denominators of the associated polynomial
+continued fraction,
+\[
+  Q_n=b(n)Q_{n-1}+Q_{n-2},\qquad Q_{-1}=0,\quad Q_0=1 .
+\]
+This paper is about one such recurrence, the quadratic case
+$b(n)=3n^{2}+n+1$, and about the differential equation its generating function
+satisfies. The results are of two kinds, and they are established to two
+different standards. Saying which is which is the purpose of this introduction.
+
+\paragraph{Growth.} The normalised sequence $\psi_n=Q_n/\prod_{k\le n}b(k)$
+converges for every such $b$, with no hypothesis on its limit, and when the
+limit $\psi_\infty$ is non-zero the denominators satisfy
+\[
+  \frac{Q_n}{\Gamma(dn+1)}
+  =K\Big(\frac{\beta_d}{d^{d}}\Big)^{n}n^{s}\bigl(1+O(1/n)\bigr),
+  \qquad s=\frac{\beta_{d-1}}{\beta_d}+\frac{d-1}{2},
+\]
+with $K$ given in closed form by $\psi_\infty$ and the roots of $b$. The
+exponential rate here is classical --- it is a corollary of the Perron--Kreuser
+theorem, and \S\ref{ssec:attribution} says so before anything else in
+\S\ref{sec:growth} --- and what is offered is the exponent written at the level
+of the coefficients of $b$, together with the amplitude $K$ made explicit. These
+statements are proved, and \S\ref{ssec:attribution} names the one classical
+normalisation that is imported rather than proved.
+
+\paragraph{The differential equation, and the leaf.} For the quadratic case the
+generating function satisfies a second-order linear ODE. After an explicit
+scalar reduction, the connection attached to that ODE is shown to be the
+differential module of a specific member of van der Put--Saito's rank-2 family
+of type $(0,0,1,-)$, sitting at an explicit point of the chart $U_0$ of the moduli
+space $\mathcal M_{t,\lambda}$. The identification is of the full operator and not merely
+of its projective class; removing the projective ambiguity is a separate step,
+carried out in \S\ref{sec:projective}. Painlev\'e~V is the isomonodromy
+foliation of that moduli space, and the deformation vector field is regular at
+the point, so exactly one leaf passes through it. Transporting along that leaf
+and recomputing the trace coordinates $x_1,x_2,x_3$ of the monodromy and Stokes
+data leaves them invariant to better than 90 decimal digits, at two step sizes
+and on both branches of a sign pair exchanged by an explicit Galois
+automorphism.
+
+\paragraph{The two limits.} Both are stated here rather than in a closing
+section, because a reader is entitled to know them before reading the argument.
+
+\begin{enumerate}
+\item \textbf{Leaf membership is numerical.} The invariance of the trace
+  coordinates under transport is a high-precision numerical agreement, checked
+  against a pre-registered falsifier and accompanied by controls that displace
+  the point off the leaf and that substitute a deliberately wrong deformation
+  field. It is evidence, and it is strong evidence, but it is not a proof, and
+  nothing in this paper upgrades it to one. The identification of the operator,
+  by contrast, is exact and is proved by elimination.
+
+\item \textbf{No Painlev\'e label is asserted for this recurrence.} The
+  classification question --- which row of van der Put--Saito's Table~2.1 the
+  operator occupies --- is addressed only negatively. \S\ref{sec:systems} shows
+  that one row is \emph{excluded} for every admissible coefficient vector, by a
+  Katz-invariant argument at $z=0$. A matching multiset is a necessary condition
+  and not a sufficient one, so excluding a row is not the same as assigning one,
+  and no row is assigned.
+\end{enumerate}
+
+\paragraph{Method, in one paragraph.} The argument is a chain of
+identifications, each checked by a control that could have failed. Growth comes
+from the exact recurrence
+$\psi_n=\psi_{n-1}+\psi_{n-2}/(b(n-1)b(n))$, whose increments are absolutely
+summable, so that convergence follows by telescoping under (A1) alone;
+positivity of $b$ then supplies $\psi_\infty\neq0$ together with a two-sided
+bound. Pincherle's theorem supplies the minimal-solution interpretation of that
+non-vanishing, but it is not used. The local data of the ODE --- pole orders,
+Katz invariants, local exponents, and the non-apparency of the two finite
+singular points --- are computed exactly and matched against the hypotheses
+under which van der Put--Saito construct $\mathcal M_{t,\lambda}$. The point of $U_0$ is
+located by matching projective normal forms, an overdetermined system of five
+coefficient equations and one non-apparency condition in four unknowns; the two
+located points are shown to be the complete solution set by Gr\"obner
+elimination over $\Q(i\sqrt{11})$, rather than reported as what a solver
+returned. The projective ambiguity is then removed by comparing the pair
+$(P,Q)$ of the scalar operator directly, which a rank-one twist does not fix.
+Monodromy and Stokes data are computed by numerical analytic continuation, with
+the solver first validated against the closed-form Stokes multipliers of
+Kummer's equation to 32 of 32 digits, and with the sectorial and orientation
+conventions not assumed but selected as the unique one of sixteen candidates
+meeting four independent consistency conditions.
+
+\paragraph{Organisation.} \S\ref{sec:notation} fixes notation and the three
+standing hypotheses; a reader who knows the conventions may begin at
+\S\ref{sec:growth}. \S\ref{sec:growth} treats growth, and opens with the
+attribution paragraph. \S\ref{sec:systems} computes the local data,
+\S\ref{sec:moduli} recalls the moduli space, \S\ref{sec:point} locates the
+point and \S\ref{sec:projective} removes the projective ambiguity.
+\S\ref{sec:monodromy} computes the monodromy and Stokes data and
+\S\ref{sec:leaf} transports along the leaf. \S\ref{sec:limits} states the scope
+and limits, and \S\ref{sec:open} the open questions.

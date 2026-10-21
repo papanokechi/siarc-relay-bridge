@@ -1,0 +1,258 @@
+{
+  "task_id": "CT-S6-APPARENCY",
+  "sympy_version": "1.14.0",
+  "dps": null,
+  "source_inspection": {
+    "classification_table_md": {
+      "path": "sessions\\2026-09-17\\CT-R1-AUDIT\\CLASSIFICATION-TABLE.md",
+      "sha256": "18d4d16eba0108373d899fab1095312c12cbae2466ce9973737b45cfa21417a7",
+      "contains_D5_PV_row": true
+    },
+    "vanderput_saito_pdf_pages_25_26": {
+      "path": "sessions\\2026-09-17\\CT-R1-AUDIT\\refs\\vanderPut-Saito-AIF-2009-59-7-2611.pdf",
+      "sha256_pdf": "1666bd6be824a99fc0b48adbe48233a9b2a520fd7e8adf187e98d22525473605",
+      "extract_path": "sessions\\2026-09-17\\CT-S6-APPARENCY\\pdf_pages_25_26_extract.txt",
+      "extract_sha256": "9fe16e9f7062847dba1924e897e16c582389fd900b02f63af7506593cd0f034f",
+      "page_count": 58,
+      "selection_rule_token_found": true,
+      "table_2_1_token_found": true,
+      "pv_row_tokens_found": true
+    },
+    "vq_n1_verdict": {
+      "path": "sessions\\2026-05-29\\T1-SYNTH-VQ-N1-VQUAD-RECLASSIFICATION-APPLY\\verdict.md",
+      "sha256": "407695db532d147ca93024e6099be494387b45266e45fca031e50e9d3de1216b",
+      "apparent_indices_line_found": true
+    }
+  },
+  "certificates": {
+    "system_B_q2_factorisation_exact": true,
+    "system_B_normal_form_matches_printed": true,
+    "system_A_r": "(-3*z**2 - 5*z + 3)/(9*z**3)",
+    "system_B_r": "(11*z**4 + 4*z**2 + 4*z + 12)/(4*z**4*(z**4 + 2*z**3 + 7*z**2 + 6*z + 9))"
+  },
+  "vacuity_precheck": {
+    "euler_indicial": "-Lambda + lam**2 - lam",
+    "euler_discriminant_depends_on_Lambda": "4*Lambda + 1",
+    "euler_observable_moves_when_Lambda_moves": true,
+    "synthetic_apparent_verdict": "APPARENT",
+    "synthetic_apparent_log_present": false,
+    "synthetic_perturbed_verdict": "NOT APPARENT",
+    "synthetic_perturbed_frobenius": {
+      "lower_exponent": "0",
+      "upper_exponent": "2",
+      "exponent_difference": "2",
+      "steps": [
+        {
+          "n": 1,
+          "resonant": false,
+          "F_n": "-1",
+          "rhs_sum": "0",
+          "c_n": "0"
+        },
+        {
+          "n": 2,
+          "resonant": true,
+          "F_n": "0",
+          "obstruction_sum": "1"
+        }
+      ],
+      "log_obstruction": "1",
+      "log_term_present": true,
+      "lower_solution_coefficients_until_resonance": {
+        "0": "1",
+        "1": "0"
+      },
+      "all_solutions_holomorphic_after_shift": true
+    }
+  },
+  "system_B_apparency_tests": [
+    {
+      "point": "rho_minus=(-1-i*sqrt(11))/2",
+      "indicial_equation": "lam**2",
+      "exponents_with_multiplicity": [
+        "0",
+        "0"
+      ],
+      "exponents_are_integers": [
+        true,
+        true
+      ],
+      "frobenius": {
+        "exponent_difference": "0",
+        "repeated_root_log_test": {
+          "P_residue": "1",
+          "P_minus_residue_over_s_at_0": "-1/3 + (-33*sqrt(3) - 11*sqrt(33)*I + 84*sqrt(11)*I)/198",
+          "normalized_reduction_of_order_integrand_residue": "1",
+          "log_term_present": true,
+          "reason": "For P=1/s+analytic and y1(0)=1, exp(-Integral(P))/y1**2 has normalized residue 1/s, so the second solution contains log(s)."
+        }
+      },
+      "verdict": "NOT APPARENT",
+      "reason": "Repeated integer exponent 0, but the exact reduction-of-order residue is nonzero, so a log term appears."
+    },
+    {
+      "point": "rho_plus=(-1+i*sqrt(11))/2",
+      "indicial_equation": "lam**2",
+      "exponents_with_multiplicity": [
+        "0",
+        "0"
+      ],
+      "exponents_are_integers": [
+        true,
+        true
+      ],
+      "frobenius": {
+        "exponent_difference": "0",
+        "repeated_root_log_test": {
+          "P_residue": "1",
+          "P_minus_residue_over_s_at_0": "-1/3 + (-33*sqrt(3) - 84*sqrt(11)*I + 11*sqrt(33)*I)/198",
+          "normalized_reduction_of_order_integrand_residue": "1",
+          "log_term_present": true,
+          "reason": "For P=1/s+analytic and y1(0)=1, exp(-Integral(P))/y1**2 has normalized residue 1/s, so the second solution contains log(s)."
+        }
+      },
+      "verdict": "NOT APPARENT",
+      "reason": "Repeated integer exponent 0, but the exact reduction-of-order residue is nonzero, so a log term appears."
+    },
+    {
+      "point": "infinity (t=1/z)",
+      "indicial_equation": "(18*lam**2 - 54*lam + 2*sqrt(3)*lam - 3*sqrt(3))/18 + 217/108",
+      "exponents_with_multiplicity": [
+        "1 - sqrt(3)/18",
+        "2 - sqrt(3)/18"
+      ],
+      "exponents_are_integers": [
+        false,
+        false
+      ],
+      "frobenius": null,
+      "verdict": "NOT APPARENT",
+      "reason": "At least one local exponent is not an integer."
+    }
+  ],
+  "system_B_katz_with_apparent_removed": {
+    "all_points": [
+      {
+        "point": "0",
+        "pole_order_normal_form_r": 4,
+        "formal_type": "irregular, UNRAMIFIED",
+        "Katz": "1",
+        "ramification_index": "1",
+        "apparent_removed": false
+      },
+      {
+        "point": "rho_minus=(-1-i*sqrt(11))/2",
+        "pole_order_normal_form_r": 2,
+        "formal_type": "regular singular",
+        "Katz": "0",
+        "ramification_index": "1",
+        "apparent_removed": false
+      },
+      {
+        "point": "rho_plus=(-1+i*sqrt(11))/2",
+        "pole_order_normal_form_r": 2,
+        "formal_type": "regular singular",
+        "Katz": "0",
+        "ramification_index": "1",
+        "apparent_removed": false
+      },
+      {
+        "point": "infinity",
+        "pole_order_normal_form_r_inf": 2,
+        "formal_type": "regular singular",
+        "Katz": "0",
+        "ramification_index": "1",
+        "apparent_removed": false
+      }
+    ],
+    "effective_points": [
+      {
+        "point": "0",
+        "pole_order_normal_form_r": 4,
+        "formal_type": "irregular, UNRAMIFIED",
+        "Katz": "1",
+        "ramification_index": "1",
+        "apparent_removed": false
+      },
+      {
+        "point": "rho_minus=(-1-i*sqrt(11))/2",
+        "pole_order_normal_form_r": 2,
+        "formal_type": "regular singular",
+        "Katz": "0",
+        "ramification_index": "1",
+        "apparent_removed": false
+      },
+      {
+        "point": "rho_plus=(-1+i*sqrt(11))/2",
+        "pole_order_normal_form_r": 2,
+        "formal_type": "regular singular",
+        "Katz": "0",
+        "ramification_index": "1",
+        "apparent_removed": false
+      },
+      {
+        "point": "infinity",
+        "pole_order_normal_form_r_inf": 2,
+        "formal_type": "regular singular",
+        "Katz": "0",
+        "ramification_index": "1",
+        "apparent_removed": false
+      }
+    ],
+    "effective_multiset": [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    "table_2_1_comparison": "No Table 2.1 row matches one Katz-1 irregular point plus three regular singular points; D5/PV row on p.2635 is (0,0,1,-), but no tested point was apparent.",
+    "matched_row": null
+  },
+  "system_A_dash_slot": {
+    "leading_coefficient": "3*z**3",
+    "finite_singular_candidates_from_leading_coefficient": [
+      "0"
+    ],
+    "finite_singular_candidates_from_denominators_after_cancellation": [
+      "0"
+    ],
+    "finite_affine_points_outside_z0": "NOT FOUND in A2 and denominator factorization by exact SymPy solve at HEAD 08aa0e2381b3dc37ee54a3200b7272755ca11d59",
+    "z0_pole_order_r": 3,
+    "infinity_pole_order_r_inf": 3,
+    "dash_slot_meaning": "The dash is an absent singular point in the classification tuple, not a point dropped as regular or apparent.",
+    "dropped_regular_or_apparent_point": "NOT FOUND in System A finite affine singular-candidate enumeration by leading-coefficient/denominator factorization; infinity is already the second Katz-1/2 entry.",
+    "katz_multiset": [
+      "1/2",
+      "-",
+      "1/2"
+    ]
+  },
+  "git_verification": {
+    "HEAD": "08aa0e2381b3dc37ee54a3200b7272755ca11d59",
+    "HEAD_matches_expected": true,
+    "status_porcelain_lines": [
+      " M sessions/2026-06-16/VQUAD-ZENODO-DEPOSIT-001/MANUAL-UPLOAD.md",
+      " M sessions/2026-06-18/VQUAD-ARXIV-METADATA-001/arxiv-metadata-package.md",
+      "?? sessions/2026-05-02/SUBMISSION-LOG-PATCH-ITEM19/submission_log.txt.pre-LOG-PV-01.bak",
+      "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/README_catalog_d2_STATUS.md",
+      "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/catalog_d2.STATUS_ANNOTATED.csv",
+      "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/recheck_inheritors.py",
+      "?? sessions/2026-06-15/EBR3-REVISION-001/",
+      "?? sessions/2026-06-16/VQUAD-ZENODO-DEPOSIT-001/upload-copy-paste.md",
+      "?? sessions/2026-06-18/VQUAD-ARXIV-METADATA-001/arxiv-metadata-package.md.pre-hedge-fix.bak",
+      "?? sessions/2026-09-17/"
+    ],
+    "status_entries_outside_session_folder": [
+      " M sessions/2026-06-16/VQUAD-ZENODO-DEPOSIT-001/MANUAL-UPLOAD.md",
+      " M sessions/2026-06-18/VQUAD-ARXIV-METADATA-001/arxiv-metadata-package.md",
+      "?? sessions/2026-05-02/SUBMISSION-LOG-PATCH-ITEM19/submission_log.txt.pre-LOG-PV-01.bak",
+      "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/README_catalog_d2_STATUS.md",
+      "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/catalog_d2.STATUS_ANNOTATED.csv",
+      "?? sessions/2026-05-02/T3-CONTE-MUSETTE-PAINLEVE-TEST/recheck_inheritors.py",
+      "?? sessions/2026-06-15/EBR3-REVISION-001/",
+      "?? sessions/2026-06-16/VQUAD-ZENODO-DEPOSIT-001/upload-copy-paste.md",
+      "?? sessions/2026-06-18/VQUAD-ARXIV-METADATA-001/arxiv-metadata-package.md.pre-hedge-fix.bak",
+      "?? sessions/2026-09-17/"
+    ]
+  }
+}

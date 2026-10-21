@@ -1,0 +1,109 @@
+==============================================================================
+CT-S50-READ-REPAIRS -- every ruling verified against the live tree
+==============================================================================
+
+live tree : CT-S50-READ-REPAIRS
+snapshot  : refs/ (pre-repair copy of all 15 sources)
+
+  R1a  section 9.4 item 6 -- stale formula-pass disclaimer
+     [OK  ] NOW      section9.tex:180
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section9.tex:183
+
+  R1b  appendix B.5 item 3 -- same disclaimer, methods register
+     [OK  ] NOW      appendixB.tex:139
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at appendixB.tex:139
+
+  R2  section 8.7 -- the self-contradicting count
+     [OK  ] NOW      section8.tex:211
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section8.tex:211
+
+  R3  section 5.4 -- a phrase quoted that the paper never uses
+     [OK  ] NOW      section5.tex:152
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section5.tex:148
+
+  R4a  section 6.2 -- R unified to section 1's typography
+     [OK  ] NOW      section6.tex:59
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section6.tex:59
+
+  R4b  section 9.1 -- R unified, and P_C/Q_C no longer re-displayed
+     [OK  ] NOW      section9.tex:38
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section9.tex:36
+
+  R5  section 1 -- the declared scalar form now the one in use
+     [OK  ] NOW      section1.tex:204
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section1.tex:204
+
+  R6  section 1 -- b entered in the reuse list, which now says seven
+     [OK  ] NOW      section1.tex:230
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section1.tex:225
+
+  R7  section 5.3 -- b_1 defined at first use
+     [OK  ] NOW      section5.tex:113
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section5.tex:113
+
+  R8  section 7.3 -- s_1,s_2 replaced by the declared a_1,a_2
+     [OK  ] NOW      section7.tex:208
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section7.tex:208
+
+  R9a  section 1 -- the dash convention widened to any absent point
+     [OK  ] NOW      section1.tex:297
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section1.tex:284
+
+  R9b  section 3.6 -- System C's multiset written with four slots
+     [OK  ] NOW      section3.tex:203
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section3.tex:203
+
+  R9c  section 3.6 -- System A's multiset written with four slots
+     [OK  ] NOW      section3.tex:214
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section3.tex:214
+
+  R9d  section 4.6 -- the PV row no longer disagrees with section 1
+     [OK  ] NOW      section4.tex:161
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section4.tex:161
+
+  R10  section 10.1 -- the counterexample referenced, not restated
+     [OK  ] NOW      section10.tex:22
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section10.tex:24
+
+  R11  section 1 -- a count nothing verifies removed
+     [OK  ] NOW      section1.tex:226
+     [OK  ] GONE     pre-repair text absent
+     [FIRED] SNAPSHOT refs/ still carries it at section1.tex:225
+
+GLOBAL INVARIANTS
+------------------------------------------------------------------------------
+  [OK  ] G1  no 3-slot (0,0,1) survives   confirmed
+     [FIRED] refs/ carried 8 of them
+  [OK  ] G2  R in one typography only     4 site(s): section1.tex:212, section3.tex:43, section6.tex:59, section9.tex:36
+  [OK  ] G3  s_1 occurs nowhere            confirmed
+     [FIRED] refs/ carried it at section7.tex:208
+  [OK  ] G4  section 9's 21/15/9/11 resolve to anchored manifest lines 
+  [OK  ] G5  the total 56 and unrouted=0 are the manifest's own
+  [OK  ] G6  the residual twelve = 15 S-corpus - 3 re-derived in CT-S47
+
+PAGE-LEVEL INVARIANTS  (checked against the rendered text, not the source)
+------------------------------------------------------------------------------
+  [OK  ] G7  no doubled citation on the page  confirmed
+  [OK  ] G8  section 10.1 reads as a numbered cross-reference
+        -- rendered: '... of §7.1 (S17-02, PROVEN) is trivial after tensoring ...'
+     [FIRED] the page reader does see paragraph titles ('What is false' is present at its own paragraph), so G7's absence is a result
+  [OK  ] G9  no unverified letter count survives on the page
+
+==============================================================================
+REPAIRS: 25 checks, 0 FAILED; 19 controls, 19 FIRED
+==============================================================================

@@ -1,0 +1,17 @@
+emit_claims_s39 -- pre-write validation
+  every line parses as JSON                                ok
+  claim ids unique                                         ok
+  every label is one of the five (P0 amendment F)          ok
+  every claim text is substantive                          ok
+  every output_hash is 64 hex                              ok
+  every output_hash resolves to its file on disk           ok
+  every script exists                                      ok
+  S39-02 records the folio reader defect and its repair    ok
+  S39-03 carries the review_note marking it unrepaired     ok
+  no claim asserts a Painleve label for the recurrence     ok
+
+  claims written : 8
+  checks run     : 10
+  checks failed  : 0
+  claims.jsonl   : 10524 B  sha256 fa49567bf5ec3a98ad8fc724456dfbdba70208d2ec9b44db3ab558c0fd80ac23
+  VERDICT: CLAIMS EMITTED

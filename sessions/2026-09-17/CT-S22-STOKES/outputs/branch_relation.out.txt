@@ -1,0 +1,51 @@
+==========================================================================
+CT-S22-STOKES  -  the relation between the two CT-S16 branches
+==========================================================================
+
+S22-19  sigma: sqrt3 -> -sqrt3, sqrt11 -> +sqrt11  (so sqrt33 -> -sqrt33)
+--------------------------------------------------------------------------
+  sigma(t        )_1 - t        _2 :  simplify -> 0   |numeric| = 0.0
+  sigma(theta_inf)_1 - theta_inf_2 :  simplify -> 0   |numeric| = 0.0
+  sigma(q        )_1 - q        _2 :  simplify -> 0   |numeric| = 0.0
+  sigma(p        )_1 - p        _2 :  simplify -> 0   |numeric| = 3.31217e-170
+  [PASS] sigma maps branch 1 to branch 2 term by term.
+
+  Are they complex conjugates?  (they are widely assumed to be)
+    conj(q        )_1 - q        _2 = 457937*sqrt(11)*I/61204
+    conj(p        )_1 - p        _2 = -2545564480*sqrt(11)*I/21283691
+    conj(t        )_1 - t        _2 = 0
+    conj(theta_inf)_1 - theta_inf_2 = -2*sqrt(3)/9
+  -> q and p are NOT conjugate pairs; conjugation flips the sqrt(11)
+     term as well, which sigma does not.  The branches are Galois
+     conjugates over Q(sqrt3, sqrt11), not complex conjugates.
+
+  SCOPE, and the reason branch 2 was RUN and not inferred:
+  sigma is an automorphism of a NUMBER FIELD.  The monodromy and Stokes
+  data are transcendental functions of the matrix entries, and sigma
+  does not act on analytic continuation.  The relation transfers the
+  CT-S16 location argument; it carries NO information about the Stokes
+  data.  LABEL for the relation: PROVEN.  LABEL for any transfer of
+  monodromy through it: NOT CLAIMED.
+
+S22-20  the two branches' trace coordinates, read back from the
+        Stage-2 output files (not retyped)
+--------------------------------------------------------------------------
+  branch 1: convention right|ccw|infcw|10
+      x1    = -3.4791908904110720783362611334763347 - 1.0850135702764914087402902784
+      x2    = 5.0274753770206575050513601616191382 + 2.36562098749467664653071789629
+      x3    = 1.9725752524636335304002661101339216 + 4.70271219398924221418443488022
+      alpha = 0.822729657120054651782758448805 + 0.568432855573213067260201792796j
+  branch 2: convention right|cw|infccw|01
+      x1    = 5.0274753770206575050513601616191382 + 2.36562098749467664653071789629
+      x2    = -3.4791908904110720783362611334763347 - 1.0850135702764914087402902784
+      x3    = 1.9725752524636335304002661101339216 + 1.06733917970491941462165861259
+      alpha = 0.822729657120054651782758448805 + 0.568432855573213067260201792796j
+
+  x1 <-> x2 interchanged between branches : True
+  x3 real parts identical                 : True
+  alpha identical                         : True
+  conventions differ (mirrored)           : True  right|ccw|infcw|10 vs right|cw|infccw|01
+
+  [PASS] -> the two branches sit at the SAME point of the
+  character variety, up to the relabelling induced by the
+  mirrored convention.  LABEL: VERIFIED.

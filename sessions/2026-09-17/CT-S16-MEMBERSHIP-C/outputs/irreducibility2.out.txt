@@ -1,0 +1,38 @@
+#### vacuity pre-check (PREREG step 2, H-b) ####
+
+=== CONTROL A: reducible by construction, n = 0 ===
+  r = 36*x**4 + 240*x**3 + 136*x**2 + 92*x + 115 / 36*(3*x**2 + x + 1)**2
+  at x=-1/6 - sqrt(11)*I/6: B=-1/4 -> admissible residues [1/2]
+  at x=-1/6 + sqrt(11)*I/6: B=-1/4 -> admissible residues [1/2]
+  at infinity: c0^2 = 1/9, r_1 = 2/3
+    c0=1/3, residues=[1/2, 1/2]  ->  n = 0  integer=True  admissible=True
+    c0=-1/3, residues=[1/2, 1/2]  ->  n = -2  integer=True  admissible=False
+  VERDICT: reducible NOT excluded
+
+(control B: double poles at [0, 1], extra pole of w at x=2)
+
+=== CONTROL B: reducible by construction, n = 1 ===
+  r = 9*x**4 - 66*x**3 + 77*x**2 - 20*x - 4 / 16*x**2*(x - 1)**2
+  at x=1: B=-1/4 -> admissible residues [1/2]
+  at x=0: B=-1/4 -> admissible residues [1/2]
+  at infinity: c0^2 = 9/16, r_1 = -3
+    c0=3/4, residues=[1/2, 1/2]  ->  n = -3  integer=True  admissible=False
+    c0=-3/4, residues=[1/2, 1/2]  ->  n = 1  integer=True  admissible=True
+  VERDICT: reducible NOT excluded
+
+vacuity pre-check PASSED: the test returns 'reducible NOT excluded'
+for both reducible controls, so a negative verdict is informative.
+
+
+#### System C ####
+
+=== System C ===
+  r = 12*x**4 + 4*x**3 + 4*x**2 + 11 / 4*(3*x**2 + x + 1)**2
+  at x=-1/6 - sqrt(11)*I/6: B=-1/4 -> admissible residues [1/2]
+  at x=-1/6 + sqrt(11)*I/6: B=-1/4 -> admissible residues [1/2]
+  at infinity: c0^2 = 1/3, r_1 = -1/9
+    c0=sqrt(3)/3, residues=[1/2, 1/2]  ->  n = -1 - sqrt(3)/18  integer=False  admissible=False
+    c0=-sqrt(3)/3, residues=[1/2, 1/2]  ->  n = -1 + sqrt(3)/18  integer=False  admissible=False
+  VERDICT: IRREDUCIBLE
+
+System C is IRREDUCIBLE

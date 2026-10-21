@@ -1,0 +1,13 @@
+mutants_draft_check -- 9 arms
+
+  M1 S4-03 PROVEN -> CONJECTURED                       rc=1 exp=1 CAUGHT
+  M2 S16-01 INSPECTED -> PROVEN (forbidden upgrade)    rc=1 exp=1 CAUGHT
+  M3 S6-C16 STRUCTURAL -> VERIFIED                     rc=1 exp=1 CAUGHT
+  M4 S16-04 STRUCTURAL -> INSPECTED                    rc=1 exp=1 CAUGHT
+  M5 cite a claim id that does not exist               rc=1 exp=1 CAUGHT
+  M6 cite a structurally superseded claim              rc=1 exp=1 CAUGHT
+  M7 alias form S9-PVPARAMS-C005 must resolve AND be reported rc=0 exp=0 CAUGHT
+  M8 reader integrity: section3.tex emptied            rc=2 exp=2 CAUGHT
+  M9 boundary: section4.tex reduced to 4 citations     rc=2 exp=2 CAUGHT
+
+9/9 arms CAUGHT

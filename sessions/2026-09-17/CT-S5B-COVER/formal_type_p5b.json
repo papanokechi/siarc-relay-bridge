@@ -1,0 +1,248 @@
+{
+  "baseline_certificates": {
+    "system_A_residual_orders_z0_to_z38_nonzero": [],
+    "system_A_first_Q": [
+      "1",
+      "5",
+      "76",
+      "2361",
+      "125209",
+      "10144290"
+    ],
+    "system_A_r": "(-3*z**2 - 5*z + 3)/(9*z**3)",
+    "system_B_q2_factorisation_exact": true,
+    "system_B_r_from_q0q1q2_matches_printed": true,
+    "system_B_r": "(11*z**4/4 + z**2 + z + 3)/(z**4*(z**2 + z + 3)**2)"
+  },
+  "pullback_rule": {
+    "derivation": "For u''=r(z)u and phi=phi(s), v(s)=u(phi(s)) satisfies v''-(phi''/phi')v'-(phi')^2*r(phi)v=0; normal-form reduction gives R=(phi')^2*r(phi)-1/2*Schwarzian(phi,s).",
+    "schwarzian_w_squared": "-3/(2*w**2)",
+    "schwarzian_inversion": "0",
+    "euler_test": {
+      "r_original": "alpha*(alpha-1)/z**2",
+      "r_pullback": "(4*alpha - 3)*(4*alpha - 1)/(4*w**2)",
+      "expected_from_renormalised_exponents_beta=2*alpha-1/2": "(2*alpha - 3/2)*(2*alpha - 1/2)/w**2",
+      "exponent_difference_doubles": true,
+      "passed": true
+    }
+  },
+  "vacuity_precheck": {
+    "unramified_test_r": "1/z**4",
+    "unramified_test_original_pole_order": 4,
+    "unramified_test_pullback_r": "(3*w**4 + 16)/(4*w**6)",
+    "unramified_test_pullback_pole_order": 6,
+    "unramified_test_remains_unramified": true,
+    "system_A_original_pole_order_at_0": 3,
+    "system_A_pullback_pole_order_at_0": 4,
+    "system_A_observable_moves": true
+  },
+  "system_A_baseline_formal_type": [
+    {
+      "label": "System A",
+      "point": "0",
+      "pole_order": 3,
+      "formal_type": "irregular, RAMIFIED",
+      "ramification_index": 2,
+      "Katz_invariant": "1/2",
+      "Poincare_rank": "1/2",
+      "leading_Laurent_coeff": "1/3",
+      "exponential_parts_S": [
+        "+(-2*sqrt(3)*sqrt(z)/(3*z))",
+        "-(-2*sqrt(3)*sqrt(z)/(3*z))"
+      ]
+    },
+    {
+      "label": "System A at infinity",
+      "point": "infinity",
+      "pole_order": 3,
+      "formal_type": "irregular, RAMIFIED",
+      "ramification_index": 2,
+      "Katz_invariant": "1/2",
+      "Poincare_rank": "1/2",
+      "leading_Laurent_coeff": "-1/3",
+      "exponential_parts_S": [
+        "+(-2*sqrt(3)*I*sqrt(t)/(3*t))",
+        "-(-2*sqrt(3)*I*sqrt(t)/(3*t))"
+      ],
+      "r_infinity_local_t": "(12*t**2 - 47*t - 12)/(36*t**3)"
+    }
+  ],
+  "system_B_baseline_formal_type": [
+    {
+      "label": "System B",
+      "point": "0",
+      "pole_order": 4,
+      "formal_type": "irregular, UNRAMIFIED",
+      "ramification_index": 1,
+      "Katz_invariant": "1",
+      "Poincare_rank": "1",
+      "leading_Laurent_coeff": "1/3",
+      "exponential_parts_S": [
+        "+(-sqrt(3)/(3*z))",
+        "-(-sqrt(3)/(3*z))"
+      ]
+    },
+    {
+      "label": "System B",
+      "point": "-1/2 - sqrt(11)*I/2",
+      "pole_order": 2,
+      "formal_type": "regular singular",
+      "ramification_index": 1,
+      "Katz_invariant": "0",
+      "Poincare_rank": "0",
+      "leading_Laurent_coeff": "-1/4",
+      "exponential_parts_S": null
+    },
+    {
+      "label": "System B",
+      "point": "-1/2 + sqrt(11)*I/2",
+      "pole_order": 2,
+      "formal_type": "regular singular",
+      "ramification_index": 1,
+      "Katz_invariant": "0",
+      "Poincare_rank": "0",
+      "leading_Laurent_coeff": "-1/4",
+      "exponential_parts_S": null
+    },
+    {
+      "label": "System B at infinity",
+      "point": "infinity",
+      "pole_order": 2,
+      "formal_type": "regular singular",
+      "ramification_index": 1,
+      "Katz_invariant": "0",
+      "Poincare_rank": "0",
+      "leading_Laurent_coeff": "-3/4",
+      "exponential_parts_S": null,
+      "r_infinity_local_t": "(12*t**6 + 4*t**5 - 23*t**4 - 18*t**3 - 10*t**2 - 6*t - 3)/(4*t**2*(9*t**4 + 6*t**3 + 7*t**2 + 2*t + 1))"
+    }
+  ],
+  "system_A_pullback_z_equals_w_squared": {
+    "r": "(-48*w**4 - 53*w**2 + 48)/(36*w**4)",
+    "finite_poles": [
+      "0"
+    ],
+    "formal_type": [
+      {
+        "label": "pi^* System A, z=w^2",
+        "point": "0",
+        "pole_order": 4,
+        "formal_type": "irregular, UNRAMIFIED",
+        "ramification_index": 1,
+        "Katz_invariant": "1",
+        "Poincare_rank": "1",
+        "leading_Laurent_coeff": "4/3",
+        "exponential_parts_S": [
+          "+(-2*sqrt(3)/(3*w))",
+          "-(-2*sqrt(3)/(3*w))"
+        ]
+      },
+      {
+        "label": "pi^* System A, z=w^2 at infinity",
+        "point": "infinity",
+        "pole_order": 4,
+        "formal_type": "irregular, UNRAMIFIED",
+        "ramification_index": 1,
+        "Katz_invariant": "1",
+        "Poincare_rank": "1",
+        "leading_Laurent_coeff": "-4/3",
+        "exponential_parts_S": [
+          "+(-2*sqrt(3)*I/(3*t))",
+          "-(-2*sqrt(3)*I/(3*t))"
+        ],
+        "r_infinity_local_t": "4*(3*t**4 - 5*t**2 - 3)/(9*t**4)"
+      }
+    ]
+  },
+  "system_B_inversion_z_to_1_over_x": {
+    "r": "(12*x**4 + 4*x**3 + 4*x**2 + 11)/(4*(3*x**2 + x + 1)**2)",
+    "finite_poles": [
+      "-1/6 - sqrt(11)*I/6",
+      "-1/6 + sqrt(11)*I/6"
+    ],
+    "formal_type": [
+      {
+        "label": "inverted System B",
+        "point": "0",
+        "pole_order": 0,
+        "formal_type": "regular singular",
+        "ramification_index": 1,
+        "Katz_invariant": "0",
+        "Poincare_rank": "0",
+        "leading_Laurent_coeff": "11/4",
+        "exponential_parts_S": null
+      },
+      {
+        "label": "inverted System B",
+        "point": "-1/6 - sqrt(11)*I/6",
+        "pole_order": 2,
+        "formal_type": "regular singular",
+        "ramification_index": 1,
+        "Katz_invariant": "0",
+        "Poincare_rank": "0",
+        "leading_Laurent_coeff": "-1/4",
+        "exponential_parts_S": null
+      },
+      {
+        "label": "inverted System B",
+        "point": "-1/6 + sqrt(11)*I/6",
+        "pole_order": 2,
+        "formal_type": "regular singular",
+        "ramification_index": 1,
+        "Katz_invariant": "0",
+        "Poincare_rank": "0",
+        "leading_Laurent_coeff": "-1/4",
+        "exponential_parts_S": null
+      },
+      {
+        "label": "inverted System B at infinity",
+        "point": "infinity",
+        "pole_order": 4,
+        "formal_type": "irregular, UNRAMIFIED",
+        "ramification_index": 1,
+        "Katz_invariant": "1",
+        "Poincare_rank": "1",
+        "leading_Laurent_coeff": "1/3",
+        "exponential_parts_S": [
+          "+(-sqrt(3)/(3*t))",
+          "-(-sqrt(3)/(3*t))"
+        ],
+        "r_infinity_local_t": "(-3*t**6 - 6*t**5 - 10*t**4 - 18*t**3 - 23*t**2 + 4*t + 12)/(4*t**4*(t**4 + 2*t**3 + 7*t**2 + 6*t + 9))"
+      }
+    ]
+  },
+  "vq_n1_comparison": {
+    "verdict_path": "sessions\\2026-05-29\\T1-SYNTH-VQ-N1-VQUAD-RECLASSIFICATION-APPLY\\verdict.md",
+    "required_snippets_found": {
+      "z=0 | ordinary, exponents {0,1}, no z^(1/2) ramification": true,
+      "finite sing. | two apparent Fuchsian points at z = (−1 ± i√11)/6, indices [0,0]": true,
+      "∞ | rank-1 **unramified** irregular point, σ± = ±1/√3": true
+    },
+    "recorded_configuration": {
+      "x=0": "ordinary, exponents {0,1}, no z^(1/2) ramification",
+      "finite": "two apparent Fuchsian points at (-1 ± i*sqrt(11))/6, indices [0,0]",
+      "infinity": "rank-1 unramified irregular, sigma± = ±1/sqrt(3)"
+    },
+    "inverted_Lphi_configuration_matches_locations_and_types": true,
+    "apparency_indices_not_recomputed": true
+  },
+  "global_comparison": {
+    "pi_star_A_finite_singular_points": [
+      "0"
+    ],
+    "pi_star_A_infinity_type": "irregular, UNRAMIFIED",
+    "system_B_finite_singular_points": [
+      "0",
+      "-1/2 - sqrt(11)*I/2",
+      "-1/2 + sqrt(11)*I/2"
+    ],
+    "system_B_infinity_type": "regular singular",
+    "local_at_branch_point_katz_matches_System_B_at_0": true,
+    "global_configurations_reconciled_by_z_equals_w_squared_alone": false,
+    "inverted_System_B_matches_VQ_N1_recorded_configuration_except_apparency_indices_not_recomputed": true
+  },
+  "verdict": {
+    "label": "STRUCTURAL",
+    "text": "The CT-S4 local ramified/unramified mismatch at zero does not survive the ramified coordinate z=w^2 locally: pi^*System A is unramified Katz 1 at w=0. However z=w^2 alone does not make pi^*System A globally isomorphic to System B, because pi^*System A has one finite singular point and irregular infinity whereas System B has three finite singular points and regular infinity. The inversion z->1/z does explain the VQ-N1 recorded placement of System B's singular configuration. CT-S4 verdict (c) is sharpened but not globally settled as an isomorphism."
+  }
+}

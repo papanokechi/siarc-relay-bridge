@@ -1,0 +1,67 @@
+==========================================================================
+CT-S55 -- HASH OF THE SUBMITTED FILE
+==========================================================================
+
+[0] PROVENANCE OF THE DOWNLOAD LINK
+    URIs in the stamped build pointing at Editorial Manager:
+      https://www2.cloud.editorialmanager.com/math/download.aspx?id=60154&guid=68eb32f6-b9e2-4cfa-9cdf-e5ccc20ddcbf&scheme=1
+    the link used to fetch (B) is present in (A) -> provenance established
+    (read out of the PDF's own link annotations, not from memory)
+
+[1] (A) THE STAMPED BUILD EM COMPILES FOR REVIEW
+    file   : MATH-D-26-00523-EM.pdf
+    pages  : 27   (2 submission cover + 25 manuscript)
+    bytes  : 1074874
+    md5    : e2f27a8ee5288dd1f0d8fedb0909a63f
+    sha1   : 1dc85b1dcbf1b13a17ff8f1b4539b4a171a0f1e7
+    sha256 : cf80089b36b580d136da35afb6bb392e0adb59a95fbe59b04c9995002226b849
+
+[2] (B) THE MANUSCRIPT ITEM AS UPLOADED, FETCHED THROUGH THAT LINK
+    file   : EM-manuscript-item-60154-vquad-periodrep-paper-v1.2.pdf
+    served : content-disposition filename="vquad-periodrep-paper-v1.2.pdf"
+    pages  : 25
+    bytes  : 778209
+    md5    : 792107efab6317e8ae21e2ca20f092ff
+    sha1   : ba46396c0c40ba402b576e788a516b04d55a4f0c
+    sha256 : 97ec5aff4b08f4ef48587358286451b2a6398f4c4d14062c2a2f8e8c69b5f2d3
+
+[3] AGAINST THE FOUR PUBLISHED VERSIONS OF CONCEPT 20719042
+    (md5 resolved by exact path hits.hits[].files[].checksum, then
+     re-verified against the bytes of each downloaded file)
+
+    v1.0  rec 20719043   773171 bytes  md5 99faea5b0f4095788e4ee932436beeda
+           vs (A) stamped : differs
+           vs (B) item    : differs
+    v1.1  rec 21410927   775400 bytes  md5 7feaf94c05a1815a9e8a0ea04561f834
+           vs (A) stamped : differs
+           vs (B) item    : differs
+    v1.2  rec 21412469   778209 bytes  md5 792107efab6317e8ae21e2ca20f092ff
+           vs (A) stamped : differs
+           vs (B) item    : MATCH -- byte-identical
+    v1.3  rec 22731371   784836 bytes  md5 943545955c2951a9592759862230e46a
+           vs (A) stamped : differs
+           vs (B) item    : differs
+
+    (A) stamped build matches : none of the four
+    (B) manuscript item matches: ['1.2']
+
+[4] READING
+    (A) matching nothing is the EXPECTED result, not a finding: the
+        stamped build is EM's own re-render and cannot hash to an
+        author file. It is reported so the non-match is not later
+        mistaken for evidence about which version was submitted.
+    (B) is the author PDF as uploaded. Its md5 is decisive.
+
+==========================================================================
+SUMMARY
+==========================================================================
+S55H stamped md5: e2f27a8ee5288dd1f0d8fedb0909a63f
+S55H stamped bytes: 1074874
+S55H stamped pages: 27
+S55H stamped matches: 0 of 4
+S55H item md5: 792107efab6317e8ae21e2ca20f092ff
+S55H item bytes: 778209
+S55H item pages: 25
+S55H item sha256: 97ec5aff4b08f4ef48587358286451b2a6398f4c4d14062c2a2f8e8c69b5f2d3
+S55H submitted version: v1.2
+S55H submitted record: 21412469

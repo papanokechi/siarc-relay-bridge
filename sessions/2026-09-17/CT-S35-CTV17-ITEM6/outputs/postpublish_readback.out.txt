@@ -1,0 +1,49 @@
+  description under comparison: DESCRIPTION-v1.7-rev3.html  sha256 33a3893372dfd9dcd2c89c4202b8db5aa6d8914acf4707bfd93e7442f8c7e293 (gate-verified)
+============================================================================
+postpublish_readback.py -- READ-ONLY, no token
+source: https://zenodo.org/api/records/22850681
+============================================================================
+
+  [PASS] record fetched and structurally sound (76977 bytes)
+
+SECTION 1 -- IDENTITY
+----------------------------------------------------------------------------
+  [PASS] version is 1.7 -- version = '1.7'
+  [PASS] concept DOI unchanged, read from the conceptdoi field -- conceptdoi = '10.5281/zenodo.19941678'
+  [PASS] version DOI differs from the concept DOI -- doi = '10.5281/zenodo.22850681'
+  [PASS] the version DOI was not guessed from the record number -- doi '10.5281/zenodo.22850681' corresponds to record id 22850681 -- recorded, not derived
+
+SECTION 2 -- THE CARRIED FILE
+----------------------------------------------------------------------------
+  [PASS] exactly one file is published -- 1 file(s): ['channel_theory_outline.pdf']
+  [PASS] the file key is the carried-over name -- key = 'channel_theory_outline.pdf'
+  [PASS] no draft marker or record id in the filename -- filename is clean: 'channel_theory_outline.pdf'
+  [PASS] the file bytes are v1.6's, unchanged -- size = 609300, md5 = aa56a94a9354b5533b04c89461950eb1
+
+SECTION 3 -- THE DESCRIPTION
+----------------------------------------------------------------------------
+  [PASS] a description is present and substantial -- 55040 rendered chars published, 55050 locally
+  [PASS] the description is not truncated -- the last 60 rendered chars of the local file are present
+  [PASS] the text being compared is substantial (comparison not vacuous) -- 45939 non-whitespace chars published, 45939 locally
+  [PASS] published text matches the checked description, character for character (whitespace-normalised) -- every non-whitespace character matches; -10 whitespace chars, from Zenodo re-serialising inline tags
+  [PASS] the load-bearing sentences survived -- all present
+  [PASS] no draft-stage language published ('DRAFT ONLY') -- absent
+  [PASS] no draft-stage language published ('Not deposited') -- absent
+
+SECTION 4 -- METADATA, AGAINST THE HELD v1.6 RECORD
+----------------------------------------------------------------------------
+  [PASS] title unchanged -- match
+  [PASS] creator name unchanged -- 'papanokechi, papanokechi'
+  [PASS] affiliation unchanged -- 'Independent Researcher'
+  [PASS] licence unchanged -- 'cc-by-4.0'
+  [PASS] keyword count is 27 -- 27 keywords
+  [PASS] keyword set unchanged -- match
+
+============================================================================
+checks failed : 0
+
+VERDICT: the published record is the packet that was checked.
+  Store the record JSON and description under refs/ with bytes and
+  sha256 now. From this moment the DEPOSITED TEXT IS AUTHORITATIVE
+  and this repository's copy is the one that may go stale.
+============================================================================

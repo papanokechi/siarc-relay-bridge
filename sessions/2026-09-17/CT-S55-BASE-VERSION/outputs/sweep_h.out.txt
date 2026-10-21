@@ -1,0 +1,154 @@
+==========================================================================
+CT-S55 -- AMENDMENT H SWEEP
+==========================================================================
+
+Defect class swept for: an artefact identified or described from the
+only copy present in the tree, rather than from its content.
+
+[0] GROUND TRUTH -- page count of every published version
+    v1.0  record 20719043  24 pages  md5 99faea5b0f4095788e4ee932436beeda
+    v1.1  record 21410927  25 pages  md5 7feaf94c05a1815a9e8a0ea04561f834
+    v1.2  record 21412469  25 pages  md5 792107efab6317e8ae21e2ca20f092ff
+    v1.3  record 22731371  26 pages  md5 943545955c2951a9592759862230e46a
+    LMP holds v1.2 (25 pages); the deposit's latest is v1.3 (26 pages)
+
+[1] HITS -- every page-count figure in the swept material
+    (reported in full, including hits judged not to be defects)
+    total page-count figures found : 46
+    equal to v1.0's 24 pages (census)   : 35
+    equal to v1.2's 25 or v1.3's 26   : 8
+    other values                   : 3
+
+    This is a CENSUS, not a defect count. A figure of 24 that correctly
+    describes v1.0 as v1.0 is right. The split below is the judgement.
+
+    ACTIONABLE (28) -- field values to be entered, or
+    instructions to be acted on, in the arXiv upload material:
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-consistency-gate.md:21
+         Comments field = `24 pages` (+ optional Zenodo DOI) — no venue. Journal-ref left blank. ✔
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-metadata-package.md:89
+         24 pages
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-metadata-package.md:92
+         - Page count source: **TEX** `.log` "Output written on … (24 pages…)" + **ZEN**/DEP (24 pp). ✔
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-metadata-package.md:92
+         - Page count source: **TEX** `.log` "Output written on … (24 pages…)" + **ZEN**/DEP (24 pp). ✔
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-metadata-package.md:94
+         `24 pages. Zenodo: https://doi.org/10.5281/zenodo.20719042`. Linking the preprint to the deposit
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-metadata-package.md:144
+         | Comments | `24 pages` (+ optional `Zenodo: https://doi.org/10.5281/zenodo.20719042`) |
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-source-inventory.md:69
+         | Page count (from `.log`: "Output written on … (24 pages, 773171 bytes)") | **24 pages** ✅ |
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-source-inventory.md:69
+         | Page count (from `.log`: "Output written on … (24 pages, 773171 bytes)") | **24 pages** ✅ |
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-source-inventory.md:98
+         - **Source is layout-fixed:** PDF re-hashes to `33f339ed…`, 24 pp, guards present.
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-submission-runbook.md:27
+         4. **Verify arXiv's compile succeeds** — check the arXiv-generated PDF preview. Expect 24 pages.
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-submission-runbook.md:36
+         - Comments: `24 pages` (+ optional `Zenodo: https://doi.org/10.5281/zenodo.20719042` — your call).
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\arxiv-submission-runbook.md:73
+         | Comments | `24 pages` (+ optional Zenodo concept DOI) |
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\claims.jsonl:1
+         {"claim": "arxiv-source-is-layout-fixed", "statement": "The arXiv upload source vquad-periodrep-paper.tex is t
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\claims.jsonl:1
+         {"claim": "arxiv-source-is-layout-fixed", "statement": "The arXiv upload source vquad-periodrep-paper.tex is t
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\claims.jsonl:6
+         {"claim": "arxiv-wrong-venue-absent", "statement": "No venue strings (Compositio/AAECC/Acta/ETNA/Inventiones/A
+      sessions\2026-06-18\VQUAD-ARXIV-METADATA-001\ledger.json:31
+         "comments": "24 pages (+ optional Zenodo concept DOI 10.5281/zenodo.20719042)",
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\claims.jsonl:1
+         {"claim_id": "S51-01", "task_id": "CT-S51-UPLOAD-WALKTHROUGH", "label": "INSPECTED", "claim": "The arXiv submi
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\outputs\check_upload_ready.out.txt:11
+         A6    OK   build log reports 24 pages
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\refs\arxiv-metadata-package.md:89
+         24 pages
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\refs\arxiv-metadata-package.md:92
+         - Page count source: **TEX** `.log` "Output written on … (24 pages…)" + **ZEN**/DEP (24 pp). ✔
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\refs\arxiv-metadata-package.md:92
+         - Page count source: **TEX** `.log` "Output written on … (24 pages…)" + **ZEN**/DEP (24 pp). ✔
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\refs\arxiv-metadata-package.md:94
+         `24 pages. Zenodo: https://doi.org/10.5281/zenodo.20719042`. Linking the preprint to the deposit
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\refs\arxiv-metadata-package.md:144
+         | Comments | `24 pages` (+ optional `Zenodo: https://doi.org/10.5281/zenodo.20719042`) |
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\refs\arxiv-source-inventory.md:69
+         | Page count (from `.log`: "Output written on … (24 pages, 773171 bytes)") | **24 pages** ✅ |
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\refs\arxiv-source-inventory.md:69
+         | Page count (from `.log`: "Output written on … (24 pages, 773171 bytes)") | **24 pages** ✅ |
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\refs\arxiv-source-inventory.md:98
+         - **Source is layout-fixed:** PDF re-hashes to `33f339ed…`, 24 pp, guards present.
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\WALKTHROUGH-ARXIV.md:103
+         4. **Check arXiv's compile.** Expect **24 pages**. The arXiv PDF will differ
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\WALKTHROUGH-ARXIV.md:128
+         9. **Comments** — `24 pages`. Optionally append
+
+    DESCRIPTIVE (7) -- correct as written; they
+    describe the v1.0 artefact, which really is 24 pages:
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\CHANGES.md:11
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\outputs\identify_source.out.txt:20
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\outputs\identify_source.out.txt:24
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\outputs\identify_source.out.txt:31
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\outputs\identify_source.out.txt:34
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\outputs\identify_source.out.txt:39
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\outputs\identify_source.out.txt:40
+
+    FIGURES ALREADY CURRENT (not defects):
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\CHANGES.md:15  (26 pages)
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\CHANGES.md:121  (26 pages)
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\CHANGES.md:122  (26 pages)
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\claims.jsonl:15  (26 pages)
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\CORRECTIONS-FOR-REFEREES.md:68  (26 pages)
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\REPORT.md:123  (26 pages)
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\REPORT.md:158  (26 pages)
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\REPORT.md:244  (26 pages)
+
+    OTHER VALUES (reported, not judged defects):
+      sessions\2026-09-17\CT-S51-UPLOAD-WALKTHROUGH\outputs\check_upload_ready.out.txt:35  (12 pages)  S4-01 quotes: ...s a THEOREM; in v1.2 (10.5281/zenodo.20481592, 12 pp)
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\outputs\identify_source.out.txt:16  (23 pages)  rebuild: 23 pages, text layer DIFFERS from the submitted PDF
+      sessions\2026-09-17\CT-S52-XI0-LOGS-REVISION\outputs\identify_source.out.txt:27  (23 pages)  rebuild: 23 pages, text layer DIFFERS from the submitted PDF
+
+[2] THE SECOND INSTANCE -- which file would an arXiv upload carry?
+    arXiv package names its source : sessions/2026-06-16/VQUAD-PAPER-LAYOUTFIX-001/latex/
+    that artefact                  : md5 99faea5b0f4095788e4ee932436beeda, 24 pages
+    equals v1.0                    : True
+    LMP holds                      : v1.2, 25 pages
+    deposit's latest               : v1.3, 26 pages
+    -> SECOND INSTANCE CONFIRMED. The arXiv metadata package, its
+       runbook, its consistency gate and its ledger all describe and
+       would upload v1.0, two versions behind the deposit and one
+       behind what the journal holds. Same cause as CT-S52's: v1.0 is
+       the only V_quad paper PDF in the tree, so every pass that
+       looked for 'the paper' found it and none checked the content.
+
+[3] HITS DECIDED NOT TO BE DEFECTS, WITH REASONS
+    - CT-S52's identify_source.out.txt and CHANGES.md:11: correct as
+      written. They describe v1.0's rebuilds and v1.0's md5, which
+      really are 24 pages. What is wrong there is the INFERENCE that
+      this artefact is what was submitted -- recorded as S55-03, which
+      is not a page-count defect.
+    - CT-S53 PENDING.md's version table (four records, v1.3 dated
+      2026-09-13): current and correct; CT-S53 established it from the
+      API, and this session's result agrees with it.
+    - CT-S51 WALKTHROUGH/STATE.md pinning record 20719043: correct as
+      written -- it documents the v1.0 DEPOSIT, which is a real record,
+      not a claim about what was submitted to the journal.
+    - References to concept 20719042 throughout: correct; the concept id
+      is version-independent and is what should be cited.
+    - check_upload_ready.out.txt:35 '12 pp': the COMPANION paper
+      (concept 20455089), a different document. Not in scope.
+
+==========================================================================
+SUMMARY
+==========================================================================
+S55S sweep dirs: 3
+S55S page figures found: 46
+S55S census equal to v1.0: 35
+S55S actionable stale figures: 28
+S55S descriptive not defects: 7
+S55S v1.0 pages: 24
+S55S v1.1 pages: 25
+S55S v1.2 pages: 25
+S55S v1.3 pages: 26
+S55S arxiv source md5: 99faea5b0f4095788e4ee932436beeda
+S55S arxiv source pages: 24
+S55S second instance confirmed: YES
+S55S sweep empty: NO

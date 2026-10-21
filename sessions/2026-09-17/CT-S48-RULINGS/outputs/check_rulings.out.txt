@@ -1,0 +1,48 @@
+======================================================================
+CT-S48-RULINGS -- four record actions, checked against their files
+======================================================================
+
+R1  S25-01 is about the recorded solutions
+----------------------------------------------------------------------
+  resolved S25-01 at claims.jsonl:1, label PROVEN
+  [PASS] R1-a   names the RECORDED artefact outputs/pq_solution.txt
+  [PASS] R1-b   names the construction it re-derived from
+  [PASS] R1-c   names no printed-side artefact (found: none)
+  [FIRED] R1c    the same detector SEES section5.tex when it is present (absence means absence, not unreadability)
+
+R2  CT-S47 establishes the printed forms separately
+----------------------------------------------------------------------
+  [PASS] R2-a   a SOURCE line reports section5.tex: source   section5.tex  sha256 af25048b9b62a6f4  14603 bytes
+  [PASS] R2-b   the SUMMARY line reads verbatim: ROUTE S (section 5 q,p): 36 checks, 0 DIFFER
+  [PASS] R2-c   the source line carries the LIVE digest of section5.tex (af25048b9b62a6f4...)
+  [FIRED] R2c-1  no summary line reports 37 checks (the figure is resolved to its reporting line, not to a digit string)
+  [FIRED] R2c-2  the anchor is load-bearing: the same figure under a false anchor is not found
+
+R3  the filename jimbo_p1152.png denotes two different images
+----------------------------------------------------------------------
+  live sha256  pages/jimbo_p1152.png          05fecc96632ca6d4...
+  live sha256  pages/jimbo_printed1152.png    42fffb7b09ff60b5...
+  live sha256  coldpackets/jimbo_p1152.png    84f548ceadd8d4a0...
+  [PASS] R3-a   the two files sharing the name jimbo_p1152.png differ
+  [PASS] R3-b   jimbo_printed1152.png is a third, distinct image
+  [PASS] R3-c   the marker names the misnamed image by digest (05fecc96632ca6d4...)
+  [PASS] R3-d   the marker names the correct folio-1152 image by digest (42fffb7b09ff60b5...)
+  [PASS] R3-e   the marker names the correctly-named copy elsewhere by digest (84f548ceadd8d4a0...)
+  [PASS] R3-f   the marker states the rule (needle is wrap-tolerant)
+  [FIRED] R3c-2  the wrap-tolerant needle does not match the rule REVERSED
+  [FIRED] R3c    a digest belonging to no image in the tree is NOT found in the marker
+
+R4  S16-R18-02 carries PROVEN and a formula wrong as written
+----------------------------------------------------------------------
+  resolved S16-R18-02 at claims.jsonl:24
+  [PASS] R4-a   the label is PROVEN (it is: PROVEN)
+  [PASS] R4-b   the claim text carries the UNFACTORED form
+  [PASS] R4-c   the claim text carries the FACTORED form
+  [PASS] R4-d   CT-S47's check reports the verdict: VERDICT: the sign error is present in the CLAIM TEXT of S16-R18-02,
+  [PASS] R4-e   and reports that the claim's two forms disagree
+  [PASS] R4-f   and that PLUS one quarter reproduces it, so the truth is the + sign
+  [FIRED] R4c    with the factored form deleted, the same comparison reports it MISSING
+
+======================================================================
+RULINGS CHECK: 18 checks, 0 FAILED; 6 controls, 6 FIRED
+======================================================================

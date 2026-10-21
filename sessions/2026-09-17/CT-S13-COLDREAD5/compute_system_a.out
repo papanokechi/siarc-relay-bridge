@@ -1,0 +1,34 @@
+Q[0..10]= [1, 5, 76, 2361, 125209, 10144290, 1166718559, 180851520935, 36352322426494, 9197318425423917, 2860402382629264681]
+A0 residual coefficients z^0..z^30= [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+A0 all_zero_through_30= True
+A0 all_zero_through_43= True
+p= 10/(3*z)
+q= (z**2 + 5*z - 1)/(3*z**3)
+r_A= -(3*z**2 + 5*z - 3)/(9*z**3)
+r_A numerator denominator= (-3*z**2 - 5*z + 3, 9*z**3)
+pole_order_r_at_z0= 3
+finite_singular_denominator_roots= 9*z**3
+R_infinity_t=t^-4*r(1/t)= (3*t**2 - 5*t - 3)/(9*t**3)
+pole_order_at_infinity= 3
+leading_z0= 1/3
+leading_infinity_t0= -1/3
+katz_z0=(pole_order-2)/2= 1/2
+katz_infinity=(pole_order-2)/2= 1/2
+ramification_z0=2 because pole order 3 is odd
+ramification_infinity=2 because pole order 3 is odd
+exponential_z0_pair= exp(± integral sqrt(1/(3*z^3)) dz) = exp(∓ 2/sqrt(3) * z^(-1/2))
+exponential_infinity_t_pair= exp(± integral sqrt(-1/(3*t^3)) dt) = exp(∓ 2*I/sqrt(3) * t^(-1/2))
+pullback_p_w= -1/w
+pullback_q_w= 4*(3*w**4 + 5*w**2 - 3)/(9*w**4)
+pullback_R_w= -(48*w**4 + 53*w**2 - 48)/(36*w**4)
+pullback_pole_order_w0= 4
+pullback_leading_w0= 4/3
+pullback_katz_w0= 1
+pullback_ramification_w0=1 because pole order 4 is even/unramified
+pullback_R_infinity_t= (48*t**4 - 53*t**2 - 48)/(36*t**4)
+pullback_pole_order_winfinity= 4
+pullback_leading_winfinity_t0= -4/3
+pullback_katz_winfinity= 1
+pullback_ramification_winfinity=1 because pole order 4 is even/unramified
+pullback_exponential_w0_pair= exp(∓ 2/sqrt(3) * w^(-1))
+pullback_exponential_winfinity_t_pair= exp(∓ 2*I/sqrt(3) * t^(-1))

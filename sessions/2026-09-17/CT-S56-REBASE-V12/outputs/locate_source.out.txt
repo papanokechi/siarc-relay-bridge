@@ -1,0 +1,210 @@
+==============================================================================
+CT-S56 STAGE 1 GATE -- locate the source that rebuilds to v1.2
+==============================================================================
+
+Pre-registered: PREREG.md sections 3-7. Decision rule: section 5.
+Builds run in scratch copies; no earlier session is modified.
+
+[0] PUBLISHED VERSIONS (re-verified against the md5s CT-S55 resolved)
+    v1.0   773171 B  md5=99faea5b0f4095788e4ee932436beeda  pages=24
+    v1.1   775400 B  md5=7feaf94c05a1815a9e8a0ea04561f834  pages=25
+    v1.2   778209 B  md5=792107efab6317e8ae21e2ca20f092ff  pages=25
+    v1.3   784836 B  md5=943545955c2951a9592759862230e46a  pages=26
+
+[1] OBSERVABLE -- rebuild every candidate and score it
+    (evaluated BEFORE the vacuity block, per PREREG section 8)
+
+    --- C1  sessions/2026-06-15/VQUAD-PERIODREP-PAPER-001
+        built:  698730 B  md5=7f1cd431156df0a0db5ed9db8a501f95  pages=23
+        stored PDF beside the source: same as stored
+          vs v1.0: 0/24 pages
+          vs v1.1: 0/25 pages
+          vs v1.2: 0/25 pages
+          vs v1.3: 0/26 pages
+
+    --- C2  sessions/2026-06-16/VQUAD-PAPER-CORRECTIONS-001
+        built:  714771 B  md5=028a1a5d9e10a3a9487596f6db3e6a38  pages=24
+        stored PDF beside the source: same as stored
+          vs v1.0: 3/24 pages
+          vs v1.1: 0/25 pages
+          vs v1.2: 0/25 pages
+          vs v1.3: 0/26 pages
+
+    --- C3  sessions/2026-06-16/VQUAD-PAPER-LAYOUTFIX-001
+        built:  773171 B  md5=99faea5b0f4095788e4ee932436beeda  pages=24
+        stored PDF beside the source: same as stored
+          vs v1.0: 24/24 pages  [byte-identical]  <== REBUILDS TO
+          vs v1.1: 0/25 pages
+          vs v1.2: 0/25 pages
+          vs v1.3: 0/26 pages
+
+    --- C4  sessions/2026-06-16/VQUAD-REPRO-BUNDLE-001/vquad-periodrep-bundle
+        built:  698730 B  md5=7f1cd431156df0a0db5ed9db8a501f95  pages=23
+        stored PDF beside the source: same as stored
+          vs v1.0: 0/24 pages
+          vs v1.1: 0/25 pages
+          vs v1.2: 0/25 pages
+          vs v1.3: 0/26 pages
+
+    --- C5  sessions/2026-06-16/VQUAD-REPRO-BUNDLE-002/vquad-periodrep-bundle
+        built:  714771 B  md5=028a1a5d9e10a3a9487596f6db3e6a38  pages=24
+        stored PDF beside the source: same as stored
+          vs v1.0: 3/24 pages
+          vs v1.1: 0/25 pages
+          vs v1.2: 0/25 pages
+          vs v1.3: 0/26 pages
+
+    --- C6  sessions/2026-06-16/VQUAD-REPRO-BUNDLE-002/run-2/vquad-periodrep-bundle
+        built:  773171 B  md5=99faea5b0f4095788e4ee932436beeda  pages=24
+        stored PDF beside the source: same as stored
+          vs v1.0: 24/24 pages  [byte-identical]  <== REBUILDS TO
+          vs v1.1: 0/25 pages
+          vs v1.2: 0/25 pages
+          vs v1.3: 0/26 pages
+
+    ------------------------------------------------------------------
+    WIDENED SET (PREREG 12a, Amendment H) -- outside the repository
+    ------------------------------------------------------------------
+    --- D1  C:/LocalWork/project-fingerprint/sectorial/vquad_connection_coefficient/v1.1-draft/paper
+        built:  775400 B  md5=7feaf94c05a1815a9e8a0ea04561f834  pages=25
+        stored PDF beside the source: same as stored
+          vs v1.0: 0/24 pages
+          vs v1.1: 25/25 pages  [byte-identical]  <== REBUILDS TO
+          vs v1.2: 20/25 pages
+          vs v1.3: 16/26 pages
+
+    --- D2  C:/LocalWork/project-fingerprint/sectorial/vquad_connection_coefficient/v1.2-draft/paper
+        built:  778209 B  md5=792107efab6317e8ae21e2ca20f092ff  pages=25
+        stored PDF beside the source: same as stored
+          vs v1.0: 0/24 pages
+          vs v1.1: 20/25 pages
+          vs v1.2: 25/25 pages  [byte-identical]  <== REBUILDS TO
+          vs v1.3: 16/26 pages
+
+    --- D3  C:/LocalWork/project-fingerprint/sectorial/vquad_connection_coefficient/vquad-periodrep-bundle/paper
+        built:  773171 B  md5=99faea5b0f4095788e4ee932436beeda  pages=24
+        stored PDF beside the source: same as stored
+          vs v1.0: 24/24 pages  [byte-identical]  <== REBUILDS TO
+          vs v1.1: 0/25 pages
+          vs v1.2: 0/25 pages
+          vs v1.3: 0/26 pages
+
+    --- D4  C:/LocalWork/vq-fix/src/base
+        built:  778209 B  md5=792107efab6317e8ae21e2ca20f092ff  pages=25
+        stored PDF beside the source: same as stored
+          vs v1.0: 0/24 pages
+          vs v1.1: 20/25 pages
+          vs v1.2: 25/25 pages  [byte-identical]  <== REBUILDS TO
+          vs v1.3: 16/26 pages
+
+    --- D5  C:/LocalWork/vq-fix/src/control
+        built:  778209 B  md5=792107efab6317e8ae21e2ca20f092ff  pages=25
+        stored PDF beside the source: same as stored
+          vs v1.0: 0/24 pages
+          vs v1.1: 20/25 pages
+          vs v1.2: 25/25 pages  [byte-identical]  <== REBUILDS TO
+          vs v1.3: 16/26 pages
+
+    --- D6  C:/LocalWork/vq-fix/src/v_next
+        built:  802178 B  md5=949827fe937b1310f65d5b00f68fe028  pages=26
+        stored PDF beside the source: same as stored
+          vs v1.0: 0/24 pages
+          vs v1.1: 0/25 pages
+          vs v1.2: 0/25 pages
+          vs v1.3: 0/26 pages
+
+    --- D7  C:/LocalWork/vq-fix/src/v_next_deposit
+        built:  784836 B  md5=943545955c2951a9592759862230e46a  pages=26
+        stored PDF beside the source: same as stored
+          vs v1.0: 0/24 pages
+          vs v1.1: 16/25 pages
+          vs v1.2: 16/25 pages
+          vs v1.3: 26/26 pages  [byte-identical]  <== REBUILDS TO
+
+[2] INSTRUMENT CONTROL (PREREG P1 / F1)
+    C3 must reproduce v1.0, or every negative
+    result below is uninterpretable.
+    byte-identical to v1.0: True
+    rebuilds-to v1.0 (decision rule): True
+    control PASSED. Instrument valid at tier: byte
+
+[3] COPY RELATION (PREREG F3)
+    C3 vs C6: same build output = True  (99faea5b0f4095788e4ee932436beeda / 99faea5b0f4095788e4ee932436beeda)
+    C1 vs C4: same build output = True  (7f1cd431156df0a0db5ed9db8a501f95 / 7f1cd431156df0a0db5ed9db8a501f95)
+    C2 vs C5: same build output = True  (028a1a5d9e10a3a9487596f6db3e6a38 / 028a1a5d9e10a3a9487596f6db3e6a38)
+    D2 vs D4: same build output = True  (792107efab6317e8ae21e2ca20f092ff / 792107efab6317e8ae21e2ca20f092ff)
+    D4 vs D5: same build output = True  (792107efab6317e8ae21e2ca20f092ff / 792107efab6317e8ae21e2ca20f092ff)
+
+[3b] STALE-SOURCE CHECK (PREREG F5)
+     a stored PDF that its own source no longer rebuilds means the source
+     was edited afterwards; such a pair is not adoptable as a base.
+     no candidate is stale: every source rebuilds to the PDF stored beside it.
+
+[4] GATE VERDICT
+    (a) IN-TREE (the question as posed):
+        FAILED -- no source in the repository rebuilds to v1.2.
+        The instrument control passed, so this is a real absence.
+        This finding STANDS on its own and is not erased by (b).
+
+    (b) WIDENED (Amendment H sweep, PREREG 12a):
+        PASSED -- source(s) rebuilding to v1.2: ['D2', 'D4', 'D5']
+          D2  C:/LocalWork/project-fingerprint/sectorial/vquad_connection_coefficient/v1.2-draft/paper
+          D4  C:/LocalWork/vq-fix/src/base
+          D5  C:/LocalWork/vq-fix/src/control
+
+    OTHER VERSIONS LOCATED (what each source actually produces):
+      C1   -> no published version
+      C2   -> no published version
+      C3   -> ['v1.0']
+      C4   -> no published version
+      C5   -> no published version
+      C6   -> ['v1.0']
+      D1   -> ['v1.1']
+      D2   -> ['v1.2']
+      D3   -> ['v1.0']
+      D4   -> ['v1.2']
+      D5   -> ['v1.2']
+      D6   -> no published version
+      D7   -> ['v1.3']
+
+    scoreboard (pages matched / target pages):
+      cand  built_pages       v1.0       v1.1       v1.2       v1.3
+      C1             23     0/24       0/25       0/25       0/26  
+      C2             24     3/24       0/25       0/25       0/26  
+      C3             24    24/24       0/25       0/25       0/26  
+      C4             23     0/24       0/25       0/25       0/26  
+      C5             24     3/24       0/25       0/25       0/26  
+      C6             24    24/24       0/25       0/25       0/26  
+      D1             25     0/24      25/25      20/25      16/26  
+      D2             25     0/24      20/25      25/25      16/26  
+      D3             24    24/24       0/25       0/25       0/26  
+      D4             25     0/24      20/25      25/25      16/26  
+      D5             25     0/24      20/25      25/25      16/26  
+      D6             26     0/24       0/25       0/25       0/26  
+      D7             26     0/24      16/25      16/25      26/26  
+
+[5] VACUITY (recorded after the observable; cannot convert a fired
+    falsifier into a pass -- PREREG section 8)
+
+    V1 -- the four versions must be pairwise distinct under this comparator:
+        v1.0 vs v1.1: 0/25 pages, indistinguishable=False
+        v1.0 vs v1.2: 0/25 pages, indistinguishable=False
+        v1.0 vs v1.3: 0/26 pages, indistinguishable=False
+        v1.1 vs v1.2: 20/25 pages, indistinguishable=False
+        v1.1 vs v1.3: 16/26 pages, indistinguishable=False
+        v1.2 vs v1.3: 16/26 pages, indistinguishable=False
+        V1 PASS
+
+    V2 -- page-swap perturbation of v1.2 must fall below threshold:
+        swapped pages 10/11: 23/25  responds=True
+
+    V3 -- positive baseline, v1.2 against itself must be a full match:
+        25/25  full match=True
+        (without this, a comparator that matches nothing against anything
+         looks exactly like a tree containing no v1.2 source)
+
+    VACUITY PASSED.
+
+==============================================================================
+GATE = PASSED
+==============================================================================

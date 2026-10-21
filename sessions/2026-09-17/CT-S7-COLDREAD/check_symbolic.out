@@ -1,0 +1,10 @@
+expr=(1-r*x)*(1-x)^(-r), x=1/n
+series_to_x4= 1 + x**2*(-r**2 - r*(-r - 1)/2) + x**3*(r**2*(-r - 1)/2 + r*(-r - 2)*(-r - 1)/6) + x**4*(-r**2*(-r - 2)*(-r - 1)/6 - r*(-r - 3)*(-r - 2)*(-r - 1)/24) + O(x**5)
+coeff_x0= 1
+coeff_x1= 0
+coeff_x2= r*(1 - r)/2
+coeff_x3= r*(1 - r**2)/3
+log_series_to_x4= x**2*(-r**2/2 + r/2) + x**3*(-r**3/3 + r/3) + x**4*(-r**4/4 + r/4) + O(x**5)
+log_coeff_x1= 0
+log_coeff_x2= r*(1 - r)/2
+conclusion=1/n coefficient cancels identically; ratio is 1 + r*(1-r)/(2*n^2) + O(n^-3) for fixed r

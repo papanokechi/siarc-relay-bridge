@@ -1,0 +1,539 @@
+## 1. Points where I could not proceed from the packet alone
+
+I could follow the broad logical narrative, but not reproduce or independently verify several steps. The following are the points at which the packet relies on information, definitions, or computations not supplied inside it.
+
+1. **Proposition 1 is asserted without proof.**
+
+   > “**Proposition 1.** `r_n` converges for every such `b`, with no hypothesis on the limit, and `r_∞ − r_n = O(n^{−(2d−1)})`.”
+
+   Missing: a proof, or at least an argument establishing convergence and the stated error estimate.  
+   Guessable? Partly. One can guess that iterating
+   `r_n = r_{n-1} + r_{n-2}/∏_{k=1}^n b(k)` is intended, but the uniform statement for all allowed complex polynomials and the precise error estimate are not derivable without additional estimates. Confidence in that intended route: high; confidence that it proves the proposition as stated: moderate.
+
+2. **Proposition 2 is asserted without proof.**
+
+   > “**Proposition 2.** If `b(n) > 0` for all `n ≥ 1` then `r_n` is strictly increasing with `r_n ≥ 1`; hence `r_∞ ≥ 1 > 0`.”
+
+   Missing: the calculation showing strict monotonicity and the initial conditions needed for it.  
+   Guessable? Yes: subtract consecutive normalized recurrences. Confidence: high.
+
+3. **The asymptotic passage in Proposition 3 is not demonstrated.**
+
+   > “**Proposition 3.** Under (A1) and (A3), `Q_n = ... (1 + o(1))`…”
+
+   Missing: the derivation from `r_n` to the gamma-product asymptotic, including the use of the factorization of `b` and the normalization of the leading coefficient.  
+   Guessable? Yes, by writing `b(n)=β_d∏_i(n-r_i)` and using the definition of `r_n`; confidence high.
+
+4. **The gamma/Stirling calculation for `s` and `K` is omitted.**
+
+   > “and consequently `Q_n / Γ(dn+1) ~ K · (β_d/d^d)^n · n^s`…”
+
+   Missing: the gamma multiplication/Stirling calculation and branch/convention choices for complex powers.  
+   Guessable? Yes; confidence high for the intended formula, but not enough to check every normalization from the packet alone.
+
+5. **The claim about the rate needed for Proposition 3 is not fully connected to Proposition 1.**
+
+   > “The step to the asymptotic form uses `r_∞ − r_n = O(1/n)`, which Proposition 1 supplies for every `d ≥ 1`.”
+
+   Missing: an explanation that the stronger bound `O(n^{-(2d-1)})` implies the required `O(1/n)` estimate, especially at `d=1`.  
+   Guessable? Yes, immediately; confidence certain.
+
+6. **Proposition 4 is asserted without proof.**
+
+   > “This is proved without Gamma asymptotics.”
+
+   Missing: the actual proof of the root test and the passage from `(dn)!` to the stated radius.  
+   Guessable? Yes in outline, but not enough to check the exact variable change `ζ=w^{1/d}`. Confidence high in the intended argument.
+
+7. **The Newton-polygon statement is unsupported.**
+
+   > “`ξ₀` is a characteristic root, obtained from the Newton polygon…”
+
+   Missing: the differential equation or recurrence whose Newton polygon is being used, and the polygon itself.  
+   Guessable? No, not uniquely. I can infer that the two actions are intended to be `±2/√β₂`, but I cannot reconstruct the Newton-polygon calculation from the packet.
+
+8. **The numerical quartic experiment is not reproducible from the supplied information.**
+
+   > “Computed with mpmath at dps ≥ 60, `n` up to 20000…”
+
+   Missing: the eight quartic polynomials, their coefficients, the exact renormalization algorithm, fitting windows, Richardson procedure, and error criteria.  
+   Guessable? No. The qualitative conclusion is clear, but the numerical evidence cannot be independently reproduced.
+
+9. **The numerical value of `r_∞` is presented as externally computed.**
+
+   > “`r_∞ = 1.016604441058510936...`”
+
+   Missing: the actual two extrapolation procedures and their error analysis.  
+   Guessable? No. I can understand what is claimed, but not verify the digits.
+
+10. **The PSLQ results are not reproducible.**
+
+    > “A PSLQ probe over the basis `{r_∞, 1, π, √3, ...}` returned no relation…”
+
+    Missing: integer bounds, precision, normalization, and the exact meaning of the ellipsis in the basis.  
+    Guessable? No.
+
+11. **The two formal solutions and their actions are introduced without derivation.**
+
+    > “For this object there are two formal solutions with actions `c_± = ±2/√β₂`.”
+
+    Missing: the formal equation, the definition of “action,” and the calculation producing these values.  
+    Guessable? Only at a broad heuristic level; confidence low for a derivation.
+
+12. **The object classification depends on external source material.**
+
+    > “including **Table 2.1** on p. 2635…”
+
+    and
+
+    > “The PIII(D₆) match for `A`'s cover is at **special** parameters.”
+
+    Missing: the actual table entries, parameter values, and the precise meaning of “quadratic cover” and “special parameters.” The packet summarizes the table but does not reproduce all of its mathematical definitions.  
+    Guessable? No.
+
+13. **The scalar-to-connection correspondence for `A` is explicitly missing.**
+
+    > “There is an unbridged scalar-to-connection gap for `A`.”
+
+    Missing: the construction taking `ΣQₙzⁿ` to a rank-2 connection and proving that its formal type is `(1/2,−,1/2)`.  
+    Guessable? No. The packet itself says this is unbridged.
+
+14. **The definitions and derivation of Katz multisets and the table labels are external.**
+
+    > “Katz multiset `(1/2, −, 1/2)`”  
+    > “Table 2.1 row `PIII(D₈)`”
+
+    Missing: the definition of Katz invariants, the meaning of the dash, and the classification criterion.  
+    Guessable? Not sufficiently.
+
+15. **The source’s strong Riemann–Hilbert result is invoked rather than established.**
+
+    > “For a type-`(0,0,1)` module the strong Riemann–Hilbert problem has a positive answer (§3.2, p. 2637).”
+
+    Missing: the theorem’s exact hypotheses and conclusion.  
+    Guessable? No. The packet supplies only a paraphrase.
+
+16. **The moduli-space framework is not defined in full.**
+
+    > “The chart is `U₀ ≅ C × (C∖{0,1})`…”  
+    > “the foliation given by the 2-form `Ω` coincides with the foliation given by isomonodromy…”
+
+    Missing: the definition of the ambient moduli space, the gauge quotient, the meaning of the foliation, and the derivation of the Hamiltonian.  
+    Guessable? Broadly, yes; rigorously, no.
+
+17. **The printed-family typo correction depends on an unstated symbolic computation.**
+
+    > “Tested against the source's own constraint `det A(1) = −θ₁²/4`…”
+
+    Missing: the determinant calculation and the exact remainder for the printed formula.  
+    Guessable? Yes in principle, but the packet does not provide enough intermediate algebra to check it manually without doing a substantial external calculation.
+
+18. **The “general formula for the normal potential” is not supplied.**
+
+    > “Verified by re-substitution into the **general** formula for the normal potential, not the reduced closed form used to derive it…”
+
+    Missing: that general formula.  
+    Guessable? No. This is a direct reproducibility gap.
+
+19. **The local-data dictionary is based on an unshown probe.**
+
+    > “A probe on three exact draws fixes the dictionary…”
+
+    Missing: the three draws, the equations tested, and the calculations.  
+    Guessable? No.
+
+20. **The Riccati irreducibility calculation is compressed beyond verification.**
+
+    > “matching `r₁ = −1/9` forces `n = −1 ∓ √3/18`, irrational…”
+
+    Missing: the definition of `r₁`, the expansion producing the equation for `n`, and the relation between a rational Riccati solution and reducibility.  
+    Guessable? The general method is standard, but the exact calculation is not recoverable from the packet alone.
+
+21. **The existence and uniqueness claim for the leaf is imported from the stated framework.**
+
+    > “Since Painlevé V is the isomonodromy foliation on that space, System C lies on a PV isomonodromic leaf.”
+
+    Missing: the precise theorem identifying the vector field with the PV equation and the conditions under which a regular point has exactly one leaf.  
+    Guessable? Broadly yes; rigorous justification no.
+
+22. **The rank-1 twist formalism is used without definition.**
+
+    > “A rank-1 twist acts by `A ↦ A + λI`…”
+
+    Missing: the definition of a rank-1 differential module/twist and why its connection matrix has this form.  
+    Guessable? Yes for an expert, but not self-contained.
+
+23. **Proposition 7 uses an unexplained criterion for triviality.**
+
+    > “the residue of `f` at `0` is `−1/2 ∉ Z`, so `f` is not the logarithmic derivative of a rational function”
+
+    Missing: the criterion that residues of logarithmic derivatives of rational functions are integers.  
+    Guessable? Yes and standard, but unstated.
+
+24. **The scalar-elimination formulas are asserted without derivation.**
+
+    > “Eliminating either component gives `P_b = ...`, `P_c = ...`…”
+
+    Missing: the first-order system in component form and the elimination calculation.  
+    Guessable? Yes; confidence high.
+
+25. **The Stokes/monodromy conventions are intentionally not fixed until numerical selection.**
+
+    > “The convention ... is **not chosen**. A finite candidate set of 16 is declared…”
+
+    Missing: the precise definitions of the 16 candidates, the four conditions, and the source matrices/loop generators.  
+    Guessable? No.
+
+26. **The Kummer and Euler controls rely on omitted equations and computations.**
+
+    > “The solver was smoke-tested on an Euler system against `exp(2πiM)` … then run against Kummer's equation against closed forms.”
+
+    Missing: the Euler system, Kummer equation, companion matrix, closed forms, and implementation details.  
+    Guessable? No.
+
+27. **The source’s matrix conventions are not supplied.**
+
+    > “the pairing of the source's matrices with the loop generators”
+
+    Missing: which matrices the source calls `M₀`, `M₁`, `M_∞`, and how the loops are oriented in the source.  
+    Guessable? No.
+
+28. **The formal-series/Stokes computation is not reproducible.**
+
+    > “the formal solution at the irregular rank-1 point is optimally truncated with an exact residual.”
+
+    Missing: the formal recurrence, truncation index, residual definition, and numerical integration algorithm.  
+    Guessable? No.
+
+29. **The cubic character-variety equation is not given.**
+
+    > “cubic 1.17e-111.”  
+    > “The fibre through System C **is** a singular cubic surface…”
+
+    Missing: the cubic polynomial `F(x₁,x₂,x₃)`, its normalization, and the relation of `x_i` to the monodromy matrices.  
+    Guessable? No.
+
+30. **The transport equations are referenced but not printed.**
+
+    > “Painlevé V `(4.2)` with `θ₀ = θ₁ = 0`…”
+
+    Missing: equation (4.2), equation (4.4), and the explicit vector field used for the transport.  
+    Guessable? Only partially.
+
+31. **The exact Taylor recurrences are not supplied.**
+
+    > “transported by Taylor series in `s = t − t₀` from exact recurrences…”
+
+    Missing: those recurrences and their initial data.  
+    Guessable? No.
+
+32. **The Galois and analytic-continuation distinction is asserted without formal setup.**
+
+    > “That symmetry is algebraic and the monodromy is transcendental in the matrix entries, so `σ` does not act on the analytic continuation…”
+
+    Missing: the field of definition of the analytic continuation and the precise action being ruled out.  
+    Guessable? The intended distinction is clear, but the claim is not established within the packet.
+
+33. **The constant-gauge obstruction calculation is only reported.**
+
+    > “Tested symbolically against four candidate maps…”
+
+    Missing: the formulas for `P₁`, `P₂`, the candidate gauges, and the coefficient comparison.  
+    Guessable? No.
+
+34. **The Stokes constant `C` is simply supplied numerically.**
+
+    > “`C = 8.127336...`”
+
+    Missing: the definition of `B[Φ]`, the normalization of `Φ`, the extraction procedure, and the error estimate supporting 100 digits.  
+    Guessable? No.
+
+35. **The gamma identity used to invalidate the first PSLQ search is not derived.**
+
+    > “Legendre duplication at `z = 1/6` together with reflection at `1/3` gives…”
+
+    Missing: the two identities and their algebraic combination.  
+    Guessable? Yes; confidence certain.
+
+36. **The final numerical negative result is not independently checkable.**
+
+    > “no relation `C = ± 2^a 3^b π^c Γ(1/3)^d e^f` exists with `|coeff| ≤ 10⁶`…”
+
+    Missing: the complete search algorithm, treatment of signs, the meaning of `m`, and the cost function.  
+    Guessable? No.
+
+---
+
+## 2. Terms, symbols, labels, or object names used before being defined, or never defined
+
+I interpret “defined” strictly: merely giving a numerical value or using a symbol in a formula does not count as defining its mathematical meaning. The following are the first occurrences or earliest materially undefined uses.
+
+### Section 1
+
+- **`b(n)`** — first sentence, introduced as a polynomial, so defined.
+- **`β_k`, `d`** — first sentence; coefficients and degree are stated, so defined.
+- **`Q_n`** — first recurrence; defined.
+- **`r_n`** — immediately after the recurrence; defined.
+- **`r_∞`** — first used in Proposition 1 before a formal definition; only later defined as `lim_n ...` in (A3).
+- **`O(n^{−(2d−1)})`** — used without defining asymptotic notation.
+- **`r_1,…,r_d`** — “Write `r_1,…,r_d` for the roots of `b`”; defined there, but the notation conflicts with the earlier sequence `r_n`.
+- **(A1), (A3)** — labels are introduced, but **(A2)** is absent and never explained.
+- **`β_d`, `β_{d−1}`** — used in formulas; inferable as polynomial coefficients, but not separately defined.
+- **`Γ`** — used without definition.
+- **`o(1)`**, **`~`** — used without definition.
+- **`K`**, **`s`** — defined by displayed formulas.
+- **`(dn)!`** — used later without explaining that it is the ordinary factorial of `dn`.
+- **`w`**, **`ζ`** — introduced in Proposition 4, but the relation `ζ=w^{1/d}` is branch-sensitive and not defined beyond the displayed substitution.
+- **`ξ₀`** — first appears as a radius-like quantity and is only later described as a characteristic root.
+- **`ρ_d`** — defined by formula, but “Borel-plane exponent” is not defined.
+- **`dps`**, **`mpmath`**, **`Richardson levels`** — computational terms not defined.
+- **`N/2`-vs-`N` agreement** — neither `N` nor the meaning of this agreement is defined.
+- **`PSLQ`** — used without definition.
+- **`r₁`** in the PSLQ basis — ambiguous with the roots `r_i` and the sequence term `r_1`.
+- **The ellipsis `…` in the PSLQ basis** — not specified.
+- **“formal solution”**, **“action”**, **`c_±`** — used before definition.
+- **“characteristic root”**, **“Newton polygon”** — used without defining the underlying equation or polygon.
+- **“germ coefficient”** — never defined.
+- **“amplitude”**, **“Stokes constant”** — used as named objects without definitions.
+- **`S_{ζ*}`** — introduced by the naming prohibition, but its mathematical extraction is not defined.
+- **`ζ*`** — defined numerically as an action difference, but “action difference” is not defined.
+
+### Section 2
+
+- **Objects `A`, `B`, `C`** — introduced in a table with descriptions, so named but not fully defined as mathematical objects.
+- **`L_φ`** — never defined.
+- **“formal type”** — used without definition.
+- **“Katz multiset”** — never defined.
+- **`PIII(D₈)`, `PIII(D₆)`, `PV`, `D̃₅`** — labels are used but not defined.
+- **“quadratic cover”** — never defined.
+- **“special parameters”** — never specified.
+- **“projectively equivalent”** — used before a definition; the later discussion presupposes the meaning.
+- **“trace-free normal form”** — not defined.
+- **`A`, `A′`, `C` in `A W'' + A′ W' + C W=0`** — the scalar-equation coefficients are not explicitly defined before use in that sentence.
+- **`W`** — never defined.
+- **`r(x)`** — defined by formula there, but the relation to the normal potential is not defined until later.
+- **“rank-1 twist”** — first used here, defined only later in Proposition 6.
+- **`dlog A`** — never defined.
+- **“strong Hilbert-Riemann problem”**, **“strong Riemann–Hilbert problem”** — used without definition.
+- **`M(u)`**, **`u`** — quoted from the source, not defined in the packet.
+- **`P`** — quoted as a parameter space, but the packet does not independently define it.
+- **`R`** — quoted as a family of affine cubic surfaces, but not defined before that quotation.
+- **`M(t)`**, **`t`** — used in the quoted source statement with a role distinct from later `t`; the distinction is explained informally but not formally.
+- **“affine cubic surface”** — never defined.
+- **“monodromy side”** — never defined.
+- **“trace/eigenvalue of matrices involved”** — the matrices are not specified.
+
+### Section 3
+
+- **`s_±`**, **`δ`**, **`x(z)`** — defined in the first displayed line.
+- **“System C”** — named and then defined as a scalar equation.
+- **`P_C`, `Q_C`** — defined by formulas.
+- **“normal potential”** — used before a general definition; only a formula appears later in Proposition 8.
+- **“apparent singularity”** — never defined.
+- **`r_z`** — used without explicitly defining it as the potential after coordinate change.
+- **`…` in the expansion at infinity** — no order or remainder meaning is stated.
+
+### Section 4
+
+- **“type-`(0,0,1)` module”** — used without defining the type.
+- **“strong Riemann–Hilbert problem”** — still undefined inside the packet.
+- **`A₀`, `A₁`, `A_∞`** — introduced by the system, so named, but the sign convention for the connection matrix is not fully explained.
+- **`C*`** — used without definition.
+- **`θ₀`, `θ₁`, `θ_∞`** — introduced as determinant parameters; their interpretation as local exponents is only partly supplied later.
+- **“singular points normalised”** — no normalization construction is given.
+- **“semisimple”, “non-semisimple”, “resonance”, “reducibility”** — resonance is partly defined later, but the other terms are not.
+- **`N`** — defined as `−A/D`.
+- **`D(z)`**, **`A`**, **`a,b,c`** — defined in the family formula, but `q,p` are used there without prior definition.
+- **`q`, `p`** — only later called coordinates.
+- **`H_V`** — introduced in the 2-form without definition.
+- **`Ω`** — defined by formula, but “foliation” is not.
+- **“flow `(4.4)`”**, **“Hamiltonian `(4.5)`** — those equations are not actually supplied.
+- **“printed source”**, **“source’s own constraint”** — external referents.
+- **`b(z)`** in the typo discussion — distinct from the polynomial `b(n)` of Section 1, but not explicitly distinguished.
+- **`b₁`** — used without definition until much later, where it is inferred to be a coefficient.
+- **“normal potential”** again — no complete definition until Proposition 8.
+
+### Section 5
+
+- **“time invariant”** — never formally defined.
+- **“irregular type”** — never defined.
+- **“configuration”** — not identified precisely.
+- **“local data”** — not defined.
+- **“exact draws”** — computational phrase, never explained.
+- **`R(∞)`** — used before `R` is defined as a normal potential in Proposition 8.
+- **`s₁`, `s₂`** — used in the resonance discussion before definition.
+- **“unipotent local monodromy”** — never defined.
+- **“nilpotent”** — used without definition.
+- **“log term”** — never specified in which local solution or expansion.
+- **“Riccati test”**, **`w`** — `w` is introduced in the Riccati equation but not defined as a logarithmic derivative.
+- **`A`** in `A²−A=−1/4` — not explicitly identified as a residue or exponent coefficient.
+- **`c₀`**, **`r₁`**, **`n`** — introduced in the compressed irreducibility argument without definitions.
+- **“Riccati locus”** — never defined.
+- **“overdetermined solve”** — no equations are displayed.
+- **`b₁=0`** — used without a prior explicit definition of `b₁`.
+- **“general formula”**, **“reduced closed form”** — neither is supplied.
+- **“relative residual”**, **`dps`** — not defined.
+- **“vector field `(4.4)`”** — equation absent.
+- **“exactly one leaf”** — leaf is not defined formally.
+
+### Section 6
+
+- **“normalisation”** — used without specifying the precise equivalence relation until later.
+- **`λ`** — defined in Proposition 6.
+- **“orbit”** — used without definition.
+- **“trace-free member”** — understandable, but uniqueness is relative to an undefined twist category.
+- **`L`**, **`f`** — introduced in Proposition 7; `f` is only inferable as `−1/(2z)`.
+- **`d`** in `L=d−1/(2z)` — used as a differential operator without explicit definition.
+- **`w=z`** — called a witness without defining the criterion.
+- **“2-torsion rank-1 module”** — never defined.
+- **“triviality of determinant”** — used without definition.
+- **`P`, `Q`, `R`** — `P,Q` are defined in Proposition 8; `R` is defined there.
+- **“normal potential is blind to a rank-1 twist”** — claim is not formally defined.
+- **“isomorphic”**, **“projectively isomorphic”** — no definitions.
+- **“local exponents”**, **“lattice”** — never defined.
+- **“normalised form”** — not fully specified.
+
+### Section 7
+
+- **`Y`, `N`, `n_{ij}`** — `Y` and `N` are used before being explicitly reintroduced; entries `n_{ij}` are not defined individually.
+- **`P_b`, `P_c`** — defined by formulas.
+- **“b-route”, “c-route”** — labels are explained only after use.
+- **“gauge relation”** — never defined.
+- **“first component”, “subdominant branch”** — used without a formal asymptotic definition.
+- **`ord_∞`** — never defined.
+- **`μ(+)`, `μ(−)`** — used without definition.
+- **“head coefficients”** — never defined.
+- **“arithmetic control”** — informal computational label.
+- **“scalar exponents”** — not formally defined.
+
+### Section 8
+
+- **`x₁`, `x₂`, `x₃`** — first called comparison quantities, but never defined as trace functions or matrix expressions.
+- **`a₀`, `a₁`** — excluded before being defined.
+- **`s₁`, `s₂`** — used again without definition.
+- **`e₁`, `e₂`** — defined as formal solutions.
+- **`d₁`, `d₂`, `d₃`** — used without definition.
+- **`G_m`** — used as the residual gauge group without definition.
+- **“eigen-lines”** — never defined.
+- **“branch cut”, “sector labelling”, “Stokes rays”** — no formal setup.
+- **“Taylor-block continuation”**, **“continuous `log z`”**, **“optimally truncated”** — computational/analytic terms not defined.
+- **`f₁`, `f₂`**, **`α`** — used in the candidate tests before being defined.
+- **`M₀`, `M₁`, `M_∞`** — used before definitions of the monodromy matrices.
+- **`γ₀`, `γ₁`** — loop generators are mentioned but never defined.
+- **“unipotent”, “triangular”, “opposite triangles”** — unipotence is not defined; “opposite triangles” is informal.
+- **`S_π`, `S_{2π}`** — Stokes matrices are named but not defined.
+- **`L`**, **`L₁₁`** — first used in the known-answer control and later asserted as a formal exponent matrix; not defined before use.
+- **`B`** in “`B[Φ]`” — never defined.
+- **`Φ`** — never defined.
+- **“Euler system”**, **“Kummer’s equation”** — external objects, not specified.
+- **`a,b`** in the control parameters — not the same as the earlier coefficient function `b`; not explicitly distinguished.
+- **`Ñ`** — introduced without definition beyond the displayed formula.
+- **“SL₂ factorisation”** — not defined.
+- **“clockwise big circle”** — geometrically understandable but not formally specified.
+- **“unimodular”** — not defined.
+- **`m₁₁`** — matrix-entry notation is not explicitly introduced.
+- **“dependent restatement”** — not mathematical notation, but the dependence is not shown.
+- **`Λ`** — used in `e^{Λz}` without definition.
+- **`R`** as radius — conflicts with earlier normal potential/character variety notation and is not explicitly introduced.
+- **`F`** — used for the cubic surface and gradient without defining the cubic polynomial.
+- **`∇F`** — standard notation, but `F` itself is absent.
+- **“first-order sensitivity”** — not formally defined.
+- **“observable”** — used without definition.
+- **“PV system”** — label used without displaying the system.
+
+### Section 8.5–8.6
+
+- **`s=t−t₀`**, **`t₀`**, **`t₁`**, **`ε`** — introduced in the transport section, with `t₀` only inferable from Section 5.
+- **“exact recurrences”** — never displayed.
+- **“wrong vector field”** — the correct vector field is not displayed either.
+- **`σ`** — defined as a Galois automorphism in Proposition 9.
+- **“Galois automorphism”** — not defined.
+- **“character variety”** — never defined.
+- **“constant-gauge analytic equivalence”** — not defined.
+- **`P₁`, `P₂`** — introduced only in Proposition 10 as invariants, but their branch dependence is not previously specified.
+- **“known-true identity”** — refers to an omitted identity.
+
+### Section 9
+
+- **“native normalisation”** — never defined.
+- **“leading `B[Φ]=1`”** — `B` and `Φ` remain undefined.
+- **`C`** — numerically introduced, but its mathematical definition is not given.
+- **`S_{ζ*}`** — formula supplied, but the Stokes construction is absent.
+- **“decoys”** — informal and undefined.
+- **“Legendre duplication”**, **“reflection”** — named identities, not stated in full.
+- **`m`** in `1≤|m|≤12` — never defined.
+- **“cost”** — never defined.
+- **“stated bases”** — no formal definition of the admissible expression space.
+
+### Section 10
+
+- **“Membership”** — conclusion is clear informally, but no formal proposition is stated.
+- **`ρ`** — used as the Section 1 exponent, but Section 1 defines `ρ_d`, not clearly `ρ`.
+- **“indicial exponent”** — never defined.
+- **“`u=√z`”** — introduced without explaining the coordinate change or branch.
+
+---
+
+## 3. Claims resting on facts not stated in the packet
+
+1. The claims of Propositions 1–4 rely on omitted proofs.
+2. The numerical quartic confirmation relies on unstated polynomial data and an unstated numerical protocol.
+3. The values and digit counts for `r_∞`, the PSLQ search, and the two extrapolations rely on external computation.
+4. The identification of `A`, `B`, and `C` with rows of Table 2.1 relies on the cited van der Put–Saito source.
+5. The claim that the PIII(D₆) match is only at special parameters relies on details not reproduced from the table.
+6. The claim that the `D̃₅` row corresponds to PV relies on the external classification table.
+7. The assertion that the strong Riemann–Hilbert problem is positive for type `(0,0,1)` relies on the cited source.
+8. The interpretation of `P` as the base of a cubic-surface fibration relies on the source’s omitted definitions.
+9. The explicit family `(4.1)` and its Hamiltonian/vector field `(4.4)–(4.5)` are imported from the cited source; the packet prints only part of the family.
+10. The determinant typo correction relies on an unstated symbolic calculation.
+11. The five-equation solve, exact branch formulas, and residuals rely on external symbolic/numerical computation.
+12. The assertion that the two branches are the only solutions relies on an unstated completeness argument for the solve.
+13. The irreducibility claim relies on the unstated theorem connecting rational Riccati solutions to reducibility.
+14. The assertion that the point is in `U₀` relies on the omitted exact coordinate definitions and the numerical check.
+15. The assertion that exactly one leaf passes through the point relies on the omitted local existence/uniqueness theorem for the foliation.
+16. The exact isomorphism claim in Proposition 8 relies on external symbolic comparison of `P,Q`.
+17. The residual and perturbation tests in Section 6 rely entirely on numerical computations not supplied.
+18. The 16-convention Stokes/monodromy test relies on an unstated implementation and omitted definitions of the four tests.
+19. The Euler and Kummer controls rely on external equations, closed forms, and computations.
+20. The statement that the counterclockwise loop is homotopic to `γ₀` relies on a topological convention not stated.
+21. The claims about `α`, `L₁₁`, and the orientation of `M_∞` rely on omitted monodromy conventions.
+22. The formal-series truncation residual and Gevrey-rate claims rely on omitted recurrences and error analysis.
+23. The cubic-surface and smooth-point claims rely on an omitted polynomial `F`.
+24. The transport verification relies on omitted PV equations, Taylor recurrences, and numerical implementation.
+25. The assertion that the observable detects leaf membership relies on omitted definitions of `x_i` and the numerical protocol.
+26. Proposition 9 relies on an unstated proof that the radical substitution maps every parameter term-by-term.
+27. The assertion that the two branches have the same character-variety point relies on omitted definitions of the character variety and the `x_i`.
+28. Proposition 10’s non-equivalence result relies on an omitted invariant calculation and an unstated class of allowed gauges.
+29. The Stokes constant `C` and its 100-digit accuracy rely on omitted extraction and error-control procedures.
+30. The negative PSLQ result relies on an omitted exhaustive-search algorithm and cost definition.
+31. The conclusion that no closed form exists is carefully avoided, but the narrower negative result still relies on the unstated search implementation.
+
+---
+
+## 4. Main result and method
+
+### Main result
+
+From the packet alone, I take the main result to be: **System C, the explicitly given second-order scalar equation, is shown by an overdetermined symbolic and numerical comparison to correspond to a point of the type-`(0,0,1)` rank-2 moduli space and hence to lie on a Painlevé V isomonodromic leaf.** The comparison is exact at the level of the scalar pair `(P,Q)` for one algebraic branch, with numerical monodromy/Stokes checks at both branches, but the packet explicitly limits this to confirmation at stated precision rather than a proof.
+
+A secondary result is that **the two numerical branches are related algebraically by a Galois automorphism, while their analytic Stokes data are computed separately; the Stokes constant at `ζ*=4/√3` is numerically identified but no closed form is found in the stated search space.**
+
+### Method
+
+The method is:
+
+1. Analyze the quadratic recurrence and its normalized limit/asymptotics.
+2. Distinguish three objects (`A`, `B`, `C`) and compare their formal types with the external classification table.
+3. Put System C into the type-`(0,0,1)` rank-2 connection framework.
+4. Determine the time and local parameters from the transformed normal potential.
+5. Solve an overdetermined matching problem for `(p,q,t,θ_∞)`.
+6. Verify exact equality of the scalar coefficients `(P,Q)`, thereby removing the projective/rank-1-twist ambiguity.
+7. Select monodromy/Stokes conventions by an overdetermined 16-way numerical test.
+8. Check the trace coordinates along a Painlevé V transport direction.
+9. Compute the Stokes constant numerically and test a prescribed family of possible closed forms by PSLQ.
+
+---
+
+## 5. Verdict
+
+**NOT SELF-CONTAINED** — the packet depends on external source material and numerous omitted definitions, proofs, equations, symbolic calculations, numerical procedures, and convention choices. In particular, the scalar-to-connection construction for object `A` is explicitly acknowledged to be unbridged, while the membership result for System C depends on the externally supplied moduli-space framework and on numerical computations that cannot be reproduced from the packet alone.

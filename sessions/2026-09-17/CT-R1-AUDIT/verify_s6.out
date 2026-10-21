@@ -1,0 +1,13 @@
+[C0] exactness b == a' : True
+[C1] System C normal form R_C = 12*x**4 + 4*x**3 + 4*x**2 + 11 / 4*(3*x**2 + x + 1)**2
+[B1] inverted System B normal form = 12*x**4 + 4*x**3 + 4*x**2 + 11 / 4*(3*x**2 + x + 1)**2
+[EQ] R_C - R_Binv == 0 : True
+[B2] R_Binv at x=0 is finite, value 11/4 -> x=0 is an ORDINARY point of the normal form
+[C2] x = -1/6 - sqrt(11)*I/6 : p0 = 1, q0 = 0, indicial = lambda**2, exponents = {0: 2}, normal-form residue = -1/4
+[C2] x = -1/6 + sqrt(11)*I/6 : p0 = 1, q0 = 0, indicial = lambda**2, exponents = {0: 2}, normal-form residue = -1/4
+[G1] General: for  chi*y'' + chi'*y' + c*y = 0  at a SIMPLE root s of chi with c(s) != 0, p = chi'/chi has residue exactly 1 and (x-s)^2*q -> 0, so the indicial polynomial is lambda*(lambda-1) + 1*lambda + 0 = lambda^2.  The exponents are 0,0 for EVERY such chi and c. Equal exponents at a genuine regular singular point always force a log term in the second Frobenius solution, so the point is NEVER apparent.
+[G2] chi = x + 1, root -1: p0 = 1, q0 = 0, indicial = lambda**2
+[G2] chi = x**2 + 1, root -I: p0 = 1, q0 = 0, indicial = lambda**2
+[G2] chi = x**2 + 1, root I: p0 = 1, q0 = 0, indicial = lambda**2
+[I1] R_C at infinity (t = 1/x): 11*t**4 + 4*t**2 + 4*t + 12 / 4*t**4*(t**2 + t + 3)**2
+[I2] pole order in t at t=0 : 4  -> Katz = pole/2 - 1 = 1

@@ -1,0 +1,43 @@
+============================================================================
+verify_walkthrough.py -- gating the deposit INSTRUCTIONS
+  walkthrough : WALKTHROUGH.md (15809 chars)
+  reader      : text and non-ASCII sentinels present in both files
+============================================================================
+
+running the gates, so every count comes from the gate itself ...
+  verify_description.py        checks run: 21
+  preflight_deposit_rev2.py    checks run: 11
+
+  [PASS] W1 quoted check counts equal the gates' own output
+           every quoted check count equals the gate's own output {'verify_description.py': 21, 'preflight_deposit_rev2.py': 11}
+  [PASS] W2 quoted sizes are the current revision's
+           all quoted sizes match: description 68303 chars / 68606 bytes, carried file 609300 bytes
+  [PASS] W3 no eye-compared hash constant remains
+           no 'Expected: <64 hex>' eye-comparison instruction remains (S35-18 standing form (i))
+  [PASS] W4 every cd targets this session, not the packet's origin
+           every cd in a runnable block targets this session
+  [PASS] W5 every file a runnable block READS exists
+           all 5 input file(s) named in runnable blocks exist; redirect targets excluded
+  [PASS] W6 the stated exclusion of internal paths is true of the description
+           description contains 0 internal-path occurrence(s); the walkthrough claims zero
+  [PASS] W7 the carried file agrees with DEPOSIT-FORM
+           carried file stated as channel_theory_outline.pdf, 609300 bytes, md5 aa56a94a...
+  [PASS] W8 EXECUTED: display commands do not hide the counts they promise
+           every 'Select-Object -Last N' still shows 'checks run' and 'checks failed' when applied to the real gate output
+
+----------------------------------------------------------------------------
+  [PASS] truncated read -- caught: READER INTEGRITY: sentinel absent
+  [PASS] latin-1 read (ASCII survives it) -- caught: READER INTEGRITY: non-ASCII sentinel absent
+  [PASS] empty read -- caught: READER INTEGRITY: sentinel absent
+
+============================================================================
+checks run     : 8
+checks failed  : 0
+broken checks  : 0
+reader controls: 3 of 3 caught
+
+WALKTHROUGH GATE: PASSED -- the instructions agree with the
+  artefacts they describe, and their display commands were run,
+  not read.  This gate cannot make the deposit correct; it only
+  removes the class where correct bytes meet stale instructions.
+============================================================================

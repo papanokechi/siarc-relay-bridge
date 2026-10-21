@@ -1,0 +1,885 @@
+symbol_index -- Channel Theory symbol-collision index
+
+[sources]
+  theorem.tex                  tex      25102 B   1007 occurrences   [instructed]
+  section1.tex                 tex      13398 B    269 occurrences   [instructed]
+  OUTLINE.md                   prose    50925 B    101 occurrences   [instructed]
+  section3.tex                 tex      12727 B    197 occurrences   [ADDED]
+  section4.tex                 tex       9036 B    174 occurrences   [ADDED]
+  outline-cited claims (89)    prose    49494 B    570 occurrences   [instructed]
+
+[vacuity pre-check]
+  control (one meaning) \Gamma : 1 keys in 3 sources  ok
+  control (two meanings) B     : 13 keys in 5 sources  ok
+
+[index: every base letter, its keys, sources and contexts]
+
+  BASE A              55 occurrences, 8 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    A                 29
+        [theorem.tex] \\[4pt] \large Session \texttt{CT-S1-THEOREM}, prompt P4 Task A} \author{} \date{} \begin{document} \maketitle \begin{abstr
+        [section1.tex] are named once, here. \begin{itemize} \item \textbf{$\mathsf A$} is the generating function $\sum_{n\ge0}Q_nz^n$ of the de
+        [section3.tex] ection{From the recurrence to System \texorpdfstring{$\mathsf A$}{A}} \label{ssec:sysA} Take $b(n)=3n^2+n+1$, the quadratic
+    A_1                7
+        [section4.tex] equation}\label{eq:module} \frac{d}{dz}+\frac{A_0}{z}+\frac{A_1}{z-1}+A_\infty , \end{equation} with $A_0,A_1$ constant trace
+        [outline-cited claims (89)] positive answer; the module is represented by d/dz + A_0/z + A_1/(z-1) + A_inf with trace-0 constant matrices, A_inf normalise
+    A_0                6
+        [section4.tex] ted by \begin{equation}\label{eq:module} \frac{d}{dz}+\frac{A_0}{z}+\frac{A_1}{z-1}+A_\infty , \end{equation} with $A_0,A_1$
+        [outline-cited claims (89)] em has a positive answer; the module is represented by d/dz + A_0/z + A_1/(z-1) + A_inf with trace-0 constant matrices, A_inf n
+    A_inf              5
+        [outline-cited claims (89)] swer; the module is represented by d/dz + A_0/z + A_1/(z-1) + A_inf with trace-0 constant matrices, A_inf normalised to (t/2)diag
+    A_\infty           3
+        [section4.tex] label{eq:module} \frac{d}{dz}+\frac{A_0}{z}+\frac{A_1}{z-1}+A_\infty , \end{equation} with $A_0,A_1$ constant trace-zero $2\times2
+    A_i                3
+        [section4.tex] ag}(-1,1),\qquad t\in\mathbb C^{*}, \end{equation} with $\det A_i=-\theta_i^2/4$, and with the singular points normalised to $0
+        [outline-cited claims (89)] ormalised to (t/2)diag(-1,1) with t in C*, -theta_i^2/4 = det A_i, and the singular points normalised to 0, 1, infinity. NO sem
+    A_0+A              1
+        [OUTLINE.md] ); `S22-06`–`S22-08` (the printed `(4.1)` at the point; the `(A_0+A_1)_{11}` sign discrepancy with vdPS p. 2629 prose; `α = e^{±i
+    A_2                1
+        [outline-cited claims (89)] lytic equivalence between the two CT-S16 branches of the form A_2(z) = -G A_1(phi(z)) G^{-1} with G a CONSTANT gauge, for any o
+
+  BASE a              41 occurrences, 6 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    a                 27
+        [theorem.tex] \textsc{structural}; Gap~G1 was closed in audit round R1, and a load-bearing unproved assertion in Theorem~\ref{thm:radius},
+        [OUTLINE.md] egeneracy pre-check — **no** multiplicative relation `C = ± 2^a 3^b π^c Γ(1/3)^d e^f` exists with `|coeff| ≤ 10⁶`, `1 ≤ |m| ≤
+        [section3.tex] pands exactly to the listed $q_2$, and recomputing $R=\tfrac14a^2+\tfrac12a'-b$ from $(q_0,q_1,q_2)$ reproduces \begin{equati
+    a_k                5
+        [theorem.tex] igl(1-\kappa/k+O(1/k^2)\bigr)=1+O(1/k^2)$. A product $\prod(1+a_k)$ with $\sum|a_k|<\infty$ converges to a nonzero limit; here
+        [outline-cited claims (89)] ble zeta (G2) == w (G), transformed series = the coefficients a_k of the Birkhoff formal solution S(u) = 1 + sum a_k u^k, facto
+    a_n                4
+        [OUTLINE.md] hotomy supplying `(H)`. Write the recurrence as `Q_{n+1} + a_n Q_n + b_n Q_{n-1} = 0` with `a_n = −b(n+1) ~ −β_d n^d`, `b
+        [outline-cited claims (89)] The page carries verbatim: 'so determines the asymptotics of a_n up to a multiplicative constant. However, the Birkhoff-Trjitz
+    a_i                3
+        [section1.tex] arches for integers $a_1,\dots,a_m$, not all zero, with $\sum a_i y_i=0$ to the working precision. A PSLQ result is evidence fo
+        [OUTLINE.md] ₂ = tr(B₁B₃)`, `x₃ = tr(B₁B₂)` must be **stated** here, with `a_i = tr(B_i) ≡ 2`. This closes `CT-S23` open question 2; the def
+    a_1                1
+        [section1.tex] given real numbers $y_1,\dots,y_m$ it searches for integers $a_1,\dots,a_m$, not all zero, with $\sum a_i y_i=0$ to the workin
+    a_m                1
+        [section1.tex] l numbers $y_1,\dots,y_m$ it searches for integers $a_1,\dots,a_m$, not all zero, with $\sum a_i y_i=0$ to the working precisio
+
+  BASE b              88 occurrences, 4 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    b                 82
+        [theorem.tex] } \date{} \begin{document} \maketitle \begin{abstract} Let $b\in\C[n]$ have degree $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2
+        [section1.tex] e and its normalisation}\label{ssec:recurrence} Throughout, $b$ is a polynomial with real coefficients, \[ b(n)=\sum_{k=0}
+        [OUTLINE.md] eracy pre-check — **no** multiplicative relation `C = ± 2^a 3^b π^c Γ(1/3)^d e^f` exists with `|coeff| ≤ 10⁶`, `1 ≤ |m| ≤ 12`
+    b_1                3
+        [outline-cited claims (89)] he solve was OVERDETERMINED - five coefficient equations plus b_1 = 0 in four unknowns - and consistent. located by a hand-redu
+    b_n                2
+        [OUTLINE.md] plying `(H)`. Write the recurrence as `Q_{n+1} + a_n Q_n + b_n Q_{n-1} = 0` with `a_n = −b(n+1) ~ −β_d n^d`, `b_n = −1`;
+    b_k                1
+        [outline-cited claims (89)] _k/k!|^{1/k} over k = 193..200 only (K_FORMAL = 200), and for b_k ~ C k^sigma w*^{-k} the estimator carries a factor exp((ln|C|
+
+  BASE B              63 occurrences, 13 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    B                 27
+        [theorem.tex] orel-type transform \begin{equation}\label{eq:borel} \mathcal{B}(w):=\sum_{n\ge0}\frac{Q_n}{(dn)!}\,w^n \qquad\bigl((dn)!=\Ga
+        [section1.tex] f the denominators \eqref{eq:n-rec}. \item \textbf{$\mathsf B$} is the differential operator $L_\varphi$ attached to that
+        [OUTLINE.md] `, `outputs/`. *Repairs:* **R-(d)**, `CT-S23` §4.5 — `x₁ = tr(B₂B₃)`, `x₂ = tr(B₁B₃)`, `x₃ = tr(B₁B₂)` must be **stated** her
+    B_n               17
+        [theorem.tex] \end{equation} and, using (A1), \begin{equation}\label{eq:rn} B_n:=\prod_{k=1}^{n}b(k),\qquad r_n:=\frac{Q_n}{B_n}\quad(n\ge0),
+        [section1.tex] =1 . \end{equation} Write \begin{equation}\label{eq:n-norm} B_n=\prod_{k=1}^{n}b(k)\quad(B_0=1),\qquad q_n=\frac{Q_n}{B_n},
+        [outline-cited claims (89)] >= 1. With Q_{-1} = 0, Q_0 = 1, Q_n = b(n) Q_{n-1} + Q_{n-2}, B_n = prod_{k<=n} b(k) and r_n = Q_n / B_n, then for every n >= 1
+    B_1                4
+        [section1.tex] race coordinates}\label{ssec:traces} On the monodromy side, $B_1$, $B_2$, $B_3$ are the monodromy matrices of the local system
+        [outline-cited claims (89)] b(z) appears a SECOND time on journal p. 2655, in the matrix B_1 of the display B = z B_0 + (1/t) B_1, where its (1,2) entry p
+    B_0                3
+        [theorem.tex] _{k=1}^{n}b(k),\qquad r_n:=\frac{Q_n}{B_n}\quad(n\ge0),\qquad B_0:=1 . \end{equation} \section{The hypothesis (H) and its stat
+        [section1.tex] gin{equation}\label{eq:n-norm} B_n=\prod_{k=1}^{n}b(k)\quad(B_0=1),\qquad q_n=\frac{Q_n}{B_n},\qquad q_\infty=\lim_{n\to\
+        [outline-cited claims (89)] me on journal p. 2655, in the matrix B_1 of the display B = z B_0 + (1/t) B_1, where its (1,2) entry prints (p + 1/2(q-1)q t)^2
+    B_i                3
+        [section1.tex] aito's notation at p.~2637. They carry $a_i=\operatorname{tr}(B_i)$, and the affine cubic surface of monodromy data is coordina
+        [OUTLINE.md] B₃)`, `x₃ = tr(B₁B₂)` must be **stated** here, with `a_i = tr(B_i) ≡ 2`. This closes `CT-S23` open question 2; the definition i
+    B_1B               2
+        [section1.tex] x_1=\operatorname{tr}(B_2B_3),\qquad x_2=\operatorname{tr}(B_1B_3),\qquad x_3=\operatorname{tr}(B_1B_2). \end{equation} The
+    B_n-1              1
+        [theorem.tex] proposition} \begin{proof} Divide \eqref{eq:rec} by $B_n=b(n)B_{n-1}=b(n)b(n-1)B_{n-2}$: \begin{equation}\label{eq:rnrec} r_n=r_{n
+    B_n-2              1
+        [theorem.tex] in{proof} Divide \eqref{eq:rec} by $B_n=b(n)B_{n-1}=b(n)b(n-1)B_{n-2}$: \begin{equation}\label{eq:rnrec} r_n=r_{n-1}+\frac{r_{n-2}}
+    B_n\to0            1
+        [theorem.tex] of \eqref{eq:rec}: the minimal solution $P_n$ satisfies $P_n/B_n\to0$, so a solution with $Q_n/B_n\to\rinf\neq0$ is dominant. Equi
+    B_n\to\rinf\neq0   1
+        [theorem.tex] lution $P_n$ satisfies $P_n/B_n\to0$, so a solution with $Q_n/B_n\to\rinf\neq0$ is dominant. Equivalently, (H) fails exactly when the chosen
+    B_2                1
+        [section1.tex] ordinates}\label{ssec:traces} On the monodromy side, $B_1$, $B_2$, $B_3$ are the monodromy matrices of the local system, one f
+    B_3                1
+        [section1.tex] es}\label{ssec:traces} On the monodromy side, $B_1$, $B_2$, $B_3$ are the monodromy matrices of the local system, one for each
+    B_2B               1
+        [section1.tex] y \begin{equation}\label{eq:n-traces} x_1=\operatorname{tr}(B_2B_3),\qquad x_2=\operatorname{tr}(B_1B_3),\qquad x_3=\opera
+
+  BASE c              21 occurrences, 5 keys, sources: outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    c                 17
+        [theorem.tex] =d$ with leading coefficient $\bd\neq0$, there are constants $c>0$ and $n_0$ with $|b(n)|\ge c\,n^{d}$ for $n\ge n_0$; hence
+        [section1.tex] al module over the field of formal Laurent series at a point $c$, the \emph{Katz invariant} $r(c)$ is the largest slope of th
+        [section3.tex] +1=a'(x)$ exactly, so \eqref{eq:sysC} is $\bigl(a(x)W'\bigr)'+c(x)W=0$ (\textbf{PROVEN}, \texttt{S6-C12}; equivalently $b-a'=
+    c_\pm              1
+        [section1.tex] large term is the prefactor multiplying its exponential, and $c_\pm$ denote the amplitudes attached to the two branches of a squa
+    c_0                1
+        [section1.tex] the equation admits a local solution of the form $u^{\alpha}(c_0+c_1u+\cdots)$ with $c_0\neq0$, possibly up to logarithmic ter
+    c_1u               1
+        [section1.tex] equation admits a local solution of the form $u^{\alpha}(c_0+c_1u+\cdots)$ with $c_0\neq0$, possibly up to logarithmic terms. T
+    c_0\neq0           1
+        [section1.tex] ocal solution of the form $u^{\alpha}(c_0+c_1u+\cdots)$ with $c_0\neq0$, possibly up to logarithmic terms. The letter $\rho$ is neve
+
+  BASE C              40 occurrences, 1 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    C                 40
+        [theorem.tex] \label{eq:eps} \varepsilon_n:=\frac{1}{|b(n-1)b(n)|}\le \frac{C}{n^{2d}},\qquad C:=2^{d}c^{-2}, \end{equation} where the fact
+        [section1.tex] teger. For functions of $n\to\infty$: $f=O(g)$ means $|f|\le C|g|$ for some constant $C$ and all large $n$; $f=o(g)$ means $
+        [OUTLINE.md] so this consequence should be visible rather than inferred. `C = 8.1273367954950723671…` is known to 100 decimal digits. In
+
+  BASE d             148 occurrences, 1 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section4.tex, theorem.tex
+    d                148
+        [theorem.tex] nt} \maketitle \begin{abstract} Let $b\in\C[n]$ have degree $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2}$ with $Q_{-1}=0$, $Q_0
+        [section1.tex] is a polynomial with real coefficients, \[ b(n)=\sum_{k=0}^{d}\beta_k n^k ,\qquad \beta_d\neq0,\qquad d=\deg b\ge1 , \] so
+        [OUTLINE.md] and under `r_∞ ≠ 0` the terms satisfy `Q_n / Γ(dn+1) = K (β_d/d^d)^n n^s (1 + O(1/n))` with `s = β_{d-1}/β_d + (d-1)/2` and `
+
+  BASE D              22 occurrences, 5 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, section4.tex
+    D                 13
+        [OUTLINE.md] e native normalisation of the recurrence and the map to P-III(D₆) **remains open**, so the section is joined to the rest by o
+        [section4.tex] y \texorpdfstring{$(4.1)$}{(4.1)}} \label{ssec:family} With $D(z)=z(z-1)$ and \[ A=\begin{pmatrix} a & b\\ c & -a\end{pmat
+        [outline-cited claims (89)] 's own Wronskian coefficient is P_C = delta(6x+1)/(3x^2+x+1) = D'/D, and the family's is P = D'/D - b'/b, which equals D'/D ex
+    D_5                4
+        [section1.tex] equation; the two rows used in this paper are \[ \widetilde D_5:\ \mathrm{PV},\ (0,0,1,-),\ \dim P=3, \qquad \widetilde D
+        [section3.tex] which matches van der Put--Saito's Table~2.1 row $\widetilde D_5$/PV on p.~2635. This is \textbf{STRUCTURAL} (\texttt{S6-C16})
+        [section4.tex] ito's Table~2.1 contains the row labelled $\widetilde D_5$/PV, whose Katz invariants are $(0,0,1)$ (\texttt{CT-
+    D_6                3
+        [section1.tex] 5:\ \mathrm{PV},\ (0,0,1,-),\ \dim P=3, \qquad \widetilde D_6:\ \mathrm{PV}_{\deg}=\mathrm{PIII}(D_6),\ (0,0,\tfrac12,-),\
+    D_7                1
+        [section1.tex] terchangeably, as there. $\mathrm{PIII}(D_6)$, $\mathrm{PIII}(D_7)$ and $\mathrm{PIII}(D_8)$ denote the three degenerations of
+    D_8                1
+        [section1.tex] $\mathrm{PIII}(D_6)$, $\mathrm{PIII}(D_7)$ and $\mathrm{PIII}(D_8)$ denote the three degenerations of the third Painlev\'e equa
+
+  BASE e              13 occurrences, 2 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, theorem.tex
+    e                 12
+        [theorem.tex] -1}+\varepsilon_n r_{n-1}=(1+\varepsilon_n)r_{n-1} \le r_{n-1}e^{\varepsilon_n}$, using $1+x\le e^x$. \textsc{complete.} Ite
+        [section1.tex] e meromorphic continuation of $\Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\,dt$ ($\Re s>0$), with simple poles at $s=0,-1,-2,\dots$
+        [OUTLINE.md] (A_0+A_1)_{11}` sign discrepancy with vdPS p. 2629 prose; `α = e^{±iπθ_∞}` in closed form); `S22-09` (optimal truncation); `S2
+    e_1                1
+        [outline-cited claims (89)] tor at the located point (p,q,t,theta_inf) with cyclic vector e_1 has EXACTLY the same P and Q. P_F - P_C = 0 and Q_F - Q_C = 0
+
+  BASE f              13 occurrences, 2 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex
+    f                 12
+        [section1.tex] $ is a non-negative integer. For functions of $n\to\infty$: $f=O(g)$ means $|f|\le C|g|$ for some constant $C$ and all large
+        [section3.tex] n)=3n^2+n+1$, the quadratic of the companion record, and let $f(z)=\sum_{n\ge0}Q_nz^n$ be the generating function of the deno
+        [outline-cited claims (89)] for b(n)=3n^2+n+1 satisfies 3z^3 f'' + 10 z^2 f' + (z^2+5z-1) f = -1. The residual against the exact integer sequence Q=1,5,7
+    f_s                1
+        [OUTLINE.md] `ρ_j` the roots of (2.9.5) — **but only** under `f(n) ~ Σ f_s n^{−s}`, `g(n) ~ Σ g_s n^{−s}`, `g₀ ≠ 0`. Our `f(n) = −b(n
+
+  BASE F               1 occurrences, 1 keys, sources: outline-cited claims (89)
+    F                  1
+        [outline-cited claims (89)] cause s1 = s2 = 2 puts it on two resonance divisors, but grad F = (1.523094, 1.5231748, 21.240405) in modulus is non-zero the
+
+  BASE G              10 occurrences, 3 keys, sources: outline-cited claims (89), theorem.tex
+    G                  6
+        [theorem.tex] t draft Theorem~\ref{thm:growth} was \textsc{structural}; Gap~G1 was closed in audit round R1, and a load-bearing unproved as
+        [outline-cited claims (89)] proof: CT-S10-COLDREAD2 read the repaired thm:growth Step 3 / G1 passage with no access to CT-R1-AUDIT/, CT-S7-COLDREAD/, or
+    G_k                2
+        [theorem.tex] ned expansion $\Gamma(z+a)/\Gamma(z+b)\sim z^{a-b}\sum_{k\ge0}G_k(a,b)z^{-k}$ is DLMF~(5.11.13), with $G_0(a,b)=1$ at DLMF~(5.1
+    G_0                2
+        [theorem.tex] m z^{a-b}\sum_{k\ge0}G_k(a,b)z^{-k}$ is DLMF~(5.11.13), with $G_0(a,b)=1$ at DLMF~(5.11.15); only the leading statement (5.11.1
+
+  BASE g               7 occurrences, 2 keys, sources: OUTLINE.md, section1.tex
+    g                  6
+        [section1.tex] a non-negative integer. For functions of $n\to\infty$: $f=O(g)$ means $|f|\le C|g|$ for some constant $C$ and all large $n$
+    g_s                1
+        [OUTLINE.md] 9.5) — **but only** under `f(n) ~ Σ f_s n^{−s}`, `g(n) ~ Σ g_s n^{−s}`, `g₀ ≠ 0`. Our `f(n) = −b(n+2)` grows like `n^d`,
+
+  BASE H              16 occurrences, 2 keys, sources: OUTLINE.md, outline-cited claims (89), section4.tex, theorem.tex
+    H                 10
+        [theorem.tex] ge0),\qquad B_0:=1 . \end{equation} \section{The hypothesis (H) and its status} \begin{proposition}[Existence of the limit;
+        [OUTLINE.md] N), `S1-02` (`b > 0` ⇒ `r_n ↑`, `r_n ≥ 1`, so `r_∞ ≥ 1` and `(H)` is automatic — PROVEN), `S1-03`, `S1-04` (radius and growth
+        [outline-cited claims (89)] ctly increasing with r_n>=1, hence r_inf>=1>0 and hypothesis (H) holds automatically. Proposition prop:positive. self: checke
+    H_V                6
+        [OUTLINE.md] U₀`, the family `(4.1)` printed **in full**, the Hamiltonian `H_V` `(4.5)` and the deformation vector field `(4.4)`, and the st
+        [section4.tex] {align} (4.4)\qquad &\frac{dp}{dt}=q(q-1)\,\frac{\partial H_V}{\partial q}, \qquad \frac{dq}{dt}=-q(q-1)\,\frac{\part
+
+  BASE h              23 occurrences, 3 keys, sources: outline-cited claims (89), theorem.tex
+    h                 14
+        [theorem.tex] . \end{equation} \emph{Proof of \eqref{eq:gammaratio}.} Put $h(n):=\Gamma(n+1-r)\,n^{r}/\Gamma(n+1)$ for $n>\max(0,\Re r)$,
+        [outline-cited claims (89)] 06726020179279562511 i. Error bar 8.49e-105 from step halving h = rho/4 vs rho/8 (273 vs 487 steps), not from a single run.
+    h_\infty           8
+        [theorem.tex] m=n_0+1}^{n}h(m)/h(m-1)$ converges to a finite nonzero limit $h_\infty$, and because the tail of a convergent $\sum O(1/m^{2})$ is $
+    h_\infty\bigl      1
+        [theorem.tex] 1/m^{2})$ is $O(1/n)$, \begin{equation}\label{eq:hlimit} h(n)=h_\infty\bigl(1+O(1/n)\bigr). \end{equation} It remains to identify $h_\inf
+
+  BASE i              18 occurrences, 1 keys, sources: section1.tex, section3.tex, theorem.tex
+    i                 18
+        [theorem.tex] ve integer, equivalently $\Gamma(1-r_i)$ is finite for every $i$. (Recall $\Gamma$ has poles exactly at $0,-1,-2,\dots$.) \em
+        [section1.tex] s} \lambda_1,\dots,\lambda_d\in\C,\qquad b(n)=\beta_d\prod_{i=1}^{d}(n-\lambda_i). \end{equation} \paragraph{Three objects
+        [section3.tex] points are \begin{equation}\label{eq:spm} s_\pm=\frac{-1\pm i\sqrt{11}}{6}, \qquad \delta=s_--s_+=-\frac{i\sqrt{11}}{3} \
+
+  BASE I              15 occurrences, 7 keys, sources: outline-cited claims (89)
+    I_n                4
+        [outline-cited claims (89)] v+1}(2) = v I_v(2) taken at v = n gives I_{n-1} - I_{n+1} = n I_n, so y_n = (-1)^n I_{n+1}(2) satisfies y_n = n y_{n-1} + y_{n-
+    I_n-1              3
+        [outline-cited claims (89)] ntity I_{v-1}(2) - I_{v+1}(2) = v I_v(2) taken at v = n gives I_{n-1} - I_{n+1} = n I_n, so y_n = (-1)^n I_{n+1}(2) satisfies y_n =
+    I_n+1              3
+        [outline-cited claims (89)] -1}(2) - I_{v+1}(2) = v I_v(2) taken at v = n gives I_{n-1} - I_{n+1} = n I_n, so y_n = (-1)^n I_{n+1}(2) satisfies y_n = n y_{n-1}
+    I_n-2              2
+        [outline-cited claims (89)] Substituting that closed form and dividing by (-1)^n requires I_{n-2} - I_n = n I_{n-1}, whereas the Bessel identity at v = n-1 giv
+    I_v-1              1
+        [outline-cited claims (89)] ections. POSITIVE (V1): at z = 2 the modified Bessel identity I_{v-1}(2) - I_{v+1}(2) = v I_v(2) taken at v = n gives I_{n-1} - I_{
+    I_v+1              1
+        [outline-cited claims (89)] TIVE (V1): at z = 2 the modified Bessel identity I_{v-1}(2) - I_{v+1}(2) = v I_v(2) taken at v = n gives I_{n-1} - I_{n+1} = n I_n,
+    I_v                1
+        [outline-cited claims (89)] = 2 the modified Bessel identity I_{v-1}(2) - I_{v+1}(2) = v I_v(2) taken at v = n gives I_{n-1} - I_{n+1} = n I_n, so y_n = (
+
+  BASE j               7 occurrences, 1 keys, sources: OUTLINE.md, theorem.tex
+    j                  7
+        [theorem.tex] \cdots=k_d=n$. Indeed, suppose $k_i\ge k_j+2$ for some $i\neq j$. Replacing $(k_i,k_j)$ by $(k_i-1,k_j+1)$ leaves the total $
+        [OUTLINE.md] ot apply.** (2.9.6) gives the exponent explicitly as `α_j = (f₁ρ_j + g₁)/(f₀ρ_j + 2g₀)`, with `ρ_j` the roots of (2.9.5
+
+  BASE k              89 occurrences, 7 keys, sources: outline-cited claims (89), section1.tex, theorem.tex
+    k                 57
+        [theorem.tex] h $Q_{-1}=0$, $Q_0=1$. We show that $r_n:=Q_n/\prod_{k\le n}b(k)$ always converges (Proposition~\ref{prop:exists}), that its
+        [section1.tex] ial with real coefficients, \[ b(n)=\sum_{k=0}^{d}\beta_k n^k ,\qquad \beta_d\neq0,\qquad d=\deg b\ge1 , \] so that $\beta_
+        [outline-cited claims (89)] prod_{k<=n} b(k) converges for every b of degree d>=1 with b(k)!=0 for k>=1, with no hypothesis on the limit; moreover r_inf
+    k_j                9
+        [theorem.tex] h compositions at $k_1=\cdots=k_d=n$. Indeed, suppose $k_i\ge k_j+2$ for some $i\neq j$. Replacing $(k_i,k_j)$ by $(k_i-1,k_j+1
+    k_1                8
+        [theorem.tex] dn)!}{(n!)^{d}}\right)^{1/n}=d^{\,d}. \end{equation} Write $C(k_1,\dots,k_d):=\binom{dn}{k_1,\dots,k_d}=(dn)!/(k_1!\cdots k_d!)
+    k_d                7
+        [theorem.tex] ^{d}}\right)^{1/n}=d^{\,d}. \end{equation} Write $C(k_1,\dots,k_d):=\binom{dn}{k_1,\dots,k_d}=(dn)!/(k_1!\cdots k_d!)$ for a co
+    k_i                6
+        [theorem.tex] ndeed, suppose $k_i\ge k_j+2$ for some $i\neq j$. Replacing $(k_i,k_j)$ by $(k_i-1,k_j+1)$ leaves the total $dn$ unchanged and
+    k_i\ge             1
+        [theorem.tex] all such compositions at $k_1=\cdots=k_d=n$. Indeed, suppose $k_i\ge k_j+2$ for some $i\neq j$. Replacing $(k_i,k_j)$ by $(k_i-1,k
+    k_d-1              1
+        [theorem.tex] f compositions. Each composition is determined by $(k_1,\dots,k_{d-1})\in\{0,1,\dots,dn\}^{d-1}$ (the last part being forced), so $
+
+  BASE K              21 occurrences, 2 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, theorem.tex
+    K                 20
+        [theorem.tex] heorem~\ref{thm:radius}) and leading growth $Q_n/\Gamma(dn+1)=K(\bd/d^d)^n n^s(1+O(1/n))$ with $s=\bdm/\bd+(d-1)/2$ and an ex
+        [section1.tex] finite, and therefore the condition under which the constant $K$ of \S\ref{ssec:growth} is defined at all. A statement that u
+        [OUTLINE.md] `r_∞`, and under `r_∞ ≠ 0` the terms satisfy `Q_n / Γ(dn+1) = K (β_d/d^d)^n n^s (1 + O(1/n))` with `s = β_{d-1}/β_d + (d-1)/2
+    K_FORMAL           1
+        [outline-cited claims (89)] us estimates 1/|w*| by |a_k/k!|^{1/k} over k = 193..200 only (K_FORMAL = 200), and for b_k ~ C k^sigma w*^{-k} the estimator carries
+
+  BASE L              16 occurrences, 5 keys, sources: outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    L                 10
+        [theorem.tex] c{1}{b(k)b(k+1)}\Big), \end{equation} and consequently, with $L:=\exp\big(\sum_{k\ge1}1/(b(k)b(k+1))\big)<\infty$, \begin{equ
+        [outline-cited claims (89)] jective class. Counterexample exhibited explicitly over C(z): L = d - 1/(2z). Then L tensor L = d - 1/z is TRIVIAL, with rati
+    L_\varphi          2
+        [section1.tex] ec}. \item \textbf{$\mathsf B$} is the differential operator $L_\varphi$ attached to that generating function. \item \textbf{$\math
+        [section3.tex] ec:sysBC} \emph{System $\mathsf B$} is the scalar reduction $L_\varphi$, whose transcription is certified two independent ways (\tex
+    L_11               2
+        [outline-cited claims (89)] M_inf is the CLOCKWISE loop, hence their alpha is e^{-2 pi i L_11}. S22-04: Check A6a as first written was algebraically vacuo
+    L_V                1
+        [outline-cited claims (89)] its at the action difference in both systems, consistent with L_V's exact factor p4 proportional to xi (xi + 2/sqrt3). S4-09:
+    L_phi              1
+        [outline-cited claims (89)] ncy test in this session. S6-C3: System B transcription from L_phi reproduces q2=4*(2*sqrt(3)-3)*z^2*(z^2+z+3) and normal-form r
+
+  BASE M              25 occurrences, 12 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, theorem.tex
+    M                  4
+        [theorem.tex] epsilon_k)\le M_{n_0}\exp\Big(\sum_{k>n_0}\varepsilon_k\Big)=:M<\infty . \] So $(r_n)$ is bounded. \textsc{complete.} Conseq
+        [outline-cited claims (89)] s first written was algebraically vacuous: (1 + f1 f2)/alpha = M_22 equals (1 - det M)/m11 and so vanishes identically for any
+    M_t,λ              3
+        [OUTLINE.md] , at an explicit point of the chart `U₀` of the moduli space `M_{t,λ}`. The identification is of the full operator, not merely its
+    M_inf              3
+        [outline-cited claims (89)] rclockwise circle at infinity is homotopic to gamma_0; vdPS's M_inf is the CLOCKWISE loop, hence their alpha is e^{-2 pi i L_11}.
+    M_n-1              2
+        [theorem.tex] $|r_n|\le|r_{n-1}|+\varepsilon_n|r_{n-2}|\le(1+\varepsilon_n)M_{n-1}$, so $M_n\le(1+\varepsilon_n)M_{n-1}$ and therefore \[ M_n\le
+    M_n\le             2
+        [theorem.tex] n-1}|+\varepsilon_n|r_{n-2}|\le(1+\varepsilon_n)M_{n-1}$, so $M_n\le(1+\varepsilon_n)M_{n-1}$ and therefore \[ M_n\le M_{n_0}\prod
+    M_n_0              2
+        [theorem.tex] , so $M_n\le(1+\varepsilon_n)M_{n-1}$ and therefore \[ M_n\le M_{n_0}\prod_{k>n_0}(1+\varepsilon_k)\le M_{n_0}\exp\Big(\sum_{k>n_0}
+    M_t,lambda         2
+        [outline-cited claims (89)] 4.1) at an explicit point of the chart U_0 = C x (C\{0,1}) of M_{t,lambda}, for both sign branches. Branch t = -2i sqrt(33)/9: theta_inf
+    M_0                2
+        [outline-cited claims (89)] s companion system is not trace-free (tr B = 1 - b/z), so det M_0 = e^{-2 pi i b} != 1 and the vdPS SL2 factorisation requires
+    M_1                2
+        [outline-cited claims (89)] ditions: right action, small loops ccw, M_inf clockwise, vdPS M_1 = gamma_1. ||M_0 M_1 M_inf - I|| = 2.44e-105; the other 15 fa
+    M_n                1
+        [theorem.tex] \ge2$, $\sum_n\varepsilon_n<\infty$. \textsc{complete.} Let $M_n:=\max(|r_n|,|r_{n-1}|)$. From \eqref{eq:rnrec}, $|r_n|\le|r_{
+    M_\infty           1
+        [section1.tex] ientation of the loops generating the monodromy, fixed where $M_\infty$ is defined. Both are stated there, and neither is used befor
+    M_11               1
+        [outline-cited claims (89)] M)/m11 and so vanishes identically for any unimodular M with M_11 != 0, so it could not fail. Proved by simplify-to-zero plus a
+
+  BASE m              12 occurrences, 1 keys, sources: outline-cited claims (89), section1.tex, theorem.tex
+    m                 12
+        [theorem.tex] e.} Iterating from $n$ down to $r_1=1$ and re-indexing by $k=m-1$ yields \eqref{eq:ufinite}; at $n=1$ both sides equal $1$.
+        [section1.tex] \Re s>0$), with simple poles at $s=0,-1,-2,\dots$ and $\Gamma(m+1)=m!$ for integers $m\ge0$. We write $(dn)!$ for $\Gamma(dn+
+        [outline-cited claims (89)] on control, which was also declared irreducible. Related: all(m == 2 for m in sp.roots(...).values()) is vacuously True on an
+
+  BASE n             276 occurrences, 2 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    n                272
+        [theorem.tex] {} \begin{document} \maketitle \begin{abstract} Let $b\in\C[n]$ have degree $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2}$ with
+        [section1.tex] hroughout, $b$ is a polynomial with real coefficients, \[ b(n)=\sum_{k=0}^{d}\beta_k n^k ,\qquad \beta_d\neq0,\qquad d=\deg
+        [OUTLINE.md] nder `r_∞ ≠ 0` the terms satisfy `Q_n / Γ(dn+1) = K (β_d/d^d)^n n^s (1 + O(1/n))` with `s = β_{d-1}/β_d + (d-1)/2` and `K` gi
+    n_0                4
+        [theorem.tex] eading coefficient $\bd\neq0$, there are constants $c>0$ and $n_0$ with $|b(n)|\ge c\,n^{d}$ for $n\ge n_0$; hence for $n\ge n_
+
+  BASE N              15 occurrences, 2 keys, sources: outline-cited claims (89), section1.tex, section4.tex, theorem.tex
+    N                 13
+        [section1.tex] roof of one. Where a numerical limit is reported, the \emph{$N/2$-versus-$N$ agreement criterion} is the requirement that th
+        [section4.tex] n{pmatrix} a & b\\ c & -a\end{pmatrix}, \qquad y'=Ny,\qquad N=-A/D, \] the family $(4.1)$ of p.~2655 is \begin{align} a &
+        [outline-cited claims (89)] computation was run. S17-09: A rank-2 first-order system Y' = N Y admits TWO scalar reductions, the ODEs satisfied by its two
+    N_d,n              2
+        [theorem.tex] at least the average, i.e.\ $d^{\,dn}$ divided by the number $N_{d,n}$ of compositions. Each composition is determined by $(k_1,\do
+
+  BASE O              41 occurrences, 1 keys, sources: outline-cited claims (89), section1.tex, theorem.tex
+    O                 41
+        [theorem.tex] ius}) and leading growth $Q_n/\Gamma(dn+1)=K(\bd/d^d)^n n^s(1+O(1/n))$ with $s=\bdm/\bd+(d-1)/2$ and an explicit $K$ (Theorem
+        [section1.tex] is a non-negative integer. For functions of $n\to\infty$: $f=O(g)$ means $|f|\le C|g|$ for some constant $C$ and all large $
+        [outline-cited claims (89)] k>=1, with no hypothesis on the limit; moreover r_inf - r_n = O(n^{-(2d-1)}). Proposition prop:exists in theorem.tex; all sub
+
+  BASE o               2 occurrences, 1 keys, sources: section1.tex
+    o                  2
+        [section1.tex] ans $|f|\le C|g|$ for some constant $C$ and all large $n$; $f=o(g)$ means $f/g\to0$; and $f\sim g$ means $f/g\to1$. In partic
+
+  BASE P              40 occurrences, 12 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, theorem.tex
+    P                 21
+        [theorem.tex] merators\\[4pt] \large Session \texttt{CT-S1-THEOREM}, prompt P4 Task A} \author{} \date{} \begin{document} \maketitle \beg
+        [section1.tex] hat displayed form. Writing a scalar equation as $\partial^2+P\partial+Q$, its \emph{trace-free normal form} is obtained by
+        [OUTLINE.md] projective ambiguity is then removed by comparing the pair `(P, Q)` of the scalar operator directly, which a rank-1 twist do
+    P_C                5
+        [OUTLINE.md] but `(P, Q)` is not; comparing both coefficients gives `P_F − P_C = 0` and `Q_F − Q_C = 0` identically, so the modules are isom
+        [outline-cited claims (89)] Comparing BOTH coefficients: System C in the z coordinate has P_C = (2z-1)/(z(z-1)) and Q_C = (22z^2 - 22z - 2 i sqrt(11) z + 5
+    P_n                2
+        [theorem.tex] the minimal solution of \eqref{eq:rec}: the minimal solution $P_n$ satisfies $P_n/B_n\to0$, so a solution with $Q_n/B_n\to\rinf
+    P_F                2
+        [OUTLINE.md] twist but `(P, Q)` is not; comparing both coefficients gives `P_F − P_C = 0` and `Q_F − Q_C = 0` identically, so the modules ar
+        [outline-cited claims (89)] eta_inf) with cyclic vector e_1 has EXACTLY the same P and Q. P_F - P_C = 0 and Q_F - Q_C = 0 identically, with worst relative
+    P_2                2
+        [outline-cited claims (89)] t is the only gauge invariant; the necessary scalar condition P_2(z) = P_1(phi(z)) with P = a^2 + b c FAILS for all four, with
+    P_n-1              2
+        [outline-cited claims (89)] 4, n^2, n^2+n+1, 3n^2-2n+1, n^3+1, 10n, 100n^2), the quantity P_{n-1} - log r_n was computed at EVERY n from 2 to 20000, where P_{n
+    P_\mathsf C        1
+        [section1.tex] extbf{$\mathsf C$} is the scalar second-order equation $y''+P_{\mathsf C}\,y'+Q_{\mathsf C}\,y=0$ obtained from it by the change of v
+    P_route1           1
+        [outline-cited claims (89)] CONVENTION: route 1 MINUS route 2 equals +d/dz log(c/b), i.e. P_route1 - P_route2 = c'/c - b'/b. PROVISO: the route difference is d/
+    P_route2           1
+        [outline-cited claims (89)] route 1 MINUS route 2 equals +d/dz log(c/b), i.e. P_route1 - P_route2 = c'/c - b'/b. PROVISO: the route difference is d/dz log(n21/
+    P_b                1
+        [outline-cited claims (89)] eductions from a generic Y' = N Y by elimination and obtained P_b - P_c = d/dz log(n21/n12), equal to d/dz log(c/b) under the N
+    P_c                1
+        [outline-cited claims (89)] ons from a generic Y' = N Y by elimination and obtained P_b - P_c = d/dz log(n21/n12), equal to d/dz log(c/b) under the N = -A/
+    P_1                1
+        [outline-cited claims (89)] .416, 0.416 and 3.83 respectively. The positive control sigma(P_1) - P_2 returns exactly 0 through the same radicals, so the ne
+
+  BASE p              16 occurrences, 1 keys, sources: outline-cited claims (89), section4.tex
+    p                 16
+        [section4.tex] A/D, \] the family $(4.1)$ of p.~2655 is \begin{align} a &= p+\tfrac12\bigl(-2qt+t-\theta_\infty\bigr)(z-q) -\tfrac
+        [outline-cited claims (89)] (-457937 sqrt(11) + 281700 sqrt(33))/122408 ~ 0.5 + 0.8123 i, p = 5i(-28151758571 sqrt(33) + 48874838016 sqrt(11))/4086468672
+
+  BASE Q              81 occurrences, 12 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    Q_n               38
+        [theorem.tex] begin{abstract} Let $b\in\C[n]$ have degree $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2}$ with $Q_{-1}=0$, $Q_0=1$. We show that $
+        [section1.tex] ts$ of such a $b$ at the positive integers; its denominators $Q_n$ satisfy the three-term recurrence \begin{equation}\label{eq:
+        [OUTLINE.md] k) ≠ 0` for every integer `k ≥ 1`, the three-term recurrence `Q_n = b(n) Q_{n-1} + Q_{n-2}` has normalised terms `r_n = Q_n / ∏
+    Q                 10
+        [section1.tex] yed form. Writing a scalar equation as $\partial^2+P\partial+Q$, its \emph{trace-free normal form} is obtained by removing t
+        [OUTLINE.md] nce `Q_n = b(n) Q_{n-1} + Q_{n-2}` has normalised terms `r_n = Q_n / ∏_{k≤n} b(k)` converging to a limit `r_∞`, and under `r_∞
+        [section3.tex] sidual of \eqref{eq:sysA} against the exact integer sequence $Q=1,5,76,2361,125209,10144290,\dots$ vanishes identically at ev
+    Q_n-1              6
+        [theorem.tex] stract} Let $b\in\C[n]$ have degree $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2}$ with $Q_{-1}=0$, $Q_0=1$. We show that $r_n:=Q_n/\pr
+        [section1.tex] ee-term recurrence \begin{equation}\label{eq:n-rec} Q_n=b(n)Q_{n-1}+Q_{n-2}\qquad(n\ge1),\qquad Q_{-1}=0,\quad Q_0=1 . \end{equat
+        [OUTLINE.md] every integer `k ≥ 1`, the three-term recurrence `Q_n = b(n) Q_{n-1} + Q_{n-2}` has normalised terms `r_n = Q_n / ∏_{k≤n} b(k)` co
+    Q_-1               6
+        [theorem.tex] have degree $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2}$ with $Q_{-1}=0$, $Q_0=1$. We show that $r_n:=Q_n/\prod_{k\le n}b(k)$ alway
+        [section1.tex] label{eq:n-rec} Q_n=b(n)Q_{n-1}+Q_{n-2}\qquad(n\ge1),\qquad Q_{-1}=0,\quad Q_0=1 . \end{equation} Write \begin{equation}\label{e
+        [outline-cited claims (89)] pose IN ADDITION that b(n) > 0 for every integer n >= 1. With Q_{-1} = 0, Q_0 = 1, Q_n = b(n) Q_{n-1} + Q_{n-2}, B_n = prod_{k<=n}
+    Q_n-2              5
+        [theorem.tex] Let $b\in\C[n]$ have degree $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2}$ with $Q_{-1}=0$, $Q_0=1$. We show that $r_n:=Q_n/\prod_{k\le
+        [section1.tex] recurrence \begin{equation}\label{eq:n-rec} Q_n=b(n)Q_{n-1}+Q_{n-2}\qquad(n\ge1),\qquad Q_{-1}=0,\quad Q_0=1 . \end{equation} Wri
+        [OUTLINE.md] eger `k ≥ 1`, the three-term recurrence `Q_n = b(n) Q_{n-1} + Q_{n-2}` has normalised terms `r_n = Q_n / ∏_{k≤n} b(k)` converging t
+    Q_0                5
+        [theorem.tex] $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2}$ with $Q_{-1}=0$, $Q_0=1$. We show that $r_n:=Q_n/\prod_{k\le n}b(k)$ always converg
+        [section1.tex] Q_n=b(n)Q_{n-1}+Q_{n-2}\qquad(n\ge1),\qquad Q_{-1}=0,\quad Q_0=1 . \end{equation} Write \begin{equation}\label{eq:n-norm}
+        [outline-cited claims (89)] TION that b(n) > 0 for every integer n >= 1. With Q_{-1} = 0, Q_0 = 1, Q_n = b(n) Q_{n-1} + Q_{n-2}, B_n = prod_{k<=n} b(k) and
+    Q_C                4
+        [OUTLINE.md] comparing both coefficients gives `P_F − P_C = 0` and `Q_F − Q_C = 0` identically, so the modules are isomorphic and the twist
+        [outline-cited claims (89)] s: System C in the z coordinate has P_C = (2z-1)/(z(z-1)) and Q_C = (22z^2 - 22z - 2 i sqrt(11) z + 5 + i sqrt(11))/(54 z(z-1))
+    Q_nz               2
+        [section1.tex] \textbf{$\mathsf A$} is the generating function $\sum_{n\ge0}Q_nz^n$ of the denominators \eqref{eq:n-rec}. \item \textbf{$\ma
+        [section3.tex] quadratic of the companion record, and let $f(z)=\sum_{n\ge0}Q_nz^n$ be the generating function of the denominators \eqref{eq:n
+    Q_F                2
+        [OUTLINE.md] s not; comparing both coefficients gives `P_F − P_C = 0` and `Q_F − Q_C = 0` identically, so the modules are isomorphic and the
+        [outline-cited claims (89)] ic vector e_1 has EXACTLY the same P and Q. P_F - P_C = 0 and Q_F - Q_C = 0 identically, with worst relative residual 0 over fi
+    Q_1                1
+        [theorem.tex] (n-1)b(n)}\qquad(n\ge2), \end{equation} with $r_0=1$ and $r_1=Q_1/b(1)=b(1)/b(1)=1$ (using $Q_{-1}=0$). \textsc{complete.} Sin
+    Q_\mathsf C        1
+        [section1.tex] is the scalar second-order equation $y''+P_{\mathsf C}\,y'+Q_{\mathsf C}\,y=0$ obtained from it by the change of variable $x=s_++\de
+    Q_n+1              1
+        [OUTLINE.md] minant dichotomy supplying `(H)`. Write the recurrence as `Q_{n+1} + a_n Q_n + b_n Q_{n-1} = 0` with `a_n = −b(n+1) ~ −β_d n^
+
+  BASE q              68 occurrences, 8 keys, sources: outline-cited claims (89), section1.tex, section3.tex, section4.tex
+    q                 53
+        [section4.tex] in{align} a &= p+\tfrac12\bigl(-2qt+t-\theta_\infty\bigr)(z-q) -\tfrac12\,t\,(z-q)^2, \label{eq:fam-a}\\[2pt] b &
+        [outline-cited claims (89)] nches. Branch t = -2i sqrt(33)/9: theta_inf = -2 - sqrt(3)/9, q = 1/2 + i(-457937 sqrt(11) + 281700 sqrt(33))/122408 ~ 0.5 +
+    q_n                4
+        [section1.tex] bel{eq:n-norm} B_n=\prod_{k=1}^{n}b(k)\quad(B_0=1),\qquad q_n=\frac{Q_n}{B_n},\qquad q_\infty=\lim_{n\to\infty}q_n . \end
+    q_\infty           4
+        [section1.tex] =1}^{n}b(k)\quad(B_0=1),\qquad q_n=\frac{Q_n}{B_n},\qquad q_\infty=\lim_{n\to\infty}q_n . \end{equation} We call $q_n$ the \emph
+    q_2                3
+        [section3.tex] xttt{S4-04}, and again at \texttt{S6-C3}): the factorisation $q_2=4(2\sqrt3-3)z^2(z^2+z+3)$ expands exactly to the listed $q_2$
+    q_n\leftrightarrow   1
+        [section1.tex] \texttt{10.5281/zenodo.19941678}) correspond as follows: $q_n\leftrightarrow r_n$, $q_\infty\leftrightarrow r_\infty$, and $\lambda_1,\d
+    q_\infty\leftrightarrow   1
+        [section1.tex] 9941678}) correspond as follows: $q_n\leftrightarrow r_n$, $q_\infty\leftrightarrow r_\infty$, and $\lambda_1,\dots,\lambda_d\leftrightarrow r_
+    q_0                1
+        [section3.tex] ed $q_2$, and recomputing $R=\tfrac14a^2+\tfrac12a'-b$ from $(q_0,q_1,q_2)$ reproduces \begin{equation}\label{eq:rB} r_{\math
+    q_1                1
+        [section3.tex] q_2$, and recomputing $R=\tfrac14a^2+\tfrac12a'-b$ from $(q_0,q_1,q_2)$ reproduces \begin{equation}\label{eq:rB} r_{\mathsf B
+
+  BASE r             167 occurrences, 29 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    r_n               42
+        [theorem.tex] =b(n)Q_{n-1}+Q_{n-2}$ with $Q_{-1}=0$, $Q_0=1$. We show that $r_n:=Q_n/\prod_{k\le n}b(k)$ always converges (Proposition~\ref{p
+        [section1.tex] enodo.19941678}) correspond as follows: $q_n\leftrightarrow r_n$, $q_\infty\leftrightarrow r_\infty$, and $\lambda_1,\dots,
+        [OUTLINE.md] currence `Q_n = b(n) Q_{n-1} + Q_{n-2}` has normalised terms `r_n = Q_n / ∏_{k≤n} b(k)` converging to a limit `r_∞`, and under
+    r                 34
+        [theorem.tex] noindent\textbf{Step 3 (Gamma-ratio asymptotics).} For fixed $r\in\C$, \begin{equation}\label{eq:gammaratio} \frac{\Gamma(n+1
+        [section1.tex] n the deposited record all three are written with the letter $r$. That record's $r_1$ is therefore ambiguous: it is at once t
+        [section3.tex] is carried out through the normal-form rule $R=(\varphi')^2\,r(\varphi)-\tfrac12\,\mathcal S(\varphi)$, with $\mathcal S$ th
+    r_i               20
+        [theorem.tex] :setting} b(n)=\sum_{k=0}^{d}\beta_k n^k=\bd\prod_{i=1}^{d}(n-r_i), \qquad \bd\neq0,\quad d\ge1, \end{equation} with $r_1,\dots
+        [OUTLINE.md] (d-1)/2` and `K` given in closed form by `r_∞` and `∏_i Γ(1 − r_i)` over the roots of `b`. For the quadratic case `b(n) = 3n² +
+        [outline-cited claims (89)] integer (the roots are a complex-conjugate pair), so Gamma(1-r_i) is finite and the Part A halt condition does not fire. S3B-
+    r_n-1             15
+        [theorem.tex] n-1}=b(n)b(n-1)B_{n-2}$: \begin{equation}\label{eq:rnrec} r_n=r_{n-1}+\frac{r_{n-2}}{b(n-1)b(n)}\qquad(n\ge2), \end{equation} with
+        [outline-cited claims (89)] (b(n-1)b(n)) (theorem.tex eq. rnrec) gives r_n <= (1 + eps_n) r_{n-1} <= r_{n-1} exp(eps_n) with eps_n = 1/(b(n-1)b(n)) > 0, using
+    r_1               10
+        [theorem.tex] {d}(n-r_i), \qquad \bd\neq0,\quad d\ge1, \end{equation} with $r_1,\dots,r_d\in\C$ the roots listed with multiplicity. Standing
+        [section1.tex] ord all three are written with the letter $r$. That record's $r_1$ is therefore ambiguous: it is at once the first term of the
+        [OUTLINE.md] r_n ≤ r_{n−1}(1 + ε_n) ≤ r_{n−1} exp(ε_n)`, iterated down to `r_1 = 1`, then > passed to the limit using the summability `prop:
+    r_n-2             10
+        [theorem.tex] )B_{n-2}$: \begin{equation}\label{eq:rnrec} r_n=r_{n-1}+\frac{r_{n-2}}{b(n-1)b(n)}\qquad(n\ge2), \end{equation} with $r_0=1$ and $r
+        [OUTLINE.md] ≤ r_{n−1}` from `S1-02`, substituted > into `r_n = r_{n-1} + r_{n-2}/(b(n−1)b(n))` to give > `r_n ≤ r_{n−1}(1 + ε_n) ≤ r_{n−1} exp
+        [outline-cited claims (89)] EN) gives r_n > 0 and (r_n)_{n>=1} strictly increasing, hence r_{n-2} <= r_{n-1} for every n >= 2 (at n = 2 because r_0 = r_1 = 1);
+    r_0                5
+        [theorem.tex] \frac{r_{n-2}}{b(n-1)b(n)}\qquad(n\ge2), \end{equation} with $r_0=1$ and $r_1=Q_1/b(1)=b(1)/b(1)=1$ (using $Q_{-1}=0$). \textsc
+        [outline-cited claims (89)] , hence r_{n-2} <= r_{n-1} for every n >= 2 (at n = 2 because r_0 = r_1 = 1); (2) substituting that into the exact recurrence r
+    r_n−1              3
+        [OUTLINE.md] same hypothesis as > `prop:positive`. Four steps: `r_{n−2} ≤ r_{n−1}` from `S1-02`, substituted > into `r_n = r_{n-1} + r_{n-2}/(b
+    r_inf              3
+        [outline-cited claims (89)] h b(k)!=0 for k>=1, with no hypothesis on the limit; moreover r_inf - r_n = O(n^{-(2d-1)}). Proposition prop:exists in theorem.te
+    r_n\ge1            2
+        [theorem.tex] _n$ is a strictly increasing sequence of positive reals with $r_n\ge1$, hence $\rinf\ge1>0$ and \textup{(H)} holds. \end{propositio
+    r_n\le             2
+        [theorem.tex] )>0$, and substituting the above into \eqref{eq:rnrec} gives $r_n\le r_{n-1}+\varepsilon_n r_{n-1}=(1+\varepsilon_n)r_{n-1} \le r_
+    r_n\to\rinf\neq0   2
+        [theorem.tex] radius}] We deliberately avoid Gamma asymptotics, using only $r_n\to\rinf\neq0$ and elementary bounds, together with $\lim_{n}(m!)^{1/n}$-ty
+    r_nB               2
+        [theorem.tex] dent\textbf{Step 1 (reduce to $B_n$).} By \eqref{eq:rn}, $Q_n=r_nB_n$ exactly. Since $r_n\to\rinf\neq0$, we have $|r_n|^{1/n}\to
+    r_\mathsf A        2
+        [section3.tex] s projective normal potential \begin{equation}\label{eq:rA} r_{\mathsf A}(z)=\frac{-3z^2-5z+3}{9z^3}, \end{equation} and $z=0$ is its o
+    r_d\in\C           1
+        [theorem.tex] , \qquad \bd\neq0,\quad d\ge1, \end{equation} with $r_1,\dots,r_d\in\C$ the roots listed with multiplicity. Standing assumptions: \b
+    r_k                1
+        [theorem.tex] sc{complete.} For \eqref{eq:rate}, $|\rinf-r_n|\le\sum_{k>n}|r_k-r_{k-1}| \le MC\sum_{k>n}k^{-2d}=O(n^{-(2d-1)})$, the last st
+    r_k-1              1
+        [theorem.tex] omplete.} For \eqref{eq:rate}, $|\rinf-r_n|\le\sum_{k>n}|r_k-r_{k-1}| \le MC\sum_{k>n}k^{-2d}=O(n^{-(2d-1)})$, the last step by co
+    r_n\le\exp\Big     1
+        [theorem.tex] 1$. Then for every $n\ge1$ \begin{equation}\label{eq:ufinite} r_n\le\exp\Big(\sum_{k=1}^{n-1}\frac{1}{b(k)b(k+1)}\Big), \end{equation} and
+    r_i\bigr           1
+        [theorem.tex] ight]. \] Now $b(k)/(\bd k^d)=\prod_i(1-r_i/k)=1-\bigl(\sum_i r_i\bigr)/k+O(1/k^2) =1+\kappa/k+O(1/k^2)$, using Vieta in the form \b
+    r_\infty           1
+        [section1.tex] follows: $q_n\leftrightarrow r_n$, $q_\infty\leftrightarrow r_\infty$, and $\lambda_1,\dots,\lambda_d\leftrightarrow r_1,\dots,r
+    r_d                1
+        [section1.tex] y$, and $\lambda_1,\dots,\lambda_d\leftrightarrow r_1,\dots,r_d$. The deposited records are not altered; the renaming is ma
+    r_n−2              1
+        [OUTLINE.md] 1`** — the same hypothesis as > `prop:positive`. Four steps: `r_{n−2} ≤ r_{n−1}` from `S1-02`, substituted > into `r_n = r_{n-1} +
+    r_\mathsf B        1
+        [section3.tex] om $(q_0,q_1,q_2)$ reproduces \begin{equation}\label{eq:rB} r_{\mathsf B}(z)=\frac{11z^4+4z^2+4z+12}{4z^4(z^2+z+3)^2} \end{equation} ex
+    r_\mathsf C        1
+        [section3.tex] 05}). Its normal potential is \begin{equation}\label{eq:rC} r_{\mathsf C}(x)=\frac{12x^4+4x^3+4x^2+11}{4\,(3x^2+x+1)^2} \end{equation}
+    r_C                1
+        [outline-cited claims (89)] +1)W'' + (6x+1)W' - x^2 W = 0 has projective normal potential r_C(x) = (12x^4+4x^3+4x^2+11)/(4(3x^2+x+1)^2); singular points s_
+    r_z                1
+        [outline-cited claims (89)] R - not the reduced closed form used to derive it - gives R - r_z simplifying identically to 0, with worst relative residual ov
+    r_infinity         1
+        [outline-cited claims (89)] is unchanged here. S26-01: PROPOSITION U (the upper bound on r_infinity), PROVED. Let b be a polynomial with deg b = d >= 1 and b(n)
+    r_N                1
+        [outline-cited claims (89)] rn a negative. ARM V5 (is the bound informative?): the ratios r_N / exp(P) span 0.4740494076107038 to 0.9999999996117842, a spr
+    r_20000            1
+        [outline-cited claims (89)] b(n) = n the sum is sum 1/(k(k+1)) = 1 exactly, so L = e, and r_20000 = 2.2794713259205270753 against the bound 2.71814591776541793
+
+  BASE R               9 occurrences, 1 keys, sources: outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    R                  9
+        [theorem.tex] th} was \textsc{structural}; Gap~G1 was closed in audit round R1, and a load-bearing unproved assertion in Theorem~\ref{thm:r
+        [section1.tex] ed by removing the $P$ term, and the resulting potential \[ R=\tfrac14P^2+\tfrac12P'-Q \] is the \emph{normal potential}. T
+        [section3.tex] 2+z+3)$ expands exactly to the listed $q_2$, and recomputing $R=\tfrac14a^2+\tfrac12a'-b$ from $(q_0,q_1,q_2)$ reproduces \be
+
+  BASE S              25 occurrences, 3 keys, sources: OUTLINE.md, outline-cited claims (89), section3.tex, theorem.tex
+    S                 20
+        [theorem.tex] ontinued-fraction numerators\\[4pt] \large Session \texttt{CT-S1-THEOREM}, prompt P4 Task A} \author{} \date{} \begin{docume
+        [section3.tex] rmal-form rule $R=(\varphi')^2\,r(\varphi)-\tfrac12\,\mathcal S(\varphi)$, with $\mathcal S$ the Schwarzian, which passes the
+        [outline-cited claims (89)] build the moduli space M for the (0,0,1) row: H-a SATISFIED (S16-09), H-b SATISFIED (S16-10), H-c SATISFIED (S16-07). It is
+    S_ζ*               4
+        [OUTLINE.md] `z`-dependent gauge and the > scope limits on membership. `S_{ζ*}` travels with the Borel material. > C. **The Borel material's
+    S_zeta*            1
+        [outline-cited claims (89)] NOT the zeta*=4/sqrt(3) singularity, so A must not be called S_{zeta*}. self: checked only by the session that produced it. For a co
+
+  BASE s              40 occurrences, 7 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    s                 31
+        [theorem.tex] :radius}) and leading growth $Q_n/\Gamma(dn+1)=K(\bd/d^d)^n n^s(1+O(1/n))$ with $s=\bdm/\bd+(d-1)/2$ and an explicit $K$ (The
+        [section1.tex] ler's Gamma function, the meromorphic continuation of $\Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\,dt$ ($\Re s>0$), with simple po
+        [OUTLINE.md] atisfy `Q_n / Γ(dn+1) = K (β_d/d^d)^n n^s (1 + O(1/n))` with `s = β_{d-1}/β_d + (d-1)/2` and `K` given in closed form by `r_∞
+    s_\pm              3
+        [section1.tex] from it by the change of variable $x=s_++\delta z$, where $s_\pm=(-1\pm i\sqrt{11})/6$ and $\delta=-i\sqrt{11}/3$. \end{item
+        [section3.tex] s finite singular points are \begin{equation}\label{eq:spm} s_\pm=\frac{-1\pm i\sqrt{11}}{6}, \qquad \delta=s_--s_+=-\frac{i\
+    s_+                2
+        [outline-cited claims (89)] ngular points s_pm = (-1 +/- i sqrt(11))/6 with delta = s_- - s_+ = -i sqrt(11)/3. Under x = s_+ + delta z the potential has po
+    s_pm               1
+        [outline-cited claims (89)] _C(x) = (12x^4+4x^3+4x^2+11)/(4(3x^2+x+1)^2); singular points s_pm = (-1 +/- i sqrt(11))/6 with delta = s_- - s_+ = -i sqrt(11)/
+    s_-                1
+        [outline-cited claims (89)] leading coefficient factors as 3x^2 + x + 1 = 3(x - s_+)(x - s_-) = 3 delta^2 z(z-1) = 3 delta^2 D under x = s_+ + delta z. He
+    s_measured         1
+        [outline-cited claims (89)] K (beta_4/4^4)^n n^s holds with s = beta_3/beta_4 + 3/2. Max |s_measured - s_predicted| over the 8 representatives = 7.118e-16, after
+    s_predicted        1
+        [outline-cited claims (89)] )^n n^s holds with s = beta_3/beta_4 + 3/2. Max |s_measured - s_predicted| over the 8 representatives = 7.118e-16, after 4 levels of ra
+
+  BASE t              40 occurrences, 2 keys, sources: outline-cited claims (89), section1.tex, section4.tex
+    t                 38
+        [section1.tex] ion, the meromorphic continuation of $\Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\,dt$ ($\Re s>0$), with simple poles at $s=0,-1,-2
+        [section4.tex] ormalised to \begin{equation}\label{eq:Ainf} A_\infty=\frac{t}{2}\operatorname{diag}(-1,1),\qquad t\in\mathbb C^{*}, \end{e
+        [outline-cited claims (89)] C x (C\{0,1}) of M_{t,lambda}, for both sign branches. Branch t = -2i sqrt(33)/9: theta_inf = -2 - sqrt(3)/9, q = 1/2 + i(-45
+    t_0                2
+        [outline-cited claims (89)] -3(b) falsifier was NOT run. It requires integrating PV from (t_0,q,p) to t_0 + epsilon for two values of epsilon, rebuilding t
+
+  BASE T               2 occurrences, 1 keys, sources: OUTLINE.md, outline-cited claims (89)
+    T                  2
+        [OUTLINE.md] ment corrected), `S17-03` (the self-caught defect), `S17-04` (T3, the decisive result), `S17-05` (the structural reason it is
+        [outline-cited claims (89)] E. Absent: zero matches by text search in sessions/2026-05-08/T1-OPERATOR-CT-V131-.../channel_theory_outline_v131_with_r1a_ca
+
+  BASE u              20 occurrences, 3 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    u                 12
+        [section1.tex] l-plane singularity, an indicial exponent in the uniformiser $u=\sqrt z$. An \emph{indicial exponent} of a linear differentia
+        [OUTLINE.md] .3.A★`, and the definition of `ρ` as an indicial exponent in `u = √z` are private to the corpus or belong to an unpublished e
+        [section3.tex] the following, and it is \textbf{PROVEN}. In the uniformiser $u=\sqrt z$, System $\mathsf A$ has single action $2/\sqrt3=\xi_
+    u_k                7
+        [theorem.tex] textbf{Step 2 ($B_n$ against $(n!)^d$).} Write $b(k)=\bd k^d\,u_k$ with $u_k:=b(k)/(\bd k^d)\to1$. Then \[ B_n=\bd^{\,n}\,(n!)^
+    u_k\neq0           1
+        [theorem.tex] n}\,(n!)^{d}\prod_{k=1}^{n}u_k . \] Since $u_k=1+O(1/k)$ and $u_k\neq0$ by (A1), we have $\log|u_k|=O(1/k)$, so $\bigl|\sum_{k\le n}
+
+  BASE U              13 occurrences, 4 keys, sources: outline-cited claims (89), section4.tex
+    U_0                8
+        [section4.tex] s on it. \end{remark} \subsection{The chart \texorpdfstring{$U_0$}{U0}, the Hamiltonian \texorpdfstring{$(4.5)$}{(4.5)} and th
+        [outline-cited claims (89)] that of vdPS's family (4.1) at an explicit point of the chart U_0 = C x (C\{0,1}) of M_{t,lambda}, for both sign branches. Bran
+    U_0\times          2
+        [section4.tex] \text{coordinates }(p,q),\ q\notin\{0,1\}. \end{equation} On $U_0\times(\mathbb C\setminus\{0\})$ the foliation given by the $2$-form
+    U                  2
+        [outline-cited claims (89)] d of 0.5259505920 against a pre-registered floor of 0.01, so (U-finite) is not being satisfied trivially. For b(n) = n the su
+    U_0\               1
+        [section4.tex] l{ssec:flow} The chart is \begin{equation}\label{eq:chart} U_0\;\cong\;\mathbb C\times(\mathbb C\setminus\{0,1\}), \qquad\t
+
+  BASE V              11 occurrences, 2 keys, sources: OUTLINE.md, outline-cited claims (89), section4.tex
+    V_quad             8
+        [OUTLINE.md] ### 3.2 The Channel Theory framing **Excluded.** The names `V_quad`, `Channel Theory`, `PCF`, the tier labels, the numbering `Pr
+        [outline-cited claims (89)] ored at d=2 because PCF2-SESSION-Q1 stores no rho at d=4. For V_quad (b(n)=3n^2+n+1) the measured growth exponent is s = 0.8333333
+    V                  3
+        [section4.tex] ation}\label{eq:omega} \Omega=\frac{dp\wedge dq}{q(q-1)}-dH_V\wedge dt \end{equation} \emph{coincides with the foliation gi
+        [outline-cited claims (89)] N INDEPENDENTLY KNOWN SOLUTION, in both directions. POSITIVE (V1): at z = 2 the modified Bessel identity I_{v-1}(2) - I_{v+1}
+
+  BASE v               6 occurrences, 3 keys, sources: outline-cited claims (89), section4.tex
+    v                  4
+        [section4.tex] $U_0\times(\mathbb C\setminus\{0\})$, then the vector field $v=\partial_t+v_p\partial_p+v_q\partial_q$ determined by \eqref{
+        [outline-cited claims (89)] wn in the same block. The test compared 2f against -v'/v with v = 1/u instead of testing whether 2f is a logarithmic derivati
+    v_p\partial        1
+        [section4.tex] mathbb C\setminus\{0\})$, then the vector field $v=\partial_t+v_p\partial_p+v_q\partial_q$ determined by \eqref{eq:flow} is regular the
+    v_q\partial        1
+        [section4.tex] nus\{0\})$, then the vector field $v=\partial_t+v_p\partial_p+v_q\partial_q$ determined by \eqref{eq:flow} is regular there, and exactl
+
+  BASE w              27 occurrences, 1 keys, sources: outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    w                 27
+        [theorem.tex] l-type transform \begin{equation}\label{eq:borel} \mathcal{B}(w):=\sum_{n\ge0}\frac{Q_n}{(dn)!}\,w^n \qquad\bigl((dn)!=\Gamma
+        [section1.tex] because they are local to one argument: the branch of $\zeta=w^{1/d}$, fixed where the Borel variable is introduced, and the
+        [section3.tex] amified double cover \begin{equation}\label{eq:cover} \pi:\ w\longmapsto z=w^2 \end{equation} --- which is the uniformiser
+
+  BASE W               9 occurrences, 1 keys, sources: outline-cited claims (89), section1.tex, section3.tex
+    W                  9
+        [section1.tex] coefficients $A$, $A'$, $C$ of a scalar equation written $A\,W''+A'\,W'+C\,W=0$, which is a different use of the same letter
+        [section3.tex] scalar equation \begin{equation}\label{eq:sysC} (3x^2+x+1)\,W''+(6x+1)\,W'-x^2\,W=0 . \end{equation} It is in self-adjoint
+        [outline-cited claims (89)] y preference. S16-06: System C (3x^2+x+1)W'' + (6x+1)W' - x^2 W = 0 has projective normal potential r_C(x) = (12x^4+4x^3+4x^2
+
+  BASE x              64 occurrences, 4 keys, sources: outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    x                 58
+        [theorem.tex] ^{-(2d-1)})$, the last step by comparison with $\int_n^\infty x^{-2d}\,dx=n^{-(2d-1)}/(2d-1)$, valid since $2d\ge2>1$. \texts
+        [section1.tex] mathsf C}\,y=0$ obtained from it by the change of variable $x=s_++\delta z$, where $s_\pm=(-1\pm i\sqrt{11})/6$ and $\del
+        [section3.tex] $} is the scalar equation \begin{equation}\label{eq:sysC} (3x^2+x+1)\,W''+(6x+1)\,W'-x^2\,W=0 . \end{equation} It is in sel
+    x_1                2
+        [section1.tex] ata is coordinatised by \begin{equation}\label{eq:n-traces} x_1=\operatorname{tr}(B_2B_3),\qquad x_2=\operatorname{tr}(B_1B
+    x_2                2
+        [section1.tex] }\label{eq:n-traces} x_1=\operatorname{tr}(B_2B_3),\qquad x_2=\operatorname{tr}(B_1B_3),\qquad x_3=\operatorname{tr}(B_1B
+    x_3                2
+        [section1.tex] e{tr}(B_2B_3),\qquad x_2=\operatorname{tr}(B_1B_3),\qquad x_3=\operatorname{tr}(B_1B_2). \end{equation} These are the \emph
+
+  BASE y              21 occurrences, 8 keys, sources: outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    y_n                7
+        [theorem.tex] rrence possesses a \emph{minimal} solution, i.e.\ a solution $y_n$ with $y_n/z_n\to0$ for every linearly independent solution $
+        [outline-cited claims (89)] = v I_v(2) taken at v = n gives I_{n-1} - I_{n+1} = n I_n, so y_n = (-1)^n I_{n+1}(2) satisfies y_n = n y_{n-1} + y_{n-2} exact
+    y                  5
+        [section1.tex] m \textbf{$\mathsf C$} is the scalar second-order equation $y''+P_{\mathsf C}\,y'+Q_{\mathsf C}\,y=0$ obtained from it by t
+        [section4.tex] \[ A=\begin{pmatrix} a & b\\ c & -a\end{pmatrix}, \qquad y'=Ny,\qquad N=-A/D, \] the family $(4.1)$ of p.~2655 is \begin
+    y_1                2
+        [section1.tex] elation algorithm of Ferguson and Bailey: given real numbers $y_1,\dots,y_m$ it searches for integers $a_1,\dots,a_m$, not all
+        [section3.tex] ide apparency: what decides it is the logarithm. Normalising $y_1(s)=1$, the second Frobenius solution has \emph{nonzero} log c
+    y_n-1              2
+        [outline-cited claims (89)] I_{n+1} = n I_n, so y_n = (-1)^n I_{n+1}(2) satisfies y_n = n y_{n-1} + y_{n-2} exactly. The implemented recurrence reproduces it t
+    y_n-2              2
+        [outline-cited claims (89)] n I_n, so y_n = (-1)^n I_{n+1}(2) satisfies y_n = n y_{n-1} + y_{n-2} exactly. The implemented recurrence reproduces it to a worst-
+    y_m                1
+        [section1.tex] gorithm of Ferguson and Bailey: given real numbers $y_1,\dots,y_m$ it searches for integers $a_1,\dots,a_m$, not all zero, with
+    y_i                1
+        [section1.tex] es for integers $a_1,\dots,a_m$, not all zero, with $\sum a_i y_i=0$ to the working precision. A PSLQ result is evidence for a
+    y_7                1
+        [outline-cited claims (89)] digits; falsifier F2 did not fire. NEGATIVE (V2): perturbing y_7 by a relative 1e-20 drops the same residual to 20.0 digits of
+
+  BASE z             102 occurrences, 3 keys, sources: OUTLINE.md, outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    z                100
+        [theorem.tex] ical Gamma-ratio normalisation: DLMF~(5.11.12) states $\Gamma(z+a)/\Gamma(z+b)\sim z^{a-b}$ as $|z|\to\infty$ with $|\operato
+        [section1.tex] singularity, an indicial exponent in the uniformiser $u=\sqrt z$. An \emph{indicial exponent} of a linear differential equati
+        [OUTLINE.md] atz mismatch in a fixed coordinate); `S5B-C1`–`S5B-C10` (the `z = w²` pullback that removes the local mismatch, with its vacu
+    z_n\to0            1
+        [theorem.tex] s a \emph{minimal} solution, i.e.\ a solution $y_n$ with $y_n/z_n\to0$ for every linearly independent solution $z_n$. Here $\prod_
+    z_n                1
+        [theorem.tex] $ with $y_n/z_n\to0$ for every linearly independent solution $z_n$. Here $\prod_{k\le n}b(k)$ is, up to a constant, the natura
+
+  BASE Z               1 occurrences, 1 keys, sources: section4.tex
+    Z                  1
+        [section4.tex] es resonance as a difference of eigenvalues lying in $\mathbb Z\setminus\{0\}$, and presents resonance and reducibility as so
+
+  BASE \alpha         20 occurrences, 1 keys, sources: outline-cited claims (89), section1.tex, section4.tex
+    \alpha            20
+        [section1.tex] is a root of its indicial equation, equivalently an exponent $\alpha$ for which the equation admits a local solution of the form $
+        [section4.tex] aken in the DLMF~32.2.5 convention, with parameters $(\alpha,\beta,\gamma,\delta)$ (\texttt{CT-S9-PVPARAMS-C002}).
+        [outline-cited claims (89)] c to gamma_0; vdPS's M_inf is the CLOCKWISE loop, hence their alpha is e^{-2 pi i L_11}. S22-04: Check A6a as first written was
+
+  BASE \author         1 occurrences, 1 keys, sources: theorem.tex
+    \author            1
+        [theorem.tex] 4pt] \large Session \texttt{CT-S1-THEOREM}, prompt P4 Task A} \author{} \date{} \begin{document} \maketitle \begin{abstract} Let
+
+  BASE \bd            31 occurrences, 1 keys, sources: theorem.tex
+    \bd               31
+        [theorem.tex] f\neq0$ the sequence $Q_n$ has radius $\lim|Q_n/(dn)!|^{1/n}=|\bd|/d^d$ (Theorem~\ref{thm:radius}) and leading growth $Q_n/\Gam
+
+  BASE \bdm            6 occurrences, 1 keys, sources: theorem.tex
+    \bdm               6
+        [theorem.tex] growth $Q_n/\Gamma(dn+1)=K(\bd/d^d)^n n^s(1+O(1/n))$ with $s=\bdm/\bd+(d-1)/2$ and an explicit $K$ (Theorem~\ref{thm:growth}).
+
+  BASE \beta          45 occurrences, 12 keys, sources: outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    \beta_d           14
+        [section1.tex] _k n^k ,\qquad \beta_d\neq0,\qquad d=\deg b\ge1 , \] so that $\beta_d$ is the \emph{leading} coefficient and $\beta_{d-1}$ the \emp
+        [outline-cited claims (89)] S1-03: Part (i): under (A1) and (H), lim |Q_n/(dn)!|^(1/n) = |beta_d|/d^d, so Sum Q_n w^n/(dn)! has radius d^d/|beta_d| in w and x
+    \beta_2            6
+        [theorem.tex] =d^d/\bd$. \end{enumerate} At $d=2$ this gives $\xi_0=2/\sqrt{\beta_2}$, matching the statement labelled \texttt{prop:xi0} in Chann
+        [section1.tex] $\xi_0$ for the characteristic root \[ \xi_0=\frac{2}{\sqrt{\beta_2}}\qquad(d=2), \] and $\rho$ for the exponent of the leading B
+        [outline-cited claims (89)] qrt(z) (newton_birkhoff.py lines 385-394, rho = -3/2 - beta_1/beta_2), NOT from the Q_n growth law, so the agreement is not tautol
+    \beta_d-1          5
+        [section1.tex] , \] so that $\beta_d$ is the \emph{leading} coefficient and $\beta_{d-1}$ the \emph{subleading} one. A \emph{polynomial continued frac
+        [outline-cited claims (89)] ): Q_n/Gamma(dn+1) = K (beta_d/d^d)^n n^s (1+O(1/n)) with s = beta_{d-1}/beta_d + (d-1)/2 and K as derived in CT-S3B-RINF. Theorem thm
+    \beta_0            4
+        [theorem.tex] and the radius depends only on $\bd$. The lower coefficients $\beta_0,\dots,\beta_{d-2}$ enter \eqref{eq:growth} \emph{only} throug
+        [section1.tex] $K$, the amplitude of this asymptotic. $K$ depends on all of $\beta_0,\dots,\beta_d$; the base $\beta_d/d^{\,d}$ depends only on $\
+    \beta              4
+        [section3.tex] ent (\textbf{PROVEN}, \texttt{S6-C17}). That the companion's $\beta=\gamma=0$ was read as reflecting apparency of both finite poi
+        [section4.tex] the DLMF~32.2.5 convention, with parameters $(\alpha,\beta,\gamma,\delta)$ (\texttt{CT-S9-PVPARAMS-C002}). \it
+        [outline-cited claims (89)] zero changes from 3 to 4. S6-C19: The companion's claim that beta=gamma=0 reflects both finite singularities being apparent is
+    \beta_d-2          3
+        [theorem.tex] depends only on $\bd$. The lower coefficients $\beta_0,\dots,\beta_{d-2}$ enter \eqref{eq:growth} \emph{only} through the scalar prefa
+        [section1.tex] e base or the exponent alone is insensitive to $\beta_0,\dots,\beta_{d-2}$, and cannot be used to detect their influence. Two further
+    \beta_k            2
+        [theorem.tex] tting} \begin{equation}\label{eq:setting} b(n)=\sum_{k=0}^{d}\beta_k n^k=\bd\prod_{i=1}^{d}(n-r_i), \qquad \bd\neq0,\quad d\ge1, \
+        [section1.tex] a polynomial with real coefficients, \[ b(n)=\sum_{k=0}^{d}\beta_k n^k ,\qquad \beta_d\neq0,\qquad d=\deg b\ge1 , \] so that $\b
+    \beta_4            2
+        [outline-cited claims (89)] N-Q1 d=4 representatives, the growth law Q_n/Gamma(4n+1) ~ K (beta_4/4^4)^n n^s holds with s = beta_3/beta_4 + 3/2. Max |s_measure
+    \beta_1            2
+        [outline-cited claims (89)] n u = sqrt(z) (newton_birkhoff.py lines 385-394, rho = -3/2 - beta_1/beta_2), NOT from the Q_n growth law, so the agreement is not
+    \beta_d\neq0       1
+        [section1.tex] eal coefficients, \[ b(n)=\sum_{k=0}^{d}\beta_k n^k ,\qquad \beta_d\neq0,\qquad d=\deg b\ge1 , \] so that $\beta_d$ is the \emph{leadi
+    \beta_d\prod       1
+        [section1.tex] abel{eq:n-roots} \lambda_1,\dots,\lambda_d\in\C,\qquad b(n)=\beta_d\prod_{i=1}^{d}(n-\lambda_i). \end{equation} \paragraph{Three obje
+    \beta_3            1
+        [outline-cited claims (89)] wth law Q_n/Gamma(4n+1) ~ K (beta_4/4^4)^n n^s holds with s = beta_3/beta_4 + 3/2. Max |s_measured - s_predicted| over the 8 repre
+
+  BASE \binom          1 occurrences, 1 keys, sources: theorem.tex
+    \binom             1
+        [theorem.tex] right)^{1/n}=d^{\,d}. \end{equation} Write $C(k_1,\dots,k_d):=\binom{dn}{k_1,\dots,k_d}=(dn)!/(k_1!\cdots k_d!)$ for a composition
+
+  BASE \C              4 occurrences, 1 keys, sources: theorem.tex
+    \C                 4
+        [theorem.tex] ate{} \begin{document} \maketitle \begin{abstract} Let $b\in\C[n]$ have degree $d\ge 1$ and let $Q_n=b(n)Q_{n-1}+Q_{n-2}$ wi
+
+  BASE \cong           1 occurrences, 1 keys, sources: section4.tex
+    \cong              1
+        [section4.tex] c:flow} The chart is \begin{equation}\label{eq:chart} U_0\;\cong\;\mathbb C\times(\mathbb C\setminus\{0,1\}), \qquad\text{co
+
+  BASE \date           1 occurrences, 1 keys, sources: theorem.tex
+    \date              1
+        [theorem.tex] e Session \texttt{CT-S1-THEOREM}, prompt P4 Task A} \author{} \date{} \begin{document} \maketitle \begin{abstract} Let $b\in\C[
+
+  BASE \delta         16 occurrences, 1 keys, sources: outline-cited claims (89), section1.tex, section3.tex, section4.tex, theorem.tex
+    \delta            16
+        [theorem.tex] m z^{a-b}$ as $|z|\to\infty$ with $|\operatorname{ph}z|\le\pi-\delta$ \cite[\S5.11(iii)]{DLMF}. Taking $a=1-r$, $b=1$, $z=n$ gives
+        [section1.tex] C}\,y=0$ obtained from it by the change of variable $x=s_++\delta z$, where $s_\pm=(-1\pm i\sqrt{11})/6$ and $\delta=-i\sqrt{
+        [section3.tex] n}\label{eq:spm} s_\pm=\frac{-1\pm i\sqrt{11}}{6}, \qquad \delta=s_--s_+=-\frac{i\sqrt{11}}{3} \end{equation} (\textbf{PROVEN}
+
+  BASE \epsilon        2 occurrences, 1 keys, sources: outline-cited claims (89)
+    \epsilon           2
+        [outline-cited claims (89)] s NOT run. It requires integrating PV from (t_0,q,p) to t_0 + epsilon for two values of epsilon, rebuilding the linear system, and
+
+  BASE \Gamma         79 occurrences, 1 keys, sources: outline-cited claims (89), section1.tex, theorem.tex
+    \Gamma            79
+        [theorem.tex] |\bd|/d^d$ (Theorem~\ref{thm:radius}) and leading growth $Q_n/\Gamma(dn+1)=K(\bd/d^d)^n n^s(1+O(1/n))$ with $s=\bdm/\bd+(d-1)/2$ a
+        [section1.tex] ] No root $\lambda_i$ is a positive integer; equivalently, $\Gamma(1-\lambda_i)$ is finite for every $i$. (The Gamma function ha
+        [outline-cited claims (89)] w and xi_0 = d/|beta_d|^(1/d) in zeta=w^(1/d). Proved WITHOUT Gamma asymptotics: Step 3 uses a combinatorial multinomial sandwich
+
+  BASE \gamma         10 occurrences, 4 keys, sources: outline-cited claims (89), section3.tex, section4.tex
+    \gamma             4
+        [section3.tex] textbf{PROVEN}, \texttt{S6-C17}). That the companion's $\beta=\gamma=0$ was read as reflecting apparency of both finite points is
+        [section4.tex] LMF~32.2.5 convention, with parameters $(\alpha,\beta,\gamma,\delta)$ (\texttt{CT-S9-PVPARAMS-C002}). \item The
+        [outline-cited claims (89)] changes from 3 to 4. S6-C19: The companion's claim that beta=gamma=0 reflects both finite singularities being apparent is not su
+    \gamma_0           2
+        [outline-cited claims (89)] 2-03: The counterclockwise circle at infinity is homotopic to gamma_0; vdPS's M_inf is the CLOCKWISE loop, hence their alpha is e^{
+    \gamma_inf         2
+        [outline-cited claims (89)] PREREG 2.3's 8-element candidate set tied the orientation of gamma_inf to that of the small loops and so could not represent gamma_0
+    \gamma_1           2
+        [outline-cited claims (89)] to that of the small loops and so could not represent gamma_0 gamma_1 = gamma_inf; none of the 8 passed (best ||MMM-I|| = 6.85). Wi
+
+  BASE \kappa         16 occurrences, 1 keys, sources: theorem.tex
+    \kappa            16
+        [theorem.tex] uct).} This is the step the prompt asks to be exhibited. Put $\kappa:=\bdm/\bd$ and consider \[ \Pi_n:=\prod_{k=2}^{n}\left[\frac{
+
+  BASE \lambda        18 occurrences, 6 keys, sources: outline-cited claims (89), section1.tex, section3.tex
+    \lambda_i          7
+        [section1.tex] a_1,\dots,\lambda_d\in\C,\qquad b(n)=\beta_d\prod_{i=1}^{d}(n-\lambda_i). \end{equation} \paragraph{Three objects, one letter.} The
+    \lambda            6
+        [section3.tex] nts $s_\pm$ of System $\mathsf C$ the indicial polynomial is $\lambda^2$, so the scalar local exponents are $\{0,0\}$ and the expon
+        [outline-cited claims (89)] test. S17-01: T1 SATISFIED. A rank-1 twist acts by A -> A + lambda*Id and changes the trace by 2*lambda, so tr(A + lambda*Id) =
+    \lambda_1          2
+        [section1.tex] roots of $b$ are written \begin{equation}\label{eq:n-roots} \lambda_1,\dots,\lambda_d\in\C,\qquad b(n)=\beta_d\prod_{i=1}^{d}(n-\la
+    \lambda_d\in\C     1
+        [section1.tex] written \begin{equation}\label{eq:n-roots} \lambda_1,\dots,\lambda_d\in\C,\qquad b(n)=\beta_d\prod_{i=1}^{d}(n-\lambda_i). \end{equatio
+    \lambda_d\leftrightarrow   1
+        [section1.tex] $, $q_\infty\leftrightarrow r_\infty$, and $\lambda_1,\dots,\lambda_d\leftrightarrow r_1,\dots,r_d$. The deposited records are not altered; the
+    \lambda_i\in\      1
+        [section1.tex] ,\dots$, so $\Gamma(1-\lambda_i)$ is singular exactly when $\lambda_i\in\{1,2,3,\dots\}$.) Note (A2) $\Rightarrow$ (A1). \item[\textbf{
+
+  BASE \large          1 occurrences, 1 keys, sources: theorem.tex
+    \large             1
+        [theorem.tex] ing growth of polynomial continued-fraction numerators\\[4pt] \large Session \texttt{CT-S1-THEOREM}, prompt P4 Task A} \author{} \
+
+  BASE \maketitle      1 occurrences, 1 keys, sources: theorem.tex
+    \maketitle         1
+        [theorem.tex] EOREM}, prompt P4 Task A} \author{} \date{} \begin{document} \maketitle \begin{abstract} Let $b\in\C[n]$ have degree $d\ge 1$ and le
+
+  BASE \notin          1 occurrences, 1 keys, sources: section4.tex
+    \notin             1
+        [section4.tex] athbb C\setminus\{0,1\}), \qquad\text{coordinates }(p,q),\ q\notin\{0,1\}. \end{equation} On $U_0\times(\mathbb C\setminus\{0\})
+
+  BASE \Omega          1 occurrences, 1 keys, sources: section4.tex
+    \Omega             1
+        [section4.tex] tion given by the $2$-form \begin{equation}\label{eq:omega} \Omega=\frac{dp\wedge dq}{q(q-1)}-dH_V\wedge dt \end{equation} \emph
+
+  BASE \phi            6 occurrences, 1 keys, sources: outline-cited claims (89)
+    \phi               6
+        [outline-cited claims (89)] hes the denominator D(z) = z^2 - z is exactly invariant under phi(z) = 1 - z, so phi fixes the singular set {0, 1, infinity} se
+
+  BASE \pi            20 occurrences, 1 keys, sources: outline-cited claims (89), section3.tex, theorem.tex
+    \pi               20
+        [theorem.tex] s=\frac{\bdm}{\bd}+\frac{d-1}{2}, \qquad K=\rinf\cdot\frac{(2\pi)^{(d-1)/2}}{\sqrt{d}\ \prod_{i=1}^{d}\Gamma(1-r_i)}, \end{equ
+        [section3.tex] The ramified double cover \begin{equation}\label{eq:cover} \pi:\ w\longmapsto z=w^2 \end{equation} --- which is the uniformi
+        [outline-cited claims (89)] system is not trace-free (tr B = 1 - b/z), so det M_0 = e^{-2 pi i b} != 1 and the vdPS SL2 factorisation requires the trace-f
+
+  BASE \Pi             2 occurrences, 1 keys, sources: theorem.tex
+    \Pi_n              2
+        [theorem.tex] asks to be exhibited. Put $\kappa:=\bdm/\bd$ and consider \[ \Pi_n:=\prod_{k=2}^{n}\left[\frac{b(k)}{\bd k^{d}}\left(\frac{k}{k-
+
+  BASE \rho           15 occurrences, 4 keys, sources: outline-cited claims (89), section1.tex, section3.tex
+    \rho              11
+        [section1.tex] root \[ \xi_0=\frac{2}{\sqrt{\beta_2}}\qquad(d=2), \] and $\rho$ for the exponent of the leading Borel-plane singularity, an
+        [section3.tex] for System $\mathsf B$ are \textbf{PROVEN} in the same way: $\rho_-$ at \texttt{S6-C4} and $\rho_+$ at \texttt{S6-C5}, both wit
+        [outline-cited claims (89)] ention map, anchored at d=2 because PCF2-SESSION-Q1 stores no rho at d=4. For V_quad (b(n)=3n^2+n+1) the measured growth expone
+    \rho_d             2
+        [outline-cited claims (89)] wth law, so the agreement is not tautological. Hence rho_CT = rho_d = -s-1 = -(d+1)/2 - beta_{d-1}/beta_d at d=2. Label: STRUCTUR
+    \rho_\pm           1
+        [section3.tex] iant $1$, with exponential parts $\exp(\mp(1/\sqrt3)/z)$. At $\rho_\pm=(-1\pm i\sqrt{11})/2$ the pole order is $2$: regular singular
+    \rho_CT            1
+        [outline-cited claims (89)] e Q_n growth law, so the agreement is not tautological. Hence rho_CT = rho_d = -s-1 = -(d+1)/2 - beta_{d-1}/beta_d at d=2. Label:
+
+  BASE \rinf          21 occurrences, 1 keys, sources: theorem.tex
+    \rinf             21
+        [theorem.tex] ys converges (Proposition~\ref{prop:exists}), that its limit $\rinf$ is nonzero whenever $b(n)>0$ for all $n\ge1$ (Proposition~\r
+
+  BASE \sigma          7 occurrences, 1 keys, sources: outline-cited claims (89)
+    \sigma             7
+        [outline-cited claims (89)] 2-19: Branches 1 and 2 are related by the Galois automorphism sigma of Q(sqrt3, sqrt11) with sigma(sqrt3) = -sqrt3 and sigma(sqrt
+
+  BASE \square         2 occurrences, 1 keys, sources: theorem.tex
+    \square            2
+        [theorem.tex] orces $k_1=\cdots=k_d=n$. Hence $(dn)!/(n!)^d=\max C$. \hfill$\square$ Now $(dn)!/(n!)^d$ is one term of the multinomial expansion
+
+  BASE \tau            3 occurrences, 1 keys, sources: section3.tex
+    \tau               3
+        [section3.tex] exttt{CT-S9-PVPARAMS-C012}).} At infinity, in the coordinate $\tau=1/x$, the normal-form potential has pole order $4$, leading c
+
+  BASE \textsc         6 occurrences, 1 keys, sources: theorem.tex
+    \textsc            6
+        [theorem.tex] explicit $K$ (Theorem~\ref{thm:growth}). Every step is marked \textsc{complete} or \textsc{gap}. \textbf{Overall label: Theorems~\r
+
+  BASE \textup         1 occurrences, 1 keys, sources: theorem.tex
+    \textup            1
+        [theorem.tex] istence of the limit; unconditional]\label{prop:exists} Under \textup{(A1)} the limit $\rinf:=\lim_{n\to\infty}r_n$ exists in $\C$.
+
+  BASE \theta         62 occurrences, 9 keys, sources: outline-cited claims (89), section4.tex
+    \theta_inf        19
+        [outline-cited claims (89)] t,lambda}, for both sign branches. Branch t = -2i sqrt(33)/9: theta_inf = -2 - sqrt(3)/9, q = 1/2 + i(-457937 sqrt(11) + 281700 sqrt(
+    \theta_0          14
+        [section4.tex] q\,t\bigr)^2-\dfrac{\theta_1^2}{4} +(q-1)\Bigl(\dfrac{\theta_0^2}{4}-\dfrac{\theta_1^2}{4} -q\,\dfrac{\theta_\infty^
+        [outline-cited claims (89)] s (p + (1/2)(q-1)q t)^2 satisfies it IDENTICALLY. det A(0) = -theta_0^2/4 holds for both readings and so does not discriminate. The
+    \theta_1           9
+        [section4.tex] b &= -\frac{z\Bigl(\bigl(p+\tfrac12(q-1)q\,t\bigr)^2-\dfrac{\theta_1^2}{4} +(q-1)\Bigl(\dfrac{\theta_0^2}{4}-\dfrac{\theta
+        [outline-cited claims (89)] -1)q t. Tested against the paper's OWN constraint det A(1) = -theta_1^2/4: the printed form leaves a nonzero remainder, whereas (p
+    \theta_\infty      9
+        [section4.tex] dfrac{\theta_0^2}{4}-\dfrac{\theta_1^2}{4} -q\,\dfrac{\theta_\infty^2}{4}\Bigr)\Bigr)}{q} \notag\\ &\qquad -\frac{(q-1)\bigl(
+    \theta_i           4
+        [section4.tex] 1,1),\qquad t\in\mathbb C^{*}, \end{equation} with $\det A_i=-\theta_i^2/4$, and with the singular points normalised to $0,1,\infty$
+        [outline-cited claims (89)] matrices, A_inf normalised to (t/2)diag(-1,1) with t in C*, -theta_i^2/4 = det A_i, and the singular points normalised to 0, 1, in
+    \theta_t           4
+        [section4.tex] ose parameters and the monodromy exponents $(\theta_0,\theta_t,\theta_\infty)$ is Jimbo's, p.~1152: \begin{equation}
+    \theta_\infty\bigr   1
+        [section4.tex] 1)$ of p.~2655 is \begin{align} a &= p+\tfrac12\bigl(-2qt+t-\theta_\infty\bigr)(z-q) -\tfrac12\,t\,(z-q)^2, \label{eq:fam-a}\\[2pt]
+    \theta_inf19       1
+        [outline-cited claims (89)] he OPPOSITE branch to CT-S17: t19 = -t17 exactly, and q19 and theta_inf19 are q17 and theta_inf17 with sqrt(33) -> -sqrt(33) and sqrt(3
+    \theta_inf17       1
+        [outline-cited claims (89)] -S17: t19 = -t17 exactly, and q19 and theta_inf19 are q17 and theta_inf17 with sqrt(33) -> -sqrt(33) and sqrt(3) -> -sqrt(3). Both repr
+
+  BASE \underbrace     1 occurrences, 1 keys, sources: theorem.tex
+    \underbrace        1
+        [theorem.tex] tinomial expansion $\sum_{k_1+\cdots+k_d=dn}C(k_1,\dots,k_d)=(\underbrace{1+\cdots+1}_{d})^{dn}=d^{\,dn}$, which gives the upper bound;
+
+  BASE \varepsilon    12 occurrences, 3 keys, sources: theorem.tex
+    \varepsilon_n     10
+        [theorem.tex] e n_0$; hence for $n\ge n_0+1$ \begin{equation}\label{eq:eps} \varepsilon_n:=\frac{1}{|b(n-1)b(n)|}\le \frac{C}{n^{2d}},\qquad C:=2^{d}c^
+    \varepsilon_k      1
+        [theorem.tex] lon_n)M_{n-1}$ and therefore \[ M_n\le M_{n_0}\prod_{k>n_0}(1+\varepsilon_k)\le M_{n_0}\exp\Big(\sum_{k>n_0}\varepsilon_k\Big)=:M<\infty
+    \varepsilon_k\Big   1
+        [theorem.tex] \prod_{k>n_0}(1+\varepsilon_k)\le M_{n_0}\exp\Big(\sum_{k>n_0}\varepsilon_k\Big)=:M<\infty . \] So $(r_n)$ is bounded. \textsc{complete.} Co
+
+  BASE \varphi         3 occurrences, 1 keys, sources: section3.tex
+    \varphi            3
+        [section3.tex] The pullback is carried out through the normal-form rule $R=(\varphi')^2\,r(\varphi)-\tfrac12\,\mathcal S(\varphi)$, with $\mathca
+
+  BASE \xi            25 occurrences, 2 keys, sources: outline-cited claims (89), section1.tex, section3.tex, theorem.tex
+    \xi_0             23
+        [theorem.tex] }$ the corresponding radius is \begin{equation}\label{eq:xi0} \xi_0=\frac{d}{|\bd|^{1/d}} . \end{equation} \end{theorem} \begin{
+        [section1.tex] mbols belong to the Borel plane of this asymptotic. We write $\xi_0$ for the characteristic root \[ \xi_0=\frac{2}{\sqrt{\beta_
+        [section3.tex] r $u=\sqrt z$, System $\mathsf A$ has single action $2/\sqrt3=\xi_0$ and action \emph{difference} $4/\sqrt3$. System $\mathsf B$,
+    \xi                2
+        [outline-cited claims (89)] ystems, consistent with L_V's exact factor p4 proportional to xi (xi + 2/sqrt3). S4-09: VERDICT (c) INCONCLUSIVE. Within a fi
+
+  BASE \zeta          17 occurrences, 1 keys, sources: outline-cited claims (89), section1.tex, theorem.tex
+    \zeta             17
+        [theorem.tex] $d^{\,d}/|\bd|$ in the variable $w$, and in the uniformiser $\zeta=w^{1/d}$ the corresponding radius is \begin{equation}\label{e
+        [section1.tex] f use, because they are local to one argument: the branch of $\zeta=w^{1/d}$, fixed where the Borel variable is introduced, and t
+        [outline-cited claims (89)] ! has radius d^d/|beta_d| in w and xi_0 = d/|beta_d|^(1/d) in zeta=w^(1/d). Proved WITHOUT Gamma asymptotics: Step 3 uses a comb
+
+[free pool: base letters carrying NO meaning in any source]
+  latin: l E J X Y
+  greek: \eta \iota \mu \nu \omicron \upsilon \chi \psi \omega \Delta \Theta \Lambda \Sigma \Phi \Psi \varrho
+
+[summary]
+  sources scanned   : 6
+  distinct bases    : 82
+  distinct keys     : 274
+  occurrences       : 2318
+  bases with >=2 keys in >=2 sources (collision candidates): 38
+  \beta \gamma \lambda \rho \theta \xi A a b B c D e f G g H h k K L M n N P Q q r S s t u U V v x y z

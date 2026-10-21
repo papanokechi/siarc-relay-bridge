@@ -1,0 +1,33 @@
+verify_artefacts.py -- CT-S36 file-inspection evidence
+  theorem.tex  sha256 3d66d72fe1dfc5eba461ea1355ac10a1392457b9aaf78c82cfa9744daddb2695
+  section1.tex sha256 39ddd724524f2a7e38febbf32cfd4d575e319b28b13bb200da022b10fa7423ca
+
+  READER theorem.tex non-empty (>20000 B)                    ok
+  READER theorem.tex has its title macro                     ok
+  READER section1.tex non-empty (>12000 B)                   ok
+  READER section1.tex has its section heading                ok
+  S36-01 prop:upper present                                  ok
+  S36-01 (U-finite) display labelled                         ok
+  S36-01 (U-limit) display labelled                          ok
+  S36-01 prop:upper comes AFTER prop:positive                ok
+  S36-01 positivity stated as a hypothesis                   ok
+  S36-01 status list cites S26-01                            ok
+  S36-01 positivity remark present                           ok
+  S36-01 ABSENCE: S1-02 not cited inside the prop:upper block ok
+  S36-11 q_n named                                           ok
+  S36-11 q_infinity named                                    ok
+  S36-11 lambda roots named                                  ok
+  S36-11 exactly one footnote in section 1                   ok
+  S36-11 footnote gives the correspondence                   ok
+  S36-11 ABSENCE: deposits are stated to be unaltered        ok
+  S36-12 Katz invariant written r(c) as in van der Put-Saito ok
+  S36-12 Table 2.1 column order r(0),r(1),r(inf),r(t)        ok
+  S36-12 r(c) declared unrelated to the three r-objects      ok
+  S36-12 footnote names the fourth object                    ok
+  necessary-condition qualification present                  ok
+  no Painleve label asserted for the operator                ok
+
+  checks run    : 24
+  checks failed : 0
+
+VERDICT: PASSED

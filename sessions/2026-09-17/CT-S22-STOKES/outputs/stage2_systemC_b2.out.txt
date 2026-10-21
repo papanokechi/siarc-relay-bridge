@@ -1,0 +1,92 @@
+==========================================================================
+CT-S22 STAGE 2 - System C monodromy and Stokes data at t0
+dps = 200   z* = R = 160.0   loop radius = 0.25   threshold 1e-30
+==========================================================================
+
+|t| = 1.2765694770084508133   |t z*| = 204.25111632135213013
+optimal truncation N = 204   -> e^-N = 2.53469e-89
+
+--- C-A  the printed family's constraints at the point --------------
+  det A_0 + th0^2/4          =            0.0   (+inf digits)
+  det A_1 + th1^2/4          =            0.0   (+inf digits)
+  A_inf = (t/2)diag(-1,1)    =   3.15563e-202   (201.5 digits)
+  (A_0+A_1)_11             = (0.90377495513506237258 - 2.6153919551680017213e-202j)
+  -theta_inf/2             = 0.90377495513506237258
+  theta_inf                = -1.8075499102701247452
+  [CT-S16's finding: the printed family gives -theta_inf/2, not theta_inf.]
+
+--- formal data at infinity ----------------------------------------
+  Lam = diag((0.0 + 0.63828473850422540665j), (0.0 - 0.63828473850422540665j))
+  L   = diag((-0.90377495513506237258 + 0.0j), (0.90377495513506237258 + 0.0j))
+  C-5 predicted alpha = e^{i pi theta_inf} = (0.82272965712005465178 + 0.56843285557321306726j)   |alpha| = 1.0
+  L_11 - theta_inf/2 = 0.0   (+inf digits)
+
+--- C-0  formal series residual, by rate not by magnitude ----------
+  residual at R=160.0          1.58019e-86
+  minimal term of the series 1.2286e-86
+  e^-|t z*|                  2.53469e-89
+  C-0a residual / min term = 1.28617  (want < N^3 = 8489664)
+  residual at R=140.0          1.61961e-75
+  C-0b observed ratio  9.7566377e-12
+       predicted e^-|t|(R-R2) = 8.1631619e-12
+       observed/predicted = 1.1952033  (want within 10^+-2)
+  [PASS] residual is at the minimal term and decays at rate e^-|t|R
+
+--- PREREG 2.3  overdetermined convention test ----------------------
+  convention                 MMM-I     tr0-2     tr1-2     alpha     shape     cubic  verdict
+  left|ccw|infccw|01       1.22e+5 9.25e-191 8.29e-191      0.14 1.46e-122     123.0  .
+  left|ccw|infccw|10       4.38e+4 9.25e-191 8.29e-191      0.14 1.46e-122      50.1  .
+  left|ccw|infcw|01        7.82e+4 9.25e-191 8.29e-191     0.445 9.95e-123      71.8  .
+  left|ccw|infcw|10      6.87e-101 9.25e-191 8.29e-191     0.445 9.95e-123 1.09e-103  .
+  left|cw|infccw|01      4.19e-109 7.46e-191 8.25e-191      0.14 1.46e-122 9.33e-112  .
+  left|cw|infccw|10        7.82e+4 7.46e-191 8.25e-191      0.14 1.46e-122      69.9  .
+  left|cw|infcw|01         4.38e+4 7.46e-191 8.25e-191     0.445 9.95e-123      51.5  .
+  left|cw|infcw|10         1.22e+5 7.46e-191 8.25e-191     0.445 9.95e-123     120.0  .
+  right|ccw|infccw|01         12.7 9.25e-191 8.29e-191   1.9e-91 1.41e-122      59.3  .
+  right|ccw|infccw|10         4.57 9.25e-191 8.29e-191   1.9e-91 1.41e-122      25.1  .
+  right|ccw|infcw|01          8.16 9.25e-191 8.29e-191     0.327  1.1e-122      33.5  .
+  right|ccw|infcw|10     7.16e-105 9.25e-191 8.29e-191     0.327  1.1e-122 6.57e-104  .
+  right|cw|infccw|01     1.34e-105 7.46e-191 8.25e-191   1.9e-91 1.41e-122 5.38e-169  PASS
+  right|cw|infccw|10          8.16 7.46e-191 8.25e-191   1.9e-91 1.41e-122      32.6  .
+  right|cw|infcw|01           4.57 7.46e-191 8.25e-191     0.327  1.1e-122      25.8  .
+  right|cw|infcw|10           12.7 7.46e-191 8.25e-191     0.327  1.1e-122      57.7  .
+
+  conventions passing all four conditions: 1
+  UNIQUE: right|cw|infccw|01
+  alpha branch (computed, not labelled): e^{+i pi theta_inf}  = e^{+i pi sqrt(3)/9}
+    alpha = (0.822729657120054651782758448805 + 0.568432855573213067260201792796j)
+    matched to 1.8967e-91; C-5 predicted |alpha| = 1 and
+    |arg alpha| = pi sqrt(3)/9 = 0.60459978807807261686, both hit.
+    |arg alpha| observed = 0.60459978807807261686
+    The SIGN of the exponent is a convention (it is fixed by the same
+    clockwise M_inf that Stage 1's A7 correction identified); the
+    modulus and |arg| are the content of the C-5 prediction.
+
+--- the comparison quantities --------------------------------------
+  x1 = d1    = (5.0274753770206575050513601616191382 + 2.3656209874946766465307178962989066j)
+  x2 = d2    = (-3.4791908904110720783362611334763347 - 1.085013570276491408740290278433511j)
+  x3 = d3    = (1.9725752524636335304002661101339216 + 1.067339179704919414621658612594122e-170j)
+  alpha = s3 = (0.82272965712005465178275844880452679 + 0.56843285557321306726020179279562511j)
+  f1         = (0.014138006662716650899792488135702552 + 2.3160360611901250398579883995938336j)
+  f2         = (0.080991537450393792186545212802569177 - 0.11570757868914236475447011531421264j)
+
+--- C-6  the cubic, and the pre-registered gradient ----------------
+  |F| = 5.37917e-169   (168.27 digits)
+  dF/dx1 = (-0.4534744092205887374348413 + 1.454105346528308736149832j)   |.| = 1.5231748
+  dF/dx2 = (-0.6867675839810288149571648 + 1.359472564941172892708982j)   |.| = 1.523094
+  dF/dx3 = (-15.74754531705369799355792 - 14.25375885372827002795357j)   |.| = 21.240405
+  max |grad F| = 21.24040548
+  the point is a SMOOTH point of the (singular) cubic surface;
+  the surface is singular because s1 = s2 = 2, but not HERE.
+
+--- C-7  error bar by step halving (h = rho/4 vs rho/8) ------------
+  steps: h=rho/4 -> 273,  h=rho/8 -> 487
+  |M_0 difference| = 6.14731e-190   (189.21 digits)
+  |M_1 difference| = 6.1432e-190   (189.21 digits)
+  |M_inf difference| = 3.09261e-105   (104.51 digits)
+  ERROR BAR (from halving, not from a single run) = 3.09261e-105
+  [PASS]
+
+==========================================================================
+STAGE 2 COMPLETE
+==========================================================================

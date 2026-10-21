@@ -1,0 +1,48 @@
+{
+  "output": "sessions\\2026-09-17\\CT-S6-APPARENCY\\system_c_results.json",
+  "output_sha256": "f633b05539a30c00b90b6768cf460d420c3fc9dfd1b59f7fdb5ce808cc6d2e62",
+  "system_C_finite_verdicts": [
+    [
+      "s_minus=(-1-i*sqrt(11))/6",
+      [
+        "0",
+        "0"
+      ],
+      "NOT APPARENT",
+      "Repeated integer exponent 0 and exact nonzero log residue."
+    ],
+    [
+      "s_plus=(-1+i*sqrt(11))/6",
+      [
+        "0",
+        "0"
+      ],
+      "NOT APPARENT",
+      "Repeated integer exponent 0 and exact nonzero log residue."
+    ]
+  ],
+  "system_C_infinity": {
+    "r_C": "(12*x**4 + 4*x**3 + 4*x**2 + 11)/(4*(3*x**2 + x + 1)**2)",
+    "r_infinity_local": "(-3*u**6 - 6*u**5 - 10*u**4 - 18*u**3 - 23*u**2 + 4*u + 12)/(4*u**4*(u**2 + u + 3)**2)",
+    "pole_order_at_infinity": 4,
+    "formal_type": "irregular, UNRAMIFIED",
+    "Katz": "1",
+    "ramification_index": "1",
+    "Poincare_rank": "1",
+    "companion_poincare_rank_1_confirmed": true
+  },
+  "system_C_effective_multiset": [
+    "0",
+    "0",
+    "1"
+  ],
+  "remark_2_2_refuted_by_tests": true,
+  "relation_same_normal_form_after_inversion": true,
+  "falsifiers": {
+    "F5_companion_exponents_0_1": "FIRED",
+    "F6_apparent_with_log_or_nonholomorphic": "not fired; no System C finite point was classified APPARENT",
+    "F7_infinity_not_rank_1": "not fired",
+    "F8_relation_difference_nonzero": "not fired"
+  },
+  "git_HEAD": "08aa0e2381b3dc37ee54a3200b7272755ca11d59"
+}

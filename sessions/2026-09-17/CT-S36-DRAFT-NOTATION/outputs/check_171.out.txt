@@ -1,0 +1,404 @@
+check_171.py -- classification of the 171 CT-S23 task-2 items
+  section1.tex sha256 39ddd724524f2a7e
+  items file   sha256 9e9367be7dba1f49
+
+  integrity items: 171 lines                             ok
+  integrity items: non-ASCII xi-nought present           ok
+  integrity items: non-ASCII beta present                ok
+  integrity items: non-ASCII D-tilde-5 present           ok
+  integrity items: control item 054 text present         ok
+  integrity sec1: non-empty                              ok
+  integrity sec1: section heading present                ok
+  integrity sec1: has subsections                        ok
+  integrity sec1: backslash survived decoding            ok
+  9 integrity assertions passed
+
+001  DEFINED IN SECTION 1  **`b(n)`** — first sentence, introduced as a polynomial, so defined.
+     [Section 1] anchor 'poly' verified
+002  DEFINED IN SECTION 1  **`β_k`, `d`** — first sentence; coefficients and degree are stated, so defined.
+     [Section 1] anchor 'poly' verified
+003  DEFINED IN SECTION 1  **`Q_n`** — first recurrence; defined.
+     [Section 1] anchor 'rec' verified
+004  DEFINED IN SECTION 1  **`r_n`** — immediately after the recurrence; defined.
+     [Section 1] anchor 'qn' verified
+005  DEFINED IN SECTION 1  **`r_∞`** — first used in Proposition 1 before a formal definition; only later defined a
+     [Section 1] anchor 'qinf' verified
+006  DEFINED IN SECTION 1  **`O(n^{−(2d−1)})`** — used without defining asymptotic notation.
+     [Section 1] anchor 'bigO' verified
+007  DEFINED IN SECTION 1  **`r_1,…,r_d`** — “Write `r_1,…,r_d` for the roots of `b`”; defined there, but the notat
+     [Section 1] anchor 'roots' verified
+008  DEFINED IN SECTION 1  **(A1), (A3)** — labels are introduced, but **(A2)** is absent and never explained.
+     [Section 1] anchor 'A2' verified
+009  DEFINED IN SECTION 1  **`β_d`, `β_{d−1}`** — used in formulas; inferable as polynomial coefficients, but not s
+     [Section 1] anchor 'lead' verified
+010  DEFINED IN SECTION 1  **`Γ`** — used without definition.
+     [Section 1] anchor 'gamma' verified
+011  DEFINED IN SECTION 1  **`o(1)`**, **`~`** — used without definition.
+     [Section 1] anchor 'tilde' verified
+012  DEFINED IN SECTION 1  **`K`**, **`s`** — defined by displayed formulas.
+     [Section 1] anchor 'K' verified
+013  DEFINED IN SECTION 1  **`(dn)!`** — used later without explaining that it is the ordinary factorial of `dn`.
+     [Section 1] anchor 'factorial' verified
+014  STILL UNDEFINED      **`w`**, **`ζ`** — introduced in Proposition 4, but the relation `ζ=w^{1/d}` is branch-s
+     [Section 1] branch of zeta=w^(1/d) deliberately deferred; sec 1.9 says where it is fixed, and does not fix it
+015  DEFINED IN SECTION 1  **`ξ₀`** — first appears as a radius-like quantity and is only later described as a char
+     [Section 1] anchor 'xi0' verified
+016  DEFINED IN SECTION 1  **`ρ_d`** — defined by formula, but “Borel-plane exponent” is not defined.
+     [Section 1] anchor 'rho' verified
+017  DEFINED IN SECTION 1  **`dps`**, **`mpmath`**, **`Richardson levels`** — computational terms not defined.
+     [Section 1] anchor 'richard' verified
+018  DEFINED IN SECTION 1  **`N/2`-vs-`N` agreement** — neither `N` nor the meaning of this agreement is defined.
+     [Section 1] anchor 'NN2' verified
+019  DEFINED IN SECTION 1  **`PSLQ`** — used without definition.
+     [Section 1] anchor 'pslq' verified
+020  DEFINED IN SECTION 1  **`r₁`** in the PSLQ basis — ambiguous with the roots `r_i` and the sequence term `r_1`.
+     [Section 1] anchor 'footnote' verified
+021  STILL UNDEFINED      **The ellipsis `…` in the PSLQ basis** — not specified.
+     [Section 1] PSLQ basis belongs to the cut section 9
+022  STILL UNDEFINED      **“formal solution”**, **“action”**, **`c_±`** — used before definition.
+     [Section 1] partial: formal solution and c_pm are defined in sec 1.3; 'action' is not
+023  DEFINED IN SECTION 1  **“characteristic root”**, **“Newton polygon”** — used without defining the underlying e
+     [Section 1] anchor 'newton' verified
+024  DEFINED IN SECTION 1  **“germ coefficient”** — never defined.
+     [Section 1] anchor 'germ' verified
+025  DEFINED IN SECTION 1  **“amplitude”**, **“Stokes constant”** — used as named objects without definitions.
+     [Section 1] anchor 'amp' verified
+026  STILL UNDEFINED      **`S_{ζ*}`** — introduced by the naming prohibition, but its mathematical extraction is 
+     [Section 1] S_{zeta*} belongs to the cut section 9
+027  STILL UNDEFINED      **`ζ*`** — defined numerically as an action difference, but “action difference” is not d
+     [Section 1] zeta* belongs to the cut section 9
+028  DEFINED IN SECTION 1  **Objects `A`, `B`, `C`** — introduced in a table with descriptions, so named but not fu
+     [Section 2] anchor 'ABC' verified
+029  STILL UNDEFINED      **`L_φ`** — never defined.
+     [Section 2] L_phi is named in sec 1.6 as object B but not constructed
+030  STILL UNDEFINED      **“formal type”** — used without definition.
+     [Section 2] 'formal type' not defined
+031  DEFINED IN SECTION 1  **“Katz multiset”** — never defined.
+     [Section 2] anchor 'multiset' verified
+032  DEFINED IN SECTION 1  **`PIII(D₈)`, `PIII(D₆)`, `PV`, `D̃₅`** — labels are used but not defined.
+     [Section 2] anchor 'table' verified
+033  STILL UNDEFINED      **“quadratic cover”** — never defined.
+     [Section 2] 'quadratic cover' not defined
+034  STILL UNDEFINED      **“special parameters”** — never specified.
+     [Section 2] 'special parameters' not specified
+035  DEFINED IN SECTION 1  **“projectively equivalent”** — used before a definition; the later discussion presuppos
+     [Section 2] anchor 'projeq' verified
+036  DEFINED IN SECTION 1  **“trace-free normal form”** — not defined.
+     [Section 2] anchor 'tracefree' verified
+037  DEFINED IN SECTION 1  **`A`, `A′`, `C` in `A W'' + A′ W' + C W=0`** — the scalar-equation coefficients are not
+     [Section 2] anchor 'AWC' verified
+038  STILL UNDEFINED      **`W`** — never defined.
+     [Section 2] W occurs in the display of sec 1.6 but is not declared as the unknown function
+039  STILL UNDEFINED      **`r(x)`** — defined by formula there, but the relation to the normal potential is not d
+     [Section 2] r(x) is local to the section-3 computation
+040  DEFINED IN SECTION 1  **“rank-1 twist”** — first used here, defined only later in Proposition 6.
+     [Section 2] anchor 'twist' verified
+041  STILL UNDEFINED      **`dlog A`** — never defined.
+     [Section 2] dlog A
+042  STILL UNDEFINED      **“strong Hilbert-Riemann problem”**, **“strong Riemann–Hilbert problem”** — used withou
+     [Section 2] strong Riemann-Hilbert problem
+043  STILL UNDEFINED      **`M(u)`**, **`u`** — quoted from the source, not defined in the packet.
+     [Section 2] M(u), u
+044  STILL UNDEFINED      **`P`** — quoted as a parameter space, but the packet does not independently define it.
+     [Section 2] P as a parameter space
+045  STILL UNDEFINED      **`R`** — quoted as a family of affine cubic surfaces, but not defined before that quota
+     [Section 2] R as a family of affine cubic surfaces
+046  STILL UNDEFINED      **`M(t)`**, **`t`** — used in the quoted source statement with a role distinct from late
+     [Section 2] M(t), t
+047  STILL UNDEFINED      **“affine cubic surface”** — never defined.
+     [Section 2] 'affine cubic surface' is used in sec 1.8 and not defined there
+048  STILL UNDEFINED      **“monodromy side”** — never defined.
+     [Section 2] 'monodromy side' is used in sec 1.8 and not defined there
+049  DEFINED IN SECTION 1  **“trace/eigenvalue of matrices involved”** — the matrices are not specified.
+     [Section 2] anchor 'traces' verified
+050  DEFINED IN SECTION 1  **`s_±`**, **`δ`**, **`x(z)`** — defined in the first displayed line.
+     [Section 3] anchor 'spd' verified
+051  DEFINED IN SECTION 1  **“System C”** — named and then defined as a scalar equation.
+     [Section 3] anchor 'sysC' verified
+052  DEFINED IN SECTION 1  **`P_C`, `Q_C`** — defined by formulas.
+     [Section 3] anchor 'PCQC' verified
+053  DEFINED IN SECTION 1  **“normal potential”** — used before a general definition; only a formula appears later 
+     [Section 3] anchor 'normpot' verified
+054  STILL UNDEFINED      **“apparent singularity”** — never defined.
+     [Section 3] CONTROL: 'apparent singularity' deliberately left undefined
+055  STILL UNDEFINED      **`r_z`** — used without explicitly defining it as the potential after coordinate change
+     [Section 3] r_z
+056  STILL UNDEFINED      **`…` in the expansion at infinity** — no order or remainder meaning is stated.
+     [Section 3] ellipsis in the expansion at infinity
+057  STILL UNDEFINED      **“type-`(0,0,1)` module”** — used without defining the type.
+     [Section 4] type-(0,0,1) module
+058  STILL UNDEFINED      **“strong Riemann–Hilbert problem”** — still undefined inside the packet.
+     [Section 4] strong Riemann-Hilbert problem
+059  STILL UNDEFINED      **`A₀`, `A₁`, `A_∞`** — introduced by the system, so named, but the sign convention for 
+     [Section 4] A_0, A_1, A_infty sign convention
+060  STILL UNDEFINED      **`C*`** — used without definition.
+     [Section 4] C*
+061  STILL UNDEFINED      **`θ₀`, `θ₁`, `θ_∞`** — introduced as determinant parameters; their interpretation as lo
+     [Section 4] theta_0, theta_1, theta_infty
+062  STILL UNDEFINED      **“singular points normalised”** — no normalization construction is given.
+     [Section 4] 'singular points normalised'
+063  STILL UNDEFINED      **“semisimple”, “non-semisimple”, “resonance”, “reducibility”** — resonance is partly de
+     [Section 4] semisimple / resonance / reducibility
+064  DEFINED ELSEWHERE    **`N`** — defined as `−A/D`.
+     [Section 4] packet section 4, defined as N = -A/D
+065  STILL UNDEFINED      **`D(z)`**, **`A`**, **`a,b,c`** — defined in the family formula, but `q,p` are used the
+     [Section 4] q, p used in the family formula before definition
+066  STILL UNDEFINED      **`q`, `p`** — only later called coordinates.
+     [Section 4] q, p as coordinates
+067  STILL UNDEFINED      **`H_V`** — introduced in the 2-form without definition.
+     [Section 4] H_V
+068  STILL UNDEFINED      **`Ω`** — defined by formula, but “foliation” is not.
+     [Section 4] Omega, foliation
+069  STILL UNDEFINED      **“flow `(4.4)`”**, **“Hamiltonian `(4.5)`** — those equations are not actually supplied
+     [Section 4] flow (4.4), Hamiltonian (4.5) not supplied
+070  STILL UNDEFINED      **“printed source”**, **“source’s own constraint”** — external referents.
+     [Section 4] 'printed source' external referent
+071  STILL UNDEFINED      **`b(z)`** in the typo discussion — distinct from the polynomial `b(n)` of Section 1, bu
+     [Section 4] b(z) versus b(n): sec 1.1 fixes b as a polynomial in n and does not address the clash
+072  STILL UNDEFINED      **`b₁`** — used without definition until much later, where it is inferred to be a coeffi
+     [Section 4] b_1
+073  DEFINED IN SECTION 1  **“normal potential”** again — no complete definition until Proposition 8.
+     [Section 4] anchor 'normpot' verified
+074  STILL UNDEFINED      **“time invariant”** — never formally defined.
+     [Section 5] 'time invariant'
+075  STILL UNDEFINED      **“irregular type”** — never defined.
+     [Section 5] 'irregular type'
+076  STILL UNDEFINED      **“configuration”** — not identified precisely.
+     [Section 5] 'configuration'
+077  STILL UNDEFINED      **“local data”** — not defined.
+     [Section 5] 'local data'
+078  STILL UNDEFINED      **“exact draws”** — computational phrase, never explained.
+     [Section 5] 'exact draws'
+079  STILL UNDEFINED      **`R(∞)`** — used before `R` is defined as a normal potential in Proposition 8.
+     [Section 5] R(infty)
+080  STILL UNDEFINED      **`s₁`, `s₂`** — used in the resonance discussion before definition.
+     [Section 5] s_1, s_2
+081  STILL UNDEFINED      **“unipotent local monodromy”** — never defined.
+     [Section 5] unipotent local monodromy
+082  STILL UNDEFINED      **“nilpotent”** — used without definition.
+     [Section 5] nilpotent
+083  STILL UNDEFINED      **“log term”** — never specified in which local solution or expansion.
+     [Section 5] 'log term'
+084  STILL UNDEFINED      **“Riccati test”**, **`w`** — `w` is introduced in the Riccati equation but not defined 
+     [Section 5] Riccati test, w
+085  STILL UNDEFINED      **`A`** in `A²−A=−1/4` — not explicitly identified as a residue or exponent coefficient.
+     [Section 5] A in A^2-A=-1/4
+086  STILL UNDEFINED      **`c₀`**, **`r₁`**, **`n`** — introduced in the compressed irreducibility argument witho
+     [Section 5] c_0, r_1, n in the irreducibility argument
+087  STILL UNDEFINED      **“Riccati locus”** — never defined.
+     [Section 5] 'Riccati locus'
+088  STILL UNDEFINED      **“overdetermined solve”** — no equations are displayed.
+     [Section 5] 'overdetermined solve'
+089  STILL UNDEFINED      **`b₁=0`** — used without a prior explicit definition of `b₁`.
+     [Section 5] b_1=0
+090  STILL UNDEFINED      **“general formula”**, **“reduced closed form”** — neither is supplied.
+     [Section 5] 'general formula', 'reduced closed form'
+091  STILL UNDEFINED      **“relative residual”**, **`dps`** — not defined.
+     [Section 5] partial: dps is defined in sec 1.5; 'relative residual' is not
+092  STILL UNDEFINED      **“vector field `(4.4)`”** — equation absent.
+     [Section 5] vector field (4.4)
+093  STILL UNDEFINED      **“exactly one leaf”** — leaf is not defined formally.
+     [Section 5] 'leaf'
+094  STILL UNDEFINED      **“normalisation”** — used without specifying the precise equivalence relation until lat
+     [Section 6] 'normalisation' as an equivalence relation
+095  DEFINED ELSEWHERE    **`λ`** — defined in Proposition 6.
+     [Section 6] packet Proposition 6
+096  STILL UNDEFINED      **“orbit”** — used without definition.
+     [Section 6] 'orbit'
+097  STILL UNDEFINED      **“trace-free member”** — understandable, but uniqueness is relative to an undefined twi
+     [Section 6] 'trace-free member'
+098  STILL UNDEFINED      **`L`**, **`f`** — introduced in Proposition 7; `f` is only inferable as `−1/(2z)`.
+     [Section 6] L, f
+099  STILL UNDEFINED      **`d`** in `L=d−1/(2z)` — used as a differential operator without explicit definition.
+     [Section 6] d as a differential operator
+100  STILL UNDEFINED      **`w=z`** — called a witness without defining the criterion.
+     [Section 6] w=z as a witness
+101  STILL UNDEFINED      **“2-torsion rank-1 module”** — never defined.
+     [Section 6] 2-torsion rank-1 module
+102  STILL UNDEFINED      **“triviality of determinant”** — used without definition.
+     [Section 6] triviality of determinant
+103  DEFINED IN SECTION 1  **`P`, `Q`, `R`** — `P,Q` are defined in Proposition 8; `R` is defined there.
+     [Section 6] anchor 'PQ' verified
+104  DEFINED IN SECTION 1  **“normal potential is blind to a rank-1 twist”** — claim is not formally defined.
+     [Section 6] anchor 'blind' verified
+105  STILL UNDEFINED      **“isomorphic”**, **“projectively isomorphic”** — no definitions.
+     [Section 6] partial: projective equivalence is defined in sec 1.6; 'isomorphic' is used there and not defined
+106  STILL UNDEFINED      **“local exponents”**, **“lattice”** — never defined.
+     [Section 6] local exponents, lattice
+107  STILL UNDEFINED      **“normalised form”** — not fully specified.
+     [Section 6] 'normalised form'
+108  STILL UNDEFINED      **`Y`, `N`, `n_{ij}`** — `Y` and `N` are used before being explicitly reintroduced; entr
+     [Section 7] Y, N, n_ij
+109  DEFINED ELSEWHERE    **`P_b`, `P_c`** — defined by formulas.
+     [Section 7] packet section 7, defined by formulas
+110  STILL UNDEFINED      **“b-route”, “c-route”** — labels are explained only after use.
+     [Section 7] b-route, c-route
+111  STILL UNDEFINED      **“gauge relation”** — never defined.
+     [Section 7] 'gauge relation'
+112  STILL UNDEFINED      **“first component”, “subdominant branch”** — used without a formal asymptotic definitio
+     [Section 7] first component, subdominant branch
+113  STILL UNDEFINED      **`ord_∞`** — never defined.
+     [Section 7] ord_infty
+114  STILL UNDEFINED      **`μ(+)`, `μ(−)`** — used without definition.
+     [Section 7] mu(+), mu(-)
+115  STILL UNDEFINED      **“head coefficients”** — never defined.
+     [Section 7] 'head coefficients'
+116  STILL UNDEFINED      **“arithmetic control”** — informal computational label.
+     [Section 7] 'arithmetic control'
+117  STILL UNDEFINED      **“scalar exponents”** — not formally defined.
+     [Section 7] 'scalar exponents'
+118  DEFINED IN SECTION 1  **`x₁`, `x₂`, `x₃`** — first called comparison quantities, but never defined as trace fu
+     [Section 8] anchor 'traces' verified
+119  STILL UNDEFINED      **`a₀`, `a₁`** — excluded before being defined.
+     [Section 8] a_0, a_1
+120  STILL UNDEFINED      **`s₁`, `s₂`** — used again without definition.
+     [Section 8] s_1, s_2
+121  DEFINED ELSEWHERE    **`e₁`, `e₂`** — defined as formal solutions.
+     [Section 8] packet section 8, defined as formal solutions
+122  STILL UNDEFINED      **`d₁`, `d₂`, `d₃`** — used without definition.
+     [Section 8] d_1, d_2, d_3
+123  STILL UNDEFINED      **`G_m`** — used as the residual gauge group without definition.
+     [Section 8] G_m
+124  STILL UNDEFINED      **“eigen-lines”** — never defined.
+     [Section 8] 'eigen-lines'
+125  STILL UNDEFINED      **“branch cut”, “sector labelling”, “Stokes rays”** — no formal setup.
+     [Section 8] branch cut, sector labelling, Stokes rays
+126  STILL UNDEFINED      **“Taylor-block continuation”**, **“continuous `log z`”**, **“optimally truncated”** — c
+     [Section 8] Taylor-block continuation, continuous log z, optimally truncated
+127  STILL UNDEFINED      **`f₁`, `f₂`**, **`α`** — used in the candidate tests before being defined.
+     [Section 8] f_1, f_2, alpha
+128  STILL UNDEFINED      **`M₀`, `M₁`, `M_∞`** — used before definitions of the monodromy matrices.
+     [Section 8] M_0, M_1, M_infty
+129  STILL UNDEFINED      **`γ₀`, `γ₁`** — loop generators are mentioned but never defined.
+     [Section 8] gamma_0, gamma_1 loop generators
+130  STILL UNDEFINED      **“unipotent”, “triangular”, “opposite triangles”** — unipotence is not defined; “opposi
+     [Section 8] unipotent, triangular, opposite triangles
+131  STILL UNDEFINED      **`S_π`, `S_{2π}`** — Stokes matrices are named but not defined.
+     [Section 8] S_pi, S_2pi
+132  STILL UNDEFINED      **`L`**, **`L₁₁`** — first used in the known-answer control and later asserted as a form
+     [Section 8] L, L_11
+133  STILL UNDEFINED      **`B`** in “`B[Φ]`” — never defined.
+     [Section 8] B in B[Phi]
+134  STILL UNDEFINED      **`Φ`** — never defined.
+     [Section 8] Phi
+135  STILL UNDEFINED      **“Euler system”**, **“Kummer’s equation”** — external objects, not specified.
+     [Section 8] Euler system, Kummer's equation
+136  STILL UNDEFINED      **`a,b`** in the control parameters — not the same as the earlier coefficient function `
+     [Section 8] a, b as control parameters versus the coefficient polynomial b
+137  STILL UNDEFINED      **`Ñ`** — introduced without definition beyond the displayed formula.
+     [Section 8] N-tilde
+138  STILL UNDEFINED      **“SL₂ factorisation”** — not defined.
+     [Section 8] SL_2 factorisation
+139  STILL UNDEFINED      **“clockwise big circle”** — geometrically understandable but not formally specified.
+     [Section 8] 'clockwise big circle'
+140  STILL UNDEFINED      **“unimodular”** — not defined.
+     [Section 8] 'unimodular'
+141  STILL UNDEFINED      **`m₁₁`** — matrix-entry notation is not explicitly introduced.
+     [Section 8] m_11
+142  STILL UNDEFINED      **“dependent restatement”** — not mathematical notation, but the dependence is not shown
+     [Section 8] 'dependent restatement'
+143  STILL UNDEFINED      **`Λ`** — used in `e^{Λz}` without definition.
+     [Section 8] Lambda
+144  STILL UNDEFINED      **`R`** as radius — conflicts with earlier normal potential/character variety notation a
+     [Section 8] R as a radius, clashing with the normal potential R of sec 1.6
+145  STILL UNDEFINED      **`F`** — used for the cubic surface and gradient without defining the cubic polynomial.
+     [Section 8] F as the cubic polynomial
+146  STILL UNDEFINED      **`∇F`** — standard notation, but `F` itself is absent.
+     [Section 8] grad F
+147  STILL UNDEFINED      **“first-order sensitivity”** — not formally defined.
+     [Section 8] 'first-order sensitivity'
+148  STILL UNDEFINED      **“observable”** — used without definition.
+     [Section 8] 'observable'
+149  STILL UNDEFINED      **“PV system”** — label used without displaying the system.
+     [Section 8] 'PV system'
+150  STILL UNDEFINED      **`s=t−t₀`**, **`t₀`**, **`t₁`**, **`ε`** — introduced in the transport section, with `t
+     [Section 8.5–8.6] s=t-t_0, t_0, t_1, epsilon
+151  STILL UNDEFINED      **“exact recurrences”** — never displayed.
+     [Section 8.5–8.6] 'exact recurrences'
+152  STILL UNDEFINED      **“wrong vector field”** — the correct vector field is not displayed either.
+     [Section 8.5–8.6] 'wrong vector field'
+153  DEFINED ELSEWHERE    **`σ`** — defined as a Galois automorphism in Proposition 9.
+     [Section 8.5–8.6] packet Proposition 9, as a Galois automorphism
+154  STILL UNDEFINED      **“Galois automorphism”** — not defined.
+     [Section 8.5–8.6] 'Galois automorphism'
+155  STILL UNDEFINED      **“character variety”** — never defined.
+     [Section 8.5–8.6] 'character variety'
+156  STILL UNDEFINED      **“constant-gauge analytic equivalence”** — not defined.
+     [Section 8.5–8.6] constant-gauge analytic equivalence
+157  STILL UNDEFINED      **`P₁`, `P₂`** — introduced only in Proposition 10 as invariants, but their branch depen
+     [Section 8.5–8.6] P_1, P_2
+158  STILL UNDEFINED      **“known-true identity”** — refers to an omitted identity.
+     [Section 8.5–8.6] 'known-true identity'
+159  STILL UNDEFINED      **“native normalisation”** — never defined.
+     [Section 9] 'native normalisation'; section 9 is cut
+160  STILL UNDEFINED      **“leading `B[Φ]=1`”** — `B` and `Φ` remain undefined.
+     [Section 9] B[Phi]; section 9 is cut
+161  STILL UNDEFINED      **`C`** — numerically introduced, but its mathematical definition is not given.
+     [Section 9] C; section 9 is cut
+162  STILL UNDEFINED      **`S_{ζ*}`** — formula supplied, but the Stokes construction is absent.
+     [Section 9] S_{zeta*}; section 9 is cut
+163  STILL UNDEFINED      **“decoys”** — informal and undefined.
+     [Section 9] 'decoys'; section 9 is cut
+164  STILL UNDEFINED      **“Legendre duplication”**, **“reflection”** — named identities, not stated in full.
+     [Section 9] Legendre duplication, reflection; section 9 is cut
+165  STILL UNDEFINED      **`m`** in `1≤|m|≤12` — never defined.
+     [Section 9] m in 1<=|m|<=12; section 9 is cut
+166  STILL UNDEFINED      **“cost”** — never defined.
+     [Section 9] 'cost'; section 9 is cut
+167  STILL UNDEFINED      **“stated bases”** — no formal definition of the admissible expression space.
+     [Section 9] 'stated bases'; section 9 is cut
+168  STILL UNDEFINED      **“Membership”** — conclusion is clear informally, but no formal proposition is stated.
+     [Section 10] 'Membership' as a formal proposition
+169  DEFINED IN SECTION 1  **`ρ`** — used as the Section 1 exponent, but Section 1 defines `ρ_d`, not clearly `ρ`.
+     [Section 10] anchor 'rho' verified
+170  DEFINED IN SECTION 1  **“indicial exponent”** — never defined.
+     [Section 10] anchor 'indicial' verified
+171  STILL UNDEFINED      **“`u=√z`”** — introduced without explaining the coordinate change or branch.
+     [Section 10] u=sqrt(z) is named in sec 1.4 as the uniformiser; the coordinate change and branch are not given
+
+======================================================================
+TOTALS over 171 items
+  DEFINED IN SECTION 1  40
+  DEFINED ELSEWHERE     5
+  STILL UNDEFINED     126
+======================================================================
+
+CONTROL item 054 ('apparent singularity'), deliberately undefined:
+  reported as: STILL UNDEFINED  -> PASS
+
+STILL UNDEFINED list is the session's output, not a hidden failure.
+
+TASK COVERAGE -- definitions the session task names explicitly:
+  A1         present
+  A2         present
+  A3         present
+  ABC        present
+  Bi         present
+  K          present
+  amp        present
+  bigO       present
+  cpm        present
+  dps        present
+  footnote   present
+  gamma      present
+  germ       present
+  katz       present
+  littleo    present
+  multiset   present
+  necessary  present
+  newton     present
+  pcf        present
+  projeq     present
+  pslq       present
+  qinf       present
+  qn         present
+  rho        present
+  richard    present
+  roots      present
+  table      present
+  tilde      present
+  traces     present
+  xi0        present
+  30/30 required definitions present
+
+VERDICT: all 171 rulings verified; 40 anchors resolved in section1.tex.

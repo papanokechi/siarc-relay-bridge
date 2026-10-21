@@ -1,0 +1,151 @@
+\section{A misprint in the published family, and its correction}\label{app:typo}
+
+This appendix is not errata history. The point located in \S\ref{sec:point}
+lies in a family whose defining matrix is quoted from the published source, and
+one entry of that matrix is misprinted. Everything computed in this paper uses
+the corrected entry. The correction is therefore part of the mathematics the
+paper depends on, and it is set out here in full, with the evidence that
+decides it, so that a reader working from the published page reproduces this
+work rather than diverging from it silently.
+
+\subsection{The entry, as printed}\label{ssec:typo-printed}
+
+\begin{remark}[The printed reading; \texttt{S16-18}, \textbf{INSPECTED}]
+On journal page $2655$, confirmed from the running head, the $b(z)$ entry of
+the family prints its first term as
+$\bigl(p+\tfrac12(q-1)q\bigr)^{2}$, with \emph{no} $t$, while the second term
+carries $(q-1)q\,t$ twice. Read from the same display: $c(z)=-(z-q)/(q-1)$,
+hence $c(0)=q/(q-1)$; $a(z)=p+\tfrac12(-2qt+t-\theta_\infty)(z-q)-\tfrac12
+t(z-q)^{2}$; ``$q$ is the unique zero of $c(z)$ and $p=a(q)$''; and
+``$(p,q)$ gives canonical coordinates on an affine Zariski open set
+$U_0\cong\C\times(\C\setminus\{0,1\})$ of the moduli space
+$\mathcal M_{t,\lambda}$''.
+\end{remark}
+
+The label is \textbf{INSPECTED}: the statement is what the page shows, verified
+by looking at a magnified render of it, and it is not the output of a
+computation. The same discipline applies to every quotation from the source in
+this appendix.
+
+The asymmetry within the entry --- one term with $t$, the neighbouring term
+without --- is what first drew attention, but an asymmetry is not an argument.
+The argument is that the printed reading fails a test the source itself
+supplies.
+
+\subsection{The test that discriminates}\label{ssec:typo-test}
+
+\begin{remark}[The discriminating test, with a control; \texttt{S16-20}, \textbf{VERIFIED}]
+Since $A(z)=z(z-1)A_\infty+(z-1)A_0+zA_1$, the source's own constraints
+$\det A_i=-\theta_i^{2}/4$, stated on journal page $2637$ for $i=0,1$,
+read $\det A(0)=-\theta_0^{2}/4$ and
+$\det A(1)=-\theta_1^{2}/4$. The first holds identically for \emph{both}
+readings and so does not discriminate. The second holds identically for the
+corrected reading $\bigl(p+\tfrac12(q-1)q\,t\bigr)^{2}$, and for the printed
+reading leaves the residual
+\[
+  -\tfrac14 (q-1)(t-1)\bigl(4p+q^{2}t+q^{2}-qt-q\bigr),
+\]
+which is non-zero at the exact rational point $p=2/7$, $q=5/3$, $t=11/4$,
+$\theta_0=\theta_1=0$, $\theta_\infty=3/5$, where it equals $-223/144$. A
+deliberately bogus variant $(q-1)q\,t^{2}$ is \emph{rejected} by the same test,
+so the test discriminates rather than accepting anything offered to it.
+\end{remark}
+
+The control is the part that makes this evidence. A test that accepted the
+corrected reading and was silent on everything else would establish only that
+the corrected reading is consistent; rejecting a third variant shows the test
+has the power to separate.
+
+\begin{remark}[Corroborating structure; \texttt{S16-21}, \textbf{VERIFIED}]
+The printed reading's residual carries the factor $(t-1)$ and so vanishes
+precisely at $t=1$ --- which is exactly the value at which the two readings
+coincide, since $(q-1)q\cdot1=(q-1)q$. A dropped factor of $t$ produces exactly
+this signature. \emph{This is corroboration for the diagnosis, not independent
+proof of it.}
+\end{remark}
+
+The final sentence is the claim's own, and it is reproduced rather than
+paraphrased. A signature consistent with a dropped factor is consistent with
+other things too; it raises confidence without deciding anything by itself.
+
+\subsection{The same expression, printed correctly, a few lines below}\label{ssec:typo-b1}
+
+The decisive corroboration is on the page itself.
+
+\begin{remark}[The bracket appears twice; \texttt{S16-R18-01}, \textbf{INSPECTED}]
+The bracket whose $t$ is missing in $b(z)$ appears a \emph{second} time on
+journal page $2655$, in the matrix $B_1$ of the display $B=zB_0+(1/t)B_1$,
+where its $(1,2)$ entry prints $\bigl(p+\tfrac12(q-1)q\,t\bigr)^{2}$ \emph{with}
+the $t$. This was confirmed by looking at a magnified render. The same
+asymmetry is present in \texttt{arXiv:0902.1702v5}, also confirmed by looking.
+Both sources therefore print the expression correctly a few lines below the
+place where the $t$ is missing.
+\end{remark}
+
+\begin{remark}[The two readings, compared exactly; \texttt{S16-R18-02}, \textbf{PROVEN}]
+Under the corrected reading, the first term of $b(z)$ equals exactly
+$z\cdot B_1[1,2]$; under the printed reading it does not, the difference being
+$\tfrac14 z\bigl(4pqt-4pq-4pt+4p+q^{3}t^{2}-q^{3}-2q^{2}t^{2}+2q^{2}+qt^{2}-q\bigr)$.
+The difference between the two readings factors as
+$\tfrac14 z(q-1)(t-1)\bigl(4p+q^{2}t+q^{2}-qt-q\bigr)$, which is exactly
+$-z$ times the $\det A(1)$ residual and so carries the \emph{same} factor,
+so the two independent tests agree on the correction term for term. Five bogus
+variants --- $t^{2}$, $t+1$, $2t$, $t/2$, $t-1$ --- are rejected by the same
+test.
+\end{remark}
+
+Two tests built from different material --- one from the source's determinant
+constraints, one from an expression printed twice on the same page --- produce
+the same correction factor. That is why this subsection carries the appendix's
+only \textbf{PROVEN} label.
+
+\subsection{The misprint persists in the authors' revised version}\label{ssec:typo-arxiv}
+
+\begin{remark}[Present in v5; \texttt{S16-19}, \textbf{INSPECTED}]
+\texttt{arXiv:0902.1702} v5, page $34$, prints the identical first term
+$\bigl(p+\tfrac12(q-1)q\bigr)^{2}$ with no $t$. The v5 comment records that
+``the signs for Hamiltonian systems in Section 4 and the equations (3) (PV) and
+(7) (degenerate PV) are corrected'', so that section \emph{was} revised and
+this entry was not among the corrections. A search found no published erratum
+or corrigendum.
+\end{remark}
+
+This matters for reproduction rather than for the mathematics: a reader who
+reaches for the most recent version of the source, expecting it to supersede
+the journal text, will find the same misprint there.
+
+\subsection{A convention read from the same page}\label{ssec:typo-convention}
+
+One further reading from the same display settles a question that would
+otherwise have to be argued structurally.
+
+\begin{remark}[The authors' stated convention; \texttt{S17-17}, \textbf{INSPECTED}]
+Page $2655$ states: ``The first basis vector is chosen as cyclic vector and
+following Subsection 4.1, $q$ is the unique zero of $c(z)$ and $p=a(q)$.'' This
+settles the component question from the authors' own stated convention, and
+supersedes an earlier structural argument for the same conclusion while
+confirming it. It is also why $q$, being read off $c(z)$, bears on the
+second-component reduction rather than the first.
+\end{remark}
+
+\subsection{What was adopted, and how}\label{ssec:typo-adopted}
+
+\begin{remark}[The correction, adopted openly; \texttt{S16-05}, \textbf{VERIFIED}]
+The corrected reading $\bigl(p+\tfrac12(q-1)q\,t\bigr)^{2}$ is the one used for
+computation throughout this work, and it is flagged here rather than adopted
+silently. It was discriminated by an exact symbolic residual, not by
+preference.
+\end{remark}
+
+A closing scope note. The expressions in this appendix reach it by two
+different routes, and the distinction matters to anyone checking it. The
+quotations from $a(z)$, $b(z)$, $c(z)$, $B_1$ and the surrounding prose are
+transcriptions from an image of the printed page; there is no computation that
+produced them, and a reader should check them against the page. The residual,
+the difference between the readings and its factorisation are by contrast the
+output of exact symbolic computation from those transcriptions, and a reader
+should re-derive them. Both routes were exercised for this appendix in
+\texttt{CT-S45-FORMULA-A}, per equation, and the factored form of the
+difference was found to carry the wrong sign and corrected; the sign had been
+copied from the $\det A(1)$ residual without the flip that the factor $-z$
+introduces.

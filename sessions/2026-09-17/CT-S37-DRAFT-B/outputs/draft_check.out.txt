@@ -1,0 +1,83 @@
+draft_check (CT-S37-DRAFT-B, Group B: sections 3 and 4)
+corpus: 449 claims.jsonl files, 1384 unique claim ids, 46 unparseable lines (pre-existing, out of scope)
+
+[reader integrity]
+  section3.tex    12727 bytes, 7 subsections, 45 (id,label) pairs  OK
+  section4.tex     9036 bytes, 7 subsections, 12 (id,label) pairs  OK
+  group total        57 (id,label) pairs (bound: >= 30)  OK
+
+[citations]
+  file           claim id                 prose        corpus       verdict     note
+  section3.tex   S4-03                    PROVEN       PROVEN       OK          
+  section3.tex   S4-05                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C8                    PROVEN       PROVEN       OK          
+  section3.tex   S4-04                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C3                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C12                   PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C005      PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C009      PROVEN       PROVEN       OK          
+  section3.tex   S16-06                   PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C006      PROVEN       PROVEN       OK          
+  section3.tex   S16-06                   PROVEN       PROVEN       OK          
+  section3.tex   S16-06                   PROVEN       PROVEN       OK          
+  section3.tex   S4-05                    PROVEN       PROVEN       OK          
+  section3.tex   S4-06                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C15                   PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C011      PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C012      PROVEN       PROVEN       OK          
+  section3.tex   S4-07                    PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C007      PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C008      PROVEN       PROVEN       OK          
+  section3.tex   S6-C13                   PROVEN       PROVEN       OK          
+  section3.tex   S6-C14                   PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C010      PROVEN       PROVEN       OK          
+  section3.tex   S6-C4                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C5                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C6                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C17                   PROVEN       PROVEN       OK          
+  section3.tex   S6-C19                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S4-09                    STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S5B-C2                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S5B-C1                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C3                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C4                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C5                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C8                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S5B-C9                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S5B-C10                  STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S6-C16                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S6-C1                    INSPECTED    INSPECTED    OK          
+  section3.tex   S6-C7                    STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S6-C9                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C10                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S6-C18                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C6                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C7                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-01                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-01                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-02                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-05                   VERIFIED     VERIFIED     OK          
+  section4.tex   S16-03                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-01                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-04                   STRUCTURAL   STRUCTURAL   OK          
+  section4.tex   CT-S9-PVPARAMS-C002      INSPECTED    INSPECTED    OK          
+  section4.tex   CT-S9-PVPARAMS-C003      INSPECTED    INSPECTED    OK          
+  section4.tex   CT-S9-PVPARAMS-C004      INSPECTED    INSPECTED    OK          
+  section4.tex   S6-C1                    INSPECTED    INSPECTED    OK          
+  section4.tex   S16-14                   STRUCTURAL   STRUCTURAL   OK          
+
+[alias report]
+  no citation required the CT- prefix alias; the drafts use the corpus form throughout.
+  NOTE: OUTLINE.md cites this family as S9-PVPARAMS-*; the corpus ids are CT-S9-PVPARAMS-*.  Reported as a finding, not normalised silently.
+
+[warnings, not failures]
+  none.
+
+[summary]
+  citations checked : 57
+  OK                : 57
+  UNRESOLVED        : 0
+  SUPERSEDED        : 0
+  MISMATCH          : 0
+  falsifier         : (UNRESOLVED + SUPERSEDED + MISMATCH) > 0
+VERDICT: PASS

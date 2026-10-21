@@ -1,0 +1,49 @@
+CT-S62 -- SIGMA closeout (section A Item 37)
+==========================================================================
+
+log sha256 70f814b926a5fd67a761bbebe19b5474db69b440e7e3f2340624c79029897433
+log bytes  450188
+section-A items 42   active before 4 [36, 37, 39, 42]
+
+[T1] Item 37 before the closeout
+  Status  : Submitted to SIGMA (Symmetry, Integrability and Geometry: Methods and Applications) — direct email t
+  Verdict : (none recorded)
+  CONTROL Item 37 Status extract is non-trivial (len 273 > 30)           FIRED
+  -> non-terminal. The closeout has something to do.
+
+[T2] attribution: which items name SIGMA
+  section-A items whose Status names SIGMA: [37]
+  CONTROL the SIGMA search can fail (no item's Status names a fake venue) FIRED
+  -> exactly one. The letter, which quotes no title and no id, is
+     attributable to Item 37 by elimination.
+
+[V] vacuity pre-check -- does the observable move with the verdict?
+  active with a NON-terminal verdict spliced : 4 (want 4)
+  active with the PROPOSED verdict spliced   : 3 (want 3)
+  CONTROL observable is sensitive: the two splices differ                FIRED
+
+[T3] does the proposed wording close the record?
+  -> active 4 -> 3. Item 37 leaves the active set; Items 36, 39, 42
+     remain.
+  CONTROL the closeout removes exactly one item                          FIRED
+
+[T4] the four scanners' own TERMINAL matchers on the new wording
+  scan_decided_not_fired.py        Verdict -> REJECTED   Status -> REJECTED
+  scan_stale_records.py            Verdict -> REJECTED   Status -> REJECTED
+  scan_fired_not_landed.py         no TERMINAL matcher (not applicable)
+  scan_submission_substrates.py    no TERMINAL matcher (not applicable)
+  CONTROL scanner matcher can say no (a plainly open verdict is not terminal) FIRED
+  -> every scanner reads it terminal, and on the word 'REJECTED'.
+
+[T5] the concurrent-submission situation after the closeout
+  Item 36 (The Ramanujan Journal) terminal: False
+  CONTROL Item 36 Verdict extract is non-trivial (len 4300 > 30)         FIRED
+  Item 36 submission version: v.1.0
+  Item 36 block records the superseded constant 0.43770528: True
+  CONTROL the constant search can fail (a fabricated constant is absent) FIRED
+  FINDING: the closeout is ONE-SIDED: Item 36 is still non-terminal with a reviewer assigned, so the manuscript remains live at The Ramanujan Journal. The SIGMA rejection removes the conflict-clearing GROUND for the withdrawal but not the withdrawal itself: Ramanujan holds v1.0, carrying the superseded Stokes constant 0.43770528 and Theorem 4.1 un-demoted.
+
+==========================================================================
+controls fired: 7/7
+findings      : 1
+wrote LOG-EDITS-ITEM37.md

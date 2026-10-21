@@ -1,0 +1,42 @@
+==============================================================================
+S22-01 | VERIFIED | script: scripts/stage1_kummer2.py
+The solver reproduces Kummer's monodromy, formal and Stokes data against closed forms: 32 of 32 checks pass at >= 35 digits (44-151 observed) at both pre-registered parameter values.
+==============================================================================
+S22-02 | STRUCTURAL | script: scripts/stage1_kummer.py
+Kummer's companion system is not trace-free (tr B = 1 - b/z), so det M_0 = e^{-2 pi i b} != 1 and the vdPS SL2 factorisation requires the trace-free gauge.
+==============================================================================
+S22-03 | STRUCTURAL | script: scripts/stage1_kummer2.py
+The counterclockwise circle at infinity is homotopic to gamma_0; vdPS's M_inf is the CLOCKWISE loop, hence their alpha is e^{-2 pi i L_11}.
+==============================================================================
+S22-04 | PROVEN | script: scripts/algebra_checks.py
+Check A6a as first written was algebraically vacuous: (1 + f1 f2)/alpha = M_22 equals (1 - det M)/m11 and so vanishes identically for any unimodular M with M_11 != 0, so it could not fail. Proved by simplify-to-zero plus an independent numeric arm.
+==============================================================================
+S22-05 | PROVEN | script: scripts/algebra_checks.py
+Check A7 as first written used vdPS's diag*lower*upper ordering (trace alpha + (1+f1 f2)/alpha) against a computed diag*upper*lower factorisation (trace alpha(1+f1 f2) + 1/alpha); the two differ by (alpha - 1/alpha) f1 f2. At the Stage-1 values the wrong ordering misses 2cos(pi b) by 0.9612 while the corrected one holds to 1.15e-29, reproducing the observed O(1) failure. The corrected identity is a DEPENDENT restatement of A4a+A5+A6e, not independent evidence.
+==============================================================================
+S22-06 | VERIFIED | script: scripts/stage2_systemC.py
+At the CT-S16 point the printed (4.1) family satisfies det A_0 = det A_1 = 0 exactly and A_inf = (t/2) diag(-1,1) to 121 digits.
+==============================================================================
+S22-07 | VERIFIED | script: scripts/stage2_systemC.py
+(A_0 + A_1)_11 = -theta_inf/2, contradicting the prose of vdPS p.2629 which states it is theta_inf. CT-S16's finding, reconfirmed at the numeric point and relied on nowhere.
+==============================================================================
+S22-08 | VERIFIED | script: scripts/stage2_systemC.py
+L_11 = theta_inf/2 exactly, hence alpha = e^{+- i pi theta_inf} in closed form with |alpha| = 1 and |arg alpha| = pi sqrt(3)/9 = 0.60459978807807261686; both predicted before the run and both hit.
+==============================================================================
+S22-09 | VERIFIED | script: scripts/stage2_systemC.py
+The truncated formal series' residual sits at the minimal term of the series (ratio 1.29, bound N^3) and decays at the predicted Gevrey rate e^{-|t| R} between R = 160 and R = 140 (observed/predicted 1.259).
+==============================================================================
+S22-10 | STRUCTURAL | script: scripts/stage2_systemC.py
+PREREG 2.3's 8-element candidate set tied the orientation of gamma_inf to that of the small loops and so could not represent gamma_0 gamma_1 = gamma_inf; none of the 8 passed (best ||MMM-I|| = 6.85). Widened to 16 with the four conditions and the 1e-30 threshold unchanged.
+==============================================================================
+S22-11 | VERIFIED | script: scripts/stage2_systemC.py
+Over the 16 candidate conventions EXACTLY ONE satisfies all four PREREG 2.3 conditions: right action, small loops ccw, M_inf clockwise, vdPS M_1 = gamma_1. ||M_0 M_1 M_inf - I|| = 2.44e-105; the other 15 fail, several on alpha alone (0.327, 2.27, 2.34).
+==============================================================================
+S22-12 | VERIFIED | script: scripts/stage2_systemC.py
+Trace coordinates of System C at t0: x1 = -3.4791908904110720783362611334763347 - 1.085013570276491408740290278433511 i; x2 = 5.0274753770206575050513601616191382 + 2.3656209874946766465307178962989066 i; x3 = 1.9725752524636335304002661101339216; alpha = 0.82272965712005465178275844880452679 + 0.56843285557321306726020179279562511 i. Error bar 8.49e-105 from step halving h = rho/4 vs rho/8 (273 vs 487 steps), not from a single run.
+==============================================================================
+S22-13 | VERIFIED | script: scripts/stage2_systemC.py
+The point is a SMOOTH point of the singular cubic fibre: the fibre is singular because s1 = s2 = 2 puts it on two resonance divisors, but grad F = (1.523094, 1.5231748, 21.240405) in modulus is non-zero there, so the coordinates retain first-order sensitivity.
+==============================================================================
+S22-14 | VERIFIED | script: scripts/stage3_vacuity.py
+The observable is sensitive to leaf membership: max|dx_i| = 8.686e-6 (direction q) and 2.639e-5 (direction p) at delta = 1e-6, against a 1e-15 floor, with first-order ratios 99.99978 and 99.99956 inside the pre-registered [50,200].

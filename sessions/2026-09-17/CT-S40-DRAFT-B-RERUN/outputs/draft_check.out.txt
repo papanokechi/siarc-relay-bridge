@@ -1,0 +1,110 @@
+draft_check (CT-S37-DRAFT-B, Group B: sections 3 and 4)
+corpus: 451 claims.jsonl files, 1411 unique claim ids, 46 unparseable lines (pre-existing, out of scope)
+
+[reader integrity]
+  section3.tex    12727 bytes, 7 subsections, 45 (id,label) pairs  OK
+  section4.tex     9036 bytes, 7 subsections, 12 (id,label) pairs  OK
+  group total        57 (id,label) pairs (bound: >= 30)  OK
+
+[citations]
+  file           claim id                 prose        corpus       verdict     note
+  section3.tex   S4-03                    PROVEN       PROVEN       OK          
+  section3.tex   S4-05                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C8                    PROVEN       PROVEN       OK          
+  section3.tex   S4-04                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C3                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C12                   PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C005      PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C009      PROVEN       PROVEN       OK          
+  section3.tex   S16-06                   PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C006      PROVEN       PROVEN       OK          
+  section3.tex   S16-06                   PROVEN       PROVEN       OK          
+  section3.tex   S16-06                   PROVEN       PROVEN       OK          
+  section3.tex   S4-05                    PROVEN       PROVEN       OK          
+  section3.tex   S4-06                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C15                   PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C011      PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C012      PROVEN       PROVEN       OK          
+  section3.tex   S4-07                    PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C007      PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C008      PROVEN       PROVEN       OK          
+  section3.tex   S6-C13                   PROVEN       PROVEN       OK          
+  section3.tex   S6-C14                   PROVEN       PROVEN       OK          
+  section3.tex   CT-S9-PVPARAMS-C010      PROVEN       PROVEN       OK          
+  section3.tex   S6-C4                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C5                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C6                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C17                   PROVEN       PROVEN       OK          
+  section3.tex   S6-C19                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S4-09                    STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S5B-C2                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S5B-C1                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C3                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C4                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C5                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C8                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S5B-C9                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S5B-C10                  STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S6-C16                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S6-C1                    INSPECTED    INSPECTED    OK          
+  section3.tex   S6-C7                    STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S6-C9                    PROVEN       PROVEN       OK          
+  section3.tex   S6-C10                   STRUCTURAL   STRUCTURAL   OK          
+  section3.tex   S6-C18                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C6                   PROVEN       PROVEN       OK          
+  section3.tex   S5B-C7                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-01                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-01                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-02                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-05                   VERIFIED     VERIFIED     OK          
+  section4.tex   S16-03                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-01                   INSPECTED    INSPECTED    OK          
+  section4.tex   S16-04                   STRUCTURAL   STRUCTURAL   OK          
+  section4.tex   CT-S9-PVPARAMS-C002      INSPECTED    INSPECTED    OK          
+  section4.tex   CT-S9-PVPARAMS-C003      INSPECTED    INSPECTED    OK          
+  section4.tex   CT-S9-PVPARAMS-C004      INSPECTED    INSPECTED    OK          
+  section4.tex   S6-C1                    INSPECTED    INSPECTED    OK          
+  section4.tex   S16-14                   STRUCTURAL   STRUCTURAL   OK          
+
+[alias removal]
+  the CT- prefix alias is RETIRED; a bare short form is UNRESOLVED.
+  no citation in the group needed it: every id is cited in the corpus form, so the removal is a no-op on this prose.
+
+[outline citation form]
+  OUTLINE.md: 2 occurrences of the PVPARAMS family, 0 bare (threshold: 0)
+  all in the corpus form CT-S9-PVPARAMS-*  OK
+
+[section 1 provenance: two-sided, on squashed text]
+  pre-repair  rho sentence       stale:True  live:False  OK
+  pre-repair  lambda roots       stale:True  live:False  OK
+  pre-repair  q_infty            stale:True  live:False  OK
+  repair      rho two meanings   live:True  stale:False  OK
+  repair      nu roots           live:True  stale:False  OK
+  repair      psi_infty          live:True  stale:False  OK
+  repair      s vs s_pm          live:True  stale:False  OK
+  repair      P,Q vs Q_n         live:True  stale:False  OK
+
+[labels borrowed by sections 3 and 4]
+  eq:n-rec               borrowed from section1
+  all 1 borrowed labels resolve  OK
+
+[dependency on section 2, measured]
+  labels borrowed from section 2 : 0 
+  occurrences of 'growth' or a reference to sec:growth : 0
+  FINDING: sections 3 and 4 depend on section 2 neither by cross-reference nor by name.  The blocker was real for the GROUP ORDER, but it does not bind this check: nothing in sections 3 or 4 was unresolvable for want of section 2.
+
+[warnings, not failures]
+  none.
+
+[self-exclusion]
+  claims.jsonl exists and is EXCLUDED from the 451-file walk  OK
+
+[summary]
+  citations checked : 57
+  OK                : 57
+  UNRESOLVED        : 0
+  SUPERSEDED        : 0
+  MISMATCH          : 0
+  other falsifiers  : none
+  falsifier         : (UNRESOLVED + SUPERSEDED + MISMATCH) > 0, or any of F4, F5, C6 fired
+VERDICT: PASS

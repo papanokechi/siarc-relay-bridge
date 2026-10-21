@@ -1,0 +1,24 @@
+======================================================================
+S16-R18-02: the claim's two statements of ONE quantity
+======================================================================
+unfactored (claim text) : p*q*t*z - p*q*z - p*t*z + p*z + q**3*t**2*z/4 - q**3*z/4 - q**2*t**2*z/2 + q**2*z/2 + q*t* ...
+
+unfactored MINUS the recorded factorisation = 2*p*q*t*z - 2*p*q*z - 2*p*t*z + 2*p*z + q**3*t**2*z/2 - q**3*z/2 - q**2*t**2*z + q**2*z + q*t**2*z/2 - q*z/2
+  the claim's own two forms agree: False
+
+sympy factor(unfactored) = z*(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+
+PLUS one quarter of the same product reproduces it: True
+MINUS one quarter of the same product reproduces it: False
+
+recorded + corrected == 0 (a pure sign flip, nothing else): True
+
+controls (the comparison must be able to fail)
+  a sign flip on the LAST term is rejected: True
+  a wrong denominator (2 for 4) is rejected: True
+  the corrected form is still accepted: True
+
+======================================================================
+VERDICT: the sign error is present in the CLAIM TEXT of S16-R18-02,
+         not only in appendixA.tex's typeset display.
+======================================================================

@@ -1,0 +1,349 @@
+% =====================================================================
+%  Section 1 -- Notation and standing conventions
+%  CT-S36-DRAFT-NOTATION.  Draft only.
+%
+%  Every symbol fixed here is fixed BEFORE its first use anywhere in the
+%  paper.  The section exists because an isolated reader, given the
+%  assembled material and nothing else, returned 171 items used before
+%  being defined or never defined at all
+%  (CT-S23-OUTSIDER-READ/outputs/coldread_main.txt, task 2).
+% =====================================================================
+
+\section{Notation and standing conventions}\label{sec:notation}
+
+This section fixes every symbol, name and hypothesis used in the paper. It
+introduces no mathematics; a reader who already knows the conventions may skip
+to \S2 and return here as needed.
+
+\subsection{The recurrence and its normalisation}\label{ssec:recurrence}
+
+Throughout, $b$ is a polynomial with real coefficients,
+\[
+  b(n)=\sum_{k=0}^{d}\beta_k n^k ,\qquad \beta_d\neq0,\qquad d=\deg b\ge1 ,
+\]
+so that $\beta_d$ is the \emph{leading} coefficient and $\beta_{d-1}$ the
+\emph{subleading} one. A \emph{polynomial continued fraction} (PCF) is the
+continued fraction whose partial denominators are the values $b(1),b(2),\dots$
+of such a $b$ at the positive integers; its denominators $Q_n$ satisfy the
+three-term recurrence
+\begin{equation}\label{eq:n-rec}
+  Q_n=b(n)Q_{n-1}+Q_{n-2}\qquad(n\ge1),\qquad Q_{-1}=0,\quad Q_0=1 .
+\end{equation}
+Write
+\begin{equation}\label{eq:n-norm}
+  B_n=\prod_{k=1}^{n}b(k)\quad(B_0=1),\qquad
+  \psi_n=\frac{Q_n}{B_n},\qquad
+  \psi_\infty=\lim_{n\to\infty}\psi_n .
+\end{equation}
+We call $\psi_n$ the \emph{normalised denominator sequence} and $\psi_\infty$ its
+\emph{limit}. The roots of $b$ are written
+\begin{equation}\label{eq:n-roots}
+  \nu_1,\dots,\nu_d\in\C,\qquad b(n)=\beta_d\prod_{i=1}^{d}(n-\nu_i).
+\end{equation}
+
+\paragraph{Three objects, one letter.}
+The sequence \eqref{eq:n-norm}, its limit, and the roots \eqref{eq:n-roots} are
+three different objects, and in the deposited record all three are written with
+the letter $r$. That record's $r_1$ is therefore ambiguous: it is at once the
+first term of the sequence and the first root.\footnote{%
+  \textbf{Correspondence with the deposited record.} The names used in this
+  paper and the names used in the Channel Theory deposit (Zenodo concept DOI
+  \texttt{10.5281/zenodo.19941678}) correspond as follows:
+  $\psi_n\leftrightarrow r_n$, $\psi_\infty\leftrightarrow r_\infty$, and
+  $\nu_1,\dots,\nu_d\leftrightarrow r_1,\dots,r_d$. That record also carries an
+  unsubscripted $\rho$ for the leading Borel-plane exponent, which is named
+  here only so that a reader of both documents can match them; it is not a
+  symbol of this paper. The deposited
+  records are not altered; the renaming is made in this paper only, and this is
+  the single place the correspondence is recorded. A fourth, unrelated object
+  is written $r(\cdot)$ in \S\ref{ssec:katz} below, following van der
+  Put--Saito; it is never one of these three.}
+Because the collision is in the source material and not an artefact of
+assembly, it is resolved here once and the paper uses $\psi_n$, $\psi_\infty$ and
+$\nu_i$ everywhere.
+
+\subsection{Standing hypotheses}\label{ssec:hypotheses}
+
+Three hypotheses are used, and they are stated separately because they are
+consumed separately. Only (A1) is in force by default; (A2) and (A3) are
+invoked by name wherever they are needed.
+
+\begin{itemize}
+\item[\textbf{(A1)}] $b(k)\neq0$ for every integer $k\ge1$.
+\item[\textbf{(A2)}] No root $\nu_i$ is a positive integer; equivalently,
+  $\Gamma(1-\nu_i)$ is finite for every $i$. (The Gamma function has poles
+  at $0,-1,-2,\dots$, so $\Gamma(1-\nu_i)$ is singular exactly when
+  $\nu_i\in\{1,2,3,\dots\}$.) Note (A2) $\Rightarrow$ (A1).
+\item[\textbf{(A3)}] $\psi_\infty=\lim_{n\to\infty}Q_n/B_n$ exists and is
+  \emph{nonzero}.
+\end{itemize}
+
+(A2) is not decoration. It is exactly the condition under which
+$\Gamma(1-\nu_i)$ is finite, and therefore the condition under which the
+constant $K$ of \S\ref{ssec:growth} is defined at all. A statement that uses
+$K$ and cites only (A1) has omitted a hypothesis.
+
+\subsection{Asymptotic and analytic vocabulary}\label{ssec:asymptotic}
+
+$\Gamma$ denotes Euler's Gamma function, the meromorphic continuation of
+$\Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\,dt$ ($\Re s>0$), with simple poles at
+$s=0,-1,-2,\dots$ and $\Gamma(m+1)=m!$ for integers $m\ge0$. We write $(dn)!$
+for $\Gamma(dn+1)$ when $dn$ is a non-negative integer.
+
+For functions of $n\to\infty$: $f=O(g)$ means $|f|\le C|g|$ for some constant
+$C$ and all large $n$; $f=o(g)$ means $f/g\to0$; and $f\sim g$ means
+$f/g\to1$. In particular $o(1)$ denotes a quantity tending to $0$. These are
+statements about $n\to\infty$ unless another limit is named.
+
+A \emph{formal solution} is a solution taken as a formal power (or
+power-and-exponential) series, with no convergence asserted. The
+\emph{Newton polygon} of a linear differential operator at a point is the lower
+convex hull, in the plane of (order of differentiation, order of vanishing) of
+the coefficients, of the points attached to its terms; its slopes govern the
+exponential growth of formal solutions at that point. A \emph{germ
+coefficient} is a coefficient of such a local expansion, i.e.\ of the germ of
+the solution at the point in question, as opposed to a global invariant. The
+\emph{amplitude} of an exponentially small or large term is the prefactor
+multiplying its exponential, and $c_\pm$ denote the amplitudes attached to the
+two branches of a square-root (rank $\tfrac12$) irregular singularity. A
+\emph{Stokes constant} is the coefficient with which one formal solution enters
+the Borel-plane singularity structure of another across a Stokes line; it is a
+connection datum, not a local one.
+
+\subsection{The growth constants}\label{ssec:growth}
+
+Under (A2) and (A3) the denominators satisfy
+\[
+  \frac{Q_n}{\Gamma(dn+1)}\;=\;K\cdot\Big(\frac{\beta_d}{d^{\,d}}\Big)^{n}
+  \cdot n^{s}\cdot\bigl(1+O(1/n)\bigr) ,
+\]
+which defines the two constants used throughout: the \emph{growth exponent}
+\[
+  s=\frac{\beta_{d-1}}{\beta_d}+\frac{d-1}{2}
+\]
+and the \emph{connection constant} $K$, the amplitude of this asymptotic. $K$
+depends on all of $\beta_0,\dots,\beta_d$; the base $\beta_d/d^{\,d}$ depends
+only on $\beta_d$, and $s$ only on $\beta_d$ and $\beta_{d-1}$. Consequently a
+test that inspects the base or the exponent alone is insensitive to
+$\beta_0,\dots,\beta_{d-2}$, and cannot be used to detect their influence.
+
+The unsubscripted letter $s$ always denotes this growth exponent. The
+subscripted $s_\pm$ introduced in \S\ref{ssec:objects} below are the two
+finite singular points at which the change of variable forming $\mathsf C$ is
+made; they are a different object, and the subscript is what distinguishes
+them.
+
+One further symbol belongs to the Borel plane of this asymptotic. We write
+$\xi_0$ for the characteristic root
+\[
+  \xi_0=\frac{2}{\sqrt{\beta_2}}\qquad(d=2),
+\]
+which is the case $d=2$ of the general $\xi_0=d/|\beta_d|^{1/d}$ recorded in
+\S\ref{sec:growth}. An \emph{indicial exponent} of a linear differential
+equation at a regular singular point is a root of its indicial equation,
+equivalently an exponent $\alpha$ for which the equation admits a local
+solution of the form $u^{\alpha}(c_0+c_1u+\cdots)$ with $c_0\neq0$, possibly
+up to logarithmic terms; the term is used in \S\ref{sec:systems} and nowhere
+depends on the Borel plane.
+
+\paragraph{The letter \texorpdfstring{$\rho$}{rho}.}
+The deposited record uses an unsubscripted $\rho$ for the exponent of the
+leading Borel-plane singularity, an indicial exponent in the uniformiser
+$u=\sqrt z$. \emph{That quantity is not a symbol of this paper.} Its
+definition is tied to a convention this paper does not set up --- the
+correspondence between it and the growth exponent $s$ above was anchored only
+at $d=2$ --- and the paper states no result about it, so importing the name
+would be importing a quantity whose definition the paper cannot fully give.
+It is recorded in the correspondence footnote of \S\ref{ssec:objects} and used
+nowhere.
+
+The letter $\rho$ does occur, in three senses, each of which is local to the
+section that uses it and each of which is subscripted or otherwise marked:
+$\rho_j$ for the characteristic roots of the homogeneous recurrence in
+\S\ref{sec:growth}; $\rho$ as the growth base in the normal-solution form
+$\rho^{\,n}n^{s}$ in the same section; and $\rho_\pm=(-1\pm i\sqrt{11})/2$ for
+the pair of finite singular points of System $\mathsf B$ in
+\S\ref{sec:systems}. In none of these is $\rho$ a root of $b$; the roots are
+the $\nu_i$.
+
+\subsection{Numerical vocabulary}\label{ssec:numerics}
+
+\emph{dps} abbreviates \emph{decimal places of working precision}, in the sense
+of \texttt{mpmath}'s \texttt{mp.dps}: a computation at dps $=60$ carries $60$
+significant decimal digits throughout. \emph{Richardson extrapolation} is the
+elimination of successive terms of an assumed expansion in powers of $1/n$ by
+taking prescribed linear combinations of the values at several $n$; a
+\emph{Richardson level} is one such elimination, so that $m$ levels remove the
+terms in $n^{-1},\dots,n^{-m}$. \emph{PSLQ} is the integer-relation algorithm
+of Ferguson and Bailey: given real numbers $y_1,\dots,y_m$ it searches for
+integers $a_1,\dots,a_m$, not all zero, with $\sum a_i y_i=0$ to the working
+precision. A PSLQ result is evidence for a relation and never a proof of one.
+
+Where a numerical limit is reported, the \emph{$N/2$-versus-$N$ agreement
+criterion} is the requirement that the value obtained from the first $N/2$
+terms and the value obtained from all $N$ terms agree to a stated number of
+digits; the reported number of digits is the number on which they agree, not
+the working precision.
+
+\subsection{The three objects, and their comparison}\label{ssec:objects}
+
+Three objects are compared in this paper. They are named once, here.
+
+\begin{itemize}
+\item \textbf{$\mathsf A$} is the generating function $\sum_{n\ge0}Q_nz^n$ of
+  the denominators \eqref{eq:n-rec}.
+\item \textbf{$\mathsf B$} is the differential operator $L_\varphi$ attached to
+  that generating function.
+\item \textbf{$\mathsf C$} is the scalar second-order equation
+  $y''+P_{\mathsf C}\,y'+Q_{\mathsf C}\,y=0$ obtained from it by the change of
+  variable $x=s_++\delta z$, where $s_\pm=(-1\pm i\sqrt{11})/6$ and
+  $\delta=-i\sqrt{11}/3$.
+\end{itemize}
+
+The letters $\mathsf A$, $\mathsf B$, $\mathsf C$ always denote these three
+objects, and are set in sans serif for that reason. The lower-case $a$, $b$,
+$c$ of a scalar equation written $a\,W''+b\,W'+c\,W=0$ are a different use,
+separated from them by case; that form occurs only at \eqref{eq:sysC}, where
+$b=a'$ and the equation is therefore self-adjoint.
+
+Writing a scalar equation as $\partial^2+P\partial+Q$, its \emph{trace-free
+normal form} is obtained by removing the $P$ term, and the resulting potential
+\[
+  R=\tfrac14P^2+\tfrac12P'-Q
+\]
+is the \emph{normal potential}. Two operators are \emph{projectively
+equivalent} when their trace-free normal forms agree, equivalently when they
+differ by a rank-one twist $y\mapsto fy$; the normal potential is blind to such
+a twist, while the pair $(P,Q)$ is not.
+
+The coefficients $P$ and $Q$ of an equation written in this displayed form are
+a different object from the denominators $Q_n$ of \eqref{eq:n-rec}. The
+subscript is what separates them: the denominators always carry an index,
+$P$ and $Q$ never do, and $P_{\mathsf C}$, $Q_{\mathsf C}$ are the
+coefficients of the particular equation $\mathsf C$.
+
+\paragraph{Letters that carry more than one meaning.}
+The following letters are reused, in each case with a stated discriminator.
+They
+are collected here so that no section has to introduce a convention of its own.
+\begin{itemize}
+  \item $b$ carries four meanings, separated by argument and by subscript.
+    \emph{With argument $n$}, $b(n)=\sum_k\beta_k n^k$ is the polynomial of the
+    recurrence \eqref{eq:n-rec} --- the paper's central object, and the default
+    reading of a bare $b$. \emph{With argument $x$}, $b(x)$ is the first-order
+    coefficient of the scalar equation \eqref{eq:sysC}, where it equals
+    $a'(x)$. \emph{Without argument}, $b$ is the upper-right entry of the
+    matrix $A=\left(\begin{smallmatrix} a & b\\ c & -a\end{smallmatrix}\right)$
+    of \eqref{eq:fam-b}, and $a$, $c$ are its other entries; this is the only
+    use of $a$ and $c$ that is not a coefficient of \eqref{eq:sysC}.
+    \emph{With subscript}, $b_1$ is the coefficient of $z$ in that entry, so
+    that $b_1=0$ says the entry is constant.
+  \item $\mathcal M_{t,\lambda}$, always calligraphic and always with its
+    subscript, is van der Put--Saito's moduli space. Roman $M$ with a
+    subscript from $\{0,1,\infty\}$ --- $M_0$, $M_1$, $M_\infty$ --- is a
+    monodromy matrix, and these are the only two uses; a bare $M$ or $M_{ij}$
+    inside a matrix computation denotes an arbitrary $2\times2$ matrix and its
+    entries, and is local to the computation in which it appears.
+  \item Upright $A$ with a subscript from $\{0,1,\infty\}$ denotes a residue
+    matrix of the rank-two system of the moduli section, and $A(z)$ the matrix
+    of that system; $A$, $A'$, $C$ in the displayed form above are scalar
+    coefficients. Sans-serif $\mathsf A$ is never either of these.
+  \item $L_\varphi$, always with its subscript, is the scalar operator of
+    $\mathsf B$. An unsubscripted $L$ appears only as a rank-one connection in
+    worked counterexamples, where it is defined on the spot; $L_{11}$ is a
+    matrix entry and $L$ as a block length occurs only in the computational
+    appendix.
+  \item $u=\sqrt z$ is the uniformiser, and is used only where a ramified
+    double cover is in play. The $u$ of the Rabinowitsch trick, adjoined to
+    saturate a localisation, is a different variable and occurs only inside
+    that ideal computation.
+  \item $\beta_k$, always with a subscript, is a coefficient of $b$.
+    Unsubscripted $\beta$ is never a coefficient of $b$: it is a Newton-polygon
+    exponent in the growth section, and the second of the four Painlev\'e
+    parameters $(\alpha,\beta,\gamma,\delta)$ in the moduli and local-data
+    sections.
+  \item $r$ with a sans-serif subscript --- $r_{\mathsf A}$, $r_{\mathsf B}$,
+    $r_{\mathsf C}$ --- is the normal potential of the corresponding object,
+    and $r(\varphi)$ is that potential pulled back along $\varphi$. Together
+    with the Katz invariant $r(c)$ of \S\ref{ssec:katz} and the deposited
+    names recorded in the footnote above, these are all the uses of the
+    letter; in particular no object in this paper is written $r_1$.
+\end{itemize}
+
+With this vocabulary: $\mathsf B$ and $\mathsf C$ are \emph{projectively
+equivalent under $z\mapsto1/x$}, their normal potentials being identically
+equal. A statement that two objects are projectively equivalent is therefore
+weaker than a statement that they are isomorphic, and the paper distinguishes
+the two.
+
+\subsection{Katz invariants and the classification table}\label{ssec:katz}
+
+We follow van der Put and Saito, \emph{Moduli spaces for linear differential
+equations and the Painlev\'e equations}, Ann.\ Inst.\ Fourier \textbf{59} (2009)
+2611--2667, and use their notation unchanged.
+
+For a differential module over the field of formal Laurent series at a point
+$c$, the \emph{Katz invariant} $r(c)$ is the largest slope of the Newton
+polygon at $c$: it is $0$ exactly when $c$ is regular or regular singular, and
+otherwise is the positive rational measuring the irregularity there. The
+notation is theirs, and the symbol $r$ in $r(c)$ is unrelated to the sequence
+and limit of \S\ref{ssec:recurrence}, which is why those were renamed.
+
+The \emph{Katz multiset} of an object is the collection of its Katz invariants
+at the singular points, written in the order used by their Table~2.1, namely
+\[
+  \bigl(r(0),\,r(1),\,r(\infty),\,r(t)\bigr),
+\]
+with a dash in any position whose singular point is absent from the singular
+set --- most often the $r(t)$ position, when there is no fourth point $t$, but
+equally the $r(1)$ position for an object unramified at $1$. Every multiset in
+this paper is written with all four positions, so that a dash is always visible
+as an absent point rather than inferred from a shorter tuple.
+It is a multiset and not a tuple in the sense that the classification
+depends on the values present, not on a labelling of the points. Table~2.1
+attaches to each such multiset a Dynkin symbol and a Painlev\'e equation; the
+two rows used in this paper are
+\[
+  \widetilde D_5:\ \mathrm{PV},\ (0,0,1,-),\ \dim P=3,
+  \qquad
+  \widetilde D_6:\ \mathrm{PV}_{\deg}=\mathrm{PIII}(D_6),\ (0,0,\tfrac12,-),\
+  \dim P=2 .
+\]
+\emph{Painlev\'e V} (PV) is the fifth Painlev\'e equation, and $\widetilde D_5$
+is the Dynkin symbol labelling its row; the two name the same row of Table~2.1
+and are used interchangeably, as there. $\mathrm{PIII}(D_6)$, $\mathrm{PIII}(D_7)$
+and $\mathrm{PIII}(D_8)$ denote the three degenerations of the third Painlev\'e
+equation, again by their row labels.
+
+\textbf{A matching multiset is a necessary condition only.} Table~2.1 assigns a
+row to a multiset; agreement of multisets therefore \emph{excludes} every row
+whose multiset differs, and \emph{assigns} none. No statement in this paper
+infers a Painlev\'e label from a multiset match alone.
+
+\subsection{Monodromy and trace coordinates}\label{ssec:traces}
+
+On the monodromy side, $B_1$, $B_2$, $B_3$ are the monodromy matrices of the
+local system, one for each of the three punctures, in van der Put--Saito's
+notation at p.~2637. They carry $a_i=\operatorname{tr}(B_i)$, and the affine
+cubic surface of monodromy data is coordinatised by
+\begin{equation}\label{eq:n-traces}
+  x_1=\operatorname{tr}(B_2B_3),\qquad
+  x_2=\operatorname{tr}(B_1B_3),\qquad
+  x_3=\operatorname{tr}(B_1B_2).
+\end{equation}
+These are the \emph{trace coordinates}, and \eqref{eq:n-traces} says what they
+are traces of. Where the paper speaks of comparison quantities it means
+$x_1,x_2,x_3$ and nothing else.
+
+The letter $B$ is thus used for the monodromy matrices $B_i$ and, in
+\eqref{eq:n-norm}, for the product $B_n$ of values of $b$. The two never occur
+in the same argument; the monodromy matrices always carry an index in
+$\{1,2,3\}$ and the product always an index $n$.
+
+\subsection{What is not fixed here}\label{ssec:notfixed}
+
+Two conventions are deliberately left to their points of use, because they are
+local to one argument: the branch of $\zeta=w^{1/d}$, fixed where the Borel
+variable is introduced, and the orientation of the loops generating the
+monodromy, fixed where $M_\infty$ is defined. Both are stated there, and
+neither is used before it is stated.

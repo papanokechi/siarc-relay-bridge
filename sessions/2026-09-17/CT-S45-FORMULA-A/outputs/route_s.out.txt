@@ -1,0 +1,42 @@
+==========================================================================
+VACUITY PRE-CHECKS (PREREG section 4)
+==========================================================================
+  V1 positive  det A(1) + th1^2/4 under CORRECTED reading = 0
+  V2 negative  same under PRINTED reading             = -(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+  V3 control   5 bogus variants must each be REJECTED (2 of them drawn from outside the appendix's own list):
+                 t^2   REJECTED
+                 t+1   REJECTED
+                 2t    REJECTED
+                 t/2   REJECTED
+                 t-1   REJECTED
+  V4 reader    det A(0) + th0^2/4: corrected = 0, printed = 0
+
+==========================================================================
+ROUTE S -- appendix displays re-derived symbolically
+==========================================================================
+E7  S16-20 det A(1) residual, printed reading
+  MATCHES E7
+E8  S16-20 residual at p=2/7, q=5/3, t=11/4, th0=th1=0, thinf=3/5
+      appendix says -223/144;  re-derived = -223/144
+  MATCHES E8
+E10 S16-R18-02 corrected first term of b(z) == z * B1[1,2]
+  MATCHES E10
+E11 S16-R18-02 difference, unfactored
+  MATCHES E11
+E12 S16-R18-02 difference, factored  [PREREG F4 predicts sign error]
+  DIFFERS E12
+          residual: z*(-4*p*q*t + 4*p*q + 4*p*t - 4*p - q**3*t**2 + q**3 + 2*q**2*t**2 - 2*q**2 - q*t**2 + q)/2
+      true factorisation: z*(q - 1)*(t - 1)*(4*p + q**2*t + q**2 - q*t - q)/4
+E13 do the det A(1) residual and the difference carry the same factor?
+      difference / detA(1)-residual = -z
+  MATCHES E13  (shared factor; ratio is -z)
+E14 S16-21 printed residual vanishes at t=1
+  MATCHES E14
+E15 S16-21 the two readings coincide at t=1
+  MATCHES E15
+E16 S16-18 c(0) = q/(q-1)
+  MATCHES E16
+
+==========================================================================
+ROUTE S: 1 of the checked displays DIFFER: E12
+==========================================================================
